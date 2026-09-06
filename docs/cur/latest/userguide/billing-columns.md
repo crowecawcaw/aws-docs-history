@@ -1,68 +1,60 @@
+
+
 # Billing details
+<a name="billing-columns"></a>
 
-Columns under the **bill** header in AWS Cost and Usage Reports are
-static fields that appear in all Cost and Usage Reports. You can use the billing line items in the
-report to find details about the specific bill covered by the report, such as the charge
-type and the beginning and end of the billing period. This includes the following
-columns:
+Columns under the **bill** header in AWS Cost and Usage Reports are static fields that appear in all Cost and Usage Reports. You can use the billing line items in the report to find details about the specific bill covered by the report, such as the charge type and the beginning and end of the billing period. This includes the following columns: 
 
-A | [B](#b-B "#b-B") | C | D | E | F | G | H | [I](#b-I "#b-I") | J | K | L | M | N | O | [P](#b-P "#b-P") | Q | R | S | T | U | VWXYZ
+A \| [B](#b-B) \| C \| D \| E \| F \| G \| H \| [I](#b-I) \| J \| K \| L \| M \| N \| O \| [P](#b-P) \| Q \| R \| S \| T \| U \| VWXYZ 
 
 ## B
+<a name="billing-details-B"></a>
 
 ### bill/BillingEntity
+<a name="billing-details-B-BillingEntity"></a>
 
-Helps you identify whether your invoices or transactions are for AWS Marketplace or for
-purchases of other AWS services. Possible values include:
-
-- **AWS** – Identifies a transaction for AWS
-  services other than in AWS Marketplace.
-- **AWS Marketplace** – Identifies a purchase in
-  AWS Marketplace.
+Helps you identify whether your invoices or transactions are for AWS Marketplace or for purchases of other AWS services. Possible values include:
++ **AWS** – Identifies a transaction for AWS services other than in AWS Marketplace.
++ **AWS Marketplace** – Identifies a purchase in AWS Marketplace.
 
 ### bill/BillingPeriodEndDate
+<a name="billing-details-B-BillingPeriodEndDate"></a>
 
-The end date of the billing period that is covered by this report, in UTC. The
-format is `YYYY-MM-DDTHH:mm:ssZ`.
+The end date of the billing period that is covered by this report, in UTC. The format is `YYYY-MM-DDTHH:mm:ssZ`.
 
 ### bill/BillingPeriodStartDate
+<a name="billing-details-B-BillingPeriodStartDate"></a>
 
-The start date of the billing period that is covered by this report, in UTC.
-The format is `YYYY-MM-DDTHH:mm:ssZ`.
+The start date of the billing period that is covered by this report, in UTC. The format is `YYYY-MM-DDTHH:mm:ssZ`. 
 
 ### bill/BillType
+<a name="billing-details-B-BillType"></a>
 
 The type of bill that this report covers. There are three bill types:
-
-- **Anniversary** – Line items for services that
-  you used during the month
-- **Purchase** – Line items for upfront service
-  fees
-- **Refund** – Line items for refunds
++ **Anniversary** – Line items for services that you used during the month
++ **Purchase** – Line items for upfront service fees
++ **Refund** – Line items for refunds
 
 ## I
+<a name="billing-details-I"></a>
 
 ### bill/InvoiceId
+<a name="billing-details-I-InvoiceId"></a>
 
-The ID associated with a specific line item. Until the report is final, the
-**InvoiceId** is blank.
+The ID associated with a specific line item. Until the report is final, the **InvoiceId** is blank.
 
 ### bill/InvoicingEntity
+<a name="billing-details-I-InvoicingEntity"></a>
 
 The AWS entity that issues the invoice. Possible values include:
-
-- **Amazon Web Services, Inc.** – The entity
-  that issues invoices to customer globally, where applicable.
-- **Amazon Web Services India Private Limited**
-  – The entity that issues invoices to customers based in
-  India.
-- **Amazon Web Services South Africa Proprietary
-  Limited** – The entity that issues invoices to
-  customers in South Africa.
++ **Amazon Web Services, Inc.** – The entity that issues invoices to customer globally, where applicable.
++ **Amazon Web Services India Private Limited** – The entity that issues invoices to customers based in India.
++ **Amazon Web Services South Africa Proprietary Limited** – The entity that issues invoices to customers in South Africa.
 
 ## P
+<a name="billing-details-P"></a>
 
 ### bill/PayerAccountId
+<a name="billing-details-P-PayerAccountId"></a>
 
-The account ID of the paying account. For an organization in AWS Organizations, this is
-the account ID of the management account.
+The account ID of the paying account. For an organization in AWS Organizations, this is the account ID of the management account.

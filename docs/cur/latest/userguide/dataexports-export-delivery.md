@@ -1,136 +1,69 @@
+
+
 # Understanding export delivery
+<a name="dataexports-export-delivery"></a>
 
 In the following sections, you'll find information about your export delivery.
-
-- **Export S3 parent directory structure:** How export data
-  is structured in the S3 directory to which your export is delivered to.
-- **Export refreshing:** How often your export updates in
-  your S3 directory.
-- **Export overwriting and create new:** How your export
-  delivery changes with overwriting and creates new delivery preferences.
-- **Export data file names and chunks:** How the export
-  files (gzip/csv or Parquet) are named.
++ **Export S3 parent directory structure:** How export data is structured in the S3 directory to which your export is delivered to.
++ **Export refreshing:** How often your export updates in your S3 directory.
++ **Export overwriting and create new:** How your export delivery changes with overwriting and creates new delivery preferences.
++ **Export data file names and chunks:** How the export files (gzip/csv or Parquet) are named.
 
 ## Export S3 parent directory structure
+<a name="export-s3-parent-directory-structure"></a>
 
-Each export delivers the data from the query to S3 (as one or more gzip/csv or Parquet
-files) and a `Manifest.json` metadata file containing information about the
-export definition at the time the export was executed.
+Each export delivers the data from the query to S3 (as one or more gzip/csv or Parquet files) and a `Manifest.json` metadata file containing information about the export definition at the time the export was executed.
 
-**Data**
-
-The data resulting from the export query is stored in the following S3 file
-path:
-
-`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/`
-
-The partition corresponds to the table that is being queried. For CUR 2.0, the
-partition corresponds to the “billing period” of a given CUR 2.0 export.
-
-`prefix`: The S3 file prefix that you assign to the export.
-
-`export-name`: The name that you assign to the export.
-
-`partition`: The partition describes how a single table is partitioned
-into separate tables for delivery. For CUR 2.0, the partition corresponds to the
-“billing period” in the format `BILLING_PERIOD=YYYY-MM`. For example, the
-partition for November 2023 is 2023-11.
-
-The following is an example of an S3 file path:
-
+**Data**  
+The data resulting from the export query is stored in the following S3 file path:  
+`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/`  
+The partition corresponds to the table that is being queried. For CUR 2.0, the partition corresponds to the “billing period” of a given CUR 2.0 export.  
+`prefix`: The S3 file prefix that you assign to the export.  
+`export-name`: The name that you assign to the export.  
+`partition`: The partition describes how a single table is partitioned into separate tables for delivery. For CUR 2.0, the partition corresponds to the “billing period” in the format `BILLING_PERIOD=YYYY-MM`. For example, the partition for November 2023 is 2023-11.  
+The following is an example of an S3 file path:  
 `s3://my-data-export-s3-bucket/my-cur-files/business_group_a_cur/data/BILLING_PERIOD=2023-11`
 
-**Metadata**
-
-The `Manifest.json` metadata file for the query is stored in the
-following S3 file path:
-
-`s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>/<export-name>-Manifest.json`
-
-The `Manifest.json` file is updated each time the export is refreshed.
-A new `Manifest.json` file is created for each new partition created by the
-export. For CUR 2.0, this means a new `Manifest.json` file is generated
-when a new billing period begins.
-
-Manifest files contain the following information:
-
-- All of the columns that are included in the export.
-- A list of the export files and their file path. We recommend identifying which
-  files to ingest by programmatically reading this list.
-- The time period covered by the export.
-- A section called `additionalOutputFiles` that lists the additional
-  files that are delivered if you have Athena or Amazon Redshift integration.
-
-The `Manifest.json` is only delivered once all of the export data files
-have been delivered to S3.
+**Metadata**  
+The `Manifest.json` metadata file for the query is stored in the following S3 file path:  
+`s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>/<export-name>-Manifest.json`  
+The `Manifest.json` file is updated each time the export is refreshed. A new `Manifest.json` file is created for each new partition created by the export. For CUR 2.0, this means a new `Manifest.json` file is generated when a new billing period begins.  
+Manifest files contain the following information:  
++ All of the columns that are included in the export.
++ A list of the export files and their file path. We recommend identifying which files to ingest by programmatically reading this list.
++ The time period covered by the export.
++ A section called `additionalOutputFiles` that lists the additional files that are delivered if you have Athena or Amazon Redshift integration.
+The `Manifest.json` is only delivered once all of the export data files have been delivered to S3.
 
 ## Export refreshing
+<a name="export-refreshing"></a>
 
-Data Exports refreshes your exports each time the source data is updated. For CUR 2.0, this
-occurs at least once a day. The current billing period (partition) is refreshed until the
-billing period ends, at which point deliveries of the next billing period begin. Deliveries
-of the next billing period only contain charges and billing data for that billing period.
-After the billing period ends, AWS may update the export delivery for the previous billing
-period within the first two weeks after it ended.
+Data Exports refreshes your exports each time the source data is updated. For CUR 2.0, this occurs at least once a day. The current billing period (partition) is refreshed until the billing period ends, at which point deliveries of the next billing period begin. Deliveries of the next billing period only contain charges and billing data for that billing period. After the billing period ends, AWS may update the export delivery for the previous billing period within the first two weeks after it ended.
 
 ## Export overwriting and create new
+<a name="export-overwriting-create-new"></a>
 
-When you create an export, you can choose to either create new export files or overwrite
-the existing export files with each refresh.
+When you create an export, you can choose to either create new export files or overwrite the existing export files with each refresh.
 
-**Create new**
+**Create new**  
+Creating new export files uses more S3 storage because all export refreshes are kept. Overwriting the previous export files uses less S3 storage because only the latest version of each billing period refresh is kept.  
+When in “create new” mode, the export files are delivered to the following S3 path:  
+`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<timestamp>-<execution-id>`  
+The `timestamp` is the date and time when the export was executed. The `execution-id` is the unique ID assigned to the execution.  
+For "create new", two `Manifest.json` files are delivered with each export execution. One is stored in the `metadata/<partition>/<timestamp>-<execution-id>` directory, and the other is overwritten in the `metadata/<partition>` directory. The manifest in the `metadata/<partition>` directory always represents the most recent refresh and its data is used to identify the location of the most recently refreshed export files.
 
-Creating new export files uses more S3 storage because all export refreshes are
-kept. Overwriting the previous export files uses less S3 storage because only the
-latest version of each billing period refresh is kept.
-
-When in “create new” mode, the export files are delivered to the following S3
-path:
-
-`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<timestamp>-<execution-id>`
-
-The `timestamp` is the date and time when the export was executed. The
-`execution-id` is the unique ID assigned to the execution.
-
-For "create new", two `Manifest.json` files are delivered with each
-export execution. One is stored in the
-`metadata/<partition>/<timestamp>-<execution-id>` directory, and
-the other is overwritten in the `metadata/<partition>` directory. The
-manifest in the `metadata/<partition>` directory always represents the
-most recent refresh and its data is used to identify the location of the most recently
-refreshed export files.
-
-**Overwrite**
-
-Overwriting only applies for refreshes of the same partition (that is, billing
-period). Once a new billing period begins, the export creates a new S3 directory with
-a name based on the latest partition or billing period, and begins delivering the new
-export partition there. The export of the previous partition is not overwritten unless
-the data for that specific partition is updated.
-
-When in “overwrite” mode, the export files are delivered to the following S3
-path:
-
-`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/`
-
-The export files in this file directory are overwritten with each delivery of the
-same partition (that is, billing period).
-
-Export files are delivered as multiple “chunks” (separate gzip/csv or Parquet
-files) when the export becomes sufficiently big. If the export ever decreases in size
-during the month (due to a changed query or correction to data), fewer chunks may be
-needed to deliver the export refresh. In this case, Data Exports overwrites any extra chunks
-from the last refresh with empty data.
-
-For overwriting, one `Manifest.json` file is delivered with each export
-execution. It is stored in the `metadata/<partition>` directory and is
-overwritten with each refresh.
+**Overwrite**  
+Overwriting only applies for refreshes of the same partition (that is, billing period). Once a new billing period begins, the export creates a new S3 directory with a name based on the latest partition or billing period, and begins delivering the new export partition there. The export of the previous partition is not overwritten unless the data for that specific partition is updated.  
+When in “overwrite” mode, the export files are delivered to the following S3 path:  
+`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/`  
+The export files in this file directory are overwritten with each delivery of the same partition (that is, billing period).  
+Export files are delivered as multiple “chunks” (separate gzip/csv or Parquet files) when the export becomes sufficiently big. If the export ever decreases in size during the month (due to a changed query or correction to data), fewer chunks may be needed to deliver the export refresh. In this case, Data Exports overwrites any extra chunks from the last refresh with empty data.  
+For overwriting, one `Manifest.json` file is delivered with each export execution. It is stored in the `metadata/<partition>` directory and is overwritten with each refresh.
 
 ## Export data file names and chunks
+<a name="export-data-file-names"></a>
 
-Exports either deliver the results of one execution as one file (gzip/csv or Parquet) or
-in multiple “chunks” (separate gzip/csv or Parquet files) when the export becomes
-sufficiently big.
+Exports either deliver the results of one execution as one file (gzip/csv or Parquet) or in multiple “chunks” (separate gzip/csv or Parquet files) when the export becomes sufficiently big.
 
 Exports are named as follows for the gzip/csv file format:
 
@@ -140,56 +73,50 @@ Exports are named as follows for the Parquet format:
 
 `<export-name>-<chunk-number>.snappy.parquet`
 
-Chunk numbers always have five digits. Chunk numbers are enumerated starting at
-`00001`.
+Chunk numbers always have five digits. Chunk numbers are enumerated starting at `00001`.
 
-###### Note
-
+**Note**  
 If you chose Athena or Redshift Report Integration option while creating CUR 2.0, the below section regarding Redshift and Athena integrations might be relevant to you.
 
 ## Amazon Redshift Integration
+<a name="dataexports-redshift-specifications"></a>
 
-If you chose the option for Amazon Redshift integration, AWS also creates and delivers a
-file with the SQL commands that you need to upload your report into Amazon Redshift. To
-upload a data export to Amazon Redshift, complete the following steps.
+If you chose the option for Amazon Redshift integration, AWS also creates and delivers a file with the SQL commands that you need to upload your report into Amazon Redshift. To upload a data export to Amazon Redshift, complete the following steps.
 
-###### To upload a data export to Amazon Redshift
+**To upload a data export to Amazon Redshift**
 
-1. Create an Amazon Redshift cluster. For more information, see [Creating a Cluster](../../../redshift/latest/mgmt/managing-clusters-console.md#create-cluster "../../../redshift/latest/mgmt/managing-clusters-console.md#create-cluster") in the _Amazon Redshift
-   Management Guide_.
-2. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-3. Navigate to the Amazon S3 location where you store your AWS Data Export.
-4. Download the `RedshiftCommands.sql` file that is stored alongside your
-   manifest file in S3, and the Redshift helper file at:
+1. Create an Amazon Redshift cluster. For more information, see [Creating a Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-console.html#create-cluster) in the *Amazon Redshift Management Guide*.
 
-`<bucket>/<prefix>/<export-name>/metadata/<partition>/<export-name>-RedshiftCommands.sql` 5. In the `copy` command, replace `<AWS_ROLE>` with the ARN
-of an IAM role that has permissions to access the Amazon S3 bucket where you store your
-AWS Data Export. 6. Replace `<S3_BUCKET_REGION>` with the Region your Amazon S3 bucket
-is in. For example, `us-east-1`. 7. Use a SQL client to connect to the cluster. For more information, see [Accessing Amazon
-Redshift Clusters and Databases](../../../redshift/latest/mgmt/using-rs-tools.md "../../../redshift/latest/mgmt/using-rs-tools.md") in the _Amazon Redshift Management
-Guide_. 8. Copy the SQL commands from the `RedshiftCommands.sql` file to your SQL
-client in the following order:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-    1. **create table** — Creates an Amazon Redshift table
-     with a schema customized to match your report.
-    2. **copy** — Uses the provided IAM role to upload the
-     AWS Data Export files from S3 to Amazon Redshift.
-    3. **create tag table** — Creates a table that allows
-     you to map AWS-defined tags to your user-defined tags.
-    4. **insert** — Inserts the user-defined tags into the
-     tag table.
+1. Navigate to the Amazon S3 location where you store your AWS Data Export.
 
-9. After you have copied all of the data from your AWS Data Export into Amazon
-Redshift, you can query the data using SQL. For more information, see [Amazon Redshift
-SQL](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") in the _Amazon Redshift Database Developer Guide_.
+1. Download the `RedshiftCommands.sql` file that is stored alongside your manifest file in S3, and the Redshift helper file at:
+
+   `<bucket>/<prefix>/<export-name>/metadata/<partition>/<export-name>-RedshiftCommands.sql`
+
+1. In the `copy` command, replace `<AWS_ROLE>` with the ARN of an IAM role that has permissions to access the Amazon S3 bucket where you store your AWS Data Export.
+
+1. Replace `<S3_BUCKET_REGION>` with the Region your Amazon S3 bucket is in. For example, `us-east-1`.
+
+1. Use a SQL client to connect to the cluster. For more information, see [Accessing Amazon Redshift Clusters and Databases](https://docs.aws.amazon.com/redshift/latest/mgmt/using-rs-tools.html) in the *Amazon Redshift Management Guide*.
+
+1. Copy the SQL commands from the `RedshiftCommands.sql` file to your SQL client in the following order:
+
+   1. **create table** — Creates an Amazon Redshift table with a schema customized to match your report.
+
+   1. **copy** — Uses the provided IAM role to upload the AWS Data Export files from S3 to Amazon Redshift.
+
+   1. **create tag table** — Creates a table that allows you to map AWS-defined tags to your user-defined tags.
+
+   1. **insert** — Inserts the user-defined tags into the tag table.
+
+1. After you have copied all of the data from your AWS Data Export into Amazon Redshift, you can query the data using SQL. For more information, see [Amazon Redshift SQL](https://docs.aws.amazon.com/redshift/latest/dg/c_redshift-sql.html) in the *Amazon Redshift Database Developer Guide*.
 
 ## Amazon Athena Integration
+<a name="dataexports-athena-specifications"></a>
 
-If you chose the option for Amazon Athena integration, AWS also creates and delivers
-multiple files to help set up all of the resources that you need. AWS delivers a
-CloudFormation template, a SQL file to create your Athena table manually, and a status
-folder to check your export refresh status. These files use the following naming
-conventions.
+If you chose the option for Amazon Athena integration, AWS also creates and delivers multiple files to help set up all of the resources that you need. AWS delivers a CloudFormation template, a SQL file to create your Athena table manually, and a status folder to check your export refresh status. These files use the following naming conventions.
 
 CloudFormation template for setting up Athena resources:
 
@@ -204,121 +131,104 @@ Export refresh status folder:
 `<prefix>/<export-name>/execution_status/`
 
 ### Setting up Athena using CloudFormation templates
+<a name="dataexports-athena-cfn"></a>
 
-###### To use the Athena CloudFormation template
+**To use the Athena CloudFormation template**
 
-1. Navigate to the `crawler-cfn.yml` file in your S3 bucket and select
-   the **Copy** button next to the Object URL.
-2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-3. If you have never used CloudFormation before, choose **Create New
-   Stack**. Otherwise, choose **Create Stack**.
-4. Under **Prepare template**, select **Choose an existing
-   template**.
-5. Under **Specify template**, for **Template
-   source**, choose **Amazon S3 URL**.
-6. Paste the S3 Object URL into the **Amazon S3 URL** box.
-7. Choose **Next**.
-8. For **Stack name**, enter a name for your template and choose
-   **Next**.
-9. Select **I acknowledge that AWS CloudFormation
-   might create IAM resources.**
-10. Choose **Next**, then choose **Submit**.
+1. Navigate to the `crawler-cfn.yml` file in your S3 bucket and select the **Copy** button next to the Object URL.
 
-###### To update the existing Athena CloudFormation template
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/).
 
-1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. From the list of buckets, choose the bucket where you chose to receive your AWS
-   Data Export.
-3. Choose your report path prefix (`your-report-path-prefix/`), then
-   choose your report name (`your-report-name/`).
-4. Choose the `.yml` template file and select the
-   **Copy** button next to the Object URL.
-5. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-6. Select the stack that was previously created, then choose **Update
-   stack** > **Make a direct update**.
-7. Under **Prepare template**, choose **Replace existing
-   template**.
-8. Under **Template source**, choose **Amazon S3
-   URL**.
-9. Paste the S3 Object URL into the **Amazon S3 URL** box.
-10. Choose **Next**.
-11. On the **Specify stack details** page, modify any details, then
-    choose **Next**.
-12. Select **I acknowledge that AWS CloudFormation
-    might create IAM resources.**
-13. Choose **Next**, then choose **Submit**.
+1. If you have never used CloudFormation before, choose **Create New Stack**. Otherwise, choose **Create Stack**.
+
+1. Under **Prepare template**, select **Choose an existing template**.
+
+1. Under **Specify template**, for **Template source**, choose **Amazon S3 URL**.
+
+1. Paste the S3 Object URL into the **Amazon S3 URL** box.
+
+1. Choose **Next**.
+
+1. For **Stack name**, enter a name for your template and choose **Next**.
+
+1. Select **I acknowledge that AWS CloudFormation might create IAM resources.**
+
+1. Choose **Next**, then choose **Submit**.
+
+**To update the existing Athena CloudFormation template**
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
+
+1. From the list of buckets, choose the bucket where you chose to receive your AWS Data Export.
+
+1. Choose your report path prefix (`your-report-path-prefix/`), then choose your report name (`your-report-name/`).
+
+1. Choose the `.yml` template file and select the **Copy** button next to the Object URL.
+
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/).
+
+1. Select the stack that was previously created, then choose **Update stack** > **Make a direct update**.
+
+1. Under **Prepare template**, choose **Replace existing template**.
+
+1. Under **Template source**, choose **Amazon S3 URL**.
+
+1. Paste the S3 Object URL into the **Amazon S3 URL** box.
+
+1. Choose **Next**.
+
+1. On the **Specify stack details** page, modify any details, then choose **Next**.
+
+1. Select **I acknowledge that AWS CloudFormation might create IAM resources.**
+
+1. Choose **Next**, then choose **Submit**.
 
 ### Setting up Athena manually
+<a name="dataexports-athena-manual"></a>
 
-If you don't want to use the CloudFormation template, you can create your Athena table
-manually using the provided SQL file.
+If you don't want to use the CloudFormation template, you can create your Athena table manually using the provided SQL file.
 
-###### To create an Athena table manually
+**To create an Athena table manually**
 
 1. The `create-table.sql` file for your export is located at:
 
-`<bucket>/<prefix>/<export-name>/metadata/BILLING_PERIOD=YYYY-MM/<export-name>-create-table.sql` 2. In the **New query 1** query pane, paste the SQL from the file.
-For `<database name>.<table name>`, use the database and table name
-from the first line of the SQL. 3. Run the following to create the database:
+   `<bucket>/<prefix>/<export-name>/metadata/BILLING_PERIOD=YYYY-MM/<export-name>-create-table.sql`
 
-`CREATE DATABASE <database name>`
+1. In the **New query 1** query pane, paste the SQL from the file. For `<database name>.<table name>`, use the database and table name from the first line of the SQL.
+
+1. Run the following to create the database:
+
+   `CREATE DATABASE <database name>`
 
 To load a new report partition, run the following SQL:
 
-`ALTER TABLE `<database name>`.<table name>
- ADD PARTITION (billing_period='YYYY-MM')
- LOCATION 's3://<bucket>/<prefix>/<export-name>/data/BILLING_PERIOD=YYYY-MM/';` where YYYY-MM is the billing period expressed as 4-digit year and 2-digit month. For example 2026-05.
+`ALTER TABLE `<database name>`.<table name> ADD PARTITION (billing_period='YYYY-MM') LOCATION 's3://<bucket>/<prefix>/<export-name>/data/BILLING_PERIOD=YYYY-MM/';` where YYYY-MM is the billing period expressed as 4-digit year and 2-digit month. For example 2026-05.
 
-For more information, see [Querying Cost and Usage Reports using Amazon Athena](cur-query-athena.md "cur-query-athena.md").
+For more information, see [Querying Cost and Usage Reports using Amazon Athena](https://docs.aws.amazon.com/cur/latest/userguide/cur-query-athena.html).
 
 ## Summary
+<a name="export-summary"></a>
 
-**Export data file names with directory for create
-new**
-
-Parquet:
-
-`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<timestamp>-<execution-id>/<export-name>-<chunk-number>.snappy.parquet`
-
-gzip/csv:
-
+**Export data file names with directory for create new**  
+Parquet:  
+`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<timestamp>-<execution-id>/<export-name>-<chunk-number>.snappy.parquet`  
+gzip/csv:  
 `s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<timestamp>-<execution-id>/<export-name>-<chunk-number>.csv.gz`
 
-**Export data file names with directory for
-overwrite**
-
-Parquet:
-
-`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<export-name>-<chunk-number>.snappy.parquet`
-
-gzip/csv:
-
+**Export data file names with directory for overwrite**  
+Parquet:  
+`s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<export-name>-<chunk-number>.snappy.parquet`  
+gzip/csv:  
 `s3://<bucket-name>/<prefix>/<export-name>/data/<partition>/<export-name>-<chunk-number>.csv.gz`
 
-**Manifest file names with directory for create
-new**
-
-The “create new” mode delivers `Manifest.json` to two locations.
-
-The first location is in a folder representing a specific execution of an export
-(named by `timestamp` and `execution-id`). This Manifest
-corresponds to that specific execution. The file path is as follows:
-
-`s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>/<timestamp>-<execution-id>`
-
-The second location is in a partition folder containing all executions. This
-Manifest is the same file from the most recent execution of the export. You can read
-this Manifest to identify the exact file paths of all recent export files. The file
-path is as follows:
-
+**Manifest file names with directory for create new**  
+The “create new” mode delivers `Manifest.json` to two locations.  
+The first location is in a folder representing a specific execution of an export (named by `timestamp` and `execution-id`). This Manifest corresponds to that specific execution. The file path is as follows:  
+`s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>/<timestamp>-<execution-id>`  
+The second location is in a partition folder containing all executions. This Manifest is the same file from the most recent execution of the export. You can read this Manifest to identify the exact file paths of all recent export files. The file path is as follows:  
 `s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>/Manifest.json`
 
-**Manifest file names with directory for
-overwrite**
-
-The “overwrite” mode delivers `Manifest.json` to one location.
-
-`s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>`
-
-The Manifest in this directory is overwritten with each refresh of a given
-partition (that is, billing period).
+**Manifest file names with directory for overwrite**  
+The “overwrite” mode delivers `Manifest.json` to one location.  
+`s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>`  
+The Manifest in this directory is overwritten with each refresh of a given partition (that is, billing period).

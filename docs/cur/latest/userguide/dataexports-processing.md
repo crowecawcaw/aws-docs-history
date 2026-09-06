@@ -1,54 +1,41 @@
-# Processing data exports
 
-In the following sections, you'll find information about processing your data
-exports.
+
+# Processing data exports
+<a name="dataexports-processing"></a>
+
+In the following sections, you'll find information about processing your data exports.
 
 ## Configuring Amazon Athena
+<a name="dataexports-athena"></a>
 
-###### To build a table and partitions for Athena using an AWS Glue crawler
+**To build a table and partitions for Athena using an AWS Glue crawler**
 
-1. Create an export of CUR 2.0 or Carbon emissions with the following data export
-   delivery options:
+1. Create an export of CUR 2.0 or Carbon emissions with the following data export delivery options:
+   + Compression type and file format: Parquet - Parquet
+   + File versioning: Overwrite existing data export file
 
-   - Compression type and file format: Parquet - Parquet
-   - File versioning: Overwrite existing data export file
+1. In Athena, use the notebook editor with Trino SQL and choose **Create** to create a table with "AWS Glue crawler". Using the Glue crawler workflow, point the Glue crawler to run on the s3://<bucket-name>/<prefix>/<export-name>/data folder to automatically load all of the delivered partitions for the specified export to Athena.
 
-2. In Athena, use the notebook editor with Trino SQL and choose
-   **Create** to create a table with "AWS Glue crawler". Using the Glue
-   crawler workflow, point the Glue crawler to run on the
-   s3://<bucket-name>/<prefix>/<export-name>/data folder to automatically load all
-   of the delivered partitions for the specified export to Athena.
-3. After the Glue crawler is complete, you can use Athena to write queries on the table
-   created by the Glue crawler.
+1. After the Glue crawler is complete, you can use Athena to write queries on the table created by the Glue crawler.
 
 ## Configuring Amazon Redshift
+<a name="dataexports-redshift"></a>
 
-Amazon Redshift is a cloud data warehouse that can be accessed either in a provisioned
-capacity or serverless model. Amazon Redshift offers fast query performance for processing
-your data from Data Exports.
+Amazon Redshift is a cloud data warehouse that can be accessed either in a provisioned capacity or serverless model. Amazon Redshift offers fast query performance for processing your data from Data Exports.
 
-For information on setting up Redshift, see the _[Amazon Redshift
-Getting Started Guide](../../../redshift/latest/gsg/new-user-serverless.md "../../../redshift/latest/gsg/new-user-serverless.md")_.
+For information on setting up Redshift, see the *[Amazon Redshift Getting Started Guide](https://docs.aws.amazon.com/redshift/latest/gsg/new-user-serverless.html)*.
 
 ## Recommended SQL queries for processing CUR 2.0
+<a name="dataexports-recommended-sql-queries"></a>
 
-After loading your CUR 2.0 export data into a data analytics tool such as Amazon Athena or
-Amazon Redshift, you can process it in order to gain cost and usage insights. AWS
-Well-Architected Labs provides a CUR query library that you can use to process CUR. For more
-information, see [AWS CUR Query Library](https://wellarchitectedlabs.com/cost-optimization/cur_queries/ "https://wellarchitectedlabs.com/cost-optimization/cur_queries/").
+After loading your CUR 2.0 export data into a data analytics tool such as Amazon Athena or Amazon Redshift, you can process it in order to gain cost and usage insights. AWS Well-Architected Labs provides a CUR query library that you can use to process CUR. For more information, see [AWS CUR Query Library](https://wellarchitectedlabs.com/cost-optimization/cur_queries/).
 
 Note the following two pieces of information about SQL queries:
-
-- The Well-Architected Labs SQL queries won't work in the data export query field,
-  because Data Exports doesn't support aggregations and some of the other SQL syntax used in these
-  queries.
-- The Well-Architected Labs SQL queries will only work if you haven’t renamed your
-  columns from the default names. Depending on the query, you may need to query some of the
-  product columns as separate columns using the dot operator. For more information, see
-  [Data
-  query–SQL query and table configurations](dataexports-data-query.md "dataexports-data-query.md").
++ The Well-Architected Labs SQL queries won't work in the data export query field, because Data Exports doesn't support aggregations and some of the other SQL syntax used in these queries.
++ The Well-Architected Labs SQL queries will only work if you haven’t renamed your columns from the default names. Depending on the query, you may need to query some of the product columns as separate columns using the dot operator. For more information, see [Data query–SQL query and table configurations](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-data-query.html).
 
 ## Recommended SQL queries for processing carbon emissions data exports
+<a name="carbon-emissions-sql-queries"></a>
 
 To get the total carbon emissions per payer\_account\_id:
 
@@ -57,7 +44,6 @@ SELECT payer_account_id, SUM(total_mbm_emissions_value) AS total_emissions
 FROM "ccft-data-exports"."ccft-data-exports-data" -- change to your table name
 GROUP BY payer_account_id
 ORDER BY total_emissions DESC;
-
 ```
 
 To get the total carbon emissions per payer\_account\_id and per product\_code:
