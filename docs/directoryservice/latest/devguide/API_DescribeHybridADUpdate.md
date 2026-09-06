@@ -1,94 +1,84 @@
-# DescribeHybridADUpdate
 
-Retrieves information about update activities for a hybrid directory. This operation
-provides details about configuration changes, administrator account updates, and
-self-managed instance settings (IDs and DNS IPs).
+
+# DescribeHybridADUpdate
+<a name="API_DescribeHybridADUpdate"></a>
+
+Retrieves information about update activities for a hybrid directory. This operation provides details about configuration changes, administrator account updates, and self-managed instance settings (IDs and DNS IPs).
 
 ## Request Syntax
+<a name="API_DescribeHybridADUpdate_RequestSyntax"></a>
 
 ```
 {
-   "DirectoryId": "`string`",
-   "NextToken": "`string`",
-   "UpdateType": "`string`"
+   "DirectoryId": "{{string}}",
+   "NextToken": "{{string}}",
+   "UpdateType": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DescribeHybridADUpdate_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[DirectoryId](#API_DescribeHybridADUpdate_RequestSyntax "#API_DescribeHybridADUpdate_RequestSyntax")**
-
-The identifier of the hybrid directory for which to retrieve update
-information.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_DescribeHybridADUpdate_RequestSyntax) **   <a name="DirectoryService-DescribeHybridADUpdate-request-DirectoryId"></a>
+The identifier of the hybrid directory for which to retrieve update information.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: Yes
 
-**[NextToken](#API_DescribeHybridADUpdate_RequestSyntax "#API_DescribeHybridADUpdate_RequestSyntax")**
-
-The pagination token from a previous request to [DescribeHybridADUpdate](API_DescribeHybridADUpdate.md "API_DescribeHybridADUpdate.md"). Pass null if this is the first request.
-
-Type: String
-
+ ** [NextToken](#API_DescribeHybridADUpdate_RequestSyntax) **   <a name="DirectoryService-DescribeHybridADUpdate-request-NextToken"></a>
+The pagination token from a previous request to [DescribeHybridADUpdate](#API_DescribeHybridADUpdate). Pass null if this is the first request.  
+Type: String  
 Required: No
 
-**[UpdateType](#API_DescribeHybridADUpdate_RequestSyntax "#API_DescribeHybridADUpdate_RequestSyntax")**
-
-The type of update activities to retrieve. Valid values include
-`SelfManagedInstances` and
-`HybridAdministratorAccount`.
-
-Type: String
-
-Valid Values: `SelfManagedInstances | HybridAdministratorAccount`
-
+ ** [UpdateType](#API_DescribeHybridADUpdate_RequestSyntax) **   <a name="DirectoryService-DescribeHybridADUpdate-request-UpdateType"></a>
+The type of update activities to retrieve. Valid values include `SelfManagedInstances` and `HybridAdministratorAccount`.  
+Type: String  
+Valid Values: `SelfManagedInstances | HybridAdministratorAccount`   
 Required: No
 
 ## Response Syntax
+<a name="API_DescribeHybridADUpdate_ResponseSyntax"></a>
 
 ```
 {
-   "NextToken": "***string***",
-   "UpdateActivities": {
-      "HybridAdministratorAccount": [
-         {
-            "AssessmentId": "***string***",
-            "InitiatedBy": "***string***",
-            "LastUpdatedDateTime": ***number***,
-            "NewValue": {
-               "DnsIps": [ "***string***" ],
-               "InstanceIds": [ "***string***" ]
+   "NextToken": "string",
+   "UpdateActivities": { 
+      "HybridAdministratorAccount": [ 
+         { 
+            "AssessmentId": "string",
+            "InitiatedBy": "string",
+            "LastUpdatedDateTime": number,
+            "NewValue": { 
+               "DnsIps": [ "string" ],
+               "InstanceIds": [ "string" ]
             },
-            "PreviousValue": {
-               "DnsIps": [ "***string***" ],
-               "InstanceIds": [ "***string***" ]
+            "PreviousValue": { 
+               "DnsIps": [ "string" ],
+               "InstanceIds": [ "string" ]
             },
-            "StartTime": ***number***,
-            "Status": "***string***",
-            "StatusReason": "***string***"
+            "StartTime": number,
+            "Status": "string",
+            "StatusReason": "string"
          }
       ],
-      "SelfManagedInstances": [
-         {
-            "AssessmentId": "***string***",
-            "InitiatedBy": "***string***",
-            "LastUpdatedDateTime": ***number***,
-            "NewValue": {
-               "DnsIps": [ "***string***" ],
-               "InstanceIds": [ "***string***" ]
+      "SelfManagedInstances": [ 
+         { 
+            "AssessmentId": "string",
+            "InitiatedBy": "string",
+            "LastUpdatedDateTime": number,
+            "NewValue": { 
+               "DnsIps": [ "string" ],
+               "InstanceIds": [ "string" ]
             },
-            "PreviousValue": {
-               "DnsIps": [ "***string***" ],
-               "InstanceIds": [ "***string***" ]
+            "PreviousValue": { 
+               "DnsIps": [ "string" ],
+               "InstanceIds": [ "string" ]
             },
-            "StartTime": ***number***,
-            "Status": "***string***",
-            "StatusReason": "***string***"
+            "StartTime": number,
+            "Status": "string",
+            "StatusReason": "string"
          }
       ]
    }
@@ -96,119 +86,80 @@ Required: No
 ```
 
 ## Response Elements
+<a name="API_DescribeHybridADUpdate_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[NextToken](#API_DescribeHybridADUpdate_ResponseSyntax "#API_DescribeHybridADUpdate_ResponseSyntax")**
-
-If not null, more results are available. Pass this value for the
-`NextToken` parameter in a subsequent request to retrieve the next set of
-items.
-
+ ** [NextToken](#API_DescribeHybridADUpdate_ResponseSyntax) **   <a name="DirectoryService-DescribeHybridADUpdate-response-NextToken"></a>
+If not null, more results are available. Pass this value for the `NextToken` parameter in a subsequent request to retrieve the next set of items.  
 Type: String
 
-**[UpdateActivities](#API_DescribeHybridADUpdate_ResponseSyntax "#API_DescribeHybridADUpdate_ResponseSyntax")**
-
-Information about update activities for the hybrid directory, organized by update
-type.
-
-Type: [HybridUpdateActivities](API_HybridUpdateActivities.md "API_HybridUpdateActivities.md") object
+ ** [UpdateActivities](#API_DescribeHybridADUpdate_ResponseSyntax) **   <a name="DirectoryService-DescribeHybridADUpdate-response-UpdateActivities"></a>
+Information about update activities for the hybrid directory, organized by update type.  
+Type: [HybridUpdateActivities](API_HybridUpdateActivities.md) object
 
 ## Errors
+<a name="API_DescribeHybridADUpdate_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryDoesNotExistException**
-
-The specified directory does not exist in the system.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryDoesNotExistException **   
+The specified directory does not exist in the system.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidNextTokenException**
-
-The `NextToken` value is not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidNextTokenException **   
+The `NextToken` value is not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_DescribeHybridADUpdate_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_DescribeHybridADUpdate_Example_1"></a>
 
 This example illustrates one usage of DescribeHybridADUpdate.
 
@@ -233,6 +184,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_DescribeHybridADUpdate_Example_2"></a>
 
 This example illustrates one usage of DescribeHybridADUpdate.
 
@@ -259,16 +211,16 @@ Date: Mon, 12 Dec 2023 21:20:31 GMT
 ```
 
 ## See Also
+<a name="API_DescribeHybridADUpdate_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/cli2/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/DotNetSDKV4/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForCpp/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForGoV2/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForJavaV2/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForKotlin/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForPHPV3/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/boto3/ds-2015-04-16/DescribeHybridADUpdate.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/DescribeHybridADUpdate.md "../../../goto/SdkForRubyV3/ds-2015-04-16/DescribeHybridADUpdate.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/DescribeHybridADUpdate) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/DescribeHybridADUpdate) 

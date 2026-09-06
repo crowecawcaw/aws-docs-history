@@ -1,141 +1,103 @@
-# EnableDirectoryDataAccess
 
-Enables access to directory data via the Directory Service Data API for the specified directory. For
-more information, see [Directory Service Data API Reference](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md").
+
+# EnableDirectoryDataAccess
+<a name="API_EnableDirectoryDataAccess"></a>
+
+Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
 
 ## Request Syntax
+<a name="API_EnableDirectoryDataAccess_RequestSyntax"></a>
 
 ```
 {
-   "DirectoryId": "`string`"
+   "DirectoryId": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_EnableDirectoryDataAccess_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[DirectoryId](#API_EnableDirectoryDataAccess_RequestSyntax "#API_EnableDirectoryDataAccess_RequestSyntax")**
-
-The directory identifier.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_EnableDirectoryDataAccess_RequestSyntax) **   <a name="DirectoryService-EnableDirectoryDataAccess-request-DirectoryId"></a>
+The directory identifier.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: Yes
 
 ## Response Elements
+<a name="API_EnableDirectoryDataAccess_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
 
 ## Errors
+<a name="API_EnableDirectoryDataAccess_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**AccessDeniedException**
-
-You do not have sufficient access to perform this action.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** AccessDeniedException **   
+You do not have sufficient access to perform this action.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryDoesNotExistException**
-
-The specified directory does not exist in the system.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryDoesNotExistException **   
+The specified directory does not exist in the system.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryInDesiredStateException**
-
-The directory is already updated to desired update type settings.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryInDesiredStateException **   
+ The directory is already updated to desired update type settings.     
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryUnavailableException**
-
-The specified directory is unavailable.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryUnavailableException **   
+The specified directory is unavailable.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_EnableDirectoryDataAccess_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_EnableDirectoryDataAccess_Example_1"></a>
 
 This example illustrates one usage of EnableDirectoryDataAccess.
 
@@ -159,6 +121,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_EnableDirectoryDataAccess_Example_2"></a>
 
 This example illustrates one usage of EnableDirectoryDataAccess.
 
@@ -174,16 +137,16 @@ Date: Mon, 12 Dec 2016 21:20:31 GMT
 ```
 
 ## See Also
+<a name="API_EnableDirectoryDataAccess_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/cli2/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/DotNetSDKV4/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForCpp/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForGoV2/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForJavaV2/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForKotlin/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForPHPV3/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/boto3/ds-2015-04-16/EnableDirectoryDataAccess.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/EnableDirectoryDataAccess.md "../../../goto/SdkForRubyV3/ds-2015-04-16/EnableDirectoryDataAccess.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/EnableDirectoryDataAccess) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/EnableDirectoryDataAccess) 

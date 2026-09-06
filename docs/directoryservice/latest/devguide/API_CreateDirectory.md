@@ -1,230 +1,165 @@
+
+
 # CreateDirectory
+<a name="API_CreateDirectory"></a>
 
-###### Note
+**Note**  
+Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore Directory Service Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple-ad-availability-change.html).
 
-Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore Directory Service Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](../admin-guide/simple-ad-availability-change.md "../admin-guide/simple-ad-availability-change.md").
+Creates a Simple AD directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the * AWS Directory Service Admin Guide*.
 
-Creates a Simple AD directory. For more information, see [Simple Active Directory](../admin-guide/directory_simple_ad.md "../admin-guide/directory_simple_ad.md") in the _AWS Directory Service Admin Guide_.
-
-Before you call `CreateDirectory`, ensure that all of the required permissions
-have been explicitly granted through a policy. For details about what permissions are required
-to run the `CreateDirectory` operation, see [AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference](../admin-guide/UsingWithDS_IAM_ResourcePermissions.md "../admin-guide/UsingWithDS_IAM_ResourcePermissions.md").
+Before you call `CreateDirectory`, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the `CreateDirectory` operation, see [AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
 
 ## Request Syntax
+<a name="API_CreateDirectory_RequestSyntax"></a>
 
 ```
 {
-   "Description": "`string`",
-   "Name": "`string`",
-   "NetworkType": "`string`",
-   "Password": "`string`",
-   "ShortName": "`string`",
-   "Size": "`string`",
-   "Tags": [
-      {
-         "Key": "`string`",
-         "Value": "`string`"
+   "Description": "{{string}}",
+   "Name": "{{string}}",
+   "NetworkType": "{{string}}",
+   "Password": "{{string}}",
+   "ShortName": "{{string}}",
+   "Size": "{{string}}",
+   "Tags": [ 
+      { 
+         "Key": "{{string}}",
+         "Value": "{{string}}"
       }
    ],
-   "VpcSettings": {
-      "SubnetIds": [ "`string`" ],
-      "VpcId": "`string`"
+   "VpcSettings": { 
+      "SubnetIds": [ "{{string}}" ],
+      "VpcId": "{{string}}"
    }
 }
 ```
 
 ## Request Parameters
+<a name="API_CreateDirectory_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[Description](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-A description for the directory.
-
-Type: String
-
-Length Constraints: Minimum length of 0. Maximum length of 128.
-
-Pattern: `^([a-zA-Z0-9_])[\\a-zA-Z0-9_@#%*+=:?./!\s-]*$`
-
+ ** [Description](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-Description"></a>
+A description for the directory.  
+Type: String  
+Length Constraints: Minimum length of 0. Maximum length of 128.  
+Pattern: `^([a-zA-Z0-9_])[\\a-zA-Z0-9_@#%*+=:?./!\s-]*$`   
 Required: No
 
-**[Name](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-The fully qualified name for the directory, such as `corp.example.com`.
-
-Type: String
-
-Pattern: `^([a-zA-Z0-9]+[\\.-])+([a-zA-Z0-9])+$`
-
+ ** [Name](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-Name"></a>
+The fully qualified name for the directory, such as `corp.example.com`.  
+Type: String  
+Pattern: `^([a-zA-Z0-9]+[\\.-])+([a-zA-Z0-9])+$`   
 Required: Yes
 
-**[NetworkType](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-The network type for your directory. Simple AD supports IPv4 and Dual-stack only.
-
-Type: String
-
-Valid Values: `Dual-stack | IPv4 | IPv6`
-
+ ** [NetworkType](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-NetworkType"></a>
+The network type for your directory. Simple AD supports IPv4 and Dual-stack only.  
+Type: String  
+Valid Values: `Dual-stack | IPv4 | IPv6`   
 Required: No
 
-**[Password](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-The password for the directory administrator. The directory creation process creates a
-directory administrator account with the user name `Administrator` and this
-password.
-
-If you need to change the password for the administrator account, you can use the [ResetUserPassword](API_ResetUserPassword.md "API_ResetUserPassword.md") API call.
-
-The regex pattern for this string is made up of the following conditions:
-
-- Length (?=^.{8,64}$) – Must be between 8 and 64 characters
-
-AND any 3 of the following password complexity rules required by Active Directory:
-
-- Numbers and upper case and lowercase (?=.\*\d)(?=.\*[A-Z])(?=.\*[a-z])
-- Numbers and special characters and lower case
-  (?=.\*\d)(?=.\*[^A-Za-z0-9\s])(?=.\*[a-z])
-- Special characters and upper case and lower case
-  (?=.\*[^A-Za-z0-9\s])(?=.\*[A-Z])(?=.\*[a-z])
-- Numbers and upper case and special characters
-  (?=.\*\d)(?=.\*[A-Z])(?=.\*[^A-Za-z0-9\s])
-
-For additional information about how Active Directory passwords are enforced, see [Password must meet complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements "https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements") on the Microsoft website.
-
-Type: String
-
-Pattern: `(?=^.{8,64}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s]))^.*`
-
+ ** [Password](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-Password"></a>
+The password for the directory administrator. The directory creation process creates a directory administrator account with the user name `Administrator` and this password.  
+If you need to change the password for the administrator account, you can use the [ResetUserPassword](API_ResetUserPassword.md) API call.  
+The regex pattern for this string is made up of the following conditions:  
++ Length (?=^.{8,64}$) – Must be between 8 and 64 characters
+AND any 3 of the following password complexity rules required by Active Directory:  
++ Numbers and upper case and lowercase (?=.\*\\d)(?=.\*[A-Z])(?=.\*[a-z])
++ Numbers and special characters and lower case (?=.\*\\d)(?=.\*[^A-Za-z0-9\\s])(?=.\*[a-z])
++ Special characters and upper case and lower case (?=.\*[^A-Za-z0-9\\s])(?=.\*[A-Z])(?=.\*[a-z])
++ Numbers and upper case and special characters (?=.\*\\d)(?=.\*[A-Z])(?=.\*[^A-Za-z0-9\\s])
+For additional information about how Active Directory passwords are enforced, see [Password must meet complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) on the Microsoft website.  
+Type: String  
+Pattern: `(?=^.{8,64}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s]))^.*`   
 Required: Yes
 
-**[ShortName](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-The NetBIOS name of the directory, such as `CORP`.
-
-Type: String
-
-Pattern: `^[^\\/:*?"<>|.]+[^\\/:*?"<>|]*$`
-
+ ** [ShortName](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-ShortName"></a>
+The NetBIOS name of the directory, such as `CORP`.  
+Type: String  
+Pattern: `^[^\\/:*?"<>|.]+[^\\/:*?"<>|]*$`   
 Required: No
 
-**[Size](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-The size of the directory.
-
-Type: String
-
-Valid Values: `Small | Large`
-
+ ** [Size](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-Size"></a>
+The size of the directory.  
+Type: String  
+Valid Values: `Small | Large`   
 Required: Yes
 
-**[Tags](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-The tags to be assigned to the Simple AD directory.
-
-Type: Array of [Tag](API_Tag.md "API_Tag.md") objects
-
+ ** [Tags](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-Tags"></a>
+The tags to be assigned to the Simple AD directory.  
+Type: Array of [Tag](API_Tag.md) objects  
 Required: No
 
-**[VpcSettings](#API_CreateDirectory_RequestSyntax "#API_CreateDirectory_RequestSyntax")**
-
-A [DirectoryVpcSettings](API_DirectoryVpcSettings.md "API_DirectoryVpcSettings.md") object that contains additional information for
-the operation.
-
-Type: [DirectoryVpcSettings](API_DirectoryVpcSettings.md "API_DirectoryVpcSettings.md") object
-
+ ** [VpcSettings](#API_CreateDirectory_RequestSyntax) **   <a name="DirectoryService-CreateDirectory-request-VpcSettings"></a>
+A [DirectoryVpcSettings](API_DirectoryVpcSettings.md) object that contains additional information for the operation.  
+Type: [DirectoryVpcSettings](API_DirectoryVpcSettings.md) object  
 Required: No
 
 ## Response Syntax
+<a name="API_CreateDirectory_ResponseSyntax"></a>
 
 ```
 {
-   "DirectoryId": "***string***"
+   "DirectoryId": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_CreateDirectory_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[DirectoryId](#API_CreateDirectory_ResponseSyntax "#API_CreateDirectory_ResponseSyntax")**
-
-The identifier of the directory that was created.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
+ ** [DirectoryId](#API_CreateDirectory_ResponseSyntax) **   <a name="DirectoryService-CreateDirectory-response-DirectoryId"></a>
+The identifier of the directory that was created.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$` 
 
 ## Errors
+<a name="API_CreateDirectory_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryLimitExceededException**
-
-The maximum number of directories in the region has been reached. You can use the
-[GetDirectoryLimits](API_GetDirectoryLimits.md "API_GetDirectoryLimits.md") operation to determine your directory limits in
-the region.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryLimitExceededException **   
+The maximum number of directories in the region has been reached. You can use the [GetDirectoryLimits](API_GetDirectoryLimits.md) operation to determine your directory limits in the region.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
 ## Examples
+<a name="API_CreateDirectory_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_CreateDirectory_Example_1"></a>
 
 This example illustrates one usage of CreateDirectory.
 
@@ -259,6 +194,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_CreateDirectory_Example_2"></a>
 
 This example illustrates one usage of CreateDirectory.
 
@@ -275,16 +211,16 @@ Date: Tue, 13 Dec 2016 22:26:17 GMT
 ```
 
 ## See Also
+<a name="API_CreateDirectory_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/CreateDirectory.md "../../../goto/cli2/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/CreateDirectory.md "../../../goto/DotNetSDKV4/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForCpp/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForGoV2/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForJavaV2/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForKotlin/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForPHPV3/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/CreateDirectory.md "../../../goto/boto3/ds-2015-04-16/CreateDirectory.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/CreateDirectory.md "../../../goto/SdkForRubyV3/ds-2015-04-16/CreateDirectory.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/CreateDirectory) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/CreateDirectory) 

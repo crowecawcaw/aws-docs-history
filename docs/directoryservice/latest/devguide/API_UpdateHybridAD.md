@@ -1,213 +1,145 @@
+
+
 # UpdateHybridAD
+<a name="API_UpdateHybridAD"></a>
 
-Updates the configuration of an existing hybrid directory. You can recover hybrid
-directory administrator account or modify self-managed instance settings.
+Updates the configuration of an existing hybrid directory. You can recover hybrid directory administrator account or modify self-managed instance settings.
 
-Updates are applied asynchronously. Use [DescribeHybridADUpdate](API_DescribeHybridADUpdate.md "API_DescribeHybridADUpdate.md") to
-monitor the progress of configuration changes.
+Updates are applied asynchronously. Use [DescribeHybridADUpdate](API_DescribeHybridADUpdate.md) to monitor the progress of configuration changes.
 
-The `InstanceIds` must have a one-to-one correspondence with
-`CustomerDnsIps`, meaning that if the IP address for instance i-10243410
-is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the
-input arrays must maintain the same order relationship, either [10.24.34.100,
-10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
-paired with [i-10243420, i-10243410].
+The `InstanceIds` must have a one-to-one correspondence with `CustomerDnsIps`, meaning that if the IP address for instance i-10243410 is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100] paired with [i-10243420, i-10243410].
 
-###### Note
-
-You must provide at least one update to [UpdateHybridAD:HybridAdministratorAccountUpdate](#DirectoryService-UpdateHybridAD-request-HybridAdministratorAccountUpdate "#DirectoryService-UpdateHybridAD-request-HybridAdministratorAccountUpdate") or [UpdateHybridAD:SelfManagedInstancesSettings](#DirectoryService-UpdateHybridAD-request-SelfManagedInstancesSettings "#DirectoryService-UpdateHybridAD-request-SelfManagedInstancesSettings").
+**Note**  
+You must provide at least one update to [UpdateHybridAD:HybridAdministratorAccountUpdate](#DirectoryService-UpdateHybridAD-request-HybridAdministratorAccountUpdate) or [UpdateHybridAD:SelfManagedInstancesSettings](#DirectoryService-UpdateHybridAD-request-SelfManagedInstancesSettings).
 
 ## Request Syntax
+<a name="API_UpdateHybridAD_RequestSyntax"></a>
 
 ```
 {
-   "DirectoryId": "`string`",
-   "HybridAdministratorAccountUpdate": {
-      "SecretArn": "`string`"
+   "DirectoryId": "{{string}}",
+   "HybridAdministratorAccountUpdate": { 
+      "SecretArn": "{{string}}"
    },
-   "SelfManagedInstancesSettings": {
-      "CustomerDnsIps": [ "`string`" ],
-      "InstanceIds": [ "`string`" ]
+   "SelfManagedInstancesSettings": { 
+      "CustomerDnsIps": [ "{{string}}" ],
+      "InstanceIds": [ "{{string}}" ]
    }
 }
 ```
 
 ## Request Parameters
+<a name="API_UpdateHybridAD_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[DirectoryId](#API_UpdateHybridAD_RequestSyntax "#API_UpdateHybridAD_RequestSyntax")**
-
-The identifier of the hybrid directory to update.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_UpdateHybridAD_RequestSyntax) **   <a name="DirectoryService-UpdateHybridAD-request-DirectoryId"></a>
+The identifier of the hybrid directory to update.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: Yes
 
-**[HybridAdministratorAccountUpdate](#API_UpdateHybridAD_RequestSyntax "#API_UpdateHybridAD_RequestSyntax")**
-
-We create a hybrid directory administrator account when we create a hybrid directory.
-Use `HybridAdministratorAccountUpdate` to recover the hybrid directory
-administrator account if you have deleted it.
-
-To recover your hybrid directory administrator account, we need temporary access to a
-user in your self-managed AD with administrator permissions in the form of a secret from
-AWS Secrets Manager. We use these credentials once during recovery and don't store them.
-
-If your hybrid directory administrator account exists, then you don’t need to use
-`HybridAdministratorAccountUpdate`, even if you have updated your
-self-managed AD administrator user.
-
-Type: [HybridAdministratorAccountUpdate](API_HybridAdministratorAccountUpdate.md "API_HybridAdministratorAccountUpdate.md") object
-
+ ** [HybridAdministratorAccountUpdate](#API_UpdateHybridAD_RequestSyntax) **   <a name="DirectoryService-UpdateHybridAD-request-HybridAdministratorAccountUpdate"></a>
+We create a hybrid directory administrator account when we create a hybrid directory. Use `HybridAdministratorAccountUpdate` to recover the hybrid directory administrator account if you have deleted it.  
+To recover your hybrid directory administrator account, we need temporary access to a user in your self-managed AD with administrator permissions in the form of a secret from AWS Secrets Manager. We use these credentials once during recovery and don't store them.  
+If your hybrid directory administrator account exists, then you don’t need to use `HybridAdministratorAccountUpdate`, even if you have updated your self-managed AD administrator user.  
+Type: [HybridAdministratorAccountUpdate](API_HybridAdministratorAccountUpdate.md) object  
 Required: No
 
-**[SelfManagedInstancesSettings](#API_UpdateHybridAD_RequestSyntax "#API_UpdateHybridAD_RequestSyntax")**
-
-Updates to the self-managed AD configuration, including DNS server IP addresses and
-AWS System Manager managed node identifiers.
-
-Type: [HybridCustomerInstancesSettings](API_HybridCustomerInstancesSettings.md "API_HybridCustomerInstancesSettings.md") object
-
+ ** [SelfManagedInstancesSettings](#API_UpdateHybridAD_RequestSyntax) **   <a name="DirectoryService-UpdateHybridAD-request-SelfManagedInstancesSettings"></a>
+Updates to the self-managed AD configuration, including DNS server IP addresses and AWS System Manager managed node identifiers.  
+Type: [HybridCustomerInstancesSettings](API_HybridCustomerInstancesSettings.md) object  
 Required: No
 
 ## Response Syntax
+<a name="API_UpdateHybridAD_ResponseSyntax"></a>
 
 ```
 {
-   "AssessmentId": "***string***",
-   "DirectoryId": "***string***"
+   "AssessmentId": "string",
+   "DirectoryId": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_UpdateHybridAD_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[AssessmentId](#API_UpdateHybridAD_ResponseSyntax "#API_UpdateHybridAD_ResponseSyntax")**
+ ** [AssessmentId](#API_UpdateHybridAD_ResponseSyntax) **   <a name="DirectoryService-UpdateHybridAD-response-AssessmentId"></a>
+The identifier of the assessment performed to validate the update configuration. This assessment ensures the updated settings are compatible with your environment.  
+Type: String  
+Pattern: `^da-[0-9a-f]{18}$` 
 
-The identifier of the assessment performed to validate the update configuration. This
-assessment ensures the updated settings are compatible with your environment.
-
-Type: String
-
-Pattern: `^da-[0-9a-f]{18}$`
-
-**[DirectoryId](#API_UpdateHybridAD_ResponseSyntax "#API_UpdateHybridAD_ResponseSyntax")**
-
-The identifier of the updated hybrid directory.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
+ ** [DirectoryId](#API_UpdateHybridAD_ResponseSyntax) **   <a name="DirectoryService-UpdateHybridAD-response-DirectoryId"></a>
+The identifier of the updated hybrid directory.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$` 
 
 ## Errors
+<a name="API_UpdateHybridAD_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ADAssessmentLimitExceededException**
-
-A directory assessment is automatically created when you create a hybrid directory.
-There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your
-AWS account has a limit of 100 `CUSTOMER` directory assessments.
-
-If you attempt to create a hybrid directory; and you already have 100
-`CUSTOMER` directory assessments;, you will encounter an error. Delete
-assessments to free up capacity before trying again.
-
-You can request an increase to your `CUSTOMER` directory assessment quota
-by contacting customer support or delete existing CUSTOMER directory assessments; to
-free up capacity.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ADAssessmentLimitExceededException **   
+A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your AWS account has a limit of 100 `CUSTOMER` directory assessments.  
+If you attempt to create a hybrid directory; and you already have 100 `CUSTOMER` directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.  
+You can request an increase to your `CUSTOMER` directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryDoesNotExistException**
-
-The specified directory does not exist in the system.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryDoesNotExistException **   
+The specified directory does not exist in the system.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_UpdateHybridAD_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_UpdateHybridAD_Example_1"></a>
 
 This example illustrates one usage of UpdateHybridAD.
 
@@ -238,6 +170,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_UpdateHybridAD_Example_2"></a>
 
 This example illustrates one usage of UpdateHybridAD.
 
@@ -255,16 +188,16 @@ Date: Mon, 12 Dec 2023 21:20:31 GMT
 ```
 
 ## See Also
+<a name="API_UpdateHybridAD_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/UpdateHybridAD.md "../../../goto/cli2/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/UpdateHybridAD.md "../../../goto/DotNetSDKV4/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForCpp/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForGoV2/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForJavaV2/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForKotlin/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForPHPV3/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/UpdateHybridAD.md "../../../goto/boto3/ds-2015-04-16/UpdateHybridAD.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/UpdateHybridAD.md "../../../goto/SdkForRubyV3/ds-2015-04-16/UpdateHybridAD.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/UpdateHybridAD) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/UpdateHybridAD) 

@@ -1,173 +1,131 @@
-# ListADAssessments
 
-Retrieves a list of directory assessments for the specified directory or all
-assessments in your account. Use this operation to monitor assessment status and manage
-multiple assessments.
+
+# ListADAssessments
+<a name="API_ListADAssessments"></a>
+
+Retrieves a list of directory assessments for the specified directory or all assessments in your account. Use this operation to monitor assessment status and manage multiple assessments.
 
 ## Request Syntax
+<a name="API_ListADAssessments_RequestSyntax"></a>
 
 ```
 {
-   "DirectoryId": "`string`",
-   "Limit": `number`,
-   "NextToken": "`string`"
+   "DirectoryId": "{{string}}",
+   "Limit": {{number}},
+   "NextToken": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_ListADAssessments_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[DirectoryId](#API_ListADAssessments_RequestSyntax "#API_ListADAssessments_RequestSyntax")**
-
-The identifier of the directory for which to list assessments. If not specified, all
-assessments in your account are returned.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_ListADAssessments_RequestSyntax) **   <a name="DirectoryService-ListADAssessments-request-DirectoryId"></a>
+The identifier of the directory for which to list assessments. If not specified, all assessments in your account are returned.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: No
 
-**[Limit](#API_ListADAssessments_RequestSyntax "#API_ListADAssessments_RequestSyntax")**
-
-The maximum number of assessment summaries to return.
-
-Type: Integer
-
-Valid Range: Minimum value of 1. Maximum value of 100.
-
+ ** [Limit](#API_ListADAssessments_RequestSyntax) **   <a name="DirectoryService-ListADAssessments-request-Limit"></a>
+The maximum number of assessment summaries to return.  
+Type: Integer  
+Valid Range: Minimum value of 1. Maximum value of 100.  
 Required: No
 
-**[NextToken](#API_ListADAssessments_RequestSyntax "#API_ListADAssessments_RequestSyntax")**
-
-The pagination token from a previous request to [ListADAssessments](API_ListADAssessments.md "API_ListADAssessments.md").
-Pass null if this is the first request.
-
-Type: String
-
+ ** [NextToken](#API_ListADAssessments_RequestSyntax) **   <a name="DirectoryService-ListADAssessments-request-NextToken"></a>
+The pagination token from a previous request to [ListADAssessments](#API_ListADAssessments). Pass null if this is the first request.  
+Type: String  
 Required: No
 
 ## Response Syntax
+<a name="API_ListADAssessments_ResponseSyntax"></a>
 
 ```
 {
-   "Assessments": [
-      {
-         "AssessmentId": "***string***",
-         "CustomerDnsIps": [ "***string***" ],
-         "DirectoryId": "***string***",
-         "DnsName": "***string***",
-         "LastUpdateDateTime": ***number***,
-         "ReportType": "***string***",
-         "StartTime": ***number***,
-         "Status": "***string***"
+   "Assessments": [ 
+      { 
+         "AssessmentId": "string",
+         "CustomerDnsIps": [ "string" ],
+         "DirectoryId": "string",
+         "DnsName": "string",
+         "LastUpdateDateTime": number,
+         "ReportType": "string",
+         "StartTime": number,
+         "Status": "string"
       }
    ],
-   "NextToken": "***string***"
+   "NextToken": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_ListADAssessments_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[Assessments](#API_ListADAssessments_ResponseSyntax "#API_ListADAssessments_ResponseSyntax")**
+ ** [Assessments](#API_ListADAssessments_ResponseSyntax) **   <a name="DirectoryService-ListADAssessments-response-Assessments"></a>
+A list of assessment summaries containing basic information about each directory assessment.  
+Type: Array of [AssessmentSummary](API_AssessmentSummary.md) objects
 
-A list of assessment summaries containing basic information about each directory
-assessment.
-
-Type: Array of [AssessmentSummary](API_AssessmentSummary.md "API_AssessmentSummary.md") objects
-
-**[NextToken](#API_ListADAssessments_ResponseSyntax "#API_ListADAssessments_ResponseSyntax")**
-
-If not null, more results are available. Pass this value for the
-`NextToken` parameter in a subsequent request to retrieve the next set of
-items.
-
+ ** [NextToken](#API_ListADAssessments_ResponseSyntax) **   <a name="DirectoryService-ListADAssessments-response-NextToken"></a>
+If not null, more results are available. Pass this value for the `NextToken` parameter in a subsequent request to retrieve the next set of items.  
 Type: String
 
 ## Errors
+<a name="API_ListADAssessments_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryDoesNotExistException**
-
-The specified directory does not exist in the system.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryDoesNotExistException **   
+The specified directory does not exist in the system.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_ListADAssessments_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_ListADAssessments_Example_1"></a>
 
 This example illustrates one usage of ListADAssessments.
 
@@ -191,6 +149,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_ListADAssessments_Example_2"></a>
 
 This example illustrates one usage of ListADAssessments.
 
@@ -233,16 +192,16 @@ Date: Mon, 12 Dec 2023 21:20:31 GMT
 ```
 
 ## See Also
+<a name="API_ListADAssessments_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/ListADAssessments.md "../../../goto/cli2/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/ListADAssessments.md "../../../goto/DotNetSDKV4/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForCpp/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForGoV2/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForJavaV2/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForKotlin/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForPHPV3/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/ListADAssessments.md "../../../goto/boto3/ds-2015-04-16/ListADAssessments.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/ListADAssessments.md "../../../goto/SdkForRubyV3/ds-2015-04-16/ListADAssessments.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/ListADAssessments) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/ListADAssessments) 

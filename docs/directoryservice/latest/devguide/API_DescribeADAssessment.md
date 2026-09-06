@@ -1,64 +1,64 @@
-# DescribeADAssessment
 
-Retrieves detailed information about a directory assessment, including its current
-status, validation results, and configuration details. Use this operation to monitor
-assessment progress and review results.
+
+# DescribeADAssessment
+<a name="API_DescribeADAssessment"></a>
+
+Retrieves detailed information about a directory assessment, including its current status, validation results, and configuration details. Use this operation to monitor assessment progress and review results.
 
 ## Request Syntax
+<a name="API_DescribeADAssessment_RequestSyntax"></a>
 
 ```
 {
-   "AssessmentId": "`string`"
+   "AssessmentId": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DescribeADAssessment_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[AssessmentId](#API_DescribeADAssessment_RequestSyntax "#API_DescribeADAssessment_RequestSyntax")**
-
-The identifier of the directory assessment to describe.
-
-Type: String
-
-Pattern: `^da-[0-9a-f]{18}$`
-
+ ** [AssessmentId](#API_DescribeADAssessment_RequestSyntax) **   <a name="DirectoryService-DescribeADAssessment-request-AssessmentId"></a>
+The identifier of the directory assessment to describe.  
+Type: String  
+Pattern: `^da-[0-9a-f]{18}$`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_DescribeADAssessment_ResponseSyntax"></a>
 
 ```
 {
-   "Assessment": {
-      "AssessmentId": "***string***",
-      "CustomerDnsIps": [ "***string***" ],
-      "DirectoryId": "***string***",
-      "DnsName": "***string***",
-      "LastUpdateDateTime": ***number***,
-      "ReportType": "***string***",
-      "SecurityGroupIds": [ "***string***" ],
-      "SelfManagedInstanceIds": [ "***string***" ],
-      "StartTime": ***number***,
-      "Status": "***string***",
-      "StatusCode": "***string***",
-      "StatusReason": "***string***",
-      "SubnetIds": [ "***string***" ],
-      "Version": "***string***",
-      "VpcId": "***string***"
+   "Assessment": { 
+      "AssessmentId": "string",
+      "CustomerDnsIps": [ "string" ],
+      "DirectoryId": "string",
+      "DnsName": "string",
+      "LastUpdateDateTime": number,
+      "ReportType": "string",
+      "SecurityGroupIds": [ "string" ],
+      "SelfManagedInstanceIds": [ "string" ],
+      "StartTime": number,
+      "Status": "string",
+      "StatusCode": "string",
+      "StatusReason": "string",
+      "SubnetIds": [ "string" ],
+      "Version": "string",
+      "VpcId": "string"
    },
-   "AssessmentReports": [
-      {
-         "DomainControllerIp": "***string***",
-         "Validations": [
-            {
-               "Category": "***string***",
-               "LastUpdateDateTime": ***number***,
-               "Name": "***string***",
-               "StartTime": ***number***,
-               "Status": "***string***",
-               "StatusCode": "***string***",
-               "StatusReason": "***string***"
+   "AssessmentReports": [ 
+      { 
+         "DomainControllerIp": "string",
+         "Validations": [ 
+            { 
+               "Category": "string",
+               "LastUpdateDateTime": number,
+               "Name": "string",
+               "StartTime": number,
+               "Status": "string",
+               "StatusCode": "string",
+               "StatusReason": "string"
             }
          ]
       }
@@ -67,104 +67,72 @@ Required: Yes
 ```
 
 ## Response Elements
+<a name="API_DescribeADAssessment_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[Assessment](#API_DescribeADAssessment_ResponseSyntax "#API_DescribeADAssessment_ResponseSyntax")**
+ ** [Assessment](#API_DescribeADAssessment_ResponseSyntax) **   <a name="DirectoryService-DescribeADAssessment-response-Assessment"></a>
+Detailed information about the self-managed instance settings (IDs and DNS IPs).  
+Type: [Assessment](API_Assessment.md) object
 
-Detailed information about the self-managed instance settings (IDs and DNS
-IPs).
-
-Type: [Assessment](API_Assessment.md "API_Assessment.md") object
-
-**[AssessmentReports](#API_DescribeADAssessment_ResponseSyntax "#API_DescribeADAssessment_ResponseSyntax")**
-
-A list of assessment reports containing validation results for each domain controller
-and test category. Each report includes specific validation details and outcomes.
-
-Type: Array of [AssessmentReport](API_AssessmentReport.md "API_AssessmentReport.md") objects
+ ** [AssessmentReports](#API_DescribeADAssessment_ResponseSyntax) **   <a name="DirectoryService-DescribeADAssessment-response-AssessmentReports"></a>
+A list of assessment reports containing validation results for each domain controller and test category. Each report includes specific validation details and outcomes.  
+Type: Array of [AssessmentReport](API_AssessmentReport.md) objects
 
 ## Errors
+<a name="API_DescribeADAssessment_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**EntityDoesNotExistException**
-
-The specified entity could not be found.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** EntityDoesNotExistException **   
+The specified entity could not be found.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_DescribeADAssessment_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_DescribeADAssessment_Example_1"></a>
 
 This example illustrates one usage of DescribeADAssessment.
 
@@ -188,6 +156,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_DescribeADAssessment_Example_2"></a>
 
 This example illustrates one usage of DescribeADAssessment.
 
@@ -253,16 +222,16 @@ Date: Mon, 12 Dec 2023 21:20:31 GMT
 ```
 
 ## See Also
+<a name="API_DescribeADAssessment_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/DescribeADAssessment.md "../../../goto/cli2/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/DescribeADAssessment.md "../../../goto/DotNetSDKV4/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForCpp/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForGoV2/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForJavaV2/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForKotlin/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForPHPV3/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/DescribeADAssessment.md "../../../goto/boto3/ds-2015-04-16/DescribeADAssessment.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/DescribeADAssessment.md "../../../goto/SdkForRubyV3/ds-2015-04-16/DescribeADAssessment.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/DescribeADAssessment) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/DescribeADAssessment) 

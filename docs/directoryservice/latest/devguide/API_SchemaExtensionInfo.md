@@ -1,80 +1,57 @@
+
+
 # SchemaExtensionInfo
+<a name="API_SchemaExtensionInfo"></a>
 
 Information about a schema extension.
 
 ## Contents
+<a name="API_SchemaExtensionInfo_Contents"></a>
 
-**Description**
-
-A description of the schema extension.
-
-Type: String
-
-Length Constraints: Minimum length of 0. Maximum length of 128.
-
-Pattern: `^([a-zA-Z0-9_])[\\a-zA-Z0-9_@#%*+=:?./!\s-]*$`
-
+ ** Description **   <a name="DirectoryService-Type-SchemaExtensionInfo-Description"></a>
+A description of the schema extension.  
+Type: String  
+Length Constraints: Minimum length of 0. Maximum length of 128.  
+Pattern: `^([a-zA-Z0-9_])[\\a-zA-Z0-9_@#%*+=:?./!\s-]*$`   
 Required: No
 
-**DirectoryId**
-
-The identifier of the directory to which the schema extension is applied.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** DirectoryId **   <a name="DirectoryService-Type-SchemaExtensionInfo-DirectoryId"></a>
+The identifier of the directory to which the schema extension is applied.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: No
 
-**EndDateTime**
-
-The date and time that the schema extension was completed.
-
-Type: Timestamp
-
+ ** EndDateTime **   <a name="DirectoryService-Type-SchemaExtensionInfo-EndDateTime"></a>
+The date and time that the schema extension was completed.  
+Type: Timestamp  
 Required: No
 
-**SchemaExtensionId**
-
-The identifier of the schema extension.
-
-Type: String
-
-Pattern: `^e-[0-9a-f]{10}$`
-
+ ** SchemaExtensionId **   <a name="DirectoryService-Type-SchemaExtensionInfo-SchemaExtensionId"></a>
+The identifier of the schema extension.  
+Type: String  
+Pattern: `^e-[0-9a-f]{10}$`   
 Required: No
 
-**SchemaExtensionStatus**
-
-The current status of the schema extension.
-
-Type: String
-
-Valid Values: `Initializing | CreatingSnapshot | UpdatingSchema | Replicating | CancelInProgress | RollbackInProgress | Cancelled | Failed | Completed`
-
+ ** SchemaExtensionStatus **   <a name="DirectoryService-Type-SchemaExtensionInfo-SchemaExtensionStatus"></a>
+The current status of the schema extension.  
+Type: String  
+Valid Values: `Initializing | CreatingSnapshot | UpdatingSchema | Replicating | CancelInProgress | RollbackInProgress | Cancelled | Failed | Completed`   
 Required: No
 
-**SchemaExtensionStatusReason**
-
-The reason for the `SchemaExtensionStatus`.
-
-Type: String
-
+ ** SchemaExtensionStatusReason **   <a name="DirectoryService-Type-SchemaExtensionInfo-SchemaExtensionStatusReason"></a>
+The reason for the `SchemaExtensionStatus`.  
+Type: String  
 Required: No
 
-**StartDateTime**
-
-The date and time that the schema extension started being applied to the
-directory.
-
-Type: Timestamp
-
+ ** StartDateTime **   <a name="DirectoryService-Type-SchemaExtensionInfo-StartDateTime"></a>
+The date and time that the schema extension started being applied to the directory.  
+Type: Timestamp  
 Required: No
 
 ## See Also
+<a name="API_SchemaExtensionInfo_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/SchemaExtensionInfo.md "../../../goto/SdkForCpp/ds-2015-04-16/SchemaExtensionInfo.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/SchemaExtensionInfo.md "../../../goto/SdkForJavaV2/ds-2015-04-16/SchemaExtensionInfo.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/SchemaExtensionInfo.md "../../../goto/SdkForRubyV3/ds-2015-04-16/SchemaExtensionInfo.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/SchemaExtensionInfo) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/SchemaExtensionInfo) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/SchemaExtensionInfo) 

@@ -1,134 +1,105 @@
+
+
 # VerifyTrust
+<a name="API_VerifyTrust"></a>
 
-AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust
-relationships.
+ AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.
 
-This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an
-external domain.
+This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an external domain.
 
 ## Request Syntax
+<a name="API_VerifyTrust_RequestSyntax"></a>
 
 ```
 {
-   "TrustId": "`string`"
+   "TrustId": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_VerifyTrust_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[TrustId](#API_VerifyTrust_RequestSyntax "#API_VerifyTrust_RequestSyntax")**
-
-The unique Trust ID of the trust relationship to verify.
-
-Type: String
-
-Pattern: `^t-[0-9a-f]{10}$`
-
+ ** [TrustId](#API_VerifyTrust_RequestSyntax) **   <a name="DirectoryService-VerifyTrust-request-TrustId"></a>
+The unique Trust ID of the trust relationship to verify.  
+Type: String  
+Pattern: `^t-[0-9a-f]{10}$`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_VerifyTrust_ResponseSyntax"></a>
 
 ```
 {
-   "TrustId": "***string***"
+   "TrustId": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_VerifyTrust_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[TrustId](#API_VerifyTrust_ResponseSyntax "#API_VerifyTrust_ResponseSyntax")**
-
-The unique Trust ID of the trust relationship that was verified.
-
-Type: String
-
-Pattern: `^t-[0-9a-f]{10}$`
+ ** [TrustId](#API_VerifyTrust_ResponseSyntax) **   <a name="DirectoryService-VerifyTrust-response-TrustId"></a>
+The unique Trust ID of the trust relationship that was verified.  
+Type: String  
+Pattern: `^t-[0-9a-f]{10}$` 
 
 ## Errors
+<a name="API_VerifyTrust_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**EntityDoesNotExistException**
-
-The specified entity could not be found.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** EntityDoesNotExistException **   
+The specified entity could not be found.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_VerifyTrust_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_VerifyTrust_Example_1"></a>
 
 This example illustrates one usage of VerifyTrust.
 
@@ -152,6 +123,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_VerifyTrust_Example_2"></a>
 
 This example illustrates one usage of VerifyTrust.
 
@@ -168,16 +140,16 @@ Date: Thu, 15 Dec 2016 19:10:12 GMT
 ```
 
 ## See Also
+<a name="API_VerifyTrust_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/VerifyTrust.md "../../../goto/cli2/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/VerifyTrust.md "../../../goto/DotNetSDKV4/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForCpp/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForGoV2/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForJavaV2/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForKotlin/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForPHPV3/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/VerifyTrust.md "../../../goto/boto3/ds-2015-04-16/VerifyTrust.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/VerifyTrust.md "../../../goto/SdkForRubyV3/ds-2015-04-16/VerifyTrust.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/VerifyTrust) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/VerifyTrust) 

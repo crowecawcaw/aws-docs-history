@@ -1,134 +1,101 @@
+
+
 # RemoveIpRoutes
+<a name="API_RemoveIpRoutes"></a>
 
 Removes IP address blocks from a directory.
 
 ## Request Syntax
+<a name="API_RemoveIpRoutes_RequestSyntax"></a>
 
 ```
 {
-   "CidrIps": [ "`string`" ],
-   "CidrIpv6s": [ "`string`" ],
-   "DirectoryId": "`string`"
+   "CidrIps": [ "{{string}}" ],
+   "CidrIpv6s": [ "{{string}}" ],
+   "DirectoryId": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_RemoveIpRoutes_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[CidrIps](#API_RemoveIpRoutes_RequestSyntax "#API_RemoveIpRoutes_RequestSyntax")**
-
-IP address blocks that you want to remove.
-
-Type: Array of strings
-
-Pattern: `^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([1-9]|[1-2][0-9]|3[0-2]))$`
-
+ ** [CidrIps](#API_RemoveIpRoutes_RequestSyntax) **   <a name="DirectoryService-RemoveIpRoutes-request-CidrIps"></a>
+IP address blocks that you want to remove.  
+Type: Array of strings  
+Pattern: `^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([1-9]|[1-2][0-9]|3[0-2]))$`   
 Required: No
 
-**[CidrIpv6s](#API_RemoveIpRoutes_RequestSyntax "#API_RemoveIpRoutes_RequestSyntax")**
-
-IPv6 address blocks that you want to remove.
-
-Type: Array of strings
-
-Pattern: `^((([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4})|(([0-9a-fA-F]{1,4}:){1,7}:)|(([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4})|(([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2})|(([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3})|(([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4})|(([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5})|([0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6}))|(:((:[0-9a-fA-F]{1,4}){1,7}|:)))\/(12[0-8]|1[01][0-9]|[1-9]?[0-9])$`
-
+ ** [CidrIpv6s](#API_RemoveIpRoutes_RequestSyntax) **   <a name="DirectoryService-RemoveIpRoutes-request-CidrIpv6s"></a>
+IPv6 address blocks that you want to remove.  
+Type: Array of strings  
+Pattern: `^((([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4})|(([0-9a-fA-F]{1,4}:){1,7}:)|(([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4})|(([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2})|(([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3})|(([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4})|(([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5})|([0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6}))|(:((:[0-9a-fA-F]{1,4}){1,7}|:)))\/(12[0-8]|1[01][0-9]|[1-9]?[0-9])$`   
 Required: No
 
-**[DirectoryId](#API_RemoveIpRoutes_RequestSyntax "#API_RemoveIpRoutes_RequestSyntax")**
-
-Identifier (ID) of the directory from which you want to remove the IP addresses.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_RemoveIpRoutes_RequestSyntax) **   <a name="DirectoryService-RemoveIpRoutes-request-DirectoryId"></a>
+Identifier (ID) of the directory from which you want to remove the IP addresses.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: Yes
 
 ## Response Elements
+<a name="API_RemoveIpRoutes_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
 
 ## Errors
+<a name="API_RemoveIpRoutes_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**DirectoryUnavailableException**
-
-The specified directory is unavailable.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** DirectoryUnavailableException **   
+The specified directory is unavailable.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**EntityDoesNotExistException**
-
-The specified entity could not be found.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** EntityDoesNotExistException **   
+The specified entity could not be found.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
 ## Examples
+<a name="API_RemoveIpRoutes_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_RemoveIpRoutes_Example_1"></a>
 
 This example illustrates one usage of RemoveIpRoutes.
 
@@ -153,6 +120,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_RemoveIpRoutes_Example_2"></a>
 
 This example illustrates one usage of RemoveIpRoutes.
 
@@ -169,16 +137,16 @@ Date: Wed, 14 Dec 2016 23:31:54 GMT
 ```
 
 ## See Also
+<a name="API_RemoveIpRoutes_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/cli2/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/DotNetSDKV4/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForCpp/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForGoV2/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForJavaV2/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForKotlin/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForPHPV3/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/boto3/ds-2015-04-16/RemoveIpRoutes.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/RemoveIpRoutes.md "../../../goto/SdkForRubyV3/ds-2015-04-16/RemoveIpRoutes.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/RemoveIpRoutes) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/RemoveIpRoutes) 

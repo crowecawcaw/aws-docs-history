@@ -1,135 +1,105 @@
+
+
 # DeleteADAssessment
+<a name="API_DeleteADAssessment"></a>
 
-Deletes a directory assessment and all associated data. This operation permanently
-removes the assessment results, validation reports, and configuration
-information.
+Deletes a directory assessment and all associated data. This operation permanently removes the assessment results, validation reports, and configuration information.
 
-You cannot delete system-initiated assessments. You can delete customer-created
-assessments even if they are in progress.
+You cannot delete system-initiated assessments. You can delete customer-created assessments even if they are in progress.
 
 ## Request Syntax
+<a name="API_DeleteADAssessment_RequestSyntax"></a>
 
 ```
 {
-   "AssessmentId": "`string`"
+   "AssessmentId": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DeleteADAssessment_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[AssessmentId](#API_DeleteADAssessment_RequestSyntax "#API_DeleteADAssessment_RequestSyntax")**
-
-The unique identifier of the directory assessment to delete.
-
-Type: String
-
-Pattern: `^da-[0-9a-f]{18}$`
-
+ ** [AssessmentId](#API_DeleteADAssessment_RequestSyntax) **   <a name="DirectoryService-DeleteADAssessment-request-AssessmentId"></a>
+The unique identifier of the directory assessment to delete.  
+Type: String  
+Pattern: `^da-[0-9a-f]{18}$`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_DeleteADAssessment_ResponseSyntax"></a>
 
 ```
 {
-   "AssessmentId": "***string***"
+   "AssessmentId": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_DeleteADAssessment_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[AssessmentId](#API_DeleteADAssessment_ResponseSyntax "#API_DeleteADAssessment_ResponseSyntax")**
-
-The unique identifier of the deleted directory assessment.
-
-Type: String
-
-Pattern: `^da-[0-9a-f]{18}$`
+ ** [AssessmentId](#API_DeleteADAssessment_ResponseSyntax) **   <a name="DirectoryService-DeleteADAssessment-response-AssessmentId"></a>
+The unique identifier of the deleted directory assessment.  
+Type: String  
+Pattern: `^da-[0-9a-f]{18}$` 
 
 ## Errors
+<a name="API_DeleteADAssessment_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**EntityDoesNotExistException**
-
-The specified entity could not be found.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** EntityDoesNotExistException **   
+The specified entity could not be found.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
-**UnsupportedOperationException**
-
-The operation is not supported.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** UnsupportedOperationException **   
+The operation is not supported.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
 ## Examples
+<a name="API_DeleteADAssessment_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_DeleteADAssessment_Example_1"></a>
 
 This example illustrates one usage of DeleteADAssessment.
 
@@ -153,6 +123,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_DeleteADAssessment_Example_2"></a>
 
 This example illustrates one usage of DeleteADAssessment.
 
@@ -169,16 +140,16 @@ Date: Mon, 12 Dec 2023 21:20:31 GMT
 ```
 
 ## See Also
+<a name="API_DeleteADAssessment_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/DeleteADAssessment.md "../../../goto/cli2/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/DeleteADAssessment.md "../../../goto/DotNetSDKV4/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForCpp/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForGoV2/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForJavaV2/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForKotlin/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForPHPV3/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/DeleteADAssessment.md "../../../goto/boto3/ds-2015-04-16/DeleteADAssessment.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/DeleteADAssessment.md "../../../goto/SdkForRubyV3/ds-2015-04-16/DeleteADAssessment.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/DeleteADAssessment) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/DeleteADAssessment) 

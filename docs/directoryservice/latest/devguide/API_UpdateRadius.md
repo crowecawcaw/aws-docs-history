@@ -1,120 +1,95 @@
-# UpdateRadius
 
-Updates the Remote Authentication Dial In User Service (RADIUS) server information for
-an AD Connector or Microsoft AD directory.
+
+# UpdateRadius
+<a name="API_UpdateRadius"></a>
+
+Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.
 
 ## Request Syntax
+<a name="API_UpdateRadius_RequestSyntax"></a>
 
 ```
 {
-   "DirectoryId": "`string`",
-   "RadiusSettings": {
-      "AuthenticationProtocol": "`string`",
-      "DisplayLabel": "`string`",
-      "RadiusPort": `number`,
-      "RadiusRetries": `number`,
-      "RadiusServers": [ "`string`" ],
-      "RadiusServersIpv6": [ "`string`" ],
-      "RadiusTimeout": `number`,
-      "SharedSecret": "`string`",
-      "UseSameUsername": `boolean`
+   "DirectoryId": "{{string}}",
+   "RadiusSettings": { 
+      "AuthenticationProtocol": "{{string}}",
+      "DisplayLabel": "{{string}}",
+      "RadiusPort": {{number}},
+      "RadiusRetries": {{number}},
+      "RadiusServers": [ "{{string}}" ],
+      "RadiusServersIpv6": [ "{{string}}" ],
+      "RadiusTimeout": {{number}},
+      "SharedSecret": "{{string}}",
+      "UseSameUsername": {{boolean}}
    }
 }
 ```
 
 ## Request Parameters
+<a name="API_UpdateRadius_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[DirectoryId](#API_UpdateRadius_RequestSyntax "#API_UpdateRadius_RequestSyntax")**
-
-The identifier of the directory for which to update the RADIUS server
-information.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_UpdateRadius_RequestSyntax) **   <a name="DirectoryService-UpdateRadius-request-DirectoryId"></a>
+The identifier of the directory for which to update the RADIUS server information.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: Yes
 
-**[RadiusSettings](#API_UpdateRadius_RequestSyntax "#API_UpdateRadius_RequestSyntax")**
-
-A [RadiusSettings](API_RadiusSettings.md "API_RadiusSettings.md") object that contains information about the RADIUS
-server.
-
-Type: [RadiusSettings](API_RadiusSettings.md "API_RadiusSettings.md") object
-
+ ** [RadiusSettings](#API_UpdateRadius_RequestSyntax) **   <a name="DirectoryService-UpdateRadius-request-RadiusSettings"></a>
+A [RadiusSettings](API_RadiusSettings.md) object that contains information about the RADIUS server.  
+Type: [RadiusSettings](API_RadiusSettings.md) object  
 Required: Yes
 
 ## Response Elements
+<a name="API_UpdateRadius_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
 
 ## Errors
+<a name="API_UpdateRadius_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**EntityDoesNotExistException**
-
-The specified entity could not be found.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** EntityDoesNotExistException **   
+The specified entity could not be found.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
 ## Examples
+<a name="API_UpdateRadius_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_UpdateRadius_Example_1"></a>
 
 This example illustrates one usage of UpdateRadius.
 
@@ -150,6 +125,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_UpdateRadius_Example_2"></a>
 
 This example illustrates one usage of UpdateRadius.
 
@@ -166,16 +142,16 @@ Date: Thu, 15 Dec 2016 18:49:39 GMT
 ```
 
 ## See Also
+<a name="API_UpdateRadius_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/UpdateRadius.md "../../../goto/cli2/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/UpdateRadius.md "../../../goto/DotNetSDKV4/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForCpp/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForGoV2/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForJavaV2/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForKotlin/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForPHPV3/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/UpdateRadius.md "../../../goto/boto3/ds-2015-04-16/UpdateRadius.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/UpdateRadius.md "../../../goto/SdkForRubyV3/ds-2015-04-16/UpdateRadius.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/UpdateRadius) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/UpdateRadius) 

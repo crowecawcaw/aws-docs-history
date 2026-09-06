@@ -1,167 +1,130 @@
+
+
 # ListIpRoutes
+<a name="API_ListIpRoutes"></a>
 
 Lists the address blocks that you have added to a directory.
 
 ## Request Syntax
+<a name="API_ListIpRoutes_RequestSyntax"></a>
 
 ```
 {
-   "DirectoryId": "`string`",
-   "Limit": `number`,
-   "NextToken": "`string`"
+   "DirectoryId": "{{string}}",
+   "Limit": {{number}},
+   "NextToken": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_ListIpRoutes_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[DirectoryId](#API_ListIpRoutes_RequestSyntax "#API_ListIpRoutes_RequestSyntax")**
-
-Identifier (ID) of the directory for which you want to retrieve the IP addresses.
-
-Type: String
-
-Pattern: `^d-[0-9a-f]{10}$`
-
+ ** [DirectoryId](#API_ListIpRoutes_RequestSyntax) **   <a name="DirectoryService-ListIpRoutes-request-DirectoryId"></a>
+Identifier (ID) of the directory for which you want to retrieve the IP addresses.  
+Type: String  
+Pattern: `^d-[0-9a-f]{10}$`   
 Required: Yes
 
-**[Limit](#API_ListIpRoutes_RequestSyntax "#API_ListIpRoutes_RequestSyntax")**
-
-Maximum number of items to return. If this value is zero, the maximum number of items is
-specified by the limitations of the operation.
-
-Type: Integer
-
-Valid Range: Minimum value of 0.
-
+ ** [Limit](#API_ListIpRoutes_RequestSyntax) **   <a name="DirectoryService-ListIpRoutes-request-Limit"></a>
+Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.  
+Type: Integer  
+Valid Range: Minimum value of 0.  
 Required: No
 
-**[NextToken](#API_ListIpRoutes_RequestSyntax "#API_ListIpRoutes_RequestSyntax")**
-
-The _ListIpRoutes.NextToken_ value from a previous call to [ListIpRoutes](API_ListIpRoutes.md "API_ListIpRoutes.md"). Pass null if this is the first call.
-
-Type: String
-
+ ** [NextToken](#API_ListIpRoutes_RequestSyntax) **   <a name="DirectoryService-ListIpRoutes-request-NextToken"></a>
+The *ListIpRoutes.NextToken* value from a previous call to [ListIpRoutes](#API_ListIpRoutes). Pass null if this is the first call.  
+Type: String  
 Required: No
 
 ## Response Syntax
+<a name="API_ListIpRoutes_ResponseSyntax"></a>
 
 ```
 {
-   "IpRoutesInfo": [
-      {
-         "AddedDateTime": ***number***,
-         "CidrIp": "***string***",
-         "CidrIpv6": "***string***",
-         "Description": "***string***",
-         "DirectoryId": "***string***",
-         "IpRouteStatusMsg": "***string***",
-         "IpRouteStatusReason": "***string***"
+   "IpRoutesInfo": [ 
+      { 
+         "AddedDateTime": number,
+         "CidrIp": "string",
+         "CidrIpv6": "string",
+         "Description": "string",
+         "DirectoryId": "string",
+         "IpRouteStatusMsg": "string",
+         "IpRouteStatusReason": "string"
       }
    ],
-   "NextToken": "***string***"
+   "NextToken": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_ListIpRoutes_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[IpRoutesInfo](#API_ListIpRoutes_ResponseSyntax "#API_ListIpRoutes_ResponseSyntax")**
+ ** [IpRoutesInfo](#API_ListIpRoutes_ResponseSyntax) **   <a name="DirectoryService-ListIpRoutes-response-IpRoutesInfo"></a>
+A list of [IpRoute](API_IpRoute.md)s.  
+Type: Array of [IpRouteInfo](API_IpRouteInfo.md) objects
 
-A list of [IpRoute](API_IpRoute.md "API_IpRoute.md")s.
-
-Type: Array of [IpRouteInfo](API_IpRouteInfo.md "API_IpRouteInfo.md") objects
-
-**[NextToken](#API_ListIpRoutes_ResponseSyntax "#API_ListIpRoutes_ResponseSyntax")**
-
-If not null, more results are available. Pass this value for the
-_NextToken_ parameter in a subsequent call to [ListIpRoutes](API_ListIpRoutes.md "API_ListIpRoutes.md") to retrieve the next set of items.
-
+ ** [NextToken](#API_ListIpRoutes_ResponseSyntax) **   <a name="DirectoryService-ListIpRoutes-response-NextToken"></a>
+If not null, more results are available. Pass this value for the *NextToken* parameter in a subsequent call to [ListIpRoutes](#API_ListIpRoutes) to retrieve the next set of items.  
 Type: String
 
 ## Errors
+<a name="API_ListIpRoutes_Errors"></a>
 
-For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
 
-**ClientException**
-
-A client exception has occurred.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ClientException **   
+A client exception has occurred.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**EntityDoesNotExistException**
-
-The specified entity could not be found.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** EntityDoesNotExistException **   
+The specified entity could not be found.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidNextTokenException**
-
-The `NextToken` value is not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidNextTokenException **   
+The `NextToken` value is not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**InvalidParameterException**
-
-One or more parameters are not valid.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** InvalidParameterException **   
+One or more parameters are not valid.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 400
 
-**ServiceException**
-
-An exception has occurred in AWS Directory Service.
-
-**Message**
-
-The descriptive message for the exception.
-
-**RequestId**
-
+ ** ServiceException **   
+An exception has occurred in AWS Directory Service.    
+ ** Message **   
+The descriptive message for the exception.  
+ ** RequestId **   
 The AWS request identifier.
-
 HTTP Status Code: 500
 
 ## Examples
+<a name="API_ListIpRoutes_Examples"></a>
 
 The following examples are formatted for legibility.
 
 ### Example Request
+<a name="API_ListIpRoutes_Example_1"></a>
 
 This example illustrates one usage of ListIpRoutes.
 
@@ -186,6 +149,7 @@ Authorization: AWS4-HMAC-SHA256
 ```
 
 ### Example Response
+<a name="API_ListIpRoutes_Example_2"></a>
 
 This example illustrates one usage of ListIpRoutes.
 
@@ -210,16 +174,16 @@ Date: Wed, 14 Dec 2016 22:53:30 GMT
 ```
 
 ## See Also
+<a name="API_ListIpRoutes_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/ListIpRoutes.md "../../../goto/cli2/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/ListIpRoutes.md "../../../goto/DotNetSDKV4/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForCpp/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForGoV2/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForJavaV2/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForJavaScriptV3/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForKotlin/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForPHPV3/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for Python](../../../goto/boto3/ds-2015-04-16/ListIpRoutes.md "../../../goto/boto3/ds-2015-04-16/ListIpRoutes.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/ds-2015-04-16/ListIpRoutes.md "../../../goto/SdkForRubyV3/ds-2015-04-16/ListIpRoutes.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/ds-2015-04-16/ListIpRoutes) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/ds-2015-04-16/ListIpRoutes) 
