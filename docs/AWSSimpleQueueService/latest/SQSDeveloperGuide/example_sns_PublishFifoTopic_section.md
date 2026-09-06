@@ -1,24 +1,19 @@
+
+
 # Create and publish to a FIFO Amazon SNS topic using an AWS SDK
+<a name="example_sns_PublishFifoTopic_section"></a>
 
 The following code examples show how to create and publish to a FIFO Amazon SNS topic.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
-
-This example
-
-- creates an Amazon SNS FIFO topic, two Amazon SQS FIFO queues, and one Standard queue.
-- subscribes the queues to the topic and publishes a message to the topic.
-
-The [test](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java") verifies the receipt of the message to each queue. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java") also shows the addition of access policies and deletes the resources at
-the end.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
+This example  
++ creates an Amazon SNS FIFO topic, two Amazon SQS FIFO queues, and one Standard queue.
++ subscribes the queues to the topic and publishes a message to the topic.
+The [test](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java) verifies the receipt of the message to each queue. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java) also shows the addition of access policies and deletes the resources at the end.  
 
 ```
 public class PriceUpdateExample {
@@ -152,27 +147,18 @@ public class PriceUpdateExample {
             System.exit(1);
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/CreateTopic)
+  + [Publish](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Publish)
+  + [Subscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Subscribe)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [CreateTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md")
-  - [Publish](../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md")
-  - [Subscribe](../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
-
-Create an Amazon SNS FIFO topic, subscribe Amazon SQS FIFO and standard queues to the topic, and publish a message to the topic.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
+Create an Amazon SNS FIFO topic, subscribe Amazon SQS FIFO and standard queues to the topic, and publish a message to the topic.  
 
 ```
 def usage_demo():
@@ -311,7 +297,7 @@ class FifoTopicWrapper:
                 Attributes={
                     "Policy": json.dumps(
                         {
-                            "Version":"2012-10-17",
+                            "Version":"2012-10-17",		 	 	 
                             "Statement": [
                                 {
                                     "Sid": "test-sid",
@@ -398,33 +384,20 @@ class FifoTopicWrapper:
         except ClientError as error:
             logger.exception("Couldn't delete queue with URL=%s!", queue.url)
             raise error
+```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/CreateTopic)
+  + [Publish](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Publish)
+  + [Subscribe](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Subscribe)
 
+------
+#### [ SAP ABAP ]
 
-
-
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
+Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publish a message to an Amazon SNS topic.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
-
-  - [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
-  - [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
-  - [Subscribe](../../../goto/boto3/sns-2010-03-31/Subscribe.md "../../../goto/boto3/sns-2010-03-31/Subscribe.md")
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
-
-Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publish a message to an Amazon SNS topic.
-
-```
-
     " Creates a FIFO topic. "
     DATA lt_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>tt_topicattributesmap.
     DATA ls_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>ts_topicattributesmap_maprow.
@@ -480,17 +453,12 @@ Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publis
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [Publish](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [Subscribe](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+------
 
-  - [CreateTopic](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [Publish](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [Subscribe](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

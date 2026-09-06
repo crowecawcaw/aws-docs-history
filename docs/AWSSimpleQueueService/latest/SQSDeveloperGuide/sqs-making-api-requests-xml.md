@@ -1,105 +1,78 @@
-# Making query API requests using AWS query protocol in Amazon SQS
 
-This topic explains how to construct an Amazon SQS endpoint, make GET and POST requests, and
-interpret responses.
+
+# Making query API requests using AWS query protocol in Amazon SQS
+<a name="sqs-making-api-requests-xml"></a>
+
+This topic explains how to construct an Amazon SQS endpoint, make GET and POST requests, and interpret responses.
 
 ## Constructing an endpoint
+<a name="sqs-api-constructing-endpoints"></a>
 
-In order to work with Amazon SQS queues, you must construct an endpoint. For information
-about Amazon SQS endpoints, see the following pages in the
-_Amazon Web Services General Reference_:
+In order to work with Amazon SQS queues, you must construct an endpoint. For information about Amazon SQS endpoints, see the following pages in the *Amazon Web Services General Reference*:
++ [Regional endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region)
++ [Amazon Simple Queue Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sqs-service)
 
-- [Regional endpoints](../../../general/latest/gr/rande.md#sqs_region "../../../general/latest/gr/rande.md#sqs_region")
-- [Amazon Simple Queue Service endpoints and
-  quotas](../../../general/latest/gr/sqs-service.md "../../../general/latest/gr/sqs-service.md")
+Every Amazon SQS endpoint is independent. For example, if two queues are named *MyQueue* and one has the endpoint `sqs.us-east-2.amazonaws.com` while the other has the endpoint `sqs.eu-west-2.amazonaws.com`, the two queues don't share any data with each other.
 
-Every Amazon SQS endpoint is independent. For example, if two queues are named _MyQueue_ and one has the endpoint
-`sqs.us-east-2.amazonaws.com` while the other has the endpoint
-`sqs.eu-west-2.amazonaws.com`, the two queues don't share any data with each
-other.
-
-The following is an example of an endpoint which makes a request to create a queue.
+The following is an example of an endpoint which makes a request to create a queue. 
 
 ```
-https://sqs.eu-west-2.amazonaws.com/
+https://sqs.eu-west-2.amazonaws.com/   
 ?Action=CreateQueue
 &DefaultVisibilityTimeout=40
 &QueueName=MyQueue
 &Version=2012-11-05
-&`AUTHPARAMS`
+&{{AUTHPARAMS}}
 ```
 
-###### Note
-
-Queue names and queue URLs are case sensitive.
-
-The structure of `AUTHPARAMS` depends on the signature of the API request.
-For more information, see [Signing AWS API Requests](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md")
-in the _Amazon Web Services General Reference_.
+**Note**  
+Queue names and queue URLs are case sensitive.  
+The structure of {{`AUTHPARAMS`}} depends on the signature of the API request. For more information, see [Signing AWS API Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *Amazon Web Services General Reference*.
 
 ## Making a GET request
+<a name="structure-get-request"></a>
 
 An Amazon SQS GET request is structured as a URL which consists of the following:
++ **Endpoint** – The resource that the request is acting on (the [queue name and URL](sqs-queue-message-identifiers.md#queue-name-url)), for example: `https://sqs.us-east-2.amazonaws.com/{{123456789012}}/MyQueue`
++ **Action** – The [action](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Operations.html) that you want to perform on the endpoint. A question mark (`?`) separates the endpoint from the action, for example: `?Action=SendMessage&MessageBody=Your%20Message%20Text`
++ **Parameters** – Any request parameters. Each parameter is separated by an ampersand (`&`), for example: `&Version=2012-11-05&{{AUTHPARAMS}}` 
 
-- **Endpoint** – The resource that the
-  request is acting on (the [queue name and URL](sqs-queue-message-identifiers.md#queue-name-url "sqs-queue-message-identifiers.md#queue-name-url")), for example:
-  `https://sqs.us-east-2.amazonaws.com/`123456789012`/MyQueue`
-- **Action** – The [action](../APIReference/API_Operations.md "../APIReference/API_Operations.md") that you want to
-  perform on the endpoint. A question mark (`?`) separates the endpoint
-  from the action, for example:
-  `?Action=SendMessage&MessageBody=Your%20Message%20Text`
-- **Parameters** – Any request parameters.
-  Each parameter is separated by an ampersand (`&`), for example:
-  `&Version=2012-11-05&`AUTHPARAMS``
-
-The following is an example of a GET request that sends a message to an Amazon SQS
-queue.
+The following is an example of a GET request that sends a message to an Amazon SQS queue.
 
 ```
-https://sqs.us-east-2.amazonaws.com/`123456789012`/MyQueue
+https://sqs.us-east-2.amazonaws.com/{{123456789012}}/MyQueue
 ?Action=SendMessage&MessageBody=Your%20message%20text
 &Version=2012-11-05
-&`AUTHPARAMS`
+&{{AUTHPARAMS}}
 ```
 
-###### Note
-
-Queue names and queue URLs are case sensitive.
-
-Because GET requests are URLs, you must URL-encode all parameter values. Because
-spaces aren't allowed in URLs, each space is URL-encoded as `%20`. The
-rest of the example isn't URL-encoded to make it easier to read.
+**Note**  
+Queue names and queue URLs are case sensitive.  
+Because GET requests are URLs, you must URL-encode all parameter values. Because spaces aren't allowed in URLs, each space is URL-encoded as `%20`. The rest of the example isn't URL-encoded to make it easier to read.
 
 ## Making a POST request
+<a name="structure-post-request"></a>
 
-An Amazon SQS POST request sends query parameters as a form in the body of an HTTP
-request.
+An Amazon SQS POST request sends query parameters as a form in the body of an HTTP request.
 
-The following is an example of an HTTP header with `Content-Type` set to
-`application/x-www-form-urlencoded`.
+The following is an example of an HTTP header with `Content-Type` set to `application/x-www-form-urlencoded`.
 
 ```
-POST /`123456789012`/MyQueue HTTP/1.1
+POST /{{123456789012}}/MyQueue HTTP/1.1
 Host: sqs.us-east-2.amazonaws.com
 Content-Type: application/x-www-form-urlencoded
 ```
 
-The header is followed by a `form-urlencoded` GET request that sends a message to an Amazon SQS
-queue. Each parameter is separated by an ampersand (`&`).
+The header is followed by a `[form-urlencoded](https://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2)` GET request that sends a message to an Amazon SQS queue. Each parameter is separated by an ampersand (`&`).
 
 ```
 Action=SendMessage
 &MessageBody=Your+Message+Text
 &Expires=2020-10-15T12%3A00%3A00Z
 &Version=2012-11-05
-&`AUTHPARAMS`
+&{{AUTHPARAMS}}
 ```
 
-###### Note
-
-Only the `Content-Type` HTTP header is required. The
-`AUTHPARAMS` is the same as for the
-GET request.
-
-Your HTTP client might add other items to the HTTP request, according to the
-client's HTTP version.
+**Note**  
+Only the `Content-Type` HTTP header is required. The `{{AUTHPARAMS}}` is the same as for the GET request.  
+Your HTTP client might add other items to the HTTP request, according to the client's HTTP version.

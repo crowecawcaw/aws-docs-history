@@ -1,28 +1,27 @@
+
+
 # Editing an Amazon SQS queue using the console
+<a name="sqs-configure-edit-queue"></a>
 
-You can use the Amazon SQS console to edit queue configuration parameters (except the queue
-type) and modify or remove features as needed.
+You can use the Amazon SQS console to edit queue configuration parameters (except the queue type) and modify or remove features as needed.
 
-###### To edit an Amazon SQS queue (console)
+**To edit an Amazon SQS queue (console)**
 
-1. Open the [Queues
-   page](https://console.aws.amazon.com/sqs/#/queues "https://console.aws.amazon.com/sqs/#/queues") of the Amazon SQS console.
-2. Select a queue, and then choose **Edit**.
-3. (Optional) Under **Configuration**, update the queue's [configuration
-   parameters](sqs-configure-queue-parameters.md "sqs-configure-queue-parameters.md").
-4. (Optional) To update the [access
-   policy](sqs-configure-add-permissions.md "sqs-configure-add-permissions.md"), under **Access policy**, modify the
-   **JSON policy**.
-5. (Optional) To update a dead-letter queue [redrive allow
-   policy](sqs-configure-dead-letter-queue-redrive.md "sqs-configure-dead-letter-queue-redrive.md"), expand **Redrive allow policy**.
-6. (Optional) To update or remove [encryption](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md"), expand
-   **Encryption**.
-7. (Optional) To add, update, or remove a [dead-letter queue](sqs-configure-dead-letter-queue.md "sqs-configure-dead-letter-queue.md") (which
-   allows you to receive undeliverable messages), expand **Dead-letter
-   queue**.
-8. (Optional) To add, update, or remove the [tags](sqs-configure-tag-queue.md "sqs-configure-tag-queue.md") for the queue, expand
-   **Tags**.
-9. Choose **Save**.
+1. Open the [Queues page](https://console.aws.amazon.com/sqs/#/queues) of the Amazon SQS console.
 
-   - The console displays the **Details** page for the
-     queue.
+1. Select a queue, and then choose **Edit**.
+
+1. (Optional) Under **Configuration**, update the queue's [configuration parameters](sqs-configure-queue-parameters.md).
+
+1. (Optional) To update the [access policy](sqs-configure-add-permissions.md), under **Access policy**, modify the **JSON policy**.
+
+1. (Optional) To update a dead-letter queue [redrive allow policy](sqs-configure-dead-letter-queue-redrive.md), expand **Redrive allow policy**.
+
+1. (Optional) To update or remove [encryption](sqs-configure-sse-existing-queue.md), expand **Encryption**.
+
+1. (Optional) To add, update, or remove a [dead-letter queue](sqs-configure-dead-letter-queue.md) (which allows you to receive undeliverable messages), expand **Dead-letter queue**.
+
+1. (Optional) To add, update, or remove the [tags](sqs-configure-tag-queue.md) for the queue, expand **Tags**.
+
+1. Choose **Save**.
+   + The console displays the **Details** page for the queue.

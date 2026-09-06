@@ -1,22 +1,18 @@
+
+
 # Work with queue tags and Amazon SQS using an AWS SDK
+<a name="example_sqs_Scenario_WorkWithTags_section"></a>
 
 The following code example shows how to perform tagging operation with Amazon SQS.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
-
-The following example creates tags for a queue, lists tags, and removes a tag.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
+The following example creates tags for a queue, lists tags, and removes a tag.  
 
 ```
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.sqs.SqsClient;
@@ -124,16 +120,12 @@ public class TagExamples {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [ListQueueTags](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/ListQueueTags)
+  + [TagQueue](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/TagQueue)
+  + [UntagQueue](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/UntagQueue)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [ListQueueTags](../../../goto/SdkForJavaV2/sqs-2012-11-05/ListQueueTags.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ListQueueTags.md")
-  - [TagQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/TagQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/TagQueue.md")
-  - [UntagQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/UntagQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/UntagQueue.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

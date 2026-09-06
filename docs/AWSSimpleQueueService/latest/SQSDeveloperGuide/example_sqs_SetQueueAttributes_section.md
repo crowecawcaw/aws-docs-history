@@ -1,23 +1,19 @@
+
+
 # Use `SetQueueAttributes` with an AWS SDK or CLI
+<a name="example_sqs_SetQueueAttributes_section"></a>
 
 The following code examples show how to use `SetQueueAttributes`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md) 
 
-- [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
-
-Set the policy attribute of a queue for a topic.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
+Set the policy attribute of a queue for a topic.  
 
 ```
     /// <summary>
@@ -54,23 +50,14 @@ Set the policy attribute of a queue for a topic.
             });
         return attributesResponse.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/SetQueueAttributes) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [SetQueueAttributes](../../../goto/DotNetSDKV3/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/SetQueueAttributes.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -114,11 +101,8 @@ bool AwsDoc::SQS::setQueueAttributes(const Aws::String &queueURL,
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Configure a dead-letter queue.
+Configure a dead-letter queue.  
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -182,11 +166,8 @@ Aws::String MakeRedrivePolicy(const Aws::String &queueArn, int maxReceiveCount) 
 
     return policy_map.View().WriteReadable();
 }
-
-
 ```
-
-Configure an Amazon SQS queue to use long polling.
+Configure an Amazon SQS queue to use long polling.  
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -225,30 +206,21 @@ bool AwsDoc::SQS::setQueueLongPollingAttribute(const Aws::String &queueURL,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/SetQueueAttributes) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To set queue attributes**  
+This example sets the specified queue to a delivery delay of 10 seconds, a maximum message size of 128 KB (128 KB \* 1,024 bytes), a message retention period of 3 days (3 days \* 24 hours \* 60 minutes \* 60 seconds), a receive message wait time of 20 seconds, and a default visibility timeout of 60 seconds. This example also associates the specified dead letter queue with a maximum receive count of 1,000 messages.  
+Command:  
 
 ```
-
-- For API details, see
-  [SetQueueAttributes](../../../goto/SdkForCpp/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/SdkForCpp/sqs-2012-11-05/SetQueueAttributes.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To set queue attributes**
-
-This example sets the specified queue to a delivery delay of 10 seconds, a maximum message size of 128 KB (128 KB \* 1,024 bytes), a message retention period of 3 days (3 days \* 24 hours \* 60 minutes \* 60 seconds), a receive message wait time of 20 seconds, and a default visibility timeout of 60 seconds. This example also associates the specified dead letter queue with a maximum receive count of 1,000 messages.
-
-Command:
-
+aws sqs set-queue-attributes --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyNewQueue}} --attributes {{file://set-queue-attributes.json}}
 ```
-`aws sqs set-queue-attributes --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyNewQueue` --attributes `file://set-queue-attributes.json``
-
-```
-
-Input file (set-queue-attributes.json):
+Input file (set-queue-attributes.json):  
 
 ```
 {
@@ -260,29 +232,20 @@ Input file (set-queue-attributes.json):
   "VisibilityTimeout": "60"
 }
 ```
-
-Output:
+Output:  
 
 ```
 None.
 ```
++  For API details, see [SetQueueAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/set-queue-attributes.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [SetQueueAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/set-queue-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/set-queue-attributes.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -351,26 +314,15 @@ type PolicyStatement struct {
 
 // PolicyCondition defines a condition in a policy.
 type PolicyCondition map[string]map[string]string
-
-
-
 ```
++  For API details, see [SetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.SetQueueAttributes) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [SetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.SetQueueAttributes "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.SetQueueAttributes")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
-
-Configure an Amazon SQS to use server-side encryption (SSE) using a custom KMS key.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
+Configure an Amazon SQS to use server-side encryption (SSE) using a custom KMS key.  
 
 ```
     public static void addEncryption(String queueName, String kmsMasterKeyAlias) {
@@ -409,23 +361,14 @@ Configure an Amazon SQS to use server-side encryption (SSE) using a custom KMS k
             sqsClient.close();
         }
     }
-
-
 ```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SetQueueAttributes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SetQueueAttributes](../../../goto/SdkForJavaV2/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/SetQueueAttributes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 
 ```
 import { SetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
@@ -445,11 +388,8 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
   console.log(response);
   return response;
 };
-
-
 ```
-
-Configure an Amazon SQS queue to use long polling.
+Configure an Amazon SQS queue to use long polling.  
 
 ```
 import { SetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
@@ -469,11 +409,8 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
   console.log(response);
   return response;
 };
-
-
 ```
-
-Configure a dead-letter queue.
+Configure a dead-letter queue.  
 
 ```
 import { SetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
@@ -504,19 +441,14 @@ export const main = async (
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/SetQueueAttributesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [SetQueueAttributes](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/SetQueueAttributesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/SetQueueAttributesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.**
+**Tools for PowerShell V4**  
+**Example 1: This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.**  
 
 ```
 # create the queue and topic to be associated
@@ -531,7 +463,7 @@ $qarn = (Get-SQSQueueAttribute -QueueUrl $qurl -AttributeName "QueueArn").QueueA
 # construct the policy and inject arns
 $policy = @"
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Id": "$qarn/SQSPOLICY",
   "Statement": [
       {
@@ -552,23 +484,16 @@ $policy = @"
 
 # set the policy
 Set-SQSQueueAttribute -QueueUrl $qurl -Attribute @{ Policy=$policy }
-
 ```
-
-**Example 2: This example sets the specified attributes for the specified queue.**
+**Example 2: This example sets the specified attributes for the specified queue.**  
 
 ```
 Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" = "131072"} -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [SetQueueAttributes](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.**
+**Tools for PowerShell V5**  
+**Example 1: This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.**  
 
 ```
 # create the queue and topic to be associated
@@ -583,7 +508,7 @@ $qarn = (Get-SQSQueueAttribute -QueueUrl $qurl -AttributeName "QueueArn").QueueA
 # construct the policy and inject arns
 $policy = @"
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Id": "$qarn/SQSPOLICY",
   "Statement": [
       {
@@ -604,31 +529,20 @@ $policy = @"
 
 # set the policy
 Set-SQSQueueAttribute -QueueUrl $qurl -Attribute @{ Policy=$policy }
-
 ```
-
-**Example 2: This example sets the specified attributes for the specified queue.**
+**Example 2: This example sets the specified attributes for the specified queue.**  
 
 ```
 Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" = "131072"} -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [SetQueueAttributes](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples").
-
-Set the policy attribute of a queue for a topic.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples). 
+Set the policy attribute of a queue for a topic.  
 
 ```
 class SqsWrapper:
@@ -666,7 +580,7 @@ class SqsWrapper:
         try:
             # Create policy that allows SNS to send messages to the queue
             policy = {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -698,24 +612,14 @@ class SqsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error setting queue policy: {error_code} - {e}")
             raise
-
-
-
 ```
++  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/SetQueueAttributes) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
 ```
 import AWSSQS
@@ -735,14 +639,9 @@ import AWSSQS
         } catch _ as AWSSQS.InvalidAttributeValue {
             print("Invalid maximum message size: \(maxSize) kB.")
         }
-
-
 ```
++  For API details, see [SetQueueAttributes](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/setqueueattributes(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [SetQueueAttributes](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/setqueueattributes(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/setqueueattributes(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

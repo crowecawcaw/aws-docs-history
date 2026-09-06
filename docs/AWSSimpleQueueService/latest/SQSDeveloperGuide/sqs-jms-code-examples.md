@@ -1,18 +1,16 @@
+
+
 # Working Java examples for using JMS with Amazon SQS standard queues
+<a name="sqs-jms-code-examples"></a>
 
-The following code examples show how to use the Java Message Service (JMS) with Amazon SQS
-standard queues. For more information about working with FIFO queues, see [To create a FIFO queue](getting-started.md#creating-queue-FIFO "getting-started.md#creating-queue-FIFO"), [Sending messages synchronously](getting-started.md#send-messages-synchronously "getting-started.md#send-messages-synchronously"), and
-[Receiving messages synchronously](getting-started.md#receive-messages-synchronously "getting-started.md#receive-messages-synchronously"). (Receiving messages synchronously is
-the same for standard and FIFO queues. However, messages in FIFO queues contain more
-attributes.)
+The following code examples show how to use the Java Message Service (JMS) with Amazon SQS standard queues. For more information about working with FIFO queues, see [To create a FIFO queue](getting-started.md#creating-queue-FIFO), [Sending messages synchronously](getting-started.md#send-messages-synchronously), and [Receiving messages synchronously](getting-started.md#receive-messages-synchronously). (Receiving messages synchronously is the same for standard and FIFO queues. However, messages in FIFO queues contain more attributes.)
 
-See the prerequisites in [Prerequisites for working with JMS and Amazon SQS](prerequisites.md "prerequisites.md")
-before testing the following examples.
+See the prerequisites in [Prerequisites for working with JMS and Amazon SQS](prerequisites.md) before testing the following examples.
 
 ## ExampleConfiguration.java
+<a name="example-configuration"></a>
 
-The following Java SDK v 1.x code example sets the default queue name, the region, and
-the credentials to be used with the other Java examples.
+The following Java SDK v 1.x code example sets the default queue name, the region, and the credentials to be used with the other Java examples.
 
 ```
 /*
@@ -33,20 +31,20 @@ the credentials to be used with the other Java examples.
 
 public class ExampleConfiguration {
     public static final String DEFAULT_QUEUE_NAME = "SQSJMSClientExampleQueue";
-
+    
     public static final Region DEFAULT_REGION = Region.getRegion(Regions.US_EAST_2);
-
+    
     private static String getParameter( String args[], int i ) {
         if( i + 1 >= args.length ) {
             throw new IllegalArgumentException( "Missing parameter for " + args[i] );
         }
         return args[i+1];
     }
-
+    
     /**
      * Parse the command line and return the resulting config. If the config parsing fails
      * print the error and the usage message and then call System.exit
-     *
+     * 
      * @param app the app to use when printing the usage string
      * @param args the command line arguments
      * @return the parsed config
@@ -64,7 +62,7 @@ public class ExampleConfiguration {
             return null;
         }
     }
-
+    
     private ExampleConfiguration(String args[]) {
         for( int i = 0; i < args.length; ++i ) {
             String arg = args[i];
@@ -76,7 +74,7 @@ public class ExampleConfiguration {
                 try {
                     setRegion(Region.getRegion(Regions.fromName(regionName)));
                 } catch( IllegalArgumentException e ) {
-                    throw new IllegalArgumentException( "Unrecognized region " + regionName );
+                    throw new IllegalArgumentException( "Unrecognized region " + regionName );  
                 }
                 i++;
             } else if( arg.equals( "--credentials" ) ) {
@@ -92,31 +90,31 @@ public class ExampleConfiguration {
             }
         }
     }
-
+    
     private String queueName = DEFAULT_QUEUE_NAME;
     private Region region = DEFAULT_REGION;
     private AWSCredentialsProvider credentialsProvider = new DefaultAWSCredentialsProviderChain();
-
+    
     public String getQueueName() {
         return queueName;
     }
-
+    
     public void setQueueName(String queueName) {
         this.queueName = queueName;
     }
-
+    
     public Region getRegion() {
         return region;
     }
-
+    
     public void setRegion(Region region) {
         this.region = region;
     }
-
+ 
     public AWSCredentialsProvider getCredentialsProvider() {
         return credentialsProvider;
     }
-
+    
     public void setCredentialsProvider(AWSCredentialsProvider credentialsProvider) {
         // Make sure they're usable first
         credentialsProvider.getCredentials();
@@ -126,6 +124,7 @@ public class ExampleConfiguration {
 ```
 
 ## TextMessageSender.java
+<a name="example-sender"></a>
 
 The following Java code example creates a text message producer.
 
@@ -149,45 +148,45 @@ The following Java code example creates a text message producer.
 public class TextMessageSender {
     public static void main(String args[]) throws JMSException {
         ExampleConfiguration config = ExampleConfiguration.parseConfig("TextMessageSender", args);
-
+        
         ExampleCommon.setupLogging();
-
-        // Create the connection factory based on the config
+        
+        // Create the connection factory based on the config       
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
                 AmazonSQSClientBuilder.standard()
                         .withRegion(config.getRegion().getName())
                         .withCredentials(config.getCredentialsProvider())
                 );
-
+        
         // Create the connection
         SQSConnection connection = connectionFactory.createConnection();
-
+        
         // Create the queue if needed
         ExampleCommon.ensureQueueExists(connection, config.getQueueName());
-
+            
         // Create the session
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         MessageProducer producer = session.createProducer( session.createQueue( config.getQueueName() ) );
-
+        
         sendMessages(session, producer);
-
+ 
         // Close the connection. This closes the session automatically
         connection.close();
         System.out.println( "Connection closed" );
     }
-
+ 
     private static void sendMessages( Session session, MessageProducer producer ) {
         BufferedReader inputReader = new BufferedReader(
             new InputStreamReader( System.in, Charset.defaultCharset() ) );
-
+        
         try {
             String input;
-            while( true ) {
+            while( true ) { 
                 System.out.print( "Enter message to send (leave empty to exit): " );
                 input = inputReader.readLine();
                 if( input == null || input.equals("" ) ) break;
-
+                
                 TextMessage message = session.createTextMessage(input);
                 producer.send(message);
                 System.out.println( "Send message " + message.getJMSMessageID() );
@@ -205,6 +204,7 @@ public class TextMessageSender {
 ```
 
 ## SyncMessageReceiver.java
+<a name="example-synchronous-message-receiver"></a>
 
 The following Java code example creates a synchronous message consumer.
 
@@ -228,9 +228,9 @@ The following Java code example creates a synchronous message consumer.
 public class SyncMessageReceiver {
 public static void main(String args[]) throws JMSException {
     ExampleConfiguration config = ExampleConfiguration.parseConfig("SyncMessageReceiver", args);
-
+    
     ExampleCommon.setupLogging();
-
+    
     // Create the connection factory based on the config
     SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
             new ProviderConfiguration(),
@@ -238,19 +238,19 @@ public static void main(String args[]) throws JMSException {
                     .withRegion(config.getRegion().getName())
                     .withCredentials(config.getCredentialsProvider())
             );
-
+    
     // Create the connection
     SQSConnection connection = connectionFactory.createConnection();
-
+    
     // Create the queue if needed
     ExampleCommon.ensureQueueExists(connection, config.getQueueName());
-
+        
     // Create the session
     Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
     MessageConsumer consumer = session.createConsumer( session.createQueue( config.getQueueName() ) );
 
     connection.start();
-
+    
     receiveMessages(session, consumer);
 
     // Close the connection. This closes the session automatically
@@ -281,6 +281,7 @@ private static void receiveMessages( Session session, MessageConsumer consumer )
 ```
 
 ## AsyncMessageReceiver.java
+<a name="example-asynchronous-message-receiver"></a>
 
 The following Java code example creates an asynchronous message consumer.
 
@@ -304,9 +305,9 @@ The following Java code example creates an asynchronous message consumer.
 public class AsyncMessageReceiver {
     public static void main(String args[]) throws JMSException, InterruptedException {
         ExampleConfiguration config = ExampleConfiguration.parseConfig("AsyncMessageReceiver", args);
-
-        ExampleCommon.setupLogging();
-
+         
+        ExampleCommon.setupLogging();          
+         
         // Create the connection factory based on the config
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
@@ -314,23 +315,23 @@ public class AsyncMessageReceiver {
                         .withRegion(config.getRegion().getName())
                         .withCredentials(config.getCredentialsProvider())
                 );
-
+         
         // Create the connection
         SQSConnection connection = connectionFactory.createConnection();
-
+         
         // Create the queue if needed
         ExampleCommon.ensureQueueExists(connection, config.getQueueName());
-
+             
         // Create the session
         Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
         MessageConsumer consumer = session.createConsumer( session.createQueue( config.getQueueName() ) );
-
+         
         // No messages are processed until this is called
         connection.start();
 
         ReceiverCallback callback = new ReceiverCallback();
         consumer.setMessageListener( callback );
-
+         
         callback.waitForOneMinuteOfSilence();
         System.out.println( "Returning after one minute of silence" );
 
@@ -338,16 +339,16 @@ public class AsyncMessageReceiver {
         connection.close();
         System.out.println( "Connection closed" );
     }
-
-
+    
+    
     private static class ReceiverCallback implements MessageListener {
         // Used to listen for message silence
         private volatile long timeOfLastMessage = System.nanoTime();
-
+         
         public void waitForOneMinuteOfSilence() throws InterruptedException {
             for(;;) {
                 long timeSinceLastMessage = System.nanoTime() - timeOfLastMessage;
-                long remainingTillOneMinuteOfSilence =
+                long remainingTillOneMinuteOfSilence = 
                     TimeUnit.MINUTES.toNanos(1) - timeSinceLastMessage;
                 if( remainingTillOneMinuteOfSilence < 0 ) {
                     break;
@@ -355,7 +356,7 @@ public class AsyncMessageReceiver {
                 TimeUnit.NANOSECONDS.sleep(remainingTillOneMinuteOfSilence);
             }
         }
-
+         
 
         @Override
         public void onMessage(Message message) {
@@ -374,9 +375,9 @@ public class AsyncMessageReceiver {
 ```
 
 ## SyncMessageReceiverClientAcknowledge.java
+<a name="example-synchronous-receiver-client-acknowledge-mode"></a>
 
-The following Java code example creates a synchronous consumer with client acknowledge
-mode.
+The following Java code example creates a synchronous consumer with client acknowledge mode.
 
 ```
 /*
@@ -408,17 +409,17 @@ mode.
  * for an example.
  */
 public class SyncMessageReceiverClientAcknowledge {
-
+ 
     // Visibility time-out for the queue. It must match to the one set for the queue for this example to work.
     private static final long TIME_OUT_SECONDS = 1;
-
+ 
     public static void main(String args[]) throws JMSException, InterruptedException {
         // Create the configuration for the example
         ExampleConfiguration config = ExampleConfiguration.parseConfig("SyncMessageReceiverClientAcknowledge", args);
-
+ 
         // Setup logging for the example
         ExampleCommon.setupLogging();
-
+ 
         // Create the connection factory based on the config
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
@@ -426,48 +427,48 @@ public class SyncMessageReceiverClientAcknowledge {
                         .withRegion(config.getRegion().getName())
                         .withCredentials(config.getCredentialsProvider())
                 );
-
+ 
         // Create the connection
         SQSConnection connection = connectionFactory.createConnection();
-
+ 
         // Create the queue if needed
         ExampleCommon.ensureQueueExists(connection, config.getQueueName());
-
+ 
         // Create the session  with client acknowledge mode
         Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-
+ 
         // Create the producer and consume
         MessageProducer producer = session.createProducer(session.createQueue(config.getQueueName()));
         MessageConsumer consumer = session.createConsumer(session.createQueue(config.getQueueName()));
-
+ 
         // Open the connection
         connection.start();
-
+ 
         // Send two text messages
         sendMessage(producer, session, "Message 1");
         sendMessage(producer, session, "Message 2");
-
+ 
         // Receive a message and don't acknowledge it
         receiveMessage(consumer, false);
-
+ 
         // Receive another message and acknowledge it
         receiveMessage(consumer, true);
-
+ 
         // Wait for the visibility time out, so that unacknowledged messages reappear in the queue
         System.out.println("Waiting for visibility timeout...");
         Thread.sleep(TimeUnit.SECONDS.toMillis(TIME_OUT_SECONDS));
-
+ 
         // Attempt to receive another message and acknowledge it. This results in receiving no messages since
         // we have acknowledged the second message. Although we didn't explicitly acknowledge the first message,
         // in the CLIENT_ACKNOWLEDGE mode, all the messages received prior to the explicitly acknowledged message
         // are also acknowledged. Therefore, we have implicitly acknowledged the first message.
         receiveMessage(consumer, true);
-
+ 
         // Close the connection. This closes the session automatically
         connection.close();
         System.out.println("Connection closed.");
     }
-
+ 
     /**
      * Sends a message through the producer.
      *
@@ -480,7 +481,7 @@ public class SyncMessageReceiverClientAcknowledge {
         // Create a text message and send it
         producer.send(session.createTextMessage(messageText));
     }
-
+ 
     /**
      * Receives a message through the consumer synchronously with the default timeout (TIME_OUT_SECONDS).
      * If a message is received, the message is printed. If no message is received, "Queue is empty!" is
@@ -493,13 +494,13 @@ public class SyncMessageReceiverClientAcknowledge {
     private static void receiveMessage(MessageConsumer consumer, boolean acknowledge) throws JMSException {
         // Receive a message
         Message message = consumer.receive(TimeUnit.SECONDS.toMillis(TIME_OUT_SECONDS));
-
+ 
         if (message == null) {
             System.out.println("Queue is empty!");
         } else {
             // Since this queue has only text messages, cast the message object and print the text
             System.out.println("Received: " + ((TextMessage) message).getText());
-
+ 
             // Acknowledge the message if asked
             if (acknowledge) message.acknowledge();
         }
@@ -508,9 +509,9 @@ public class SyncMessageReceiverClientAcknowledge {
 ```
 
 ## SyncMessageReceiverUnorderedAcknowledge.java
+<a name="example-synchronous-receiver-unordered-acknowledge-mode"></a>
 
-The following Java code example creates a synchronous consumer with unordered
-acknowledge mode.
+The following Java code example creates a synchronous consumer with unordered acknowledge mode.
 
 ```
 /*
@@ -543,17 +544,17 @@ acknowledge mode.
  * for an example.
  */
 public class SyncMessageReceiverUnorderedAcknowledge {
-
+ 
     // Visibility time-out for the queue. It must match to the one set for the queue for this example to work.
     private static final long TIME_OUT_SECONDS = 1;
-
+ 
     public static void main(String args[]) throws JMSException, InterruptedException {
         // Create the configuration for the example
         ExampleConfiguration config = ExampleConfiguration.parseConfig("SyncMessageReceiverUnorderedAcknowledge", args);
-
+ 
         // Setup logging for the example
         ExampleCommon.setupLogging();
-
+ 
         // Create the connection factory based on the config
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
@@ -561,47 +562,47 @@ public class SyncMessageReceiverUnorderedAcknowledge {
                         .withRegion(config.getRegion().getName())
                         .withCredentials(config.getCredentialsProvider())
                 );
-
+ 
         // Create the connection
         SQSConnection connection = connectionFactory.createConnection();
-
+ 
         // Create the queue if needed
         ExampleCommon.ensureQueueExists(connection, config.getQueueName());
-
+ 
         // Create the session  with unordered acknowledge mode
         Session session = connection.createSession(false, SQSSession.UNORDERED_ACKNOWLEDGE);
-
+ 
         // Create the producer and consume
         MessageProducer producer = session.createProducer(session.createQueue(config.getQueueName()));
         MessageConsumer consumer = session.createConsumer(session.createQueue(config.getQueueName()));
-
+ 
         // Open the connection
         connection.start();
-
+ 
         // Send two text messages
         sendMessage(producer, session, "Message 1");
         sendMessage(producer, session, "Message 2");
-
+ 
         // Receive a message and don't acknowledge it
         receiveMessage(consumer, false);
-
+ 
         // Receive another message and acknowledge it
         receiveMessage(consumer, true);
-
+ 
         // Wait for the visibility time out, so that unacknowledged messages reappear in the queue
         System.out.println("Waiting for visibility timeout...");
         Thread.sleep(TimeUnit.SECONDS.toMillis(TIME_OUT_SECONDS));
-
+ 
         // Attempt to receive another message and acknowledge it. This results in receiving the first message since
         // we have acknowledged only the second message. In the UNORDERED_ACKNOWLEDGE mode, all the messages must
         // be explicitly acknowledged.
         receiveMessage(consumer, true);
-
+ 
         // Close the connection. This closes the session automatically
         connection.close();
         System.out.println("Connection closed.");
     }
-
+ 
     /**
      * Sends a message through the producer.
      *
@@ -614,7 +615,7 @@ public class SyncMessageReceiverUnorderedAcknowledge {
         // Create a text message and send it
         producer.send(session.createTextMessage(messageText));
     }
-
+ 
     /**
      * Receives a message through the consumer synchronously with the default timeout (TIME_OUT_SECONDS).
      * If a message is received, the message is printed. If no message is received, "Queue is empty!" is
@@ -627,13 +628,13 @@ public class SyncMessageReceiverUnorderedAcknowledge {
     private static void receiveMessage(MessageConsumer consumer, boolean acknowledge) throws JMSException {
         // Receive a message
         Message message = consumer.receive(TimeUnit.SECONDS.toMillis(TIME_OUT_SECONDS));
-
+ 
         if (message == null) {
             System.out.println("Queue is empty!");
         } else {
             // Since this queue has only text messages, cast the message object and print the text
             System.out.println("Received: " + ((TextMessage) message).getText());
-
+ 
             // Acknowledge the message if asked
             if (acknowledge) message.acknowledge();
         }
@@ -642,8 +643,9 @@ public class SyncMessageReceiverUnorderedAcknowledge {
 ```
 
 ## SpringExampleConfiguration.xml
+<a name="example-spring-configuration"></a>
 
-The following XML code example is a bean configuration file for [SpringExample.java](#example-spring "#example-spring").
+The following XML code example is a bean configuration file for [SpringExample.java](#example-spring).
 
 ```
 <!--
@@ -671,40 +673,39 @@ The following XML code example is a bean configuration file for [SpringExample.j
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
     ">
-
+    
     <bean id="CredentialsProviderBean" class="com.amazonaws.auth.DefaultAWSCredentialsProviderChain"/>
-
+    
     <bean id="ClientBuilder" class="com.amazonaws.services.sqs.AmazonSQSClientBuilder" factory-method="standard">
         <property name="region" value="us-east-2"/>
-        <property name="credentials" ref="CredentialsProviderBean"/>
+        <property name="credentials" ref="CredentialsProviderBean"/>               
     </bean>
-
+    
     <bean id="ProviderConfiguration" class="com.amazon.sqs.javamessaging.ProviderConfiguration">
         <property name="numberOfMessagesToPrefetch" value="5"/>
     </bean>
-
+    
     <bean id="ConnectionFactory" class="com.amazon.sqs.javamessaging.SQSConnectionFactory">
         <constructor-arg ref="ProviderConfiguration" />
         <constructor-arg ref="ClientBuilder" />
     </bean>
-
+    
     <bean id="Connection" class="javax.jms.Connection"
         factory-bean="ConnectionFactory"
         factory-method="createConnection"
         init-method="start"
         destroy-method="close" />
-
+    
     <bean id="QueueName" class="java.lang.String">
         <constructor-arg value="SQSJMSClientExampleQueue"/>
     </bean>
 </beans>
-
 ```
 
 ## SpringExample.java
+<a name="example-spring"></a>
 
-The following Java code example uses the bean configuration file to initialize your
-objects.
+The following Java code example uses the bean configuration file to initialize your objects.
 
 ```
 /*
@@ -722,25 +723,25 @@ objects.
  * permissions and limitations under the License.
  *
  */
-
+                
 public class SpringExample {
     public static void main(String args[]) throws JMSException {
         if( args.length != 1 || !args[0].endsWith(".xml")) {
             System.err.println( "Usage: " + SpringExample.class.getName() + " <spring config.xml>" );
             System.exit(1);
         }
-
+        
         File springFile = new File( args[0] );
         if( !springFile.exists() || !springFile.canRead() ) {
             System.err.println( "File " + args[0] + " doesn't exist or isn't readable.");
             System.exit(2);
         }
-
+        
         ExampleCommon.setupLogging();
-
-        FileSystemXmlApplicationContext context =
+        
+        FileSystemXmlApplicationContext context = 
             new FileSystemXmlApplicationContext( "file://" + springFile.getAbsolutePath() );
-
+        
         Connection connection;
         try {
             connection = context.getBean(Connection.class);
@@ -749,7 +750,7 @@ public class SpringExample {
             System.exit(3);
             return;
         }
-
+        
         String queueName;
         try {
             queueName = context.getBean("QueueName", String.class);
@@ -758,22 +759,22 @@ public class SpringExample {
             System.exit(3);
             return;
         }
-
+        
         if( connection instanceof SQSConnection ) {
             ExampleCommon.ensureQueueExists( (SQSConnection) connection, queueName );
         }
-
+        
         // Create the session
         Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
         MessageConsumer consumer = session.createConsumer( session.createQueue( queueName) );
-
+        
         receiveMessages(session, consumer);
-
+ 
         // The context can be setup to close the connection for us
         context.close();
         System.out.println( "Context closed" );
     }
-
+ 
     private static void receiveMessages( Session session, MessageConsumer consumer ) {
         try {
             while( true ) {
@@ -797,9 +798,9 @@ public class SpringExample {
 ```
 
 ## ExampleCommon.java
+<a name="example-common"></a>
 
-The following Java code example checks if an Amazon SQS queue exists and then creates one
-if it doesn't. It also includes example logging code.
+The following Java code example checks if an Amazon SQS queue exists and then creates one if it doesn't. It also includes example logging code.
 
 ```
 /*
@@ -820,15 +821,15 @@ if it doesn't. It also includes example logging code.
 
 public class ExampleCommon {
     /**
-     * A utility function to check the queue exists and create it if needed. For most
-     * use cases this is usually done by an administrator before the application is run.
+     * A utility function to check the queue exists and create it if needed. For most  
+     * use cases this is usually done by an administrator before the application is run. 
      */
     public static void ensureQueueExists(SQSConnection connection, String queueName) throws JMSException {
         AmazonSQSMessagingClientWrapper client = connection.getWrappedAmazonSQSClient();
-
+        
         /**
-         * In most cases, you can do this with just a createQueue call, but GetQueueUrl
-         * (called by queueExists) is a faster operation for the common case where the queue
+         * In most cases, you can do this with just a createQueue call, but GetQueueUrl 
+         * (called by queueExists) is a faster operation for the common case where the queue 
          * already exists. Also many users and roles have permission to call GetQueueUrl
          * but don't have permission to call CreateQueue.
          */
@@ -836,13 +837,13 @@ public class ExampleCommon {
             client.createQueue( queueName );
         }
     }
-
+ 
     public static void setupLogging() {
         // Setup logging
         BasicConfigurator.configure();
         Logger.getRootLogger().setLevel(Level.WARN);
     }
-
+ 
     public static void handleMessage(Message message) throws JMSException {
         System.out.println( "Got message " + message.getJMSMessageID() );
         System.out.println( "Content: ");

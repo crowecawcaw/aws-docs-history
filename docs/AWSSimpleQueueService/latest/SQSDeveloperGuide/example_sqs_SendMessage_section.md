@@ -1,24 +1,20 @@
+
+
 # Use `SendMessage` with an AWS SDK or CLI
+<a name="example_sqs_SendMessage_section"></a>
 
 The following code examples show how to use `SendMessage`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Manage large messages using S3](example_sqs_Scenario_SqsExtendedClient_section.md) 
++  [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md) 
 
-- [Manage large messages using S3](example_sqs_Scenario_SqsExtendedClient_section.md "example_sqs_Scenario_SqsExtendedClient_section.md")
-- [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md "example_sqs_Scenario_SendReceiveBatch_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SQS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SQS#code-examples").
-
-Create an Amazon SQS queue and send a message to it.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SQS#code-examples). 
+Create an Amazon SQS queue and send a message to it.  
 
 ```
     using System;
@@ -113,24 +109,14 @@ Create an Amazon SQS queue and send a message to it.
             return response;
         }
     }
-
-
-
 ```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/SendMessage) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [SendMessage](../../../goto/DotNetSDKV3/sqs-2012-11-05/SendMessage.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/SendMessage.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -165,30 +151,21 @@ bool AwsDoc::SQS::sendMessage(const Aws::String &queueUrl,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/SendMessage) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To send a message**  
+This example sends a message with the specified message body, delay period, and message attributes, to the specified queue.  
+Command:  
 
 ```
-
-- For API details, see
-  [SendMessage](../../../goto/SdkForCpp/sqs-2012-11-05/SendMessage.md "../../../goto/SdkForCpp/sqs-2012-11-05/SendMessage.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To send a message**
-
-This example sends a message with the specified message body, delay period, and message attributes, to the specified queue.
-
-Command:
-
+aws sqs send-message --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --message-body {{"Information about the largest city in Any Region."}} --delay-seconds {{10}} --message-attributes {{file://send-message.json}}
 ```
-`aws sqs send-message --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue` --message-body `"Information about the largest city in Any Region."` --delay-seconds `10` --message-attributes `file://send-message.json``
-
-```
-
-Input file (send-message.json):
+Input file (send-message.json):  
 
 ```
 {
@@ -206,8 +183,7 @@ Input file (send-message.json):
   }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -216,26 +192,17 @@ Output:
   "MessageId": "da68f62c-0c07-4bee-bf5f-7e856EXAMPLE"
 }
 ```
++  For API details, see [SendMessage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [SendMessage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
-
-Two examples of the `SendMessage` operation follow:
-
-- Send a message with a body and a delay
-- Send a message with a body and message attributes
-  Send a message with a body and a delay.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
+Two examples of the `SendMessage` operation follow:  
++ Send a message with a body and a delay
++ Send a message with a body and message attributes
+Send a message with a body and a delay.  
 
 ```
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -305,11 +272,8 @@ public class SendMessages {
         }
     }
 }
-
-
 ```
-
-Send a message with a body and message attributes.
+Send a message with a body and message attributes.  
 
 ```
     /**
@@ -360,25 +324,15 @@ Send a message with a body and message attributes.
             throw new RuntimeException(e);
         }
     }
-
-
 ```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SendMessage) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SendMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/SendMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/SendMessage.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples").
-
-Send a message to an Amazon SQS queue.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
+Send a message to an Amazon SQS queue.  
 
 ```
 import { SendMessageCommand, SQSClient } from "@aws-sdk/client-sqs";
@@ -412,24 +366,13 @@ export const main = async (sqsQueueUrl = SQS_QUEUE_URL) => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sqs-examples-send-receive-messages.html#sqs-examples-send-receive-messages-sending). 
++  For API details, see [SendMessage](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/SendMessageCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sqs-examples-send-receive-messages.md#sqs-examples-send-receive-messages-sending "../../../sdk-for-javascript/v3/developer-guide/sqs-examples-send-receive-messages.md#sqs-examples-send-receive-messages-sending").
-- For API details, see
-  [SendMessage](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/SendMessageCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/SendMessageCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples").
-
-Send a message to an Amazon SQS queue.
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
+Send a message to an Amazon SQS queue.  
 
 ```
 // Load the AWS SDK for Node.js
@@ -471,24 +414,15 @@ sqs.sendMessage(params, function (err, data) {
     console.log("Success", data.MessageId);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/sqs-examples-send-receive-messages.html#sqs-examples-send-receive-messages-sending). 
++  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/sqs-2012-11-05/SendMessage) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/sqs-examples-send-receive-messages.md#sqs-examples-send-receive-messages-sending "../../../sdk-for-javascript/v2/developer-guide/sqs-examples-send-receive-messages.md#sqs-examples-send-receive-messages-sending").
-- For API details, see
-  [SendMessage](../../../goto/AWSJavaScriptSDK/sqs-2012-11-05/SendMessage.md "../../../goto/AWSJavaScriptSDK/sqs-2012-11-05/SendMessage.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
 ```
 suspend fun sendMessages(
@@ -536,19 +470,14 @@ suspend fun sendBatchMessages(queueUrlVal: String?) {
         println("Batch message were successfully sent.")
     }
 }
-
-
 ```
++  For API details, see [SendMessage](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [SendMessage](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example sends a message with the specified attributes and message body to the specified queue with message delivery delayed for 10 seconds.**
+**Tools for PowerShell V4**  
+**Example 1: This example sends a message with the specified attributes and message body to the specified queue with message delivery delayed for 10 seconds.**  
 
 ```
 $cityAttributeValue = New-Object Amazon.SQS.Model.MessageAttributeValue
@@ -564,24 +493,18 @@ $messageAttributes.Add("City", $cityAttributeValue)
 $messageAttributes.Add("Population", $populationAttributeValue)
 
 Send-SQSMessage -DelayInSeconds 10 -MessageAttributes $messageAttributes -MessageBody "Information about the largest city in Any Region." -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+```
+**Output:**  
 
 ```
-
-**Output:**
-
-```
-MD5OfMessageAttributes              MD5OfMessageBody                    MessageId
-----------------------              ----------------                    ---------
+MD5OfMessageAttributes              MD5OfMessageBody                    MessageId                                          
+----------------------              ----------------                    ---------                                          
 1d3e51347bc042efbdf6dda31EXAMPLE    51b0a3256d59467f973009b73EXAMPLE    c35fed8f-c739-4d0c-818b-1820eEXAMPLE
 ```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [SendMessage](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example sends a message with the specified attributes and message body to the specified queue with message delivery delayed for 10 seconds.**
+**Tools for PowerShell V5**  
+**Example 1: This example sends a message with the specified attributes and message body to the specified queue with message delivery delayed for 10 seconds.**  
 
 ```
 $cityAttributeValue = New-Object Amazon.SQS.Model.MessageAttributeValue
@@ -597,30 +520,21 @@ $messageAttributes.Add("City", $cityAttributeValue)
 $messageAttributes.Add("Population", $populationAttributeValue)
 
 Send-SQSMessage -DelayInSeconds 10 -MessageAttributes $messageAttributes -MessageBody "Information about the largest city in Any Region." -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+```
+**Output:**  
 
 ```
-
-**Output:**
-
-```
-MD5OfMessageAttributes              MD5OfMessageBody                    MessageId
-----------------------              ----------------                    ---------
+MD5OfMessageAttributes              MD5OfMessageBody                    MessageId                                          
+----------------------              ----------------                    ---------                                          
 1d3e51347bc042efbdf6dda31EXAMPLE    51b0a3256d59467f973009b73EXAMPLE    c35fed8f-c739-4d0c-818b-1820eEXAMPLE
 ```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [SendMessage](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
 ```
 def send_message(queue, message_body, message_attributes=None):
@@ -645,28 +559,16 @@ def send_message(queue, message_body, message_attributes=None):
         raise error
     else:
         return response
+```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/SendMessage) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
-
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
 ```
-
-- For API details, see
-  [SendMessage](../../../goto/boto3/sqs-2012-11-05/SendMessage.md "../../../goto/boto3/sqs-2012-11-05/SendMessage.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples").
-
-```
-
 require 'aws-sdk-sqs'
 require 'aws-sdk-sts'
 
@@ -717,23 +619,14 @@ end
 
 # Example usage:
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/SdkForRubyV3/sqs-2012-11-05/SendMessage) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [SendMessage](../../../goto/SdkForRubyV3/sqs-2012-11-05/SendMessage.md "../../../goto/SdkForRubyV3/sqs-2012-11-05/SendMessage.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples). 
 
 ```
 async fn send(client: &Client, queue_url: &String, message: &SQSMessage) -> Result<(), Error> {
@@ -752,23 +645,14 @@ async fn send(client: &Client, queue_url: &String, message: &SQSMessage) -> Resu
 
     Ok(())
 }
-
-
 ```
++  For API details, see [SendMessage](https://docs.rs/aws-sdk-sqs/latest/aws_sdk_sqs/client/struct.Client.html#method.send_message) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [SendMessage](https://docs.rs/aws-sdk-sqs/latest/aws_sdk_sqs/client/struct.Client.html#method.send_message "https://docs.rs/aws-sdk-sqs/latest/aws_sdk_sqs/client/struct.Client.html#method.send_message")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 
 ```
     TRY.
@@ -781,14 +665,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_sqsunsupportedop.
         MESSAGE 'Operation not supported.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [SendMessage](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendMessage](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

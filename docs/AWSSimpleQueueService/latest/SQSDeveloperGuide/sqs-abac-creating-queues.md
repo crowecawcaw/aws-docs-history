@@ -1,37 +1,47 @@
-# Creating IAM users and Amazon SQS queues
 
-The following examples explain how to create an ABAC policy to control access to Amazon SQS
-using the AWS Management Console and CloudFormation.
+
+# Creating IAM users and Amazon SQS queues
+<a name="sqs-abac-creating-queues"></a>
+
+The following examples explain how to create an ABAC policy to control access to Amazon SQS using the AWS Management Console and CloudFormation.
 
 ## Using the AWS Management Console
+<a name="sqs-abac-creating-queues-console"></a>
 
 **Create an IAM user**
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. Choose **User** from the left navigation pane.
-3. Choose **Add Users** and enter a name in the **User
-   name** text box.
-4. Select the **Access key - Programmatic access** box and choose
-   **Next:Permissions**.
-5. Choose **Next:Tags**.
-6. Add the tag key as `environment` and the tag value as
-   `beta`.
-7. Choose **Next:Review** and then choose **Create
-   user**.
-8. Copy and store the access key ID and secret access key in a secure location.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
+
+1. Choose **User** from the left navigation pane.
+
+1. Choose **Add Users** and enter a name in the **User name** text box.
+
+1. Select the **Access key - Programmatic access** box and choose **Next:Permissions**.
+
+1. Choose **Next:Tags**.
+
+1. Add the tag key as `environment` and the tag value as `beta`.
+
+1. Choose **Next:Review** and then choose **Create user**.
+
+1. Copy and store the access key ID and secret access key in a secure location.
 
 **Add IAM user permissions**
 
 1. Select the IAM user that you created.
-2. Choose **Add inline policy**.
-3. On the JSON tab, paste the following policy:
-4. Choose **Review policy**.
-5. Choose **Create policy**.
+
+1. Choose **Add inline policy**.
+
+1. On the JSON tab, paste the following policy:
+
+1. Choose **Review policy**.
+
+1. Choose **Create policy**.
 
 ## Using AWS CloudFormation
+<a name="sqs-abac-creating-queues-cf"></a>
 
-Use the following sample CloudFormation template to create an IAM user with an inline policy
-attached and an Amazon SQS queue:
+Use the following sample CloudFormation template to create an IAM user with an inline policy attached and an Amazon SQS queue:
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -42,7 +52,7 @@ Resources:
         Properties:
             PolicyDocument: |
                 {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Sid": "AllowAccessForSameResTag",
@@ -88,8 +98,8 @@ Resources:
                         }
                     ]
                 }
-
-            Users:
+                
+            Users: 
               - "testUser"
             PolicyName: tagQueuePolicy
 
@@ -98,9 +108,8 @@ Resources:
         Properties:
             Path: "/"
             UserName: "testUser"
-            Tags:
-              -
+            Tags: 
+              - 
                 Key: "environment"
                 Value: "beta"
-
 ```

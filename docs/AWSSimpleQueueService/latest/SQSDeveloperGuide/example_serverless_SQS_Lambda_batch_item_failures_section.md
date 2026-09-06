@@ -1,18 +1,16 @@
+
+
 # Reporting batch item failures for Lambda functions with an Amazon SQS trigger
+<a name="example_serverless_SQS_Lambda_batch_item_failures_section"></a>
 
 The following code examples show how to implement partial batch response for Lambda functions that receive events from an SQS queue. The function reports the batch item failures in the response, signaling to Lambda to retry those messages later.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -39,7 +37,7 @@ public class Function
             catch (System.Exception)
             {
                 //Add failed message identifier to the batchItemFailures list
-                batchItemFailures.Add(new SQSBatchResponse.BatchItemFailure{ItemIdentifier=message.MessageId});
+                batchItemFailures.Add(new SQSBatchResponse.BatchItemFailure{ItemIdentifier=message.MessageId}); 
             }
         }
         return new SQSBatchResponse(batchItemFailures);
@@ -56,20 +54,14 @@ public class Function
         await Task.CompletedTask;
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -106,21 +98,14 @@ func handler(ctx context.Context, sqsEvent events.SQSEvent) (map[string]interfac
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -129,10 +114,10 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.SQSEvent;
 import com.amazonaws.services.lambda.runtime.events.SQSBatchResponse;
-
+ 
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 public class ProcessSQSMessageBatch implements RequestHandler<SQSEvent, SQSBatchResponse> {
     @Override
     public SQSBatchResponse handleRequest(SQSEvent sqsEvent, Context context) {
@@ -149,20 +134,14 @@ public class ProcessSQSMessageBatch implements RequestHandler<SQSEvent, SQSBatch
          return new SQSBatchResponse(batchItemFailures);
      }
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using JavaScript.  
 
 ```
 // Node.js 20.x Lambda runtime, AWS SDK for Javascript V3
@@ -184,10 +163,8 @@ async function processMessageAsync(record, context) {
     }
     console.log(`Processed message: ${record.body}`);
 }
-
 ```
-
-Reporting SQS batch item failures with Lambda using TypeScript.
+Reporting SQS batch item failures with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -214,21 +191,14 @@ async function processMessageAsync(record: SQSRecord): Promise<void> {
     }
     console.log(`Processed message ${record.body}`);
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using PHP.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -278,21 +248,14 @@ class Handler extends SqsHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -302,29 +265,23 @@ def lambda_handler(event, context):
     if event:
         batch_item_failures = []
         sqs_batch_response = {}
-
+     
         for record in event["Records"]:
             try:
                 print(f"Processed message: {record['body']}")
             except Exception as e:
                 batch_item_failures.append({"itemIdentifier": record['messageId']})
-
+        
         sqs_batch_response["batchItemFailures"] = batch_item_failures
         return sqs_batch_response
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting SQS batch item failures with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda-with-batch-item-handling) repository. 
+Reporting SQS batch item failures with Lambda using Ruby.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -348,21 +305,14 @@ def lambda_handler(event:, context:)
     return sqs_batch_response
   end
 end
-
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures")
-repository.
-
-Reporting SQS batch item failures with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-sqs-report-batch-item-failures) repository. 
+Reporting SQS batch item failures with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -397,10 +347,8 @@ async fn function_handler(event: LambdaEvent<SqsEvent>) -> Result<SqsBatchRespon
 async fn main() -> Result<(), Error> {
     run(service_fn(function_handler)).await
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

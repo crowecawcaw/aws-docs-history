@@ -1,22 +1,19 @@
+
+
 # Use `GetQueueAttributes` with an AWS SDK or CLI
+<a name="example_sqs_GetQueueAttributes_section"></a>
 
 The following code examples show how to use `GetQueueAttributes`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Process S3 event notifications](example_s3_Scenario_ProcessS3EventNotification_section.md) 
++  [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md) 
 
-- [Process S3 event notifications](example_s3_Scenario_ProcessS3EventNotification_section.md "example_s3_Scenario_ProcessS3EventNotification_section.md")
-- [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 
 ```
     /// <summary>
@@ -37,23 +34,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return getAttributesResponse.QueueARN;
     }
-
-
 ```
++  For API details, see [GetQueueAttributes](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/GetQueueAttributes) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetQueueAttributes](../../../goto/DotNetSDKV3/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/GetQueueAttributes.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -89,30 +77,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
 
 
             }
+```
++  For API details, see [GetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/GetQueueAttributes) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get a queue's attributes**  
+This example gets all of the specified queue's attributes.  
+Command:  
 
 ```
-
-- For API details, see
-  [GetQueueAttributes](../../../goto/SdkForCpp/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/SdkForCpp/sqs-2012-11-05/GetQueueAttributes.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get a queue's attributes**
-
-This example gets all of the specified queue's attributes.
-
-Command:
-
+aws sqs get-queue-attributes --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --attribute-names {{All}}
 ```
-`aws sqs get-queue-attributes --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue` --attribute-names `All``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -132,17 +111,13 @@ Output:
   }
 }
 ```
-
-This example gets only the specified queue's maximum message size and visibility timeout attributes.
-
-Command:
+This example gets only the specified queue's maximum message size and visibility timeout attributes.  
+Command:  
 
 ```
-`aws sqs get-queue-attributes --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyNewQueue` --attribute-names `MaximumMessageSize` `VisibilityTimeout``
-
+aws sqs get-queue-attributes --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyNewQueue}} --attribute-names {{MaximumMessageSize}} {{VisibilityTimeout}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -152,23 +127,15 @@ Output:
   }
 }
 ```
++  For API details, see [GetQueueAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-attributes.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetQueueAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-attributes.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -204,24 +171,14 @@ func (actor SqsActions) GetQueueArn(ctx context.Context, queueUrl string) (strin
 	}
 	return queueArn, err
 }
-
-
-
 ```
++  For API details, see [GetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.GetQueueAttributes) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [GetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.GetQueueAttributes "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.GetQueueAttributes")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 
 ```
 import { GetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
@@ -250,26 +207,19 @@ export const getQueueAttributes = async (queueUrl = SQS_QUEUE_URL) => {
   // }
   return response;
 };
-
-
 ```
++  For API details, see [GetQueueAttributes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/GetQueueAttributesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetQueueAttributes](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/GetQueueAttributesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/GetQueueAttributesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all attributes for the specified queue.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all attributes for the specified queue.**  
 
 ```
 Get-SQSQueueAttribute -AttributeName All -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 VisibilityTimeout                     : 30
@@ -282,23 +232,20 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
                                         arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
-Attributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue], [ApproximateNumberOfMessages, 0],
+Attributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue], [ApproximateNumberOfMessages, 0], 
                                         [ApproximateNumberOfMessagesNotVisible, 0], [ApproximateNumberOfMessagesDelayed, 0]...}
 ```
-
-**Example 2: This example lists separately only the specified attributes for the specified queue.**
+**Example 2: This example lists separately only the specified attributes for the specified queue.**  
 
 ```
 Get-SQSQueueAttribute -AttributeName MaximumMessageSize, VisibilityTimeout -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 VisibilityTimeout                     : 30
@@ -311,28 +258,22 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
                                         arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
 Attributes                            : {[MaximumMessageSize, 262144], [VisibilityTimeout, 30]}
 ```
++  For API details, see [GetQueueAttributes](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetQueueAttributes](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all attributes for the specified queue.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all attributes for the specified queue.**  
 
 ```
 Get-SQSQueueAttribute -AttributeName All -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 VisibilityTimeout                     : 30
@@ -345,23 +286,20 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
                                         arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
-Attributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue], [ApproximateNumberOfMessages, 0],
+Attributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue], [ApproximateNumberOfMessages, 0], 
                                         [ApproximateNumberOfMessagesNotVisible, 0], [ApproximateNumberOfMessagesDelayed, 0]...}
 ```
-
-**Example 2: This example lists separately only the specified attributes for the specified queue.**
+**Example 2: This example lists separately only the specified attributes for the specified queue.**  
 
 ```
 Get-SQSQueueAttribute -AttributeName MaximumMessageSize, VisibilityTimeout -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 VisibilityTimeout                     : 30
@@ -374,27 +312,20 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
                                         arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
 Attributes                            : {[MaximumMessageSize, 262144], [VisibilityTimeout, 30]}
 ```
++  For API details, see [GetQueueAttributes](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetQueueAttributes](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples). 
 
 ```
 class SqsWrapper:
@@ -441,24 +372,14 @@ class SqsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error getting queue ARN: {error_code} - {e}")
             raise
-
-
-
 ```
++  For API details, see [GetQueueAttributes](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/GetQueueAttributes) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
 ```
 import AWSSQS
@@ -480,25 +401,20 @@ import AWSSQS
             print("No queue attributes returned.")
             return
         }
-
+        
         for (attr, value) in attributes {
             switch(attr) {
             case "ApproximateNumberOfMessages":
-                print("Approximate message count: \(value)")
+                print("Approximate message count: \(value)")    
             case "MaximumMessageSize":
                 print("Maximum message size: \(value)kB")
             default:
                 continue
             }
         }
-
-
 ```
++  For API details, see [GetQueueAttributes](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/getqueueattributes(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [GetQueueAttributes](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/getqueueattributes(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/getqueueattributes(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

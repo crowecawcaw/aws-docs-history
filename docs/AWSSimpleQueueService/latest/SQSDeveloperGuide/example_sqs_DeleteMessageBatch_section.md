@@ -1,23 +1,20 @@
+
+
 # Use `DeleteMessageBatch` with an AWS SDK or CLI
+<a name="example_sqs_DeleteMessageBatch_section"></a>
 
 The following code examples show how to use `DeleteMessageBatch`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Process S3 event notifications](example_s3_Scenario_ProcessS3EventNotification_section.md) 
++  [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md) 
++  [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md) 
 
-- [Process S3 event notifications](example_s3_Scenario_ProcessS3EventNotification_section.md "example_s3_Scenario_ProcessS3EventNotification_section.md")
-- [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
-- [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md "example_sqs_Scenario_SendReceiveBatch_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 
 ```
     /// <summary>
@@ -45,23 +42,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return deleteResponse.Failed.Any();
     }
-
-
 ```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -100,30 +88,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
 
                 return false;
             }
+```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete multiple messages as a batch**  
+This example deletes the specified messages.  
+Command:  
 
 ```
-
-- For API details, see
-  [DeleteMessageBatch](../../../goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete multiple messages as a batch**
-
-This example deletes the specified messages.
-
-Command:
-
+aws sqs delete-message-batch --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --entries {{file://delete-message-batch.json}}
 ```
-`aws sqs delete-message-batch --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue` --entries `file://delete-message-batch.json``
-
-```
-
-Input file (delete-message-batch.json):
+Input file (delete-message-batch.json):  
 
 ```
 [
@@ -137,8 +116,7 @@ Input file (delete-message-batch.json):
   }
 ]
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -152,23 +130,15 @@ Output:
   ]
 }
 ```
++  For API details, see [DeleteMessageBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/delete-message-batch.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/delete-message-batch.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/delete-message-batch.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -205,24 +175,14 @@ func (actor SqsActions) DeleteMessages(ctx context.Context, queueUrl string, mes
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteMessageBatch](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 
 ```
 import {
@@ -274,19 +234,14 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
     );
   }
 };
-
-
 ```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.**  
 
 ```
 $deleteMessageRequest1 = New-Object Amazon.SQS.Model.DeleteMessageBatchRequestEntry
@@ -298,24 +253,18 @@ $deleteMessageRequest2.Id = "Request2"
 $deleteMessageRequest2.ReceiptHandle = "AQEBqOVY...KTsLYg=="
 
 Remove-SQSMessageBatch -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue -Entry $deleteMessageRequest1, $deleteMessageRequest2
+```
+**Output:**  
 
 ```
-
-**Output:**
-
-```
-Failed    Successful
-------    ----------
+Failed    Successful                                                                    
+------    ----------                                                                    
 {}        {Request1, Request2}
 ```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteMessageBatch](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.**  
 
 ```
 $deleteMessageRequest1 = New-Object Amazon.SQS.Model.DeleteMessageBatchRequestEntry
@@ -327,30 +276,21 @@ $deleteMessageRequest2.Id = "Request2"
 $deleteMessageRequest2.ReceiptHandle = "AQEBqOVY...KTsLYg=="
 
 Remove-SQSMessageBatch -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue -Entry $deleteMessageRequest1, $deleteMessageRequest2
+```
+**Output:**  
 
 ```
-
-**Output:**
-
-```
-Failed    Successful
-------    ----------
+Failed    Successful                                                                    
+------    ----------                                                                    
 {}        {Request1, Request2}
 ```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteMessageBatch](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
 ```
 def delete_messages(queue, messages):
@@ -380,10 +320,6 @@ def delete_messages(queue, messages):
         logger.exception("Couldn't delete messages from queue %s", queue)
     else:
         return response
-
-
-
-
 ```
 
 ```
@@ -434,7 +370,7 @@ class SqsWrapper:
             batch_size = 10
             for i in range(0, len(delete_entries), batch_size):
                 batch = delete_entries[i:i + batch_size]
-
+                
                 response = self.sqs_client.delete_message_batch(
                     QueueUrl=queue_url,
                     Entries=batch
@@ -452,24 +388,14 @@ class SqsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error deleting messages: {error_code} - {e}")
             raise
-
-
-
 ```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/DeleteMessageBatch) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 
 ```
     TRY.
@@ -486,23 +412,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_sqstoomanyentriesin00.
         MESSAGE 'The batch request contains more entries than allowed.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteMessageBatch](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
 ```
 import AWSSQS
@@ -573,15 +490,9 @@ import AWSSQS
         } else {
             print("No successful deletions.")
         }
-
-
-
 ```
++  For API details, see [DeleteMessageBatch](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteMessageBatch](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

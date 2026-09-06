@@ -1,25 +1,23 @@
+
+
 # Sending message attributes to an Amazon SQS queue
+<a name="sqs-java-send-message-with-attributes"></a>
 
-You can include structured metadata (such as timestamps, geospatial data, signatures, and identifiers) with messages using _message attributes_. For more information, see [Amazon SQS message attributes](sqs-message-metadata.md#sqs-message-attributes "sqs-message-metadata.md#sqs-message-attributes").
+You can include structured metadata (such as timestamps, geospatial data, signatures, and identifiers) with messages using *message attributes*. For more information, see [Amazon SQS message attributes](sqs-message-metadata.md#sqs-message-attributes).
 
-Before you run the example code, make sure that you have set your AWS credentials. For
-more information, see [Set up AWS Credentials and Region for Development](../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials "../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials")
-in the _AWS SDK for Java 2.x Developer Guide_.
+ Before you run the example code, make sure that you have set your AWS credentials. For more information, see [Set up AWS Credentials and Region for Development](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-credentials) in the *AWS SDK for Java 2.x Developer Guide*. 
 
 ## Defining attributes
+<a name="sqs-java-define-attributes"></a>
 
-To define an attribute for a message, add the following code, which uses the
-`MessageAttributeValue` data type. For more information, see [Message attribute components](sqs-message-metadata.md#message-attribute-components "sqs-message-metadata.md#message-attribute-components") and [Message attribute data types](sqs-message-metadata.md#message-attribute-data-types "sqs-message-metadata.md#message-attribute-data-types").
+To define an attribute for a message, add the following code, which uses the `[MessageAttributeValue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_MessageAttributeValue.html)` data type. For more information, see [Message attribute components](sqs-message-metadata.md#message-attribute-components) and [Message attribute data types](sqs-message-metadata.md#message-attribute-data-types).
 
-The AWS SDK for Java automatically calculates the message body and message attribute
-checksums and compares them with the data that Amazon SQS returns. For more information, see
-the _[AWS SDK for Java 2.x Developer Guide](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")_ and
-[Calculating the MD5 message digest for message attributes](sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation "sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation") for other
-programming languages.
+The AWS SDK for Java automatically calculates the message body and message attribute checksums and compares them with the data that Amazon SQS returns. For more information, see the *[AWS SDK for Java 2.x Developer Guide](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/)* and [Calculating the MD5 message digest for message attributes](sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation) for other programming languages.
 
-String
-This example defines a `String` attribute named
-`Name` with the value `Jane`.
+------
+#### [ String ]
+
+This example defines a `String` attribute named `Name` with the value `Jane`.
 
 ```
 final Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
@@ -28,10 +26,10 @@ messageAttributes.put("Name", new MessageAttributeValue()
 .withStringValue("Jane"));
 ```
 
-Number
-This example defines a `Number` attribute named
-`AccurateWeight` with the value
-`230.000000000000000001`.
+------
+#### [ Number ]
+
+This example defines a `Number` attribute named `AccurateWeight` with the value `230.000000000000000001`.
 
 ```
 final Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
@@ -40,10 +38,10 @@ messageAttributes.put("AccurateWeight", new MessageAttributeValue()
 .withStringValue("230.000000000000000001"));
 ```
 
-Binary
-This example defines a `Binary` attribute named
-`ByteArray` with the value of an uninitialized 10-byte
-array.
+------
+#### [ Binary ]
+
+This example defines a `Binary` attribute named `ByteArray` with the value of an uninitialized 10-byte array.
 
 ```
 final Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
@@ -52,9 +50,10 @@ messageAttributes.put("ByteArray", new MessageAttributeValue()
 .withBinaryValue(ByteBuffer.wrap(new byte[10])));
 ```
 
-String (custom)
-This example defines the custom attribute `String.EmployeeId`
-named `EmployeeId` with the value `ABC123456`.
+------
+#### [ String (custom) ]
+
+This example defines the custom attribute `String.EmployeeId` named `EmployeeId` with the value `ABC123456`.
 
 ```
 final Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
@@ -63,9 +62,10 @@ messageAttributes.put("EmployeeId", new MessageAttributeValue()
 .withStringValue("ABC123456"));
 ```
 
-Number (custom)
-This example defines the custom attribute `Number.AccountId`
-named `AccountId` with the value `000123456`.
+------
+#### [ Number (custom) ]
+
+This example defines the custom attribute `Number.AccountId` named `AccountId` with the value `000123456`.
 
 ```
 final Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
@@ -74,15 +74,13 @@ messageAttributes.put("AccountId", new MessageAttributeValue()
 .withStringValue("000123456"));
 ```
 
-###### Note
+**Note**  
+Because the base data type is `Number`, the `[ReceiveMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html)` method returns `123456`.
 
-Because the base data type is `Number`, the `ReceiveMessage` method returns
-`123456`.
+------
+#### [ Binary (custom) ]
 
-Binary (custom)
-This example defines the custom attribute `Binary.JPEG` named
-`ApplicationIcon` with the value of an uninitialized 10-byte
-array.
+This example defines the custom attribute `Binary.JPEG` named `ApplicationIcon` with the value of an uninitialized 10-byte array.
 
 ```
 final Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
@@ -91,10 +89,12 @@ messageAttributes.put("ApplicationIcon", new MessageAttributeValue()
 .withBinaryValue(ByteBuffer.wrap(new byte[10])));
 ```
 
-## Sending a message with attributes
+------
 
-This example adds the attributes to the `SendMessageRequest` before sending
-the message.
+## Sending a message with attributes
+<a name="sqs-java-send-attributes"></a>
+
+This example adds the attributes to the `SendMessageRequest` before sending the message.
 
 ```
 // Send a message with an attribute.
@@ -105,11 +105,6 @@ sendMessageRequest.withMessageAttributes(messageAttributes);
 sqs.sendMessage(sendMessageRequest);
 ```
 
-###### Important
-
-If you send a message to a First-In-First-Out (FIFO) queue, make sure that the
-`sendMessage` method executes _after_ you provide
-the message group ID.
-
-If you use the `SendMessageBatch` method instead of `SendMessage`, you must
-specify message attributes for each message in the batch.
+**Important**  
+If you send a message to a First-In-First-Out (FIFO) queue, make sure that the `sendMessage` method executes *after* you provide the message group ID.  
+If you use the `[SendMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html)` method instead of `[SendMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html)`, you must specify message attributes for each message in the batch.

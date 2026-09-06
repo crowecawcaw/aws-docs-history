@@ -1,26 +1,22 @@
+
+
 # Use `ReceiveMessage` with an AWS SDK or CLI
+<a name="example_sqs_ReceiveMessage_section"></a>
 
 The following code examples show how to use `ReceiveMessage`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Manage large messages using S3](example_sqs_Scenario_SqsExtendedClient_section.md) 
++  [Process S3 event notifications](example_s3_Scenario_ProcessS3EventNotification_section.md) 
++  [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md) 
++  [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md) 
 
-- [Manage large messages using S3](example_sqs_Scenario_SqsExtendedClient_section.md "example_sqs_Scenario_SqsExtendedClient_section.md")
-- [Process S3 event notifications](example_s3_Scenario_ProcessS3EventNotification_section.md "example_s3_Scenario_ProcessS3EventNotification_section.md")
-- [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
-- [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md "example_sqs_Scenario_SendReceiveBatch_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
-
-Receive messages from a queue by using its URL.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
+Receive messages from a queue by using its URL.  
 
 ```
     /// <summary>
@@ -42,11 +38,8 @@ Receive messages from a queue by using its URL.
             });
         return messageResponse.Messages;
     }
-
-
 ```
-
-Receive a message from an Amazon SQS queue, and then delete the message.
+Receive a message from an Amazon SQS queue, and then delete the message.  
 
 ```
         public static async Task Main()
@@ -120,24 +113,14 @@ Receive a message from an Amazon SQS queue, and then delete the message.
             return receiveMessageResponse;
         }
     }
-
-
-
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/ReceiveMessage) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ReceiveMessage](../../../goto/DotNetSDKV3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/ReceiveMessage.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -183,30 +166,21 @@ bool AwsDoc::SQS::receiveMessage(const Aws::String &queueUrl,
     }
     return outcome.IsSuccess();
 }
+```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/ReceiveMessage) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To receive a message**  
+This example receives up to 10 available messages, returning all available attributes.  
+Command:  
 
 ```
-
-- For API details, see
-  [ReceiveMessage](../../../goto/SdkForCpp/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForCpp/sqs-2012-11-05/ReceiveMessage.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To receive a message**
-
-This example receives up to 10 available messages, returning all available attributes.
-
-Command:
-
+aws sqs receive-message --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --attribute-names {{All}} --message-attribute-names {{All}} --max-number-of-messages {{10}}
 ```
-`aws sqs receive-message --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue` --attribute-names `All` --message-attribute-names `All` --max-number-of-messages `10``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -237,17 +211,13 @@ Output:
   ]
 }
 ```
-
-This example receives the next available message, returning only the SenderId and SentTimestamp attributes as well as the PostalCode message attribute.
-
-Command:
+This example receives the next available message, returning only the SenderId and SentTimestamp attributes as well as the PostalCode message attribute.  
+Command:  
 
 ```
-`aws sqs receive-message --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue` --attribute-names `SenderId` `SentTimestamp` --message-attribute-names `PostalCode``
-
+aws sqs receive-message --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --attribute-names {{SenderId}} {{SentTimestamp}} --message-attribute-names {{PostalCode}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -272,23 +242,15 @@ Output:
   ]
 }
 ```
++  For API details, see [ReceiveMessage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/receive-message.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ReceiveMessage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/receive-message.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/receive-message.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -323,24 +285,14 @@ func (actor SqsActions) GetMessages(ctx context.Context, queueUrl string, maxMes
 	}
 	return messages, err
 }
-
-
-
 ```
++  For API details, see [ReceiveMessage](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ReceiveMessage) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ReceiveMessage](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ReceiveMessage "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ReceiveMessage")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
 ```
         try {
@@ -355,25 +307,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
         return null;
-
-
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ReceiveMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples").
-
-Receive a message from an Amazon SQS queue.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
+Receive a message from an Amazon SQS queue.  
 
 ```
 import {
@@ -425,11 +367,8 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
     );
   }
 };
-
-
 ```
-
-Receive a message from an Amazon SQS queue using long-poll support.
+Receive a message from an Amazon SQS queue using long-poll support.  
 
 ```
 import { ReceiveMessageCommand, SQSClient } from "@aws-sdk/client-sqs";
@@ -456,23 +395,12 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/ReceiveMessageCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ReceiveMessage](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/ReceiveMessageCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/ReceiveMessageCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples").
-
-Receive a message from an Amazon SQS queue using long-poll support.
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
+Receive a message from an Amazon SQS queue using long-poll support.  
 
 ```
 // Load the AWS SDK for Node.js
@@ -500,24 +428,15 @@ sqs.receiveMessage(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/sqs-examples-enable-long-polling.html#sqs-examples-enable-long-polling-on-receive-message). 
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/sqs-2012-11-05/ReceiveMessage) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/sqs-examples-enable-long-polling.md#sqs-examples-enable-long-polling-on-receive-message "../../../sdk-for-javascript/v2/developer-guide/sqs-examples-enable-long-polling.md#sqs-examples-enable-long-polling-on-receive-message").
-- For API details, see
-  [ReceiveMessage](../../../goto/AWSJavaScriptSDK/sqs-2012-11-05/ReceiveMessage.md "../../../goto/AWSJavaScriptSDK/sqs-2012-11-05/ReceiveMessage.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
 ```
 suspend fun receiveMessages(queueUrlVal: String?) {
@@ -536,26 +455,19 @@ suspend fun receiveMessages(queueUrlVal: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [ReceiveMessage](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ReceiveMessage](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.**  
 
 ```
 Receive-SQSMessage -AttributeName SenderId, SentTimestamp -MessageAttributeName StudentName, StudentGrade -MessageCount 10 -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attributes             : {[SenderId, AIDAIAZKMSNQ7TEXAMPLE], [SentTimestamp, 1451495923744]}
@@ -566,21 +478,15 @@ MessageAttributes      : {[StudentGrade, Amazon.SQS.Model.MessageAttributeValue]
 MessageId              : 53828c4b-631b-469b-8833-c093cEXAMPLE
 ReceiptHandle          : AQEBpfGp...20Q5cg==
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ReceiveMessage](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.**  
 
 ```
 Receive-SQSMessage -AttributeName SenderId, SentTimestamp -MessageAttributeName StudentName, StudentGrade -MessageCount 10 -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attributes             : {[SenderId, AIDAIAZKMSNQ7TEXAMPLE], [SentTimestamp, 1451495923744]}
@@ -591,20 +497,13 @@ MessageAttributes      : {[StudentGrade, Amazon.SQS.Model.MessageAttributeValue]
 MessageId              : 53828c4b-631b-469b-8833-c093cEXAMPLE
 ReceiptHandle          : AQEBpfGp...20Q5cg==
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ReceiveMessage](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
 ```
 def receive_messages(queue, max_number, wait_time):
@@ -633,10 +532,6 @@ def receive_messages(queue, max_number, wait_time):
         raise error
     else:
         return messages
-
-
-
-
 ```
 
 ```
@@ -690,27 +585,16 @@ class SqsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error receiving messages: {error_code} - {e}")
             raise
+```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/ReceiveMessage) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
 ```
-
-- For API details, see
-  [ReceiveMessage](../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples").
-
-```
-
 require 'aws-sdk-sqs'
 require 'aws-sdk-sts'
 
@@ -775,23 +659,14 @@ end
 
 # Example usage:
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForRubyV3/sqs-2012-11-05/ReceiveMessage) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ReceiveMessage](../../../goto/SdkForRubyV3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForRubyV3/sqs-2012-11-05/ReceiveMessage.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples). 
 
 ```
 async fn receive(client: &Client, queue_url: &String) -> Result<(), Error> {
@@ -805,25 +680,15 @@ async fn receive(client: &Client, queue_url: &String) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ReceiveMessage](https://docs.rs/aws-sdk-sqs/latest/aws_sdk_sqs/client/struct.Client.html#method.receive_message) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ReceiveMessage](https://docs.rs/aws-sdk-sqs/latest/aws_sdk_sqs/client/struct.Client.html#method.receive_message "https://docs.rs/aws-sdk-sqs/latest/aws_sdk_sqs/client/struct.Client.html#method.receive_message")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples").
-
-Receive a message from an Amazon SQS queue.
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
+Receive a message from an Amazon SQS queue.  
 
 ```
     TRY.
@@ -833,11 +698,8 @@ Receive a message from an Amazon SQS queue.
       CATCH /aws1/cx_sqsoverlimit.
         MESSAGE 'Maximum number of in-flight messages reached.' TYPE 'E'.
     ENDTRY.
-
-
 ```
-
-Receive a message from an Amazon SQS queue using long-poll support.
+Receive a message from an Amazon SQS queue using long-poll support.  
 
 ```
     TRY.
@@ -849,23 +711,14 @@ Receive a message from an Amazon SQS queue using long-poll support.
       CATCH /aws1/cx_sqsoverlimit.
         MESSAGE 'Maximum number of in-flight messages reached.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ReceiveMessage](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ReceiveMessage](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
 ```
 import AWSSQS
@@ -884,22 +737,16 @@ import AWSSQS
             print("No messages received.")
             return
         }
-
+    
         for message in messages {
             print("Message ID:     \(message.messageId ?? "<unknown>")")
             print("Receipt handle: \(message.receiptHandle ?? "<unknown>")")
             print(message.body ?? "<body missing>")
             print("---")
         }
-
-
-
 ```
++  For API details, see [ReceiveMessage](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/receivemessage(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ReceiveMessage](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/receivemessage(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/receivemessage(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

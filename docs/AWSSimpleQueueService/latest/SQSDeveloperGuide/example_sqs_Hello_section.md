@@ -1,19 +1,17 @@
+
+
 # Hello Amazon SQS
+<a name="example_sqs_Hello_section"></a>
 
 The following code examples show how to get started using Amazon SQS.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 
 ```
-
 using Amazon.SQS;
 using Amazon.SQS.Model;
 
@@ -43,25 +41,15 @@ public static class HelloSQS
         }
     }
 }
-
-
 ```
++  For API details, see [ListQueues](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/ListQueues) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListQueues](../../../goto/DotNetSDKV3/sqs-2012-11-05/ListQueues.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/ListQueues.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs/hello_sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs/hello_sqs#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs/hello_sqs#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -102,11 +90,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_sqs.cpp source file.
+Code for the hello\_sqs.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -175,26 +160,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return 0;
 }
+```
++  For API details, see [ListQueues](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/ListQueues) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sqs#code-examples). 
 
 ```
-
-- For API details, see
-  [ListQueues](../../../goto/SdkForCpp/sqs-2012-11-05/ListQueues.md "../../../goto/SdkForCpp/sqs-2012-11-05/ListQueues.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sqs#code-examples").
-
-```
-
 package main
 
 import (
@@ -239,24 +214,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [ListQueues](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ListQueues) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListQueues](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ListQueues "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ListQueues")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -295,25 +260,15 @@ public class HelloSQS {
         }
     }
 }
-
-
 ```
++  For API details, see [ListQueues](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/ListQueues) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListQueues](../../../goto/SdkForJavaV2/sqs-2012-11-05/ListQueues.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ListQueues.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples").
-
-Initialize an Amazon SQS client and list queues.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
+Initialize an Amazon SQS client and list queues.  
 
 ```
 import { SQSClient, paginateListQueues } from "@aws-sdk/client-sqs";
@@ -342,23 +297,14 @@ export const helloSqs = async () => {
   );
   console.log(queues.map((t) => `  * ${t}`).join("\n"));
 };
-
-
 ```
++  For API details, see [ListQueues](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/ListQueuesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListQueues](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/ListQueuesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/ListQueuesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
 ```
 package com.kotlin.sqs
@@ -381,25 +327,15 @@ suspend fun listTopicsPag() {
             }
     }
 }
-
-
 ```
++  For API details, see [ListQueues](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListQueues](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples").
-
-The `Package.swift` file.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
+The `Package.swift` file.  
 
 ```
 import PackageDescription
@@ -435,11 +371,8 @@ let package = Package(
 
     ]
 )
-
-
 ```
-
-The Swift source code, `entry.swift`.
+The Swift source code, `entry.swift`.  
 
 ```
 import ArgumentParser
@@ -459,7 +392,7 @@ struct ExampleCommand: ParsableCommand {
         discussion: """
         """
     )
-
+    
     /// Called by ``main()`` to run the bulk of the example.
     func runAsync() async throws {
         let config = try await SQSClient.SQSClientConfiguration(region: region)
@@ -505,16 +438,11 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++  For API details, see [ListQueues](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/listqueues(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListQueues](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/listqueues(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/listqueues(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

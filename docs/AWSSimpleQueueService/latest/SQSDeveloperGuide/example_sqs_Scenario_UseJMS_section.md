@@ -1,29 +1,25 @@
+
+
 # Use the Amazon SQS Java Messaging Library to work with the Java Message Service (JMS) interface for Amazon SQS
+<a name="example_sqs_Scenario_UseJMS_section"></a>
 
 The following code example shows how to use the Amazon SQS Java Messaging Library to work with the JMS interface.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
-
-The following examples work with standard Amazon SQS queues and include:
-
-- Sending a text message.
-- Receiving messages synchronously.
-- Receiving messages asynchronously.
-- Receiving messages using CLIENT\_ACKNOWLEDGE mode.
-- Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.
-- Using Spring to inject dependencies.
-- A utility class that provides common methods used by the other examples.
-  For more information on using JMS with Amazon SQS, see the [Amazon SQS Developer Guide](sqs-java-message-service-jms-client.md "sqs-java-message-service-jms-client.md").
-
-Sending a text message.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
+The following examples work with standard Amazon SQS queues and include:  
++ Sending a text message.
++ Receiving messages synchronously.
++ Receiving messages asynchronously.
++ Receiving messages using CLIENT\_ACKNOWLEDGE mode.
++ Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.
++ Using Spring to inject dependencies.
++ A utility class that provides common methods used by the other examples.
+For more information on using JMS with Amazon SQS, see the [Amazon SQS Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-java-message-service-jms-client.html).   
+Sending a text message.  
 
 ```
     /**
@@ -88,11 +84,8 @@ Sending a text message.
             LOGGER.error("Failed sending message: {}", e.getMessage(), e);
         }
     }
-
-
 ```
-
-Receiving messages synchronously.
+Receiving messages synchronously.  
 
 ```
     /**
@@ -153,11 +146,8 @@ Receiving messages synchronously.
             LOGGER.error("Error receiving from SQS: {}", e.getMessage(), e);
         }
     }
-
-
 ```
-
-Receiving messages asynchronously.
+Receiving messages asynchronously.  
 
 ```
     /**
@@ -211,11 +201,8 @@ Receiving messages asynchronously.
         }  // The connection closes automatically. This also closes the session.
         LOGGER.info( "Connection closed" );
     }
-
-
 ```
-
-Receiving messages using CLIENT\_ACKNOWLEDGE mode.
+Receiving messages using CLIENT\_ACKNOWLEDGE mode.  
 
 ```
     /**
@@ -319,11 +306,8 @@ Receiving messages using CLIENT\_ACKNOWLEDGE mode.
             if (acknowledge) message.acknowledge();
         }
     }
-
-
 ```
-
-Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.
+Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.  
 
 ```
     /**
@@ -421,11 +405,8 @@ Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.
             if (acknowledge) message.acknowledge();
         }
     }
-
-
 ```
-
-Using Spring to inject dependencies.
+Using Spring to inject dependencies.  
 
 ```
 package com.example.sqs.jms.spring;
@@ -539,11 +520,8 @@ public class SpringExample {
         }
     }
 }
-
-
 ```
-
-Spring bean definitions.
+Spring bean definitions.  
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -591,14 +569,10 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
         <constructor-arg value="SQSJMSClientExampleQueue"/>
     </bean>
 </beans>
-
+```
+A utility class that provides common methods used by the other examples.  
 
 ```
-
-A utility class that provides common methods used by the other examples.
-
-```
-
 package com.example.sqs.jms;
 
 import com.amazon.sqs.javamessaging.AmazonSQSMessagingClientWrapper;
@@ -806,15 +780,11 @@ public class SqsJmsExampleUtils {
         };
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateQueue](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue)
+  + [DeleteQueue](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/DeleteQueue)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CreateQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md")
-  - [DeleteQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteQueue.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

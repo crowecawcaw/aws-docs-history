@@ -1,61 +1,52 @@
-# Logging Amazon Simple Queue Service API calls using AWS CloudTrail
 
-CloudTrail allows you to log and monitor Amazon SQS operations using two event types: data events and
-management events. This makes it easy to track and audit Amazon SQS activity in your account.
+
+# Logging Amazon Simple Queue Service API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
+
+CloudTrail allows you to log and monitor Amazon SQS operations using two event types: data events and management events. This makes it easy to track and audit Amazon SQS activity in your account.
 
 ## Amazon SQS data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, sending messages to an Amazon SQS object). These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
-data events. The CloudTrail **Event history** doesn't record data events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, sending messages to an Amazon SQS object). These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event history** doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the Amazon SQS resource types by using the CloudTrail console, AWS CLI,
-or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the Amazon SQS resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-To log Amazon SQS data events with CloudTrail, you must use advanced event selectors to configure the
-specific Amazon SQS resources or actions you want to log. Include the resource type [`AWS::SQS::Queue`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md") to capture queue-related actions. You can refine
-your logging preferences even further with using filters like `eventName` (such as
-[`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md") events). For more information, see [AdvancedEventSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md") in the _CloudTrail API
-Reference_.
+To log Amazon SQS data events with CloudTrail, you must use advanced event selectors to configure the specific Amazon SQS resources or actions you want to log. Include the resource type [`AWS::SQS::Queue`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html) to capture queue-related actions. You can refine your logging preferences even further with using filters like `eventName` (such as [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) events). For more information, see [AdvancedEventSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) in the *CloudTrail API Reference*.
 
-| Data event type (console) | resources.type value                                                                                                                                               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Amazon SQS queue**      | [`AWS::SQS::Queue`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md") | • [ChangeMessageVisibility](../APIReference/API_ChangeMessageVisibility.md "../APIReference/API_ChangeMessageVisibility.md")<br>• [ChangeMessageVisibilityBatch](../APIReference/API_ChangeMessageVisibilityBatch.md "../APIReference/API_ChangeMessageVisibilityBatch.md")<br>• [DeleteMessage](../APIReference/API_DeleteMessage.md "../APIReference/API_DeleteMessage.md")<br>• [DeleteMessageBatch](../APIReference/API_DeleteMessageBatch.md "../APIReference/API_DeleteMessageBatch.md")<br>• [GetQueueAttributes](../APIReference/API_GetQueueAttributes.md "../APIReference/API_GetQueueAttributes.md")<br>• [GetQueueUrl](../APIReference/API_GetQueueUrl.md "../APIReference/API_GetQueueUrl.md")<br>• [ListDeadLetterSourceQueues](../APIReference/API_ListDeadLetterSourceQueues.md "../APIReference/API_ListDeadLetterSourceQueues.md")<br>• [ListQueues](../APIReference/API_ListQueues.md "../APIReference/API_ListQueues.md")<br>• [ListQueueTags](../APIReference/API_ListQueueTags.md "../APIReference/API_ListQueueTags.md")<br>• [ReceiveMessage](../APIReference/API_ReceiveMessage.md "../APIReference/API_ReceiveMessage.md")<br>• [SendMessage](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md")<br>• [SendMessageBatch](../APIReference/API_SendMessageBatch.md "../APIReference/API_SendMessageBatch.md") |
 
-Use advanced event selectors to filter fields and log only important events. For more
-information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_.
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| Amazon SQS queue |  [`AWS::SQS::Queue`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html)  |  +  [ChangeMessageVisibility](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html) <br />+  [ChangeMessageVisibilityBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html) <br />+  [DeleteMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) <br />+  [DeleteMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html) <br />+  [GetQueueAttributes](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html) <br />+  [GetQueueUrl](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html) <br />+  [ListDeadLetterSourceQueues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html) <br />+  [ListQueues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html) <br />+  [ListQueueTags](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueueTags.html) <br />+  [ReceiveMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html) <br />+  [SendMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) <br />+  [SendMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html)   | 
+
+Use advanced event selectors to filter fields and log only important events. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 ## Amazon SQS management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-Amazon SQS logs the following control plane operations to CloudTrail as _management
-events_.
-
-- [AddPermission](../APIReference/API_AddPermission.md "../APIReference/API_AddPermission.md")
-- [CancelMessageMoveTask](../APIReference/API_CancelMessageMoveTask.md "../APIReference/API_CancelMessageMoveTask.md")
-- [CreateQueue](../APIReference/API_CreateQueue.md "../APIReference/API_CreateQueue.md")
-- [DeleteQueue](../APIReference/API_DeleteQueue.md "../APIReference/API_DeleteQueue.md")
-- [ListMessageMoveTasks](../APIReference/API_ListMessageMoveTasks.md "../APIReference/API_ListMessageMoveTasks.md")
-- [PurgeQueue](../APIReference/API_PurgeQueue.md "../APIReference/API_PurgeQueue.md")
-- [RemovePermission](../APIReference/API_RemovePermission.md "../APIReference/API_RemovePermission.md")
-- [SetQueueAttributes](../APIReference/API_SetQueueAttributes.md "../APIReference/API_SetQueueAttributes.md")
-- [StartMessageMoveTask](../APIReference/API_StartlMessageMoveTask.md "../APIReference/API_StartlMessageMoveTask.md")
-- [TagQueue](../APIReference/API_TagQueue.md "../APIReference/API_TagQueue.md")
-- [UntagQueue](../APIReference/API_UntagQueue.md "../APIReference/API_UntagQueue.md")
+Amazon SQS logs the following control plane operations to CloudTrail as *management events*.
++ [AddPermission](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html)
++ [CancelMessageMoveTask](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CancelMessageMoveTask.html)
++ [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
++ [DeleteQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html)
++ [ListMessageMoveTasks](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListMessageMoveTasks.html)
++ [PurgeQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html)
++ [RemovePermission](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html)
++ [SetQueueAttributes](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html)
++ [StartMessageMoveTask](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_StartlMessageMoveTask.html)
++ [TagQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_TagQueue.html)
++ [UntagQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_UntagQueue.html)
 
 ## Amazon SQS event example
+<a name="cloudtrail-event-examples"></a>
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
-The following example shows a CloudTrail event that demonstrates the `SendMessage`
-operation.
+The following example shows a CloudTrail event that demonstrates the `SendMessage` operation.
 
 ```
 {
@@ -119,11 +110,7 @@ operation.
   }
 ```
 
-###### Note
+**Note**  
+The `ListQueues` operation is a unique case because it doesn’t act on a specific resource. As a result, the ARN field doesn’t include a queue name and uses a wildcard (\*) instead.
 
-The `ListQueues` operation is a unique case because it doesn’t act on a
-specific resource. As a result, the ARN field doesn’t include a queue name and uses a
-wildcard (\*) instead.
-
-For information about CloudTrail record contents, see [CloudTrail
-record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.

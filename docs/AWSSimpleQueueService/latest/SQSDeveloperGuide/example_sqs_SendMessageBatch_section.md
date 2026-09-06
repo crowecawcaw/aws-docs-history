@@ -1,28 +1,25 @@
+
+
 # Use `SendMessageBatch` with an AWS SDK or CLI
+<a name="example_sqs_SendMessageBatch_section"></a>
 
 The following code examples show how to use `SendMessageBatch`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md) 
 
-- [Send and receive batches of messages](example_sqs_Scenario_SendReceiveBatch_section.md "example_sqs_Scenario_SendReceiveBatch_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To send multiple messages as a batch**
-
-This example sends 2 messages with the specified message bodies, delay periods, and message attributes, to the specified queue.
-
-Command:
+**AWS CLI**  
+**To send multiple messages as a batch**  
+This example sends 2 messages with the specified message bodies, delay periods, and message attributes, to the specified queue.  
+Command:  
 
 ```
-`aws sqs send-message-batch --queue-url `https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue` --entries `file://send-message-batch.json``
-
+aws sqs send-message-batch --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --entries {{file://send-message-batch.json}}
 ```
-
-Input file (send-message-batch.json):
+Input file (send-message-batch.json):  
 
 ```
 [
@@ -82,8 +79,7 @@ Input file (send-message-batch.json):
   }
 ]
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -103,20 +99,13 @@ Output:
   ]
 }
 ```
++  For API details, see [SendMessageBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message-batch.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [SendMessageBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message-batch.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message-batch.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
 ```
             SendMessageBatchRequest sendMessageBatchRequest = SendMessageBatchRequest.builder()
@@ -126,19 +115,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                                     .build())
                     .build();
             sqsClient.sendMessageBatch(sendMessageBatchRequest);
-
-
 ```
++  For API details, see [SendMessageBatch](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SendMessageBatch) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SendMessageBatch](../../../goto/SdkForJavaV2/sqs-2012-11-05/SendMessageBatch.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/SendMessageBatch.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example sends 2 messages with the specified attributes and message bodies to the specified queue. Delivery is delayed for 15 seconds for the first message and 10 seconds for the second message.**
+**Tools for PowerShell V4**  
+**Example 1: This example sends 2 messages with the specified attributes and message bodies to the specified queue. Delivery is delayed for 15 seconds for the first message and 10 seconds for the second message.**  
 
 ```
 $student1NameAttributeValue = New-Object Amazon.SQS.Model.MessageAttributeValue
@@ -157,14 +141,14 @@ $student2GradeAttributeValue = New-Object Amazon.SQS.Model.MessageAttributeValue
 $student2GradeAttributeValue.DataType = "Number"
 $student2GradeAttributeValue.StringValue = "93"
 
-$message1 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry
+$message1 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry 
 $message1.DelaySeconds = 15
 $message1.Id = "FirstMessage"
 $message1.MessageAttributes.Add("StudentName", $student1NameAttributeValue)
 $message1.MessageAttributes.Add("StudentGrade", $student1GradeAttributeValue)
 $message1.MessageBody = "Information about John Doe's grade."
 
-$message2 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry
+$message2 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry 
 $message2.DelaySeconds = 10
 $message2.Id = "SecondMessage"
 $message2.MessageAttributes.Add("StudentName", $student2NameAttributeValue)
@@ -172,24 +156,18 @@ $message2.MessageAttributes.Add("StudentGrade", $student2GradeAttributeValue)
 $message2.MessageBody = "Information about Jane Doe's grade."
 
 Send-SQSMessageBatch -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue -Entry $message1, $message2
+```
+**Output:**  
 
 ```
-
-**Output:**
-
-```
-Failed    Successful
-------    ----------
+Failed    Successful                                                                    
+------    ----------                                                                    
 {}        {FirstMessage, SecondMessage}
 ```
++  For API details, see [SendMessageBatch](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [SendMessageBatch](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example sends 2 messages with the specified attributes and message bodies to the specified queue. Delivery is delayed for 15 seconds for the first message and 10 seconds for the second message.**
+**Tools for PowerShell V5**  
+**Example 1: This example sends 2 messages with the specified attributes and message bodies to the specified queue. Delivery is delayed for 15 seconds for the first message and 10 seconds for the second message.**  
 
 ```
 $student1NameAttributeValue = New-Object Amazon.SQS.Model.MessageAttributeValue
@@ -208,14 +186,14 @@ $student2GradeAttributeValue = New-Object Amazon.SQS.Model.MessageAttributeValue
 $student2GradeAttributeValue.DataType = "Number"
 $student2GradeAttributeValue.StringValue = "93"
 
-$message1 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry
+$message1 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry 
 $message1.DelaySeconds = 15
 $message1.Id = "FirstMessage"
 $message1.MessageAttributes.Add("StudentName", $student1NameAttributeValue)
 $message1.MessageAttributes.Add("StudentGrade", $student1GradeAttributeValue)
 $message1.MessageBody = "Information about John Doe's grade."
 
-$message2 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry
+$message2 = New-Object Amazon.SQS.Model.SendMessageBatchRequestEntry 
 $message2.DelaySeconds = 10
 $message2.Id = "SecondMessage"
 $message2.MessageAttributes.Add("StudentName", $student2NameAttributeValue)
@@ -223,30 +201,21 @@ $message2.MessageAttributes.Add("StudentGrade", $student2GradeAttributeValue)
 $message2.MessageBody = "Information about Jane Doe's grade."
 
 Send-SQSMessageBatch -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue -Entry $message1, $message2
+```
+**Output:**  
 
 ```
-
-**Output:**
-
-```
-Failed    Successful
-------    ----------
+Failed    Successful                                                                    
+------    ----------                                                                    
 {}        {FirstMessage, SecondMessage}
 ```
++  For API details, see [SendMessageBatch](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [SendMessageBatch](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
 ```
 def send_messages(queue, messages):
@@ -291,28 +260,16 @@ def send_messages(queue, messages):
         raise error
     else:
         return response
+```
++  For API details, see [SendMessageBatch](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/SendMessageBatch) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
-
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
 ```
-
-- For API details, see
-  [SendMessageBatch](../../../goto/boto3/sqs-2012-11-05/SendMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/SendMessageBatch.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples").
-
-```
-
 require 'aws-sdk-sqs'
 require 'aws-sdk-sts'
 
@@ -380,24 +337,14 @@ def run_me
     puts 'Messages not sent.'
   end
 end
-
-
-
 ```
++  For API details, see [SendMessageBatch](https://docs.aws.amazon.com/goto/SdkForRubyV3/sqs-2012-11-05/SendMessageBatch) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [SendMessageBatch](../../../goto/SdkForRubyV3/sqs-2012-11-05/SendMessageBatch.md "../../../goto/SdkForRubyV3/sqs-2012-11-05/SendMessageBatch.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 
 ```
     TRY.
@@ -418,14 +365,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_sqsunsupportedop.
         MESSAGE 'Operation not supported.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [SendMessageBatch](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendMessageBatch](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
