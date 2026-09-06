@@ -1,53 +1,39 @@
+
+
 # Filtering your DevOps Guru notifications
+<a name="update-notifications-filter"></a>
 
-You can filter your DevOps Guru notifications by [Updating Amazon SNS notification configurations](update-notifications.md#update-notification-configurations "update-notifications.md#update-notification-configurations") or by using a Amazon SNS subscription
-filter policy.
+You can filter your DevOps Guru notifications by [Updating Amazon SNS notification configurations](update-notifications.md#update-notification-configurations) or by using a Amazon SNS subscription filter policy.
 
-###### Topics
-
-- [Filtering notifications with a Amazon SNS subscription filter policy](#use-subscription-filter-policy "#use-subscription-filter-policy")
-- [Example filtered Amazon SNS notification for Amazon DevOps Guru](#sample-filtered-notification "#sample-filtered-notification")
+**Topics**
++ [Filtering notifications with a Amazon SNS subscription filter policy](#use-subscription-filter-policy)
++ [Example filtered Amazon SNS notification for Amazon DevOps Guru](#sample-filtered-notification)
 
 ## Filtering notifications with a Amazon SNS subscription filter policy
+<a name="use-subscription-filter-policy"></a>
 
-You can create an Amazon Simple Notification Service (Amazon SNS) subscription filter policy to reduce the number of
-notifications you receive from Amazon DevOps Guru.
+You can create an Amazon Simple Notification Service (Amazon SNS) subscription filter policy to reduce the number of notifications you receive from Amazon DevOps Guru.
 
-Use a filter policy to specify the types of notifications you receive. You can filter
-your Amazon SNS messages using the following keywords.
+Use a filter policy to specify the types of notifications you receive. You can filter your Amazon SNS messages using the following keywords.
++ `NEW_INSIGHT` — Receive a notification when a new insight is created.
++ `CLOSED_INSIGHT` — Receive a notification when an existing insight is closed.
++ `NEW_RECOMMENDATION` — Receive a notification when a new recommendation is created from an insight.
++ `NEW_ASSOCIATION` — Receive a notification when a new anomaly is detected from an insight.
++ `CLOSED_ASSOCIATION` — Receive a notification when an existing anomaly is closed.
++ `SEVERITY_UPGRADED` — Receive a notification when the severity of an insight is upgraded
 
-- `NEW_INSIGHT` — Receive a notification when a new insight is
-  created.
-- `CLOSED_INSIGHT` — Receive a notification when an existing
-  insight is closed.
-- `NEW_RECOMMENDATION` — Receive a notification when a new
-  recommendation is created from an insight.
-- `NEW_ASSOCIATION` — Receive a notification when a new
-  anomaly is detected from an insight.
-- `CLOSED_ASSOCIATION` — Receive a notification when an
-  existing anomaly is closed.
-- `SEVERITY_UPGRADED` — Receive a notification when the
-  severity of an insight is upgraded
-
-For information about how to create an Amazon SNS subscription filter policy, see [Amazon SNS
-subscription filter policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md") in the _Amazon Simple Notification Service Developer
-Guide_. In your filter policy, you specify one of the keywords with the
-policy's `MessageType`. For example, the following would appear in a filter
-that specifies the Amazon SNS topic only deliver notifications when a new anomaly is detected
-from an insight.
+For information about how to create an Amazon SNS subscription filter policy, see [Amazon SNS subscription filter policies](https://docs.aws.amazon.com/sns/latest/dg/sns-subscription-filter-policies.html) in the *Amazon Simple Notification Service Developer Guide*. In your filter policy, you specify one of the keywords with the policy's `MessageType`. For example, the following would appear in a filter that specifies the Amazon SNS topic only deliver notifications when a new anomaly is detected from an insight.
 
 ```
-{
-  "MessageType":["NEW_ ASSOCIATION"]
+{ 
+  "MessageType":["NEW_ ASSOCIATION"] 
 }
 ```
 
 ## Example filtered Amazon SNS notification for Amazon DevOps Guru
+<a name="sample-filtered-notification"></a>
 
-The following is an example of an Amazon Simple Notification Service (Amazon SNS) notification from an Amazon SNS
-topic with a filter policy. Its `MessageType` is set to
-`NEW_ASSOCIATION`, so it sends notifications only when a new anomaly
-is detected from an insight.
+The following is an example of an Amazon Simple Notification Service (Amazon SNS) notification from an Amazon SNS topic with a filter policy. Its `MessageType` is set to `NEW_ASSOCIATION`, so it sends notifications only when a new anomaly is detected from an insight.
 
 ```
 {

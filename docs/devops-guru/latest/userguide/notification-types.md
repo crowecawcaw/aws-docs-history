@@ -1,18 +1,22 @@
+
+
 # Viewing notifications
+<a name="notification-types"></a>
 
 There are different types of notifications in DevOps Guru.
 
-###### Topics
+**Topics**
++ [New insight](#notification-new-insight)
++ [Closed insight](#notification-closed-insight)
++ [New association](#notification-new-association)
++ [New recommendation](#notification-new-recommendation)
++ [Severity upgraded](#notification-severity-upgraded)
++ [Resource validation failure](#notification-resource-validation-failure)
 
-- [New insight](#notification-new-insight "#notification-new-insight")
-- [Closed insight](#notification-closed-insight "#notification-closed-insight")
-- [New association](#notification-new-association "#notification-new-association")
-- [New recommendation](#notification-new-recommendation "#notification-new-recommendation")
-- [Severity upgraded](#notification-severity-upgraded "#notification-severity-upgraded")
-- [Resource validation failure](#notification-resource-validation-failure "#notification-resource-validation-failure")
-  The sections on this page show examples of each type of notification.
+The sections on this page show examples of each type of notification.
 
 ## New insight
+<a name="notification-new-insight"></a>
 
 Notifications for new insights contain the following information:
 
@@ -22,7 +26,7 @@ Notifications for new insights contain the following information:
    "region":"eu-west-1",
    "messageType":"NEW_INSIGHT",
    "insightId":"a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
-   "insightName": "Repeated Insight: ApiGateway 5XXError Anomalous In Application CanaryCommonResources-123456789101-LogAnomaly-4",
+   "insightName": "Repeated Insight: ApiGateway 5XXError Anomalous In Application CanaryCommonResources-123456789101-LogAnomaly-4", 
    "insightUrl":"https://eu-west-1.console.aws.amazon.com/devops-guru/insight/reactive/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
    "insightType":"REACTIVE",
    "insightDescription":"DevOps Guru has detected this is a repeated insight. DevOps Guru treats repeated insights as 'Low Severity'.",
@@ -65,6 +69,7 @@ Notifications for new insights contain the following information:
 ```
 
 ## Closed insight
+<a name="notification-closed-insight"></a>
 
 Notifications for closed insights contain the following information:
 
@@ -79,20 +84,20 @@ Notifications for closed insights contain the following information:
    "insightType":"PROACTIVE",
    "insightDescription":"DynamoDB table writes are under utilized",
    "insightSeverity":"medium",
-   "startTime": 1670612400000,
-   "startTimeISO": "2022-12-09T19:00:00Z",
-   "endTime": 1679994000000,
+   "startTime": 1670612400000, 
+   "startTimeISO": "2022-12-09T19:00:00Z", 
+   "endTime": 1679994000000, 
    "endTimeISO": "2023-03-28T09:00:00Z",
    "anomalies":[
       {
          "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
-         "startTime": 1665428400000,
-         "startTimeISO": "2022-10-10T19:00:00Z",
-         "endTime": 1679986800000,
-         "endTimeISO": "2023-03-28T07:00:00Z",
-         "openTime": 1670612400000,
-         "openTimeISO": "2022-12-09T19:00:00Z",
-         "closeTime": 1679994000000,
+         "startTime": 1665428400000, 
+         "startTimeISO": "2022-10-10T19:00:00Z", 
+         "endTime": 1679986800000, 
+         "endTimeISO": "2023-03-28T07:00:00Z", 
+         "openTime": 1670612400000, 
+         "openTimeISO": "2022-12-09T19:00:00Z", 
+         "closeTime": 1679994000000, 
          "closeTimeISO": "2023-03-28T09:00:00Z",
          "description":"Empty receives while messages are available",
          "anomalyResources":[
@@ -130,6 +135,7 @@ Notifications for closed insights contain the following information:
 ```
 
 ## New association
+<a name="notification-new-association"></a>
 
 Notifications for new associations contain the following information:
 
@@ -139,7 +145,7 @@ Notifications for new associations contain the following information:
    "region":"eu-west-1",
    "messageType":"NEW_ASSOCIATION",
    "insightId":"a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
-   "insightName": "Repeated Insight: Anomalous increase in Lambda ApigwLambdaDdbStack-22-GetOneFunction duration due to increased number of invocations",
+   "insightName": "Repeated Insight: Anomalous increase in Lambda ApigwLambdaDdbStack-22-GetOneFunction duration due to increased number of invocations",   
    "insightUrl":"https://eu-west-1.console.aws.amazon.com/devops-guru/insight/reactive/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
    "insightType":"REACTIVE",
    "insightDescription":"At March 29, 2023 22:02 GMT, Lambda function ApigwLambdaDdbStack-22-GetOneFunction had\nan increased duration anomaly possibly caused by the Lambda function invocation increase. DevOps Guru has detected this is a repeated insight. DevOps Guru treats repeated insights as 'Low Severity'.",
@@ -182,6 +188,7 @@ Notifications for new associations contain the following information:
 ```
 
 ## New recommendation
+<a name="notification-new-recommendation"></a>
 
 Notifications for new recommendations contain the following information:
 
@@ -233,6 +240,7 @@ Notifications for new recommendations contain the following information:
 ```
 
 ## Severity upgraded
+<a name="notification-severity-upgraded"></a>
 
 Notifications for severity upgrades contain the following information:
 
@@ -260,24 +268,19 @@ Notifications for severity upgrades contain the following information:
 ```
 
 ## Resource validation failure
+<a name="notification-resource-validation-failure"></a>
 
-You can use CloudFormation stacks and AWS tags to filter and identify the AWS resources that you want DevOps Guru to analyze.
-When you choose an invalid stack or tag for DevOps Guru to identify resources with,
-DevOps Guru creates a `SELECTED_RESOURCE_FILTER_VALIDATION_FAILURE` notification.
-This can happen when the tag or stack name that you specify does not have resources associated with it.
-To get the most out of DevOps Guru filtering methods, choose stacks and tags that have resources associated with them.
+ You can use CloudFormation stacks and AWS tags to filter and identify the AWS resources that you want DevOps Guru to analyze. When you choose an invalid stack or tag for DevOps Guru to identify resources with, DevOps Guru creates a `SELECTED_RESOURCE_FILTER_VALIDATION_FAILURE` notification. This can happen when the tag or stack name that you specify does not have resources associated with it. To get the most out of DevOps Guru filtering methods, choose stacks and tags that have resources associated with them.
 
 ```
-
 {
     "accountId":"123456789101",
     "region":"eu-west-1",
     "messageType":"SELECTED_RESOURCE_FILTER_VALIDATION_FAILURE",
     "ResourceFilterType": "Tags",
     "InvalidResourceNames": [
-         "Devops-Guru-`tag-key`-`tag-value`"
+         "Devops-Guru-{{tag-key}}-{{tag-value}}"
     ],
     "awsInsightSource": "aws.devopsguru"
 }
-
 ```
