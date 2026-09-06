@@ -1,159 +1,131 @@
+
+
 # File system access control with Amazon VPC
+<a name="limit-access-security-groups"></a>
 
-An Amazon FSx file system is accessible through an elastic network interface that resides
-in the virtual private cloud (VPC) based on the Amazon VPC service that you associate with
-your file system. You access your Amazon FSx file system through its DNS name, which maps to
-the file system's network interface. Only resources within the associated VPC, or a
-peered VPC, can access your file system's network interface. For more information, see
-[What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in
-the _Amazon VPC User Guide._
+An Amazon FSx file system is accessible through an elastic network interface that resides in the virtual private cloud (VPC) based on the Amazon VPC service that you associate with your file system. You access your Amazon FSx file system through its DNS name, which maps to the file system's network interface. Only resources within the associated VPC, or a peered VPC, can access your file system's network interface. For more information, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the* Amazon VPC User Guide.*
 
-###### Warning
-
-You must not modify or delete the Amazon FSx elastic network interface. Modifying or deleting the
-network interface can cause a permanent loss of connection between your VPC and your file system.
+**Warning**  
+You must not modify or delete the Amazon FSx elastic network interface. Modifying or deleting the network interface can cause a permanent loss of connection between your VPC and your file system.
 
 ## Amazon VPC Security Groups
+<a name="fsx-vpc-security-groups"></a>
 
-To further control network traffic going through your file system's network
-interface within your VPC, you use security groups to limit access to your file
-systems. A _security group_ acts as a virtual
-firewall to control the traffic for its associated resources. In this case, the
-associated resource is your file system's network interface. You also use VPC security groups to control
-network traffic for your Lustre clients.
+To further control network traffic going through your file system's network interface within your VPC, you use security groups to limit access to your file systems. A *security group* acts as a virtual firewall to control the traffic for its associated resources. In this case, the associated resource is your file system's network interface. You also use VPC security groups to control network traffic for your Lustre clients. 
 
 ### EFA-enabled security groups
+<a name="efa-security-groups"></a>
 
-For EFA-enabled FSx for Lustre file systems, the file system and client security
-groups must allow all traffic to and from each other, and the file system security
-group must also allow all traffic to and from itself.
+For EFA-enabled FSx for Lustre file systems, the file system and client security groups must allow all traffic to and from each other, and the file system security group must also allow all traffic to and from itself.
 
-###### Important
-
-CIDR-based rules, including `0.0.0.0/0`, do not satisfy EFA
-requirements even if they allow all traffic on all ports. You must explicitly specify a
-security group ID as the source or destination for all EFA traffic rules.
+**Important**  
+CIDR-based rules, including `0.0.0.0/0`, do not satisfy EFA requirements even if they allow all traffic on all ports. You must explicitly specify a security group ID as the source or destination for all EFA traffic rules.
 
 The following table lists the required rules for the file system security group.
 
-Required rules for the file system security group| Type | Protocol | Port range | Source/Destination |
-| --- | --- | --- | --- |
-| Inbound<br>• All traffic | All | All | File system security group ID (self-referencing) |
-| Inbound<br>• All traffic | All | All | Lustre client security group ID |
-| Outbound<br>• All traffic | All | All | File system security group ID (self-referencing) |
-| Outbound<br>• All traffic | All | All | Lustre client security group ID |
+
+**Required rules for the file system security group**  
+
+| Type | Protocol | Port range | Source/Destination | 
+| --- | --- | --- | --- | 
+| Inbound - All traffic | All | All | File system security group ID (self-referencing) | 
+| Inbound - All traffic | All | All | Lustre client security group ID | 
+| Outbound - All traffic | All | All | File system security group ID (self-referencing) | 
+| Outbound - All traffic | All | All | Lustre client security group ID | 
 
 The following table lists the required rules for the Lustre client security group.
 
-Required rules for the Lustre client security group| Type | Protocol | Port range | Source/Destination |
-| --- | --- | --- | --- |
-| Inbound<br>• All traffic | All | All | File system security group ID |
-| Outbound<br>• All traffic | All | All | File system security group ID |
 
-###### Note
+**Required rules for the Lustre client security group**  
 
-If the file system and clients use the same security group, the
-self-referencing rules on that security group satisfy both requirements.
+| Type | Protocol | Port range | Source/Destination | 
+| --- | --- | --- | --- | 
+| Inbound - All traffic | All | All | File system security group ID | 
+| Outbound - All traffic | All | All | File system security group ID | 
 
-For more information, see [Step 1:
-Prepare an EFA-enabled security group](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security") in the _Amazon EC2 User Guide_.
+**Note**  
+If the file system and clients use the same security group, the self-referencing rules on that security group satisfy both requirements.
+
+For more information, see [Step 1: Prepare an EFA-enabled security group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html#efa-start-security) in the *Amazon EC2 User Guide*.
 
 ### Controlling Access Using Inbound and Outbound Rules
+<a name="inbound-outbound-rules"></a>
 
-To use a security group to control access to your Amazon FSx file system and Lustre clients, you add the
-inbound rules to control incoming traffic and outbound rules to control the outgoing
-traffic from your file system and Lustre clients. Make sure to have the right network traffic rules in
-your security group to map your Amazon FSx file system's file share to a folder on your
-supported compute instance.
+To use a security group to control access to your Amazon FSx file system and Lustre clients, you add the inbound rules to control incoming traffic and outbound rules to control the outgoing traffic from your file system and Lustre clients. Make sure to have the right network traffic rules in your security group to map your Amazon FSx file system's file share to a folder on your supported compute instance. 
 
-For more information on security group rules, see [Security
-Group Rules](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md#security-group-rules "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md#security-group-rules") in the _Amazon EC2 User Guide_.
+For more information on security group rules, see [Security Group Rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-rules) in the *Amazon EC2 User Guide*. <a name="create-security-group"></a>
 
-###### To create a security group for your Amazon FSx file system
+**To create a security group for your Amazon FSx file system**
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
-2. In the navigation pane, choose **Security
-   Groups**.
-3. Choose **Create Security Group**.
-4. Specify a name and description for the security group.
-5. For **VPC**, choose the VPC associated with your Amazon FSx
-   file system to create the security group within that VPC.
-6. Choose **Create** to create the security group.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2).
 
-Next, you add inbound rules to the security group that you just created to enable
-Lustre traffic between your FSx for Lustre file servers.
+1. In the navigation pane, choose **Security Groups**.
 
-###### To add inbound rules to your security group
+1. Choose **Create Security Group**.
 
-1. Select the security group you just created if it's not already selected.
-   For **Actions**, choose **Edit inbound rules**.
-2. Add the following inbound rules.
+1. Specify a name and description for the security group.
 
-| Type            | Protocol | Port Range | Source                                                                                                                  | Description                                                                     |
-| --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+1. For **VPC**, choose the VPC associated with your Amazon FSx file system to create the security group within that VPC.
 
-3. Choose **Save** to save and apply the new inbound rules.
+1.  Choose **Create** to create the security group. 
 
-By default, security group rules allow all outbound traffic (All, 0.0.0.0/0). If
-your security group doesn't allow all outbound traffic, add the following
-outbound rules to your security group. These rules allow traffic between FSx for Lustre
-file servers and Lustre clients, and between Lustre file servers.
+Next, you add inbound rules to the security group that you just created to enable Lustre traffic between your FSx for Lustre file servers.
 
-###### To add outbound rules to your security group
+**To add inbound rules to your security group**
 
-1. Choose the same security group to which you just added the inbound rules.
-   For **Actions**, choose **Edit outbound
-   rules**.
-2. Add the following outbound rules.
+1. Select the security group you just created if it's not already selected. For **Actions**, choose **Edit inbound rules**.
 
-| Type            | Protocol | Port Range | Source                                                                                                                  | Description                                                                     |
-| --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allow Lustre traffic between FSx for Lustre file servers                        |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security group associated with your Lustre<br>clients  | Allow Lustre traffic between FSx for Lustre file servers and<br>Lustre clients  |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+1. Add the following inbound rules.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html)
 
-3. Choose **Save** to save and apply the new outbound rules.
+1. Choose **Save** to save and apply the new inbound rules.
 
-###### To associate a security group with your Amazon FSx file system
+By default, security group rules allow all outbound traffic (All, 0.0.0.0/0). If your security group doesn't allow all outbound traffic, add the following outbound rules to your security group. These rules allow traffic between FSx for Lustre file servers and Lustre clients, and between Lustre file servers.
 
-1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2. On the console dashboard, choose your file system to view its
-   details.
-3. On the **Network & Security** tab, click on
-   the **Amazon EC2 console** link under **Network Interface(s)**
-   to view all network interfaces for your file system.
-4. For each network interface, choose **Actions**, then
-   choose **Change security groups**.
-5. In the **Change security groups** dialog box, choose the
-   security groups that you want to associate with the network interface.
-6. Choose **Save**.
+**To add outbound rules to your security group**
+
+1.  Choose the same security group to which you just added the inbound rules. For **Actions**, choose **Edit outbound rules**. 
+
+1. Add the following outbound rules.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html)
+
+1. Choose **Save** to save and apply the new outbound rules.
+
+**To associate a security group with your Amazon FSx file system**
+
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/).
+
+1. On the console dashboard, choose your file system to view its details.
+
+1. On the **Network & Security** tab, click on the **Amazon EC2 console** link under **Network Interface(s)** to view all network interfaces for your file system.
+
+1. For each network interface, choose **Actions**, then choose **Change security groups**.
+
+1. In the **Change security groups** dialog box, choose the security groups that you want to associate with the network interface.
+
+1. Choose **Save**.
 
 ## Lustre client VPC security group rules
+<a name="lustre-client-inbound-outbound-rules"></a>
 
-You use VPC security groups to control access to your Lustre clients by adding
-inbound rules to control incoming traffic and outbound rules to control the outgoing
-traffic from your Lustre clients. Make sure to have the right network traffic rules in
-your security group to ensure that Lustre traffic can flow between your Lustre clients and your Amazon FSx file systems.
+You use VPC security groups to control access to your Lustre clients by adding inbound rules to control incoming traffic and outbound rules to control the outgoing traffic from your Lustre clients. Make sure to have the right network traffic rules in your security group to ensure that Lustre traffic can flow between your Lustre clients and your Amazon FSx file systems.
 
 Add the following inbound rules to the security groups applied to your Lustre clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                            | Description                                                                     |
-| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients          | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients          | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+
+| Type | Protocol | Port Range | Source | Description | 
+| --- | --- | --- | --- | --- | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows Lustre traffic between Lustre clients | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups associated with your FSx for Lustre file systems  | Allows Lustre traffic between FSx for Lustre file servers and Lustre clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows Lustre traffic between Lustre clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups associated with your FSx for Lustre file systems  | Allows Lustre traffic between FSx for Lustre file servers and Lustre clients | 
 
 Add the following outbound rules to the security groups applied to your Lustre clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                               | Description                                                                     |
-| --------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients             | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre<br>file systems | Allow Lustre traffic between FSx for Lustre file servers and<br>Lustre clients  |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients             | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre<br>file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+
+| Type | Protocol | Port Range | Source | Description | 
+| --- | --- | --- | --- | --- | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows Lustre traffic between Lustre clients | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups associated with your FSx for Lustre file systems | Allow Lustre traffic between FSx for Lustre file servers and Lustre clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows Lustre traffic between Lustre clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and Lustre clients | 

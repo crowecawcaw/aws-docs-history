@@ -1,141 +1,121 @@
-# Managing provisioned SSD read cache
 
-When you create a file system with the Intelligent-Tiering storage class, you have the option to
-also provision an SSD-based read cache which provides SSD latencies for reads of your frequently-accessed
-data, up to 3 IOPS per GiB.
+
+# Managing provisioned SSD read cache
+<a name="managing-ssd-read-cache"></a>
+
+When you create a file system with the Intelligent-Tiering storage class, you have the option to also provision an SSD-based read cache which provides SSD latencies for reads of your frequently-accessed data, up to 3 IOPS per GiB.
 
 You can configure your SSD read cache for frequently-accessed data with one of these sizing mode options:
++ **Automatic (proportional to throughput capacity)**. With Automatic, Amazon FSx for Lustre automatically selects an SSD data read cache size based on provisioned throughput capacity.
++ **Custom (user-provisioned)**. With Custom, you can customize the size of your SSD read cache and scale it up or down at any time based on your workload's needs.
++ Choose **No Cache** if you do not want to use an SSD data read cache with your file system.
 
-- **Automatic (proportional to throughput capacity)**. With Automatic, Amazon FSx for Lustre automatically
-  selects an SSD data read cache size based on provisioned throughput capacity.
-- **Custom (user-provisioned)**. With Custom, you can customize the size of your SSD read
-  cache and scale it up or down at any time based on your workload's needs.
-- Choose **No Cache** if you do not want to use an SSD data read cache with your
-  file system.
-  In Automatic (proportional to throughput capacity) mode, Amazon FSx automatically provisions the following default
-  read cache size based on the throughput capacity of your file system.
+In Automatic (proportional to throughput capacity) mode, Amazon FSx automatically provisions the following default read cache size based on the throughput capacity of your file system.
 
-| Provisioned throughput capacity (MBps) | **SSD read cache in Automatic (proportional to throughput capacity) mode (GiB)** | **Supported SSD read cache size** |
-| -------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------- |
-|                                        |                                                                                  | **minimum (GiB)**                 | **maximum (GiB)** |
-| Every 4000                             | 20000                                                                            | 32                                | 131072            |
 
-After your file system is created, you can modify your read cache's sizing mode and storage capacity
-at any time.
+| Provisioned throughput capacity (MBps) |  **SSD read cache in Automatic (proportional to throughput capacity) mode (GiB)** | **Supported SSD read cache size** | 
+| --- |--- |--- |
+| **** | **** | **minimum (GiB)** | **maximum (GiB)** | 
+| --- |--- |--- |--- |
+| Every 4000 | 20000 | 32 | 131072 | 
+| --- |--- |--- |--- |
 
-###### Topics
+After your file system is created, you can modify your read cache's sizing mode and storage capacity at any time.
 
-- [Considerations when updating SSD read cache](#considerations-update-ssd-read-cache "#considerations-update-ssd-read-cache")
-- [Updating a provisioned SSD read cache](#update-ssd-read-cache "#update-ssd-read-cache")
-- [Monitoring SSD read cache updates](#monitoring-ssd-read-cache-update "#monitoring-ssd-read-cache-update")
+**Topics**
++ [Considerations when updating SSD read cache](#considerations-update-ssd-read-cache)
++ [Updating a provisioned SSD read cache](#update-ssd-read-cache)
++ [Monitoring SSD read cache updates](#monitoring-ssd-read-cache-update)
 
 ## Considerations when updating SSD read cache
+<a name="considerations-update-ssd-read-cache"></a>
 
 Here are a few important considerations when modifying your SSD data read cache:
-
-- Any time you modify the SSD read cache, all of its contents will be erased. This means
-  that you may see a decrease in performance levels until the SSD read cache is populated again.
-- You can increase or decrease the capacity size of an SSD read cache. However, you can only
-  do this once every six hours. There is no time restriction when adding or removing an SSD read cache
-  from your file system.
-- You must increase or decrease the size of your SSD read cache by a minimum of 10% every time you modify it.
++ Any time you modify the SSD read cache, all of its contents will be erased. This means that you may see a decrease in performance levels until the SSD read cache is populated again.
++ You can increase or decrease the capacity size of an SSD read cache. However, you can only do this once every six hours. There is no time restriction when adding or removing an SSD read cache from your file system.
++ You must increase or decrease the size of your SSD read cache by a minimum of 10% every time you modify it.
 
 ## Updating a provisioned SSD read cache
+<a name="update-ssd-read-cache"></a>
 
 You can update your SSD data read cache using the Amazon FSx console, the AWS CLI, or the Amazon FSx API.
 
-1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2. In the left navigation pane, choose **File systems**. In the **File
-   systems** list, choose the FSx for Lustre file system that you
-   want to update the SSD read cache for.
-3. SSD On the **Summary** panel, choose **Update** next to the file system's
-   **SSD read cache** value.
+### To update the SSD read cache for an Intelligent-Tiering file system (console)
+<a name="update-sizing-mode-console"></a>
 
-The **Update SSD read cache** dialog box appears. 4. Select the new sizing mode that you would like for your data read cache, as follows:
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/).
 
-    * Choose **Automatic (proportional to throughput capacity)** to have your data read cache
-     automatically sized based on your throughput capacity.
-    * Choose **Custom (user-provisioned)** if you know the approximate size of your
-     dataset and would like to customize your data read cache. If you select Custom, you will
-     also need to specify the **Desired read cache capacity** in GiB.
-    * Choose **None** if you do not want to use an SSD data read cache with your Intelligent-Tiering file system.
+1. In the left navigation pane, choose **File systems**. In the **File systems** list, choose the FSx for Lustre file system that you want to update the SSD read cache for.
 
-5. Choose **Update**.
-To update the SSD data read cache for an Intelligent-Tiering file system,
-use the AWS CLI command [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") or the equivalent UpdateFileSystem API action. Set the following parameters:
+1. SSD On the **Summary** panel, choose **Update** next to the file system's **SSD read cache** value.
 
-- Set `--file-system-id` to the ID of the file system that you are updating.
-- To modify your SSD read cache, use the `--lustre-configuration
- DataReadCacheConfiguration` property. This property has two parameters,
-  `SizeGiB` and `SizingMode`:
+   The **Update SSD read cache** dialog box appears.
 
-  - **SizeGiB** ‐ Sets the size of your SSD read cache in GiB
-    when using `USER_PROVISIONED` mode.
-  - **SizingMode** ‐ Sets the sizing mode of your SSD read cache.
+1. Select the new sizing mode that you would like for your data read cache, as follows:
+   + Choose **Automatic (proportional to throughput capacity)** to have your data read cache automatically sized based on your throughput capacity.
+   + Choose **Custom (user-provisioned)** if you know the approximate size of your dataset and would like to customize your data read cache. If you select Custom, you will also need to specify the **Desired read cache capacity** in GiB.
+   + Choose **None** if you do not want to use an SSD data read cache with your Intelligent-Tiering file system.
 
-    - Set to `NO_CACHE` if you do not want to use an SSD read cache with
-      your Intelligent-Tiering file system.
-    - Set to `USER_PROVISIONED` to specify the exact size of your SSD read cache.
-    - Set to `PROPORTIONAL_TO_THROUGHPUT_CAPACITY` to have your SSD data read cache
-      automatically sized based on your throughput capacity.
-      The following example updates the SSD read cache to `USER_PROVISIONED` mode and sets the size to 524288 GiB.
+1. Choose **Update**.
+
+### To update the SSD read cache for an Intelligent-Tiering file system (CLI)
+<a name="update-data-read-cache-cli"></a>
+
+To update the SSD data read cache for an Intelligent-Tiering file system, use the AWS CLI command [update-file-system](https://docs.aws.amazon.com/cli/latest/reference/fsx/update-file-system.html) or the equivalent UpdateFileSystem API action. Set the following parameters:
++ Set `--file-system-id` to the ID of the file system that you are updating.
++ To modify your SSD read cache, use the `--lustre-configuration DataReadCacheConfiguration` property. This property has two parameters, `SizeGiB` and `SizingMode`:
+  + **SizeGiB** ‐ Sets the size of your SSD read cache in GiB when using `USER_PROVISIONED` mode.
+  + **SizingMode** ‐ Sets the sizing mode of your SSD read cache.
+    + Set to `NO_CACHE` if you do not want to use an SSD read cache with your Intelligent-Tiering file system.
+    + Set to `USER_PROVISIONED` to specify the exact size of your SSD read cache.
+    + Set to `PROPORTIONAL_TO_THROUGHPUT_CAPACITY` to have your SSD data read cache automatically sized based on your throughput capacity.
+
+The following example updates the SSD read cache to `USER_PROVISIONED` mode and sets the size to 524288 GiB.
 
 ```
-`aws fsx update-file-system \
- --file-system-id fs-0123456789abcdef0 \
- --lustre-configuration 'DataReadCacheConfiguration={SizeGiB=`524288`,SizingMode=`USER_PROVISIONED`}'`
+aws fsx update-file-system \
+   --file-system-id fs-0123456789abcdef0 \
+   --lustre-configuration 'DataReadCacheConfiguration={SizeGiB={{524288}},SizingMode={{USER_PROVISIONED}}}'
 ```
 
-To monitor the progress of the update, use the [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command. Look for the `AdministrativeActions` section in the output.
+To monitor the progress of the update, use the [describe-file-systems](https://docs.aws.amazon.com/cli/latest/reference/fsx/describe-file-systems.html) AWS CLI command. Look for the `AdministrativeActions` section in the output.
 
-For more information, see [AdministrativeAction](../APIReference/API_AdministrativeAction.md "../APIReference/API_AdministrativeAction.md") in the _Amazon FSx API Reference_.
+For more information, see [AdministrativeAction](https://docs.aws.amazon.com/fsx/latest/APIReference/API_AdministrativeAction.html) in the *Amazon FSx API Reference*.
 
 ## Monitoring SSD read cache updates
+<a name="monitoring-ssd-read-cache-update"></a>
 
-You can monitor the progress of an SSD read cache update by using the Amazon FSx
-console, the API, or the AWS CLI.
+You can monitor the progress of an SSD read cache update by using the Amazon FSx console, the API, or the AWS CLI.
 
 ### Monitoring updates in the console
+<a name="monitor-read-cache-action-console"></a>
 
 You can monitor file system updates in the **Updates** tab on the **File system details** page.
 
 For SSD read cache updates, you can view the following information:
 
-****Update type****
-
+****Update type****  
 Supported types are **SSD read cache sizing mode** and **SSD read cache size**.
 
-****Target value****
-
+****Target value****  
 The updated value for the file system's SSD read cache sizing mode or SSD read cache size.
 
-****Status****
+****Status****  
+The current status of the update. The possible values are as follows:  
++ **Pending** – Amazon FSx has received the update request, but has not started processing it.
++ **In progress** – Amazon FSx is processing the update request.
++ **Completed** – The update finished successfully.
++ **Failed** – The update request failed. Choose the question mark (**?**) to see details on why the request failed.
 
-The current status of the update. The possible values are as follows:
-
-- **Pending** – Amazon FSx has received the update request, but has not
-  started processing it.
-- **In progress** – Amazon FSx is processing the update request.
-- **Completed** – The update finished successfully.
-- **Failed** – The update request failed. Choose the question
-  mark (**?**) to see details on why the request failed.
-
-****Request time****
-
+****Request time****  
 The time that Amazon FSx received the update action request.
 
 ### Monitoring SSD read cache updates with the AWS CLI and API
+<a name="monitor-ssd-read-cache-update-cli-api"></a>
 
-You can view and monitor file system SSD read cache update requests using the
-[describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command and the
-[DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API operation. The `AdministrativeActions` array
-lists the 10 most recent update actions for each administrative action type. When you
-update a file system's SSD read cache, a `FILE_SYSTEM_UPDATE`
-`AdministrativeActions` is generated.
+You can view and monitor file system SSD read cache update requests using the [describe-file-systems](https://docs.aws.amazon.com/cli/latest/reference/fsx/describe-file-systems.html) AWS CLI command and the [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) API operation. The `AdministrativeActions` array lists the 10 most recent update actions for each administrative action type. When you update a file system's SSD read cache, a `FILE_SYSTEM_UPDATE` `AdministrativeActions` is generated.
 
-The following example shows an excerpt of the response of a `describe-file-systems`
-CLI command. The file system has a pending administrative action to change the SSD read cache sizing
-mode to `USER_PROVISIONED` and the SSD read cache size to 524288.
+The following example shows an excerpt of the response of a `describe-file-systems` CLI command. The file system has a pending administrative action to change the SSD read cache sizing mode to `USER_PROVISIONED` and the SSD read cache size to 524288.
 
 ```
 "AdministrativeActions": [
@@ -155,7 +135,4 @@ mode to `USER_PROVISIONED` and the SSD read cache size to 524288.
 ]
 ```
 
-When the new SSD read cache configuration is available to the file system, the
-`FILE_SYSTEM_UPDATE` status changes to `COMPLETED`. If the
-SSD read cache update request fails, the status of the
-`FILE_SYSTEM_UPDATE` action changes to `FAILED`.
+When the new SSD read cache configuration is available to the file system, the `FILE_SYSTEM_UPDATE` status changes to `COMPLETED`. If the SSD read cache update request fails, the status of the `FILE_SYSTEM_UPDATE` action changes to `FAILED`.

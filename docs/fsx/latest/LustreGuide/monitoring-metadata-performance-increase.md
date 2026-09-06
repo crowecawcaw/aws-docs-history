@@ -1,48 +1,39 @@
+
+
 # Monitoring metadata configuration updates
+<a name="monitoring-metadata-performance-increase"></a>
 
-You can monitor the progress of metadata configuration updates by using the Amazon FSx console,
-the API, or the AWS CLI.
+You can monitor the progress of metadata configuration updates by using the Amazon FSx console, the API, or the AWS CLI.
 
-You can monitor metadata configuration updates in the **Updates** tab on the
-**File system details** page.
+## Monitoring metadata configuration updates (console)
+<a name="monitor-metadata-performance-action-console"></a>
+
+You can monitor metadata configuration updates in the **Updates** tab on the **File system details** page.
 
 For metadata configuration updates, you can view the following information:
 
-****Update type****
+****Update type****  
+Supported types are **Metadata IOPS** and **Metadata configuration mode**.
 
-Supported types are **Metadata IOPS** and
-**Metadata configuration mode**.
+****Target value****  
+The updated value for the file system's Metadata IOPS or Metadata configuration mode.
 
-****Target value****
+****Status****  
+The current status of the update. The possible values are as follows:  
++ **Pending** – Amazon FSx has received the update request, but has not started processing it.
++ **In progress** – Amazon FSx is processing the update request.
++ **Completed** – The update finished successfully.
++ **Failed** – The update request failed. Choose the question mark (**?**) to see details on why the request failed.
 
-The updated value for the file system's Metadata IOPS or
-Metadata configuration mode.
-
-****Status****
-
-The current status of the update. The possible values are as follows:
-
-- **Pending** – Amazon FSx has received the update request, but has not
-  started processing it.
-- **In progress** – Amazon FSx is processing the update request.
-- **Completed** – The update finished successfully.
-- **Failed** – The update request failed. Choose the question
-  mark (**?**) to see details on why the request failed.
-
-****Request time****
-
+****Request time****  
 The time that Amazon FSx received the update action request.
 
-You can view and monitor metadata configuration update requests using the
-[describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command and the
-[DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API operation. The `AdministrativeActions` array
-lists the 10 most recent update actions for each administrative action type. When you
-update a file system's metadata performance or metadata configuration mode,
-a `FILE_SYSTEM_UPDATE` `AdministrativeActions` is generated.
+## Monitoring metadata configuration updates (CLI)
+<a name="monitor-metadata-update-action-cli-api"></a>
 
-The following example shows an excerpt of the response of a `describe-file-systems`
-CLI command. The file system has a pending administrative action to increase the Metadata IOPS
-to 96000 and the metadata configuration mode to USER\_PROVISIONED.
+You can view and monitor metadata configuration update requests using the [describe-file-systems](https://docs.aws.amazon.com/cli/latest/reference/fsx/describe-file-systems.html) AWS CLI command and the [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) API operation. The `AdministrativeActions` array lists the 10 most recent update actions for each administrative action type. When you update a file system's metadata performance or metadata configuration mode, a `FILE_SYSTEM_UPDATE` `AdministrativeActions` is generated.
+
+The following example shows an excerpt of the response of a `describe-file-systems` CLI command. The file system has a pending administrative action to increase the Metadata IOPS to 96000 and the metadata configuration mode to USER\_PROVISIONED.
 
 ```
 "AdministrativeActions": [
@@ -62,13 +53,9 @@ to 96000 and the metadata configuration mode to USER\_PROVISIONED.
 ]
 ```
 
-Amazon FSx processes the `FILE_SYSTEM_UPDATE` action, modifying the file system's
-Metadata IOPS and metadata configuration mode. When the new metadata resources are available
-to the file system the `FILE_SYSTEM_UPDATE` status changes to `COMPLETED`.
+Amazon FSx processes the `FILE_SYSTEM_UPDATE` action, modifying the file system's Metadata IOPS and metadata configuration mode. When the new metadata resources are available to the file system the `FILE_SYSTEM_UPDATE` status changes to `COMPLETED`.
 
-If the metadata configuration update request fails, the status of the `FILE_SYSTEM_UPDATE`
-action changes to `FAILED`, as shown in the following example. The `FailureDetails`
-property provides information about the failure.
+If the metadata configuration update request fails, the status of the `FILE_SYSTEM_UPDATE` action changes to `FAILED`, as shown in the following example. The `FailureDetails` property provides information about the failure.
 
 ```
 "AdministrativeActions": [
@@ -85,7 +72,7 @@ property provides information about the failure.
             }
         },
         "FailureDetails": {
-            "Message": "`failure-message`"
+            "Message": "{{failure-message}}"
         }
     }
 ]

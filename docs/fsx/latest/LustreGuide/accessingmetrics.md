@@ -1,47 +1,56 @@
+
+
 # Accessing CloudWatch metrics
+<a name="accessingmetrics"></a>
 
-You can access Amazon FSx for Lustre metrics for CloudWatch in the following ways:
+You can access Amazon FSx for Lustre metrics for CloudWatch in the following ways: 
++ The Amazon FSx for Lustre console.
++ The CloudWatch console.
++ The CloudWatch command line interface (CLI).
++ The CloudWatch API.
 
-- The Amazon FSx for Lustre console.
-- The CloudWatch console.
-- The CloudWatch command line interface (CLI).
-- The CloudWatch API.
-  The following procedures show you how to access the metrics using these tools.
+The following procedures show you how to access the metrics using these tools.
 
-###### To view metrics using the Amazon FSx for Lustre console
+## Using the Amazon FSx for Lustre console
+<a name="cwmetrics-fsx-console"></a>
 
-1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2. From the navigation pane, choose **File systems**, then choose the
-   file system that has the metrics that you want to view.
-3. On the **Summary** page, choose **Monitoring & performance** to
-   see the metrics for your file system.
+**To view metrics using the Amazon FSx for Lustre console**
 
-There are four tabs on the **Monitoring & performance** panel.
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/).
 
-    * Choose **Summary** (the default tab) to display any active warnings,
-     CloudWatch alarms, and graphs for **File system activity**.
-    * Choose **Storage** to view storage capacity, utilization metrics,
-     and active warnings.
-    * Choose **Performance** to view file server and storage performance
-     metrics, and active warnings.
-    * Choose **CloudWatch alarms** to view graphs of any alarms configured for your
-     file system.
+1. From the navigation pane, choose **File systems**, then choose the file system that has the metrics that you want to view.
 
-###### To view metrics using the CloudWatch console
+1. On the **Summary** page, choose **Monitoring & performance** to see the metrics for your file system.
 
-1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
-2. In the navigation pane, choose **Metrics**.
-3. Select the **FSx** namespace.
-4. (Optional) To view a metric, enter its name in the search field.
-5. (Optional) To explore metrics, select the category that best matches your
-   question.
+   There are four tabs on the **Monitoring & performance** panel.
+   + Choose **Summary** (the default tab) to display any active warnings, CloudWatch alarms, and graphs for **File system activity**.
+   + Choose **Storage** to view storage capacity, utilization metrics, and active warnings.
+   + Choose **Performance** to view file server and storage performance metrics, and active warnings.
+   + Choose **CloudWatch alarms** to view graphs of any alarms configured for your file system.
 
-###### To access metrics from the AWS CLI
+## Using the CloudWatch console
+<a name="cwmetrics-cw-console"></a>
 
-- Use the [`list-metrics`](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md")
-  command with the `--namespace "AWS/FSx"` namespace. For more information, see
-  the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
+**To view metrics using the CloudWatch console**
 
-###### To access metrics from the CloudWatch API
+1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
 
-- Call `GetMetricStatistics`. For more information, see [Amazon CloudWatch API Reference](../../../AmazonCloudWatch/latest/APIReference.md "../../../AmazonCloudWatch/latest/APIReference.md").
+1. In the navigation pane, choose **Metrics**. 
+
+1. Select the **FSx** namespace.
+
+1. (Optional) To view a metric, enter its name in the search field.
+
+1. (Optional) To explore metrics, select the category that best matches your question.
+
+## Using the AWS CLI
+<a name="cw-metrics-cli"></a>
+
+**To access metrics from the AWS CLI**
++ Use the [`list-metrics`](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html) command with the `--namespace "AWS/FSx"` namespace. For more information, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/).
+
+## Using the CloudWatch API
+<a name="cw-metrics-cw-api"></a>
+
+**To access metrics from the CloudWatch API**
++ Call `[GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html)`. For more information, see [Amazon CloudWatch API Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/). 
