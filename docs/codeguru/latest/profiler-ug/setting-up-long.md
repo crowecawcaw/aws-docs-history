@@ -64,7 +64,7 @@ application uses. For more information about roles, see [Modifying a role](../..
                 "codeguru-profiler:ConfigureAgent",
                 "codeguru-profiler:PostAgentProfile"
             ],
-            "Resource": "arn:aws:codeguru-profiler:<region>:<accountID>:profilingGroup/<profilingGroupName>"
+            "Resource": "arn:aws:codeguru-profiler:`us-east-1`:`123456789012`:profilingGroup/`profilingGroupName`"
         }
     ]
 }

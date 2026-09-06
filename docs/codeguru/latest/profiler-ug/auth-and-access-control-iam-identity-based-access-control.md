@@ -89,7 +89,7 @@ single profiling group in the current AWS Region.
  "codeguru-profiler:ConfigureAgent",
  "codeguru-profiler:PostAgentProfile"
  ],
- "Resource": "arn:aws:codeguru-profiler:`region-id`:`aws-account-id`:profilingGroup/`profilingGroupName`"
+ "Resource": "arn:aws:codeguru-profiler:`us-east-1`:`123456789012`:profilingGroup/`profilingGroupName`"
  }]
 }`
 ```
@@ -114,7 +114,7 @@ The following is an example.
  "codeguru-profiler:GetProfile",
  "codeguru-profiler:DescribeProfilingGroup"
  ],
- "Resource": "arn:aws:codeguru-profiler:`region-id`:`aws-account-id`:profilingGroup/profilingGroupName"
+ "Resource": "arn:aws:codeguru-profiler:`us-east-1`:`123456789012`:profilingGroup/profilingGroupName"
  }]
 }`
 ```
