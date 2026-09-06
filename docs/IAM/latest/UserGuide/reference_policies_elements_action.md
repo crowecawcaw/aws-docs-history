@@ -1,28 +1,13 @@
+
+
 # IAM JSON policy elements: Action
+<a name="reference_policies_elements_action"></a>
 
-The `Action` element describes the specific action or actions that will be
-allowed or denied. Statements must include either an `Action` or
-`NotAction` element. Each AWS service has its own set of actions that describe
-tasks that you can perform with that service. For example, the list of actions for Amazon S3 can be
-found at [Specifying Permissions in a
-Policy](../../../AmazonS3/latest/userguide/using-with-s3-actions.md "../../../AmazonS3/latest/userguide/using-with-s3-actions.md") in the _Amazon Simple Storage Service User Guide_, the list of actions for Amazon EC2 can
-be found in the [Amazon EC2 API Reference](../../../AWSEC2/latest/APIReference/query-apis.md "../../../AWSEC2/latest/APIReference/query-apis.md"), and the list
-of actions for AWS Identity and Access Management can be found in the [IAM API Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). To find the list of actions for other services, consult the API
-reference [documentation](http://aws.amazon.com/documentation "http://aws.amazon.com/documentation") for the
-service.
+The `Action` element describes the specific action or actions that will be allowed or denied. Statements must include either an `Action` or `NotAction` element. Each AWS service has its own set of actions that describe tasks that you can perform with that service. For example, the list of actions for Amazon S3 can be found at [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html) in the *Amazon Simple Storage Service User Guide*, the list of actions for Amazon EC2 can be found in the [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-apis.html), and the list of actions for AWS Identity and Access Management can be found in the [IAM API Reference](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html). To find the list of actions for other services, consult the API reference [documentation](http://aws.amazon.com/documentation) for the service.
 
-AWS also provides service reference information in JSON format to streamline the
-automation of policy management workflows. With the service reference information, you can
-access available actions, resources, and condition keys across AWS services from
-machine-readable files. For more information, see [Simplified AWS service
-information for programmatic access](../../../service-authorization/latest/reference/service-reference.md "../../../service-authorization/latest/reference/service-reference.md") in the Service Authorization Reference.
+AWS also provides service reference information in JSON format to streamline the automation of policy management workflows. With the service reference information, you can access available actions, resources, and condition keys across AWS services from machine-readable files. For more information, see [Simplified AWS service information for programmatic access](https://docs.aws.amazon.com/service-authorization/latest/reference/service-reference.html) in the Service Authorization Reference.
 
-You specify a value using a service namespace as an action prefix (`iam`,
-`ec2`, `sqs`, `sns`, `s3`, etc.) followed by the
-name of the action to allow or deny. The name must match an action that is supported by the
-service. The prefix and the action name are case insensitive. For example,
-`iam:ListAccessKeys` is the same as `IAM:listaccesskeys`. The following
-examples show `Action` elements for different services.
+You specify a value using a service namespace as an action prefix (`iam`, `ec2`, `sqs`, `sns`, `s3`, etc.) followed by the name of the action to allow or deny. The name must match an action that is supported by the service. The prefix and the action name are case insensitive. For example, `iam:ListAccessKeys` is the same as `IAM:listaccesskeys`. The following examples show `Action` elements for different services.
 
 **Amazon SQS action**
 
@@ -54,26 +39,16 @@ You can specify multiple values for the `Action` element.
 "Action": [ "sqs:SendMessage", "sqs:ReceiveMessage", "ec2:StartInstances", "iam:ChangePassword", "s3:GetObject" ]
 ```
 
-You can use multi-character match wildcards (`*`) and single-character match
-wildcards (`?`) to give access to all the actions the specific AWS product offers.
-For example, the following `Action` element applies to all S3 actions.
+You can use multi-character match wildcards (`*`) and single-character match wildcards (`?`) to give access to all the actions the specific AWS product offers. For example, the following `Action` element applies to all S3 actions.
 
 ```
 "Action": "s3:*"
 ```
 
-You can also use wildcards (`*` or `?`) as part of the action name.
-For example, the following `Action` element applies to all IAM actions that include
-the string `AccessKey`, including `CreateAccessKey`,
-`DeleteAccessKey`, `ListAccessKeys`, and
-`UpdateAccessKey`.
+You can also use wildcards (`*` or `?`) as part of the action name. For example, the following `Action` element applies to all IAM actions that include the string `AccessKey`, including `CreateAccessKey`, `DeleteAccessKey`, `ListAccessKeys`, and `UpdateAccessKey`.
 
 ```
 "Action": "iam:*AccessKey*"
 ```
 
-Some services let you limit the actions that are available. For example, Amazon SQS lets you make
-available just a subset of all the possible Amazon SQS actions. In that case, the `*`
-wildcard doesn't allow complete control of the queue; it allows only the subset of actions that
-you've shared. For more information, see [Understanding Permissions](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.md#PermissionTypes "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.md#PermissionTypes") in the
-_Amazon Simple Queue Service Developer Guide_.
+Some services let you limit the actions that are available. For example, Amazon SQS lets you make available just a subset of all the possible Amazon SQS actions. In that case, the `*` wildcard doesn't allow complete control of the queue; it allows only the subset of actions that you've shared. For more information, see [Understanding Permissions](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes) in the *Amazon Simple Queue Service Developer Guide*.

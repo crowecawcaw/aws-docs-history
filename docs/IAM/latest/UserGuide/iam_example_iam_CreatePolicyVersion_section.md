@@ -1,29 +1,27 @@
+
+
 # Use `CreatePolicyVersion` with an AWS SDK or CLI
+<a name="iam_example_iam_CreatePolicyVersion_section"></a>
 
 The following code examples show how to use `CreatePolicyVersion`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md) 
 
-- [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md "iam_example_iam_Scenario_PolicyManagement_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a new version of a managed policy**
-
-This example creates a new `v2` version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version.
+**AWS CLI**  
+**To create a new version of a managed policy**  
+This example creates a new `v2` version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version.  
 
 ```
-`aws iam create-policy-version \
- --policy-arn `arn:aws:iam::123456789012:policy/MyPolicy` \
- --policy-document `file://NewPolicyVersion.json` \
- --set-as-default`
-
+aws iam create-policy-version \
+    --policy-arn {{arn:aws:iam::123456789012:policy/MyPolicy}} \
+    --policy-document {{file://NewPolicyVersion.json}} \
+    --set-as-default
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -34,66 +32,47 @@ Output:
     }
 }
 ```
+For more information, see [Versioning IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreatePolicyVersion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy-version.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [CreatePolicyVersion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy-version.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new "v2" version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version. The `NewPolicyVersion.json` file provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new "v2" version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version. The `NewPolicyVersion.json` file provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
 ```
 New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreateDate                           Document                  IsDefaultVersion             VersionId
 ----------                           --------                  ----------------             ---------
 4/15/2015 10:54:54 AM                                          True                         v2
 ```
++  For API details, see [CreatePolicyVersion](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreatePolicyVersion](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new "v2" version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version. The `NewPolicyVersion.json` file provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new "v2" version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version. The `NewPolicyVersion.json` file provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
 ```
 New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreateDate                           Document                  IsDefaultVersion             VersionId
 ----------                           --------                  ----------------             ---------
 4/15/2015 10:54:54 AM                                          True                         v2
 ```
++  For API details, see [CreatePolicyVersion](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreatePolicyVersion](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def create_policy_version(policy_arn, actions, resource_arn, set_as_default):
@@ -110,7 +89,7 @@ def create_policy_version(policy_arn, actions, resource_arn, set_as_default):
     :return: The newly created policy version.
     """
     policy_doc = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [{"Effect": "Allow", "Action": actions, "Resource": resource_arn}],
     }
     try:
@@ -128,25 +107,14 @@ def create_policy_version(policy_arn, actions, resource_arn, set_as_default):
         raise
     else:
         return policy_version
-
-
-
-
 ```
++  For API details, see [CreatePolicyVersion](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreatePolicyVersion) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreatePolicyVersion](../../../goto/boto3/iam-2010-05-08/CreatePolicyVersion.md "../../../goto/boto3/iam-2010-05-08/CreatePolicyVersion.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -162,14 +130,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamlimitexceededex.
         MESSAGE 'Policy version limit exceeded.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreatePolicyVersion](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreatePolicyVersion](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

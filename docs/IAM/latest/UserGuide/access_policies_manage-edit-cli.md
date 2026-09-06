@@ -1,116 +1,92 @@
+
+
 # Edit IAM policies (AWS CLI)
+<a name="access_policies_manage-edit-cli"></a>
 
-A [policy](access_policies.md "access_policies.md") is an entity that, when attached to an
-identity or resource, defines their permissions. You can use the AWS Command Line Interface (AWS CLI) to edit
-_customer managed policies_ and _inline policies_ in IAM. AWS managed policies cannot be edited.
-The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md "reference_iam-quotas.md").
+A [policy](access_policies.md) is an entity that, when attached to an identity or resource, defines their permissions. You can use the AWS Command Line Interface (AWS CLI) to edit *customer managed policies* and *inline policies* in IAM. AWS managed policies cannot be edited. The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md).
 
-For more information about policy structure and syntax, see [Policies and permissions in AWS Identity and Access Management](access_policies.md "access_policies.md") and the [IAM JSON policy element reference](reference_policies_elements.md "reference_policies_elements.md").
+For more information about policy structure and syntax, see [Policies and permissions in AWS Identity and Access Management](access_policies.md) and the [IAM JSON policy element reference](reference_policies_elements.md).
 
 ## Prerequisites
+<a name="edit-customer-managed-policy-cli-prerequisites"></a>
 
-Before you change the permissions for a policy, you should review its recent service-level
-activity. This is important because you don't want to remove access from a principal (person
-or application) who is using it. For more information about viewing last accessed information,
-see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+Before you change the permissions for a policy, you should review its recent service-level activity. This is important because you don't want to remove access from a principal (person or application) who is using it. For more information about viewing last accessed information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md).
 
 ## Editing customer managed policies (AWS CLI)
+<a name="edit-customer-managed-policy-cli"></a>
 
 You can edit a customer managed policy from the AWS CLI.
 
-###### Note
+**Note**  
+A managed policy can have up to five versions. If you need to make changes to a customer managed policy beyond five versions, you must first delete one or more existing versions.
 
-A managed policy can have up to five versions. If you need to make changes to a customer
-managed policy beyond five versions, you must first delete one or more existing
-versions.
-
-###### To edit a customer managed policy (AWS CLI)
+**To edit a customer managed policy (AWS CLI)**
 
 1. (Optional) To view information about a policy, run the following commands:
+   + To list managed policies: [list-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-policies.html)
+   + To retrieve detailed information about a managed policy: [get-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/get-policy.html)
 
-   - To list managed policies: [list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
-   - To retrieve detailed information about a managed policy: [get-policy](../../../cli/latest/reference/iam/get-policy.md "../../../cli/latest/reference/iam/get-policy.md")
+1. (Optional) To find out about the relationships between the policies and identities, run the following commands:
+   + To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy is attached: 
+     + [list-entities-for-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/list-entities-for-policy.html)
+   + To list the managed policies attached to an identity (a user, user group, or role):
+     + [list-attached-user-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-attached-user-policies.html)
+     + [list-attached-group-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-attached-group-policies.html)
+     + [list-attached-role-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-attached-role-policies.html)
 
-2. (Optional) To find out about the relationships between the policies and identities,
-   run the following commands:
+1. To edit a customer managed policy, run the following command:
+   + [create-policy-version](https://docs.aws.amazon.com/cli/latest/reference/iam/create-policy-version.html)
 
-   - To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy
-     is attached:
-
-     - [list-entities-for-policy](../../../cli/latest/reference/iam/list-entities-for-policy.md "../../../cli/latest/reference/iam/list-entities-for-policy.md")
-
-   - To list the managed policies attached to an identity (a user, user group, or
-     role):
-
-     - [list-attached-user-policies](../../../cli/latest/reference/iam/list-attached-user-policies.md "../../../cli/latest/reference/iam/list-attached-user-policies.md")
-     - [list-attached-group-policies](../../../cli/latest/reference/iam/list-attached-group-policies.md "../../../cli/latest/reference/iam/list-attached-group-policies.md")
-     - [list-attached-role-policies](../../../cli/latest/reference/iam/list-attached-role-policies.md "../../../cli/latest/reference/iam/list-attached-role-policies.md")
-
-3. To edit a customer managed policy, run the following command:
-
-   - [create-policy-version](../../../cli/latest/reference/iam/create-policy-version.md "../../../cli/latest/reference/iam/create-policy-version.md")
-
-4. (Optional) To validate a customer managed policy, run the following IAM Access Analyzer
-   command:
-
-   - [validate-policy](../../../cli/latest/reference/accessanalyzer/validate-policy.md "../../../cli/latest/reference/accessanalyzer/validate-policy.md")
+1. (Optional) To validate a customer managed policy, run the following IAM Access Analyzer command:
+   + [validate-policy](https://docs.aws.amazon.com/cli/latest/reference/accessanalyzer/validate-policy.html)
 
 ## Setting the default version of a customer managed policy (AWS CLI)
+<a name="edit-customer-managed-policy-cli-set-default-policy-version"></a>
 
 You can set a default version of a customer managed policy from the AWS CLI.
 
-###### To set the default version of a customer managed policy (AWS CLI)
+**To set the default version of a customer managed policy (AWS CLI)**
 
 1. (Optional) To list managed policies, run the following command:
+   + [list-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-policies.html)
 
-   - [list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
-
-2. To set the default version of a customer managed policy, run the following
-   command:
-
-   - [set-default-policy-version](../../../cli/latest/reference/iam/set-default-policy-version.md "../../../cli/latest/reference/iam/set-default-policy-version.md")
+1. To set the default version of a customer managed policy, run the following command:
+   + [set-default-policy-version](https://docs.aws.amazon.com/cli/latest/reference/iam/set-default-policy-version.html)
 
 ## Deleting a version of a customer managed policy (AWS CLI)
+<a name="edit-customer-managed-policy-cli-delete-policy-version"></a>
 
 You can delete a version of a customer managed policy from the AWS CLI.
 
-###### To delete a version of a customer managed policy (AWS CLI)
+**To delete a version of a customer managed policy (AWS CLI)**
 
 1. (Optional) To list managed policies, run the following command:
+   + [list-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-policies.html)
 
-   - [list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
-
-2. To delete a customer managed policy, run the following command:
-
-   - [delete-policy-version](../../../cli/latest/reference/iam/delete-policy-version.md "../../../cli/latest/reference/iam/delete-policy-version.md")
+1. To delete a customer managed policy, run the following command:
+   + [delete-policy-version](https://docs.aws.amazon.com/cli/latest/reference/iam/delete-policy-version.html)
 
 ## Editing inline policies (AWS CLI)
+<a name="edit-inline-policy-cli"></a>
 
 You can edit an inline policy from the AWS CLI.
 
-###### To edit an inline policy (AWS CLI)
+**To edit an inline policy (AWS CLI)**
 
 1. (Optional) To view information about a policy, run the following commands:
+   + To list inline policies associated to an identity (a user, user group, or role): 
+     + [list-user-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-user-policies.html)
+     + [list-role-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-role-policies.html)
+     + [list-group-policies](https://docs.aws.amazon.com/cli/latest/reference/iam/list-group-policies.html)
+   + To retrieve detailed information about an inline policy: 
+     + [get-user-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/get-user-policy.html)
+     + [get-role-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/get-role-policy.html)
+     + [get-group-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/get-group-policy.html)
 
-   - To list inline policies associated to an identity (a user, user group, or role):
+1. To edit an inline policy, run the following command:
+   + [put-user-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/put-user-policy.html)
+   + [put-role-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/put-role-policy.html)
+   + [put-group-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/put-group-policy.html)
 
-     - [list-user-policies](../../../cli/latest/reference/iam/list-user-policies.md "../../../cli/latest/reference/iam/list-user-policies.md")
-     - [list-role-policies](../../../cli/latest/reference/iam/list-role-policies.md "../../../cli/latest/reference/iam/list-role-policies.md")
-     - [list-group-policies](../../../cli/latest/reference/iam/list-group-policies.md "../../../cli/latest/reference/iam/list-group-policies.md")
-
-   - To retrieve detailed information about an inline policy:
-
-     - [get-user-policy](../../../cli/latest/reference/iam/get-user-policy.md "../../../cli/latest/reference/iam/get-user-policy.md")
-     - [get-role-policy](../../../cli/latest/reference/iam/get-role-policy.md "../../../cli/latest/reference/iam/get-role-policy.md")
-     - [get-group-policy](../../../cli/latest/reference/iam/get-group-policy.md "../../../cli/latest/reference/iam/get-group-policy.md")
-
-2. To edit an inline policy, run the following command:
-
-   - [put-user-policy](../../../cli/latest/reference/iam/put-user-policy.md "../../../cli/latest/reference/iam/put-user-policy.md")
-   - [put-role-policy](../../../cli/latest/reference/iam/put-role-policy.md "../../../cli/latest/reference/iam/put-role-policy.md")
-   - [put-group-policy](../../../cli/latest/reference/iam/put-group-policy.md "../../../cli/latest/reference/iam/put-group-policy.md")
-
-3. (Optional) To validate an inline policy, run the following IAM Access Analyzer
-   command:
-
-   - [validate-policy](../../../cli/latest/reference/accessanalyzer/validate-policy.md "../../../cli/latest/reference/accessanalyzer/validate-policy.md")
+1. (Optional) To validate an inline policy, run the following IAM Access Analyzer command:
+   + [validate-policy](https://docs.aws.amazon.com/cli/latest/reference/accessanalyzer/validate-policy.html)

@@ -1,22 +1,22 @@
+
+
 # Use `ListUserPolicies` with an AWS SDK or CLI
+<a name="iam_example_iam_ListUserPolicies_section"></a>
 
 The following code examples show how to use `ListUserPolicies`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list policies for an IAM user**
-
-The following `list-user-policies` command lists the policies that are attached to the IAM user named `Bob`.
-
-```
-`aws iam list-user-policies \
- --user-name `Bob``
+**AWS CLI**  
+**To list policies for an IAM user**  
+The following `list-user-policies` command lists the policies that are attached to the IAM user named `Bob`.  
 
 ```
-
-Output:
+aws iam list-user-policies \
+    --user-name {{Bob}}
+```
+Output:  
 
 ```
 {
@@ -26,25 +26,16 @@ Output:
     ]
 }
 ```
+For more information, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListUserPolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-user-policies.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating an IAM user in your AWS account](id_users_create.md "id_users_create.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ListUserPolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-user-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-user-policies.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -78,55 +69,38 @@ func (wrapper UserWrapper) ListUserPolicies(ctx context.Context, userName string
 	}
 	return policies, err
 }
-
-
-
 ```
++  For API details, see [ListUserPolicies](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListUserPolicies) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListUserPolicies](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListUserPolicies "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListUserPolicies")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named `David`.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named `David`.**  
 
 ```
 Get-IAMUserPolicyList -UserName David
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Davids_IAM_Admin_Policy
 ```
++  For API details, see [ListUserPolicies](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListUserPolicies](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named `David`.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named `David`.**  
 
 ```
 Get-IAMUserPolicyList -UserName David
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Davids_IAM_Admin_Policy
 ```
++  For API details, see [ListUserPolicies](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListUserPolicies](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

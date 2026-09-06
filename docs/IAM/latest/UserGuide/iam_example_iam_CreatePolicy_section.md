@@ -1,29 +1,26 @@
+
+
 # Use `CreatePolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_CreatePolicy_section"></a>
 
 The following code examples show how to use `CreatePolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md) 
++  [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md) 
++  [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md) 
++  [Set up Attribute-Based Access Control](iam_example_dynamodb_Scenario_ABACSetup_section.md) 
++  [Setting up systems management](iam_example_iam_GettingStarted_046_section.md) 
++  [Work with the IAM Policy Builder API](iam_example_iam_Scenario_IamPolicyBuilder_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
-- [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
-- [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md "iam_example_iam_Scenario_PolicyManagement_section.md")
-- [Set up Attribute-Based Access Control](iam_example_dynamodb_Scenario_ABACSetup_section.md "iam_example_dynamodb_Scenario_ABACSetup_section.md")
-- [Setting up systems management](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
-- [Work with the IAM Policy Builder API](iam_example_iam_Scenario_IamPolicyBuilder_section.md "iam_example_iam_Scenario_IamPolicyBuilder_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -42,24 +39,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.Policy;
     }
-
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -143,23 +130,14 @@ function iam_create_policy() {
 
   echo "$response"
 }
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 Aws::String AwsDoc::IAM::createPolicy(const Aws::String &policyName,
@@ -216,34 +194,26 @@ Aws::String AwsDoc::IAM::BuildSamplePolicyDocument(const Aws::String &rsrc_arn) 
 
     return stringStream.str();
 }
+```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreatePolicy) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create a customer managed policy**  
+The following command creates a customer managed policy named `my-policy`. The file `policy.json` is a JSON document in the current folder that grants read only access to the `shared` folder in an Amazon S3 bucket named `amzn-s3-demo-bucket`.  
 
 ```
-
-- For API details, see
-  [CreatePolicy](../../../goto/SdkForCpp/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a customer managed policy**
-
-The following command creates a customer managed policy named `my-policy`. The file `policy.json` is a JSON document in the current folder that grants read only access to the `shared` folder in an Amazon S3 bucket named `amzn-s3-demo-bucket`.
-
+aws iam create-policy \
+    --policy-name {{my-policy}} \
+    --policy-document {{file://policy.json}}
 ```
-`aws iam create-policy \
- --policy-name `my-policy` \
- --policy-document `file://policy.json``
-
-```
-
-Contents of policy.json:
+Contents of policy.json:  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -258,8 +228,7 @@ Contents of policy.json:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -276,28 +245,22 @@ Output:
     }
 }
 ```
-
-For more information on using files as input for string parameters, see [Specify parameter values for the AWS CLI](../../../cli/latest/userguide/cli-usage-parameters.md "../../../cli/latest/userguide/cli-usage-parameters.md") in the _AWS CLI User Guide_.
-
-**Example 2: To create a customer managed policy with a description**
-
-The following command creates a customer managed policy named `my-policy` with an immutable description.
-
-The file `policy.json` is a JSON document in the current folder that grants access to all Put, List, and Get actions for an Amazon S3 bucket named `amzn-s3-demo-bucket`.
+For more information on using files as input for string parameters, see [Specify parameter values for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html) in the *AWS CLI User Guide*.  
+**Example 2: To create a customer managed policy with a description**  
+The following command creates a customer managed policy named `my-policy` with an immutable description.  
+The file `policy.json` is a JSON document in the current folder that grants access to all Put, List, and Get actions for an Amazon S3 bucket named `amzn-s3-demo-bucket`.  
 
 ```
-`aws iam create-policy \
- --policy-name `my-policy` \
- --policy-document `file://policy.json` \
- --description `"This policy grants access to all Put, Get, and List actions for amzn-s3-demo-bucket"``
-
+aws iam create-policy \
+    --policy-name {{my-policy}} \
+    --policy-document {{file://policy.json}} \
+    --description {{"This policy grants access to all Put, Get, and List actions for amzn-s3-demo-bucket"}}
 ```
-
-Contents of policy.json:
+Contents of policy.json:  
 
 ```
 {
-   "Version":"2012-10-17",
+   "Version":"2012-10-17",		 	 	 
    "Statement": [
        {
            "Effect": "Allow",
@@ -313,8 +276,7 @@ Contents of policy.json:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -332,28 +294,22 @@ Output:
     }
 }
 ```
-
-For more information on Idenity-based Policies, see [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md") in the _AWS IAM User Guide_.
-
-**Example 3: To create a customer managed policy with tags**
-
-The following command creates a customer managed policy named `my-policy` with tags. This example uses the `--tags` parameter with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` parameter can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.
-
-The file `policy.json` is a JSON document in the current folder that grants access to all Put, List, and Get actions for an Amazon S3 bucket named `amzn-s3-demo-bucket`.
+For more information on Idenity-based Policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS IAM User Guide*.  
+**Example 3: To create a customer managed policy with tags**  
+The following command creates a customer managed policy named `my-policy` with tags. This example uses the `--tags` parameter with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` parameter can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.  
+The file `policy.json` is a JSON document in the current folder that grants access to all Put, List, and Get actions for an Amazon S3 bucket named `amzn-s3-demo-bucket`.  
 
 ```
-`aws iam create-policy \
- --policy-name `my-policy` \
- --policy-document `file://policy.json` \
- --tags '`{"Key": "Department", "Value": "Accounting"}`' '`{"Key": "Location", "Value": "Seattle"}`'`
-
+aws iam create-policy \
+    --policy-name {{my-policy}} \
+    --policy-document {{file://policy.json}} \
+    --tags '{{{"Key": "Department", "Value": "Accounting"}}}' '{{{"Key": "Location", "Value": "Seattle"}}}'
 ```
-
-Contents of policy.json:
+Contents of policy.json:  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -369,8 +325,7 @@ Contents of policy.json:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -397,25 +352,16 @@ Output:
     }
 }
 ```
+For more information on Tagging policies, see [Tagging customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_customer-managed-policies.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreatePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html) in *AWS CLI Command Reference*. 
 
-For more information on Tagging policies, see [Tagging customer managed policies](id_tags_customer-managed-policies.md "id_tags_customer-managed-policies.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreatePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -480,24 +426,14 @@ func (wrapper PolicyWrapper) CreatePolicy(ctx context.Context, policyName string
 	}
 	return policy, err
 }
-
-
-
 ```
++  For API details, see [CreatePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreatePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.core.waiters.WaiterResponse;
@@ -591,25 +527,15 @@ public class CreatePolicy {
         return "";
     }
 }
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Create the policy.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Create the policy.  
 
 ```
 import { CreatePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -637,22 +563,12 @@ export const createPolicy = (policyName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-policies.html#iam-examples-policies-creating). 
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-policies.md#iam-examples-policies-creating "../../../sdk-for-javascript/v3/developer-guide/iam-examples-policies.md#iam-examples-policies-creating").
-- For API details, see
-  [CreatePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -697,30 +613,21 @@ iam.createPolicy(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-policies.html#iam-examples-policies-creating). 
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/CreatePolicy) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-policies.md#iam-examples-policies-creating "../../../sdk-for-javascript/v2/developer-guide/iam-examples-policies.md#iam-examples-policies-creating").
-- For API details, see
-  [CreatePolicy](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/CreatePolicy.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun createIAMPolicy(policyNameVal: String?): String {
     val policyDocumentVal = """
     {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -748,23 +655,14 @@ suspend fun createIAMPolicy(policyNameVal: String?): String {
         return response.policy?.arn.toString()
     }
 }
-
-
 ```
++  For API details, see [CreatePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreatePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -795,81 +693,61 @@ echo "Created policy: {$listAllBucketsPolicy['PolicyName']}\n";
         });
         return $result['Policy'];
     }
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new IAM policy in the current AWS account named `MySamplePolicy` The file `MySamplePolicy.json` provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new IAM policy in the current AWS account named `MySamplePolicy` The file `MySamplePolicy.json` provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
 ```
 New-IAMPolicy -PolicyName MySamplePolicy -PolicyDocument (Get-Content -Raw MySamplePolicy.json)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:policy/MySamplePolicy
 AttachmentCount  : 0
 CreateDate       : 4/14/2015 2:45:59 PM
 DefaultVersionId : v1
-Description      :
+Description      : 
 IsAttachable     : True
 Path             : /
 PolicyId         : LD4KP6HVFE7WGEXAMPLE1
 PolicyName       : MySamplePolicy
 UpdateDate       : 4/14/2015 2:45:59 PM
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreatePolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new IAM policy in the current AWS account named `MySamplePolicy` The file `MySamplePolicy.json` provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new IAM policy in the current AWS account named `MySamplePolicy` The file `MySamplePolicy.json` provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
 ```
 New-IAMPolicy -PolicyName MySamplePolicy -PolicyDocument (Get-Content -Raw MySamplePolicy.json)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:policy/MySamplePolicy
 AttachmentCount  : 0
 CreateDate       : 4/14/2015 2:45:59 PM
 DefaultVersionId : v1
-Description      :
+Description      : 
 IsAttachable     : True
 Path             : /
 PolicyId         : LD4KP6HVFE7WGEXAMPLE1
 PolicyName       : MySamplePolicy
 UpdateDate       : 4/14/2015 2:45:59 PM
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreatePolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def create_policy(name, description, actions, resource_arn):
@@ -887,7 +765,7 @@ def create_policy(name, description, actions, resource_arn):
     :return: The newly created policy.
     """
     policy_doc = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [{"Effect": "Allow", "Action": actions, "Resource": resource_arn}],
     }
     try:
@@ -902,27 +780,15 @@ def create_policy(name, description, actions, resource_arn):
         raise
     else:
         return policy
-
-
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreatePolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../goto/boto3/iam-2010-05-08/CreatePolicy.md "../../../goto/boto3/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-This example module lists, creates, attaches, and detaches role policies.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+This example module lists, creates, attaches, and detaches role policies.  
 
 ```
 # Manages policies in AWS Identity and Access Management (IAM)
@@ -1012,23 +878,14 @@ class RolePolicyManager
     false
   end
 end
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn create_policy(
@@ -1044,23 +901,14 @@ pub async fn create_policy(
         .await?;
     Ok(policy.policy.unwrap())
 }
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreatePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -1076,23 +924,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamlimitexceededex.
         MESSAGE 'Policy limit exceeded.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreatePolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreatePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -1115,15 +954,9 @@ import AWSS3
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [CreatePolicy](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createpolicy(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreatePolicy](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createpolicy(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createpolicy(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

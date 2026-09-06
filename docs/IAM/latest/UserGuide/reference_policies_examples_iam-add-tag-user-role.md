@@ -1,61 +1,58 @@
+
+
 # IAM: Add a specific tag with specific values
+<a name="reference_policies_examples_iam-add-tag-user-role"></a>
 
-This example shows how you might create an identity-based policy that allows adding only the tag key `CostCenter` and either
-the tag value `A-123` or the tag value `B-456` to any IAM user or
-role. You can use this policy to limit tagging to a specific tag key and set of tag
-values. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.
-Then, follow the directions in [create a policy](access_policies_create.md "access_policies_create.md") or [edit a policy](access_policies_manage-edit.md "access_policies_manage-edit.md").
+This example shows how you might create an identity-based policy that allows adding only the tag key `CostCenter` and either the tag value `A-123` or the tag value `B-456` to any IAM user or role. You can use this policy to limit tagging to a specific tag key and set of tag values. This policy defines permissions for programmatic and console access. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md). 
 
-The `ConsoleDisplay` statement allows the viewing of tags for all users and
-roles in your account.
+The `ConsoleDisplay` statement allows the viewing of tags for all users and roles in your account. 
 
-The first condition in the `AddTag` statement uses the
-`StringEquals` condition operator. The condition returns true if the request
-includes the `CostCenter` tag key with one of the listed tag values.
+The first condition in the `AddTag` statement uses the `StringEquals` condition operator. The condition returns true if the request includes the `CostCenter` tag key with one of the listed tag values. 
 
-The second condition uses the `ForAllValues:StringEquals` condition operator.
-The condition returns true if all of the tag keys in the request match the key in the
-policy. This means that the only tag key in the request must be `CostCenter`. For
-more information about using `ForAllValues`, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+The second condition uses the `ForAllValues:StringEquals` condition operator. The condition returns true if all of the tag keys in the request match the key in the policy. This means that the only tag key in the request must be `CostCenter`. For more information about using `ForAllValues`, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys).
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ConsoleDisplay",
- "Effect": "Allow",
- "Action": [
- "iam:GetRole",
- "iam:GetUser",
- "iam:ListRoles",
- "iam:ListRoleTags",
- "iam:ListUsers",
- "iam:ListUserTags"
- ],
- "Resource": "*"
- },
- {
- "Sid": "AddTag",
- "Effect": "Allow",
- "Action": [
- "iam:TagUser",
- "iam:TagRole"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/`CostCenter`": [
- "`A-123`",
- "`B-456`"
- ]
- },
- "ForAllValues:StringEquals": {"aws:TagKeys": "`CostCenter`"}
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "ConsoleDisplay",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:GetUser",
+                "iam:ListRoles",
+                "iam:ListRoleTags",
+                "iam:ListUsers",
+                "iam:ListUserTags"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AddTag",
+            "Effect": "Allow",
+            "Action": [
+                "iam:TagUser",
+                "iam:TagRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/{{CostCenter}}": [
+                        "{{A-123}}",
+                        "{{B-456}}"
+                    ]
+                },
+                "ForAllValues:StringEquals": {"aws:TagKeys": "{{CostCenter}}"}
+            }
+        }
+    ]
+}
 ```
+
+------

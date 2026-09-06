@@ -1,22 +1,20 @@
+
+
 # Moving hardcoded secrets to secure secret storage
+<a name="sts_example_secrets_manager_GettingStarted_073_section"></a>
 
 The following code example shows how to:
++ Create IAM roles
++ Create a secret in Secrets Manager
++ Update your application code
++ Update the secret
++ Clean up resources
 
-- Create IAM roles
-- Create a secret in Secrets Manager
-- Update your application code
-- Update the secret
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/073-aws-secrets-manager-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/073-aws-secrets-manager-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/073-aws-secrets-manager-gs) repository. 
 
 ```
 #!/bin/bash
@@ -38,7 +36,7 @@ echo "======================================================"
 check_error() {
     local output=$1
     local cmd=$2
-
+    
     if echo "$output" | grep -qi "error"; then
         echo "ERROR: Command failed: $cmd"
         echo "$output"
@@ -58,31 +56,31 @@ cleanup_resources() {
     echo "==========================================="
     echo "RESOURCES CREATED"
     echo "==========================================="
-
+    
     if [ -n "${SECRET_NAME:-}" ]; then
         echo "Secret: $SECRET_NAME"
     fi
-
+    
     if [ -n "${RUNTIME_ROLE_NAME:-}" ]; then
         echo "IAM Role: $RUNTIME_ROLE_NAME"
     fi
-
+    
     if [ -n "${ADMIN_ROLE_NAME:-}" ]; then
         echo "IAM Role: $ADMIN_ROLE_NAME"
     fi
-
+    
     echo ""
     echo "==========================================="
     echo "CLEANUP CONFIRMATION"
     echo "==========================================="
     echo "Cleaning up all created resources..."
-
+    
     # Delete secret if it exists
     if [ -n "${SECRET_NAME:-}" ]; then
         echo "Deleting secret: $SECRET_NAME"
         aws secretsmanager delete-secret --secret-id "$SECRET_NAME" --force-delete-without-recovery 2>/dev/null || true
     fi
-
+    
     # Detach policies and delete runtime role if it exists
     if [ -n "${RUNTIME_ROLE_NAME:-}" ]; then
         echo "Deleting inline policies from runtime role: $RUNTIME_ROLE_NAME"
@@ -92,20 +90,20 @@ cleanup_resources() {
         echo "Deleting IAM role: $RUNTIME_ROLE_NAME"
         aws iam delete-role --role-name "$RUNTIME_ROLE_NAME" 2>/dev/null || true
     fi
-
+    
     # Detach policies and delete admin role if it exists
     if [ -n "${ADMIN_ROLE_NAME:-}" ]; then
         echo "Detaching policy from role: $ADMIN_ROLE_NAME"
         aws iam detach-role-policy --role-name "$ADMIN_ROLE_NAME" --policy-arn "arn:aws:iam::aws:policy/SecretsManagerReadWrite" 2>/dev/null || true
-
+        
         for policy in $(aws iam list-role-policies --role-name "$ADMIN_ROLE_NAME" --query 'PolicyNames[]' --output text 2>/dev/null || true); do
             aws iam delete-role-policy --role-name "$ADMIN_ROLE_NAME" --policy-name "$policy" 2>/dev/null || true
         done
-
+        
         echo "Deleting IAM role: $ADMIN_ROLE_NAME"
         aws iam delete-role --role-name "$ADMIN_ROLE_NAME" 2>/dev/null || true
     fi
-
+    
     echo "Cleanup completed."
 }
 
@@ -129,7 +127,7 @@ echo "Creating IAM roles..."
 # Create assume role policy document
 ASSUME_ROLE_POLICY=$(cat <<'EOF'
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -215,7 +213,7 @@ check_error "$SECRET_ARN" "describe-secret"
 echo "Adding resource policy to secret..."
 RESOURCE_POLICY=$(cat <<EOF
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AllowRuntimeRoleReadSecret",
@@ -322,22 +320,19 @@ echo ""
 
 echo "Script completed at $(date)"
 exit 0
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/CreateSecret)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetSecretValue](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue)
+  + [PutResourcePolicy](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/PutResourcePolicy)
+  + [UpdateSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/UpdateSecret)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetSecretValue](../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md "../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md")
-  - [PutResourcePolicy](../../../goto/aws-cli/secretsmanager-2017-10-17/PutResourcePolicy.md "../../../goto/aws-cli/secretsmanager-2017-10-17/PutResourcePolicy.md")
-  - [UpdateSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/UpdateSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/UpdateSecret.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

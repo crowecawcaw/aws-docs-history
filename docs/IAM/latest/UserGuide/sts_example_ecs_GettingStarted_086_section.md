@@ -1,21 +1,19 @@
+
+
 # Create a container task for the serverless launch type
+<a name="sts_example_ecs_GettingStarted_086_section"></a>
 
 The following code example shows how to:
++ Create the cluster
++ Create a task definition
++ Create the service
++ Clean up
 
-- Create the cluster
-- Create a task definition
-- Create the service
-- Clean up
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/086-amazon-ecs-fargate-linux "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/086-amazon-ecs-fargate-linux")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/086-amazon-ecs-fargate-linux) repository. 
 
 ```
 #!/bin/bash
@@ -48,26 +46,26 @@ CREATED_RESOURCES=()
 execute_command() {
     local cmd="$1"
     local description="$2"
-
+    
     # Validate that cmd is not empty
     if [[ -z "$cmd" ]]; then
         echo "ERROR: Command is empty"
         return 1
     fi
-
+    
     echo ""
     echo "=========================================="
     echo "EXECUTING: $description"
     echo "COMMAND: $cmd"
     echo "=========================================="
-
+    
     local output
     local exit_code
     set +e  # Temporarily disable exit on error
     output=$(eval "$cmd" 2>&1)
     exit_code=$?
     set -e  # Re-enable exit on error
-
+    
     if [[ $exit_code -eq 0 ]]; then
         echo "SUCCESS: $description"
         echo "OUTPUT: $output"
@@ -84,7 +82,7 @@ execute_command() {
 check_for_aws_errors() {
     local output="$1"
     local description="$2"
-
+    
     # Look for specific AWS error patterns, not just the word "error"
     if echo "$output" | grep -qi "An error occurred\|InvalidParameter\|AccessDenied\|ResourceNotFound\|ValidationException"; then
         echo "AWS API ERROR detected in output for: $description"
@@ -99,7 +97,7 @@ safe_json_extract() {
     local json="$1"
     local key="$2"
     local value
-
+    
     value=$(echo "$json" | grep -o "\"$key\": \"[^\"]*\"" | cut -d'"' -f4 2>/dev/null || echo "")
     echo "$value"
 }
@@ -109,25 +107,25 @@ wait_for_network_interfaces_cleanup() {
     local security_group_id="$1"
     local max_attempts=30
     local attempt=1
-
+    
     # Validate security group ID format
     if [[ ! "$security_group_id" =~ ^sg-[a-z0-9]{8,17}$ ]]; then
         echo "ERROR: Invalid security group ID format: $security_group_id"
         return 1
     fi
-
+    
     echo "Waiting for network interfaces to be cleaned up..."
-
+    
     while [[ $attempt -le $max_attempts ]]; do
         echo "Attempt $attempt/$max_attempts: Checking for dependent network interfaces..."
-
+        
         # Check if there are any network interfaces still using this security group
         local eni_count
         eni_count=$(aws ec2 describe-network-interfaces \
             --filters "Name=group-id,Values=$security_group_id" \
             --query "length(NetworkInterfaces)" \
             --output text 2>/dev/null || echo "0")
-
+        
         if [[ "$eni_count" == "0" ]]; then
             echo "No network interfaces found using security group $security_group_id"
             return 0
@@ -138,7 +136,7 @@ wait_for_network_interfaces_cleanup() {
             ((attempt++))
         fi
     done
-
+    
     echo "WARNING: Network interfaces may still be attached after $max_attempts attempts"
     echo "This is normal and the security group deletion will be retried"
     return 1
@@ -150,16 +148,16 @@ retry_security_group_deletion() {
     local max_attempts=10
     local attempt=1
     local wait_time=5
-
+    
     # Validate security group ID format
     if [[ ! "$security_group_id" =~ ^sg-[a-z0-9]{8,17}$ ]]; then
         echo "ERROR: Invalid security group ID format: $security_group_id"
         return 1
     fi
-
+    
     while [[ $attempt -le $max_attempts ]]; do
         echo "Attempt $attempt/$max_attempts: Trying to delete security group $security_group_id"
-
+        
         if execute_command "aws ec2 delete-security-group --group-id '$security_group_id'" "Delete security group (attempt $attempt)"; then
             echo "Successfully deleted security group $security_group_id"
             return 0
@@ -191,12 +189,12 @@ cleanup_resources() {
     done
     echo ""
     echo "Auto-confirming cleanup of all created resources..."
-
+    
     CLEANUP_CHOICE="y"
-
+    
     if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         echo "Starting cleanup process..."
-
+        
         # Step 1: Scale service to 0 tasks first, then delete service
         if [[ " ${CREATED_RESOURCES[*]} " =~ " ECS Service: $SERVICE_NAME " ]]; then
             echo ""
@@ -204,7 +202,7 @@ cleanup_resources() {
             if execute_command "aws ecs update-service --cluster '$CLUSTER_NAME' --service '$SERVICE_NAME' --desired-count 0" "Scale service to 0 tasks"; then
                 echo "Waiting for service to stabilize after scaling to 0..."
                 execute_command "aws ecs wait services-stable --cluster '$CLUSTER_NAME' --services '$SERVICE_NAME'" "Wait for service to stabilize"
-
+                
                 echo "Deleting service..."
                 execute_command "aws ecs delete-service --cluster '$CLUSTER_NAME' --service '$SERVICE_NAME'" "Delete ECS service"
             else
@@ -212,40 +210,40 @@ cleanup_resources() {
                 execute_command "aws ecs delete-service --cluster '$CLUSTER_NAME' --service '$SERVICE_NAME' --force" "Force delete ECS service"
             fi
         fi
-
+        
         # Step 2: Wait a bit for tasks to fully terminate
         echo ""
         echo "Step 2: Waiting for tasks to fully terminate..."
         sleep 15
-
+        
         # Step 3: Delete cluster
         if [[ " ${CREATED_RESOURCES[*]} " =~ " ECS Cluster: $CLUSTER_NAME " ]]; then
             echo ""
             echo "Step 3: Deleting cluster..."
             execute_command "aws ecs delete-cluster --cluster '$CLUSTER_NAME'" "Delete ECS cluster"
         fi
-
+        
         # Step 4: Wait for network interfaces to be cleaned up, then delete security group
         if [[ -n "$SECURITY_GROUP_ID" && "$SECURITY_GROUP_ID" != "None" ]]; then
             echo ""
             echo "Step 4: Cleaning up security group..."
-
+            
             # First, wait for network interfaces to be cleaned up
             wait_for_network_interfaces_cleanup "$SECURITY_GROUP_ID"
-
+            
             # Then retry security group deletion with backoff
             retry_security_group_deletion "$SECURITY_GROUP_ID"
         fi
-
+        
         # Step 5: Clean up task definition (deregister all revisions)
         if [[ " ${CREATED_RESOURCES[*]} " =~ " Task Definition: $TASK_FAMILY " ]]; then
             echo ""
             echo "Step 5: Deregistering task definition revisions..."
-
+            
             # Get all revisions of the task definition
             local revisions
             revisions=$(aws ecs list-task-definitions --family-prefix "$TASK_FAMILY" --query "taskDefinitionArns" --output text 2>/dev/null || echo "")
-
+            
             if [[ -n "$revisions" && "$revisions" != "None" ]]; then
                 for revision_arn in $revisions; do
                     echo "Deregistering task definition: $revision_arn"
@@ -255,13 +253,13 @@ cleanup_resources() {
                 echo "No task definition revisions found to deregister"
             fi
         fi
-
+        
         echo ""
         echo "==========================================="
         echo "CLEANUP COMPLETED"
         echo "==========================================="
         echo "All resources have been cleaned up successfully!"
-
+        
     else
         echo "Cleanup skipped. Resources remain active."
         echo ""
@@ -305,11 +303,11 @@ if aws iam get-role --role-name ecsTaskExecutionRole >/dev/null 2>&1; then
     echo "ECS task execution role already exists"
 else
     echo "Creating ECS task execution role..."
-
+    
     # Create trust policy with strict validation
     cat > trust-policy.json << 'EOF'
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -321,23 +319,23 @@ else
     ]
 }
 EOF
-
+    
     # Validate JSON before using
     if ! jq empty trust-policy.json 2>/dev/null; then
         echo "ERROR: Invalid JSON in trust policy"
         rm -f trust-policy.json
         exit 1
     fi
-
+    
     execute_command "aws iam create-role --role-name ecsTaskExecutionRole --assume-role-policy-document file://trust-policy.json" "Create ECS task execution role"
-
+    
     aws iam tag-role --role-name ecsTaskExecutionRole --tags Key=project,Value=doc-smith Key=tutorial,Value=amazon-ecs-fargate-linux
-
+    
     execute_command "aws iam attach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy" "Attach ECS task execution policy"
-
+    
     # Clean up temporary file securely
     shred -vfz -n 3 trust-policy.json 2>/dev/null || rm -f trust-policy.json
-
+    
     CREATED_RESOURCES+=("IAM Role: ecsTaskExecutionRole")
 fi
 
@@ -569,35 +567,32 @@ fi
 
 echo ""
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/CreateCluster)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/CreateService)
+  + [DeleteCluster](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeleteCluster)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeleteService)
+  + [DeregisterTaskDefinition](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition)
+  + [DescribeNetworkInterfaces](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeNetworkInterfaces)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeServices)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTasks](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeTasks)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [ListTaskDefinitions](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListTaskDefinitions)
+  + [ListTasks](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListTasks)
+  + [RegisterTaskDefinition](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition)
+  + [UpdateService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/UpdateService)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateCluster](../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md "../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateService](../../../goto/aws-cli/ecs-2014-11-13/CreateService.md "../../../goto/aws-cli/ecs-2014-11-13/CreateService.md")
-  - [DeleteCluster](../../../goto/aws-cli/ecs-2014-11-13/DeleteCluster.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteCluster.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteService](../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md")
-  - [DeregisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md")
-  - [DescribeNetworkInterfaces](../../../goto/aws-cli/ec2-2016-11-15/DescribeNetworkInterfaces.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeNetworkInterfaces.md")
-  - [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DescribeServices](../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTasks](../../../goto/aws-cli/ecs-2014-11-13/DescribeTasks.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeTasks.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [ListTaskDefinitions](../../../goto/aws-cli/ecs-2014-11-13/ListTaskDefinitions.md "../../../goto/aws-cli/ecs-2014-11-13/ListTaskDefinitions.md")
-  - [ListTasks](../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md "../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md")
-  - [RegisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md")
-  - [UpdateService](../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md "../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md")
-  - [Wait](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

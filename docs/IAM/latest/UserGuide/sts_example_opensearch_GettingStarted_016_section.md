@@ -1,20 +1,18 @@
+
+
 # Getting started with search and analytics engines
+<a name="sts_example_opensearch_GettingStarted_016_section"></a>
 
 The following code example shows how to:
++ Create an OpenSearch Service domain
++ Upload data to your domain
++ Clean up resources
 
-- Create an OpenSearch Service domain
-- Upload data to your domain
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/016-opensearch-service-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/016-opensearch-service-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/016-opensearch-service-gs) repository. 
 
 ```
 #!/bin/bash
@@ -66,10 +64,10 @@ handle_error() {
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     if [[ "$DOMAIN_CREATED" == "true" ]]; then
         echo "Checking if domain $DOMAIN_NAME exists before attempting to delete..."
-
+        
         # Check if domain exists before trying to delete
         if aws opensearch describe-domain --domain-name "$DOMAIN_NAME" > /dev/null 2>&1; then
             echo "Domain $DOMAIN_NAME exists. Proceeding with deletion."
@@ -81,7 +79,7 @@ cleanup_resources() {
     else
         echo "No domain was successfully created. Nothing to clean up."
     fi
-
+    
     # Securely clean up sensitive files
     if [[ -d "$TEMP_DIR" ]]; then
         shred -vfz -n 3 "$TEMP_DIR"/* 2>/dev/null || true
@@ -210,25 +208,25 @@ else
     # IMPROVED: Test authentication with multiple approaches
     echo "Testing authentication with the OpenSearch domain..."
     echo "This test checks if fine-grained access control is ready for data operations."
-
+    
     # Create credentials file for secure handling
     CREDENTIALS_FILE="$TEMP_DIR/.credentials"
     echo "$MASTER_USER:$MASTER_PASSWORD" > "$CREDENTIALS_FILE"
     chmod 600 "$CREDENTIALS_FILE"
-
+    
     # Test 1: Basic authentication with root endpoint
     echo "Testing basic authentication with root endpoint..."
     AUTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
         --netrc-file "$CREDENTIALS_FILE" \
         --request GET \
         "https://${DOMAIN_ENDPOINT}/" 2>&1)
-
+    
     echo "Basic auth test result:"
     echo "$AUTH_TEST_RESULT"
-
+    
     # Extract HTTP status code
     HTTP_CODE=$(echo "$AUTH_TEST_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
-
+    
     # Function to check if HTTP code is 2xx
     is_success_code() {
         local code=$1
@@ -238,7 +236,7 @@ else
             return 1
         fi
     }
-
+    
     # Check if basic authentication test was successful (200 or 2xx status codes)
     if is_success_code "$HTTP_CODE"; then
         echo "✓ Basic authentication test successful! (HTTP $HTTP_CODE)"
@@ -246,26 +244,26 @@ else
         AUTH_METHOD="basic"
     else
         echo "Basic authentication failed with HTTP code: $HTTP_CODE"
-
+        
         # Test 2: Try cluster health endpoint
         echo "Testing with cluster health endpoint..."
         HEALTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
             --netrc-file "$CREDENTIALS_FILE" \
             --request GET \
             "https://${DOMAIN_ENDPOINT}/_cluster/health" 2>&1)
-
+        
         echo "Cluster health test result:"
         echo "$HEALTH_TEST_RESULT"
-
+        
         HEALTH_HTTP_CODE=$(echo "$HEALTH_TEST_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
-
+        
         if is_success_code "$HEALTH_HTTP_CODE"; then
             echo "✓ Cluster health authentication test successful! (HTTP $HEALTH_HTTP_CODE)"
             AUTH_SUCCESS=true
             AUTH_METHOD="basic"
         else
             echo "Cluster health authentication also failed with HTTP code: $HEALTH_HTTP_CODE"
-
+            
             # Check for specific error patterns
             if echo "$AUTH_TEST_RESULT" | grep -q "anonymous is not authorized"; then
                 echo "Error: Request is being treated as anonymous (authentication not working)"
@@ -274,52 +272,52 @@ else
             elif echo "$AUTH_TEST_RESULT" | grep -q "Forbidden"; then
                 echo "Error: Authentication succeeded but access is forbidden"
             fi
-
+            
             echo "Waiting additional time and retrying with exponential backoff..."
-
+            
             # Retry authentication test with exponential backoff
             AUTH_RETRY_COUNT=0
             MAX_AUTH_RETRIES=5
             WAIT_TIME=60
             AUTH_SUCCESS=false
-
+            
             while [[ $AUTH_RETRY_COUNT -lt $MAX_AUTH_RETRIES ]]; do
                 echo "Retrying authentication test (attempt $((AUTH_RETRY_COUNT+1))/$MAX_AUTH_RETRIES) after ${WAIT_TIME} seconds..."
                 sleep $WAIT_TIME
-
+                
                 # Try both endpoints
                 AUTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
                     --netrc-file "$CREDENTIALS_FILE" \
                     --request GET \
                     "https://${DOMAIN_ENDPOINT}/" 2>&1)
-
+                
                 HTTP_CODE=$(echo "$AUTH_TEST_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
-
+                
                 echo "Retry result (HTTP $HTTP_CODE):"
                 echo "$AUTH_TEST_RESULT"
-
+                
                 if is_success_code "$HTTP_CODE"; then
                     echo "✓ Authentication test successful after retry! (HTTP $HTTP_CODE)"
                     AUTH_SUCCESS=true
                     AUTH_METHOD="basic"
                     break
                 fi
-
+                
                 # Also try cluster health
                 HEALTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
                     --netrc-file "$CREDENTIALS_FILE" \
                     --request GET \
                     "https://${DOMAIN_ENDPOINT}/_cluster/health" 2>&1)
-
+                
                 HEALTH_HTTP_CODE=$(echo "$HEALTH_TEST_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
-
+                
                 if is_success_code "$HEALTH_HTTP_CODE"; then
                     echo "✓ Cluster health authentication successful after retry! (HTTP $HEALTH_HTTP_CODE)"
                     AUTH_SUCCESS=true
                     AUTH_METHOD="basic"
                     break
                 fi
-
+                
                 AUTH_RETRY_COUNT=$((AUTH_RETRY_COUNT+1))
                 # Exponential backoff: double the wait time each retry (max 10 minutes)
                 WAIT_TIME=$((WAIT_TIME * 2))
@@ -329,11 +327,11 @@ else
             done
         fi
     fi
-
+    
     # Proceed with data operations if authentication is working
     if [[ "$AUTH_SUCCESS" == "true" ]]; then
         echo "Authentication successful using $AUTH_METHOD method. Proceeding with data operations."
-
+        
         # Upload single document (matches tutorial exactly)
         echo "Uploading single document..."
         UPLOAD_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
@@ -342,17 +340,17 @@ else
             --header 'Content-Type: application/json' \
             --data @"$SINGLE_MOVIE_FILE" \
             "https://${DOMAIN_ENDPOINT}/movies/_doc/1" 2>&1)
-
+        
         echo "Upload response:"
         echo "$UPLOAD_RESULT"
-
+        
         UPLOAD_HTTP_CODE=$(echo "$UPLOAD_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
         if is_success_code "$UPLOAD_HTTP_CODE" && echo "$UPLOAD_RESULT" | grep -q '"result"'; then
             echo "✓ Single document uploaded successfully! (HTTP $UPLOAD_HTTP_CODE)"
         else
             echo "⚠ Warning: Single document upload may have failed (HTTP $UPLOAD_HTTP_CODE)"
         fi
-
+        
         # Upload bulk documents (matches tutorial exactly)
         echo "Uploading bulk documents..."
         BULK_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
@@ -361,49 +359,49 @@ else
             --header 'Content-Type: application/x-ndjson' \
             --data-binary @"$BULK_MOVIES_FILE" \
             "https://${DOMAIN_ENDPOINT}/movies/_bulk" 2>&1)
-
+        
         echo "Bulk upload response:"
         echo "$BULK_RESULT"
-
+        
         BULK_HTTP_CODE=$(echo "$BULK_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
         if is_success_code "$BULK_HTTP_CODE" && echo "$BULK_RESULT" | grep -q '"errors": false'; then
             echo "✓ Bulk documents uploaded successfully! (HTTP $BULK_HTTP_CODE)"
         else
             echo "⚠ Warning: Bulk document upload may have failed (HTTP $BULK_HTTP_CODE)"
         fi
-
+        
         # Wait a moment for indexing
         echo "Waiting for documents to be indexed..."
         sleep 5
-
+        
         # Step 3: Search Documents (matches tutorial exactly)
         echo "Searching for documents containing 'mars'..."
         SEARCH_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
             --netrc-file "$CREDENTIALS_FILE" \
             --request GET \
             "https://${DOMAIN_ENDPOINT}/movies/_search?q=mars&pretty=true" 2>&1)
-
+        
         SEARCH_HTTP_CODE=$(echo "$SEARCH_RESULT" | grep "HTTP_CODE:" | cut -d: -f2)
         echo "Search results for 'mars' (HTTP $SEARCH_HTTP_CODE):"
         echo "$SEARCH_RESULT"
-
+        
         echo "Searching for documents containing 'rebel'..."
         REBEL_SEARCH=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
             --netrc-file "$CREDENTIALS_FILE" \
             --request GET \
             "https://${DOMAIN_ENDPOINT}/movies/_search?q=rebel&pretty=true" 2>&1)
-
+        
         REBEL_HTTP_CODE=$(echo "$REBEL_SEARCH" | grep "HTTP_CODE:" | cut -d: -f2)
         echo "Search results for 'rebel' (HTTP $REBEL_HTTP_CODE):"
         echo "$REBEL_SEARCH"
-
+        
         # Verify search results
         if is_success_code "$SEARCH_HTTP_CODE" && echo "$SEARCH_RESULT" | grep -q '"hits"'; then
             echo "✓ Search functionality is working!"
         else
             echo "⚠ Warning: Search may not be working properly."
         fi
-
+        
     else
         echo ""
         echo "=========================================="
@@ -417,12 +415,12 @@ else
         echo ""
         echo "DOMAIN CONFIGURATION DEBUG:"
         echo "Let's check the domain configuration..."
-
+        
         # Debug domain configuration
         DOMAIN_CONFIG=$(aws opensearch describe-domain --domain-name "$DOMAIN_NAME" --query 'DomainStatus.{AdvancedSecurityOptions: AdvancedSecurityOptions, AccessPolicies: AccessPolicies}' --output json 2>&1)
         echo "Domain configuration:"
         echo "$DOMAIN_CONFIG"
-
+        
         echo ""
         echo "MANUAL TESTING COMMANDS:"
         echo "You can try these commands manually in 10-15 minutes:"
@@ -449,7 +447,7 @@ else
         echo "Skipping data upload and search operations for now."
         echo "The domain is created and accessible via OpenSearch Dashboards."
     fi
-
+    
     # Securely remove credentials file
     shred -vfz -n 3 "$CREDENTIALS_FILE" 2>/dev/null || true
 fi
@@ -531,16 +529,13 @@ echo "1. Access OpenSearch Dashboards at: https://${DOMAIN_ENDPOINT}/_dashboards
 echo "2. Create visualizations and dashboards"
 echo "3. Explore the OpenSearch API"
 echo "4. Remember to delete resources when done to avoid charges"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateDomain](https://docs.aws.amazon.com/goto/aws-cli/es-2021-01-01/CreateDomain)
+  + [DeleteDomain](https://docs.aws.amazon.com/goto/aws-cli/es-2021-01-01/DeleteDomain)
+  + [DescribeDomain](https://docs.aws.amazon.com/goto/aws-cli/es-2021-01-01/DescribeDomain)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateDomain](../../../goto/aws-cli/es-2021-01-01/CreateDomain.md "../../../goto/aws-cli/es-2021-01-01/CreateDomain.md")
-  - [DeleteDomain](../../../goto/aws-cli/es-2021-01-01/DeleteDomain.md "../../../goto/aws-cli/es-2021-01-01/DeleteDomain.md")
-  - [DescribeDomain](../../../goto/aws-cli/es-2021-01-01/DescribeDomain.md "../../../goto/aws-cli/es-2021-01-01/DescribeDomain.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

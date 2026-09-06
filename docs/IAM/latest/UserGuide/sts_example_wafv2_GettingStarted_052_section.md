@@ -1,22 +1,20 @@
+
+
 # Getting started with web application firewalls
+<a name="sts_example_wafv2_GettingStarted_052_section"></a>
 
 The following code example shows how to:
++ Create a web ACL
++ Add a string match rule
++ Add managed rules
++ Configure logging
++ Clean up resources
 
-- Create a web ACL
-- Add a string match rule
-- Add managed rules
-- Configure logging
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/052-aws-waf-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/052-aws-waf-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/052-aws-waf-gs) repository. 
 
 ```
 #!/bin/bash
@@ -68,11 +66,11 @@ validate_json() {
 extract_json_value() {
     local json_string="$1"
     local key_path="$2"
-
+    
     if ! validate_json "$json_string"; then
         return 1
     fi
-
+    
     echo "$json_string" | jq -r "$key_path" 2>/dev/null || return 1
 }
 
@@ -82,46 +80,46 @@ cleanup_resources() {
     echo "==================================================="
     echo "CLEANING UP RESOURCES"
     echo "==================================================="
-
+    
     if [ -n "${DISTRIBUTION_ID:-}" ] && [ -n "${WEB_ACL_ARN:-}" ]; then
         echo "Disassociating Web ACL from CloudFront distribution..."
         local account_id
         account_id=$(aws sts get-caller-identity --query Account --output text 2>/dev/null) || account_id=""
-
+        
         if [ -z "$account_id" ]; then
             echo "Warning: Could not retrieve AWS account ID"
             return
         fi
-
+        
         local disassociate_result
         disassociate_result=$(aws wafv2 disassociate-web-acl \
             --resource-arn "arn:aws:cloudfront::${account_id}:distribution/${DISTRIBUTION_ID}" \
             --region us-east-1 2>&1) || true
-
+        
         if echo "$disassociate_result" | grep -qi "error"; then
             echo "Warning: Failed to disassociate Web ACL: $disassociate_result"
         else
             echo "Web ACL disassociated successfully."
         fi
     fi
-
+    
     if [ -n "${WEB_ACL_ID:-}" ] && [ -n "${WEB_ACL_NAME:-}" ]; then
         echo "Deleting Web ACL..."
-
+        
         local get_result
         get_result=$(aws wafv2 get-web-acl \
             --name "$WEB_ACL_NAME" \
             --scope CLOUDFRONT \
             --id "$WEB_ACL_ID" \
             --region us-east-1 2>&1) || true
-
+        
         if echo "$get_result" | grep -qi "error"; then
             echo "Warning: Failed to get Web ACL for deletion: $get_result"
             echo "You may need to manually delete the Web ACL using the AWS Console."
         else
             local latest_token
             latest_token=$(extract_json_value "$get_result" '.WebACL.LockToken' 2>/dev/null) || latest_token=""
-
+            
             if [ -n "$latest_token" ]; then
                 local delete_result
                 delete_result=$(aws wafv2 delete-web-acl \
@@ -130,7 +128,7 @@ cleanup_resources() {
                     --id "$WEB_ACL_ID" \
                     --lock-token "$latest_token" \
                     --region us-east-1 2>&1) || true
-
+                
                 if echo "$delete_result" | grep -qi "error"; then
                     echo "Warning: Failed to delete Web ACL: $delete_result"
                     echo "You may need to manually delete the Web ACL using the AWS Console."
@@ -142,7 +140,7 @@ cleanup_resources() {
             fi
         fi
     fi
-
+    
     echo "Cleanup process completed."
 }
 
@@ -191,7 +189,7 @@ echo "==================================================="
 
 for ((i=1; i<=MAX_RETRIES; i++)); do
     echo "Attempt $i to add string match rule..."
-
+    
     # Get the latest lock token before updating
     local get_result
     get_result=$(aws wafv2 get-web-acl \
@@ -199,7 +197,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         --scope CLOUDFRONT \
         --id "$WEB_ACL_ID" \
         --region us-east-1 2>&1) || true
-
+    
     if echo "$get_result" | grep -qi "error"; then
         echo "Warning: Failed to get Web ACL for update: $get_result"
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -208,7 +206,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         sleep 2
         continue
     fi
-
+    
     if ! validate_json "$get_result"; then
         echo "Warning: Invalid JSON response from get-web-acl"
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -217,10 +215,10 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         sleep 2
         continue
     fi
-
+    
     local latest_token
     latest_token=$(extract_json_value "$get_result" '.WebACL.LockToken' 2>/dev/null) || true
-
+    
     if [ -z "$latest_token" ]; then
         echo "Warning: Could not extract lock token for update"
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -229,7 +227,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         sleep 2
         continue
     fi
-
+    
     local update_result
     update_result=$(aws wafv2 update-web-acl \
         --name "$WEB_ACL_NAME" \
@@ -268,7 +266,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         }]' \
         --visibility-config "SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=$METRIC_NAME" \
         --region us-east-1 2>&1) || true
-
+    
     if echo "$update_result" | grep -qi "WAFOptimisticLockException"; then
         echo "Optimistic lock exception encountered. Will retry with new lock token."
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -292,7 +290,7 @@ echo "==================================================="
 
 for ((i=1; i<=MAX_RETRIES; i++)); do
     echo "Attempt $i to add AWS Managed Rules..."
-
+    
     # Get the latest lock token before updating
     local get_result
     get_result=$(aws wafv2 get-web-acl \
@@ -300,7 +298,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         --scope CLOUDFRONT \
         --id "$WEB_ACL_ID" \
         --region us-east-1 2>&1) || true
-
+    
     if echo "$get_result" | grep -qi "error"; then
         echo "Warning: Failed to get Web ACL for update: $get_result"
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -309,7 +307,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         sleep 2
         continue
     fi
-
+    
     if ! validate_json "$get_result"; then
         echo "Warning: Invalid JSON response from get-web-acl"
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -318,10 +316,10 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         sleep 2
         continue
     fi
-
+    
     local latest_token
     latest_token=$(extract_json_value "$get_result" '.WebACL.LockToken' 2>/dev/null) || true
-
+    
     if [ -z "$latest_token" ]; then
         echo "Warning: Could not extract lock token for update"
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -330,7 +328,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         sleep 2
         continue
     fi
-
+    
     local update_result
     update_result=$(aws wafv2 update-web-acl \
         --name "$WEB_ACL_NAME" \
@@ -388,7 +386,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
         }]' \
         --visibility-config "SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=$METRIC_NAME" \
         --region us-east-1 2>&1) || true
-
+    
     if echo "$update_result" | grep -qi "WAFOptimisticLockException"; then
         echo "Optimistic lock exception encountered. Will retry with new lock token."
         if [ "$i" -eq "$MAX_RETRIES" ]; then
@@ -425,17 +423,17 @@ else
     echo "==================================================="
     echo "STEP 5: Associate Web ACL with CloudFront Distribution"
     echo "==================================================="
-
+    
     local first_dist
     first_dist=$(aws cloudfront list-distributions --query "DistributionList.Items[0].Id" --output text 2>&1) || first_dist=""
-
+    
     if [ -n "$first_dist" ] && [ "$first_dist" != "None" ] && ! echo "$first_dist" | grep -qi "error"; then
         DISTRIBUTION_ID="$first_dist"
         echo "Using CloudFront distribution: $DISTRIBUTION_ID"
-
+        
         local account_id
         account_id=$(aws sts get-caller-identity --query Account --output text 2>/dev/null) || account_id=""
-
+        
         if [ -z "$account_id" ]; then
             echo "Warning: Could not retrieve AWS account ID for association"
             DISTRIBUTION_ID=""
@@ -445,7 +443,7 @@ else
                 --web-acl-arn "$WEB_ACL_ARN" \
                 --resource-arn "arn:aws:cloudfront::${account_id}:distribution/${DISTRIBUTION_ID}" \
                 --region us-east-1 2>&1) || true
-
+            
             if echo "$associate_result" | grep -qi "error"; then
                 echo "Warning: Failed to associate Web ACL with CloudFront distribution: $associate_result"
                 echo "Continuing without CloudFront association."
@@ -484,20 +482,17 @@ echo "==================================================="
 echo "Tutorial completed!"
 echo "==================================================="
 echo "Log file: $LOG_FILE"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AssociateWebAcl](https://docs.aws.amazon.com/goto/aws-cli/wafv2-2019-07-29/AssociateWebAcl)
+  + [CreateWebAcl](https://docs.aws.amazon.com/goto/aws-cli/wafv2-2019-07-29/CreateWebAcl)
+  + [DeleteWebAcl](https://docs.aws.amazon.com/goto/aws-cli/wafv2-2019-07-29/DeleteWebAcl)
+  + [DisassociateWebAcl](https://docs.aws.amazon.com/goto/aws-cli/wafv2-2019-07-29/DisassociateWebAcl)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetWebAcl](https://docs.aws.amazon.com/goto/aws-cli/wafv2-2019-07-29/GetWebAcl)
+  + [ListDistributions](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/ListDistributions)
+  + [UpdateWebAcl](https://docs.aws.amazon.com/goto/aws-cli/wafv2-2019-07-29/UpdateWebAcl)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AssociateWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/AssociateWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/AssociateWebAcl.md")
-  - [CreateWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/CreateWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/CreateWebAcl.md")
-  - [DeleteWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/DeleteWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/DeleteWebAcl.md")
-  - [DisassociateWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/DisassociateWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/DisassociateWebAcl.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/GetWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/GetWebAcl.md")
-  - [ListDistributions](../../../goto/aws-cli/cloudfront-2020-05-31/ListDistributions.md "../../../goto/aws-cli/cloudfront-2020-05-31/ListDistributions.md")
-  - [UpdateWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/UpdateWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/UpdateWebAcl.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Use `GetUser` with an AWS SDK or CLI
+<a name="iam_example_iam_GetUser_section"></a>
 
 The following code examples show how to use `GetUser`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -23,24 +22,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.GetUserAsync(new GetUserRequest { UserName = userName });
         return response.User;
     }
-
-
-
 ```
++  For API details, see [GetUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/GetUser) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetUser](../../../goto/DotNetSDKV3/iam-2010-05-08/GetUser.md "../../../goto/DotNetSDKV3/iam-2010-05-08/GetUser.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -88,29 +77,21 @@ function iam_user_exists() {
     return 1 # 1 in Bash script means false.
   fi
 }
+```
++  For API details, see [GetUser](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetUser) in *AWS CLI Command Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get information about an IAM user**  
+The following `get-user` command gets information about the IAM user named `Paulo`.  
 
 ```
-
-- For API details, see
-  [GetUser](../../../goto/aws-cli/iam-2010-05-08/GetUser.md "../../../goto/aws-cli/iam-2010-05-08/GetUser.md")
-  in _AWS CLI Command Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get information about an IAM user**
-
-The following `get-user` command gets information about the IAM user named `Paulo`.
-
+aws iam get-user \
+    --user-name {{Paulo}}
 ```
-`aws iam get-user \
- --user-name `Paulo``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -123,25 +104,16 @@ Output:
     }
 }
 ```
+For more information, see [Managing IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-user.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Managing IAM users](id_users_manage.md "id_users_manage.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [GetUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-user.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -184,27 +156,19 @@ func (wrapper UserWrapper) GetUser(ctx context.Context, userName string) (*types
 	}
 	return user, err
 }
-
-
-
 ```
++  For API details, see [GetUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetUser) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [GetUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetUser")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves details about the user named `David`.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves details about the user named `David`.**  
 
 ```
 Get-IAMUser -UserName David
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/David
@@ -214,15 +178,12 @@ Path             : /
 UserId           : Y4FKWQCXTA52QEXAMPLE1
 UserName         : David
 ```
-
-**Example 2: This example retrieves details about the currently signed-in IAM user.**
+**Example 2: This example retrieves details about the currently signed-in IAM user.**  
 
 ```
 Get-IAMUser
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/Bob
@@ -232,21 +193,15 @@ Path             : /
 UserId           : 7K3GJEANSKZF2EXAMPLE2
 UserName         : Bob
 ```
++  For API details, see [GetUser](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetUser](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves details about the user named `David`.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves details about the user named `David`.**  
 
 ```
 Get-IAMUser -UserName David
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/David
@@ -256,15 +211,12 @@ Path             : /
 UserId           : Y4FKWQCXTA52QEXAMPLE1
 UserName         : David
 ```
-
-**Example 2: This example retrieves details about the currently signed-in IAM user.**
+**Example 2: This example retrieves details about the currently signed-in IAM user.**  
 
 ```
 Get-IAMUser
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/Bob
@@ -274,20 +226,13 @@ Path             : /
 UserId           : 7K3GJEANSKZF2EXAMPLE2
 UserName         : Bob
 ```
++  For API details, see [GetUser](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetUser](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Retrieves a user's details
@@ -304,23 +249,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("Error retrieving user '#{user_name}': #{e.message}")
     nil
   end
-
-
 ```
++  For API details, see [GetUser](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/GetUser) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetUser](../../../goto/SdkForRubyV3/iam-2010-05-08/GetUser.md "../../../goto/SdkForRubyV3/iam-2010-05-08/GetUser.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -342,14 +278,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [GetUser](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/getuser(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [GetUser](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/getuser(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/getuser(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

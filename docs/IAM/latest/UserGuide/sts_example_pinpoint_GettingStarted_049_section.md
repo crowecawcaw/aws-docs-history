@@ -1,21 +1,19 @@
+
+
 # Getting started with push notifications
+<a name="sts_example_pinpoint_GettingStarted_049_section"></a>
 
 The following code example shows how to:
++ Create an application
++ Enable push notification channels
++ Send a push notification
++ Clean up resources
 
-- Create an application
-- Enable push notification channels
-- Send a push notification
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/049-aws-end-user-messaging-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/049-aws-end-user-messaging-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/049-aws-end-user-messaging-gs) repository. 
 
 ```
 #!/bin/bash
@@ -53,14 +51,14 @@ declare -a AWS_RESOURCES=()
 cleanup() {
     local exit_code=$?
     echo "Cleaning up temporary resources..."
-
+    
     # Remove temporary files securely
     for temp_file in "${TEMP_FILES[@]+"${TEMP_FILES[@]}"}"; do
         if [ -f "$temp_file" ]; then
             shred -vfz -n 3 "$temp_file" 2>/dev/null || rm -f "$temp_file"
         fi
     done
-
+    
     # Optionally delete AWS resources
     if [ "${DELETE_AWS_RESOURCES:-false}" = "true" ]; then
         for resource in "${AWS_RESOURCES[@]+"${AWS_RESOURCES[@]}"}"; do
@@ -69,7 +67,7 @@ cleanup() {
                 echo "Warning: Failed to delete application $resource"
         done
     fi
-
+    
     exit "$exit_code"
 }
 
@@ -80,11 +78,11 @@ check_error() {
     local output=$1
     local cmd=$2
     local ignore_error=${3:-false}
-
+    
     if echo "$output" | grep -qi "error\|exception\|fail"; then
         echo "ERROR: Command failed: $cmd" >&2
         echo "Error details: $output" >&2
-
+        
         if [ "$ignore_error" = "true" ]; then
             echo "Ignoring error and continuing..." >&2
             return 1
@@ -92,32 +90,32 @@ check_error() {
             return 2
         fi
     fi
-
+    
     return 0
 }
 
 # Function to validate AWS CLI is configured
 validate_aws_cli() {
     echo "Validating AWS CLI configuration..."
-
+    
     # Check if AWS CLI is installed
     if ! command -v aws &> /dev/null; then
         echo "ERROR: AWS CLI is not installed. Please install it first." >&2
         echo "Visit: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" >&2
         return 1
     fi
-
+    
     # Check AWS CLI version
     AWS_VERSION=$(aws --version 2>&1 | head -n1)
     echo "AWS CLI version: $AWS_VERSION"
-
+    
     # Verify credentials are set (check for credential env vars or config file)
     if ! aws sts get-caller-identity &> /dev/null; then
         echo "ERROR: AWS CLI credentials are not configured or invalid." >&2
         echo "Please configure credentials via environment variables, credential file, or 'aws configure'" >&2
         return 1
     fi
-
+    
     # Get current AWS identity and region
     CALLER_IDENTITY=$(aws sts get-caller-identity)
     CURRENT_REGION=$(aws configure get region 2>/dev/null || echo "us-east-1")
@@ -125,7 +123,7 @@ validate_aws_cli() {
     echo "$CALLER_IDENTITY"
     echo "Current region: $CURRENT_REGION"
     echo ""
-
+    
     return 0
 }
 
@@ -145,7 +143,7 @@ check_json_tools() {
 extract_json_value() {
     local json=$1
     local key=$2
-
+    
     if [ "$USE_JQ" = "true" ]; then
         echo "$json" | jq -r ".ApplicationResponse.$key // empty" 2>/dev/null || echo ""
     else
@@ -157,7 +155,7 @@ extract_json_value() {
 # Function to validate required IAM permissions
 validate_permissions() {
     echo "Validating IAM permissions..."
-
+    
     # Test basic Pinpoint permissions
     if ! aws pinpoint get-apps > /dev/null 2>&1; then
         echo "WARNING: Unable to list Pinpoint applications." >&2
@@ -177,18 +175,18 @@ validate_permissions() {
 # Function to validate input parameters
 validate_input() {
     local app_name=$1
-
+    
     # Validate app name length and characters
     if [ ${#app_name} -gt 64 ]; then
         echo "ERROR: Application name exceeds maximum length of 64 characters" >&2
         return 1
     fi
-
+    
     if ! [[ "$app_name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
         echo "ERROR: Application name contains invalid characters" >&2
         return 1
     fi
-
+    
     return 0
 }
 
@@ -480,20 +478,17 @@ echo "- Use VPC endpoints for private AWS API access"
 echo ""
 echo "Log file: $LOG_FILE"
 echo "Script completed at: $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateApp](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/CreateApp)
+  + [DeleteApp](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/DeleteApp)
+  + [GetApp](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/GetApp)
+  + [GetApps](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/GetApps)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [SendMessages](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/SendMessages)
+  + [UpdateApnsChannel](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/UpdateApnsChannel)
+  + [UpdateGcmChannel](https://docs.aws.amazon.com/goto/aws-cli/pinpoint-2016-12-01/UpdateGcmChannel)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateApp](../../../goto/aws-cli/pinpoint-2016-12-01/CreateApp.md "../../../goto/aws-cli/pinpoint-2016-12-01/CreateApp.md")
-  - [DeleteApp](../../../goto/aws-cli/pinpoint-2016-12-01/DeleteApp.md "../../../goto/aws-cli/pinpoint-2016-12-01/DeleteApp.md")
-  - [GetApp](../../../goto/aws-cli/pinpoint-2016-12-01/GetApp.md "../../../goto/aws-cli/pinpoint-2016-12-01/GetApp.md")
-  - [GetApps](../../../goto/aws-cli/pinpoint-2016-12-01/GetApps.md "../../../goto/aws-cli/pinpoint-2016-12-01/GetApps.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [SendMessages](../../../goto/aws-cli/pinpoint-2016-12-01/SendMessages.md "../../../goto/aws-cli/pinpoint-2016-12-01/SendMessages.md")
-  - [UpdateApnsChannel](../../../goto/aws-cli/pinpoint-2016-12-01/UpdateApnsChannel.md "../../../goto/aws-cli/pinpoint-2016-12-01/UpdateApnsChannel.md")
-  - [UpdateGcmChannel](../../../goto/aws-cli/pinpoint-2016-12-01/UpdateGcmChannel.md "../../../goto/aws-cli/pinpoint-2016-12-01/UpdateGcmChannel.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

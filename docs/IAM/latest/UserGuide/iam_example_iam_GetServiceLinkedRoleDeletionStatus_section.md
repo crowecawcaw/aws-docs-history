@@ -1,44 +1,36 @@
+
+
 # Use `GetServiceLinkedRoleDeletionStatus` with an AWS SDK or CLI
+<a name="iam_example_iam_GetServiceLinkedRoleDeletionStatus_section"></a>
 
 The following code examples show how to use `GetServiceLinkedRoleDeletionStatus`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To check the status of a request to delete a service-linked role**
-
-The following `get-service-linked-role-deletion-status` example displays the status of a previously request to delete a service-linked role. The delete operation occurs asynchronously. When you make the request, you get a `DeletionTaskId` value that you provide as a parameter for this command.
-
-```
-`aws iam get-service-linked-role-deletion-status \
- --deletion-task-id `task/aws-service-role/lex.amazonaws.com/AWSServiceRoleForLexBots/1a2b3c4d-1234-abcd-7890-abcdeEXAMPLE``
+**AWS CLI**  
+**To check the status of a request to delete a service-linked role**  
+The following `get-service-linked-role-deletion-status` example displays the status of a previously request to delete a service-linked role. The delete operation occurs asynchronously. When you make the request, you get a `DeletionTaskId` value that you provide as a parameter for this command.  
 
 ```
-
-Output:
+aws iam get-service-linked-role-deletion-status \
+    --deletion-task-id {{task/aws-service-role/lex.amazonaws.com/AWSServiceRoleForLexBots/1a2b3c4d-1234-abcd-7890-abcdeEXAMPLE}}
+```
+Output:  
 
 ```
 {
 "Status": "SUCCEEDED"
 }
 ```
+For more information, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetServiceLinkedRoleDeletionStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-service-linked-role-deletion-status.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md") in the _AWS IAM User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [GetServiceLinkedRoleDeletionStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-service-linked-role-deletion-status.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-service-linked-role-deletion-status.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import {
@@ -59,14 +51,9 @@ export const getServiceLinkedRoleDeletionStatus = (deletionTaskId) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [GetServiceLinkedRoleDeletionStatus](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetServiceLinkedRoleDeletionStatusCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetServiceLinkedRoleDeletionStatus](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetServiceLinkedRoleDeletionStatusCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetServiceLinkedRoleDeletionStatusCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

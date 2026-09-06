@@ -1,120 +1,79 @@
-# Grammar of the IAM JSON policy language
 
-This page presents a formal grammar for the language used to create JSON policies in
-IAM. We present this grammar so that you can understand how to construct and validate
-policies.
+
+# Grammar of the IAM JSON policy language
+<a name="reference_policies_grammar"></a>
+
+This page presents a formal grammar for the language used to create JSON policies in IAM. We present this grammar so that you can understand how to construct and validate policies.
 
 For examples of policies, see the following topics:
++ [Policies and permissions in AWS Identity and Access Management](access_policies.md)
++ [Example IAM identity-based policies](access_policies_examples.md)
++ [Example Policies for Working in the Amazon EC2 Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-ec2-console.html) and [Example Policies for Working With the AWS CLI, the Amazon EC2 CLI, or an AWS SDK](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExamplePolicies_EC2.html) in the *Amazon EC2 User Guide*. 
++  [Bucket Policy Examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) and [User Policy Examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html) in the *Amazon Simple Storage Service User Guide*. 
 
-- [Policies and permissions in AWS Identity and Access Management](access_policies.md "access_policies.md")
-- [Example IAM identity-based policies](access_policies_examples.md "access_policies_examples.md")
-- [Example Policies for
-  Working in the Amazon EC2 Console](../../../AWSEC2/latest/UserGuide/iam-policies-ec2-console.md "../../../AWSEC2/latest/UserGuide/iam-policies-ec2-console.md") and [Example Policies for Working With
-  the AWS CLI, the Amazon EC2 CLI, or an AWS SDK](../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md "../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md") in the
-  _Amazon EC2 User Guide_.
-- [Bucket Policy Examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md")
-  and [User Policy Examples](../../../AmazonS3/latest/userguide/example-policies-s3.md "../../../AmazonS3/latest/userguide/example-policies-s3.md")
-  in the _Amazon Simple Storage Service User Guide_.
-  For examples of policies used in other AWS services, go to the documentation for those
-  services.
+For examples of policies used in other AWS services, go to the documentation for those services.
 
-###### Topics
-
-- [The policy language and JSON](#policies-grammar-json "#policies-grammar-json")
-- [Conventions used in this grammar](#policies-grammar-conventions "#policies-grammar-conventions")
-- [Grammar](#policies-grammar-bnf "#policies-grammar-bnf")
-- [Policy grammar notes](#policies-grammar-notes "#policies-grammar-notes")
+**Topics**
++ [The policy language and JSON](#policies-grammar-json)
++ [Conventions used in this grammar](#policies-grammar-conventions)
++ [Grammar](#policies-grammar-bnf)
++ [Policy grammar notes](#policies-grammar-notes)
 
 ## The policy language and JSON
+<a name="policies-grammar-json"></a>
 
-Policies are expressed in JSON.
-When you create or edit a JSON policy, IAM can perform policy validation to help you create an effective policy. IAM identifies JSON syntax errors, while IAM Access Analyzer provides
-additional policy checks with recommendations to help you further refine your policies. To learn more about policy validation, see [IAM policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md"). To learn more about IAM Access Analyzer policy checks and actionable recommendations, see [IAM Access Analyzer policy validation](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
+Policies are expressed in JSON. When you create or edit a JSON policy, IAM can perform policy validation to help you create an effective policy. IAM identifies JSON syntax errors, while IAM Access Analyzer provides additional policy checks with recommendations to help you further refine your policies. To learn more about policy validation, see [IAM policy validation](access_policies_policy-validator.md). To learn more about IAM Access Analyzer policy checks and actionable recommendations, see [ IAM Access Analyzer policy validation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html). 
 
-In this document, we do not provide a complete description of what constitutes valid
-JSON. However, here are some basic JSON rules:
+In this document, we do not provide a complete description of what constitutes valid JSON. However, here are some basic JSON rules:
++ White space between individual entities is allowed.
++ Values are enclosed in quotation marks. Quotation marks are optional for numeric and Boolean values.
++ Many elements (for example, `action_string_list` and `resource_string_list`) can take a JSON array as a value. Arrays can take one or more values. If more than one value is included, the array is in square brackets (`[` and `]`) and comma-delimited, as in the following example: 
 
-- White space between individual entities is allowed.
-- Values are enclosed in quotation marks. Quotation marks are optional for
-  numeric and Boolean values.
-- Many elements (for example, `action_string_list` and
-  `resource_string_list`) can take a JSON array as a value. Arrays
-  can take one or more values. If more than one value is included, the array is in
-  square brackets (`[` and `]`) and comma-delimited, as in
-  the following example:
-
-`"Action" : ["ec2:Describe*","ec2:List*"]`
-
-- Basic JSON data types (Boolean, number, and string) are defined in [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159 "https://datatracker.ietf.org/doc/html/rfc7159").
+  `"Action" : ["ec2:Describe*","ec2:List*"]`
++ Basic JSON data types (Boolean, number, and string) are defined in [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159).
 
 ## Conventions used in this grammar
+<a name="policies-grammar-conventions"></a>
 
 The following conventions are used in this grammar:
++ The following characters are JSON tokens and *are* included in policies:
 
-- The following characters are JSON tokens and _are_ included in policies:
+  `{ } [ ] " , :`
++ The following characters are special characters in the grammar and are *not* included in policies: 
 
-`{ } [ ] " , :`
+  `= < > ( ) |`
++ If an element allows multiple values, it is indicated using repeated values, a comma delimiter, and an ellipsis (`...`). Examples:
 
-- The following characters are special characters in the grammar and are
-  _not_ included in policies:
+  `[<action_string>, <action_string>, ...]`
 
-`= < > ( ) |`
+  `<principal_map> = { <principal_map_entry>, <principal_map_entry>, ... }`
 
-- If an element allows multiple values, it is indicated using repeated values, a
-  comma delimiter, and an ellipsis (`...`). Examples:
+  If multiple values are allowed, it is also valid to include only one value. For only one value, the trailing comma must be omitted. If the element takes an array (marked with [ and ]) but only one value is included, the brackets are optional. Examples:
 
-`[<action_string>, <action_string>, ...]`
+  `"Action": [<action_string>]`
 
-`<principal_map> = { <principal_map_entry>,
- <principal_map_entry>, ... }`
+  `"Action": <action_string>`
++ A question mark (`?`) following an element indicates that the element is optional. Example: 
 
-If multiple values are allowed, it is also valid to include only one value.
-For only one value, the trailing comma must be omitted. If the element takes an
-array (marked with [ and ]) but only one value is included, the brackets are
-optional. Examples:
+  <`version_block?>`
 
-`"Action": [<action_string>]`
+  However, be sure to refer to the notes that follow the grammar listing for details about optional elements. 
++ A vertical line (`|`) between elements indicates alternatives. In the grammar, parentheses define the scope of the alternatives. Example:
 
-`"Action": <action_string>`
+  `("Principal" | "NotPrincipal")` 
++ Elements that must be literal strings are enclosed in double quotation marks (`"`). Example:
 
-- A question mark (`?`) following an element indicates that the
-  element is optional. Example:
+  `<version_block> = "Version" : ("2008-10-17" | "2012-10-17" )`
 
-<`version_block?>`
-
-However, be sure to refer to the notes that follow the grammar listing for
-details about optional elements.
-
-- A vertical line (`|`) between elements indicates alternatives. In
-  the grammar, parentheses define the scope of the alternatives. Example:
-
-`("Principal" | "NotPrincipal")`
-
-- Elements that must be literal strings are enclosed in double quotation marks
-  (`"`). Example:
-
-`<version_block> = "Version" : ("2008-10-17" |
- "2012-10-17" )`
-
-For additional notes, see [Policy grammar notes](#policies-grammar-notes "#policies-grammar-notes") following the grammar listing.
+For additional notes, see [Policy grammar notes](#policies-grammar-notes) following the grammar listing.
 
 ## Grammar
+<a name="policies-grammar-bnf"></a>
 
-The following listing describes the policy language grammar. For conventions used in
-the listing, see the preceding section. For additional information, see the notes that
-follow.
+The following listing describes the policy language grammar. For conventions used in the listing, see the preceding section. For additional information, see the notes that follow.
 
-###### Note
-
-This grammar describes policies marked with a version of `2008-10-17`
-and `2012-10-17` . A `Version` policy element is different from
-a policy version. The `Version` policy element is used within a policy
-and defines the version of the policy language. A policy version, on the other hand,
-is created when you make changes to a customer managed policy in IAM. The changed
-policy doesn't overwrite the existing policy. Instead, IAM creates a new version
-of the managed policy. To learn more about the `Version` policy element
-see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about
-policy versions, see [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md").
+**Note**  
+This grammar describes policies marked with a version of `2008-10-17 ` and `2012-10-17 `. A `Version` policy element is different from a policy version. The `Version` policy element is used within a policy and defines the version of the policy language. A policy version, on the other hand, is created when you make changes to a customer managed policy in IAM. The changed policy doesn't overwrite the existing policy. Instead, IAM creates a new version of the managed policy. To learn more about the `Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md). To learn more about policy versions, see [Versioning IAM policies](access_policies_managed-versioning.md).
 
 ```
 policy  = {
@@ -123,13 +82,13 @@ policy  = {
      <statement_block>
 }
 
-<version_block> = "Version" : ("2008-10-17" | "2012-10-17")
+<version_block> = "Version" : ("2008-10-17"		 	 	  | "2012-10-17"		 	 	 )
 
 <id_block> = "Id" : <policy_id_string>
 
 <statement_block> = "Statement" : [ <statement>, <statement>, ... ]
 
-<statement> = {
+<statement> = { 
     <sid_block?>,
     <principal_block?>,
     <effect_block>,
@@ -140,72 +99,48 @@ policy  = {
 
 <sid_block> = "Sid" : <sid_string>
 
-<effect_block> = "Effect" : ("Allow" | "Deny")
+<effect_block> = "Effect" : ("Allow" | "Deny")  
 
 <principal_block> = ("Principal" | "NotPrincipal") : ("*" | <principal_map>)
 
 <principal_map> = { <principal_map_entry>, <principal_map_entry>, ... }
 
-<principal_map_entry> = ("AWS" | "Federated" | "Service" | "CanonicalUser") :
+<principal_map_entry> = ("AWS" | "Federated" | "Service" | "CanonicalUser") :   
     [<principal_id_string>, <principal_id_string>, ...]
 
-<action_block> = ("Action" | "NotAction") :
+<action_block> = ("Action" | "NotAction") : 
     ("*" | <action_string> | [<action_string>, <action_string>, ...])
 
-<resource_block> = ("Resource" | "NotResource") :
+<resource_block> = ("Resource" | "NotResource") : 
     : ("*" | <resource_string> | [<resource_string>, <resource_string>, ...])
 
 <condition_block> = "Condition" : { <condition_map> }
-<condition_map> = {
+<condition_map> = { 
   <condition_type_string> : { <condition_key_string> : <condition_value_list> },
   <condition_type_string> : { <condition_key_string> : <condition_value_list> }, ...
-}
+}  
 <condition_value_list> = [<condition_value>, <condition_value>, ...]
 <condition_value> = (<condition_value_string> | <condition_value_string> | <condition_value_string>)
 ```
 
 ## Policy grammar notes
-
-- A single policy can contain an array of statements.
-- Policies have a maximum size between 2048 characters and 10,240 characters,
-  depending on what entity the policy is attached to. For more information, see
-  [IAM and AWS STS quotas](reference_iam-quotas.md "reference_iam-quotas.md").
-  Policy size calculations do not include white space characters.
-- Individual elements must not contain multiple instances of the same key. For
-  example, you cannot include the `Effect` block twice in the same
-  statement.
-- Blocks can appear in any order. For example, `version_block` can
-  follow `id_block` in a policy. Similarly, `effect_block`,
-  `principal_block`, `action_block` can appear in any
-  order within a statement.
-- The `id_block` is optional in resource-based policies. It must
-  _not_ be included in identity-based
-  policies.
-- The `principal_block` element is required in resource-based
-  policies (for example, in Amazon S3 bucket policies) and in trust policies for IAM
-  roles. It must _not_ be included in
-  identity-based policies.
-- The `principal_map` element in Amazon S3 bucket policies can include the
-  `CanonicalUser` ID. Most resource-based policies do not support
-  this mapping. To learn more about using the canonical user ID in a bucket
-  policy, see [Specifying a Principal in a Policy](../../../AmazonS3/latest/userguide/s3-bucket-user-policy-specifying-principal-intro.md "../../../AmazonS3/latest/userguide/s3-bucket-user-policy-specifying-principal-intro.md") in the
-  _Amazon Simple Storage Service User Guide_.
-- Each string value (`policy_id_string`, `sid_string`,
-  `principal_id_string`, `action_string`,
-  `resource_string`, `condition_type_string`,
-  `condition_key_string`, and the string version of
-  `condition_value`) can have its own minimum and maximum length
-  restrictions, specific allowed values, or required internal format.
+<a name="policies-grammar-notes"></a>
++ A single policy can contain an array of statements.
++ Policies have a maximum size between 2048 characters and 10,240 characters, depending on what entity the policy is attached to. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md). Policy size calculations do not include white space characters.
++ Individual elements must not contain multiple instances of the same key. For example, you cannot include the `Effect` block twice in the same statement. 
++ Blocks can appear in any order. For example, `version_block` can follow `id_block` in a policy. Similarly, `effect_block`, `principal_block`, `action_block` can appear in any order within a statement.
++ The `id_block` is optional in resource-based policies. It must *not* be included in identity-based policies.
++ The `principal_block` element is required in resource-based policies (for example, in Amazon S3 bucket policies) and in trust policies for IAM roles. It must *not* be included in identity-based policies.
++ The `principal_map` element in Amazon S3 bucket policies can include the `CanonicalUser` ID. Most resource-based policies do not support this mapping. To learn more about using the canonical user ID in a bucket policy, see [Specifying a Principal in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-bucket-user-policy-specifying-principal-intro.html) in the *Amazon Simple Storage Service User Guide*.
++ Each string value (`policy_id_string`, `sid_string`, `principal_id_string`, `action_string`, `resource_string`, `condition_type_string`, `condition_key_string`, and the string version of `condition_value`) can have its own minimum and maximum length restrictions, specific allowed values, or required internal format.
 
 ### Notes about string values
+<a name="policies-grammar-notes-strings"></a>
 
-This section provides additional information about string values that are used in
-different elements in a policy.
+This section provides additional information about string values that are used in different elements in a policy.
 
-**`action_string`**
-
-Consists of a service namespace, a colon, and the name of an action.
-Action names can include wildcards. Examples:
+**`action_string`**  
+Consists of a service namespace, a colon, and the name of an action. Action names can include wildcards. Examples:  
 
 ```
 "Action":"ec2:StartInstances"
@@ -225,79 +160,33 @@ Action names can include wildcards. Examples:
 ]
 ```
 
-**`policy_id_string`**
-
-Provides a way to include information about the policy as a whole.
-Some services, such as Amazon SQS and Amazon SNS, use the
-`Id` element in reserved ways. Unless otherwise
-restricted by an individual service, policy\_id\_string can include
-spaces. Some services require this value to be unique within an AWS
-account.
-
-###### Note
-
-The `id_block` is allowed in resource-based policies,
-but not in identity-based policies.
-
-There is no limit to the length, although this string contributes to
-the overall length of the policy, which is limited.
+**`policy_id_string`**  
+Provides a way to include information about the policy as a whole. Some services, such as Amazon SQS and Amazon SNS, use the `Id` element in reserved ways. Unless otherwise restricted by an individual service, policy\_id\_string can include spaces. Some services require this value to be unique within an AWS account.   
+The `id_block` is allowed in resource-based policies, but not in identity-based policies.
+There is no limit to the length, although this string contributes to the overall length of the policy, which is limited.   
 
 ```
 "Id":"Admin_Policy"
 
 "Id":"cd3ad3d9-2776-4ef1-a904-4c229d1642ee"
-
 ```
 
-**`sid_string`**
-
-Provides a way to include information about an individual statement.
-For IAM policies, basic alphanumeric characters (A-Z,a-z,0-9) are the
-only allowed characters in the `Sid` value. Other AWS
-services that support resource policies may have other requirements for
-the `Sid` value. For example, some services require this
-value to be unique within an AWS account, and some services allow
-additional characters such as spaces in the `Sid`
-value.
+**`sid_string`**  
+Provides a way to include information about an individual statement. For IAM policies, basic alphanumeric characters (A-Z,a-z,0-9) are the only allowed characters in the `Sid` value. Other AWS services that support resource policies may have other requirements for the `Sid` value. For example, some services require this value to be unique within an AWS account, and some services allow additional characters such as spaces in the `Sid` value.  
 
 ```
-"Sid":"1"
+"Sid":"1" 
 
 "Sid": "ThisStatementProvidesPermissionsForConsoleAccess"
 ```
 
-**`principal_id_string`**
+**`principal_id_string`**  
+Provides a way to specify a principal using the [*Amazon Resource Name* (ARN)](reference_identifiers.md#identifiers-arns) of the AWS account, IAM user, IAM role, federated user, or assumed-role user. For an AWS account, you can also use the short form `AWS:{{accountnumber}}` instead of the full ARN. For all of the options including AWS services, assumed roles, and so on, see [How to specify a principal](reference_policies_elements_principal.md#Principal_specifying).  
+Note that you can use \* only to specify "everyone/anonymous." You cannot use it to specify part of a name or ARN.
 
-Provides a way to specify a principal using the [Amazon Resource Name
-(ARN)](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") of the AWS account, IAM user, IAM role, federated
-user, or assumed-role user. For an AWS account, you can also use the
-short form `AWS:`accountnumber``
-instead of the full ARN. For all of the options including AWS
-services, assumed roles, and so on, see [How to specify a principal](reference_policies_elements_principal.md#Principal_specifying "reference_policies_elements_principal.md#Principal_specifying").
-
-Note that you can use \* only to specify "everyone/anonymous." You
-cannot use it to specify part of a name or ARN.
-
-**`resource_string`**
-
-In most cases, consists of an [Amazon
-Resource Name](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") (ARN). You can use wildcards (\* and ?) in the
-resource portion of the ARN. For more information about using wildcards
-in ARNs, see [Using wildcards in paths](reference-arns.md#arns-paths-wildcards "reference-arns.md#arns-paths-wildcards").
-
-###### Note
-
-When you specify an incomplete ARN (one with fewer than the
-standard six fields) in an identity-based policy, AWS automatically
-completes the ARN by adding wildcard characters (\*) to all missing
-fields. For example, specifying `arn:aws:sqs` is
-equivalent to `arn:aws:sqs:*:*:*`, which grants access to
-all Amazon Amazon SQS resources across all regions and accounts. However,
-session policies passed to AWS STS AssumeRole,
-AssumeRoleWithWebIdentity, and AssumeRoleWithSAML requests, do not
-support incomplete ARNs. Using an incomplete ARN in a session policy
-will result in a `MalformedPolicyDocumentException`
-error.
+**`resource_string`**  
+In most cases, consists of an [Amazon Resource Name](reference_identifiers.md#identifiers-arns) (ARN). You can use wildcards (\* and ?) in the resource portion of the ARN. For more information about using wildcards in ARNs, see [Using wildcards in paths](reference-arns.md#arns-paths-wildcards).  
+When you specify an incomplete ARN (one with fewer than the standard six fields) in an identity-based policy, AWS automatically completes the ARN by adding wildcard characters (\*) to all missing fields. For example, specifying `arn:aws:sqs` is equivalent to `arn:aws:sqs:*:*:*`, which grants access to all Amazon Amazon SQS resources across all regions and accounts. However, session policies passed to AWS STS AssumeRole, AssumeRoleWithWebIdentity, and AssumeRoleWithSAML requests, do not support incomplete ARNs. Using an incomplete ARN in a session policy will result in a `MalformedPolicyDocumentException` error.
 
 ```
 "Resource":"arn:aws:iam::123456789012:user/Bob"
@@ -305,14 +194,8 @@ error.
 "Resource":"arn:aws:s3:::amzn-s3-demo-bucket/*"
 ```
 
-**`condition_type_string`**
-
-Identifies the type of condition being tested, such as
-`StringEquals`, `StringLike`,
-`NumericLessThan`, `DateGreaterThanEquals`,
-`Bool`, `BinaryEquals`,
-`IpAddress`, `ArnEquals`, etc. For a complete list
-of condition types, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
+**`condition_type_string`**  
+Identifies the type of condition being tested, such as `StringEquals`, `StringLike`, `NumericLessThan`, `DateGreaterThanEquals`, `Bool`, `BinaryEquals`, `IpAddress`, `ArnEquals`, etc. For a complete list of condition types, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md).   
 
 ```
 "Condition": {
@@ -334,23 +217,11 @@ of condition types, see [IAM JSON policy elements: Condition operators](referenc
 }
 ```
 
-**`condition_key_string`**
-
-Identifies the condition key whose value will be tested to determine
-whether the condition is met. AWS defines a set of condition keys that
-are available in all AWS services, including
-`aws:PrincipalType`, `aws:SecureTransport`,
-and `aws:userid`.
-
-For a list of AWS condition keys, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"). For condition
-keys that are specific to a service, see the documentation for that
-service such as the following:
-
-- [Specifying
-  Conditions in a Policy](../../../AmazonS3/latest/userguide/amazon-s3-policy-keys.md "../../../AmazonS3/latest/userguide/amazon-s3-policy-keys.md") in the
-  _Amazon Simple Storage Service User Guide_
-- [IAM Policies for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.md") in the
-  _Amazon EC2 User Guide_.
+**`condition_key_string`**  
+Identifies the condition key whose value will be tested to determine whether the condition is met. AWS defines a set of condition keys that are available in all AWS services, including `aws:PrincipalType`, `aws:SecureTransport`, and `aws:userid`.  
+For a list of AWS condition keys, see [AWS global condition context keys](reference_policies_condition-keys.md). For condition keys that are specific to a service, see the documentation for that service such as the following:  
++ [Specifying Conditions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html) in the *Amazon Simple Storage Service User Guide*
++ [IAM Policies for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html) in the *Amazon EC2 User Guide*.
 
 ```
 "Condition":{
@@ -372,18 +243,15 @@ service such as the following:
 }
 ```
 
-**`condition_value_string`**
-
-Identifies the value of the condition\_key\_string that determines
-whether the condition is met. For a complete list of valid values for a
-condition type, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
+**`condition_value_string`**  
+Identifies the value of the condition\_key\_string that determines whether the condition is met. For a complete list of valid values for a condition type, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md).  
 
 ```
 "Condition":{
   "ForAnyValue:StringEquals": {
 		"dynamodb:Attributes": [
-			"`ID`",
-			"`PostDateTime`"
+			"{{ID}}",
+			"{{PostDateTime}}"
   	      ]
   }
 }

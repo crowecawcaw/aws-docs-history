@@ -1,23 +1,20 @@
+
+
 # Manage your IAM account using an AWS SDK
+<a name="iam_example_iam_Scenario_AccountManagement_section"></a>
 
 The following code example shows how to:
++ Get and update the account alias.
++ Generate a report of users and credentials.
++ Get a summary of account usage.
++ Get details for all users, groups, roles, and policies in your account, including their relationships to each other.
 
-- Get and update the account alias.
-- Generate a report of users and credentials.
-- Get a summary of account usage.
-- Get details for all users, groups, roles, and policies in your account, including their relationships to each other.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Create functions that wrap IAM account actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Create functions that wrap IAM account actions.  
 
 ```
 import logging
@@ -158,13 +155,8 @@ def get_authorization_details(response_filter):
         raise
     else:
         return account_details
-
-
-
-
 ```
-
-Call wrapper functions to change the account alias and to get reports about the account.
+Call wrapper functions to change the account alias and to get reports about the account.  
 
 ```
 def usage_demo():
@@ -260,22 +252,16 @@ def usage_demo():
 
     print("-" * 88)
     print("Thanks for watching.")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateAccountAlias](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateAccountAlias)
+  + [DeleteAccountAlias](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteAccountAlias)
+  + [GenerateCredentialReport](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GenerateCredentialReport)
+  + [GetAccountAuthorizationDetails](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetAccountAuthorizationDetails)
+  + [GetAccountSummary](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetAccountSummary)
+  + [GetCredentialReport](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetCredentialReport)
+  + [ListAccountAliases](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListAccountAliases)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateAccountAlias](../../../goto/boto3/iam-2010-05-08/CreateAccountAlias.md "../../../goto/boto3/iam-2010-05-08/CreateAccountAlias.md")
-  - [DeleteAccountAlias](../../../goto/boto3/iam-2010-05-08/DeleteAccountAlias.md "../../../goto/boto3/iam-2010-05-08/DeleteAccountAlias.md")
-  - [GenerateCredentialReport](../../../goto/boto3/iam-2010-05-08/GenerateCredentialReport.md "../../../goto/boto3/iam-2010-05-08/GenerateCredentialReport.md")
-  - [GetAccountAuthorizationDetails](../../../goto/boto3/iam-2010-05-08/GetAccountAuthorizationDetails.md "../../../goto/boto3/iam-2010-05-08/GetAccountAuthorizationDetails.md")
-  - [GetAccountSummary](../../../goto/boto3/iam-2010-05-08/GetAccountSummary.md "../../../goto/boto3/iam-2010-05-08/GetAccountSummary.md")
-  - [GetCredentialReport](../../../goto/boto3/iam-2010-05-08/GetCredentialReport.md "../../../goto/boto3/iam-2010-05-08/GetCredentialReport.md")
-  - [ListAccountAliases](../../../goto/boto3/iam-2010-05-08/ListAccountAliases.md "../../../goto/boto3/iam-2010-05-08/ListAccountAliases.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

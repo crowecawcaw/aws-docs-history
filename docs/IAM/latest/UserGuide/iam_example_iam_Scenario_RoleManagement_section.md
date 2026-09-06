@@ -1,22 +1,19 @@
+
+
 # Manage IAM roles using an AWS SDK
+<a name="iam_example_iam_Scenario_RoleManagement_section"></a>
 
 The following code example shows how to:
++ Create an IAM role.
++ Attach and detach policies for a role.
++ Delete a role.
 
-- Create an IAM role.
-- Attach and detach policies for a role.
-- Delete a role.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Create functions that wrap IAM role actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Create functions that wrap IAM role actions.  
 
 ```
 import json
@@ -38,7 +35,7 @@ def create_role(role_name, allowed_services):
     :return: The newly created role.
     """
     trust_policy = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -108,13 +105,8 @@ def delete_role(role_name):
     except ClientError:
         logger.exception("Couldn't delete role %s.", role_name)
         raise
-
-
-
-
 ```
-
-Use the wrapper functions to create a role, then attach and detach a policy.
+Use the wrapper functions to create a role, then attach and detach a policy.  
 
 ```
 def usage_demo():
@@ -146,19 +138,13 @@ def usage_demo():
     delete_role(role.name)
     print(f"Deleted {role.name}.")
     print("Thanks for watching!")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/AttachRolePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateRole)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteRole)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DetachRolePolicy)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/boto3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/boto3/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateRole](../../../goto/boto3/iam-2010-05-08/CreateRole.md "../../../goto/boto3/iam-2010-05-08/CreateRole.md")
-  - [DeleteRole](../../../goto/boto3/iam-2010-05-08/DeleteRole.md "../../../goto/boto3/iam-2010-05-08/DeleteRole.md")
-  - [DetachRolePolicy](../../../goto/boto3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/boto3/iam-2010-05-08/DetachRolePolicy.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

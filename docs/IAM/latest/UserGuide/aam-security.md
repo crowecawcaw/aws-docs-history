@@ -1,19 +1,21 @@
-# Security in account access manager
 
-This section provides security information specific to account access manager. It complements the information
-in [Security in IAM and AWS STS](security.md "security.md"), which covers security topics applicable to IAM as a whole.
+
+# Security in account access manager
+<a name="aam-security"></a>
+
+This section provides security information specific to account access manager. It complements the information in [Security in IAM and AWS STS](security.md), which covers security topics applicable to IAM as a whole.
 
 ## Identity and access management for account access manager
+<a name="aam-security-iam"></a>
 
 The following sections describe the permissions you need to:
-
-- Administer account access manager in your organization management account
-- Administer account access manager from a delegated administrator account
++ Administer account access manager in your organization management account
++ Administer account access manager from a delegated administrator account
 
 ### Administering account access manager from your organization management account
+<a name="aam-security-admin-access-management"></a>
 
-To administer account access manager settings in the AWS organization management account you need the
-following permissions:
+To administer account access manager settings in the AWS organization management account you need the following permissions:
 
 ```
 {
@@ -118,9 +120,7 @@ following permissions:
 }
 ```
 
-**Optional:** To constrain
-`account-access:CreateApplication` by tag, replace the AAMCreateApplication
-statement with:
+**Optional:** To constrain `account-access:CreateApplication` by tag, replace the AAMCreateApplication statement with:
 
 ```
 {
@@ -141,8 +141,7 @@ statement with:
 }
 ```
 
-**Optional:** To manage and register delegated administrators
-for account access manager, add:
+**Optional:** To manage and register delegated administrators for account access manager, add:
 
 ```
 {
@@ -161,9 +160,7 @@ for account access manager, add:
 }
 ```
 
-To assign IAM roles to your workforce users and groups from the AWS organization
-management account without administering account access manager settings you need the following
-permissions:
+To assign IAM roles to your workforce users and groups from the AWS organization management account without administering account access manager settings you need the following permissions:
 
 ```
 {
@@ -231,9 +228,9 @@ permissions:
 ```
 
 ### Administering account access manager in a delegated administration account
+<a name="aam-security-admin-access-delegated"></a>
 
-To administer account access manager settings from a delegated administration account you need the
-following permissions:
+To administer account access manager settings from a delegated administration account you need the following permissions:
 
 ```
 {
@@ -308,8 +305,7 @@ following permissions:
 }
 ```
 
-To assign IAM roles to workforce users and groups from a delegated administration
-account without administering account access manager settings you need the following permissions:
+To assign IAM roles to workforce users and groups from a delegated administration account without administering account access manager settings you need the following permissions:
 
 ```
 {
@@ -377,20 +373,18 @@ account without administering account access manager settings you need the follo
 ```
 
 ## Data protection in account access manager
+<a name="aam-data-protection"></a>
 
-This section complements the information provided in [Data
-protection in AWS Identity and Access Management](data-protection.md "data-protection.md") with additional details specific to account access manager.
+This section complements the information provided in [Data protection in AWS Identity and Access Management](data-protection.md) with additional details specific to account access manager.
 
 ### Use of IAM Identity Center user and group data
+<a name="aam-data-protection-use-of-idc-data"></a>
 
-Account access manager uses user and group data from IAM Identity Center to manage account assignments. However,
-account access manager stores and logs only AWS-generated identifiers (user ID and group ID) — it does not
-store or log user names, email addresses, or other personal attributes.
+Account access manager uses user and group data from IAM Identity Center to manage account assignments. However, account access manager stores and logs only AWS-generated identifiers (user ID and group ID) — it does not store or log user names, email addresses, or other personal attributes.
 
 ## Logging and monitoring in account access manager
+<a name="aam-logging-and-monitoring"></a>
 
-Account access manager uses its own API namespace (`account-access`) and logs API calls through
-CloudTrail.
+Account access manager uses its own API namespace (`account-access`) and logs API calls through CloudTrail.
 
-For more information about CloudTrail, see the [AWS CloudTrail User
-Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).

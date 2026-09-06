@@ -1,39 +1,36 @@
+
+
 # Use `DeleteRole` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteRole_section"></a>
 
 The following code examples show how to use `DeleteRole`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md) 
++  [Create a rest API with function proxy integration](iam_example_api_gateway_GettingStarted_087_section.md) 
++  [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md) 
++  [Creating your first serverless function](iam_example_lambda_GettingStarted_019_section.md) 
++  [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md) 
++  [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md) 
++  [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md) 
++  [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md) 
++  [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md) 
++  [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md) 
++  [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md) 
++  [Moving hardcoded secrets to secure secret storage](iam_example_secrets_manager_GettingStarted_073_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
++  [Setting up systems management](iam_example_iam_GettingStarted_046_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](iam_example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
-- [Create a rest API with function proxy integration](iam_example_api_gateway_GettingStarted_087_section.md "iam_example_api_gateway_GettingStarted_087_section.md")
-- [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
-- [Creating a monitoring dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md "iam_example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first serverless function](iam_example_lambda_GettingStarted_019_section.md "iam_example_lambda_GettingStarted_019_section.md")
-- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
-- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
-- [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
-- [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md "iam_example_iam_Scenario_RoleManagement_section.md")
-- [Moving hardcoded secrets to secure secret storage](iam_example_secrets_manager_GettingStarted_073_section.md "iam_example_secrets_manager_GettingStarted_073_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
-- [Setting up systems management](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](iam_example_iam_GettingStarted_032_section.md "iam_example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -46,24 +43,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.DeleteRoleAsync(new DeleteRoleRequest { RoleName = roleName });
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteRole) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteRole](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteRole.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -155,50 +142,32 @@ function iam_delete_role() {
 
   return 0
 }
+```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole) in *AWS CLI Command Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an IAM role**  
+The following `delete-role` command removes the role named `Test-Role`.  
 
 ```
+aws iam delete-role \
+    --role-name {{Test-Role}}
+```
+This command produces no output.  
+Before you can delete a role, you must remove the role from any instance profile (`remove-role-from-instance-profile`), detach any managed policies (`detach-role-policy`) and delete any inline policies that are attached to the role (`delete-role-policy`).  
+For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) and [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an IAM role**
-
-The following `delete-role` command removes the role named `Test-Role`.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-`aws iam delete-role \
- --role-name `Test-Role``
-
-```
-
-This command produces no output.
-
-Before you can delete a role, you must remove the role from any instance profile (`remove-role-from-instance-profile`), detach any managed policies (`detach-role-policy`) and delete any inline policies that are attached to the role (`delete-role-policy`).
-
-For more information, see [Creating IAM roles](id_roles_create.md "id_roles_create.md") and [Using instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md "id_roles_use_switch-role-ec2_instance-profiles.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -229,26 +198,15 @@ func (wrapper RoleWrapper) DeleteRole(ctx context.Context, roleName string) erro
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteRole) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteRole")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Delete the role.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Delete the role.  
 
 ```
 import { DeleteRoleCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -263,67 +221,45 @@ export const deleteRole = (roleName) => {
   const command = new DeleteRoleCommand({ RoleName: roleName });
   return client.send(command);
 };
-
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the role named `MyNewRole` from the current IAM account. Before you can delete the role you must first use the `Unregister-IAMRolePolicy` command to detach any managed policies. Inline policies are deleted with the role.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the role named `MyNewRole` from the current IAM account. Before you can delete the role you must first use the `Unregister-IAMRolePolicy` command to detach any managed policies. Inline policies are deleted with the role.**  
 
 ```
 Remove-IAMRole -RoleName MyNewRole
-
 ```
-
-**Example 2: This example detaches any managed policies from the role named `MyNewRole` and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.**
+**Example 2: This example detaches any managed policies from the role named `MyNewRole` and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.**  
 
 ```
 Get-IAMAttachedRolePolicyList -RoleName MyNewRole | Unregister-IAMRolePolicy -RoleName MyNewRole
 Remove-IAMRole -RoleName MyNewRole
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the role named `MyNewRole` from the current IAM account. Before you can delete the role you must first use the `Unregister-IAMRolePolicy` command to detach any managed policies. Inline policies are deleted with the role.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the role named `MyNewRole` from the current IAM account. Before you can delete the role you must first use the `Unregister-IAMRolePolicy` command to detach any managed policies. Inline policies are deleted with the role.**  
 
 ```
 Remove-IAMRole -RoleName MyNewRole
-
 ```
-
-**Example 2: This example detaches any managed policies from the role named `MyNewRole` and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.**
+**Example 2: This example detaches any managed policies from the role named `MyNewRole` and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.**  
 
 ```
 Get-IAMAttachedRolePolicyList -RoleName MyNewRole | Unregister-IAMRolePolicy -RoleName MyNewRole
 Remove-IAMRole -RoleName MyNewRole
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def delete_role(role_name):
@@ -338,25 +274,14 @@ def delete_role(role_name):
     except ClientError:
         logger.exception("Couldn't delete role %s.", role_name)
         raise
-
-
-
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteRole](../../../goto/boto3/iam-2010-05-08/DeleteRole.md "../../../goto/boto3/iam-2010-05-08/DeleteRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Deletes a role and its attached policies.
@@ -386,23 +311,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("\t#{e.code}: #{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteRole](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn delete_role(client: &iamClient, role: &Role) -> Result<(), iamError> {
@@ -418,23 +334,14 @@ pub async fn delete_role(client: &iamClient, role: &Role) -> Result<(), iamError
     }
     Ok(())
 }
-
-
 ```
++  For API details, see [DeleteRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_role")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -445,23 +352,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamdeleteconflictex.
         MESSAGE 'Role cannot be deleted due to attached resources.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteRole](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteRole](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -479,15 +377,9 @@ import AWSS3
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [DeleteRole](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleterole(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteRole](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleterole(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleterole(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

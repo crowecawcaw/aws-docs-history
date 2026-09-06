@@ -1,16 +1,15 @@
+
+
 # Use `ListSAMLProviders` with an AWS SDK or CLI
+<a name="iam_example_iam_ListSAMLProviders_section"></a>
 
 The following code examples show how to use `ListSAMLProviders`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -22,29 +21,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.ListSAMLProvidersAsync(new ListSAMLProvidersRequest());
         return response.SAMLProviderList;
     }
+```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/ListSAMLProviders) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list the SAML providers in the AWS account**  
+This example retrieves the list of SAML 2.0 providers created in the current AWS account.  
 
 ```
-
-- For API details, see
-  [ListSAMLProviders](../../../goto/DotNetSDKV3/iam-2010-05-08/ListSAMLProviders.md "../../../goto/DotNetSDKV3/iam-2010-05-08/ListSAMLProviders.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the SAML providers in the AWS account**
-
-This example retrieves the list of SAML 2.0 providers created in the current AWS account.
-
+aws iam list-saml-providers
 ```
-`aws iam list-saml-providers`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -57,25 +47,16 @@ Output:
     ]
 }
 ```
+For more information, see [Creating IAM SAML identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListSAMLProviders](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-saml-providers.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating IAM SAML identity providers](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ListSAMLProviders](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-saml-providers.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-saml-providers.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"log"
@@ -104,26 +85,15 @@ func (wrapper AccountWrapper) ListSAMLProviders(ctx context.Context) ([]types.SA
 	}
 	return providers, err
 }
-
-
-
 ```
++  For API details, see [ListSAMLProviders](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListSAMLProviders) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListSAMLProviders](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListSAMLProviders "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListSAMLProviders")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-List the SAML providers.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+List the SAML providers.  
 
 ```
 import { ListSAMLProvidersCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -137,23 +107,14 @@ export const listSamlProviders = async () => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListSAMLProvidersCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListSAMLProvidersCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListSAMLProvidersCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -163,67 +124,47 @@ $service = new IAMService();
     {
         return $this->iamClient->listSAMLProviders();
     }
-
-
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/ListSAMLProviders) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../goto/SdkForPHPV3/iam-2010-05-08/ListSAMLProviders.md "../../../goto/SdkForPHPV3/iam-2010-05-08/ListSAMLProviders.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves the list of SAML 2.0 providers created in the current AWS account. It returns the ARN, creation date, and expiration date for each SAML provider.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves the list of SAML 2.0 providers created in the current AWS account. It returns the ARN, creation date, and expiration date for each SAML provider.**  
 
 ```
 Get-IAMSAMLProviderList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                                                 CreateDate                      ValidUntil
 ---                                                 ----------                      ----------
 arn:aws:iam::123456789012:saml-provider/SAMLADFS    12/23/2014 12:16:55 PM          12/23/2114 12:16:54 PM
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves the list of SAML 2.0 providers created in the current AWS account. It returns the ARN, creation date, and expiration date for each SAML provider.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves the list of SAML 2.0 providers created in the current AWS account. It returns the ARN, creation date, and expiration date for each SAML provider.**  
 
 ```
 Get-IAMSAMLProviderList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                                                 CreateDate                      ValidUntil
 ---                                                 ----------                      ----------
 arn:aws:iam::123456789012:saml-provider/SAMLADFS    12/23/2014 12:16:55 PM          12/23/2114 12:16:54 PM
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def list_saml_providers(count):
@@ -242,25 +183,14 @@ def list_saml_providers(count):
     except ClientError:
         logger.exception("Couldn't list SAML providers.")
         raise
-
-
-
-
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListSAMLProviders) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../goto/boto3/iam-2010-05-08/ListSAMLProviders.md "../../../goto/boto3/iam-2010-05-08/ListSAMLProviders.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
 class SamlProviderLister
@@ -287,23 +217,14 @@ class SamlProviderLister
     raise
   end
 end
-
-
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListSAMLProviders) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../goto/SdkForRubyV3/iam-2010-05-08/ListSAMLProviders.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListSAMLProviders.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn list_saml_providers(
@@ -313,23 +234,14 @@ pub async fn list_saml_providers(
 
     Ok(response)
 }
-
-
 ```
++  For API details, see [ListSAMLProviders](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_saml_providers) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListSAMLProviders](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_saml_providers "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_saml_providers")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -338,14 +250,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when listing SAML providers.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListSAMLProviders](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListSAMLProviders](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

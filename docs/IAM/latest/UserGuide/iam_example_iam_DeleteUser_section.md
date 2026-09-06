@@ -1,22 +1,19 @@
+
+
 # Use `DeleteUser` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteUser_section"></a>
 
 The following code examples show how to use `DeleteUser`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -30,24 +27,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteUser) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUser.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUser.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -144,23 +131,14 @@ function iam_delete_user() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteUser) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/aws-cli/iam-2010-05-08/DeleteUser.md "../../../goto/aws-cli/iam-2010-05-08/DeleteUser.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
     Aws::IAM::IAMClient iam(clientConfig);
@@ -177,48 +155,31 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
     }
 
     return outcome.IsSuccess();
+```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeleteUser) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an IAM user**  
+The following `delete-user` command removes the IAM user named `Bob` from the current account.  
 
 ```
+aws iam delete-user \
+    --user-name {{Bob}}
+```
+This command produces no output.  
+For more information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/SdkForCpp/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForCpp/iam-2010-05-08/DeleteUser.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an IAM user**
-
-The following `delete-user` command removes the IAM user named `Bob` from the current account.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-`aws iam delete-user \
- --user-name `Bob``
-
-```
-
-This command produces no output.
-
-For more information, see [Deleting an IAM user](id_users_manage.md#id_users_deleting "id_users_manage.md#id_users_deleting") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -249,24 +210,14 @@ func (wrapper UserWrapper) DeleteUser(ctx context.Context, userName string) erro
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUser) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUser")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -324,25 +275,15 @@ public class DeleteUser {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteUser) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteUser.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Delete the user.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Delete the user.  
 
 ```
 import { DeleteUserCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -357,22 +298,12 @@ export const deleteUser = (name) => {
   const command = new DeleteUserCommand({ UserName: name });
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-deleting-users). 
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-deleting-users "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-deleting-users").
-- For API details, see
-  [DeleteUser](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -400,24 +331,15 @@ iam.getUser(params, function (err, data) {
     });
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-deleting-users). 
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/DeleteUser) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-deleting-users "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-deleting-users").
-- For API details, see
-  [DeleteUser](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/DeleteUser.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/DeleteUser.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun deleteIAMUser(userNameVal: String) {
@@ -432,26 +354,19 @@ suspend fun deleteIAMUser(userNameVal: String) {
         println("Successfully deleted user $userNameVal")
     }
 }
-
-
 ```
++  For API details, see [DeleteUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the IAM user named `Bob`.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the IAM user named `Bob`.**  
 
 ```
 Remove-IAMUser -UserName Bob
-
 ```
-
-**Example 2: This example deletes the IAM user named `Theresa` along with any elements that must be deleted first.**
+**Example 2: This example deletes the IAM user named `Theresa` along with any elements that must be deleted first.**  
 
 ```
 $name = "Theresa"
@@ -482,30 +397,23 @@ if ($prof) { Remove-IAMLoginProfile -UserName $name -Force }
 
 # find any MFA device, detach it, and if virtual, delete it.
 $mfa = Get-IAMMFADevice -UserName $name
-if ($mfa) {
-    Disable-IAMMFADevice -SerialNumber $mfa.SerialNumber -UserName $name
+if ($mfa) { 
+    Disable-IAMMFADevice -SerialNumber $mfa.SerialNumber -UserName $name 
     if ($mfa.SerialNumber -like "arn:*") { Remove-IAMVirtualMFADevice -SerialNumber $mfa.SerialNumber }
 }
 
 # finally, remove the user
 Remove-IAMUser -UserName $name -Force
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteUser](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the IAM user named `Bob`.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the IAM user named `Bob`.**  
 
 ```
 Remove-IAMUser -UserName Bob
-
 ```
-
-**Example 2: This example deletes the IAM user named `Theresa` along with any elements that must be deleted first.**
+**Example 2: This example deletes the IAM user named `Theresa` along with any elements that must be deleted first.**  
 
 ```
 $name = "Theresa"
@@ -536,29 +444,21 @@ if ($prof) { Remove-IAMLoginProfile -UserName $name -Force }
 
 # find any MFA device, detach it, and if virtual, delete it.
 $mfa = Get-IAMMFADevice -UserName $name
-if ($mfa) {
-    Disable-IAMMFADevice -SerialNumber $mfa.SerialNumber -UserName $name
+if ($mfa) { 
+    Disable-IAMMFADevice -SerialNumber $mfa.SerialNumber -UserName $name 
     if ($mfa.SerialNumber -like "arn:*") { Remove-IAMVirtualMFADevice -SerialNumber $mfa.SerialNumber }
 }
 
 # finally, remove the user
 Remove-IAMUser -UserName $name -Force
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteUser](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def delete_user(user_name):
@@ -574,25 +474,14 @@ def delete_user(user_name):
     except ClientError:
         logger.exception("Couldn't delete user %s.", user_name)
         raise
-
-
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteUser) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/boto3/iam-2010-05-08/DeleteUser.md "../../../goto/boto3/iam-2010-05-08/DeleteUser.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Deletes a user and their associated resources
@@ -610,23 +499,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   rescue Aws::IAM::Errors::ServiceError => e
     @logger.error("Error deleting user '#{user_name}': #{e.message}")
   end
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteUser) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUser.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn delete_user(client: &iamClient, user: &User) -> Result<(), SdkError<DeleteUserError>> {
@@ -656,23 +536,14 @@ pub async fn delete_user(client: &iamClient, user: &User) -> Result<(), SdkError
 
     response
 }
-
-
 ```
++  For API details, see [DeleteUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -683,23 +554,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamdeleteconflictex.
         MESSAGE 'User cannot be deleted due to attached resources.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteUser](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -717,15 +579,9 @@ import AWSS3
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [DeleteUser](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleteuser(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteUser](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleteuser(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleteuser(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

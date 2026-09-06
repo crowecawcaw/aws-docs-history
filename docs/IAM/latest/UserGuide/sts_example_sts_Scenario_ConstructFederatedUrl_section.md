@@ -1,22 +1,19 @@
+
+
 # Construct a URL with AWS STS for federated users using an AWS SDK
+<a name="sts_example_sts_Scenario_ConstructFederatedUrl_section"></a>
 
 The following code example shows how to:
++ Create an IAM role that grants read-only access to the current account's Amazon S3 resources.
++ Get a security token from the AWS federation endpoint.
++ Construct a URL that can be used to access the console with federated credentials.
 
-- Create an IAM role that grants read-only access to the current account's Amazon S3 resources.
-- Get a security token from the AWS federation endpoint.
-- Construct a URL that can be used to access the console with federated credentials.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples").
-
-Create a role that grants read-only access to the current account's S3 resources.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
+Create a role that grants read-only access to the current account's S3 resources.  
 
 ```
 def setup(iam_resource):
@@ -32,7 +29,7 @@ def setup(iam_resource):
         RoleName=unique_name("role"),
         AssumeRolePolicyDocument=json.dumps(
             {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -50,13 +47,8 @@ def setup(iam_resource):
     progress_bar(10)
 
     return role
-
-
-
-
 ```
-
-Get a security token from the AWS federation endpoint and construct a URL that can be used to access the console with federated credentials.
+Get a security token from the AWS federation endpoint and construct a URL that can be used to access the console with federated credentials.  
 
 ```
 def construct_federated_url(assume_role_arn, session_name, issuer, sts_client):
@@ -118,13 +110,8 @@ def construct_federated_url(assume_role_arn, session_name, issuer, sts_client):
     )
     federated_url = f"{aws_federated_signin_endpoint}?{query_string}"
     return federated_url
-
-
-
-
 ```
-
-Destroy the resources created for the demo.
+Destroy the resources created for the demo.  
 
 ```
 def teardown(role):
@@ -138,13 +125,8 @@ def teardown(role):
         print(f"Detached {attached.policy_name}.")
     role.delete()
     print(f"Deleted {role.name}.")
-
-
-
-
 ```
-
-Run this scenario by using the previously defined functions.
+Run this scenario by using the previously defined functions.  
 
 ```
 def usage_demo():
@@ -174,16 +156,9 @@ def usage_demo():
     finally:
         teardown(role)
         print("Thanks for watching!")
-
-
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/boto3/sts-2011-06-15/AssumeRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/boto3/sts-2011-06-15/AssumeRole.md "../../../goto/boto3/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

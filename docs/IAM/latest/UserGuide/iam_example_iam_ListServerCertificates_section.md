@@ -1,16 +1,15 @@
+
+
 # Use `ListServerCertificates` with an AWS SDK or CLI
+<a name="iam_example_iam_ListServerCertificates_section"></a>
 
 The following code examples show how to use `ListServerCertificates`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::listServerCertificates(
@@ -62,28 +61,20 @@ bool AwsDoc::IAM::listServerCertificates(
 
     return true;
 }
+```
++  For API details, see [ListServerCertificates](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/ListServerCertificates) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list the server certificates in your AWS account**  
+The following `list-server-certificates` command lists all of the server certificates stored and available for use in your AWS account.  
 
 ```
-
-- For API details, see
-  [ListServerCertificates](../../../goto/SdkForCpp/iam-2010-05-08/ListServerCertificates.md "../../../goto/SdkForCpp/iam-2010-05-08/ListServerCertificates.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the server certificates in your AWS account**
-
-The following `list-server-certificates` command lists all of the server certificates stored and available for use in your AWS account.
-
+aws iam list-server-certificates
 ```
-`aws iam list-server-certificates`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -107,24 +98,15 @@ Output:
     ]
 }
 ```
+For more information, see [Managing server certificates in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListServerCertificates](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-server-certificates.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Managing server certificates in IAM](id_credentials_server-certs.md "id_credentials_server-certs.md") in the _AWS IAM User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [ListServerCertificates](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-server-certificates.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-server-certificates.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-List the certificates.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+List the certificates.  
 
 ```
 import { ListServerCertificatesCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -152,22 +134,12 @@ export async function* listServerCertificates() {
     }
   }
 }
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-server-certificates.html#iam-examples-server-certificates-listing). 
++  For API details, see [ListServerCertificates](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListServerCertificatesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-listing "../../../sdk-for-javascript/v3/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-listing").
-- For API details, see
-  [ListServerCertificates](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListServerCertificatesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListServerCertificatesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -185,27 +157,20 @@ iam.listServerCertificates({}, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-server-certificates.html#iam-examples-server-certificates-listing). 
++  For API details, see [ListServerCertificates](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/ListServerCertificates) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-listing "../../../sdk-for-javascript/v2/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-listing").
-- For API details, see
-  [ListServerCertificates](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListServerCertificates.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListServerCertificates.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves the list of server certificates that have been uploaded to the current AWS account.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves the list of server certificates that have been uploaded to the current AWS account.**  
 
 ```
 Get-IAMServerCertificateList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                   : arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate
@@ -215,21 +180,15 @@ ServerCertificateId   : ASCAJIFEXAMPLE17HQZYW
 ServerCertificateName : MyServerCertificate
 UploadDate            : 4/21/2015 11:14:16 AM
 ```
++  For API details, see [ListServerCertificates](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListServerCertificates](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves the list of server certificates that have been uploaded to the current AWS account.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves the list of server certificates that have been uploaded to the current AWS account.**  
 
 ```
 Get-IAMServerCertificateList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                   : arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate
@@ -239,22 +198,14 @@ ServerCertificateId   : ASCAJIFEXAMPLE17HQZYW
 ServerCertificateName : MyServerCertificate
 UploadDate            : 4/21/2015 11:14:16 AM
 ```
++  For API details, see [ListServerCertificates](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListServerCertificates](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-List, update, and delete server certificates.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+List, update, and delete server certificates.  
 
 ```
 class ServerCertificateManager
@@ -320,14 +271,9 @@ class ServerCertificateManager
     false
   end
 end
-
-
 ```
++  For API details, see [ListServerCertificates](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListServerCertificates) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListServerCertificates](../../../goto/SdkForRubyV3/iam-2010-05-08/ListServerCertificates.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListServerCertificates.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

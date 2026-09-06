@@ -1,22 +1,20 @@
+
+
 # Setting up systems management
+<a name="iam_example_iam_GettingStarted_046_section"></a>
 
 The following code example shows how to:
++ Create IAM permissions for Systems Manager
++ Create an IAM role for Systems Manager
++ Configure Systems Manager
++ Verify the setup
++ Clean up resources
 
-- Create IAM permissions for Systems Manager
-- Create an IAM role for Systems Manager
-- Configure Systems Manager
-- Verify the setup
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/046-aws-systems-manager-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/046-aws-systems-manager-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/046-aws-systems-manager-gs) repository. 
 
 ```
 #!/bin/bash
@@ -48,7 +46,7 @@ check_error() {
     local cmd_output="$1"
     local cmd_status="$2"
     local error_msg="$3"
-
+    
     if [[ $cmd_status -ne 0 || "$cmd_output" =~ [Ee][Rr][Rr][Oo][Rr] ]]; then
         echo "ERROR: $error_msg" | tee -a "$LOG_FILE"
         echo "Command output: $cmd_output" | tee -a "$LOG_FILE"
@@ -75,15 +73,15 @@ cleanup_on_error() {
     echo "ERROR OCCURRED - CLEANING UP RESOURCES" | tee -a "$LOG_FILE"
     echo "==========================================" | tee -a "$LOG_FILE"
     echo "The following resources were created:" | tee -a "$LOG_FILE"
-
+    
     # Display resources in reverse order
     for ((i=${#CREATED_RESOURCES[@]}-1; i>=0; i--)); do
         echo "${CREATED_RESOURCES[$i]}" | tee -a "$LOG_FILE"
     done
-
+    
     echo "" | tee -a "$LOG_FILE"
     echo "Attempting to clean up resources..." | tee -a "$LOG_FILE"
-
+    
     # Clean up resources in reverse order
     cleanup_resources
 }
@@ -93,9 +91,9 @@ cleanup_resources() {
     # Process resources in reverse order (last created, first deleted)
     for ((i=${#CREATED_RESOURCES[@]}-1; i>=0; i--)); do
         IFS=':' read -r resource_type resource_id <<< "${CREATED_RESOURCES[$i]}"
-
+        
         echo "Deleting $resource_type: $resource_id" | tee -a "$LOG_FILE"
-
+        
         case "$resource_type" in
             "IAM_POLICY")
                 # Delete the policy (detachment should have been handled when the role was deleted)
@@ -106,7 +104,7 @@ cleanup_resources() {
                 if [[ -n "$POLICY_ARN" ]]; then
                     log_cmd "aws iam detach-role-policy --role-name $resource_id --policy-arn $POLICY_ARN" || true
                 fi
-
+                
                 # Delete the role
                 log_cmd "aws iam delete-role --role-name $resource_id" || true
                 ;;
@@ -118,9 +116,9 @@ cleanup_resources() {
                 ;;
         esac
     done
-
+    
     echo "Cleanup completed" | tee -a "$LOG_FILE"
-
+    
     # Clean up temporary files
     rm -f ssm-onboarding-policy.json trust-policy.json ssm-config.json 2>/dev/null || true
 }
@@ -151,7 +149,7 @@ echo "Step 1: Creating IAM policy for Systems Manager onboarding..."
 # Create policy document
 cat > ssm-onboarding-policy.json << 'EOF'
 {
-   "Version":"2012-10-17",
+   "Version":"2012-10-17",		 	 	 
    "Statement": [
      {
        "Sid": "QuickSetupActions",
@@ -431,7 +429,7 @@ ROLE_NAME="SSMTutorialRole-$(openssl rand -hex 4)"
 # Create trust policy for the role - FIXED: Added cloudformation.amazonaws.com
 cat > trust-policy.json << 'EOF'
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -578,23 +576,19 @@ echo "Script execution completed. See $LOG_FILE for details."
 
 # Clean up temporary files
 rm -f ssm-onboarding-policy.json trust-policy.json ssm-config.json 2>/dev/null || true
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateConfigurationManager](https://docs.aws.amazon.com/goto/aws-cli/ssm-2014-11-06/CreateConfigurationManager)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteConfigurationManager](https://docs.aws.amazon.com/goto/aws-cli/ssm-2014-11-06/DeleteConfigurationManager)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetConfigurationManager](https://docs.aws.amazon.com/goto/aws-cli/ssm-2014-11-06/GetConfigurationManager)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateConfigurationManager](../../../goto/aws-cli/ssm-2014-11-06/CreateConfigurationManager.md "../../../goto/aws-cli/ssm-2014-11-06/CreateConfigurationManager.md")
-  - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteConfigurationManager](../../../goto/aws-cli/ssm-2014-11-06/DeleteConfigurationManager.md "../../../goto/aws-cli/ssm-2014-11-06/DeleteConfigurationManager.md")
-  - [DeletePolicy](../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetConfigurationManager](../../../goto/aws-cli/ssm-2014-11-06/GetConfigurationManager.md "../../../goto/aws-cli/ssm-2014-11-06/GetConfigurationManager.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

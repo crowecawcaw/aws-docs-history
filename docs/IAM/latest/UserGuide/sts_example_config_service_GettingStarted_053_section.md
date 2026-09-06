@@ -1,24 +1,22 @@
+
+
 # Getting started with configuration management
+<a name="sts_example_config_service_GettingStarted_053_section"></a>
 
 The following code example shows how to:
++ Create an Amazon S3 bucket
++ Create an Amazon SNS topic
++ Create an IAM role for Config
++ Set up the Config configuration recorder
++ Set up the Config delivery channel
++ Start the configuration recorder
++ Verify the Config setup
 
-- Create an Amazon S3 bucket
-- Create an Amazon SNS topic
-- Create an IAM role for Config
-- Set up the Config configuration recorder
-- Set up the Config delivery channel
-- Start the configuration recorder
-- Verify the Config setup
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/053-aws-config-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/053-aws-config-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/053-aws-config-gs) repository. 
 
 ```
 #!/bin/bash
@@ -64,42 +62,42 @@ cleanup_resources() {
         echo "Stopping configuration recorder..."
         aws configservice stop-configuration-recorder --configuration-recorder-name "$CONFIG_RECORDER_NAME" 2>/dev/null || true
     fi
-
+    
     # Check if we created a new delivery channel before trying to delete it
     if [ -n "$DELIVERY_CHANNEL_NAME" ] && [ "$CREATED_NEW_DELIVERY_CHANNEL" = "true" ]; then
         echo "Deleting delivery channel..."
         aws configservice delete-delivery-channel --delivery-channel-name "$DELIVERY_CHANNEL_NAME" 2>/dev/null || true
     fi
-
+    
     if [ -n "$CONFIG_RECORDER_NAME" ] && [ "$CREATED_NEW_CONFIG_RECORDER" = "true" ]; then
         echo "Deleting configuration recorder..."
         aws configservice delete-configuration-recorder --configuration-recorder-name "$CONFIG_RECORDER_NAME" 2>/dev/null || true
     fi
-
+    
     if [ -n "$ROLE_NAME" ]; then
         if [ -n "$POLICY_NAME" ]; then
             echo "Detaching custom policy from role..."
             aws iam delete-role-policy --role-name "$ROLE_NAME" --policy-name "$POLICY_NAME" 2>/dev/null || true
         fi
-
+        
         if [ -n "$MANAGED_POLICY_ARN" ]; then
             echo "Detaching managed policy from role..."
             aws iam detach-role-policy --role-name "$ROLE_NAME" --policy-arn "$MANAGED_POLICY_ARN" 2>/dev/null || true
         fi
-
+        
         echo "Deleting IAM role..."
         aws iam delete-role --role-name "$ROLE_NAME" 2>/dev/null || true
     fi
-
+    
     if [ -n "$SNS_TOPIC_ARN" ]; then
         echo "Deleting SNS topic..."
         aws sns delete-topic --topic-arn "$SNS_TOPIC_ARN" 2>/dev/null || true
     fi
-
+    
     if [ -n "$S3_BUCKET_NAME" ]; then
         echo "Emptying S3 bucket..."
         aws s3 rm "s3://$S3_BUCKET_NAME" --recursive 2>/dev/null || true
-
+        
         echo "Deleting S3 bucket..."
         if [ "$BUCKET_IS_SHARED" = "false" ]; then
             aws s3api delete-bucket --bucket "$S3_BUCKET_NAME" 2>/dev/null || true
@@ -172,7 +170,7 @@ if [ "$BUCKET_IS_SHARED" = "false" ]; then
     fi
     check_command "$BUCKET_RESULT"
     echo "S3 bucket created: $S3_BUCKET_NAME"
-
+    
     aws s3api put-bucket-tagging --bucket "$S3_BUCKET_NAME" --tagging 'TagSet=[{Key=project,Value=doc-smith},{Key=tutorial,Value=aws-config-gs}]'
     echo "Tags applied to S3 bucket"
 else
@@ -201,7 +199,7 @@ MANAGED_POLICY_ARN="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
 echo "Creating trust policy document..."
 cat > config-trust-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -231,7 +229,7 @@ echo "AWS managed policy attached"
 echo "Creating custom policy document for S3 and SNS access..."
 cat > config-delivery-permissions.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -328,7 +326,7 @@ if echo "$EXISTING_CHANNELS" | grep -q "name"; then
     # Get the name of the existing channel
     DELIVERY_CHANNEL_NAME=$(echo "$EXISTING_CHANNELS" | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
     echo "Using existing delivery channel: $DELIVERY_CHANNEL_NAME"
-
+    
     # Update the existing delivery channel
     echo "Creating delivery channel configuration for update..."
     cat > deliveryChannel.json << EOF
@@ -349,7 +347,7 @@ EOF
 else
     echo "No existing delivery channel found. Will create a new one."
     CREATED_NEW_DELIVERY_CHANNEL="true"
-
+    
     echo "Creating delivery channel configuration..."
     cat > deliveryChannel.json << EOF
 {
@@ -366,7 +364,7 @@ EOF
     CHANNEL_RESULT=$(aws configservice put-delivery-channel --delivery-channel file://deliveryChannel.json)
     check_command "$CHANNEL_RESULT"
     echo "Delivery channel created"
-
+    
     aws configservice tag-resource --resource-arn "arn:aws:config:${AWS_REGION}:${ACCOUNT_ID}:delivery-channel/${DELIVERY_CHANNEL_NAME}" --tags Key=project,Value=doc-smith Key=tutorial,Value=aws-config-gs
     echo "Tags applied to delivery channel"
 fi
@@ -419,34 +417,31 @@ else
 fi
 
 echo "Script completed successfully!"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CreateBucket)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/CreateTopic)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteBucket)
+  + [DeleteConfigurationRecorder](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/DeleteConfigurationRecorder)
+  + [DeleteDeliveryChannel](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/DeleteDeliveryChannel)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRolePolicy)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/DeleteTopic)
+  + [DescribeConfigurationRecorderStatus](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/DescribeConfigurationRecorderStatus)
+  + [DescribeConfigurationRecorders](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/DescribeConfigurationRecorders)
+  + [DescribeDeliveryChannels](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/DescribeDeliveryChannels)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [PutConfigurationRecorder](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/PutConfigurationRecorder)
+  + [PutDeliveryChannel](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/PutDeliveryChannel)
+  + [PutPublicAccessBlock](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock)
+  + [PutRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/PutRolePolicy)
+  + [Rm](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rm)
+  + [StartConfigurationRecorder](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/StartConfigurationRecorder)
+  + [StopConfigurationRecorder](https://docs.aws.amazon.com/goto/aws-cli/config-2014-11-12/StopConfigurationRecorder)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateBucket](../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md "../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateTopic](../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md "../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md")
-  - [DeleteBucket](../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md "../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteConfigurationRecorder](../../../goto/aws-cli/config-2014-11-12/DeleteConfigurationRecorder.md "../../../goto/aws-cli/config-2014-11-12/DeleteConfigurationRecorder.md")
-  - [DeleteDeliveryChannel](../../../goto/aws-cli/config-2014-11-12/DeleteDeliveryChannel.md "../../../goto/aws-cli/config-2014-11-12/DeleteDeliveryChannel.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md")
-  - [DeleteTopic](../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md "../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md")
-  - [DescribeConfigurationRecorderStatus](../../../goto/aws-cli/config-2014-11-12/DescribeConfigurationRecorderStatus.md "../../../goto/aws-cli/config-2014-11-12/DescribeConfigurationRecorderStatus.md")
-  - [DescribeConfigurationRecorders](../../../goto/aws-cli/config-2014-11-12/DescribeConfigurationRecorders.md "../../../goto/aws-cli/config-2014-11-12/DescribeConfigurationRecorders.md")
-  - [DescribeDeliveryChannels](../../../goto/aws-cli/config-2014-11-12/DescribeDeliveryChannels.md "../../../goto/aws-cli/config-2014-11-12/DescribeDeliveryChannels.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [PutConfigurationRecorder](../../../goto/aws-cli/config-2014-11-12/PutConfigurationRecorder.md "../../../goto/aws-cli/config-2014-11-12/PutConfigurationRecorder.md")
-  - [PutDeliveryChannel](../../../goto/aws-cli/config-2014-11-12/PutDeliveryChannel.md "../../../goto/aws-cli/config-2014-11-12/PutDeliveryChannel.md")
-  - [PutPublicAccessBlock](../../../goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock.md "../../../goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock.md")
-  - [PutRolePolicy](../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md")
-  - [Rm](../../../goto/aws-cli/s3-2006-03-01/Rm.md "../../../goto/aws-cli/s3-2006-03-01/Rm.md")
-  - [StartConfigurationRecorder](../../../goto/aws-cli/config-2014-11-12/StartConfigurationRecorder.md "../../../goto/aws-cli/config-2014-11-12/StartConfigurationRecorder.md")
-  - [StopConfigurationRecorder](../../../goto/aws-cli/config-2014-11-12/StopConfigurationRecorder.md "../../../goto/aws-cli/config-2014-11-12/StopConfigurationRecorder.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

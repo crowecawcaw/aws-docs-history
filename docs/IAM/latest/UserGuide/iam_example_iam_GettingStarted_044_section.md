@@ -1,22 +1,20 @@
+
+
 # Creating a managed monitoring workspace
+<a name="iam_example_iam_GettingStarted_044_section"></a>
 
 The following code example shows how to:
++ Create an IAM role for your workspace
++ Create a Grafana workspace
++ Configure authentication
++ Configure optional settings
++ Clean up resources
 
-- Create an IAM role for your workspace
-- Create a Grafana workspace
-- Configure authentication
-- Configure optional settings
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/044-amazon-managed-grafana-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/044-amazon-managed-grafana-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/044-amazon-managed-grafana-gs) repository. 
 
 ```
 #!/bin/bash
@@ -35,7 +33,7 @@ echo "All commands and outputs will be logged to $LOG_FILE"
 check_error() {
     local output=$1
     local cmd=$2
-
+    
     if echo "$output" | grep -i "error\|exception\|fail" > /dev/null; then
         echo "ERROR: Command '$cmd' failed with output:"
         echo "$output"
@@ -47,30 +45,30 @@ check_error() {
 # Function to clean up resources on error
 cleanup_on_error() {
     echo "Error encountered. Attempting to clean up resources..."
-
+    
     if [ -n "$WORKSPACE_ID" ]; then
         echo "Deleting workspace $WORKSPACE_ID..."
         aws grafana delete-workspace --workspace-id "$WORKSPACE_ID"
     fi
-
+    
     if [ -n "$ROLE_NAME" ]; then
         echo "Detaching policies from role $ROLE_NAME..."
         if [ -n "$POLICY_ARN" ]; then
             aws iam detach-role-policy --role-name "$ROLE_NAME" --policy-arn "$POLICY_ARN"
         fi
-
+        
         echo "Deleting role $ROLE_NAME..."
         aws iam delete-role --role-name "$ROLE_NAME"
     fi
-
+    
     if [ -n "$POLICY_ARN" ]; then
         echo "Deleting policy..."
         aws iam delete-policy --policy-arn "$POLICY_ARN"
     fi
-
+    
     # Clean up JSON files
     rm -f trust-policy.json cloudwatch-policy.json
-
+    
     echo "Cleanup completed. See $LOG_FILE for details."
 }
 
@@ -94,7 +92,7 @@ echo "Creating IAM role for Grafana workspace..."
 # Create trust policy document
 cat > trust-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -128,7 +126,7 @@ echo "Attaching policies to the role..."
 # CloudWatch policy
 cat > cloudwatch-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -198,13 +196,13 @@ ATTEMPT=0
 while [ $ACTIVE = false ] && [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
     ATTEMPT=$((ATTEMPT+1))
     echo "Checking workspace status (attempt $ATTEMPT of $MAX_ATTEMPTS)..."
-
+    
     DESCRIBE_OUTPUT=$(aws grafana describe-workspace --workspace-id "$WORKSPACE_ID")
     check_error "$DESCRIBE_OUTPUT" "describe-workspace"
-
+    
     STATUS=$(echo "$DESCRIBE_OUTPUT" | grep -o '"status": "[^"]*' | cut -d'"' -f4)
     echo "Current status: $STATUS"
-
+    
     if [ "$STATUS" = "ACTIVE" ]; then
         ACTIVE=true
         echo "Workspace is now ACTIVE"
@@ -257,19 +255,19 @@ read -r CLEANUP_CHOICE
 
 if [[ "$CLEANUP_CHOICE" =~ ^[Yy] ]]; then
     echo "Cleaning up resources..."
-
+    
     echo "Deleting workspace $WORKSPACE_ID..."
     DELETE_OUTPUT=$(aws grafana delete-workspace --workspace-id "$WORKSPACE_ID")
     check_error "$DELETE_OUTPUT" "delete-workspace"
-
+    
     echo "Waiting for workspace to be deleted..."
     DELETED=false
     ATTEMPT=0
-
+    
     while [ $DELETED = false ] && [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
         ATTEMPT=$((ATTEMPT+1))
         echo "Checking deletion status (attempt $ATTEMPT of $MAX_ATTEMPTS)..."
-
+        
         if aws grafana describe-workspace --workspace-id "$WORKSPACE_ID" 2>&1 | grep -i "not found\|does not exist" > /dev/null; then
             DELETED=true
             echo "Workspace has been deleted"
@@ -278,53 +276,49 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy] ]]; then
             sleep 30
         fi
     done
-
+    
     if [ $DELETED = false ]; then
         echo "WARNING: Workspace deletion is taking longer than expected. It may still be in progress."
     fi
-
+    
     # Detach policy from role
     echo "Detaching policy from role..."
     aws iam detach-role-policy \
       --role-name "$ROLE_NAME" \
       --policy-arn "$POLICY_ARN"
-
+    
     # Delete policy
     echo "Deleting IAM policy..."
     aws iam delete-policy \
       --policy-arn "$POLICY_ARN"
-
+    
     # Delete role
     echo "Deleting IAM role..."
     aws iam delete-role \
       --role-name "$ROLE_NAME"
-
+    
     # Clean up JSON files
     rm -f trust-policy.json cloudwatch-policy.json
-
+    
     echo "Cleanup completed"
 else
     echo "Skipping cleanup. Resources will remain in your AWS account."
 fi
 
 echo "Script completed at $(date)"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateWorkspace](https://docs.aws.amazon.com/goto/aws-cli/grafana-2020-08-18/CreateWorkspace)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteWorkspace](https://docs.aws.amazon.com/goto/aws-cli/grafana-2020-08-18/DeleteWorkspace)
+  + [DescribeWorkspace](https://docs.aws.amazon.com/goto/aws-cli/grafana-2020-08-18/DescribeWorkspace)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateWorkspace](../../../goto/aws-cli/grafana-2020-08-18/CreateWorkspace.md "../../../goto/aws-cli/grafana-2020-08-18/CreateWorkspace.md")
-  - [DeletePolicy](../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteWorkspace](../../../goto/aws-cli/grafana-2020-08-18/DeleteWorkspace.md "../../../goto/aws-cli/grafana-2020-08-18/DeleteWorkspace.md")
-  - [DescribeWorkspace](../../../goto/aws-cli/grafana-2020-08-18/DescribeWorkspace.md "../../../goto/aws-cli/grafana-2020-08-18/DescribeWorkspace.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,21 @@
+
+
 # Getting started with managed kubernetes clusters
+<a name="sts_example_eks_GettingStarted_034_section"></a>
 
 The following code example shows how to:
++ Create a VPC for your EKS cluster
++ Create IAM roles for your EKS cluster
++ Create your EKS cluster
++ Configure kubectl to communicate with your cluster
++ Create a managed node group
++ Clean up resources
 
-- Create a VPC for your EKS cluster
-- Create IAM roles for your EKS cluster
-- Create your EKS cluster
-- Configure kubectl to communicate with your cluster
-- Create a managed node group
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/034-eks-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/034-eks-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/034-eks-gs) repository. 
 
 ```
 #!/bin/bash
@@ -109,7 +107,7 @@ declare -a CREATED_RESOURCES
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources in reverse order..."
-
+    
     # Check if node group exists and delete it
     if aws eks list-nodegroups --cluster-name "$CLUSTER_NAME" --query "nodegroups[?contains(@,'$NODEGROUP_NAME')]" --output text 2>/dev/null | grep -q "$NODEGROUP_NAME"; then
         echo "Deleting node group: $NODEGROUP_NAME"
@@ -118,7 +116,7 @@ cleanup_resources() {
         aws eks wait nodegroup-deleted --cluster-name "$CLUSTER_NAME" --nodegroup-name "$NODEGROUP_NAME"
         echo "Node group deleted successfully."
     fi
-
+    
     # Check if cluster exists and delete it
     if aws eks describe-cluster --name "$CLUSTER_NAME" 2>/dev/null; then
         echo "Deleting cluster: $CLUSTER_NAME"
@@ -127,7 +125,7 @@ cleanup_resources() {
         aws eks wait cluster-deleted --name "$CLUSTER_NAME"
         echo "Cluster deleted successfully."
     fi
-
+    
     # Check if CloudFormation stack exists and delete it
     if aws cloudformation describe-stacks --stack-name "$STACK_NAME" 2>/dev/null; then
         echo "Deleting CloudFormation stack: $STACK_NAME"
@@ -136,7 +134,7 @@ cleanup_resources() {
         aws cloudformation wait stack-delete-complete --stack-name "$STACK_NAME"
         echo "CloudFormation stack deleted successfully."
     fi
-
+    
     # Clean up IAM roles
     if aws iam get-role --role-name "$NODE_ROLE_NAME" 2>/dev/null; then
         echo "Detaching policies from node role: $NODE_ROLE_NAME"
@@ -147,7 +145,7 @@ cleanup_resources() {
         aws iam delete-role --role-name "$NODE_ROLE_NAME"
         echo "Node role deleted successfully."
     fi
-
+    
     if aws iam get-role --role-name "$CLUSTER_ROLE_NAME" 2>/dev/null; then
         echo "Detaching policies from cluster role: $CLUSTER_ROLE_NAME"
         aws iam detach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name "$CLUSTER_ROLE_NAME"
@@ -155,7 +153,7 @@ cleanup_resources() {
         aws iam delete-role --role-name "$CLUSTER_ROLE_NAME"
         echo "Cluster role deleted successfully."
     fi
-
+    
     echo "Cleanup complete."
 }
 
@@ -194,7 +192,7 @@ echo "Step 2: Creating IAM roles for EKS..."
 echo "Creating cluster role trust policy..."
 cat > eks-cluster-role-trust-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -228,7 +226,7 @@ check_command "$ATTACH_CLUSTER_POLICY_OUTPUT"
 echo "Creating node role trust policy..."
 cat > node-role-trust-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -454,32 +452,28 @@ else
 fi
 
 echo "Script completed at $(date)"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/CreateCluster)
+  + [CreateNodegroup](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/CreateNodegroup)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateStack](https://docs.aws.amazon.com/goto/aws-cli/cloudformation-2010-05-15/CreateStack)
+  + [DeleteCluster](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/DeleteCluster)
+  + [DeleteNodegroup](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/DeleteNodegroup)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteStack](https://docs.aws.amazon.com/goto/aws-cli/cloudformation-2010-05-15/DeleteStack)
+  + [DescribeCluster](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/DescribeCluster)
+  + [DescribeNodegroup](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/DescribeNodegroup)
+  + [DescribeStacks](https://docs.aws.amazon.com/goto/aws-cli/cloudformation-2010-05-15/DescribeStacks)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [ListNodegroups](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/ListNodegroups)
+  + [UpdateKubeconfig](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/UpdateKubeconfig)
+  + [Wait (CloudFormation)](https://docs.aws.amazon.com/goto/aws-cli/cloudformation-2010-05-15/Wait)
+  + [Wait (Amazon EKS)](https://docs.aws.amazon.com/goto/aws-cli/eks-2017-11-01/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateCluster](../../../goto/aws-cli/eks-2017-11-01/CreateCluster.md "../../../goto/aws-cli/eks-2017-11-01/CreateCluster.md")
-  - [CreateNodegroup](../../../goto/aws-cli/eks-2017-11-01/CreateNodegroup.md "../../../goto/aws-cli/eks-2017-11-01/CreateNodegroup.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateStack](../../../goto/aws-cli/cloudformation-2010-05-15/CreateStack.md "../../../goto/aws-cli/cloudformation-2010-05-15/CreateStack.md")
-  - [DeleteCluster](../../../goto/aws-cli/eks-2017-11-01/DeleteCluster.md "../../../goto/aws-cli/eks-2017-11-01/DeleteCluster.md")
-  - [DeleteNodegroup](../../../goto/aws-cli/eks-2017-11-01/DeleteNodegroup.md "../../../goto/aws-cli/eks-2017-11-01/DeleteNodegroup.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteStack](../../../goto/aws-cli/cloudformation-2010-05-15/DeleteStack.md "../../../goto/aws-cli/cloudformation-2010-05-15/DeleteStack.md")
-  - [DescribeCluster](../../../goto/aws-cli/eks-2017-11-01/DescribeCluster.md "../../../goto/aws-cli/eks-2017-11-01/DescribeCluster.md")
-  - [DescribeNodegroup](../../../goto/aws-cli/eks-2017-11-01/DescribeNodegroup.md "../../../goto/aws-cli/eks-2017-11-01/DescribeNodegroup.md")
-  - [DescribeStacks](../../../goto/aws-cli/cloudformation-2010-05-15/DescribeStacks.md "../../../goto/aws-cli/cloudformation-2010-05-15/DescribeStacks.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [ListNodegroups](../../../goto/aws-cli/eks-2017-11-01/ListNodegroups.md "../../../goto/aws-cli/eks-2017-11-01/ListNodegroups.md")
-  - [UpdateKubeconfig](../../../goto/aws-cli/eks-2017-11-01/UpdateKubeconfig.md "../../../goto/aws-cli/eks-2017-11-01/UpdateKubeconfig.md")
-  - [Wait (CloudFormation)](../../../goto/aws-cli/cloudformation-2010-05-15/Wait.md "../../../goto/aws-cli/cloudformation-2010-05-15/Wait.md")
-  - [Wait (Amazon EKS)](../../../goto/aws-cli/eks-2017-11-01/Wait.md "../../../goto/aws-cli/eks-2017-11-01/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

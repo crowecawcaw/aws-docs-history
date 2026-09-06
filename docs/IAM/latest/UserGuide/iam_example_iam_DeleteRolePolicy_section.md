@@ -1,25 +1,22 @@
+
+
 # Use `DeleteRolePolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteRolePolicy_section"></a>
 
 The following code examples show how to use `DeleteRolePolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md) 
++  [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md) 
++  [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md) 
++  [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
 
-- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
-- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -38,47 +35,30 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
+```
++  For API details, see [DeleteRolePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteRolePolicy) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To remove a policy from an IAM role**  
+The following `delete-role-policy` command removes the policy named `ExamplePolicy` from the role named `Test-Role`.  
 
 ```
-
-- For API details, see
-  [DeleteRolePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteRolePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteRolePolicy.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To remove a policy from an IAM role**
-
-The following `delete-role-policy` command removes the policy named `ExamplePolicy` from the role named `Test-Role`.
-
+aws iam delete-role-policy \
+    --role-name {{Test-Role}} \
+    --policy-name {{ExamplePolicy}}
 ```
-`aws iam delete-role-policy \
- --role-name `Test-Role` \
- --policy-name `ExamplePolicy``
+This command produces no output.  
+For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role-policy.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-This command produces no output.
-
-For more information, see [Modifying a role](id_roles_manage_modify.md "id_roles_manage_modify.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role-policy.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import { DeleteRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -97,42 +77,28 @@ export const deleteRolePolicy = (roleName, policyName) => {
   });
   return client.send(command);
 };
-
-
 ```
++  For API details, see [DeleteRolePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRolePolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteRolePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRolePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRolePolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the inline policy `S3AccessPolicy` that is embedded in the IAM role `S3BackupRole`.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the inline policy `S3AccessPolicy` that is embedded in the IAM role `S3BackupRole`.**  
 
 ```
 Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole
-
 ```
++  For API details, see [DeleteRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteRolePolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the inline policy `S3AccessPolicy` that is embedded in the IAM role `S3BackupRole`.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the inline policy `S3AccessPolicy` that is embedded in the IAM role `S3BackupRole`.**  
 
 ```
 Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole
-
 ```
++  For API details, see [DeleteRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteRolePolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,23 @@
+
+
 # Use `UploadSigningCertificate` with a CLI
+<a name="iam_example_iam_UploadSigningCertificate_section"></a>
 
 The following code examples show how to use `UploadSigningCertificate`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To upload a signing certificate for an IAM user**
-
-The following `upload-signing-certificate` command uploads a signing certificate for the IAM user named `Bob`.
-
-```
-`aws iam upload-signing-certificate \
- --user-name `Bob` \
- --certificate-body `file://certificate.pem``
+**AWS CLI**  
+**To upload a signing certificate for an IAM user**  
+The following `upload-signing-certificate` command uploads a signing certificate for the IAM user named `Bob`.  
 
 ```
-
-Output:
+aws iam upload-signing-certificate \
+    --user-name {{Bob}} \
+    --certificate-body {{file://certificate.pem}}
+```
+Output:  
 
 ```
 {
@@ -30,27 +30,20 @@ Output:
     }
 }
 ```
+The certificate is in a file named *certificate.pem* in PEM format.  
+For more information, see Creating and Uploading a User Signing Certificate in the *Using IAM* guide.  
++  For API details, see [UploadSigningCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/upload-signing-certificate.html) in *AWS CLI Command Reference*. 
 
-The certificate is in a file named _certificate.pem_ in PEM format.
+------
+#### [ PowerShell ]
 
-For more information, see Creating and Uploading a User Signing Certificate in the _Using IAM_ guide.
-
-- For API details, see
-  [UploadSigningCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/upload-signing-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/upload-signing-certificate.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example uploads a new X.509 signing certificate and associates it with the IAM user named `Bob`. The file containing the certificate body is PEM encoded. The `CertificateBody` parameter requires the actual contents of the certificate file rather than the file name. You must use the `-Raw` switch parameter to successfully process the file.**
+**Tools for PowerShell V4**  
+**Example 1: This example uploads a new X.509 signing certificate and associates it with the IAM user named `Bob`. The file containing the certificate body is PEM encoded. The `CertificateBody` parameter requires the actual contents of the certificate file rather than the file name. You must use the `-Raw` switch parameter to successfully process the file.**  
 
 ```
 Publish-IAMSigningCertificate -UserName Bob -CertificateBody (Get-Content -Raw SampleSigningCert.pem)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CertificateBody : -----BEGIN CERTIFICATE-----
@@ -74,21 +67,15 @@ Status          : Active
 UploadDate      : 4/20/2015 1:26:01 PM
 UserName        : Bob
 ```
++  For API details, see [UploadSigningCertificate](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UploadSigningCertificate](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example uploads a new X.509 signing certificate and associates it with the IAM user named `Bob`. The file containing the certificate body is PEM encoded. The `CertificateBody` parameter requires the actual contents of the certificate file rather than the file name. You must use the `-Raw` switch parameter to successfully process the file.**
+**Tools for PowerShell V5**  
+**Example 1: This example uploads a new X.509 signing certificate and associates it with the IAM user named `Bob`. The file containing the certificate body is PEM encoded. The `CertificateBody` parameter requires the actual contents of the certificate file rather than the file name. You must use the `-Raw` switch parameter to successfully process the file.**  
 
 ```
 Publish-IAMSigningCertificate -UserName Bob -CertificateBody (Get-Content -Raw SampleSigningCert.pem)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CertificateBody : -----BEGIN CERTIFICATE-----
@@ -112,11 +99,8 @@ Status          : Active
 UploadDate      : 4/20/2015 1:26:01 PM
 UserName        : Bob
 ```
++  For API details, see [UploadSigningCertificate](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UploadSigningCertificate](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

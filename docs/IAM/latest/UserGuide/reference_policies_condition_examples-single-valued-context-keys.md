@@ -1,60 +1,58 @@
-# Single-valued context key policy examples
 
-The following set of policy examples demonstrate how to create policy conditions with
-single-valued context keys.
+
+# Single-valued context key policy examples
+<a name="reference_policies_condition_examples-single-valued-context-keys"></a>
+
+The following set of policy examples demonstrate how to create policy conditions with single-valued context keys.
 
 ## Example: Multiple condition blocks with single-valued context keys
+<a name="reference_policies_condition_examples-single-valued-context-keys-1"></a>
 
-When a condition block has multiple conditions, each with a single context key, all
-context keys must resolve to true for the desired `Allow` or `Deny`
-effect to be invoked. When you use negated matching condition operators, the evaluation logic
-of the condition value is reversed.
+When a condition block has multiple conditions, each with a single context key, all context keys must resolve to true for the desired `Allow` or `Deny` effect to be invoked. When you use negated matching condition operators, the evaluation logic of the condition value is reversed.
 
-The following example lets users create EC2 volumes and apply tags to the volumes during
-volume creation. The request context must include a value for context key
-`aws:RequestTag/project`, and the value for context key
-`aws:ResourceTag/environment` can be anything except production.
+The following example lets users create EC2 volumes and apply tags to the volumes during volume creation. The request context must include a value for context key `aws:RequestTag/project`, and the value for context key `aws:ResourceTag/environment` can be anything except production.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "ec2:CreateVolume",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:us-east-1:123456789012:volume/*",
- "Condition": {
- "StringLike": {
- "aws:RequestTag/project": "*"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:us-east-1:123456789012:*/*",
- "Condition": {
- "StringNotEquals": {
- "aws:ResourceTag/environment": "production"
- }
- }
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ec2:CreateVolume",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:CreateTags",
+      "Resource": "arn:aws:ec2:us-east-1:123456789012:volume/*",
+      "Condition": {
+        "StringLike": {
+          "aws:RequestTag/project": "*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:CreateTags",
+      "Resource": "arn:aws:ec2:us-east-1:123456789012:*/*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:ResourceTag/environment": "production"
+        }
+      }
+    }
+  ]
+}
 ```
 
-The request context must include a project tag-value and cannot be created for a
-production resource to invoke the `Allow` effect. The following EC2 volume is
-successfully created because the project name is `Feature3` with a `QA`
-resource tag.
+------
+
+The request context must include a project tag-value and cannot be created for a production resource to invoke the `Allow` effect. The following EC2 volume is successfully created because the project name is `Feature3` with a `QA` resource tag.
 
 ```
 aws ec2 create-volume \
@@ -65,64 +63,59 @@ aws ec2 create-volume \
 ```
 
 ## Example: One condition block with multiple single-valued context keys and values
+<a name="reference_policies_condition_examples-single-valued-context-keys-2"></a>
 
-When a condition block contains multiple context keys and each context key has multiple
-values, each context key must resolve to true for at least one key value for the desired
-`Allow` or `Deny` effect to be invoked. When you use negated matching
-condition operators, the evaluation logic of the context key value is reversed.
+When a condition block contains multiple context keys and each context key has multiple values, each context key must resolve to true for at least one key value for the desired `Allow` or `Deny` effect to be invoked. When you use negated matching condition operators, the evaluation logic of the context key value is reversed.
 
 The following example allows users to start and run tasks on Amazon Elastic Container Service clusters.
++ The request context must include `production` **OR** `prod-backup` for the `aws:RequestTag/environment` context key **AND**.
++ The `ecs:cluster` context key makes sure that tasks are run on either the `default1` **OR** `default2` ARN ECS clusters.
 
-- The request context must include `production`
-  **OR**
-  `prod-backup` for the `aws:RequestTag/environment` context key
-  **AND**.
-- The `ecs:cluster` context key makes sure that tasks are run on either the
-  `default1`
-  **OR**
-  `default2` ARN ECS clusters.
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ecs:RunTask",
- "ecs:StartTask"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/environment": [
- "production",
- "prod-backup"
- ]
- },
- "ArnEquals": {
- "ecs:cluster": [
- "arn:aws:ecs:us-east-1:`111122223333`:cluster/default1",
- "arn:aws:ecs:us-east-1:`111122223333`:cluster/default2"
- ]
- }
- }
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecs:RunTask",
+        "ecs:StartTask"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/environment": [
+            "production",
+            "prod-backup"
+          ]
+        },
+        "ArnEquals": {
+          "ecs:cluster": [
+            "arn:aws:ecs:us-east-1:{{111122223333}}:cluster/default1",
+            "arn:aws:ecs:us-east-1:{{111122223333}}:cluster/default2"
+          ]
+        }
+      }
+    }
+  ]
+}
 ```
 
-The following table shows how AWS evaluates this policy based on the condition key
-values in your request.
+------
 
-| Policy condition                                                                                                                                                                                                                                                               | Request context                                                                                                             | Result   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `<br>"StringEquals": {<br>"aws:RequestTag/environment": [<br>"production",<br>"prod-backup"<br>]<br>},<br>"ArnEquals": {<br>"ecs:cluster": [<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br>]<br>}<br>` | `<br>aws:RequestTag: environment:production<br>ecs:cluster:<br>arn:aws:ecs:us-east-1:111122223333:cluster/default1<br>`     | Match    |
-| `<br>"StringEquals": {<br>"aws:RequestTag/environment": [<br>"production",<br>"prod-backup"<br>]<br>},<br>"ArnEquals": {<br>"ecs:cluster": [<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br>]<br>}<br>` | `<br>aws:RequestTag: environment:prod-backup<br>ecs:cluster:<br>arn:aws:ecs:us-east-1:111122223333:cluster/default2<br>`    | Match    |
-| `<br>"StringEquals": {<br>"aws:RequestTag/environment": [<br>"production",<br>"prod-backup"<br>]<br>},<br>"ArnEquals": {<br>"ecs:cluster": [<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br>]<br>}<br>` | `<br>aws:RequestTag: webserver:production<br>ecs:cluster:<br>arn:aws:ecs:us-east-1:111122223333:cluster/default2<br>`       | No match |
-| `<br>"StringEquals": {<br>"aws:RequestTag/environment": [<br>"production",<br>"prod-backup"<br>]<br>},<br>"ArnEquals": {<br>"ecs:cluster": [<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br>"arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br>]<br>}<br>` | No `aws:RequestTag` in the request context.<br>`<br>ecs:cluster<br>arn:aws:ecs:us-east-1:111122223333:cluster/default2<br>` | No match |
+The following table shows how AWS evaluates this policy based on the condition key values in your request.
+
+
+| Policy condition | Request context | Result | 
+| --- | --- | --- | 
+|  <pre>"StringEquals": {<br />  "aws:RequestTag/environment": [<br />    "production",<br />    "prod-backup"<br />  ]<br />},<br />"ArnEquals": {<br />  "ecs:cluster": [<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br />  ]<br />}</pre>  | <pre>aws:RequestTag: environment:production<br />ecs:cluster:<br />  arn:aws:ecs:us-east-1:111122223333:cluster/default1</pre>  | Match | 
+| <pre>"StringEquals": {<br />  "aws:RequestTag/environment": [<br />    "production",<br />    "prod-backup"<br />  ]<br />},<br />"ArnEquals": {<br />  "ecs:cluster": [<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br />  ]<br />}</pre>  | <pre>aws:RequestTag: environment:prod-backup<br />ecs:cluster:<br />  arn:aws:ecs:us-east-1:111122223333:cluster/default2</pre>  | Match | 
+| <pre>"StringEquals": {<br />  "aws:RequestTag/environment": [<br />    "production",<br />    "prod-backup"<br />  ]<br />},<br />"ArnEquals": {<br />  "ecs:cluster": [<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br />  ]<br />}</pre>  | <pre>aws:RequestTag: webserver:production<br />ecs:cluster:<br />  arn:aws:ecs:us-east-1:111122223333:cluster/default2</pre>  | No match | 
+| <pre>"StringEquals": {<br />  "aws:RequestTag/environment": [<br />    "production",<br />    "prod-backup"<br />  ]<br />},<br />"ArnEquals": {<br />  "ecs:cluster": [<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default1",<br />    "arn:aws:ecs:us-east-1:111122223333:cluster/default2"<br />  ]<br />}</pre>  | No `aws:RequestTag` in the request context.<pre>ecs:cluster<br />  arn:aws:ecs:us-east-1:111122223333:cluster/default2</pre> | No match | 

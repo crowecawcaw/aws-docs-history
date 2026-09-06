@@ -1,21 +1,18 @@
+
+
 # Use `GetAccessKeyLastUsed` with an AWS SDK or CLI
+<a name="iam_example_iam_GetAccessKeyLastUsed_section"></a>
 
 The following code examples show how to use `GetAccessKeyLastUsed`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage access keys](iam_example_iam_Scenario_ManageAccessKeys_section.md) 
 
-- [Manage access keys](iam_example_iam_Scenario_ManageAccessKeys_section.md "iam_example_iam_Scenario_ManageAccessKeys_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::accessKeyLastUsed(const Aws::String &secretKeyID,
@@ -44,29 +41,21 @@ bool AwsDoc::IAM::accessKeyLastUsed(const Aws::String &secretKeyID,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/GetAccessKeyLastUsed) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieve information about when the specified access key was last used**  
+The following example retrieves information about when the access key `ABCDEXAMPLE` was last used.  
 
 ```
-
-- For API details, see
-  [GetAccessKeyLastUsed](../../../goto/SdkForCpp/iam-2010-05-08/GetAccessKeyLastUsed.md "../../../goto/SdkForCpp/iam-2010-05-08/GetAccessKeyLastUsed.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve information about when the specified access key was last used**
-
-The following example retrieves information about when the access key `ABCDEXAMPLE` was last used.
-
+aws iam get-access-key-last-used \
+    --access-key-id {{ABCDEXAMPLE}}
 ```
-`aws iam get-access-key-last-used \
- --access-key-id `ABCDEXAMPLE``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -78,24 +67,15 @@ Output:
     }
 }
 ```
+For more information, see [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetAccessKeyLastUsed](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-access-key-last-used.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Managing access keys for IAM users](id_credentials_access-keys.md "id_credentials_access-keys.md") in the _AWS IAM User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [GetAccessKeyLastUsed](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-access-key-last-used.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-access-key-last-used.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Get the access key.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Get the access key.  
 
 ```
 import { GetAccessKeyLastUsedCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -115,7 +95,7 @@ export const getAccessKeyLastUsed = async (accessKeyId) => {
 
   if (response.AccessKeyLastUsed?.LastUsedDate) {
     console.log(`
-    ${accessKeyId} was last used by ${response.UserName} via
+    ${accessKeyId} was last used by ${response.UserName} via 
     the ${response.AccessKeyLastUsed.ServiceName} service on
     ${response.AccessKeyLastUsed.LastUsedDate.toISOString()}
     `);
@@ -123,22 +103,12 @@ export const getAccessKeyLastUsed = async (accessKeyId) => {
 
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.html#iam-examples-managing-access-keys-last-used). 
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccessKeyLastUsedCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-last-used "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-last-used").
-- For API details, see
-  [GetAccessKeyLastUsed](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccessKeyLastUsedCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccessKeyLastUsedCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -159,52 +129,34 @@ iam.getAccessKeyLastUsed(
     }
   }
 );
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.html#iam-examples-managing-access-keys-last-used). 
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/GetAccessKeyLastUsed) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-last-used "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-last-used").
-- For API details, see
-  [GetAccessKeyLastUsed](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/GetAccessKeyLastUsed.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/GetAccessKeyLastUsed.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the owning user name and last-usage information for the supplied access key.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the owning user name and last-usage information for the supplied access key.**  
 
 ```
 Get-IAMAccessKeyLastUsed -AccessKeyId ABCDEXAMPLE
-
 ```
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetAccessKeyLastUsed](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the owning user name and last-usage information for the supplied access key.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the owning user name and last-usage information for the supplied access key.**  
 
 ```
 Get-IAMAccessKeyLastUsed -AccessKeyId ABCDEXAMPLE
-
 ```
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetAccessKeyLastUsed](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def get_last_use(key_id):
@@ -230,25 +182,14 @@ def get_last_use(key_id):
         raise
     else:
         return response
-
-
-
-
 ```
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetAccessKeyLastUsed) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetAccessKeyLastUsed](../../../goto/boto3/iam-2010-05-08/GetAccessKeyLastUsed.md "../../../goto/boto3/iam-2010-05-08/GetAccessKeyLastUsed.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -258,14 +199,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Access key does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetAccessKeyLastUsed](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetAccessKeyLastUsed](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

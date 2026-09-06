@@ -1,29 +1,23 @@
+
+
 # Assume an IAM role that requires an MFA token with AWS STS using an AWS SDK
+<a name="sts_example_sts_Scenario_AssumeRoleMfa_section"></a>
 
-The following code example shows how to assume a role that requires an MFA token.
+The following code example shows how to assume a role that requires an MFA token. 
 
-###### Warning
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose-built software or working with real data. Instead, use federation with an identity provider such as [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
++ Create an IAM role that grants permission to list Amazon S3 buckets.
++ Create an IAM user that has permission to assume the role only when MFA credentials are provided.
++ Register an MFA device for the user.
++ Assume the role and use temporary credentials to list S3 buckets.
 
-To avoid security risks, don't use IAM users for authentication when developing purpose-built software
-or working with real data. Instead, use federation with an identity provider such as
-[AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
+------
+#### [ Python ]
 
-- Create an IAM role that grants permission to list Amazon S3 buckets.
-- Create an IAM user that has permission to assume the role only when MFA credentials are provided.
-- Register an MFA device for the user.
-- Assume the role and use temporary credentials to list S3 buckets.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples").
-
-Create an IAM user, register an MFA device, and create a role that grants permission to list S3 buckets. The user has rights only to assume the role.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
+Create an IAM user, register an MFA device, and create a role that grants permission to list S3 buckets. The user has rights only to assume the role.  
 
 ```
 def setup(iam_resource):
@@ -88,7 +82,7 @@ def setup(iam_resource):
         RoleName=unique_name("role"),
         AssumeRolePolicyDocument=json.dumps(
             {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -106,7 +100,7 @@ def setup(iam_resource):
         PolicyName=unique_name("policy"),
         PolicyDocument=json.dumps(
             {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -124,7 +118,7 @@ def setup(iam_resource):
         PolicyName=unique_name("user-policy"),
         PolicyDocument=json.dumps(
             {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -144,13 +138,8 @@ def setup(iam_resource):
     progress_bar(10)
 
     return user, user_key, virtual_mfa_device, role
-
-
-
-
 ```
-
-Show that assuming the role without an MFA token is not allowed.
+Show that assuming the role without an MFA token is not allowed.  
 
 ```
 def try_to_assume_role_without_mfa(assume_role_arn, session_name, sts_client):
@@ -171,13 +160,8 @@ def try_to_assume_role_without_mfa(assume_role_arn, session_name, sts_client):
             print("Got AccessDenied.")
         else:
             raise
-
-
-
-
 ```
-
-Assume the role that grants permission to list S3 buckets, passing the required MFA token, and show that buckets can be listed.
+Assume the role that grants permission to list S3 buckets, passing the required MFA token, and show that buckets can be listed.  
 
 ```
 def list_buckets_from_assumed_role_with_mfa(
@@ -217,13 +201,8 @@ def list_buckets_from_assumed_role_with_mfa(
     print(f"Listing buckets for the assumed role's account:")
     for bucket in s3_resource.buckets.all():
         print(bucket.name)
-
-
-
-
 ```
-
-Destroy the resources created for the demo.
+Destroy the resources created for the demo.  
 
 ```
 def teardown(user, virtual_mfa_device, role):
@@ -251,13 +230,8 @@ def teardown(user, virtual_mfa_device, role):
     virtual_mfa_device.delete()
     user.delete()
     print(f"Deleted {user.name}.")
-
-
-
-
 ```
-
-Run this scenario by using the previously defined functions.
+Run this scenario by using the previously defined functions.  
 
 ```
 def usage_demo():
@@ -287,16 +261,9 @@ def usage_demo():
     finally:
         teardown(user, virtual_mfa_device, role)
         print("Thanks for watching!")
-
-
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/boto3/sts-2011-06-15/AssumeRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/boto3/sts-2011-06-15/AssumeRole.md "../../../goto/boto3/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

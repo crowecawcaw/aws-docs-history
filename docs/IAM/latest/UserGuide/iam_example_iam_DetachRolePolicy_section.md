@@ -1,37 +1,34 @@
+
+
 # Use `DetachRolePolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_DetachRolePolicy_section"></a>
 
 The following code examples show how to use `DetachRolePolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md) 
++  [Create a rest API with function proxy integration](iam_example_api_gateway_GettingStarted_087_section.md) 
++  [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md) 
++  [Creating your first serverless function](iam_example_lambda_GettingStarted_019_section.md) 
++  [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md) 
++  [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md) 
++  [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md) 
++  [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md) 
++  [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md) 
++  [Moving hardcoded secrets to secure secret storage](iam_example_secrets_manager_GettingStarted_073_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
++  [Setting up systems management](iam_example_iam_GettingStarted_046_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](iam_example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
-- [Create a rest API with function proxy integration](iam_example_api_gateway_GettingStarted_087_section.md "iam_example_api_gateway_GettingStarted_087_section.md")
-- [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
-- [Creating a monitoring dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md "iam_example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first serverless function](iam_example_lambda_GettingStarted_019_section.md "iam_example_lambda_GettingStarted_019_section.md")
-- [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
-- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
-- [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
-- [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md "iam_example_iam_Scenario_RoleManagement_section.md")
-- [Moving hardcoded secrets to secure secret storage](iam_example_secrets_manager_GettingStarted_073_section.md "iam_example_secrets_manager_GettingStarted_073_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
-- [Setting up systems management](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](iam_example_iam_GettingStarted_032_section.md "iam_example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -50,24 +47,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DetachRolePolicy) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -151,23 +138,14 @@ function iam_detach_role_policy() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
     Aws::IAM::IAMClient iam(clientConfig);
@@ -188,49 +166,32 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
     }
 
     return detachOutcome.IsSuccess();
+```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DetachRolePolicy) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To detach a policy from a role**  
+This example removes the managed policy with the ARN `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role called `FedTesterRole`.  
 
 ```
+aws iam detach-role-policy \
+    --role-name {{FedTesterRole}} \
+    --policy-arn {{arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy}}
+```
+This command produces no output.  
+For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
++  For API details, see [DetachRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/detach-role-policy.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../goto/SdkForCpp/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To detach a policy from a role**
-
-This example removes the managed policy with the ARN `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role called `FedTesterRole`.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-`aws iam detach-role-policy \
- --role-name `FedTesterRole` \
- --policy-arn `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy``
-
-```
-
-This command produces no output.
-
-For more information, see [Modifying a role](id_roles_manage_modify.md "id_roles_manage_modify.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DetachRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/detach-role-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/detach-role-policy.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -261,24 +222,14 @@ func (wrapper RoleWrapper) DetachRolePolicy(ctx context.Context, roleName string
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DetachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DetachRolePolicy) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DetachRolePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DetachRolePolicy")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.DetachRolePolicyRequest;
@@ -339,25 +290,15 @@ public class DetachRolePolicy {
         }
     }
 }
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Detach the policy.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Detach the policy.  
 
 ```
 import { DetachRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -377,22 +318,12 @@ export const detachRolePolicy = (policyArn, roleName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-policies.html#iam-examples-policies-detaching-role-policy). 
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DetachRolePolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-policies.md#iam-examples-policies-detaching-role-policy "../../../sdk-for-javascript/v3/developer-guide/iam-examples-policies.md#iam-examples-policies-detaching-role-policy").
-- For API details, see
-  [DetachRolePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DetachRolePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DetachRolePolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -430,24 +361,15 @@ iam.listAttachedRolePolicies(paramsRoleList, function (err, data) {
     });
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-policies.html#iam-examples-policies-detaching-role-policy). 
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/DetachRolePolicy) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-policies.md#iam-examples-policies-detaching-role-policy "../../../sdk-for-javascript/v2/developer-guide/iam-examples-policies.md#iam-examples-policies-detaching-role-policy").
-- For API details, see
-  [DetachRolePolicy](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/DetachRolePolicy.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun detachPolicy(
@@ -465,67 +387,44 @@ suspend fun detachPolicy(
         println("Successfully detached policy $policyArnVal from role $roleNameVal")
     }
 }
-
-
 ```
++  For API details, see [DetachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DetachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role named `FedTesterRole`.**
+**Tools for PowerShell V4**  
+**Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role named `FedTesterRole`.**  
 
 ```
 Unregister-IAMRolePolicy -RoleName FedTesterRole -PolicyArn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy
-
 ```
-
-**Example 2: This example finds all of the managed policies that are attached to the role named `FedTesterRole` and detaches them from the role.**
+**Example 2: This example finds all of the managed policies that are attached to the role named `FedTesterRole` and detaches them from the role.**  
 
 ```
 Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy -Rolename FedTesterRole
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role named `FedTesterRole`.**
+**Tools for PowerShell V5**  
+**Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role named `FedTesterRole`.**  
 
 ```
 Unregister-IAMRolePolicy -RoleName FedTesterRole -PolicyArn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy
-
 ```
-
-**Example 2: This example finds all of the managed policies that are attached to the role named `FedTesterRole` and detaches them from the role.**
+**Example 2: This example finds all of the managed policies that are attached to the role named `FedTesterRole` and detaches them from the role.**  
 
 ```
 Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy -Rolename FedTesterRole
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Detach a policy from a role using the Boto3 Policy object.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Detach a policy from a role using the Boto3 Policy object.  
 
 ```
 def detach_from_role(role_name, policy_arn):
@@ -543,13 +442,8 @@ def detach_from_role(role_name, policy_arn):
             "Couldn't detach policy %s from role %s.", policy_arn, role_name
         )
         raise
-
-
-
-
 ```
-
-Detach a policy from a role using the Boto3 Role object.
+Detach a policy from a role using the Boto3 Role object.  
 
 ```
 def detach_policy(role_name, policy_arn):
@@ -567,27 +461,15 @@ def detach_policy(role_name, policy_arn):
             "Couldn't detach policy %s from role %s.", policy_arn, role_name
         )
         raise
-
-
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DetachRolePolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../goto/boto3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/boto3/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-This example module lists, creates, attaches, and detaches role policies.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+This example module lists, creates, attaches, and detaches role policies.  
 
 ```
 # Manages policies in AWS Identity and Access Management (IAM)
@@ -677,23 +559,14 @@ class RolePolicyManager
     false
   end
 end
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DetachRolePolicy) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DetachRolePolicy.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn detach_role_policy(
@@ -710,23 +583,14 @@ pub async fn detach_role_policy(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.detach_role_policy) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DetachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.detach_role_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.detach_role_policy")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -737,23 +601,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Role or policy does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DetachRolePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -773,15 +628,9 @@ import AWSS3
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [DetachRolePolicy](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/detachrolepolicy(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DetachRolePolicy](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/detachrolepolicy(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/detachrolepolicy(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

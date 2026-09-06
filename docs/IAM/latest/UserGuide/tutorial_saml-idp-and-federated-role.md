@@ -1,240 +1,200 @@
+
+
 # IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP) and SAML federated IAM role
+<a name="tutorial_saml-idp-and-federated-role"></a>
 
-To get familiar with SAML federation and its capabilities, you'll use a CloudFormation template to
-set up a SAML Identity Provider (IdP) and associated federated IAM role. This tutorial shows
-you how to create both resources together in a single stack.
+To get familiar with SAML federation and its capabilities, you'll use a CloudFormation template to set up a SAML Identity Provider (IdP) and associated federated IAM role. This tutorial shows you how to create both resources together in a single stack.
 
-The template creates a SAML IdP that can be used for federated access to AWS resources,
-along with an IAM role that trusts the SAML provider. Users authenticated by your external IdP
-can assume this role to access AWS resources.
+The template creates a SAML IdP that can be used for federated access to AWS resources, along with an IAM role that trusts the SAML provider. Users authenticated by your external IdP can assume this role to access AWS resources.
 
 The deployed resources consist of the following:
-
-- A SAML IdP configured with your IdP's metadata document.
-- A federated IAM role that trusts the SAML IdP and can be assumed by authenticated
-  users.
-- Configurable managed policies that can be attached to the role to grant specific
-  permissions.
++ A SAML IdP configured with your IdP's metadata document.
++ A federated IAM role that trusts the SAML IdP and can be assumed by authenticated users.
++ Configurable managed policies that can be attached to the role to grant specific permissions.
 
 ## Prerequisites
+<a name="tutorial_saml-idp-and-federated-role-prereqs"></a>
 
 This tutorial assumes that you have the following already in place:
-
-- Python 3.6 or later installed on your local machine to run the Python command used in
-  this tutorial for formatting your IdP's SAML metadata XML file.
-- A SAML metadata document from your external IdP saved as an XML file.
++ Python 3.6 or later installed on your local machine to run the Python command used in this tutorial for formatting your IdP's SAML metadata XML file.
++ A SAML metadata document from your external IdP saved as an XML file.
 
 ## Create a SAML IdP and role using CloudFormation
+<a name="tutorial_saml-idp-and-federated-role-create"></a>
 
-To create the SAML IdP and federated role, you'll create a CloudFormation template and use it
-to create a stack containing both resources.
+To create the SAML IdP and federated role, you'll create a CloudFormation template and use it to create a stack containing both resources.
 
 ### Create the template
+<a name="tutorial_saml-idp-and-federated-role-file"></a>
 
 First, create the CloudFormation template.
 
-1. In the [Template](#tutorial_saml-idp-and-federated-role-template "#tutorial_saml-idp-and-federated-role-template") section, click
-   the copy icon on the **JSON** or **YAML** tab to copy
-   the template contents.
-2. Paste the template contents into a new file.
-3. Save the file locally.
+1. In the [Template](#tutorial_saml-idp-and-federated-role-template) section, click the copy icon on the **JSON** or **YAML** tab to copy the template contents.
+
+1. Paste the template contents into a new file.
+
+1. Save the file locally.
 
 ### Create the stack
+<a name="tutorial_saml-idp-and-federated-role-stack"></a>
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. On the **Stacks** page, from the **Create stack**
-   menu, choose **with new resources (standard)**.
-3. Specify the template:
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-   1. Under **Prerequisite**, choose **Choose an existing
-      template**.
-   2. Under **Specify template**, choose **Upload a template
-      file**.
-   3. Choose **Choose file**, navigate to the template file, and
-      choose it.
-   4. Choose **Next**.
+1. On the **Stacks** page, from the **Create stack** menu, choose **with new resources (standard)**.
 
-4. Specify the following stack details:
+1. Specify the template:
+
+   1. Under **Prerequisite**, choose **Choose an existing template**.
+
+   1. Under **Specify template**, choose **Upload a template file**.
+
+   1. Choose **Choose file**, navigate to the template file, and choose it.
+
+   1. Choose **Next**.
+
+1. Specify the following stack details:
 
    1. Enter a stack name.
-   2. For **IdentityProviderName**, you can leave this empty to
-      auto-generate a name based on the stack name, or enter a custom name for your SAML
-      IdP.
 
-   Example: `CompanyIdP` or `EnterpriseSSO` 3. For **IdentityProviderSAMLMetadataDocument**, you need to
-   format your SAML metadata XML file as a single line before pasting it into this
-   field. This is necessary because the CloudFormation console requires XML content to
-   be formatted as a single line when passed through console parameters.
+   1. For **IdentityProviderName**, you can leave this empty to auto-generate a name based on the stack name, or enter a custom name for your SAML IdP.
 
-   Use the following Python command to reformat your XML file:
+      Example: `CompanyIdP` or `EnterpriseSSO`
 
-   ```
-   python3 -c "import sys, re; content=open(sys.argv[1]).read(); print(re.sub(r'>\s+<', '><', content.replace('\n', '').replace('\r', '').strip()))" `saml-metadata.xml`
-   ```
+   1. For **IdentityProviderSAMLMetadataDocument**, you need to format your SAML metadata XML file as a single line before pasting it into this field. This is necessary because the CloudFormation console requires XML content to be formatted as a single line when passed through console parameters.
 
-   ###### Note
+      Use the following Python command to reformat your XML file:
 
-   The IdP's SAML metadata document must be formatted as a single line for
-   console parameter input. The Python command removes line breaks and extra
-   whitespace to create the required format while maintaining all original content
-   and structure.
+      ```
+      python3 -c "import sys, re; content=open(sys.argv[1]).read(); print(re.sub(r'>\s+<', '><', content.replace('\n', '').replace('\r', '').strip()))" {{saml-metadata.xml}}
+      ```
+**Note**  
+The IdP's SAML metadata document must be formatted as a single line for console parameter input. The Python command removes line breaks and extra whitespace to create the required format while maintaining all original content and structure.
 
-   Copy the output from the Python command and paste it into the
-   **IdentityProviderSAMLMetadataDocument** field.
+      Copy the output from the Python command and paste it into the **IdentityProviderSAMLMetadataDocument** field.
 
-   Example of formatted SAML metadata document (abbreviated):
+      Example of formatted SAML metadata document (abbreviated):
 
-   ```
-   <?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portal.sso.example.com/saml/assertion/CompanyIdP"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV...</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/logout/CompanyIdP"/><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/assertion/CompanyIdP"/></md:IDPSSODescriptor></md:EntityDescriptor>
-   ```
-   4. For **RoleName**, you can leave this empty to auto-generate a
-      name based on the stack name, or enter a custom name for the federated IAM
-      role.
+      ```
+      <?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portal.sso.example.com/saml/assertion/CompanyIdP"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV...</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/logout/CompanyIdP"/><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/assertion/CompanyIdP"/></md:IDPSSODescriptor></md:EntityDescriptor>
+      ```
 
-   Example: `SAML-Developer-Access` or
-   `SAML-ReadOnly-Role` 5. For other parameters, accept the default values or enter your own based on your
-   requirements:
+   1. For **RoleName**, you can leave this empty to auto-generate a name based on the stack name, or enter a custom name for the federated IAM role.
 
-        * **IdentityProviderAddPrivateKey** - Optional private key
-         for decrypting SAML assertions
-        * **IdentityProviderAssertionEncryptionMode** - Encryption
-         mode for SAML assertions
+      Example: `SAML-Developer-Access` or `SAML-ReadOnly-Role`
 
+   1. For other parameters, accept the default values or enter your own based on your requirements:
+      + **IdentityProviderAddPrivateKey** - Optional private key for decrypting SAML assertions
+      + **IdentityProviderAssertionEncryptionMode** - Encryption mode for SAML assertions
 
-        Example values: `Allowed`, `Required`, or leave empty
-         for no encryption
-        * **RoleSessionDuration** - Maximum session duration in
-         seconds (3600-43200, default 7200)
-
+        Example values: `Allowed`, `Required`, or leave empty for no encryption
+      + **RoleSessionDuration** - Maximum session duration in seconds (3600-43200, default 7200)
 
         Example: `14400` (4 hours)
-        * **RolePermissionsBoundary** - Optional ARN of a permissions
-         boundary policy
+      + **RolePermissionsBoundary** - Optional ARN of a permissions boundary policy
 
-
-        Example:
-         `arn:aws:iam::123456789012:policy/DeveloperBoundary`
-        * **RolePath** - Path for the IAM role (default is /)
-
+        Example: `arn:aws:iam::123456789012:policy/DeveloperBoundary`
+      + **RolePath** - Path for the IAM role (default is /)
 
         Example: `/saml-roles/`
-        * **RoleManagedPolicy1-5** - Optional ARNs of up to 5 managed
-         policies to attach
+      + **RoleManagedPolicy1-5** - Optional ARNs of up to 5 managed policies to attach
 
+        Example for RoleManagedPolicy1: `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
-        Example for RoleManagedPolicy1:
-         `arn:aws:iam::aws:policy/ReadOnlyAccess`
+        Example for RoleManagedPolicy2: `arn:aws:iam::123456789012:policy/CustomPolicy`
 
+   1. Choose **Next**.
 
-        Example for RoleManagedPolicy2:
-         `arn:aws:iam::123456789012:policy/CustomPolicy`
+1. Configure the stack options:
 
-   6. Choose **Next**.
+   1. Under **Stack failure options**, choose **Delete all newly created resources**.
+**Note**  
+Choosing this option prevents you from possibly being billed for resources whose deletion policy specifies they be retained even if the stack creation fails.
 
-5. Configure the stack options:
+   1. Accept all other default values.
 
-   1. Under **Stack failure options**, choose **Delete all
-      newly created resources**.
+   1. Under **Capabilities**, check the box to acknowledge that CloudFormation might create IAM resources in your account.
 
-   ###### Note
+   1. Choose **Next**.
 
-   Choosing this option prevents you from possibly being billed for resources
-   whose deletion policy specifies they be retained even if the stack creation
-   fails. 2. Accept all other default values. 3. Under **Capabilities**, check the box to acknowledge that
-   CloudFormation might create IAM resources in your account. 4. Choose **Next**.
+1. Review the stack details and choose **Submit**.
 
-6. Review the stack details and choose **Submit**.
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources are ready to use. You can use the **Resources** tab on the stack detail page to view the resources that were provisioned in your account.
 
-CloudFormation creates the stack. Once the stack creation is complete, the stack resources are
-ready to use. You can use the **Resources** tab on the stack detail page to
-view the resources that were provisioned in your account.
+The stack will output the following values, which you can view on the **Outputs** tab:
++ **RoleARN**: The ARN of the created IAM role (for example, `arn:aws:iam::123456789012:role/SAML-Developer-Access` or `arn:aws:iam::123456789012:role/stack-name-a1b2c3d4` if using auto-generated name).
++ **IdentityProviderARN**: The ARN of the created SAML IdP (for example, `arn:aws:iam::123456789012:saml-provider/CompanyIdP`).
 
-The stack will output the following values, which you can view on the
-**Outputs** tab:
-
-- **RoleARN**: The ARN of the created IAM role (for example,
-  `arn:aws:iam::123456789012:role/SAML-Developer-Access` or
-  `arn:aws:iam::123456789012:role/stack-name-a1b2c3d4` if using
-  auto-generated name).
-- **IdentityProviderARN**: The ARN of the created SAML IdP (for
-  example, `arn:aws:iam::123456789012:saml-provider/CompanyIdP`).
-
-You'll need both of these ARNs when configuring your IdP to send the appropriate SAML
-attributes for role assumption.
+You'll need both of these ARNs when configuring your IdP to send the appropriate SAML attributes for role assumption.
 
 ## Test the SAML federation
+<a name="tutorial_saml-idp-and-federated-role-using"></a>
 
-Once the SAML IdP and federated role have been created, you can test the federation
-setup.
+Once the SAML IdP and federated role have been created, you can test the federation setup.
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Identity providers**.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-You should see your newly created SAML IdP in the list. 3. Choose the IdP name to view its details.
+1. In the navigation pane, choose **Identity providers**.
 
-On the IdP detail page, you can see the SAML metadata document and other configuration
-details. 4. In the navigation pane, choose **Roles**. 5. Find and choose your newly created federated role.
+   You should see your newly created SAML IdP in the list.
 
-On the role detail page, you can see the trust policy that allows the SAML IdP to
-assume this role. 6. Choose the **Trust relationships** tab to review the trust
-policy.
+1. Choose the IdP name to view its details.
 
-The trust policy should show that the SAML IdP is trusted to assume this role with the
-condition that the SAML audience (`SAML:aud`) matches
-`https://signin.aws.amazon.com/saml`.
+   On the IdP detail page, you can see the SAML metadata document and other configuration details.
+
+1. In the navigation pane, choose **Roles**.
+
+1. Find and choose your newly created federated role.
+
+   On the role detail page, you can see the trust policy that allows the SAML IdP to assume this role.
+
+1. Choose the **Trust relationships** tab to review the trust policy.
+
+   The trust policy should show that the SAML IdP is trusted to assume this role with the condition that the SAML audience (`SAML:aud`) matches `https://signin.aws.amazon.com/saml`.
 
 ## Clean up: delete resources
+<a name="tutorial_saml-idp-and-federated-role-delete"></a>
 
 As a final step, you'll delete the stack and the resources it contains.
 
 1. Open the CloudFormation console.
-2. On the **Stacks** page, choose the stack created from the template,
-   and choose **Delete**, then confirm **Delete**.
 
-CloudFormation initiates deletion of the stack and all resources it includes.
+1. On the **Stacks** page, choose the stack created from the template, and choose **Delete**, then confirm **Delete**.
+
+   CloudFormation initiates deletion of the stack and all resources it includes.
 
 ## CloudFormation template details
+<a name="tutorial_saml-idp-and-federated-role-template-details"></a>
 
 ### Resources
+<a name="tutorial_saml-idp-and-federated-role-template-resources"></a>
 
-The CloudFormation template for this tutorial will create the following resources in your
-account:
-
-- [`AWS::IAM::SAMLProvider`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.md"): A SAML IdP that establishes trust
-  between AWS and your external IdP.
-- [`AWS::IAM::Role`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md"): A federated IAM role that can be assumed by
-  users authenticated through the SAML IdP.
+The CloudFormation template for this tutorial will create the following resources in your account:
++ [`AWS::IAM::SAMLProvider`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html): A SAML IdP that establishes trust between AWS and your external IdP.
++ [`AWS::IAM::Role`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html): A federated IAM role that can be assumed by users authenticated through the SAML IdP.
 
 ### Configuration
+<a name="tutorial_saml-idp-and-federated-role-configuration"></a>
 
 The template includes the following configurable parameters:
-
-- **IdentityProviderName** - Name of the SAML IdP (leave empty for
-  auto-generated name)
-- **IdentityProviderSAMLMetadataDocument** - SAML metadata document
-  from your IdP (required)
-- **IdentityProviderAddPrivateKey** - Optional private key for
-  decrypting SAML assertions
-- **IdentityProviderAssertionEncryptionMode** - Encryption mode for
-  SAML assertions
-- **RoleName** - Name of the IAM Role (leave empty for auto-generated
-  name)
-- **RolePath** - Path for the IAM role (default /)
-- **RolePermissionsBoundary** - Optional ARN of permissions boundary
-  policy
-- **RoleSessionDuration** - Maximum session duration in seconds
-  (3600-43200, default 7200)
-- **RoleManagedPolicy1-5** - Optional ARNs of up to 5 managed
-  policies to attach
++ **IdentityProviderName** - Name of the SAML IdP (leave empty for auto-generated name)
++ **IdentityProviderSAMLMetadataDocument** - SAML metadata document from your IdP (required)
++ **IdentityProviderAddPrivateKey** - Optional private key for decrypting SAML assertions
++ **IdentityProviderAssertionEncryptionMode** - Encryption mode for SAML assertions
++ **RoleName** - Name of the IAM Role (leave empty for auto-generated name)
++ **RolePath** - Path for the IAM role (default /)
++ **RolePermissionsBoundary** - Optional ARN of permissions boundary policy
++ **RoleSessionDuration** - Maximum session duration in seconds (3600-43200, default 7200)
++ **RoleManagedPolicy1-5** - Optional ARNs of up to 5 managed policies to attach
 
 ## CloudFormation template
+<a name="tutorial_saml-idp-and-federated-role-template"></a>
 
-Save the following JSON or YAML code as a separate file to use as the CloudFormation template
-for this tutorial.
+Save the following JSON or YAML code as a separate file to use as the CloudFormation template for this tutorial.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -345,7 +305,7 @@ JSON
         "MaxSessionDuration": {"Ref": "RoleSessionDuration"},
         "PermissionsBoundary": {"Fn::If": ["HasPermissionsBoundary", {"Ref": "RolePermissionsBoundary"}, {"Ref": "AWS::NoValue"}]},
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Effect": "Allow",
@@ -404,7 +364,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -453,7 +414,7 @@ Parameters:
     Type: String
     Description: Optional ARN of the permissions boundary policy (leave empty for none)
     Default: ""
-
+    
   RoleSessionDuration:
     Description: The maximum session duration (in seconds) that you want to set for the specified role (3600-43200)
     Type: Number
@@ -527,7 +488,7 @@ Resources:
         - !Ref RolePermissionsBoundary
         - !Ref AWS::NoValue
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -562,3 +523,5 @@ Outputs:
     Export:
       Name: !Sub '${AWS::StackName}-IdentityProviderARN'
 ```
+
+------

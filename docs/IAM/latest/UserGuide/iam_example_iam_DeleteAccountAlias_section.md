@@ -1,21 +1,18 @@
+
+
 # Use `DeleteAccountAlias` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteAccountAlias_section"></a>
 
 The following code examples show how to use `DeleteAccountAlias`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md) 
 
-- [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md "iam_example_iam_Scenario_AccountManagement_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::deleteAccountAlias(const Aws::String &accountAlias,
@@ -37,45 +34,29 @@ bool AwsDoc::IAM::deleteAccountAlias(const Aws::String &accountAlias,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeleteAccountAlias) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an account alias**  
+The following `delete-account-alias` command removes the alias `mycompany` for the current account.  
 
 ```
-
-- For API details, see
-  [DeleteAccountAlias](../../../goto/SdkForCpp/iam-2010-05-08/DeleteAccountAlias.md "../../../goto/SdkForCpp/iam-2010-05-08/DeleteAccountAlias.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete an account alias**
-
-The following `delete-account-alias` command removes the alias `mycompany` for the current account.
-
+aws iam delete-account-alias \
+    --account-alias {{mycompany}}
 ```
-`aws iam delete-account-alias \
- --account-alias `mycompany``
+This command produces no output.  
+For more information, see [Your AWS account ID and its alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteAccountAlias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-account-alias.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [Your AWS account ID and its alias](console_account-alias.md "console_account-alias.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteAccountAlias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-account-alias.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-account-alias.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.DeleteAccountAliasRequest;
@@ -133,25 +114,15 @@ public class DeleteAccountAlias {
         System.out.println("Done");
     }
 }
-
-
 ```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteAccountAlias) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteAccountAlias](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteAccountAlias.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteAccountAlias.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Delete the account alias.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Delete the account alias.  
 
 ```
 import { DeleteAccountAliasCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -167,22 +138,12 @@ export const deleteAccountAlias = (alias) => {
 
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-account-aliases.html#iam-examples-account-aliases-deleting). 
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteAccountAliasCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-deleting "../../../sdk-for-javascript/v3/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-deleting").
-- For API details, see
-  [DeleteAccountAlias](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteAccountAliasCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteAccountAliasCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -200,24 +161,15 @@ iam.deleteAccountAlias({ AccountAlias: process.argv[2] }, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-account-aliases.html#iam-examples-account-aliases-deleting). 
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/DeleteAccountAlias) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-deleting "../../../sdk-for-javascript/v2/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-deleting").
-- For API details, see
-  [DeleteAccountAlias](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/DeleteAccountAlias.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/DeleteAccountAlias.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun deleteIAMAccountAlias(alias: String) {
@@ -231,51 +183,33 @@ suspend fun deleteIAMAccountAlias(alias: String) {
         println("Successfully deleted account alias $alias")
     }
 }
-
-
 ```
++  For API details, see [DeleteAccountAlias](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteAccountAlias](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://<accountidnumber>.signin.aws.amazon.com/console.**
+**Tools for PowerShell V4**  
+**Example 1: This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://<accountidnumber>.signin.aws.amazon.com/console.**  
 
 ```
 Remove-IAMAccountAlias -AccountAlias mycompanyaws
-
 ```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteAccountAlias](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://<accountidnumber>.signin.aws.amazon.com/console.**
+**Tools for PowerShell V5**  
+**Example 1: This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://<accountidnumber>.signin.aws.amazon.com/console.**  
 
 ```
 Remove-IAMAccountAlias -AccountAlias mycompanyaws
-
 ```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteAccountAlias](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def delete_alias(alias):
@@ -290,27 +224,15 @@ def delete_alias(alias):
     except ClientError:
         logger.exception("Couldn't remove alias '%s' from your account.", alias)
         raise
-
-
-
-
 ```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteAccountAlias) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteAccountAlias](../../../goto/boto3/iam-2010-05-08/DeleteAccountAlias.md "../../../goto/boto3/iam-2010-05-08/DeleteAccountAlias.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-List, create, and delete account aliases.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+List, create, and delete account aliases.  
 
 ```
 class IAMAliasManager
@@ -360,23 +282,14 @@ class IAMAliasManager
     false
   end
 end
-
-
 ```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteAccountAlias) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteAccountAlias](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteAccountAlias.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteAccountAlias.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -386,14 +299,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Account alias does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteAccountAlias](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

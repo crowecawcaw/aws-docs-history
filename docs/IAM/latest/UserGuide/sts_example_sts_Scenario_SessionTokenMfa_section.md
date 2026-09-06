@@ -1,29 +1,23 @@
+
+
 # Get a session token that requires an MFA token with AWS STS using an AWS SDK
+<a name="sts_example_sts_Scenario_SessionTokenMfa_section"></a>
 
-The following code example shows how to get a session token that requires an MFA token.
+The following code example shows how to get a session token that requires an MFA token. 
 
-###### Warning
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose-built software or working with real data. Instead, use federation with an identity provider such as [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
++ Create an IAM role that grants permission to list Amazon S3 buckets.
++ Create an IAM user that has permission to assume the role only when MFA credentials are provided.
++ Register an MFA device for the user.
++ Provide MFA credentials to get a session token and use temporary credentials to list S3 buckets.
 
-To avoid security risks, don't use IAM users for authentication when developing purpose-built software
-or working with real data. Instead, use federation with an identity provider such as
-[AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
+------
+#### [ Python ]
 
-- Create an IAM role that grants permission to list Amazon S3 buckets.
-- Create an IAM user that has permission to assume the role only when MFA credentials are provided.
-- Register an MFA device for the user.
-- Provide MFA credentials to get a session token and use temporary credentials to list S3 buckets.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples").
-
-Create an IAM user, register an MFA device, and create a role that grants permission to let the user list S3 buckets only when MFA credentials are used.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
+Create an IAM user, register an MFA device, and create a role that grants permission to let the user list S3 buckets only when MFA credentials are used.  
 
 ```
 def setup(iam_resource):
@@ -83,7 +77,7 @@ def setup(iam_resource):
         PolicyName=unique_name("user-policy"),
         PolicyDocument=json.dumps(
             {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -104,13 +98,8 @@ def setup(iam_resource):
     progress_bar(10)
 
     return user, user_key, virtual_mfa_device
-
-
-
-
 ```
-
-Get temporary session credentials by passing an MFA token, and use the credentials to list S3 buckets for the account.
+Get temporary session credentials by passing an MFA token, and use the credentials to list S3 buckets for the account.  
 
 ```
 def list_buckets_with_session_token_with_mfa(mfa_serial_number, mfa_totp, sts_client):
@@ -143,13 +132,8 @@ def list_buckets_with_session_token_with_mfa(mfa_serial_number, mfa_totp, sts_cl
     print(f"Buckets for the account:")
     for bucket in s3_resource.buckets.all():
         print(bucket.name)
-
-
-
-
 ```
-
-Destroy the resources created for the demo.
+Destroy the resources created for the demo.  
 
 ```
 def teardown(user, virtual_mfa_device):
@@ -170,13 +154,8 @@ def teardown(user, virtual_mfa_device):
     virtual_mfa_device.delete()
     user.delete()
     print(f"Deleted {user.name}.")
-
-
-
-
 ```
-
-Run this scenario by using the previously defined functions.
+Run this scenario by using the previously defined functions.  
 
 ```
 def usage_demo():
@@ -206,16 +185,9 @@ def usage_demo():
     finally:
         teardown(user, virtual_mfa_device)
         print("Thanks for watching!")
-
-
-
-
 ```
++  For API details, see [GetSessionToken](https://docs.aws.amazon.com/goto/boto3/sts-2011-06-15/GetSessionToken) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetSessionToken](../../../goto/boto3/sts-2011-06-15/GetSessionToken.md "../../../goto/boto3/sts-2011-06-15/GetSessionToken.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

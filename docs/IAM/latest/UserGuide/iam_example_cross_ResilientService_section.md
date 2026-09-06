@@ -1,25 +1,22 @@
+
+
 # Build and manage a resilient service using an AWS SDK
+<a name="iam_example_cross_ResilientService_section"></a>
 
 The following code examples show how to create a load-balanced web service that returns book, movie, and song recommendations. The example shows how the service responds to failures, and how to restructure the service for more resilience when failures occur.
++ Use an Amazon EC2 Auto Scaling group to create Amazon Elastic Compute Cloud (Amazon EC2) instances based on a launch template and to keep the number of instances in a specified range.
++ Handle and distribute HTTP requests with Elastic Load Balancing.
++ Monitor the health of instances in an Auto Scaling group and forward requests only to healthy instances.
++ Run a Python web server on each EC2 instance to handle HTTP requests. The web server responds with recommendations and health checks.
++ Simulate a recommendation service with an Amazon DynamoDB table.
++ Control web server response to requests and health checks by updating AWS Systems Manager parameters.
 
-- Use an Amazon EC2 Auto Scaling group to create Amazon Elastic Compute Cloud (Amazon EC2) instances based on a launch template and to keep the number of instances in a specified range.
-- Handle and distribute HTTP requests with Elastic Load Balancing.
-- Monitor the health of instances in an Auto Scaling group and forward requests only to healthy instances.
-- Run a Python web server on each EC2 instance to handle HTTP requests. The web server responds with recommendations and health checks.
-- Simulate a recommendation service with an Amazon DynamoDB table.
-- Control web server response to requests and health checks by updating AWS Systems Manager parameters.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService#code-examples").
-
-Run the interactive scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService#code-examples). 
+Run the interactive scenario at a command prompt.  
 
 ```
     static async Task Main(string[] args)
@@ -416,11 +413,8 @@ Run the interactive scenario at a command prompt.
         Console.WriteLine(new string('-', 80));
         return true;
     }
-
-
 ```
-
-Create a class that wraps Auto Scaling and Amazon EC2 actions.
+Create a class that wraps Auto Scaling and Amazon EC2 actions.  
 
 ```
 /// <summary>
@@ -1309,12 +1303,8 @@ public class AutoScalerWrapper
         return hasState;
     }
 }
-
-
-
 ```
-
-Create a class that wraps Elastic Load Balancing actions.
+Create a class that wraps Elastic Load Balancing actions.  
 
 ```
 /// <summary>
@@ -1607,11 +1597,8 @@ public class ElasticLoadBalancerWrapper
         }
     }
 }
-
-
 ```
-
-Create a class that uses DynamoDB to simulate a recommendation service.
+Create a class that uses DynamoDB to simulate a recommendation service.  
 
 ```
 /// <summary>
@@ -1753,11 +1740,8 @@ public class Recommendations
         }
     }
 }
-
-
 ```
-
-Create a class that wraps Systems Manager actions.
+Create a class that wraps Systems Manager actions.  
 
 ```
 /// <summary>
@@ -1813,49 +1797,40 @@ public class SmParameterWrapper
             new PutParameterRequest() { Name = name, Value = value, Overwrite = true });
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [AttachLoadBalancerTargetGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups)
+  + [CreateAutoScalingGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/autoscaling-2011-01-01/CreateAutoScalingGroup)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateInstanceProfile)
+  + [CreateLaunchTemplate](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/CreateLaunchTemplate)
+  + [CreateListener](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateListener)
+  + [CreateLoadBalancer](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer)
+  + [CreateTargetGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateTargetGroup)
+  + [DeleteAutoScalingGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/autoscaling-2011-01-01/DeleteAutoScalingGroup)
+  + [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteInstanceProfile)
+  + [DeleteLaunchTemplate](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DeleteLaunchTemplate)
+  + [DeleteLoadBalancer](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer)
+  + [DeleteTargetGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup)
+  + [DescribeAutoScalingGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/autoscaling-2011-01-01/DescribeAutoScalingGroups)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances)
+  + [DescribeLoadBalancers](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTargetGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups)
+  + [DescribeTargetHealth](https://docs.aws.amazon.com/goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeVpcs)
+  + [RebootInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/RebootInstances)
+  + [ReplaceIamInstanceProfileAssociation](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation)
+  + [TerminateInstanceInAutoScalingGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup)
+  + [UpdateAutoScalingGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/autoscaling-2011-01-01/UpdateAutoScalingGroup)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [AttachLoadBalancerTargetGroups](../../../goto/DotNetSDKV3/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups.md "../../../goto/DotNetSDKV3/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups.md")
-  - [CreateAutoScalingGroup](../../../goto/DotNetSDKV3/autoscaling-2011-01-01/CreateAutoScalingGroup.md "../../../goto/DotNetSDKV3/autoscaling-2011-01-01/CreateAutoScalingGroup.md")
-  - [CreateInstanceProfile](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateInstanceProfile.md")
-  - [CreateLaunchTemplate](../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateLaunchTemplate.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateLaunchTemplate.md")
-  - [CreateListener](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateListener.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateListener.md")
-  - [CreateLoadBalancer](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md")
-  - [CreateTargetGroup](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md")
-  - [DeleteAutoScalingGroup](../../../goto/DotNetSDKV3/autoscaling-2011-01-01/DeleteAutoScalingGroup.md "../../../goto/DotNetSDKV3/autoscaling-2011-01-01/DeleteAutoScalingGroup.md")
-  - [DeleteInstanceProfile](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteInstanceProfile.md")
-  - [DeleteLaunchTemplate](../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteLaunchTemplate.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteLaunchTemplate.md")
-  - [DeleteLoadBalancer](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md")
-  - [DeleteTargetGroup](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md")
-  - [DescribeAutoScalingGroups](../../../goto/DotNetSDKV3/autoscaling-2011-01-01/DescribeAutoScalingGroups.md "../../../goto/DotNetSDKV3/autoscaling-2011-01-01/DescribeAutoScalingGroups.md")
-  - [DescribeAvailabilityZones](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeIamInstanceProfileAssociations](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md")
-  - [DescribeInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeLoadBalancers](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md")
-  - [DescribeSubnets](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSubnets.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTargetGroups](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups.md")
-  - [DescribeTargetHealth](../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md "../../../goto/DotNetSDKV3/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md")
-  - [DescribeVpcs](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeVpcs.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeVpcs.md")
-  - [RebootInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/RebootInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/RebootInstances.md")
-  - [ReplaceIamInstanceProfileAssociation](../../../goto/DotNetSDKV3/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation.md")
-  - [TerminateInstanceInAutoScalingGroup](../../../goto/DotNetSDKV3/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup.md "../../../goto/DotNetSDKV3/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup.md")
-  - [UpdateAutoScalingGroup](../../../goto/DotNetSDKV3/autoscaling-2011-01-01/UpdateAutoScalingGroup.md "../../../goto/DotNetSDKV3/autoscaling-2011-01-01/UpdateAutoScalingGroup.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/resilient_service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/resilient_service#code-examples").
-
-Run the interactive scenario at a command prompt.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/resilient_service#code-examples). 
+Run the interactive scenario at a command prompt.  
 
 ```
 public class Main {
@@ -2288,11 +2263,8 @@ public class Main {
         return new String(bytes);
     }
 }
-
-
 ```
-
-Create a class that wraps Auto Scaling and Amazon EC2 actions.
+Create a class that wraps Auto Scaling and Amazon EC2 actions.  
 
 ```
 public class AutoScaler {
@@ -2517,7 +2489,7 @@ public class AutoScaler {
      * any IP address while running this example. If you do, be sure to remove
      * public
      * access when you're done.
-     *
+     * 
      */
     public GroupInfo verifyInboundPort(String VPC, int port, String ipAddress) {
         boolean portIsOpen = false;
@@ -2784,11 +2756,8 @@ public class AutoScaler {
         System.out.println("All roles and policies are deleted.");
     }
 }
-
-
 ```
-
-Create a class that wraps Elastic Load Balancing actions.
+Create a class that wraps Elastic Load Balancing actions.  
 
 ```
 public class LoadBalancer {
@@ -2981,11 +2950,8 @@ public class LoadBalancer {
         return "";
     }
 }
-
-
 ```
-
-Create a class that uses DynamoDB to simulate a recommendation service.
+Create a class that uses DynamoDB to simulate a recommendation service.  
 
 ```
 public class Database {
@@ -3114,11 +3080,8 @@ public class Database {
         System.out.println("Added all records to the " + tableName);
     }
 }
-
-
 ```
-
-Create a class that wraps Systems Manager actions.
+Create a class that wraps Systems Manager actions.  
 
 ```
 public class ParameterHelper {
@@ -3150,49 +3113,40 @@ public class ParameterHelper {
         System.out.printf("Setting demo parameter %s to '%s'.", name, value);
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AttachLoadBalancerTargetGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups)
+  + [CreateAutoScalingGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/autoscaling-2011-01-01/CreateAutoScalingGroup)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateInstanceProfile)
+  + [CreateLaunchTemplate](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/CreateLaunchTemplate)
+  + [CreateListener](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateListener)
+  + [CreateLoadBalancer](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer)
+  + [CreateTargetGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateTargetGroup)
+  + [DeleteAutoScalingGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/autoscaling-2011-01-01/DeleteAutoScalingGroup)
+  + [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteInstanceProfile)
+  + [DeleteLaunchTemplate](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DeleteLaunchTemplate)
+  + [DeleteLoadBalancer](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer)
+  + [DeleteTargetGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup)
+  + [DescribeAutoScalingGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/autoscaling-2011-01-01/DescribeAutoScalingGroups)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeIamInstanceProfileAssociations)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances)
+  + [DescribeLoadBalancers](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTargetGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups)
+  + [DescribeTargetHealth](https://docs.aws.amazon.com/goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeVpcs)
+  + [RebootInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/RebootInstances)
+  + [ReplaceIamInstanceProfileAssociation](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation)
+  + [TerminateInstanceInAutoScalingGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup)
+  + [UpdateAutoScalingGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/autoscaling-2011-01-01/UpdateAutoScalingGroup)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [AttachLoadBalancerTargetGroups](../../../goto/SdkForJavaV2/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups.md "../../../goto/SdkForJavaV2/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups.md")
-  - [CreateAutoScalingGroup](../../../goto/SdkForJavaV2/autoscaling-2011-01-01/CreateAutoScalingGroup.md "../../../goto/SdkForJavaV2/autoscaling-2011-01-01/CreateAutoScalingGroup.md")
-  - [CreateInstanceProfile](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateInstanceProfile.md")
-  - [CreateLaunchTemplate](../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateLaunchTemplate.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateLaunchTemplate.md")
-  - [CreateListener](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateListener.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateListener.md")
-  - [CreateLoadBalancer](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md")
-  - [CreateTargetGroup](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md")
-  - [DeleteAutoScalingGroup](../../../goto/SdkForJavaV2/autoscaling-2011-01-01/DeleteAutoScalingGroup.md "../../../goto/SdkForJavaV2/autoscaling-2011-01-01/DeleteAutoScalingGroup.md")
-  - [DeleteInstanceProfile](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteInstanceProfile.md")
-  - [DeleteLaunchTemplate](../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteLaunchTemplate.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteLaunchTemplate.md")
-  - [DeleteLoadBalancer](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md")
-  - [DeleteTargetGroup](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md")
-  - [DescribeAutoScalingGroups](../../../goto/SdkForJavaV2/autoscaling-2011-01-01/DescribeAutoScalingGroups.md "../../../goto/SdkForJavaV2/autoscaling-2011-01-01/DescribeAutoScalingGroups.md")
-  - [DescribeAvailabilityZones](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeIamInstanceProfileAssociations](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md")
-  - [DescribeInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeLoadBalancers](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md")
-  - [DescribeSubnets](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeSubnets.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTargetGroups](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups.md")
-  - [DescribeTargetHealth](../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md "../../../goto/SdkForJavaV2/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md")
-  - [DescribeVpcs](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeVpcs.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeVpcs.md")
-  - [RebootInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/RebootInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/RebootInstances.md")
-  - [ReplaceIamInstanceProfileAssociation](../../../goto/SdkForJavaV2/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation.md")
-  - [TerminateInstanceInAutoScalingGroup](../../../goto/SdkForJavaV2/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup.md "../../../goto/SdkForJavaV2/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup.md")
-  - [UpdateAutoScalingGroup](../../../goto/SdkForJavaV2/autoscaling-2011-01-01/UpdateAutoScalingGroup.md "../../../goto/SdkForJavaV2/autoscaling-2011-01-01/UpdateAutoScalingGroup.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
-
-Run the interactive scenario at a command prompt.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
+Run the interactive scenario at a command prompt.  
 
 ```
 #!/usr/bin/env node
@@ -3246,11 +3200,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     description: "Deploy and interact with scalable EC2 instances.",
   });
 }
-
-
 ```
-
-Create steps to deploy all of the resources.
+Create steps to deploy all of the resources.  
 
 ```
 import { join } from "node:path";
@@ -3861,11 +3812,8 @@ export const deploySteps = [
   }),
   saveState,
 ];
-
-
 ```
-
-Create steps to run the demo.
+Create steps to run the demo.  
 
 ```
 import { readFileSync } from "node:fs";
@@ -4325,11 +4273,8 @@ async function createSsmOnlyInstanceProfile() {
 
   return InstanceProfile;
 }
-
-
 ```
-
-Create steps to destroy all of the resources.
+Create steps to destroy all of the resources.  
 
 ```
 import { unlinkSync } from "node:fs";
@@ -4929,49 +4874,40 @@ async function findAutoScalingGroup(groupName) {
   }
   throw new Error(`Auto scaling group ${groupName} not found.`);
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [AttachLoadBalancerTargetGroups](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/AttachLoadBalancerTargetGroupsCommand)
+  + [CreateAutoScalingGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/CreateAutoScalingGroupCommand)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateInstanceProfileCommand)
+  + [CreateLaunchTemplate](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLaunchTemplateCommand)
+  + [CreateListener](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateListenerCommand)
+  + [CreateLoadBalancer](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateLoadBalancerCommand)
+  + [CreateTargetGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateTargetGroupCommand)
+  + [DeleteAutoScalingGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/DeleteAutoScalingGroupCommand)
+  + [DeleteInstanceProfile](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteInstanceProfileCommand)
+  + [DeleteLaunchTemplate](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLaunchTemplateCommand)
+  + [DeleteLoadBalancer](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteLoadBalancerCommand)
+  + [DeleteTargetGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteTargetGroupCommand)
+  + [DescribeAutoScalingGroups](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/DescribeAutoScalingGroupsCommand)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAvailabilityZonesCommand)
+  + [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIamInstanceProfileAssociationsCommand)
+  + [DescribeInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand)
+  + [DescribeLoadBalancers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeLoadBalancersCommand)
+  + [DescribeSubnets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSubnetsCommand)
+  + [DescribeTargetGroups](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTargetGroupsCommand)
+  + [DescribeTargetHealth](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTargetHealthCommand)
+  + [DescribeVpcs](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcsCommand)
+  + [RebootInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RebootInstancesCommand)
+  + [ReplaceIamInstanceProfileAssociation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceIamInstanceProfileAssociationCommand)
+  + [TerminateInstanceInAutoScalingGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/TerminateInstanceInAutoScalingGroupCommand)
+  + [UpdateAutoScalingGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/UpdateAutoScalingGroupCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [AttachLoadBalancerTargetGroups](../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/AttachLoadBalancerTargetGroupsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/AttachLoadBalancerTargetGroupsCommand.md")
-  - [CreateAutoScalingGroup](../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/CreateAutoScalingGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/CreateAutoScalingGroupCommand.md")
-  - [CreateInstanceProfile](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateInstanceProfileCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateInstanceProfileCommand.md")
-  - [CreateLaunchTemplate](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLaunchTemplateCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLaunchTemplateCommand.md")
-  - [CreateListener](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateListenerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateListenerCommand.md")
-  - [CreateLoadBalancer](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateLoadBalancerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateLoadBalancerCommand.md")
-  - [CreateTargetGroup](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateTargetGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/CreateTargetGroupCommand.md")
-  - [DeleteAutoScalingGroup](../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/DeleteAutoScalingGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/DeleteAutoScalingGroupCommand.md")
-  - [DeleteInstanceProfile](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteInstanceProfileCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteInstanceProfileCommand.md")
-  - [DeleteLaunchTemplate](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLaunchTemplateCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLaunchTemplateCommand.md")
-  - [DeleteLoadBalancer](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteLoadBalancerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteLoadBalancerCommand.md")
-  - [DeleteTargetGroup](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteTargetGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteTargetGroupCommand.md")
-  - [DescribeAutoScalingGroups](../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/DescribeAutoScalingGroupsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/DescribeAutoScalingGroupsCommand.md")
-  - [DescribeAvailabilityZones](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAvailabilityZonesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAvailabilityZonesCommand.md")
-  - [DescribeIamInstanceProfileAssociations](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIamInstanceProfileAssociationsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIamInstanceProfileAssociationsCommand.md")
-  - [DescribeInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand.md")
-  - [DescribeLoadBalancers](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeLoadBalancersCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeLoadBalancersCommand.md")
-  - [DescribeSubnets](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSubnetsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSubnetsCommand.md")
-  - [DescribeTargetGroups](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTargetGroupsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTargetGroupsCommand.md")
-  - [DescribeTargetHealth](../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTargetHealthCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTargetHealthCommand.md")
-  - [DescribeVpcs](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcsCommand.md")
-  - [RebootInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/RebootInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/RebootInstancesCommand.md")
-  - [ReplaceIamInstanceProfileAssociation](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceIamInstanceProfileAssociationCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceIamInstanceProfileAssociationCommand.md")
-  - [TerminateInstanceInAutoScalingGroup](../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/TerminateInstanceInAutoScalingGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/TerminateInstanceInAutoScalingGroupCommand.md")
-  - [UpdateAutoScalingGroup](../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/UpdateAutoScalingGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/UpdateAutoScalingGroupCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/resilient_service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/resilient_service#code-examples").
-
-Run the interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/resilient_service#code-examples). 
+Run the interactive scenario at a command prompt.  
 
 ```
 class Runner:
@@ -5329,11 +5265,8 @@ def main() -> None:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     main()
-
-
 ```
-
-Create a class that wraps Auto Scaling and Amazon EC2 actions.
+Create a class that wraps Auto Scaling and Amazon EC2 actions.  
 
 ```
 class AutoScalingWrapper:
@@ -5492,7 +5425,7 @@ class AutoScalingWrapper:
         :return: The ARN of the profile that is created.
         """
         assume_role_doc = {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Effect": "Allow",
@@ -6144,14 +6077,8 @@ class AutoScalingWrapper:
                 )
             # Add more error-specific handling as needed
             log.error(f"Full error:\n\t{err}")
-
-
-
-
-
 ```
-
-Create a class that wraps Elastic Load Balancing actions.
+Create a class that wraps Elastic Load Balancing actions.  
 
 ```
 class ElasticLoadBalancerWrapper:
@@ -6491,14 +6418,8 @@ class ElasticLoadBalancerWrapper:
             log.error(f"Full error:\n\t{err}")
         else:
             return health_response["TargetHealthDescriptions"]
-
-
-
-
-
 ```
-
-Create a class that uses DynamoDB to simulate a recommendation service.
+Create a class that uses DynamoDB to simulate a recommendation service.  
 
 ```
 class RecommendationService:
@@ -6593,13 +6514,8 @@ class RecommendationService:
                 raise RecommendationServiceError(
                     self.table_name, f"ClientError when deleting table: {err}."
                 )
-
-
-
-
 ```
-
-Create a class that wraps Systems Manager actions.
+Create a class that wraps Systems Manager actions.  
 
 ```
 class ParameterHelper:
@@ -6661,40 +6577,34 @@ class ParameterHelper:
                     "Use Overwrite=True to update the parameter."
                 )
             log.error(f"Full error:\n\t{err}")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AttachLoadBalancerTargetGroups](https://docs.aws.amazon.com/goto/boto3/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups)
+  + [CreateAutoScalingGroup](https://docs.aws.amazon.com/goto/boto3/autoscaling-2011-01-01/CreateAutoScalingGroup)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateInstanceProfile)
+  + [CreateLaunchTemplate](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateLaunchTemplate)
+  + [CreateListener](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/CreateListener)
+  + [CreateLoadBalancer](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer)
+  + [CreateTargetGroup](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/CreateTargetGroup)
+  + [DeleteAutoScalingGroup](https://docs.aws.amazon.com/goto/boto3/autoscaling-2011-01-01/DeleteAutoScalingGroup)
+  + [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteInstanceProfile)
+  + [DeleteLaunchTemplate](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DeleteLaunchTemplate)
+  + [DeleteLoadBalancer](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer)
+  + [DeleteTargetGroup](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup)
+  + [DescribeAutoScalingGroups](https://docs.aws.amazon.com/goto/boto3/autoscaling-2011-01-01/DescribeAutoScalingGroups)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeInstances)
+  + [DescribeLoadBalancers](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTargetGroups](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups)
+  + [DescribeTargetHealth](https://docs.aws.amazon.com/goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeVpcs)
+  + [RebootInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/RebootInstances)
+  + [ReplaceIamInstanceProfileAssociation](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation)
+  + [TerminateInstanceInAutoScalingGroup](https://docs.aws.amazon.com/goto/boto3/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup)
+  + [UpdateAutoScalingGroup](https://docs.aws.amazon.com/goto/boto3/autoscaling-2011-01-01/UpdateAutoScalingGroup)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AttachLoadBalancerTargetGroups](../../../goto/boto3/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups.md "../../../goto/boto3/autoscaling-2011-01-01/AttachLoadBalancerTargetGroups.md")
-  - [CreateAutoScalingGroup](../../../goto/boto3/autoscaling-2011-01-01/CreateAutoScalingGroup.md "../../../goto/boto3/autoscaling-2011-01-01/CreateAutoScalingGroup.md")
-  - [CreateInstanceProfile](../../../goto/boto3/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/boto3/iam-2010-05-08/CreateInstanceProfile.md")
-  - [CreateLaunchTemplate](../../../goto/boto3/ec2-2016-11-15/CreateLaunchTemplate.md "../../../goto/boto3/ec2-2016-11-15/CreateLaunchTemplate.md")
-  - [CreateListener](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/CreateListener.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/CreateListener.md")
-  - [CreateLoadBalancer](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md")
-  - [CreateTargetGroup](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md")
-  - [DeleteAutoScalingGroup](../../../goto/boto3/autoscaling-2011-01-01/DeleteAutoScalingGroup.md "../../../goto/boto3/autoscaling-2011-01-01/DeleteAutoScalingGroup.md")
-  - [DeleteInstanceProfile](../../../goto/boto3/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/boto3/iam-2010-05-08/DeleteInstanceProfile.md")
-  - [DeleteLaunchTemplate](../../../goto/boto3/ec2-2016-11-15/DeleteLaunchTemplate.md "../../../goto/boto3/ec2-2016-11-15/DeleteLaunchTemplate.md")
-  - [DeleteLoadBalancer](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md")
-  - [DeleteTargetGroup](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md")
-  - [DescribeAutoScalingGroups](../../../goto/boto3/autoscaling-2011-01-01/DescribeAutoScalingGroups.md "../../../goto/boto3/autoscaling-2011-01-01/DescribeAutoScalingGroups.md")
-  - [DescribeAvailabilityZones](../../../goto/boto3/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/boto3/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeIamInstanceProfileAssociations](../../../goto/boto3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md "../../../goto/boto3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md")
-  - [DescribeInstances](../../../goto/boto3/ec2-2016-11-15/DescribeInstances.md "../../../goto/boto3/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeLoadBalancers](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md")
-  - [DescribeSubnets](../../../goto/boto3/ec2-2016-11-15/DescribeSubnets.md "../../../goto/boto3/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTargetGroups](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups.md")
-  - [DescribeTargetHealth](../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md "../../../goto/boto3/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md")
-  - [DescribeVpcs](../../../goto/boto3/ec2-2016-11-15/DescribeVpcs.md "../../../goto/boto3/ec2-2016-11-15/DescribeVpcs.md")
-  - [RebootInstances](../../../goto/boto3/ec2-2016-11-15/RebootInstances.md "../../../goto/boto3/ec2-2016-11-15/RebootInstances.md")
-  - [ReplaceIamInstanceProfileAssociation](../../../goto/boto3/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation.md "../../../goto/boto3/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation.md")
-  - [TerminateInstanceInAutoScalingGroup](../../../goto/boto3/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup.md "../../../goto/boto3/autoscaling-2011-01-01/TerminateInstanceInAutoScalingGroup.md")
-  - [UpdateAutoScalingGroup](../../../goto/boto3/autoscaling-2011-01-01/UpdateAutoScalingGroup.md "../../../goto/boto3/autoscaling-2011-01-01/UpdateAutoScalingGroup.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

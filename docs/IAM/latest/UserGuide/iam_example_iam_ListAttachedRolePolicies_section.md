@@ -1,16 +1,15 @@
+
+
 # Use `ListAttachedRolePolicies` with an AWS SDK or CLI
+<a name="iam_example_iam_ListAttachedRolePolicies_section"></a>
 
 The following code examples show how to use `ListAttachedRolePolicies`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -30,30 +29,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return attachedPolicies;
     }
+```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/ListAttachedRolePolicies) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list all managed policies that are attached to the specified role**  
+This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account.  
 
 ```
-
-- For API details, see
-  [ListAttachedRolePolicies](../../../goto/DotNetSDKV3/iam-2010-05-08/ListAttachedRolePolicies.md "../../../goto/DotNetSDKV3/iam-2010-05-08/ListAttachedRolePolicies.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list all managed policies that are attached to the specified role**
-
-This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account.
-
+aws iam list-attached-role-policies \
+    --role-name {{SecurityAuditRole}}
 ```
-`aws iam list-attached-role-policies \
- --role-name `SecurityAuditRole``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -66,25 +56,16 @@ Output:
     "IsTruncated": false
 }
 ```
+For more information, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListAttachedRolePolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-attached-role-policies.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Policies and permissions in IAM](access_policies.md "access_policies.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ListAttachedRolePolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-attached-role-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-attached-role-policies.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -117,26 +98,15 @@ func (wrapper RoleWrapper) ListAttachedRolePolicies(ctx context.Context, roleNam
 	}
 	return policies, err
 }
-
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListAttachedRolePolicies) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListAttachedRolePolicies "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListAttachedRolePolicies")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-List the policies that are attached to a role.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+List the policies that are attached to a role.  
 
 ```
 import {
@@ -175,23 +145,14 @@ export async function* listAttachedRolePolicies(roleName) {
     }
   }
 }
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListAttachedRolePoliciesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListAttachedRolePoliciesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListAttachedRolePoliciesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -211,67 +172,47 @@ $service = new IAMService();
         }
         return $this->iamClient->listAttachedRolePolicies($listAttachRolePoliciesArguments);
     }
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/ListAttachedRolePolicies) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../goto/SdkForPHPV3/iam-2010-05-08/ListAttachedRolePolicies.md "../../../goto/SdkForPHPV3/iam-2010-05-08/ListAttachedRolePolicies.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account. To see the list of inline policies that are embedded in the role, use the `Get-IAMRolePolicyList` command.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account. To see the list of inline policies that are embedded in the role, use the `Get-IAMRolePolicyList` command.**  
 
 ```
 Get-IAMAttachedRolePolicyList -RoleName "SecurityAuditRole"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 PolicyArn                                                 PolicyName
 ---------                                                 ----------
 arn:aws:iam::aws:policy/SecurityAudit                     SecurityAudit
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account. To see the list of inline policies that are embedded in the role, use the `Get-IAMRolePolicyList` command.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account. To see the list of inline policies that are embedded in the role, use the `Get-IAMRolePolicyList` command.**  
 
 ```
 Get-IAMAttachedRolePolicyList -RoleName "SecurityAuditRole"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 PolicyArn                                                 PolicyName
 ---------                                                 ----------
 arn:aws:iam::aws:policy/SecurityAudit                     SecurityAudit
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def list_attached_policies(role_name):
@@ -287,27 +228,15 @@ def list_attached_policies(role_name):
     except ClientError:
         logger.exception("Couldn't list attached policies for %s.", role_name)
         raise
-
-
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListAttachedRolePolicies) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../goto/boto3/iam-2010-05-08/ListAttachedRolePolicies.md "../../../goto/boto3/iam-2010-05-08/ListAttachedRolePolicies.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-This example module lists, creates, attaches, and detaches role policies.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+This example module lists, creates, attaches, and detaches role policies.  
 
 ```
 # Manages policies in AWS Identity and Access Management (IAM)
@@ -397,23 +326,14 @@ class RolePolicyManager
     false
   end
 end
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListAttachedRolePolicies) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../goto/SdkForRubyV3/iam-2010-05-08/ListAttachedRolePolicies.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListAttachedRolePolicies.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn list_attached_role_policies(
@@ -434,23 +354,14 @@ pub async fn list_attached_role_policies(
 
     Ok(response)
 }
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_attached_role_policies) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_attached_role_policies "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_attached_role_policies")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -460,23 +371,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Role does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -518,14 +420,9 @@ import AWSS3
 
         return policyList
     }
-
-
 ```
++  For API details, see [ListAttachedRolePolicies](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/listattachedrolepolicies(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListAttachedRolePolicies](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/listattachedrolepolicies(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/listattachedrolepolicies(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

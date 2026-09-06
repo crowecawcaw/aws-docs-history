@@ -1,27 +1,24 @@
+
+
 # Use `DeletePolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_DeletePolicy_section"></a>
 
 The following code examples show how to use `DeletePolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md) 
++  [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md) 
++  [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md) 
++  [Setting up systems management](iam_example_iam_GettingStarted_046_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
-- [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
-- [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md "iam_example_iam_Scenario_PolicyManagement_section.md")
-- [Setting up systems management](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -35,24 +32,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.DeletePolicyAsync(new DeletePolicyRequest { PolicyArn = policyArn });
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeletePolicy) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DeletePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeletePolicy.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -143,23 +130,14 @@ function iam_delete_policy() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeletePolicy) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::deletePolicy(const Aws::String &policyArn,
@@ -180,48 +158,31 @@ bool AwsDoc::IAM::deletePolicy(const Aws::String &policyArn,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeletePolicy) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an IAM policy**  
+This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`.  
 
 ```
+aws iam delete-policy \
+    --policy-arn {{arn:aws:iam::123456789012:policy/MySamplePolicy}}
+```
+This command produces no output.  
+For more information, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeletePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-policy.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../goto/SdkForCpp/iam-2010-05-08/DeletePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/DeletePolicy.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an IAM policy**
-
-This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-`aws iam delete-policy \
- --policy-arn `arn:aws:iam::123456789012:policy/MySamplePolicy``
-
-```
-
-This command produces no output.
-
-For more information, see [Policies and permissions in IAM](access_policies.md "access_policies.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeletePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-policy.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -251,24 +212,14 @@ func (wrapper PolicyWrapper) DeletePolicy(ctx context.Context, policyArn string)
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeletePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeletePolicy) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeletePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeletePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeletePolicy")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.DeletePolicyRequest;
@@ -326,25 +277,15 @@ public class DeletePolicy {
         System.out.println("Done");
     }
 }
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam/#code-examples").
-
-Delete the policy.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam/#code-examples). 
+Delete the policy.  
 
 ```
 import { DeletePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -359,23 +300,14 @@ export const deletePolicy = (policyArn) => {
   const command = new DeletePolicyCommand({ PolicyArn: policyArn });
   return client.send(command);
 };
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeletePolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeletePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeletePolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun deleteIAMPolicy(policyARNVal: String?) {
@@ -389,26 +321,19 @@ suspend fun deleteIAMPolicy(policyARNVal: String?) {
         println("Successfully deleted $policyARNVal")
     }
 }
-
-
 ```
++  For API details, see [DeletePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeletePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`. Before you can delete the policy, you must first delete all versions except the default by running `Remove-IAMPolicyVersion`. You must also detach the policy from any IAM users, groups, or roles.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`. Before you can delete the policy, you must first delete all versions except the default by running `Remove-IAMPolicyVersion`. You must also detach the policy from any IAM users, groups, or roles.**  
 
 ```
 Remove-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
-
 ```
-
-**Example 2: This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the `-Force` switch parameter on any line that needs it to suppress prompts for confirmation.**
+**Example 2: This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the `-Force` switch parameter on any line that needs it to suppress prompts for confirmation.**  
 
 ```
 $pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
@@ -418,23 +343,16 @@ $attached.PolicyGroups | Unregister-IAMGroupPolicy -PolicyArn $pol.arn
 $attached.PolicyRoles | Unregister-IAMRolePolicy -PolicyArn $pol.arn
 $attached.PolicyUsers | Unregister-IAMUserPolicy -PolicyArn $pol.arn
 Remove-IAMPolicy $pol.Arn -Force
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeletePolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`. Before you can delete the policy, you must first delete all versions except the default by running `Remove-IAMPolicyVersion`. You must also detach the policy from any IAM users, groups, or roles.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`. Before you can delete the policy, you must first delete all versions except the default by running `Remove-IAMPolicyVersion`. You must also detach the policy from any IAM users, groups, or roles.**  
 
 ```
 Remove-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
-
 ```
-
-**Example 2: This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the `-Force` switch parameter on any line that needs it to suppress prompts for confirmation.**
+**Example 2: This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the `-Force` switch parameter on any line that needs it to suppress prompts for confirmation.**  
 
 ```
 $pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
@@ -444,22 +362,14 @@ $attached.PolicyGroups | Unregister-IAMGroupPolicy -PolicyArn $pol.arn
 $attached.PolicyRoles | Unregister-IAMRolePolicy -PolicyArn $pol.arn
 $attached.PolicyUsers | Unregister-IAMUserPolicy -PolicyArn $pol.arn
 Remove-IAMPolicy $pol.Arn -Force
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeletePolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def delete_policy(policy_arn):
@@ -474,25 +384,14 @@ def delete_policy(policy_arn):
     except ClientError:
         logger.exception("Couldn't delete policy %s.", policy_arn)
         raise
-
-
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeletePolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../goto/boto3/iam-2010-05-08/DeletePolicy.md "../../../goto/boto3/iam-2010-05-08/DeletePolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iamError> {
@@ -503,23 +402,14 @@ pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iam
         .await?;
     Ok(())
 }
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeletePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -530,23 +420,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamdeleteconflictex.
         MESSAGE 'Policy cannot be deleted due to attachments.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -564,15 +445,9 @@ import AWSS3
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [DeletePolicy](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deletepolicy(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeletePolicy](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deletepolicy(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deletepolicy(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

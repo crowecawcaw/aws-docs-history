@@ -1,21 +1,18 @@
+
+
 # Use `ListAccountAliases` with an AWS SDK or CLI
+<a name="iam_example_iam_ListAccountAliases_section"></a>
 
 The following code examples show how to use `ListAccountAliases`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md) 
 
-- [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md "iam_example_iam_Scenario_AccountManagement_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool
@@ -57,28 +54,20 @@ AwsDoc::IAM::listAccountAliases(const Aws::Client::ClientConfiguration &clientCo
 
     return true;
 }
+```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/ListAccountAliases) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list account aliases**  
+The following `list-account-aliases` command lists the aliases for the current account.  
 
 ```
-
-- For API details, see
-  [ListAccountAliases](../../../goto/SdkForCpp/iam-2010-05-08/ListAccountAliases.md "../../../goto/SdkForCpp/iam-2010-05-08/ListAccountAliases.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list account aliases**
-
-The following `list-account-aliases` command lists the aliases for the current account.
-
+aws iam list-account-aliases
 ```
-`aws iam list-account-aliases`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -87,22 +76,14 @@ Output:
     ]
 }
 ```
+For more information, see [Your AWS account ID and its alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListAccountAliases](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-account-aliases.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Your AWS account ID and its alias](console_account-alias.md "console_account-alias.md") in the _AWS IAM User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ListAccountAliases](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-account-aliases.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-account-aliases.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.IamException;
@@ -143,25 +124,15 @@ public class ListAccountAliases {
         }
     }
 }
-
-
 ```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/ListAccountAliases) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListAccountAliases](../../../goto/SdkForJavaV2/iam-2010-05-08/ListAccountAliases.md "../../../goto/SdkForJavaV2/iam-2010-05-08/ListAccountAliases.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-List the account aliases.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+List the account aliases.  
 
 ```
 import { ListAccountAliasesCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -194,22 +165,12 @@ export async function* listAccountAliases() {
     }
   }
 }
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-account-aliases.html#iam-examples-account-aliases-listing). 
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListAccountAliasesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-listing "../../../sdk-for-javascript/v3/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-listing").
-- For API details, see
-  [ListAccountAliases](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListAccountAliasesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListAccountAliasesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -227,24 +188,15 @@ iam.listAccountAliases({ MaxItems: 10 }, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-account-aliases.html#iam-examples-account-aliases-listing). 
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/ListAccountAliases) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-listing "../../../sdk-for-javascript/v2/developer-guide/iam-examples-account-aliases.md#iam-examples-account-aliases-listing").
-- For API details, see
-  [ListAccountAliases](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListAccountAliases.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListAccountAliases.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun listAliases() {
@@ -255,63 +207,43 @@ suspend fun listAliases() {
         }
     }
 }
-
-
 ```
++  For API details, see [ListAccountAliases](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListAccountAliases](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns the account alias for the AWS account.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns the account alias for the AWS account.**  
 
 ```
 Get-IAMAccountAlias
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ExampleCo
 ```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListAccountAliases](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns the account alias for the AWS account.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns the account alias for the AWS account.**  
 
 ```
 Get-IAMAccountAlias
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ExampleCo
 ```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListAccountAliases](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def list_aliases():
@@ -332,27 +264,15 @@ def list_aliases():
         raise
     else:
         return response["AccountAliases"]
-
-
-
-
 ```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListAccountAliases) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListAccountAliases](../../../goto/boto3/iam-2010-05-08/ListAccountAliases.md "../../../goto/boto3/iam-2010-05-08/ListAccountAliases.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-List, create, and delete account aliases.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+List, create, and delete account aliases.  
 
 ```
 class IAMAliasManager
@@ -402,23 +322,14 @@ class IAMAliasManager
     false
   end
 end
-
-
 ```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListAccountAliases) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListAccountAliases](../../../goto/SdkForRubyV3/iam-2010-05-08/ListAccountAliases.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListAccountAliases.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -427,14 +338,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when listing account aliases.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListAccountAliases](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListAccountAliases](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

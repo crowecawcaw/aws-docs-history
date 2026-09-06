@@ -1,21 +1,18 @@
+
+
 # Use `UpdateAccessKey` with an AWS SDK or CLI
+<a name="iam_example_iam_UpdateAccessKey_section"></a>
 
 The following code examples show how to use `UpdateAccessKey`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage access keys](iam_example_iam_Scenario_ManageAccessKeys_section.md) 
 
-- [Manage access keys](iam_example_iam_Scenario_ManageAccessKeys_section.md "iam_example_iam_Scenario_ManageAccessKeys_section.md")
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -31,7 +28,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/a
 #
 # Example:
 #       # To deactivate the selected access key for IAM user Bob
-#       iam_update_access_key -u Bob -k AKIAIOSFODNN7EXAMPLE -d
+#       iam_update_access_key -u Bob -k AKIAIOSFODNN7EXAMPLE -d 
 #
 # Returns:
 #       0 - If successful.
@@ -72,14 +69,14 @@ function iam_update_access_key() {
       esac
     done
     export OPTIND=1
-
+  
    # Validate input parameters
     if [[ -z "$user_name" ]]; then
       errecho "ERROR: You must provide a username with the -u parameter."
       usage
       return 1
     fi
-
+  
     if [[ -z "$access_key" ]]; then
       errecho "ERROR: You must provide an access key with the -k parameter."
       usage
@@ -92,7 +89,7 @@ function iam_update_access_key() {
       usage
       return 1
     fi
-
+  
     # If neither -a nor -d is provided, return an error
     if [[ "$activate_flag" == false && "$deactivate_flag" == false ]]; then
       errecho "ERROR: You must specify either -a (activate) or -d (deactivate)."
@@ -106,49 +103,40 @@ function iam_update_access_key() {
     elif [[ "$deactivate_flag" == true ]]; then
       status="Inactive"
     fi
-
+  
     iecho "Parameters:\n"
     iecho "    Username:   $user_name"
     iecho "    Access key: $access_key"
     iecho "    New status: $status"
     iecho ""
-
+  
     # Update the access key status
     response=$(aws iam update-access-key \
       --user-name "$user_name" \
       --access-key-id "$access_key" \
       --status "$status" 2>&1)
-
+  
     local error_code=${?}
-
+  
     if [[ $error_code -ne 0 ]]; then
       aws_cli_error_log $error_code
       errecho "ERROR: AWS reports update-access-key operation failed.\n$response"
       return 1
     fi
-
+  
     iecho "update-access-key response: $response"
     iecho
-
+  
     return 0
 }
-
-
 ```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/UpdateAccessKey) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [UpdateAccessKey](../../../goto/aws-cli/iam-2010-05-08/UpdateAccessKey.md "../../../goto/aws-cli/iam-2010-05-08/UpdateAccessKey.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::updateAccessKey(const Aws::String &userName,
@@ -174,50 +162,32 @@ bool AwsDoc::IAM::updateAccessKey(const Aws::String &userName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/UpdateAccessKey) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To activate or deactivate an access key for an IAM user**  
+The following `update-access-key` command deactivates the specified access key (access key ID and secret access key) for the IAM user named `Bob`.  
 
 ```
-
-- For API details, see
-  [UpdateAccessKey](../../../goto/SdkForCpp/iam-2010-05-08/UpdateAccessKey.md "../../../goto/SdkForCpp/iam-2010-05-08/UpdateAccessKey.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To activate or deactivate an access key for an IAM user**
-
-The following `update-access-key` command deactivates the specified access key (access key ID and secret access key)
-for the IAM user named `Bob`.
-
+aws iam update-access-key \
+    --access-key-id {{AKIAIOSFODNN7EXAMPLE}} \
+    --status {{Inactive}} \
+    --user-name {{Bob}}
 ```
-`aws iam update-access-key \
- --access-key-id `AKIAIOSFODNN7EXAMPLE` \
- --status `Inactive` \
- --user-name `Bob``
+This command produces no output.  
+Deactivating the key means that it cannot be used for programmatic access to AWS. However, the key is still available and can be reactivated.  
+For more information, see [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *AWS IAM User Guide*.  
++  For API details, see [UpdateAccessKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-access-key.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-Deactivating the key means that it cannot be used for programmatic access to AWS. However, the key is still available and can be reactivated.
-
-For more information, see [Managing access keys for IAM users](id_credentials_access-keys.md "id_credentials_access-keys.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [UpdateAccessKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-access-key.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-access-key.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.IamException;
@@ -294,25 +264,15 @@ public class UpdateAccessKey {
         }
     }
 }
-
-
 ```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/UpdateAccessKey) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateAccessKey](../../../goto/SdkForJavaV2/iam-2010-05-08/UpdateAccessKey.md "../../../goto/SdkForJavaV2/iam-2010-05-08/UpdateAccessKey.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Update the access key.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Update the access key.  
 
 ```
 import {
@@ -337,22 +297,12 @@ export const updateAccessKey = (userName, accessKeyId) => {
 
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.html#iam-examples-managing-access-keys-updating). 
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateAccessKeyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-updating "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-updating").
-- For API details, see
-  [UpdateAccessKey](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateAccessKeyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateAccessKeyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -376,52 +326,34 @@ iam.updateAccessKey(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.html#iam-examples-managing-access-keys-updating). 
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateAccessKey) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-updating "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-updating").
-- For API details, see
-  [UpdateAccessKey](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateAccessKey.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateAccessKey.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example changes the status of the access key `AKIAIOSFODNN7EXAMPLE` for the IAM user named `Bob` to `Inactive`.**
+**Tools for PowerShell V4**  
+**Example 1: This example changes the status of the access key `AKIAIOSFODNN7EXAMPLE` for the IAM user named `Bob` to `Inactive`.**  
 
 ```
 Update-IAMAccessKey -UserName Bob -AccessKeyId AKIAIOSFODNN7EXAMPLE -Status Inactive
-
 ```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateAccessKey](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example changes the status of the access key `AKIAIOSFODNN7EXAMPLE` for the IAM user named `Bob` to `Inactive`.**
+**Tools for PowerShell V5**  
+**Example 1: This example changes the status of the access key `AKIAIOSFODNN7EXAMPLE` for the IAM user named `Bob` to `Inactive`.**  
 
 ```
 Update-IAMAccessKey -UserName Bob -AccessKeyId AKIAIOSFODNN7EXAMPLE -Status Inactive
-
 ```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateAccessKey](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def update_key(user_name, key_id, activate):
@@ -445,25 +377,14 @@ def update_key(user_name, key_id, activate):
             "Couldn't %s key %s.", "Activate" if activate else "Deactivate", key_id
         )
         raise
-
-
-
-
 ```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/UpdateAccessKey) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateAccessKey](../../../goto/boto3/iam-2010-05-08/UpdateAccessKey.md "../../../goto/boto3/iam-2010-05-08/UpdateAccessKey.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -475,14 +396,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Access key or user does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateAccessKey](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

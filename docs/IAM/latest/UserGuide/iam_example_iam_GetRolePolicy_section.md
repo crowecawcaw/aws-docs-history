@@ -1,23 +1,23 @@
+
+
 # Use `GetRolePolicy` with a CLI
+<a name="iam_example_iam_GetRolePolicy_section"></a>
 
 The following code examples show how to use `GetRolePolicy`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get information about a policy attached to an IAM role**
-
-The following `get-role-policy` command gets information about the specified policy attached to the role named `Test-Role`.
-
-```
-`aws iam get-role-policy \
- --role-name `Test-Role` \
- --policy-name `ExamplePolicy``
+**AWS CLI**  
+**To get information about a policy attached to an IAM role**  
+The following `get-role-policy` command gets information about the specified policy attached to the role named `Test-Role`.  
 
 ```
-
-Output:
+aws iam get-role-policy \
+    --role-name {{Test-Role}} \
+    --policy-name {{ExamplePolicy}}
+```
+Output:  
 
 ```
 {
@@ -40,26 +40,20 @@ Output:
   "PolicyName": "ExamplePolicy"
 }
 ```
+For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role-policy.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating IAM roles](id_roles_create.md "id_roles_create.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role-policy.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns the permissions policy document for the policy named `oneClick_lambda_exec_role_policy` that is embedded in the IAM role `lamda_exec_role`. The resulting policy document is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns the permissions policy document for the policy named `oneClick_lambda_exec_role_policy` that is embedded in the IAM role `lamda_exec_role`. The resulting policy document is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**  
 
 ```
 $results = Get-IAMRolePolicy -RoleName lambda_exec_role -PolicyName oneClick_lambda_exec_role_policy
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 PolicyDocument                                            PolicyName                           UserName
@@ -70,14 +64,12 @@ PolicyDocument                                            PolicyName            
 ```
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -99,22 +91,16 @@ PolicyDocument                                            PolicyName            
   ]
 }
 ```
++  For API details, see [GetRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetRolePolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns the permissions policy document for the policy named `oneClick_lambda_exec_role_policy` that is embedded in the IAM role `lamda_exec_role`. The resulting policy document is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns the permissions policy document for the policy named `oneClick_lambda_exec_role_policy` that is embedded in the IAM role `lamda_exec_role`. The resulting policy document is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**  
 
 ```
 $results = Get-IAMRolePolicy -RoleName lambda_exec_role -PolicyName oneClick_lambda_exec_role_policy
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 PolicyDocument                                            PolicyName                           UserName
@@ -125,14 +111,12 @@ PolicyDocument                                            PolicyName            
 ```
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -154,11 +138,8 @@ PolicyDocument                                            PolicyName            
   ]
 }
 ```
++  For API details, see [GetRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetRolePolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

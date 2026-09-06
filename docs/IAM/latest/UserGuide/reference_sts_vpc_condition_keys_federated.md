@@ -1,62 +1,49 @@
+
+
 # Use VPC condition keys to control federated access
+<a name="reference_sts_vpc_condition_keys_federated"></a>
 
-Federated users can assume roles using `AssumeRoleWithSAML` or
-`AssumeRoleWithWebIdentity` through a VPC endpoint. When they do, you can
-use VPC-specific condition keys in the role's trust policy or in resource control policies
-(RCPs) to restrict where these requests can originate. This provides a network-level
-boundary in addition to the identity-level controls in the trust policy.
+Federated users can assume roles using `AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity` through a VPC endpoint. When they do, you can use VPC-specific condition keys in the role's trust policy or in resource control policies (RCPs) to restrict where these requests can originate. This provides a network-level boundary in addition to the identity-level controls in the trust policy.
 
-###### Topics
-
-- [How VPC condition keys work for federated requests](#reference_sts_vpc_condition_keys_federated_how "#reference_sts_vpc_condition_keys_federated_how")
-- [Example: Restrict OIDC federation to a specific VPC](#reference_sts_vpc_condition_keys_federated_example_oidc_vpc "#reference_sts_vpc_condition_keys_federated_example_oidc_vpc")
-- [Example: Restrict SAML federation to a specific VPC endpoint](#reference_sts_vpc_condition_keys_federated_example_saml_vpce "#reference_sts_vpc_condition_keys_federated_example_saml_vpce")
-- [Example: Restrict OIDC federation by private IP range within a VPC](#reference_sts_vpc_condition_keys_federated_example_ip "#reference_sts_vpc_condition_keys_federated_example_ip")
-- [Example: Restrict SAML federation to multiple VPCs](#reference_sts_vpc_condition_keys_federated_example_saml_multi_vpc "#reference_sts_vpc_condition_keys_federated_example_saml_multi_vpc")
-- [Example: Combine VPC and provider-specific conditions](#reference_sts_vpc_condition_keys_federated_example_combined "#reference_sts_vpc_condition_keys_federated_example_combined")
-- [Example: Use an RCP to restrict federated access to a specific VPC](#reference_sts_vpc_condition_keys_federated_example_rcp "#reference_sts_vpc_condition_keys_federated_example_rcp")
+**Topics**
++ [How VPC condition keys work for federated requests](#reference_sts_vpc_condition_keys_federated_how)
++ [Example: Restrict OIDC federation to a specific VPC](#reference_sts_vpc_condition_keys_federated_example_oidc_vpc)
++ [Example: Restrict SAML federation to a specific VPC endpoint](#reference_sts_vpc_condition_keys_federated_example_saml_vpce)
++ [Example: Restrict OIDC federation by private IP range within a VPC](#reference_sts_vpc_condition_keys_federated_example_ip)
++ [Example: Restrict SAML federation to multiple VPCs](#reference_sts_vpc_condition_keys_federated_example_saml_multi_vpc)
++ [Example: Combine VPC and provider-specific conditions](#reference_sts_vpc_condition_keys_federated_example_combined)
++ [Example: Use an RCP to restrict federated access to a specific VPC](#reference_sts_vpc_condition_keys_federated_example_rcp)
 
 ## How VPC condition keys work for federated requests
+<a name="reference_sts_vpc_condition_keys_federated_how"></a>
 
-The condition keys available in the request context depend on the network path of the
-federated request.
+The condition keys available in the request context depend on the network path of the federated request.
 
-VPC condition key availability by network path| Condition key | Through VPC endpoint | Over public internet | Description |
-| --- | --- | --- | --- |
-| `aws:SourceVpc` | Yes | No | VPC ID that the request traverses |
-| `aws:SourceVpcArn` | Yes | No | ARN of the VPC that the request traverses |
-| `aws:SourceVpce` | Yes | No | VPC endpoint ID that the request traverses |
-| `aws:VpcSourceIp` | Yes | No | Private IP address of the caller within the VPC |
-| `aws:SourceIp` | No | Yes | Public IP address of the caller |
 
-If your trust policy uses `aws:SourceVpc`,
-`aws:SourceVpcArn`, or `aws:SourceVpce` in an
-`Allow` statement and the request does not come through a VPC endpoint,
-the condition does not match and AWS implicitly denies the request. This effectively
-requires federated requests to traverse the VPC endpoint to succeed.
+**VPC condition key availability by network path**  
 
-###### Important
+| Condition key | Through VPC endpoint | Over public internet | Description | 
+| --- | --- | --- | --- | 
+| `aws:SourceVpc` | Yes | No | VPC ID that the request traverses | 
+| `aws:SourceVpcArn` | Yes | No | ARN of the VPC that the request traverses | 
+| `aws:SourceVpce` | Yes | No | VPC endpoint ID that the request traverses | 
+| `aws:VpcSourceIp` | Yes | No | Private IP address of the caller within the VPC | 
+| `aws:SourceIp` | No | Yes | Public IP address of the caller | 
 
-For requests made through a VPC endpoint, `aws:SourceIp` is not
-populated. Use `aws:VpcSourceIp` for IP-based restrictions
-instead.
+If your trust policy uses `aws:SourceVpc`, `aws:SourceVpcArn`, or `aws:SourceVpce` in an `Allow` statement and the request does not come through a VPC endpoint, the condition does not match and AWS implicitly denies the request. This effectively requires federated requests to traverse the VPC endpoint to succeed.
 
-We recommend using `aws:SourceVpcArn` instead of
-`aws:SourceVpc` in trust policies. VPC IDs are regionally unique but not
-globally unique, whereas `aws:SourceVpcArn` includes the Region and account,
-providing globally unique identification of the VPC.
+**Important**  
+For requests made through a VPC endpoint, `aws:SourceIp` is not populated. Use `aws:VpcSourceIp` for IP-based restrictions instead.
 
-###### Note
+We recommend using `aws:SourceVpcArn` instead of `aws:SourceVpc` in trust policies. VPC IDs are regionally unique but not globally unique, whereas `aws:SourceVpcArn` includes the Region and account, providing globally unique identification of the VPC.
 
-The audience (`aud`) value in the following OIDC examples uses
-`sts.amazonaws.com`, which is the default for Amazon EKS. For other
-OIDC providers, replace this with the audience value configured for your application
-(for example, a client ID or application URI).
+**Note**  
+The audience (`aud`) value in the following OIDC examples uses `sts.amazonaws.com`, which is the default for Amazon EKS. For other OIDC providers, replace this with the audience value configured for your application (for example, a client ID or application URI).
 
 ## Example: Restrict OIDC federation to a specific VPC
+<a name="reference_sts_vpc_condition_keys_federated_example_oidc_vpc"></a>
 
-The following trust policy allows an OIDC provider to assume the role only when the
-request originates from a specific VPC through a VPC endpoint.
+The following trust policy allows an OIDC provider to assume the role only when the request originates from a specific VPC through a VPC endpoint.
 
 ```
 {
@@ -80,14 +67,12 @@ request originates from a specific VPC through a VPC endpoint.
 }
 ```
 
-AWS implicitly denies requests from outside the specified VPC because the
-`aws:SourceVpcArn` condition does not match. No explicit deny statement is
-needed.
+AWS implicitly denies requests from outside the specified VPC because the `aws:SourceVpcArn` condition does not match. No explicit deny statement is needed.
 
 ## Example: Restrict SAML federation to a specific VPC endpoint
+<a name="reference_sts_vpc_condition_keys_federated_example_saml_vpce"></a>
 
-The following trust policy allows a SAML provider to assume the role only when the
-request comes through a specific VPC endpoint.
+The following trust policy allows a SAML provider to assume the role only when the request comes through a specific VPC endpoint.
 
 ```
 {
@@ -111,15 +96,12 @@ request comes through a specific VPC endpoint.
 }
 ```
 
-Using `aws:SourceVpce` instead of `aws:SourceVpc` provides more
-granular control when you have multiple VPC endpoints in the same VPC and want to
-restrict access to a specific endpoint.
+Using `aws:SourceVpce` instead of `aws:SourceVpc` provides more granular control when you have multiple VPC endpoints in the same VPC and want to restrict access to a specific endpoint.
 
 ## Example: Restrict OIDC federation by private IP range within a VPC
+<a name="reference_sts_vpc_condition_keys_federated_example_ip"></a>
 
-The following trust policy restricts federation to requests originating from a specific
-subnet within the VPC. Use `aws:VpcSourceIp` for IP-based restrictions on
-requests made through a VPC endpoint.
+The following trust policy restricts federation to requests originating from a specific subnet within the VPC. Use `aws:VpcSourceIp` for IP-based restrictions on requests made through a VPC endpoint.
 
 ```
 {
@@ -146,17 +128,13 @@ requests made through a VPC endpoint.
 }
 ```
 
-###### Important
-
-Do not use `aws:SourceIp` with private IP ranges for requests through a
-VPC endpoint. The `aws:SourceIp` key is not available for VPC endpoint
-requests. Use `aws:VpcSourceIp` instead.
+**Important**  
+Do not use `aws:SourceIp` with private IP ranges for requests through a VPC endpoint. The `aws:SourceIp` key is not available for VPC endpoint requests. Use `aws:VpcSourceIp` instead.
 
 ## Example: Restrict SAML federation to multiple VPCs
+<a name="reference_sts_vpc_condition_keys_federated_example_saml_multi_vpc"></a>
 
-The following trust policy allows a SAML provider to assume the role from any of
-several VPCs. This is useful when your organization has multiple VPCs across different
-environments or Regions that need federated access to the same role.
+The following trust policy allows a SAML provider to assume the role from any of several VPCs. This is useful when your organization has multiple VPCs across different environments or Regions that need federated access to the same role.
 
 ```
 {
@@ -184,11 +162,9 @@ environments or Regions that need federated access to the same role.
 ```
 
 ## Example: Combine VPC and provider-specific conditions
+<a name="reference_sts_vpc_condition_keys_federated_example_combined"></a>
 
-You can combine VPC condition keys with provider-specific conditions such as audience
-(`aud`) and subject (`sub`) for fine-grained access control.
-The following trust policy restricts role assumption to a specific federated user and
-requires the request to originate from a specific VPC.
+You can combine VPC condition keys with provider-specific conditions such as audience (`aud`) and subject (`sub`) for fine-grained access control. The following trust policy restricts role assumption to a specific federated user and requires the request to originate from a specific VPC.
 
 ```
 {
@@ -213,17 +189,12 @@ requires the request to originate from a specific VPC.
 }
 ```
 
-This combines identity-level controls (restricting to a specific federated user) with
-network-level controls (restricting to a specific VPC), providing defense in
-depth.
+This combines identity-level controls (restricting to a specific federated user) with network-level controls (restricting to a specific VPC), providing defense in depth.
 
 ## Example: Use an RCP to restrict federated access to a specific VPC
+<a name="reference_sts_vpc_condition_keys_federated_example_rcp"></a>
 
-The following resource control policy (RCP) denies `AssumeRoleWithSAML` and
-`AssumeRoleWithWebIdentity` requests unless they originate from a
-specific VPC. Unlike trust policies that apply per-role, a resource control policy (RCP)
-applies across all roles in the target accounts. This provides a centralized network
-boundary.
+The following resource control policy (RCP) denies `AssumeRoleWithSAML` and `AssumeRoleWithWebIdentity` requests unless they originate from a specific VPC. Unlike trust policies that apply per-role, a resource control policy (RCP) applies across all roles in the target accounts. This provides a centralized network boundary.
 
 ```
 {
@@ -251,11 +222,4 @@ boundary.
 }
 ```
 
-The `Null` condition ensures the deny only applies when
-`aws:SourceVpcArn` is present in the request context (that is, the
-request came through a VPC endpoint but from the wrong VPC). Without it, requests over
-the public internet (where `aws:SourceVpcArn` is absent) would also be denied
-by `StringNotEquals`. If you remove the `Null` check, the deny
-also applies to requests that do not traverse any VPC endpoint, including requests over
-the public internet. We recommend testing thoroughly before removing the
-`Null` check in production environments.
+The `Null` condition ensures the deny only applies when `aws:SourceVpcArn` is present in the request context (that is, the request came through a VPC endpoint but from the wrong VPC). Without it, requests over the public internet (where `aws:SourceVpcArn` is absent) would also be denied by `StringNotEquals`. If you remove the `Null` check, the deny also applies to requests that do not traverse any VPC endpoint, including requests over the public internet. We recommend testing thoroughly before removing the `Null` check in production environments.

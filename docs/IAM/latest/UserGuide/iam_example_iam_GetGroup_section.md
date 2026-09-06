@@ -1,22 +1,22 @@
+
+
 # Use `GetGroup` with a CLI
+<a name="iam_example_iam_GetGroup_section"></a>
 
 The following code examples show how to use `GetGroup`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get an IAM group**
-
-This example returns details about the IAM group `Admins`.
-
-```
-`aws iam get-group \
- --group-name `Admins``
+**AWS CLI**  
+**To get an IAM group**  
+This example returns details about the IAM group `Admins`.  
 
 ```
-
-Output:
+aws iam get-group \
+    --group-name {{Admins}}
+```
+Output:  
 
 ```
 {
@@ -30,26 +30,20 @@ Output:
     "Users": []
 }
 ```
+For more information, see [IAM Identities (users, user groups, and roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-group.html) in *AWS CLI Command Reference*. 
 
-For more information, see [IAM Identities (users, user groups, and roles)](id.md "id.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-group.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns details about the IAM group `Testers`, including a collection of all the IAM users that belong to the group.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns details about the IAM group `Testers`, including a collection of all the IAM users that belong to the group. **  
 
 ```
 $results = Get-IAMGroup -GroupName "Testers"
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Group                                     IsTruncated           Marker                Users
@@ -59,10 +53,8 @@ Amazon.IdentityManagement.Model.Group     False                                 
 
 ```
 $results.Group
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn        : arn:aws:iam::123456789012:group/Testers
@@ -74,10 +66,8 @@ Path       : /
 
 ```
 $results.Users
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/Theresa
@@ -94,22 +84,16 @@ Path             : /
 UserId           : Y4FKWQCXTA52QEXAMPLE3
 UserName         : David
 ```
++  For API details, see [GetGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetGroup](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns details about the IAM group `Testers`, including a collection of all the IAM users that belong to the group.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns details about the IAM group `Testers`, including a collection of all the IAM users that belong to the group. **  
 
 ```
 $results = Get-IAMGroup -GroupName "Testers"
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Group                                     IsTruncated           Marker                Users
@@ -119,10 +103,8 @@ Amazon.IdentityManagement.Model.Group     False                                 
 
 ```
 $results.Group
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn        : arn:aws:iam::123456789012:group/Testers
@@ -134,10 +116,8 @@ Path       : /
 
 ```
 $results.Users
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/Theresa
@@ -154,11 +134,8 @@ Path             : /
 UserId           : Y4FKWQCXTA52QEXAMPLE3
 UserName         : David
 ```
++  For API details, see [GetGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetGroup](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

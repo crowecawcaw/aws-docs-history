@@ -1,16 +1,15 @@
+
+
 # Hello IAM
+<a name="iam_example_iam_Hello_section"></a>
 
 The following code examples show how to get started using IAM.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
 namespace IAMActions;
@@ -38,26 +37,15 @@ public class HelloIAM
         });
     }
 }
-
-
-
 ```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/ListPolicies) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListPolicies](../../../goto/DotNetSDKV3/iam-2010-05-08/ListPolicies.md "../../../goto/DotNetSDKV3/iam-2010-05-08/ListPolicies.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam/hello_iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam/hello_iam#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam/hello_iam#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -98,11 +86,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the iam.cpp source file.
+Code for the iam.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -177,26 +162,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return result;
 }
+```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/ListPolicies) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
-- For API details, see
-  [ListPolicies](../../../goto/SdkForCpp/iam-2010-05-08/ListPolicies.md "../../../goto/SdkForCpp/iam-2010-05-08/ListPolicies.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-```
-
 package main
 
 import (
@@ -238,24 +213,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [ListPolicies](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListPolicies) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListPolicies](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListPolicies "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListPolicies")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -290,23 +255,14 @@ public class HelloIAM {
         });
     }
 }
-
-
 ```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/ListPolicies) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListPolicies](../../../goto/SdkForJavaV2/iam-2010-05-08/ListPolicies.md "../../../goto/SdkForJavaV2/iam-2010-05-08/ListPolicies.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import { IAMClient, paginateListPolicies } from "@aws-sdk/client-iam";
@@ -336,26 +292,16 @@ export const listLocalPolicies = async () => {
   }
   console.log(`Found ${policyCount} policies.`);
 };
+```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListPoliciesCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
-
-- For API details, see
-  [ListPolicies](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListPoliciesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListPoliciesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-```
-
 import boto3
 
 
@@ -380,27 +326,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListPolicies) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
-
-- For API details, see
-  [ListPolicies](../../../goto/boto3/iam-2010-05-08/ListPolicies.md "../../../goto/boto3/iam-2010-05-08/ListPolicies.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-```
-
 require 'aws-sdk-iam'
 require 'logger'
 
@@ -438,29 +373,17 @@ if $PROGRAM_NAME == __FILE__
   manager = IAMManager.new(iam_client)
   manager.list_policies
 end
+```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListPolicies) in *AWS SDK for Ruby API Reference*. 
 
+------
+#### [ Rust ]
 
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
+From src/bin/hello.rs.  
 
 ```
-
-- For API details, see
-  [ListPolicies](../../../goto/SdkForRubyV3/iam-2010-05-08/ListPolicies.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListPolicies.md")
-  in _AWS SDK for Ruby API Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
-
-From src/bin/hello.rs.
-
-```
-
 use aws_sdk_iam::error::SdkError;
 use aws_sdk_iam::operation::list_policies::ListPoliciesError;
 use clap::Parser;
@@ -485,11 +408,8 @@ async fn main() -> Result<(), SdkError<ListPoliciesError>> {
 
     Ok(())
 }
-
-
 ```
-
-From src/iam-service-lib.rs.
+From src/iam-service-lib.rs.  
 
 ```
 pub async fn list_policies(
@@ -519,14 +439,9 @@ pub async fn list_policies(
 
     Ok(policy_names)
 }
-
-
 ```
++  For API details, see [ListPolicies](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_policies) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListPolicies](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_policies "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_policies")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

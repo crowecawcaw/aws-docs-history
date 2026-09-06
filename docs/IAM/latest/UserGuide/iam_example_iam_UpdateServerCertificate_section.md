@@ -1,16 +1,15 @@
+
+
 # Use `UpdateServerCertificate` with an AWS SDK or CLI
+<a name="iam_example_iam_UpdateServerCertificate_section"></a>
 
 The following code examples show how to use `UpdateServerCertificate`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::updateServerCertificate(const Aws::String &currentCertificateName,
@@ -43,49 +42,32 @@ bool AwsDoc::IAM::updateServerCertificate(const Aws::String &currentCertificateN
 
     return result;
 }
+```
++  For API details, see [UpdateServerCertificate](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/UpdateServerCertificate) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To change the path or name of a server certificate in your AWS account**  
+The following `update-server-certificate` command changes the name of the certificate from `myServerCertificate` to `myUpdatedServerCertificate`. It also changes the path to `/cloudfront/` so that it can be accessed by the Amazon CloudFront service. This command produces no output. You can see the results of the update by running the `list-server-certificates` command.  
 
 ```
-
-- For API details, see
-  [UpdateServerCertificate](../../../goto/SdkForCpp/iam-2010-05-08/UpdateServerCertificate.md "../../../goto/SdkForCpp/iam-2010-05-08/UpdateServerCertificate.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To change the path or name of a server certificate in your AWS account**
-
-The following `update-server-certificate` command changes the name of the certificate from `myServerCertificate` to `myUpdatedServerCertificate`. It also changes the path to `/cloudfront/` so that it can be accessed by the Amazon CloudFront service. This command produces no output. You can see the results of the update by running the `list-server-certificates` command.
-
+aws-iam update-server-certificate \
+    --server-certificate-name {{myServerCertificate}} \
+    --new-server-certificate-name {{myUpdatedServerCertificate}} \
+    --new-path {{/cloudfront/}}
 ```
-`aws-iam update-server-certificate \
- --server-certificate-name `myServerCertificate` \
- --new-server-certificate-name `myUpdatedServerCertificate` \
- --new-path `/cloudfront/``
+This command produces no output.  
+For more information, see [Managing server certificates in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) in the *AWS IAM User Guide*.  
++  For API details, see [UpdateServerCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-server-certificate.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-This command produces no output.
-
-For more information, see [Managing server certificates in IAM](id_credentials_server-certs.md "id_credentials_server-certs.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [UpdateServerCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-server-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-server-certificate.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Update a server certificate.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Update a server certificate.  
 
 ```
 import { UpdateServerCertificateCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -105,22 +87,12 @@ export const updateServerCertificate = (currentName, newName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-server-certificates.html#iam-examples-server-certificates-updating). 
++  For API details, see [UpdateServerCertificate](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateServerCertificateCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-updating "../../../sdk-for-javascript/v3/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-updating").
-- For API details, see
-  [UpdateServerCertificate](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateServerCertificateCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateServerCertificateCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -143,68 +115,45 @@ iam.updateServerCertificate(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-server-certificates.html#iam-examples-server-certificates-updating). 
++  For API details, see [UpdateServerCertificate](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateServerCertificate) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-updating "../../../sdk-for-javascript/v2/developer-guide/iam-examples-server-certificates.md#iam-examples-server-certificates-updating").
-- For API details, see
-  [UpdateServerCertificate](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateServerCertificate.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateServerCertificate.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example renames the certificate named `MyServerCertificate` to `MyRenamedServerCertificate`.**
+**Tools for PowerShell V4**  
+**Example 1: This example renames the certificate named `MyServerCertificate` to `MyRenamedServerCertificate`.**  
 
 ```
 Update-IAMServerCertificate -ServerCertificateName MyServerCertificate -NewServerCertificateName MyRenamedServerCertificate
-
 ```
-
-**Example 2: This example moves the certificate named `MyServerCertificate` to the path /Org1/Org2/. This changes the ARN for the resource to `arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate`.**
+**Example 2: This example moves the certificate named `MyServerCertificate` to the path /Org1/Org2/. This changes the ARN for the resource to `arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate`.**  
 
 ```
 Update-IAMServerCertificate -ServerCertificateName MyServerCertificate -NewPath /Org1/Org2/
-
 ```
++  For API details, see [UpdateServerCertificate](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateServerCertificate](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example renames the certificate named `MyServerCertificate` to `MyRenamedServerCertificate`.**
+**Tools for PowerShell V5**  
+**Example 1: This example renames the certificate named `MyServerCertificate` to `MyRenamedServerCertificate`.**  
 
 ```
 Update-IAMServerCertificate -ServerCertificateName MyServerCertificate -NewServerCertificateName MyRenamedServerCertificate
-
 ```
-
-**Example 2: This example moves the certificate named `MyServerCertificate` to the path /Org1/Org2/. This changes the ARN for the resource to `arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate`.**
+**Example 2: This example moves the certificate named `MyServerCertificate` to the path /Org1/Org2/. This changes the ARN for the resource to `arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate`.**  
 
 ```
 Update-IAMServerCertificate -ServerCertificateName MyServerCertificate -NewPath /Org1/Org2/
-
 ```
++  For API details, see [UpdateServerCertificate](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateServerCertificate](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-List, update, and delete server certificates.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+List, update, and delete server certificates.  
 
 ```
 class ServerCertificateManager
@@ -270,14 +219,9 @@ class ServerCertificateManager
     false
   end
 end
-
-
 ```
++  For API details, see [UpdateServerCertificate](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/UpdateServerCertificate) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [UpdateServerCertificate](../../../goto/SdkForRubyV3/iam-2010-05-08/UpdateServerCertificate.md "../../../goto/SdkForRubyV3/iam-2010-05-08/UpdateServerCertificate.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

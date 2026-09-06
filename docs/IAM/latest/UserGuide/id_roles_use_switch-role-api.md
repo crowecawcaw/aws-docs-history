@@ -1,80 +1,43 @@
+
+
 # Switch to an IAM role (AWS API)
+<a name="id_roles_use_switch-role-api"></a>
 
-A _role_ specifies a set of permissions that you can use to access AWS
-resources. In that sense, it is similar to an [IAM
-user](id.md "id.md"). A principal (person or application) assumes a role to receive temporary
-permissions to carry out required tasks and interact with AWS resources. The role can be in
-your own account or any other AWS account. For more information about roles, their benefits,
-and how to create and configure them, see [IAM roles](id_roles.md "id_roles.md"),
-and [IAM role creation](id_roles_create.md "id_roles_create.md"). To learn about the
-different methods that you can use to assume a role, see [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md").
+A *role* specifies a set of permissions that you can use to access AWS resources. In that sense, it is similar to an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html). A principal (person or application) assumes a role to receive temporary permissions to carry out required tasks and interact with AWS resources. The role can be in your own account or any other AWS account. For more information about roles, their benefits, and how to create and configure them, see [IAM roles](id_roles.md), and [IAM role creation](id_roles_create.md). To learn about the different methods that you can use to assume a role, see [Methods to assume a role](id_roles_manage-assume.md).
 
-###### Important
+**Important**  
+The permissions of your IAM user and any roles that you assume are not cumulative. Only one set of permissions is active at a time. When you assume a role, you temporarily give up your previous user or role permissions and work with the permissions that are assigned to the role. When you exit the role, your original permissions are automatically restored.
 
-The permissions of your IAM user and any roles that you assume are not cumulative. Only
-one set of permissions is active at a time. When you assume a role, you temporarily give up
-your previous user or role permissions and work with the permissions that are assigned to the
-role. When you exit the role, your original permissions are automatically restored.
+To assume a role, an application calls the AWS STS [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. This session has the same permissions as the identity-based policies for that role. 
 
-To assume a role, an application calls the AWS STS [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API operation and
-passes the ARN of the role to use. The operation creates a new session with temporary
-credentials. This session has the same permissions as the identity-based policies for that role.
+When you call [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html), you can optionally pass inline or managed [session policies](access_policies.md#policies_session). Session policies are advanced policies that you pass as a parameter when you programmatically create a temporary credential session for a role or federated user session. You can pass a single JSON inline session policy document using the `Policy` parameter. You can use the `PolicyArns` parameter to specify up to 10 managed session policies. The resulting session's permissions are the intersection of the entity's identity-based policies and the session policies. Session policies are useful when you need to give the role's temporary credentials to someone else. They can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy. To learn more about how AWS determines the effective permissions of a role, see [Policy evaluation logic](reference_policies_evaluation-logic.md). 
 
-When you call [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md"),
-you can optionally pass inline or managed [session
-policies](access_policies.md#policies_session "access_policies.md#policies_session"). Session policies are advanced policies that you pass as a parameter when you
-programmatically create a temporary credential session for a role or federated user session. You can
-pass a single JSON inline session policy document using the `Policy` parameter. You
-can use the `PolicyArns` parameter to specify up to 10 managed session policies. The
-resulting session's permissions are the intersection of the entity's identity-based policies and
-the session policies. Session policies are useful when you need to give the role's temporary
-credentials to someone else. They can use the role's temporary credentials in subsequent AWS
-API calls to access resources in the account that owns the role. You cannot use session policies
-to grant more permissions than those allowed by the identity-based policy. To learn more about
-how AWS determines the effective permissions of a role, see [Policy evaluation logic](reference_policies_evaluation-logic.md "reference_policies_evaluation-logic.md").
+![PermissionsWhenPassingRoles_Diagram.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/role_passed_policy_permissions.png)
 
-![PermissionsWhenPassingRoles_Diagram.](images/role_passed_policy_permissions.png)
-You can call `AssumeRole` when you are signed in as an IAM user, or as an [externally authenticated user](id_roles_providers.md "id_roles_providers.md") ([SAML](id_roles_providers_saml.md "id_roles_providers_saml.md") or [OIDC](id_roles_providers_oidc.md "id_roles_providers_oidc.md")) already using a role. You can also use [role chaining](id_roles.md#iam-term-role-chaining "id_roles.md#iam-term-role-chaining"), which is using a role to assume a
-second role. You cannot assume a role when you are signed in as the AWS account root user.
 
-By default, your role session lasts for one hour. When you assume this role using the
-AWS STS [`AssumeRole*`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API
-operations, you can specify a value for the `DurationSeconds` parameter. This value
-can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role.
-To learn how to view the maximum value for your role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+You can call `AssumeRole` when you are signed in as an IAM user, or as an [externally authenticated user](id_roles_providers.md) ([SAML](id_roles_providers_saml.md) or [OIDC](id_roles_providers_oidc.md)) already using a role. You can also use [*role chaining*](id_roles.md#iam-term-role-chaining), which is using a role to assume a second role. You cannot assume a role when you are signed in as the AWS account root user.
 
-If you use role chaining, your session is limited to a maximum of one hour. If you then use
-the `DurationSeconds` parameter to provide a value greater than one hour, the
-operation fails.
+By default, your role session lasts for one hour. When you assume this role using the AWS STS [`AssumeRole*`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API operations, you can specify a value for the `DurationSeconds` parameter. This value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. To learn how to view the maximum value for your role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration). 
 
-###### Note
+If you use role chaining, your session is limited to a maximum of one hour. If you then use the `DurationSeconds` parameter to provide a value greater than one hour, the operation fails.
 
-For security purposes, administrators can [review AWS CloudTrail logs](cloudtrail-integration.md#cloudtrail-integration_signin-tempcreds "cloudtrail-integration.md#cloudtrail-integration_signin-tempcreds") to learn who
-performed an action in AWS. Your administrator might require that you specify a source
-identity or a role session name when you assume the role. For more information, see [sts:SourceIdentity](reference_policies_iam-condition-keys.md#ck_sourceidentity "reference_policies_iam-condition-keys.md#ck_sourceidentity") and [sts:RoleSessionName](reference_policies_iam-condition-keys.md#ck_rolesessionname "reference_policies_iam-condition-keys.md#ck_rolesessionname").
+**Note**  
+For security purposes, administrators can [review AWS CloudTrail logs](cloudtrail-integration.md#cloudtrail-integration_signin-tempcreds) to learn who performed an action in AWS. Your administrator might require that you specify a source identity or a role session name when you assume the role. For more information, see [`sts:SourceIdentity`](reference_policies_iam-condition-keys.md#ck_sourceidentity) and [`sts:RoleSessionName`](reference_policies_iam-condition-keys.md#ck_rolesessionname).
 
 The following code examples show how to create a user and assume a role.
 
-###### Warning
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose-built software or working with real data. Instead, use federation with an identity provider such as [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
++ Create a user with no permissions.
++ Create a role that grants permission to list Amazon S3 buckets for the account.
++ Add a policy to let the user assume the role.
++ Assume the role and list S3 buckets using temporary credentials, then clean up resources.
 
-To avoid security risks, don't use IAM users for authentication when developing purpose-built software
-or working with real data. Instead, use federation with an identity provider such as
-[AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
+------
+#### [ .NET ]
 
-- Create a user with no permissions.
-- Create a role that grants permission to list Amazon S3 buckets for the account.
-- Add a policy to let the user assume the role.
-- Assume the role and list S3 buckets using temporary credentials, then clean up resources.
-
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
 global using Amazon.IdentityManagement;
@@ -953,35 +916,26 @@ public class UIWrapper
         PressEnter();
     }
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/PutUserPolicy)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-  - [AttachRolePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateAccessKey.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateUser.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteAccessKey.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DeletePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUser.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/PutUserPolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/PutUserPolicy.md")
-
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -1213,11 +1167,8 @@ function iam_create_user_assume_role() {
 
   return $result
 }
-
-
 ```
-
-The IAM functions used in this scenario.
+The IAM functions used in this scenario.  
 
 ```
 ###############################################################################
@@ -1998,39 +1949,31 @@ function iam_delete_user() {
 
   return 0
 }
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/PutUserPolicy)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/aws-cli/iam-2010-05-08/CreateAccessKey.md "../../../goto/aws-cli/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/aws-cli/iam-2010-05-08/CreateUser.md "../../../goto/aws-cli/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/aws-cli/iam-2010-05-08/DeleteAccessKey.md "../../../goto/aws-cli/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/aws-cli/iam-2010-05-08/DeleteUser.md "../../../goto/aws-cli/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/aws-cli/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/aws-cli/iam-2010-05-08/PutUserPolicy.md "../../../goto/aws-cli/iam-2010-05-08/PutUserPolicy.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 namespace AwsDoc {
     namespace IAM {
-
+  
         //! Cleanup by deleting created entities.
         /*!
           \sa DeleteCreatedEntities
@@ -2413,39 +2356,29 @@ bool AwsDoc::IAM::DeleteCreatedEntities(const Aws::IAM::IAMClient &client,
 
     return result;
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/PutUserPolicy)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [AttachRolePolicy](../../../goto/SdkForCpp/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/SdkForCpp/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/SdkForCpp/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/SdkForCpp/iam-2010-05-08/CreateRole.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/SdkForCpp/iam-2010-05-08/CreateUser.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/SdkForCpp/iam-2010-05-08/DeleteAccessKey.md "../../../goto/SdkForCpp/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/SdkForCpp/iam-2010-05-08/DeletePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/SdkForCpp/iam-2010-05-08/DeleteRole.md "../../../goto/SdkForCpp/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/SdkForCpp/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForCpp/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/SdkForCpp/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/SdkForCpp/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/SdkForCpp/iam-2010-05-08/PutUserPolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/PutUserPolicy.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-Run an interactive scenario at a command prompt.
-
-```
-
 import (
 	"context"
 	"errors"
@@ -2782,15 +2715,10 @@ func (helper *ScenarioHelper) GetName() string {
 func (helper ScenarioHelper) Pause(secs int) {
 	time.Sleep(time.Duration(secs) * time.Second)
 }
-
-
+```
+Define a struct that wraps account actions.  
 
 ```
-
-Define a struct that wraps account actions.
-
-```
-
 import (
 	"context"
 	"log"
@@ -2835,15 +2763,10 @@ func (wrapper AccountWrapper) ListSAMLProviders(ctx context.Context) ([]types.SA
 	}
 	return providers, err
 }
-
-
+```
+Define a struct that wraps policy actions.  
 
 ```
-
-Define a struct that wraps policy actions.
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -2953,15 +2876,10 @@ func (wrapper PolicyWrapper) DeletePolicy(ctx context.Context, policyArn string)
 	}
 	return err
 }
-
-
+```
+Define a struct that wraps role actions.  
 
 ```
-
-Define a struct that wraps role actions.
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -3147,16 +3065,10 @@ func (wrapper RoleWrapper) DeleteRole(ctx context.Context, roleName string) erro
 	}
 	return err
 }
-
-
-
+```
+Define a struct that wraps user actions.  
 
 ```
-
-Define a struct that wraps user actions.
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -3352,37 +3264,27 @@ func (wrapper UserWrapper) ListAccessKeys(ctx context.Context, userName string) 
 	}
 	return keys, err
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [AttachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.AttachRolePolicy)
+  + [CreateAccessKey](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateAccessKey)
+  + [CreatePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy)
+  + [CreateRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole)
+  + [CreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateUser)
+  + [DeleteAccessKey](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteAccessKey)
+  + [DeletePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeletePolicy)
+  + [DeleteRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteRole)
+  + [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUser)
+  + [DeleteUserPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUserPolicy)
+  + [DetachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DetachRolePolicy)
+  + [PutUserPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.PutUserPolicy)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [AttachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.AttachRolePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.AttachRolePolicy")
-  - [CreateAccessKey](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateAccessKey "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateAccessKey")
-  - [CreatePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy")
-  - [CreateRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole")
-  - [CreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateUser")
-  - [DeleteAccessKey](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteAccessKey "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteAccessKey")
-  - [DeletePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeletePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeletePolicy")
-  - [DeleteRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteRole")
-  - [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUser")
-  - [DeleteUserPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUserPolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUserPolicy")
-  - [DetachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DetachRolePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DetachRolePolicy")
-  - [PutUserPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.PutUserPolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.PutUserPolicy")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
-
-Create functions that wrap IAM user actions.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
+Create functions that wrap IAM user actions.  
 
 ```
 /*
@@ -3747,36 +3649,27 @@ public class IAMScenario {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/PutUserPolicy)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [AttachRolePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateRole.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateUser.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteAccessKey.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteRole.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/PutUserPolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/PutUserPolicy.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.  
 
 ```
 import {
@@ -4038,51 +3931,41 @@ const listBuckets = async (s3Client) => {
 
   console.log(Buckets.map((bucket) => bucket.Name).join("\n"));
 };
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/AttachRolePolicyCommand)
+  + [CreateAccessKey](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateAccessKeyCommand)
+  + [CreatePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand)
+  + [CreateRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand)
+  + [CreateUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateUserCommand)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteAccessKeyCommand)
+  + [DeletePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeletePolicyCommand)
+  + [DeleteRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRoleCommand)
+  + [DeleteUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserCommand)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserPolicyCommand)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DetachRolePolicyCommand)
+  + [PutUserPolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/PutUserPolicyCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-  - [AttachRolePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/AttachRolePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/AttachRolePolicyCommand.md")
-  - [CreateAccessKey](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateAccessKeyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateAccessKeyCommand.md")
-  - [CreatePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand.md")
-  - [CreateRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand.md")
-  - [CreateUser](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateUserCommand.md")
-  - [DeleteAccessKey](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteAccessKeyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteAccessKeyCommand.md")
-  - [DeletePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeletePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeletePolicyCommand.md")
-  - [DeleteRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteRoleCommand.md")
-  - [DeleteUser](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserCommand.md")
-  - [DeleteUserPolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserPolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteUserPolicyCommand.md")
-  - [DetachRolePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DetachRolePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DetachRolePolicyCommand.md")
-  - [PutUserPolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/PutUserPolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/PutUserPolicyCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
-
-Create functions that wrap IAM user actions.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
+Create functions that wrap IAM user actions.  
 
 ```
 suspend fun main(args: Array<String>) {
     val usage = """
     Usage:
-        <username> <policyName> <roleName> <roleSessionName> <fileLocation> <bucketName>
+        <username> <policyName> <roleName> <roleSessionName> <fileLocation> <bucketName> 
 
     Where:
-        username - The name of the IAM user to create.
-        policyName - The name of the policy to create.
-        roleName - The name of the role to create.
-        roleSessionName - The name of the session required for the assumeRole operation.
-        fileLocation - The file location to the JSON required to create the role (see Readme).
-        bucketName - The name of the Amazon S3 bucket from which objects are read.
+        username - The name of the IAM user to create. 
+        policyName - The name of the policy to create. 
+        roleName - The name of the role to create. 
+        roleSessionName - The name of the session required for the assumeRole operation. 
+        fileLocation - The file location to the JSON required to create the role (see Readme). 
+        bucketName - The name of the Amazon S3 bucket from which objects are read. 
     """
 
     if (args.size != 6) {
@@ -4132,7 +4015,7 @@ suspend fun createUser(usernameVal: String?): String? {
 suspend fun createPolicy(policyNameVal: String?): String {
     val policyDocumentValue = """
     {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -4319,34 +4202,26 @@ fun readJsonSimpleDemo(filename: String): Any? {
     val jsonParser = JSONParser()
     return jsonParser.parse(reader)
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [AttachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateAccessKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreatePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateRole](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteAccessKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeletePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteRole](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteUserPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DetachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutUserPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-  - [AttachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateAccessKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreatePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateRole](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteAccessKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeletePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteRole](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteUserPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DetachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutUserPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 namespace Iam\Basics;
@@ -4440,37 +4315,27 @@ echo "Deleted role: {$assumeRoleRole['RoleName']}\n";
 $deletedKey = $service->deleteAccessKey($key['AccessKeyId'], $user['UserName']);
 $deletedUser = $service->deleteUser($user['UserName']);
 echo "Delete user: {$user['UserName']}\n";
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for PHP API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/PutUserPolicy)
 
-- For API details, see the following topics in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-  - [AttachRolePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateRole.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateUser.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteAccessKey.md "../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/DeletePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteRole.md "../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/PutUserPolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/PutUserPolicy.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.  
 
 ```
 import json
@@ -4533,7 +4398,7 @@ def setup(iam_resource):
             RoleName=f"demo-role-{uuid4()}",
             AssumeRolePolicyDocument=json.dumps(
                 {
-                    "Version":"2012-10-17",
+                    "Version":"2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -4557,7 +4422,7 @@ def setup(iam_resource):
             PolicyName=f"demo-policy-{uuid4()}",
             PolicyDocument=json.dumps(
                 {
-                    "Version":"2012-10-17",
+                    "Version":"2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -4582,7 +4447,7 @@ def setup(iam_resource):
             PolicyName=f"demo-user-policy-{uuid4()}",
             PolicyDocument=json.dumps(
                 {
-                    "Version":"2012-10-17",
+                    "Version":"2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -4741,36 +4606,27 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/PutUserPolicy)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-  - [AttachRolePolicy](../../../goto/boto3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/boto3/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md "../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/boto3/iam-2010-05-08/CreatePolicy.md "../../../goto/boto3/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/boto3/iam-2010-05-08/CreateRole.md "../../../goto/boto3/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/boto3/iam-2010-05-08/CreateUser.md "../../../goto/boto3/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/boto3/iam-2010-05-08/DeleteAccessKey.md "../../../goto/boto3/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/boto3/iam-2010-05-08/DeletePolicy.md "../../../goto/boto3/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/boto3/iam-2010-05-08/DeleteRole.md "../../../goto/boto3/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/boto3/iam-2010-05-08/DeleteUser.md "../../../goto/boto3/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/boto3/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/boto3/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/boto3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/boto3/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/boto3/iam-2010-05-08/PutUserPolicy.md "../../../goto/boto3/iam-2010-05-08/PutUserPolicy.md")
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.  
 
 ```
 # Wraps the scenario actions.
@@ -5032,37 +4888,28 @@ rescue Aws::Errors::ServiceError => e
 end
 
 run_scenario(ScenarioCreateUserAssumeRole.new(Aws::IAM::Client.new)) if $PROGRAM_NAME == __FILE__
+```
++ For API details, see the following topics in *AWS SDK for Ruby API Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/AttachRolePolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateRole)
+  + [CreateUser](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteRole)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteUser)
+  + [DeleteUserPolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteUserPolicy)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DetachRolePolicy)
+  + [PutUserPolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/PutUserPolicy)
 
+------
+#### [ Rust ]
+
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Ruby API Reference_.
-
-  - [AttachRolePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateAccessKey](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateRole.md")
-  - [CreateUser](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateUser.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteAccessKey.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/DeletePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteRole.md")
-  - [DeleteUser](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUser.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUser.md")
-  - [DeleteUserPolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUserPolicy.md")
-  - [DetachRolePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/DetachRolePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DetachRolePolicy.md")
-  - [PutUserPolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/PutUserPolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/PutUserPolicy.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
-
-```
-
 use aws_config::meta::region::RegionProviderChain;
 use aws_sdk_iam::Error as iamError;
 use aws_sdk_iam::{config::Credentials as iamCredentials, config::Region, Client as iamClient};
@@ -5271,21 +5118,19 @@ async fn run_iam_operations(
 
     Ok(())
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [AttachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.attach_role_policy)
+  + [CreateAccessKey](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key)
+  + [CreatePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy)
+  + [CreateRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role)
+  + [CreateUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_user)
+  + [DeleteAccessKey](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_access_key)
+  + [DeletePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy)
+  + [DeleteRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_role)
+  + [DeleteUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user)
+  + [DeleteUserPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user_policy)
+  + [DetachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.detach_role_policy)
+  + [PutUserPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.put_user_policy)
 
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
-
-  - [AttachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.attach_role_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.attach_role_policy")
-  - [CreateAccessKey](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key")
-  - [CreatePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy")
-  - [CreateRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role")
-  - [CreateUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_user "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_user")
-  - [DeleteAccessKey](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_access_key "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_access_key")
-  - [DeletePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy")
-  - [DeleteRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_role")
-  - [DeleteUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user")
-  - [DeleteUserPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user_policy")
-  - [DetachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.detach_role_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.detach_role_policy")
-  - [PutUserPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.put_user_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.put_user_policy")
+------

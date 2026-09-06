@@ -1,45 +1,37 @@
+
+
 # Use `CreateSAMLProvider` with an AWS SDK or CLI
+<a name="iam_example_iam_CreateSAMLProvider_section"></a>
 
 The following code examples show how to use `CreateSAMLProvider`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create a SAML provider**
-
-This example creates a new SAML provider in IAM named `MySAMLProvider`. It is described by the SAML metadata document found in the file `SAMLMetaData.xml`.
-
-```
-`aws iam create-saml-provider \
- --saml-metadata-document `file://SAMLMetaData.xml` \
- --name `MySAMLProvider``
+**AWS CLI**  
+**To create a SAML provider**  
+This example creates a new SAML provider in IAM named `MySAMLProvider`. It is described by the SAML metadata document found in the file `SAMLMetaData.xml`.  
 
 ```
-
-Output:
+aws iam create-saml-provider \
+    --saml-metadata-document {{file://SAMLMetaData.xml}} \
+    --name {{MySAMLProvider}}
+```
+Output:  
 
 ```
 {
     "SAMLProviderArn": "arn:aws:iam::123456789012:saml-provider/MySAMLProvider"
 }
 ```
+For more information, see [Creating IAM SAML identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreateSAMLProvider](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-saml-provider.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating IAM SAML identity providers](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md") in the _AWS IAM User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [CreateSAMLProvider](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-saml-provider.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-saml-provider.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import { CreateSAMLProviderCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -75,54 +67,38 @@ export const createSAMLProvider = async (providerName) => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [CreateSAMLProvider](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateSAMLProviderCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateSAMLProvider](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateSAMLProviderCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateSAMLProviderCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new SAML provider entity in IAM. It is named `MySAMLProvider` and is described by the SAML metadata document found in the file `SAMLMetaData.xml`, which was separately downloaded from the SAML service provider's web site.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new SAML provider entity in IAM. It is named `MySAMLProvider` and is described by the SAML metadata document found in the file `SAMLMetaData.xml`, which was separately downloaded from the SAML service provider's web site.**  
 
 ```
 New-IAMSAMLProvider -Name MySAMLProvider -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 arn:aws:iam::123456789012:saml-provider/MySAMLProvider
 ```
++  For API details, see [CreateSAMLProvider](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateSAMLProvider](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new SAML provider entity in IAM. It is named `MySAMLProvider` and is described by the SAML metadata document found in the file `SAMLMetaData.xml`, which was separately downloaded from the SAML service provider's web site.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new SAML provider entity in IAM. It is named `MySAMLProvider` and is described by the SAML metadata document found in the file `SAMLMetaData.xml`, which was separately downloaded from the SAML service provider's web site.**  
 
 ```
 New-IAMSAMLProvider -Name MySAMLProvider -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 arn:aws:iam::123456789012:saml-provider/MySAMLProvider
 ```
++  For API details, see [CreateSAMLProvider](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateSAMLProvider](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

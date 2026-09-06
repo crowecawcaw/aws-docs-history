@@ -1,22 +1,19 @@
+
+
 # Use `CreateUser` with an AWS SDK or CLI
+<a name="iam_example_iam_CreateUser_section"></a>
 
 The following code examples show how to use `CreateUser`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -29,24 +26,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.CreateUserAsync(new CreateUserRequest { UserName = userName });
         return response.User;
     }
-
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateUser) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateUser](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateUser.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -146,23 +133,14 @@ function iam_create_user() {
 
   return 0
 }
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateUser) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateUser](../../../goto/aws-cli/iam-2010-05-08/CreateUser.md "../../../goto/aws-cli/iam-2010-05-08/CreateUser.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
     Aws::IAM::IAMClient iam(clientConfig);
@@ -180,29 +158,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
     }
 
     return create_outcome.IsSuccess();
+```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreateUser) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create an IAM user**  
+The following `create-user` command creates an IAM user named `Bob` in the current account.  
 
 ```
-
-- For API details, see
-  [CreateUser](../../../goto/SdkForCpp/iam-2010-05-08/CreateUser.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create an IAM user**
-
-The following `create-user` command creates an IAM user named `Bob` in the current account.
-
+aws iam create-user \
+    --user-name {{Bob}}
 ```
-`aws iam create-user \
- --user-name `Bob``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -215,21 +185,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Creating an IAM user in your AWS account](id_users_create.md "id_users_create.md") in the _AWS IAM User Guide_.
-
-**Example 2: To create an IAM user at a specified path**
-
-The following `create-user` command creates an IAM user named `Bob` at the specified path.
+For more information, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *AWS IAM User Guide*.  
+**Example 2: To create an IAM user at a specified path**  
+The following `create-user` command creates an IAM user named `Bob` at the specified path.  
 
 ```
-`aws iam create-user \
- --user-name `Bob` \
- --path `/division_abc/subdivision_xyz/``
-
+aws iam create-user \
+    --user-name {{Bob}} \
+    --path {{/division_abc/subdivision_xyz/}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -242,22 +207,16 @@ Output:
     }
 }
 ```
-
-For more information, see [IAM identifiers](reference_identifiers.md "reference_identifiers.md") in the _AWS IAM User Guide_.
-
-**Example 3: To Create an IAM User with tags**
-
-The following `create-user` command creates an IAM user named `Bob` with tags. This example uses the `--tags` parameter flag with the following
-JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` flag can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.
+For more information, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *AWS IAM User Guide*.  
+**Example 3: To Create an IAM User with tags**  
+The following `create-user` command creates an IAM user named `Bob` with tags. This example uses the `--tags` parameter flag with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` flag can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.  
 
 ```
-`aws iam create-user \
- --user-name `Bob` \
- --tags '`{"Key": "Department", "Value": "Accounting"}`' '`{"Key": "Location", "Value": "Seattle"}`'`
-
+aws iam create-user \
+    --user-name {{Bob}} \
+    --tags '{{{"Key": "Department", "Value": "Accounting"}}}' '{{{"Key": "Location", "Value": "Seattle"}}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -280,21 +239,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Tagging IAM users](id_tags_users.md "id_tags_users.md") in the _AWS IAM User Guide_.
-
-**Example 3: To create an IAM user with a set permissions boundary**
-
-The following `create-user` command creates an IAM user named `Bob` with the permissions boundary of AmazonS3FullAccess.
+For more information, see [Tagging IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_users.html) in the *AWS IAM User Guide*.  
+**Example 3: To create an IAM user with a set permissions boundary**  
+The following `create-user` command creates an IAM user named `Bob` with the permissions boundary of AmazonS3FullAccess.  
 
 ```
-`aws iam create-user \
- --user-name `Bob` \
- --permissions-boundary `arn:aws:iam::aws:policy/AmazonS3FullAccess``
-
+aws iam create-user \
+    --user-name {{Bob}} \
+    --permissions-boundary {{arn:aws:iam::aws:policy/AmazonS3FullAccess}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -311,25 +265,16 @@ Output:
     }
 }
 ```
+For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreateUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -363,24 +308,14 @@ func (wrapper UserWrapper) CreateUser(ctx context.Context, userName string) (*ty
 	}
 	return user, err
 }
-
-
-
 ```
++  For API details, see [CreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateUser) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateUser")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.core.waiters.WaiterResponse;
@@ -455,25 +390,15 @@ public class CreateUser {
         return "";
     }
 }
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateUser) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateUser](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateUser.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Create the user.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Create the user.  
 
 ```
 import { CreateUserCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -488,22 +413,12 @@ export const createUser = (name) => {
   const command = new CreateUserCommand({ UserName: name });
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-creating-users). 
++  For API details, see [CreateUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateUserCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-creating-users "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-creating-users").
-- For API details, see
-  [CreateUser](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateUserCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -534,24 +449,15 @@ iam.getUser(params, function (err, data) {
     );
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-creating-users). 
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/CreateUser) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-creating-users "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-creating-users").
-- For API details, see
-  [CreateUser](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/CreateUser.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun createIAMUser(usernameVal: String?): String? {
@@ -565,23 +471,14 @@ suspend fun createIAMUser(usernameVal: String?): String? {
         return response.user?.userName
     }
 }
-
-
 ```
++  For API details, see [CreateUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -604,26 +501,19 @@ echo "Created user with the arn: {$user['Arn']}\n";
 
         return $result['User'];
     }
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateUser) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateUser](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateUser.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates an IAM user named `Bob`. If Bob needs to sign in to the AWS console, then you must separately run the command `New-IAMLoginProfile` to create a sign-in profile with a password. If Bob needs to run AWS PowerShell or cross-platform CLI commands or make AWS API calls, then you must separately run the `New-IAMAccessKey` command to create access keys.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates an IAM user named `Bob`. If Bob needs to sign in to the AWS console, then you must separately run the command `New-IAMLoginProfile` to create a sign-in profile with a password. If Bob needs to run AWS PowerShell or cross-platform CLI commands or make AWS API calls, then you must separately run the `New-IAMAccessKey` command to create access keys.**  
 
 ```
 New-IAMUser -UserName Bob
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/Bob
@@ -633,21 +523,15 @@ Path             : /
 UserId           : AIDAJWGEFDMEMEXAMPLE1
 UserName         : Bob
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateUser](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates an IAM user named `Bob`. If Bob needs to sign in to the AWS console, then you must separately run the command `New-IAMLoginProfile` to create a sign-in profile with a password. If Bob needs to run AWS PowerShell or cross-platform CLI commands or make AWS API calls, then you must separately run the `New-IAMAccessKey` command to create access keys.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates an IAM user named `Bob`. If Bob needs to sign in to the AWS console, then you must separately run the command `New-IAMLoginProfile` to create a sign-in profile with a password. If Bob needs to run AWS PowerShell or cross-platform CLI commands or make AWS API calls, then you must separately run the `New-IAMAccessKey` command to create access keys.**  
 
 ```
 New-IAMUser -UserName Bob
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn              : arn:aws:iam::123456789012:user/Bob
@@ -657,20 +541,13 @@ Path             : /
 UserId           : AIDAJWGEFDMEMEXAMPLE1
 UserName         : Bob
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateUser](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def create_user(user_name):
@@ -688,25 +565,14 @@ def create_user(user_name):
         raise
     else:
         return user
-
-
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateUser) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateUser](../../../goto/boto3/iam-2010-05-08/CreateUser.md "../../../goto/boto3/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Creates a user and their login profile
@@ -731,23 +597,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("Error creating user '#{user_name}': #{e.message}")
     nil
   end
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateUser) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateUser](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateUser.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateUser.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn create_user(client: &iamClient, user_name: &str) -> Result<User, iamError> {
@@ -755,23 +612,14 @@ pub async fn create_user(client: &iamClient, user_name: &str) -> Result<User, ia
 
     Ok(response.user.unwrap())
 }
-
-
 ```
++  For API details, see [CreateUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_user) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_user "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_user")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -785,23 +633,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Entity does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateUser](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateUser](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -826,14 +665,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CreateUser](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createuser(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateUser](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createuser(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createuser(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

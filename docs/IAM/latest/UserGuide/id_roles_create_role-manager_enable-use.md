@@ -1,39 +1,24 @@
-# Manage access to role manager
 
-You control access to role manager at two levels. IAM permissions determine who in an
-account can enable role manager and who can use the roles it provides. In an organization,
-service control policies (SCPs) determine what member accounts can do.
+
+# Manage access to role manager
+<a name="id_roles_create_role-manager_enable-use"></a>
+
+You control access to role manager at two levels. IAM permissions determine who in an account can enable role manager and who can use the roles it provides. In an organization, service control policies (SCPs) determine what member accounts can do.
 
 ## Permissions for role manager
+<a name="id_roles_create_role-manager_permissions"></a>
 
-To enable or disable role manager, you need the
-`iam:PutAccountProperties` permission. The AWS managed policy
-`IAMFullAccess` includes it.
+To enable or disable role manager, you need the `iam:PutAccountProperties` permission. The AWS managed policy `IAMFullAccess` includes it.
 
-To use role manager, a user needs the IAM permissions for the actions that role manager
-performs on their behalf. Role manager provides roles through the `AcquireRole`
-API, which evaluates each underlying IAM action against the user's permissions:
+To use role manager, a user needs the IAM permissions for the actions that role manager performs on their behalf. Role manager provides roles through the `AcquireRole` API, which evaluates each underlying IAM action against the user's permissions:
++ If a role that matches the template already exists in the account, `AcquireRole` returns that role. This requires the `iam:GetRole` permission.
++ If no matching role exists, `AcquireRole` creates one from the template. This requires the `iam:CreateRole` permission, plus the permissions for what the template defines: `iam:PutRolePolicy` if the template adds inline policies, and `iam:AttachRolePolicy` if the template attaches managed policies.
 
-- If a role that matches the template already exists in the account,
-  `AcquireRole` returns that role. This requires the
-  `iam:GetRole` permission.
-- If no matching role exists, `AcquireRole` creates one from the template.
-  This requires the `iam:CreateRole` permission, plus the permissions for what
-  the template defines: `iam:PutRolePolicy` if the template adds inline
-  policies, and `iam:AttachRolePolicy` if the template attaches managed
-  policies.
+A user with full IAM access has all the permissions that role manager requires. To see the exact actions a specific template requires, retrieve the template with `GetRoleTemplateVersion` and review its policies.
 
-A user with full IAM access has all the permissions that role manager requires. To see
-the exact actions a specific template requires, retrieve the template with
-`GetRoleTemplateVersion` and review its policies.
+When role manager creates a role, AWS CloudTrail records the creation as a single `AcquireRole` event. The event shows who called the operation, the role template and parameter values that were used, and the role that was created.
 
-When role manager creates a role, AWS CloudTrail records the creation as a single
-`AcquireRole` event. The event shows who called the operation, the role template
-and parameter values that were used, and the role that was created.
-
-The following example shows that role manager called the `AcquireRole` operation on behalf
-of a user who assumed the role `Admin`, using the `PowerUserRoleTemplate` role template to create
-the role `PowerUserRole`.
+The following example shows that role manager called the `AcquireRole` operation on behalf of a user who assumed the role `Admin`, using the `PowerUserRoleTemplate` role template to create the role `PowerUserRole`. 
 
 ```
 {
@@ -106,18 +91,13 @@ the role `PowerUserRole`.
 ```
 
 ## Control role manager in an organization
+<a name="id_roles_create_role-manager_scp"></a>
 
-You can control role manager across an organization with an AWS Organizations service
-control policy (SCP). The following examples show how to block enabling role manager, block
-role creation, or block template-based role creation only.
+You can control role manager across an organization with an AWS Organizations service control policy (SCP). The following examples show how to block enabling role manager, block role creation, or block template-based role creation only.
 
-These examples use the [deny list strategy](../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md#strategy_using_scps "../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md#strategy_using_scps"), which means you also need `FullAWSAccess` or
-another policy that allows actions attached to your organization entities. You still need to
-grant permissions to your principals with identity-based policies.
+These examples use the [deny list strategy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html#strategy_using_scps), which means you also need `FullAWSAccess` or another policy that allows actions attached to your organization entities. You still need to grant permissions to your principals with identity-based policies.
 
-To prevent member accounts from enabling role manager through the console or the API,
-deny the `iam:PutAccountProperties` permission. We recommend this policy when you
-create new accounts directly through Organizations.
+To prevent member accounts from enabling role manager through the console or the API, deny the `iam:PutAccountProperties` permission. We recommend this policy when you create new accounts directly through Organizations.
 
 ```
 {
@@ -134,13 +114,9 @@ create new accounts directly through Organizations.
 ```
 
 ### Block access to use role manager
+<a name="id_roles_create_role-manager_scp_block-use"></a>
 
-To block the use of role manager, use the `iam:RoleTemplateARN` context key,
-which is present on the IAM actions that create a role from a template. The following
-policy denies all IAM actions that have a non-null value for the
-`iam:RoleTemplateARN` context key. This policy doesn't prevent all role
-creation—it blocks only role creation through role manager and template-based role
-creation through the SDK.
+To block the use of role manager, use the `iam:RoleTemplateARN` context key, which is present on the IAM actions that create a role from a template. The following policy denies all IAM actions that have a non-null value for the `iam:RoleTemplateARN` context key. This policy doesn't prevent all role creation—it blocks only role creation through role manager and template-based role creation through the SDK.
 
 ```
 {
@@ -157,10 +133,9 @@ creation through the SDK.
 ```
 
 ### Block role creation except through role manager
+<a name="id_roles_create_role-manager_scp_enable-only"></a>
 
-To allow role creation only through role manager, use the following policy to block
-non-role manager role creation. This policy still allows template-based role creation
-directly through the SDK.
+To allow role creation only through role manager, use the following policy to block non-role manager role creation. This policy still allows template-based role creation directly through the SDK.
 
 ```
 {
@@ -183,7 +158,7 @@ directly through the SDK.
 ```
 
 ## Related information
-
-- [Create roles automatically with role manager](id_roles_create_role-manager.md "id_roles_create_role-manager.md")
-- [Apply least-privilege permissions to a role created automatically](id_roles_create_role-manager_least-privilege.md "id_roles_create_role-manager_least-privilege.md")
-- [Overview of role templates](id_roles_create_role-template.md "id_roles_create_role-template.md")
+<a name="id_roles_create_role-manager_enable-use_related"></a>
++ [Create roles automatically with role manager](id_roles_create_role-manager.md)
++ [Apply least-privilege permissions to a role created automatically](id_roles_create_role-manager_least-privilege.md)
++ [Overview of role templates](id_roles_create_role-template.md)

@@ -1,21 +1,19 @@
+
+
 # Using property variables in monitoring dashboards to monitor multiple serverless functions
+<a name="iam_example_iam_GettingStarted_032_section"></a>
 
 The following code example shows how to:
++ Create Lambda functions for monitoring
++ Create a CloudWatch dashboard
++ Add a property variable to the dashboard
++ Clean up resources
 
-- Create Lambda functions for monitoring
-- Create a CloudWatch dashboard
-- Add a property variable to the dashboard
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/032-cloudwatch-streams "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/032-cloudwatch-streams")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/032-cloudwatch-streams) repository. 
 
 ```
 #!/bin/bash
@@ -49,7 +47,7 @@ check_error() {
     local cmd_output="$1"
     local cmd_status="$2"
     local error_msg="$3"
-
+    
     if [ $cmd_status -ne 0 ] || echo "$cmd_output" | grep -qi "error"; then
         echo "ERROR: $error_msg" | tee -a "$LOG_FILE"
         # Sanitize output before logging
@@ -66,40 +64,40 @@ trap 'cleanup_resources' EXIT ERR INT TERM
 # Function to clean up resources
 cleanup_resources() {
     local exit_code=$?
-
+    
     echo "" | tee -a "$LOG_FILE"
     echo "==========================================" | tee -a "$LOG_FILE"
     echo "CLEANUP PROCESS" | tee -a "$LOG_FILE"
     echo "==========================================" | tee -a "$LOG_FILE"
-
+    
     if [ -n "${DASHBOARD_NAME:-}" ]; then
         echo "Deleting CloudWatch dashboard: $DASHBOARD_NAME" | tee -a "$LOG_FILE"
         aws cloudwatch delete-dashboards --dashboard-names "$DASHBOARD_NAME" 2>&1 >> "$LOG_FILE" || true
     fi
-
+    
     if [ -n "${LAMBDA_FUNCTION1:-}" ]; then
         echo "Deleting Lambda function: $LAMBDA_FUNCTION1" | tee -a "$LOG_FILE"
         aws lambda delete-function --function-name "$LAMBDA_FUNCTION1" 2>&1 >> "$LOG_FILE" || true
     fi
-
+    
     if [ -n "${LAMBDA_FUNCTION2:-}" ]; then
         echo "Deleting Lambda function: $LAMBDA_FUNCTION2" | tee -a "$LOG_FILE"
         aws lambda delete-function --function-name "$LAMBDA_FUNCTION2" 2>&1 >> "$LOG_FILE" || true
     fi
-
+    
     if [ -n "${ROLE_NAME:-}" ]; then
         echo "Detaching policy from role: $ROLE_NAME" | tee -a "$LOG_FILE"
         aws iam detach-role-policy --role-name "$ROLE_NAME" --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole 2>&1 >> "$LOG_FILE" || true
-
+        
         echo "Deleting IAM role: $ROLE_NAME" | tee -a "$LOG_FILE"
         aws iam delete-role --role-name "$ROLE_NAME" 2>&1 >> "$LOG_FILE" || true
     fi
-
+    
     # Clean up temporary files securely
     shred -vfz -n 3 trust-policy.json lambda_function.py lambda_function.zip 2>/dev/null || rm -f trust-policy.json lambda_function.py lambda_function.zip
-
+    
     echo "Cleanup completed." | tee -a "$LOG_FILE"
-
+    
     return $exit_code
 }
 
@@ -155,7 +153,7 @@ echo "IAM role name: $ROLE_NAME" | tee -a "$LOG_FILE"
 # Create IAM role for Lambda functions
 echo "Creating IAM role for Lambda..." | tee -a "$LOG_FILE"
 TRUST_POLICY='{
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -332,22 +330,19 @@ echo "Auto-confirming cleanup of all created resources..." | tee -a "$LOG_FILE"
 
 echo "Script completed successfully." | tee -a "$LOG_FILE"
 exit 0
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/CreateFunction)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteDashboards](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/DeleteDashboards)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/DeleteFunction)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetDashboard](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/GetDashboard)
+  + [Invoke](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/Invoke)
+  + [PutDashboard](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/PutDashboard)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateFunction](../../../goto/aws-cli/lambda-2015-03-31/CreateFunction.md "../../../goto/aws-cli/lambda-2015-03-31/CreateFunction.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteDashboards](../../../goto/aws-cli/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/aws-cli/monitoring-2010-08-01/DeleteDashboards.md")
-  - [DeleteFunction](../../../goto/aws-cli/lambda-2015-03-31/DeleteFunction.md "../../../goto/aws-cli/lambda-2015-03-31/DeleteFunction.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetDashboard](../../../goto/aws-cli/monitoring-2010-08-01/GetDashboard.md "../../../goto/aws-cli/monitoring-2010-08-01/GetDashboard.md")
-  - [Invoke](../../../goto/aws-cli/lambda-2015-03-31/Invoke.md "../../../goto/aws-cli/lambda-2015-03-31/Invoke.md")
-  - [PutDashboard](../../../goto/aws-cli/monitoring-2010-08-01/PutDashboard.md "../../../goto/aws-cli/monitoring-2010-08-01/PutDashboard.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

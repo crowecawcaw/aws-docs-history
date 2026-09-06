@@ -1,20 +1,18 @@
+
+
 # Getting started with container registries
+<a name="sts_example_ecr_GettingStarted_078_section"></a>
 
 The following code example shows how to:
++ Create a Docker image
++ Create an Amazon ECR repository
++ Delete resources
 
-- Create a Docker image
-- Create an Amazon ECR repository
-- Delete resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/078-amazon-elastic-container-registry-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/078-amazon-elastic-container-registry-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/078-amazon-elastic-container-registry-gs) repository. 
 
 ```
 #!/bin/bash
@@ -77,7 +75,7 @@ TIMEOUT_CMD="timeout 300"  # 5-minute timeout for long-running commands
 handle_error() {
     echo "ERROR: $1"
     echo "Check the log file for details: $LOG_FILE"
-
+    
     echo "==================================================="
     echo "Resources created:"
     echo "- Docker image: hello-world (local)"
@@ -86,7 +84,7 @@ handle_error() {
         echo "- ECR Image: $REPO_URI:latest"
     fi
     echo "==================================================="
-
+    
     echo "Attempting to clean up resources..."
     cleanup
     exit 1
@@ -96,26 +94,26 @@ handle_error() {
 cleanup() {
     echo "==================================================="
     echo "Cleaning up resources..."
-
+    
     # Delete the image from ECR if it exists
     if [ -n "$REPO_URI" ]; then
         echo "Deleting image from ECR repository..."
         aws ecr batch-delete-image --repository-name hello-repository --image-ids imageTag=latest || echo "Failed to delete image, it may not exist or may have already been deleted."
     fi
-
+    
     # Delete the ECR repository if it exists
     if [ -n "$REPO_URI" ]; then
         echo "Deleting ECR repository..."
         aws ecr delete-repository --repository-name hello-repository --force || echo "Failed to delete repository, it may not exist or may have already been deleted."
     fi
-
+    
     # Remove local Docker image
     echo "Removing local Docker image..."
     docker rmi hello-world:latest 2>/dev/null || echo "Failed to remove local image, it may not exist or may have already been deleted."
     if [ -n "$REPO_URI" ]; then
         docker rmi "$REPO_URI:latest" 2>/dev/null || echo "Failed to remove tagged image, it may not exist or may have already been deleted."
     fi
-
+    
     echo "Cleanup completed."
     echo "==================================================="
 }
@@ -240,28 +238,28 @@ read -r CLEANUP_CHOICE
 if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
     # Step 6: Delete the image from ECR
     echo "Step 6: Deleting the image from ECR"
-
+    
     DELETE_IMAGE_RESULT=$(aws ecr batch-delete-image --repository-name hello-repository --image-ids imageTag=latest)
     if [[ -z "$DELETE_IMAGE_RESULT" || "$DELETE_IMAGE_RESULT" == *"error"* ]]; then
         echo "Warning: Failed to delete image from ECR"
     else
         echo "Successfully deleted image from ECR."
     fi
-
+    
     # Step 7: Delete the ECR repository
     echo "Step 7: Deleting the ECR repository"
-
+    
     DELETE_REPO_RESULT=$(aws ecr delete-repository --repository-name hello-repository --force)
     if [[ -z "$DELETE_REPO_RESULT" || "$DELETE_REPO_RESULT" == *"error"* ]]; then
         echo "Warning: Failed to delete ECR repository"
     else
         echo "Successfully deleted ECR repository."
     fi
-
+    
     # Remove local Docker images
     echo "Removing local Docker images..."
     docker rmi hello-world:latest 2>/dev/null || echo "Warning: Failed to remove local image"
-
+    
     echo "All resources have been cleaned up."
 else
     echo "Resources were not cleaned up. You can manually clean up later with:"
@@ -275,18 +273,14 @@ echo "==================================================="
 echo "Tutorial completed!"
 echo "Log file: $LOG_FILE"
 echo "==================================================="
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [BatchDeleteImage](https://docs.aws.amazon.com/goto/aws-cli/ecr-2015-09-21/BatchDeleteImage)
+  + [CreateRepository](https://docs.aws.amazon.com/goto/aws-cli/ecr-2015-09-21/CreateRepository)
+  + [DeleteRepository](https://docs.aws.amazon.com/goto/aws-cli/ecr-2015-09-21/DeleteRepository)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetLoginPassword](https://docs.aws.amazon.com/goto/aws-cli/ecr-2015-09-21/GetLoginPassword)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [BatchDeleteImage](../../../goto/aws-cli/ecr-2015-09-21/BatchDeleteImage.md "../../../goto/aws-cli/ecr-2015-09-21/BatchDeleteImage.md")
-  - [CreateRepository](../../../goto/aws-cli/ecr-2015-09-21/CreateRepository.md "../../../goto/aws-cli/ecr-2015-09-21/CreateRepository.md")
-  - [DeleteRepository](../../../goto/aws-cli/ecr-2015-09-21/DeleteRepository.md "../../../goto/aws-cli/ecr-2015-09-21/DeleteRepository.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetLoginPassword](../../../goto/aws-cli/ecr-2015-09-21/GetLoginPassword.md "../../../goto/aws-cli/ecr-2015-09-21/GetLoginPassword.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

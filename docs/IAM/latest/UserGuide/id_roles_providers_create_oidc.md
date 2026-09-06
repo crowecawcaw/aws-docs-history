@@ -1,446 +1,269 @@
+
+
 # Create an OpenID Connect (OIDC) identity provider in IAM
+<a name="id_roles_providers_create_oidc"></a>
 
-_IAM OIDC identity providers_ are entities in IAM that describe an
-external identity provider (IdP) service that supports the [OpenID Connect](http://openid.net/connect/ "http://openid.net/connect/") (OIDC) standard, such as Google or
-Salesforce. You use an IAM OIDC identity provider when you want to establish trust between an
-OIDC-compatible IdP and your AWS account. This is useful when creating a mobile app or web
-application that requires access to AWS resources, but you don't want to create custom sign-in
-code or manage your own user identities. For more information about this scenario, see [OIDC federation](id_roles_providers_oidc.md "id_roles_providers_oidc.md").
+*IAM OIDC identity providers* are entities in IAM that describe an external identity provider (IdP) service that supports the [OpenID Connect](http://openid.net/connect/) (OIDC) standard, such as Google or Salesforce. You use an IAM OIDC identity provider when you want to establish trust between an OIDC-compatible IdP and your AWS account. This is useful when creating a mobile app or web application that requires access to AWS resources, but you don't want to create custom sign-in code or manage your own user identities. For more information about this scenario, see [OIDC federation](id_roles_providers_oidc.md).
 
-You can create and manage an IAM OIDC identity provider using the AWS Management Console, the
-AWS Command Line Interface, the Tools for Windows PowerShell, or the IAM API.
+You can create and manage an IAM OIDC identity provider using the AWS Management Console, the AWS Command Line Interface, the Tools for Windows PowerShell, or the IAM API.
 
-After you create an IAM OIDC identity provider, you must create one or more IAM roles. A
-role is an identity in AWS that doesn't have its own credentials (as a user does). But in this
-context, a role is dynamically assigned to an OIDC federated principal that is authenticated by
-your organization's IdP. The role permits your organization's IdP to request temporary security
-credentials for access to AWS. The policies assigned to the role determine what users are
-allowed to do in AWS. To create a role for a third-party identity provider, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
+After you create an IAM OIDC identity provider, you must create one or more IAM roles. A role is an identity in AWS that doesn't have its own credentials (as a user does). But in this context, a role is dynamically assigned to an OIDC federated principal that is authenticated by your organization's IdP. The role permits your organization's IdP to request temporary security credentials for access to AWS. The policies assigned to the role determine what users are allowed to do in AWS. To create a role for a third-party identity provider, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md).
 
-###### Important
+**Important**  
+When you configure identity-based policies for actions that support `oidc-provider` resources, IAM evaluates the full OIDC identity provider URL, including any specified paths. If your OIDC identity provider URL has a path, you must include that path in the `oidc-provider` ARN as a `Resource` element value. You also have the option to append a forward slash and wildcard (`/*`) to the URL domain or use wildcard characters (`*` and `?`) at any point in the URL path. If the OIDC identity provider URL in the request doesn't match the value set in the policy's `Resource` element, the request fails.
 
-When you configure identity-based policies for actions that support
-`oidc-provider` resources, IAM evaluates the full OIDC identity provider URL,
-including any specified paths. If your OIDC identity provider URL has a path, you must include
-that path in the `oidc-provider` ARN as a `Resource` element value. You
-also have the option to append a forward slash and wildcard (`/*`) to the URL
-domain or use wildcard characters (`*` and `?`) at any point in the URL
-path. If the OIDC identity provider URL in the request doesn't match the value set in the
-policy's `Resource` element, the request fails.
+To troubleshoot common issues with IAM OIDC federation, see [Resolve errors related to OIDC](https://repost.aws/knowledge-center/iam-oidc-idp-federation) on AWS re:Post.
 
-To troubleshoot common issues with IAM OIDC federation, see [Resolve errors related to
-OIDC](https://repost.aws/knowledge-center/iam-oidc-idp-federation "https://repost.aws/knowledge-center/iam-oidc-idp-federation") on AWS re:Post.
-
-###### Topics
-
-- [Prerequisites: Validate configuration of your identity provider](#manage-oidc-provider-prerequisites "#manage-oidc-provider-prerequisites")
-- [Creating and managing an OIDC provider (console)](#manage-oidc-provider-console "#manage-oidc-provider-console")
-- [Creating and managing an IAM OIDC identity provider (AWS CLI)](#manage-oidc-provider-cli "#manage-oidc-provider-cli")
-- [Creating and managing an OIDC Identity Provider (AWS API)](#manage-oidc-provider-api "#manage-oidc-provider-api")
+**Topics**
++ [Prerequisites: Validate configuration of your identity provider](#manage-oidc-provider-prerequisites)
++ [Creating and managing an OIDC provider (console)](#manage-oidc-provider-console)
++ [Creating and managing an IAM OIDC identity provider (AWS CLI)](#manage-oidc-provider-cli)
++ [Creating and managing an OIDC Identity Provider (AWS API)](#manage-oidc-provider-api)
 
 ## Prerequisites: Validate configuration of your identity provider
+<a name="manage-oidc-provider-prerequisites"></a>
 
-Before you can create an IAM OIDC identity provider, you must have the following
-information from your IdP. For more information about obtaining OIDC provider configuration
-Information, see the documentation for your IdP.
+Before you can create an IAM OIDC identity provider, you must have the following information from your IdP. For more information about obtaining OIDC provider configuration Information, see the documentation for your IdP.
 
-1. Determine your OIDC identity provider’s publicly available URL. The URL must begin
-   with https://. Per the OIDC standard, path components are allowed but query parameters are
-   not. Typically, the URL consists of only a hostname, like https://server.example.org or
-   https://example.com. The URL should not contain a port number.
-2. Add **/.well-known/openid-configuration** to the end of
-   your OIDC identity provider's URL to see the provider's publicly available configuration
-   document and metadata. You must have a discovery document in JSON format with the
-   provider's configuration document and metadata that can be retrieved from the [OpenID
-   Connect provider discovery endpoint URL](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig").
-3. Confirm the following values are included in your provider’s configuration
-   information. If your openid-configuration is missing any of these fields, you must update
-   your discovery document. This process can vary based on your identity provider, so follow
-   your IdP's documentation to complete this task.
+1. Determine your OIDC identity provider’s publicly available URL. The URL must begin with https://. Per the OIDC standard, path components are allowed but query parameters are not. Typically, the URL consists of only a hostname, like https://server.example.org or https://example.com. The URL should not contain a port number.
 
-   - issuer: The URL for your domain.
-   - jwks\_uri: The JSON Web Key Set (JWKS) endpoint where IAM gets your public keys.
-     Your identity provider must include a JSON Web Key Set (JWKS) endpoint in the
-     openid-configuration. This URI defines where to get your public keys that are used to
-     verify the signed tokens from your identity provider.
+1. Add **/.well-known/openid-configuration** to the end of your OIDC identity provider's URL to see the provider's publicly available configuration document and metadata. You must have a discovery document in JSON format with the provider's configuration document and metadata that can be retrieved from the [OpenID Connect provider discovery endpoint URL](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 
-   ###### Note
+1. Confirm the following values are included in your provider’s configuration information. If your openid-configuration is missing any of these fields, you must update your discovery document. This process can vary based on your identity provider, so follow your IdP's documentation to complete this task.
+   + issuer: The URL for your domain.
+   + jwks\_uri: The JSON Web Key Set (JWKS) endpoint where IAM gets your public keys. Your identity provider must include a JSON Web Key Set (JWKS) endpoint in the openid-configuration. This URI defines where to get your public keys that are used to verify the signed tokens from your identity provider.
+**Note**  
+The JSON Web Key Set (JWKS) must contain at least one key and can have a maximum of 100 RSA keys and 100 EC keys. If your OIDC identity provider's JWKS contains more than 100 RSA keys or 100 EC keys, an `InvalidIdentityToken` exception will be returned when using the [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) API operation with a JWT signed by a key type that exceeds the 100-key limit. For example, if a JWT is signed with the RSA algorithm and there are more than 100 RSA keys in your provider's JWKS, an `InvalidIdentityToken` exception will be returned.
+   + claims\_supported: Information about the user that helps you ensure OIDC authentication responses from your IdP contain the required attributes AWS uses in IAM policies to check permissions for OIDC federated principals. For a list of IAM condition keys that can be used for claims, see [Available keys for AWS OIDC federation](reference_policies_iam-condition-keys.md#condition-keys-wif).
+     + aud: You must determine the audience claim value your IdP issues in JSON Web Tokens (JWTs). The audience (aud) claim is application specific and identifies the intended recipients of the token. When you register a mobile or web app with an OpenID Connect provider, they establish a client ID that identifies the application. The client ID is a unique identifier for your app that is passed in the aud claim for authentication. The aud claim must match the Audience value when creating your IAM OIDC identity provider.
+     + iat: Claims must include a value for `iat` that represents the time that the ID token is issued.
+     + iss: The URL of the identity provider. The URL must begin with https:// and should correspond to the Provider URL provided to IAM. Per the OIDC standard, path components are allowed but query parameters are not. Typically, the URL consists of only a hostname, like https://server.example.org or https://example.com. The URL should not contain a port number.
+   + response\_types\_supported: id\_token
+   + subject\_types\_supported: public
+   + id\_token\_signing\_alg\_values\_supported: RS256, RS384, RS512, ES256, ES384, ES512
+**Note**  
+You can include additional claims like `my_custom_claim` in the example below; however, AWS STS will ignore the claim.  
 
-   The JSON Web Key Set (JWKS) must contain at least one key and can have a maximum
-   of 100 RSA keys and 100 EC keys. If your OIDC identity provider's JWKS contains more
-   than 100 RSA keys or 100 EC keys, an `InvalidIdentityToken` exception
-   will be returned when using the [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") API operation with a JWT signed by a key type
-   that exceeds the 100-key limit. For example, if a JWT is signed with the RSA
-   algorithm and there are more than 100 RSA keys in your provider's JWKS, an
-   `InvalidIdentityToken` exception will be returned.
-   - claims\_supported: Information about the user that helps you ensure OIDC
-     authentication responses from your IdP contain the required attributes AWS uses in
-     IAM policies to check permissions for OIDC federated principals. For a list of IAM condition
-     keys that can be used for claims, see [Available keys for AWS OIDC federation](reference_policies_iam-condition-keys.md#condition-keys-wif "reference_policies_iam-condition-keys.md#condition-keys-wif").
-
-     - aud: You must determine the audience claim value your IdP issues in JSON Web
-       Tokens (JWTs). The audience (aud) claim is application specific and identifies the
-       intended recipients of the token. When you register a mobile or web app with an
-       OpenID Connect provider, they establish a client ID that identifies the
-       application. The client ID is a unique identifier for your app that is passed in
-       the aud claim for authentication. The aud claim must match the Audience value when
-       creating your IAM OIDC identity provider.
-     - iat: Claims must include a value for `iat` that represents the time
-       that the ID token is issued.
-     - iss: The URL of the identity provider. The URL must begin with https:// and
-       should correspond to the Provider URL provided to IAM. Per the OIDC standard, path
-       components are allowed but query parameters are not. Typically, the URL consists
-       of only a hostname, like https://server.example.org or https://example.com. The
-       URL should not contain a port number.
-
-   - response\_types\_supported: id\_token
-   - subject\_types\_supported: public
-   - id\_token\_signing\_alg\_values\_supported: RS256, RS384, RS512, ES256, ES384,
-     ES512
-
-###### Note
-
-You can include additional claims like `my_custom_claim` in the example
-below; however, AWS STS will ignore the claim.
-
-```
-{
-  "issuer": "https://example-domain.com",
-  "jwks_uri": "https://example-domain.com/jwks/keys",
-  "claims_supported": [
-    "aud",
-    "iat",
-    "iss",
-    "name",
-    "sub",
-    "my_custom_claim"
-  ],
-  "response_types_supported": [
-    "id_token"
-  ],
-  "id_token_signing_alg_values_supported": [
-    "RS256",
-    "RS384",
-    "RS512",
-    "ES256",
-    "ES384",
-    "ES512"
-  ],
-  "subject_types_supported": [
-    "public"
-  ]
-}
-```
+   ```
+   {
+     "issuer": "https://example-domain.com",
+     "jwks_uri": "https://example-domain.com/jwks/keys",
+     "claims_supported": [
+       "aud",
+       "iat",
+       "iss",
+       "name",
+       "sub",
+       "my_custom_claim"
+     ],
+     "response_types_supported": [
+       "id_token"
+     ],
+     "id_token_signing_alg_values_supported": [
+       "RS256",
+       "RS384",
+       "RS512",
+       "ES256",
+       "ES384",
+       "ES512"
+     ],
+     "subject_types_supported": [
+       "public"
+     ]
+   }
+   ```
 
 ## Creating and managing an OIDC provider (console)
+<a name="manage-oidc-provider-console"></a>
 
-Follow these instructions to create and manage an IAM OIDC identity provider in the
-AWS Management Console.
+Follow these instructions to create and manage an IAM OIDC identity provider in the AWS Management Console.
 
-###### Important
+**Important**  
+If you are using an OIDC identity provider from either Google, Facebook, or Amazon Cognito, do not create a separate IAM identity provider using this procedure. These OIDC identity providers are already built-in to AWS and are available for your use. Instead, follow the steps to create new roles for your identity provider, see [Create a role for OpenID Connect federation (console)](id_roles_create_for-idp_oidc.md).
 
-If you are using an OIDC identity provider from either Google, Facebook, or Amazon Cognito, do
-not create a separate IAM identity provider using this procedure. These OIDC identity
-providers are already built-in to AWS and are available for your use. Instead, follow the
-steps to create new roles for your identity provider, see [Create a role for OpenID Connect federation (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md").
+**To create an IAM OIDC identity provider (console)**
 
-###### To create an IAM OIDC identity provider (console)
+1. <a name="idpoidcstep1"></a>Before you create an IAM OIDC identity provider, you must register your application with the IdP to receive a *client ID*. The client ID (also known as *audience*) is a unique identifier for your app that is issued to you when you register your app with the IdP. For more information about obtaining a client ID, see the documentation for your IdP. 
+**Note**  
+AWS secures communication with OIDC identity providers (IdPs) using our library of trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS) endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed by one of these trusted CAs, only then we secure communication using the thumbprints set in the IdP's configuration. AWS will fall back to thumbprint verification if we are unable to retrieve the TLS certificate or if TLS v1.3 is required.
 
-1. Before you create an IAM OIDC identity provider, you must register your application
-   with the IdP to receive a _client ID_. The client ID (also known as
-   _audience_) is a unique identifier for your app that is
-   issued to you when you register your app with the IdP. For more information about
-   obtaining a client ID, see the documentation for your IdP.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-###### Note
+1. In the navigation pane, choose **Identity providers**, and then choose **Add provider**.
 
-AWS secures communication with OIDC identity providers (IdPs) using our library of
-trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
-endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed
-by one of these trusted CAs, only then we secure communication using the thumbprints set in
-the IdP's configuration. AWS will fall back to thumbprint verification if we are
-unable to retrieve the TLS certificate or if TLS v1.3 is required. 2. Open the IAM console at
-[https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 3. In the navigation pane, choose **Identity providers**, and then
-choose **Add provider**. 4. For **Configure provider**, choose **OpenID
-Connect**. 5. For **Provider URL**, type the URL of the IdP. The URL must comply
-with these restrictions:
+1. For **Configure provider**, choose **OpenID Connect**. 
 
-    * The URL is case-sensitive.
-    * The URL must begin with `https://`.
-    * The URL should not contain a port number.
-    * Within your AWS account, each IAM OIDC identity provider must use a unique
-     URL. If you try to submit a URL that has already been used for an OpenID Connect
-     provider in the AWS account, you will get an error.
+1. For **Provider URL**, type the URL of the IdP. The URL must comply with these restrictions:
+   + The URL is case-sensitive.
+   + The URL must begin with **https://**.
+   + The URL should not contain a port number. 
+   + Within your AWS account, each IAM OIDC identity provider must use a unique URL. If you try to submit a URL that has already been used for an OpenID Connect provider in the AWS account, you will get an error.
 
-6. For **Audience**, type the client ID of the application that you
-registered with the IdP and received in [Step 1](#idpoidcstep1 "#idpoidcstep1"), and that make requests to AWS. If you have
-additional client IDs (also known as _audiences_) for
-this IdP, you can add them later on the provider detail page.
+1. For **Audience**, type the client ID of the application that you registered with the IdP and received in [Step 1](#idpoidcstep1), and that make requests to AWS. If you have additional client IDs (also known as *audiences*) for this IdP, you can add them later on the provider detail page.
+**Note**  
+If your IdP JWT token includes the `azp` claim, enter this value as the Audience value.  
+If your OIDC identity provider is setting both `aud` and `azp` claims in the token, AWS STS will use the value in the `azp` claim as the `aud` claim.
 
-###### Note
+1. (Optional) For **Add tags**, you can add key–value pairs to help you identify and organize your IdPs. You can also use tags to control access to AWS resources. To learn more about tagging IAM OIDC identity providers, see [Tag OpenID Connect (OIDC) identity providers](id_tags_oidc.md). Choose **Add tag**. Enter values for each tag key-value pair. 
 
-If your IdP JWT token includes the `azp` claim, enter this value as the
-Audience value.
+1. Verify the information that you have provided. When you are done choose **Add provider**. IAM will attempt to retrieve and use the top intermediate CA thumbprint of the OIDC IdP server certificate to create the IAM OIDC identity provider.
+**Note**  
+The OIDC identity provider's certificate chain must start with the domain or issuer URL, then the intermediate certificate, and end with the root certificate. If the certificate chain order is different or includes duplicate or additional certificates, then you receive a signature mismatch error and STS fails to validate the JSON Web Token (JWT). Correct the order of the certificates in the chain returned from the server to resolve the error. For more information about certificate chain standards, see [certificate\_list in RFC 5246](https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2) on the RFC Series website.
 
-If your OIDC identity provider is setting both `aud` and `azp`
-claims in the token, AWS STS will use the value in the `azp` claim as the
-`aud` claim. 7. (Optional) For **Add tags**, you can add key–value pairs to
-help you identify and organize your IdPs. You can also use tags to control access to AWS
-resources. To learn more about tagging IAM OIDC identity providers, see [Tag OpenID Connect (OIDC) identity providers](id_tags_oidc.md "id_tags_oidc.md"). Choose **Add
-tag**. Enter values for each tag key-value pair. 8. Verify the information that you have provided. When you are done choose **Add
-provider**. IAM will attempt to retrieve and use the top intermediate CA
-thumbprint of the OIDC IdP server certificate to create the IAM OIDC identity
-provider.
+1. Assign an IAM role to your identity provider to give external user identities managed by your identity provider permissions to access AWS resources in your account. To learn more about creating roles for identity federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md).
+**Note**  
+OIDC IdPs used in a role trust policy must be in the same account as the role that trusts it.
 
-###### Note
+**To add or remove a thumbprint for an IAM OIDC identity provider (console)**
+**Note**  
+AWS secures communication with OIDC identity providers (IdPs) using our library of trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS) endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed by one of these trusted CAs, only then we secure communication using the thumbprints set in the IdP's configuration. AWS will fall back to thumbprint verification if we are unable to retrieve the TLS certificate or if TLS v1.3 is required.
 
-The OIDC identity provider's certificate chain must start with the domain or issuer
-URL, then the intermediate certificate, and end with the root certificate. If the
-certificate chain order is different or includes duplicate or additional certificates,
-then you receive a signature mismatch error and STS fails to validate the JSON Web Token
-(JWT). Correct the order of the certificates in the chain returned from the server to
-resolve the error. For more information about certificate chain standards, see [certificate\_list in RFC
-5246](https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2 "https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2") on the RFC Series website. 9. Assign an IAM role to your identity provider to give external user identities
-managed by your identity provider permissions to access AWS resources in your account.
-To learn more about creating roles for identity federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-###### Note
+1. In the navigation pane, choose **Identity providers**. Then choose the name of the IAM identity provider that you want to update.
 
-OIDC IdPs used in a role trust policy must be in the same account as the role that
-trusts it.
+1. Choose the **Endpoint verification** tab, then in the **Thumbprints** section, choose **Manage**. To enter a new thumbprint value, choose **Add thumbprint**. To remove a thumbprint, choose **Remove** next to the thumbprint that you want to remove.
+**Note**  
+An IAM OIDC identity provider must have at least one and can have a maximum of five thumbprints.
 
-###### To add or remove a thumbprint for an IAM OIDC identity provider (console)
+    When you are done, choose **Save changes**.
 
-###### Note
+**To add an audience for an IAM OIDC identity provider (console)**
 
-AWS secures communication with OIDC identity providers (IdPs) using our library of
-trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
-endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed
-by one of these trusted CAs, only then we secure communication using the thumbprints set in
-the IdP's configuration. AWS will fall back to thumbprint verification if we are
-unable to retrieve the TLS certificate or if TLS v1.3 is required.
+1. In the navigation pane, choose **Identity providers**, then choose the name of the IAM identity provider that you want to update.
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Identity providers**. Then choose
-   the name of the IAM identity provider that you want to update.
-3. Choose the **Endpoint verification** tab, then in the
-   **Thumbprints** section, choose **Manage**. To enter a
-   new thumbprint value, choose **Add thumbprint**. To remove a thumbprint,
-   choose **Remove** next to the thumbprint that you want to remove.
+1. In the **Audiences** section, choose **Actions** and select **Add audience**. 
 
-###### Note
+1. Type the client ID of the application that you registered with the IdP and received in [Step 1](#idpoidcstep1), and that will make requests to AWS. Then choose **Add audiences**.
+**Note**  
+An IAM OIDC identity provider must have at least one and can have a maximum of 100 audiences.
 
-An IAM OIDC identity provider must have at least one and can have a maximum of
-five thumbprints.
+**To remove an audience for an IAM OIDC identity provider (console)**
 
-When you are done, choose **Save changes**.
+1. In the navigation pane, choose **Identity providers**, then choose the name of the IAM identity provider that you want to update.
 
-###### To add an audience for an IAM OIDC identity provider (console)
+1. In the **Audiences** section, select the radio button next to the audience that you want to remove, then select **Actions**.
 
-1. In the navigation pane, choose **Identity providers**, then choose
-   the name of the IAM identity provider that you want to update.
-2. In the **Audiences** section, choose **Actions** and
-   select **Add audience**.
-3. Type the client ID of the application that you registered with the IdP and received in
-   [Step 1](#idpoidcstep1 "#idpoidcstep1"), and that will make
-   requests to AWS. Then choose **Add audiences**.
+1.  Choose **Remove audience**. A new window opens.
 
-###### Note
+1. If you remove an audience, identities federating with the audience cannot assume roles associated with the audience. In the window, read the warning and confirm that you want to remove the audience by typing the word `remove` in the field.
 
-An IAM OIDC identity provider must have at least one and can have a maximum of 100
-audiences.
+1. Choose **Remove** to remove the audience.
 
-###### To remove an audience for an IAM OIDC identity provider (console)
+**To delete an IAM OIDC identity provider (console)**
 
-1. In the navigation pane, choose **Identity providers**, then choose
-   the name of the IAM identity provider that you want to update.
-2. In the **Audiences** section, select the radio button next to the
-   audience that you want to remove, then select **Actions**.
-3. Choose **Remove audience**. A new window opens.
-4. If you remove an audience, identities federating with the audience cannot assume roles
-   associated with the audience. In the window, read the warning and confirm that you want to
-   remove the audience by typing the word `remove` in the field.
-5. Choose **Remove** to remove the audience.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-###### To delete an IAM OIDC identity provider (console)
+1. In the navigation pane, choose **Identity providers**. 
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Identity providers**.
-3. Select the checkbox next to the IAM identity provider that you want to delete. A new
-   window opens.
-4. Confirm that you want to delete the provider by typing the word `delete` in
-   the field. Then, choose **Delete**.
+1. Select the checkbox next to the IAM identity provider that you want to delete. A new window opens.
+
+1. Confirm that you want to delete the provider by typing the word `delete` in the field. Then, choose **Delete**.
 
 ## Creating and managing an IAM OIDC identity provider (AWS CLI)
+<a name="manage-oidc-provider-cli"></a>
 
-You can use the following AWS CLI commands to create and manage IAM OIDC identity
-providers.
+You can use the following AWS CLI commands to create and manage IAM OIDC identity providers.
 
-###### To create an IAM OIDC identity provider (AWS CLI)
+**To create an IAM OIDC identity provider (AWS CLI)**
 
-1. (Optional) To get a list of all the IAM OIDC identity providers in your AWS
-   account, run the following command:
+1. (Optional) To get a list of all the IAM OIDC identity providers in your AWS account, run the following command:
+   + [`aws iam list-open-id-connect-providers`](https://docs.aws.amazon.com/cli/latest/reference/iam/list-open-id-connect-providers.html)
 
-   - [`aws iam
-  list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
+1. To create a new IAM OIDC identity provider, run the following command:
+   + [`aws iam create-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/create-open-id-connect-provider.html)
 
-2. To create a new IAM OIDC identity provider, run the following command:
+**To update the list of server certificate thumbprints for an existing IAM OIDC identity provider (AWS CLI)**
++ To update the list of server certificate thumbprints for an IAM OIDC identity provider, run the following command:
+  + [`aws iam update-open-id-connect-provider-thumbprint`](https://docs.aws.amazon.com/cli/latest/reference/iam/update-open-id-connect-provider-thumbprint.html)
 
-   - [`aws iam
-  create-open-id-connect-provider`](../../../cli/latest/reference/iam/create-open-id-connect-provider.md "../../../cli/latest/reference/iam/create-open-id-connect-provider.md")
+**To tag an existing IAM OIDC identity provider (AWS CLI)**
++ To tag an existing IAM OIDC identity provider, run the following command:
+  + [`aws iam tag-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/tag-open-id-connect-provider.html)
 
-###### To update the list of server certificate thumbprints for an existing IAM OIDC identity provider (AWS CLI)
+**To list tags for an existing IAM OIDC identity provider (AWS CLI)**
++ To list tags for an existing IAM OIDC identity provider, run the following command:
+  + [`aws iam list-open-id-connect-provider-tags`](https://docs.aws.amazon.com/cli/latest/reference/iam/list-open-id-connect-provider-tags.html)
 
-- To update the list of server certificate thumbprints for an IAM OIDC identity
-  provider, run the following command:
+**To remove tags on an IAM OIDC identity provider (AWS CLI)**
++ To remove tags on an existing IAM OIDC identity provider, run the following command:
+  + [`aws iam untag-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/untag-open-id-connect-provider.html)
 
-  - [`aws iam update-open-id-connect-provider-thumbprint`](../../../cli/latest/reference/iam/update-open-id-connect-provider-thumbprint.md "../../../cli/latest/reference/iam/update-open-id-connect-provider-thumbprint.md")
+**To add or remove a client ID from an existing IAM OIDC identity provider (AWS CLI)**
 
-###### To tag an existing IAM OIDC identity provider (AWS CLI)
+1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS account, run the following command:
+   + [`aws iam list-open-id-connect-providers`](https://docs.aws.amazon.com/cli/latest/reference/iam/list-open-id-connect-providers.html)
 
-- To tag an existing IAM OIDC identity provider, run the following command:
+1. (Optional) To get detailed information about an IAM OIDC identity provider, run the following command:
+   + [`aws iam get-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/get-open-id-connect-provider.html)
 
-  - [`aws iam
-   tag-open-id-connect-provider`](../../../cli/latest/reference/iam/tag-open-id-connect-provider.md "../../../cli/latest/reference/iam/tag-open-id-connect-provider.md")
+1. To add a new client ID to an existing IAM OIDC identity provider, run the following command:
+   + [`aws iam add-client-id-to-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/add-client-id-to-open-id-connect-provider.html)
 
-###### To list tags for an existing IAM OIDC identity provider (AWS CLI)
+1. To remove a client from an existing IAM OIDC identity provider, run the following command:
+   + [`aws iam remove-client-id-from-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.html)
 
-- To list tags for an existing IAM OIDC identity provider, run the following
-  command:
+**To delete an IAM OIDC identity provider (AWS CLI)**
 
-  - [`aws
-   iam list-open-id-connect-provider-tags`](../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md "../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md")
+1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS account, run the following command:
+   + [`aws iam list-open-id-connect-providers`](https://docs.aws.amazon.com/cli/latest/reference/iam/list-open-id-connect-providers.html)
 
-###### To remove tags on an IAM OIDC identity provider (AWS CLI)
+1. (Optional) To get detailed information about an IAM OIDC identity provider, run the following command:
+   + [`aws iam get-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/get-open-id-connect-provider.html)
 
-- To remove tags on an existing IAM OIDC identity provider, run the following
-  command:
-
-  - [`aws iam
-   untag-open-id-connect-provider`](../../../cli/latest/reference/iam/untag-open-id-connect-provider.md "../../../cli/latest/reference/iam/untag-open-id-connect-provider.md")
-
-###### To add or remove a client ID from an existing IAM OIDC identity provider (AWS CLI)
-
-1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS
-   account, run the following command:
-
-   - [`aws iam
-  list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
-
-2. (Optional) To get detailed information about an IAM OIDC identity provider, run the
-   following command:
-
-   - [`aws iam
-  get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-connect-provider.md "../../../cli/latest/reference/iam/get-open-id-connect-provider.md")
-
-3. To add a new client ID to an existing IAM OIDC identity provider, run the following
-   command:
-
-   - [`aws iam add-client-id-to-open-id-connect-provider`](../../../cli/latest/reference/iam/add-client-id-to-open-id-connect-provider.md "../../../cli/latest/reference/iam/add-client-id-to-open-id-connect-provider.md")
-
-4. To remove a client from an existing IAM OIDC identity provider, run the following
-   command:
-
-   - [`aws iam
-  remove-client-id-from-open-id-connect-provider`](../../../cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.md "../../../cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.md")
-
-###### To delete an IAM OIDC identity provider (AWS CLI)
-
-1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS
-   account, run the following command:
-
-   - [`aws iam
-  list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
-
-2. (Optional) To get detailed information about an IAM OIDC identity provider, run the
-   following command:
-
-   - [`aws iam
-  get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-connect-provider.md "../../../cli/latest/reference/iam/get-open-id-connect-provider.md")
-
-3. To delete an IAM OIDC identity provider, run the following command:
-
-   - [`aws iam
-  delete-open-id-connect-provider`](../../../cli/latest/reference/iam/delete-open-id-connect-provider.md "../../../cli/latest/reference/iam/delete-open-id-connect-provider.md")
+1. To delete an IAM OIDC identity provider, run the following command:
+   + [`aws iam delete-open-id-connect-provider`](https://docs.aws.amazon.com/cli/latest/reference/iam/delete-open-id-connect-provider.html)
 
 ## Creating and managing an OIDC Identity Provider (AWS API)
+<a name="manage-oidc-provider-api"></a>
 
 You can use the following IAM API commands to create and manage OIDC providers.
 
-###### To create an IAM OIDC identity provider (AWS API)
+**To create an IAM OIDC identity provider (AWS API)**
 
-1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS
-   account, call the following operation:
+1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS account, call the following operation:
+   + [`ListOpenIDConnectProviders`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html)
 
-   - [`ListOpenIDConnectProviders`](../APIReference/API_ListOpenIDConnectProviders.md "../APIReference/API_ListOpenIDConnectProviders.md")
+1. To create a new IAM OIDC identity provider, call the following operation: 
+   + [`CreateOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html)
 
-2. To create a new IAM OIDC identity provider, call the following operation:
+**To update the list of server certificate thumbprints for an existing IAM OIDC identity provider (AWS API)**
++ To update the list of server certificate thumbprints for an IAM OIDC identity provider, call the following operation:
+  + [`UpdateOpenIDConnectProviderThumbprint`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html)
 
-   - [`CreateOpenIDConnectProvider`](../APIReference/API_CreateOpenIDConnectProvider.md "../APIReference/API_CreateOpenIDConnectProvider.md")
+**To tag an existing IAM OIDC identity provider (AWS API)**
++ To tag an existing IAM OIDC identity provider, call the following operation:
+  + [`TagOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagOpenIDConnectProvider.html)
 
-###### To update the list of server certificate thumbprints for an existing IAM OIDC identity provider (AWS API)
+**To list tags for an existing IAM OIDC identity provider (AWS API)**
++ To list tags for an existing IAM OIDC identity provider, call the following operation:
+  + [`ListOpenIDConnectProviderTags`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviderTags.html)
 
-- To update the list of server certificate thumbprints for an IAM OIDC identity
-  provider, call the following operation:
+**To remove tags on an existing IAM OIDC identity provider (AWS API)**
++ To remove tags on an existing IAM OIDC identity provider, call the following operation:
+  + [`UntagOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagOpenIDConnectProvider.html)
 
-  - [`UpdateOpenIDConnectProviderThumbprint`](../APIReference/API_UpdateOpenIDConnectProviderThumbprint.md "../APIReference/API_UpdateOpenIDConnectProviderThumbprint.md")
+**To add or remove a client ID from an existing IAM OIDC identity provider (AWS API)**
 
-###### To tag an existing IAM OIDC identity provider (AWS API)
+1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS account, call the following operation:
+   + [`ListOpenIDConnectProviders`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html)
 
-- To tag an existing IAM OIDC identity provider, call the following operation:
+1. (Optional) To get detailed information about an IAM OIDC identity provider, call the following operation: 
+   + [`GetOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html)
 
-  - [`TagOpenIDConnectProvider`](../APIReference/API_TagOpenIDConnectProvider.md "../APIReference/API_TagOpenIDConnectProvider.md")
+1. To add a new client ID to an existing IAM OIDC identity provider, call the following operation: 
+   + [`AddClientIDToOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.html)
 
-###### To list tags for an existing IAM OIDC identity provider (AWS API)
+1. To remove a client ID from an existing IAM OIDC identity provider, call the following operation:
+   + [`RemoveClientIDFromOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveClientIDFromOpenIDConnectProvider.html)
 
-- To list tags for an existing IAM OIDC identity provider, call the following
-  operation:
+**To delete an IAM OIDC identity provider (AWS API)**
 
-  - [`ListOpenIDConnectProviderTags`](../APIReference/API_ListOpenIDConnectProviderTags.md "../APIReference/API_ListOpenIDConnectProviderTags.md")
+1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS account, call the following operation: 
+   + [`ListOpenIDConnectProviders`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html)
 
-###### To remove tags on an existing IAM OIDC identity provider (AWS API)
+1. (Optional) To get detailed information about an IAM OIDC identity provider, call the following operation:
+   + [`GetOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html)
 
-- To remove tags on an existing IAM OIDC identity provider, call the following
-  operation:
-
-  - [`UntagOpenIDConnectProvider`](../APIReference/API_UntagOpenIDConnectProvider.md "../APIReference/API_UntagOpenIDConnectProvider.md")
-
-###### To add or remove a client ID from an existing IAM OIDC identity provider (AWS API)
-
-1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS
-   account, call the following operation:
-
-   - [`ListOpenIDConnectProviders`](../APIReference/API_ListOpenIDConnectProviders.md "../APIReference/API_ListOpenIDConnectProviders.md")
-
-2. (Optional) To get detailed information about an IAM OIDC identity provider, call the
-   following operation:
-
-   - [`GetOpenIDConnectProvider`](../APIReference/API_GetOpenIDConnectProvider.md "../APIReference/API_GetOpenIDConnectProvider.md")
-
-3. To add a new client ID to an existing IAM OIDC identity provider, call the following
-   operation:
-
-   - [`AddClientIDToOpenIDConnectProvider`](../APIReference/API_AddClientIDToOpenIDConnectProvider.md "../APIReference/API_AddClientIDToOpenIDConnectProvider.md")
-
-4. To remove a client ID from an existing IAM OIDC identity provider, call the
-   following operation:
-
-   - [`RemoveClientIDFromOpenIDConnectProvider`](../APIReference/API_RemoveClientIDFromOpenIDConnectProvider.md "../APIReference/API_RemoveClientIDFromOpenIDConnectProvider.md")
-
-###### To delete an IAM OIDC identity provider (AWS API)
-
-1. (Optional) To get a list of all the IAM OIDC identity provider in your AWS
-   account, call the following operation:
-
-   - [`ListOpenIDConnectProviders`](../APIReference/API_ListOpenIDConnectProviders.md "../APIReference/API_ListOpenIDConnectProviders.md")
-
-2. (Optional) To get detailed information about an IAM OIDC identity provider, call the
-   following operation:
-
-   - [`GetOpenIDConnectProvider`](../APIReference/API_GetOpenIDConnectProvider.md "../APIReference/API_GetOpenIDConnectProvider.md")
-
-3. To delete an IAM OIDC identity provider, call the following operation:
-
-   - [`DeleteOpenIDConnectProvider`](../APIReference/API_DeleteOpenIDConnectProvider.md "../APIReference/API_DeleteOpenIDConnectProvider.md")
+1. To delete an IAM OIDC identity provider, call the following operation:
+   + [`DeleteOpenIDConnectProvider`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.html)

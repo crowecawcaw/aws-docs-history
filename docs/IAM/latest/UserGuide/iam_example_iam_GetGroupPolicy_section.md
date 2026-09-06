@@ -1,23 +1,23 @@
+
+
 # Use `GetGroupPolicy` with a CLI
+<a name="iam_example_iam_GetGroupPolicy_section"></a>
 
 The following code examples show how to use `GetGroupPolicy`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get information about a policy attached to an IAM group**
-
-The following `get-group-policy` command gets information about the specified policy attached to the group named `Test-Group`.
-
-```
-`aws iam get-group-policy \
- --group-name `Test-Group` \
- --policy-name `S3-ReadOnly-Policy``
+**AWS CLI**  
+**To get information about a policy attached to an IAM group**  
+The following `get-group-policy` command gets information about the specified policy attached to the group named `Test-Group`.  
 
 ```
-
-Output:
+aws iam get-group-policy \
+    --group-name {{Test-Group}} \
+    --policy-name {{S3-ReadOnly-Policy}}
+```
+Output:  
 
 ```
 {
@@ -37,26 +37,20 @@ Output:
     "PolicyName": "S3-ReadOnly-Policy"
 }
 ```
+For more information, see [Managing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetGroupPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-group-policy.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Managing IAM policies](access_policies_manage.md "access_policies_manage.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetGroupPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-group-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-group-policy.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns details about the embedded inline policy named `PowerUserAccess-Testers` for the group `Testers`. The `PolicyDocument` property is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns details about the embedded inline policy named `PowerUserAccess-Testers` for the group `Testers`. The `PolicyDocument` property is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**  
 
 ```
 $results = Get-IAMGroupPolicy -GroupName Testers -PolicyName PowerUserAccess-Testers
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupName     PolicyDocument                                              PolicyName
@@ -66,7 +60,7 @@ Testers       %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0A%20... PowerU
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -80,22 +74,16 @@ Testers       %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0A%20... PowerU
   ]
 }
 ```
++  For API details, see [GetGroupPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetGroupPolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns details about the embedded inline policy named `PowerUserAccess-Testers` for the group `Testers`. The `PolicyDocument` property is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns details about the embedded inline policy named `PowerUserAccess-Testers` for the group `Testers`. The `PolicyDocument` property is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**  
 
 ```
 $results = Get-IAMGroupPolicy -GroupName Testers -PolicyName PowerUserAccess-Testers
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupName     PolicyDocument                                              PolicyName
@@ -105,7 +93,7 @@ Testers       %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0A%20... PowerU
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -119,11 +107,8 @@ Testers       %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0A%20... PowerU
   ]
 }
 ```
++  For API details, see [GetGroupPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetGroupPolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

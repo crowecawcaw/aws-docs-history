@@ -1,21 +1,19 @@
+
+
 # Getting started with workflow orchestration
+<a name="iam_example_iam_GettingStarted_080_section"></a>
 
 The following code example shows how to:
++ Create an IAM role for Step Functions
++ Create your first state machine
++ Start your state machine execution
++ Clean up resources
 
-- Create an IAM role for Step Functions
-- Create your first state machine
-- Start your state machine execution
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/080-aws-step-functions-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/080-aws-step-functions-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/080-aws-step-functions-gs) repository. 
 
 ```
 #!/bin/bash
@@ -113,12 +111,12 @@ declare -A API_CACHE
 aws_call_cached() {
     local cache_key="$1"
     shift
-
+    
     if [[ -v API_CACHE["$cache_key"] ]]; then
         echo "${API_CACHE[$cache_key]}"
         return 0
     fi
-
+    
     local result
     result=$(aws "$@" 2>&1) || return $?
     API_CACHE["$cache_key"]="$result"
@@ -129,7 +127,7 @@ aws_call_cached() {
 check_api_error() {
     local response="$1"
     local operation="$2"
-
+    
     if [[ "$USE_JQ" == "true" ]]; then
         # Use jq for more reliable JSON parsing with efficient error detection
         if echo "$response" | jq -e '.Error // .error // empty' > /dev/null 2>&1; then
@@ -148,7 +146,7 @@ check_api_error() {
 extract_json_field() {
     local json="$1"
     local field="$2"
-
+    
     if [[ "$USE_JQ" == "true" ]]; then
         echo "$json" | jq -r "$field" 2>/dev/null
     else
@@ -160,13 +158,13 @@ extract_json_field() {
 wait_for_propagation() {
     local resource_type="$1"
     local wait_time="${2:-10}"
-
+    
     # Validate wait_time is a positive integer
     if ! [[ "$wait_time" =~ ^[0-9]+$ ]] || [ "$wait_time" -lt 1 ] || [ "$wait_time" -gt 300 ]; then
         echo "WARNING: Invalid wait time $wait_time, using default 10 seconds"
         wait_time=10
     fi
-
+    
     echo "Waiting for $resource_type to propagate ($wait_time seconds)..."
     sleep "$wait_time"
 }
@@ -174,7 +172,7 @@ wait_for_propagation() {
 # Function to validate JSON file efficiently
 validate_json_file() {
     local file="$1"
-
+    
     if [[ "$USE_JQ" == "true" ]]; then
         if ! jq empty "$file" 2>/dev/null; then
             handle_error "Invalid JSON in $file"
@@ -198,7 +196,7 @@ handle_error() {
     if [ -n "${STEPFUNCTIONS_POLICY_ARN:-}" ]; then
         echo "- Step Functions Policy: $STEPFUNCTIONS_POLICY_ARN"
     fi
-
+    
     echo "Attempting to clean up resources..."
     cleanup
     exit 1
@@ -207,47 +205,47 @@ handle_error() {
 # Function to securely clean up resources with parallel deletion
 cleanup() {
     echo "Cleaning up resources..."
-
+    
     # Delete state machine if it exists
     if [ -n "${STATE_MACHINE_ARN:-}" ]; then
         echo "Deleting state machine: $STATE_MACHINE_ARN"
         aws stepfunctions delete-state-machine --state-machine-arn "$STATE_MACHINE_ARN" 2>/dev/null &
     fi
-
+    
     # Detach and delete policies if they exist
     if [ -n "${POLICY_ARN:-}" ] && [ -n "${ROLE_NAME:-}" ]; then
         echo "Detaching Comprehend policy $POLICY_ARN from role $ROLE_NAME"
         aws iam detach-role-policy --role-name "$ROLE_NAME" --policy-arn "$POLICY_ARN" 2>/dev/null &
     fi
-
+    
     if [ -n "${STEPFUNCTIONS_POLICY_ARN:-}" ] && [ -n "${ROLE_NAME:-}" ]; then
         echo "Detaching Step Functions policy $STEPFUNCTIONS_POLICY_ARN from role $ROLE_NAME"
         aws iam detach-role-policy --role-name "$ROLE_NAME" --policy-arn "$STEPFUNCTIONS_POLICY_ARN" 2>/dev/null &
     fi
-
+    
     # Wait for detach operations to complete
     wait 2>/dev/null || true
-
+    
     # Delete custom policies if they exist
     if [ -n "${POLICY_ARN:-}" ]; then
         echo "Deleting Comprehend policy: $POLICY_ARN"
         aws iam delete-policy --policy-arn "$POLICY_ARN" 2>/dev/null &
     fi
-
+    
     if [ -n "${STEPFUNCTIONS_POLICY_ARN:-}" ]; then
         echo "Deleting Step Functions policy: $STEPFUNCTIONS_POLICY_ARN"
         aws iam delete-policy --policy-arn "$STEPFUNCTIONS_POLICY_ARN" 2>/dev/null &
     fi
-
+    
     # Wait for policy deletion to complete
     wait 2>/dev/null || true
-
+    
     # Delete role if it exists
     if [ -n "${ROLE_NAME:-}" ]; then
         echo "Deleting role: $ROLE_NAME"
         aws iam delete-role --role-name "$ROLE_NAME" 2>/dev/null || echo "Failed to delete role"
     fi
-
+    
     # Remove temporary files securely
     echo "Removing temporary files"
     local temp_files=(
@@ -260,7 +258,7 @@ cleanup() {
         "input.json"
         "sentiment-input.json"
     )
-
+    
     for file in "${temp_files[@]}"; do
         if [ -f "$file" ]; then
             if command -v shred &> /dev/null; then
@@ -370,7 +368,7 @@ EOF
 echo "Creating IAM role trust policy..."
 cat > step-functions-trust-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -405,7 +403,7 @@ echo "Role ARN: $ROLE_ARN"
 echo "Creating custom policy for Step Functions..."
 cat > stepfunctions-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -634,7 +632,7 @@ if [[ "$SKIP_COMPREHEND" == "false" ]]; then
     echo "Creating policy for Amazon Comprehend access with least privilege..."
     cat > comprehend-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -850,23 +848,20 @@ echo "Auto-cleanup enabled. Cleaning up resources..."
 echo "All resources have been cleaned up."
 
 echo "Script completed successfully!"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateStateMachine](https://docs.aws.amazon.com/goto/aws-cli/states-2016-11-23/CreateStateMachine)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteStateMachine](https://docs.aws.amazon.com/goto/aws-cli/states-2016-11-23/DeleteStateMachine)
+  + [DescribeExecution](https://docs.aws.amazon.com/goto/aws-cli/states-2016-11-23/DescribeExecution)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [StartExecution](https://docs.aws.amazon.com/goto/aws-cli/states-2016-11-23/StartExecution)
+  + [UpdateStateMachine](https://docs.aws.amazon.com/goto/aws-cli/states-2016-11-23/UpdateStateMachine)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateStateMachine](../../../goto/aws-cli/states-2016-11-23/CreateStateMachine.md "../../../goto/aws-cli/states-2016-11-23/CreateStateMachine.md")
-  - [DeletePolicy](../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteStateMachine](../../../goto/aws-cli/states-2016-11-23/DeleteStateMachine.md "../../../goto/aws-cli/states-2016-11-23/DeleteStateMachine.md")
-  - [DescribeExecution](../../../goto/aws-cli/states-2016-11-23/DescribeExecution.md "../../../goto/aws-cli/states-2016-11-23/DescribeExecution.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [StartExecution](../../../goto/aws-cli/states-2016-11-23/StartExecution.md "../../../goto/aws-cli/states-2016-11-23/StartExecution.md")
-  - [UpdateStateMachine](../../../goto/aws-cli/states-2016-11-23/UpdateStateMachine.md "../../../goto/aws-cli/states-2016-11-23/UpdateStateMachine.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

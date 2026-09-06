@@ -1,16 +1,15 @@
+
+
 # Use `CreateServiceLinkedRole` with an AWS SDK or CLI
+<a name="iam_example_iam_CreateServiceLinkedRole_section"></a>
 
 The following code examples show how to use `CreateServiceLinkedRole`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -30,31 +29,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.CreateServiceLinkedRoleAsync(request);
         return response.Role;
     }
+```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateServiceLinkedRole) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create a service-linked role**  
+The following `create-service-linked-role` example creates a service-linked role for the specified AWS service and attaches the specified description.  
 
 ```
-
-- For API details, see
-  [CreateServiceLinkedRole](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateServiceLinkedRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateServiceLinkedRole.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a service-linked role**
-
-The following `create-service-linked-role` example creates a service-linked role for the specified AWS service and attaches the specified description.
-
+aws iam create-service-linked-role \
+    --aws-service-name {{lex.amazonaws.com}} \
+    --description {{"My service-linked role to support Lex"}}
 ```
-`aws iam create-service-linked-role \
- --aws-service-name `lex.amazonaws.com` \
- --description `"My service-linked role to support Lex"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -65,7 +55,7 @@ Output:
         "Arn": "arn:aws:iam::1234567890:role/aws-service-role/lex.amazonaws.com/AWSServiceRoleForLexBots",
         "CreateDate": "2019-04-17T20:34:14+00:00",
         "AssumeRolePolicyDocument": {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Action": [
@@ -83,25 +73,16 @@ Output:
     }
 }
 ```
+For more information, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreateServiceLinkedRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-service-linked-role.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateServiceLinkedRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-service-linked-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-service-linked-role.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -136,26 +117,15 @@ func (wrapper RoleWrapper) CreateServiceLinkedRole(ctx context.Context, serviceN
 	}
 	return role, err
 }
-
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateServiceLinkedRole) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateServiceLinkedRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateServiceLinkedRole")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Create a service-linked role.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Create a service-linked role.  
 
 ```
 import {
@@ -198,23 +168,14 @@ export const createServiceLinkedRole = async (serviceName) => {
     throw caught;
   }
 };
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateServiceLinkedRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateServiceLinkedRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateServiceLinkedRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -231,51 +192,33 @@ $service = new IAMService();
         }
         return $this->iamClient->createServiceLinkedRole($createServiceLinkedRoleArguments);
     }
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateServiceLinkedRole) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateServiceLinkedRole.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateServiceLinkedRole.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a servicelinked role for autoscaling service.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a servicelinked role for autoscaling service.**  
 
 ```
 New-IAMServiceLinkedRole -AWSServiceName autoscaling.amazonaws.com -CustomSuffix RoleNameEndsWithThis -Description "My service-linked role to support autoscaling"
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a servicelinked role for autoscaling service.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a servicelinked role for autoscaling service.**  
 
 ```
 New-IAMServiceLinkedRole -AWSServiceName autoscaling.amazonaws.com -CustomSuffix RoleNameEndsWithThis -Description "My service-linked role to support autoscaling"
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def create_service_linked_role(service_name, description):
@@ -297,25 +240,14 @@ def create_service_linked_role(service_name, description):
         raise
     else:
         return role
-
-
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateServiceLinkedRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../goto/boto3/iam-2010-05-08/CreateServiceLinkedRole.md "../../../goto/boto3/iam-2010-05-08/CreateServiceLinkedRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Creates a service-linked role
@@ -336,23 +268,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("\t#{e.code}: #{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateServiceLinkedRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateServiceLinkedRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateServiceLinkedRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn create_service_linked_role(
@@ -371,23 +294,14 @@ pub async fn create_service_linked_role(
 
     Ok(response)
 }
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_service_linked_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_service_linked_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_service_linked_role")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -399,23 +313,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when listing policy versions.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -440,14 +345,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CreateServiceLinkedRole](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createservicelinkedrole(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateServiceLinkedRole](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createservicelinkedrole(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createservicelinkedrole(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

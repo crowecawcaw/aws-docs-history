@@ -1,23 +1,20 @@
+
+
 # Manage IAM policies using an AWS SDK
+<a name="iam_example_iam_Scenario_PolicyManagement_section"></a>
 
 The following code example shows how to:
++ Create and list policies.
++ Create and get policy versions.
++ Roll back a policy to a previous version.
++ Delete policies.
 
-- Create and list policies.
-- Create and get policy versions.
-- Roll back a policy to a previous version.
-- Delete policies.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Create functions that wrap IAM policy actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Create functions that wrap IAM policy actions.  
 
 ```
 import json
@@ -47,7 +44,7 @@ def create_policy(name, description, actions, resource_arn):
     :return: The newly created policy.
     """
     policy_doc = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [{"Effect": "Allow", "Action": actions, "Resource": resource_arn}],
     }
     try:
@@ -98,7 +95,7 @@ def create_policy_version(policy_arn, actions, resource_arn, set_as_default):
     :return: The newly created policy version.
     """
     policy_doc = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [{"Effect": "Allow", "Action": actions, "Resource": resource_arn}],
     }
     try:
@@ -205,13 +202,8 @@ def delete_policy(policy_arn):
     except ClientError:
         logger.exception("Couldn't delete policy %s.", policy_arn)
         raise
-
-
-
-
 ```
-
-Use the wrapper functions to create policies, update versions, and get information about them.
+Use the wrapper functions to create policies, update versions, and get information about them.  
 
 ```
 def usage_demo():
@@ -257,23 +249,17 @@ def usage_demo():
     delete_policy(policy.arn)
     print(f"Deleted policy {policy.policy_name}.")
     print("Thanks for watching!")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreatePolicy)
+  + [CreatePolicyVersion](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreatePolicyVersion)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeletePolicy)
+  + [DeletePolicyVersion](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeletePolicyVersion)
+  + [GetPolicyVersion](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetPolicyVersion)
+  + [ListPolicies](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListPolicies)
+  + [ListPolicyVersions](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListPolicyVersions)
+  + [SetDefaultPolicyVersion](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/SetDefaultPolicyVersion)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreatePolicy](../../../goto/boto3/iam-2010-05-08/CreatePolicy.md "../../../goto/boto3/iam-2010-05-08/CreatePolicy.md")
-  - [CreatePolicyVersion](../../../goto/boto3/iam-2010-05-08/CreatePolicyVersion.md "../../../goto/boto3/iam-2010-05-08/CreatePolicyVersion.md")
-  - [DeletePolicy](../../../goto/boto3/iam-2010-05-08/DeletePolicy.md "../../../goto/boto3/iam-2010-05-08/DeletePolicy.md")
-  - [DeletePolicyVersion](../../../goto/boto3/iam-2010-05-08/DeletePolicyVersion.md "../../../goto/boto3/iam-2010-05-08/DeletePolicyVersion.md")
-  - [GetPolicyVersion](../../../goto/boto3/iam-2010-05-08/GetPolicyVersion.md "../../../goto/boto3/iam-2010-05-08/GetPolicyVersion.md")
-  - [ListPolicies](../../../goto/boto3/iam-2010-05-08/ListPolicies.md "../../../goto/boto3/iam-2010-05-08/ListPolicies.md")
-  - [ListPolicyVersions](../../../goto/boto3/iam-2010-05-08/ListPolicyVersions.md "../../../goto/boto3/iam-2010-05-08/ListPolicyVersions.md")
-  - [SetDefaultPolicyVersion](../../../goto/boto3/iam-2010-05-08/SetDefaultPolicyVersion.md "../../../goto/boto3/iam-2010-05-08/SetDefaultPolicyVersion.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

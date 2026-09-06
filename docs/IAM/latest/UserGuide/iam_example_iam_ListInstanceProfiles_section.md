@@ -1,21 +1,21 @@
+
+
 # Use `ListInstanceProfiles` with a CLI
+<a name="iam_example_iam_ListInstanceProfiles_section"></a>
 
 The following code examples show how to use `ListInstanceProfiles`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To lists the instance profiles for the account**
-
-The following `list-instance-profiles` command lists the instance profiles that are associated with the current account.
-
-```
-`aws iam list-instance-profiles`
+**AWS CLI**  
+**To lists the instance profiles for the account**  
+The following `list-instance-profiles` command lists the instance profiles that are associated with the current account.  
 
 ```
-
-Output:
+aws iam list-instance-profiles
+```
+Output:  
 
 ```
 {
@@ -34,7 +34,7 @@ Output:
                     "Arn": "arn:aws:iam::123456789012:role/example-dev-role",
                     "CreateDate": "2023-09-21T18:17:40+00:00",
                     "AssumeRolePolicyDocument": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -62,7 +62,7 @@ Output:
                     "Arn": "arn:aws:iam::123456789012:role/example-s3-role",
                     "CreateDate": "2023-09-21T18:18:49+00:00",
                     "AssumeRolePolicyDocument": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -79,25 +79,19 @@ Output:
     ]
 }
 ```
+For more information, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListInstanceProfiles](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-instance-profiles.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md "id_roles_use_switch-role-ec2_instance-profiles.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ListInstanceProfiles](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-instance-profiles.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-instance-profiles.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns a collection of the instance profiles defined in the current AWS account.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns a collection of the instance profiles defined in the current AWS account.**  
 
 ```
 Get-IAMInstanceProfileList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                 : arn:aws:iam::123456789012:instance-profile/ec2instancerole
@@ -107,21 +101,15 @@ InstanceProfileName : ec2instancerole
 Path                : /
 Roles               : {ec2instancerole}
 ```
++  For API details, see [ListInstanceProfiles](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListInstanceProfiles](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns a collection of the instance profiles defined in the current AWS account.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns a collection of the instance profiles defined in the current AWS account.**  
 
 ```
 Get-IAMInstanceProfileList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                 : arn:aws:iam::123456789012:instance-profile/ec2instancerole
@@ -131,11 +119,8 @@ InstanceProfileName : ec2instancerole
 Path                : /
 Roles               : {ec2instancerole}
 ```
++  For API details, see [ListInstanceProfiles](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListInstanceProfiles](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

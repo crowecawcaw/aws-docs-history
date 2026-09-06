@@ -1,114 +1,55 @@
+
+
 # Identity providers and federation into AWS
+<a name="id_roles_providers"></a>
 
-As a best practice, we recommend that you require human users to use federation with an
-identity provider to access AWS resources instead of creating individual IAM users in your
-AWS account. With an identity provider (IdP), you can manage your user identities outside of
-AWS and give these external user identities permissions to use AWS resources in your
-account. This is useful if your organization already has its own identity system, such as a
-corporate user directory. It is also useful if you are creating a mobile app or web application
-that requires access to AWS resources.
+As a best practice, we recommend that you require human users to use federation with an identity provider to access AWS resources instead of creating individual IAM users in your AWS account. With an identity provider (IdP), you can manage your user identities outside of AWS and give these external user identities permissions to use AWS resources in your account. This is useful if your organization already has its own identity system, such as a corporate user directory. It is also useful if you are creating a mobile app or web application that requires access to AWS resources.
 
-###### Note
+**Note**  
+You can also manage human users in [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) with an external SAML identity provider instead of using SAML federation in IAM. IAM Identity Center federation with an identity provider provides the capability for you to give people access to multiple AWS accounts in your organization and to multiple AWS applications. For information about specific situations where an IAM user is required, see [When to create an IAM user (instead of a role)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_which-to-choose).  
+You can also use [account access manager](account-access-manager.md) — an IAM feature that lets you assign existing IAM roles across your organization's accounts to IAM Identity Center users and groups. You can use it alongside permission sets or on its own.
 
-You can also manage human users in [IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") with an external SAML
-identity provider instead of using SAML federation in IAM. IAM Identity Center federation with an identity
-provider provides the capability for you to give people access to multiple AWS accounts in
-your organization and to multiple AWS applications. For information about specific
-situations where an IAM user is required, see [When to create an IAM user (instead of a
-role)](id.md#id_which-to-choose "id.md#id_which-to-choose").
+If you prefer to use a single AWS account without enabling IAM Identity Center, you can use IAM with an external IdP that provides identity information to AWS using either [OpenID Connect (OIDC)](http://openid.net/connect/) or [SAML 2.0 (Security Assertion Markup Language 2.0)](https://wiki.oasis-open.org/security). OIDC connects applications, like GitHub Actions, that do not run on AWS to AWS resources. Examples of well-known SAML identity providers are Shibboleth and Active Directory Federation Services.
 
-You can also use
-[account access manager](account-access-manager.md "account-access-manager.md") — an IAM feature that lets you assign
-existing IAM roles across your organization's accounts to IAM Identity Center users and groups. You can
-use it alongside permission sets or on its own.
+When you use an identity provider, you don't have to create custom sign-in code or manage your own user identities. The IdP provides that for you. Your external users sign in through an IdP, and you can give those external identities permissions to use AWS resources in your account. Identity providers help keep your AWS account secure because you don't have to distribute or embed long-term security credentials, such as access keys, in your application.
 
-If you prefer to use a single AWS account without enabling IAM Identity Center, you can use IAM with
-an external IdP that provides identity information to AWS using either [OpenID Connect (OIDC)](http://openid.net/connect/ "http://openid.net/connect/") or [SAML 2.0 (Security Assertion Markup Language
-2.0)](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security"). OIDC connects applications, like GitHub Actions, that do not run on AWS to
-AWS resources. Examples of well-known SAML identity providers are Shibboleth and Active
-Directory Federation Services.
+Review the following table to help determine which IAM federation type is best for your use case; IAM, IAM Identity Center, or Amazon Cognito. The following summaries and table provide an overview of the methods that your users can employ to gain federated access to AWS resources.
 
-When you use an identity provider, you don't have to create custom sign-in code or manage
-your own user identities. The IdP provides that for you. Your external users sign in through an
-IdP, and you can give those external identities permissions to use AWS resources in your
-account. Identity providers help keep your AWS account secure because you don't have to
-distribute or embed long-term security credentials, such as access keys, in your
-application.
 
-Review the following table to help determine which IAM federation type is best for your
-use case; IAM, IAM Identity Center, or Amazon Cognito. The following summaries and table provide an overview of the
-methods that your users can employ to gain federated access to AWS resources.
-
-| IAM federation type                           | Account type                                   | Access management of..                                                  | Supported identity source                                               |
-| --------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Federation with IAM Identity Center           | Multiple accounts managed by AWS Organizations | Your workforce’s human users                                            | • SAML 2.0<br>• Managed Active Directory<br>• Identity Center directory |
-| Federation with IAM                           | Single, standalone account                     | • Human users in short-term, small scale deployments<br>• Machine users | • SAML 2.0<br>• OIDC                                                    |
-| Federation with Amazon Cognito identity pools | Any                                            | The users of apps that require IAM authorization to access resources    | • SAML 2.0<br>• OIDC<br>• Select OAuth 2.0 social identity providers    |
+| IAM federation type | Account type | Access management of.. | Supported identity source | 
+| --- | --- | --- | --- | 
+| Federation with IAM Identity Center | Multiple accounts managed by AWS Organizations | Your workforce’s human users |  +  SAML 2.0 <br />+  Managed Active Directory <br />+  Identity Center directory   | 
+| Federation with IAM | Single, standalone account |  +  Human users in short-term, small scale deployments <br />+  Machine users   | +  SAML 2.0 <br />+  OIDC   | 
+| Federation with Amazon Cognito identity pools | Any | The users of apps that require IAM authorization to access resources | +  SAML 2.0 <br />+  OIDC <br />+  Select OAuth 2.0 social identity providers   | 
 
 ## Federation with IAM Identity Center
+<a name="id_roles_providers_identity-center"></a>
 
-For centralized access management of human users, we recommend that you use [IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") to
-manage access to your accounts and permissions within those accounts. Users in IAM Identity Center are
-granted short-term credentials to your AWS resources. You can use Active Directory, an
-external identity provider (IdP), or an IAM Identity Center directory as the identity source for users and
-groups to assign access to your AWS resources.
+For centralized access management of human users, we recommend that you use [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) to manage access to your accounts and permissions within those accounts. Users in IAM Identity Center are granted short-term credentials to your AWS resources. You can use Active Directory, an external identity provider (IdP), or an IAM Identity Center directory as the identity source for users and groups to assign access to your AWS resources. 
 
-IAM Identity Center supports identity federation with SAML (Security Assertion Markup Language) 2.0 to
-provide federated single sign-on access for users who are authorized to use applications
-within the AWS access portal. Users can then single sign-on into services that support SAML,
-including the AWS Management Console and third-party applications, such as Microsoft 365, SAP Concur, and
-Salesforce.
+IAM Identity Center supports identity federation with SAML (Security Assertion Markup Language) 2.0 to provide federated single sign-on access for users who are authorized to use applications within the AWS access portal. Users can then single sign-on into services that support SAML, including the AWS Management Console and third-party applications, such as Microsoft 365, SAP Concur, and Salesforce.
 
 ## Federation with IAM
+<a name="id_roles_providers_iam"></a>
 
-While we strongly recommend managing human users in IAM Identity Center, you can enable federated
-principal access with IAM for human users in short-term, small scale deployments. IAM
-allows you to use separate SAML 2.0 and Open ID Connect (OIDC) IdPs and use federated principal
-attributes for access control. With IAM, you can pass user attributes, such as cost center,
-title, or locale, from your IdPs to AWS, and implement fine-grained access permissions based
-on these attributes.
+While we strongly recommend managing human users in IAM Identity Center, you can enable federated principal access with IAM for human users in short-term, small scale deployments. IAM allows you to use separate SAML 2.0 and Open ID Connect (OIDC) IdPs and use federated principal attributes for access control. With IAM, you can pass user attributes, such as cost center, title, or locale, from your IdPs to AWS, and implement fine-grained access permissions based on these attributes.
 
-A _workload_ is a collection of resources and code that delivers
-business value, such as an application or backend process. Your workload can require an IAM
-identity to make requests to AWS services, applications, operational tools, and components.
-These identities include machines running in your AWS environments, such as Amazon EC2 instances
-or AWS Lambda functions.
+A *workload* is a collection of resources and code that delivers business value, such as an application or backend process. Your workload can require an IAM identity to make requests to AWS services, applications, operational tools, and components. These identities include machines running in your AWS environments, such as Amazon EC2 instances or AWS Lambda functions.
 
-You can also manage machine identities for external parties who need access. To give
-access to machine identities, you can use IAM roles. IAM roles have specific permissions
-and provide a way to access AWS by relying on temporary security credentials with a role
-session. Additionally, you might have machines outside of AWS that need access to your AWS
-environments. For machines that run outside of AWS you can use [IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md"). For more
-information about roles, see [IAM roles](id_roles.md "id_roles.md"). For details
-about how to use roles to delegate access across AWS accounts, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
+You can also manage machine identities for external parties who need access. To give access to machine identities, you can use IAM roles. IAM roles have specific permissions and provide a way to access AWS by relying on temporary security credentials with a role session. Additionally, you might have machines outside of AWS that need access to your AWS environments. For machines that run outside of AWS you can use [IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html). For more information about roles, see [IAM roles](id_roles.md). For details about how to use roles to delegate access across AWS accounts, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md).
 
-To link an IdP directly to IAM, you create an identity provider entity to establish a
-trust relationship between your AWS account and the IdP. IAM supports IdPs that are
-compatible with [OpenID Connect (OIDC)](http://openid.net/connect/ "http://openid.net/connect/") or
-[SAML 2.0 (Security Assertion Markup
-Language 2.0)](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security"). For more information about using one of these IdPs with AWS, see
-the following sections:
-
-- [OIDC federation](id_roles_providers_oidc.md "id_roles_providers_oidc.md")
-- [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md")
+To link an IdP directly to IAM, you create an identity provider entity to establish a trust relationship between your AWS account and the IdP. IAM supports IdPs that are compatible with [OpenID Connect (OIDC)](http://openid.net/connect/) or [SAML 2.0 (Security Assertion Markup Language 2.0)](https://wiki.oasis-open.org/security). For more information about using one of these IdPs with AWS, see the following sections:
++ [OIDC federation](id_roles_providers_oidc.md)
++ [SAML 2.0 federation](id_roles_providers_saml.md)
 
 ## Federation with Amazon Cognito identity pools
+<a name="id_roles_providers_cognito"></a>
 
-Amazon Cognito is designed for developers who want to authenticate and authorize users in their
-mobile and web apps. Amazon Cognito user pools add sign-in and sign-up features to your app, and
-identity pools deliver IAM credentials that grant your users access to protected resources
-that you manage in AWS. Identity pools acquire credentials for temporary sessions through
-the [`AssumeRoleWithWebIdentity`](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") API operation.
+Amazon Cognito is designed for developers who want to authenticate and authorize users in their mobile and web apps. Amazon Cognito user pools add sign-in and sign-up features to your app, and identity pools deliver IAM credentials that grant your users access to protected resources that you manage in AWS. Identity pools acquire credentials for temporary sessions through the [`AssumeRoleWithWebIdentity`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) API operation.
 
-Amazon Cognito works with external identity providers that support SAML and OpenID Connect, and
-with social identity providers like Facebook, Google, and Amazon. Your app can sign in a user
-with a user pool or an external IdP, then retrieve resources on their behalf with customized
-temporary sessions in an IAM role.
+Amazon Cognito works with external identity providers that support SAML and OpenID Connect, and with social identity providers like Facebook, Google, and Amazon. Your app can sign in a user with a user pool or an external IdP, then retrieve resources on their behalf with customized temporary sessions in an IAM role.
 
 ## Additional resources
-
-- For a demonstration on how to create a custom federation proxy that enables single
-  sign-on (SSO) into the AWS Management Console using your organization's authentication system, see
-  [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
-- For instructions on enabling your AWS workloads to access external services without
-  storing credentials, see [Federating AWS Identities to external services](id_roles_providers_outbound.md "id_roles_providers_outbound.md").
+<a name="id_roles_providers_additional_resources"></a>
++ For a demonstration on how to create a custom federation proxy that enables single sign-on (SSO) into the AWS Management Console using your organization's authentication system, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md).
++ For instructions on enabling your AWS workloads to access external services without storing credentials, see [Federating AWS Identities to external services](id_roles_providers_outbound.md).

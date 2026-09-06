@@ -1,24 +1,20 @@
+
+
 # Work with the IAM Policy Builder API using an AWS SDK
+<a name="iam_example_iam_Scenario_IamPolicyBuilder_section"></a>
 
 The following code example shows how to:
++ Create IAM policies by using the object-oriented API.
++ Use the IAM Policy Builder API with the IAM service.
 
-- Create IAM policies by using the object-oriented API.
-- Use the IAM Policy Builder API with the IAM service.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
-
-The examples use the following imports.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
+The examples use the following imports.  
 
 ```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.policybuilder.iam.IamConditionOperator;
@@ -39,11 +35,8 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
-
-
 ```
-
-Create a time-based policy.
+Create a time-based policy.  
 
 ```
         public String timeBasedPolicyExample() {
@@ -68,11 +61,8 @@ Create a time-based policy.
                                 .prettyPrint(true)
                                 .build());
         }
-
-
 ```
-
-Create a policy with multiple conditions.
+Create a policy with multiple conditions.  
 
 ```
         public String multipleConditionsExample() {
@@ -101,11 +91,8 @@ Create a policy with multiple conditions.
                 return policy.toJson(IamPolicyWriter.builder()
                                 .prettyPrint(true).build());
         }
-
-
 ```
-
-Use principals in a policy.
+Use principals in a policy.  
 
 ```
         public String specifyPrincipalsExample() {
@@ -124,11 +111,8 @@ Use principals in a policy.
                 return policy.toJson(IamPolicyWriter.builder()
                                 .prettyPrint(true).build());
         }
-
-
 ```
-
-Allow cross-account access.
+Allow cross-account access.  
 
 ```
         public String allowCrossAccountAccessExample() {
@@ -146,11 +130,8 @@ Allow cross-account access.
                 return policy.toJson(IamPolicyWriter.builder()
                                 .prettyPrint(true).build());
         }
-
-
 ```
-
-Build and upload an `IamPolicy`.
+Build and upload an `IamPolicy`.  
 
 ```
         public String createAndUploadPolicyExample(IamClient iam, String accountID, String policyName) {
@@ -167,11 +148,8 @@ Build and upload an `IamPolicy`.
                 iam.createPolicy(r -> r.policyName(policyName).policyDocument(policy.toJson()));
                 return policy.toJson(IamPolicyWriter.builder().prettyPrint(true).build());
         }
-
-
 ```
-
-Download and work with an `IamPolicy`.
+Download and work with an `IamPolicy`.  
 
 ```
         public String createNewBasedOnExistingPolicyExample(IamClient iam, String accountID, String policyName,
@@ -193,7 +171,7 @@ Download and work with an `IamPolicy`.
                  * All IamPolicy components are immutable, so use the copy method that creates a
                  * new instance that
                  * can be altered in the same method call.
-                 *
+                 * 
                  * Add the ability to get an item from DynamoDB as an additional action.
                  */
                 IamStatement newStatement = policy.statements().get(0).copy(s -> s.addAction("dynamodb:GetItem"));
@@ -207,17 +185,13 @@ Download and work with an `IamPolicy`.
 
                 return newPolicy.toJson(IamPolicyWriter.builder().prettyPrint(true).build());
         }
-
-
 ```
++  For more information, see [AWS SDK for Java 2.x Developer Guide](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/feature-iam-policy-builder.html). 
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy)
+  + [GetPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/GetPolicy)
+  + [GetPolicyVersion](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/GetPolicyVersion)
 
-- For more information, see [AWS SDK for Java 2.x Developer Guide](../../../sdk-for-java/latest/developer-guide/feature-iam-policy-builder.md "../../../sdk-for-java/latest/developer-guide/feature-iam-policy-builder.md").
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CreatePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md")
-  - [GetPolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/GetPolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/GetPolicy.md")
-  - [GetPolicyVersion](../../../goto/SdkForJavaV2/iam-2010-05-08/GetPolicyVersion.md "../../../goto/SdkForJavaV2/iam-2010-05-08/GetPolicyVersion.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

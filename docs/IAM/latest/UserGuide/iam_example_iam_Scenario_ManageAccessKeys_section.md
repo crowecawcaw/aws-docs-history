@@ -1,28 +1,22 @@
+
+
 # Manage IAM access keys using an AWS SDK
+<a name="iam_example_iam_Scenario_ManageAccessKeys_section"></a>
 
-The following code example shows how to manage access keys.
+The following code example shows how to manage access keys. 
 
-###### Warning
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose-built software or working with real data. Instead, use federation with an identity provider such as [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
++ Create and list access keys.
++ Find out when and how an access key was last used.
++ Update and delete access keys.
 
-To avoid security risks, don't use IAM users for authentication when developing purpose-built software
-or working with real data. Instead, use federation with an identity provider such as
-[AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
+------
+#### [ Python ]
 
-- Create and list access keys.
-- Find out when and how an access key was last used.
-- Update and delete access keys.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Create functions that wrap IAM access key actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Create functions that wrap IAM access key actions.  
 
 ```
 import logging
@@ -139,13 +133,8 @@ def delete_key(user_name, key_id):
     except ClientError:
         logger.exception("Couldn't delete key %s for %s", key_id, user_name)
         raise
-
-
-
-
 ```
-
-Use the wrapper functions to perform access key actions for the current user.
+Use the wrapper functions to perform access key actions for the current user.  
 
 ```
 def usage_demo():
@@ -190,20 +179,14 @@ def usage_demo():
         delete_key(current_user_name, new_key.id)
         print_keys()
         print("Thanks for watching!")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateAccessKey)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteAccessKey)
+  + [GetAccessKeyLastUsed](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetAccessKeyLastUsed)
+  + [ListAccessKeys](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListAccessKeys)
+  + [UpdateAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/UpdateAccessKey)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateAccessKey](../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md "../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md")
-  - [DeleteAccessKey](../../../goto/boto3/iam-2010-05-08/DeleteAccessKey.md "../../../goto/boto3/iam-2010-05-08/DeleteAccessKey.md")
-  - [GetAccessKeyLastUsed](../../../goto/boto3/iam-2010-05-08/GetAccessKeyLastUsed.md "../../../goto/boto3/iam-2010-05-08/GetAccessKeyLastUsed.md")
-  - [ListAccessKeys](../../../goto/boto3/iam-2010-05-08/ListAccessKeys.md "../../../goto/boto3/iam-2010-05-08/ListAccessKeys.md")
-  - [UpdateAccessKey](../../../goto/boto3/iam-2010-05-08/UpdateAccessKey.md "../../../goto/boto3/iam-2010-05-08/UpdateAccessKey.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

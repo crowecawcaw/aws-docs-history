@@ -1,20 +1,18 @@
+
+
 # Creating a container service for virtual machine instances
+<a name="iam_example_ecs_GettingStarted_018_section"></a>
 
 The following code example shows how to:
++ Create an ECS cluster
++ Create and monitor a service
++ Clean up resources
 
-- Create an ECS cluster
-- Create and monitor a service
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/018-ecs-ec2 "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/018-ecs-ec2")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/018-ecs-ec2) repository. 
 
 ```
 #!/bin/bash
@@ -58,7 +56,7 @@ handle_error() {
     local exit_code=$?
     log "ERROR: Script failed with exit code $exit_code"
     log "ERROR: Last command: $BASH_COMMAND"
-
+    
     echo ""
     echo "==========================================="
     echo "ERROR OCCURRED - ATTEMPTING CLEANUP"
@@ -67,7 +65,7 @@ handle_error() {
     for resource in "${CREATED_RESOURCES[@]}"; do
         echo "  - $resource"
     done
-
+    
     cleanup_resources
     exit $exit_code
 }
@@ -79,7 +77,7 @@ trap handle_error ERR
 cleanup_resources() {
     log "Starting cleanup process..."
     local cleanup_errors=0
-
+    
     # Delete service first (this will stop tasks automatically)
     if [[ -n "${SERVICE_ARN:-}" ]]; then
         log "Updating service to desired count 0: $SERVICE_NAME"
@@ -90,14 +88,14 @@ cleanup_resources() {
             log "Waiting for service tasks to stop..."
             sleep 30  # Give time for tasks to stop
         fi
-
+        
         log "Deleting service: $SERVICE_NAME"
         if ! aws ecs delete-service --cluster "$CLUSTER_NAME" --service "$SERVICE_NAME" 2>>"$LOG_FILE"; then
             log "WARNING: Failed to delete service $SERVICE_NAME"
             ((cleanup_errors++))
         fi
     fi
-
+    
     # Stop and delete any remaining tasks
     if [[ -n "${TASK_ARN:-}" ]]; then
         log "Stopping task: $TASK_ARN"
@@ -112,7 +110,7 @@ cleanup_resources() {
             fi
         fi
     fi
-
+    
     # Deregister task definition
     if [[ -n "${TASK_DEFINITION_ARN:-}" ]]; then
         log "Deregistering task definition: $TASK_DEFINITION_ARN"
@@ -121,7 +119,7 @@ cleanup_resources() {
             ((cleanup_errors++))
         fi
     fi
-
+    
     # Terminate EC2 instance
     if [[ -n "${INSTANCE_ID:-}" ]]; then
         log "Terminating EC2 instance: $INSTANCE_ID"
@@ -136,13 +134,13 @@ cleanup_resources() {
             fi
         fi
     fi
-
+    
     # Delete security group with retry logic
     if [[ -n "${SECURITY_GROUP_ID:-}" ]]; then
         log "Deleting security group: $SECURITY_GROUP_ID"
         local retry_count=0
         local max_retries=3
-
+        
         while [[ $retry_count -lt $max_retries ]]; do
             if aws ec2 delete-security-group --group-id "$SECURITY_GROUP_ID" 2>>"$LOG_FILE"; then
                 log "Successfully deleted security group"
@@ -159,7 +157,7 @@ cleanup_resources() {
             fi
         done
     fi
-
+    
     # Delete key pair
     if [[ -n "${KEY_PAIR_NAME:-}" ]]; then
         log "Deleting key pair: $KEY_PAIR_NAME"
@@ -169,7 +167,7 @@ cleanup_resources() {
         fi
         rm -f "${KEY_PAIR_NAME}.pem" 2>>"$LOG_FILE" || log "WARNING: Failed to remove local key file"
     fi
-
+    
     # Delete ECS cluster
     if [[ -n "${CLUSTER_NAME:-}" ]]; then
         log "Deleting ECS cluster: $CLUSTER_NAME"
@@ -178,7 +176,7 @@ cleanup_resources() {
             ((cleanup_errors++))
         fi
     fi
-
+    
     if [[ $cleanup_errors -eq 0 ]]; then
         log "Cleanup completed successfully"
     else
@@ -189,24 +187,24 @@ cleanup_resources() {
 # Function to check prerequisites
 check_prerequisites() {
     log "Checking prerequisites..."
-
+    
     # Check AWS CLI
     if ! command -v aws &> /dev/null; then
         log "ERROR: AWS CLI is not installed"
         exit 1
     fi
-
+    
     # Check AWS credentials
     if ! aws sts get-caller-identity &> /dev/null; then
         log "ERROR: AWS credentials not configured"
         exit 1
     fi
-
+    
     # Get caller identity
     CALLER_IDENTITY=$(aws sts get-caller-identity --output text --query 'Account')
     log "AWS Account: $CALLER_IDENTITY"
     log "AWS Region: $AWS_REGION"
-
+    
     # Check for default VPC
     DEFAULT_VPC=$(aws ec2 describe-vpcs --filters "Name=is-default,Values=true" --query 'Vpcs[0].VpcId' --output text)
     if [[ "$DEFAULT_VPC" == "None" ]]; then
@@ -214,7 +212,7 @@ check_prerequisites() {
         exit 1
     fi
     log "Using default VPC: $DEFAULT_VPC"
-
+    
     # Get default subnet
     DEFAULT_SUBNET=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$DEFAULT_VPC" "Name=default-for-az,Values=true" --query 'Subnets[0].SubnetId' --output text)
     if [[ "$DEFAULT_SUBNET" == "None" ]]; then
@@ -222,21 +220,21 @@ check_prerequisites() {
         exit 1
     fi
     log "Using default subnet: $DEFAULT_SUBNET"
-
+    
     log "Prerequisites check completed successfully"
 }
 
 # Function to create ECS cluster
 create_cluster() {
     log "Creating ECS cluster: $CLUSTER_NAME"
-
+    
     CLUSTER_ARN=$(aws ecs create-cluster --cluster-name "$CLUSTER_NAME" --tags key=project,value=$PROJECT_TAG key=tutorial,value=$TUTORIAL_TAG --query 'cluster.clusterArn' --output text)
-
+    
     if [[ -z "$CLUSTER_ARN" ]]; then
         log "ERROR: Failed to create cluster"
         exit 1
     fi
-
+    
     log "Created cluster: $CLUSTER_ARN"
     CREATED_RESOURCES+=("ECS Cluster: $CLUSTER_NAME")
 }
@@ -244,35 +242,35 @@ create_cluster() {
 # Function to create key pair
 create_key_pair() {
     log "Creating EC2 key pair: $KEY_PAIR_NAME"
-
+    
     # FIXED: Set secure umask before key creation
     umask 077
     aws ec2 create-key-pair --key-name "$KEY_PAIR_NAME" --query 'KeyMaterial' --output text > "${KEY_PAIR_NAME}.pem"
     chmod 400 "${KEY_PAIR_NAME}.pem"
     umask 022  # Reset umask
-
+    
     log "Created key pair: $KEY_PAIR_NAME"
     CREATED_RESOURCES+=("EC2 Key Pair: $KEY_PAIR_NAME")
-
+    
     aws ec2 create-tags --resources "$KEY_PAIR_NAME" --tags Key=project,Value=$PROJECT_TAG Key=tutorial,Value=$TUTORIAL_TAG 2>>"$LOG_FILE" || log "WARNING: Failed to tag key pair"
 }
 
 # Function to create security group
 create_security_group() {
     log "Creating security group: $SECURITY_GROUP_NAME"
-
+    
     SECURITY_GROUP_ID=$(aws ec2 create-security-group \
         --group-name "$SECURITY_GROUP_NAME" \
         --description "ECS tutorial security group" \
         --vpc-id "$DEFAULT_VPC" \
         --tag-specifications "ResourceType=security-group,Tags=[{Key=project,Value=$PROJECT_TAG},{Key=tutorial,Value=$TUTORIAL_TAG}]" \
         --query 'GroupId' --output text)
-
+    
     if [[ -z "$SECURITY_GROUP_ID" ]]; then
         log "ERROR: Failed to create security group"
         exit 1
     fi
-
+    
     # Add HTTP access rule for nginx web server with restricted CIDR
     # SECURITY FIX: Restrict access to specific CIDR if available, otherwise document the risk
     log "WARNING: Security group allows HTTP (port 80) from 0.0.0.0/0 - restrict this in production"
@@ -281,7 +279,7 @@ create_security_group() {
         --protocol tcp \
         --port 80 \
         --cidr "0.0.0.0/0"
-
+    
     log "Created security group: $SECURITY_GROUP_ID"
     log "Added HTTP access on port 80"
     CREATED_RESOURCES+=("Security Group: $SECURITY_GROUP_ID")
@@ -290,30 +288,30 @@ create_security_group() {
 # Function to get ECS optimized AMI
 get_ecs_ami() {
     log "Getting ECS-optimized AMI ID..."
-
+    
     ECS_AMI_ID=$(aws ssm get-parameters \
         --names /aws/service/ecs/optimized-ami/amazon-linux-2/recommended \
         --query 'Parameters[0].Value' --output text | jq -r '.image_id')
-
+    
     if [[ -z "$ECS_AMI_ID" ]]; then
         log "ERROR: Failed to get ECS-optimized AMI ID"
         exit 1
     fi
-
+    
     log "ECS-optimized AMI ID: $ECS_AMI_ID"
 }
 
 # Function to create IAM role for ECS instance (if it doesn't exist)
 ensure_ecs_instance_role() {
     log "Checking for ecsInstanceRole..."
-
+    
     if ! aws iam get-role --role-name ecsInstanceRole &> /dev/null; then
         log "Creating ecsInstanceRole..."
-
+        
         # Create trust policy
         cat > ecs-instance-trust-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -325,39 +323,39 @@ ensure_ecs_instance_role() {
   ]
 }
 EOF
-
+        
         # SECURITY FIX: Validate JSON before using
         if ! jq empty ecs-instance-trust-policy.json 2>/dev/null; then
             log "ERROR: Invalid JSON in trust policy"
             rm -f ecs-instance-trust-policy.json
             exit 1
         fi
-
+        
         # Create role
         aws iam create-role \
             --role-name ecsInstanceRole \
             --assume-role-policy-document file://ecs-instance-trust-policy.json
-
+        
         aws iam tag-role --role-name ecsInstanceRole --tags Key=project,Value=$PROJECT_TAG Key=tutorial,Value=$TUTORIAL_TAG
-
+        
         # Attach managed policy
         aws iam attach-role-policy \
             --role-name ecsInstanceRole \
             --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role
-
+        
         # Create instance profile
         aws iam create-instance-profile --instance-profile-name ecsInstanceRole
-
+        
         # Add role to instance profile
         aws iam add-role-to-instance-profile \
             --instance-profile-name ecsInstanceRole \
             --role-name ecsInstanceRole
-
+        
         # FIXED: Enhanced wait for role to be ready
         log "Waiting for IAM role to be ready..."
         aws iam wait role-exists --role-name ecsInstanceRole
         sleep 30  # Additional buffer for eventual consistency
-
+        
         rm -f ecs-instance-trust-policy.json
         log "Created ecsInstanceRole"
         CREATED_RESOURCES+=("IAM Role: ecsInstanceRole")
@@ -369,20 +367,20 @@ EOF
 # Function to launch container instance
 launch_container_instance() {
     log "Launching ECS container instance..."
-
+    
     # Create user data script
     cat > ecs-user-data.sh << EOF
 #!/bin/bash
 echo ECS_CLUSTER=$CLUSTER_NAME >> /etc/ecs/ecs.config
 EOF
-
+    
     # SECURITY FIX: Validate user data script before use
     if ! bash -n ecs-user-data.sh 2>/dev/null; then
         log "ERROR: Invalid user data script"
         rm -f ecs-user-data.sh
         exit 1
     fi
-
+    
     INSTANCE_ID=$(aws ec2 run-instances \
         --image-id "$ECS_AMI_ID" \
         --instance-type t3.micro \
@@ -395,51 +393,51 @@ EOF
         --monitoring Enabled=false \
         --metadata-options HttpTokens=required,HttpPutResponseHopLimit=1 \
         --query 'Instances[0].InstanceId' --output text)
-
+    
     if [[ -z "$INSTANCE_ID" ]]; then
         log "ERROR: Failed to launch EC2 instance"
         rm -f ecs-user-data.sh
         exit 1
     fi
-
+    
     log "Launched EC2 instance: $INSTANCE_ID"
     log "Instance metadata options: IMDSv2 enforced with hop limit 1"
     CREATED_RESOURCES+=("EC2 Instance: $INSTANCE_ID")
-
+    
     # Wait for instance to be running
     log "Waiting for instance to be running..."
     aws ec2 wait instance-running --instance-ids "$INSTANCE_ID"
-
+    
     # Wait for ECS agent to register
     log "Waiting for ECS agent to register with cluster..."
     local max_attempts=30
     local attempt=0
-
+    
     while [[ $attempt -lt $max_attempts ]]; do
         CONTAINER_INSTANCES=$(aws ecs list-container-instances --cluster "$CLUSTER_NAME" --query 'containerInstanceArns' --output text)
         if [[ -n "$CONTAINER_INSTANCES" && "$CONTAINER_INSTANCES" != "None" ]]; then
             log "Container instance registered successfully"
             break
         fi
-
+        
         attempt=$((attempt + 1))
         log "Waiting for container instance registration... (attempt $attempt/$max_attempts)"
         sleep 10
     done
-
+    
     if [[ $attempt -eq $max_attempts ]]; then
         log "ERROR: Container instance failed to register within expected time"
         rm -f ecs-user-data.sh
         exit 1
     fi
-
+    
     rm -f ecs-user-data.sh
 }
 
 # Function to register task definition
 register_task_definition() {
     log "Creating task definition..."
-
+    
     # Create nginx task definition JSON matching the tutorial
     cat > task-definition.json << 'EOF'
 {
@@ -482,41 +480,41 @@ register_task_definition() {
     ]
 }
 EOF
-
+    
     # Replace placeholders securely
     sed -i "s|TASK_FAMILY_PLACEHOLDER|$TASK_FAMILY|g" task-definition.json
     sed -i "s|REGION_PLACEHOLDER|$AWS_REGION|g" task-definition.json
     sed -i "s|PROJECT_TAG_PLACEHOLDER|$PROJECT_TAG|g" task-definition.json
     sed -i "s|TUTORIAL_TAG_PLACEHOLDER|$TUTORIAL_TAG|g" task-definition.json
-
+    
     # FIXED: Validate JSON before registration
     if ! jq empty task-definition.json 2>/dev/null; then
         log "ERROR: Invalid JSON in task definition"
         rm -f task-definition.json
         exit 1
     fi
-
+    
     TASK_DEFINITION_ARN=$(aws ecs register-task-definition \
         --cli-input-json file://task-definition.json \
         --query 'taskDefinition.taskDefinitionArn' --output text)
-
+    
     if [[ -z "$TASK_DEFINITION_ARN" ]]; then
         log "ERROR: Failed to register task definition"
         rm -f task-definition.json
         exit 1
     fi
-
+    
     log "Registered task definition: $TASK_DEFINITION_ARN"
     log "Task definition includes CloudWatch Logs configuration for monitoring"
     CREATED_RESOURCES+=("Task Definition: $TASK_DEFINITION_ARN")
-
+    
     rm -f task-definition.json
 }
 
 # Function to create service
 create_service() {
     log "Creating ECS service..."
-
+    
     SERVICE_ARN=$(aws ecs create-service \
         --cluster "$CLUSTER_NAME" \
         --service-name "$SERVICE_NAME" \
@@ -524,21 +522,21 @@ create_service() {
         --desired-count 1 \
         --tags key=project,value=$PROJECT_TAG key=tutorial,value=$TUTORIAL_TAG \
         --query 'service.serviceArn' --output text)
-
+    
     if [[ -z "$SERVICE_ARN" ]]; then
         log "ERROR: Failed to create service"
         exit 1
     fi
-
+    
     log "Created service: $SERVICE_ARN"
     CREATED_RESOURCES+=("ECS Service: $SERVICE_NAME")
-
+    
     # Wait for service to be stable
     log "Waiting for service to be stable..."
     aws ecs wait services-stable --cluster "$CLUSTER_NAME" --services "$SERVICE_NAME"
-
+    
     log "Service is now stable and running"
-
+    
     # Get the task ARN for monitoring
     TASK_ARN=$(aws ecs list-tasks --cluster "$CLUSTER_NAME" --service-name "$SERVICE_NAME" --query 'taskArns[0]' --output text)
     if [[ -n "$TASK_ARN" && "$TASK_ARN" != "None" ]]; then
@@ -550,47 +548,47 @@ create_service() {
 # Function to demonstrate monitoring and testing
 demonstrate_monitoring() {
     log "Demonstrating monitoring capabilities..."
-
+    
     # List services
     log "Listing services in cluster:"
     aws ecs list-services --cluster "$CLUSTER_NAME" --output table
-
+    
     # Describe service
     log "Service details:"
     aws ecs describe-services --cluster "$CLUSTER_NAME" --services "$SERVICE_NAME" --output table --query 'services[0].{ServiceName:serviceName,Status:status,RunningCount:runningCount,DesiredCount:desiredCount,TaskDefinition:taskDefinition}'
-
+    
     # List tasks
     log "Listing tasks in service:"
     aws ecs list-tasks --cluster "$CLUSTER_NAME" --service-name "$SERVICE_NAME" --output table
-
+    
     # Describe task
     if [[ -n "$TASK_ARN" && "$TASK_ARN" != "None" ]]; then
         log "Task details:"
         aws ecs describe-tasks --cluster "$CLUSTER_NAME" --tasks "$TASK_ARN" --output table --query 'tasks[0].{TaskArn:taskArn,LastStatus:lastStatus,DesiredStatus:desiredStatus,CreatedAt:createdAt}'
     fi
-
+    
     # List container instances
     log "Container instances in cluster:"
     aws ecs list-container-instances --cluster "$CLUSTER_NAME" --output table
-
+    
     # Describe container instance
     CONTAINER_INSTANCE_ARN=$(aws ecs list-container-instances --cluster "$CLUSTER_NAME" --query 'containerInstanceArns[0]' --output text)
     if [[ -n "$CONTAINER_INSTANCE_ARN" && "$CONTAINER_INSTANCE_ARN" != "None" ]]; then
         log "Container instance details:"
         aws ecs describe-container-instances --cluster "$CLUSTER_NAME" --container-instances "$CONTAINER_INSTANCE_ARN" --output table --query 'containerInstances[0].{Arn:containerInstanceArn,Status:status,RunningTasks:runningTasksCount,PendingTasks:pendingTasksCount}'
     fi
-
+    
     # Test the nginx web server
     log "Testing nginx web server..."
     PUBLIC_IP=$(aws ec2 describe-instances --instance-ids "$INSTANCE_ID" --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
-
+    
     if [[ -n "$PUBLIC_IP" && "$PUBLIC_IP" != "None" ]]; then
         log "Container instance public IP: $PUBLIC_IP"
         log "Testing HTTP connection to nginx..."
-
+        
         # Wait a moment for nginx to be fully ready
         sleep 10
-
+        
         if curl -s --connect-timeout 10 "http://$PUBLIC_IP" | grep -q "Welcome to nginx"; then
             log "SUCCESS: Nginx web server is responding correctly"
             echo ""
@@ -612,7 +610,7 @@ main() {
     log "Starting ECS EC2 Launch Type Tutorial (UPDATED VERSION)"
     log "Log file: $LOG_FILE"
     log "Security improvements: IMDSv2 enforced, JSON validation, input sanitization, CloudWatch Logs configured"
-
+    
     check_prerequisites
     create_cluster
     create_key_pair
@@ -623,9 +621,9 @@ main() {
     register_task_definition
     create_service
     demonstrate_monitoring
-
+    
     log "Tutorial completed successfully!"
-
+    
     echo ""
     echo "==========================================="
     echo "TUTORIAL COMPLETED SUCCESSFULLY"
@@ -653,46 +651,43 @@ main() {
 
 # Run main function
 main "$@"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddRoleToInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile)
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/CreateCluster)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateInstanceProfile)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/CreateService)
+  + [DeleteCluster](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeleteCluster)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeleteService)
+  + [DeregisterTaskDefinition](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition)
+  + [DescribeContainerInstances](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeContainerInstances)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeServices)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTasks](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeTasks)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetParameters](https://docs.aws.amazon.com/goto/aws-cli/ssm-2014-11-06/GetParameters)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [ListContainerInstances](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListContainerInstances)
+  + [ListServices](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListServices)
+  + [ListTasks](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListTasks)
+  + [RegisterTaskDefinition](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [StopTask](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/StopTask)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [UpdateService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/UpdateService)
+  + [Wait (Amazon EC2)](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
+  + [Wait (Amazon ECS)](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/Wait)
+  + [Wait (IAM)](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddRoleToInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md")
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateCluster](../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md "../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md")
-  - [CreateInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/CreateInstanceProfile.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateService](../../../goto/aws-cli/ecs-2014-11-13/CreateService.md "../../../goto/aws-cli/ecs-2014-11-13/CreateService.md")
-  - [DeleteCluster](../../../goto/aws-cli/ecs-2014-11-13/DeleteCluster.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteCluster.md")
-  - [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteService](../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md")
-  - [DeregisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md")
-  - [DescribeContainerInstances](../../../goto/aws-cli/ecs-2014-11-13/DescribeContainerInstances.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeContainerInstances.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeServices](../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTasks](../../../goto/aws-cli/ecs-2014-11-13/DescribeTasks.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeTasks.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetParameters](../../../goto/aws-cli/ssm-2014-11-06/GetParameters.md "../../../goto/aws-cli/ssm-2014-11-06/GetParameters.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [ListContainerInstances](../../../goto/aws-cli/ecs-2014-11-13/ListContainerInstances.md "../../../goto/aws-cli/ecs-2014-11-13/ListContainerInstances.md")
-  - [ListServices](../../../goto/aws-cli/ecs-2014-11-13/ListServices.md "../../../goto/aws-cli/ecs-2014-11-13/ListServices.md")
-  - [ListTasks](../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md "../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md")
-  - [RegisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [StopTask](../../../goto/aws-cli/ecs-2014-11-13/StopTask.md "../../../goto/aws-cli/ecs-2014-11-13/StopTask.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [UpdateService](../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md "../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md")
-  - [Wait (Amazon EC2)](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-  - [Wait (Amazon ECS)](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
-  - [Wait (IAM)](../../../goto/aws-cli/iam-2010-05-08/Wait.md "../../../goto/aws-cli/iam-2010-05-08/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,21 +1,18 @@
+
+
 # Use `ListUsers` with an AWS SDK or CLI
+<a name="iam_example_iam_ListUsers_section"></a>
 
 The following code examples show how to use `ListUsers`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md) 
 
-- [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -34,24 +31,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return users;
     }
-
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/ListUsers) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/DotNetSDKV3/iam-2010-05-08/ListUsers.md "../../../goto/DotNetSDKV3/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -117,23 +104,14 @@ function iam_list_users() {
 
   return 0
 }
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/ListUsers) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/aws-cli/iam-2010-05-08/ListUsers.md "../../../goto/aws-cli/iam-2010-05-08/ListUsers.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::listUsers(const Aws::Client::ClientConfiguration &clientConfig) {
@@ -177,28 +155,20 @@ bool AwsDoc::IAM::listUsers(const Aws::Client::ClientConfiguration &clientConfig
 
     return true;
 }
+```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/ListUsers) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list IAM users**  
+The following `list-users` command lists the IAM users in the current account.  
 
 ```
-
-- For API details, see
-  [ListUsers](../../../goto/SdkForCpp/iam-2010-05-08/ListUsers.md "../../../goto/SdkForCpp/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list IAM users**
-
-The following `list-users` command lists the IAM users in the current account.
-
+aws iam list-users
 ```
-`aws iam list-users`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -220,25 +190,16 @@ Output:
     ]
 }
 ```
+For more information, see [Listing IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_manage_list) in the *AWS IAM User Guide*.  
++  For API details, see [ListUsers](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Listing IAM users](id_users_manage.md#id_users_manage_list "id_users_manage.md#id_users_manage_list") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ListUsers](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -272,24 +233,14 @@ func (wrapper UserWrapper) ListUsers(ctx context.Context, maxUsers int32) ([]typ
 	}
 	return users, err
 }
-
-
-
 ```
++  For API details, see [ListUsers](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListUsers) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListUsers](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListUsers "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListUsers")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.AttachedPermissionsBoundary;
@@ -358,25 +309,15 @@ public class ListUsers {
         }
     }
 }
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/ListUsers) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/SdkForJavaV2/iam-2010-05-08/ListUsers.md "../../../goto/SdkForJavaV2/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-List the users.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+List the users.  
 
 ```
 import { ListUsersCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -393,22 +334,12 @@ export const listUsers = async () => {
   }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-listing-users). 
++  For API details, see [ListUsers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListUsersCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-listing-users "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-listing-users").
-- For API details, see
-  [ListUsers](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListUsersCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListUsersCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -433,24 +364,15 @@ iam.listUsers(params, function (err, data) {
     });
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-listing-users). 
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/ListUsers) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-listing-users "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-listing-users").
-- For API details, see
-  [ListUsers](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListUsers.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun listAllUsers() {
@@ -465,23 +387,14 @@ suspend fun listAllUsers() {
         }
     }
 }
-
-
 ```
++  For API details, see [ListUsers](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListUsers](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -502,26 +415,19 @@ $service = new IAMService();
 
         return $this->iamClient->listUsers($listUsersArguments);
     }
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/ListUsers) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/SdkForPHPV3/iam-2010-05-08/ListUsers.md "../../../goto/SdkForPHPV3/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves a collection of users in the current AWS account.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves a collection of users in the current AWS account.**  
 
 ```
 Get-IAMUserList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
       Arn              : arn:aws:iam::123456789012:user/Administrator
@@ -530,14 +436,14 @@ Get-IAMUserList
       Path             : /
       UserId           : 7K3GJEANSKZF2EXAMPLE1
       UserName         : Administrator
-
+      
       Arn              : arn:aws:iam::123456789012:user/Bob
       CreateDate       : 4/6/2015 12:54:42 PM
       PasswordLastUsed : 1/1/0001 12:00:00 AM
       Path             : /
       UserId           : L3EWNONDOM3YUEXAMPLE2
       UserName         : bab
-
+      
       Arn              : arn:aws:iam::123456789012:user/David
       CreateDate       : 12/10/2014 3:39:27 PM
       PasswordLastUsed : 3/19/2015 8:44:04 AM
@@ -545,21 +451,15 @@ Get-IAMUserList
       UserId           : Y4FKWQCXTA52QEXAMPLE3
       UserName         : David
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListUsers](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves a collection of users in the current AWS account.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves a collection of users in the current AWS account.**  
 
 ```
 Get-IAMUserList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
       Arn              : arn:aws:iam::123456789012:user/Administrator
@@ -568,14 +468,14 @@ Get-IAMUserList
       Path             : /
       UserId           : 7K3GJEANSKZF2EXAMPLE1
       UserName         : Administrator
-
+      
       Arn              : arn:aws:iam::123456789012:user/Bob
       CreateDate       : 4/6/2015 12:54:42 PM
       PasswordLastUsed : 1/1/0001 12:00:00 AM
       Path             : /
       UserId           : L3EWNONDOM3YUEXAMPLE2
       UserName         : bab
-
+      
       Arn              : arn:aws:iam::123456789012:user/David
       CreateDate       : 12/10/2014 3:39:27 PM
       PasswordLastUsed : 3/19/2015 8:44:04 AM
@@ -583,20 +483,13 @@ Get-IAMUserList
       UserId           : Y4FKWQCXTA52QEXAMPLE3
       UserName         : David
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListUsers](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def list_users():
@@ -613,25 +506,14 @@ def list_users():
         raise
     else:
         return users
-
-
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListUsers) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/boto3/iam-2010-05-08/ListUsers.md "../../../goto/boto3/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Lists all users in the AWS account
@@ -649,23 +531,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("Error listing users: #{e.message}")
     []
   end
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListUsers) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/SdkForRubyV3/iam-2010-05-08/ListUsers.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListUsers.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn list_users(
@@ -683,23 +556,14 @@ pub async fn list_users(
         .await?;
     Ok(response)
 }
-
-
 ```
++  For API details, see [ListUsers](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_users) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListUsers](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_users "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.list_users")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -708,23 +572,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when listing users.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListUsers](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -733,7 +588,7 @@ import AWSS3
 
     public func listUsers() async throws -> [MyUserRecord] {
         var userList: [MyUserRecord] = []
-
+        
         // Use "Paginated" to get all the users.
         // This lets the SDK handle the 'isTruncated' in "ListUsersOutput".
         let input = ListUsersInput()
@@ -757,14 +612,9 @@ import AWSS3
         }
        return userList
     }
-
-
 ```
++  For API details, see [ListUsers](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/listusers(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListUsers](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/listusers(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/listusers(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

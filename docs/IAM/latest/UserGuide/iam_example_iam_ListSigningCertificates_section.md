@@ -1,22 +1,22 @@
+
+
 # Use `ListSigningCertificates` with a CLI
+<a name="iam_example_iam_ListSigningCertificates_section"></a>
 
 The following code examples show how to use `ListSigningCertificates`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list the signing certificates for an IAM user**
-
-The following `list-signing-certificates` command lists the signing certificates for the IAM user named `Bob`.
-
-```
-`aws iam list-signing-certificates \
- --user-name `Bob``
+**AWS CLI**  
+**To list the signing certificates for an IAM user**  
+The following `list-signing-certificates` command lists the signing certificates for the IAM user named `Bob`.  
 
 ```
-
-Output:
+aws iam list-signing-certificates \
+    --user-name {{Bob}}
+```
+Output:  
 
 ```
 {
@@ -31,25 +31,19 @@ Output:
     ]
 }
 ```
+For more information, see [Manage signing certificates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-up-ami-tools.html#ami-tools-managing-certs) in the *Amazon EC2 User Guide*.  
++  For API details, see [ListSigningCertificates](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-signing-certificates.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Manage signing certificates](../../../AWSEC2/latest/UserGuide/set-up-ami-tools.md#ami-tools-managing-certs "../../../AWSEC2/latest/UserGuide/set-up-ami-tools.md#ami-tools-managing-certs") in the _Amazon EC2 User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ListSigningCertificates](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-signing-certificates.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-signing-certificates.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves details about the signing certificate that is associated with the user named `Bob`.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves details about the signing certificate that is associated with the user named `Bob`.**  
 
 ```
 Get-IAMSigningCertificate -UserName Bob
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CertificateBody : -----BEGIN CERTIFICATE-----
@@ -73,21 +67,15 @@ Status          : Active
 UploadDate      : 4/20/2015 1:26:01 PM
 UserName        : Bob
 ```
++  For API details, see [ListSigningCertificates](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListSigningCertificates](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves details about the signing certificate that is associated with the user named `Bob`.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves details about the signing certificate that is associated with the user named `Bob`.**  
 
 ```
 Get-IAMSigningCertificate -UserName Bob
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CertificateBody : -----BEGIN CERTIFICATE-----
@@ -111,11 +99,8 @@ Status          : Active
 UploadDate      : 4/20/2015 1:26:01 PM
 UserName        : Bob
 ```
++  For API details, see [ListSigningCertificates](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListSigningCertificates](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

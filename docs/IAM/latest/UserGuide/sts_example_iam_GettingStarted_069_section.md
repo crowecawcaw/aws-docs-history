@@ -1,23 +1,21 @@
+
+
 # Run CPU stress tests on virtual machine instances using fault injection
+<a name="sts_example_iam_GettingStarted_069_section"></a>
 
 The following code example shows how to:
++ Create IAM roles
++ Create a CloudWatch alarm
++ Create an experiment template
++ Run the experiment
++ Verify the results
++ Clean up resources
 
-- Create IAM roles
-- Create a CloudWatch alarm
-- Create an experiment template
-- Run the experiment
-- Verify the results
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/069-aws-fault-injection-service-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/069-aws-fault-injection-service-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/069-aws-fault-injection-service-gs) repository. 
 
 ```
 #!/bin/bash
@@ -39,14 +37,14 @@ echo "=============================================="
 check_error() {
     local output=$1
     local cmd=$2
-
+    
     if echo "$output" | grep -i "error" > /dev/null; then
         # Ignore specific expected errors
         if [[ "$cmd" == *"aws fis get-experiment"* ]] && [[ "$output" == *"ConfigurationFailure"* ]]; then
             echo "Note: Experiment failed due to configuration issue. This is expected in some cases."
             return 0
         fi
-
+        
         echo "ERROR: Command failed: $cmd"
         echo "Output: $output"
         cleanup_on_error
@@ -57,51 +55,51 @@ check_error() {
 # Function to clean up resources on error
 cleanup_on_error() {
     echo "Error encountered. Cleaning up resources..."
-
+    
     if [ -n "$EXPERIMENT_ID" ]; then
         echo "Stopping experiment $EXPERIMENT_ID if running..."
         aws fis stop-experiment --id "$EXPERIMENT_ID" 2>/dev/null || true
     fi
-
+    
     if [ -n "$TEMPLATE_ID" ]; then
         echo "Deleting experiment template $TEMPLATE_ID..."
         aws fis delete-experiment-template --id "$TEMPLATE_ID" || true
     fi
-
+    
     if [ -n "$INSTANCE_ID" ]; then
         echo "Terminating EC2 instance $INSTANCE_ID..."
         aws ec2 terminate-instances --instance-ids "$INSTANCE_ID" || true
     fi
-
+    
     if [ -n "$ALARM_NAME" ]; then
         echo "Deleting CloudWatch alarm $ALARM_NAME..."
         aws cloudwatch delete-alarms --alarm-names "$ALARM_NAME" || true
     fi
-
+    
     if [ -n "$INSTANCE_PROFILE_NAME" ]; then
         echo "Removing role from instance profile..."
         aws iam remove-role-from-instance-profile --instance-profile-name "$INSTANCE_PROFILE_NAME" --role-name "$EC2_ROLE_NAME" || true
-
+        
         echo "Deleting instance profile..."
         aws iam delete-instance-profile --instance-profile-name "$INSTANCE_PROFILE_NAME" || true
     fi
-
+    
     if [ -n "$FIS_ROLE_NAME" ]; then
         echo "Deleting FIS role policy..."
         aws iam delete-role-policy --role-name "$FIS_ROLE_NAME" --policy-name "$FIS_POLICY_NAME" || true
-
+        
         echo "Deleting FIS role..."
         aws iam delete-role --role-name "$FIS_ROLE_NAME" || true
     fi
-
+    
     if [ -n "$EC2_ROLE_NAME" ]; then
         echo "Detaching policy from EC2 role..."
         aws iam detach-role-policy --role-name "$EC2_ROLE_NAME" --policy-arn "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore" || true
-
+        
         echo "Deleting EC2 role..."
         aws iam delete-role --role-name "$EC2_ROLE_NAME" || true
     fi
-
+    
     echo "Cleanup completed."
 }
 
@@ -120,7 +118,7 @@ echo "Step 1: Creating IAM role for AWS FIS"
 # Create trust policy file for AWS FIS
 cat > fis-trust-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -145,7 +143,7 @@ CREATED_RESOURCES+=("IAM Role: $FIS_ROLE_NAME")
 # Create policy document for SSM actions
 cat > fis-ssm-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -173,7 +171,7 @@ echo "Step 2: Creating IAM role for EC2 instance with SSM permissions"
 # Create trust policy file for EC2
 cat > ec2-trust-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -307,13 +305,13 @@ echo "Current alarm state: $ALARM_STATE"
 if [ "$ALARM_STATE" != "OK" ]; then
     echo "Alarm not in OK state. Waiting for alarm to stabilize (additional 60 seconds)..."
     sleep 60
-
+    
     # Check alarm state again
     ALARM_STATE_OUTPUT=$(aws cloudwatch describe-alarms \
       --alarm-names "$ALARM_NAME")
     ALARM_STATE=$(echo "$ALARM_STATE_OUTPUT" | grep -i "StateValue" | head -1 | awk -F'"' '{print $4}')
     echo "Updated alarm state: $ALARM_STATE"
-
+    
     if [ "$ALARM_STATE" != "OK" ]; then
         echo "Warning: Alarm still not in OK state. Experiment may fail to start."
     fi
@@ -420,10 +418,10 @@ EXPERIMENT_STATE=""
 while [ $CHECK_COUNT -lt $MAX_CHECKS ]; do
     EXPERIMENT_INFO=$(aws fis get-experiment --id "$EXPERIMENT_ID")
     # Don't check for errors here, as we expect some experiments to fail
-
+    
     EXPERIMENT_STATE=$(echo "$EXPERIMENT_INFO" | grep -i "status" | head -1 | awk -F'"' '{print $4}')
     echo "Experiment state: $EXPERIMENT_STATE"
-
+    
     if [ "$EXPERIMENT_STATE" == "completed" ] || [ "$EXPERIMENT_STATE" == "stopped" ] || [ "$EXPERIMENT_STATE" == "failed" ]; then
         # Show the reason for the state
         REASON=$(echo "$EXPERIMENT_INFO" | grep -i "reason" | head -1 | awk -F'"' '{print $4}')
@@ -432,7 +430,7 @@ while [ $CHECK_COUNT -lt $MAX_CHECKS ]; do
         fi
         break
     fi
-
+    
     echo "Waiting 10 seconds before checking again..."
     sleep 10
     CHECK_COUNT=$((CHECK_COUNT + 1))
@@ -511,7 +509,7 @@ read -r CLEANUP_CHOICE
 
 if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
     echo "Starting cleanup process..."
-
+    
     # Stop experiment if still running
     if [ "$EXPERIMENT_STATE" != "completed" ] && [ "$EXPERIMENT_STATE" != "stopped" ] && [ "$EXPERIMENT_STATE" != "failed" ]; then
         echo "Stopping experiment $EXPERIMENT_ID..."
@@ -520,62 +518,62 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         echo "Waiting for experiment to stop..."
         sleep 10
     fi
-
+    
     # Delete experiment template
     echo "Deleting experiment template $TEMPLATE_ID..."
     DELETE_TEMPLATE_OUTPUT=$(aws fis delete-experiment-template --id "$TEMPLATE_ID")
     check_error "$DELETE_TEMPLATE_OUTPUT" "aws fis delete-experiment-template"
-
+    
     # Delete CloudWatch alarm
     echo "Deleting CloudWatch alarm $ALARM_NAME..."
     DELETE_ALARM_OUTPUT=$(aws cloudwatch delete-alarms --alarm-names "$ALARM_NAME")
     check_error "$DELETE_ALARM_OUTPUT" "aws cloudwatch delete-alarms"
-
+    
     # Terminate EC2 instance
     echo "Terminating EC2 instance $INSTANCE_ID..."
     TERMINATE_OUTPUT=$(aws ec2 terminate-instances --instance-ids "$INSTANCE_ID")
     check_error "$TERMINATE_OUTPUT" "aws ec2 terminate-instances"
     echo "Waiting for instance to terminate..."
     aws ec2 wait instance-terminated --instance-ids "$INSTANCE_ID"
-
+    
     # Clean up IAM resources
     echo "Removing role from instance profile..."
     REMOVE_ROLE_OUTPUT=$(aws iam remove-role-from-instance-profile \
       --instance-profile-name "$INSTANCE_PROFILE_NAME" \
       --role-name "$EC2_ROLE_NAME")
     check_error "$REMOVE_ROLE_OUTPUT" "aws iam remove-role-from-instance-profile"
-
+    
     echo "Deleting instance profile..."
     DELETE_PROFILE_OUTPUT=$(aws iam delete-instance-profile \
       --instance-profile-name "$INSTANCE_PROFILE_NAME")
     check_error "$DELETE_PROFILE_OUTPUT" "aws iam delete-instance-profile"
-
+    
     echo "Deleting FIS role policy..."
     DELETE_POLICY_OUTPUT=$(aws iam delete-role-policy \
       --role-name "$FIS_ROLE_NAME" \
       --policy-name "$FIS_POLICY_NAME")
     check_error "$DELETE_POLICY_OUTPUT" "aws iam delete-role-policy"
-
+    
     echo "Detaching policy from EC2 role..."
     DETACH_POLICY_OUTPUT=$(aws iam detach-role-policy \
       --role-name "$EC2_ROLE_NAME" \
       --policy-arn "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
     check_error "$DETACH_POLICY_OUTPUT" "aws iam detach-role-policy"
-
+    
     echo "Deleting FIS role..."
     DELETE_FIS_ROLE_OUTPUT=$(aws iam delete-role \
       --role-name "$FIS_ROLE_NAME")
     check_error "$DELETE_FIS_ROLE_OUTPUT" "aws iam delete-role"
-
+    
     echo "Deleting EC2 role..."
     DELETE_EC2_ROLE_OUTPUT=$(aws iam delete-role \
       --role-name "$EC2_ROLE_NAME")
     check_error "$DELETE_EC2_ROLE_OUTPUT" "aws iam delete-role"
-
+    
     # Clean up temporary files
     echo "Cleaning up temporary files..."
     rm -f fis-trust-policy.json ec2-trust-policy.json fis-ssm-policy.json experiment-template.json metric-query.json
-
+    
     echo "Cleanup completed successfully."
 else
     echo "Cleanup skipped. Resources will remain in your AWS account."
@@ -585,39 +583,35 @@ fi
 echo ""
 echo "Script execution completed."
 echo "Log file: $LOG_FILE"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddRoleToInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile)
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateExperimentTemplate](https://docs.aws.amazon.com/goto/aws-cli/fis-2020-12-01/CreateExperimentTemplate)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateInstanceProfile)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/DeleteAlarms)
+  + [DeleteExperimentTemplate](https://docs.aws.amazon.com/goto/aws-cli/fis-2020-12-01/DeleteExperimentTemplate)
+  + [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteInstanceProfile)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRolePolicy)
+  + [DescribeAlarms](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/DescribeAlarms)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetExperiment](https://docs.aws.amazon.com/goto/aws-cli/fis-2020-12-01/GetExperiment)
+  + [GetMetricData](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/GetMetricData)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [MonitorInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/MonitorInstances)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/aws-cli/monitoring-2010-08-01/PutMetricAlarm)
+  + [PutRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/PutRolePolicy)
+  + [RemoveRoleFromInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/RemoveRoleFromInstanceProfile)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [StartExperiment](https://docs.aws.amazon.com/goto/aws-cli/fis-2020-12-01/StartExperiment)
+  + [StopExperiment](https://docs.aws.amazon.com/goto/aws-cli/fis-2020-12-01/StopExperiment)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddRoleToInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md")
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateExperimentTemplate](../../../goto/aws-cli/fis-2020-12-01/CreateExperimentTemplate.md "../../../goto/aws-cli/fis-2020-12-01/CreateExperimentTemplate.md")
-  - [CreateInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/CreateInstanceProfile.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteAlarms](../../../goto/aws-cli/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/aws-cli/monitoring-2010-08-01/DeleteAlarms.md")
-  - [DeleteExperimentTemplate](../../../goto/aws-cli/fis-2020-12-01/DeleteExperimentTemplate.md "../../../goto/aws-cli/fis-2020-12-01/DeleteExperimentTemplate.md")
-  - [DeleteInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/DeleteInstanceProfile.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md")
-  - [DescribeAlarms](../../../goto/aws-cli/monitoring-2010-08-01/DescribeAlarms.md "../../../goto/aws-cli/monitoring-2010-08-01/DescribeAlarms.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetExperiment](../../../goto/aws-cli/fis-2020-12-01/GetExperiment.md "../../../goto/aws-cli/fis-2020-12-01/GetExperiment.md")
-  - [GetMetricData](../../../goto/aws-cli/monitoring-2010-08-01/GetMetricData.md "../../../goto/aws-cli/monitoring-2010-08-01/GetMetricData.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [MonitorInstances](../../../goto/aws-cli/ec2-2016-11-15/MonitorInstances.md "../../../goto/aws-cli/ec2-2016-11-15/MonitorInstances.md")
-  - [PutMetricAlarm](../../../goto/aws-cli/monitoring-2010-08-01/PutMetricAlarm.md "../../../goto/aws-cli/monitoring-2010-08-01/PutMetricAlarm.md")
-  - [PutRolePolicy](../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md")
-  - [RemoveRoleFromInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/RemoveRoleFromInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/RemoveRoleFromInstanceProfile.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [StartExperiment](../../../goto/aws-cli/fis-2020-12-01/StartExperiment.md "../../../goto/aws-cli/fis-2020-12-01/StartExperiment.md")
-  - [StopExperiment](../../../goto/aws-cli/fis-2020-12-01/StopExperiment.md "../../../goto/aws-cli/fis-2020-12-01/StopExperiment.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

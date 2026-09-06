@@ -1,24 +1,21 @@
+
+
 # Use `CreateInstanceProfile` with an AWS SDK or CLI
+<a name="iam_example_iam_CreateInstanceProfile_section"></a>
 
 The following code examples show how to use `CreateInstanceProfile`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Build and manage a resilient service](iam_example_cross_ResilientService_section.md) 
++  [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
 
-- [Build and manage a resilient service](iam_example_cross_ResilientService_section.md "iam_example_cross_ResilientService_section.md")
-- [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -151,29 +148,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return profileArn;
     }
+```
++  For API details, see [CreateInstanceProfile](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateInstanceProfile) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create an instance profile**  
+The following `create-instance-profile` command creates an instance profile named `Webserver`.  
 
 ```
-
-- For API details, see
-  [CreateInstanceProfile](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateInstanceProfile.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create an instance profile**
-
-The following `create-instance-profile` command creates an instance profile named `Webserver`.
-
+aws iam create-instance-profile \
+    --instance-profile-name {{Webserver}}
 ```
-`aws iam create-instance-profile \
- --instance-profile-name `Webserver``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -187,24 +176,15 @@ Output:
     }
 }
 ```
+To add a role to an instance profile, use the `add-role-to-instance-profile` command.  
+For more information, see [Using an IAM role to grant permissions to applications running on Amazon EC2 instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreateInstanceProfile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-instance-profile.html) in *AWS CLI Command Reference*. 
 
-To add a role to an instance profile, use the `add-role-to-instance-profile` command.
+------
+#### [ JavaScript ]
 
-For more information, see [Using an IAM role to grant permissions to applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [CreateInstanceProfile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-instance-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-instance-profile.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
 ```
   const { InstanceProfile } = await iamClient.send(
@@ -216,27 +196,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
     { client: iamClient },
     { InstanceProfileName: NAMES.ssmOnlyInstanceProfileName },
   );
-
-
 ```
++  For API details, see [CreateInstanceProfile](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateInstanceProfileCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateInstanceProfile](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateInstanceProfileCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateInstanceProfileCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new IAM instance profile named `ProfileForDevEC2Instance`.
-You must separately run the `Add-IAMRoleToInstanceProfile` command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or `InstanceProfile_Name` parameter.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new IAM instance profile named `ProfileForDevEC2Instance`. You must separately run the `Add-IAMRoleToInstanceProfile` command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or `InstanceProfile_Name` parameter.**  
 
 ```
 New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                 : arn:aws:iam::123456789012:instance-profile/ProfileForDevEC2Instance
@@ -246,22 +218,15 @@ InstanceProfileName : ProfileForDevEC2Instance
 Path                : /
 Roles               : {}
 ```
++  For API details, see [CreateInstanceProfile](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateInstanceProfile](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new IAM instance profile named `ProfileForDevEC2Instance`.
-You must separately run the `Add-IAMRoleToInstanceProfile` command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or `InstanceProfile_Name` parameter.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new IAM instance profile named `ProfileForDevEC2Instance`. You must separately run the `Add-IAMRoleToInstanceProfile` command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or `InstanceProfile_Name` parameter.**  
 
 ```
 New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                 : arn:aws:iam::123456789012:instance-profile/ProfileForDevEC2Instance
@@ -271,22 +236,14 @@ InstanceProfileName : ProfileForDevEC2Instance
 Path                : /
 Roles               : {}
 ```
++  For API details, see [CreateInstanceProfile](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateInstanceProfile](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-This example creates a policy, role, and instance profile and links them all together.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+This example creates a policy, role, and instance profile and links them all together.  
 
 ```
 class AutoScalingWrapper:
@@ -364,7 +321,7 @@ class AutoScalingWrapper:
         :return: The ARN of the profile that is created.
         """
         assume_role_doc = {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Effect": "Allow",
@@ -400,15 +357,9 @@ class AutoScalingWrapper:
                 )
             log.error(f"Full error:\n\t{err}")
         return profile_arn
-
-
-
 ```
++  For API details, see [CreateInstanceProfile](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateInstanceProfile) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateInstanceProfile](../../../goto/boto3/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/boto3/iam-2010-05-08/CreateInstanceProfile.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

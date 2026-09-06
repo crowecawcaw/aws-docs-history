@@ -1,23 +1,21 @@
+
+
 # Create a rest API with function proxy integration
+<a name="sts_example_api_gateway_GettingStarted_087_section"></a>
 
 The following code example shows how to:
++ Create an IAM role for Lambda execution
++ Create and deploy a Lambda function
++ Create a REST API
++ Configure Lambda proxy integration
++ Deploy and test the API
++ Clean up resources
 
-- Create an IAM role for Lambda execution
-- Create and deploy a Lambda function
-- Create a REST API
-- Configure Lambda proxy integration
-- Deploy and test the API
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/087-apigateway-lambda-integration "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/087-apigateway-lambda-integration")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/087-apigateway-lambda-integration) repository. 
 
 ```
 #!/bin/bash
@@ -55,30 +53,30 @@ logger.setLevel(logging.INFO)
 def lambda_handler(event, context):
     try:
         logger.info("Received event: %s", json.dumps(event))
-
+        
         greeter = 'World'
-
+        
         # Safely retrieve greeter from query string parameters
         query_params = event.get('queryStringParameters') or {}
         if isinstance(query_params, dict) and 'greeter' in query_params:
             greeter_value = query_params.get('greeter')
             if isinstance(greeter_value, str) and greeter_value:
                 greeter = greeter_value
-
+        
         # Safely retrieve greeter from multi-value headers
         multi_headers = event.get('multiValueHeaders') or {}
         if isinstance(multi_headers, dict) and 'greeter' in multi_headers:
             greeter_list = multi_headers.get('greeter', [])
             if isinstance(greeter_list, list) and greeter_list:
                 greeter = " and ".join(str(g) for g in greeter_list if g)
-
+        
         # Safely retrieve greeter from headers
         headers = event.get('headers') or {}
         if isinstance(headers, dict) and 'greeter' in headers:
             greeter_value = headers.get('greeter')
             if isinstance(greeter_value, str) and greeter_value:
                 greeter = greeter_value
-
+        
         # Safely retrieve greeter from body
         body = event.get('body')
         if body and isinstance(body, str):
@@ -90,10 +88,10 @@ def lambda_handler(event, context):
                         greeter = greeter_value
             except (json.JSONDecodeError, ValueError) as e:
                 logger.warning("Failed to parse body: %s", str(e))
-
+        
         # Sanitize greeter to prevent injection
         greeter = greeter.replace('"', '\\"').replace("'", "\\'")
-
+        
         response = {
             "statusCode": 200,
             "headers": {
@@ -101,10 +99,10 @@ def lambda_handler(event, context):
             },
             "body": json.dumps({"message": f"Hello, {greeter}!"})
         }
-
+        
         logger.info("Response: %s", json.dumps(response))
         return response
-
+        
     except Exception as e:
         logger.error("Unexpected error: %s", str(e), exc_info=True)
         return {
@@ -127,7 +125,7 @@ echo "Creating IAM role..."
 # Create IAM trust policy
 cat > trust-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -310,28 +308,25 @@ aws iam delete-role --role-name "$ROLE_NAME" || echo "Warning: Failed to delete 
 rm -f lambda_function.py function.zip trust-policy.json
 
 echo "Cleanup completed!"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddPermission](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/AddPermission)
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateDeployment](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/CreateDeployment)
+  + [CreateFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/CreateFunction)
+  + [CreateResource](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/CreateResource)
+  + [CreateRestApi](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/CreateRestApi)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/DeleteFunction)
+  + [DeleteRestApi](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/DeleteRestApi)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetResources](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/GetResources)
+  + [GetRestApis](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/GetRestApis)
+  + [PutIntegration](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/PutIntegration)
+  + [PutMethod](https://docs.aws.amazon.com/goto/aws-cli/apigateway-2015-07-09/PutMethod)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddPermission](../../../goto/aws-cli/lambda-2015-03-31/AddPermission.md "../../../goto/aws-cli/lambda-2015-03-31/AddPermission.md")
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateDeployment](../../../goto/aws-cli/apigateway-2015-07-09/CreateDeployment.md "../../../goto/aws-cli/apigateway-2015-07-09/CreateDeployment.md")
-  - [CreateFunction](../../../goto/aws-cli/lambda-2015-03-31/CreateFunction.md "../../../goto/aws-cli/lambda-2015-03-31/CreateFunction.md")
-  - [CreateResource](../../../goto/aws-cli/apigateway-2015-07-09/CreateResource.md "../../../goto/aws-cli/apigateway-2015-07-09/CreateResource.md")
-  - [CreateRestApi](../../../goto/aws-cli/apigateway-2015-07-09/CreateRestApi.md "../../../goto/aws-cli/apigateway-2015-07-09/CreateRestApi.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteFunction](../../../goto/aws-cli/lambda-2015-03-31/DeleteFunction.md "../../../goto/aws-cli/lambda-2015-03-31/DeleteFunction.md")
-  - [DeleteRestApi](../../../goto/aws-cli/apigateway-2015-07-09/DeleteRestApi.md "../../../goto/aws-cli/apigateway-2015-07-09/DeleteRestApi.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetResources](../../../goto/aws-cli/apigateway-2015-07-09/GetResources.md "../../../goto/aws-cli/apigateway-2015-07-09/GetResources.md")
-  - [GetRestApis](../../../goto/aws-cli/apigateway-2015-07-09/GetRestApis.md "../../../goto/aws-cli/apigateway-2015-07-09/GetRestApis.md")
-  - [PutIntegration](../../../goto/aws-cli/apigateway-2015-07-09/PutIntegration.md "../../../goto/aws-cli/apigateway-2015-07-09/PutIntegration.md")
-  - [PutMethod](../../../goto/aws-cli/apigateway-2015-07-09/PutMethod.md "../../../goto/aws-cli/apigateway-2015-07-09/PutMethod.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

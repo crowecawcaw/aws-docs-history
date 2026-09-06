@@ -1,33 +1,31 @@
+
+
 # Use `GetAccountAuthorizationDetails` with an AWS SDK or CLI
+<a name="iam_example_iam_GetAccountAuthorizationDetails_section"></a>
 
 The following code examples show how to use `GetAccountAuthorizationDetails`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md) 
 
-- [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md "iam_example_iam_Scenario_AccountManagement_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To list an AWS account's IAM users, groups, roles, and policies**
-
-The following `get-account-authorization-details` command returns information about all IAM users, groups, roles, and policies in the AWS account.
+**AWS CLI**  
+**To list an AWS account's IAM users, groups, roles, and policies**  
+The following `get-account-authorization-details` command returns information about all IAM users, groups, roles, and policies in the AWS account.  
 
 ```
-`aws iam get-account-authorization-details`
-
+aws iam get-account-authorization-details
 ```
-
-Output:
+Output:  
 
 ```
 {
     "RoleDetailList": [
         {
             "AssumeRolePolicyDocument": {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Sid": "",
@@ -47,7 +45,7 @@ Output:
                     "Roles": [
                         {
                             "AssumeRolePolicyDocument": {
-                                "Version":"2012-10-17",
+                                "Version":"2012-10-17",		 	 	 
                                 "Statement": [
                                     {
                                         "Sid": "",
@@ -128,7 +126,7 @@ Output:
                 {
                     "PolicyName": "policygen-201310141157",
                     "PolicyDocument": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Action": "aws-portal:*",
@@ -166,7 +164,7 @@ Output:
                 {
                     "PolicyName": "DenyBillingAndIAMPolicy",
                     "PolicyDocument": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": {
                             "Effect": "Deny",
                             "Action": [
@@ -208,7 +206,7 @@ Output:
                     "CreateDate": "2015-02-06T19:58:34Z",
                     "VersionId": "v1",
                     "Document": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": {
                             "Effect": "Allow",
                             "Action": [
@@ -244,7 +242,7 @@ Output:
                     "CreateDate": "2015-01-21T21:39:41Z",
                     "VersionId": "v1",
                     "Document": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -278,7 +276,7 @@ Output:
                     "CreateDate": "2014-10-30T20:59:46Z",
                     "VersionId": "v1",
                     "Document": {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Action": "ec2:*",
@@ -314,41 +312,33 @@ Output:
     "IsTruncated": true
 }
 ```
+For more information, see [AWS security audit guidelines](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-audit-guide.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetAccountAuthorizationDetails](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-account-authorization-details.html) in *AWS CLI Command Reference*. 
 
-For more information, see [AWS security audit guidelines](security-audit-guide.md "security-audit-guide.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetAccountAuthorizationDetails](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-account-authorization-details.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-account-authorization-details.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets authorization details about the identities in the AWS account, and displays the element list of the returned object, including users, groups, and roles. For example, the `UserDetailList` property displays details about the users. Similar information is available in the `RoleDetailList` and `GroupDetailList` properties.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets authorization details about the identities in the AWS account, and displays the element list of the returned object, including users, groups, and roles. For example, the `UserDetailList` property displays details about the users. Similar information is available in the `RoleDetailList` and `GroupDetailList` properties.**  
 
 ```
 $Details=Get-IAMAccountAuthorizationDetail
 $Details
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupDetailList : {Administrators, Developers, Testers, Backup}
 IsTruncated     : False
-Marker          :
+Marker          : 
 RoleDetailList  : {TestRole1, AdminRole, TesterRole, clirole...}
 UserDetailList  : {Administrator, Bob, BackupToS3, }
 ```
 
 ```
 $Details.UserDetailList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn            : arn:aws:iam::123456789012:user/Administrator
@@ -375,37 +365,29 @@ UserId         : AIDACKCEVSQ6CEXAMPLE3
 UserName       : BackupToS3
 UserPolicyList : {BackupServicePermissionsToS3Buckets}
 ```
++  For API details, see [GetAccountAuthorizationDetails](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetAccountAuthorizationDetails](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets authorization details about the identities in the AWS account, and displays the element list of the returned object, including users, groups, and roles. For example, the `UserDetailList` property displays details about the users. Similar information is available in the `RoleDetailList` and `GroupDetailList` properties.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets authorization details about the identities in the AWS account, and displays the element list of the returned object, including users, groups, and roles. For example, the `UserDetailList` property displays details about the users. Similar information is available in the `RoleDetailList` and `GroupDetailList` properties.**  
 
 ```
 $Details=Get-IAMAccountAuthorizationDetail
 $Details
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupDetailList : {Administrators, Developers, Testers, Backup}
 IsTruncated     : False
-Marker          :
+Marker          : 
 RoleDetailList  : {TestRole1, AdminRole, TesterRole, clirole...}
 UserDetailList  : {Administrator, Bob, BackupToS3, }
 ```
 
 ```
 $Details.UserDetailList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn            : arn:aws:iam::123456789012:user/Administrator
@@ -432,20 +414,13 @@ UserId         : AIDACKCEVSQ6CEXAMPLE3
 UserName       : BackupToS3
 UserPolicyList : {BackupServicePermissionsToS3Buckets}
 ```
++  For API details, see [GetAccountAuthorizationDetails](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetAccountAuthorizationDetails](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def get_authorization_details(response_filter):
@@ -467,25 +442,14 @@ def get_authorization_details(response_filter):
         raise
     else:
         return account_details
-
-
-
-
 ```
++  For API details, see [GetAccountAuthorizationDetails](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetAccountAuthorizationDetails) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetAccountAuthorizationDetails](../../../goto/boto3/iam-2010-05-08/GetAccountAuthorizationDetails.md "../../../goto/boto3/iam-2010-05-08/GetAccountAuthorizationDetails.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -494,14 +458,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when getting account authorization details.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetAccountAuthorizationDetails](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetAccountAuthorizationDetails](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

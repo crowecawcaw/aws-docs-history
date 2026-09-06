@@ -1,29 +1,23 @@
+
+
 # Create read-only and read-write IAM users using an AWS SDK
+<a name="iam_example_iam_Scenario_UserPolicies_section"></a>
 
-The following code example shows how to create users and attach policies to them.
+The following code example shows how to create users and attach policies to them. 
 
-###### Warning
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose-built software or working with real data. Instead, use federation with an identity provider such as [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
++ Create two IAM users.
++ Attach a policy for one user to get and put objects in an Amazon S3 bucket.
++ Attach a policy for the second user to get objects from the bucket.
++ Get different permissions to the bucket based on user credentials.
 
-To avoid security risks, don't use IAM users for authentication when developing purpose-built software
-or working with real data. Instead, use federation with an identity provider such as
-[AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
+------
+#### [ Python ]
 
-- Create two IAM users.
-- Attach a policy for one user to get and put objects in an Amazon S3 bucket.
-- Attach a policy for the second user to get objects from the bucket.
-- Get different permissions to the bucket based on user credentials.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-Create functions that wrap IAM user actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+Create functions that wrap IAM user actions.  
 
 ```
 import logging
@@ -139,13 +133,8 @@ def detach_policy(user_name, policy_arn):
             "Couldn't detach policy %s from user %s.", policy_arn, user_name
         )
         raise
-
-
-
-
 ```
-
-Create functions that wrap IAM policy actions.
+Create functions that wrap IAM policy actions.  
 
 ```
 import json
@@ -175,7 +164,7 @@ def create_policy(name, description, actions, resource_arn):
     :return: The newly created policy.
     """
     policy_doc = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [{"Effect": "Allow", "Action": actions, "Resource": resource_arn}],
     }
     try:
@@ -205,13 +194,8 @@ def delete_policy(policy_arn):
     except ClientError:
         logger.exception("Couldn't delete policy %s.", policy_arn)
         raise
-
-
-
-
 ```
-
-Create functions that wrap IAM access key actions.
+Create functions that wrap IAM access key actions.  
 
 ```
 import logging
@@ -260,13 +244,8 @@ def delete_key(user_name, key_id):
     except ClientError:
         logger.exception("Couldn't delete key %s for %s", key_id, user_name)
         raise
-
-
-
-
 ```
-
-Use the wrapper functions to create users with differing policies and use their credentials to access an Amazon S3 bucket.
+Use the wrapper functions to create users with differing policies and use their credentials to access an Amazon S3 bucket.  
 
 ```
 def usage_demo():
@@ -415,25 +394,19 @@ def usage_demo():
     bucket.delete()
     print(f"Emptied and deleted {bucket.name}.")
     print("Thanks for watching!")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AttachUserPolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/AttachUserPolicy)
+  + [CreateAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateAccessKey)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreatePolicy)
+  + [CreateUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateUser)
+  + [DeleteAccessKey](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteAccessKey)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeletePolicy)
+  + [DeleteUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteUser)
+  + [DetachUserPolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DetachUserPolicy)
+  + [ListUsers](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListUsers)
+  + [UpdateUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/UpdateUser)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AttachUserPolicy](../../../goto/boto3/iam-2010-05-08/AttachUserPolicy.md "../../../goto/boto3/iam-2010-05-08/AttachUserPolicy.md")
-  - [CreateAccessKey](../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md "../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md")
-  - [CreatePolicy](../../../goto/boto3/iam-2010-05-08/CreatePolicy.md "../../../goto/boto3/iam-2010-05-08/CreatePolicy.md")
-  - [CreateUser](../../../goto/boto3/iam-2010-05-08/CreateUser.md "../../../goto/boto3/iam-2010-05-08/CreateUser.md")
-  - [DeleteAccessKey](../../../goto/boto3/iam-2010-05-08/DeleteAccessKey.md "../../../goto/boto3/iam-2010-05-08/DeleteAccessKey.md")
-  - [DeletePolicy](../../../goto/boto3/iam-2010-05-08/DeletePolicy.md "../../../goto/boto3/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteUser](../../../goto/boto3/iam-2010-05-08/DeleteUser.md "../../../goto/boto3/iam-2010-05-08/DeleteUser.md")
-  - [DetachUserPolicy](../../../goto/boto3/iam-2010-05-08/DetachUserPolicy.md "../../../goto/boto3/iam-2010-05-08/DetachUserPolicy.md")
-  - [ListUsers](../../../goto/boto3/iam-2010-05-08/ListUsers.md "../../../goto/boto3/iam-2010-05-08/ListUsers.md")
-  - [UpdateUser](../../../goto/boto3/iam-2010-05-08/UpdateUser.md "../../../goto/boto3/iam-2010-05-08/UpdateUser.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

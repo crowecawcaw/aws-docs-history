@@ -1,30 +1,27 @@
+
+
 # Use `GetRole` with an AWS SDK or CLI
+<a name="iam_example_iam_GetRole_section"></a>
 
 The following code examples show how to use `GetRole`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md) 
++  [Create a container task for the serverless launch type](iam_example_ecs_GettingStarted_086_section.md) 
++  [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md) 
++  [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md) 
++  [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md) 
++  [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md) 
++  [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
 
-- [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
-- [Create a container task for the serverless launch type](iam_example_ecs_GettingStarted_086_section.md "iam_example_ecs_GettingStarted_086_section.md")
-- [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
-- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
-- [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -42,30 +39,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.Role;
     }
+```
++  For API details, see [GetRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/GetRole) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To get information about an IAM role**  
+The following `get-role` command gets information about the role named `Test-Role`.  
 
 ```
-
-- For API details, see
-  [GetRole](../../../goto/DotNetSDKV3/iam-2010-05-08/GetRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/GetRole.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get information about an IAM role**
-
-The following `get-role` command gets information about the role named `Test-Role`.
-
+aws iam get-role \
+    --role-name {{Test-Role}}
 ```
-`aws iam get-role \
- --role-name `Test-Role``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -85,27 +73,17 @@ Output:
     }
 }
 ```
+The command displays the trust policy attached to the role. To list the permissions policies attached to a role, use the `list-role-policies` command.  
+For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html) in *AWS CLI Command Reference*. 
 
-The command displays the trust policy attached to the role. To list the permissions policies attached to a role, use the `list-role-policies` command.
+------
+#### [ Go ]
 
-For more information, see [Creating IAM roles](id_roles_create.md "id_roles_create.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [GetRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -137,26 +115,15 @@ func (wrapper RoleWrapper) GetRole(ctx context.Context, roleName string) (*types
 	}
 	return role, err
 }
-
-
-
 ```
++  For API details, see [GetRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetRole) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [GetRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetRole")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Get the role.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Get the role.  
 
 ```
 import { GetRoleCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -174,23 +141,14 @@ export const getRole = (roleName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [GetRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -202,28 +160,20 @@ $service = new IAMService();
             return $this->iamClient->getRole(['RoleName' => $roleName]);
         });
     }
-
-
 ```
++  For API details, see [GetRole](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/GetRole) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [GetRole](../../../goto/SdkForPHPV3/iam-2010-05-08/GetRole.md "../../../goto/SdkForPHPV3/iam-2010-05-08/GetRole.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns the details of the `lamda_exec_role`. It includes the trust policy document that specifies who can assume this role. The policy document is URL encoded and can be decoded using the .NET `UrlDecode` method. In this example, the original policy had all white space removed before it was uploaded to the policy.
-To see the permissions policy documents that determine what someone who assumes the role can do, use the `Get-IAMRolePolicy` for inline policies, and `Get-IAMPolicyVersion` for attached managed policies.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns the details of the `lamda_exec_role`. It includes the trust policy document that specifies who can assume this role. The policy document is URL encoded and can be decoded using the .NET `UrlDecode` method. In this example, the original policy had all white space removed before it was uploaded to the policy. To see the permissions policy documents that determine what someone who assumes the role can do, use the `Get-IAMRolePolicy` for inline policies, and `Get-IAMPolicyVersion` for attached managed policies.**  
 
 ```
 $results = Get-IamRole -RoleName lambda_exec_role
 $results | Format-List
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                      : arn:aws:iam::123456789012:role/lambda_exec_role
@@ -240,31 +190,22 @@ RoleName                 : lambda_exec_role
 ```
 $policy = [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 $policy
+```
+**Output:**  
 
 ```
-
-**Output:**
-
+{"Version":"2012-10-17",		 	 	 "Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
 ```
-{"Version":"2012-10-17","Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
-```
++  For API details, see [GetRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns the details of the `lamda_exec_role`. It includes the trust policy document that specifies who can assume this role. The policy document is URL encoded and can be decoded using the .NET `UrlDecode` method. In this example, the original policy had all white space removed before it was uploaded to the policy.
-To see the permissions policy documents that determine what someone who assumes the role can do, use the `Get-IAMRolePolicy` for inline policies, and `Get-IAMPolicyVersion` for attached managed policies.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns the details of the `lamda_exec_role`. It includes the trust policy document that specifies who can assume this role. The policy document is URL encoded and can be decoded using the .NET `UrlDecode` method. In this example, the original policy had all white space removed before it was uploaded to the policy. To see the permissions policy documents that determine what someone who assumes the role can do, use the `Get-IAMRolePolicy` for inline policies, and `Get-IAMPolicyVersion` for attached managed policies.**  
 
 ```
 $results = Get-IamRole -RoleName lambda_exec_role
 $results | Format-List
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                      : arn:aws:iam::123456789012:role/lambda_exec_role
@@ -281,28 +222,19 @@ RoleName                 : lambda_exec_role
 ```
 $policy = [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 $policy
+```
+**Output:**  
 
 ```
-
-**Output:**
-
+{"Version":"2012-10-17",		 	 	 "Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
 ```
-{"Version":"2012-10-17","Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
-```
++  For API details, see [GetRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def get_role(role_name):
@@ -321,25 +253,14 @@ def get_role(role_name):
         raise
     else:
         return role
-
-
-
-
 ```
++  For API details, see [GetRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetRole](../../../goto/boto3/iam-2010-05-08/GetRole.md "../../../goto/boto3/iam-2010-05-08/GetRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Gets data about a role.
@@ -358,23 +279,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   else
     role
   end
-
-
 ```
++  For API details, see [GetRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/GetRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetRole](../../../goto/SdkForRubyV3/iam-2010-05-08/GetRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/GetRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn get_role(
@@ -384,23 +296,14 @@ pub async fn get_role(
     let response = client.get_role().role_name(role_name).send().await?;
     Ok(response)
 }
-
-
 ```
++  For API details, see [GetRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.get_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [GetRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.get_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.get_role")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -409,23 +312,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'Role does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetRole](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetRole](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -447,14 +341,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [GetRole](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/getrole(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [GetRole](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/getrole(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/getrole(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,20 +1,16 @@
-# IAM policy validation check reference
 
-You can validate your policies using AWS Identity and Access Management Access Analyzer policy validation. You can create
-or edit a policy using the AWS CLI, AWS API, or JSON policy editor in the IAM console.
-IAM Access Analyzer validates your policy against IAM [policy grammar](reference_policies_grammar.md "reference_policies_grammar.md") and [AWS best practices](best-practices.md "best-practices.md"). You can
-view policy validation check findings that include security warnings, errors, general warnings,
-and suggestions for your policy. These findings provide actionable recommendations that help you
-author policies that are functional and conform to security best practices. The list of basic
-policy checks provided by IAM Access Analyzer are shared below. There is no additional charge
-associated with running the policy validation checks. To learn more about validating policies
-using policy validation, see [Validate policies with IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
+
+# IAM policy validation check reference
+<a name="access-analyzer-reference-policy-checks"></a>
+
+You can validate your policies using AWS Identity and Access Management Access Analyzer policy validation. You can create or edit a policy using the AWS CLI, AWS API, or JSON policy editor in the IAM console. IAM Access Analyzer validates your policy against IAM [policy grammar](reference_policies_grammar.md) and [AWS best practices](best-practices.md). You can view policy validation check findings that include security warnings, errors, general warnings, and suggestions for your policy. These findings provide actionable recommendations that help you author policies that are functional and conform to security best practices. The list of basic policy checks provided by IAM Access Analyzer are shared below. There is no additional charge associated with running the policy validation checks. To learn more about validating policies using policy validation, see [Validate policies with IAM Access Analyzer](access-analyzer-policy-validation.md).
 
 ## Error – ARN account not allowed
+<a name="access-analyzer-reference-policy-checks-error-arn-account-not-allowed"></a>
 
-**Issue code:** ARN\_ACCOUNT\_NOT\_ALLOWED
+**Issue code: **ARN\_ACCOUNT\_NOT\_ALLOWED
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -22,7 +18,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 ARN account not allowed: The service {{service}} does not support specifying an account ID in the resource ARN.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -35,22 +30,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Remove the account ID from the resource ARN. The resource ARNs for some AWS services do not support specifying an account ID.
 
-For example, Amazon S3 does not support an account ID as a namespace in bucket ARNs. An Amazon S3 bucket name is globally unique,
-and the namespace is shared by all AWS accounts. To view all of the resource types available in Amazon S3, see
-[Resource types defined by Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md#amazons3-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazons3.md#amazons3-resources-for-iam-policies") in the _Service Authorization Reference_.
+For example, Amazon S3 does not support an account ID as a namespace in bucket ARNs. An Amazon S3 bucket name is globally unique, and the namespace is shared by all AWS accounts. To view all of the resource types available in Amazon S3, see [ Resource types defined by Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies) in the *Service Authorization Reference*.
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Account Identifiers](../../../general/latest/gr/acct-identifiers.md "../../../general/latest/gr/acct-identifiers.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Account Identifiers](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – ARN Region not allowed
+<a name="access-analyzer-reference-policy-checks-error-arn-region-not-allowed"></a>
 
-**Issue code:** ARN\_REGION\_NOT\_ALLOWED
+**Issue code: **ARN\_REGION\_NOT\_ALLOWED
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -58,7 +51,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 ARN Region not allowed: The service {{service}} does not support specifying a Region in the resource ARN.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -71,19 +63,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Remove the Region from the resource ARN. The resource ARNs for some AWS services do not support specifying a Region.
 
-For example, IAM is a global service. The Region portion of an IAM resource ARN is always kept blank. IAM resources
-are global, like an AWS account is today. For example, after you sign in as an IAM user, you can access AWS services in any
-geographic region.
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
+For example, IAM is a global service. The Region portion of an IAM resource ARN is always kept blank. IAM resources are global, like an AWS account is today. For example, after you sign in as an IAM user, you can access AWS services in any geographic region.
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Data type mismatch
+<a name="access-analyzer-reference-policy-checks-error-data-type-mismatch"></a>
 
-**Issue code:** DATA\_TYPE\_MISMATCH
+**Issue code: **DATA\_TYPE\_MISMATCH
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -91,7 +81,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Data type mismatch: The text does not match the expected JSON data type {{data_type}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -104,19 +93,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Update the text to use the supported data type.
 
-For example, the `Version` global condition key requires a `String` data type. If you provide a date or an integer, the
-data type won't match.
+For example, the `Version` global condition key requires a `String` data type. If you provide a date or an integer, the data type won't match.
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## Error – Duplicate keys with different case
+<a name="access-analyzer-reference-policy-checks-error-duplicate-keys-with-different-case"></a>
 
-**Issue code:** DUPLICATE\_KEYS\_WITH\_DIFFERENT\_CASE
+**Issue code: **DUPLICATE\_KEYS\_WITH\_DIFFERENT\_CASE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -124,7 +112,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Duplicate keys with different case: The condition key {{key}} appears more than once with different capitalization in the same condition block. Remove the duplicate condition keys.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -137,23 +124,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Review the similar condition keys within the same condition block and use the same capitalization for all instances.
 
-A _condition block_ is the text within the `Condition` element of a policy statement.
-Condition key _names_ are not case-sensitive. The case-sensitivity of condition key _values_
-depends on the condition operator that you use. For more information about case-sensitivity in condition keys, see
-[IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
+A *condition block* is the text within the `Condition` element of a policy statement. Condition key *names* are not case-sensitive. The case-sensitivity of condition key *values* depends on the condition operator that you use. For more information about case-sensitivity in condition keys, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md).
 
 **Related terms**
-
-- [Conditions](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Condition block](reference_policies_elements_condition.md#AccessPolicyLanguage_ConditionBlock "reference_policies_elements_condition.md#AccessPolicyLanguage_ConditionBlock")
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Conditions](reference_policies_elements_condition.md)
++ [Condition block](reference_policies_elements_condition.md#AccessPolicyLanguage_ConditionBlock)
++ [Global condition keys](reference_policies_condition-keys.md)
++ [AWS service condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid action
+<a name="access-analyzer-reference-policy-checks-error-invalid-action"></a>
 
-**Issue code:** INVALID\_ACTION
+**Issue code: **INVALID\_ACTION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -161,7 +145,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid action: The action {{action}} does not exist. Did you mean {{valid_action}}?
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -175,26 +158,24 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 The action that you specified is not valid. This can happen if you mis-type the service prefix or the action name. For some common issues, the policy check returns a suggested action.
 
 **Related terms**
-
-- [Policy actions](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [AWS service actions](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy actions](reference_policies_elements_action.md)
++ [AWS service actions](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ### AWS managed policies with this error
+<a name="accan-ref-policy-check-message-fix-error-invalid-action-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-The following AWS managed policies include invalid actions in their policy statements. Invalid actions do not affect the permissions
-granted by the policy. When using an AWS managed policy as a reference to create your managed policy, AWS recommends that you remove invalid actions from your policy.
-
-- [AmazonEMRFullAccessPolicy\_v2](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2 "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2")
-- [CloudWatchSyntheticsFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess")
+The following AWS managed policies include invalid actions in their policy statements. Invalid actions do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your managed policy, AWS recommends that you remove invalid actions from your policy.
++ [AmazonEMRFullAccessPolicy\_v2](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2)
++ [CloudWatchSyntheticsFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess)
 
 ## Error – Invalid ARN account
+<a name="access-analyzer-reference-policy-checks-error-invalid-arn-account"></a>
 
-**Issue code:** INVALID\_ARN\_ACCOUNT
+**Issue code: **INVALID\_ARN\_ACCOUNT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -202,7 +183,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid ARN account: The resource ARN account ID {{account}} is not valid. Provide a 12-digit account ID.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -213,21 +193,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the account ID in the resource ARN. Account IDs are 12-digit integers. To learn how to view your account ID, see
-[Finding your AWS account ID](../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers "../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers").
+Update the account ID in the resource ARN. Account IDs are 12-digit integers. To learn how to view your account ID, see [Finding your AWS account ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingYourAccountIdentifiers).
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Account Identifiers](../../../general/latest/gr/acct-identifiers.md "../../../general/latest/gr/acct-identifiers.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Account Identifiers](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid ARN prefix
+<a name="access-analyzer-reference-policy-checks-error-invalid-arn-prefix"></a>
 
-**Issue code:** INVALID\_ARN\_PREFIX
+**Issue code: **INVALID\_ARN\_PREFIX
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -235,7 +214,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid ARN prefix: Add the required prefix (arn) to the resource ARN.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -249,16 +227,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS resource ARNs must include the required `arn:` prefix.
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid ARN Region
+<a name="access-analyzer-reference-policy-checks-error-invalid-arn-region"></a>
 
-**Issue code:** INVALID\_ARN\_REGION
+**Issue code: **INVALID\_ARN\_REGION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -266,7 +244,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid ARN Region: The Region {{region}} is not valid for this resource. Update the resource ARN to include a supported Region.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -277,20 +254,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The resource type is not supported in the specified Region. For a table of AWS services supported in each Region,
-see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+The resource type is not supported in the specified Region. For a table of AWS services supported in each Region, see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [Region names and codes](../../../general/latest/gr/rande.md#region-names-codes "../../../general/latest/gr/rande.md#region-names-codes")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [Region names and codes](https://docs.aws.amazon.com/general/latest/gr/rande.html#region-names-codes)
 
 ## Error – Invalid ARN resource
+<a name="access-analyzer-reference-policy-checks-error-invalid-arn-resource"></a>
 
-**Issue code:** INVALID\_ARN\_RESOURCE
+**Issue code: **INVALID\_ARN\_RESOURCE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -298,7 +274,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid ARN resource: Resource ARN does not match the expected ARN format. Update the resource portion of the ARN.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -309,21 +284,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The resource ARN must match the specifications for known resource types. To view the expected ARN format for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service to view its resource types and ARN formats.
+The resource ARN must match the specifications for known resource types. To view the expected ARN format for a service, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service to view its resource types and ARN formats.
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid ARN service case
+<a name="access-analyzer-reference-policy-checks-error-invalid-arn-service-case"></a>
 
-**Issue code:** INVALID\_ARN\_SERVICE\_CASE
+**Issue code: **INVALID\_ARN\_SERVICE\_CASE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -331,7 +304,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid ARN service case: Update the service name {{service}} in the resource ARN to use all lowercase letters.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -342,21 +314,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The service in the resource ARN must match the specifications (including capitalization) for service prefixes. To view the prefix for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service and locate its prefix in the first sentence.
+The service in the resource ARN must match the specifications (including capitalization) for service prefixes. To view the prefix for a service, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service and locate its prefix in the first sentence.
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid condition data type
+<a name="access-analyzer-reference-policy-checks-error-invalid-condition-data-type"></a>
 
-**Issue code:** INVALID\_CONDITION\_DATA\_TYPE
+**Issue code: **INVALID\_CONDITION\_DATA\_TYPE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -364,7 +334,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid condition data type: The condition value data types do not match. Use condition values of the same JSON data type.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -375,26 +344,23 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The value in the condition key-value pair must match the data type of the condition key and condition operator. To view the condition key data type for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service to view the condition keys for that service.
+The value in the condition key-value pair must match the data type of the condition key and condition operator. To view the condition key data type for a service, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service to view the condition keys for that service.
 
-For example, the [CurrentTime](reference_policies_condition-keys.md#condition-keys-currenttime "reference_policies_condition-keys.md#condition-keys-currenttime") global condition key supports
-the `Date` condition operator. If you provide a string or an integer for the value in the condition block, the data type won't match.
+For example, the [`CurrentTime`](reference_policies_condition-keys.md#condition-keys-currenttime) global condition key supports the `Date` condition operator. If you provide a string or an integer for the value in the condition block, the data type won't match.
 
 **Related terms**
-
-- [Conditions](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Condition block](reference_policies_elements_condition.md#AccessPolicyLanguage_ConditionBlock "reference_policies_elements_condition.md#AccessPolicyLanguage_ConditionBlock")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Conditions](reference_policies_elements_condition.md)
++ [Condition block](reference_policies_elements_condition.md#AccessPolicyLanguage_ConditionBlock)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [Global condition keys](reference_policies_condition-keys.md)
++ [AWS service condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid condition key format
+<a name="access-analyzer-reference-policy-checks-error-invalid-condition-key-format"></a>
 
-**Issue code:** INVALID\_CONDITION\_KEY\_FORMAT
+**Issue code: **INVALID\_CONDITION\_KEY\_FORMAT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -402,7 +368,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid condition key format: The condition key format is not valid. Use the format service:keyname.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -413,21 +378,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The key in the condition key-value pair must match the specifications for the service. To view the condition keys for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service to view the condition keys for that service.
+The key in the condition key-value pair must match the specifications for the service. To view the condition keys for a service, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service to view the condition keys for that service.
 
 **Related terms**
-
-- [Conditions](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Conditions](reference_policies_elements_condition.md)
++ [Global condition keys](reference_policies_condition-keys.md)
++ [AWS service condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid condition multiple Boolean
+<a name="access-analyzer-reference-policy-checks-error-invalid-condition-multiple-boolean"></a>
 
-**Issue code:** INVALID\_CONDITION\_MULTIPLE\_BOOLEAN
+**Issue code: **INVALID\_CONDITION\_MULTIPLE\_BOOLEAN
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -435,7 +398,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid condition multiple Boolean: The condition key does not support multiple Boolean values. Use a single Boolean value.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -448,19 +410,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 The key in the condition key-value pair expects a single Boolean value. When you provide multiple Boolean values, the condition match might not return the results that you expect.
 
-To view the condition keys for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service to view the condition keys for that service.
-
-- [Conditions](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
+To view the condition keys for a service, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service to view the condition keys for that service.
++ [Conditions](reference_policies_elements_condition.md)
++ [Global condition keys](reference_policies_condition-keys.md)
++ [AWS service condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid condition operator
+<a name="access-analyzer-reference-policy-checks-error-invalid-condition-operator"></a>
 
-**Issue code:** INVALID\_CONDITION\_OPERATOR
+**Issue code: **INVALID\_CONDITION\_OPERATOR
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -468,7 +428,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid condition operator: The condition operator {{operator}} is not valid. Use a valid condition operator.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -482,16 +441,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Update the condition to use a supported condition operator.
 
 **Related terms**
-
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [Condition element](reference_policies_elements_condition.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Invalid effect
+<a name="access-analyzer-reference-policy-checks-error-invalid-effect"></a>
 
-**Issue code:** INVALID\_EFFECT
+**Issue code: **INVALID\_EFFECT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -499,7 +458,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid effect: The effect {{effect}} is not valid. Use Allow or Deny.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -510,18 +468,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the `Effect` element to use a valid effect. Valid values for `Effect` are `Allow` and `Deny`.
+Update the `Effect` element to use a valid effect. Valid values for `Effect` are **Allow** and **Deny**.
 
 **Related terms**
-
-- [Effect element](reference_policies_elements_effect.md "reference_policies_elements_effect.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Effect element](reference_policies_elements_effect.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Invalid global condition key
+<a name="access-analyzer-reference-policy-checks-error-invalid-global-condition-key"></a>
 
-**Issue code:** INVALID\_GLOBAL\_CONDITION\_KEY
+**Issue code: **INVALID\_GLOBAL\_CONDITION\_KEY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -529,7 +487,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid global condition key: The condition key {{key}} does not exist. Use a valid condition key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -542,20 +499,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Update the condition key in the condition key-value pair to use a supported global condition key.
 
-Global condition keys are condition keys with an `aws:` prefix. AWS services can support global condition keys or provide service-specific
-keys that include their service prefix. For example, IAM condition keys include the `iam:` prefix. For more information, see 
-[Actions, Resources, and Condition Keys for AWS Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") 
-and choose the service whose keys you want to view.
+Global condition keys are condition keys with an `aws:` prefix. AWS services can support global condition keys or provide service-specific keys that include their service prefix. For example, IAM condition keys include the `iam:` prefix. For more information, see  [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)  and choose the service whose keys you want to view.
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [Global condition keys](reference_policies_condition-keys.md)
 
 ## Error – Invalid partition
+<a name="access-analyzer-reference-policy-checks-error-invalid-partition"></a>
 
-**Issue code:** INVALID\_PARTITION
+**Issue code: **INVALID\_PARTITION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -563,7 +517,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid partition: The resource ARN for the service {{service}} does not support the partition {{partition}}. Use the supported values: {{partitions}}
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -574,21 +527,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the resource ARN to include a supported partition. If you included a supported partition, then the service
-or resource might not support the partition that you included.
+Update the resource ARN to include a supported partition. If you included a supported partition, then the service or resource might not support the partition that you included.
 
-A _partition_ is a group of AWS Regions. Each AWS account is scoped to one partition. In Classic Regions, use the
-`aws` partition. In China Regions, use `aws-cn`.
+A *partition* is a group of AWS Regions. Each AWS account is scoped to one partition. In Classic Regions, use the `aws` partition. In China Regions, use `aws-cn`.
 
 **Related terms**
-
-- [Amazon Resource Names (ARNs) - Partitions](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md")
++ [Amazon Resource Names (ARNs) - Partitions](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 
 ## Error – Invalid policy element
+<a name="access-analyzer-reference-policy-checks-error-invalid-policy-element"></a>
 
-**Issue code:** INVALID\_POLICY\_ELEMENT
+**Issue code: **INVALID\_POLICY\_ELEMENT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -596,7 +547,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid policy element: The policy element {{element}} is not valid.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -610,14 +560,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Update the policy to include only supported JSON policy elements.
 
 **Related terms**
-
-- [JSON policy elements](reference_policies_elements.md "reference_policies_elements.md")
++ [JSON policy elements](reference_policies_elements.md)
 
 ## Error – Invalid principal format
+<a name="access-analyzer-reference-policy-checks-error-invalid-principal-format"></a>
 
-**Issue code:** INVALID\_PRINCIPAL\_FORMAT
+**Issue code: **INVALID\_PRINCIPAL\_FORMAT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -625,7 +575,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid principal format: The Principal element contents are not valid. Specify a key-value pair in the Principal element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -636,9 +585,9 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the principal to use a supported key-value pair format.
+Update the principal to use a supported key-value pair format. 
 
-You can specify a principal in a resource-based policy, but not an identity-based policy.
+You can specify a principal in a resource-based policy, but not an identity-based policy. 
 
 For example, to define access for everyone in an AWS account, use the following principal in your policy:
 
@@ -647,15 +596,15 @@ For example, to define access for everyone in an AWS account, use the following 
 ```
 
 **Related terms**
-
-- [JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
++ [JSON policy elements: Principal](reference_policies_elements_principal.md)
++ [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md)
 
 ## Error – Invalid principal key
+<a name="access-analyzer-reference-policy-checks-error-invalid-principal-key"></a>
 
-**Issue code:** INVALID\_PRINCIPAL\_KEY
+**Issue code: **INVALID\_PRINCIPAL\_KEY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -663,7 +612,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid principal key: The principal key {{principal-key}} is not valid.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -675,21 +623,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 **Resolving the error**
 
 Update the key in the principal key-value pair to use a supported principal key. The following are supported principal keys:
-
-- AWS
-- CanonicalUser
-- Federated
-- Service
++ AWS
++ CanonicalUser
++ Federated
++ Service
 
 **Related terms**
-
-- [Principal element](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
++ [Principal element](reference_policies_elements_principal.md)
 
 ## Error – Invalid Region
+<a name="access-analyzer-reference-policy-checks-error-invalid-region"></a>
 
-**Issue code:** INVALID\_REGION
+**Issue code: **INVALID\_REGION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -697,7 +644,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid Region: The Region {{region}} is not valid. Update the condition value to a supported Region.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -708,20 +654,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the value of the condition key-value pair to include a supported Region. For a table of AWS services supported in each Region,
-see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+Update the value of the condition key-value pair to include a supported Region. For a table of AWS services supported in each Region, see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [Region names and codes](../../../general/latest/gr/rande.md#region-names-codes "../../../general/latest/gr/rande.md#region-names-codes")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [Region names and codes](https://docs.aws.amazon.com/general/latest/gr/rande.html#region-names-codes)
 
 ## Error – Invalid service
+<a name="access-analyzer-reference-policy-checks-error-invalid-service"></a>
 
-**Issue code:** INVALID\_SERVICE
+**Issue code: **INVALID\_SERVICE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -729,7 +674,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid service: The service {{service}} does not exist. Use a valid service name.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -740,19 +684,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The service prefix in the action or condition key must match the specifications (including capitalization) for service prefixes. To view the prefix for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service and locate its prefix in the first sentence.
+The service prefix in the action or condition key must match the specifications (including capitalization) for service prefixes. To view the prefix for a service, see [ Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service and locate its prefix in the first sentence.
 
 **Related terms**
-
-- [Known services and their actions, resources, and condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [ Known services and their actions, resources, and condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid service condition key
+<a name="access-analyzer-reference-policy-checks-error-invalid-service-condition-key"></a>
 
-**Issue code:** INVALID\_SERVICE\_CONDITION\_KEY
+**Issue code: **INVALID\_SERVICE\_CONDITION\_KEY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -760,7 +702,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid service condition key: The condition key {{key}} does not exist in the service {{service}}. Use a valid condition key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -771,20 +712,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the key in the condition key-value pair to use a known condition key for the service. Global condition key names begin with the `aws` prefix.
-AWS services can provide service-specific keys that include their service prefix. To view the prefix for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
+Update the key in the condition key-value pair to use a known condition key for the service. Global condition key names begin with the `aws` prefix. AWS services can provide service-specific keys that include their service prefix. To view the prefix for a service, see [ Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html).
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [Known services and their actions, resources, and condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [ Known services and their actions, resources, and condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid service in action
+<a name="access-analyzer-reference-policy-checks-error-invalid-service-in-action"></a>
 
-**Issue code:** INVALID\_SERVICE\_IN\_ACTION
+**Issue code: **INVALID\_SERVICE\_IN\_ACTION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -792,7 +731,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid service in action: The service {{service}} specified in the action does not exist. Did you mean {{service2}}?
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -803,20 +741,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The service prefix in the action must match the specifications (including capitalization) for service prefixes. To view the prefix for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service and locate its prefix in the first sentence.
+The service prefix in the action must match the specifications (including capitalization) for service prefixes. To view the prefix for a service, see [ Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service and locate its prefix in the first sentence.
 
 **Related terms**
-
-- [Action element](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [Known services and their actions](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Action element](reference_policies_elements_action.md)
++ [ Known services and their actions](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid variable for operator
+<a name="access-analyzer-reference-policy-checks-error-invalid-variable-for-operator"></a>
 
-**Issue code:** INVALID\_VARIABLE\_FOR\_OPERATOR
+**Issue code: **INVALID\_VARIABLE\_FOR\_OPERATOR
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -824,7 +760,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid variable for operator: Policy variables can only be used with String and ARN operators.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -835,21 +770,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-You can use policy variables in the `Resource` element and in string comparisons in the `Condition` element. Conditions support variables when
-you use string operators or ARN operators. String operators include `StringEquals`, `StringLike`, and `StringNotLike`.
-ARN operators include `ArnEquals` and `ArnLike`. You can't use a policy variable with other operators, such as Numeric, Date, Boolean, 
-Binary, IP Address, or Null operators.
+You can use policy variables in the `Resource` element and in string comparisons in the `Condition` element. Conditions support variables when you use string operators or ARN operators. String operators include `StringEquals`, `StringLike`, and `StringNotLike`. ARN operators include `ArnEquals` and `ArnLike`. You can't use a policy variable with other operators, such as Numeric, Date, Boolean,  Binary, IP Address, or Null operators.
 
 **Related terms**
-
-- [Using policy variables in the Condition element](reference_policies_variables.md#policy-vars-conditionelement "reference_policies_variables.md#policy-vars-conditionelement")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
++ [Using policy variables in the Condition element](reference_policies_variables.md#policy-vars-conditionelement)
++ [Condition element](reference_policies_elements_condition.md)
 
 ## Error – Invalid version
+<a name="access-analyzer-reference-policy-checks-error-invalid-version"></a>
 
-**Issue code:** INVALID\_VERSION
+**Issue code: **INVALID\_VERSION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -857,7 +789,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid version: The version {{version}} is not valid. Use one of the following versions: {{versions}}
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -868,22 +799,21 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The `Version` policy element specifies the language syntax rules that AWS uses to process a policy. To use all of the available
-policy features, include the latest `Version` element before the `Statement` element in all of your policies.
+The `Version` policy element specifies the language syntax rules that AWS uses to process a policy. To use all of the available policy features, include the latest `Version` element before the `Statement` element in all of your policies.
 
 ```
 "Version": "2012-10-17"
 ```
 
 **Related terms**
-
-- [Version element](reference_policies_elements_version.md "reference_policies_elements_version.md")
++ [Version element](reference_policies_elements_version.md)
 
 ## Error – Json syntax error
+<a name="access-analyzer-reference-policy-checks-error-json-syntax-error"></a>
 
-**Issue code:** JSON\_SYNTAX\_ERROR
+**Issue code: **JSON\_SYNTAX\_ERROR
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -891,7 +821,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Json syntax error: Fix the JSON syntax error at index {{index}} line {{line}} column {{column}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -905,16 +834,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Your policy includes a syntax error. Check your JSON syntax.
 
 **Related terms**
-
-- [JSON validator](https://json-validate.com/ "https://json-validate.com/")
-- [IAM JSON policy elements reference](reference_policies_elements.md "reference_policies_elements.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [JSON validator](https://json-validate.com/)
++ [IAM JSON policy elements reference](reference_policies_elements.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Json syntax error
+<a name="access-analyzer-reference-policy-checks-error-json-syntax-error"></a>
 
-**Issue code:** JSON\_SYNTAX\_ERROR
+**Issue code: **JSON\_SYNTAX\_ERROR
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -922,7 +851,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Json syntax error: Fix the JSON syntax error.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -936,16 +864,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Your policy includes a syntax error. Check your JSON syntax.
 
 **Related terms**
-
-- [JSON validator](https://json-validate.com/ "https://json-validate.com/")
-- [IAM JSON policy elements reference](reference_policies_elements.md "reference_policies_elements.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [JSON validator](https://json-validate.com/)
++ [IAM JSON policy elements reference](reference_policies_elements.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Missing action
+<a name="access-analyzer-reference-policy-checks-error-missing-action"></a>
 
-**Issue code:** MISSING\_ACTION
+**Issue code: **MISSING\_ACTION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -953,7 +881,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing action: Add an Action or NotAction element to the policy statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -967,16 +894,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS JSON policies must include an `Action` or `NotAction` element.
 
 **Related terms**
-
-- [Action element](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [NotAction element](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Action element](reference_policies_elements_action.md)
++ [NotAction element](reference_policies_elements_notaction.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Missing ARN field
+<a name="access-analyzer-reference-policy-checks-error-missing-arn-field"></a>
 
-**Issue code:** MISSING\_ARN\_FIELD
+**Issue code: **MISSING\_ARN\_FIELD
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -984,7 +911,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing ARN field: Resource ARNs must include at least {{fields}} fields in the following structure: arn:partition:service:region:account:resource
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -995,21 +921,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-All of the fields in the resource ARN must match the specifications for a known resource type. To view the expected ARN format for a service,
-see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
-Choose the name of the service to view its resource types and ARN formats.
+All of the fields in the resource ARN must match the specifications for a known resource type. To view the expected ARN format for a service, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html). Choose the name of the service to view its resource types and ARN formats.
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Missing ARN Region
+<a name="access-analyzer-reference-policy-checks-error-missing-arn-region"></a>
 
-**Issue code:** MISSING\_ARN\_REGION
+**Issue code: **MISSING\_ARN\_REGION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1017,7 +941,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing ARN Region: Add a Region to the {{service}} resource ARN.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1028,20 +951,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The resource ARNs for most AWS services require that you specify a Region. For a table of AWS services supported in each Region,
-see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+The resource ARNs for most AWS services require that you specify a Region. For a table of AWS services supported in each Region, see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [Region names and codes](../../../general/latest/gr/rande.md#region-names-codes "../../../general/latest/gr/rande.md#region-names-codes")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [Region names and codes](https://docs.aws.amazon.com/general/latest/gr/rande.html#region-names-codes)
 
 ## Error – Missing effect
+<a name="access-analyzer-reference-policy-checks-error-missing-effect"></a>
 
-**Issue code:** MISSING\_EFFECT
+**Issue code: **MISSING\_EFFECT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1049,7 +971,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing effect: Add an Effect element to the policy statement with a value of Allow or Deny.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1060,18 +981,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-AWS JSON policies must include an `Effect` element with a value of `Allow` and `Deny`.
+AWS JSON policies must include an `Effect` element with a value of **Allow** and **Deny**.
 
 **Related terms**
-
-- [Effect element](reference_policies_elements_effect.md "reference_policies_elements_effect.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Effect element](reference_policies_elements_effect.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Missing principal
+<a name="access-analyzer-reference-policy-checks-error-missing-principal"></a>
 
-**Issue code:** MISSING\_PRINCIPAL
+**Issue code: **MISSING\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1079,7 +1000,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing principal: Add a Principal element to the policy statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1099,15 +1019,15 @@ For example, to define access for everyone in an AWS account, use the following 
 ```
 
 **Related terms**
-
-- [Principal element](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
++ [Principal element](reference_policies_elements_principal.md)
++ [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md)
 
 ## Error – Missing qualifier
+<a name="access-analyzer-reference-policy-checks-error-missing-qualifier"></a>
 
-**Issue code:** MISSING\_QUALIFIER
+**Issue code: **MISSING\_QUALIFIER
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1115,7 +1035,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing qualifier: The request context key {{key}} has multiple values. Use the ForAllValues or ForAnyValue condition key qualifiers in your policy.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1126,33 +1045,26 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-In the `Condition` element, you build expressions in which you use condition operators like equal or less than to compare a condition
-in the policy against keys and values in the request context. For requests that include multiple values for a single condition key, you must enclose
-the conditions within brackets like an array ("Key2":["Value2A", "Value2B"]). You must also use the `ForAllValues` or `ForAnyValue` 
-set operators with the `StringLike` condition operator. These qualifiers add set-operation functionality to the condition operator so that
-you can test multiple request values against multiple condition values.
+In the `Condition` element, you build expressions in which you use condition operators like equal or less than to compare a condition in the policy against keys and values in the request context. For requests that include multiple values for a single condition key, you must enclose the conditions within brackets like an array ("Key2":["Value2A", "Value2B"]). You must also use the `ForAllValues` or `ForAnyValue`  set operators with the `StringLike` condition operator. These qualifiers add set-operation functionality to the condition operator so that you can test multiple request values against multiple condition values.
 
 **Related terms**
-
-- [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
++ [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys)
++ [Condition element](reference_policies_elements_condition.md)
 
 ### AWS managed policies with this error
+<a name="accan-ref-policy-check-message-fix-error-missing-qualifier-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-The following AWS managed policies include a missing qualifier for condition keys in their policy statements. When using the AWS managed policy
-as a reference to create your customer managed policy, AWS recommends that you add the `ForAllValues` or `ForAnyValue` condition key
-qualifiers to your `Condition` element.
-
-- [AWSGlueConsoleSageMakerNotebookFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess")
+The following AWS managed policies include a missing qualifier for condition keys in their policy statements. When using the AWS managed policy as a reference to create your customer managed policy, AWS recommends that you add the `ForAllValues` or `ForAnyValue` condition key qualifiers to your `Condition` element.
++ [AWSGlueConsoleSageMakerNotebookFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess)
 
 ## Error – Missing resource
+<a name="access-analyzer-reference-policy-checks-error-missing-resource"></a>
 
-**Issue code:** MISSING\_RESOURCE
+**Issue code: **MISSING\_RESOURCE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1160,7 +1072,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing resource: Add a Resource or NotResource element to the policy statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1174,17 +1085,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 All policies except role trust policies must include a `Resource` or `NotResource` element.
 
 **Related terms**
-
-- [Resource element](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [NotResource element](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Resource element](reference_policies_elements_resource.md)
++ [NotResource element](reference_policies_elements_notresource.md)
++ [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Missing statement
+<a name="access-analyzer-reference-policy-checks-error-missing-statement"></a>
 
-**Issue code:** MISSING\_STATEMENT
+**Issue code: **MISSING\_STATEMENT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1192,7 +1103,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing statement: Add a statement to the policy
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1206,14 +1116,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 A JSON policy must include a statement.
 
 **Related terms**
-
-- [JSON policy elements](reference_policies_elements.md "reference_policies_elements.md")
++ [JSON policy elements](reference_policies_elements.md)
 
 ## Error – Null with if exists
+<a name="access-analyzer-reference-policy-checks-error-null-with-if-exists"></a>
 
-**Issue code:** NULL\_WITH\_IF\_EXISTS
+**Issue code: **NULL\_WITH\_IF\_EXISTS
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1221,7 +1131,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Null with if exists: The Null condition operator cannot be used with the IfExists suffix. Update the operator or the suffix.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1232,22 +1141,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-You can add `IfExists` to the end of any condition operator name except the `Null` condition operator.
-Use a `Null` condition operator to check if a condition key is present at the time of authorization.
-Use `...ifExists` to say "If the policy key is present in the context of the request, process the key as
-specified in the policy. If the key is not present, evaluate the condition element as true."
+You can add `IfExists` to the end of any condition operator name except the `Null` condition operator. Use a `Null` condition operator to check if a condition key is present at the time of authorization. Use `...ifExists` to say "If the policy key is present in the context of the request, process the key as specified in the policy. If the key is not present, evaluate the condition element as true."
 
 **Related terms**
-
-- [...IfExists condition operators](reference_policies_elements_condition_operators.md#Conditions_IfExists "reference_policies_elements_condition_operators.md#Conditions_IfExists")
-- [Null condition operator](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
++ [...IfExists condition operators](reference_policies_elements_condition_operators.md#Conditions_IfExists)
++ [Null condition operator](reference_policies_elements_condition_operators.md#Conditions_Null)
++ [Condition element](reference_policies_elements_condition.md)
 
 ## Error – SCP syntax error action wildcard
+<a name="access-analyzer-reference-policy-checks-error-scp-syntax-error-action-wildcard"></a>
 
-**Issue code:** SCP\_SYNTAX\_ERROR\_ACTION\_WILDCARD
+**Issue code: **SCP\_SYNTAX\_ERROR\_ACTION\_WILDCARD
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1255,7 +1161,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 SCP syntax error action wildcard: SCP actions can include wildcards (*) only at the end of a string. Update {{action}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1266,24 +1171,22 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-AWS Organizations service control policies (SCPs) support specifying values in the `Action` or `NotAction`
-elements. However, these values can include wildcards (\*) only at the end of the string. This means that you can specify
-`iam:Get*` but not `iam:*role`.
+AWS Organizations service control policies (SCPs) support specifying values in the `Action` or `NotAction` elements. However, these values can include wildcards (\*) only at the end of the string. This means that you can specify `iam:Get*` but not `iam:*role`.
 
 To specify multiple actions, AWS recommends that you list them individually.
 
 **Related terms**
-
-- [SCP Action and NotAction elements](../../../organizations/latest/userguide/orgs_manage_policies_scps_syntax.md#scp-syntax-action "../../../organizations/latest/userguide/orgs_manage_policies_scps_syntax.md#scp-syntax-action")
-- [SCP evaluation](../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md")
-- [AWS Organizations service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [SCP Action and NotAction elements](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html#scp-syntax-action)
++ [SCP evaluation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html)
++ [AWS Organizations service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – SCP syntax error principal
+<a name="access-analyzer-reference-policy-checks-error-scp-syntax-error-principal"></a>
 
-**Issue code:** SCP\_SYNTAX\_ERROR\_PRINCIPAL
+**Issue code: **SCP\_SYNTAX\_ERROR\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1291,7 +1194,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 SCP syntax error principal: SCPs do not support specifying principals. Remove the Principal or NotPrincipal element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1307,15 +1209,15 @@ AWS Organizations service control policies (SCPs) do not support the `Principal`
 You can specify the Amazon Resource Name (ARN) using the `aws:PrincipalArn` global condition key in the `Condition` element.
 
 **Related terms**
-
-- [SCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_scps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_syntax.md")
-- [Global condition keys for principals](reference_policies_condition-keys.md#condition-keys-principalarn "reference_policies_condition-keys.md#condition-keys-principalarn")
++ [SCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html)
++ [Global condition keys for principals](reference_policies_condition-keys.md#condition-keys-principalarn)
 
 ## Error – Unique Sids required
+<a name="access-analyzer-reference-policy-checks-error-unique-sids-required"></a>
 
-**Issue code:** UNIQUE\_SIDS\_REQUIRED
+**Issue code: **UNIQUE\_SIDS\_REQUIRED
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1323,7 +1225,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unique Sids required: Duplicate statement IDs are not supported for this policy type. Update the Sid value.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1334,19 +1235,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-For some policy types, statement IDs must be unique. The `Sid` (statement ID) element allows you to enter an optional identifier that
-you provide for the policy statement. You can assign a statement ID value to each statement in a statement array using the `SID` element. In services that let you specify an ID element,
-such as SQS and SNS, the `Sid` value is just a sub-ID of the policy document's ID. For example, in IAM, the `Sid` value must be unique within a JSON policy.
+For some policy types, statement IDs must be unique. The `Sid` (statement ID) element allows you to enter an optional identifier that you provide for the policy statement. You can assign a statement ID value to each statement in a statement array using the `SID` element. In services that let you specify an ID element, such as SQS and SNS, the `Sid` value is just a sub-ID of the policy document's ID. For example, in IAM, the `Sid` value must be unique within a JSON policy.
 
 **Related terms**
-
-- [IAM JSON policy elements: Sid](reference_policies_elements_sid.md "reference_policies_elements_sid.md")
++ [IAM JSON policy elements: Sid](reference_policies_elements_sid.md)
 
 ## Error – Unsupported action in policy
+<a name="access-analyzer-reference-policy-checks-error-unsupported-action-in-policy"></a>
 
-**Issue code:** UNSUPPORTED\_ACTION\_IN\_POLICY
+**Issue code: **UNSUPPORTED\_ACTION\_IN\_POLICY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1354,7 +1253,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported action in policy: The action {{action}} is not supported for the resource-based policy attached to the resource type {{resourceType}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1365,21 +1263,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Some actions aren't supported in the `Action` element in the
-resource-based policy attached to a different resource type. For example, AWS Key Management Service actions
-aren't supported in Amazon S3 bucket policies. Specify an action that is supported by
-resource type attached to your resource-based
-policy.
+Some actions aren't supported in the `Action` element in the resource-based policy attached to a different resource type. For example, AWS Key Management Service actions aren't supported in Amazon S3 bucket policies. Specify an action that is supported by resource type attached to your resource-based policy.
 
 **Related terms**
-
-- [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – Unsupported element combination
+<a name="access-analyzer-reference-policy-checks-error-unsupported-element-combination"></a>
 
-**Issue code:** UNSUPPORTED\_ELEMENT\_COMBINATION
+**Issue code: **UNSUPPORTED\_ELEMENT\_COMBINATION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1387,7 +1281,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported element combination: The policy elements {{element1}} and {{element2}} can not be used in the same statement. Remove one of these elements.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1398,19 +1291,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Some combinations of JSON policy elements can't be used together. For example, you cannot use both `Action` and `NotAction`
-in the same policy statement. Other pairs that are mutually exclusive include `Principal/NotPrincipal` and `Resource/NotResource`.
+Some combinations of JSON policy elements can't be used together. For example, you cannot use both `Action` and `NotAction` in the same policy statement. Other pairs that are mutually exclusive include `Principal/NotPrincipal` and `Resource/NotResource`.
 
 **Related terms**
-
-- [IAM JSON policy elements reference](reference_policies_elements.md "reference_policies_elements.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [IAM JSON policy elements reference](reference_policies_elements.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Error – Unsupported global condition key
+<a name="access-analyzer-reference-policy-checks-error-unsupported-global-condition-key"></a>
 
-**Issue code:** UNSUPPORTED\_GLOBAL\_CONDITION\_KEY
+**Issue code: **UNSUPPORTED\_GLOBAL\_CONDITION\_KEY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1418,7 +1310,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported global condition key: The condition key aws:ARN is not supported. Use aws:PrincipalArn or aws:SourceArn instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1429,20 +1320,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-AWS does not support using the specified global condition key. Depending on your use case, you can use the `aws:PrincipalArn` or `aws:SourceArn`
-global condition keys. For example, instead of `aws:ARN`, use the `aws:PrincipalArn` to compare the Amazon Resource Name (ARN) of the principal that
-made the request with the ARN that you specify in the policy. Alternatively, use the `aws:SourceArn` global condition key to compare the Amazon Resource
-Name (ARN) of the resource making a service-to-service request with the ARN that you specify in the policy.
+AWS does not support using the specified global condition key. Depending on your use case, you can use the `aws:PrincipalArn` or `aws:SourceArn` global condition keys. For example, instead of `aws:ARN`, use the `aws:PrincipalArn` to compare the Amazon Resource Name (ARN) of the principal that made the request with the ARN that you specify in the policy. Alternatively, use the `aws:SourceArn` global condition key to compare the Amazon Resource Name (ARN) of the resource making a service-to-service request with the ARN that you specify in the policy.
 
 **Related terms**
-
-- [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Error – Unsupported principal
+<a name="access-analyzer-reference-policy-checks-error-unsupported-principal"></a>
 
-**Issue code:** UNSUPPORTED\_PRINCIPAL
+**Issue code: **UNSUPPORTED\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1450,7 +1338,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported principal: The policy type {{policy_type}} does not support the Principal element. Remove the Principal element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1461,20 +1348,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The `Principal` element specifies the principal that is allowed or denied access to a resource. You cannot use the `Principal` element in an IAM identity-based
-policy. You can use it in the trust policies for IAM roles and in resource-based policies. Resource-based policies are policies that you embed directly in a resource. For example,
-you can embed policies in an Amazon S3 bucket or an AWS KMS key.
+The `Principal` element specifies the principal that is allowed or denied access to a resource. You cannot use the `Principal` element in an IAM identity-based policy. You can use it in the trust policies for IAM roles and in resource-based policies. Resource-based policies are policies that you embed directly in a resource. For example, you can embed policies in an Amazon S3 bucket or an AWS KMS key.
 
 **Related terms**
-
-- [AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md")
++ [AWS JSON policy elements: Principal](reference_policies_elements_principal.md)
++ [Cross account resource access in IAM](access_policies-cross-account-resource-access.md)
 
 ## Error – Unsupported resource ARN in policy
+<a name="access-analyzer-reference-policy-checks-error-unsupported-resource-arn-in-policy"></a>
 
-**Issue code:** UNSUPPORTED\_RESOURCE\_ARN\_IN\_POLICY
+**Issue code: **UNSUPPORTED\_RESOURCE\_ARN\_IN\_POLICY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1482,7 +1367,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported resource ARN in policy: The resource ARN is not supported for the resource-based policy attached to the resource type {{resourceType}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1493,21 +1377,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Some resource ARNs aren't supported in the `Resource` element of the
-resource-based policy when the policy is attached to a different resource type. For example, AWS KMS ARNs
-aren't supported in the `Resource` element for Amazon S3 bucket policies. Specify a
-resource ARN that is supported by a resource type attached to your resource-based
-policy.
+Some resource ARNs aren't supported in the `Resource` element of the resource-based policy when the policy is attached to a different resource type. For example, AWS KMS ARNs aren't supported in the `Resource` element for Amazon S3 bucket policies. Specify a resource ARN that is supported by a resource type attached to your resource-based policy.
 
 **Related terms**
-
-- [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – Unsupported Sid
+<a name="access-analyzer-reference-policy-checks-error-unsupported-sid"></a>
 
-**Issue code:** UNSUPPORTED\_SID
+**Issue code: **UNSUPPORTED\_SID
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1528,14 +1408,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 The `Sid` element supports uppercase letters, lowercase letters, and numbers.
 
 **Related terms**
-
-- [IAM JSON policy elements: Sid](reference_policies_elements_sid.md "reference_policies_elements_sid.md")
++ [IAM JSON policy elements: Sid](reference_policies_elements_sid.md)
 
 ## Error – Unsupported wildcard in principal
+<a name="access-analyzer-reference-policy-checks-error-unsupported-wildcard-in-principal"></a>
 
-**Issue code:** UNSUPPORTED\_WILDCARD\_IN\_PRINCIPAL
+**Issue code: **UNSUPPORTED\_WILDCARD\_IN\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1553,22 +1433,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The `Principal` element structure supports using a key-value pair. The principal value specified in the policy includes a wildcard (\*).
-You can't include a wildcard with the principal key that you specified. For example, when you specify users in a `Principal` element, you
-cannot use a wildcard to mean "all users". You must name a specific user or users. Similarly, when you specify an assumed-role session,
-you cannot use a wildcard to mean "all sessions". You must name a specific session. You also cannot use a wildcard to match part of a name or an ARN.
+The `Principal` element structure supports using a key-value pair. The principal value specified in the policy includes a wildcard (\*). You can't include a wildcard with the principal key that you specified. For example, when you specify users in a `Principal` element, you cannot use a wildcard to mean "all users". You must name a specific user or users. Similarly, when you specify an assumed-role session, you cannot use a wildcard to mean "all sessions". You must name a specific session. You also cannot use a wildcard to match part of a name or an ARN.
 
 To resolve this finding, remove the wildcard and provide a more specific principal.
 
 **Related terms**
-
-- [AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
++ [AWS JSON policy elements: Principal](reference_policies_elements_principal.md)
 
 ## Error – Missing brace in variable
+<a name="access-analyzer-reference-policy-checks-error-missing-brace-in-variable"></a>
 
-**Issue code:** MISSING\_BRACE\_IN\_VARIABLE
+**Issue code: **MISSING\_BRACE\_IN\_VARIABLE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1576,7 +1453,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing brace in variable: The policy variable is missing a closing curly brace. Add } after the variable text.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1587,20 +1463,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Policy variable structure supports using a `$` prefix followed by a pair of curly braces (`{ }`). Inside the `${ }` characters,
-include the name of the value from the request that you want to use in the policy.
+Policy variable structure supports using a `$` prefix followed by a pair of curly braces (`{ }`). Inside the `${ }` characters, include the name of the value from the request that you want to use in the policy.
 
 To resolve this finding, add the missing brace to make sure the full opening and closing set of braces is present.
 
 **Related terms**
-
-- [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
++ [IAM policy elements: Variables](reference_policies_variables.md)
 
 ## Error – Missing quote in variable
+<a name="access-analyzer-reference-policy-checks-error-missing-quote-in-variable"></a>
 
-**Issue code:** MISSING\_QUOTE\_IN\_VARIABLE
+**Issue code: **MISSING\_QUOTE\_IN\_VARIABLE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1608,7 +1483,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing quote in variable: The policy variable default value must begin and end with a single quote. Add the missing quote.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1619,34 +1493,25 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-When you add a variable to your policy, you can specify a default value for the variable.
-If a variable is not present, AWS uses the default text that you provide.
+When you add a variable to your policy, you can specify a default value for the variable. If a variable is not present, AWS uses the default text that you provide.
 
-To add a default value to a variable, surround the default value with single quotes
-(`' '`), and separate the variable text and the default value with a
-comma and space (`,` ).
+To add a default value to a variable, surround the default value with single quotes (`' '`), and separate the variable text and the default value with a comma and space (`, `).
 
-For example, if a principal is tagged with `team=yellow`, they can access the
-`amzn-s3-demo-bucket` Amazon S3 bucket with the name
-`amzn-s3-demo-bucket-yellow`. A policy with this resource might allow team
-members to access their own resources, but not those of other teams. For users without team
-tags, you might set a default value of `company-wide`. These users can access only
-the `amzn-s3-demo-bucket-company-wide` bucket where they can view broad
-information, such as instructions for joining a team.
+For example, if a principal is tagged with `team=yellow`, they can access the `amzn-s3-demo-bucket` Amazon S3 bucket with the name `amzn-s3-demo-bucket-yellow`. A policy with this resource might allow team members to access their own resources, but not those of other teams. For users without team tags, you might set a default value of `company-wide`. These users can access only the `amzn-s3-demo-bucket-company-wide` bucket where they can view broad information, such as instructions for joining a team.
 
 ```
-"Resource":"arn:aws:s3:::`amzn-s3-demo-bucket-`${aws:PrincipalTag/team, '`company-wide`'}"
+"Resource":"arn:aws:s3:::{{amzn-s3-demo-bucket-}}${aws:PrincipalTag/team, '{{company-wide}}'}"
 ```
 
 **Related terms**
-
-- [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
++ [IAM policy elements: Variables](reference_policies_variables.md)
 
 ## Error – Unsupported space in variable
+<a name="access-analyzer-reference-policy-checks-error-unsupported-space-in-variable"></a>
 
-**Issue code:** UNSUPPORTED\_SPACE\_IN\_VARIABLE
+**Issue code: **UNSUPPORTED\_SPACE\_IN\_VARIABLE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1654,7 +1519,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported space in variable: A space is not supported within the policy variable text. Remove the space.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1665,19 +1529,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Policy variable structure supports using a `$` prefix followed by a pair of curly braces (`{ }`). Inside the `${ }` characters,
-include the name of the value from the request that you want to use in the policy. Although you can include a space when you specify a default variable, you cannot include
-a space in the variable name.
+Policy variable structure supports using a `$` prefix followed by a pair of curly braces (`{ }`). Inside the `${ }` characters, include the name of the value from the request that you want to use in the policy. Although you can include a space when you specify a default variable, you cannot include a space in the variable name.
 
 **Related terms**
-
-- [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
++ [IAM policy elements: Variables](reference_policies_variables.md)
 
 ## Error – Empty variable
+<a name="access-analyzer-reference-policy-checks-error-empty-variable"></a>
 
-**Issue code:** EMPTY\_VARIABLE
+**Issue code: **EMPTY\_VARIABLE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1685,7 +1547,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty variable: Empty policy variable. Remove the ${ } variable structure or provide a variable within the structure.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1696,18 +1557,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Policy variable structure supports using a `$` prefix followed by a pair of curly braces (`{ }`). Inside the `${ }` characters,
-include the name of the value from the request that you want to use in the policy.
+Policy variable structure supports using a `$` prefix followed by a pair of curly braces (`{ }`). Inside the `${ }` characters, include the name of the value from the request that you want to use in the policy.
 
 **Related terms**
-
-- [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
++ [IAM policy elements: Variables](reference_policies_variables.md)
 
 ## Error – Variable unsupported in element
+<a name="access-analyzer-reference-policy-checks-error-variable-unsupported-in-element"></a>
 
-**Issue code:** VARIABLE\_UNSUPPORTED\_IN\_ELEMENT
+**Issue code: **VARIABLE\_UNSUPPORTED\_IN\_ELEMENT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1715,7 +1575,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Variable unsupported in element: Policy variables are supported in the Resource and Condition elements. Remove the policy variable {{variable}} from this element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1729,14 +1588,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 You can use policy variables in the `Resource` element and in string comparisons in the `Condition` element.
 
 **Related terms**
-
-- [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
++ [IAM policy elements: Variables](reference_policies_variables.md)
 
 ## Error – Variable unsupported in version
+<a name="access-analyzer-reference-policy-checks-error-variable-unsupported-in-version"></a>
 
-**Issue code:** VARIABLE\_UNSUPPORTED\_IN\_VERSION
+**Issue code: **VARIABLE\_UNSUPPORTED\_IN\_VERSION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1754,24 +1613,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-To use policy variables, you must include the `Version` element and set it to a version that supports policy variables. Variables were introduced in version
-`2012-10-17`. Earlier versions of the policy language don't support policy variables. If you don't set the `Version` to `2012-10-17` or later,
-variables like `${aws:username}` are treated as literal strings in the policy.
+To use policy variables, you must include the `Version` element and set it to a version that supports policy variables. Variables were introduced in version `2012-10-17`. Earlier versions of the policy language don't support policy variables. If you don't set the `Version` to `2012-10-17` or later, variables like `${aws:username}` are treated as literal strings in the policy.
 
-A `Version` policy element is different from a policy version. The `Version` policy element is used within a policy and defines the version of the policy
-language. A policy version, is created when you change a customer managed policy in IAM. The changed policy doesn't overwrite the existing policy. Instead, IAM creates a new
-version of the managed policy.
+A `Version` policy element is different from a policy version. The `Version` policy element is used within a policy and defines the version of the policy language. A policy version, is created when you change a customer managed policy in IAM. The changed policy doesn't overwrite the existing policy. Instead, IAM creates a new version of the managed policy.
 
 **Related terms**
-
-- [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
-- [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md")
++ [IAM policy elements: Variables](reference_policies_variables.md)
++ [IAM JSON policy elements: Version](reference_policies_elements_version.md)
 
 ## Error – Private IP address
+<a name="access-analyzer-reference-policy-checks-error-private-ip-address"></a>
 
-**Issue code:** PRIVATE\_IP\_ADDRESS
+**Issue code: **PRIVATE\_IP\_ADDRESS
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1779,7 +1634,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Private IP address: aws:SourceIp works only for public IP address ranges. The values for condition key aws:SourceIp include only private IP addresses and will not have the desired effect. Update the value to include only public IP addresses.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1790,17 +1644,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The global condition key `aws:SourceIp` works only for public IP address ranges. You receive this error when your policy allows only private IP addresses.
-In this case, the condition would never match.
-
-- [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip "reference_policies_condition-keys.md#condition-keys-sourceip")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+The global condition key `aws:SourceIp` works only for public IP address ranges. You receive this error when your policy allows only private IP addresses. In this case, the condition would never match.
++ [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Error – Private NotIpAddress
+<a name="access-analyzer-reference-policy-checks-error-private-not-ip-address"></a>
 
-**Issue code:** PRIVATE\_NOT\_IP\_ADDRESS
+**Issue code: **PRIVATE\_NOT\_IP\_ADDRESS
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1808,7 +1661,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Private NotIpAddress: The values for condition key aws:SourceIp include only private IP addresses and has no effect. aws:SourceIp works only for public IP address ranges. Update the value to include only public IP addresses.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1819,17 +1671,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The global condition key `aws:SourceIp` works only for public IP address ranges. You receive this error when you use the `NotIpAddress`
-condition operator and list only private IP addresses. In this case, the condition would always match and would be ineffective.
-
-- [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip "reference_policies_condition-keys.md#condition-keys-sourceip")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+The global condition key `aws:SourceIp` works only for public IP address ranges. You receive this error when you use the `NotIpAddress` condition operator and list only private IP addresses. In this case, the condition would always match and would be ineffective.
++ [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Error – Policy size exceeds SCP quota
+<a name="access-analyzer-reference-policy-checks-error-policy-size-exceeds-scp-quota"></a>
 
-**Issue code:** POLICY\_SIZE\_EXCEEDS\_SCP\_QUOTA
+**Issue code: **POLICY\_SIZE\_EXCEEDS\_SCP\_QUOTA
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1837,7 +1688,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Policy size exceeds SCP quota: The {{policySize}} characters in the service control policy (SCP) exceed the {{policySizeQuota}} character maximum for SCPs. We recommend that you use multiple granular policies.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1848,22 +1698,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-AWS Organizations service control policies (SCPs) support specifying values in the `Action` or `NotAction`
-elements. However, these values can include wildcards (\*) only at the end of the string. This means that you can specify
-`iam:Get*` but not `iam:*role`.
+AWS Organizations service control policies (SCPs) support specifying values in the `Action` or `NotAction` elements. However, these values can include wildcards (\*) only at the end of the string. This means that you can specify `iam:Get*` but not `iam:*role`.
 
 To specify multiple actions, AWS recommends that you list them individually.
 
 **Related terms**
-
-- [Quotas for AWS Organizations](../../../organizations/latest/userguide/orgs_reference_limits.md "../../../organizations/latest/userguide/orgs_reference_limits.md")
-- [AWS Organizations service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
++ [Quotas for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html)
++ [AWS Organizations service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
 
 ## Error – Invalid service principal format
+<a name="access-analyzer-reference-policy-checks-error-invalid-service-principal-format"></a>
 
-**Issue code:** INVALID\_SERVICE\_PRINCIPAL\_FORMAT
+**Issue code: **INVALID\_SERVICE\_PRINCIPAL\_FORMAT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1871,7 +1719,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid service principal format: The service principal does not match the expected format. Use the format {{expectedFormat}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1884,27 +1731,27 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 The value in the condition key-value pair must match a defined service principal format.
 
-A _service principal_ is an identifier that is used to grant permissions to a service. You can specify a service principal in the `Principal` element or as a value for some global condition keys and service-specific keys. The service principal is defined by each service.
+A *service principal* is an identifier that is used to grant permissions to a service. You can specify a service principal in the `Principal` element or as a value for some global condition keys and service-specific keys. The service principal is defined by each service.
 
 The identifier for a service principal includes the service name, and is usually in the following format in all lowercase letters:
 
-``service-name`.amazonaws.com`
+`{{service-name}}.amazonaws.com`
 
 Some service-specific keys may use a different format for service principals. For example, the `kms:ViaService` condition key requires the following format for service principals in all lowercase letters:
 
-``service-name.AWS_region`.amazonaws.com`
+`{{service-name.AWS_region}}.amazonaws.com`
 
 **Related terms**
-
-- [Service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services")
-- [AWS global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [`kms:ViaService` condition key](../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service "../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service")
++ [Service principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services)
++ [AWS global condition keys](reference_policies_condition-keys.md)
++ [`kms:ViaService` condition key](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service)
 
 ## Error – Missing tag key in condition
+<a name="access-analyzer-reference-policy-checks-error-missing-tag-key-in-condition"></a>
 
-**Issue code:** MISSING\_TAG\_KEY\_IN\_CONDITION
+**Issue code: **MISSING\_TAG\_KEY\_IN\_CONDITION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1912,7 +1759,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing tag key in condition: The condition key {{conditionKeyName}} must include a tag key to control access based on tags. Use the format {{conditionKeyName}}tag-key and specify a key name for tag-key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1923,9 +1769,9 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-To control access based on tags, you provide tag information in the [condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md") of a policy.
+To control access based on tags, you provide tag information in the [condition element](reference_policies_elements_condition.md) of a policy.
 
-For example, to [control access to AWS resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources"), you include the `aws:ResourceTag` condition key. This key requires the format `aws:ResourceTag/`tag-key``. To specify the tag key `owner` and the tag value `JaneDoe` in a condition, use the following format.
+For example, to [control access to AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources), you include the `aws:ResourceTag` condition key. This key requires the format `aws:ResourceTag/{{tag-key}}`. To specify the tag key `owner` and the tag value `JaneDoe` in a condition, use the following format.
 
 ```
 "Condition": {
@@ -1934,17 +1780,17 @@ For example, to [control access to AWS resources](access_tags.md#access_tags_con
 ```
 
 **Related terms**
-
-- [Controlling access using tags](access_iam-tags.md "access_iam-tags.md")
-- [Conditions](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Controlling access using tags](access_iam-tags.md)
++ [Conditions](reference_policies_elements_condition.md)
++ [Global condition keys](reference_policies_condition-keys.md)
++ [AWS service condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid vpc format
+<a name="access-analyzer-reference-policy-checks-error-invalid-vpc-format"></a>
 
-**Issue code:** INVALID\_VPC\_FORMAT
+**Issue code: **INVALID\_VPC\_FORMAT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1952,7 +1798,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid vpc format: The VPC identifier in the condition key value is not valid. Use the prefix 'vpc-' followed by 8 or 17 alphanumeric characters.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1966,14 +1811,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 The `aws:SourceVpc` condition key must use the prefix `vpc-` followed by either 8 or 17 alphanumeric characters, for example, `vpc-11223344556677889` or `vpc-12345678`.
 
 **Related terms**
-
-- [AWS global condition keys: aws:SourceVpc](reference_policies_condition-keys.md#condition-keys-sourcevpc "reference_policies_condition-keys.md#condition-keys-sourcevpc")
++ [AWS global condition keys: aws:SourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc)
 
 ## Error – Invalid vpce format
+<a name="access-analyzer-reference-policy-checks-error-invalid-vpce-format"></a>
 
-**Issue code:** INVALID\_VPCE\_FORMAT
+**Issue code: **INVALID\_VPCE\_FORMAT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -1981,7 +1826,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid vpce format: The VPCE identifier in the condition key value is not valid.  Use the prefix 'vpce-' followed by 8 or 17 alphanumeric characters.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -1995,14 +1839,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 The `aws:SourceVpce` condition key must use the prefix `vpce-` followed by either 8 or 17 alphanumeric characters, for example, `vpce-11223344556677889` or `vpce-12345678`.
 
 **Related terms**
-
-- [AWS global condition keys: aws:SourceVpce](reference_policies_condition-keys.md#condition-keys-sourcevpce "reference_policies_condition-keys.md#condition-keys-sourcevpce")
++ [AWS global condition keys: aws:SourceVpce](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpce)
 
 ## Error – Federated principal not supported
+<a name="access-analyzer-reference-policy-checks-error-federated-principal-not-supported"></a>
 
-**Issue code:** FEDERATED\_PRINCIPAL\_NOT\_SUPPORTED
+**Issue code: **FEDERATED\_PRINCIPAL\_NOT\_SUPPORTED
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2010,7 +1854,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Federated principal not supported: The policy type does not support a federated identity provider in the principal element. Use a supported principal.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2021,23 +1864,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The `Principal` element uses federated principals for trust policies
-attached to IAM roles to provide access through identity federation. Identity policies
-and other resource-based policies don't support a federated identity provider in the
-`Principal` element. For example, you can't use a SAML principal in an
-Amazon S3 bucket policy. Change the `Principal` element to a supported principal
-type.
+The `Principal` element uses federated principals for trust policies attached to IAM roles to provide access through identity federation. Identity policies and other resource-based policies don't support a federated identity provider in the `Principal` element. For example, you can't use a SAML principal in an Amazon S3 bucket policy. Change the `Principal` element to a supported principal type.
 
 **Related terms**
-
-- [Creating a role for identity federation](id_roles_create_for-idp.md "id_roles_create_for-idp.md")
-- [JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
++ [Creating a role for identity federation](id_roles_create_for-idp.md)
++ [JSON policy elements: Principal](reference_policies_elements_principal.md)
 
 ## Error – Unsupported action for condition key
+<a name="access-analyzer-reference-policy-checks-error-unsupported-action-for-condition-key"></a>
 
-**Issue code:** UNSUPPORTED\_ACTION\_FOR\_CONDITION\_KEY
+**Issue code: **UNSUPPORTED\_ACTION\_FOR\_CONDITION\_KEY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2045,7 +1883,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported action for condition key: The following actions: {{actions}} are not supported by the condition key {{key}}. The condition will not be evaluated for these actions. We recommend that you move these actions to a different statement without this condition key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2056,24 +1893,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Make sure that the condition key in the `Condition` element of the policy
-statement applies to every action in the `Action` element. To ensure that the
-actions you specify are effectively allowed or denied by your policy, you should move the unsupported actions to a different statement without the condition
-key.
+Make sure that the condition key in the `Condition` element of the policy statement applies to every action in the `Action` element. To ensure that the actions you specify are effectively allowed or denied by your policy, you should move the unsupported actions to a different statement without the condition key.
 
-###### Note
-
+**Note**  
 If the `Action` element has actions with wildcards, IAM Access Analyzer doesn't evaluate those actions for this error.
 
 **Related terms**
-
-- [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – Unsupported action in policy
+<a name="access-analyzer-reference-policy-checks-error-unsupported-action-in-policy"></a>
 
-**Issue code:** UNSUPPORTED\_ACTION\_IN\_POLICY
+**Issue code: **UNSUPPORTED\_ACTION\_IN\_POLICY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2081,7 +1914,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported action in policy: The action {{action}} is not supported for the resource-based policy attached to the resource type {{resourceType}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2092,21 +1924,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Some actions aren't supported in the `Action` element in the
-resource-based policy attached to a different resource type. For example, AWS Key Management Service actions
-aren't supported in Amazon S3 bucket policies. Specify an action that is supported by
-resource type attached to your resource-based
-policy.
+Some actions aren't supported in the `Action` element in the resource-based policy attached to a different resource type. For example, AWS Key Management Service actions aren't supported in Amazon S3 bucket policies. Specify an action that is supported by resource type attached to your resource-based policy.
 
 **Related terms**
-
-- [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – Unsupported resource ARN in policy
+<a name="access-analyzer-reference-policy-checks-error-unsupported-resource-arn-in-policy"></a>
 
-**Issue code:** UNSUPPORTED\_RESOURCE\_ARN\_IN\_POLICY
+**Issue code: **UNSUPPORTED\_RESOURCE\_ARN\_IN\_POLICY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2114,7 +1942,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported resource ARN in policy: The resource ARN is not supported for the resource-based policy attached to the resource type {{resourceType}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2125,21 +1952,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Some resource ARNs aren't supported in the `Resource` element of the
-resource-based policy when the policy is attached to a different resource type. For example, AWS KMS ARNs
-aren't supported in the `Resource` element for Amazon S3 bucket policies. Specify a
-resource ARN that is supported by a resource type attached to your resource-based
-policy.
+Some resource ARNs aren't supported in the `Resource` element of the resource-based policy when the policy is attached to a different resource type. For example, AWS KMS ARNs aren't supported in the `Resource` element for Amazon S3 bucket policies. Specify a resource ARN that is supported by a resource type attached to your resource-based policy.
 
 **Related terms**
-
-- [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – Unsupported condition key for service principal
+<a name="access-analyzer-reference-policy-checks-error-unsupported-condition-key-for-service-principal"></a>
 
-**Issue code:** UNSUPPORTED\_CONDITION\_KEY\_FOR\_SERVICE\_PRINCIPAL
+**Issue code: **UNSUPPORTED\_CONDITION\_KEY\_FOR\_SERVICE\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2147,7 +1970,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unsupported condition key for service principal: The following condition keys are not supported when used with the service principal: {{conditionKeys}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2158,25 +1980,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-You can specify AWS services in the `Principal` element of a
-resource-based policy using a _service principal_, which is an identifier for the service.
-You can't use some condition keys with certain service principals. For example, you can't use
-the `aws:PrincipalOrgID` condition key with the
-service principal `cloudfront.amazonaws.com`. You should
-remove condition keys that do not apply to the service principal in the
-`Principal`
-element.
+You can specify AWS services in the `Principal` element of a resource-based policy using a *service principal*, which is an identifier for the service. You can't use some condition keys with certain service principals. For example, you can't use the `aws:PrincipalOrgID` condition key with the service principal `cloudfront.amazonaws.com`. You should remove condition keys that do not apply to the service principal in the `Principal` element.
 
 **Related terms**
-
-- [Service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services")
-- [JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
++ [Service principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services)
++ [JSON policy elements: Principal](reference_policies_elements_principal.md)
 
 ## Error – Role trust policy syntax error notprincipal
+<a name="access-analyzer-reference-policy-checks-error-role-trust-policy-syntax-error-notprincipal"></a>
 
-**Issue code:** ROLE\_TRUST\_POLICY\_SYNTAX\_ERROR\_NOTPRINCIPAL
+**Issue code: **ROLE\_TRUST\_POLICY\_SYNTAX\_ERROR\_NOTPRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2184,7 +1999,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Role trust policy syntax error notprincipal: Role trust policies do not support NotPrincipal. Update the policy to use a Principal element instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2195,19 +2009,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-A role trust policy is a resource-based policy that is attached to an IAM role. Trust policies define which principal entities (accounts, users, roles, and federated users) can assume the role.
-Role trust policies do not support `NotPrincipal`. Update the policy to use a `Principal` element instead.
+A role trust policy is a resource-based policy that is attached to an IAM role. Trust policies define which principal entities (accounts, users, roles, and federated users) can assume the role. Role trust policies do not support `NotPrincipal`. Update the policy to use a `Principal` element instead.
 
 **Related terms**
-
-- [JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md")
++ [JSON policy elements: Principal](reference_policies_elements_principal.md)
++ [JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md)
 
 ## Error – Role trust policy unsupported wildcard in principal
+<a name="access-analyzer-reference-policy-checks-error-role-trust-policy-unsupported-wildcard-in-principal"></a>
 
-**Issue code:** ROLE\_TRUST\_POLICY\_UNSUPPORTED\_WILDCARD\_IN\_PRINCIPAL
+**Issue code: **ROLE\_TRUST\_POLICY\_UNSUPPORTED\_WILDCARD\_IN\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2215,7 +2028,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Role trust policy unsupported wildcard in principal: "Principal:" "*" is not supported in the principal element of a role trust policy. Replace the wildcard with a valid principal value.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2226,19 +2038,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-A role trust policy is a resource-based policy that is attached to an IAM role. Trust policies define which principal entities (accounts, users, roles, and federated users) can assume the role.
-`"Principal:" "*"` is not supported in the `Principal` element of a role
-trust policy. Replace the wildcard with a valid principal value.
+A role trust policy is a resource-based policy that is attached to an IAM role. Trust policies define which principal entities (accounts, users, roles, and federated users) can assume the role. `"Principal:" "*"` is not supported in the `Principal` element of a role trust policy. Replace the wildcard with a valid principal value.
 
 **Related terms**
-
-- [JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
++ [JSON policy elements: Principal](reference_policies_elements_principal.md)
 
 ## Error – Role trust policy syntax error resource
+<a name="access-analyzer-reference-policy-checks-error-role-trust-policy-syntax-error-resource"></a>
 
-**Issue code:** ROLE\_TRUST\_POLICY\_SYNTAX\_ERROR\_RESOURCE
+**Issue code: **ROLE\_TRUST\_POLICY\_SYNTAX\_ERROR\_RESOURCE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2246,7 +2056,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Role trust policy syntax error resource: Role trust policies apply to the role that they are attached to. You cannot specify a resource. Remove the Resource or NotResource element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2257,17 +2066,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-A role trust policy is a resource-based policy that is attached to an IAM role. Trust policies define which principal entities (accounts, users, roles, and federated users) can assume the role.
-Role trust policies apply to the role that they are attached to. You cannot specify a `Resource` or `NotResource` element in a role trust policy. Remove the `Resource` or `NotResource` element.
-
-- [JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
+A role trust policy is a resource-based policy that is attached to an IAM role. Trust policies define which principal entities (accounts, users, roles, and federated users) can assume the role. Role trust policies apply to the role that they are attached to. You cannot specify a `Resource` or `NotResource` element in a role trust policy. Remove the `Resource` or `NotResource` element.
++ [JSON policy elements: Resource](reference_policies_elements_resource.md)
++ [JSON policy elements: NotResource](reference_policies_elements_notresource.md)
 
 ## Error – Type mismatch IP range
+<a name="access-analyzer-reference-policy-checks-error-type-mismatch-ip-range"></a>
 
-**Issue code:** TYPE\_MISMATCH\_IP\_RANGE
+**Issue code: **TYPE\_MISMATCH\_IP\_RANGE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2275,7 +2083,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Type mismatch IP range: The condition operator {{operator}} is used with an invalid IP range value. Specify the IP range in standard CIDR format.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2289,15 +2096,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Update the text to use the IP address condition operator data type, in a CIDR format.
 
 **Related terms**
-
-- [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress "reference_policies_elements_condition_operators.md#Conditions_IPAddress")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## Error – Missing action for condition key
+<a name="access-analyzer-reference-policy-checks-error-missing-action-for-condition-key"></a>
 
-**Issue code:** MISSING\_ACTION\_FOR\_CONDITION\_KEY
+**Issue code: **MISSING\_ACTION\_FOR\_CONDITION\_KEY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2305,7 +2112,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing action for condition key: The {{actionName}} action must be in the action block to allow setting values for the condition key {{keyName}}. Add {{actionName}} to the action block.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2316,19 +2122,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The condition key in the `Condition` element of the policy
-statement is not evaluated unless the specified action is in the `Action` element. To ensure that the
-condition keys you specify are effectively allowed or denied by your policy, add the action to the `Action` element.
+The condition key in the `Condition` element of the policy statement is not evaluated unless the specified action is in the `Action` element. To ensure that the condition keys you specify are effectively allowed or denied by your policy, add the action to the `Action` element.
 
 **Related terms**
-
-- [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
++ [JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Error – Invalid federated principal syntax in role trust policy
+<a name="access-analyzer-reference-policy-checks-error-invalid-federated-principal-syntax-in-role-trust-policy"></a>
 
-**Issue code:** INVALID\_FEDERATED\_PRINCIPAL\_SYNTAX\_IN\_ROLE\_TRUST\_POLICY
+**Issue code: **INVALID\_FEDERATED\_PRINCIPAL\_SYNTAX\_IN\_ROLE\_TRUST\_POLICY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2336,7 +2140,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid federated principal syntax in role trust policy: The principal value specifies a federated principal that does not match the expected format. Update the federated principal to a domain name or a SAML metadata ARN.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2347,19 +2150,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The principal value specifies a federated principal that does not match the expected
-format. Update the format of the federated principal to a valid domain name or a SAML
-metadata ARN.
+The principal value specifies a federated principal that does not match the expected format. Update the format of the federated principal to a valid domain name or a SAML metadata ARN.
 
 **Related terms**
-
-- [Federated users and roles](introduction_access-management.md#intro-access-roles "introduction_access-management.md#intro-access-roles")
++ [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles)
 
 ## Error – Mismatched action for principal
+<a name="access-analyzer-reference-policy-checks-error-mismatched-action-for-principal"></a>
 
-**Issue code:** MISMATCHED\_ACTION\_FOR\_PRINCIPAL
+**Issue code: **MISMATCHED\_ACTION\_FOR\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2367,7 +2168,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Mismatched action for principal: The {{actionName}} action is invalid with the following principal(s): {{principalNames}}. Use a SAML provider principal with the sts:AssumeRoleWithSAML action or use an OIDC provider principal with the sts:AssumeRoleWithWebIdentity action. Ensure the provider is Federated if you use either of the two options.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2378,23 +2178,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The action specified in the `Action` element of the policy
-statement is invalid with the principal specified in the `Principal` element.
-For example, you can't use a SAML provider principal with the
-`sts:AssumeRoleWithWebIdentity` action. You should use a SAML provider
-principal with the `sts:AssumeRoleWithSAML` action or use an OIDC provider
-principal with the `sts:AssumeRoleWithWebIdentity` action.
+The action specified in the `Action` element of the policy statement is invalid with the principal specified in the `Principal` element. For example, you can't use a SAML provider principal with the `sts:AssumeRoleWithWebIdentity` action. You should use a SAML provider principal with the `sts:AssumeRoleWithSAML` action or use an OIDC provider principal with the `sts:AssumeRoleWithWebIdentity` action.
 
 **Related terms**
-
-- [AssumeRoleWithSAML](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md")
-- [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md")
++ [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html)
++ [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
 
 ## Error – Missing action for roles anywhere trust policy
+<a name="access-analyzer-reference-policy-checks-error-missing-action-for-roles-anywhere-trust-policy"></a>
 
-**Issue code:** MISSING\_ACTION\_FOR\_ROLES\_ANYWHERE\_TRUST\_POLICY
+**Issue code: **MISSING\_ACTION\_FOR\_ROLES\_ANYWHERE\_TRUST\_POLICY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2412,22 +2207,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-For IAM Roles Anywhere to be able to assume a role and deliver temporary AWS
-credentials, the role must trust the IAM Roles Anywhere service principal. The IAM
-Roles Anywhere service principal requires the `sts:AssumeRole`,
-`sts:SetSourceIdentity`, and `sts:TagSession` permissions to
-assume a role. If any of the permissions are missing, you must add them to your
-policy.
+For IAM Roles Anywhere to be able to assume a role and deliver temporary AWS credentials, the role must trust the IAM Roles Anywhere service principal. The IAM Roles Anywhere service principal requires the `sts:AssumeRole`, `sts:SetSourceIdentity`, and `sts:TagSession` permissions to assume a role. If any of the permissions are missing, you must add them to your policy.
 
 **Related terms**
-
-- [Trust model in AWS Identity and Access Management Roles Anywhere](../../../rolesanywhere/latest/userguide/trust-model.md "../../../rolesanywhere/latest/userguide/trust-model.md")
++ [Trust model in AWS Identity and Access Management Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html)
 
 ## Error – Policy size exceeds RCP quota
+<a name="access-analyzer-reference-policy-checks-error-policy-size-exceeds-rcp-quota"></a>
 
-**Issue code:** POLICY\_SIZE\_EXCEEDS\_RCP\_QUOTA
+**Issue code: **POLICY\_SIZE\_EXCEEDS\_RCP\_QUOTA
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2435,7 +2225,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Policy size exceeds RCP quota: The {{policySize}} characters in the resource control policy (RCP) exceed the {{policySizeQuota}} character maximum for RCPs. We recommend that you use multiple granular policies.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2446,21 +2235,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-AWS Organizations resource control policies (RCPs) support specifying values in the `Action` element. However, these values can include wildcards (\*) only at the end of the string. This means that you can specify
-`s3:Get*` but not `s3:*Object`.
+AWS Organizations resource control policies (RCPs) support specifying values in the `Action` element. However, these values can include wildcards (\*) only at the end of the string. This means that you can specify `s3:Get*` but not `s3:*Object`.
 
 To specify multiple actions, AWS recommends that you list them individually.
 
 **Related terms**
-
-- [Quotas for AWS Organizations](../../../organizations/latest/userguide/orgs_reference_limits.md "../../../organizations/latest/userguide/orgs_reference_limits.md")
-- [AWS Organizations resource control policies](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md")
++ [Quotas for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html)
++ [AWS Organizations resource control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html)
 
 ## Error – RCP syntax error principal
+<a name="access-analyzer-reference-policy-checks-error-rcp-syntax-error-principal"></a>
 
-**Issue code:** RCP\_SYNTAX\_ERROR\_PRINCIPAL
+**Issue code: **RCP\_SYNTAX\_ERROR\_PRINCIPAL
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2468,7 +2256,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 RCP syntax error principal: The Principal element contents are not valid. RCPs only support specifying all principals ("*") in the Principal element. The NotPrincipal element is not supported for RCPs.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2482,15 +2269,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS Organizations resource control policies (RCPs) only support specifying all principals ("`*`") in the `Principal` element. The `NotPrincipal` element is not supported for RCPs.
 
 **Related terms**
-
-- [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties "reference_policies_condition-keys.md#condition-keys-principal-properties")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties)
 
 ## Error – RCP syntax error allow
+<a name="access-analyzer-reference-policy-checks-error-rcp-syntax-error-allow"></a>
 
-**Issue code:** RCP\_SYNTAX\_ERROR\_ALLOW
+**Issue code: **RCP\_SYNTAX\_ERROR\_ALLOW
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2511,16 +2298,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS Organizations resource control policies (RCPs) only support specifying all principals ("`*`") in the `Principal` element and all resources ("`*`") in the `Resource` element. The `Condition` element with an effect of `Allow` is not supported for RCPs.
 
 **Related terms**
-
-- [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties "reference_policies_condition-keys.md#condition-keys-principal-properties")
-- [Properties of the resource](reference_policies_condition-keys.md#condition-keys-resource-properties "reference_policies_condition-keys.md#condition-keys-resource-properties")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties)
++ [Properties of the resource](reference_policies_condition-keys.md#condition-keys-resource-properties)
 
 ## Error – RCP syntax error NotAction
+<a name="access-analyzer-reference-policy-checks-error-rcp-syntax-error-notaction"></a>
 
-**Issue code:** RCP\_SYNTAX\_ERROR\_NOTACTION
+**Issue code: **RCP\_SYNTAX\_ERROR\_NOTACTION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2528,7 +2315,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 RCP syntax error NotAction: RCPs do not support the NotAction element. Update to use the Action element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2542,16 +2328,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS Organizations resource control policies (RCPs) do not support the `NotAction` element. Use the `Action` element.
 
 **Related terms**
-
-- [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md)
 
 ## Error – RCP syntax error action
+<a name="access-analyzer-reference-policy-checks-error-rcp-syntax-error-action"></a>
 
-**Issue code:** RCP\_SYNTAX\_ERROR\_ACTION
+**Issue code: **RCP\_SYNTAX\_ERROR\_ACTION
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2559,7 +2345,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 RCP syntax error action: RCPs only support specifying select service prefixes in the Action element. Learn more here.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2573,15 +2358,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS Organizations resource control policies (RCPs) only support specifying select service prefixes in the `Action` element.
 
 **Related terms**
-
-- [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [List of AWS services that support RCPs](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md#rcp-supported-services "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md#rcp-supported-services")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [List of AWS services that support RCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html#rcp-supported-services)
 
 ## Error – Missing ARN account
+<a name="access-analyzer-reference-policy-checks-error-missing-arn-account"></a>
 
-**Issue code:** MISSING\_ARN\_ACCOUNT
+**Issue code: **MISSING\_ARN\_ACCOUNT
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2599,21 +2384,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Include an account ID in the resource ARN. Account IDs are 12-digit integers. To learn how to view your account ID, see
-[Finding your AWS account ID](../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers "../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers").
+Include an account ID in the resource ARN. Account IDs are 12-digit integers. To learn how to view your account ID, see [Finding your AWS account ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingYourAccountIdentifiers).
 
 **Related terms**
-
-- [Policy resources](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [Account Identifiers](../../../general/latest/gr/acct-identifiers.md "../../../general/latest/gr/acct-identifiers.md")
-- [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [Policy resources](reference_policies_elements_resource.md)
++ [Account Identifiers](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
++ [Resource ARNs](reference_identifiers.md#identifiers-arns)
++ [AWS service resources with ARN formats](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## Error – Invalid kms key value
+<a name="access-analyzer-reference-policy-checks-error-invalid-kms-key-value"></a>
 
-**Issue code:** INVALID\_KMS\_KEY\_VALUE
+**Issue code: **INVALID\_KMS\_KEY\_VALUE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2631,27 +2415,23 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-An AWS KMS key ARN (Amazon Resource Name) is a unique, fully qualified identifier for a
-KMS key. A key ARN includes the AWS account, Region, and the key ID. A key ARN follows
-this format:
+An AWS KMS key ARN (Amazon Resource Name) is a unique, fully qualified identifier for a KMS key. A key ARN includes the AWS account, Region, and the key ID. A key ARN follows this format:
 
-`arn:aws:kms:`region`:`account-id`:key/`key-id``
+`arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}}`
 
 **Related terms**
-
-- [Find
-  the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md")
-- [Key ARN](../../../kms/latest/developerguide/concepts.md#key-id-key-ARN "../../../kms/latest/developerguide/concepts.md#key-id-key-ARN")
-- [AWS global condition
-  context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [Find the key ID and key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html)
++ [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN)
++ [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)
 
 ## Error – Variable usage too permissive
+<a name="access-analyzer-reference-policy-checks-error-variable-usage-too-permissive"></a>
 
-**Issue code:** VARIABLE\_USAGE\_TOO\_PERMISSIVE
+**Issue code: **VARIABLE\_USAGE\_TOO\_PERMISSIVE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
-**Finding details**
+**Finding details** 
 
 In the AWS Management Console, the finding for this check includes the following message:
 
@@ -2684,38 +2464,22 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 **Resolving the error**
 
 There are three possible finding messages for this error.
-
-- For the first error message, modify your policy variable usage to be more specific.
-  Add at least 6 consecutive characters before the policy variable to reduce the scope of
-  permissions. For example, instead of using `${aws:username}`, use
-  `prefix-${aws:username}` or `myapp-${aws:username}`. This ensures
-  that the policy variable doesn't grant overly broad access.
-- For the second error message, remove the policy variable from the specified condition
-  key. Policy variables can act as effective wildcards and are not permitted with sensitive
-  condition keys for security reasons. Instead, use specific static values or consider
-  restructuring your policy to use non-sensitive condition keys that support policy
-  variables.
-- For the third error message, modify your `aws:userID` policy variable usage
-  to be more restrictive. Place the policy variable on the right side of a colon (after the
-  account ID) or use it as the only character on the left side of a colon. For example, use
-  `AIDACKCEVSQ6C2EXAMPLE:${aws:userid}` or `${aws:userid}:*` instead of
-  `${aws:userid}`.
++ For the first error message, modify your policy variable usage to be more specific. Add at least 6 consecutive characters before the policy variable to reduce the scope of permissions. For example, instead of using `${aws:username}`, use `prefix-${aws:username}` or `myapp-${aws:username}`. This ensures that the policy variable doesn't grant overly broad access.
++ For the second error message, remove the policy variable from the specified condition key. Policy variables can act as effective wildcards and are not permitted with sensitive condition keys for security reasons. Instead, use specific static values or consider restructuring your policy to use non-sensitive condition keys that support policy variables.
++ For the third error message, modify your `aws:userID` policy variable usage to be more restrictive. Place the policy variable on the right side of a colon (after the account ID) or use it as the only character on the left side of a colon. For example, use `AIDACKCEVSQ6C2EXAMPLE:${aws:userid}` or `${aws:userid}:*` instead of `${aws:userid}`.
 
 **Related terms**
-
-- [IAM policy elements: Variables and
-  tags](reference_policies_variables.md "reference_policies_variables.md")
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md "reference_policies_condition-logic-multiple-context-keys-or-values.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [IAM policy elements: Variables and tags](reference_policies_variables.md)
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
++ [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md)
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Error – Wildcard usage too permissive
+<a name="access-analyzer-reference-policy-checks-error-wildcard-usage-too-permissive"></a>
 
-**Issue code:** WILDCARD\_USAGE\_TOO\_PERMISSIVE
+**Issue code: **WILDCARD\_USAGE\_TOO\_PERMISSIVE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2750,34 +2514,22 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 **Resolving the error**
 
 There are three possible finding messages for this error.
-
-- For the first error message, make your wildcard usage more specific by adding at least
-  6 consecutive characters before the wildcard. For example, instead of using `*`,
-  use `prefix-*` or `prefix-*-suffix`. This reduces the scope of the
-  condition and follows the principle of least privilege.
-- For the second error message, remove the wildcard from the specified condition key.
-  Wildcards are not permitted with sensitive condition keys for security reasons. Replace
-  the wildcard with specific values that match your intended access pattern, or consider
-  using a different, non-sensitive condition key that supports wildcards.
-- For the third error message, modify your `aws:userID` wildcard usage to be
-  more restrictive. Place the wildcard on the right side of a colon (after the account ID)
-  or use it as the only character on the left side of a colon. For example, use
-  `AIDACKCEVSQ6C2EXAMPLE:*` or `*:*` instead of `*`.
++ For the first error message, make your wildcard usage more specific by adding at least 6 consecutive characters before the wildcard. For example, instead of using `*`, use `prefix-*` or `prefix-*-suffix`. This reduces the scope of the condition and follows the principle of least privilege.
++ For the second error message, remove the wildcard from the specified condition key. Wildcards are not permitted with sensitive condition keys for security reasons. Replace the wildcard with specific values that match your intended access pattern, or consider using a different, non-sensitive condition key that supports wildcards.
++ For the third error message, modify your `aws:userID` wildcard usage to be more restrictive. Place the wildcard on the right side of a colon (after the account ID) or use it as the only character on the left side of a colon. For example, use `AIDACKCEVSQ6C2EXAMPLE:*` or `*:*` instead of `*`. 
 
 **Related terms**
-
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md "reference_policies_condition-logic-multiple-context-keys-or-values.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [IAM identifiers](reference_identifiers.md "reference_identifiers.md")
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
++ [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md)
++ [AWS global condition context keys](reference_policies_condition-keys.md)
++ [IAM identifiers](reference_identifiers.md)
 
 ## Error – DynamoDB invalid return consumed capacity
+<a name="access-analyzer-reference-policy-checks-error-dynamodb-invalid-return-consumed-capacity"></a>
 
-**Issue code:** DYNAMODB\_INVALID\_RETURN\_CONSUMED\_CAPACITY
+**Issue code: **DYNAMODB\_INVALID\_RETURN\_CONSUMED\_CAPACITY
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2795,18 +2547,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the condition value to one of the two values DynamoDB provides:
-`TOTAL` or `NONE`. Values are case-sensitive under
-`StringEquals` and `StringLike`, so a lowercase variant such as
-`total` is not valid. The `StringEqualsIgnoreCase` operator accepts any
-casing. A condition that specifies an invalid value never matches any request, so the
-statement has no effect.
+Update the condition value to one of the two values DynamoDB provides: `TOTAL` or `NONE`. Values are case-sensitive under `StringEquals` and `StringLike`, so a lowercase variant such as `total` is not valid. The `StringEqualsIgnoreCase` operator accepts any casing. A condition that specifies an invalid value never matches any request, so the statement has no effect.
 
 ## Error – DynamoDB invalid return values
+<a name="access-analyzer-reference-policy-checks-error-dynamodb-invalid-return-values"></a>
 
-**Issue code:** DYNAMODB\_INVALID\_RETURN\_VALUES
+**Issue code: **DYNAMODB\_INVALID\_RETURN\_VALUES
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2824,18 +2572,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the condition value to one of the five values DynamoDB provides:
-`NONE`, `ALL_OLD`, `UPDATED_OLD`, `ALL_NEW`,
-or `UPDATED_NEW`. Values are case-sensitive under `StringEquals` and
-`StringLike`, so a lowercase variant such as `updated_new` is not
-valid. The `StringEqualsIgnoreCase` operator accepts any casing. A condition that
-specifies an invalid value never matches any request, so the statement has no effect.
+Update the condition value to one of the five values DynamoDB provides: `NONE`, `ALL_OLD`, `UPDATED_OLD`, `ALL_NEW`, or `UPDATED_NEW`. Values are case-sensitive under `StringEquals` and `StringLike`, so a lowercase variant such as `updated_new` is not valid. The `StringEqualsIgnoreCase` operator accepts any casing. A condition that specifies an invalid value never matches any request, so the statement has no effect.
 
 ## Error – DynamoDB invalid select value
+<a name="access-analyzer-reference-policy-checks-error-dynamodb-invalid-select-value"></a>
 
-**Issue code:** DYNAMODB\_INVALID\_SELECT\_VALUE
+**Issue code: **DYNAMODB\_INVALID\_SELECT\_VALUE
 
-**Finding type:** ERROR
+**Finding type: **ERROR
 
 **Finding details**
 
@@ -2853,19 +2597,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-Update the condition value to one of the four values DynamoDB provides:
-`ALL_ATTRIBUTES`, `ALL_PROJECTED_ATTRIBUTES`,
-`SPECIFIC_ATTRIBUTES`, or `COUNT`. Values are case-sensitive under
-`StringEquals` and `StringLike`, so a lowercase variant such as
-`specific_attributes` is not valid. The `StringEqualsIgnoreCase`
-operator accepts any casing. A condition that specifies an invalid value never matches any
-request, so the statement has no effect.
+Update the condition value to one of the four values DynamoDB provides: `ALL_ATTRIBUTES`, `ALL_PROJECTED_ATTRIBUTES`, `SPECIFIC_ATTRIBUTES`, or `COUNT`. Values are case-sensitive under `StringEquals` and `StringLike`, so a lowercase variant such as `specific_attributes` is not valid. The `StringEqualsIgnoreCase` operator accepts any casing. A condition that specifies an invalid value never matches any request, so the statement has no effect.
 
 ## General Warning – Create SLR with NotResource
+<a name="access-analyzer-reference-policy-checks-general-warning-create-slr-with-not-resource"></a>
 
-**Issue code:** CREATE\_SLR\_WITH\_NOT\_RESOURCE
+**Issue code: **CREATE\_SLR\_WITH\_NOT\_RESOURCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -2873,7 +2612,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Create SLR with NotResource: Using the iam:CreateServiceLinkedRole action with NotResource can allow creation of unintended service-linked roles for multiple resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2884,19 +2622,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf.
-Using `iam:CreateServiceLinkedRole` in a policy with the `NotResource` element can allow creating unintended service-linked roles for multiple resources.
-AWS recommends that you specify allowed ARNs in the `Resource` element instead.
-
-- [CreateServiceLinkedRole operation](../APIReference/API_CreateServiceLinkedRole.md "../APIReference/API_CreateServiceLinkedRole.md")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Using `iam:CreateServiceLinkedRole` in a policy with the `NotResource` element can allow creating unintended service-linked roles for multiple resources. AWS recommends that you specify allowed ARNs in the `Resource` element instead.
++ [CreateServiceLinkedRole operation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## General Warning – Create SLR with star in action and NotResource
+<a name="access-analyzer-reference-policy-checks-general-warning-create-slr-with-star-in-action-and-not-resource"></a>
 
-**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_ACTION\_AND\_NOT\_RESOURCE
+**Issue code: **CREATE\_SLR\_WITH\_STAR\_IN\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -2904,7 +2640,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Create SLR with star in action and NotResource: Using an action with a wildcard(*) and NotResource can allow creation of unintended service-linked roles because it can allow iam:CreateServiceLinkedRole permissions on multiple resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2915,19 +2650,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Policies
-with a wildcard (\*) in the `Action` and that include the `NotResource` element can allow creation of unintended service-linked roles for multiple resources.
-AWS recommends that you specify allowed ARNs in the `Resource` element instead.
-
-- [CreateServiceLinkedRole operation](../APIReference/API_CreateServiceLinkedRole.md "../APIReference/API_CreateServiceLinkedRole.md")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Policies with a wildcard (\*) in the `Action` and that include the `NotResource` element can allow creation of unintended service-linked roles for multiple resources. AWS recommends that you specify allowed ARNs in the `Resource` element instead.
++ [CreateServiceLinkedRole operation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## General Warning – Create SLR with NotAction and NotResource
+<a name="access-analyzer-reference-policy-checks-general-warning-create-slr-with-not-action-and-not-resource"></a>
 
-**Issue code:** CREATE\_SLR\_WITH\_NOT\_ACTION\_AND\_NOT\_RESOURCE
+**Issue code: **CREATE\_SLR\_WITH\_NOT\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -2935,7 +2668,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Create SLR with NotAction and NotResource: Using NotAction with NotResource can allow creation of unintended service-linked roles because it allows iam:CreateServiceLinkedRole permissions on multiple resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2946,22 +2678,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf.
-Using the `NotAction` element with the `NotResource` element can allow creating unintended service-linked roles for multiple resources.
-AWS recommends that you rewrite the policy to allow `iam:CreateServiceLinkedRole` on a limited list of ARNs in the `Resource` element instead.
-You can also add `iam:CreateServiceLinkedRole` to the `NotAction` element.
-
-- [CreateServiceLinkedRole operation](../APIReference/API_CreateServiceLinkedRole.md "../APIReference/API_CreateServiceLinkedRole.md")
-- [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Using the `NotAction` element with the `NotResource` element can allow creating unintended service-linked roles for multiple resources. AWS recommends that you rewrite the policy to allow `iam:CreateServiceLinkedRole` on a limited list of ARNs in the `Resource` element instead. You can also add `iam:CreateServiceLinkedRole` to the `NotAction` element.
++ [CreateServiceLinkedRole operation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)
++ [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## General Warning – Create SLR with star in resource
+<a name="access-analyzer-reference-policy-checks-general-warning-create-slr-with-star-in-resource"></a>
 
-**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_RESOURCE
+**Issue code: **CREATE\_SLR\_WITH\_STAR\_IN\_RESOURCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -2969,7 +2698,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Create SLR with star in resource: Using the iam:CreateServiceLinkedRole action with wildcards (*) in the resource can allow creation of unintended service-linked roles. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -2980,33 +2708,26 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf.
-Using `iam:CreateServiceLinkedRole` in a policy with a wildcard (\*) in the `Resource` element can allow creating unintended service-linked roles for multiple resources.
-AWS recommends that you specify allowed ARNs in the `Resource` element instead.
-
-- [CreateServiceLinkedRole operation](../APIReference/API_CreateServiceLinkedRole.md "../APIReference/API_CreateServiceLinkedRole.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Using `iam:CreateServiceLinkedRole` in a policy with a wildcard (\*) in the `Resource` element can allow creating unintended service-linked roles for multiple resources. AWS recommends that you specify allowed ARNs in the `Resource` element instead.
++ [CreateServiceLinkedRole operation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ### AWS managed policies with this general warning
+<a name="accan-ref-policy-check-message-fix-general-warning-create-slr-with-star-in-resource-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-Some of those use cases are for power users within your account. The following AWS managed policies provide power user access and grant permissions to create
-[service-linked roles](id_roles_create-service-linked-role.md "id_roles_create-service-linked-role.md") for any AWS service. AWS recommends that you attach the following AWS managed policies to
-only IAM identities that you consider power users.
-
-- [PowerUserAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/PowerUserAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/PowerUserAccess")
-- [AlexaForBusinessFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AlexaForBusinessFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AlexaForBusinessFullAccess")
-- [AWSOrganizationsServiceTrustPolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSOrganizationsServiceTrustPolicy "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSOrganizationsServiceTrustPolicy")
-  – This AWS managed policy provides permissions for use by the AWS Organizations service-linked role. This role allows Organizations to create additional service-linked roles
-  for other services in your AWS organization.
+Some of those use cases are for power users within your account. The following AWS managed policies provide power user access and grant permissions to create [service-linked roles](id_roles_create-service-linked-role.md) for any AWS service. AWS recommends that you attach the following AWS managed policies to only IAM identities that you consider power users.
++ [PowerUserAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/PowerUserAccess)
++ [AlexaForBusinessFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AlexaForBusinessFullAccess)
++ [AWSOrganizationsServiceTrustPolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSOrganizationsServiceTrustPolicy) – This AWS managed policy provides permissions for use by the AWS Organizations service-linked role. This role allows Organizations to create additional service-linked roles for other services in your AWS organization.
 
 ## General Warning – Create SLR with star in action and resource
+<a name="access-analyzer-reference-policy-checks-general-warning-create-slr-with-star-in-action-and-resource"></a>
 
-**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_ACTION\_AND\_RESOURCE
+**Issue code: **CREATE\_SLR\_WITH\_STAR\_IN\_ACTION\_AND\_RESOURCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3014,7 +2735,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Create SLR with star in action and resource: Using wildcards (*) in the action and the resource can allow creation of unintended service-linked roles because it allows iam:CreateServiceLinkedRole permissions on all resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3025,32 +2745,26 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Policies
-with a wildcard (\*) in the `Action` and `Resource` elements can allow creating unintended service-linked roles for multiple resources. This allows
-creating a service-linked role when you specify `"Action": "*"`, `"Action": "iam:*"`, or `"Action": "iam:Create*"`. AWS recommends that you
-specify allowed ARNs in the `Resource` element instead.
-
-- [CreateServiceLinkedRole operation](../APIReference/API_CreateServiceLinkedRole.md "../APIReference/API_CreateServiceLinkedRole.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Policies with a wildcard (\*) in the `Action` and `Resource` elements can allow creating unintended service-linked roles for multiple resources. This allows creating a service-linked role when you specify `"Action": "*"`, `"Action": "iam:*"`, or `"Action": "iam:Create*"`. AWS recommends that you specify allowed ARNs in the `Resource` element instead.
++ [CreateServiceLinkedRole operation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ### AWS managed policies with this general warning
+<a name="accan-ref-policy-check-message-fix-general-warning-create-slr-with-star-in-action-and-resource-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-Some of those use cases are for administrators within your account. The following AWS managed policies provide administrator access and grant permissions to
-create [service-linked roles](id_roles_create-service-linked-role.md "id_roles_create-service-linked-role.md") for any AWS service. AWS recommends that you attach the following AWS managed policies
-to only the IAM identities that you consider administrators.
-
-- [AdministratorAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess")
-- [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess")
+Some of those use cases are for administrators within your account. The following AWS managed policies provide administrator access and grant permissions to create [service-linked roles](id_roles_create-service-linked-role.md) for any AWS service. AWS recommends that you attach the following AWS managed policies to only the IAM identities that you consider administrators.
++ [AdministratorAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess)
++ [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess)
 
 ## General Warning – Create SLR with star in resource and NotAction
+<a name="access-analyzer-reference-policy-checks-general-warning-create-slr-with-star-in-resource-and-not-action"></a>
 
-**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_RESOURCE\_AND\_NOT\_ACTION
+**Issue code: **CREATE\_SLR\_WITH\_STAR\_IN\_RESOURCE\_AND\_NOT\_ACTION
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3058,7 +2772,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Create SLR with star in resource and NotAction: Using a resource with wildcards (*) and NotAction can allow creation of unintended service-linked roles because it allows iam:CreateServiceLinkedRole permissions on all resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3069,20 +2782,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf.
-Using the `NotAction` element in a policy with a wildcard (\*) in the `Resource` element can allow creating unintended service-linked roles for multiple resources.
-AWS recommends that you specify allowed ARNs in the `Resource` element instead. You can also add `iam:CreateServiceLinkedRole` to the `NotAction` element.
-
-- [CreateServiceLinkedRole operation](../APIReference/API_CreateServiceLinkedRole.md "../APIReference/API_CreateServiceLinkedRole.md")
-- [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+The action `iam:CreateServiceLinkedRole` grants permission to create an IAM role that allows an AWS service to perform actions on your behalf. Using the `NotAction` element in a policy with a wildcard (\*) in the `Resource` element can allow creating unintended service-linked roles for multiple resources. AWS recommends that you specify allowed ARNs in the `Resource` element instead. You can also add `iam:CreateServiceLinkedRole` to the `NotAction` element.
++ [CreateServiceLinkedRole operation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)
++ [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## General Warning – Deprecated global condition key
+<a name="access-analyzer-reference-policy-checks-general-warning-deprecated-global-condition-key"></a>
 
-**Issue code:** DEPRECATED\_GLOBAL\_CONDITION\_KEY
+**Issue code: **DEPRECATED\_GLOBAL\_CONDITION\_KEY
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3090,7 +2801,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Deprecated global condition key: We recommend that you update aws:ARN to use the newer condition key aws:PrincipalArn.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3102,14 +2812,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 **Resolving the general warning**
 
 The policy includes a deprecated global condition key. Update the condition key in the condition key-value pair to use a supported global condition key.
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [Global condition keys](reference_policies_condition-keys.md)
 
 ## General Warning – Invalid date value
+<a name="access-analyzer-reference-policy-checks-general-warning-invalid-date-value"></a>
 
-**Issue code:** INVALID\_DATE\_VALUE
+**Issue code: **INVALID\_DATE\_VALUE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3117,7 +2827,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid date value: The date {{date}} might not resolve as expected. We recommend that you use the YYYY-MM-DD format.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3128,19 +2837,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-Unix Epoch time describes a point in time that has elapsed since January 1, 1970, minus leap seconds. Epoch time might not resolve to the
-precise time that you expect. AWS recommends that you use the W3C standard for date and time formats. For example, you could specify a complete date,
-such as YYYY-MM-DD (1997-07-16), or you could also append the time to the second, such as YYYY-MM-DDThh:mm:ssTZD (1997-07-16T19:20:30+01:00).
-
-- [W3C Date and Time Formats](https://www.w3.org/TR/NOTE-datetime "https://www.w3.org/TR/NOTE-datetime")
-- [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md")
-- [aws:CurrentTime global condition key](reference_policies_condition-keys.md#condition-keys-currenttime "reference_policies_condition-keys.md#condition-keys-currenttime")
+Unix Epoch time describes a point in time that has elapsed since January 1, 1970, minus leap seconds. Epoch time might not resolve to the precise time that you expect. AWS recommends that you use the W3C standard for date and time formats. For example, you could specify a complete date, such as YYYY-MM-DD (1997-07-16), or you could also append the time to the second, such as YYYY-MM-DDThh:mm:ssTZD (1997-07-16T19:20:30\+01:00).
++ [W3C Date and Time Formats](https://www.w3.org/TR/NOTE-datetime)
++ [IAM JSON policy elements: Version](reference_policies_elements_version.md)
++ [aws:CurrentTime global condition key](reference_policies_condition-keys.md#condition-keys-currenttime)
 
 ## General Warning – Invalid role reference
+<a name="access-analyzer-reference-policy-checks-general-warning-invalid-role-reference"></a>
 
-**Issue code:** INVALID\_ROLE\_REFERENCE
+**Issue code: **INVALID\_ROLE\_REFERENCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3148,7 +2855,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid role reference: The Principal element includes the IAM role ID {{roleid}}. We recommend that you use a role ARN instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3159,19 +2865,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-AWS recommends that you specify the Amazon Resource Name (ARN) for an IAM role instead of its principal ID. When IAM saves the policy, it will transform
-the ARN into the principal ID for the existing role. AWS includes a safety precaution. If someone deletes and recreates the role, it will have a new ID, and the policy won't match the
-new role's ID.
-
-- [Specifying a principal: IAM roles](reference_policies_elements_principal.md#principal-roles "reference_policies_elements_principal.md#principal-roles")
-- [IAM ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [IAM unique IDs](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids")
+AWS recommends that you specify the Amazon Resource Name (ARN) for an IAM role instead of its principal ID. When IAM saves the policy, it will transform the ARN into the principal ID for the existing role. AWS includes a safety precaution. If someone deletes and recreates the role, it will have a new ID, and the policy won't match the new role's ID. 
++ [Specifying a principal: IAM roles](reference_policies_elements_principal.md#principal-roles)
++ [IAM ARNs](reference_identifiers.md#identifiers-arns)
++ [IAM unique IDs](reference_identifiers.md#identifiers-unique-ids)
 
 ## General Warning – Invalid user reference
+<a name="access-analyzer-reference-policy-checks-general-warning-invalid-user-reference"></a>
 
-**Issue code:** INVALID\_USER\_REFERENCE
+**Issue code: **INVALID\_USER\_REFERENCE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3179,7 +2883,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Invalid user reference: The Principal element includes the IAM user ID {{userid}}. We recommend that you use a user ARN instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3190,19 +2893,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-AWS recommends that you specify the Amazon Resource Name (ARN) for an IAM user instead of its principal ID. When IAM saves the policy, it will transform
-the ARN into the principal ID for the existing user. AWS includes a safety precaution. If someone deletes and recreates the user, it will have a new ID, and the policy won't match the
-new user's ID.
-
-- [Specifying a principal: IAM users](reference_policies_elements_principal.md#principal-users "reference_policies_elements_principal.md#principal-users")
-- [IAM ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
-- [IAM unique IDs](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids")
+AWS recommends that you specify the Amazon Resource Name (ARN) for an IAM user instead of its principal ID. When IAM saves the policy, it will transform the ARN into the principal ID for the existing user. AWS includes a safety precaution. If someone deletes and recreates the user, it will have a new ID, and the policy won't match the new user's ID. 
++ [Specifying a principal: IAM users](reference_policies_elements_principal.md#principal-users)
++ [IAM ARNs](reference_identifiers.md#identifiers-arns)
++ [IAM unique IDs](reference_identifiers.md#identifiers-unique-ids)
 
 ## General Warning – Missing version
+<a name="access-analyzer-reference-policy-checks-general-warning-missing-version"></a>
 
-**Issue code:** MISSING\_VERSION
+**Issue code: **MISSING\_VERSION
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3210,7 +2911,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing version: We recommend that you specify the Version element to help you with debugging permission issues.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3221,17 +2921,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-AWS recommends that you include the optional `Version` parameter in your policy. If you do not include a Version element, the value defaults to `2012-10-17`, but newer features,
-such as policy variables, will not work with your policy. For example, variables such as `${aws:username}` aren't recognized as variables and are instead treated as literal
-strings in the policy.
-
-- [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md")
+AWS recommends that you include the optional `Version` parameter in your policy. If you do not include a Version element, the value defaults to `2012-10-17`, but newer features, such as policy variables, will not work with your policy. For example, variables such as `${aws:username}` aren't recognized as variables and are instead treated as literal strings in the policy.
++ [IAM JSON policy elements: Version](reference_policies_elements_version.md)
 
 ## General Warning – Unique Sids recommended
+<a name="access-analyzer-reference-policy-checks-general-warning-unique-sids-recommended"></a>
 
-**Issue code:** UNIQUE\_SIDS\_RECOMMENDED
+**Issue code: **UNIQUE\_SIDS\_RECOMMENDED
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3239,7 +2937,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Unique Sids recommended: We recommend that you use statement IDs that are unique to your policy. Update the Sid value.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3250,18 +2947,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-AWS recommends that you use unique statement IDs. The `Sid` (statement ID) element allows you to enter an optional identifier that
-you provide for the policy statement. You can assign a statement ID value to each statement in a statement array using the `SID` element.
+AWS recommends that you use unique statement IDs. The `Sid` (statement ID) element allows you to enter an optional identifier that you provide for the policy statement. You can assign a statement ID value to each statement in a statement array using the `SID` element.
 
 **Related terms**
-
-- [IAM JSON policy elements: Sid](reference_policies_elements_sid.md "reference_policies_elements_sid.md")
++ [IAM JSON policy elements: Sid](reference_policies_elements_sid.md)
 
 ## General Warning – Wildcard without like operator
+<a name="access-analyzer-reference-policy-checks-general-warning-wildcard-without-like-operator"></a>
 
-**Issue code:** WILDCARD\_WITHOUT\_LIKE\_OPERATOR
+**Issue code: **WILDCARD\_WITHOUT\_LIKE\_OPERATOR
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3279,33 +2975,28 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The `Condition` element structure requires that you use a condition operator and a key-value pair. When you specify a condition
-value that uses a wildcard (\*, ?), you must use the `Like` version of the condition operator. For example, instead of the
-`StringEquals` string condition operator, use `StringLike`.
+The `Condition` element structure requires that you use a condition operator and a key-value pair. When you specify a condition value that uses a wildcard (\*, ?), you must use the `Like` version of the condition operator. For example, instead of the `StringEquals` string condition operator, use `StringLike`.
 
 ```
 "Condition": {"StringLike": {"aws:PrincipalTag/job-category": "admin-*"}}
 ```
-
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ### AWS managed policies with this general warning
+<a name="accan-ref-policy-check-message-fix-general-warning-wildcard-without-like-operator-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-The following AWS managed policies include wildcards in their condition value without a condition operator that includes `Like` for pattern-matching.
-When using the AWS managed policy as a reference to create your customer managed policy, AWS recommends that you use a condition operator that supports pattern-matching
-with wildcards (\*, ?), such as `StringLike`.
-
-- [AWSGlueConsoleSageMakerNotebookFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess")
+The following AWS managed policies include wildcards in their condition value without a condition operator that includes `Like` for pattern-matching. When using the AWS managed policy as a reference to create your customer managed policy, AWS recommends that you use a condition operator that supports pattern-matching with wildcards (\*, ?), such as `StringLike`.
++ [AWSGlueConsoleSageMakerNotebookFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess)
 
 ## General Warning – Policy size exceeds identity policy quota
+<a name="access-analyzer-reference-policy-checks-general-warning-policy-size-exceeds-identity-policy-quota"></a>
 
-**Issue code:** POLICY\_SIZE\_EXCEEDS\_IDENTITY\_POLICY\_QUOTA
+**Issue code: **POLICY\_SIZE\_EXCEEDS\_IDENTITY\_POLICY\_QUOTA
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3323,41 +3014,34 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-You can attach up to 20 managed policies to an IAM identity (user, group of users, or role). However, the size of each managed policy
-cannot exceed the default quota of 6,144 characters. IAM does not count white space when calculating the size of a policy against
-this quota. Quotas, also referred to as limits in AWS, are the maximum values for the resources, actions, and items in your AWS
-account.
+You can attach up to 20 managed policies to an IAM identity (user, group of users, or role). However, the size of each managed policy cannot exceed the default quota of 6,144 characters. IAM does not count white space when calculating the size of a policy against this quota. Quotas, also referred to as limits in AWS, are the maximum values for the resources, actions, and items in your AWS account.
 
-Additionally, you can add as many inline policies as you want to an IAM identity. However, the sum size
-of all inline policies per identity cannot exceed the specified quota.
+Additionally, you can add as many inline policies as you want to an IAM identity. However, the sum size of all inline policies per identity cannot exceed the specified quota.
 
-If your policy is larger than the quota, you can organize your policy into multiple statements and group the statements into multiple
-policies.
+If your policy is larger than the quota, you can organize your policy into multiple statements and group the statements into multiple policies.
 
 **Related terms**
-
-- [IAM and AWS STS character quotas](reference_iam-quotas.md "reference_iam-quotas.md")
-- [Multiple statements and multiple policies](access_policies.md#policies-syntax-multiples "access_policies.md#policies-syntax-multiples")
-- [IAM customer managed policies](access_policies_managed-vs-inline.md#customer-managed-policies "access_policies_managed-vs-inline.md#customer-managed-policies")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
-- [IAM JSON policy grammar](reference_policies_grammar.md "reference_policies_grammar.md")
++ [IAM and AWS STS character quotas](reference_iam-quotas.md)
++ [Multiple statements and multiple policies](access_policies.md#policies-syntax-multiples)
++ [IAM customer managed policies](access_policies_managed-vs-inline.md#customer-managed-policies)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
++ [IAM JSON policy grammar](reference_policies_grammar.md)
 
 ### AWS managed policies with this general warning
+<a name="accan-ref-policy-check-message-fix-general-warning-policy-size-exceeds-identity-policy-quota-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-The following AWS managed policies grant permissions to actions across many AWS services and exceed the maximum policy size. When using the
-AWS managed policy as a reference to create your managed policy, you must split the policy into multiple policies.
-
-- [ReadOnlyAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/ReadOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/ReadOnlyAccess")
-- [AWSSupportServiceRolePolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSSupportServiceRolePolicy "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSSupportServiceRolePolicy")
+The following AWS managed policies grant permissions to actions across many AWS services and exceed the maximum policy size. When using the AWS managed policy as a reference to create your managed policy, you must split the policy into multiple policies.
++ [ReadOnlyAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/ReadOnlyAccess)
++ [AWSSupportServiceRolePolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSSupportServiceRolePolicy)
 
 ## General Warning – Policy size exceeds resource policy quota
+<a name="access-analyzer-reference-policy-checks-general-warning-policy-size-exceeds-resource-policy-quota"></a>
 
-**Issue code:** POLICY\_SIZE\_EXCEEDS\_RESOURCE\_POLICY\_QUOTA
+**Issue code: **POLICY\_SIZE\_EXCEEDS\_RESOURCE\_POLICY\_QUOTA
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3365,7 +3049,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Policy size exceeds resource policy quota: The {{policySize}} characters in the resource policy exceed the {{policySizeQuota}} character maximum for resource policies. We recommend that you use multiple granular policies.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3376,27 +3059,23 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-Resource-based policies are JSON policy documents that you attach to a resource, such as an Amazon S3 bucket. These policies grant
-the specified principal permission to perform specific actions on that resource and define under what conditions this applies.
-The size of resource-based policies cannot exceed the quota set for that resource. Quotas, also referred to as limits in AWS,
-are the maximum values for the resources, actions, and items in your AWS account.
+Resource-based policies are JSON policy documents that you attach to a resource, such as an Amazon S3 bucket. These policies grant the specified principal permission to perform specific actions on that resource and define under what conditions this applies. The size of resource-based policies cannot exceed the quota set for that resource. Quotas, also referred to as limits in AWS, are the maximum values for the resources, actions, and items in your AWS account.
 
-If your policy is larger than the quota, you can organize your policy into multiple statements and group the statements into multiple
-policies.
+If your policy is larger than the quota, you can organize your policy into multiple statements and group the statements into multiple policies.
 
 **Related terms**
-
-- [Resource-based policies](access_policies.md#policies_resource-based "access_policies.md#policies_resource-based")
-- [Amazon S3 bucket policies](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md")
-- [Multiple statements and multiple policies](access_policies.md#policies-syntax-multiples "access_policies.md#policies-syntax-multiples")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
-- [IAM JSON policy grammar](reference_policies_grammar.md "reference_policies_grammar.md")
++ [Resource-based policies](access_policies.md#policies_resource-based)
++ [Amazon S3 bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html)
++ [Multiple statements and multiple policies](access_policies.md#policies-syntax-multiples)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
++ [IAM JSON policy grammar](reference_policies_grammar.md)
 
 ## General Warning – Type mismatch
+<a name="access-analyzer-reference-policy-checks-general-warning-type-mismatch"></a>
 
-**Issue code:** TYPE\_MISMATCH
+**Issue code: **TYPE\_MISMATCH
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3404,7 +3083,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Type mismatch: Use the operator type {{allowed}} instead of operator {{operator}} for the condition key {{key}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3417,19 +3095,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Update the text to use the supported condition operator data type.
 
-For example, the `aws:MultiFactorAuthPresent` global condition key requires a condition operator with the `Boolean` data type. If you provide a date or an integer, the
-data type won't match.
+For example, the `aws:MultiFactorAuthPresent` global condition key requires a condition operator with the `Boolean` data type. If you provide a date or an integer, the data type won't match.
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## General Warning – Type mismatch Boolean
+<a name="access-analyzer-reference-policy-checks-general-warning-type-mismatch-boolean"></a>
 
-**Issue code:** TYPE\_MISMATCH\_BOOLEAN
+**Issue code: **TYPE\_MISMATCH\_BOOLEAN
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3437,7 +3114,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Type mismatch Boolean: Add a valid Boolean value (true or false) for the condition operator {{operator}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3450,19 +3126,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Update the text to use a Boolean condition operator data type, such as `true` or `false`.
 
-For example, the `aws:MultiFactorAuthPresent` global condition key requires a condition operator with the `Boolean` data type. If you provide a date or an integer, the
-data type won't match.
+For example, the `aws:MultiFactorAuthPresent` global condition key requires a condition operator with the `Boolean` data type. If you provide a date or an integer, the data type won't match.
 
 **Related terms**
-
-- [Boolean condition operators](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [Boolean condition operators](reference_policies_elements_condition_operators.md#Conditions_Boolean)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## General Warning – Type mismatch date
+<a name="access-analyzer-reference-policy-checks-general-warning-type-mismatch-date"></a>
 
-**Issue code:** TYPE\_MISMATCH\_DATE
+**Issue code: **TYPE\_MISMATCH\_DATE
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3470,7 +3145,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Type mismatch date: The date condition operator is used with an invalid value. Specify a valid date using YYYY-MM-DD or other ISO 8601 date/time format.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3484,15 +3158,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Update the text to use the date condition operator data type, in a `YYYY-MM-DD` or other ISO 8601 date time format.
 
 **Related terms**
-
-- [Date condition operators](reference_policies_elements_condition_operators.md#Conditions_Date "reference_policies_elements_condition_operators.md#Conditions_Date")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [Date condition operators](reference_policies_elements_condition_operators.md#Conditions_Date)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## General Warning – Type mismatch number
+<a name="access-analyzer-reference-policy-checks-general-warning-type-mismatch-number"></a>
 
-**Issue code:** TYPE\_MISMATCH\_NUMBER
+**Issue code: **TYPE\_MISMATCH\_NUMBER
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3500,7 +3174,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Type mismatch number: Add a valid numeric value for the condition operator {{operator}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3514,15 +3187,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Update the text to use the numeric condition operator data type.
 
 **Related terms**
-
-- [Numeric condition operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [Numeric condition operators](reference_policies_elements_condition_operators.md#Conditions_Numeric)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## General Warning – Type mismatch string
+<a name="access-analyzer-reference-policy-checks-general-warning-type-mismatch-string"></a>
 
-**Issue code:** TYPE\_MISMATCH\_STRING
+**Issue code: **TYPE\_MISMATCH\_STRING
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3530,7 +3203,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Type mismatch string: Add a valid base64-encoded string value for the condition operator {{operator}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3544,15 +3216,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 Update the text to use the string condition operator data type.
 
 **Related terms**
-
-- [String condition operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [String condition operators](reference_policies_elements_condition_operators.md#Conditions_String)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## General Warning – Specific github repo and branch recommended
+<a name="access-analyzer-reference-policy-checks-general-warning-specific-github-repo-and-branch-recommended"></a>
 
-**Issue code:** SPECIFIC\_GITHUB\_REPO\_AND\_BRANCH\_RECOMMENDED
+**Issue code: **SPECIFIC\_GITHUB\_REPO\_AND\_BRANCH\_RECOMMENDED
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3560,7 +3232,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Specific github repo and branch recommended: Using a wildcard (*) in token.actions.githubusercontent.com:sub can allow requests from more sources than you intended. Specify the value of token.actions.githubusercontent.com:sub with the repository and branch name. If the subject claim does not include the branch, specify it in a token.actions.githubusercontent.com:ref condition key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3571,31 +3242,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-If you use GitHub as an OIDC IdP, best practice is to limit the entities that can
-assume the role associated with the IAM IdP. When you include a `Condition` statement in
-a role trust policy, you can limit the role to a specific GitHub organization, repository,
-or branch. You can use the condition key `token.actions.githubusercontent.com:sub` to
-limit access. We recommend that you limit the condition to a specific set of
-repositories or branches. If you use a wildcard (`*`) in `token.actions.githubusercontent.com:sub`, then GitHub Actions from
-organizations or repositories outside of your control are able to assume roles
-associated with the GitHub IAM IdP in your AWS account.
+If you use GitHub as an OIDC IdP, best practice is to limit the entities that can assume the role associated with the IAM IdP. When you include a `Condition` statement in a role trust policy, you can limit the role to a specific GitHub organization, repository, or branch. You can use the condition key `token.actions.githubusercontent.com:sub` to limit access. We recommend that you limit the condition to a specific set of repositories or branches. If you use a wildcard (`*`) in `token.actions.githubusercontent.com:sub`, then GitHub Actions from organizations or repositories outside of your control are able to assume roles associated with the GitHub IAM IdP in your AWS account.
 
-Specify the repository in `token.actions.githubusercontent.com:sub`. You can specify
-the branch in that same value, or in a separate
-`token.actions.githubusercontent.com:ref` condition key. When the subject
-claim does not include the branch — for example, when it names a
-GitHub environment — specify the branch in
-`token.actions.githubusercontent.com:ref`.
+Specify the repository in `token.actions.githubusercontent.com:sub`. You can specify the branch in that same value, or in a separate `token.actions.githubusercontent.com:ref` condition key. When the subject claim does not include the branch — for example, when it names a GitHub environment — specify the branch in `token.actions.githubusercontent.com:ref`.
 
 **Related terms**
-
-- [Configuring a role for GitHub OIDC identity provider](id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub "id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub")
++ [Configuring a role for GitHub OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub)
 
 ## General Warning – Policy size exceeds role trust policy quota
+<a name="access-analyzer-reference-policy-checks-general-warning-policy-size-exceeds-role-trust-policy-quota"></a>
 
-**Issue code:** POLICY\_SIZE\_EXCEEDS\_ROLE\_TRUST\_POLICY\_QUOTA
+**Issue code: **POLICY\_SIZE\_EXCEEDS\_ROLE\_TRUST\_POLICY\_QUOTA
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3613,19 +3272,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-IAM and AWS STS have quotas that limit the size of role trust policies. The characters
-in the role trust policy, excluding whitespace, exceed the character maximum. We
-recommend that you request a role trust policy length quota increase using Service Quotas and the AWS Support Center Console.
+IAM and AWS STS have quotas that limit the size of role trust policies. The characters in the role trust policy, excluding whitespace, exceed the character maximum. We recommend that you request a role trust policy length quota increase using Service Quotas and the AWS Support Center Console.
 
 **Related terms**
-
-- [IAM and AWS STS quotas, name requirements, and character limits](reference_iam-quotas.md "reference_iam-quotas.md")
++ [IAM and AWS STS quotas, name requirements, and character limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
 
 ## General Warning – RCP missing related principal condition key
+<a name="access-analyzer-reference-policy-checks-general-warning-rcp-missing-related-principal-condition-key"></a>
 
-**Issue code:** RCP\_MISSING\_RELATED\_PRINCIPAL\_CONDITION\_KEY
+**Issue code: **RCP\_MISSING\_RELATED\_PRINCIPAL\_CONDITION\_KEY
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3646,19 +3303,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS Organizations resource control policies (RCPs) can impact IAM roles, users, and AWS service principals. To prevent unintended impact to services acting on your behalf using a service principal, add the following statement to your `Condition` element:
 
 ```
-`"BoolIfExists": { "aws:PrincipalIsAWSService": "false"}`
+"BoolIfExists": { "aws:PrincipalIsAWSService": "false"}
 ```
 
 **Related terms**
-
-- [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties "reference_policies_condition-keys.md#condition-keys-principal-properties")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties)
 
 ## General Warning – RCP missing related service principal condition key
+<a name="access-analyzer-reference-policy-checks-general-warning-rcp-missing-related-service-principal-condition-key"></a>
 
-**Issue code:** RCP\_MISSING\_RELATED\_SERVICE\_PRINCIPAL\_CONDITION\_KEY
+**Issue code: **RCP\_MISSING\_RELATED\_SERVICE\_PRINCIPAL\_CONDITION\_KEY
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3679,19 +3336,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 AWS Organizations resource control policies (RCPs) can impact IAM roles, users, and AWS service principals. To prevent unintended impact to your principals, add the following statement to your `Condition` element:
 
 ```
-`"BoolIfExists": { "aws:PrincipalIsAWSService": "true"}`
+"BoolIfExists": { "aws:PrincipalIsAWSService": "true"}
 ```
 
 **Related terms**
-
-- [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties "reference_policies_condition-keys.md#condition-keys-principal-properties")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties)
 
 ## General Warning – RCP missing service condition key null check
+<a name="access-analyzer-reference-policy-checks-general-warning-rcp-missing-service-condition-key-null-check"></a>
 
-**Issue code:** RCP\_MISSING\_SERVICE\_CONDITION\_KEY\_NULL\_CHECK
+**Issue code: **RCP\_MISSING\_SERVICE\_CONDITION\_KEY\_NULL\_CHECK
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3709,33 +3366,28 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-AWS Organizations resource control policies (RCPs) can impact IAM roles, users, and AWS service
-principals. To prevent unintended impact to services acting on your behalf using a service
-principal, add one of the following statements to your `Condition` element whenever the
-specified key is used:
+AWS Organizations resource control policies (RCPs) can impact IAM roles, users, and AWS service principals. To prevent unintended impact to services acting on your behalf using a service principal, add one of the following statements to your `Condition` element whenever the specified key is used:
 
 ```
-`"Null": { "aws:SourceAccount": "false"}`
+"Null": { "aws:SourceAccount": "false"}
 ```
 
 or
 
 ```
-`"Null": { "aws:SourceArn": "false"}`
+"Null": { "aws:SourceArn": "false"}
 ```
 
 **Related terms**
-
-- [RCP
-  syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
-- [Properties of the
-  principal](reference_policies_condition-keys.md#condition-keys-principal-properties "reference_policies_condition-keys.md#condition-keys-principal-properties")
++ [RCP syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_syntax.html)
++ [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties)
 
 ## General Warning – Use condition key only with supported services
+<a name="access-analyzer-reference-policy-checks-general-warning-use-condition-key-only-with-supported-services"></a>
 
-**Issue code:** USE\_CONDITION\_KEY\_ONLY\_WITH\_SUPPORTED\_SERVICES
+**Issue code: **USE\_CONDITION\_KEY\_ONLY\_WITH\_SUPPORTED\_SERVICES
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3753,22 +3405,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-Review the AWS documentation to identify which AWS services support this condition
-key. If any services in your policy don't support the condition key, modify your policy
-to scope the condition key to only the AWS services that support it.
+Review the AWS documentation to identify which AWS services support this condition key. If any services in your policy don't support the condition key, modify your policy to scope the condition key to only the AWS services that support it.
 
 **Related terms**
-
-- [`aws:VpceAccount`](reference_policies_condition-keys.md#condition-keys-vpceaccount "reference_policies_condition-keys.md#condition-keys-vpceaccount")
-- [`aws:VpceOrgID`](reference_policies_condition-keys.md#condition-keys-vpceorgid "reference_policies_condition-keys.md#condition-keys-vpceorgid")
-- [`aws:VpceOrgPaths`](reference_policies_condition-keys.md#condition-keys-vpceorgpaths "reference_policies_condition-keys.md#condition-keys-vpceorgpaths")
-- [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
++ [`aws:VpceAccount`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-vpceaccount)
++ [`aws:VpceOrgID`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-vpceorgid)
++ [`aws:VpceOrgPaths`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-vpceorgpaths)
++ [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html)
 
 ## General Warning – DynamoDB replace operation with attributes
+<a name="access-analyzer-reference-policy-checks-general-warning-dynamodb-replace-operation-with-attributes"></a>
 
-**Issue code:** DYNAMODB\_REPLACE\_OPERATION\_WITH\_ATTRIBUTES
+**Issue code: **DYNAMODB\_REPLACE\_OPERATION\_WITH\_ATTRIBUTES
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3786,18 +3436,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-The `dynamodb:Attributes` condition does not limit `dynamodb:PutItem`
-or `dynamodb:BatchWriteItem`. These actions replace the whole item, so a caller
-can drop a restricted attribute just by leaving it out of the item they write. To control
-which attributes a caller can change, grant `dynamodb:UpdateItem` instead and keep
-the `dynamodb:Attributes` condition on that statement. If you did not intend
-attribute-level control here, remove the `dynamodb:Attributes` condition.
+The `dynamodb:Attributes` condition does not limit `dynamodb:PutItem` or `dynamodb:BatchWriteItem`. These actions replace the whole item, so a caller can drop a restricted attribute just by leaving it out of the item they write. To control which attributes a caller can change, grant `dynamodb:UpdateItem` instead and keep the `dynamodb:Attributes` condition on that statement. If you did not intend attribute-level control here, remove the `dynamodb:Attributes` condition.
 
 ## General Warning – DynamoDB scan bypasses leading keys
+<a name="access-analyzer-reference-policy-checks-general-warning-dynamodb-scan-bypasses-leading-keys"></a>
 
-**Issue code:** DYNAMODB\_SCAN\_BYPASSES\_LEADING\_KEYS
+**Issue code: **DYNAMODB\_SCAN\_BYPASSES\_LEADING\_KEYS
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3815,16 +3461,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-`dynamodb:Scan` reads the entire table, so the `dynamodb:LeadingKeys`
-condition in this statement does not limit which items a caller can read. Remove
-`dynamodb:Scan`, or grant it in a separate statement that does not rely on
-`dynamodb:LeadingKeys`.
+`dynamodb:Scan` reads the entire table, so the `dynamodb:LeadingKeys` condition in this statement does not limit which items a caller can read. Remove `dynamodb:Scan`, or grant it in a separate statement that does not rely on `dynamodb:LeadingKeys`.
 
 ## General Warning – DynamoDB wrong condition for action
+<a name="access-analyzer-reference-policy-checks-general-warning-dynamodb-wrong-condition-for-action"></a>
 
-**Issue code:** DYNAMODB\_WRONG\_CONDITION\_FOR\_ACTION
+**Issue code: **DYNAMODB\_WRONG\_CONDITION\_FOR\_ACTION
 
-**Finding type:** GENERAL\_WARNING
+**Finding type: **GENERAL\_WARNING
 
 **Finding details**
 
@@ -3842,18 +3486,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the general warning**
 
-This statement uses `dynamodb:Select` with a write action, or
-`dynamodb:ReturnValues` with a read action. DynamoDB provides
-`dynamodb:Select` only for read actions and `dynamodb:ReturnValues`
-only for write actions, so the condition here never takes effect and protects nothing. Pair
-each key with a supporting action, or remove it. This check applies to both
-`Allow` and `Deny` statements.
+This statement uses `dynamodb:Select` with a write action, or `dynamodb:ReturnValues` with a read action. DynamoDB provides `dynamodb:Select` only for read actions and `dynamodb:ReturnValues` only for write actions, so the condition here never takes effect and protects nothing. Pair each key with a supporting action, or remove it. This check applies to both `Allow` and `Deny` statements.
 
 ## Security Warning – Untrustworthy condition key
+<a name="access-analyzer-reference-policy-checks-security-warning-untrustworthy-condition-key"></a>
 
-**Issue code:** UNTRUSTWORTHY\_CONDITION\_KEY
+**Issue code: **UNTRUSTWORTHY\_CONDITION\_KEY
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -3871,19 +3511,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Do not use this condition key for access control. The caller can potentially manipulate or
-spoof the key value, which creates a security risk.
+Do not use this condition key for access control. The caller can potentially manipulate or spoof the key value, which creates a security risk.
 
 **Related terms**
-
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Security Warning – Allow with NotPrincipal
+<a name="access-analyzer-reference-policy-checks-security-warning-allow-with-not-principal"></a>
 
-**Issue code:** ALLOW\_WITH\_NOT\_PRINCIPAL
+**Issue code: **ALLOW\_WITH\_NOT\_PRINCIPAL
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -3891,7 +3529,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Allow with NotPrincipal: Using Allow with NotPrincipal can be overly permissive. We recommend that you use Principal instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3902,18 +3539,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Using `"Effect": "Allow"` with the `NotPrincipal` can be overly permissive. For example, this can grant permissions to anonymous principals.
-AWS recommends that you specify principals that need access using the `Principal` element. Alternatively, you can allow broad access and then add another
-statement that uses the `NotPrincipal` element with `“Effect”: “Deny”`.
-
-- [AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [AWS JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md")
+Using `"Effect": "Allow"` with the `NotPrincipal` can be overly permissive. For example, this can grant permissions to anonymous principals. AWS recommends that you specify principals that need access using the `Principal` element. Alternatively, you can allow broad access and then add another statement that uses the `NotPrincipal` element with `“Effect”: “Deny”`.
++ [AWS JSON policy elements: Principal](reference_policies_elements_principal.md)
++ [AWS JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md)
 
 ## Security Warning – ForAllValues with single valued key
+<a name="access-analyzer-reference-policy-checks-security-warning-forallvalues-with-single-valued-key"></a>
 
-**Issue code:** FORALLVALUES\_WITH\_SINGLE\_VALUED\_KEY
+**Issue code: **FORALLVALUES\_WITH\_SINGLE\_VALUED\_KEY
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -3921,7 +3556,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 ForAllValues with single valued key: Using ForAllValues qualifier with the single-valued condition key {{key}} can be overly permissive. We recommend that you remove ForAllValues:.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3932,26 +3566,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-AWS recommends that you use the `ForAllValues` only with multivalued
-conditions. The `ForAllValues` set operator tests whether the value of
-every member of the request set is a subset of the condition key set. The condition
-returns true if every key value in the request matches at least one value in the
-policy. It also returns true if there are no keys in the request, or if the key
-values resolve to a null data set, such as an empty string.
+AWS recommends that you use the `ForAllValues` only with multivalued conditions. The `ForAllValues` set operator tests whether the value of every member of the request set is a subset of the condition key set. The condition returns true if every key value in the request matches at least one value in the policy. It also returns true if there are no keys in the request, or if the key values resolve to a null data set, such as an empty string.
 
-To learn whether a condition supports a single value or multiple values, review
-the [Actions, resources, and condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") page for the service. Condition
-keys with the `ArrayOf` data type prefix are multivalued condition keys.
-For example, Amazon SES supports keys with single values (`String`) and the
-`ArrayOfString` multivalued data type.
-
-- [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys")
+To learn whether a condition supports a single value or multiple values, review the [Actions, resources, and condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) page for the service. Condition keys with the `ArrayOf` data type prefix are multivalued condition keys. For example, Amazon SES supports keys with single values (`String`) and the `ArrayOfString` multivalued data type.
++ [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys)
 
 ## Security Warning – Pass role with NotResource
+<a name="access-analyzer-reference-policy-checks-security-warning-pass-role-with-not-resource"></a>
 
-**Issue code:** PASS\_ROLE\_WITH\_NOT\_RESOURCE
+**Issue code: **PASS\_ROLE\_WITH\_NOT\_RESOURCE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -3959,7 +3584,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Pass role with NotResource: Using the iam:PassRole action with NotResource can be overly permissive because it can allow iam:PassRole permissions on multiple resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -3970,22 +3594,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole`
-permission to an identity (user, group of users, or role). Using `iam:PassRole` in a policy with the `NotResource` element
-can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the
-`Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService`
-condition key.
-
-- [Passing a role to a service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole` permission to an identity (user, group of users, or role). Using `iam:PassRole` in a policy with the `NotResource` element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService` condition key.
++ [Passing a role to a service](id_roles_use_passrole.md)
++ [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## Security Warning – Pass role with star in action and NotResource
+<a name="access-analyzer-reference-policy-checks-security-warning-pass-role-with-star-in-action-and-not-resource"></a>
 
-**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_ACTION\_AND\_NOT\_RESOURCE
+**Issue code: **PASS\_ROLE\_WITH\_STAR\_IN\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -3993,7 +3613,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Pass role with star in action and NotResource: Using an action with a wildcard (*) and NotResource can be overly permissive because it can allow iam:PassRole permissions on multiple resources. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4004,22 +3623,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole`
-permission to an identity (user, group of users, or role). Policies with a wildcard (\*) in the `Action` and that include the `NotResource`
-element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the
-`Resource` element instead. Additionally, you can reduce permissions to a single service by using the
-`iam:PassedToService` condition key.
-
-- [Passing a role to a service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole` permission to an identity (user, group of users, or role). Policies with a wildcard (\*) in the `Action` and that include the `NotResource` element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService` condition key.
++ [Passing a role to a service](id_roles_use_passrole.md)
++ [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## Security Warning – Pass role with NotAction and NotResource
+<a name="access-analyzer-reference-policy-checks-security-warning-pass-role-with-not-action-and-not-resource"></a>
 
-**Issue code:** PASS\_ROLE\_WITH\_NOT\_ACTION\_AND\_NOT\_RESOURCE
+**Issue code: **PASS\_ROLE\_WITH\_NOT\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4027,7 +3642,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Pass role with NotAction and NotResource: Using NotAction with NotResource can be overly permissive because it can allow iam:PassRole permissions on multiple resources.. We recommend that you specify resource ARNs instead.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4038,24 +3652,20 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole`
-permission to an identity (user, group of users, or role). Using the `NotAction` element and listing some resources in the `NotResource`
-element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the
-`Resource` element instead. Additionally, you can reduce permissions to a single service by using the
-`iam:PassedToService` condition key.
-
-- [Passing a role to a service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService")
-- [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole` permission to an identity (user, group of users, or role). Using the `NotAction` element and listing some resources in the `NotResource` element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService` condition key.
++ [Passing a role to a service](id_roles_use_passrole.md)
++ [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService)
++ [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## Security Warning – Pass role with star in resource
+<a name="access-analyzer-reference-policy-checks-security-warning-pass-role-with-star-in-resource"></a>
 
-**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE
+**Issue code: **PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4063,7 +3673,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Pass role with star in resource: Using the iam:PassRole action with wildcards (*) in the resource can be overly permissive because it allows iam:PassRole permissions on multiple resources. We recommend that you specify resource ARNs or add the iam:PassedToService condition key to your statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4074,60 +3683,47 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole`
-permission to an identity (user, group of users, or role). Policies that allow `iam:PassRole` and that include a wildcard (\*) in
-the `Resource` element can allow your principals to access more services or features than you intended. AWS recommends that you
-specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the
-`iam:PassedToService` condition key.
+To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole` permission to an identity (user, group of users, or role). Policies that allow `iam:PassRole` and that include a wildcard (\*) in the `Resource` element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService` condition key.
 
-Some AWS services include their service namespace in the name of their role. This policy check takes these conventions into account
-while analyzing the policy to generate findings. For example, the following resource ARN might not generate a finding:
+Some AWS services include their service namespace in the name of their role. This policy check takes these conventions into account while analyzing the policy to generate findings. For example, the following resource ARN might not generate a finding:
 
 ```
 arn:aws:iam::*:role/Service*
 ```
-
-- [Passing a role to a service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
++ [Passing a role to a service](id_roles_use_passrole.md)
++ [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ### AWS managed policies with this security warning
+<a name="accan-ref-policy-check-message-fix-security-warning-pass-role-with-star-in-resource-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-One of those use cases is for administrators within your account. The following AWS managed policies provide
-administrator access and grant permissions to pass any IAM role to any service. AWS recommends that you attach the following AWS managed
-policies only to IAM identities that you consider administrators.
+One of those use cases is for administrators within your account. The following AWS managed policies provide administrator access and grant permissions to pass any IAM role to any service. AWS recommends that you attach the following AWS managed policies only to IAM identities that you consider administrators.
++ [AdministratorAccess-Amplify](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AdministratorAccess-Amplify)
 
-- [AdministratorAccess-Amplify](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AdministratorAccess-Amplify "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AdministratorAccess-Amplify")
+The following AWS managed policies include permissions to `iam:PassRole` with a wildcard (\*) in the resource and are on a [deprecation path](access_policies_managed-deprecated.md). For each of these policies, we updated the permission guidance, such as recommending a new AWS managed policy that supports the use case. To view alternatives to these policies, see the guides for [each service](reference_aws-services-that-work-with-iam.md).
++ AWSElasticBeanstalkFullAccess
++ AWSElasticBeanstalkService
++ AWSLambdaFullAccess
++ AWSLambdaReadOnlyAccess
++ AWSOpsWorksFullAccess
++ AWSOpsWorksRole
++ AWSDataPipelineRole
++ AmazonDynamoDBFullAccesswithDataPipeline
++ AmazonElasticMapReduceFullAccess
++ AmazonDynamoDBFullAccesswithDataPipeline
++ AmazonEC2ContainerServiceFullAccess
 
-The following AWS managed policies include permissions to `iam:PassRole` with a wildcard (\*) in the resource and are on a
-[deprecation path](access_policies_managed-deprecated.md "access_policies_managed-deprecated.md"). For each of these policies, we updated the permission guidance, such as recommending a new AWS managed policy that
-supports the use case. To view alternatives to these policies, see the guides for [each service](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
-
-- AWSElasticBeanstalkFullAccess
-- AWSElasticBeanstalkService
-- AWSLambdaFullAccess
-- AWSLambdaReadOnlyAccess
-- AWSOpsWorksFullAccess
-- AWSOpsWorksRole
-- AWSDataPipelineRole
-- AmazonDynamoDBFullAccesswithDataPipeline
-- AmazonElasticMapReduceFullAccess
-- AmazonDynamoDBFullAccesswithDataPipeline
-- AmazonEC2ContainerServiceFullAccess
-
-The following AWS managed policies provide permissions for only [service-linked roles](id_roles_create-service-linked-role.md "id_roles_create-service-linked-role.md"), which allow AWS services to perform actions on your behalf.
-You cannot attach these policies to your IAM identities.
-
-- [AWSServiceRoleForAmazonEKSNodegroup](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup")
+The following AWS managed policies provide permissions for only [service-linked roles](id_roles_create-service-linked-role.md), which allow AWS services to perform actions on your behalf. You cannot attach these policies to your IAM identities.
++ [AWSServiceRoleForAmazonEKSNodegroup](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup)
 
 ## Security Warning – Pass role with star in action and resource
+<a name="access-analyzer-reference-policy-checks-security-warning-pass-role-with-star-in-action-and-resource"></a>
 
-**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_ACTION\_AND\_RESOURCE
+**Issue code: **PASS\_ROLE\_WITH\_STAR\_IN\_ACTION\_AND\_RESOURCE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4135,7 +3731,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Pass role with star in action and resource: Using wildcards (*) in the action and the resource can be overly permissive because it allows iam:PassRole permissions on all resources. We recommend that you specify resource ARNs or add the iam:PassedToService condition key to your statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4146,34 +3741,27 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole`
-permission to an identity (user, group of users, or role). Policies with a wildcard (\*) in the `Action` and `Resource`
-elements can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in
-the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the
-`iam:PassedToService` condition key.
-
-- [Passing a role to a service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole` permission to an identity (user, group of users, or role). Policies with a wildcard (\*) in the `Action` and `Resource` elements can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService` condition key.
++ [Passing a role to a service](id_roles_use_passrole.md)
++ [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ### AWS managed policies with this security warning
+<a name="accan-ref-policy-check-message-fix-security-warning-pass-role-with-star-in-action-and-resource-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-Some of those use cases are for administrators within your account. The following AWS managed policies provide administrator access and grant permissions to
-pass any IAM role to any AWS service. AWS recommends that you attach the following AWS managed policies
-to only the IAM identities that you consider administrators.
-
-- [AdministratorAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess")
-- [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess")
+Some of those use cases are for administrators within your account. The following AWS managed policies provide administrator access and grant permissions to pass any IAM role to any AWS service. AWS recommends that you attach the following AWS managed policies to only the IAM identities that you consider administrators.
++ [AdministratorAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess)
++ [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess)
 
 ## Security Warning – Pass role with star in resource and NotAction
+<a name="access-analyzer-reference-policy-checks-security-warning-pass-role-with-star-in-resource-and-not-action"></a>
 
-**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE\_AND\_NOT\_ACTION
+**Issue code: **PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE\_AND\_NOT\_ACTION
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4181,7 +3769,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Pass role with star in resource and NotAction: Using a resource with wildcards (*) and NotAction can be overly permissive because it allows iam:PassRole permissions on all resources. We recommend that you specify resource ARNs or add the iam:PassedToService condition key to your statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4192,23 +3779,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole`
-permission to an identity (user, group of users, or role). Using the `NotAction` element in a policy with a wildcard (\*) in the
-`Resource` element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed
-ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the
-`iam:PassedToService` condition key.
-
-- [Passing a role to a service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService")
-- [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+To configure many AWS services, you must pass an IAM role to the service. To allow this you must grant the `iam:PassRole` permission to an identity (user, group of users, or role). Using the `NotAction` element in a policy with a wildcard (\*) in the `Resource` element can allow your principals to access more services or features than you intended. AWS recommends that you specify allowed ARNs in the `Resource` element instead. Additionally, you can reduce permissions to a single service by using the `iam:PassedToService` condition key.
++ [Passing a role to a service](id_roles_use_passrole.md)
++ [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService)
++ [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md)
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## Security Warning – Missing paired condition keys
+<a name="access-analyzer-reference-policy-checks-security-warning-missing-paired-condition-keys"></a>
 
-**Issue code:** MISSING\_PAIRED\_CONDITION\_KEYS
+**Issue code: **MISSING\_PAIRED\_CONDITION\_KEYS
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4216,7 +3799,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing paired condition keys: Using the condition key {{conditionKeyName}} can be overly permissive without also using the following condition keys: {{recommendedKeys}}. Condition keys like this one are more secure when paired with a related key. We recommend that you add the related condition keys to the same condition block.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4227,30 +3809,23 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Some condition keys are more secure when paired with other related condition keys.
-AWS recommends that you include the related condition keys in the same condition block
-as the existing condition key. This makes the permissions granted through the policy
-more secure.
+Some condition keys are more secure when paired with other related condition keys. AWS recommends that you include the related condition keys in the same condition block as the existing condition key. This makes the permissions granted through the policy more secure.
 
-For example, you can use the `aws:VpcSourceIp` condition key to compare the IP address
-from which a request was made with the IP address that you specify in the policy. AWS
-recommends that you add the related `aws:SourceVPC` condition key. This checks whether the
-request comes from the VPC that you specify in the policy _and_ the IP address that you
-specify.
+For example, you can use the `aws:VpcSourceIp` condition key to compare the IP address from which a request was made with the IP address that you specify in the policy. AWS recommends that you add the related `aws:SourceVPC` condition key. This checks whether the request comes from the VPC that you specify in the policy *and* the IP address that you specify.
 
 **Related terms**
-
-- [aws:VpcSourceIp global condition key](reference_policies_condition-keys.md#condition-keys-vpcsourceip "reference_policies_condition-keys.md#condition-keys-vpcsourceip")
-- [aws:SourceVPC global condition key](reference_policies_condition-keys.md#condition-keys-sourcevpc "reference_policies_condition-keys.md#condition-keys-sourcevpc")
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [`aws:VpcSourceIp` global condition key](reference_policies_condition-keys.md#condition-keys-vpcsourceip)
++ [`aws:SourceVPC` global condition key](reference_policies_condition-keys.md#condition-keys-sourcevpc)
++ [Global condition keys](reference_policies_condition-keys.md)
++ [Condition element](reference_policies_elements_condition.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Security Warning – Deny with unsupported tag condition key for service
+<a name="access-analyzer-reference-policy-checks-security-warning-deny-with-unsupported-tag-condition-key-for-service"></a>
 
-**Issue code:** DENY\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
+**Issue code: **DENY\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4258,7 +3833,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Deny with unsupported tag condition key for service: Using the effect Deny with the tag condition key {{conditionKeyName}} and actions for services with the following prefixes can be overly permissive: {{serviceNames}}. Actions for the listed services are not denied by this statement. We recommend that you move these actions to a different statement without this condition key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4269,41 +3843,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Using unsupported tag condition keys in the `Condition` element of a policy
-with `"Effect": "Deny"` can be overly permissive, because the condition is
-ignored for that service. AWS recommends that you remove the service actions that
-don’t support the condition key and create another statement to deny access to specific
-resources for those actions.
+Using unsupported tag condition keys in the `Condition` element of a policy with `"Effect": "Deny"` can be overly permissive, because the condition is ignored for that service. AWS recommends that you remove the service actions that don’t support the condition key and create another statement to deny access to specific resources for those actions.
 
-If you use the `aws:ResourceTag` condition key and it’s not supported by a
-service action, then the key is not included in the request context. In this case, the
-condition in the `Deny` statement always returns `false` and the
-action is never denied. This happens even if the resource is tagged correctly.
+If you use the `aws:ResourceTag` condition key and it’s not supported by a service action, then the key is not included in the request context. In this case, the condition in the `Deny` statement always returns `false` and the action is never denied. This happens even if the resource is tagged correctly.
 
-When a service supports the `aws:ResourceTag` condition key, you can use
-tags to control access to that service’s resources. This is known as [attribute-based access control
-(ABAC)](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md"). Services that don’t support these keys require you to control access
-to resources using [resource-based
-access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac").
+When a service supports the `aws:ResourceTag` condition key, you can use tags to control access to that service’s resources. This is known as [attribute-based access control (ABAC)](introduction_attribute-based-access-control.md). Services that don’t support these keys require you to control access to resources using [resource-based access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac).
 
-###### Note
+**Note**  
+Some services allow support for the `aws:ResourceTag` condition key for a subset of their resources and actions. IAM Access Analyzer returns findings for the service actions that are not supported. For example, Amazon S3 supports `aws:ResourceTag` for a subset of its resources. To view all of the resource types available in Amazon S3 that support the `aws:ResourceTag` condition key, see [Resource types defined by Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies) in the Service Authorization Reference.
 
-Some services allow support for the `aws:ResourceTag` condition key for
-a subset of their resources and actions. IAM Access Analyzer returns findings for the
-service actions that are not supported. For example, Amazon S3 supports
-`aws:ResourceTag` for a subset of its resources. To view all of the
-resource types available in Amazon S3 that support the `aws:ResourceTag`
-condition key, see [Resource types defined by Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md#amazons3-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazons3.md#amazons3-resources-for-iam-policies") in the Service Authorization
-Reference.
-
-For example, assume that you want to deny access to untag delete specific resources
-that are tagged with the key-value pair `status=Confidential`. Also assume
-that AWS Lambda allows you to tag and untag resources, but doesn’t support the
-`aws:ResourceTag` condition key. To deny the delete actions for
-AWS App Mesh and AWS Backup if this tag is present, use the `aws:ResourceTag`
-condition key. For Lambda, use a resource naming convention that includes the
-`"Confidential"` prefix. Then include a separate statement that prevents
-deleting resources with that naming convention.
+For example, assume that you want to deny access to untag delete specific resources that are tagged with the key-value pair `status=Confidential`. Also assume that AWS Lambda allows you to tag and untag resources, but doesn’t support the `aws:ResourceTag` condition key. To deny the delete actions for AWS App Mesh and AWS Backup if this tag is present, use the `aws:ResourceTag` condition key. For Lambda, use a resource naming convention that includes the `"Confidential"` prefix. Then include a separate statement that prevents deleting resources with that naming convention.
 
 ```
 {
@@ -4313,13 +3862,13 @@ deleting resources with that naming convention.
             "Sid": "DenyDeleteSupported",
             "Effect": "Deny",
             "Action": [
-                "appmesh:DeleteMesh",
+                "appmesh:DeleteMesh", 
                 "backup:DeleteBackupPlan"
                 ],
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:ResourceTag/`status`": "`Confidential`"
+                    "aws:ResourceTag/{{status}}": "{{Confidential}}"
                 }
             }
         },
@@ -4327,35 +3876,28 @@ deleting resources with that naming convention.
             "Sid": "DenyDeleteUnsupported",
             "Effect": "Deny",
             "Action": "lambda:DeleteFunction",
-            "Resource": "arn:aws:lambda:`*`:`123456789012`:function:`status-Confidential*`"
+            "Resource": "arn:aws:lambda:{{*}}:{{123456789012}}:function:{{status-Confidential*}}"
         }
     ]
 }
 ```
 
-###### Warning
-
-Do not use the …[IfExists](reference_policies_elements_condition_operators.md#Conditions_IfExists "reference_policies_elements_condition_operators.md#Conditions_IfExists") version of the condition operator as a workaround for
-this finding. This means "Deny the action if the key is present in the request
-context and the values match. Otherwise, deny the action." In the previous example,
-including the `lambda:DeleteFunction` action in the `DenyDeleteSupported` statement with the
-`StringEqualsIfExists` operator always denies the action. For that action,
-the key is not present in the context, and every attempt to delete that resource type
-is denied, regardless of whether the resource is tagged.
+**Warning**  
+Do not use the …[IfExists](reference_policies_elements_condition_operators.md#Conditions_IfExists) version of the condition operator as a workaround for this finding. This means "Deny the action if the key is present in the request context and the values match. Otherwise, deny the action." In the previous example, including the `lambda:DeleteFunction` action in the `DenyDeleteSupported` statement with the `StringEqualsIfExists` operator always denies the action. For that action, the key is not present in the context, and every attempt to delete that resource type is denied, regardless of whether the resource is tagged.
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [Comparing ABAC to RBAC](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [Comparing ABAC to RBAC](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [Condition element](reference_policies_elements_condition.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Security Warning – Deny NotAction with unsupported tag condition key for service
+<a name="access-analyzer-reference-policy-checks-security-warning-deny-notaction-with-unsupported-tag-condition-key-for-service"></a>
 
-**Issue code:** DENY\_NOTACTION\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
+**Issue code: **DENY\_NOTACTION\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4363,7 +3905,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Deny NotAction with unsupported tag condition key for service: Using the effect Deny with NotAction and the tag condition key {{conditionKeyName}} can be overly permissive because some service actions are not denied by this statement. This is because the condition key doesn't apply to some service actions. We recommend that you use Action instead of NotAction.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4374,37 +3915,25 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Using tag condition keys in the `Condition` element of a policy with
-the element `NotAction` and `"Effect": "Deny"` can be overly
-permissive. The condition is ignored for service actions that don’t support the
-condition key. AWS recommends that you rewrite the logic to deny a list of
-actions.
+Using tag condition keys in the `Condition` element of a policy with the element `NotAction` and `"Effect": "Deny"` can be overly permissive. The condition is ignored for service actions that don’t support the condition key. AWS recommends that you rewrite the logic to deny a list of actions.
 
-If you use the `aws:ResourceTag` condition key with `NotAction`,
-any new or existing service actions that don’t support the key are not denied. AWS
-recommends that you explicitly list the actions that you want to deny. IAM Access Analyzer
-returns a separate finding for listed actions that don’t support the
-`aws:ResourceTag` condition key. For more information, see [Security Warning – Deny with unsupported tag condition key for service](#access-analyzer-reference-policy-checks-security-warning-deny-with-unsupported-tag-condition-key-for-service "#access-analyzer-reference-policy-checks-security-warning-deny-with-unsupported-tag-condition-key-for-service").
+If you use the `aws:ResourceTag` condition key with `NotAction`, any new or existing service actions that don’t support the key are not denied. AWS recommends that you explicitly list the actions that you want to deny. IAM Access Analyzer returns a separate finding for listed actions that don’t support the `aws:ResourceTag` condition key. For more information, see [Security Warning – Deny with unsupported tag condition key for service](#access-analyzer-reference-policy-checks-security-warning-deny-with-unsupported-tag-condition-key-for-service). 
 
-When a service supports the `aws:ResourceTag` condition key, you can use
-tags to control access to that service’s resources. This is known as [attribute-based access control
-(ABAC)](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md"). Services that don’t support these keys require you to control access
-to resources using [resource-based
-access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac").
+When a service supports the `aws:ResourceTag` condition key, you can use tags to control access to that service’s resources. This is known as [attribute-based access control (ABAC)](introduction_attribute-based-access-control.md). Services that don’t support these keys require you to control access to resources using [resource-based access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac).
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [Comparing ABAC to RBAC](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [Comparing ABAC to RBAC](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [Condition element](reference_policies_elements_condition.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Security Warning – Restrict access to service principal
+<a name="access-analyzer-reference-policy-checks-security-warning-restrict-access-to-service-principal"></a>
 
-**Issue code:** RESTRICT\_ACCESS\_TO\_SERVICE\_PRINCIPAL
+**Issue code: **RESTRICT\_ACCESS\_TO\_SERVICE\_PRINCIPAL
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4422,30 +3951,22 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-You can specify AWS services in the `Principal` element of a
-resource-based policy using a service principal, which is an identifier for the service.
-When granting access to a service principal to act on your behalf, restrict access. You
-can prevent overly permissive policies by using the `aws:SourceArn`,
-`aws:SourceAccount`, `aws:SourceOrgID`, or
-`aws:SourceOrgPaths` condition keys to restrict access to a specific
-source, such as a specific resource ARN, AWS account, organization ID, or organization
-paths. Restricting access helps you prevent a security issue called _the
-confused deputy problem_.
+You can specify AWS services in the `Principal` element of a resource-based policy using a service principal, which is an identifier for the service. When granting access to a service principal to act on your behalf, restrict access. You can prevent overly permissive policies by using the `aws:SourceArn`, `aws:SourceAccount`, `aws:SourceOrgID`, or `aws:SourceOrgPaths` condition keys to restrict access to a specific source, such as a specific resource ARN, AWS account, organization ID, or organization paths. Restricting access helps you prevent a security issue called *the confused deputy problem*.
 
 **Related terms**
-
-- [AWS service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services")
-- [AWS global condition keys: aws:SourceAccount](reference_policies_condition-keys.md#condition-keys-sourceaccount "reference_policies_condition-keys.md#condition-keys-sourceaccount")
-- [AWS global condition keys: aws:SourceArn](reference_policies_condition-keys.md#condition-keys-sourcearn "reference_policies_condition-keys.md#condition-keys-sourcearn")
-- [AWS global condition keys: aws:SourceOrgId](reference_policies_condition-keys.md#condition-keys-sourceorgid "reference_policies_condition-keys.md#condition-keys-sourceorgid")
-- [AWS global condition keys: aws:SourceOrgPaths](reference_policies_condition-keys.md#condition-keys-sourceorgpaths "reference_policies_condition-keys.md#condition-keys-sourceorgpaths")
-- [The confused deputy problem](confused-deputy.md "confused-deputy.md")
++ [AWS service principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services)
++ [AWS global condition keys: aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount)
++ [AWS global condition keys: aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn)
++ [AWS global condition keys: aws:SourceOrgId](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceorgid)
++ [AWS global condition keys: aws:SourceOrgPaths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceorgpaths)
++ [The confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html)
 
 ## Security Warning – Missing condition key for oidc principal
+<a name="access-analyzer-reference-policy-checks-security-warning-missing-condition-key-for-oidc-principal"></a>
 
-**Issue code:** MISSING\_CONDITION\_KEY\_FOR\_OIDC\_PRINCIPAL
+**Issue code: **MISSING\_CONDITION\_KEY\_FOR\_OIDC\_PRINCIPAL
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4453,7 +3974,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing condition key for oidc principal: Using an Open ID Connect principal without a condition can be overly permissive. Add condition keys with a prefix that matches your federated OIDC principals to ensure that only the intended identity provider assumes the role.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4464,19 +3984,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Using an Open ID Connect principal without a condition can be overly permissive. Add
-condition keys with a prefix that matches your federated OIDC principals to ensure that
-only the intended identity provider assumes the role.
+Using an Open ID Connect principal without a condition can be overly permissive. Add condition keys with a prefix that matches your federated OIDC principals to ensure that only the intended identity provider assumes the role.
 
 **Related terms**
-
-- [Creating a role for web identity or OpenID Connect Federation (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md")
++ [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
 
 ## Security Warning – Missing github repo condition key
+<a name="access-analyzer-reference-policy-checks-security-warning-missing-github-repo-condition-key"></a>
 
-**Issue code:** MISSING\_GITHUB\_REPO\_CONDITION\_KEY
+**Issue code: **MISSING\_GITHUB\_REPO\_CONDITION\_KEY
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4484,7 +4002,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Missing github repo condition key: Granting a federated GitHub principal permissions without a condition key can allow more sources to assume the role than you intended. Add the token.actions.githubusercontent.com:sub condition key and specify the branch and repository name in the value.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4495,24 +4012,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-If you use GitHub as an OIDC IdP, best practice is to limit the entities that can
-assume the role associated with the IAM IdP. When you include a `Condition` statement in
-a role trust policy, you can limit the role to a specific GitHub organization, repository,
-or branch. You can use the condition key `token.actions.githubusercontent.com:sub` to
-limit access. We recommend that you limit the condition to a specific set of
-repositories or branches. If you do not include this condition, then GitHub Actions from
-organizations or repositories outside of your control are able to assume roles
-associated with the GitHub IAM IdP in your AWS account.
+If you use GitHub as an OIDC IdP, best practice is to limit the entities that can assume the role associated with the IAM IdP. When you include a `Condition` statement in a role trust policy, you can limit the role to a specific GitHub organization, repository, or branch. You can use the condition key `token.actions.githubusercontent.com:sub` to limit access. We recommend that you limit the condition to a specific set of repositories or branches. If you do not include this condition, then GitHub Actions from organizations or repositories outside of your control are able to assume roles associated with the GitHub IAM IdP in your AWS account.
 
 **Related terms**
-
-- [Configuring a role for GitHub OIDC identity provider](id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub "id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub")
++ [Configuring a role for GitHub OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub)
 
 ## Security Warning – String like operator with ARN condition keys
+<a name="access-analyzer-reference-policy-checks-security-warning-string-like-operator-with-arn-condition-keys"></a>
 
-**Issue code:** STRING\_LIKE\_OPERATOR\_WITH\_ARN\_CONDITION\_KEYS
+**Issue code: **STRING\_LIKE\_OPERATOR\_WITH\_ARN\_CONDITION\_KEYS
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4520,7 +4030,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 String like operator with ARN condition keys: Use the operator type {{allowed}} instead of operator {{operator}} for the condition key {{key}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4531,30 +4040,26 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-AWS recommends that you use ARN operators instead of string operators when comparing
-ARNs to ensure proper access restriction based on ARN condition values. Update the
-`StringLike` operator to the `ArnLike` operator in your
-`Condition` element whenever the specified key is used.
+AWS recommends that you use ARN operators instead of string operators when comparing ARNs to ensure proper access restriction based on ARN condition values. Update the `StringLike` operator to the `ArnLike` operator in your `Condition` element whenever the specified key is used.
 
 These AWS managed policies are exceptions to this security warning:
-
-- [AmazonSecurityLakeAdministrator](../../../aws-managed-policy/latest/reference/AmazonSecurityLakeAdministrator.md "../../../aws-managed-policy/latest/reference/AmazonSecurityLakeAdministrator.md")
-- [AWSCodePipeline\_FullAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md")
-- [AWSCodePipeline\_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md")
-- [S3UnlockBucketPolicy](../../../aws-managed-policy/latest/reference/S3UnlockBucketPolicy.md "../../../aws-managed-policy/latest/reference/S3UnlockBucketPolicy.md")
-- [SQSUnlockQueuePolicy](../../../aws-managed-policy/latest/reference/SQSUnlockQueuePolicy.md "../../../aws-managed-policy/latest/reference/SQSUnlockQueuePolicy.md")
++ [AmazonSecurityLakeAdministrator](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSecurityLakeAdministrator.html)
++ [AWSCodePipeline\_FullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.html)
++ [AWSCodePipeline\_ReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.html)
++ [S3UnlockBucketPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/S3UnlockBucketPolicy.html)
++ [SQSUnlockQueuePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/SQSUnlockQueuePolicy.html)
 
 **Related terms**
-
-- [Amazon Resource Name (ARN) condition operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
-- [String condition operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
-- [AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies")
++ [Amazon Resource Name (ARN) condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_ARN)
++ [String condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String)
++ [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies)
 
 ## Security Warning – DynamoDB attributes without select
+<a name="access-analyzer-reference-policy-checks-security-warning-dynamodb-attributes-without-select"></a>
 
-**Issue code:** DYNAMODB\_ATTRIBUTES\_WITHOUT\_SELECT
+**Issue code: **DYNAMODB\_ATTRIBUTES\_WITHOUT\_SELECT
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4572,23 +4077,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Add a `StringEquals` condition that sets `dynamodb:Select` to
-`SPECIFIC_ATTRIBUTES` in the same statement as the `dynamodb:Attributes`
-condition. DynamoDB evaluates `dynamodb:Attributes` only for requests that specify
-the attributes to return. Without this condition, a read request that omits a projection expression returns the entire item.
+Add a `StringEquals` condition that sets `dynamodb:Select` to `SPECIFIC_ATTRIBUTES` in the same statement as the `dynamodb:Attributes` condition. DynamoDB evaluates `dynamodb:Attributes` only for requests that specify the attributes to return. Without this condition, a read request that omits a projection expression returns the entire item.
 
 **Related terms**
-
-- [Using IAM policy
-  conditions for fine-grained access control](../../../amazondynamodb/latest/developerguide/specifying-conditions.md "../../../amazondynamodb/latest/developerguide/specifying-conditions.md")
-- [IAM JSON policy
-  elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
++ [Using IAM policy conditions for fine-grained access control](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
 
 ## Security Warning – S3 prefix in negative context
+<a name="access-analyzer-reference-policy-checks-security-warning-s3-prefix-in-negative-context"></a>
 
-**Issue code:** S3\_PREFIX\_IN\_NEGATIVE\_CONTEXT
+**Issue code: **S3\_PREFIX\_IN\_NEGATIVE\_CONTEXT
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4607,36 +4107,22 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 **Resolving the security warning**
 
 To restrict listing to specific prefixes, use one of the following patterns:
++ **Allow with StringLike** – Grant `s3:ListBucket` with a `StringLike` condition on `s3:prefix` listing the prefixes you want to permit. Requests that supply a different prefix are not covered by this Allow and cannot list those objects.
++ **Deny with StringNotLike** – Deny `s3:ListBucket` with a `StringNotLike` condition on `s3:prefix` listing the prefixes you want to allow. A request that omits the prefix or supplies a shorter prefix does not match the allowed set and is denied.
 
-- **Allow with StringLike** – Grant
-  `s3:ListBucket` with a `StringLike` condition on
-  `s3:prefix` listing the prefixes you want to permit. Requests that supply
-  a different prefix are not covered by this Allow and cannot list those objects.
-- **Deny with StringNotLike** – Deny
-  `s3:ListBucket` with a `StringNotLike` condition on
-  `s3:prefix` listing the prefixes you want to allow. A request that omits
-  the prefix or supplies a shorter prefix does not match the allowed set and is
-  denied.
-
-A `Deny` with `StringLike` or an `Allow` with
-`StringNotLike` does not effectively restrict access because a caller can
-bypass the condition by specifying a shorter prefix (for example, `priv`
-instead of `private/`) that does not match the condition value.
+A `Deny` with `StringLike` or an `Allow` with `StringNotLike` does not effectively restrict access because a caller can bypass the condition by specifying a shorter prefix (for example, `priv` instead of `private/`) that does not match the condition value.
 
 **Related terms**
-
-- [Amazon S3 condition
-  key examples](../../../AmazonS3/latest/userguide/amazon-s3-policy-keys.md "../../../AmazonS3/latest/userguide/amazon-s3-policy-keys.md")
-- [IAM JSON policy
-  elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
++ [Amazon S3 condition key examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Security Warning – ForAnyValue with audience claim type
+<a name="access-analyzer-reference-policy-checks-security-warning-foranyvalue-with-audience-claim-type"></a>
 
-**Issue code:** FORANYVALUE\_WITH\_AUDIENCE\_CLAIM\_TYPE
+**Issue code: **FORANYVALUE\_WITH\_AUDIENCE\_CLAIM\_TYPE
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4654,20 +4140,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-AWS recommends that you do not use the `ForAnyValue` set operator with
-single-valued condition keys. Use set operators only with multivalued condition keys. Remove
-the `ForAnyValue` set operator.
+AWS recommends that you do not use the `ForAnyValue` set operator with single-valued condition keys. Use set operators only with multivalued condition keys. Remove the `ForAnyValue` set operator.
 
 **Related terms**
-
-- [Single-valued vs. multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md "reference_policies_condition-single-vs-multi-valued-context-keys.md")
-- [Single-valued context key policy examples](reference_policies_condition_examples-single-valued-context-keys.md "reference_policies_condition_examples-single-valued-context-keys.md")
++ [Single-valued vs. multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md)
++ [Single-valued context key policy examples](reference_policies_condition_examples-single-valued-context-keys.md)
 
 ## Security Warning – DynamoDB attributes without return values
+<a name="access-analyzer-reference-policy-checks-security-warning-dynamodb-attributes-without-return-values"></a>
 
-**Issue code:** DYNAMODB\_ATTRIBUTES\_WITHOUT\_RETURN\_VALUES
+**Issue code: **DYNAMODB\_ATTRIBUTES\_WITHOUT\_RETURN\_VALUES
 
-**Finding type:** SECURITY\_WARNING
+**Finding type: **SECURITY\_WARNING
 
 **Finding details**
 
@@ -4685,17 +4169,14 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the security warning**
 
-Add a condition that limits `dynamodb:ReturnValues` to `NONE`,
-`UPDATED_OLD`, or `UPDATED_NEW` in the same statement as the
-`dynamodb:Attributes` condition. Without this limit, a write that sets
-`dynamodb:ReturnValues` to `ALL_OLD` or `ALL_NEW` returns
-the entire item, including attributes outside the ones you allowed.
+Add a condition that limits `dynamodb:ReturnValues` to `NONE`, `UPDATED_OLD`, or `UPDATED_NEW` in the same statement as the `dynamodb:Attributes` condition. Without this limit, a write that sets `dynamodb:ReturnValues` to `ALL_OLD` or `ALL_NEW` returns the entire item, including attributes outside the ones you allowed.
 
 ## Suggestion – Empty array action
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-action"></a>
 
-**Issue code:** EMPTY\_ARRAY\_ACTION
+**Issue code: **EMPTY\_ARRAY\_ACTION
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4703,7 +4184,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty array action: This statement includes no actions and does not affect the policy. Specify actions.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4714,16 +4194,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Statements must include either an `Action` or `NotAction` element that includes a set of actions. When the
-element is empty, the policy statement provides no permissions. Specify actions in the `Action` element.
-
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
+Statements must include either an `Action` or `NotAction` element that includes a set of actions. When the element is empty, the policy statement provides no permissions. Specify actions in the `Action` element.
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
 
 ## Suggestion – Empty array condition
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-condition"></a>
 
-**Issue code:** EMPTY\_ARRAY\_CONDITION
+**Issue code: **EMPTY\_ARRAY\_CONDITION
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4731,7 +4210,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty array condition: There are no values for the condition key {{key}} and it does not affect the policy. Specify conditions.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4742,16 +4220,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The optional `Condition` element structure requires that you use a condition operator and a key-value pair. When the
-condition value is empty, the condition returns `true` and the policy statement provides no permissions. Specify a condition value.
-
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+The optional `Condition` element structure requires that you use a condition operator and a key-value pair. When the condition value is empty, the condition returns `true` and the policy statement provides no permissions. Specify a condition value.
++ [IAM JSON policy elements: Condition ](reference_policies_elements_condition.md)
 
 ## Suggestion – Empty array condition ForAllValues
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-condition-forallvalues"></a>
 
-**Issue code:** EMPTY\_ARRAY\_CONDITION\_FORALLVALUES
+**Issue code: **EMPTY\_ARRAY\_CONDITION\_FORALLVALUES
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4769,21 +4246,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The `Condition` element structure requires that you use a condition operator and a key-value pair. The `ForAllValues`
-set operator tests whether the value of every member of the request set is a subset of the condition key set.
+The `Condition` element structure requires that you use a condition operator and a key-value pair. The `ForAllValues` set operator tests whether the value of every member of the request set is a subset of the condition key set. 
 
-When you use `ForAllValues` with an empty condition key, the condition matches only if there are no keys in the request. AWS
-recommends that if you want to test whether a request context is empty, use the `Null` condition operator instead.
-
-- [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys")
-- [Null condition operator](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+When you use `ForAllValues` with an empty condition key, the condition matches only if there are no keys in the request. AWS recommends that if you want to test whether a request context is empty, use the `Null` condition operator instead.
++ [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys)
++ [Null condition operator](reference_policies_elements_condition_operators.md#Conditions_Null)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Empty array condition ForAnyValue
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-condition-foranyvalue"></a>
 
-**Issue code:** EMPTY\_ARRAY\_CONDITION\_FORANYVALUE
+**Issue code: **EMPTY\_ARRAY\_CONDITION\_FORANYVALUE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4791,7 +4266,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty array condition ForAnyValue: The ForAnyValue prefix with an empty condition key {{key}} never matches the request context and it does not affect the policy. Specify conditions.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4802,20 +4276,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The `Condition` element structure requires that you use a condition operator and a key-value pair. The `ForAnyValues`
-set operator tests whether at least one member of the set of request values matches at least one member of the set of condition key values.
+The `Condition` element structure requires that you use a condition operator and a key-value pair. The `ForAnyValues` set operator tests whether at least one member of the set of request values matches at least one member of the set of condition key values.
 
-When you use `ForAnyValues` with an empty condition key, the condition never matches. This means that the statement has no effect
-on the policy. AWS recommends that you rewrite the condition.
-
-- [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+When you use `ForAnyValues` with an empty condition key, the condition never matches. This means that the statement has no effect on the policy. AWS recommends that you rewrite the condition.
++ [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Empty array condition IfExists
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-condition-ifexists"></a>
 
-**Issue code:** EMPTY\_ARRAY\_CONDITION\_IFEXISTS
+**Issue code: **EMPTY\_ARRAY\_CONDITION\_IFEXISTS
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4833,20 +4305,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The `...IfExists` suffix edits a condition operator. It means that if the policy key is present in the context of the request, process the key as specified
-in the policy. If the key is not present, evaluate the condition element as true.
+The `...IfExists` suffix edits a condition operator. It means that if the policy key is present in the context of the request, process the key as specified in the policy. If the key is not present, evaluate the condition element as true.
 
-When you use `...IfExists` with an empty condition key, the condition matches only if there are no keys in the request. AWS
-recommends that if you want to test whether a request context is empty, use the `Null` condition operator instead.
-
-- [...IfExists condition operators](reference_policies_elements_condition_operators.md#Conditions_IfExists "reference_policies_elements_condition_operators.md#Conditions_IfExists")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+When you use `...IfExists` with an empty condition key, the condition matches only if there are no keys in the request. AWS recommends that if you want to test whether a request context is empty, use the `Null` condition operator instead.
++ [...IfExists condition operators](reference_policies_elements_condition_operators.md#Conditions_IfExists)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Empty array principal
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-principal"></a>
 
-**Issue code:** EMPTY\_ARRAY\_PRINCIPAL
+**Issue code: **EMPTY\_ARRAY\_PRINCIPAL
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4854,7 +4324,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty array principal: This statement includes no principals and does not affect the policy. Specify principals.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4865,20 +4334,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-You must use the `Principal` or `NotPrincipal` element in the trust policies for IAM roles and in resource-based policies. Resource-based policies
-are policies that you embed directly in a resource.
+You must use the `Principal` or `NotPrincipal` element in the trust policies for IAM roles and in resource-based policies. Resource-based policies are policies that you embed directly in a resource.
 
-When you provide an empty array in a statement's `Principal` element, the statement has no effect on the policy. AWS recommends that you
-specify the principals that should have access to the resource.
-
-- [IAM JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [IAM JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md")
+When you provide an empty array in a statement's `Principal` element, the statement has no effect on the policy. AWS recommends that you specify the principals that should have access to the resource.
++ [IAM JSON policy elements: Principal](reference_policies_elements_principal.md)
++ [IAM JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md)
 
 ## Suggestion – Empty array resource
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-array-resource"></a>
 
-**Issue code:** EMPTY\_ARRAY\_RESOURCE
+**Issue code: **EMPTY\_ARRAY\_RESOURCE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4886,7 +4353,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty array resource: This statement includes no resources and does not affect the policy. Specify resources.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4899,17 +4365,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 Statements must include either a `Resource` or a `NotResource` element.
 
-When you provide an empty array in a statement's resource element, the statement has no effect on the policy. AWS recommends that you
-specify Amazon Resource Names (ARNs) for resources.
-
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
-- [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
+When you provide an empty array in a statement's resource element, the statement has no effect on the policy. AWS recommends that you specify Amazon Resource Names (ARNs) for resources.
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
++ [IAM JSON policy elements: NotResource](reference_policies_elements_notresource.md)
 
 ## Suggestion – Empty object condition
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-object-condition"></a>
 
-**Issue code:** EMPTY\_OBJECT\_CONDITION
+**Issue code: **EMPTY\_OBJECT\_CONDITION
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4917,7 +4382,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty object condition: This condition block is empty and it does not affect the policy. Specify conditions.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4930,16 +4394,15 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 The `Condition` element structure requires that you use a condition operator and a key-value pair.
 
-When you provide an empty object in a statement's condition element, the statement has no effect on the policy. Remove the optional element or
-specify conditions.
-
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+When you provide an empty object in a statement's condition element, the statement has no effect on the policy. Remove the optional element or specify conditions.
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Empty object principal
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-object-principal"></a>
 
-**Issue code:** EMPTY\_OBJECT\_PRINCIPAL
+**Issue code: **EMPTY\_OBJECT\_PRINCIPAL
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4947,7 +4410,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty object principal: This statement includes no principals and does not affect the policy. Specify principals.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4958,20 +4420,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-You must use the `Principal` or `NotPrincipal` element in the trust policies for IAM roles and in resource-based policies. Resource-based policies
-are policies that you embed directly in a resource.
+You must use the `Principal` or `NotPrincipal` element in the trust policies for IAM roles and in resource-based policies. Resource-based policies are policies that you embed directly in a resource.
 
-When you provide an empty object in a statement's `Principal` element, the statement has no effect on the policy. AWS recommends that you
-specify the principals that should have access to the resource.
-
-- [IAM JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
-- [IAM JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md")
+When you provide an empty object in a statement's `Principal` element, the statement has no effect on the policy. AWS recommends that you specify the principals that should have access to the resource.
++ [IAM JSON policy elements: Principal](reference_policies_elements_principal.md)
++ [IAM JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md)
 
 ## Suggestion – Empty Sid value
+<a name="access-analyzer-reference-policy-checks-suggestion-empty-sid-value"></a>
 
-**Issue code:** EMPTY\_SID\_VALUE
+**Issue code: **EMPTY\_SID\_VALUE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -4979,7 +4439,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Empty Sid value: Add a value to the empty string in the Sid element.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -4990,19 +4449,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The optional `Sid` (statement ID) element allows you to enter an identifier that you provide for the policy statement. You can
-assign an `Sid` value to each statement in a statement array. If you choose to use the `Sid` element, you must provide a
-string value.
+The optional `Sid` (statement ID) element allows you to enter an identifier that you provide for the policy statement. You can assign an `Sid` value to each statement in a statement array. If you choose to use the `Sid` element, you must provide a string value.
 
 **Related terms**
-
-- [IAM JSON policy elements: Sid](reference_policies_elements_sid.md "reference_policies_elements_sid.md")
++ [IAM JSON policy elements: Sid](reference_policies_elements_sid.md)
 
 ## Suggestion – Equivalent to null false
+<a name="access-analyzer-reference-policy-checks-suggestion-equivalent-to-null-false"></a>
 
-**Issue code:** EQUIVALENT\_TO\_NULL\_FALSE
+**Issue code: **EQUIVALENT\_TO\_NULL\_FALSE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5010,7 +4467,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Equivalent to null false: We recommend replacing the key {{key}} in the condition block of {{operator}} with {{{recommendedKey}}: false} to ensure better enforcement of the condition.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5021,24 +4477,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Replace the current condition key with the recommended key set to `false`. This
-change improves policy clarity and ensures more reliable condition evaluation. Update your
-condition block to use `{recommendedKey}: false` instead of the current
-key-operator combination.
+Replace the current condition key with the recommended key set to `false`. This change improves policy clarity and ensures more reliable condition evaluation. Update your condition block to use `{recommendedKey}: false` instead of the current key-operator combination.
 
 **Related terms**
-
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md "reference_policies_condition-logic-multiple-context-keys-or-values.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
++ [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md)
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Suggestion – Equivalent to null true
+<a name="access-analyzer-reference-policy-checks-suggestion-equivalent-to-null-true"></a>
 
-**Issue code:** EQUIVALENT\_TO\_NULL\_TRUE
+**Issue code: **EQUIVALENT\_TO\_NULL\_TRUE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5046,7 +4497,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Equivalent to null true: We recommend replacing the key {{key}} in the condition block of {{operator}} with {{{recommendedKey}}: true} to ensure better enforcement of the condition.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5057,23 +4507,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Replace the current condition key with the recommended key set to `true`. This change
-improves policy clarity and ensures more reliable condition evaluation. Update your condition
-block to use `{recommendedKey}: true` instead of the current key-operator combination.
+Replace the current condition key with the recommended key set to `true`. This change improves policy clarity and ensures more reliable condition evaluation. Update your condition block to use `{recommendedKey}: true` instead of the current key-operator combination.
 
 **Related terms**
-
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md "reference_policies_condition-logic-multiple-context-keys-or-values.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
++ [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md)
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Suggestion – Improve IP range
+<a name="access-analyzer-reference-policy-checks-suggestion-improve-ip-range"></a>
 
-**Issue code:** IMPROVE\_IP\_RANGE
+**Issue code: **IMPROVE\_IP\_RANGE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5081,7 +4527,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Improve IP range: The non-zero bits in the IP address after the masked bits are ignored. Replace address with {{addr}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5092,17 +4537,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-IP address conditions must be in the standard CIDR format, such as 203.0.113.0/24 or 2001:DB8:1234:5678::/64. When you include non-zero bits
-after the masked bits, they are not considered for the condition. AWS recommends that you use the new address included in the message.
-
-- [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress "reference_policies_elements_condition_operators.md#Conditions_IPAddress")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+IP address conditions must be in the standard CIDR format, such as 203.0.113.0/24 or 2001:DB8:1234:5678::/64. When you include non-zero bits after the masked bits, they are not considered for the condition. AWS recommends that you use the new address included in the message.
++ [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Null with qualifier
+<a name="access-analyzer-reference-policy-checks-suggestion-null-with-qualifier"></a>
 
-**Issue code:** NULL\_WITH\_QUALIFIER
+**Issue code: **NULL\_WITH\_QUALIFIER
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5110,7 +4554,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Null with qualifier: Avoid using the Null condition operator with the ForAllValues or ForAnyValue qualifiers because they always return a true or false respectively.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5121,25 +4564,21 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-In the `Condition` element, you build expressions in which you use condition operators like equal or less than to compare a condition
-in the policy against keys and values in the request context. For requests that include multiple values for a single condition key, you must use the 
-`ForAllValues` or `ForAnyValue` set operators.
+In the `Condition` element, you build expressions in which you use condition operators like equal or less than to compare a condition in the policy against keys and values in the request context. For requests that include multiple values for a single condition key, you must use the  `ForAllValues` or `ForAnyValue` set operators.
 
-When you use the `Null` condition operator with `ForAllValues`, the statement always returns `true`. When you
-use the `Null` condition operator with `ForAnyValue`, the statement always returns `false`. AWS recommends that
-you use the `StringLike` condition operator with these set operators.
+When you use the `Null` condition operator with `ForAllValues`, the statement always returns `true`. When you use the `Null` condition operator with `ForAnyValue`, the statement always returns `false`. AWS recommends that you use the `StringLike` condition operator with these set operators.
 
 **Related terms**
-
-- [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys")
-- [Null condition operator](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
++ [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys)
++ [Null condition operator](reference_policies_elements_condition_operators.md#Conditions_Null)
++ [Condition element](reference_policies_elements_condition.md)
 
 ## Suggestion – Private IP address subset
+<a name="access-analyzer-reference-policy-checks-suggestion-private-ip-address-subset"></a>
 
-**Issue code:** PRIVATE\_IP\_ADDRESS\_SUBSET
+**Issue code: **PRIVATE\_IP\_ADDRESS\_SUBSET
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5159,24 +4598,21 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 The global condition key `aws:SourceIp` works only for public IP address ranges.
 
-When your `Condition` element includes a mix of private and public IP addresses, the statement might not have
-the desired effect. You can specify private IP addresses using `aws:VpcSourceIP`.
+When your `Condition` element includes a mix of private and public IP addresses, the statement might not have the desired effect. You can specify private IP addresses using `aws:VpcSourceIP`.
 
-###### Note
-
-The global condition key `aws:VpcSourceIP` matches only if the request originates from the specified IP address
-and it goes through a VPC endpoint.
-
-- [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip "reference_policies_condition-keys.md#condition-keys-sourceip")
-- [aws:VpcSourceIp global condition key](reference_policies_condition-keys.md#condition-keys-vpcsourceip "reference_policies_condition-keys.md#condition-keys-vpcsourceip")
-- [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress "reference_policies_elements_condition_operators.md#Conditions_IPAddress")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+**Note**  
+The global condition key `aws:VpcSourceIP` matches only if the request originates from the specified IP address and it goes through a VPC endpoint.
++ [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip)
++ [aws:VpcSourceIp global condition key](reference_policies_condition-keys.md#condition-keys-vpcsourceip)
++ [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Private NotIpAddress subset
+<a name="access-analyzer-reference-policy-checks-suggestion-private-not-ip-address-subset"></a>
 
-**Issue code:** PRIVATE\_NOT\_IP\_ADDRESS\_SUBSET
+**Issue code: **PRIVATE\_NOT\_IP\_ADDRESS\_SUBSET
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5196,21 +4632,18 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 The global condition key `aws:SourceIp` works only for public IP address ranges.
 
-When your `Condition` element includes the `NotIpAddress` condition operator and a mix of private and public
-IP addresses, the statement might not have the desired effect. Every public IP addresses that is not specified in the policy will match. No
-private IP addresses will match. To achieve this effect, you can use `NotIpAddress` with `aws:VpcSourceIP` and specify
-the private IP addresses that should not match.
-
-- [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip "reference_policies_condition-keys.md#condition-keys-sourceip")
-- [aws:VpcSourceIp global condition key](reference_policies_condition-keys.md#condition-keys-vpcsourceip "reference_policies_condition-keys.md#condition-keys-vpcsourceip")
-- [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress "reference_policies_elements_condition_operators.md#Conditions_IPAddress")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+When your `Condition` element includes the `NotIpAddress` condition operator and a mix of private and public IP addresses, the statement might not have the desired effect. Every public IP addresses that is not specified in the policy will match. No private IP addresses will match. To achieve this effect, you can use `NotIpAddress` with `aws:VpcSourceIP` and specify the private IP addresses that should not match.
++ [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip)
++ [aws:VpcSourceIp global condition key](reference_policies_condition-keys.md#condition-keys-vpcsourceip)
++ [IP address condition operators](reference_policies_elements_condition_operators.md#Conditions_IPAddress)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Redundant action
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-action"></a>
 
-**Issue code:** REDUNDANT\_ACTION
+**Issue code: **REDUNDANT\_ACTION
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5218,7 +4651,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Redundant action: The {{redundantActionCount}} action(s) are redundant because they provide similar permissions. Update the policy to remove the redundant action such as: {{redundantAction}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5229,8 +4661,7 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-When you use wildcards (\*) in the `Action` element, you can include redundant permissions. AWS recommends
-that you review your policy and include only the permissions that you need. This can help you remove redundant actions.
+When you use wildcards (\*) in the `Action` element, you can include redundant permissions. AWS recommends that you review your policy and include only the permissions that you need. This can help you remove redundant actions.
 
 For example, the following actions include the `iam:GetCredentialReport` action twice.
 
@@ -5242,29 +4673,24 @@ For example, the following actions include the `iam:GetCredentialReport` action 
     ],
 ```
 
-In this example, permissions are defined for every IAM action that begins with `Get` or `List`. When IAM adds additional
-get or list operations, this policy will allow them. You might want to allow all of these read-only actions. The `iam:GetCredentialReport` action
-is already included as part of `iam:Get*`. To remove the duplicate permissions, you could remove `iam:GetCredentialReport`.
+In this example, permissions are defined for every IAM action that begins with `Get` or `List`. When IAM adds additional get or list operations, this policy will allow them. You might want to allow all of these read-only actions. The `iam:GetCredentialReport` action is already included as part of `iam:Get*`. To remove the duplicate permissions, you could remove `iam:GetCredentialReport`.
 
-You receive a finding for this policy check when all of the contents of an action are redundant. In this example, if the element included `iam:*CredentialReport`,
-it is not considered redundant. That includes `iam:GetCredentialReport`, which is redundant, and `iam:GenerateCredentialReport`, which is not.
-Removing either `iam:Get*` or `iam:*CredentialReport` would change the policy's permissions.
-
-- [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
+You receive a finding for this policy check when all of the contents of an action are redundant. In this example, if the element included `iam:*CredentialReport`, it is not considered redundant. That includes `iam:GetCredentialReport`, which is redundant, and `iam:GenerateCredentialReport`, which is not. Removing either `iam:Get*` or `iam:*CredentialReport` would change the policy's permissions.
++ [IAM JSON policy elements: Action](reference_policies_elements_action.md)
 
 ### AWS managed policies with this suggestion
+<a name="accan-ref-policy-check-message-fix-suggestion-redundant-action-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-Redundant actions do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your customer managed policy, AWS recommends that you remove
-redundant actions from your policy.
+Redundant actions do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your customer managed policy, AWS recommends that you remove redundant actions from your policy.
 
 ## Suggestion – Redundant condition value num
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-condition-value-num"></a>
 
-**Issue code:** REDUNDANT\_CONDITION\_VALUE\_NUM
+**Issue code: **REDUNDANT\_CONDITION\_VALUE\_NUM
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5272,7 +4698,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Redundant condition value num: Multiple values in {{operator}} are redundant. Replace with the {{greatest/least}} single value for {{key}}.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5298,17 +4723,16 @@ For example, the following `Condition` element includes multiple `aws:MultiFacto
       }
 ```
 
-In this example, the permissions are defined if multi-factor authentication (MFA) was completed less than 3600 seconds (1 hour) ago. You could remove
-the redundant `2700` value.
-
-- [Numeric condition operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric")
-- [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
+In this example, the permissions are defined if multi-factor authentication (MFA) was completed less than 3600 seconds (1 hour) ago. You could remove the redundant `2700` value.
++ [Numeric condition operators](reference_policies_elements_condition_operators.md#Conditions_Numeric)
++ [IAM JSON policy elements: Condition](reference_policies_elements_condition.md)
 
 ## Suggestion – Redundant resource
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-resource"></a>
 
-**Issue code:** REDUNDANT\_RESOURCE
+**Issue code: **REDUNDANT\_RESOURCE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5338,27 +4762,22 @@ For example, the following `Resource` element includes multiple ARNs with redund
         ],
 ```
 
-In this example, the permissions are defined for any role with a name starting with `jane`. You could remove
-the redundant `jane-admin` and `jane-s3only` ARNs without changing the resulting permissions. This does
-make the policy dynamic. It will define permissions for any future roles that begin with `jane`. If the intention
-of the policy is to allow access to a static number of roles, then remove the last ARN and list only the ARNs that should be
-defined.
-
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
+In this example, the permissions are defined for any role with a name starting with `jane`. You could remove the redundant `jane-admin` and `jane-s3only` ARNs without changing the resulting permissions. This does make the policy dynamic. It will define permissions for any future roles that begin with `jane`. If the intention of the policy is to allow access to a static number of roles, then remove the last ARN and list only the ARNs that should be defined.
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ### AWS managed policies with this suggestion
+<a name="accan-ref-policy-check-message-fix-suggestion-redundant-resource-awsmanpol"></a>
 
-[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies") enable you to get started with AWS by assigning permissions
-based on general AWS use cases.
+[AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-Redundant resources do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your customer managed policy, AWS recommends
-that you remove redundant resources from your policy.
+Redundant resources do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your customer managed policy, AWS recommends that you remove redundant resources from your policy.
 
 ## Suggestion – Redundant statement
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-statement"></a>
 
-**Issue code:** REDUNDANT\_STATEMENT
+**Issue code: **REDUNDANT\_STATEMENT
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5366,7 +4785,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Redundant statement: The statements are redundant because they provide identical permissions. Update the policy to remove the redundant statement.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5377,19 +4795,17 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The `Statement` element is the main element for a policy. This element is required. The `Statement` element
-can contain a single statement or an array of individual statements.
+The `Statement` element is the main element for a policy. This element is required. The `Statement` element can contain a single statement or an array of individual statements.
 
-When you include the same statement more than once in a long policy, the statements are is redundant. You can remove one of the statements without affecting the permissions
-granted by the policy. When someone edits a policy, they might change one of the statements without updating the duplicate. This might result in more permissions than intended.
-
-- [IAM JSON policy elements: Statement](reference_policies_elements_statement.md "reference_policies_elements_statement.md")
+When you include the same statement more than once in a long policy, the statements are is redundant. You can remove one of the statements without affecting the permissions granted by the policy. When someone edits a policy, they might change one of the statements without updating the duplicate. This might result in more permissions than intended.
++ [IAM JSON policy elements: Statement](reference_policies_elements_statement.md)
 
 ## Suggestion – Wildcard in service name
+<a name="access-analyzer-reference-policy-checks-suggestion-wildcard-in-service-name"></a>
 
-**Issue code:** WILDCARD\_IN\_SERVICE\_NAME
+**Issue code: **WILDCARD\_IN\_SERVICE\_NAME
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5407,21 +4823,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-When you include the name of an AWS service in a policy, AWS recommends that you do not include wildcards (\*, ?). This might
-add permissions for future services that you do not intend. For example, there are more than a dozen AWS services with the word
-`*code*` in their name.
+When you include the name of an AWS service in a policy, AWS recommends that you do not include wildcards (\*, ?). This might add permissions for future services that you do not intend. For example, there are more than a dozen AWS services with the word `*code*` in their name.
 
 ```
 "Resource": "arn:aws:*code*::111122223333:*"
 ```
-
-- [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
++ [IAM JSON policy elements: Resource](reference_policies_elements_resource.md)
 
 ## Suggestion – Allow with unsupported tag condition key for service
+<a name="access-analyzer-reference-policy-checks-suggestion-allow-with-unsupported-tag-condition-key-for-service"></a>
 
-**Issue code:** ALLOW\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
+**Issue code: **ALLOW\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5429,7 +4843,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Allow with unsupported tag condition key for service: Using the effect Allow with the tag condition key {{conditionKeyName}} and actions for services with the following prefixes does not affect the policy: {{serviceNames}}. Actions for the listed service are not allowed by this statement. We recommend that you move these actions to a different statement without this condition key.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5440,41 +4853,16 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Using unsupported tag condition keys in the `Condition` element of a policy
-with `"Effect": "Allow"` does not affect the permissions granted by the
-policy, because the condition is ignored for that service action. AWS recommends that
-you remove the actions for services that don’t support the condition key and create
-another statement to allow access to specific resources in that service.
+Using unsupported tag condition keys in the `Condition` element of a policy with `"Effect": "Allow"` does not affect the permissions granted by the policy, because the condition is ignored for that service action. AWS recommends that you remove the actions for services that don’t support the condition key and create another statement to allow access to specific resources in that service.
 
-If you use the `aws:ResourceTag` condition key and it’s not supported by a
-service action, then the key is not included in the request context. In this case, the
-condition in the `Allow` statement always returns `false` and the
-action is never allowed. This happens even if the resource is tagged correctly.
+If you use the `aws:ResourceTag` condition key and it’s not supported by a service action, then the key is not included in the request context. In this case, the condition in the `Allow` statement always returns `false` and the action is never allowed. This happens even if the resource is tagged correctly. 
 
-When a service supports the `aws:ResourceTag` condition key, you can use
-tags to control access to that service’s resources. This is known as [attribute-based access control
-(ABAC)](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md"). Services that don’t support these keys require you to control access
-to resources using [resource-based
-access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac").
+When a service supports the `aws:ResourceTag` condition key, you can use tags to control access to that service’s resources. This is known as [attribute-based access control (ABAC)](introduction_attribute-based-access-control.md). Services that don’t support these keys require you to control access to resources using [resource-based access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac).
 
-###### Note
+**Note**  
+Some services allow support for the `aws:ResourceTag` condition key for a subset of their resources and actions. IAM Access Analyzer returns findings for the service actions that are not supported. For example, Amazon S3 supports `aws:ResourceTag` for a subset of its resources. To view all of the resource types available in Amazon S3 that support the `aws:ResourceTag` condition key, see [Resource types defined by Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies) in the Service Authorization Reference.
 
-Some services allow support for the `aws:ResourceTag` condition key for
-a subset of their resources and actions. IAM Access Analyzer returns findings for the
-service actions that are not supported. For example, Amazon S3 supports
-`aws:ResourceTag` for a subset of its resources. To view all of the
-resource types available in Amazon S3 that support the `aws:ResourceTag`
-condition key, see [Resource types defined by Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md#amazons3-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazons3.md#amazons3-resources-for-iam-policies") in the Service Authorization
-Reference.
-
-For example, assume that you want to allow team members to view details for specific
-resources that are tagged with the key-value pair `team=BumbleBee`. Also
-assume that AWS Lambda allows you to tag resources, but doesn’t support the
-`aws:ResourceTag` condition key. To allow view actions for
-AWS App Mesh and AWS Backup if this tag is present, use the `aws:ResourceTag`
-condition key. For Lambda, use a resource naming convention that includes the team name
-as a prefix. Then include a separate statement that allows viewing resources with that
-naming convention.
+For example, assume that you want to allow team members to view details for specific resources that are tagged with the key-value pair `team=BumbleBee`. Also assume that AWS Lambda allows you to tag resources, but doesn’t support the `aws:ResourceTag` condition key. To allow view actions for AWS App Mesh and AWS Backup if this tag is present, use the `aws:ResourceTag` condition key. For Lambda, use a resource naming convention that includes the team name as a prefix. Then include a separate statement that allows viewing resources with that naming convention.
 
 ```
 {
@@ -5484,13 +4872,13 @@ naming convention.
             "Sid": "AllowViewSupported",
             "Effect": "Allow",
             "Action": [
-                "appmesh:DescribeMesh",
+                "appmesh:DescribeMesh", 
                 "backup:GetBackupPlan"
                 ],
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:ResourceTag/`team`": "`BumbleBee`"
+                    "aws:ResourceTag/{{team}}": "{{BumbleBee}}"
                 }
             }
         },
@@ -5498,41 +4886,28 @@ naming convention.
             "Sid": "AllowViewUnsupported",
             "Effect": "Allow",
             "Action": "lambda:GetFunction",
-            "Resource": "arn:aws:lambda:`*`:`123456789012`:function:`team-BumbleBee*`"
+            "Resource": "arn:aws:lambda:{{*}}:{{123456789012}}:function:{{team-BumbleBee*}}"
         }
     ]
 }
 ```
 
-###### Warning
-
-Do not use the `Not` [version of the condition operator](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md") with `"Effect": "Allow"` as a
-workaround for this finding. These condition operators provide negated matching. This
-means that after the condition is evaluated, the result is negated. In the previous
-example, including the `lambda:GetFunction` action in the `AllowViewSupported` statement with
-the `StringNotEquals` operator always allows the action, regardless of whether the
-resource is tagged.
-
-Do not use the …[IfExists](reference_policies_elements_condition_operators.md#Conditions_IfExists "reference_policies_elements_condition_operators.md#Conditions_IfExists") version of the condition operator as a workaround for
-this finding. This means "Allow the action if the key is present in the request
-context and the values match. Otherwise, allow the action." In the previous example,
-including the `lambda:GetFunction` action in the `AllowViewSupported` statement with the
-`StringEqualsIfExists` operator always allows the action. For that action,
-the key is not present in the context, and every attempt to view that resource type
-is allowed, regardless of whether the resource is tagged.
+**Warning**  
+Do not use the `Not` [version of the condition operator](reference_policies_elements_condition_operators.md) with `"Effect": "Allow"` as a workaround for this finding. These condition operators provide negated matching. This means that after the condition is evaluated, the result is negated. In the previous example, including the `lambda:GetFunction` action in the `AllowViewSupported` statement with the `StringNotEquals` operator always allows the action, regardless of whether the resource is tagged.  
+Do not use the …[IfExists](reference_policies_elements_condition_operators.md#Conditions_IfExists) version of the condition operator as a workaround for this finding. This means "Allow the action if the key is present in the request context and the values match. Otherwise, allow the action." In the previous example, including the `lambda:GetFunction` action in the `AllowViewSupported` statement with the `StringEqualsIfExists` operator always allows the action. For that action, the key is not present in the context, and every attempt to view that resource type is allowed, regardless of whether the resource is tagged.
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [Condition element](reference_policies_elements_condition.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Suggestion – Allow NotAction with unsupported tag condition key for service
+<a name="access-analyzer-reference-policy-checks-suggestion-allow-notaction-with-unsupported-tag-condition-key-for-service"></a>
 
-**Issue code:** ALLOW\_NOTACTION\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
+**Issue code: **ALLOW\_NOTACTION\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5540,7 +4915,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Allow NotAction with unsupported tag condition key for service: Using the effect Allow with NotAction and the tag condition key {{conditionKeyName}} allows only service actions that support the condition key. The condition key doesn't apply to some service actions. We recommend that you use Action instead of NotAction.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5551,37 +4925,25 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Using unsupported tag condition keys in the `Condition` element of a
-policy with the element `NotAction` and `"Effect": "Allow"` does
-not affect the permissions granted by the policy. The condition is ignored for service
-actions that don’t support the condition key. AWS recommends that you rewrite the
-logic to allow a list of actions.
+Using unsupported tag condition keys in the `Condition` element of a policy with the element `NotAction` and `"Effect": "Allow"` does not affect the permissions granted by the policy. The condition is ignored for service actions that don’t support the condition key. AWS recommends that you rewrite the logic to allow a list of actions.
 
-If you use the `aws:ResourceTag` condition key with `NotAction`,
-any new or existing service actions that don’t support the key are not allowed. AWS
-recommends that you explicitly list the actions that you want to allow. IAM Access Analyzer
-returns a separate finding for listed actions that don’t support the
-`aws:ResourceTag` condition key. For more information, see [Suggestion – Allow with unsupported tag condition key for service](#access-analyzer-reference-policy-checks-suggestion-allow-with-unsupported-tag-condition-key-for-service "#access-analyzer-reference-policy-checks-suggestion-allow-with-unsupported-tag-condition-key-for-service").
+If you use the `aws:ResourceTag` condition key with `NotAction`, any new or existing service actions that don’t support the key are not allowed. AWS recommends that you explicitly list the actions that you want to allow. IAM Access Analyzer returns a separate finding for listed actions that don’t support the `aws:ResourceTag` condition key. For more information, see [Suggestion – Allow with unsupported tag condition key for service](#access-analyzer-reference-policy-checks-suggestion-allow-with-unsupported-tag-condition-key-for-service).
 
-When a service supports the `aws:ResourceTag` condition key, you can use
-tags to control access to that service’s resources. This is known as [attribute-based access control
-(ABAC)](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md"). Services that don’t support these keys require you to control access
-to resources using [resource-based
-access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac").
+When a service supports the `aws:ResourceTag` condition key, you can use tags to control access to that service’s resources. This is known as [attribute-based access control (ABAC)](introduction_attribute-based-access-control.md). Services that don’t support these keys require you to control access to resources using [resource-based access control (RBAC)](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac).
 
 **Related terms**
-
-- [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [Comparing ABAC to RBAC](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac "introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac")
-- [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
-- [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
++ [Global condition keys](reference_policies_condition-keys.md)
++ [Comparing ABAC to RBAC](introduction_attribute-based-access-control.md#introduction_attribute-based-access-control_compare-rbac)
++ [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md)
++ [Condition element](reference_policies_elements_condition.md)
++ [Overview of JSON policies](access_policies.md#access_policies-json)
 
 ## Suggestion – Recommended condition key for service principal
+<a name="access-analyzer-reference-policy-checks-suggestion-recommended-condition-key-for-service-principal"></a>
 
-**Issue code:** RECOMMENDED\_CONDITION\_KEY\_FOR\_SERVICE\_PRINCIPAL
+**Issue code: **RECOMMENDED\_CONDITION\_KEY\_FOR\_SERVICE\_PRINCIPAL
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5599,29 +4961,22 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-You can specify AWS services in the `Principal` element of a
-resource-based policy using a _service principal_, which is an
-identifier for the service. You should use the `aws:SourceArn`,
-`aws:SourceAccount`, `aws:SourceOrgID`, or
-`aws:SourceOrgPaths` condition keys when granting access to service
-principals instead of other condition keys, such as `aws:Referer`. This helps
-you prevent a security issue called _the confused deputy
-problem_.
+You can specify AWS services in the `Principal` element of a resource-based policy using a *service principal*, which is an identifier for the service. You should use the `aws:SourceArn`, `aws:SourceAccount`, `aws:SourceOrgID`, or `aws:SourceOrgPaths` condition keys when granting access to service principals instead of other condition keys, such as `aws:Referer`. This helps you prevent a security issue called *the confused deputy problem*.
 
 **Related terms**
-
-- [AWS service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services")
-- [AWS global condition keys: aws:SourceAccount](reference_policies_condition-keys.md#condition-keys-sourceaccount "reference_policies_condition-keys.md#condition-keys-sourceaccount")
-- [AWS global condition keys: aws:SourceArn](reference_policies_condition-keys.md#condition-keys-sourcearn "reference_policies_condition-keys.md#condition-keys-sourcearn")
-- [AWS global condition keys: aws:SourceOrgId](reference_policies_condition-keys.md#condition-keys-sourceorgid "reference_policies_condition-keys.md#condition-keys-sourceorgid")
-- [AWS global condition keys: aws:SourceOrgPaths](reference_policies_condition-keys.md#condition-keys-sourceorgpaths "reference_policies_condition-keys.md#condition-keys-sourceorgpaths")
-- [The confused deputy problem](confused-deputy.md "confused-deputy.md")
++ [AWS service principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services)
++ [AWS global condition keys: aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount)
++ [AWS global condition keys: aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn)
++ [AWS global condition keys: aws:SourceOrgId](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceorgid)
++ [AWS global condition keys: aws:SourceOrgPaths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceorgpaths)
++ [The confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html)
 
 ## Suggestion – Irrelevant condition key in policy
+<a name="access-analyzer-reference-policy-checks-suggestion-irrelevant-condition-key-in-policy"></a>
 
-**Issue code:** IRRELEVANT\_CONDITION\_KEY\_IN\_POLICY
+**Issue code: **IRRELEVANT\_CONDITION\_KEY\_IN\_POLICY
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5629,7 +4984,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Irrelevant condition key in policy: The condition key {{condition-key}} is not relevant for the {{resource-type}} policy.  Use this key in an identity-based policy to govern access to this resource.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5645,14 +4999,14 @@ Some condition keys aren't relevant for resource-based policies. For example, th
 You should use the condition key in an identity-based policy to control access to the resource.
 
 **Related terms**
-
-- [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
++ [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md)
 
 ## Suggestion – Redundant key due to wildcard in condition
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-key-due-to-wildcard-in-condition"></a>
 
-**Issue code:** REDUNDANT\_KEY\_DUE\_TO\_WILDCARD\_IN\_CONDITION
+**Issue code: **REDUNDANT\_KEY\_DUE\_TO\_WILDCARD\_IN\_CONDITION
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5660,7 +5014,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Redundant key due to wildcard in condition: The key {{key}} in the condition block of {{operator}} is redundant because it is always matched. Remove this key to simplify the condition.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5671,23 +5024,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Remove the redundant condition key from your policy. The key is always matched due to the
-wildcard pattern, making it unnecessary. Simplify your condition block by removing this key
-while maintaining the same effective permissions.
+Remove the redundant condition key from your policy. The key is always matched due to the wildcard pattern, making it unnecessary. Simplify your condition block by removing this key while maintaining the same effective permissions. 
 
 **Related terms**
-
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md "reference_policies_condition-logic-multiple-context-keys-or-values.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
++ [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md)
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Suggestion – Redundant principal in role trust policy
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-principal-in-role-trust-policy"></a>
 
-**Issue code:** REDUNDANT\_PRINCIPAL\_IN\_ROLE\_TRUST\_POLICY
+**Issue code: **REDUNDANT\_PRINCIPAL\_IN\_ROLE\_TRUST\_POLICY
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5695,7 +5044,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Redundant principal in role trust policy: The assumed-role principal {{redundant_principal}} is redundant with its parent role {{parent_role}}. Remove the assumed-role principal.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5706,30 +5054,27 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-If you specify both an assumed-role principal and its parent role in the
-`Principal` element of a policy, it does not allow or deny any different
-permissions. For example, it is redundant if you specify the `Principal`
-element using the following format:
+If you specify both an assumed-role principal and its parent role in the `Principal` element of a policy, it does not allow or deny any different permissions. For example, it is redundant if you specify the `Principal` element using the following format:
 
 ```
 "Principal": {
             "AWS": [
-            "arn:aws:iam::`AWS-account-ID`:role/`rolename`",
-            "arn:aws:iam::`AWS-account-ID`:assumed-role/`rolename`/`rolesessionname`"
+            "arn:aws:iam::{{AWS-account-ID}}:role/{{rolename}}",
+            "arn:aws:iam::{{AWS-account-ID}}:assumed-role/{{rolename}}/{{rolesessionname}}"
         ]
 ```
 
 We recommend removing the assumed-role principal.
 
 **Related terms**
-
-- [Role session principals](reference_policies_elements_principal.md#principal-role-session "reference_policies_elements_principal.md#principal-role-session")
++ [Role session principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-role-session)
 
 ## Suggestion – Redundant statement due to wildcard in condition
+<a name="access-analyzer-reference-policy-checks-suggestion-redundant-statement-due-to-wildcard-in-condition"></a>
 
-**Issue code:** REDUNDANT\_STATEMENT\_DUE\_TO\_WILDCARD\_IN\_CONDITION
+**Issue code: **REDUNDANT\_STATEMENT\_DUE\_TO\_WILDCARD\_IN\_CONDITION
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5737,7 +5082,6 @@ In the AWS Management Console, the finding for this check includes the following
 
 ```
 Redundant statement due to wildcard in condition: The key {{key}} in the condition block of {{operator}} does not match any values. Remove this key to simplify the condition.
-
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
@@ -5748,23 +5092,19 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-Remove the condition key that doesn't match any values. This key creates an unreachable
-condition that will never be satisfied, making it redundant. Clean up your policy by removing
-this key to improve readability and performance.
+Remove the condition key that doesn't match any values. This key creates an unreachable condition that will never be satisfied, making it redundant. Clean up your policy by removing this key to improve readability and performance.
 
 **Related terms**
-
-- [IAM policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
-- [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md "reference_policies_condition-logic-multiple-context-keys-or-values.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
++ [IAM policy elements: Condition](reference_policies_elements_condition.md)
++ [Conditions with multiple context keys or values](reference_policies_condition-logic-multiple-context-keys-or-values.md)
++ [AWS global condition context keys](reference_policies_condition-keys.md)
 
 ## Suggestion – Confirm audience claim type
+<a name="access-analyzer-reference-policy-checks-suggestion-confirm-audience-claim-type"></a>
 
-**Issue code:** CONFIRM\_AUDIENCE\_CLAIM\_TYPE
+**Issue code: **CONFIRM\_AUDIENCE\_CLAIM\_TYPE
 
-**Finding type:** SUGGESTION
+**Finding type: **SUGGESTION
 
 **Finding details**
 
@@ -5782,15 +5122,9 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the suggestion**
 
-The `aud` (audience) claim key is a unique identifier for your app that is
-issued to you when you register your app with the IdP and identifies the recipients that
-the JSON web token is intended for. Audience claims can be multivalued or single-valued.
-If the claim is multivalued, use a `ForAllValues` or `ForAnyValue`
-condition set operator. If the claim is single-valued, do not use a condition set operator.
+The `aud` (audience) claim key is a unique identifier for your app that is issued to you when you register your app with the IdP and identifies the recipients that the JSON web token is intended for. Audience claims can be multivalued or single-valued. If the claim is multivalued, use a `ForAllValues` or `ForAnyValue` condition set operator. If the claim is single-valued, do not use a condition set operator.
 
 **Related terms**
-
-- [Creating a role
-  for web identity or OpenID Connect Federation (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md")
-- [Multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys")
-- [Single-valued vs. multivalued condition keys](reference_policies_single-vs-multi-valued-condition-keys.md "reference_policies_single-vs-multi-valued-condition-keys.md")
++ [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
++ [Multivalued context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.html#reference_policies_condition-multi-valued-context-keys)
++ [Single-valued vs. multivalued condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_single-vs-multi-valued-condition-keys.html)

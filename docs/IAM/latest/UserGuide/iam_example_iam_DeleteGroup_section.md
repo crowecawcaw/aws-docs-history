@@ -1,38 +1,30 @@
+
+
 # Use `DeleteGroup` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteGroup_section"></a>
 
 The following code examples show how to use `DeleteGroup`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To delete an IAM group**
-
-The following `delete-group` command deletes an IAM group named `MyTestGroup`.
-
-```
-`aws iam delete-group \
- --group-name `MyTestGroup``
+**AWS CLI**  
+**To delete an IAM group**  
+The following `delete-group` command deletes an IAM group named `MyTestGroup`.  
 
 ```
+aws iam delete-group \
+    --group-name {{MyTestGroup}}
+```
+This command produces no output.  
+For more information, see [Deleting an IAM user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_delete.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-group.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ JavaScript ]
 
-For more information, see [Deleting an IAM user group](id_groups_manage_delete.md "id_groups_manage_delete.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-group.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import { DeleteGroupCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -52,44 +44,30 @@ export const deleteGroup = async (groupName) => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [DeleteGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteGroupCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteGroup](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteGroupCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the IAM group named `MyTestGroup`. The first command removes any IAM users that are members of the group, and the second command deletes the IAM group. Both commands work without any prompts for confirmation.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the IAM group named `MyTestGroup`. The first command removes any IAM users that are members of the group, and the second command deletes the IAM group. Both commands work without any prompts for confirmation.**  
 
 ```
 (Get-IAMGroup -GroupName MyTestGroup).Users | Remove-IAMUserFromGroup -GroupName MyTestGroup -Force
 Remove-IAMGroup -GroupName MyTestGroup -Force
-
 ```
++  For API details, see [DeleteGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteGroup](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the IAM group named `MyTestGroup`. The first command removes any IAM users that are members of the group, and the second command deletes the IAM group. Both commands work without any prompts for confirmation.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the IAM group named `MyTestGroup`. The first command removes any IAM users that are members of the group, and the second command deletes the IAM group. Both commands work without any prompts for confirmation.**  
 
 ```
 (Get-IAMGroup -GroupName MyTestGroup).Users | Remove-IAMUserFromGroup -GroupName MyTestGroup -Force
 Remove-IAMGroup -GroupName MyTestGroup -Force
-
 ```
++  For API details, see [DeleteGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteGroup](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

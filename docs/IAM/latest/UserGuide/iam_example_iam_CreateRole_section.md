@@ -1,42 +1,39 @@
+
+
 # Use `CreateRole` with an AWS SDK or CLI
+<a name="iam_example_iam_CreateRole_section"></a>
 
 The following code examples show how to use `CreateRole`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
++  [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md) 
++  [Create a container task for the serverless launch type](iam_example_ecs_GettingStarted_086_section.md) 
++  [Create a rest API with function proxy integration](iam_example_api_gateway_GettingStarted_087_section.md) 
++  [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md) 
++  [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md) 
++  [Creating your first serverless function](iam_example_lambda_GettingStarted_019_section.md) 
++  [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md) 
++  [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md) 
++  [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md) 
++  [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md) 
++  [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md) 
++  [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md) 
++  [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md) 
++  [Moving hardcoded secrets to secure secret storage](iam_example_secrets_manager_GettingStarted_073_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
++  [Setting up systems management](iam_example_iam_GettingStarted_046_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](iam_example_iam_GettingStarted_032_section.md) 
++  [Work with Streams and Time-to-Live](iam_example_dynamodb_Scenario_StreamsAndTTL_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
-- [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
-- [Create a container task for the serverless launch type](iam_example_ecs_GettingStarted_086_section.md "iam_example_ecs_GettingStarted_086_section.md")
-- [Create a rest API with function proxy integration](iam_example_api_gateway_GettingStarted_087_section.md "iam_example_api_gateway_GettingStarted_087_section.md")
-- [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
-- [Creating a managed monitoring workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
-- [Creating a monitoring dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md "iam_example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first serverless function](iam_example_lambda_GettingStarted_019_section.md "iam_example_lambda_GettingStarted_019_section.md")
-- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
-- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
-- [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Getting started with workflow orchestration](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
-- [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md "iam_example_iam_Scenario_RoleManagement_section.md")
-- [Moving hardcoded secrets to secure secret storage](iam_example_secrets_manager_GettingStarted_073_section.md "iam_example_secrets_manager_GettingStarted_073_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
-- [Setting up systems management](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](iam_example_iam_GettingStarted_032_section.md "iam_example_iam_GettingStarted_032_section.md")
-- [Work with Streams and Time-to-Live](iam_example_dynamodb_Scenario_StreamsAndTTL_section.md "iam_example_dynamodb_Scenario_StreamsAndTTL_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -57,24 +54,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.CreateRoleAsync(request);
         return response.Role.Arn;
     }
-
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateRole) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -162,23 +149,14 @@ function iam_create_role() {
 
   return 0
 }
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::createIamRole(
@@ -205,30 +183,22 @@ bool AwsDoc::IAM::createIamRole(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreateRole) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create an IAM role**  
+The following `create-role` command creates a role named `Test-Role` and attaches a trust policy to it.  
 
 ```
-
-- For API details, see
-  [CreateRole](../../../goto/SdkForCpp/iam-2010-05-08/CreateRole.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create an IAM role**
-
-The following `create-role` command creates a role named `Test-Role` and attaches a trust policy to it.
-
+aws iam create-role \
+    --role-name {{Test-Role}} \
+    --assume-role-policy-document {{file://Test-Role-Trust-Policy.json}}
 ```
-`aws iam create-role \
- --role-name `Test-Role` \
- --assume-role-policy-document `file://Test-Role-Trust-Policy.json``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -242,26 +212,19 @@ Output:
     }
 }
 ```
-
-The trust policy is defined as a JSON document in the _Test-Role-Trust-Policy.json_ file. (The file name and extension do not have significance.) The trust policy must specify a principal.
-
-To attach a permissions policy to a role, use the `put-role-policy` command.
-
-For more information, see [Creating IAM roles](id_roles_create.md "id_roles_create.md") in the _AWS IAM User Guide_.
-
-**Example 2: To create an IAM role with specified maximum session duration**
-
-The following `create-role` command creates a role named `Test-Role` and sets a maximum session duration of 7200 seconds (2 hours).
+The trust policy is defined as a JSON document in the *Test-Role-Trust-Policy.json* file. (The file name and extension do not have significance.) The trust policy must specify a principal.  
+To attach a permissions policy to a role, use the `put-role-policy` command.  
+For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS IAM User Guide*.  
+**Example 2: To create an IAM role with specified maximum session duration**  
+The following `create-role` command creates a role named `Test-Role` and sets a maximum session duration of 7200 seconds (2 hours).  
 
 ```
-`aws iam create-role \
- --role-name `Test-Role` \
- --assume-role-policy-document `file://Test-Role-Trust-Policy.json` \
- --max-session-duration `7200``
-
+aws iam create-role \
+    --role-name {{Test-Role}} \
+    --assume-role-policy-document {{file://Test-Role-Trust-Policy.json}} \
+    --max-session-duration {{7200}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -272,7 +235,7 @@ Output:
         "Arn": "arn:aws:iam::12345678012:role/Test-Role",
         "CreateDate": "2023-05-24T23:50:25+00:00",
         "AssumeRolePolicyDocument": {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Sid": "Statement1",
@@ -287,22 +250,17 @@ Output:
     }
 }
 ```
-
-For more information, see [Modifying a role maximum session duration (AWS API)](roles-managingrole-editing-api.md#roles-modify_max-session-duration-api "roles-managingrole-editing-api.md#roles-modify_max-session-duration-api") in the _AWS IAM User Guide_.
-
-**Example 3: To create an IAM Role with tags**
-
-The following command creates an IAM Role `Test-Role` with tags. This example uses the `--tags` parameter flag with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` flag can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.
+For more information, see [Modifying a role maximum session duration (AWS API)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api) in the *AWS IAM User Guide*.  
+**Example 3: To create an IAM Role with tags**  
+The following command creates an IAM Role `Test-Role` with tags. This example uses the `--tags` parameter flag with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` flag can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.  
 
 ```
-`aws iam create-role \
- --role-name `Test-Role` \
- --assume-role-policy-document `file://Test-Role-Trust-Policy.json` \
- --tags '`{"Key": "Department", "Value": "Accounting"}`' '`{"Key": "Location", "Value": "Seattle"}`'`
-
+aws iam create-role \
+    --role-name {{Test-Role}} \
+    --assume-role-policy-document {{file://Test-Role-Trust-Policy.json}} \
+    --tags '{{{"Key": "Department", "Value": "Accounting"}}}' '{{{"Key": "Location", "Value": "Seattle"}}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -313,7 +271,7 @@ Output:
         "Arn": "arn:aws:iam::123456789012:role/Test-Role",
         "CreateDate": "2023-05-25T23:29:41+00:00",
         "AssumeRolePolicyDocument": {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Sid": "Statement1",
@@ -338,25 +296,16 @@ Output:
     }
 }
 ```
+For more information, see [Tagging IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_roles.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreateRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Tagging IAM roles](id_tags_roles.md "id_tags_roles.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -406,24 +355,14 @@ func (wrapper RoleWrapper) CreateRole(ctx context.Context, roleName string, trus
 	}
 	return role, err
 }
-
-
-
 ```
++  For API details, see [CreateRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import org.json.simple.JSONObject;
@@ -500,25 +439,15 @@ public class CreateRole {
         return jsonParser.parse(reader);
     }
 }
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateRole) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateRole.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Create the role.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Create the role.  
 
 ```
 import { CreateRoleCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -548,23 +477,14 @@ export const createRole = (roleName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -597,28 +517,20 @@ echo "Created role: {$assumeRoleRole['RoleName']}\n";
         });
         return $result['Role'];
     }
-
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateRole) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateRole.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method. **  
 
 ```
 $results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                      : arn:aws:iam::123456789012:role/MyNewRole
@@ -637,7 +549,7 @@ RoleName                 : MyNewRole
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "",
@@ -650,22 +562,16 @@ RoleName                 : MyNewRole
   ]
 }
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method. **  
 
 ```
 $results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                      : arn:aws:iam::123456789012:role/MyNewRole
@@ -684,7 +590,7 @@ RoleName                 : MyNewRole
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "",
@@ -697,20 +603,13 @@ RoleName                 : MyNewRole
   ]
 }
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def create_role(role_name, allowed_services):
@@ -722,7 +621,7 @@ def create_role(role_name, allowed_services):
     :return: The newly created role.
     """
     trust_policy = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -743,25 +642,14 @@ def create_role(role_name, allowed_services):
         raise
     else:
         return role
-
-
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/boto3/iam-2010-05-08/CreateRole.md "../../../goto/boto3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Creates a role and attaches policies to it.
@@ -789,23 +677,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("Error creating role: #{e.message}")
     nil
   end
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn create_role(
@@ -827,23 +706,14 @@ pub async fn create_role(
 
     Ok(response.role.unwrap())
 }
-
-
 ```
++  For API details, see [CreateRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -858,23 +728,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamlimitexceededex.
         MESSAGE 'Role limit exceeded.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateRole](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -900,14 +761,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CreateRole](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createrole(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateRole](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createrole(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createrole(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

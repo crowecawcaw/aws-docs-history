@@ -1,21 +1,18 @@
+
+
 # Use `ListAccessKeys` with an AWS SDK or CLI
+<a name="iam_example_iam_ListAccessKeys_section"></a>
 
 The following code examples show how to use `ListAccessKeys`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage access keys](iam_example_iam_Scenario_ManageAccessKeys_section.md) 
 
-- [Manage access keys](iam_example_iam_Scenario_ManageAccessKeys_section.md "iam_example_iam_Scenario_ManageAccessKeys_section.md")
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -93,23 +90,14 @@ function iam_list_access_keys() {
 
   return 0
 }
-
-
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/ListAccessKeys) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListAccessKeys](../../../goto/aws-cli/iam-2010-05-08/ListAccessKeys.md "../../../goto/aws-cli/iam-2010-05-08/ListAccessKeys.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::listAccessKeys(const Aws::String &userName,
@@ -158,29 +146,21 @@ bool AwsDoc::IAM::listAccessKeys(const Aws::String &userName,
 
     return true;
 }
+```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/ListAccessKeys) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list the access key IDs for an IAM user**  
+The following `list-access-keys` command lists the access keys IDs for the IAM user named `Bob`.  
 
 ```
-
-- For API details, see
-  [ListAccessKeys](../../../goto/SdkForCpp/iam-2010-05-08/ListAccessKeys.md "../../../goto/SdkForCpp/iam-2010-05-08/ListAccessKeys.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the access key IDs for an IAM user**
-
-The following `list-access-keys` command lists the access keys IDs for the IAM user named `Bob`.
-
+aws iam list-access-keys \
+    --user-name {{Bob}}
 ```
-`aws iam list-access-keys \
- --user-name `Bob``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -200,27 +180,17 @@ Output:
     ]
 }
 ```
+You cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys using the `create-access-keys` command.  
+For more information, see [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *AWS IAM User Guide*.  
++  For API details, see [ListAccessKeys](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-access-keys.html) in *AWS CLI Command Reference*. 
 
-You cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys using the `create-access-keys` command.
+------
+#### [ Go ]
 
-For more information, see [Managing access keys for IAM users](id_credentials_access-keys.md "id_credentials_access-keys.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [ListAccessKeys](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-access-keys.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-access-keys.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -254,24 +224,14 @@ func (wrapper UserWrapper) ListAccessKeys(ctx context.Context, userName string) 
 	}
 	return keys, err
 }
-
-
-
 ```
++  For API details, see [ListAccessKeys](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListAccessKeys) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListAccessKeys](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListAccessKeys "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.ListAccessKeys")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.services.iam.model.AccessKeyMetadata;
@@ -357,25 +317,15 @@ public class ListAccessKeys {
         }
     }
 }
-
-
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/ListAccessKeys) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListAccessKeys](../../../goto/SdkForJavaV2/iam-2010-05-08/ListAccessKeys.md "../../../goto/SdkForJavaV2/iam-2010-05-08/ListAccessKeys.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-List the access keys.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+List the access keys.  
 
 ```
 import { ListAccessKeysCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -415,22 +365,12 @@ export async function* listAccessKeys(userName) {
     }
   }
 }
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.html#iam-examples-managing-access-keys-listing). 
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListAccessKeysCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-listing "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-access-keys.md#iam-examples-managing-access-keys-listing").
-- For API details, see
-  [ListAccessKeys](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListAccessKeysCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/ListAccessKeysCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -453,24 +393,15 @@ iam.listAccessKeys(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.html#iiam-examples-managing-access-keys-listing). 
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/ListAccessKeys) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.md#iiam-examples-managing-access-keys-listing "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-access-keys.md#iiam-examples-managing-access-keys-listing").
-- For API details, see
-  [ListAccessKeys](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListAccessKeys.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/ListAccessKeys.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun listKeys(userNameVal: String?) {
@@ -485,26 +416,19 @@ suspend fun listKeys(userNameVal: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [ListAccessKeys](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListAccessKeys](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command lists the access keys for the IAM user named `Bob`. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the `New-IAMAccessKey` cmdlet.**
+**Tools for PowerShell V4**  
+**Example 1: This command lists the access keys for the IAM user named `Bob`. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the `New-IAMAccessKey` cmdlet.**  
 
 ```
 Get-IAMAccessKey -UserName "Bob"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                CreateDate                   Status              UserName
@@ -512,21 +436,15 @@ AccessKeyId                CreateDate                   Status              User
 AKIAIOSFODNN7EXAMPLE       12/3/2014 10:53:41 AM        Active              Bob
 AKIAI44QH8DHBEXAMPLE       6/6/2013 8:42:26 PM          Inactive            Bob
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListAccessKeys](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command lists the access keys for the IAM user named `Bob`. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the `New-IAMAccessKey` cmdlet.**
+**Tools for PowerShell V5**  
+**Example 1: This command lists the access keys for the IAM user named `Bob`. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the `New-IAMAccessKey` cmdlet.**  
 
 ```
 Get-IAMAccessKey -UserName "Bob"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                CreateDate                   Status              UserName
@@ -534,20 +452,13 @@ AccessKeyId                CreateDate                   Status              User
 AKIAIOSFODNN7EXAMPLE       12/3/2014 10:53:41 AM        Active              Bob
 AKIAI44QH8DHBEXAMPLE       6/6/2013 8:42:26 PM          Inactive            Bob
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListAccessKeys](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def list_keys(user_name):
@@ -565,27 +476,15 @@ def list_keys(user_name):
         raise
     else:
         return keys
-
-
-
-
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/ListAccessKeys) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListAccessKeys](../../../goto/boto3/iam-2010-05-08/ListAccessKeys.md "../../../goto/boto3/iam-2010-05-08/ListAccessKeys.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
-
-This example module lists, creates, deactivates, and deletes access keys.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
+This example module lists, creates, deactivates, and deletes access keys.  
 
 ```
 # Manages access keys for IAM users
@@ -664,23 +563,14 @@ class AccessKeyManager
     false
   end
 end
-
-
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/ListAccessKeys) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListAccessKeys](../../../goto/SdkForRubyV3/iam-2010-05-08/ListAccessKeys.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListAccessKeys.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -690,14 +580,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamnosuchentityex.
         MESSAGE 'User does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListAccessKeys](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListAccessKeys](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

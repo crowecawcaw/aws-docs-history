@@ -1,47 +1,38 @@
+
+
 # Use `DeleteServiceLinkedRole` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteServiceLinkedRole_section"></a>
 
 The following code examples show how to use `DeleteServiceLinkedRole`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To delete a service-linked role**
-
-The following `delete-service-linked-role` example deletes the specified service-linked role that you no longer need. The deletion happens asynchronously. You can check the status of the deletion and confirm when it is done by using the `get-service-linked-role-deletion-status` command.
-
-```
-`aws iam delete-service-linked-role \
- --role-name `AWSServiceRoleForLexBots``
+**AWS CLI**  
+**To delete a service-linked role**  
+The following `delete-service-linked-role` example deletes the specified service-linked role that you no longer need. The deletion happens asynchronously. You can check the status of the deletion and confirm when it is done by using the `get-service-linked-role-deletion-status` command.  
 
 ```
-
-Output:
+aws iam delete-service-linked-role \
+    --role-name {{AWSServiceRoleForLexBots}}
+```
+Output:  
 
 ```
 {
     "DeletionTaskId": "task/aws-service-role/lex.amazonaws.com/AWSServiceRoleForLexBots/1a2b3c4d-1234-abcd-7890-abcdeEXAMPLE"
 }
 ```
+For more information, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteServiceLinkedRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-linked-role.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [DeleteServiceLinkedRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-linked-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-linked-role.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -71,24 +62,14 @@ func (wrapper RoleWrapper) DeleteServiceLinkedRole(ctx context.Context, roleName
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteServiceLinkedRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteServiceLinkedRole) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteServiceLinkedRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteServiceLinkedRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteServiceLinkedRole")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import { DeleteServiceLinkedRoleCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -103,51 +84,33 @@ export const deleteServiceLinkedRole = (roleName) => {
   const command = new DeleteServiceLinkedRoleCommand({ RoleName: roleName });
   return client.send(command);
 };
-
-
 ```
++  For API details, see [DeleteServiceLinkedRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteServiceLinkedRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteServiceLinkedRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteServiceLinkedRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteServiceLinkedRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deleted the service linked role. Please note that if the service is still using this role, then this command results in a failure.**
+**Tools for PowerShell V4**  
+**Example 1: This example deleted the service linked role. Please note that if the service is still using this role, then this command results in a failure.**  
 
 ```
 Remove-IAMServiceLinkedRole -RoleName AWSServiceRoleForAutoScaling_RoleNameEndsWithThis
-
 ```
++  For API details, see [DeleteServiceLinkedRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteServiceLinkedRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deleted the service linked role. Please note that if the service is still using this role, then this command results in a failure.**
+**Tools for PowerShell V5**  
+**Example 1: This example deleted the service linked role. Please note that if the service is still using this role, then this command results in a failure.**  
 
 ```
 Remove-IAMServiceLinkedRole -RoleName AWSServiceRoleForAutoScaling_RoleNameEndsWithThis
-
 ```
++  For API details, see [DeleteServiceLinkedRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteServiceLinkedRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Deletes a service-linked role.
@@ -191,23 +154,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("\t#{e.code}: #{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [DeleteServiceLinkedRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteServiceLinkedRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteServiceLinkedRole](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteServiceLinkedRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteServiceLinkedRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn delete_service_linked_role(
@@ -222,14 +176,9 @@ pub async fn delete_service_linked_role(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DeleteServiceLinkedRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_service_linked_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteServiceLinkedRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_service_linked_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_service_linked_role")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

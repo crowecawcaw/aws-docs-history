@@ -1,23 +1,20 @@
+
+
 # Use `DeleteInstanceProfile` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteInstanceProfile_section"></a>
 
 The following code examples show how to use `DeleteInstanceProfile`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Build and manage a resilient service](iam_example_cross_ResilientService_section.md) 
++  [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
 
-- [Build and manage a resilient service](iam_example_cross_ResilientService_section.md "iam_example_cross_ResilientService_section.md")
-- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -68,45 +65,29 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"Instance profile {profileName} does not exist.");
         }
     }
+```
++  For API details, see [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteInstanceProfile) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an instance profile**  
+The following `delete-instance-profile` command deletes the instance profile named `ExampleInstanceProfile`.  
 
 ```
-
-- For API details, see
-  [DeleteInstanceProfile](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteInstanceProfile.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete an instance profile**
-
-The following `delete-instance-profile` command deletes the instance profile named `ExampleInstanceProfile`.
-
+aws iam delete-instance-profile \
+    --instance-profile-name {{ExampleInstanceProfile}}
 ```
-`aws iam delete-instance-profile \
- --instance-profile-name `ExampleInstanceProfile``
+This command produces no output.  
+For more information, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteInstanceProfile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-instance-profile.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-This command produces no output.
-
-For more information, see [Using instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md "id_roles_use_switch-role-ec2_instance-profiles.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteInstanceProfile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-instance-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-instance-profile.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
 ```
       const client = new IAMClient({});
@@ -115,55 +96,36 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
           InstanceProfileName: NAMES.instanceProfileName,
         }),
       );
-
-
 ```
++  For API details, see [DeleteInstanceProfile](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteInstanceProfileCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteInstanceProfile](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteInstanceProfileCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/DeleteInstanceProfileCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the EC2 instance profile named `MyAppInstanceProfile`. The first command detaches any roles from the instance profile, and then the second command deletes the instance profile.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the EC2 instance profile named `MyAppInstanceProfile`. The first command detaches any roles from the instance profile, and then the second command deletes the instance profile.**  
 
 ```
 (Get-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile).Roles | Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyAppInstanceProfile
 Remove-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile
-
 ```
++  For API details, see [DeleteInstanceProfile](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteInstanceProfile](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the EC2 instance profile named `MyAppInstanceProfile`. The first command detaches any roles from the instance profile, and then the second command deletes the instance profile.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the EC2 instance profile named `MyAppInstanceProfile`. The first command detaches any roles from the instance profile, and then the second command deletes the instance profile.**  
 
 ```
 (Get-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile).Roles | Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyAppInstanceProfile
 Remove-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile
-
 ```
++  For API details, see [DeleteInstanceProfile](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteInstanceProfile](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
-
-This example removes the role from the instance profile, detaches all policies attached to the role, and deletes all the resources.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
+This example removes the role from the instance profile, detaches all policies attached to the role, and deletes all the resources.  
 
 ```
 class AutoScalingWrapper:
@@ -251,15 +213,9 @@ class AutoScalingWrapper:
                 log.info(
                     "Instance profile %s doesn't exist, nothing to do.", profile_name
                 )
-
-
-
 ```
++  For API details, see [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/DeleteInstanceProfile) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteInstanceProfile](../../../goto/boto3/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/boto3/iam-2010-05-08/DeleteInstanceProfile.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

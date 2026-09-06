@@ -1,21 +1,18 @@
+
+
 # Use `DeleteUserPolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_DeleteUserPolicy_section"></a>
 
 The following code examples show how to use `DeleteUserPolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md) 
 
-- [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -30,52 +27,33 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
+```
++  For API details, see [DeleteUserPolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/DeleteUserPolicy) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To remove a policy from an IAM user**  
+The following `delete-user-policy` command removes the specified policy from the IAM user named `Bob`.  
 
 ```
+aws iam delete-user-policy \
+    --user-name {{Bob}} \
+    --policy-name {{ExamplePolicy}}
+```
+This command produces no output.  
+To get a list of policies for an IAM user, use the `list-user-policies` command.  
+For more information, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *AWS IAM User Guide*.  
++  For API details, see [DeleteUserPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user-policy.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteUserPolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/DeleteUserPolicy.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To remove a policy from an IAM user**
-
-The following `delete-user-policy` command removes the specified policy from the IAM user named `Bob`.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-`aws iam delete-user-policy \
- --user-name `Bob` \
- --policy-name `ExamplePolicy``
-
-```
-
-This command produces no output.
-
-To get a list of policies for an IAM user, use the `list-user-policies` command.
-
-For more information, see [Creating an IAM user in your AWS account](id_users_create.md "id_users_create.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [DeleteUserPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user-policy.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -107,68 +85,45 @@ func (wrapper UserWrapper) DeleteUserPolicy(ctx context.Context, userName string
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteUserPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUserPolicy) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteUserPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUserPolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.DeleteUserPolicy")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the inline policy named `AccessToEC2Policy` that is embedded in the IAM user named `Bob`.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the inline policy named `AccessToEC2Policy` that is embedded in the IAM user named `Bob`.**  
 
 ```
 Remove-IAMUserPolicy -PolicyName AccessToEC2Policy -UserName Bob
-
 ```
-
-**Example 2: This example finds all of the inline polices that are embedded in the IAM user named `Theresa` and then deletes them.**
+**Example 2: This example finds all of the inline polices that are embedded in the IAM user named `Theresa` and then deletes them.**  
 
 ```
 $inlinepols = Get-IAMUserPolicies -UserName Theresa
 foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName Theresa -Force}
-
 ```
++  For API details, see [DeleteUserPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteUserPolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the inline policy named `AccessToEC2Policy` that is embedded in the IAM user named `Bob`.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the inline policy named `AccessToEC2Policy` that is embedded in the IAM user named `Bob`.**  
 
 ```
 Remove-IAMUserPolicy -PolicyName AccessToEC2Policy -UserName Bob
-
 ```
-
-**Example 2: This example finds all of the inline polices that are embedded in the IAM user named `Theresa` and then deletes them.**
+**Example 2: This example finds all of the inline polices that are embedded in the IAM user named `Theresa` and then deletes them.**  
 
 ```
 $inlinepols = Get-IAMUserPolicies -UserName Theresa
 foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName Theresa -Force}
-
 ```
++  For API details, see [DeleteUserPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteUserPolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Deletes a user and their associated resources
@@ -186,23 +141,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   rescue Aws::IAM::Errors::ServiceError => e
     @logger.error("Error deleting user '#{user_name}': #{e.message}")
   end
-
-
 ```
++  For API details, see [DeleteUserPolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/DeleteUserPolicy) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteUserPolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUserPolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/DeleteUserPolicy.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn delete_user_policy(
@@ -219,23 +165,14 @@ pub async fn delete_user_policy(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DeleteUserPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user_policy) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteUserPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user_policy")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -254,15 +191,9 @@ import AWSS3
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [DeleteUserPolicy](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleteuserpolicy(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteUserPolicy](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleteuserpolicy(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/deleteuserpolicy(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

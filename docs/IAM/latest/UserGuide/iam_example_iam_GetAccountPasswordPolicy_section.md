@@ -1,16 +1,15 @@
+
+
 # Use `GetAccountPasswordPolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_GetAccountPasswordPolicy_section"></a>
 
 The following code examples show how to use `GetAccountPasswordPolicy`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -22,29 +21,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.GetAccountPasswordPolicyAsync(new GetAccountPasswordPolicyRequest());
         return response.PasswordPolicy;
     }
+```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/GetAccountPasswordPolicy) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To see the current account password policy**  
+The following `get-account-password-policy` command displays details about the password policy for the current account.  
 
 ```
-
-- For API details, see
-  [GetAccountPasswordPolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/GetAccountPasswordPolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/GetAccountPasswordPolicy.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To see the current account password policy**
-
-The following `get-account-password-policy` command displays details about the password policy for the current account.
-
+aws iam get-account-password-policy
 ```
-`aws iam get-account-password-policy`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -58,27 +48,17 @@ Output:
     }
 }
 ```
+If no password policy is defined for the account, the command returns a `NoSuchEntity` error.  
+For more information, see [Setting an account password policy for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html) in the *AWS IAM User Guide*.  
++  For API details, see [GetAccountPasswordPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-account-password-policy.html) in *AWS CLI Command Reference*. 
 
-If no password policy is defined for the account, the command returns a `NoSuchEntity` error.
+------
+#### [ Go ]
 
-For more information, see [Setting an account password policy for IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [GetAccountPasswordPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-account-password-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-account-password-policy.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"log"
@@ -109,26 +89,15 @@ func (wrapper AccountWrapper) GetAccountPasswordPolicy(ctx context.Context) (*ty
 	}
 	return pwPolicy, err
 }
-
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetAccountPasswordPolicy) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetAccountPasswordPolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.GetAccountPasswordPolicy")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Get the account password policy.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Get the account password policy.  
 
 ```
 import {
@@ -145,23 +114,14 @@ export const getAccountPasswordPolicy = async () => {
   console.log(response.PasswordPolicy);
   return response;
 };
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccountPasswordPolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccountPasswordPolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccountPasswordPolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -171,26 +131,19 @@ $service = new IAMService();
     {
         return $this->iamClient->getAccountPasswordPolicy();
     }
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/GetAccountPasswordPolicy) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/GetAccountPasswordPolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/GetAccountPasswordPolicy.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns details about the password policy for the current account. If no password policy is defined for the account, the command returns a `NoSuchEntity` error.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns details about the password policy for the current account. If no password policy is defined for the account, the command returns a `NoSuchEntity` error.**  
 
 ```
 Get-IAMAccountPasswordPolicy
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUsersToChangePassword : True
@@ -204,21 +157,15 @@ RequireNumbers             : True
 RequireSymbols             : False
 RequireUppercaseCharacters : True
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns details about the password policy for the current account. If no password policy is defined for the account, the command returns a `NoSuchEntity` error.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns details about the password policy for the current account. If no password policy is defined for the account, the command returns a `NoSuchEntity` error.**  
 
 ```
 Get-IAMAccountPasswordPolicy
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUsersToChangePassword : True
@@ -232,20 +179,13 @@ RequireNumbers             : True
 RequireSymbols             : False
 RequireUppercaseCharacters : True
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def print_password_policy():
@@ -280,25 +220,14 @@ def print_password_policy():
             raise
     else:
         return printed
-
-
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GetAccountPasswordPolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../goto/boto3/iam-2010-05-08/GetAccountPasswordPolicy.md "../../../goto/boto3/iam-2010-05-08/GetAccountPasswordPolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
 # Class to manage IAM account password policies
@@ -322,23 +251,14 @@ class PasswordPolicyManager
     raise
   end
 end
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/GetAccountPasswordPolicy) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/GetAccountPasswordPolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/GetAccountPasswordPolicy.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn get_account_password_policy(
@@ -348,23 +268,14 @@ pub async fn get_account_password_policy(
 
     Ok(response)
 }
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.get_account_password_policy) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.get_account_password_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.get_account_password_policy")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -375,14 +286,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when getting password policy.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetAccountPasswordPolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetAccountPasswordPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

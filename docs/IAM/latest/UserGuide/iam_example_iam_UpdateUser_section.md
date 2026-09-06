@@ -1,21 +1,18 @@
+
+
 # Use `UpdateUser` with an AWS SDK or CLI
+<a name="iam_example_iam_UpdateUser_section"></a>
 
 The following code examples show how to use `UpdateUser`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md) 
 
-- [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::updateUser(const Aws::String &currentUserName,
@@ -40,46 +37,30 @@ bool AwsDoc::IAM::updateUser(const Aws::String &currentUserName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/UpdateUser) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To change an IAM user's name**  
+The following `update-user` command changes the name of the IAM user `Bob` to `Robert`.  
 
 ```
-
-- For API details, see
-  [UpdateUser](../../../goto/SdkForCpp/iam-2010-05-08/UpdateUser.md "../../../goto/SdkForCpp/iam-2010-05-08/UpdateUser.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To change an IAM user's name**
-
-The following `update-user` command changes the name of the IAM user `Bob` to `Robert`.
-
+aws iam update-user \
+    --user-name {{Bob}} \
+    --new-user-name {{Robert}}
 ```
-`aws iam update-user \
- --user-name `Bob` \
- --new-user-name `Robert``
+This command produces no output.  
+For more information, see [Renaming an IAM user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html) in the *AWS IAM User Guide*.  
++  For API details, see [UpdateUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-user.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [Renaming an IAM user group](id_groups_manage_rename.md "id_groups_manage_rename.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [UpdateUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-user.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -140,25 +121,15 @@ public class UpdateUser {
         }
     }
 }
-
-
 ```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/UpdateUser) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateUser](../../../goto/SdkForJavaV2/iam-2010-05-08/UpdateUser.md "../../../goto/SdkForJavaV2/iam-2010-05-08/UpdateUser.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Update the user.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Update the user.  
 
 ```
 import { UpdateUserCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -178,22 +149,12 @@ export const updateUser = (currentUserName, newUserName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-updating-users). 
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateUserCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-updating-users "../../../sdk-for-javascript/v3/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-updating-users").
-- For API details, see
-  [UpdateUser](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateUserCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -216,24 +177,15 @@ iam.updateUser(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.html#iam-examples-managing-users-updating-users). 
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateUser) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-updating-users "../../../sdk-for-javascript/v2/developer-guide/iam-examples-managing-users.md#iam-examples-managing-users-updating-users").
-- For API details, see
-  [UpdateUser](../../../goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateUser.md "../../../goto/AWSJavaScriptSDK/iam-2010-05-08/UpdateUser.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
 ```
 suspend fun updateIAMUser(
@@ -251,65 +203,43 @@ suspend fun updateIAMUser(
         println("Successfully updated user to $newName")
     }
 }
-
-
 ```
++  For API details, see [UpdateUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [UpdateUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example renames the IAM user `Bob` to `Robert`.**
+**Tools for PowerShell V4**  
+**Example 1: This example renames the IAM user `Bob` to `Robert`.**  
 
 ```
 Update-IAMUser -UserName Bob -NewUserName Robert
-
 ```
-
-**Example 2: This example changes the path of the IAM User `Bob` to `/Org1/Org2/`, which effectively changes the ARN for the user to `arn:aws:iam::123456789012:user/Org1/Org2/bob`.**
+**Example 2: This example changes the path of the IAM User `Bob` to `/Org1/Org2/`, which effectively changes the ARN for the user to `arn:aws:iam::123456789012:user/Org1/Org2/bob`.**  
 
 ```
 Update-IAMUser -UserName Bob -NewPath /Org1/Org2/
-
 ```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateUser](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example renames the IAM user `Bob` to `Robert`.**
+**Tools for PowerShell V5**  
+**Example 1: This example renames the IAM user `Bob` to `Robert`.**  
 
 ```
 Update-IAMUser -UserName Bob -NewUserName Robert
-
 ```
-
-**Example 2: This example changes the path of the IAM User `Bob` to `/Org1/Org2/`, which effectively changes the ARN for the user to `arn:aws:iam::123456789012:user/Org1/Org2/bob`.**
+**Example 2: This example changes the path of the IAM User `Bob` to `/Org1/Org2/`, which effectively changes the ARN for the user to `arn:aws:iam::123456789012:user/Org1/Org2/bob`.**  
 
 ```
 Update-IAMUser -UserName Bob -NewPath /Org1/Org2/
-
 ```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateUser](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def update_user(user_name, new_user_name):
@@ -328,25 +258,14 @@ def update_user(user_name, new_user_name):
         logger.exception("Couldn't update name for user %s.", user_name)
         raise
     return user
-
-
-
-
 ```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/UpdateUser) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateUser](../../../goto/boto3/iam-2010-05-08/UpdateUser.md "../../../goto/boto3/iam-2010-05-08/UpdateUser.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Updates an IAM user's name
@@ -360,23 +279,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("Error updating user name from '#{current_name}' to '#{new_name}': #{e.message}")
     false
   end
-
-
 ```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/UpdateUser) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [UpdateUser](../../../goto/SdkForRubyV3/iam-2010-05-08/UpdateUser.md "../../../goto/SdkForRubyV3/iam-2010-05-08/UpdateUser.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -389,14 +299,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamentityalrdyexex.
         MESSAGE 'New user name already exists.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateUser](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateUser](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

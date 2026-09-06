@@ -1,42 +1,33 @@
-# Sample code: Requesting credentials with multi-factor authentication
 
-The following examples show how to call `GetSessionToken` and
-`AssumeRole` operations and pass MFA authentication parameters. No
-permissions are required to call `GetSessionToken`, but you must have a policy
-that allows you to call `AssumeRole`. The credentials returned are then used to
-list all S3 buckets in the account.
+
+# Sample code: Requesting credentials with multi-factor authentication
+<a name="id_credentials_mfa_sample-code"></a>
+
+The following examples show how to call `GetSessionToken` and `AssumeRole` operations and pass MFA authentication parameters. No permissions are required to call `GetSessionToken`, but you must have a policy that allows you to call `AssumeRole`. The credentials returned are then used to list all S3 buckets in the account.
 
 ## Calling GetSessionToken with MFA authentication
+<a name="MFAProtectedAPI-example-getsessiontoken"></a>
 
-The following example shows how to call `GetSessionToken` and pass MFA
-authentication information. The temporary security credentials returned by the
-`GetSessionToken` operation are then used to list all S3 buckets in the
-account.
+The following example shows how to call `GetSessionToken` and pass MFA authentication information. The temporary security credentials returned by the `GetSessionToken` operation are then used to list all S3 buckets in the account.
 
-The policy attached to the user who runs this code (or to a group that the user is in)
-provides the permissions for the returned temporary credentials. For this example code,
-the policy must grant the user permission to request the Amazon S3 `ListBuckets`
-operation.
+The policy attached to the user who runs this code (or to a group that the user is in) provides the permissions for the returned temporary credentials. For this example code, the policy must grant the user permission to request the Amazon S3 `ListBuckets` operation. 
 
 The following code examples show how to use `GetSessionToken`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get a set of short term credentials for an IAM identity**
-
-The following `get-session-token` command retrieves a set of short-term credentials for the IAM identity making the call. The resulting credentials can be used for requests where multi-factor authentication (MFA) is required by policy. The credentials expire 15 minutes after they are generated.
-
-```
-`aws sts get-session-token \
- --duration-seconds `900` \
- --serial-number `"YourMFADeviceSerialNumber"` \
- --token-code `123456``
+**AWS CLI**  
+**To get a set of short term credentials for an IAM identity**  
+The following `get-session-token` command retrieves a set of short-term credentials for the IAM identity making the call. The resulting credentials can be used for requests where multi-factor authentication (MFA) is required by policy. The credentials expire 15 minutes after they are generated.  
 
 ```
-
-Output:
+aws sts get-session-token \
+    --duration-seconds {{900}} \
+    --serial-number {{"YourMFADeviceSerialNumber"}} \
+    --token-code {{123456}}
+```
+Output:  
 
 ```
 {
@@ -48,128 +39,96 @@ Output:
     }
 }
 ```
+For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) in the *AWS IAM User Guide*.  
++  For API details, see [GetSessionToken](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-session-token.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Requesting Temporary Security Credentials](id_credentials_temp_request.md#api_getsessiontoken "id_credentials_temp_request.md#api_getsessiontoken") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetSessionToken](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-session-token.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-session-token.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.**
+**Tools for PowerShell V4**  
+**Example 1: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.**  
 
 ```
 Get-STSSessionToken
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
 EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
 ```
-
-**Example 2: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.**
+**Example 2: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.**  
 
 ```
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
 EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
 ```
-
-**Example 3: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.**
+**Example 3: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.**  
 
 ```
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
 EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
 ```
++  For API details, see [GetSessionToken](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetSessionToken](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.**
+**Tools for PowerShell V5**  
+**Example 1: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.**  
 
 ```
 Get-STSSessionToken
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
 EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
 ```
-
-**Example 2: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.**
+**Example 2: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.**  
 
 ```
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
 EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
 ```
-
-**Example 3: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.**
+**Example 3: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.**  
 
 ```
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
 -----------                             ----------                              ---------------                        ------------
 EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
 ```
++  For API details, see [GetSessionToken](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetSessionToken](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples").
-
-Get a session token by passing an MFA token and use it to list Amazon S3 buckets for the account.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
+Get a session token by passing an MFA token and use it to list Amazon S3 buckets for the account.  
 
 ```
 def list_buckets_with_session_token_with_mfa(mfa_serial_number, mfa_totp, sts_client):
@@ -202,36 +161,25 @@ def list_buckets_with_session_token_with_mfa(mfa_serial_number, mfa_totp, sts_cl
     print(f"Buckets for the account:")
     for bucket in s3_resource.buckets.all():
         print(bucket.name)
-
-
-
-
 ```
++  For API details, see [GetSessionToken](https://docs.aws.amazon.com/goto/boto3/sts-2011-06-15/GetSessionToken) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetSessionToken](../../../goto/boto3/sts-2011-06-15/GetSessionToken.md "../../../goto/boto3/sts-2011-06-15/GetSessionToken.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
 ## Calling AssumeRole with MFA authentication
+<a name="MFAProtectedAPI-example-assumerole"></a>
 
-The following examples show how to call `AssumeRole` and pass MFA
-authentication information. The temporary security credentials returned by
-`AssumeRole` are then used to list all Amazon S3 buckets in the
-account.
+The following examples show how to call `AssumeRole` and pass MFA authentication information. The temporary security credentials returned by `AssumeRole` are then used to list all Amazon S3 buckets in the account.
 
-For more information about this scenario, see [Scenario: MFA protection for cross-account delegation](id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation "id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation").
+For more information about this scenario, see [Scenario: MFA protection for cross-account delegation](id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation). 
 
 The following code examples show how to use `AssumeRole`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/STS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/STS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/STS#code-examples). 
 
 ```
 using System;
@@ -294,23 +242,14 @@ namespace AssumeRoleExample
         }
     }
 }
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/sts-2011-06-15/AssumeRole) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/DotNetSDKV3/sts-2011-06-15/AssumeRole.md "../../../goto/DotNetSDKV3/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -397,23 +336,14 @@ function sts_assume_role() {
 
   return 0
 }
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/AssumeRole) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/aws-cli/sts-2011-06-15/AssumeRole.md "../../../goto/aws-cli/sts-2011-06-15/AssumeRole.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sts#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sts#code-examples). 
 
 ```
 bool AwsDoc::STS::assumeRole(const Aws::String &roleArn,
@@ -449,30 +379,22 @@ bool AwsDoc::STS::assumeRole(const Aws::String &roleArn,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/SdkForCpp/sts-2011-06-15/AssumeRole) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To assume a role**  
+The following `assume-role` command retrieves a set of short-term credentials for the IAM role `s3-access-example`.  
 
 ```
-
-- For API details, see
-  [AssumeRole](../../../goto/SdkForCpp/sts-2011-06-15/AssumeRole.md "../../../goto/SdkForCpp/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To assume a role**
-
-The following `assume-role` command retrieves a set of short-term credentials for the IAM role `s3-access-example`.
-
+aws sts assume-role \
+    --role-arn {{arn:aws:iam::123456789012:role/xaccounts3access}} \
+    --role-session-name {{s3-access-example}}
 ```
-`aws sts assume-role \
- --role-arn `arn:aws:iam::123456789012:role/xaccounts3access` \
- --role-session-name `s3-access-example``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -488,24 +410,15 @@ Output:
     }
 }
 ```
+The output of the command contains an access key, secret key, and session token that you can use to authenticate to AWS.  
+For AWS CLI use, you can set up a named profile associated with a role. When you use the profile, the AWS CLI will call assume-role and manage credentials for you. For more information, see [Use an IAM role in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html) in the *AWS CLI User Guide*.  
++  For API details, see [AssumeRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html) in *AWS CLI Command Reference*. 
 
-The output of the command contains an access key, secret key, and session token that you can use to authenticate to AWS.
+------
+#### [ Java ]
 
-For AWS CLI use, you can set up a named profile associated with a role. When you use the profile, the AWS CLI will call assume-role and manage credentials for you. For more information, see [Use an IAM role in the AWS CLI](../../../cli/latest/userguide/cli-configure-role.md "../../../cli/latest/userguide/cli-configure-role.md") in the _AWS CLI User Guide_.
-
-- For API details, see
-  [AssumeRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sts#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sts#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -526,7 +439,7 @@ import java.util.Locale;
  * example:
  *
  * {
- * "Version":"2012-10-17",
+ * "Version":"2012-10-17",		 	 	 
  * "Statement": [
  * {
  * "Effect": "Allow",
@@ -603,25 +516,15 @@ public class AssumeRole {
         }
     }
 }
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/SdkForJavaV2/sts-2011-06-15/AssumeRole) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/SdkForJavaV2/sts-2011-06-15/AssumeRole.md "../../../goto/SdkForJavaV2/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sts#code-examples").
-
-Create the client.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sts#code-examples). 
+Create the client.  
 
 ```
 import { STSClient } from "@aws-sdk/client-sts";
@@ -629,11 +532,8 @@ import { STSClient } from "@aws-sdk/client-sts";
 const REGION = "us-east-1";
 // Create an AWS STS service client object.
 export const client = new STSClient({ region: REGION });
-
-
 ```
-
-Assume the IAM role.
+Assume the IAM role.  
 
 ```
 import { AssumeRoleCommand } from "@aws-sdk/client-sts";
@@ -661,21 +561,11 @@ export const main = async () => {
     console.error(err);
   }
 };
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sts#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sts#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -720,95 +610,64 @@ function stsGetCallerIdentity(creds) {
     }
   });
 }
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/sts-2011-06-15/AssumeRole) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/AWSJavaScriptSDK/sts-2011-06-15/AssumeRole.md "../../../goto/AWSJavaScriptSDK/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access AWS resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).**
+**Tools for PowerShell V4**  
+**Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access AWS resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -Policy "...JSON policy..." -DurationInSeconds 3600
-
 ```
-
-**Example 2: Returns a set of temporary credentials, valid for one hour, that have the same permissions that are defined in the access policy of the role being assumed.**
+**Example 2: Returns a set of temporary credentials, valid for one hour, that have the same permissions that are defined in the access policy of the role being assumed.**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600
-
 ```
-
-**Example 3: Returns a set of temporary credentials supplying the serial number and generated token from an MFA associated with the user credentials used to execute the cmdlet.**
+**Example 3: Returns a set of temporary credentials supplying the serial number and generated token from an MFA associated with the user credentials used to execute the cmdlet.**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -SerialNumber "GAHT12345678" -TokenCode "123456"
-
 ```
-
-**Example 4: Returns a set of temporary credentials that have assumed a role defined in a customer account. For each role that the third party can assume, the customer account must create a role using an identifier that must be passed in the -ExternalId parameter each time the role is assumed.**
+**Example 4: Returns a set of temporary credentials that have assumed a role defined in a customer account. For each role that the third party can assume, the customer account must create a role using an identifier that must be passed in the -ExternalId parameter each time the role is assumed.**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -ExternalId "ABC123"
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [AssumeRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access AWS resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).**
+**Tools for PowerShell V5**  
+**Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access AWS resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -Policy "...JSON policy..." -DurationInSeconds 3600
-
 ```
-
-**Example 2: Returns a set of temporary credentials, valid for one hour, that have the same permissions that are defined in the access policy of the role being assumed.**
+**Example 2: Returns a set of temporary credentials, valid for one hour, that have the same permissions that are defined in the access policy of the role being assumed.**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600
-
 ```
-
-**Example 3: Returns a set of temporary credentials supplying the serial number and generated token from an MFA associated with the user credentials used to execute the cmdlet.**
+**Example 3: Returns a set of temporary credentials supplying the serial number and generated token from an MFA associated with the user credentials used to execute the cmdlet.**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -SerialNumber "GAHT12345678" -TokenCode "123456"
-
 ```
-
-**Example 4: Returns a set of temporary credentials that have assumed a role defined in a customer account. For each role that the third party can assume, the customer account must create a role using an identifier that must be passed in the -ExternalId parameter each time the role is assumed.**
+**Example 4: Returns a set of temporary credentials that have assumed a role defined in a customer account. For each role that the third party can assume, the customer account must create a role using an identifier that must be passed in the -ExternalId parameter each time the role is assumed.**  
 
 ```
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -ExternalId "ABC123"
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [AssumeRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples").
-
-Assume an IAM role that requires an MFA token and use temporary credentials to list Amazon S3 buckets for the account.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
+Assume an IAM role that requires an MFA token and use temporary credentials to list Amazon S3 buckets for the account.  
 
 ```
 def list_buckets_from_assumed_role_with_mfa(
@@ -848,25 +707,14 @@ def list_buckets_from_assumed_role_with_mfa(
     print(f"Listing buckets for the assumed role's account:")
     for bucket in s3_resource.buckets.all():
         print(bucket.name)
-
-
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/boto3/sts-2011-06-15/AssumeRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/boto3/sts-2011-06-15/AssumeRole.md "../../../goto/boto3/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Creates an AWS Security Token Service (AWS STS) client with specified credentials.
@@ -893,23 +741,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.info("Assumed role '#{role_arn}', got temporary credentials.")
     credentials
   end
-
-
 ```
++  For API details, see [AssumeRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/sts-2011-06-15/AssumeRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [AssumeRole](../../../goto/SdkForRubyV3/sts-2011-06-15/AssumeRole.md "../../../goto/SdkForRubyV3/sts-2011-06-15/AssumeRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sts/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sts/#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sts/#code-examples). 
 
 ```
 async fn assume_role(config: &SdkConfig, role_name: String, session_name: Option<String>) {
@@ -935,23 +774,14 @@ async fn assume_role(config: &SdkConfig, role_name: String, session_name: Option
         Err(e) => println!("{:?}", e),
     }
 }
-
-
 ```
++  For API details, see [AssumeRole](https://docs.rs/aws-sdk-sts/latest/aws_sdk_sts/client/struct.Client.html#method.assume_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [AssumeRole](https://docs.rs/aws-sdk-sts/latest/aws_sdk_sts/client/struct.Client.html#method.assume_role "https://docs.rs/aws-sdk-sts/latest/aws_sdk_sts/client/struct.Client.html#method.assume_role")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSSTS
@@ -976,10 +806,7 @@ import AWSSTS
             throw error
         }
     }
-
-
 ```
++  For API details, see [AssumeRole](https://sdk.amazonaws.com/swift/api/awssts/latest/documentation/awssts/stsclient/assumerole(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [AssumeRole](<https://sdk.amazonaws.com/swift/api/awssts/latest/documentation/awssts/stsclient/assumerole(input:)> "https://sdk.amazonaws.com/swift/api/awssts/latest/documentation/awssts/stsclient/assumerole(input:)")
-  in _AWS SDK for Swift API reference_.
+------

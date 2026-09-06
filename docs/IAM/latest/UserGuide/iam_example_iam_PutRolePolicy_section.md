@@ -1,25 +1,22 @@
+
+
 # Use `PutRolePolicy` with an AWS SDK or CLI
+<a name="iam_example_iam_PutRolePolicy_section"></a>
 
 The following code examples show how to use `PutRolePolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md) 
++  [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md) 
++  [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md) 
++  [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md) 
 
-- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
-- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -41,24 +38,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.PutRolePolicyAsync(request);
         return response.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/PutRolePolicy) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutRolePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/PutRolePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/PutRolePolicy.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::putRolePolicy(
@@ -84,51 +71,33 @@ bool AwsDoc::IAM::putRolePolicy(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/PutRolePolicy) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To attach a permissions policy to an IAM role**  
+The following `put-role-policy` command adds a permissions policy to the role named `Test-Role`.  
 
 ```
-
-- For API details, see
-  [PutRolePolicy](../../../goto/SdkForCpp/iam-2010-05-08/PutRolePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/PutRolePolicy.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To attach a permissions policy to an IAM role**
-
-The following `put-role-policy` command adds a permissions policy to the role named `Test-Role`.
-
+aws iam put-role-policy \
+    --role-name {{Test-Role}} \
+    --policy-name {{ExamplePolicy}} \
+    --policy-document {{file://AdminPolicy.json}}
 ```
-`aws iam put-role-policy \
- --role-name `Test-Role` \
- --policy-name `ExamplePolicy` \
- --policy-document `file://AdminPolicy.json``
+This command produces no output.  
+The policy is defined as a JSON document in the *AdminPolicy.json* file. (The file name and extension do not have significance.)  
+To attach a trust policy to a role, use the `update-assume-role-policy` command.  
+For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
++  For API details, see [PutRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/put-role-policy.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-This command produces no output.
-
-The policy is defined as a JSON document in the _AdminPolicy.json_ file. (The file name and extension do not have significance.)
-
-To attach a trust policy to a role, use the `update-assume-role-policy` command.
-
-For more information, see [Modifying a role](id_roles_manage_modify.md "id_roles_manage_modify.md") in the _AWS IAM User Guide_.
-
-- For API details, see
-  [PutRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/put-role-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/put-role-policy.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
 ```
 import { PutRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -182,42 +151,28 @@ export const putRolePolicy = async (roleName, policyName, policyDocument) => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/PutRolePolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutRolePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/PutRolePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/PutRolePolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates an inline policy named `FedTesterRolePolicy` and embeds it in the IAM role `FedTesterRole`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `FedTesterPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates an inline policy named `FedTesterRolePolicy` and embeds it in the IAM role `FedTesterRole`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `FedTesterPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
 ```
 Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)
-
 ```
++  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutRolePolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates an inline policy named `FedTesterRolePolicy` and embeds it in the IAM role `FedTesterRole`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `FedTesterPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates an inline policy named `FedTesterRolePolicy` and embeds it in the IAM role `FedTesterRole`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `FedTesterPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
 ```
 Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)
-
 ```
++  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutRolePolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,26 +1,24 @@
+
+
 # Use `GenerateCredentialReport` with an AWS SDK or CLI
+<a name="iam_example_iam_GenerateCredentialReport_section"></a>
 
 The following code examples show how to use `GenerateCredentialReport`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md) 
 
-- [Manage your account](iam_example_iam_Scenario_AccountManagement_section.md "iam_example_iam_Scenario_AccountManagement_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To generate a credential report**
-
-The following example attempts to generate a credential report for the AWS account.
+**AWS CLI**  
+**To generate a credential report**  
+The following example attempts to generate a credential report for the AWS account.  
 
 ```
-`aws iam generate-credential-report`
-
+aws iam generate-credential-report
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -28,66 +26,47 @@ Output:
     "Description": "No report exists. Starting a new report generation task"
 }
 ```
+For more information, see [Getting credential reports for your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html) in the *AWS IAM User Guide*.  
++  For API details, see [GenerateCredentialReport](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/generate-credential-report.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Getting credential reports for your AWS account](id_credentials_getting-report.md "id_credentials_getting-report.md") in the _AWS IAM User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GenerateCredentialReport](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/generate-credential-report.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/generate-credential-report.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example requests generation of a new report, which can be done every four hours. If the last report is still recent the State field reads `COMPLETE`. Use `Get-IAMCredentialReport` to view the completed report.**
+**Tools for PowerShell V4**  
+**Example 1: This example requests generation of a new report, which can be done every four hours. If the last report is still recent the State field reads `COMPLETE`. Use `Get-IAMCredentialReport` to view the completed report.**  
 
 ```
 Request-IAMCredentialReport
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description                                                    State
 -----------                                                    -----
 No report exists. Starting a new report generation task        STARTED
 ```
++  For API details, see [GenerateCredentialReport](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GenerateCredentialReport](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example requests generation of a new report, which can be done every four hours. If the last report is still recent the State field reads `COMPLETE`. Use `Get-IAMCredentialReport` to view the completed report.**
+**Tools for PowerShell V5**  
+**Example 1: This example requests generation of a new report, which can be done every four hours. If the last report is still recent the State field reads `COMPLETE`. Use `Get-IAMCredentialReport` to view the completed report.**  
 
 ```
 Request-IAMCredentialReport
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description                                                    State
 -----------                                                    -----
 No report exists. Starting a new report generation task        STARTED
 ```
++  For API details, see [GenerateCredentialReport](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GenerateCredentialReport](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def generate_credential_report():
@@ -108,25 +87,14 @@ def generate_credential_report():
         raise
     else:
         return response
-
-
-
-
 ```
++  For API details, see [GenerateCredentialReport](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/GenerateCredentialReport) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GenerateCredentialReport](../../../goto/boto3/iam-2010-05-08/GenerateCredentialReport.md "../../../goto/boto3/iam-2010-05-08/GenerateCredentialReport.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -137,14 +105,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamservicefailureex.
         MESSAGE 'Service failure when generating credential report.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GenerateCredentialReport](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GenerateCredentialReport](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

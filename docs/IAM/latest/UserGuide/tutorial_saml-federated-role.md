@@ -1,220 +1,178 @@
+
+
 # IAM tutorial: Use a CloudFormation template to create a SAML federated IAM role
+<a name="tutorial_saml-federated-role"></a>
 
-When you have an existing SAML Identity Provider (IdP) configured in your AWS account,
-you can create federated IAM roles that trust that IdP. This tutorial shows you how to use
-a CloudFormation template to create a SAML federated IAM role that can be assumed by users
-authenticated through your external IdP.
+When you have an existing SAML Identity Provider (IdP) configured in your AWS account, you can create federated IAM roles that trust that IdP. This tutorial shows you how to use a CloudFormation template to create a SAML federated IAM role that can be assumed by users authenticated through your external IdP.
 
-The template creates a federated IAM role with a trust policy that allows your SAML IdP
-to assume the role. Users authenticated by your external IdP can assume this role to access
-AWS resources based on the permissions attached to the role.
+The template creates a federated IAM role with a trust policy that allows your SAML IdP to assume the role. Users authenticated by your external IdP can assume this role to access AWS resources based on the permissions attached to the role.
 
 The deployed resource consists of the following:
-
-- A federated IAM role that trusts your existing SAML IdP.
-- Configurable managed policies that can be attached to the role to grant specific
-  permissions.
-- Optional permissions boundary and session duration settings.
++ A federated IAM role that trusts your existing SAML IdP.
++ Configurable managed policies that can be attached to the role to grant specific permissions.
++ Optional permissions boundary and session duration settings.
 
 ## Prerequisites
+<a name="tutorial_saml-federated-role-prereqs"></a>
 
 This tutorial assumes that you have the following already in place:
-
-- An existing SAML IdP configured in your AWS account. If you don't have one,
-  you can create it using the [IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial.
-- The ARN of your SAML IdP, which you'll need to specify as a parameter when
-  creating the stack.
-- Python 3.6 or later installed on your local machine to run the Python command
-  used in this tutorial for formatting your IdP's SAML metadata XML file.
++ An existing SAML IdP configured in your AWS account. If you don't have one, you can create it using the [IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md) tutorial.
++ The ARN of your SAML IdP, which you'll need to specify as a parameter when creating the stack.
++ Python 3.6 or later installed on your local machine to run the Python command used in this tutorial for formatting your IdP's SAML metadata XML file.
 
 ## Create a SAML federated role using CloudFormation
+<a name="tutorial_saml-federated-role-create"></a>
 
-To create the SAML federated role, you'll create a CloudFormation template and use it to
-create a stack containing the role.
+To create the SAML federated role, you'll create a CloudFormation template and use it to create a stack containing the role.
 
 ### Create the template
+<a name="tutorial_saml-federated-role-file"></a>
 
 First, create the CloudFormation template.
 
-1. In the [Template](#tutorial_saml-federated-role-template "#tutorial_saml-federated-role-template") section,
-   click the copy icon on the **JSON** or
-   **YAML** tab to copy the template contents.
-2. Paste the template contents into a new file.
-3. Save the file locally.
+1. In the [Template](#tutorial_saml-federated-role-template) section, click the copy icon on the **JSON** or **YAML** tab to copy the template contents.
+
+1. Paste the template contents into a new file.
+
+1. Save the file locally.
 
 ### Create the stack
+<a name="tutorial_saml-federated-role-stack"></a>
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. On the **Stacks** page, from the **Create
-   stack** menu, choose **with new resources
-   (standard)**.
-3. Specify the template:
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-   1. Under **Prerequisite**, choose **Choose
-      an existing template**.
-   2. Under **Specify template**, choose
-      **Upload a template file**.
-   3. Choose **Choose file**, navigate to the template
-      file, and choose it.
-   4. Choose **Next**.
+1. On the **Stacks** page, from the **Create stack** menu, choose **with new resources (standard)**.
 
-4. Specify the following stack details:
+1. Specify the template:
+
+   1. Under **Prerequisite**, choose **Choose an existing template**.
+
+   1. Under **Specify template**, choose **Upload a template file**.
+
+   1. Choose **Choose file**, navigate to the template file, and choose it.
+
+   1. Choose **Next**.
+
+1. Specify the following stack details:
 
    1. Enter a stack name.
-   2. For **SAMLProviderARN**, enter the ARN of your
-      existing SAML IdP. This should be in the format
-      `arn:aws:iam::123456789012:saml-provider/YourProviderName`.
 
-   Example:
-   `arn:aws:iam::123456789012:saml-provider/CompanyIdP`
+   1. For **SAMLProviderARN**, enter the ARN of your existing SAML IdP. This should be in the format `arn:aws:iam::123456789012:saml-provider/YourProviderName`.
 
-   ###### Note
+      Example: `arn:aws:iam::123456789012:saml-provider/CompanyIdP`
+**Note**  
+If you created your SAML IdP using the [IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md) tutorial, you can find the provider ARN in the Outputs tab of that CloudFormation stack.
 
-   If you created your SAML IdP using the [IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
-   the provider ARN in the Outputs tab of that CloudFormation
-   stack. 3. For **RoleName**, you can leave this empty to
-   auto-generate a name based on the stack name, or enter a custom name
-   for the IAM role.
+   1. For **RoleName**, you can leave this empty to auto-generate a name based on the stack name, or enter a custom name for the IAM role.
 
-   Example: `SAML-Developer-Access` or
-   `SAML-ReadOnly-Role` 4. For other parameters, accept the default values or enter your own
-   based on your requirements:
+      Example: `SAML-Developer-Access` or `SAML-ReadOnly-Role`
 
-        * **RoleSessionDuration** - Maximum session
-         duration in seconds (3600-43200, default 7200)
-
+   1. For other parameters, accept the default values or enter your own based on your requirements:
+      + **RoleSessionDuration** - Maximum session duration in seconds (3600-43200, default 7200)
 
         Example: `14400` (4 hours)
-        * **RolePermissionsBoundary** - Optional
-         ARN of a permissions boundary policy
+      + **RolePermissionsBoundary** - Optional ARN of a permissions boundary policy
 
-
-        Example:
-         `arn:aws:iam::123456789012:policy/DeveloperBoundary`
-        * **RolePath** - Path for the IAM role
-         (default is /)
-
+        Example: `arn:aws:iam::123456789012:policy/DeveloperBoundary`
+      + **RolePath** - Path for the IAM role (default is /)
 
         Example: `/saml-roles/`
-        * **ManagedPolicy1-5** - Optional ARNs of
-         up to 5 managed policies to attach
+      + **ManagedPolicy1-5** - Optional ARNs of up to 5 managed policies to attach
 
+        Example for ManagedPolicy1: `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
-        Example for ManagedPolicy1:
-         `arn:aws:iam::aws:policy/ReadOnlyAccess`
+        Example for ManagedPolicy2: `arn:aws:iam::123456789012:policy/CustomPolicy`
 
+   1. Choose **Next**.
 
-        Example for ManagedPolicy2:
-         `arn:aws:iam::123456789012:policy/CustomPolicy`
+1. Configure the stack options:
 
-   5. Choose **Next**.
+   1. Under **Stack failure options**, choose **Delete all newly created resources**.
+**Note**  
+Choosing this option prevents you from possibly being billed for resources whose deletion policy specifies they be retained even if the stack creation fails.
 
-5. Configure the stack options:
+   1. Accept all other default values.
 
-   1. Under **Stack failure options**, choose
-      **Delete all newly created resources**.
+   1. Under **Capabilities**, check the box to acknowledge that CloudFormation might create IAM resources in your account.
 
-   ###### Note
+   1. Choose **Next**.
 
-   Choosing this option prevents you from possibly being billed
-   for resources whose deletion policy specifies they be retained
-   even if the stack creation fails. 2. Accept all other default values. 3. Under **Capabilities**, check the box to
-   acknowledge that CloudFormation might create IAM resources in your
-   account. 4. Choose **Next**.
+1. Review the stack details and choose **Submit**.
 
-6. Review the stack details and choose **Submit**.
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources are ready to use. You can use the **Resources** tab on the stack detail page to view the resources that were provisioned in your account.
 
-CloudFormation creates the stack. Once the stack creation is complete, the stack resources
-are ready to use. You can use the **Resources** tab on the stack
-detail page to view the resources that were provisioned in your account.
+The stack will output the following value, which you can view on the **Outputs** tab:
++ **RoleARN**: The ARN of the created IAM role (for example, `arn:aws:iam::123456789012:role/SAML-Developer-Access` or `arn:aws:iam::123456789012:role/stack-name-a1b2c3d4` if using auto-generated name).
 
-The stack will output the following value, which you can view on the
-**Outputs** tab:
-
-- **RoleARN**: The ARN of the created IAM role (for
-  example, `arn:aws:iam::123456789012:role/SAML-Developer-Access`
-  or `arn:aws:iam::123456789012:role/stack-name-a1b2c3d4` if using
-  auto-generated name).
-
-You'll need this role ARN when configuring your IdP to send the appropriate SAML
-attributes for role assumption.
+You'll need this role ARN when configuring your IdP to send the appropriate SAML attributes for role assumption.
 
 ## Test the SAML federated role
+<a name="tutorial_saml-federated-role-using"></a>
 
-Once the SAML federated role has been created, you can verify its configuration and
-test the federation setup.
+Once the SAML federated role has been created, you can verify its configuration and test the federation setup.
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Roles**.
-3. Find and choose your newly created federated role.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-If you provided a custom role name, look for that name. If you left the
-RoleName parameter empty, the role will have an auto-generated name based on the
-stack name and a unique identifier. 4. Choose the **Trust relationships** tab to review the trust
-policy.
+1. In the navigation pane, choose **Roles**.
 
-The trust policy should show that your SAML IdP is trusted to assume this role
-with the condition that the SAML audience (`SAML:aud`) matches
-`https://signin.aws.amazon.com/saml`. 5. Choose the **Permissions** tab to review the attached
-policies.
+1. Find and choose your newly created federated role.
 
-You can see any managed policies that were attached to the role during
-creation. 6. Note the **Role ARN** displayed on the role summary
-page.
+   If you provided a custom role name, look for that name. If you left the RoleName parameter empty, the role will have an auto-generated name based on the stack name and a unique identifier.
 
-You will need this ARN to configure your external IdP to allow users to assume
-this role.
+1. Choose the **Trust relationships** tab to review the trust policy.
 
-Your SAML federated role is now ready to be used. Configure your external IdP to
-include this role's ARN in SAML assertions, and authenticated users will be able to
-assume this role to access AWS resources.
+   The trust policy should show that your SAML IdP is trusted to assume this role with the condition that the SAML audience (`SAML:aud`) matches `https://signin.aws.amazon.com/saml`.
+
+1. Choose the **Permissions** tab to review the attached policies.
+
+   You can see any managed policies that were attached to the role during creation.
+
+1. Note the **Role ARN** displayed on the role summary page.
+
+   You will need this ARN to configure your external IdP to allow users to assume this role.
+
+Your SAML federated role is now ready to be used. Configure your external IdP to include this role's ARN in SAML assertions, and authenticated users will be able to assume this role to access AWS resources.
 
 ## Clean up: delete resources
+<a name="tutorial_saml-federated-role-delete"></a>
 
 As a final step, you'll delete the stack and the resources it contains.
 
 1. Open the CloudFormation console.
-2. On the **Stacks** page, choose the stack created from the
-   template, and choose **Delete**, then confirm
-   **Delete**.
 
-CloudFormation initiates deletion of the stack and all resources it
-includes.
+1. On the **Stacks** page, choose the stack created from the template, and choose **Delete**, then confirm **Delete**.
+
+   CloudFormation initiates deletion of the stack and all resources it includes.
 
 ## CloudFormation template details
+<a name="tutorial_saml-federated-role-template-details"></a>
 
 ### Resources
+<a name="tutorial_saml-federated-role-template-resources"></a>
 
-The CloudFormation template for this tutorial will create the following resource in your
-account:
-
-- [`AWS::IAM::Role`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md"): A federated IAM role that
-  can be assumed by users authenticated through your SAML IdP.
+The CloudFormation template for this tutorial will create the following resource in your account:
++ [`AWS::IAM::Role`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html): A federated IAM role that can be assumed by users authenticated through your SAML IdP.
 
 ### Configuration
+<a name="tutorial_saml-federated-role-configuration"></a>
 
 The template includes the following configurable parameters:
-
-- **RoleName** - Name of the IAM Role (leave empty for
-  auto-generated name)
-- **SAMLProviderARN** - ARN of the SAML IdP
-  (required)
-- **RoleSessionDuration** - Maximum session duration in
-  seconds (3600-43200, default 7200)
-- **RolePermissionsBoundary** - Optional ARN of permissions
-  boundary policy
-- **RolePath** - Path for the IAM role (default /)
-- **ManagedPolicy1-5** - Optional ARNs of up to 5 managed
-  policies to attach
++ **RoleName** - Name of the IAM Role (leave empty for auto-generated name)
++ **SAMLProviderARN** - ARN of the SAML IdP (required)
++ **RoleSessionDuration** - Maximum session duration in seconds (3600-43200, default 7200)
++ **RolePermissionsBoundary** - Optional ARN of permissions boundary policy
++ **RolePath** - Path for the IAM role (default /)
++ **ManagedPolicy1-5** - Optional ARNs of up to 5 managed policies to attach
 
 ## CloudFormation template
+<a name="tutorial_saml-federated-role-template"></a>
 
-Save the following JSON or YAML code as a separate file to use as the CloudFormation
-template for this tutorial.
+Save the following JSON or YAML code as a separate file to use as the CloudFormation template for this tutorial.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -298,7 +256,7 @@ JSON
         "PermissionsBoundary": {"Fn::If": ["HasPermissionsBoundary", {"Ref": "RolePermissionsBoundary"}, {"Ref": "AWS::NoValue"}]},
         "Path": {"Ref": "RolePath"},
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Effect": "Allow",
@@ -346,7 +304,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -359,20 +318,20 @@ Parameters:
     Default: ""
     AllowedPattern: '^$|^[\w+=,.@-]{1,64}$'
     ConstraintDescription: 'Must be empty or 1-64 characters and can contain alphanumeric characters and +=,.@-'
-
+  
   SAMLProviderARN:
     Type: String
     Description: 'ARN of the SAML Identity Provider'
     AllowedPattern: '^arn:aws:iam::\d{12}:saml-provider/[a-zA-Z0-9._-]+$'
     ConstraintDescription: 'Must be a valid SAML provider ARN'
-
+  
   RoleSessionDuration:
     Type: Number
     Description: 'The maximum session duration (in seconds) that you want to set for the specified role (3600-43200)'
     MinValue: 3600
     MaxValue: 43200
     Default: 7200
-
+    
   RolePermissionsBoundary:
     Type: String
     Description: Optional ARN of the permissions boundary policy (leave empty for none)
@@ -384,7 +343,7 @@ Parameters:
     Default: "/"
     AllowedPattern: '^\/.*\/$|^\/$'
     ConstraintDescription: 'Role path must start and end with forward slash (/)'
-
+  
   RoleManagedPolicy1:
     Type: String
     Description: Optional managed policy ARN 1
@@ -431,7 +390,7 @@ Resources:
         - !Ref AWS::NoValue
       Path: !Ref RolePath
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -458,3 +417,5 @@ Outputs:
     Export:
       Name: !Sub '${AWS::StackName}-RoleARN'
 ```
+
+------
