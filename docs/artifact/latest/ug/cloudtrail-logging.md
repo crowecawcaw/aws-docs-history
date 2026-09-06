@@ -1,87 +1,54 @@
+
+
 # Logging AWS Artifact API calls with AWS CloudTrail
+<a name="cloudtrail-logging"></a>
 
-AWS Artifact is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in AWS Artifact. CloudTrail captures API calls for
-AWS Artifact as events. The calls captured include calls from the AWS Artifact console and
-code calls to the AWS Artifact API operations. If you create a trail, you can enable
-continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Artifact. If you don't
-configure a trail, you can still view the most recent events in the CloudTrail console in
-**Event
-history**. Using the information collected by CloudTrail,
-you can determine the request that was made to AWS Artifact, the IP address from which the
-request was made, who made the request, when it was made, and additional details.
+AWS Artifact is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Artifact. CloudTrail captures API calls for AWS Artifact as events. The calls captured include calls from the AWS Artifact console and code calls to the AWS Artifact API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Artifact. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Artifact, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, see the
-[AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html). 
 
 ## AWS Artifact information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-AWS Artifact, that activity is recorded in a CloudTrail event along with other AWS service
-events in
-**Event history**. You can view, search, and download recent events
-in your AWS account. For more information, see
-[Viewing events with CloudTrail Event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS Artifact, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for AWS Artifact,
-create a trail. A
-_trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket.
-By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events
-from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you
-specify. Additionally, you can configure other AWS services to further analyze and act upon
-the event data collected in CloudTrail logs. For more information, see the following:
-
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications
-  for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log
-  files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and
-  [Receiving CloudTrail log
-  files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+For an ongoing record of events in your AWS account, including events for AWS Artifact, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++  [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) 
++  [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html) 
++  [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html) 
++  [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html) 
 
 AWS Artifact supports logging the following actions as events in CloudTrail log files:
++  [ListReports](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListReports.html) 
++  [GetAccountSettings](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetAccountSettings.html) 
++  [GetReportMetadata](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetReportMetadata.html) 
++  [GetReport](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetReport.html) 
++  [GetTermForReport](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetTermForReport.html) 
++  [PutAccountSettings](https://docs.aws.amazon.com/artifact/latest/APIReference/API_PutAccountSettings.html) 
++  [AcceptAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_AcceptAgreement.html) 
++  [AcceptNdaForAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_AcceptNdaForAgreement.html) 
++  [GetAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetAgreement.html) 
++  [GetCustomerAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetCustomerAgreement.html) 
++  [GetNdaForAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetNdaForAgreement.html) 
++  [ListAgreements](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListAgreements.html) 
++  [ListCustomerAgreements](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListCustomerAgreements.html) 
++  [TerminateAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_TerminateAgreement.html) 
 
-- [ListReports](../APIReference/API_ListReports.md "../APIReference/API_ListReports.md")
-- [GetAccountSettings](../APIReference/API_GetAccountSettings.md "../APIReference/API_GetAccountSettings.md")
-- [GetReportMetadata](../APIReference/API_GetReportMetadata.md "../APIReference/API_GetReportMetadata.md")
-- [GetReport](../APIReference/API_GetReport.md "../APIReference/API_GetReport.md")
-- [GetTermForReport](../APIReference/API_GetTermForReport.md "../APIReference/API_GetTermForReport.md")
-- [PutAccountSettings](../APIReference/API_PutAccountSettings.md "../APIReference/API_PutAccountSettings.md")
-- [AcceptAgreement](../APIReference/API_AcceptAgreement.md "../APIReference/API_AcceptAgreement.md")
-- [AcceptNdaForAgreement](../APIReference/API_AcceptNdaForAgreement.md "../APIReference/API_AcceptNdaForAgreement.md")
-- [GetAgreement](../APIReference/API_GetAgreement.md "../APIReference/API_GetAgreement.md")
-- [GetCustomerAgreement](../APIReference/API_GetCustomerAgreement.md "../APIReference/API_GetCustomerAgreement.md")
-- [GetNdaForAgreement](../APIReference/API_GetNdaForAgreement.md "../APIReference/API_GetNdaForAgreement.md")
-- [ListAgreements](../APIReference/API_ListAgreements.md "../APIReference/API_ListAgreements.md")
-- [ListCustomerAgreements](../APIReference/API_ListCustomerAgreements.md "../APIReference/API_ListCustomerAgreements.md")
-- [TerminateAgreement](../APIReference/API_TerminateAgreement.md "../APIReference/API_TerminateAgreement.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the
-[CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html). 
 
 ## Understanding AWS Artifact log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the GetReportMetadata action.
+The following example shows a CloudTrail log entry that demonstrates the GetReportMetadata action. 
 
 ```
-
 {
   "Records": [
     {
@@ -136,5 +103,4 @@ The following example shows a CloudTrail log entry that demonstrates the GetRepo
     }
   ]
 }
-
 ```
