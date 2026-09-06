@@ -1,18 +1,17 @@
-AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+
+
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Use `ListMigrationTasks` with an AWS SDK
+<a name="example_migration-hub_ListMigrationTasks_section"></a>
 
 The following code example shows how to use `ListMigrationTasks`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/migrationhub#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/migrationhub#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/migrationhub#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -61,14 +60,9 @@ public class ListMigrationTasks {
         }
     }
 }
-
-
 ```
++  For API details, see [ListMigrationTasks](https://docs.aws.amazon.com/goto/SdkForJavaV2/migration-hub-2017-05-31/ListMigrationTasks) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListMigrationTasks](../../../goto/SdkForJavaV2/migration-hub-2017-05-31/ListMigrationTasks.md "../../../goto/SdkForJavaV2/migration-hub-2017-05-31/ListMigrationTasks.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Migration Hub with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Migration Hub with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
