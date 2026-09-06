@@ -1,35 +1,33 @@
+
+
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Getting started with Amazon Managed Blockchain (AMB) Access Polygon
+<a name="getting-started"></a>
 
-Get started with Amazon Managed Blockchain (AMB) Access Polygon by using the information and procedures in this
-section.
+Get started with Amazon Managed Blockchain (AMB) Access Polygon by using the information and procedures in this section.
 
-###### Topics
-
-- [Create an IAM policy to access the Polygon blockchain network](#getting-started-next-steps "#getting-started-next-steps")
-- [Make Polygon remote procedure call (RPC) requests on the AMB Access RPC editor using the AWS Management Console](#gs-console-polygon "#gs-console-polygon")
-- [Make AMB Access Polygon JSON-RPC requests in awscurl by using the AWS CLI](#awscurl-polygon-rpc-requests "#awscurl-polygon-rpc-requests")
-- [Make Polygon JSON-RPC requests in Node.js](#nodejs-polygon-rpc-requests "#nodejs-polygon-rpc-requests")
+**Topics**
++ [Create an IAM policy to access the Polygon blockchain network](#getting-started-next-steps)
++ [Make Polygon remote procedure call (RPC) requests on the AMB Access RPC editor using the AWS Management Console](#gs-console-polygon)
++ [Make AMB Access Polygon JSON-RPC requests in `awscurl` by using the AWS CLI](#awscurl-polygon-rpc-requests)
++ [Make Polygon JSON-RPC requests in Node.js](#nodejs-polygon-rpc-requests)
 
 ## Create an IAM policy to access the Polygon blockchain network
+<a name="getting-started-next-steps"></a>
 
-To access the public endpoint for the Polygon Mainnet to make JSON-RPC calls, you must have
-user credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`) that
-have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Access Polygon. In a terminal with the AWS CLI
-installed, run the following command to create an IAM policy to access both Polygon
-endpoints:
+To access the public endpoint for the Polygon Mainnet to make JSON-RPC calls, you must have user credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`) that have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Access Polygon. In a terminal with the AWS CLI installed, run the following command to create an IAM policy to access both Polygon endpoints: 
 
 ```
 cat <<EOT > ~/amb-polygon-access-policy.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
-            "Sid" : "`AMBPolygonAccessPolicy`",
+            "Sid" : "{{AMBPolygonAccessPolicy}}", 
             "Effect": "Allow",
             "Action": [
-                "managedblockchain:`InvokeRpcPolygon*`"
+                "managedblockchain:{{InvokeRpcPolygon*}}"
             ],
             "Resource": "*"
         }
@@ -37,92 +35,60 @@ cat <<EOT > ~/amb-polygon-access-policy.json
 }
 EOT
 aws iam create-policy --policy-name AmazonManagedBlockchainPolygonAccess --policy-document file://$HOME/amb-polygon-access-policy.json
-
 ```
 
-###### Note
+**Note**  
+The previous example gives you access to all available Polygon networks. To get access to a specific endpoint, use the following `Action` command:   
+`"managedblockchain:InvokeRpcPolygonMainnet"`
 
-The previous example gives you access to all available Polygon networks. To get
-access to a specific endpoint, use the following `Action` command:
-
-- `"managedblockchain:InvokeRpcPolygonMainnet"`
-
-After you create the policy, attach that policy to your IAM user’s role for it to take
-effect. In the AWS Management Console, navigate to the IAM service, and attach the policy
-`AmazonManagedBlockchainPolygonAccess` to the role assigned to your IAM user.
+After you create the policy, attach that policy to your IAM user’s role for it to take effect. In the AWS Management Console, navigate to the IAM service, and attach the policy `AmazonManagedBlockchainPolygonAccess` to the role assigned to your IAM user. 
 
 ## Make Polygon remote procedure call (RPC) requests on the AMB Access RPC editor using the AWS Management Console
+<a name="gs-console-polygon"></a>
 
-You can edit, configure, and submit remote procedure calls (RPCs) on the AWS Management Console using
-AMB Access Polygon. With these RPCs, you can read data and write transactions on the Polygon
-network, including retrieving data and submitting transactions to the Polygon network.
+You can edit, configure, and submit remote procedure calls (RPCs) on the AWS Management Console using AMB Access Polygon. With these RPCs, you can read data and write transactions on the Polygon network, including retrieving data and submitting transactions to the Polygon network.
 
-###### Example
+**Example**  
+The following example shows how to get information about the *latest* block by using `eth_getBlockByNumber` RPC. Change the highlighted variables to your own inputs or choose one of the **RPC methods** listed and enter in the relevant inputs required.  
 
-The following example shows how to get information about the _latest_
-block by using `eth_getBlockByNumber` RPC. Change the highlighted variables to
-your own inputs or choose one of the **RPC methods** listed and enter in
-the relevant inputs required.
+1. Open the Managed Blockchain console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
-1. Open the Managed Blockchain console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
-2. Choose **RPC editor**.
-3. In the **Request** section, choose
-   `POLYGON_MAINNET` as the
-   **`Blockchain Network`**.
-4. Choose `eth_getBlockByNumber` as the
-   **RPC method**.
-5. Enter `latest` as the **`Block
- number`** and choose
-   `False` as the **Full transaction
-   flag**.
-6. Then, choose **Submit RPC**.
-7. You get the results of the `latest` block in the **Response**
-   section. You can then copy the full raw transactions for further analysis or to use in
-   business logic for your applications.
+1. Choose **RPC editor**.
 
-For more information, see the [RPCs supported by AMB Access Polygon](polygon-api.md "polygon-api.md")
+1. In the **Request** section, choose `{{POLYGON_MAINNET}}` as the **{{Blockchain Network}}**. 
+
+1. Choose `{{eth_getBlockByNumber}}` as the **RPC method**. 
+
+1. Enter **latest** as the **{{Block number}}** and choose `{{False}}` as the **Full transaction flag**. 
+
+1. Then, choose **Submit RPC**.
+
+1. You get the results of the `latest` block in the **Response** section. You can then copy the full raw transactions for further analysis or to use in business logic for your applications.
+
+For more information, see the [RPCs supported by AMB Access Polygon](https://docs.aws.amazon.com/managed-blockchain/latest/ambp-dg/polygon-api.html)
 
 ## Make AMB Access Polygon JSON-RPC requests in `awscurl` by using the AWS CLI
+<a name="awscurl-polygon-rpc-requests"></a>
 
-###### Example
-
-Sign requests with your IAM user credentials by using [Signature Version 4 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in
-order to make Polygon JSON-RPC requests to the AMB Access Polygon endpoints. The [`awscurl`](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") command line tool can
-help you sign requests to AWS services using SigV4. For more information, see the [awscurl README.md](https://github.com/okigan/awscurl#readme "https://github.com/okigan/awscurl#readme").
-
-Install `awscurl` by using the method appropriate to your operating system. On
-macOS, HomeBrew is the recommended application:
+**Example**  
+Sign requests with your IAM user credentials by using [Signature Version 4 (SigV4)](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in order to make Polygon JSON-RPC requests to the AMB Access Polygon endpoints. The [`awscurl`](https://github.com/okigan/awscurl) command line tool can help you sign requests to AWS services using SigV4. For more information, see the [awscurl README.md](https://github.com/okigan/awscurl#readme).  
+Install `awscurl` by using the method appropriate to your operating system. On macOS, HomeBrew is the recommended application:  
 
 ```
 brew install awscurl
 ```
-
-If you have already installed and configured the AWS CLI, your IAM user credentials and the
-default AWS Region are set in your environment and have access to `awscurl`.
-Using `awscurl`, submit a request to the Polygon _Mainnet_ by
-invoking the `eth_getBlockByNumber` RPC. This call accepts a string parameter
-corresponding to the block number for which you want to retrieve information.
-
-The following command retrieves the block data from the Polygon Mainnet by using
-the block number in the `params` array to select the specific block for which to
-retrieve the headers.
+If you have already installed and configured the AWS CLI, your IAM user credentials and the default AWS Region are set in your environment and have access to `awscurl`. Using `awscurl`, submit a request to the Polygon *Mainnet* by invoking the `eth_getBlockByNumber` RPC. This call accepts a string parameter corresponding to the block number for which you want to retrieve information.   
+The following command retrieves the block data from the Polygon Mainnet by using the block number in the `params` array to select the specific block for which to retrieve the headers.   
 
 ```
-awscurl -X POST -d '{ "jsonrpc": "2.0", "id": "`eth_getBlockByNumber-curltest"`, "method":"`eth_getBlockByNumber`", "params":["`latest`", `false`] }' --service managedblockchain https://`mainnet`.polygon.managedblockchain.`us-east-1`.amazonaws.com -k
+awscurl -X POST -d '{ "jsonrpc": "2.0", "id": "{{eth_getBlockByNumber-curltest"}}, "method":"{{eth_getBlockByNumber}}", "params":["{{latest}}", {{false}}] }' --service managedblockchain https://{{mainnet}}.polygon.managedblockchain.{{us-east-1}}.amazonaws.com -k
 ```
-
-###### Tip
-
-You can also make this same request using `curl` and the AMB Access token based access feature using `Accessor`
-tokens. For more information, see [Creating and managing Accessor tokens for token-based access to make AMB Access Polygon requests](polygon-tokens.md "polygon-tokens.md").
+You can also make this same request using `curl` and the AMB Access token based access feature using `Accessor` tokens. For more information, see [Creating and managing Accessor tokens for token-based access to make AMB Access Polygon requests](polygon-tokens.md).  
 
 ```
-curl -X POST -d '{"jsonrpc":"2.0", "id": "`eth_getBlockByNumber-curltest"`, "method":"`eth_getBlockByNumber`", "params":["`latest`", `false`] }' 'https://`mainnet`.polygon.managedblockchain.`us-east-1`.amazonaws.com?billingtoken=`your-billing-token`'
-
+curl -X POST -d '{"jsonrpc":"2.0", "id": "{{eth_getBlockByNumber-curltest"}}, "method":"{{eth_getBlockByNumber}}", "params":["{{latest}}", {{false}}] }' 'https://{{mainnet}}.polygon.managedblockchain.{{us-east-1}}.amazonaws.com?billingtoken={{your-billing-token}}'
 ```
-
-The response from either command returns information about the _latest_ block. See the
-following example for illustrative purposes:
+The response from either command returns information about the *latest* block. See the following example for illustrative purposes:   
 
 ```
 {"error":null,"id":"eth_getBlockByNumber-curltest","jsonrpc":"1.0",
@@ -145,44 +111,27 @@ following example for illustrative purposes:
 ```
 
 ## Make Polygon JSON-RPC requests in Node.js
+<a name="nodejs-polygon-rpc-requests"></a>
 
-You can invoke Polygon JSON-RPCs by submitting signed requests using HTTPS to access the
-Polygon _Mainnet_ network using the [native https module in Node.js](https://nodejs.org/api/https.html "https://nodejs.org/api/https.html"), or you can
-use a third-party library such as [AXIOS](https://axios-http.com "https://axios-http.com"). The
-following _Node.js_ examples show you how to make Polygon JSON-RPC requests
-to the AMB Access Polygon endpoint using both [Signature Version 4 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") and
-[token-based access](polygon-tokens.md "polygon-tokens.md"). The first example sends a transaction from one address to
-another and the following example requests transaction details and balance information from
-the blockchain.
+You can invoke Polygon JSON-RPCs by submitting signed requests using HTTPS to access the Polygon *Mainnet* network using the [native https module in Node.js](https://nodejs.org/api/https.html), or you can use a third-party library such as [AXIOS](https://axios-http.com). The following *Node.js* examples show you how to make Polygon JSON-RPC requests to the AMB Access Polygon endpoint using both [Signature Version 4 (SigV4)](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) and [token-based access](https://docs.aws.amazon.com/managed-blockchain/latest/ambp-dg/polygon-tokens.html). The first example sends a transaction from one address to another and the following example requests transaction details and balance information from the blockchain. 
 
-###### Example
+**Example**  
+To run this example Node.js script, apply the following prerequisites:  
 
-To run this example Node.js script, apply the following prerequisites:
+1. You must have node version manager (nvm) and Node.js installed on your machine. You can find installation instructions for your OS [here](https://github.com/nvm-sh/nvm).
 
-1. You must have node version manager (nvm) and Node.js installed on
-   your machine. You can find installation instructions for your OS [here](https://github.com/nvm-sh/nvm "https://github.com/nvm-sh/nvm").
-2. Use the `node --version` command and confirm that you are using _Node
-   version 18_ or higher. If required, you can use the `nvm install
- v18.12.0` command, followed by the `nvm use v18.12.0` command, to
-   install _version 18_, the _LTS_ version of
-   Node.
-3. The environment variables `AWS_ACCESS_KEY_ID` and
-   `AWS_SECRET_ACCESS_KEY` must contain the credentials that are
-   associated with your account. .
+1. Use the `node --version` command and confirm that you are using *Node version 18* or higher. If required, you can use the `nvm install v18.12.0` command, followed by the `nvm use v18.12.0` command, to install *version 18*, the *LTS* version of Node.
 
-Export these variables as strings on your client by using the following commands. Replace
-the values in _red_ in the following strings with appropriate
-values from your IAM user account.
+1. The environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` must contain the credentials that are associated with your account. . 
 
-```
-export AWS_ACCESS_KEY_ID="`AKIAIOSFODNN7EXAMPLE`"
-export AWS_SECRET_ACCESS_KEY="`wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`"
-```
+   Export these variables as strings on your client by using the following commands. Replace the values in *red* in the following strings with appropriate values from your IAM user account.
 
-After you complete all prerequisites, copy the following files
-into a directory in your local environment by using your preferred code editor:
-
-_package.json_
+   ```
+   export AWS_ACCESS_KEY_ID="{{AKIAIOSFODNN7EXAMPLE}}"
+   export AWS_SECRET_ACCESS_KEY="{{wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}}"
+   ```
+After you complete all prerequisites, copy the following files into a directory in your local environment by using your preferred code editor:  
+*package.json*  
 
 ```
 {
@@ -205,8 +154,8 @@ _package.json_
   }
 }
 ```
-
-_dispatch-evm-rpc.js_
+  
+*dispatch-evm-rpc.js*  
 
 ```
 const axios = require("axios");
@@ -219,11 +168,11 @@ const SignatureV4 = require("@aws-sdk/signature-v4").SignatureV4;
 const signer = new SignatureV4({
   credentials: defaultProvider(),
   service: "managedblockchain",
-  region: "`us-east-1`",
+  region: "{{us-east-1}}",
   sha256: SHA256,
 });
 const rpcRequest = async (rpcEndpoint, rpc) => {
-
+ 
   // parse the URL into its component parts (e.g. host, path)
   let url = new URL(rpcEndpoint);
 
@@ -258,24 +207,18 @@ const rpcRequest = async (rpcEndpoint, rpc) => {
 
 module.exports = { rpcRequest: rpcRequest };
 ```
-
-_sendTx.js_
-
-###### Warning
-
-The following code uses a hardcoded private key to generate a wallet Signer using
-`Ethers.js` for the sake of demonstration only. Do not use this code in
-production environments, as it has real funds and poses a security risk.
-
-If needed, contact your account team to advise on wallet and Signer best
-practices.
+  
+*sendTx.js*  
+The following code uses a hardcoded private key to generate a wallet Signer using `Ethers.js` for the sake of demonstration only. Do not use this code in production environments, as it has real funds and poses a security risk.   
+If needed, contact your account team to advise on wallet and Signer best practices.
+  
 
 ```
 const ethers = require("ethers");
 
 //set AMB Access Polygon endpoint using token based access (TBA)
-let token = "`your-billing-token`"
-let url = `https://`mainnet`.polygon.managedblockchain.`us-east-1`.amazonaws.com?billingtoken=${token}`;
+let token = "{{your-billing-token}}"
+let url = `https://{{mainnet}}.polygon.managedblockchain.{{us-east-1}}.amazonaws.com?billingtoken=${token}`;
 
 //prevent batch RPCs
 let options = {
@@ -286,24 +229,23 @@ let options = {
 let provider = new ethers.JsonRpcProvider(url, null, options);
 
 let sendTx = async (to) => {
-  //create an instance of the Wallet class with a private key
+  //create an instance of the Wallet class with a private key 
   //DO NOT USE A WALLET YOU USE ON MAINNET, NEVER USE A RAW PRIVATE KEY IN PROD
-  let pk = "`wallet-private-key`";
+  let pk = "{{wallet-private-key}}";
   let signer = new ethers.Wallet(pk, provider);
 
   //use this wallet to send a transaction of POL from one address to another
   const tx = await signer.sendTransaction({
     to: to,
-    value: ethers.parseUnits("`0.0001`", "`ether`"),
+    value: ethers.parseUnits("{{0.0001}}", "{{ether}}"),
   });
 
   console.log(tx);
 };
 
-sendTx("`recipent-address`");
+sendTx("{{recipent-address}}");
 ```
-
-_readTx.js_
+*readTx.js*  
 
 ```
 let rpcRequest = require("./dispatch-evm-rpc").rpcRequest;
@@ -311,74 +253,57 @@ let ethers = require("ethers");
 
 let getTxDetails = async (txHash) => {
   //set url to a Signature Version 4 endpoint for AMB Access
-  let url = "https://`mainnet`.polygon.managedblockchain.`us-east-1`.amazonaws.com";
+  let url = "https://{{mainnet}}.polygon.managedblockchain.{{us-east-1}}.amazonaws.com";
 
   //set RPC request body to get transaction details
   let getTransactionByHash = {
-    id: "`1`",
+    id: "{{1}}",
     jsonrpc: "2.0",
-    method: "`eth_getTransactionByHash`",
-    params: [`txHash]`,
+    method: "{{eth_getTransactionByHash}}",
+    params: [{{txHash]}},
   };
 
   //make RPC request for transaction details
   let txDetails = await rpcRequest(url, getTransactionByHash);
-
+  
   //set RPC request body to get recipient user balance
   let getBalance = {
     id: "2",
     jsonrpc: "2.0",
-    method: "`eth_getBalance`",
-    params: `[txDetails.result.to, "latest"]`,
+    method: "{{eth_getBalance}}",
+    params: {{[txDetails.result.to, "latest"]}},
   };
-
+    
   //make RPC request for recipient user balance
-  let recipientBalance = await rpcRequest(url, `getBalance`);
+  let recipientBalance = await rpcRequest(url, {{getBalance}});
 
   console.log("TX DETAILS: ", txDetails.result, "BALANCE: ", ethers.formatEther(recipientBalance.result));
 };
 
-getTxDetails("`your-transaction-id`");
-
-
+getTxDetails("{{your-transaction-id}}");
 ```
-
-Once these files are saved to your directory, install the
-dependencies that are required to run the code using the
-following command:
+  
+Once these files are saved to your directory, install the dependencies that are required to run the code using the following command:   
 
 ```
 npm install
 ```
 
 ### Send a transaction in Node.js
+<a name="nodejs-send-transaction"></a>
 
-The preceding example sends the native Polygon Mainnet token (POL) from one address to
-another by signing a transaction and broadcasting it to the Polygon Mainnet using AMB Access Polygon.
-To do this, use the `sendTx.js` script, which uses `Ethers.js`, a
-popular library for interacting with Ethereum and Ethereum-compatible blockchains like
-Polygon. You need to replace three variables in the code where _highlighted in
-red_, including the `billingToken` for your
-_Accessor_ token for [token based access](polygon-tokens.md "polygon-tokens.md"),
-the _private key_ with which you sign the transaction, and the
-_recipient's address_ that receives the POL.
+The preceding example sends the native Polygon Mainnet token (POL) from one address to another by signing a transaction and broadcasting it to the Polygon Mainnet using AMB Access Polygon. To do this, use the `sendTx.js` script, which uses `Ethers.js`, a popular library for interacting with Ethereum and Ethereum-compatible blockchains like Polygon. You need to replace three variables in the code where *highlighted in red*, including the `billingToken` for your *Accessor* token for [token based access](https://docs.aws.amazon.com/managed-blockchain/latest/ambp-dg/polygon-tokens.html), the *private key* with which you sign the transaction, and the *recipient's address* that receives the POL.
 
-###### Tip
+**Tip**  
+We recommended that you create a fresh private key (wallet) for this purpose rather than reusing an existing wallet to eliminate the risk of losing funds. You can use the Ethers library’s Wallet class method createRandom() to generate a wallet to test with. Additionally, if you need to request POL from the Polygon Mainnet, you can use the public POL faucet to request a small amount to use for testing. 
 
-We recommended that you create a fresh private key (wallet) for this purpose rather than reusing
-an existing wallet to eliminate the risk of losing funds. You can use the Ethers library’s Wallet class method
-createRandom() to generate a wallet to test with. Additionally, if you need to request POL from the Polygon Mainnet,
-you can use the public POL faucet to request a small amount to use for testing.
-
-Once you have your `billingToken`, a funded wallet’s _private key_, and the
-recipient's address added to the code, you run the following code to sign a transaction for _.0001_ POL
-to be sent from your address to another and broadcast it to Polygon Mainnet invoking the `eth_sendRawTransaction` JSON-RPC using the AMB Access Polygon.
+Once you have your `billingToken`, a funded wallet’s *private key*, and the recipient's address added to the code, you run the following code to sign a transaction for *.0001* POL to be sent from your address to another and broadcast it to Polygon Mainnet invoking the ` eth_sendRawTransaction` JSON-RPC using the AMB Access Polygon.
 
 ```
 node sendTx.js
 ```
 
-The response received back resembles the following:
+The response received back resembles the following: 
 
 ```
 TransactionResponse {
@@ -406,33 +331,20 @@ networkV: null
 },
 accessList: []
 }
-
 ```
 
-The response constitutes the transaction receipt. Save the value of the property
-`hash`. This is the identifier for the transaction you just submitted to the
-blockchain. You use this property in the read transaction example to get additional details
-about this transaction from the Polygon Mainnet.
+The response constitutes the transaction receipt. Save the value of the property `hash`. This is the identifier for the transaction you just submitted to the blockchain. You use this property in the read transaction example to get additional details about this transaction from the Polygon Mainnet.
 
-Note that the `blockNumber` and `blockHash` are `null`
-in the response. This is because the transaction has not yet been recorded in a block on the
-Polygon network. Note that these values are defined later and you might see them when you
-request the transaction details in the following section.
+Note that the `blockNumber` and `blockHash` are `null` in the response. This is because the transaction has not yet been recorded in a block on the Polygon network. Note that these values are defined later and you might see them when you request the transaction details in the following section.
 
 ### Read a transaction in Node.js
+<a name="nodejs-read-transaction"></a>
 
-In this section, you request the transaction details for the previously submitted
-transaction and retrieve the POL balance for the recipient address using read requests to
-the Polygon Mainnet using AMB Access Polygon. In the `readTx.js` file, replace the variable
-labeled `your-transaction-id` with the
-`hash` you saved from the response from running the code in the previous
-section.
+In this section, you request the transaction details for the previously submitted transaction and retrieve the POL balance for the recipient address using read requests to the Polygon Mainnet using AMB Access Polygon. In the `readTx.js` file, replace the variable labeled {{`your-transaction-id`}} with the `hash` you saved from the response from running the code in the previous section.
 
-This code uses a utility, `dispatch-evm-rpc.js`, which signs HTTPS requests to
-AMB Access Polygon with the requisite [Signature Version 4 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md")
-modules from the AWS SDK and sends requests using the widely used HTTP client, [AXIOS](https://axios-http.com "https://axios-http.com").
+This code uses a utility, `dispatch-evm-rpc.js`, which signs HTTPS requests to AMB Access Polygon with the requisite [Signature Version 4 (SigV4)](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) modules from the AWS SDK and sends requests using the widely used HTTP client, [AXIOS](https://axios-http.com). 
 
-The response received back resembles the following:
+The response received back resembles the following: 
 
 ```
 TX DETAILS: {
@@ -456,21 +368,9 @@ v: '0x0',
 r: '0x1b90ad9e9e4e005904562d50e904f9db10430a18b45931c059960ede337238ee',
 s: '0x7df3c930a964fd07fed4a59f60b4ee896ffc7df4ea41b0facfe82b470db448b7'
 } BALANCE: 0.0003
-
 ```
 
-The response represents the transaction details. Note that the `blockHash` and
-`blockNumber` are now likely defined. This indicates that the transaction has
-been recorded in a block. If these values are still `null`, wait a few minutes,
-then run the code again to check if your transaction has been included in a block. Lastly,
-the hexadecimal representation of the recipient address balance
-_(0x110d9316ec000)_ is converted to decimal using Ethers’
-`formatEther()` method, which converts the hex to decimal and shifts decimal
-places by _18 (10^18)_ to give the true balance in POL.
+The response represents the transaction details. Note that the `blockHash` and `blockNumber` are now likely defined. This indicates that the transaction has been recorded in a block. If these values are still `null`, wait a few minutes, then run the code again to check if your transaction has been included in a block. Lastly, the hexadecimal representation of the recipient address balance *(0x110d9316ec000)* is converted to decimal using Ethers’ `formatEther()` method, which converts the hex to decimal and shifts decimal places by *18 (10^18)* to give the true balance in POL.
 
-###### Tip
-
-While the preceding code examples illustrate how to use Node.js, Ethers, and Axios to utilize
-a few of the supported JSON-RPCs on AMB Access Polygon, you can modify the examples and write other
-code to build your applications on Polygon using this service. For a full list of
-supported JSON-RPCs on AMB Access Polygon, see [Managed Blockchain API and the JSON-RPCs supported with AMB Access Polygon](polygon-api.md "polygon-api.md").
+**Tip**  
+While the preceding code examples illustrate how to use Node.js, Ethers, and Axios to utilize a few of the supported JSON-RPCs on AMB Access Polygon, you can modify the examples and write other code to build your applications on Polygon using this service. For a full list of supported JSON-RPCs on AMB Access Polygon, see [Managed Blockchain API and the JSON-RPCs supported with AMB Access Polygon](polygon-api.md). 
