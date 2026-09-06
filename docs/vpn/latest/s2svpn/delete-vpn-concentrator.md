@@ -1,33 +1,38 @@
-# Delete an AWS Site-to-Site VPN Concentrator
 
-When you no longer need a Site-to-Site VPN Concentrator, you can delete it to stop
-incurring charges. Deleting a Site-to-Site VPN Concentrator permanently removes it and all associated
-configurations.
+
+# Delete an AWS Site-to-Site VPN Concentrator
+<a name="delete-vpn-concentrator"></a>
+
+When you no longer need a Site-to-Site VPN Concentrator, you can delete it to stop incurring charges. Deleting a Site-to-Site VPN Concentrator permanently removes it and all associated configurations.
 
 ## Prerequisites
+<a name="delete-Concentrator-prerequisites"></a>
 
 Before deleting a Site-to-Site VPN Concentrator, ensure the following:
-
-- All VPN connections associated with the Site-to-Site VPN Concentrator are deleted.
-- You have the necessary permissions to delete Site-to-Site VPN Concentrators (`ec2:DeleteVpnConcentrator`).
++ All VPN connections associated with the Site-to-Site VPN Concentrator are deleted.
++ You have the necessary permissions to delete Site-to-Site VPN Concentrators (`ec2:DeleteVpnConcentrator`).
 
 ## Delete a Site-to-Site VPN Concentrator using the console
+<a name="delete-Concentrator-console"></a>
 
-###### To delete a Site-to-Site VPN Concentrator
+**To delete a Site-to-Site VPN Concentrator**
 
-1. Open the Amazon VPC Console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane, choose **Site-to-Site
-   Concentrators**.
-3. Select the Site-to-Site VPN Concentrator that you want to delete.
-4. Choose **Actions**, and then choose **Delete Site-to-Site VPN Concentrator**.
-5. In the confirmation dialog, type `delete` to confirm the deletion.
-6. Choose **Delete**.
+1. Open the Amazon VPC Console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
+
+1. In the navigation pane, choose **Site-to-Site Concentrators**.
+
+1. Select the Site-to-Site VPN Concentrator that you want to delete.
+
+1. Choose **Actions**, and then choose **Delete Site-to-Site VPN Concentrator**.
+
+1. In the confirmation dialog, type **delete** to confirm the deletion.
+
+1. Choose **Delete**.
 
 ## Delete a Site-to-Site VPN Concentrator using the CLI
+<a name="delete-Concentrator-cli"></a>
 
-Use the `delete-vpn-concentrator` command to delete a Site-to-Site VPN
-Concentrator. You'll need the `vpn-concentrator-id` in order to delete
-it.
+Use the `delete-vpn-concentrator` command to delete a Site-to-Site VPN Concentrator. You'll need the `vpn-concentrator-id` in order to delete it.
 
 The following example deletes a Site-to-Site VPN Concentrator:
 
@@ -48,10 +53,9 @@ The following response is returned:
 ```
 
 ## Delete a Site-to-Site VPN Concentrator using the API
+<a name="delete-Concentrator-api"></a>
 
-Use the `DeleteVpnConcentrator` operation to delete a Site-to-Site VPN
-Concentrator. You'll need the `VpnConcentratorId` in order to delete
-it.
+Use the `DeleteVpnConcentrator` operation to delete a Site-to-Site VPN Concentrator. You'll need the `VpnConcentratorId` in order to delete it.
 
 The following example deletes a Site-to-Site VPN Concentrator:
 

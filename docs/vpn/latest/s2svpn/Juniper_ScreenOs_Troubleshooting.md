@@ -1,17 +1,17 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity with a Juniper ScreenOS customer gateway device
 
-When you troubleshoot the connectivity of a Juniper ScreenOS-based customer gateway device,
-consider four things: IKE, IPsec, tunnel, and BGP. You can troubleshoot these areas in
-any order, but we recommend that you start with IKE (at the bottom of the network stack)
-and move up.
+
+# Troubleshoot AWS Site-to-Site VPN connectivity with a Juniper ScreenOS customer gateway device
+<a name="Juniper_ScreenOs_Troubleshooting"></a>
+
+When you troubleshoot the connectivity of a Juniper ScreenOS-based customer gateway device, consider four things: IKE, IPsec, tunnel, and BGP. You can troubleshoot these areas in any order, but we recommend that you start with IKE (at the bottom of the network stack) and move up. 
 
 ## IKE and IPsec
+<a name="IKEIPsec"></a>
 
-Use the following command. The response shows a customer gateway device with IKE configured
-correctly.
+Use the following command. The response shows a customer gateway device with IKE configured correctly.
 
 ```
-`ssg5-serial->` `get sa`
+ssg5-serial-> get sa
 ```
 
 ```
@@ -23,25 +23,19 @@ HEX ID    Gateway         Port Algorithm     SPI      Life:sec kb Sta   PID vsys
 00000001>   72.21.209.193  500 esp:a128/sha1 14bf7894  3580 unlim A/-    -1 0
 ```
 
-You should see one or more lines containing a remote address of the remote gateway that is
-specified in the tunnels. The `Sta` value should be `A/-` and
-`SPI` should be a hexadecimal number other than
-`00000000`. Entries in other states indicate that IKE is not configured
-properly.
+You should see one or more lines containing a remote address of the remote gateway that is specified in the tunnels. The `Sta` value should be `A/-` and `SPI` should be a hexadecimal number other than `00000000`. Entries in other states indicate that IKE is not configured properly.
 
-For further troubleshooting, enable the IKE trace options (as recommended in the example
-configuration file).
+For further troubleshooting, enable the IKE trace options (as recommended in the example configuration file).
 
 ## Tunnel
+<a name="TunnelFirewall"></a>
 
-First, double-check that you have the necessary firewall rules in place. For a list of
-rules, see [Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md "FirewallRules.md").
+First, double-check that you have the necessary firewall rules in place. For a list of rules, see [Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md).
 
-If your firewall rules are set up correctly, then continue troubleshooting with the
-following command.
+If your firewall rules are set up correctly, then continue troubleshooting with the following command.
 
 ```
-`ssg5-serial->` `get interface tunnel.1`
+ssg5-serial-> get interface tunnel.1
 ```
 
 ```
@@ -72,16 +66,12 @@ following command.
              total allocated gbw 0kbps
 ```
 
-Make sure that you see `link:ready`, and that the `IP` address
-matches the customer gateway device tunnel inside address.
+Make sure that you see `link:ready`, and that the `IP` address matches the customer gateway device tunnel inside address.
 
-Next, use the following command, replacing
-`169.254.255.1` with the inside IP address of
-your virtual private gateway. Your results should look like the response
-shown here.
+Next, use the following command, replacing `169.254.255.1` with the inside IP address of your virtual private gateway. Your results should look like the response shown here.
 
 ```
-`ssg5-serial->` `ping `169.254.255.1``
+ssg5-serial-> ping {{169.254.255.1}}
 ```
 
 ```
@@ -95,11 +85,12 @@ Success Rate is 100 percent (5/5), round-trip time min/avg/max=32/32/33 ms
 For further troubleshooting, review the configuration.
 
 ## BGP
+<a name="BGPCommand"></a>
 
 Run the following command.
 
 ```
-`ssg5-serial->` `get vrouter trust-vr protocol bgp neighbor`
+ssg5-serial-> get vrouter trust-vr protocol bgp neighbor
 ```
 
 ```
@@ -109,15 +100,12 @@ Peer AS Remote IP       Local IP          Wt Status   State     ConnID Up/Down
    7224 169.254.255.5   169.254.255.6    100 Enabled  ESTABLISH     11 00:00:59
 ```
 
-The state of both BGP peers should be `ESTABLISH`, which means that the BGP
-connection to the virtual private gateway is active.
+The state of both BGP peers should be `ESTABLISH`, which means that the BGP connection to the virtual private gateway is active.
 
-For further troubleshooting, use the following command,
-replacing `169.254.255.1` with the inside IP address
-of your virtual private gateway.
+For further troubleshooting, use the following command, replacing `169.254.255.1` with the inside IP address of your virtual private gateway. 
 
 ```
-`ssg5-serial->` `get vr trust-vr prot bgp neigh `169.254.255.1``
+ssg5-serial-> get vr trust-vr prot bgp neigh {{169.254.255.1}}
 ```
 
 ```
@@ -151,12 +139,10 @@ connected: 2 minutes 6 seconds
 Elapsed time since last update: 2 minutes 6 seconds
 ```
 
-If the BGP peering is up, verify that your customer gateway device is advertising the
-default route (0.0.0.0/0) to the VPC. This command applies to ScreenOS version 6.2.0
-and higher.
+If the BGP peering is up, verify that your customer gateway device is advertising the default route (0.0.0.0/0) to the VPC. This command applies to ScreenOS version 6.2.0 and higher.
 
 ```
-`ssg5-serial->` `get vr trust-vr protocol bgp rib neighbor `169.254.255.1` advertised`
+ssg5-serial-> get vr trust-vr protocol bgp  rib neighbor {{169.254.255.1}} advertised
 ```
 
 ```
@@ -167,12 +153,10 @@ i: IBGP route, e: EBGP route, >: best route, *: valid route
 Total IPv4 routes advertised: 1
 ```
 
-Additionally, ensure that you're receiving the prefix that corresponds to your VPC from the
-virtual private gateway. This command applies to ScreenOS version 6.2.0 and
-higher.
+Additionally, ensure that you're receiving the prefix that corresponds to your VPC from the virtual private gateway. This command applies to ScreenOS version 6.2.0 and higher.
 
 ```
-`ssg5-serial->` `get vr trust-vr protocol bgp rib neighbor `169.254.255.1` received`
+ssg5-serial-> get vr trust-vr protocol bgp  rib neighbor {{169.254.255.1}} received
 ```
 
 ```

@@ -1,9 +1,12 @@
+
+
 # Create an AWS Site-to-Site VPN transit gateway connection using the CLI or API
+<a name="create-tgw-cli-api"></a>
 
 ## Create a VPN connection to Transit Gateway using the CLI
+<a name="tgw-vpn-cli-examples"></a>
 
-Use the [create-vpn-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpn-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpn-connection.html") command and specify the transit gateway ID for the
-`--transit-gateway-id` option.
+Use the [create-vpn-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpn-connection.html) command and specify the transit gateway ID for the `--transit-gateway-id` option.
 
 The following example demonstrates creating a VPN connection with IPv6 outer tunnel IPs and IPv6 inner tunnel IPs:
 
@@ -37,18 +40,18 @@ Example response:
 ```
 
 ## Create a VPN connection to Transit Gateway using the API
+<a name="create-vpn-api"></a>
 
 You can create a VPN connection using the Amazon EC2 API. This section provides example request and response messages for creating a transit gateway VPN connection using the API.
 
 ### Prerequisites
+<a name="create-vpn-api-prerequisites"></a>
 
 Before creating a VPN connection using the API, ensure you have:
++ A transit gateway created and available
++ A customer gateway configured with your on-premises device details<a name="create-vpn-api-example"></a>
 
-- A transit gateway created and available
-- A customer gateway configured with your on-premises device details
-
-The following example shows how to create a VPN connection using the
-`CreateVpnConnection` API action:
+The following example shows how to create a VPN connection using the `CreateVpnConnection` API action:
 
 ```
 POST / HTTP/1.1

@@ -1,16 +1,14 @@
+
+
 # Create an AWS Site-to-Site VPN Concentrator connection using the CLI or API
+<a name="create-vpn-concentrator-cli-api"></a>
 
 ## Create a Site-to-Site VPN Concentrator connection using the CLI
+<a name="create-vpn-concentrator-connection"></a>
 
-After creating a Site-to-Site VPN Concentrator, you need to establish individual VPN
-connections from your remote sites to the Site-to-Site VPN Concentrator. Each remote site requires
-its own VPN connection that references the Site-to-Site VPN Concentrator ID. This allows multiple
-remote sites to share the same Site-to-Site VPN Concentrator infrastructure while maintaining
-separate, secure tunnels for each site.
+After creating a Site-to-Site VPN Concentrator, you need to establish individual VPN connections from your remote sites to the Site-to-Site VPN Concentrator. Each remote site requires its own VPN connection that references the Site-to-Site VPN Concentrator ID. This allows multiple remote sites to share the same Site-to-Site VPN Concentrator infrastructure while maintaining separate, secure tunnels for each site.
 
-To establish a VPN connection using a Site-to-Site VPN Concentrator, specify the Site-to-Site VPN
-Concentrator instead of the transit gateway when creating the VPN connection. The
-following example creates a VPN connection using a Site-to-Site VPN Concentrator:
+To establish a VPN connection using a Site-to-Site VPN Concentrator, specify the Site-to-Site VPN Concentrator instead of the transit gateway when creating the VPN connection. The following example creates a VPN connection using a Site-to-Site VPN Concentrator:
 
 ```
 aws ec2 create-vpn-connection \
@@ -39,20 +37,16 @@ A successful response returns the following:
 ```
 
 ## Create a Site-to-Site VPN Concentrator connection using the API
+<a name="create-vpn-concentrator-api"></a>
 
-You can create a VPN connection that uses a Site-to-Site VPN Concentrator using the
-Amazon EC2 API. This section provides example request and response messages for creating
-a VPN connection with a Site-to-Site VPN Concentrator.
+You can create a VPN connection that uses a Site-to-Site VPN Concentrator using the Amazon EC2 API. This section provides example request and response messages for creating a VPN connection with a Site-to-Site VPN Concentrator.
 
-Before creating a VPN connection with a Site-to-Site VPN Concentrator using the API, ensure
-you have:
+Before creating a VPN connection with a Site-to-Site VPN Concentrator using the API, ensure you have:
++ A Site-to-Site VPN Concentrator created and available
++ A customer gateway configured for your remote site
++ Network configuration allowing IPsec traffic between your site and AWS<a name="create-vpn-concentrator-api-example"></a>
 
-- A Site-to-Site VPN Concentrator created and available
-- A customer gateway configured for your remote site
-- Network configuration allowing IPsec traffic between your site and AWS
-
-The following example shows how to create a VPN connection using a Site-to-Site VPN
-Concentrator with the `CreateVpnConnection` API action:
+The following example shows how to create a VPN connection using a Site-to-Site VPN Concentrator with the `CreateVpnConnection` API action:
 
 ```
 POST / HTTP/1.1
@@ -67,13 +61,9 @@ Action=CreateVpnConnection
 &Version=2016-11-15
 ```
 
-This example creates a VPN connection between the specified Site-to-Site VPN
-Concentrator and customer gateway. The Site-to-Site VPN Concentrator acts as the AWS side
-endpoint, allowing multiple remote sites to connect through a centralized
-hub.
+This example creates a VPN connection between the specified Site-to-Site VPN Concentrator and customer gateway. The Site-to-Site VPN Concentrator acts as the AWS side endpoint, allowing multiple remote sites to connect through a centralized hub.<a name="create-vpn-concentrator-api-response"></a>
 
-A successful API response returns the VPN connection details with Site-to-Site VPN
-Concentrator information:
+A successful API response returns the VPN connection details with Site-to-Site VPN Concentrator information:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +83,4 @@ Concentrator information:
 </CreateVpnConnectionResponse>
 ```
 
-The response includes the VPN connection ID and references the Site-to-Site VPN
-Concentrator ID instead of a transit gateway ID. This connection allows your remote
-site to communicate with other sites connected to the same Site-to-Site VPN Concentrator,
-enabling hub-and-spoke network topologies.
+The response includes the VPN connection ID and references the Site-to-Site VPN Concentrator ID instead of a transit gateway ID. This connection allows your remote site to communicate with other sites connected to the same Site-to-Site VPN Concentrator, enabling hub-and-spoke network topologies.

@@ -1,16 +1,17 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity with a Juniper JunOS customer gateway device
 
-When you troubleshoot the connectivity of a Juniper customer gateway device, consider four
-things: IKE, IPsec, tunnel, and BGP. You can troubleshoot these areas in any order, but
-we recommend that you start with IKE (at the bottom of the network stack) and move up.
+
+# Troubleshoot AWS Site-to-Site VPN connectivity with a Juniper JunOS customer gateway device
+<a name="Juniper_Troubleshooting"></a>
+
+When you troubleshoot the connectivity of a Juniper customer gateway device, consider four things: IKE, IPsec, tunnel, and BGP. You can troubleshoot these areas in any order, but we recommend that you start with IKE (at the bottom of the network stack) and move up. 
 
 ## IKE
+<a name="IKETroubleshooting"></a>
 
-Use the following command. The response shows a customer gateway device with IKE configured
-correctly.
+Use the following command. The response shows a customer gateway device with IKE configured correctly.
 
 ```
-`user@router>` `show security ike security-associations`
+user@router> show security ike security-associations
 ```
 
 ```
@@ -19,33 +20,27 @@ Index   Remote Address  State  Initiator cookie  Responder cookie  Mode
 3       72.21.209.193   UP     b8c8fb7dc68d9173  ca7cb0abaedeb4bb  Main
 ```
 
-You should see one or more lines containing a remote address of the remote gateway
-specified in the tunnels. The `State` should be `UP`. The
-absence of an entry, or any entry in another state (such as `DOWN`), is
-an indication that IKE is not configured properly.
+You should see one or more lines containing a remote address of the remote gateway specified in the tunnels. The `State` should be `UP`. The absence of an entry, or any entry in another state (such as `DOWN`), is an indication that IKE is not configured properly.
 
-For further troubleshooting, enable the IKE trace options as recommended in the example
-configuration file. Then run the following command to print a variety of debugging
-messages to the screen.
+For further troubleshooting, enable the IKE trace options as recommended in the example configuration file. Then run the following command to print a variety of debugging messages to the screen.
 
 ```
-`user@router>` `monitor start kmd`
+user@router> monitor start kmd
 ```
 
-From an external host, you can retrieve the entire log file with the following
-command.
+From an external host, you can retrieve the entire log file with the following command.
 
 ```
-`scp username@router.hostname:/var/log/kmd`
+scp username@router.hostname:/var/log/kmd
 ```
 
 ## IPsec
+<a name="IPsecTroubleshooting"></a>
 
-Use the following command. The response shows a customer gateway device with IPsec
-configured correctly.
+Use the following command. The response shows a customer gateway device with IPsec configured correctly.
 
 ```
-`user@router>` `show security ipsec security-associations`
+user@router> show security ipsec security-associations
 ```
 
 ```
@@ -57,25 +52,19 @@ ID      Gateway        Port  Algorithm        SPI      Life:sec/kb Mon vsys
 >131074 72.21.209.193  500   ESP:aes-128/sha1 c1e0eb29 300/ unlim   -   0
 ```
 
-Specifically, you should see at least two lines per gateway address (corresponding to the
-remote gateway). The carets at the beginning of each line (< >) indicate the
-direction of traffic for the particular entry. The output has separate lines for
-inbound traffic ("<", traffic from the virtual private gateway to this customer
-gateway device) and outbound traffic (">").
+Specifically, you should see at least two lines per gateway address (corresponding to the remote gateway). The carets at the beginning of each line (< >) indicate the direction of traffic for the particular entry. The output has separate lines for inbound traffic ("<", traffic from the virtual private gateway to this customer gateway device) and outbound traffic (">").
 
-For further troubleshooting, enable the IKE traceoptions (for more information, see the
-preceding section about IKE).
+For further troubleshooting, enable the IKE traceoptions (for more information, see the preceding section about IKE). 
 
 ## Tunnel
+<a name="TunnelTroubleshooting"></a>
 
-First, double-check that you have the necessary firewall rules in place. For a list of
-rules, see [Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md "FirewallRules.md").
+First, double-check that you have the necessary firewall rules in place. For a list of rules, see [Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md).
 
-If your firewall rules are set up correctly, then continue troubleshooting with the
-following command.
+If your firewall rules are set up correctly, then continue troubleshooting with the following command.
 
 ```
-`user@router>` `show interfaces st0.1`
+user@router> show interfaces st0.1
 ```
 
 ```
@@ -91,16 +80,12 @@ following command.
       Destination: 169.254.255.0/30, Local: 169.254.255.2
 ```
 
-Make sure that the `Security: Zone` is correct, and that the `Local`
-address matches the customer gateway device tunnel inside address.
+Make sure that the `Security: Zone` is correct, and that the `Local` address matches the customer gateway device tunnel inside address.
 
-Next, use the following command, replacing
-`169.254.255.1` with the inside IP address of
-your virtual private gateway. Your results should look like the response
-shown here.
+Next, use the following command, replacing `169.254.255.1` with the inside IP address of your virtual private gateway. Your results should look like the response shown here.
 
 ```
-`user@router>` `ping `169.254.255.1` size 1382 do-not-fragment`
+user@router> ping {{169.254.255.1}} size 1382 do-not-fragment
 ```
 
 ```
@@ -112,11 +97,12 @@ PING 169.254.255.1 (169.254.255.1): 1410 data bytes
 For further troubleshooting, review the configuration.
 
 ## BGP
+<a name="BGPTroubleshooting"></a>
 
 Run the following command.
 
 ```
-`user@router>` `show bgp summary`
+user@router> show bgp summary
 ```
 
 ```
@@ -128,12 +114,10 @@ Peer                     AS      InPkt     OutPkt    OutQ   Flaps Last Up/Dwn St
 169.254.255.5          7224          8          9       0       0          56 0/1/1/0              0/0/0/0
 ```
 
-For further troubleshooting, use the following command,
-replacing `169.254.255.1` with the inside IP address
-of your virtual private gateway.
+For further troubleshooting, use the following command, replacing `169.254.255.1` with the inside IP address of your virtual private gateway. 
 
 ```
-`user@router>` `show bgp neighbor `169.254.255.1``
+user@router> show bgp neighbor {{169.254.255.1}}
 ```
 
 ```
@@ -141,14 +125,14 @@ Peer: 169.254.255.1+179 AS 7224 Local: 169.254.255.2+57175 AS 65000
   Type: External    State: Established    Flags: <ImportEval Sync>
   Last State: OpenConfirm   Last Event: RecvKeepAlive
   Last Error: None
-  Export: [ EXPORT-DEFAULT ]
+  Export: [ EXPORT-DEFAULT ] 
   Options: <Preference HoldTime PeerAS LocalAS Refresh>
   Holdtime: 30 Preference: 170 Local AS: 65000 Local System AS: 0
   Number of flaps: 0
   Peer ID: 169.254.255.1    Local ID: 10.50.0.10       Active Holdtime: 30
-  Keepalive Interval: 10         Peer index: 0
+  Keepalive Interval: 10         Peer index: 0   
   BFD: disabled, down
-  Local Interface: st0.1
+  Local Interface: st0.1                            
   NLRI for restart configured on peer: inet-unicast
   NLRI advertised by peer: inet-unicast
   NLRI for this session: inet-unicast
@@ -169,25 +153,20 @@ Peer: 169.254.255.1+179 AS 7224 Local: 169.254.255.2+57175 AS 65000
     Accepted prefixes:            1
     Suppressed due to damping:    0
     Advertised prefixes:          1
-Last traffic (seconds): Received 4    Sent 8    Checked 4
+Last traffic (seconds): Received 4    Sent 8    Checked 4   
 Input messages:  Total 24     Updates 2       Refreshes 0     Octets 505
 Output messages: Total 26     Updates 1       Refreshes 0     Octets 582
 Output Queue[0]: 0
 ```
 
-Here you should see `Received prefixes` and `Advertised prefixes`
-listed at 1 each. This should be within the `Table inet.0`
-section.
+Here you should see `Received prefixes` and `Advertised prefixes` listed at 1 each. This should be within the `Table inet.0` section.
 
-If the `State` is not `Established`, check the `Last
- State` and `Last Error` for details of what is required to
-correct the problem.
+If the `State` is not `Established`, check the `Last State` and `Last Error` for details of what is required to correct the problem.
 
-If the BGP peering is up, verify that your customer gateway device is advertising the
-default route (0.0.0.0/0) to the VPC.
+If the BGP peering is up, verify that your customer gateway device is advertising the default route (0.0.0.0/0) to the VPC. 
 
 ```
-`user@router>` `show route advertising-protocol bgp `169.254.255.1``
+user@router> show route advertising-protocol bgp {{169.254.255.1}}
 ```
 
 ```
@@ -196,11 +175,10 @@ inet.0: 10 destinations, 11 routes (10 active, 0 holddown, 0 hidden)
 * 0.0.0.0/0               Self                                    I
 ```
 
-Additionally, make sure that you're receiving the prefix that corresponds to your VPC from
-the virtual private gateway.
+Additionally, make sure that you're receiving the prefix that corresponds to your VPC from the virtual private gateway.
 
 ```
-`user@router>` `show route receive-protocol bgp `169.254.255.1``
+user@router> show route receive-protocol bgp {{169.254.255.1}}
 ```
 
 ```

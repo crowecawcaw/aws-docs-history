@@ -1,17 +1,17 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS customer gateway device without Border Gateway Protocol
 
-When you troubleshoot the connectivity of a Cisco customer gateway device, consider three
-things: IKE, IPsec, and tunnel. You can troubleshoot these areas in any order, but we
-recommend that you start with IKE (at the bottom of the network stack) and move
-up.
+
+# Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS customer gateway device without Border Gateway Protocol
+<a name="Cisco_Troubleshooting_NoBGP"></a>
+
+When you troubleshoot the connectivity of a Cisco customer gateway device, consider three things: IKE, IPsec, and tunnel. You can troubleshoot these areas in any order, but we recommend that you start with IKE (at the bottom of the network stack) and move up.
 
 ## IKE
+<a name="IOS_NoBGP_IKE"></a>
 
-Use the following command. The response shows a customer gateway device with IKE configured
-correctly.
+Use the following command. The response shows a customer gateway device with IKE configured correctly.
 
 ```
-`router#` `show crypto isakmp sa`
+router# show crypto isakmp sa
 ```
 
 ```
@@ -21,32 +21,28 @@ dst             src             state          conn-id slot status
 174.78.144.73 205.251.233.122 QM_IDLE           2002    0 ACTIVE
 ```
 
-You should see one or more lines containing an `src` value for the remote
-gateway that is specified in the tunnels. The `state` should be
-`QM_IDLE` and `status` should be `ACTIVE`. The
-absence of an entry, or any entry in another state, indicates that IKE is not
-configured properly.
+You should see one or more lines containing an `src` value for the remote gateway that is specified in the tunnels. The `state` should be `QM_IDLE` and `status` should be `ACTIVE`. The absence of an entry, or any entry in another state, indicates that IKE is not configured properly.
 
 For further troubleshooting, run the following commands to enable log messages that provide diagnostic information.
 
 ```
-`router#` `term mon`
-`router#` `debug crypto isakmp`
+router# term mon
+router# debug crypto isakmp
 ```
 
 To disable debugging, use the following command.
 
 ```
-`router#` `no debug crypto isakmp`
+router# no debug crypto isakmp
 ```
 
 ## IPsec
+<a name="IOS_NoBGP_IPsec"></a>
 
-Use the following command. The response shows a customer gateway device with IPsec
-configured correctly.
+Use the following command. The response shows a customer gateway device with IPsec configured correctly.
 
 ```
-`router#` `show crypto ipsec sa`
+router# show crypto ipsec sa
 ```
 
 ```
@@ -145,40 +141,36 @@ interface: Tunnel2
      outbound pcp sas:
 ```
 
-For each tunnel interface, you should see both an inbound `esp sas` and outbound
-`esp sas`. This assumes that an SA is listed (for example, `spi:
- 0x48B456A6`), that the status is `ACTIVE`, and that IPsec is
-configured correctly.
+For each tunnel interface, you should see both an inbound `esp sas` and outbound `esp sas`. This assumes that an SA is listed (for example, `spi: 0x48B456A6`), that the status is `ACTIVE`, and that IPsec is configured correctly.
 
 For further troubleshooting, use the following command to enable debugging.
 
 ```
-`router#` `debug crypto ipsec`
+router# debug crypto ipsec
 ```
 
 To disable debugging, use the following command.
 
 ```
-`router#` `no debug crypto ipsec`
+router# no debug crypto ipsec
 ```
 
 ## Tunnel
+<a name="IOS_NoBGP_tunnel"></a>
 
-First, check that you have the necessary firewall rules in place. For more information, see
-[Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md "FirewallRules.md").
+First, check that you have the necessary firewall rules in place. For more information, see [Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md).
 
-If your firewall rules are set up correctly, then continue troubleshooting with the
-following command.
-
-```
-`router#` `show interfaces tun1`
-```
+If your firewall rules are set up correctly, then continue troubleshooting with the following command.
 
 ```
-Tunnel1 is up, line protocol is up
+router# show interfaces tun1
+```
+
+```
+Tunnel1 is up, line protocol is up 
   Hardware is Tunnel
   Internet address is 169.254.249.18/30
-  MTU 17867 bytes, BW 100 Kbit/sec, DLY 50000 usec,
+  MTU 17867 bytes, BW 100 Kbit/sec, DLY 50000 usec, 
     reliability 255/255, txload 2/255, rxload 1/255
   Encapsulation TUNNEL, loopback not set
   Keepalive not set
@@ -200,19 +192,12 @@ Tunnel1 is up, line protocol is up
     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
 ```
 
-Make sure that the line protocol is up. Check that the tunnel source IP address, source
-interface, and destination respectively match the tunnel configuration for the
-customer gateway device outside IP address, interface, and virtual private gateway
-outside IP address. Make sure that `Tunnel protection through IPSec` is
-present. Run the command on both tunnel interfaces. To resolve any problems, review
-the configuration and check the physical connections to your customer gateway
-device.
+Make sure that the line protocol is up. Check that the tunnel source IP address, source interface, and destination respectively match the tunnel configuration for the customer gateway device outside IP address, interface, and virtual private gateway outside IP address. Make sure that `Tunnel protection through IPSec` is present. Run the command on both tunnel interfaces. To resolve any problems, review the configuration and check the physical connections to your customer gateway device.
 
-You can also use the following command, replacing `169.254.249.18` with
-the inside IP address of your virtual private gateway.
+You can also use the following command, replacing `169.254.249.18` with the inside IP address of your virtual private gateway.
 
 ```
-`router#` `ping `169.254.249.18` df-bit size 1410`
+router# ping {{169.254.249.18}} df-bit size 1410
 ```
 
 ```
@@ -225,11 +210,12 @@ Packet sent with the DF bit set
 You should see five exclamation points.
 
 ### Routing
+<a name="IOS_NoBGP_routing"></a>
 
 To see your static route table, use the following command.
 
 ```
-`router#` `sh ip route static`
+router# sh ip route static
 ```
 
 ```
@@ -238,18 +224,18 @@ S       10.0.0.0/16 is directly connected, Tunnel1
 is directly connected, Tunnel2
 ```
 
-You should see that the static route for the VPC CIDR through both tunnels exists. If it
-does not exist, add the static routes as follows.
+You should see that the static route for the VPC CIDR through both tunnels exists. If it does not exist, add the static routes as follows.
 
 ```
-`router#` `ip route 10.0.0.0 255.255.0.0 Tunnel1 track 100`
-`router#` `ip route 10.0.0.0 255.255.0.0 Tunnel2 track 200`
+router# ip route 10.0.0.0 255.255.0.0 Tunnel1 track 100 
+router# ip route 10.0.0.0 255.255.0.0 Tunnel2 track 200
 ```
 
 ### Checking the SLA monitor
+<a name="IOS_NoBGP_sla"></a>
 
 ```
-`router#` `show ip sla statistics 100`
+router# show ip sla statistics 100
 ```
 
 ```
@@ -265,7 +251,7 @@ Operation time to live: Forever
 ```
 
 ```
-`router#` `show ip sla statistics 200`
+router# show ip sla statistics 200
 ```
 
 ```
@@ -280,7 +266,6 @@ Number of failures: 0
 Operation time to live: Forever
 ```
 
-The value for `Number of successes` indicates whether the SLA monitor has been
-set up successfully.
+The value for `Number of successes` indicates whether the SLA monitor has been set up successfully.
 
 For further troubleshooting, review the configuration.

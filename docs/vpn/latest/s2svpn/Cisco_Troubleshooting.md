@@ -1,17 +1,17 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS customer gateway device
 
-When you troubleshoot the connectivity of a Cisco customer gateway device, consider four
-things: IKE, IPsec, the tunnel, and BGP. You can troubleshoot these areas in any order,
-but we recommend that you start with IKE (at the bottom of the network stack) and move
-up.
+
+# Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS customer gateway device
+<a name="Cisco_Troubleshooting"></a>
+
+When you troubleshoot the connectivity of a Cisco customer gateway device, consider four things: IKE, IPsec, the tunnel, and BGP. You can troubleshoot these areas in any order, but we recommend that you start with IKE (at the bottom of the network stack) and move up. 
 
 ## IKE
+<a name="IKE"></a>
 
-Use the following command. The response shows a customer gateway device with IKE configured
-correctly.
+Use the following command. The response shows a customer gateway device with IKE configured correctly.
 
 ```
-`router#` `show crypto isakmp sa`
+router# show crypto isakmp sa
 ```
 
 ```
@@ -21,33 +21,28 @@ dst             src             state          conn-id slot status
 192.168.37.160  72.21.209.225   QM_IDLE           2002    0 ACTIVE
 ```
 
-You should see one or more lines containing an `src` value for the remote
-gateway that is specified in the tunnels. The `state` should be
-`QM_IDLE` and `status` should be `ACTIVE`. The
-absence of an entry, or any entry in another state, indicate that IKE is not
-configured properly.
+You should see one or more lines containing an `src` value for the remote gateway that is specified in the tunnels. The `state` should be `QM_IDLE` and `status` should be `ACTIVE`. The absence of an entry, or any entry in another state, indicate that IKE is not configured properly.
 
-For further troubleshooting, run the following commands to
-enable log messages that provide diagnostic information.
+For further troubleshooting, run the following commands to enable log messages that provide diagnostic information.
 
 ```
-`router#` `term mon`
-`router#` `debug crypto isakmp`
+router# term mon
+router# debug crypto isakmp
 ```
 
 To disable debugging, use the following command.
 
 ```
-`router#` `no debug crypto isakmp`
+router# no debug crypto isakmp
 ```
 
 ## IPsec
+<a name="IPsec"></a>
 
-Use the following command. The response shows a customer gateway device with IPsec
-configured correctly.
+Use the following command. The response shows a customer gateway device with IPsec configured correctly.
 
 ```
-`router#` `show crypto ipsec sa`
+router# show crypto ipsec sa
 ```
 
 ```
@@ -146,41 +141,36 @@ interface: Tunnel2
      outbound pcp sas:
 ```
 
-For each tunnel interface, you should see both `inbound esp sas` and
-`outbound esp sas`. Assuming an SA is listed (`spi:
- 0xF95D2F3C`, for example) and the `Status` is
-`ACTIVE`, IPsec is configured correctly.
+For each tunnel interface, you should see both `inbound esp sas` and `outbound esp sas`. Assuming an SA is listed (`spi: 0xF95D2F3C`, for example) and the `Status` is `ACTIVE`, IPsec is configured correctly.
 
-For further troubleshooting, use the following command to
-enable debugging.
+For further troubleshooting, use the following command to enable debugging.
 
 ```
-`router#` `debug crypto ipsec`
+router# debug crypto ipsec
 ```
 
 Use the following command to disable debugging.
 
 ```
-`router#` `no debug crypto ipsec`
+router# no debug crypto ipsec
 ```
 
 ## Tunnel
+<a name="Tunnel"></a>
 
-First, check that you have the necessary firewall rules in place. For more information, see
-[Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md "FirewallRules.md").
+First, check that you have the necessary firewall rules in place. For more information, see [Firewall rules for an AWS Site-to-Site VPN customer gateway device](FirewallRules.md).
 
-If your firewall rules are set up correctly, then continue troubleshooting with the
-following command.
-
-```
-`router#` `show interfaces tun1`
-```
+If your firewall rules are set up correctly, then continue troubleshooting with the following command.
 
 ```
-Tunnel1 is up, line protocol is up
+router# show interfaces tun1
+```
+
+```
+Tunnel1 is up, line protocol is up 
   Hardware is Tunnel
   Internet address is 169.254.255.2/30
-  MTU 17867 bytes, BW 100 Kbit/sec, DLY 50000 usec,
+  MTU 17867 bytes, BW 100 Kbit/sec, DLY 50000 usec, 
     reliability 255/255, txload 2/255, rxload 1/255
   Encapsulation TUNNEL, loopback not set
   Keepalive not set
@@ -202,20 +192,12 @@ Tunnel1 is up, line protocol is up
     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
 ```
 
-Make sure that the `line protocol` is up. Check that the tunnel source IP
-address, source interface, and destination respectively match the tunnel
-configuration for the customer gateway device outside IP address, interface, and
-virtual private gateway outside IP address. Make sure that `Tunnel protection
- via IPSec` is present. Run the command on both tunnel interfaces. To
-resolve any problems, review the configuration and check the physical connections to
-your customer gateway device.
+Make sure that the `line protocol` is up. Check that the tunnel source IP address, source interface, and destination respectively match the tunnel configuration for the customer gateway device outside IP address, interface, and virtual private gateway outside IP address. Make sure that `Tunnel protection via IPSec` is present. Run the command on both tunnel interfaces. To resolve any problems, review the configuration and check the physical connections to your customer gateway device.
 
-Also use the following command, replacing
-`169.254.255.1` with the inside IP address of
-your virtual private gateway.
+Also use the following command, replacing `169.254.255.1` with the inside IP address of your virtual private gateway.
 
 ```
-`router#` `ping `169.254.255.1` df-bit size 1410`
+router# ping {{169.254.255.1}} df-bit size 1410
 ```
 
 ```
@@ -230,11 +212,12 @@ You should see five exclamation points.
 For further troubleshooting, review the configuration.
 
 ## BGP
+<a name="BGP"></a>
 
 Use the following command.
 
 ```
-`router#` `show ip bgp summary`
+router# show ip bgp summary
 ```
 
 ```
@@ -255,14 +238,12 @@ Neighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
 169.254.255.5   4  7224     364     323        8    0    0 00:00:24        1
 ```
 
-Both neighbors should be listed. For each, you should see a `State/PfxRcd` value
-of `1`.
+Both neighbors should be listed. For each, you should see a `State/PfxRcd` value of `1`.
 
-If the BGP peering is up, verify that your customer gateway device is advertising the
-default route (0.0.0.0/0) to the VPC.
+If the BGP peering is up, verify that your customer gateway device is advertising the default route (0.0.0.0/0) to the VPC. 
 
 ```
-`router#` `show bgp all neighbors `169.254.255.1` advertised-routes`
+router# show bgp all neighbors {{169.254.255.1}} advertised-routes
 ```
 
 ```
@@ -280,11 +261,10 @@ Network             Next Hop            Metric   LocPrf Weight Path
 Total number of prefixes 1
 ```
 
-Additionally, ensure that you're receiving the prefix
-corresponding to your VPC from the virtual private gateway.
+Additionally, ensure that you're receiving the prefix corresponding to your VPC from the virtual private gateway. 
 
 ```
-`router#` `show ip route bgp`
+router# show ip route bgp
 ```
 
 ```
