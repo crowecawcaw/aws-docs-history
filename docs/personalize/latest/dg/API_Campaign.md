@@ -1,122 +1,79 @@
-# Campaign
 
-An object that describes the deployment of a solution version.
-For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md "API_CreateCampaign.md").
+
+# Campaign
+<a name="API_Campaign"></a>
+
+An object that describes the deployment of a solution version. For more information on campaigns, see [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
 
 ## Contents
+<a name="API_Campaign_Contents"></a>
 
-**campaignArn**
-
-The Amazon Resource Name (ARN) of the campaign.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** campaignArn **   <a name="personalize-Type-Campaign-campaignArn"></a>
+The Amazon Resource Name (ARN) of the campaign.   
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**campaignConfig**
-
-The configuration details of a campaign.
-
-Type: [CampaignConfig](API_CampaignConfig.md "API_CampaignConfig.md") object
-
+ ** campaignConfig **   <a name="personalize-Type-Campaign-campaignConfig"></a>
+The configuration details of a campaign.  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
 Required: No
 
-**creationDateTime**
-
-The date and time (in Unix format) that the campaign was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-Campaign-creationDateTime"></a>
+The date and time (in Unix format) that the campaign was created.  
+Type: Timestamp  
 Required: No
 
-**failureReason**
-
-If a campaign fails, the reason behind the failure.
-
-Type: String
-
+ ** failureReason **   <a name="personalize-Type-Campaign-failureReason"></a>
+If a campaign fails, the reason behind the failure.  
+Type: String  
 Required: No
 
-**lastUpdatedDateTime**
-
-The date and time (in Unix format) that the campaign was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-Campaign-lastUpdatedDateTime"></a>
+The date and time (in Unix format) that the campaign was last updated.  
+Type: Timestamp  
 Required: No
 
-**latestCampaignUpdate**
-
-Provides a summary of the properties of a campaign update. For a complete listing, call the [DescribeCampaign](API_DescribeCampaign.md "API_DescribeCampaign.md") API.
-
-###### Note
-
-The `latestCampaignUpdate` field is only returned when the campaign has had
-at least one `UpdateCampaign` call.
-
-Type: [CampaignUpdateSummary](API_CampaignUpdateSummary.md "API_CampaignUpdateSummary.md") object
-
+ ** latestCampaignUpdate **   <a name="personalize-Type-Campaign-latestCampaignUpdate"></a>
+Provides a summary of the properties of a campaign update. For a complete listing, call the [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) API.  
+The `latestCampaignUpdate` field is only returned when the campaign has had at least one `UpdateCampaign` call. 
+Type: [CampaignUpdateSummary](API_CampaignUpdateSummary.md) object  
 Required: No
 
-**minProvisionedTPS**
-
-Specifies the requested minimum provisioned transactions (recommendations) per second. A high `minProvisionedTPS` will increase your bill. We recommend starting with 1 for `minProvisionedTPS` (the default). Track
-your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS`
-as necessary.
-
-Type: Integer
-
-Valid Range: Minimum value of 1.
-
+ ** minProvisionedTPS **   <a name="personalize-Type-Campaign-minProvisionedTPS"></a>
+Specifies the requested minimum provisioned transactions (recommendations) per second. A high `minProvisionedTPS` will increase your bill. We recommend starting with 1 for `minProvisionedTPS` (the default). Track your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as necessary.  
+Type: Integer  
+Valid Range: Minimum value of 1.  
 Required: No
 
-**name**
-
-The name of the campaign.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-Campaign-name"></a>
+The name of the campaign.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**solutionVersionArn**
-
-The Amazon Resource Name (ARN) of the solution version the campaign uses.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** solutionVersionArn **   <a name="personalize-Type-Campaign-solutionVersionArn"></a>
+The Amazon Resource Name (ARN) of the solution version the campaign uses.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**status**
-
-The status of the campaign.
-
-A campaign can be in one of the following states:
-
-- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN\_PROGRESS
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-Campaign-status"></a>
+The status of the campaign.  
+A campaign can be in one of the following states:  
++ CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
++ DELETE PENDING > DELETE IN\_PROGRESS
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_Campaign_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/Campaign.md "../../../goto/SdkForCpp/personalize-2018-05-22/Campaign.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/Campaign.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/Campaign.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/Campaign.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/Campaign.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/Campaign) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/Campaign) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/Campaign) 

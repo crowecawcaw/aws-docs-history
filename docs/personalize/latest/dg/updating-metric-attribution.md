@@ -1,78 +1,81 @@
+
+
 # Updating an Amazon Personalize metric attribution
+<a name="updating-metric-attribution"></a>
 
-When you update a metric attribution, you can add and remove metrics and modify its output configuration.
-You can update a metric attribution with the Amazon Personalize console, AWS Command Line Interface, or AWS SDKS.
+ When you update a metric attribution, you can add and remove metrics and modify its output configuration. You can update a metric attribution with the Amazon Personalize console, AWS Command Line Interface, or AWS SDKS. 
 
-###### Topics
-
-- [Updating a metric attribution (console)](#updating-metric-attribution-console "#updating-metric-attribution-console")
-- [Updating a metric attribution (AWS CLI)](#updating-metric-attribution-cli "#updating-metric-attribution-cli")
-- [Updating a metric attribution (AWS SDK)](#updating-metric-attribution-sdk "#updating-metric-attribution-sdk")
+**Topics**
++ [Updating a metric attribution (console)](#updating-metric-attribution-console)
++ [Updating a metric attribution (AWS CLI)](#updating-metric-attribution-cli)
++ [Updating a metric attribution (AWS SDK)](#updating-metric-attribution-sdk)
 
 ## Updating a metric attribution (console)
+<a name="updating-metric-attribution-console"></a>
 
 To update a metric attribution with the Amazon Personalize console, you make your changes on the **Metric attribution** page.
 
-###### To update a metric attribution
+**To update a metric attribution**
 
-1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home "https://console.aws.amazon.com/personalize/home") and sign into your account.
-2. Choose your dataset group.
-3. In the navigation pane, choose **Metric attribution**.
-4. In the bottom section, choose the **Metric attributes** tab or **Metric attribution configuration** tab to start making changes.
+1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account. 
 
-   - To add or remove metrics, choose the **Metric attributes** tab and choose **Edit attributes**.
-     Make your changes on the **Edit metric attributes** page and choose **Update** to save your changes.
-   - To make changes to the Amazon S3 output bucket or IAM service role, choose the **Edit metric attribution configuration** tab and make changes on the
-     **Edit attribution configuration** page. Choose **Update** to save your changes.
+1. Choose your dataset group.
+
+1. In the navigation pane, choose **Metric attribution**.
+
+1. In the bottom section, choose the **Metric attributes** tab or **Metric attribution configuration** tab to start making changes.
+   + To add or remove metrics, choose the **Metric attributes** tab and choose **Edit attributes**. Make your changes on the **Edit metric attributes** page and choose **Update** to save your changes.
+   + To make changes to the Amazon S3 output bucket or IAM service role, choose the **Edit metric attribution configuration** tab and make changes on the **Edit attribution configuration** page. Choose **Update** to save your changes.
 
 ## Updating a metric attribution (AWS CLI)
+<a name="updating-metric-attribution-cli"></a>
 
-After you create a metric attribution, you can use the AWS Command Line Interface (AWS CLI) to add and remove metrics and modify its output configuration.
-The following code shows how to remove metrics with the `update-metric-attribution` command:
-
-```
-aws personalize update-metric-attribution \
---metric-attribution-arn `metric attribution arn` \
---remove-metrics `metricName1` `metricName2`
-```
-
-The following code shows how to add an additional metric and specify a new output configuration:
+After you create a metric attribution, you can use the AWS Command Line Interface (AWS CLI) to add and remove metrics and modify its output configuration. The following code shows how to remove metrics with the `update-metric-attribution` command:
 
 ```
 aws personalize update-metric-attribution \
---metric-attribution-arn `metric attribution arn` \
---metrics-output-config "{\"roleArn\": \"`new role ARN`\", \"s3DataDestination\":{\"kmsKeyArn\":\"`kms key ARN`\",\"path\":\"s3://`amzn-s3-demo-bucket2`/`new-folder-name`/\"}}" \
+--metric-attribution-arn {{metric attribution arn}} \
+--remove-metrics {{metricName1}} {{metricName2}}
+```
+
+ The following code shows how to add an additional metric and specify a new output configuration:
+
+```
+aws personalize update-metric-attribution \
+--metric-attribution-arn {{metric attribution arn}} \
+--metrics-output-config "{\"roleArn\": \"{{new role ARN}}\", \"s3DataDestination\":{\"kmsKeyArn\":\"{{kms key ARN}}\",\"path\":\"s3://{{amzn-s3-demo-bucket2}}/{{new-folder-name}}/\"}}" \
 --add-metrics "[{
-  \"eventType\": \"`event type`\",
-  \"expression\": \"`SUM(DatasetType.COLUMN_NAME)`\",
-  \"metricName\": \"`metric name`\"
+  \"eventType\": \"{{event type}}\",
+  \"expression\": \"{{SUM(DatasetType.COLUMN_NAME)}}\",
+  \"metricName\": \"{{metric name}}\"
 }]"
 ```
 
-If successful, Amazon Personalize returns the ARN of the metric attribution you updated.
-For a complete listing of all parameters, see [UpdateMetricAttribution](API_UpdateMetricAttribution.md "API_UpdateMetricAttribution.md").
+ If successful, Amazon Personalize returns the ARN of the metric attribution you updated. For a complete listing of all parameters, see [UpdateMetricAttribution](API_UpdateMetricAttribution.md).
 
 ## Updating a metric attribution (AWS SDK)
+<a name="updating-metric-attribution-sdk"></a>
 
-After you create a metric attribution, you can add or remove metrics and modify its output configuration.
-The following code shows how to remove metrics from a metric attribution.
+After you create a metric attribution, you can add or remove metrics and modify its output configuration. The following code shows how to remove metrics from a metric attribution.
 
-SDK for Python (Boto3)
+------
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
-
+            
 personalize = boto3.client('personalize')
 
-metricsToRemove = ["`metricName1`", "`metricName2`"]
-
+metricsToRemove = ["{{metricName1}}", "{{metricName2}}"]
+            
 response = personalize.update_metric_attribution(
-  metricAttributionArn = "`metric attribution ARN`",
+  metricAttributionArn = "{{metric attribution ARN}}",
   removeMetrics = metricsToRemove
 )
 ```
 
-SDK for Java 2.x
+------
+#### [ SDK for Java 2.x ]
 
 ```
 public static void removeMetrics(PersonalizeClient client,
@@ -81,24 +84,25 @@ public static void removeMetrics(PersonalizeClient client,
                                  String metric2Name) {
 
     ArrayList<String> metricsToRemove = new ArrayList<>(Arrays.asList(metric1Name, metric2Name));
-
+    
     try {
-
+    
         UpdateMetricAttributionRequest request = UpdateMetricAttributionRequest.builder()
                 .metricAttributionArn(metricAttributionArn)
                 .removeMetrics(metricsToRemove)
                 .build();
-
+                
         UpdateMetricAttributionResponse response = client.updateMetricAttribution(request);
         System.out.println(response);
-
+        
     } catch (PersonalizeException e) {
         System.out.println(e.awsErrorDetails().errorMessage());
     }
 }
 ```
 
-SDK for JavaScript v3
+------
+#### [ SDK for JavaScript v3 ]
 
 ```
 // Get service clients and commands using ES6 syntax.
@@ -129,37 +133,41 @@ export const run = async () => {
 run();
 ```
 
-The following code shows how to add an additional metric and specify a new output configuration:
+------
 
-SDK for Python (Boto3)
+ The following code shows how to add an additional metric and specify a new output configuration:
+
+------
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
 
 personalize = boto3.client('personalize')
 
-newMetrics = [{
-      "eventType": "`event type`",
-      "expression": "`SUM(DatasetType.COLUMN_NAME)`",
-      "metricName": "`metric name`"
+newMetrics = [{ 
+      "eventType": "{{event type}}",
+      "expression": "{{SUM(DatasetType.COLUMN_NAME)}}",
+      "metricName": "{{metric name}}"
 }]
 
 newOutputConfig = {
-  "roleArn": "`Amazon Personalize service role ARN`",
+  "roleArn": "{{Amazon Personalize service role ARN}}", 
   "s3DataDestination": {
-    "kmsKeyArn": "`key ARN`",
-    "path": "`s3://amzn-s3-demo-bucket/<folder>`"
+    "kmsKeyArn": "{{key ARN}}", 
+    "path": "{{s3://amzn-s3-demo-bucket/<folder>}}"
   }
 }
 
 response = personalize.update_metric_attribution(
-  metricAttributionArn = "`metric attribution arn`",
+  metricAttributionArn = "{{metric attribution arn}}",
   metricsOutputConfig = newOutputConfig,
   addMetrics = newMetrics
 )
 ```
 
-SDK for Java 2.x
+------
+#### [ SDK for Java 2.x ]
 
 ```
 public static void addMetricsAndUpdateOutputConfig(PersonalizeClient personalizeClient,
@@ -174,13 +182,13 @@ public static void addMetricsAndUpdateOutputConfig(PersonalizeClient personalize
                                                 String s3Path,
                                                 String kmsKeyArn) {
     try {
-
+    
         MetricAttribute newAttribute = MetricAttribute.builder()
                 .eventType(newMetric1EventType)
                 .expression(newMetric1Expression)
                 .metricName(newMetric1Name)
                 .build();
-
+                
         MetricAttribute newAttribute2 = MetricAttribute.builder()
                 .eventType(newMetric2EventType)
                 .expression(newMetric2Expression)
@@ -198,24 +206,25 @@ public static void addMetricsAndUpdateOutputConfig(PersonalizeClient personalize
                 .roleArn(roleArn)
                 .s3DataDestination(newDataDestination)
                 .build();
-
+                
         UpdateMetricAttributionRequest request = UpdateMetricAttributionRequest.builder()
                 .metricAttributionArn(metricAttributionArn)
                 .metricsOutputConfig(newOutputConfig)
                 .addMetrics(newAttributes)
                 .build();
-
+                
         UpdateMetricAttributionResponse response = personalizeClient.updateMetricAttribution(request);
         System.out.println("New metrics added!");
         System.out.println(response);
-
+        
     } catch (PersonalizeException e) {
         System.out.println(e.awsErrorDetails().errorMessage());
     }
 }
 ```
 
-SDK for JavaScript v3
+------
+#### [ SDK for JavaScript v3 ]
 
 ```
 // Get service clients and commands using ES6 syntax.
@@ -238,7 +247,7 @@ export const updateMetricAttributionParam = {
   ],
   metricsOutputConfig: {
     roleArn: "ROLE_ARN",                      /* required */
-    s3DataDestination: {
+    s3DataDestination: {                
       kmsKeyArn: "KEY_ARN",                                                      /* optional */
       path: "s3://amzn-s3-demo-bucket/<folderName>/",    /* optional */
     },
@@ -259,5 +268,6 @@ export const run = async () => {
 run();
 ```
 
-If successful, Amazon Personalize returns the ARN of the metric attribution you updated.
-For a complete listing of all parameters, see [UpdateMetricAttribution](API_UpdateMetricAttribution.md "API_UpdateMetricAttribution.md").
+------
+
+If successful, Amazon Personalize returns the ARN of the metric attribution you updated. For a complete listing of all parameters, see [UpdateMetricAttribution](API_UpdateMetricAttribution.md).

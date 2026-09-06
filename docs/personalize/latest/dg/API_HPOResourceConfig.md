@@ -1,43 +1,29 @@
+
+
 # HPOResourceConfig
+<a name="API_HPOResourceConfig"></a>
 
 Describes the resource configuration for hyperparameter optimization (HPO).
 
 ## Contents
+<a name="API_HPOResourceConfig_Contents"></a>
 
-**maxNumberOfTrainingJobs**
-
-The maximum number of training
-jobs when you create a
-solution
-version.
-The maximum value for `maxNumberOfTrainingJobs` is
-`40`.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** maxNumberOfTrainingJobs **   <a name="personalize-Type-HPOResourceConfig-maxNumberOfTrainingJobs"></a>
+The maximum number of training jobs when you create a solution version. The maximum value for `maxNumberOfTrainingJobs` is `40`.  
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
-**maxParallelTrainingJobs**
-
-The maximum number of parallel training
-jobs when you create a
-solution
-version.
-The maximum value for `maxParallelTrainingJobs` is
-`10`.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** maxParallelTrainingJobs **   <a name="personalize-Type-HPOResourceConfig-maxParallelTrainingJobs"></a>
+The maximum number of parallel training jobs when you create a solution version. The maximum value for `maxParallelTrainingJobs` is `10`.  
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_HPOResourceConfig_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/HPOResourceConfig.md "../../../goto/SdkForCpp/personalize-2018-05-22/HPOResourceConfig.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/HPOResourceConfig.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/HPOResourceConfig.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/HPOResourceConfig.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/HPOResourceConfig.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/HPOResourceConfig) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/HPOResourceConfig) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/HPOResourceConfig) 

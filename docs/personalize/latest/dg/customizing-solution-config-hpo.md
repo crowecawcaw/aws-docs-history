@@ -1,23 +1,16 @@
+
+
 # Hyperparameters and HPO
+<a name="customizing-solution-config-hpo"></a>
 
-###### Important
+**Important**  
+By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](updating-solution.md) to turn off automatic training. For information about training costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
 
-By default, all new solutions use automatic training. With automatic training, you incur training costs while
-your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](updating-solution.md "updating-solution.md") to turn off automatic training. For information about training
-costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/ "https://aws.amazon.com/personalize/pricing/").
+You specify hyperparameters before training to optimize the trained model for your particular use case. This contrasts with model parameters whose values are determined during the training process.
 
-You specify hyperparameters before training to optimize the trained
-model for your particular use case. This contrasts with model parameters
-whose values are determined during the training process.
+Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md) object that is passed to the [CreateSolution](API_CreateSolution.md) operation.
 
-Hyperparameters are specified using the
-`algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md "API_SolutionConfig.md")
-object that is passed to the [CreateSolution](API_CreateSolution.md "API_CreateSolution.md") operation.
-
-A condensed version of the `CreateSolution` request is
-below. The example includes the `solutionConfig` object. You
-use `solutionConfig` to override the default parameters of a
-recipe.
+A condensed version of the `CreateSolution` request is below. The example includes the `solutionConfig` object. You use `solutionConfig` to override the default parameters of a recipe. 
 
 ```
 {
@@ -49,35 +42,18 @@ recipe.
 }
 ```
 
-Different recipes use different hyperparameters. For the available
-hyperparameters, see the individual recipes in [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+Different recipes use different hyperparameters. For the available hyperparameters, see the individual recipes in [Choosing a recipe](working-with-predefined-recipes.md).
 
 ## Enabling hyperparameter optimization
+<a name="hpo-tuning"></a>
 
-Hyperparameter optimization (HPO), or tuning, is the task of
-choosing optimal hyperparameters for a specific learning objective.
-The optimal hyperparameters are determined by running many training
-jobs using different values from the specified ranges of
-possibilities.
+Hyperparameter optimization (HPO), or tuning, is the task of choosing optimal hyperparameters for a specific learning objective. The optimal hyperparameters are determined by running many training jobs using different values from the specified ranges of possibilities. 
 
-With [User-Personalization-v2](native-recipe-user-personalization-v2.md "native-recipe-user-personalization-v2.md") and [Personalized-Ranking-v2](native-recipe-personalized-ranking-v2.md "native-recipe-personalized-ranking-v2.md"),
-if you turn on automatic training, Amazon Personalize automatically performs HPO every 90 days. Without automatic training, no HPO occurs. For all other recipes, you must enable HPO. To
-use HPO, set `performHPO` to `true`, and
-include the `hpoConfig` object.
+With [User-Personalization-v2](native-recipe-user-personalization-v2.md) and [Personalized-Ranking-v2](native-recipe-personalized-ranking-v2.md), if you turn on automatic training, Amazon Personalize automatically performs HPO every 90 days. Without automatic training, no HPO occurs. For all other recipes, you must enable HPO. To use HPO, set `performHPO` to `true`, and include the `hpoConfig` object.
 
-Hyperparameters can be categorical, continuous, or integer-valued.
-The `hpoConfig` object has keys that correspond to each
-of these types, where you specify the hyperparameters and their
-ranges. You must provide each type in your request, but if a recipe doesn't have
-a parameter of a type, you can leave it empty. For example, User-Personalization does
-not have a tunable hyperparameter of continuous type. So for the `continousHyperParameterRange`, you would pass an empty array.
+Hyperparameters can be categorical, continuous, or integer-valued. The `hpoConfig` object has keys that correspond to each of these types, where you specify the hyperparameters and their ranges. You must provide each type in your request, but if a recipe doesn't have a parameter of a type, you can leave it empty. For example, User-Personalization does not have a tunable hyperparameter of continuous type. So for the `continousHyperParameterRange`, you would pass an empty array. 
 
-The following code shows how to create a solution with HPO enabled using the SDK for Python (Boto3).
-The solution in the example uses the
-[User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
-recipe and
-has HPO set to `true`. The code provides a value for `hidden_dimension` and the `categoricalHyperParameterRanges` and `integerHyperParameterRanges`.
-The `continousHyperParameterRange` is empty and the `hpoResourceConfig` sets the `maxNumberOfTrainingJobs` and `maxParallelTrainingJobs`.
+The following code shows how to create a solution with HPO enabled using the SDK for Python (Boto3). The solution in the example uses the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) recipe and has HPO set to `true`. The code provides a value for `hidden_dimension` and the `categoricalHyperParameterRanges` and `integerHyperParameterRanges`. The `continousHyperParameterRange` is empty and the `hpoResourceConfig` sets the `maxNumberOfTrainingJobs` and `maxParallelTrainingJobs`. 
 
 ```
 import boto3
@@ -121,13 +97,12 @@ create_solution_response = personalize.create_solution(
 )
 ```
 
-For more information about HPO, see [Automatic model tuning](../../../sagemaker/latest/dg/automatic-model-tuning.md "../../../sagemaker/latest/dg/automatic-model-tuning.md").
+For more information about HPO, see [Automatic model tuning](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html). 
 
 ## Viewing hyperparameters
+<a name="viewing-hyperparameters"></a>
 
-You can view the hyperparameters of the solution by calling the [DescribeSolution](API_DescribeSolution.md "API_DescribeSolution.md") operation. The following
-sample shows a `DescribeSolution` output. After creating a solution version (training a model),
-you can also view hyperparameters with the [DescribeSolutionVersion](API_DescribeSolutionVersion.md "API_DescribeSolutionVersion.md") operation.
+You can view the hyperparameters of the solution by calling the [DescribeSolution](API_DescribeSolution.md) operation. The following sample shows a `DescribeSolution` output. After creating a solution version (training a model), you can also view hyperparameters with the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation.
 
 ```
 {

@@ -1,13 +1,11 @@
+
+
 # Comparing personalized Amazon OpenSearch Service results to results without personalization
+<a name="managed-comparing-results"></a>
 
-The Amazon Personalize Search Ranking plugin rearranges search results based on both the ranking from Amazon Personalize and the ranking from OpenSearch. The
-way that the plugin re-ranks the results depends on how you configured the `personalized_search_ranking` response processor in your
-pipelines.
+The Amazon Personalize Search Ranking plugin rearranges search results based on both the ranking from Amazon Personalize and the ranking from OpenSearch. The way that the plugin re-ranks the results depends on how you configured the `personalized_search_ranking` response processor in your pipelines. 
 
-To understand how results are ranked, you can run queries with and without personalization, and compare the results.
-You can use the following Python code to run two different queries and output the results to two JSON files. The first
-method runs a query that uses the plugin to re-rank results. The second runs a method that generates results without
-personalization.
+To understand how results are ranked, you can run queries with and without personalization, and compare the results. You can use the following Python code to run two different queries and output the results to two JSON files. The first method runs a query that uses the plugin to re-rank results. The second runs a method that generates results without personalization.
 
 ```
 import json
@@ -68,16 +66,16 @@ def print_results(file_name, results):
 
 
 # specify domain endpoint
-domain = "`DOMAIN_ENDPOINT`"
+domain = "{{DOMAIN_ENDPOINT}}"
 
 # specify the region where you created your Amazon Personalize resources and Amazon OpenSearch domain
-aws_region = "`REGION`"
+aws_region = "{{REGION}}"
 
 # specify the name of the pipeline that uses the Amazon Personalize plugin
-pipeline_name = "`PIPELINE_NAME`"
+pipeline_name = "{{PIPELINE_NAME}}"
 
 # specify your Amazon OpenSearch index
-index = "`INDEX`"
+index = "{{INDEX}}"
 
 # specify names for json files for comparison
 personalized_results_file = "personalized_results.json"

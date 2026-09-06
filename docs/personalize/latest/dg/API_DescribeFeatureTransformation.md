@@ -1,85 +1,82 @@
+
+
 # DescribeFeatureTransformation
+<a name="API_DescribeFeatureTransformation"></a>
 
 Describes the given feature transformation.
 
 ## Request Syntax
+<a name="API_DescribeFeatureTransformation_RequestSyntax"></a>
 
 ```
 {
-   "featureTransformationArn": "`string`"
+   "featureTransformationArn": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DescribeFeatureTransformation_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[featureTransformationArn](#API_DescribeFeatureTransformation_RequestSyntax "#API_DescribeFeatureTransformation_RequestSyntax")**
-
-The Amazon Resource Name (ARN) of the feature transformation to describe.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** [featureTransformationArn](#API_DescribeFeatureTransformation_RequestSyntax) **   <a name="personalize-DescribeFeatureTransformation-request-featureTransformationArn"></a>
+The Amazon Resource Name (ARN) of the feature transformation to describe.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_DescribeFeatureTransformation_ResponseSyntax"></a>
 
 ```
 {
-   "featureTransformation": {
-      "creationDateTime": ***number***,
-      "defaultParameters": {
-         "***string***" : "***string***"
+   "featureTransformation": { 
+      "creationDateTime": number,
+      "defaultParameters": { 
+         "string" : "string" 
       },
-      "featureTransformationArn": "***string***",
-      "lastUpdatedDateTime": ***number***,
-      "name": "***string***",
-      "status": "***string***"
+      "featureTransformationArn": "string",
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "status": "string"
    }
 }
 ```
 
 ## Response Elements
+<a name="API_DescribeFeatureTransformation_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[featureTransformation](#API_DescribeFeatureTransformation_ResponseSyntax "#API_DescribeFeatureTransformation_ResponseSyntax")**
-
-A listing of the FeatureTransformation properties.
-
-Type: [FeatureTransformation](API_FeatureTransformation.md "API_FeatureTransformation.md") object
+ ** [featureTransformation](#API_DescribeFeatureTransformation_ResponseSyntax) **   <a name="personalize-DescribeFeatureTransformation-response-featureTransformation"></a>
+A listing of the FeatureTransformation properties.  
+Type: [FeatureTransformation](API_FeatureTransformation.md) object
 
 ## Errors
+<a name="API_DescribeFeatureTransformation_Errors"></a>
 
-**InvalidInputException**
-
-Provide a valid value for the field or parameter.
-
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter.  
 HTTP Status Code: 400
 
-**ResourceNotFoundException**
-
-Could not find the specified resource.
-
+ ** ResourceNotFoundException **   
+Could not find the specified resource.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_DescribeFeatureTransformation_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/cli2/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForCpp/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/boto3/personalize-2018-05-22/DescribeFeatureTransformation.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeFeatureTransformation.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeFeatureTransformation.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeFeatureTransformation) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeFeatureTransformation) 

@@ -1,81 +1,57 @@
-# SolutionSummary
 
-Provides a summary of the properties of a solution. For a complete listing, call the
-[DescribeSolution](API_DescribeSolution.md "API_DescribeSolution.md") API.
+
+# SolutionSummary
+<a name="API_SolutionSummary"></a>
+
+Provides a summary of the properties of a solution. For a complete listing, call the [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html) API.
 
 ## Contents
+<a name="API_SolutionSummary_Contents"></a>
 
-**creationDateTime**
-
-The date and time (in Unix time) that the solution was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-SolutionSummary-creationDateTime"></a>
+The date and time (in Unix time) that the solution was created.  
+Type: Timestamp  
 Required: No
 
-**lastUpdatedDateTime**
-
-The date and time (in Unix time) that the solution was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-SolutionSummary-lastUpdatedDateTime"></a>
+The date and time (in Unix time) that the solution was last updated.  
+Type: Timestamp  
 Required: No
 
-**name**
-
-The name of the solution.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-SolutionSummary-name"></a>
+The name of the solution.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**recipeArn**
-
-The Amazon Resource Name (ARN) of the recipe used by the solution.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** recipeArn **   <a name="personalize-Type-SolutionSummary-recipeArn"></a>
+The Amazon Resource Name (ARN) of the recipe used by the solution.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**solutionArn**
-
-The Amazon Resource Name (ARN) of the solution.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** solutionArn **   <a name="personalize-Type-SolutionSummary-solutionArn"></a>
+The Amazon Resource Name (ARN) of the solution.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**status**
-
-The status of the solution.
-
-A solution can be in one of the following states:
-
-- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN\_PROGRESS
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-SolutionSummary-status"></a>
+The status of the solution.  
+A solution can be in one of the following states:  
++ CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
++ DELETE PENDING > DELETE IN\_PROGRESS
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_SolutionSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/SolutionSummary.md "../../../goto/SdkForCpp/personalize-2018-05-22/SolutionSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/SolutionSummary.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/SolutionSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/SolutionSummary.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/SolutionSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/SolutionSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/SolutionSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/SolutionSummary) 

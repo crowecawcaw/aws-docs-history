@@ -1,44 +1,35 @@
-# DefaultHyperParameterRanges
 
-Specifies the hyperparameters and their default ranges.
-Hyperparameters can be categorical, continuous, or integer-valued.
+
+# DefaultHyperParameterRanges
+<a name="API_DefaultHyperParameterRanges"></a>
+
+Specifies the hyperparameters and their default ranges. Hyperparameters can be categorical, continuous, or integer-valued.
 
 ## Contents
+<a name="API_DefaultHyperParameterRanges_Contents"></a>
 
-**categoricalHyperParameterRanges**
-
-The categorical hyperparameters and their default ranges.
-
-Type: Array of [DefaultCategoricalHyperParameterRange](API_DefaultCategoricalHyperParameterRange.md "API_DefaultCategoricalHyperParameterRange.md") objects
-
-Array Members: Maximum number of 100 items.
-
+ ** categoricalHyperParameterRanges **   <a name="personalize-Type-DefaultHyperParameterRanges-categoricalHyperParameterRanges"></a>
+The categorical hyperparameters and their default ranges.  
+Type: Array of [DefaultCategoricalHyperParameterRange](API_DefaultCategoricalHyperParameterRange.md) objects  
+Array Members: Maximum number of 100 items.  
 Required: No
 
-**continuousHyperParameterRanges**
-
-The continuous hyperparameters and their default ranges.
-
-Type: Array of [DefaultContinuousHyperParameterRange](API_DefaultContinuousHyperParameterRange.md "API_DefaultContinuousHyperParameterRange.md") objects
-
-Array Members: Maximum number of 100 items.
-
+ ** continuousHyperParameterRanges **   <a name="personalize-Type-DefaultHyperParameterRanges-continuousHyperParameterRanges"></a>
+The continuous hyperparameters and their default ranges.  
+Type: Array of [DefaultContinuousHyperParameterRange](API_DefaultContinuousHyperParameterRange.md) objects  
+Array Members: Maximum number of 100 items.  
 Required: No
 
-**integerHyperParameterRanges**
-
-The integer-valued hyperparameters and their default ranges.
-
-Type: Array of [DefaultIntegerHyperParameterRange](API_DefaultIntegerHyperParameterRange.md "API_DefaultIntegerHyperParameterRange.md") objects
-
-Array Members: Maximum number of 100 items.
-
+ ** integerHyperParameterRanges **   <a name="personalize-Type-DefaultHyperParameterRanges-integerHyperParameterRanges"></a>
+The integer-valued hyperparameters and their default ranges.  
+Type: Array of [DefaultIntegerHyperParameterRange](API_DefaultIntegerHyperParameterRange.md) objects  
+Array Members: Maximum number of 100 items.  
 Required: No
 
 ## See Also
+<a name="API_DefaultHyperParameterRanges_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DefaultHyperParameterRanges.md "../../../goto/SdkForCpp/personalize-2018-05-22/DefaultHyperParameterRanges.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DefaultHyperParameterRanges.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DefaultHyperParameterRanges.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DefaultHyperParameterRanges.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DefaultHyperParameterRanges.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DefaultHyperParameterRanges) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DefaultHyperParameterRanges) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DefaultHyperParameterRanges) 

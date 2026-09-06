@@ -1,77 +1,55 @@
-# CampaignSummary
 
-Provides a summary of the properties of a campaign. For a complete listing, call the
-[DescribeCampaign](API_DescribeCampaign.md "API_DescribeCampaign.md") API.
+
+# CampaignSummary
+<a name="API_CampaignSummary"></a>
+
+Provides a summary of the properties of a campaign. For a complete listing, call the [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) API.
 
 ## Contents
+<a name="API_CampaignSummary_Contents"></a>
 
-**campaignArn**
-
-The Amazon Resource Name (ARN) of the campaign.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** campaignArn **   <a name="personalize-Type-CampaignSummary-campaignArn"></a>
+The Amazon Resource Name (ARN) of the campaign.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**creationDateTime**
-
-The date and time (in Unix time) that the campaign was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-CampaignSummary-creationDateTime"></a>
+The date and time (in Unix time) that the campaign was created.  
+Type: Timestamp  
 Required: No
 
-**failureReason**
-
-If a campaign fails, the reason behind the failure.
-
-Type: String
-
+ ** failureReason **   <a name="personalize-Type-CampaignSummary-failureReason"></a>
+If a campaign fails, the reason behind the failure.  
+Type: String  
 Required: No
 
-**lastUpdatedDateTime**
-
-The date and time (in Unix time) that the campaign was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-CampaignSummary-lastUpdatedDateTime"></a>
+The date and time (in Unix time) that the campaign was last updated.  
+Type: Timestamp  
 Required: No
 
-**name**
-
-The name of the campaign.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-CampaignSummary-name"></a>
+The name of the campaign.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**status**
-
-The status of the campaign.
-
-A campaign can be in one of the following states:
-
-- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN\_PROGRESS
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-CampaignSummary-status"></a>
+The status of the campaign.  
+A campaign can be in one of the following states:  
++ CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
++ DELETE PENDING > DELETE IN\_PROGRESS
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_CampaignSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/CampaignSummary.md "../../../goto/SdkForCpp/personalize-2018-05-22/CampaignSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/CampaignSummary.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/CampaignSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/CampaignSummary.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/CampaignSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CampaignSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CampaignSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CampaignSummary) 

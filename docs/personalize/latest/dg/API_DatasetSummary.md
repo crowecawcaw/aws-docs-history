@@ -1,86 +1,61 @@
-# DatasetSummary
 
-Provides a summary of the properties of a dataset. For a complete listing, call the
-[DescribeDataset](API_DescribeDataset.md "API_DescribeDataset.md") API.
+
+# DatasetSummary
+<a name="API_DatasetSummary"></a>
+
+Provides a summary of the properties of a dataset. For a complete listing, call the [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html) API.
 
 ## Contents
+<a name="API_DatasetSummary_Contents"></a>
 
-**creationDateTime**
-
-The date and time (in Unix time) that the dataset was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-DatasetSummary-creationDateTime"></a>
+The date and time (in Unix time) that the dataset was created.  
+Type: Timestamp  
 Required: No
 
-**datasetArn**
-
-The Amazon Resource Name (ARN) of the dataset.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** datasetArn **   <a name="personalize-Type-DatasetSummary-datasetArn"></a>
+The Amazon Resource Name (ARN) of the dataset.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**datasetType**
-
-The dataset type. One of the following values:
-
-- Interactions
-- Items
-- Users
-- Event-Interactions
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `^[A-Za-z_]+$`
-
+ ** datasetType **   <a name="personalize-Type-DatasetSummary-datasetType"></a>
+The dataset type. One of the following values:  
++ Interactions
++ Items
++ Users
++ Event-Interactions
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `^[A-Za-z_]+$`   
 Required: No
 
-**lastUpdatedDateTime**
-
-The date and time (in Unix time) that the dataset was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetSummary-lastUpdatedDateTime"></a>
+The date and time (in Unix time) that the dataset was last updated.  
+Type: Timestamp  
 Required: No
 
-**name**
-
-The name of the dataset.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-DatasetSummary-name"></a>
+The name of the dataset.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**status**
-
-The status of the dataset.
-
-A dataset can be in one of the following states:
-
-- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN\_PROGRESS
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-DatasetSummary-status"></a>
+The status of the dataset.  
+A dataset can be in one of the following states:  
++ CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
++ DELETE PENDING > DELETE IN\_PROGRESS
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_DatasetSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DatasetSummary.md "../../../goto/SdkForCpp/personalize-2018-05-22/DatasetSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DatasetSummary.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DatasetSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DatasetSummary.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DatasetSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetSummary) 

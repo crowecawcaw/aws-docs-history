@@ -1,25 +1,24 @@
+
+
 # Action interactions dataset schema requirements (custom)
+<a name="action-interactions-dataset-requirements"></a>
 
-An _Action interactions dataset_ stores historical and real-time data from
-interactions between users and actions in your _Actions dataset_. For information on the types of data Amazon Personalize can use, see
-[Action interaction data](action-interactions-datasets.md "action-interactions-datasets.md").
+An *Action interactions dataset* stores historical and real-time data from interactions between users and actions in your *Actions dataset*. For information on the types of data Amazon Personalize can use, see [Action interaction data](action-interactions-datasets.md).
 
-The data you provide for each interaction must match your schema. Depending on your schema, interaction metadata can
-include empty/null values. At minimum, your schema must include the following:
+ The data you provide for each interaction must match your schema. Depending on your schema, interaction metadata can include empty/null values. At minimum, your schema must include the following: 
++ USER\_ID
++ ACTION\_ID
++ TIMESTAMP
++ EVENT\_TYPE
 
-- USER\_ID
-- ACTION\_ID
-- TIMESTAMP
-- EVENT\_TYPE
-  You can add additional fields depending on your use case and your data. You can choose the field names and data types
-  unless the fields are listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes "how-it-works-dataset-schema.md#personalize-datatypes").
+You can add additional fields depending on your use case and your data. You can choose the field names and data types unless the fields are listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes).
 
-For more information about minimum requirements and maximum data limits for an Action interactions dataset, see [Service quotas](limits.md#limits-table "limits.md#limits-table").
+For more information about minimum requirements and maximum data limits for an Action interactions dataset, see [Service quotas](limits.md#limits-table). 
 
 ## Action interactions dataset schema example (custom)
+<a name="schema-examples-action-interactions"></a>
 
-The following example shows a schema for an Action interactions dataset with only the required fields. For information about
-general schema formatting requirements, see [Schema formatting requirements](how-it-works-dataset-schema.md#general-schema-requirements "how-it-works-dataset-schema.md#general-schema-requirements").
+The following example shows a schema for an Action interactions dataset with only the required fields. For information about general schema formatting requirements, see [Schema formatting requirements](how-it-works-dataset-schema.md#general-schema-requirements). 
 
 ```
 {

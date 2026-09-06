@@ -1,69 +1,50 @@
-# EventTrackerSummary
 
-Provides a summary of the properties of an event tracker. For a complete listing, call the
-[DescribeEventTracker](API_DescribeEventTracker.md "API_DescribeEventTracker.md") API.
+
+# EventTrackerSummary
+<a name="API_EventTrackerSummary"></a>
+
+Provides a summary of the properties of an event tracker. For a complete listing, call the [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html) API.
 
 ## Contents
+<a name="API_EventTrackerSummary_Contents"></a>
 
-**creationDateTime**
-
-The date and time (in Unix time) that the event tracker was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-EventTrackerSummary-creationDateTime"></a>
+The date and time (in Unix time) that the event tracker was created.  
+Type: Timestamp  
 Required: No
 
-**eventTrackerArn**
-
-The Amazon Resource Name (ARN) of the event tracker.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** eventTrackerArn **   <a name="personalize-Type-EventTrackerSummary-eventTrackerArn"></a>
+The Amazon Resource Name (ARN) of the event tracker.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**lastUpdatedDateTime**
-
-The date and time (in Unix time) that the event tracker was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-EventTrackerSummary-lastUpdatedDateTime"></a>
+The date and time (in Unix time) that the event tracker was last updated.  
+Type: Timestamp  
 Required: No
 
-**name**
-
-The name of the event tracker.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-EventTrackerSummary-name"></a>
+The name of the event tracker.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**status**
-
-The status of the event tracker.
-
-An event tracker can be in one of the following states:
-
-- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN\_PROGRESS
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-EventTrackerSummary-status"></a>
+The status of the event tracker.  
+An event tracker can be in one of the following states:  
++ CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
++ DELETE PENDING > DELETE IN\_PROGRESS
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_EventTrackerSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/EventTrackerSummary.md "../../../goto/SdkForCpp/personalize-2018-05-22/EventTrackerSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/EventTrackerSummary.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/EventTrackerSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/EventTrackerSummary.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/EventTrackerSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/EventTrackerSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/EventTrackerSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/EventTrackerSummary) 

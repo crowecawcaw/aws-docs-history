@@ -1,58 +1,44 @@
-# RecommenderUpdateSummary
 
-Provides a summary of the properties of a recommender update. For a complete listing, call the
-[DescribeRecommender](API_DescribeRecommender.md "API_DescribeRecommender.md") API.
+
+# RecommenderUpdateSummary
+<a name="API_RecommenderUpdateSummary"></a>
+
+Provides a summary of the properties of a recommender update. For a complete listing, call the [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html) API.
 
 ## Contents
+<a name="API_RecommenderUpdateSummary_Contents"></a>
 
-**creationDateTime**
-
-The date and time (in Unix format) that the recommender update was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-RecommenderUpdateSummary-creationDateTime"></a>
+The date and time (in Unix format) that the recommender update was created.  
+Type: Timestamp  
 Required: No
 
-**failureReason**
-
-If a recommender update fails, the reason behind the failure.
-
-Type: String
-
+ ** failureReason **   <a name="personalize-Type-RecommenderUpdateSummary-failureReason"></a>
+If a recommender update fails, the reason behind the failure.  
+Type: String  
 Required: No
 
-**lastUpdatedDateTime**
-
-The date and time (in Unix time) that the recommender update was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-RecommenderUpdateSummary-lastUpdatedDateTime"></a>
+The date and time (in Unix time) that the recommender update was last updated.  
+Type: Timestamp  
 Required: No
 
-**recommenderConfig**
-
-The configuration details of the recommender update.
-
-Type: [RecommenderConfig](API_RecommenderConfig.md "API_RecommenderConfig.md") object
-
+ ** recommenderConfig **   <a name="personalize-Type-RecommenderUpdateSummary-recommenderConfig"></a>
+The configuration details of the recommender update.  
+Type: [RecommenderConfig](API_RecommenderConfig.md) object  
 Required: No
 
-**status**
-
-The status of the recommender update. A recommender update can be in one of the following states:
-
-CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-RecommenderUpdateSummary-status"></a>
+The status of the recommender update. A recommender update can be in one of the following states:  
+CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED  
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_RecommenderUpdateSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/RecommenderUpdateSummary.md "../../../goto/SdkForCpp/personalize-2018-05-22/RecommenderUpdateSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/RecommenderUpdateSummary.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/RecommenderUpdateSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/RecommenderUpdateSummary.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/RecommenderUpdateSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/RecommenderUpdateSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/RecommenderUpdateSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/RecommenderUpdateSummary) 

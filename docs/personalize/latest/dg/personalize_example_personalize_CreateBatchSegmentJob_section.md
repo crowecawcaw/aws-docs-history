@@ -1,16 +1,15 @@
+
+
 # Use `CreateBatchSegmentJob` with an AWS SDK
+<a name="personalize_example_personalize_CreateBatchSegmentJob_section"></a>
 
 The following code example shows how to use `CreateBatchSegmentJob`.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples). 
 
 ```
 // Get service clients module and commands using ES6 syntax.
@@ -51,14 +50,9 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
++  For API details, see [CreateBatchSegmentJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateBatchSegmentJobCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateBatchSegmentJob](../../../AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateBatchSegmentJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateBatchSegmentJobCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

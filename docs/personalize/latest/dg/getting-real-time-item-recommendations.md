@@ -1,83 +1,77 @@
+
+
 # Getting real-time item recommendations
+<a name="getting-real-time-item-recommendations"></a>
 
-You can get real-time item recommendations from an Amazon Personalize recommender or custom campaign with the Amazon Personalize console, AWS Command Line Interface
-(AWS CLI), or AWS SDKs.
+ You can get real-time item recommendations from an Amazon Personalize recommender or custom campaign with the Amazon Personalize console, AWS Command Line Interface (AWS CLI), or AWS SDKs. 
 
-###### Topics
-
-- [Getting item recommendations (console)](#get-real-time-recommendations-console "#get-real-time-recommendations-console")
-- [Getting item recommendations (AWS CLI)](#get-item-rec-cli "#get-item-rec-cli")
-- [Getting item recommendations (AWS SDKs)](#get-item-rec-sdk "#get-item-rec-sdk")
+**Topics**
++ [Getting item recommendations (console)](#get-real-time-recommendations-console)
++ [Getting item recommendations (AWS CLI)](#get-item-rec-cli)
++ [Getting item recommendations (AWS SDKs)](#get-item-rec-sdk)
 
 ## Getting item recommendations (console)
+<a name="get-real-time-recommendations-console"></a>
 
-To get recommendations with the Amazon Personalize console, you provide the request information on the details page of either a
-recommender (Domain dataset group) or a custom campaign.
+ To get recommendations with the Amazon Personalize console, you provide the request information on the details page of either a recommender (Domain dataset group) or a custom campaign.
 
-###### To get recommendations
+**To get recommendations**
 
-1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home "https://console.aws.amazon.com/personalize/home") and sign into your account.
-2. Choose the dataset group that contains the campaign or recommender you are using.
-3. In the navigation pane, choose **Campaigns** or **Recommenders**.
-4. Choose the target campaign or recommender.
-5. For a campaigns, under **Test campaign results**, enter your recommendation request details
-   based on the recipe you used. For a recommenders choose **Test recommender** and enter your
-   recommendation request details based on your use case.
+1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account. 
 
-If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events"). 6. Optionally choose a filter. For more information, see [Filtering recommendations and user segments](filter.md "filter.md"). 7. If you use contextual metadata, provide data for each context. For each context, for the **Key** enter the metadata field. For the **Value** enter the context data. For
-more information, see [Increasing recommendation relevance with contextual metadata](contextual-metadata.md "contextual-metadata.md"). 8. If you enabled metadata in recommendations for your campaign or recommender, for **Items dataset
-columns**, choose the metadata columns that you want to include in recommendation results. For information
-about enabling metadata for a campaign, see [Item metadata in recommendations](campaigns.md#create-campaign-return-metadata "campaigns.md#create-campaign-return-metadata"). For information about enabling metadata for a recommender, see
-[Enabling metadata in recommendations for a domain recommender in Amazon Personalize](create-recommender-return-metadata.md "create-recommender-return-metadata.md"). 9. If you want to promote a subset of items, optionally complete the **Promotion** fields. For more
-information see [Promoting items in real-time recommendations](promoting-items.md "promoting-items.md"). 10. Choose **Get recommendations**. A table containing the user’s top 25 recommended
-items displays. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in recommendations. For more information, see
-[Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons "recommendations.md#recommendation-reasons").
+1. Choose the dataset group that contains the campaign or recommender you are using.
+
+1. In the navigation pane, choose **Campaigns** or **Recommenders**.
+
+1. Choose the target campaign or recommender.
+
+1.  For a campaigns, under **Test campaign results**, enter your recommendation request details based on the recipe you used. For a recommenders choose **Test recommender** and enter your recommendation request details based on your use case. 
+
+    If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events). 
+
+1. Optionally choose a filter. For more information, see [Filtering recommendations and user segments](filter.md). 
+
+1. If you use contextual metadata, provide data for each context. For each context, for the **Key** enter the metadata field. For the **Value** enter the context data. For more information, see [Increasing recommendation relevance with contextual metadata](contextual-metadata.md). 
+
+1. If you enabled metadata in recommendations for your campaign or recommender, for **Items dataset columns**, choose the metadata columns that you want to include in recommendation results. For information about enabling metadata for a campaign, see [Item metadata in recommendations](campaigns.md#create-campaign-return-metadata). For information about enabling metadata for a recommender, see [Enabling metadata in recommendations for a domain recommender in Amazon Personalize](create-recommender-return-metadata.md).
+
+1.  If you want to promote a subset of items, optionally complete the **Promotion** fields. For more information see [Promoting items in real-time recommendations](promoting-items.md). 
+
+1. Choose **Get recommendations**. A table containing the user’s top 25 recommended items displays. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in recommendations. For more information, see [Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons). 
 
 ## Getting item recommendations (AWS CLI)
+<a name="get-item-rec-cli"></a>
 
-Use the following code to get recommendations from a campaign. To get recommendations from a recommender, replace the
-`campaign-arn` parameter with the `recommender-arn`.
+Use the following code to get recommendations from a campaign. To get recommendations from a recommender, replace the `campaign-arn` parameter with the `recommender-arn`.
 
-Specify the ID of the user you want to get recommendations for, and the Amazon Resource Name (ARN) of your campaign
-or recommender. A list of the top 10 recommended items for the user displays. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in recommendations. For more information, see
-[Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons "recommendations.md#recommendation-reasons").
+ Specify the ID of the user you want to get recommendations for, and the Amazon Resource Name (ARN) of your campaign or recommender. A list of the top 10 recommended items for the user displays. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in recommendations. For more information, see [Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons). 
 
-To change the number of recommended items, change the value for `numResults`. The default is 25 items. The
-maximum is 500 items. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the
-`user-id` parameter with `item-id` and specify the item ID.
+To change the number of recommended items, change the value for `numResults`. The default is 25 items. The maximum is 500 items. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `user-id` parameter with `item-id` and specify the item ID. 
 
-If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+ If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events). 
 
 ```
 aws personalize-runtime get-recommendations \
---campaign-arn `campaign arn` \
---user-id `User ID` \
+--campaign-arn {{campaign arn}} \
+--user-id {{User ID}} \
 --num-results 10
 ```
 
 ## Getting item recommendations (AWS SDKs)
+<a name="get-item-rec-sdk"></a>
 
-The following code shows how to get Amazon Personalize recommendations for a user from a campaign with the AWS SDKs. To get
-recommendations from a recommender, replace the `campaignArn` parameter with the `recommenderArn`.
+The following code shows how to get Amazon Personalize recommendations for a user from a campaign with the AWS SDKs. To get recommendations from a recommender, replace the `campaignArn` parameter with the `recommenderArn`. 
 
-Specify the ID of the user you want to get recommendations for, and the Amazon Resource Name (ARN) of your campaign or
-recommender. A list of the top 10 recommended items for the user displays. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in recommendations. For more information, see
-[Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons "recommendations.md#recommendation-reasons").
+Specify the ID of the user you want to get recommendations for, and the Amazon Resource Name (ARN) of your campaign or recommender. A list of the top 10 recommended items for the user displays. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in recommendations. For more information, see [Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons).
 
-To change the number of recommended items, change the value for `numResults`. The default is 25 items. The
-maximum is 500 items. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the
-`userId` parameter with `itemId` and specify the item ID.
+To change the number of recommended items, change the value for `numResults`. The default is 25 items. The maximum is 500 items. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID. 
 
-If you enabled metadata in recommendations for your campaign or recommender, you can specify the Items dataset
-metadata columns to include in the response. For a code sample, see [Including item metadata with recommendations (AWS SDKs)](getting-recommendations-with-metadata.md#getting-recommendations-with-metadata-sdk "getting-recommendations-with-metadata.md#getting-recommendations-with-metadata-sdk"). For
-information about enabling metadata, see [Item metadata in recommendations](campaigns.md#create-campaign-return-metadata "campaigns.md#create-campaign-return-metadata").
+If you enabled metadata in recommendations for your campaign or recommender, you can specify the Items dataset metadata columns to include in the response. For a code sample, see [Including item metadata with recommendations (AWS SDKs)](getting-recommendations-with-metadata.md#getting-recommendations-with-metadata-sdk). For information about enabling metadata, see [Item metadata in recommendations](campaigns.md#create-campaign-return-metadata).
 
-If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+ If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events). 
 
-SDK for Python (Boto3)
+------
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
@@ -85,8 +79,8 @@ import boto3
 personalizeRt = boto3.client('personalize-runtime')
 
 response = personalizeRt.get_recommendations(
-    campaignArn = '`Campaign ARN`',
-    userId = '`User ID`',
+    campaignArn = '{{Campaign ARN}}',
+    userId = '{{User ID}}',
     numResults = 10
 )
 
@@ -95,7 +89,8 @@ for item in response['itemList']:
     print (item['itemId'])
 ```
 
-SDK for Java 2.x
+------
+#### [ SDK for Java 2.x ]
 
 ```
     public static void getRecs(PersonalizeRuntimeClient personalizeRuntimeClient, String campaignArn, String userId) {
@@ -120,10 +115,10 @@ SDK for Java 2.x
             System.exit(1);
         }
     }
-
 ```
 
-SDK for JavaScript v3
+------
+#### [ SDK for JavaScript v3 ]
 
 ```
 // Get service clients module and commands using ES6 syntax.
@@ -152,6 +147,6 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
+
+------

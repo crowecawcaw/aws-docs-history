@@ -1,126 +1,105 @@
-# ListSolutions
 
-Returns a list of solutions in a given dataset group.
-When a dataset group is not specified, all the solutions associated with the account are listed.
-The response provides the properties for each solution, including the Amazon Resource Name (ARN).
-For more information on solutions, see [CreateSolution](API_CreateSolution.md "API_CreateSolution.md").
+
+# ListSolutions
+<a name="API_ListSolutions"></a>
+
+Returns a list of solutions in a given dataset group. When a dataset group is not specified, all the solutions associated with the account are listed. The response provides the properties for each solution, including the Amazon Resource Name (ARN). For more information on solutions, see [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
 
 ## Request Syntax
+<a name="API_ListSolutions_RequestSyntax"></a>
 
 ```
 {
-   "datasetGroupArn": "`string`",
-   "maxResults": `number`,
-   "nextToken": "`string`"
+   "datasetGroupArn": "{{string}}",
+   "maxResults": {{number}},
+   "nextToken": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_ListSolutions_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[datasetGroupArn](#API_ListSolutions_RequestSyntax "#API_ListSolutions_RequestSyntax")**
-
-The Amazon Resource Name (ARN) of the dataset group.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** [datasetGroupArn](#API_ListSolutions_RequestSyntax) **   <a name="personalize-ListSolutions-request-datasetGroupArn"></a>
+The Amazon Resource Name (ARN) of the dataset group.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**[maxResults](#API_ListSolutions_RequestSyntax "#API_ListSolutions_RequestSyntax")**
-
-The maximum number of solutions to return.
-
-Type: Integer
-
-Valid Range: Minimum value of 1. Maximum value of 100.
-
+ ** [maxResults](#API_ListSolutions_RequestSyntax) **   <a name="personalize-ListSolutions-request-maxResults"></a>
+The maximum number of solutions to return.  
+Type: Integer  
+Valid Range: Minimum value of 1. Maximum value of 100.  
 Required: No
 
-**[nextToken](#API_ListSolutions_RequestSyntax "#API_ListSolutions_RequestSyntax")**
-
-A token returned from the previous call to `ListSolutions` for getting
-the next set of solutions (if they exist).
-
-Type: String
-
-Length Constraints: Maximum length of 1500.
-
-Pattern: `\p{ASCII}{0,1500}`
-
+ ** [nextToken](#API_ListSolutions_RequestSyntax) **   <a name="personalize-ListSolutions-request-nextToken"></a>
+A token returned from the previous call to `ListSolutions` for getting the next set of solutions (if they exist).  
+Type: String  
+Length Constraints: Maximum length of 1500.  
+Pattern: `\p{ASCII}{0,1500}`   
 Required: No
 
 ## Response Syntax
+<a name="API_ListSolutions_ResponseSyntax"></a>
 
 ```
 {
-   "nextToken": "***string***",
-   "solutions": [
-      {
-         "creationDateTime": ***number***,
-         "lastUpdatedDateTime": ***number***,
-         "name": "***string***",
-         "recipeArn": "***string***",
-         "solutionArn": "***string***",
-         "status": "***string***"
+   "nextToken": "string",
+   "solutions": [ 
+      { 
+         "creationDateTime": number,
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "recipeArn": "string",
+         "solutionArn": "string",
+         "status": "string"
       }
    ]
 }
 ```
 
 ## Response Elements
+<a name="API_ListSolutions_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[nextToken](#API_ListSolutions_ResponseSyntax "#API_ListSolutions_ResponseSyntax")**
+ ** [nextToken](#API_ListSolutions_ResponseSyntax) **   <a name="personalize-ListSolutions-response-nextToken"></a>
+A token for getting the next set of solutions (if they exist).  
+Type: String  
+Length Constraints: Maximum length of 1500.  
+Pattern: `\p{ASCII}{0,1500}` 
 
-A token for getting the next set of solutions (if they exist).
-
-Type: String
-
-Length Constraints: Maximum length of 1500.
-
-Pattern: `\p{ASCII}{0,1500}`
-
-**[solutions](#API_ListSolutions_ResponseSyntax "#API_ListSolutions_ResponseSyntax")**
-
-A list of the current solutions.
-
-Type: Array of [SolutionSummary](API_SolutionSummary.md "API_SolutionSummary.md") objects
-
+ ** [solutions](#API_ListSolutions_ResponseSyntax) **   <a name="personalize-ListSolutions-response-solutions"></a>
+A list of the current solutions.  
+Type: Array of [SolutionSummary](API_SolutionSummary.md) objects  
 Array Members: Maximum number of 100 items.
 
 ## Errors
+<a name="API_ListSolutions_Errors"></a>
 
-**InvalidInputException**
-
-Provide a valid value for the field or parameter.
-
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter.  
 HTTP Status Code: 400
 
-**InvalidNextTokenException**
-
-The token is not valid.
-
+ ** InvalidNextTokenException **   
+The token is not valid.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_ListSolutions_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/ListSolutions.md "../../../goto/cli2/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/ListSolutions.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForCpp/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForGoV2/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForKotlin/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/ListSolutions.md "../../../goto/boto3/personalize-2018-05-22/ListSolutions.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/ListSolutions.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/ListSolutions.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/ListSolutions) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/ListSolutions) 

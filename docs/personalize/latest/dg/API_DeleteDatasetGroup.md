@@ -1,71 +1,65 @@
+
+
 # DeleteDatasetGroup
+<a name="API_DeleteDatasetGroup"></a>
 
-Deletes a dataset group. Before you delete a dataset group, you must
-delete the following:
-
-- All associated event trackers.
-- All associated solutions.
-- All datasets in the dataset group.
+Deletes a dataset group. Before you delete a dataset group, you must delete the following:
++ All associated event trackers.
++ All associated solutions.
++ All datasets in the dataset group.
 
 ## Request Syntax
+<a name="API_DeleteDatasetGroup_RequestSyntax"></a>
 
 ```
 {
-   "datasetGroupArn": "`string`"
+   "datasetGroupArn": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DeleteDatasetGroup_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[datasetGroupArn](#API_DeleteDatasetGroup_RequestSyntax "#API_DeleteDatasetGroup_RequestSyntax")**
-
-The ARN of the dataset group to delete.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** [datasetGroupArn](#API_DeleteDatasetGroup_RequestSyntax) **   <a name="personalize-DeleteDatasetGroup-request-datasetGroupArn"></a>
+The ARN of the dataset group to delete.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
 ## Response Elements
+<a name="API_DeleteDatasetGroup_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
 
 ## Errors
+<a name="API_DeleteDatasetGroup_Errors"></a>
 
-**InvalidInputException**
-
-Provide a valid value for the field or parameter.
-
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter.  
 HTTP Status Code: 400
 
-**ResourceInUseException**
-
-The specified resource is in use.
-
+ ** ResourceInUseException **   
+The specified resource is in use.  
 HTTP Status Code: 400
 
-**ResourceNotFoundException**
-
-Could not find the specified resource.
-
+ ** ResourceNotFoundException **   
+Could not find the specified resource.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_DeleteDatasetGroup_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/cli2/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForCpp/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForGoV2/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForKotlin/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/boto3/personalize-2018-05-22/DeleteDatasetGroup.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DeleteDatasetGroup.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DeleteDatasetGroup.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DeleteDatasetGroup) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DeleteDatasetGroup) 

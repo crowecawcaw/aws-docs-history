@@ -1,113 +1,73 @@
+
+
 # Importing items individually
+<a name="importing-items"></a>
 
-After you complete [Creating a schema and a dataset](data-prep-creating-datasets.md "data-prep-creating-datasets.md") to create an Items dataset, you can individually import one or
-more new items into the dataset. Individually importing items allows you to
-keep your Items dataset current with small batch imports as your catalog grows. You can import
-up to 10 items at a time. If you have a large
-amount of new items, we recommend that you first import data in bulk and
-then import item data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
+After you complete [Creating a schema and a dataset](data-prep-creating-datasets.md) to create an Items dataset, you can individually import one or more new items into the dataset. Individually importing items allows you to keep your Items dataset current with small batch imports as your catalog grows. You can import up to 10 items at a time. If you have a large amount of new items, we recommend that you first import data in bulk and then import item data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md).
 
-You can use the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs to
-import items. If you import an item with the same `itemId` as an
-item that's already in your Items dataset, Amazon Personalize replaces it with the new
-item.
+You can use the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs to import items. If you import an item with the same `itemId` as an item that's already in your Items dataset, Amazon Personalize replaces it with the new item.
 
-For information about how Amazon Personalize updates filters for new records and
-how new records influence recommendations, see [Importing individual records into an Amazon Personalize dataset](incremental-data-updates.md "incremental-data-updates.md").
+ For information about how Amazon Personalize updates filters for new records and how new records influence recommendations, see [Importing individual records into an Amazon Personalize dataset](incremental-data-updates.md). 
 
-###### Topics
-
-- [Importing items individually (console)](#importing-items-console "#importing-items-console")
-- [Importing items individually (AWS CLI)](#importing-items-cli "#importing-items-cli")
-- [Importing items individually (AWS SDKs)](#importing-items-cli-sdk "#importing-items-cli-sdk")
+**Topics**
++ [Importing items individually (console)](#importing-items-console)
++ [Importing items individually (AWS CLI)](#importing-items-cli)
++ [Importing items individually (AWS SDKs)](#importing-items-cli-sdk)
 
 ## Importing items individually (console)
+<a name="importing-items-console"></a>
 
-You can import up to 10 items to an Items dataset at a time. This
-procedure assumes that you have already created an Items dataset. For
-information about creating datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md "data-prep-creating-datasets.md").
+You can import up to 10 items to an Items dataset at a time. This procedure assumes that you have already created an Items dataset. For information about creating datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md).
 
-###### To import items individually (console)
+**To import items individually (console)**
 
-1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home "https://console.aws.amazon.com/personalize/home") and sign in to your
-   account.
-2. On the **Dataset groups** page, choose the
-   dataset group with the Items dataset that you want to import the items
-   to.
-3. In the navigation pane, choose **Datasets**.
-4. On the **Datasets** page, choose the Items
-   dataset.
-5. At the top right of the dataset details page, choose
-   **Modify dataset**, and then choose
-   **Create record**.
-6. In **Create item record(s)** page, for
-   **Record input**, enter the item details in JSON
-   format. The item's field names and values must match the schema you
-   used when you created the Items dataset. Amazon Personalize provides a JSON
-   template with field names and data types from this schema.
-7. Choose **Create record(s)**. In
-   **Response**, the result of the import is listed
-   and a success or failure message is displayed.
+1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account.
+
+1. On the **Dataset groups** page, choose the dataset group with the Items dataset that you want to import the items to. 
+
+1. In the navigation pane, choose **Datasets**. 
+
+1. On the **Datasets** page, choose the Items dataset. 
+
+1. At the top right of the dataset details page, choose **Modify dataset**, and then choose **Create record**. 
+
+1. In **Create item record(s)** page, for **Record input**, enter the item details in JSON format. The item's field names and values must match the schema you used when you created the Items dataset. Amazon Personalize provides a JSON template with field names and data types from this schema.
+
+1. Choose **Create record(s)**. In **Response**, the result of the import is listed and a success or failure message is displayed.
 
 ## Importing items individually (AWS CLI)
+<a name="importing-items-cli"></a>
 
-Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md "API_UBS_PutItems.md") operation.
-You can import up to 10 items with a single `PutItems` call.
-This section assumes that you have already created an Items dataset. For
-information about creating datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md "data-prep-creating-datasets.md").
+Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md) operation. You can import up to 10 items with a single `PutItems` call. This section assumes that you have already created an Items dataset. For information about creating datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md).
 
-Use the following `put-items` command to add one or more
-items with the AWS CLI. Replace `dataset arn` with the Amazon
-Resource Name (ARN) of your dataset and `item Id` with the ID
-of the item. If an item with the same `itemId` is already in
-your Items dataset, Amazon Personalize replaces it with the new one.
+Use the following `put-items` command to add one or more items with the AWS CLI. Replace `dataset arn` with the Amazon Resource Name (ARN) of your dataset and `item Id` with the ID of the item. If an item with the same `itemId` is already in your Items dataset, Amazon Personalize replaces it with the new one.
 
-For `properties`, for each field in your Items dataset,
-replace the `propertyName` with the field name from your schema
-in camel case. For example, GENRES would be `genres` and
-CREATION\_TIMESTAMP would be creationTimestamp. Replace `item
- data` with the data for the item. `CREATION_TIMESTAMP`
-data must be in [Unix epoch time
-format](interactions-datasets.md#timestamp-data "interactions-datasets.md#timestamp-data") and in seconds. For categorical string data, to include
-multiple categories for a single property, separate each category with a
-pipe (`|`). For example `\"Horror|Action\"`.
+For `properties`, for each field in your Items dataset, replace the `propertyName` with the field name from your schema in camel case. For example, GENRES would be `genres` and CREATION\_TIMESTAMP would be creationTimestamp. Replace `item data` with the data for the item. `CREATION_TIMESTAMP` data must be in [Unix epoch time format](interactions-datasets.md#timestamp-data) and in seconds. For categorical string data, to include multiple categories for a single property, separate each category with a pipe (`|`). For example `\"Horror|Action\"`.
 
 ```
 aws personalize-events put-items \
-  --dataset-arn `dataset arn` \
+  --dataset-arn {{dataset arn}} \
   --items '[{
-      "itemId": "`item Id`",
-      "properties": "{\"`propertyName`\": "\`item data`\"}"
-    },
+      "itemId": "{{item Id}}", 
+      "properties": "{\"{{propertyName}}\": "\{{item data}}\"}" 
+    }, 
     {
-      "itemId": "`item Id`",
-      "properties": "{\"`propertyName`\": "\`item data`\"}"
+      "itemId": "{{item Id}}", 
+      "properties": "{\"{{propertyName}}\": "\{{item data}}\"}" 
     }]'
 ```
 
 ## Importing items individually (AWS SDKs)
+<a name="importing-items-cli-sdk"></a>
 
-Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md "API_UBS_PutItems.md") operation.
-You can import up to 10 items with a single `PutItems` call. If an item with the
-same `itemId` is already in your Items dataset, Amazon Personalize
-replaces it with the new one. This section assumes that you have already created an Items dataset. For
-information about creating datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md "data-prep-creating-datasets.md").
+Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md) operation. You can import up to 10 items with a single `PutItems` call. If an item with the same `itemId` is already in your Items dataset, Amazon Personalize replaces it with the new one. This section assumes that you have already created an Items dataset. For information about creating datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md).
 
-The following code shows how to add one or more items to your Items
-dataset. For each property name parameter, pass the field name from your
-schema in camel case. For example, GENRES would be
-`genres` and CREATION\_TIMESTAMP would be
-`creationTimestamp`. For each property value parameter,
-pass the data for the item. `CREATION_TIMESTAMP` data
-must be in [Unix epoch time
-format](interactions-datasets.md#timestamp-data "interactions-datasets.md#timestamp-data") and in seconds.
+ The following code shows how to add one or more items to your Items dataset. For each property name parameter, pass the field name from your schema in camel case. For example, GENRES would be `genres` and CREATION\_TIMESTAMP would be `creationTimestamp`. For each property value parameter, pass the data for the item. `CREATION_TIMESTAMP` data must be in [Unix epoch time format](interactions-datasets.md#timestamp-data) and in seconds. 
 
-For categorical string data, to
-include multiple categories for a single property, separate each
-category with a pipe (`|`). For example
-`"Horror|Action"`.
+For categorical string data, to include multiple categories for a single property, separate each category with a pipe (`|`). For example `"Horror|Action"`.
 
-SDK for Python (Boto3)
+------
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
@@ -115,19 +75,20 @@ import boto3
 personalize_events = boto3.client(service_name='personalize-events')
 
 personalize_events.put_items(
-    datasetArn = '`dataset arn`',
+    datasetArn = '{{dataset arn}}',
     items = [{
-      'itemId': '`item ID`',
-      'properties': "{\"`propertyName`\": \"`item data`\"}"
+      'itemId': '{{item ID}}',
+      'properties': "{\"{{propertyName}}\": \"{{item data}}\"}"   
       },
       {
-      'itemId': '`item ID`',
-      'properties': "{\"`propertyName`\": \"`item data`\"}"
+      'itemId': '{{item ID}}',
+      'properties': "{\"{{propertyName}}\": \"{{item data}}\"}"   
       }]
 )
 ```
 
-SDK for Java 2.x
+------
+#### [ SDK for Java 2.x ]
 
 ```
 public static int putItems(PersonalizeEventsClient personalizeEventsClient,
@@ -175,7 +136,8 @@ public static int putItems(PersonalizeEventsClient personalizeEventsClient,
     }
 ```
 
-SDK for JavaScript v3
+------
+#### [ SDK for JavaScript v3 ]
 
 ```
 import {
@@ -184,21 +146,21 @@ import {
 } from "@aws-sdk/client-personalize-events";
 
 const personalizeEventsClient = new PersonalizeEventsClient({
-  region: "`REGION`",
+  region: "{{REGION}}",
 });
 
 // set the put items parameters
 var putItemsParam = {
   datasetArn:
-    "`DATASET ARN`",
+    "{{DATASET ARN}}",
   items: [
     {
-      itemId: "`itemId`",
-      properties: '{"`column1Name`": "`value`", "`column2Name`": "`value`"}',
+      itemId: "{{itemId}}", 
+      properties: '{"{{column1Name}}": "{{value}}", "{{column2Name}}": "{{value}}"}',
     },
     {
-      itemId: "`itemId`",
-      properties: '{"`column1Name`": "`value`", "`column2Name`": "`value`"}',
+      itemId: "{{itemId}}",
+      properties: '{"{{column1Name}}": "{{value}}", "{{column2Name}}": "{{value}}"}',
     },
   ],
 };
@@ -214,7 +176,6 @@ export const run = async () => {
   }
 };
 run();
-
-
-
 ```
+
+------

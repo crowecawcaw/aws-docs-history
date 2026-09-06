@@ -1,16 +1,15 @@
+
+
 # Use `CreateRecommender` with an AWS SDK
+<a name="personalize_example_personalize_CreateRecommender_section"></a>
 
 The following code examples show how to use `CreateRecommender`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples). 
 
 ```
     public static String createRecommender(PersonalizeClient personalizeClient,
@@ -63,23 +62,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return "";
     }
-
-
 ```
++  For API details, see [CreateRecommender](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateRecommender) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateRecommender](../../../goto/SdkForJavaV2/personalize-2018-05-22/CreateRecommender.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/CreateRecommender.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples). 
 
 ```
 // Get service clients module and commands using ES6 syntax.
@@ -108,14 +98,9 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
++  For API details, see [CreateRecommender](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateRecommenderCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateRecommender](../../../AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateRecommenderCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateRecommenderCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

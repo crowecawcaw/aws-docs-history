@@ -1,20 +1,15 @@
+
+
 # Recording a single item interaction event
+<a name="putevents-example"></a>
 
-After you create an _Item interactions dataset_ and an [event tracker](event-get-tracker.md "event-get-tracker.md") for your dataset group,
-you are ready to record item interaction events. The following example shows a `PutEvents` operation that passes one item interaction event. The
-corresponding schema is shown, along with an example row from the Item interactions dataset.
+After you create an *Item interactions dataset* and an [event tracker](event-get-tracker.md) for your dataset group, you are ready to record item interaction events. The following example shows a `PutEvents` operation that passes one item interaction event. The corresponding schema is shown, along with an example row from the Item interactions dataset.
 
-Your application generates a unique `sessionId` when a user first visits your website or uses your
-application. You must use the same `sessionId` in all events throughout the session. Amazon Personalize uses the
-`sessionId` to associate events with the user before they log in (is anonymous). For more information, see
-[Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+ Your application generates a unique `sessionId` when a user first visits your website or uses your application. You must use the same `sessionId` in all events throughout the session. Amazon Personalize uses the `sessionId` to associate events with the user before they log in (is anonymous). For more information, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events).
 
-The event list is an array of [Event](API_UBS_Event.md "API_UBS_Event.md") objects. An
-`eventType` is required for each event. If you don't have event type data, you can provide a placeholder value to satisfy the requirement.
+The event list is an array of [Event](API_UBS_Event.md) objects. An `eventType` is required for each event. If you don't have event type data, you can provide a placeholder value to satisfy the requirement. 
 
-The `trackingId` comes from the event tracker you created in [Creating an item interaction event tracker](event-get-tracker.md "event-get-tracker.md"). The `userId`, `itemId`, and `sentAt` parameters
-map to the USER\_ID, ITEM\_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset. For
-more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md").
+The `trackingId` comes from the event tracker you created in [Creating an item interaction event tracker](event-get-tracker.md). The `userId`, `itemId`, and `sentAt` parameters map to the USER\_ID, ITEM\_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset. For more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md).
 
 **Corresponding dataset columns**
 
@@ -25,7 +20,8 @@ Example data: user123, item-xyz, 1543631760, click
 
 **Code example**
 
-SDK for Python (Boto3)
+------
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
@@ -33,18 +29,19 @@ import boto3
 personalize_events = boto3.client(service_name='personalize-events')
 
 personalize_events.put_events(
-    trackingId = '`tracking_id`',
-    userId= '`USER_ID`',
-    sessionId = '`session_id`',
+    trackingId = '{{tracking_id}}',
+    userId= '{{USER_ID}}',
+    sessionId = '{{session_id}}',
     eventList = [{
-        'sentAt': `1719511760`,
-        'eventType': '`click`',
-        'itemId': '`ITEM_ID`'
+        'sentAt': {{1719511760}},
+        'eventType': '{{click}}',
+        'itemId': '{{ITEM_ID}}'
         }]
 )
 ```
 
-SDK for JavaScript v3
+------
+#### [ SDK for JavaScript v3 ]
 
 ```
 // Get service clients module and commands using ES6 syntax.
@@ -83,34 +80,35 @@ export const run = async () => {
   }
 };
 run();
-
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws personalize-events put-events \
     --tracking-id tracking_id \
-    --user-id `USER_ID` \
+    --user-id {{USER_ID}} \
     --session-id session_id \
     --event-list '[{
-        "sentAt": `1719511760`,
-        "eventType": "`click`",
-        "itemId": "`ITEM_ID`"
+        "sentAt": {{1719511760}},
+        "eventType": "{{click}}",
+        "itemId": "{{ITEM_ID}}"
       }]'
 ```
 
-SDK for Java 2.x
+------
+#### [ SDK for Java 2.x ]
 
 ```
-public static void putEvents(PersonalizeEventsClient personalizeEventsClient,
-                            String trackingId,
-                            String sessionId,
-                            String userId,
+public static void putEvents(PersonalizeEventsClient personalizeEventsClient, 
+                            String trackingId, 
+                            String sessionId, 
+                            String userId, 
                             String itemId,
                             String eventType) {
-
-    try {
+    
+    try { 
         Event event = Event.builder()
             .sentAt(Instant.ofEpochMilli(System.currentTimeMillis() + 10 * 60 * 1000))
             .itemId(itemId)
@@ -134,3 +132,5 @@ public static void putEvents(PersonalizeEventsClient personalizeEventsClient,
         }
 }
 ```
+
+------

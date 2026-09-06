@@ -1,98 +1,92 @@
-# DescribeDatasetImportJob
 
-Describes the dataset import job created by [CreateDatasetImportJob](API_CreateDatasetImportJob.md "API_CreateDatasetImportJob.md"), including the import job status.
+
+# DescribeDatasetImportJob
+<a name="API_DescribeDatasetImportJob"></a>
+
+Describes the dataset import job created by [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html), including the import job status.
 
 ## Request Syntax
+<a name="API_DescribeDatasetImportJob_RequestSyntax"></a>
 
 ```
 {
-   "datasetImportJobArn": "`string`"
+   "datasetImportJobArn": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DescribeDatasetImportJob_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[datasetImportJobArn](#API_DescribeDatasetImportJob_RequestSyntax "#API_DescribeDatasetImportJob_RequestSyntax")**
-
-The Amazon Resource Name (ARN) of the dataset import job to
-describe.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** [datasetImportJobArn](#API_DescribeDatasetImportJob_RequestSyntax) **   <a name="personalize-DescribeDatasetImportJob-request-datasetImportJobArn"></a>
+The Amazon Resource Name (ARN) of the dataset import job to describe.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_DescribeDatasetImportJob_ResponseSyntax"></a>
 
 ```
 {
-   "datasetImportJob": {
-      "creationDateTime": ***number***,
-      "datasetArn": "***string***",
-      "datasetImportJobArn": "***string***",
-      "dataSource": {
-         "dataLocation": "***string***"
+   "datasetImportJob": { 
+      "creationDateTime": number,
+      "datasetArn": "string",
+      "datasetImportJobArn": "string",
+      "dataSource": { 
+         "dataLocation": "string"
       },
-      "failureReason": "***string***",
-      "importMode": "***string***",
-      "jobName": "***string***",
-      "lastUpdatedDateTime": ***number***,
-      "publishAttributionMetricsToS3": ***boolean***,
-      "roleArn": "***string***",
-      "status": "***string***"
+      "failureReason": "string",
+      "importMode": "string",
+      "jobName": "string",
+      "lastUpdatedDateTime": number,
+      "publishAttributionMetricsToS3": boolean,
+      "roleArn": "string",
+      "status": "string"
    }
 }
 ```
 
 ## Response Elements
+<a name="API_DescribeDatasetImportJob_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[datasetImportJob](#API_DescribeDatasetImportJob_ResponseSyntax "#API_DescribeDatasetImportJob_ResponseSyntax")**
-
-Information about the dataset import job, including the status.
-
-The status is one of the following values:
-
-- CREATE PENDING
-- CREATE IN\_PROGRESS
-- ACTIVE
-- CREATE FAILED
-
-Type: [DatasetImportJob](API_DatasetImportJob.md "API_DatasetImportJob.md") object
+ ** [datasetImportJob](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="personalize-DescribeDatasetImportJob-response-datasetImportJob"></a>
+Information about the dataset import job, including the status.  
+The status is one of the following values:  
++ CREATE PENDING
++ CREATE IN\_PROGRESS
++ ACTIVE
++ CREATE FAILED
+Type: [DatasetImportJob](API_DatasetImportJob.md) object
 
 ## Errors
+<a name="API_DescribeDatasetImportJob_Errors"></a>
 
-**InvalidInputException**
-
-Provide a valid value for the field or parameter.
-
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter.  
 HTTP Status Code: 400
 
-**ResourceNotFoundException**
-
-Could not find the specified resource.
-
+ ** ResourceNotFoundException **   
+Could not find the specified resource.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_DescribeDatasetImportJob_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/cli2/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForCpp/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/boto3/personalize-2018-05-22/DescribeDatasetImportJob.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeDatasetImportJob.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeDatasetImportJob.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeDatasetImportJob) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeDatasetImportJob) 

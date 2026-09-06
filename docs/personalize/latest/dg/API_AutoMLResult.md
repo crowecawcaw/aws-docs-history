@@ -1,27 +1,24 @@
-# AutoMLResult
 
-When the solution performs AutoML (`performAutoML` is true in
-[CreateSolution](API_CreateSolution.md "API_CreateSolution.md")), specifies the recipe that best optimized the
-specified metric.
+
+# AutoMLResult
+<a name="API_AutoMLResult"></a>
+
+When the solution performs AutoML (`performAutoML` is true in [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)), specifies the recipe that best optimized the specified metric.
 
 ## Contents
+<a name="API_AutoMLResult_Contents"></a>
 
-**bestRecipeArn**
-
-The Amazon Resource Name (ARN) of the best recipe.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** bestRecipeArn **   <a name="personalize-Type-AutoMLResult-bestRecipeArn"></a>
+The Amazon Resource Name (ARN) of the best recipe.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
 ## See Also
+<a name="API_AutoMLResult_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/AutoMLResult.md "../../../goto/SdkForCpp/personalize-2018-05-22/AutoMLResult.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/AutoMLResult.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/AutoMLResult.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/AutoMLResult.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/AutoMLResult.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/AutoMLResult) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/AutoMLResult) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/AutoMLResult) 

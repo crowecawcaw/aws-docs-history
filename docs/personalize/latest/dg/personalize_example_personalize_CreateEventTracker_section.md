@@ -1,16 +1,15 @@
+
+
 # Use `CreateEventTracker` with an AWS SDK
+<a name="personalize_example_personalize_CreateEventTracker_section"></a>
 
 The following code examples show how to use `CreateEventTracker`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples). 
 
 ```
     public static String createEventTracker(PersonalizeClient personalizeClient, String eventTrackerName,
@@ -64,23 +63,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return eventTrackerId;
     }
-
-
 ```
++  For API details, see [CreateEventTracker](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateEventTracker) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateEventTracker](../../../goto/SdkForJavaV2/personalize-2018-05-22/CreateEventTracker.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/CreateEventTracker.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples). 
 
 ```
 // Get service clients module and commands using ES6 syntax.
@@ -108,14 +98,9 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
++  For API details, see [CreateEventTracker](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateEventTrackerCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateEventTracker](../../../AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateEventTrackerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateEventTrackerCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

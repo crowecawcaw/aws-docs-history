@@ -1,94 +1,90 @@
-# DescribeDataset
 
-Describes the given dataset. For more information on datasets, see
-[CreateDataset](API_CreateDataset.md "API_CreateDataset.md").
+
+# DescribeDataset
+<a name="API_DescribeDataset"></a>
+
+Describes the given dataset. For more information on datasets, see [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
 
 ## Request Syntax
+<a name="API_DescribeDataset_RequestSyntax"></a>
 
 ```
 {
-   "datasetArn": "`string`"
+   "datasetArn": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DescribeDataset_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[datasetArn](#API_DescribeDataset_RequestSyntax "#API_DescribeDataset_RequestSyntax")**
-
-The Amazon Resource Name (ARN) of the dataset to describe.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** [datasetArn](#API_DescribeDataset_RequestSyntax) **   <a name="personalize-DescribeDataset-request-datasetArn"></a>
+The Amazon Resource Name (ARN) of the dataset to describe.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_DescribeDataset_ResponseSyntax"></a>
 
 ```
 {
-   "dataset": {
-      "creationDateTime": ***number***,
-      "datasetArn": "***string***",
-      "datasetGroupArn": "***string***",
-      "datasetType": "***string***",
-      "lastUpdatedDateTime": ***number***,
-      "latestDatasetUpdate": {
-         "creationDateTime": ***number***,
-         "failureReason": "***string***",
-         "lastUpdatedDateTime": ***number***,
-         "schemaArn": "***string***",
-         "status": "***string***"
+   "dataset": { 
+      "creationDateTime": number,
+      "datasetArn": "string",
+      "datasetGroupArn": "string",
+      "datasetType": "string",
+      "lastUpdatedDateTime": number,
+      "latestDatasetUpdate": { 
+         "creationDateTime": number,
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "schemaArn": "string",
+         "status": "string"
       },
-      "name": "***string***",
-      "schemaArn": "***string***",
-      "status": "***string***",
-      "trackingId": "***string***"
+      "name": "string",
+      "schemaArn": "string",
+      "status": "string",
+      "trackingId": "string"
    }
 }
 ```
 
 ## Response Elements
+<a name="API_DescribeDataset_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[dataset](#API_DescribeDataset_ResponseSyntax "#API_DescribeDataset_ResponseSyntax")**
-
-A listing of the dataset's properties.
-
-Type: [Dataset](API_Dataset.md "API_Dataset.md") object
+ ** [dataset](#API_DescribeDataset_ResponseSyntax) **   <a name="personalize-DescribeDataset-response-dataset"></a>
+A listing of the dataset's properties.  
+Type: [Dataset](API_Dataset.md) object
 
 ## Errors
+<a name="API_DescribeDataset_Errors"></a>
 
-**InvalidInputException**
-
-Provide a valid value for the field or parameter.
-
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter.  
 HTTP Status Code: 400
 
-**ResourceNotFoundException**
-
-Could not find the specified resource.
-
+ ** ResourceNotFoundException **   
+Could not find the specified resource.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_DescribeDataset_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/DescribeDataset.md "../../../goto/cli2/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeDataset.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForCpp/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/DescribeDataset.md "../../../goto/boto3/personalize-2018-05-22/DescribeDataset.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeDataset.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeDataset.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeDataset) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeDataset) 

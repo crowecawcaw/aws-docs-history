@@ -1,83 +1,59 @@
+
+
 # FilterSummary
+<a name="API_FilterSummary"></a>
 
 A short summary of a filter's attributes.
 
 ## Contents
+<a name="API_FilterSummary_Contents"></a>
 
-**creationDateTime**
-
-The time at which the filter was created.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-FilterSummary-creationDateTime"></a>
+The time at which the filter was created.  
+Type: Timestamp  
 Required: No
 
-**datasetGroupArn**
-
-The ARN of the dataset group to which the filter belongs.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** datasetGroupArn **   <a name="personalize-Type-FilterSummary-datasetGroupArn"></a>
+The ARN of the dataset group to which the filter belongs.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**failureReason**
-
-If the filter failed, the reason for the failure.
-
-Type: String
-
+ ** failureReason **   <a name="personalize-Type-FilterSummary-failureReason"></a>
+If the filter failed, the reason for the failure.  
+Type: String  
 Required: No
 
-**filterArn**
-
-The ARN of the filter.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** filterArn **   <a name="personalize-Type-FilterSummary-filterArn"></a>
+The ARN of the filter.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**lastUpdatedDateTime**
-
-The time at which the filter was last updated.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-FilterSummary-lastUpdatedDateTime"></a>
+The time at which the filter was last updated.  
+Type: Timestamp  
 Required: No
 
-**name**
-
-The name of the filter.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-FilterSummary-name"></a>
+The name of the filter.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**status**
-
-The status of the filter.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-FilterSummary-status"></a>
+The status of the filter.  
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_FilterSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/FilterSummary.md "../../../goto/SdkForCpp/personalize-2018-05-22/FilterSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/FilterSummary.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/FilterSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/FilterSummary.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/FilterSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/FilterSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/FilterSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/FilterSummary) 

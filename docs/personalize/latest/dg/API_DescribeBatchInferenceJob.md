@@ -1,72 +1,71 @@
-# DescribeBatchInferenceJob
 
-Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
-status, input and output configurations, and the ARN of the solution version used to generate
-the recommendations.
+
+# DescribeBatchInferenceJob
+<a name="API_DescribeBatchInferenceJob"></a>
+
+Gets the properties of a batch inference job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate the recommendations.
 
 ## Request Syntax
+<a name="API_DescribeBatchInferenceJob_RequestSyntax"></a>
 
 ```
 {
-   "batchInferenceJobArn": "`string`"
+   "batchInferenceJobArn": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_DescribeBatchInferenceJob_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[batchInferenceJobArn](#API_DescribeBatchInferenceJob_RequestSyntax "#API_DescribeBatchInferenceJob_RequestSyntax")**
-
-The ARN of the batch inference job to describe.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** [batchInferenceJobArn](#API_DescribeBatchInferenceJob_RequestSyntax) **   <a name="personalize-DescribeBatchInferenceJob-request-batchInferenceJobArn"></a>
+The ARN of the batch inference job to describe.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
 ## Response Syntax
+<a name="API_DescribeBatchInferenceJob_ResponseSyntax"></a>
 
 ```
 {
-   "batchInferenceJob": {
-      "batchInferenceJobArn": "***string***",
-      "batchInferenceJobConfig": {
-         "itemExplorationConfig": {
-            "***string***" : "***string***"
+   "batchInferenceJob": { 
+      "batchInferenceJobArn": "string",
+      "batchInferenceJobConfig": { 
+         "itemExplorationConfig": { 
+            "string" : "string" 
          },
-         "rankingInfluence": {
-            "***string***" : ***number***
+         "rankingInfluence": { 
+            "string" : number 
          }
       },
-      "batchInferenceJobMode": "***string***",
-      "creationDateTime": ***number***,
-      "failureReason": "***string***",
-      "filterArn": "***string***",
-      "jobInput": {
-         "s3DataSource": {
-            "kmsKeyArn": "***string***",
-            "path": "***string***"
+      "batchInferenceJobMode": "string",
+      "creationDateTime": number,
+      "failureReason": "string",
+      "filterArn": "string",
+      "jobInput": { 
+         "s3DataSource": { 
+            "kmsKeyArn": "string",
+            "path": "string"
          }
       },
-      "jobName": "***string***",
-      "jobOutput": {
-         "s3DataDestination": {
-            "kmsKeyArn": "***string***",
-            "path": "***string***"
+      "jobName": "string",
+      "jobOutput": { 
+         "s3DataDestination": { 
+            "kmsKeyArn": "string",
+            "path": "string"
          }
       },
-      "lastUpdatedDateTime": ***number***,
-      "numResults": ***number***,
-      "roleArn": "***string***",
-      "solutionVersionArn": "***string***",
-      "status": "***string***",
-      "themeGenerationConfig": {
-         "fieldsForThemeGeneration": {
-            "itemName": "***string***"
+      "lastUpdatedDateTime": number,
+      "numResults": number,
+      "roleArn": "string",
+      "solutionVersionArn": "string",
+      "status": "string",
+      "themeGenerationConfig": { 
+         "fieldsForThemeGeneration": { 
+            "itemName": "string"
          }
       }
    }
@@ -74,42 +73,38 @@ Required: Yes
 ```
 
 ## Response Elements
+<a name="API_DescribeBatchInferenceJob_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[batchInferenceJob](#API_DescribeBatchInferenceJob_ResponseSyntax "#API_DescribeBatchInferenceJob_ResponseSyntax")**
-
-Information on the specified batch inference job.
-
-Type: [BatchInferenceJob](API_BatchInferenceJob.md "API_BatchInferenceJob.md") object
+ ** [batchInferenceJob](#API_DescribeBatchInferenceJob_ResponseSyntax) **   <a name="personalize-DescribeBatchInferenceJob-response-batchInferenceJob"></a>
+Information on the specified batch inference job.  
+Type: [BatchInferenceJob](API_BatchInferenceJob.md) object
 
 ## Errors
+<a name="API_DescribeBatchInferenceJob_Errors"></a>
 
-**InvalidInputException**
-
-Provide a valid value for the field or parameter.
-
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter.  
 HTTP Status Code: 400
 
-**ResourceNotFoundException**
-
-Could not find the specified resource.
-
+ ** ResourceNotFoundException **   
+Could not find the specified resource.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_DescribeBatchInferenceJob_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/cli2/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForCpp/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForGoV2/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForKotlin/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/boto3/personalize-2018-05-22/DescribeBatchInferenceJob.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeBatchInferenceJob.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DescribeBatchInferenceJob.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeBatchInferenceJob) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeBatchInferenceJob) 

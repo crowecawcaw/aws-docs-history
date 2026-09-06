@@ -1,22 +1,22 @@
+
+
 # Batch inference job output examples
+<a name="batch-inference-job-output-examples"></a>
 
-When you create a batch inference job, the job
-imports your batch input data from an Amazon S3 bucket, uses your solution
-version to generate _item recommendations_, and exports the recommendations to an Amazon S3 bucket in JSON format.
+When you create a batch inference job, the job imports your batch input data from an Amazon S3 bucket, uses your solution version to generate *item recommendations*, and exports the recommendations to an Amazon S3 bucket in JSON format. 
 
-The following sections list output file examples for batch inference jobs by recipe type. You can't get
-batch recommendations with the Trending-Now or Next-Best-Action recipes.
+The following sections list output file examples for batch inference jobs by recipe type. You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.
 
-###### Topics
-
-- [USER\_PERSONALIZATION recipes](#batch-inference-output-user-personalization "#batch-inference-output-user-personalization")
-- [POPULAR\_ITEMS recipes](#batch-inference-output-popular-items "#batch-inference-output-popular-items")
-- [PERSONALIZED\_RANKING recipes](#batch-inference-output-personalized-ranking "#batch-inference-output-personalized-ranking")
-- [RELATED\_ITEMS recipes](#batch-inference-output-related-items "#batch-inference-output-related-items")
+**Topics**
++ [USER\_PERSONALIZATION recipes](#batch-inference-output-user-personalization)
++ [POPULAR\_ITEMS recipes](#batch-inference-output-popular-items)
++ [PERSONALIZED\_RANKING recipes](#batch-inference-output-personalized-ranking)
++ [RELATED\_ITEMS recipes](#batch-inference-output-related-items)
 
 ## USER\_PERSONALIZATION recipes
+<a name="batch-inference-output-user-personalization"></a>
 
-The following is an example of the output JSON file for a USER\_PERSONALIZATION recipe.
+ The following is an example of the output JSON file for a USER\_PERSONALIZATION recipe. 
 
 ```
 {"input":{"userId":"4638"},"output":{"recommendedItems":["63992","115149","110102","148626","148888","31685","102445","69526","92535","143355","62374","7451","56171","122882","66097","91542","142488","139385","40583","71530","39292","111360","34048","47099","135137"],"scores":[0.0152238,0.0069081,0.0068222,0.006394,0.0059746,0.0055851,0.0049357,0.0044644,0.0042968,0.004015,0.0038805,0.0037476,0.0036563,0.0036178,0.00341,0.0033467,0.0033258,0.0032454,0.0032076,0.0031996,0.0029558,0.0029021,0.0029007,0.0028837,0.0028316]},"error":null}
@@ -26,9 +26,9 @@ The following is an example of the output JSON file for a USER\_PERSONALIZATION 
 ```
 
 ## POPULAR\_ITEMS recipes
+<a name="batch-inference-output-popular-items"></a>
 
-The following example shows the format of the output JSON file for the Popularity-Count recipe. You can't get
-batch recommendations with the Trending-Now recipe.
+ The following example shows the format of the output JSON file for the Popularity-Count recipe. You can't get batch recommendations with the Trending-Now recipe. 
 
 ```
 {"input": {"userId": "12"}, "output": {"recommendedItems": ["105", "106", "441"]}}
@@ -38,8 +38,9 @@ batch recommendations with the Trending-Now recipe.
 ```
 
 ## PERSONALIZED\_RANKING recipes
+<a name="batch-inference-output-personalized-ranking"></a>
 
-The following example shows the format of the output JSON file for a PERSONALIZED\_RANKING recipe.
+ The following example shows the format of the output JSON file for a PERSONALIZED\_RANKING recipe. 
 
 ```
 {"input":{"userId":"891","itemList":["27","886","101"]},"output":{"recommendedItems":["27","101","886"],"scores":[0.48421,0.28133,0.23446]}}
@@ -49,8 +50,9 @@ The following example shows the format of the output JSON file for a PERSONALIZE
 ```
 
 ## RELATED\_ITEMS recipes
+<a name="batch-inference-output-related-items"></a>
 
-The following example shows the format of the output JSON file for a RELATED\_ITEMS recipe.
+ The following example shows the format of the output JSON file for a RELATED\_ITEMS recipe. 
 
 ```
 {"input": {"itemId": "105"}, "output": {"recommendedItems": ["106", "107", "49"]}}
@@ -59,12 +61,10 @@ The following example shows the format of the output JSON file for a RELATED\_IT
 ...
 ```
 
-The following example shows the format of the output JSON file for the Similar-Items recipe with themes.
-For more information about recommendations with themes, see [Batch recommendations with themes from Content Generator](themed-batch-recommendations.md "themed-batch-recommendations.md").
+ The following example shows the format of the output JSON file for the Similar-Items recipe with themes. For more information about recommendations with themes, see [Batch recommendations with themes from Content Generator](themed-batch-recommendations.md). 
 
 ```
 {"input":{"itemId":"40"},"output":{"recommendedItems":["36","50","44","22","21","29","3","1","2","39"],"theme":"Movies with a strong female lead","itemsThemeRelevanceScores":[0.19994527,0.183059963,0.17478035,0.1618133,0.1574806,0.15468733,0.1499242,0.14353688,0.13531424,0.10291852]}}
 {"input":{"itemId":"43"},"output":{"recommendedItems":["50","21","36","3","17","2","39","1","10","5"],"theme":"The best movies of 1995","itemsThemeRelevanceScores":[0.184988,0.1795761,0.11143453,0.0989443,0.08258403,0.07952615,0.07115086,0.0621634,-0.138913,-0.188913]}}
 ...
-
 ```

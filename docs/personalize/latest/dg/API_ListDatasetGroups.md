@@ -1,109 +1,94 @@
-# ListDatasetGroups
 
-Returns a list of dataset groups. The response provides the properties
-for each dataset group, including the Amazon Resource Name (ARN). For more
-information on dataset groups, see [CreateDatasetGroup](API_CreateDatasetGroup.md "API_CreateDatasetGroup.md").
+
+# ListDatasetGroups
+<a name="API_ListDatasetGroups"></a>
+
+Returns a list of dataset groups. The response provides the properties for each dataset group, including the Amazon Resource Name (ARN). For more information on dataset groups, see [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
 
 ## Request Syntax
+<a name="API_ListDatasetGroups_RequestSyntax"></a>
 
 ```
 {
-   "maxResults": `number`,
-   "nextToken": "`string`"
+   "maxResults": {{number}},
+   "nextToken": "{{string}}"
 }
 ```
 
 ## Request Parameters
+<a name="API_ListDatasetGroups_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[maxResults](#API_ListDatasetGroups_RequestSyntax "#API_ListDatasetGroups_RequestSyntax")**
-
-The maximum number of dataset groups to return.
-
-Type: Integer
-
-Valid Range: Minimum value of 1. Maximum value of 100.
-
+ ** [maxResults](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-maxResults"></a>
+The maximum number of dataset groups to return.  
+Type: Integer  
+Valid Range: Minimum value of 1. Maximum value of 100.  
 Required: No
 
-**[nextToken](#API_ListDatasetGroups_RequestSyntax "#API_ListDatasetGroups_RequestSyntax")**
-
-A token returned from the previous call to
-`ListDatasetGroups` for getting the next set of dataset
-groups (if they exist).
-
-Type: String
-
-Length Constraints: Maximum length of 1500.
-
-Pattern: `\p{ASCII}{0,1500}`
-
+ ** [nextToken](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-nextToken"></a>
+A token returned from the previous call to `ListDatasetGroups` for getting the next set of dataset groups (if they exist).  
+Type: String  
+Length Constraints: Maximum length of 1500.  
+Pattern: `\p{ASCII}{0,1500}`   
 Required: No
 
 ## Response Syntax
+<a name="API_ListDatasetGroups_ResponseSyntax"></a>
 
 ```
 {
-   "datasetGroups": [
-      {
-         "creationDateTime": ***number***,
-         "datasetGroupArn": "***string***",
-         "domain": "***string***",
-         "failureReason": "***string***",
-         "lastUpdatedDateTime": ***number***,
-         "name": "***string***",
-         "status": "***string***"
+   "datasetGroups": [ 
+      { 
+         "creationDateTime": number,
+         "datasetGroupArn": "string",
+         "domain": "string",
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "status": "string"
       }
    ],
-   "nextToken": "***string***"
+   "nextToken": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_ListDatasetGroups_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[datasetGroups](#API_ListDatasetGroups_ResponseSyntax "#API_ListDatasetGroups_ResponseSyntax")**
-
-The list of your dataset groups.
-
-Type: Array of [DatasetGroupSummary](API_DatasetGroupSummary.md "API_DatasetGroupSummary.md") objects
-
+ ** [datasetGroups](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-datasetGroups"></a>
+The list of your dataset groups.  
+Type: Array of [DatasetGroupSummary](API_DatasetGroupSummary.md) objects  
 Array Members: Maximum number of 100 items.
 
-**[nextToken](#API_ListDatasetGroups_ResponseSyntax "#API_ListDatasetGroups_ResponseSyntax")**
-
-A token for getting the next set of dataset groups (if they
-exist).
-
-Type: String
-
-Length Constraints: Maximum length of 1500.
-
-Pattern: `\p{ASCII}{0,1500}`
+ ** [nextToken](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-nextToken"></a>
+A token for getting the next set of dataset groups (if they exist).  
+Type: String  
+Length Constraints: Maximum length of 1500.  
+Pattern: `\p{ASCII}{0,1500}` 
 
 ## Errors
+<a name="API_ListDatasetGroups_Errors"></a>
 
-**InvalidNextTokenException**
-
-The token is not valid.
-
+ ** InvalidNextTokenException **   
+The token is not valid.  
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_ListDatasetGroups_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/cli2/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForCpp/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForGoV2/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForJavaScriptV3/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForKotlin/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForPHPV3/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for Python](../../../goto/boto3/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/boto3/personalize-2018-05-22/ListDatasetGroups.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/ListDatasetGroups.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/ListDatasetGroups.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/ListDatasetGroups) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/ListDatasetGroups) 

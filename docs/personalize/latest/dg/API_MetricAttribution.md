@@ -1,93 +1,64 @@
-# MetricAttribution
 
-Contains information on a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize.
-Depending on how you import the data, you can view reports in Amazon CloudWatch or Amazon S3.
-For more information, see [Measuring impact of recommendations](measuring-recommendation-impact.md "measuring-recommendation-impact.md").
+
+# MetricAttribution
+<a name="API_MetricAttribution"></a>
+
+Contains information on a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you import the data, you can view reports in Amazon CloudWatch or Amazon S3. For more information, see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
 
 ## Contents
+<a name="API_MetricAttribution_Contents"></a>
 
-**creationDateTime**
-
-The metric attribution's creation date time.
-
-Type: Timestamp
-
+ ** creationDateTime **   <a name="personalize-Type-MetricAttribution-creationDateTime"></a>
+The metric attribution's creation date time.  
+Type: Timestamp  
 Required: No
 
-**datasetGroupArn**
-
-The metric attribution's dataset group Amazon Resource Name (ARN).
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** datasetGroupArn **   <a name="personalize-Type-MetricAttribution-datasetGroupArn"></a>
+The metric attribution's dataset group Amazon Resource Name (ARN).  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**failureReason**
-
-The metric attribution's failure reason.
-
-Type: String
-
+ ** failureReason **   <a name="personalize-Type-MetricAttribution-failureReason"></a>
+The metric attribution's failure reason.  
+Type: String  
 Required: No
 
-**lastUpdatedDateTime**
-
-The metric attribution's last updated date time.
-
-Type: Timestamp
-
+ ** lastUpdatedDateTime **   <a name="personalize-Type-MetricAttribution-lastUpdatedDateTime"></a>
+The metric attribution's last updated date time.  
+Type: Timestamp  
 Required: No
 
-**metricAttributionArn**
-
-The metric attribution's Amazon Resource Name (ARN).
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
-
+ ** metricAttributionArn **   <a name="personalize-Type-MetricAttribution-metricAttributionArn"></a>
+The metric attribution's Amazon Resource Name (ARN).  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
-**metricsOutputConfig**
-
-The metric attribution's output configuration.
-
-Type: [MetricAttributionOutput](API_MetricAttributionOutput.md "API_MetricAttributionOutput.md") object
-
+ ** metricsOutputConfig **   <a name="personalize-Type-MetricAttribution-metricsOutputConfig"></a>
+The metric attribution's output configuration.  
+Type: [MetricAttributionOutput](API_MetricAttributionOutput.md) object  
 Required: No
 
-**name**
-
-The metric attribution's name.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
-
+ ** name **   <a name="personalize-Type-MetricAttribution-name"></a>
+The metric attribution's name.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
-**status**
-
-The metric attribution's status.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
+ ** status **   <a name="personalize-Type-MetricAttribution-status"></a>
+The metric attribution's status.  
+Type: String  
+Length Constraints: Maximum length of 256.  
 Required: No
 
 ## See Also
+<a name="API_MetricAttribution_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/MetricAttribution.md "../../../goto/SdkForCpp/personalize-2018-05-22/MetricAttribution.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/MetricAttribution.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/MetricAttribution.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/MetricAttribution.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/MetricAttribution.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/MetricAttribution) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/MetricAttribution) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/MetricAttribution) 

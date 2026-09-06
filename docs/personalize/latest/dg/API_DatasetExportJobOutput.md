@@ -1,21 +1,22 @@
+
+
 # DatasetExportJobOutput
+<a name="API_DatasetExportJobOutput"></a>
 
 The output configuration parameters of a dataset export job.
 
 ## Contents
+<a name="API_DatasetExportJobOutput_Contents"></a>
 
-**s3DataDestination**
-
-The configuration details of an Amazon S3 input or output bucket.
-
-Type: [S3DataConfig](API_S3DataConfig.md "API_S3DataConfig.md") object
-
+ ** s3DataDestination **   <a name="personalize-Type-DatasetExportJobOutput-s3DataDestination"></a>
+The configuration details of an Amazon S3 input or output bucket.  
+Type: [S3DataConfig](API_S3DataConfig.md) object  
 Required: Yes
 
 ## See Also
+<a name="API_DatasetExportJobOutput_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/DatasetExportJobOutput.md "../../../goto/SdkForCpp/personalize-2018-05-22/DatasetExportJobOutput.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/DatasetExportJobOutput.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/DatasetExportJobOutput.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/DatasetExportJobOutput.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/DatasetExportJobOutput.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetExportJobOutput) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetExportJobOutput) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetExportJobOutput) 
