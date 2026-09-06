@@ -1,10 +1,15 @@
+
+
 # Data retrieval APIs for Database Query Metadata Service
+<a name="databasequerymetadataservice"></a>
 
 Database Query Metadata Service provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                        | Description                                     | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- | ------------ |
-| [DescribeFavoriteQueries](../../../qldb/latest/developerguide/dbqms-api.md#DescribeFavoriteQueries "../../../qldb/latest/developerguide/dbqms-api.md#DescribeFavoriteQueries") | List saved queries and associated metadata      | List         |
-| [DescribeQueryHistory](../../../qldb/latest/developerguide/dbqms-api.md#DescribeQueryHistory "../../../qldb/latest/developerguide/dbqms-api.md#DescribeQueryHistory")          | List history of queries that were run           | List         |
-| [DescribeTabs](../../../qldb/latest/developerguide/dbqms-api.md#DescribeTabs "../../../qldb/latest/developerguide/dbqms-api.md#DescribeTabs")                                  | List query tabs and associated metadata         | List         |
-| [GetQueryString](../../../qldb/latest/developerguide/dbqms-api.md#GetQueryString "../../../qldb/latest/developerguide/dbqms-api.md#GetQueryString")                            | Retrieve favorite or history query string by id | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="dbqms-DescribeFavoriteQueries"></a>[DescribeFavoriteQueries](https://docs.aws.amazon.com/qldb/latest/developerguide/dbqms-api.html#DescribeFavoriteQueries) | List saved queries and associated metadata | List | 
+| <a name="dbqms-DescribeQueryHistory"></a>[DescribeQueryHistory](https://docs.aws.amazon.com/qldb/latest/developerguide/dbqms-api.html#DescribeQueryHistory) | List history of queries that were run | List | 
+| <a name="dbqms-DescribeTabs"></a>[DescribeTabs](https://docs.aws.amazon.com/qldb/latest/developerguide/dbqms-api.html#DescribeTabs) | List query tabs and associated metadata | List | 
+| <a name="dbqms-GetQueryString"></a>[GetQueryString](https://docs.aws.amazon.com/qldb/latest/developerguide/dbqms-api.html#GetQueryString) | Retrieve favorite or history query string by id | Read | 

@@ -1,11 +1,16 @@
+
+
 # Data retrieval APIs for AWS WorkSpaces Managed Instances
+<a name="awsworkspacesmanagedinstances"></a>
 
 AWS WorkSpaces Managed Instances provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                               | Description                                                           | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------ |
-| [GetWorkspaceInstance](../../../workspaces/latest/api/API_GetWorkspaceInstance.md "../../../workspaces/latest/api/API_GetWorkspaceInstance.md")       | Get details for a specific workspace managed instance in your account | Read         |
-| [ListInstanceTypes](../../../workspaces/latest/api/API_ListInstanceTypes.md "../../../workspaces/latest/api/API_ListInstanceTypes.md")                | List all supported instance types                                     | List         |
-| [ListRegions](../../../workspaces/latest/api/API_ListRegions.md "../../../workspaces/latest/api/API_ListRegions.md")                                  | List all supported AWS regions                                        | List         |
-| [ListTagsForResource](../../../workspaces/latest/api/API_ListTagsForResource.md "../../../workspaces/latest/api/API_ListTagsForResource.md")          | List user tags for resources in your account                          | List         |
-| [ListWorkspaceInstances](../../../workspaces/latest/api/API_ListWorkspaceInstances.md "../../../workspaces/latest/api/API_ListWorkspaceInstances.md") | List workspace managed instances in your account                      | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="workspaces-instances-GetWorkspaceInstance"></a>[GetWorkspaceInstance](https://docs.aws.amazon.com/workspaces/latest/api/API_GetWorkspaceInstance.html) | Get details for a specific workspace managed instance in your account | Read | 
+| <a name="workspaces-instances-ListInstanceTypes"></a>[ListInstanceTypes](https://docs.aws.amazon.com/workspaces/latest/api/API_ListInstanceTypes.html) | List all supported instance types | List | 
+| <a name="workspaces-instances-ListRegions"></a>[ListRegions](https://docs.aws.amazon.com/workspaces/latest/api/API_ListRegions.html) | List all supported AWS regions | List | 
+| <a name="workspaces-instances-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/workspaces/latest/api/API_ListTagsForResource.html) | List user tags for resources in your account | List | 
+| <a name="workspaces-instances-ListWorkspaceInstances"></a>[ListWorkspaceInstances](https://docs.aws.amazon.com/workspaces/latest/api/API_ListWorkspaceInstances.html) | List workspace managed instances in your account | List | 

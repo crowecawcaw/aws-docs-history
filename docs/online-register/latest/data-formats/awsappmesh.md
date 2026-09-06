@@ -1,23 +1,28 @@
+
+
 # Data retrieval APIs for AWS App Mesh
+<a name="awsappmesh"></a>
 
 AWS App Mesh provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                             | Description                                                                      | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------ |
-| [DescribeGatewayRoute](../../../app-mesh/latest/APIReference/API_DescribeGatewayRoute.md "../../../app-mesh/latest/APIReference/API_DescribeGatewayRoute.md")       | Describe an existing gateway route                                               | Read         |
-| [DescribeMesh](../../../app-mesh/latest/APIReference/API_DescribeMesh.md "../../../app-mesh/latest/APIReference/API_DescribeMesh.md")                               | Describe an existing service mesh                                                | Read         |
-| [DescribeRoute](../../../app-mesh/latest/APIReference/API_DescribeRoute.md "../../../app-mesh/latest/APIReference/API_DescribeRoute.md")                            | Describe an existing route                                                       | Read         |
-| [DescribeVirtualGateway](../../../app-mesh/latest/APIReference/API_DescribeVirtualGateway.md "../../../app-mesh/latest/APIReference/API_DescribeVirtualGateway.md") | Describe an existing virtual gateway                                             | Read         |
-| [DescribeVirtualNode](../../../app-mesh/latest/APIReference/API_DescribeVirtualNode.md "../../../app-mesh/latest/APIReference/API_DescribeVirtualNode.md")          | Describe an existing virtual node                                                | Read         |
-| [DescribeVirtualRouter](../../../app-mesh/latest/APIReference/API_DescribeVirtualRouter.md "../../../app-mesh/latest/APIReference/API_DescribeVirtualRouter.md")    | Describe an existing virtual router                                              | Read         |
-| [DescribeVirtualService](../../../app-mesh/latest/APIReference/API_DescribeVirtualService.md "../../../app-mesh/latest/APIReference/API_DescribeVirtualService.md") | Describe an existing virtual service                                             | Read         |
-| [GetMeshPolicy](../../../app-mesh/latest/userguide/sharing.md "../../../app-mesh/latest/userguide/sharing.md")                                                      | Read the RAM access control policy for a mesh                                    | Read         |
-| [ListGatewayRoutes](../../../app-mesh/latest/APIReference/API_ListGatewayRoutes.md "../../../app-mesh/latest/APIReference/API_ListGatewayRoutes.md")                | List existing gateway routes in a service mesh                                   | List         |
-| [ListMeshes](../../../app-mesh/latest/APIReference/API_ListMeshes.md "../../../app-mesh/latest/APIReference/API_ListMeshes.md")                                     | List existing service meshes                                                     | List         |
-| [ListRoutes](../../../app-mesh/latest/APIReference/API_ListRoutes.md "../../../app-mesh/latest/APIReference/API_ListRoutes.md")                                     | List existing routes in a service mesh                                           | List         |
-| [ListTagsForResource](../../../app-mesh/latest/APIReference/API_ListTagsForResource.md "../../../app-mesh/latest/APIReference/API_ListTagsForResource.md")          | List the tags for an App Mesh resource                                           | List         |
-| [ListVirtualGateways](../../../app-mesh/latest/APIReference/API_ListVirtualGateways.md "../../../app-mesh/latest/APIReference/API_ListVirtualGateways.md")          | List existing virtual gateways in a service mesh                                 | List         |
-| [ListVirtualNodes](../../../app-mesh/latest/APIReference/API_ListVirtualNodes.md "../../../app-mesh/latest/APIReference/API_ListVirtualNodes.md")                   | List existing virtual nodes                                                      | List         |
-| [ListVirtualRouters](../../../app-mesh/latest/APIReference/API_ListVirtualRouters.md "../../../app-mesh/latest/APIReference/API_ListVirtualRouters.md")             | List existing virtual routers in a service mesh                                  | List         |
-| [ListVirtualServices](../../../app-mesh/latest/APIReference/API_ListVirtualServices.md "../../../app-mesh/latest/APIReference/API_ListVirtualServices.md")          | List existing virtual services in a service mesh                                 | List         |
-| [StreamAggregatedResources](../../../app-mesh/latest/userguide/envoy.md "../../../app-mesh/latest/userguide/envoy.md")                                              | Receive streamed resources for an App Mesh endpoint (VirtualNode/VirtualGateway) | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="appmesh-DescribeGatewayRoute"></a>[DescribeGatewayRoute](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeGatewayRoute.html) | Describe an existing gateway route | Read | 
+| <a name="appmesh-DescribeMesh"></a>[DescribeMesh](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeMesh.html) | Describe an existing service mesh | Read | 
+| <a name="appmesh-DescribeRoute"></a>[DescribeRoute](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeRoute.html) | Describe an existing route | Read | 
+| <a name="appmesh-DescribeVirtualGateway"></a>[DescribeVirtualGateway](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeVirtualGateway.html) | Describe an existing virtual gateway | Read | 
+| <a name="appmesh-DescribeVirtualNode"></a>[DescribeVirtualNode](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeVirtualNode.html) | Describe an existing virtual node | Read | 
+| <a name="appmesh-DescribeVirtualRouter"></a>[DescribeVirtualRouter](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeVirtualRouter.html) | Describe an existing virtual router | Read | 
+| <a name="appmesh-DescribeVirtualService"></a>[DescribeVirtualService](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_DescribeVirtualService.html) | Describe an existing virtual service | Read | 
+| <a name="appmesh-GetMeshPolicy"></a>[GetMeshPolicy](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) | Read the RAM access control policy for a mesh | Read | 
+| <a name="appmesh-ListGatewayRoutes"></a>[ListGatewayRoutes](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListGatewayRoutes.html) | List existing gateway routes in a service mesh | List | 
+| <a name="appmesh-ListMeshes"></a>[ListMeshes](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListMeshes.html) | List existing service meshes | List | 
+| <a name="appmesh-ListRoutes"></a>[ListRoutes](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListRoutes.html) | List existing routes in a service mesh | List | 
+| <a name="appmesh-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListTagsForResource.html) | List the tags for an App Mesh resource | List | 
+| <a name="appmesh-ListVirtualGateways"></a>[ListVirtualGateways](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListVirtualGateways.html) | List existing virtual gateways in a service mesh | List | 
+| <a name="appmesh-ListVirtualNodes"></a>[ListVirtualNodes](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListVirtualNodes.html) | List existing virtual nodes | List | 
+| <a name="appmesh-ListVirtualRouters"></a>[ListVirtualRouters](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListVirtualRouters.html) | List existing virtual routers in a service mesh | List | 
+| <a name="appmesh-ListVirtualServices"></a>[ListVirtualServices](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_ListVirtualServices.html) | List existing virtual services in a service mesh | List | 
+| <a name="appmesh-StreamAggregatedResources"></a>[StreamAggregatedResources](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) | Receive streamed resources for an App Mesh endpoint (VirtualNode/VirtualGateway) | Read | 

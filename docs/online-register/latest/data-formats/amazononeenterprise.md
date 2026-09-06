@@ -1,17 +1,22 @@
+
+
 # Data retrieval APIs for Amazon One Enterprise
+<a name="amazononeenterprise"></a>
 
 Amazon One Enterprise provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                      | Description                                     | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------ |
-| [GetDeviceConfigurationTemplate](../../../one-enterprise/latest/userguide/create-config-template.md "../../../one-enterprise/latest/userguide/create-config-template.md")    | View a Device Configuration Template            | Read         |
-| [GetDeviceInstance](../../../one-enterprise/latest/userguide/create-device-instance.md "../../../one-enterprise/latest/userguide/create-device-instance.md")                 | View a Device Instance                          | Read         |
-| [GetDeviceInstanceConfiguration](../../../one-enterprise/latest/userguide/configure-instance.md "../../../one-enterprise/latest/userguide/configure-instance.md")            | View a Device Instance Configuration            | Read         |
-| [GetSite](../../../one-enterprise/latest/userguide/create-sites.md "../../../one-enterprise/latest/userguide/create-sites.md")                                               | View a Site                                     | Read         |
-| [GetSiteAddress](../../../one-enterprise/latest/userguide/create-sites.md "../../../one-enterprise/latest/userguide/create-sites.md")                                        | View address of a Site                          | Read         |
-| [ListDeviceConfigurationTemplates](../../../one-enterprise/latest/userguide/create-config-template.md "../../../one-enterprise/latest/userguide/create-config-template.md")  | Retrieve list of Device Configuration Templates | List         |
-| [ListDeviceInstances](../../../one-enterprise/latest/userguide/create-device-instance.md "../../../one-enterprise/latest/userguide/create-device-instance.md")               | Retrieve list of Device Instances               | List         |
-| [ListSites](../../../one-enterprise/latest/userguide/create-sites.md "../../../one-enterprise/latest/userguide/create-sites.md")                                             | View list of Sites                              | List         |
-| [ListTagsForResource](../../../one-enterprise/latest/userguide/actions-resources-contextkeys.md "../../../one-enterprise/latest/userguide/actions-resources-contextkeys.md") | List tags for an Amazon One Enterprise resource | Read         |
-| [ListUsers](../../../one-enterprise/latest/userguide/enrollment-entry.md "../../../one-enterprise/latest/userguide/enrollment-entry.md")                                     | View list of Users                              | List         |
-| [ListUsersV1](../../../one-enterprise/latest/userguide/enrollment-entry.md "../../../one-enterprise/latest/userguide/enrollment-entry.md")                                   | View list of Users                              | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="one-GetDeviceConfigurationTemplate"></a>[GetDeviceConfigurationTemplate](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-config-template.html) | View a Device Configuration Template | Read | 
+| <a name="one-GetDeviceInstance"></a>[GetDeviceInstance](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-device-instance.html) | View a Device Instance | Read | 
+| <a name="one-GetDeviceInstanceConfiguration"></a>[GetDeviceInstanceConfiguration](https://docs.aws.amazon.com/one-enterprise/latest/userguide/configure-instance.html) | View a Device Instance Configuration | Read | 
+| <a name="one-GetSite"></a>[GetSite](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-sites.html) | View a Site | Read | 
+| <a name="one-GetSiteAddress"></a>[GetSiteAddress](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-sites.html) | View address of a Site | Read | 
+| <a name="one-ListDeviceConfigurationTemplates"></a>[ListDeviceConfigurationTemplates](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-config-template.html) | Retrieve list of Device Configuration Templates | List | 
+| <a name="one-ListDeviceInstances"></a>[ListDeviceInstances](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-device-instance.html) | Retrieve list of Device Instances | List | 
+| <a name="one-ListSites"></a>[ListSites](https://docs.aws.amazon.com/one-enterprise/latest/userguide/create-sites.html) | View list of Sites | List | 
+| <a name="one-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/one-enterprise/latest/userguide/actions-resources-contextkeys.html) | List tags for an Amazon One Enterprise resource | Read | 
+| <a name="one-ListUsers"></a>[ListUsers](https://docs.aws.amazon.com/one-enterprise/latest/userguide/enrollment-entry.html) | View list of Users | List | 
+| <a name="one-ListUsersV1"></a>[ListUsersV1](https://docs.aws.amazon.com/one-enterprise/latest/userguide/enrollment-entry.html) | View list of Users | List | 

@@ -1,13 +1,18 @@
+
+
 # Data retrieval APIs for AWS Interconnect
+<a name="awsinterconnect"></a>
 
 AWS Interconnect provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                               | Description                    | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------ |
-| [DescribeConnectionProposal](../../../interconnect/latest/api/API_DescribeConnectionProposal.md "../../../interconnect/latest/api/API_DescribeConnectionProposal.md") | Describe a connection proposal | Read         |
-| [GetConnection](../../../interconnect/latest/api/API_GetConnection.md "../../../interconnect/latest/api/API_GetConnection.md")                                        | Describe a connection          | Read         |
-| [GetEnvironment](../../../interconnect/latest/api/API_GetEnvironment.md "../../../interconnect/latest/api/API_GetEnvironment.md")                                     | Describe an environment        | Read         |
-| [ListAttachPoints](../../../interconnect/latest/api/API_ListAttachPoints.md "../../../interconnect/latest/api/API_ListAttachPoints.md")                               | List available attach points   | Read         |
-| [ListConnections](../../../interconnect/latest/api/API_ListConnections.md "../../../interconnect/latest/api/API_ListConnections.md")                                  | List connections               | List         |
-| [ListEnvironments](../../../interconnect/latest/api/API_ListEnvironments.md "../../../interconnect/latest/api/API_ListEnvironments.md")                               | List available environments    | List         |
-| [ListTagsForResource](../../../interconnect/latest/api/API_ListTagsForResource.md "../../../interconnect/latest/api/API_ListTagsForResource.md")                      | List tags on a resource        | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="interconnect-DescribeConnectionProposal"></a>[DescribeConnectionProposal](https://docs.aws.amazon.com/interconnect/latest/api/API_DescribeConnectionProposal.html) | Describe a connection proposal | Read | 
+| <a name="interconnect-GetConnection"></a>[GetConnection](https://docs.aws.amazon.com/interconnect/latest/api/API_GetConnection.html) | Describe a connection | Read | 
+| <a name="interconnect-GetEnvironment"></a>[GetEnvironment](https://docs.aws.amazon.com/interconnect/latest/api/API_GetEnvironment.html) | Describe an environment | Read | 
+| <a name="interconnect-ListAttachPoints"></a>[ListAttachPoints](https://docs.aws.amazon.com/interconnect/latest/api/API_ListAttachPoints.html) | List available attach points | Read | 
+| <a name="interconnect-ListConnections"></a>[ListConnections](https://docs.aws.amazon.com/interconnect/latest/api/API_ListConnections.html) | List connections | List | 
+| <a name="interconnect-ListEnvironments"></a>[ListEnvironments](https://docs.aws.amazon.com/interconnect/latest/api/API_ListEnvironments.html) | List available environments | List | 
+| <a name="interconnect-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/interconnect/latest/api/API_ListTagsForResource.html) | List tags on a resource | Read | 

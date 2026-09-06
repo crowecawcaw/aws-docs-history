@@ -1,14 +1,19 @@
+
+
 # Data retrieval APIs for AWS Data Pipeline
+<a name="awsdatapipeline"></a>
 
 AWS Data Pipeline provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                 | Description                                                                                              | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------ |
-| [DescribeObjects](../../../datapipeline/latest/APIReference/API_DescribeObjects.md "../../../datapipeline/latest/APIReference/API_DescribeObjects.md")                                  | Get the object definitions for a set of objects associated with the pipeline                             | Read         |
-| [DescribePipelines](../../../datapipeline/latest/APIReference/API_DescribePipelines.md "../../../datapipeline/latest/APIReference/API_DescribePipelines.md")                            | Retrieves metadata about one or more pipelines                                                           | Read         |
-| [EvaluateExpression](../../../datapipeline/latest/APIReference/API_EvaluateExpression.md "../../../datapipeline/latest/APIReference/API_EvaluateExpression.md")                         | Task runners to call EvaluateExpression, to evaluate a string in the context of the specified object     | Read         |
-| [GetAccountLimits](../../../datapipeline/latest/APIReference/API_GetAccountLimits.md "../../../datapipeline/latest/APIReference/API_GetAccountLimits.md")                               | Call GetAccountLimits                                                                                    | List         |
-| [GetPipelineDefinition](../../../datapipeline/latest/APIReference/API_GetPipelineDefinition.md "../../../datapipeline/latest/APIReference/API_GetPipelineDefinition.md")                | Gets the definition of the specified pipeline                                                            | Read         |
-| [ListPipelines](../../../datapipeline/latest/APIReference/API_ListPipelines.md "../../../datapipeline/latest/APIReference/API_ListPipelines.md")                                        | List the pipeline identifiers for all active pipelines that you have permission to access                | List         |
-| [QueryObjects](../../../datapipeline/latest/APIReference/API_QueryObjects.md "../../../datapipeline/latest/APIReference/API_QueryObjects.md")                                           | Query the specified pipeline for the names of objects that match the specified set of conditions         | Read         |
-| [ValidatePipelineDefinition](../../../datapipeline/latest/APIReference/API_ValidatePipelineDefinition.md "../../../datapipeline/latest/APIReference/API_ValidatePipelineDefinition.md") | Validate the specified pipeline definition to ensure that it is well formed and can be run without error | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="datapipeline-DescribeObjects"></a>[DescribeObjects](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html) | Get the object definitions for a set of objects associated with the pipeline | Read | 
+| <a name="datapipeline-DescribePipelines"></a>[DescribePipelines](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html) | Retrieves metadata about one or more pipelines | Read | 
+| <a name="datapipeline-EvaluateExpression"></a>[EvaluateExpression](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html) | Task runners to call EvaluateExpression, to evaluate a string in the context of the specified object | Read | 
+| <a name="datapipeline-GetAccountLimits"></a>[GetAccountLimits](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetAccountLimits.html) | Call GetAccountLimits | List | 
+| <a name="datapipeline-GetPipelineDefinition"></a>[GetPipelineDefinition](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html) | Gets the definition of the specified pipeline | Read | 
+| <a name="datapipeline-ListPipelines"></a>[ListPipelines](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html) | List the pipeline identifiers for all active pipelines that you have permission to access | List | 
+| <a name="datapipeline-QueryObjects"></a>[QueryObjects](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html) | Query the specified pipeline for the names of objects that match the specified set of conditions | Read | 
+| <a name="datapipeline-ValidatePipelineDefinition"></a>[ValidatePipelineDefinition](https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html) | Validate the specified pipeline definition to ensure that it is well formed and can be run without error | Read | 

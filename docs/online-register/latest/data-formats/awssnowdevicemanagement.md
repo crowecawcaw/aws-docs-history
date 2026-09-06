@@ -1,15 +1,20 @@
+
+
 # Data retrieval APIs for AWS Snow Device Management
+<a name="awssnowdevicemanagement"></a>
 
 AWS Snow Device Management provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                               | Description                                        | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------ |
-| [DescribeDevice](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-device "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-device")                           | Describe a remotely-managed device                 | Read         |
-| [DescribeDeviceEc2Instances](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-ec2-instances "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-ec2-instances") | Describe a remotely-managed device's EC2 instances | Read         |
-| [DescribeExecution](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-execution "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-execution")                  | Describe task executions                           | Read         |
-| [DescribeTask](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-task "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-describe-task")                                 | Describe a task                                    | Read         |
-| [ListDeviceResources](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-device-resources "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-device-resources")          | List a remotely-managed device's resources         | List         |
-| [ListDevices](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-devices "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-devices")                                    | List remotely-managed devices                      | List         |
-| [ListExecutions](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-executions "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-executions")                           | List task executions                               | List         |
-| [ListTagsForResource](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-tags-for-resource "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-tags-for-resource")        | List the tags for a resource (device or task)      | Read         |
-| [ListTasks](../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-tasks "../../../snowball/latest/developer-guide/aws-sdm.md#sdm-cli-list-tasks")                                          | List tasks                                         | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="snow-device-management-DescribeDevice"></a>[DescribeDevice](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-describe-device) | Describe a remotely-managed device | Read | 
+| <a name="snow-device-management-DescribeDeviceEc2Instances"></a>[DescribeDeviceEc2Instances](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-describe-ec2-instances) | Describe a remotely-managed device's EC2 instances | Read | 
+| <a name="snow-device-management-DescribeExecution"></a>[DescribeExecution](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-describe-execution) | Describe task executions | Read | 
+| <a name="snow-device-management-DescribeTask"></a>[DescribeTask](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-describe-task) | Describe a task | Read | 
+| <a name="snow-device-management-ListDeviceResources"></a>[ListDeviceResources](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-list-device-resources) | List a remotely-managed device's resources | List | 
+| <a name="snow-device-management-ListDevices"></a>[ListDevices](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-list-devices) | List remotely-managed devices | List | 
+| <a name="snow-device-management-ListExecutions"></a>[ListExecutions](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-list-executions) | List task executions | List | 
+| <a name="snow-device-management-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-list-tags-for-resource) | List the tags for a resource (device or task) | Read | 
+| <a name="snow-device-management-ListTasks"></a>[ListTasks](https://docs.aws.amazon.com/snowball/latest/developer-guide/aws-sdm.html#sdm-cli-list-tasks) | List tasks | List | 

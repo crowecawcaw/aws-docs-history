@@ -1,43 +1,48 @@
+
+
 # Data retrieval APIs for AWS DevOps Agent Service
+<a name="awsdevopsagentservice"></a>
 
 AWS DevOps Agent Service provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                            | Description                                        | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------ |
-| [DescribePrivateConnection](../../../devopsagent/latest/APIReference/API_DescribePrivateConnection.md "../../../devopsagent/latest/APIReference/API_DescribePrivateConnection.md") | Describe a private connection                      | Read         |
-| [DescribeServices](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                      | Describe support services                          | Read         |
-| [GetAccessToken](../../../devopsagent/latest/APIReference/API_GetAccessToken.md "../../../devopsagent/latest/APIReference/API_GetAccessToken.md")                                  | Get access token details                           | Read         |
-| [GetAccountUsage](../../../devopsagent/latest/APIReference/API_GetAccountUsage.md "../../../devopsagent/latest/APIReference/API_GetAccountUsage.md")                               | Retrieve account usage information                 | Read         |
-| [GetAgentSpace](../../../devopsagent/latest/APIReference/API_GetAgentSpace.md "../../../devopsagent/latest/APIReference/API_GetAgentSpace.md")                                     | Get agentspace                                     | Read         |
-| [GetAsset](../../../devopsagent/latest/APIReference/API_GetAsset.md "../../../devopsagent/latest/APIReference/API_GetAsset.md")                                                    | Get an asset                                       | Read         |
-| [GetAssetContent](../../../devopsagent/latest/APIReference/API_GetAssetContent.md "../../../devopsagent/latest/APIReference/API_GetAssetContent.md")                               | Get asset content                                  | Read         |
-| [GetAssetFile](../../../devopsagent/latest/APIReference/API_GetAssetFile.md "../../../devopsagent/latest/APIReference/API_GetAssetFile.md")                                        | Get an asset file                                  | Read         |
-| [GetAssociation](../../../devopsagent/latest/APIReference/API_GetAssociation.md "../../../devopsagent/latest/APIReference/API_GetAssociation.md")                                  | Get association                                    | Read         |
-| [GetBacklogTask](../../../devopsagent/latest/APIReference/API_GetBacklogTask.md "../../../devopsagent/latest/APIReference/API_GetBacklogTask.md")                                  | Get a backlog task                                 | Read         |
-| [GetKnowledgeItem](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                      | Get a knowledge item                               | Read         |
-| [GetOperatorApp](../../../devopsagent/latest/APIReference/API_GetOperatorApp.md "../../../devopsagent/latest/APIReference/API_GetOperatorApp.md")                                  | Get operator auth config for any enabled auth flow | Read         |
-| [GetRecommendation](../../../devopsagent/latest/APIReference/API_GetRecommendation.md "../../../devopsagent/latest/APIReference/API_GetRecommendation.md")                         | Get a recommendation                               | Read         |
-| [GetService](../../../devopsagent/latest/APIReference/API_GetService.md "../../../devopsagent/latest/APIReference/API_GetService.md")                                              | Get services                                       | Read         |
-| [GetTrigger](../../../devopsagent/latest/APIReference/API_GetTrigger.md "../../../devopsagent/latest/APIReference/API_GetTrigger.md")                                              | Get a trigger                                      | Read         |
-| [ListAccessTokens](../../../devopsagent/latest/APIReference/API_ListAccessTokens.md "../../../devopsagent/latest/APIReference/API_ListAccessTokens.md")                            | List access tokens                                 | List         |
-| [ListAgentSpaces](../../../devopsagent/latest/APIReference/API_ListAgentSpaces.md "../../../devopsagent/latest/APIReference/API_ListAgentSpaces.md")                               | List agentspace                                    | List         |
-| [ListAssetFiles](../../../devopsagent/latest/APIReference/API_ListAssetFiles.md "../../../devopsagent/latest/APIReference/API_ListAssetFiles.md")                                  | List asset files                                   | List         |
-| [ListAssetTypes](../../../devopsagent/latest/APIReference/API_ListAssetTypes.md "../../../devopsagent/latest/APIReference/API_ListAssetTypes.md")                                  | List asset types                                   | List         |
-| [ListAssetVersions](../../../devopsagent/latest/APIReference/API_ListAssetVersions.md "../../../devopsagent/latest/APIReference/API_ListAssetVersions.md")                         | List asset versions                                | List         |
-| [ListAssets](../../../devopsagent/latest/APIReference/API_ListAssets.md "../../../devopsagent/latest/APIReference/API_ListAssets.md")                                              | List assets                                        | List         |
-| [ListAssociations](../../../devopsagent/latest/APIReference/API_ListAssociations.md "../../../devopsagent/latest/APIReference/API_ListAssociations.md")                            | List associations                                  | List         |
-| [ListBacklogTasks](../../../devopsagent/latest/APIReference/API_ListBacklogTasks.md "../../../devopsagent/latest/APIReference/API_ListBacklogTasks.md")                            | List backlog tasks                                 | List         |
-| [ListChats](../../../devopsagent/latest/APIReference/API_ListChats.md "../../../devopsagent/latest/APIReference/API_ListChats.md")                                                 | List chats                                         | List         |
-| [ListExecutions](../../../devopsagent/latest/APIReference/API_ListExecutions.md "../../../devopsagent/latest/APIReference/API_ListExecutions.md")                                  | List executions                                    | List         |
-| [ListGoals](../../../devopsagent/latest/APIReference/API_ListGoals.md "../../../devopsagent/latest/APIReference/API_ListGoals.md")                                                 | List goals                                         | List         |
-| [ListJournalRecords](../../../devopsagent/latest/APIReference/API_ListJournalRecords.md "../../../devopsagent/latest/APIReference/API_ListJournalRecords.md")                      | List journal records                               | List         |
-| [ListKnowledgeItemVersions](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                             | List knowledge item versions                       | List         |
-| [ListKnowledgeItems](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                    | List knowledge items                               | List         |
-| [ListPendingMessages](../../../devopsagent/latest/APIReference/API_ListPendingMessages.md "../../../devopsagent/latest/APIReference/API_ListPendingMessages.md")                   | List pending messages                              | List         |
-| [ListPrivateConnections](../../../devopsagent/latest/APIReference/API_ListPrivateConnections.md "../../../devopsagent/latest/APIReference/API_ListPrivateConnections.md")          | List private connections                           | List         |
-| [ListRecommendations](../../../devopsagent/latest/APIReference/API_ListRecommendations.md "../../../devopsagent/latest/APIReference/API_ListRecommendations.md")                   | List recommendations                               | List         |
-| [ListServices](../../../devopsagent/latest/APIReference/API_ListServices.md "../../../devopsagent/latest/APIReference/API_ListServices.md")                                        | List services                                      | List         |
-| [ListTagsForResource](../../../devopsagent/latest/APIReference/API_ListTagsForResource.md "../../../devopsagent/latest/APIReference/API_ListTagsForResource.md")                   | List tags for a resource                           | Read         |
-| [ListTriggers](../../../devopsagent/latest/APIReference/API_ListTriggers.md "../../../devopsagent/latest/APIReference/API_ListTriggers.md")                                        | List triggers                                      | List         |
-| [ListWebhooks](../../../devopsagent/latest/APIReference/API_ListWebhooks.md "../../../devopsagent/latest/APIReference/API_ListWebhooks.md")                                        | List webhooks for association                      | List         |
-| [SearchServiceAccessibleResource](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                       | Look up a registered service accessible resources  | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="aidevops-DescribePrivateConnection"></a>[DescribePrivateConnection](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DescribePrivateConnection.html) | Describe a private connection | Read | 
+| <a name="aidevops-DescribeServices"></a>[DescribeServices](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Describe support services | Read | 
+| <a name="aidevops-GetAccessToken"></a>[GetAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAccessToken.html) | Get access token details | Read | 
+| <a name="aidevops-GetAccountUsage"></a>[GetAccountUsage](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAccountUsage.html) | Retrieve account usage information | Read | 
+| <a name="aidevops-GetAgentSpace"></a>[GetAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAgentSpace.html) | Get agentspace | Read | 
+| <a name="aidevops-GetAsset"></a>[GetAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAsset.html) | Get an asset | Read | 
+| <a name="aidevops-GetAssetContent"></a>[GetAssetContent](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetContent.html) | Get asset content | Read | 
+| <a name="aidevops-GetAssetFile"></a>[GetAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetFile.html) | Get an asset file | Read | 
+| <a name="aidevops-GetAssociation"></a>[GetAssociation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssociation.html) | Get association | Read | 
+| <a name="aidevops-GetBacklogTask"></a>[GetBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetBacklogTask.html) | Get a backlog task | Read | 
+| <a name="aidevops-GetKnowledgeItem"></a>[GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Get a knowledge item | Read | 
+| <a name="aidevops-GetOperatorApp"></a>[GetOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetOperatorApp.html) | Get operator auth config for any enabled auth flow | Read | 
+| <a name="aidevops-GetRecommendation"></a>[GetRecommendation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetRecommendation.html) | Get a recommendation | Read | 
+| <a name="aidevops-GetService"></a>[GetService](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetService.html) | Get services | Read | 
+| <a name="aidevops-GetTrigger"></a>[GetTrigger](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetTrigger.html) | Get a trigger | Read | 
+| <a name="aidevops-ListAccessTokens"></a>[ListAccessTokens](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAccessTokens.html) | List access tokens | List | 
+| <a name="aidevops-ListAgentSpaces"></a>[ListAgentSpaces](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAgentSpaces.html) | List agentspace | List | 
+| <a name="aidevops-ListAssetFiles"></a>[ListAssetFiles](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetFiles.html) | List asset files | List | 
+| <a name="aidevops-ListAssetTypes"></a>[ListAssetTypes](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetTypes.html) | List asset types | List | 
+| <a name="aidevops-ListAssetVersions"></a>[ListAssetVersions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetVersions.html) | List asset versions | List | 
+| <a name="aidevops-ListAssets"></a>[ListAssets](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssets.html) | List assets | List | 
+| <a name="aidevops-ListAssociations"></a>[ListAssociations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssociations.html) | List associations | List | 
+| <a name="aidevops-ListBacklogTasks"></a>[ListBacklogTasks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListBacklogTasks.html) | List backlog tasks | List | 
+| <a name="aidevops-ListChats"></a>[ListChats](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListChats.html) | List chats | List | 
+| <a name="aidevops-ListExecutions"></a>[ListExecutions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListExecutions.html) | List executions | List | 
+| <a name="aidevops-ListGoals"></a>[ListGoals](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListGoals.html) | List goals | List | 
+| <a name="aidevops-ListJournalRecords"></a>[ListJournalRecords](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListJournalRecords.html) | List journal records | List | 
+| <a name="aidevops-ListKnowledgeItemVersions"></a>[ListKnowledgeItemVersions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | List knowledge item versions | List | 
+| <a name="aidevops-ListKnowledgeItems"></a>[ListKnowledgeItems](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | List knowledge items | List | 
+| <a name="aidevops-ListPendingMessages"></a>[ListPendingMessages](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListPendingMessages.html) | List pending messages | List | 
+| <a name="aidevops-ListPrivateConnections"></a>[ListPrivateConnections](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListPrivateConnections.html) | List private connections | List | 
+| <a name="aidevops-ListRecommendations"></a>[ListRecommendations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListRecommendations.html) | List recommendations | List | 
+| <a name="aidevops-ListServices"></a>[ListServices](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListServices.html) | List services | List | 
+| <a name="aidevops-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListTagsForResource.html) | List tags for a resource | Read | 
+| <a name="aidevops-ListTriggers"></a>[ListTriggers](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListTriggers.html) | List triggers | List | 
+| <a name="aidevops-ListWebhooks"></a>[ListWebhooks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListWebhooks.html) | List webhooks for association | List | 
+| <a name="aidevops-SearchServiceAccessibleResource"></a>[SearchServiceAccessibleResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Look up a registered service accessible resources | Read | 

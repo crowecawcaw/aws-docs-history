@@ -1,21 +1,26 @@
+
+
 # Data retrieval APIs for AWS Data Exchange
+<a name="awsdataexchange"></a>
 
 AWS Data Exchange provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                       | Description                                                             | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------ |
-| [GetAsset](../../../data-exchange/latest/apireference/API_GetAsset.md "../../../data-exchange/latest/apireference/API_GetAsset.md")                                           | Get information about an asset and to export it (for example, in a Job) | Read         |
-| [GetDataGrant](../../../data-exchange/latest/apireference/API_GetDataGrant.md "../../../data-exchange/latest/apireference/API_GetDataGrant.md")                               | Get a data grant                                                        | Read         |
-| [GetDataSet](../../../data-exchange/latest/apireference/API_GetDataSet.md "../../../data-exchange/latest/apireference/API_GetDataSet.md")                                     | Get information about a data set                                        | Read         |
-| [GetEventAction](../../../data-exchange/latest/apireference/API_GetEventAction.md "../../../data-exchange/latest/apireference/API_GetEventAction.md")                         | Get an event action                                                     | Read         |
-| [GetJob](../../../data-exchange/latest/apireference/API_GetJob.md "../../../data-exchange/latest/apireference/API_GetJob.md")                                                 | Get information about a job                                             | Read         |
-| [GetReceivedDataGrant](../../../data-exchange/latest/apireference/API_GetReceivedDataGrant.md "../../../data-exchange/latest/apireference/API_GetReceivedDataGrant.md")       | Get a received data grant                                               | Read         |
-| [GetRevision](../../../data-exchange/latest/apireference/API_GetRevision.md "../../../data-exchange/latest/apireference/API_GetRevision.md")                                  | Get information about a revision                                        | Read         |
-| [ListDataGrants](../../../data-exchange/latest/apireference/API_ListDataGrants.md "../../../data-exchange/latest/apireference/API_ListDataGrants.md")                         | List data grants for the account                                        | List         |
-| [ListDataSetRevisions](../../../data-exchange/latest/apireference/API_ListDataSetRevisions.md "../../../data-exchange/latest/apireference/API_ListDataSetRevisions.md")       | List the revisions of a data set                                        | List         |
-| [ListDataSets](../../../data-exchange/latest/apireference/API_ListDataSets.md "../../../data-exchange/latest/apireference/API_ListDataSets.md")                               | List data sets for the account                                          | List         |
-| [ListEventActions](../../../data-exchange/latest/apireference/API_ListEventActions.md "../../../data-exchange/latest/apireference/API_ListEventActions.md")                   | List event actions for the account                                      | List         |
-| [ListJobs](../../../data-exchange/latest/apireference/API_ListJobs.md "../../../data-exchange/latest/apireference/API_ListJobs.md")                                           | List jobs for the account                                               | List         |
-| [ListReceivedDataGrants](../../../data-exchange/latest/apireference/API_ListReceivedDataGrants.md "../../../data-exchange/latest/apireference/API_ListReceivedDataGrants.md") | List received data grants for the account                               | List         |
-| [ListRevisionAssets](../../../data-exchange/latest/apireference/API_ListRevisionAssets.md "../../../data-exchange/latest/apireference/API_ListRevisionAssets.md")             | Get list the assets of a revision                                       | List         |
-| [ListTagsForResource](../../../data-exchange/latest/apireference/API_ListTagsForResource.md "../../../data-exchange/latest/apireference/API_ListTagsForResource.md")          | List the tags that you associated with the specified resource           | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="dataexchange-GetAsset"></a>[GetAsset](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetAsset.html) | Get information about an asset and to export it (for example, in a Job) | Read | 
+| <a name="dataexchange-GetDataGrant"></a>[GetDataGrant](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetDataGrant.html) | Get a data grant | Read | 
+| <a name="dataexchange-GetDataSet"></a>[GetDataSet](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetDataSet.html) | Get information about a data set | Read | 
+| <a name="dataexchange-GetEventAction"></a>[GetEventAction](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetEventAction.html) | Get an event action | Read | 
+| <a name="dataexchange-GetJob"></a>[GetJob](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetJob.html) | Get information about a job | Read | 
+| <a name="dataexchange-GetReceivedDataGrant"></a>[GetReceivedDataGrant](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetReceivedDataGrant.html) | Get a received data grant | Read | 
+| <a name="dataexchange-GetRevision"></a>[GetRevision](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetRevision.html) | Get information about a revision | Read | 
+| <a name="dataexchange-ListDataGrants"></a>[ListDataGrants](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListDataGrants.html) | List data grants for the account | List | 
+| <a name="dataexchange-ListDataSetRevisions"></a>[ListDataSetRevisions](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListDataSetRevisions.html) | List the revisions of a data set | List | 
+| <a name="dataexchange-ListDataSets"></a>[ListDataSets](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListDataSets.html) | List data sets for the account | List | 
+| <a name="dataexchange-ListEventActions"></a>[ListEventActions](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListEventActions.html) | List event actions for the account | List | 
+| <a name="dataexchange-ListJobs"></a>[ListJobs](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListJobs.html) | List jobs for the account | List | 
+| <a name="dataexchange-ListReceivedDataGrants"></a>[ListReceivedDataGrants](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListReceivedDataGrants.html) | List received data grants for the account | List | 
+| <a name="dataexchange-ListRevisionAssets"></a>[ListRevisionAssets](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListRevisionAssets.html) | Get list the assets of a revision | List | 
+| <a name="dataexchange-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListTagsForResource.html) | List the tags that you associated with the specified resource | List | 

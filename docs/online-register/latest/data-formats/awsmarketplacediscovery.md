@@ -1,16 +1,21 @@
+
+
 # Data retrieval APIs for AWS Marketplace Discovery
+<a name="awsmarketplacediscovery"></a>
 
 AWS Marketplace Discovery provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                                               | Description                                  | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ------------ |
-| [GetListing](../../../marketplace/latest/APIReference/API_marketplace-discovery_GetListing.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_GetListing.md")                                     | Retrieve information about a listing         | Read         |
-| [GetOffer](../../../marketplace/latest/APIReference/API_marketplace-discovery_GetOffer.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_GetOffer.md")                                           | Retrieve information about an offer          | Read         |
-| [GetOfferSet](../../../marketplace/latest/APIReference/API_marketplace-discovery_GetOfferSet.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_GetOfferSet.md")                                  | Retrieve information about an offer set      | Read         |
-| [GetOfferTerms](../../../marketplace/latest/APIReference/API_marketplace-discovery_GetOfferTerms.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_GetOfferTerms.md")                            | Retrieve terms for an offer                  | Read         |
-| [GetProduct](../../../marketplace/latest/APIReference/API_marketplace-discovery_GetProduct.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_GetProduct.md")                                     | Retrieve information about a product         | Read         |
-| [ListFulfillmentOptions](../../../marketplace/latest/APIReference/API_marketplace-discovery_ListFulfillmentOptions.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_ListFulfillmentOptions.md") | List fulfillment options for a product       | List         |
-| [ListPrivateListings](../../../marketplace/latest/buyerguide/private-offers-page.md "../../../marketplace/latest/buyerguide/private-offers-page.md")                                                                  | List private offers                          | List         |
-| [ListPurchaseOptions](../../../marketplace/latest/APIReference/API_marketplace-discovery_ListPurchaseOptions.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_ListPurchaseOptions.md")          | List purchase options available to the buyer | List         |
-| [SearchFacets](../../../marketplace/latest/APIReference/API_marketplace-discovery_SearchFacets.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_SearchFacets.md")                               | Search for facet values to filter listings   | List         |
-| [SearchListings](../../../marketplace/latest/APIReference/API_marketplace-discovery_SearchListings.md "../../../marketplace/latest/APIReference/API_marketplace-discovery_SearchListings.md")                         | Search for product listings                  | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="aws-marketplace-GetListing"></a>[GetListing](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_GetListing.html) | Retrieve information about a listing | Read | 
+| <a name="aws-marketplace-GetOffer"></a>[GetOffer](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_GetOffer.html) | Retrieve information about an offer | Read | 
+| <a name="aws-marketplace-GetOfferSet"></a>[GetOfferSet](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_GetOfferSet.html) | Retrieve information about an offer set | Read | 
+| <a name="aws-marketplace-GetOfferTerms"></a>[GetOfferTerms](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_GetOfferTerms.html) | Retrieve terms for an offer | Read | 
+| <a name="aws-marketplace-GetProduct"></a>[GetProduct](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_GetProduct.html) | Retrieve information about a product | Read | 
+| <a name="aws-marketplace-ListFulfillmentOptions"></a>[ListFulfillmentOptions](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_ListFulfillmentOptions.html) | List fulfillment options for a product | List | 
+| <a name="aws-marketplace-ListPrivateListings"></a>[ListPrivateListings](https://docs.aws.amazon.com/marketplace/latest/buyerguide/private-offers-page.html) | List private offers | List | 
+| <a name="aws-marketplace-ListPurchaseOptions"></a>[ListPurchaseOptions](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_ListPurchaseOptions.html) | List purchase options available to the buyer | List | 
+| <a name="aws-marketplace-SearchFacets"></a>[SearchFacets](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_SearchFacets.html) | Search for facet values to filter listings | List | 
+| <a name="aws-marketplace-SearchListings"></a>[SearchListings](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_SearchListings.html) | Search for product listings | List | 

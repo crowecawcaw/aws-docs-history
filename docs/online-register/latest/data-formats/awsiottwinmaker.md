@@ -1,26 +1,31 @@
+
+
 # Data retrieval APIs for AWS IoT TwinMaker
+<a name="awsiottwinmaker"></a>
 
 AWS IoT TwinMaker provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                             | Description                            | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------ |
-| [ExecuteQuery](../../../iot-twinmaker/latest/apireference/API_ExecuteQuery.md "../../../iot-twinmaker/latest/apireference/API_ExecuteQuery.md")                                     | Execute query                          | Read         |
-| [GetComponentType](../../../iot-twinmaker/latest/apireference/API_GetComponentType.md "../../../iot-twinmaker/latest/apireference/API_GetComponentType.md")                         | Get a componentType                    | Read         |
-| [GetEntity](../../../iot-twinmaker/latest/apireference/API_GetEntity.md "../../../iot-twinmaker/latest/apireference/API_GetEntity.md")                                              | Get an entity                          | Read         |
-| [GetMetadataTransferJob](../../../iot-twinmaker/latest/apireference/API_GetMetadataTransferJob.md "../../../iot-twinmaker/latest/apireference/API_GetMetadataTransferJob.md")       | Get a metadata transfer job            | Read         |
-| [GetPricingPlan](../../../iot-twinmaker/latest/apireference/API_GetPricingPlan.md "../../../iot-twinmaker/latest/apireference/API_GetPricingPlan.md")                               | Get pricing plan                       | Read         |
-| [GetPropertyValue](../../../iot-twinmaker/latest/apireference/API_GetPropertyValue.md "../../../iot-twinmaker/latest/apireference/API_GetPropertyValue.md")                         | Retrieve the property values           | Read         |
-| [GetPropertyValueHistory](../../../iot-twinmaker/latest/apireference/API_GetPropertyValueHistory.md "../../../iot-twinmaker/latest/apireference/API_GetPropertyValueHistory.md")    | Retrieve the time series value history | Read         |
-| [GetScene](../../../iot-twinmaker/latest/apireference/API_GetScene.md "../../../iot-twinmaker/latest/apireference/API_GetScene.md")                                                 | Get a scene                            | Read         |
-| [GetSyncJob](../../../iot-twinmaker/latest/apireference/API_GetSyncJob.md "../../../iot-twinmaker/latest/apireference/API_GetSyncJob.md")                                           | Get a sync job                         | Read         |
-| [GetWorkspace](../../../iot-twinmaker/latest/apireference/API_GetWorkspace.md "../../../iot-twinmaker/latest/apireference/API_GetWorkspace.md")                                     | Get a workspace                        | Read         |
-| [ListComponentTypes](../../../iot-twinmaker/latest/apireference/API_ListComponentTypes.md "../../../iot-twinmaker/latest/apireference/API_ListComponentTypes.md")                   | List all componentTypes in a workspace | List         |
-| [ListComponents](../../../iot-twinmaker/latest/apireference/API_ListComponents.md "../../../iot-twinmaker/latest/apireference/API_ListComponents.md")                               | List components attached to an entity  | List         |
-| [ListEntities](../../../iot-twinmaker/latest/apireference/API_ListEntities.md "../../../iot-twinmaker/latest/apireference/API_ListEntities.md")                                     | List all entities in a workspace       | List         |
-| [ListMetadataTransferJobs](../../../iot-twinmaker/latest/apireference/API_ListMetadataTransferJobs.md "../../../iot-twinmaker/latest/apireference/API_ListMetadataTransferJobs.md") | List all metadata transfer jobs        | List         |
-| [ListProperties](../../../iot-twinmaker/latest/apireference/API_ListProperties.md "../../../iot-twinmaker/latest/apireference/API_ListProperties.md")                               | List properties of an entity component | List         |
-| [ListScenes](../../../iot-twinmaker/latest/apireference/API_ListScenes.md "../../../iot-twinmaker/latest/apireference/API_ListScenes.md")                                           | List all scenes in a workspace         | List         |
-| [ListSyncJobs](../../../iot-twinmaker/latest/apireference/API_ListSyncJobs.md "../../../iot-twinmaker/latest/apireference/API_ListSyncJobs.md")                                     | List all sync jobs in a workspace      | List         |
-| [ListSyncResources](../../../iot-twinmaker/latest/apireference/API_ListSyncResources.md "../../../iot-twinmaker/latest/apireference/API_ListSyncResources.md")                      | List all sync resources for a sync job | List         |
-| [ListTagsForResource](../../../iot-twinmaker/latest/apireference/API_ListTagsForResource.md "../../../iot-twinmaker/latest/apireference/API_ListTagsForResource.md")                | List all tags for a resource           | List         |
-| [ListWorkspaces](../../../iot-twinmaker/latest/apireference/API_ListWorkspaces.md "../../../iot-twinmaker/latest/apireference/API_ListWorkspaces.md")                               | List all workspaces                    | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="iottwinmaker-ExecuteQuery"></a>[ExecuteQuery](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ExecuteQuery.html) | Execute query | Read | 
+| <a name="iottwinmaker-GetComponentType"></a>[GetComponentType](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetComponentType.html) | Get a componentType | Read | 
+| <a name="iottwinmaker-GetEntity"></a>[GetEntity](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetEntity.html) | Get an entity | Read | 
+| <a name="iottwinmaker-GetMetadataTransferJob"></a>[GetMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetMetadataTransferJob.html) | Get a metadata transfer job | Read | 
+| <a name="iottwinmaker-GetPricingPlan"></a>[GetPricingPlan](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetPricingPlan.html) | Get pricing plan | Read | 
+| <a name="iottwinmaker-GetPropertyValue"></a>[GetPropertyValue](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetPropertyValue.html) | Retrieve the property values | Read | 
+| <a name="iottwinmaker-GetPropertyValueHistory"></a>[GetPropertyValueHistory](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetPropertyValueHistory.html) | Retrieve the time series value history | Read | 
+| <a name="iottwinmaker-GetScene"></a>[GetScene](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetScene.html) | Get a scene | Read | 
+| <a name="iottwinmaker-GetSyncJob"></a>[GetSyncJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetSyncJob.html) | Get a sync job | Read | 
+| <a name="iottwinmaker-GetWorkspace"></a>[GetWorkspace](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetWorkspace.html) | Get a workspace | Read | 
+| <a name="iottwinmaker-ListComponentTypes"></a>[ListComponentTypes](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListComponentTypes.html) | List all componentTypes in a workspace | List | 
+| <a name="iottwinmaker-ListComponents"></a>[ListComponents](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListComponents.html) | List components attached to an entity | List | 
+| <a name="iottwinmaker-ListEntities"></a>[ListEntities](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListEntities.html) | List all entities in a workspace | List | 
+| <a name="iottwinmaker-ListMetadataTransferJobs"></a>[ListMetadataTransferJobs](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListMetadataTransferJobs.html) | List all metadata transfer jobs | List | 
+| <a name="iottwinmaker-ListProperties"></a>[ListProperties](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListProperties.html) | List properties of an entity component | List | 
+| <a name="iottwinmaker-ListScenes"></a>[ListScenes](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListScenes.html) | List all scenes in a workspace | List | 
+| <a name="iottwinmaker-ListSyncJobs"></a>[ListSyncJobs](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListSyncJobs.html) | List all sync jobs in a workspace | List | 
+| <a name="iottwinmaker-ListSyncResources"></a>[ListSyncResources](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListSyncResources.html) | List all sync resources for a sync job | List | 
+| <a name="iottwinmaker-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListTagsForResource.html) | List all tags for a resource | List | 
+| <a name="iottwinmaker-ListWorkspaces"></a>[ListWorkspaces](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListWorkspaces.html) | List all workspaces | List | 

@@ -1,22 +1,27 @@
+
+
 # Data retrieval APIs for AWS Artifact
+<a name="awsartifact"></a>
 
 AWS Artifact provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                               | Description                                                                       | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------ |
-| [ExportComplianceInquiry](../../../artifact/latest/APIReference/API_ExportComplianceInquiry.md "../../../artifact/latest/APIReference/API_ExportComplianceInquiry.md")                | Export a compliance inquiry                                                       | Read         |
-| [GetAccountSettings](../../../artifact/latest/APIReference/API_GetAccountSettings.md "../../../artifact/latest/APIReference/API_GetAccountSettings.md")                               | Get the account settings for Artifact                                             | Read         |
-| [GetAgreement](../../../artifact/latest/APIReference/API_GetAgreement.md "../../../artifact/latest/APIReference/API_GetAgreement.md")                                                 | Get an AWS agreement that has not yet been accepted by the customer account       | Read         |
-| [GetComplianceInquiryMetadata](../../../artifact/latest/APIReference/API_GetComplianceInquiryMetadata.md "../../../artifact/latest/APIReference/API_GetComplianceInquiryMetadata.md") | Get metadata associated with a compliance inquiry                                 | Read         |
-| [GetCustomerAgreement](../../../artifact/latest/APIReference/API_GetCustomerAgreement.md "../../../artifact/latest/APIReference/API_GetCustomerAgreement.md")                         | Get an AWS agreement that has been accepted by the customer account               | Read         |
-| [GetNdaForAgreement](../../../artifact/latest/APIReference/API_GetNdaForAgreement.md "../../../artifact/latest/APIReference/API_GetNdaForAgreement.md")                               | Retrieve the NDA Document for a given agreement resource                          | Read         |
-| [GetReport](../../../artifact/latest/APIReference/API_GetReport.md "../../../artifact/latest/APIReference/API_GetReport.md")                                                          | Download a report                                                                 | Read         |
-| [GetReportMetadata](../../../artifact/latest/APIReference/API_GetReportMetadata.md "../../../artifact/latest/APIReference/API_GetReportMetadata.md")                                  | Download metadata associated with a report                                        | Read         |
-| [GetTermForReport](../../../artifact/latest/APIReference/API_GetTermForReport.md "../../../artifact/latest/APIReference/API_GetTermForReport.md")                                     | Download a term associated with a report                                          | Read         |
-| [ListAgreements](../../../artifact/latest/APIReference/API_ListAgreements.md "../../../artifact/latest/APIReference/API_ListAgreements.md")                                           | List AWS agreements                                                               | List         |
-| [ListComplianceInquiries](../../../artifact/latest/APIReference/API_ListComplianceInquiries.md "../../../artifact/latest/APIReference/API_ListComplianceInquiries.md")                | List compliance inquiries submitted by the customer account                       | List         |
-| [ListComplianceInquiryQueries](../../../artifact/latest/APIReference/API_ListComplianceInquiryQueries.md "../../../artifact/latest/APIReference/API_ListComplianceInquiryQueries.md") | List queries for a compliance inquiry                                             | List         |
-| [ListCustomerAgreements](../../../artifact/latest/APIReference/API_ListCustomerAgreements.md "../../../artifact/latest/APIReference/API_ListCustomerAgreements.md")                   | List customer-agreement resources that have been accepted by the customer account | List         |
-| [ListReportVersions](../../../artifact/latest/APIReference/API_ListReportVersions.md "../../../artifact/latest/APIReference/API_ListReportVersions.md")                               | List report versions in your account                                              | List         |
-| [ListReports](../../../artifact/latest/APIReference/API_ListReports.md "../../../artifact/latest/APIReference/API_ListReports.md")                                                    | List reports in your account                                                      | List         |
-| [ListTagsForResource](../../../artifact/latest/APIReference/API_ListTagsForResource.md "../../../artifact/latest/APIReference/API_ListTagsForResource.md")                            | List all tags on an AWS Artifact resource                                         | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="artifact-ExportComplianceInquiry"></a>[ExportComplianceInquiry](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ExportComplianceInquiry.html) | Export a compliance inquiry | Read | 
+| <a name="artifact-GetAccountSettings"></a>[GetAccountSettings](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetAccountSettings.html) | Get the account settings for Artifact | Read | 
+| <a name="artifact-GetAgreement"></a>[GetAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetAgreement.html) | Get an AWS agreement that has not yet been accepted by the customer account | Read | 
+| <a name="artifact-GetComplianceInquiryMetadata"></a>[GetComplianceInquiryMetadata](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetComplianceInquiryMetadata.html) | Get metadata associated with a compliance inquiry | Read | 
+| <a name="artifact-GetCustomerAgreement"></a>[GetCustomerAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetCustomerAgreement.html) | Get an AWS agreement that has been accepted by the customer account | Read | 
+| <a name="artifact-GetNdaForAgreement"></a>[GetNdaForAgreement](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetNdaForAgreement.html) | Retrieve the NDA Document for a given agreement resource | Read | 
+| <a name="artifact-GetReport"></a>[GetReport](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetReport.html) | Download a report | Read | 
+| <a name="artifact-GetReportMetadata"></a>[GetReportMetadata](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetReportMetadata.html) | Download metadata associated with a report | Read | 
+| <a name="artifact-GetTermForReport"></a>[GetTermForReport](https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetTermForReport.html) | Download a term associated with a report | Read | 
+| <a name="artifact-ListAgreements"></a>[ListAgreements](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListAgreements.html) | List AWS agreements | List | 
+| <a name="artifact-ListComplianceInquiries"></a>[ListComplianceInquiries](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListComplianceInquiries.html) | List compliance inquiries submitted by the customer account | List | 
+| <a name="artifact-ListComplianceInquiryQueries"></a>[ListComplianceInquiryQueries](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListComplianceInquiryQueries.html) | List queries for a compliance inquiry | List | 
+| <a name="artifact-ListCustomerAgreements"></a>[ListCustomerAgreements](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListCustomerAgreements.html) | List customer-agreement resources that have been accepted by the customer account | List | 
+| <a name="artifact-ListReportVersions"></a>[ListReportVersions](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListReportVersions.html) | List report versions in your account | List | 
+| <a name="artifact-ListReports"></a>[ListReports](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListReports.html) | List reports in your account | List | 
+| <a name="artifact-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListTagsForResource.html) | List all tags on an AWS Artifact resource | Read | 

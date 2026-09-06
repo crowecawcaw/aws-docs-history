@@ -1,9 +1,14 @@
+
+
 # Data retrieval APIs for Amazon CloudFront KeyValueStore
+<a name="amazoncloudfrontkeyvaluestore"></a>
 
 Amazon CloudFront KeyValueStore provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                      | Description                                       | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------ |
-| [DescribeKeyValueStore](../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md "../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md") | Return metadata information about Key Value Store | Read         |
-| [GetKey](../../../cloudfront/latest/APIReference/API_kvs_GetKey.md "../../../cloudfront/latest/APIReference/API_kvs_GetKey.md")                                              | Return a key value pair                           | Read         |
-| [ListKeys](../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md "../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md")                                        | Returns a list of key value pairs                 | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="cloudfront-keyvaluestore-DescribeKeyValueStore"></a>[DescribeKeyValueStore](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.html) | Return metadata information about Key Value Store | Read | 
+| <a name="cloudfront-keyvaluestore-GetKey"></a>[GetKey](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_GetKey.html) | Return a key value pair | Read | 
+| <a name="cloudfront-keyvaluestore-ListKeys"></a>[ListKeys](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_ListKeys.html) | Returns a list of key value pairs | List | 

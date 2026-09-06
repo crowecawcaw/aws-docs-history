@@ -1,12 +1,17 @@
+
+
 # Data retrieval APIs for AWS Private CA Connector for SCEP
+<a name="awsprivatecaconnectorforscep"></a>
 
 AWS Private CA Connector for SCEP provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                              | Description                                                     | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | ------------ |
-| [GetChallengeMetadata](../../../pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.md "../../../pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.md")    | Get a Challenge for a Connector                                 | Read         |
-| [GetChallengePassword](../../../pca-connector-scep/latest/APIReference/API_GetChallengePassword.md "../../../pca-connector-scep/latest/APIReference/API_GetChallengePassword.md")    | Get a Challenge password for a Connector                        | Read         |
-| [GetConnector](../../../pca-connector-scep/latest/APIReference/API_GetConnector.md "../../../pca-connector-scep/latest/APIReference/API_GetConnector.md")                            | Get a SCEP Connector in your account                            | Read         |
-| [ListChallengeMetadata](../../../pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.md "../../../pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.md") | List Challenges for a Connector                                 | List         |
-| [ListConnectors](../../../pca-connector-scep/latest/APIReference/API_ListConnectors.md "../../../pca-connector-scep/latest/APIReference/API_ListConnectors.md")                      | List the SCEP Connectors in your account                        | List         |
-| [ListTagsForResource](../../../pca-connector-scep/latest/APIReference/API_ListTagsForResource.md "../../../pca-connector-scep/latest/APIReference/API_ListTagsForResource.md")       | List the tags for a pca-connector-scep resource in your account | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="pca-connector-scep-GetChallengeMetadata"></a>[GetChallengeMetadata](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.html) | Get a Challenge for a Connector | Read | 
+| <a name="pca-connector-scep-GetChallengePassword"></a>[GetChallengePassword](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengePassword.html) | Get a Challenge password for a Connector | Read | 
+| <a name="pca-connector-scep-GetConnector"></a>[GetConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetConnector.html) | Get a SCEP Connector in your account | Read | 
+| <a name="pca-connector-scep-ListChallengeMetadata"></a>[ListChallengeMetadata](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.html) | List Challenges for a Connector | List | 
+| <a name="pca-connector-scep-ListConnectors"></a>[ListConnectors](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html) | List the SCEP Connectors in your account | List | 
+| <a name="pca-connector-scep-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListTagsForResource.html) | List the tags for a pca-connector-scep resource in your account | Read | 

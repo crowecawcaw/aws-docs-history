@@ -1,41 +1,46 @@
+
+
 # Data retrieval APIs for Amazon Forecast
+<a name="amazonforecast"></a>
 
 Amazon Forecast provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                             | Description                                              | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------ |
-| [DescribeAutoPredictor](../../../forecast/latest/dg/API_DescribeAutoPredictor.md "../../../forecast/latest/dg/API_DescribeAutoPredictor.md")                                        | Describe an auto predictor                               | Read         |
-| [DescribeDataset](../../../forecast/latest/dg/API_DescribeDataset.md "../../../forecast/latest/dg/API_DescribeDataset.md")                                                          | Describe a dataset                                       | Read         |
-| [DescribeDatasetGroup](../../../forecast/latest/dg/API_DescribeDatasetGroup.md "../../../forecast/latest/dg/API_DescribeDatasetGroup.md")                                           | Describe a dataset group                                 | Read         |
-| [DescribeDatasetImportJob](../../../forecast/latest/dg/API_DescribeDatasetImportJob.md "../../../forecast/latest/dg/API_DescribeDatasetImportJob.md")                               | Describe a dataset import job                            | Read         |
-| [DescribeExplainability](../../../forecast/latest/dg/API_DescribeExplainability.md "../../../forecast/latest/dg/API_DescribeExplainability.md")                                     | Describe an explainability                               | Read         |
-| [DescribeExplainabilityExport](../../../forecast/latest/dg/API_DescribeExplainabilityExport.md "../../../forecast/latest/dg/API_DescribeExplainabilityExport.md")                   | Describe an explainability export                        | Read         |
-| [DescribeForecast](../../../forecast/latest/dg/API_DescribeForecast.md "../../../forecast/latest/dg/API_DescribeForecast.md")                                                       | Describe a forecast                                      | Read         |
-| [DescribeForecastEndpoint](../../../forecast/latest/dg/what-is-forecast.md "../../../forecast/latest/dg/what-is-forecast.md")                                                       | Describe an endpoint resource                            | Read         |
-| [DescribeForecastExportJob](../../../forecast/latest/dg/API_DescribeForecastExportJob.md "../../../forecast/latest/dg/API_DescribeForecastExportJob.md")                            | Describe a forecast export job                           | Read         |
-| [DescribeMonitor](../../../forecast/latest/dg/API_DescribeMonitor.md "../../../forecast/latest/dg/API_DescribeMonitor.md")                                                          | Describe an monitor resource                             | Read         |
-| [DescribePredictor](../../../forecast/latest/dg/API_DescribePredictor.md "../../../forecast/latest/dg/API_DescribePredictor.md")                                                    | Describe a predictor                                     | Read         |
-| [DescribePredictorBacktestExportJob](../../../forecast/latest/dg/API_DescribePredictorBacktestExportJob.md "../../../forecast/latest/dg/API_DescribePredictorBacktestExportJob.md") | Describe a predictor backtest export job                 | Read         |
-| [DescribeWhatIfAnalysis](../../../forecast/latest/dg/API_DescribeWhatIfAnalysis.md "../../../forecast/latest/dg/API_DescribeWhatIfAnalysis.md")                                     | Describe a what-if analysis                              | Read         |
-| [DescribeWhatIfForecast](../../../forecast/latest/dg/API_DescribeWhatIfForecast.md "../../../forecast/latest/dg/API_DescribeWhatIfForecast.md")                                     | Describe a what-if forecast                              | Read         |
-| [DescribeWhatIfForecastExport](../../../forecast/latest/dg/API_DescribeWhatIfForecastExport.md "../../../forecast/latest/dg/API_DescribeWhatIfForecastExport.md")                   | Describe a what-if forecast export                       | Read         |
-| [GetAccuracyMetrics](../../../forecast/latest/dg/API_GetAccuracyMetrics.md "../../../forecast/latest/dg/API_GetAccuracyMetrics.md")                                                 | Get the Accuracy Metrics for a predictor                 | Read         |
-| [GetRecentForecastContext](../../../forecast/latest/dg/what-is-forecast.md "../../../forecast/latest/dg/what-is-forecast.md")                                                       | Get the forecast context of a timeseries for an endpoint | Read         |
-| [InvokeForecastEndpoint](../../../forecast/latest/dg/what-is-forecast.md "../../../forecast/latest/dg/what-is-forecast.md")                                                         | Invoke the endpoint to get forecast for a timeseries     | Read         |
-| [ListDatasetGroups](../../../forecast/latest/dg/API_ListDatasetGroups.md "../../../forecast/latest/dg/API_ListDatasetGroups.md")                                                    | List all the dataset groups                              | Read         |
-| [ListDatasetImportJobs](../../../forecast/latest/dg/API_ListDatasetImportJobs.md "../../../forecast/latest/dg/API_ListDatasetImportJobs.md")                                        | List all the dataset import jobs                         | Read         |
-| [ListDatasets](../../../forecast/latest/dg/API_ListDatasets.md "../../../forecast/latest/dg/API_ListDatasets.md")                                                                   | List all the datasets                                    | Read         |
-| [ListExplainabilities](../../../forecast/latest/dg/API_ListExplainabilities.md "../../../forecast/latest/dg/API_ListExplainabilities.md")                                           | List all the explainabilities                            | Read         |
-| [ListExplainabilityExports](../../../forecast/latest/dg/API_ListExplainabilityExports.md "../../../forecast/latest/dg/API_ListExplainabilityExports.md")                            | List all the explainability exports                      | Read         |
-| [ListForecastExportJobs](../../../forecast/latest/dg/API_ListForecastExportJobs.md "../../../forecast/latest/dg/API_ListForecastExportJobs.md")                                     | List all the forecast export jobs                        | Read         |
-| [ListForecasts](../../../forecast/latest/dg/API_ListForecasts.md "../../../forecast/latest/dg/API_ListForecasts.md")                                                                | List all the forecasts                                   | Read         |
-| [ListMonitorEvaluations](../../../forecast/latest/dg/API_ListMonitorEvaluations.md "../../../forecast/latest/dg/API_ListMonitorEvaluations.md")                                     | List all the monitor evaluation result for a monitor     | Read         |
-| [ListMonitors](../../../forecast/latest/dg/API_ListMonitors.md "../../../forecast/latest/dg/API_ListMonitors.md")                                                                   | List all the monitor resources                           | Read         |
-| [ListPredictorBacktestExportJobs](../../../forecast/latest/dg/API_ListPredictorBacktestExportJobs.md "../../../forecast/latest/dg/API_ListPredictorBacktestExportJobs.md")          | List all the predictor backtest export jobs              | Read         |
-| [ListPredictors](../../../forecast/latest/dg/API_ListPredictors.md "../../../forecast/latest/dg/API_ListPredictors.md")                                                             | List all the predictors                                  | Read         |
-| [ListTagsForResource](../../../forecast/latest/dg/API_ListTagsForResource.md "../../../forecast/latest/dg/API_ListTagsForResource.md")                                              | List the tags for an Amazon Forecast resource            | Read         |
-| [ListWhatIfAnalyses](../../../forecast/latest/dg/API_ListWhatIfAnalyses.md "../../../forecast/latest/dg/API_ListWhatIfAnalyses.md")                                                 | List all the what-if analyses                            | Read         |
-| [ListWhatIfForecastExports](../../../forecast/latest/dg/API_ListWhatIfForecastExports.md "../../../forecast/latest/dg/API_ListWhatIfForecastExports.md")                            | List all the what-if forecast exports                    | Read         |
-| [ListWhatIfForecasts](../../../forecast/latest/dg/API_ListWhatIfForecasts.md "../../../forecast/latest/dg/API_ListWhatIfForecasts.md")                                              | List all the what-if forecasts                           | Read         |
-| [QueryForecast](../../../forecast/latest/dg/API_forecastquery_QueryForecast.md "../../../forecast/latest/dg/API_forecastquery_QueryForecast.md")                                    | Retrieve a forecast for a single item                    | Read         |
-| [QueryWhatIfForecast](../../../forecast/latest/dg/API_forecastquery_QueryWhatIfForecast.md "../../../forecast/latest/dg/API_forecastquery_QueryWhatIfForecast.md")                  | Retrieve a what-if forecast for a single item            | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="forecast-DescribeAutoPredictor"></a>[DescribeAutoPredictor](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeAutoPredictor.html) | Describe an auto predictor | Read | 
+| <a name="forecast-DescribeDataset"></a>[DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html) | Describe a dataset | Read | 
+| <a name="forecast-DescribeDatasetGroup"></a>[DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) | Describe a dataset group | Read | 
+| <a name="forecast-DescribeDatasetImportJob"></a>[DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html) | Describe a dataset import job | Read | 
+| <a name="forecast-DescribeExplainability"></a>[DescribeExplainability](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeExplainability.html) | Describe an explainability | Read | 
+| <a name="forecast-DescribeExplainabilityExport"></a>[DescribeExplainabilityExport](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeExplainabilityExport.html) | Describe an explainability export | Read | 
+| <a name="forecast-DescribeForecast"></a>[DescribeForecast](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeForecast.html) | Describe a forecast | Read | 
+| <a name="forecast-DescribeForecastEndpoint"></a>[DescribeForecastEndpoint](https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html) | Describe an endpoint resource | Read | 
+| <a name="forecast-DescribeForecastExportJob"></a>[DescribeForecastExportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeForecastExportJob.html) | Describe a forecast export job | Read | 
+| <a name="forecast-DescribeMonitor"></a>[DescribeMonitor](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeMonitor.html) | Describe an monitor resource | Read | 
+| <a name="forecast-DescribePredictor"></a>[DescribePredictor](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribePredictor.html) | Describe a predictor | Read | 
+| <a name="forecast-DescribePredictorBacktestExportJob"></a>[DescribePredictorBacktestExportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribePredictorBacktestExportJob.html) | Describe a predictor backtest export job | Read | 
+| <a name="forecast-DescribeWhatIfAnalysis"></a>[DescribeWhatIfAnalysis](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeWhatIfAnalysis.html) | Describe a what-if analysis | Read | 
+| <a name="forecast-DescribeWhatIfForecast"></a>[DescribeWhatIfForecast](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeWhatIfForecast.html) | Describe a what-if forecast | Read | 
+| <a name="forecast-DescribeWhatIfForecastExport"></a>[DescribeWhatIfForecastExport](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeWhatIfForecastExport.html) | Describe a what-if forecast export | Read | 
+| <a name="forecast-GetAccuracyMetrics"></a>[GetAccuracyMetrics](https://docs.aws.amazon.com/forecast/latest/dg/API_GetAccuracyMetrics.html) | Get the Accuracy Metrics for a predictor | Read | 
+| <a name="forecast-GetRecentForecastContext"></a>[GetRecentForecastContext](https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html) | Get the forecast context of a timeseries for an endpoint | Read | 
+| <a name="forecast-InvokeForecastEndpoint"></a>[InvokeForecastEndpoint](https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html) | Invoke the endpoint to get forecast for a timeseries | Read | 
+| <a name="forecast-ListDatasetGroups"></a>[ListDatasetGroups](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html) | List all the dataset groups | Read | 
+| <a name="forecast-ListDatasetImportJobs"></a>[ListDatasetImportJobs](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html) | List all the dataset import jobs | Read | 
+| <a name="forecast-ListDatasets"></a>[ListDatasets](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html) | List all the datasets | Read | 
+| <a name="forecast-ListExplainabilities"></a>[ListExplainabilities](https://docs.aws.amazon.com/forecast/latest/dg/API_ListExplainabilities.html) | List all the explainabilities | Read | 
+| <a name="forecast-ListExplainabilityExports"></a>[ListExplainabilityExports](https://docs.aws.amazon.com/forecast/latest/dg/API_ListExplainabilityExports.html) | List all the explainability exports | Read | 
+| <a name="forecast-ListForecastExportJobs"></a>[ListForecastExportJobs](https://docs.aws.amazon.com/forecast/latest/dg/API_ListForecastExportJobs.html) | List all the forecast export jobs | Read | 
+| <a name="forecast-ListForecasts"></a>[ListForecasts](https://docs.aws.amazon.com/forecast/latest/dg/API_ListForecasts.html) | List all the forecasts | Read | 
+| <a name="forecast-ListMonitorEvaluations"></a>[ListMonitorEvaluations](https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitorEvaluations.html) | List all the monitor evaluation result for a monitor | Read | 
+| <a name="forecast-ListMonitors"></a>[ListMonitors](https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitors.html) | List all the monitor resources | Read | 
+| <a name="forecast-ListPredictorBacktestExportJobs"></a>[ListPredictorBacktestExportJobs](https://docs.aws.amazon.com/forecast/latest/dg/API_ListPredictorBacktestExportJobs.html) | List all the predictor backtest export jobs | Read | 
+| <a name="forecast-ListPredictors"></a>[ListPredictors](https://docs.aws.amazon.com/forecast/latest/dg/API_ListPredictors.html) | List all the predictors | Read | 
+| <a name="forecast-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/forecast/latest/dg/API_ListTagsForResource.html) | List the tags for an Amazon Forecast resource | Read | 
+| <a name="forecast-ListWhatIfAnalyses"></a>[ListWhatIfAnalyses](https://docs.aws.amazon.com/forecast/latest/dg/API_ListWhatIfAnalyses.html) | List all the what-if analyses | Read | 
+| <a name="forecast-ListWhatIfForecastExports"></a>[ListWhatIfForecastExports](https://docs.aws.amazon.com/forecast/latest/dg/API_ListWhatIfForecastExports.html) | List all the what-if forecast exports | Read | 
+| <a name="forecast-ListWhatIfForecasts"></a>[ListWhatIfForecasts](https://docs.aws.amazon.com/forecast/latest/dg/API_ListWhatIfForecasts.html) | List all the what-if forecasts | Read | 
+| <a name="forecast-QueryForecast"></a>[QueryForecast](https://docs.aws.amazon.com/forecast/latest/dg/API_forecastquery_QueryForecast.html) | Retrieve a forecast for a single item | Read | 
+| <a name="forecast-QueryWhatIfForecast"></a>[QueryWhatIfForecast](https://docs.aws.amazon.com/forecast/latest/dg/API_forecastquery_QueryWhatIfForecast.html) | Retrieve a what-if forecast for a single item | Read | 

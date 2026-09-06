@@ -1,33 +1,38 @@
+
+
 # Data retrieval APIs for AWS Launch Wizard
+<a name="awslaunchwizard"></a>
 
 AWS Launch Wizard provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                             | Description                                      | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------ |
-| [DescribeAdditionalNode](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                       | Describe an additional node                      | Read         |
-| [DescribeProvisionedApp](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                       | Describe provisioning applications               | Read         |
-| [DescribeProvisioningEvents](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                   | Describe provisioning events                     | Read         |
-| [DescribeSettingsSet](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                          | Describe an application settings set             | Read         |
-| [GetDeployment](../../../launchwizard/latest/APIReference/API_GetDeployment.md "../../../launchwizard/latest/APIReference/API_GetDeployment.md")                                                    | Get a deployment                                 | Read         |
-| [GetDeploymentPatternVersion](../../../launchwizard/latest/APIReference/API_GetDeploymentPatternVersion.md "../../../launchwizard/latest/APIReference/API_GetDeploymentPatternVersion.md")          | Get a version of a deployment pattern            | Read         |
-| [GetInfrastructureSuggestion](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                  | Get infrastructure suggestion                    | Read         |
-| [GetIpAddress](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                                 | Get customer's ip address                        | Read         |
-| [GetResourceCostEstimate](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                      | Get resource cost estimate                       | Read         |
-| [GetResourceRecommendation](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                    | Get recommendation for a resource                | Read         |
-| [GetSettingsSet](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                               | Get a settings set                               | Read         |
-| [GetWorkload](../../../launchwizard/latest/APIReference/API_GetWorkload.md "../../../launchwizard/latest/APIReference/API_GetWorkload.md")                                                          | Get a workload                                   | Read         |
-| [GetWorkloadAsset](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                             | Get a workload's asset                           | Read         |
-| [GetWorkloadAssets](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                            | Get workload assets                              | Read         |
-| [GetWorkloadDeploymentPattern](../../../launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.md "../../../launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.md")       | Get a deployment pattern                         | Read         |
-| [ListAdditionalNodes](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                          | List additional nodes                            | List         |
-| [ListAllowedResources](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                         | List the allowed resources                       | List         |
-| [ListDeploymentEvents](../../../launchwizard/latest/APIReference/API_ListDeploymentEvents.md "../../../launchwizard/latest/APIReference/API_ListDeploymentEvents.md")                               | List the events that occured during a deployment | List         |
-| [ListDeploymentPatternVersions](../../../launchwizard/latest/APIReference/API_ListDeploymentPatternVersions.md "../../../launchwizard/latest/APIReference/API_ListDeploymentPatternVersions.md")    | List the versions of a deployment pattern        | List         |
-| [ListDeployments](../../../launchwizard/latest/APIReference/API_ListDeployments.md "../../../launchwizard/latest/APIReference/API_ListDeployments.md")                                              | List deployments                                 | List         |
-| [ListProvisionedApps](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                          | List provisioning applications                   | List         |
-| [ListResourceCostEstimates](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                    | List the cost estimates of resources             | List         |
-| [ListSettingsSets](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                             | List settings sets                               | List         |
-| [ListTagsForResource](../../../launchwizard/latest/APIReference/API_ListTagsForResource.md "../../../launchwizard/latest/APIReference/API_ListTagsForResource.md")                                  | List tags for a LaunchWizard resource            | Read         |
-| [ListWorkloadDeploymentOptions](../../../launchwizard.md "../../../launchwizard.md")                                                                                                                | List deployment options of a given workload      | List         |
-| [ListWorkloadDeploymentPatterns](../../../launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.md "../../../launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.md") | List the deployment patterns of a workload       | List         |
-| [ListWorkloads](../../../launchwizard/latest/APIReference/API_ListWorkloads.md "../../../launchwizard/latest/APIReference/API_ListWorkloads.md")                                                    | List workloads                                   | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="launchwizard-DescribeAdditionalNode"></a>[DescribeAdditionalNode](https://docs.aws.amazon.com/launchwizard/) | Describe an additional node | Read | 
+| <a name="launchwizard-DescribeProvisionedApp"></a>[DescribeProvisionedApp](https://docs.aws.amazon.com/launchwizard/) | Describe provisioning applications | Read | 
+| <a name="launchwizard-DescribeProvisioningEvents"></a>[DescribeProvisioningEvents](https://docs.aws.amazon.com/launchwizard/) | Describe provisioning events | Read | 
+| <a name="launchwizard-DescribeSettingsSet"></a>[DescribeSettingsSet](https://docs.aws.amazon.com/launchwizard/) | Describe an application settings set | Read | 
+| <a name="launchwizard-GetDeployment"></a>[GetDeployment](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetDeployment.html) | Get a deployment | Read | 
+| <a name="launchwizard-GetDeploymentPatternVersion"></a>[GetDeploymentPatternVersion](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetDeploymentPatternVersion.html) | Get a version of a deployment pattern | Read | 
+| <a name="launchwizard-GetInfrastructureSuggestion"></a>[GetInfrastructureSuggestion](https://docs.aws.amazon.com/launchwizard/) | Get infrastructure suggestion | Read | 
+| <a name="launchwizard-GetIpAddress"></a>[GetIpAddress](https://docs.aws.amazon.com/launchwizard/) | Get customer's ip address | Read | 
+| <a name="launchwizard-GetResourceCostEstimate"></a>[GetResourceCostEstimate](https://docs.aws.amazon.com/launchwizard/) | Get resource cost estimate | Read | 
+| <a name="launchwizard-GetResourceRecommendation"></a>[GetResourceRecommendation](https://docs.aws.amazon.com/launchwizard/) | Get recommendation for a resource | Read | 
+| <a name="launchwizard-GetSettingsSet"></a>[GetSettingsSet](https://docs.aws.amazon.com/launchwizard/) | Get a settings set | Read | 
+| <a name="launchwizard-GetWorkload"></a>[GetWorkload](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkload.html) | Get a workload | Read | 
+| <a name="launchwizard-GetWorkloadAsset"></a>[GetWorkloadAsset](https://docs.aws.amazon.com/launchwizard/) | Get a workload's asset | Read | 
+| <a name="launchwizard-GetWorkloadAssets"></a>[GetWorkloadAssets](https://docs.aws.amazon.com/launchwizard/) | Get workload assets | Read | 
+| <a name="launchwizard-GetWorkloadDeploymentPattern"></a>[GetWorkloadDeploymentPattern](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html) | Get a deployment pattern | Read | 
+| <a name="launchwizard-ListAdditionalNodes"></a>[ListAdditionalNodes](https://docs.aws.amazon.com/launchwizard/) | List additional nodes | List | 
+| <a name="launchwizard-ListAllowedResources"></a>[ListAllowedResources](https://docs.aws.amazon.com/launchwizard/) | List the allowed resources | List | 
+| <a name="launchwizard-ListDeploymentEvents"></a>[ListDeploymentEvents](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListDeploymentEvents.html) | List the events that occured during a deployment | List | 
+| <a name="launchwizard-ListDeploymentPatternVersions"></a>[ListDeploymentPatternVersions](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListDeploymentPatternVersions.html) | List the versions of a deployment pattern | List | 
+| <a name="launchwizard-ListDeployments"></a>[ListDeployments](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListDeployments.html) | List deployments | List | 
+| <a name="launchwizard-ListProvisionedApps"></a>[ListProvisionedApps](https://docs.aws.amazon.com/launchwizard/) | List provisioning applications | List | 
+| <a name="launchwizard-ListResourceCostEstimates"></a>[ListResourceCostEstimates](https://docs.aws.amazon.com/launchwizard/) | List the cost estimates of resources | List | 
+| <a name="launchwizard-ListSettingsSets"></a>[ListSettingsSets](https://docs.aws.amazon.com/launchwizard/) | List settings sets | List | 
+| <a name="launchwizard-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListTagsForResource.html) | List tags for a LaunchWizard resource | Read | 
+| <a name="launchwizard-ListWorkloadDeploymentOptions"></a>[ListWorkloadDeploymentOptions](https://docs.aws.amazon.com/launchwizard/) | List deployment options of a given workload | List | 
+| <a name="launchwizard-ListWorkloadDeploymentPatterns"></a>[ListWorkloadDeploymentPatterns](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html) | List the deployment patterns of a workload | List | 
+| <a name="launchwizard-ListWorkloads"></a>[ListWorkloads](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html) | List workloads | List | 

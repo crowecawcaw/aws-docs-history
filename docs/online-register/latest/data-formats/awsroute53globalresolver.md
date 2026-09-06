@@ -1,23 +1,28 @@
+
+
 # Data retrieval APIs for AWS Route53 Global Resolver
+<a name="awsroute53globalresolver"></a>
 
 AWS Route53 Global Resolver provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                                                               | Description                        | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------ |
-| [GetAccessSource](../../../Route53/latest/APIReference/API_route53globalresolver_GetAccessSource.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetAccessSource.md")                                              | Get an access source               | Read         |
-| [GetAccessToken](../../../Route53/latest/APIReference/API_route53globalresolver_GetAccessToken.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetAccessToken.md")                                                 | Get an access token                | Read         |
-| [GetDNSView](../../../Route53/latest/APIReference/API_route53globalresolver_GetDNSView.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetDNSView.md")                                                             | Get a dns view                     | Read         |
-| [GetFirewallDomainList](../../../Route53/latest/APIReference/API_route53globalresolver_GetFirewallDomainList.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetFirewallDomainList.md")                            | Get a firewall domain list         | Read         |
-| [GetFirewallRule](../../../Route53/latest/APIReference/API_route53globalresolver_GetFirewallRule.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetFirewallRule.md")                                              | Get a firewall rule                | Read         |
-| [GetGlobalResolver](../../../Route53/latest/APIReference/API_route53globalresolver_GetGlobalResolver.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetGlobalResolver.md")                                        | Get a global resolver              | Read         |
-| [GetHostedZoneAssociation](../../../Route53/latest/APIReference/API_route53globalresolver_GetHostedZoneAssociation.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetHostedZoneAssociation.md")                   | Get a hosted zone association      | Read         |
-| [GetManagedFirewallDomainList](../../../Route53/latest/APIReference/API_route53globalresolver_GetManagedFirewallDomainList.md "../../../Route53/latest/APIReference/API_route53globalresolver_GetManagedFirewallDomainList.md")       | Get a managed firewall domain list | Read         |
-| [ListAccessSources](../../../Route53/latest/APIReference/API_route53globalresolver_ListAccessSources.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListAccessSources.md")                                        | List access sources                | List         |
-| [ListAccessTokens](../../../Route53/latest/APIReference/API_route53globalresolver_ListAccessTokens.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListAccessTokens.md")                                           | List access tokens                 | List         |
-| [ListDNSViews](../../../Route53/latest/APIReference/API_route53globalresolver_ListDNSViews.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListDNSViews.md")                                                       | List dns views                     | List         |
-| [ListFirewallDomainLists](../../../Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomainLists.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomainLists.md")                      | List firewall domain lists         | List         |
-| [ListFirewallDomains](../../../Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomains.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomains.md")                                  | List firewall domains              | Read         |
-| [ListFirewallRules](../../../Route53/latest/APIReference/API_route53globalresolver_ListFirewallRules.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListFirewallRules.md")                                        | List firewall rules                | List         |
-| [ListGlobalResolvers](../../../Route53/latest/APIReference/API_route53globalresolver_ListGlobalResolvers.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListGlobalResolvers.md")                                  | List global resolvers              | List         |
-| [ListHostedZoneAssociations](../../../Route53/latest/APIReference/API_route53globalresolver_ListHostedZoneAssociations.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListHostedZoneAssociations.md")             | List hosted zone associations      | List         |
-| [ListManagedFirewallDomainLists](../../../Route53/latest/APIReference/API_route53globalresolver_ListManagedFirewallDomainLists.md "../../../Route53/latest/APIReference/API_route53globalresolver_ListManagedFirewallDomainLists.md") | List managed firewall domain lists | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="route53globalresolver-GetAccessSource"></a>[GetAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetAccessSource) | Get an access source | Read | 
+| <a name="route53globalresolver-GetAccessToken"></a>[GetAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetAccessToken) | Get an access token | Read | 
+| <a name="route53globalresolver-GetDNSView"></a>[GetDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetDNSView) | Get a dns view | Read | 
+| <a name="route53globalresolver-GetFirewallDomainList"></a>[GetFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetFirewallDomainList) | Get a firewall domain list | Read | 
+| <a name="route53globalresolver-GetFirewallRule"></a>[GetFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetFirewallRule) | Get a firewall rule | Read | 
+| <a name="route53globalresolver-GetGlobalResolver"></a>[GetGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetGlobalResolver) | Get a global resolver | Read | 
+| <a name="route53globalresolver-GetHostedZoneAssociation"></a>[GetHostedZoneAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetHostedZoneAssociation) | Get a hosted zone association | Read | 
+| <a name="route53globalresolver-GetManagedFirewallDomainList"></a>[GetManagedFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetManagedFirewallDomainList) | Get a managed firewall domain list | Read | 
+| <a name="route53globalresolver-ListAccessSources"></a>[ListAccessSources](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListAccessSources) | List access sources | List | 
+| <a name="route53globalresolver-ListAccessTokens"></a>[ListAccessTokens](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListAccessTokens) | List access tokens | List | 
+| <a name="route53globalresolver-ListDNSViews"></a>[ListDNSViews](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListDNSViews) | List dns views | List | 
+| <a name="route53globalresolver-ListFirewallDomainLists"></a>[ListFirewallDomainLists](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomainLists) | List firewall domain lists | List | 
+| <a name="route53globalresolver-ListFirewallDomains"></a>[ListFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomains) | List firewall domains | Read | 
+| <a name="route53globalresolver-ListFirewallRules"></a>[ListFirewallRules](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallRules) | List firewall rules | List | 
+| <a name="route53globalresolver-ListGlobalResolvers"></a>[ListGlobalResolvers](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListGlobalResolvers) | List global resolvers | List | 
+| <a name="route53globalresolver-ListHostedZoneAssociations"></a>[ListHostedZoneAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListHostedZoneAssociations) | List hosted zone associations | List | 
+| <a name="route53globalresolver-ListManagedFirewallDomainLists"></a>[ListManagedFirewallDomainLists](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListManagedFirewallDomainLists) | List managed firewall domain lists | List | 

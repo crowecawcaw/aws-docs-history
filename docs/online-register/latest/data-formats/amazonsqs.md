@@ -1,13 +1,18 @@
+
+
 # Data retrieval APIs for Amazon SQS
+<a name="amazonsqs"></a>
 
 Amazon SQS provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                                   | Description                                                                                                  | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------ |
-| [GetQueueAttributes](../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.md "../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.md")                         | Get attributes for the specified queue                                                                       | Read         |
-| [GetQueueUrl](../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.md "../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.md")                                              | Return the URL of an existing queue                                                                          | Read         |
-| [ListDeadLetterSourceQueues](../../../AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.md "../../../AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.md") | Return a list of your queues that have the RedrivePolicy queue attribute configured with a dead letter queue | Read         |
-| [ListMessageMoveTasks](../../../AWSSimpleQueueService/latest/APIReference/API_ListMessageMoveTasks.md "../../../AWSSimpleQueueService/latest/APIReference/API_ListMessageMoveTasks.md")                   | List message move tasks                                                                                      | Read         |
-| [ListQueueTags](../../../AWSSimpleQueueService/latest/APIReference/API_ListQueueTags.md "../../../AWSSimpleQueueService/latest/APIReference/API_ListQueueTags.md")                                        | List tags added to an SQS queue                                                                              | Read         |
-| [ListQueues](../../../AWSSimpleQueueService/latest/APIReference/API_ListQueues.md "../../../AWSSimpleQueueService/latest/APIReference/API_ListQueues.md")                                                 | Return a list of your queues                                                                                 | Read         |
-| [ReceiveMessage](../../../AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.md "../../../AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.md")                                     | Retrieve one or more messages, with a maximum limit of 10 messages, from the specified queue                 | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="sqs-GetQueueAttributes"></a>[GetQueueAttributes](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html) | Get attributes for the specified queue | Read | 
+| <a name="sqs-GetQueueUrl"></a>[GetQueueUrl](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html) | Return the URL of an existing queue | Read | 
+| <a name="sqs-ListDeadLetterSourceQueues"></a>[ListDeadLetterSourceQueues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html) | Return a list of your queues that have the RedrivePolicy queue attribute configured with a dead letter queue | Read | 
+| <a name="sqs-ListMessageMoveTasks"></a>[ListMessageMoveTasks](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListMessageMoveTasks.html) | List message move tasks | Read | 
+| <a name="sqs-ListQueueTags"></a>[ListQueueTags](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueueTags.html) | List tags added to an SQS queue | Read | 
+| <a name="sqs-ListQueues"></a>[ListQueues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html) | Return a list of your queues | Read | 
+| <a name="sqs-ReceiveMessage"></a>[ReceiveMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html) | Retrieve one or more messages, with a maximum limit of 10 messages, from the specified queue | Read | 

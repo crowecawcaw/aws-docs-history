@@ -1,23 +1,28 @@
+
+
 # Data retrieval APIs for AWS Entity Resolution
+<a name="awsentityresolution"></a>
 
 AWS Entity Resolution provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                             | Description                                                  | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ |
-| [GetIdMappingJob](../../../entityresolution/latest/apireference/API_GetIdMappingJob.md "../../../entityresolution/latest/apireference/API_GetIdMappingJob.md")                      | Get a idmapping job                                          | Read         |
-| [GetIdMappingWorkflow](../../../entityresolution/latest/apireference/API_GetIdMappingWorkflow.md "../../../entityresolution/latest/apireference/API_GetIdMappingWorkflow.md")       | Get a idmapping workflow                                     | Read         |
-| [GetIdNamespace](../../../entityresolution/latest/apireference/API_GetIdNamespace.md "../../../entityresolution/latest/apireference/API_GetIdNamespace.md")                         | Get a IdNamespace                                            | Read         |
-| [GetMatchId](../../../entityresolution/latest/apireference/API_GetMatchId.md "../../../entityresolution/latest/apireference/API_GetMatchId.md")                                     | Get match Id                                                 | Read         |
-| [GetMatchingJob](../../../entityresolution/latest/apireference/API_GetMatchingJob.md "../../../entityresolution/latest/apireference/API_GetMatchingJob.md")                         | Get a matching job                                           | Read         |
-| [GetMatchingWorkflow](../../../entityresolution/latest/apireference/API_GetMatchingWorkflow.md "../../../entityresolution/latest/apireference/API_GetMatchingWorkflow.md")          | Get a matching workflow                                      | Read         |
-| [GetPolicy](../../../entityresolution/latest/apireference/API_GetPolicy.md "../../../entityresolution/latest/apireference/API_GetPolicy.md")                                        | Get a resource policy for an AWS Entity Resolution resources | Read         |
-| [GetProviderService](../../../entityresolution/latest/apireference/API_GetProviderService.md "../../../entityresolution/latest/apireference/API_GetProviderService.md")             | Get provider service                                         | Read         |
-| [GetSchemaMapping](../../../entityresolution/latest/apireference/API_GetSchemaMapping.md "../../../entityresolution/latest/apireference/API_GetSchemaMapping.md")                   | Get a schema mapping                                         | Read         |
-| [ListIdMappingJobs](../../../entityresolution/latest/apireference/API_ListIdMappingJobs.md "../../../entityresolution/latest/apireference/API_ListIdMappingJobs.md")                | List idmapping jobs                                          | List         |
-| [ListIdMappingWorkflows](../../../entityresolution/latest/apireference/API_ListIdMappingWorkflows.md "../../../entityresolution/latest/apireference/API_ListIdMappingWorkflows.md") | List idmapping workflows                                     | List         |
-| [ListIdNamespaces](../../../entityresolution/latest/apireference/API_ListIdNamespaces.md "../../../entityresolution/latest/apireference/API_ListIdNamespaces.md")                   | List IdNamespaces                                            | List         |
-| [ListMatchingJobs](../../../entityresolution/latest/apireference/API_ListMatchingJobs.md "../../../entityresolution/latest/apireference/API_ListMatchingJobs.md")                   | List matching jobs                                           | List         |
-| [ListMatchingWorkflows](../../../entityresolution/latest/apireference/API_ListMatchingWorkflows.md "../../../entityresolution/latest/apireference/API_ListMatchingWorkflows.md")    | List matching workflows                                      | List         |
-| [ListProviderServices](../../../entityresolution/latest/apireference/API_ListProviderServices.md "../../../entityresolution/latest/apireference/API_ListProviderServices.md")       | List provider service                                        | List         |
-| [ListSchemaMappings](../../../entityresolution/latest/apireference/API_ListSchemaMappings.md "../../../entityresolution/latest/apireference/API_ListSchemaMappings.md")             | List schema mappings                                         | List         |
-| [ListTagsForResource](../../../entityresolution/latest/apireference/API_ListTagsForResource.md "../../../entityresolution/latest/apireference/API_ListTagsForResource.md")          | List tags for a resource                                     | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="entityresolution-GetIdMappingJob"></a>[GetIdMappingJob](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdMappingJob.html) | Get a idmapping job | Read | 
+| <a name="entityresolution-GetIdMappingWorkflow"></a>[GetIdMappingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdMappingWorkflow.html) | Get a idmapping workflow | Read | 
+| <a name="entityresolution-GetIdNamespace"></a>[GetIdNamespace](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdNamespace.html) | Get a IdNamespace | Read | 
+| <a name="entityresolution-GetMatchId"></a>[GetMatchId](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchId.html) | Get match Id | Read | 
+| <a name="entityresolution-GetMatchingJob"></a>[GetMatchingJob](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchingJob.html) | Get a matching job | Read | 
+| <a name="entityresolution-GetMatchingWorkflow"></a>[GetMatchingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchingWorkflow.html) | Get a matching workflow | Read | 
+| <a name="entityresolution-GetPolicy"></a>[GetPolicy](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetPolicy.html) | Get a resource policy for an AWS Entity Resolution resources | Read | 
+| <a name="entityresolution-GetProviderService"></a>[GetProviderService](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetProviderService.html) | Get provider service | Read | 
+| <a name="entityresolution-GetSchemaMapping"></a>[GetSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetSchemaMapping.html) | Get a schema mapping | Read | 
+| <a name="entityresolution-ListIdMappingJobs"></a>[ListIdMappingJobs](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdMappingJobs.html) | List idmapping jobs | List | 
+| <a name="entityresolution-ListIdMappingWorkflows"></a>[ListIdMappingWorkflows](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdMappingWorkflows.html) | List idmapping workflows | List | 
+| <a name="entityresolution-ListIdNamespaces"></a>[ListIdNamespaces](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdNamespaces.html) | List IdNamespaces | List | 
+| <a name="entityresolution-ListMatchingJobs"></a>[ListMatchingJobs](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListMatchingJobs.html) | List matching jobs | List | 
+| <a name="entityresolution-ListMatchingWorkflows"></a>[ListMatchingWorkflows](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListMatchingWorkflows.html) | List matching workflows | List | 
+| <a name="entityresolution-ListProviderServices"></a>[ListProviderServices](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListProviderServices.html) | List provider service | List | 
+| <a name="entityresolution-ListSchemaMappings"></a>[ListSchemaMappings](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListSchemaMappings.html) | List schema mappings | List | 
+| <a name="entityresolution-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListTagsForResource.html) | List tags for a resource | Read | 

@@ -1,16 +1,21 @@
+
+
 # Data retrieval APIs for Amazon S3 Files
+<a name="amazons3files"></a>
 
 Amazon S3 Files provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                      | Description                                                     | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ------------ |
-| [ClientMount](../../../AmazonS3/latest/API/s3files-client-authorization.md "../../../AmazonS3/latest/API/s3files-client-authorization.md")                                                   | Allow an NFS client read-access to a file system                | Read         |
-| [GetAccessPoint](../../../AmazonS3/latest/API/API_S3Files_GetAccessPoint.md "../../../AmazonS3/latest/API/API_S3Files_GetAccessPoint.md")                                                    | Get resource information for a specified access point           | Read         |
-| [GetFileSystem](../../../AmazonS3/latest/API/API_S3Files_GetFileSystem.md "../../../AmazonS3/latest/API/API_S3Files_GetFileSystem.md")                                                       | Get resource information for a specified file system            | Read         |
-| [GetFileSystemPolicy](../../../AmazonS3/latest/API/API_S3Files_GetFileSystemPolicy.md "../../../AmazonS3/latest/API/API_S3Files_GetFileSystemPolicy.md")                                     | Get the IAM resource policy for a specified file system         | Read         |
-| [GetMountTarget](../../../AmazonS3/latest/API/API_S3Files_GetMountTarget.md "../../../AmazonS3/latest/API/API_S3Files_GetMountTarget.md")                                                    | Get resource information for a specified mount target           | Read         |
-| [GetSynchronizationConfiguration](../../../AmazonS3/latest/API/API_S3Files_GetSynchronizationConfiguration.md "../../../AmazonS3/latest/API/API_S3Files_GetSynchronizationConfiguration.md") | Get a synchronization configuration for a specified file system | Read         |
-| [ListAccessPoints](../../../AmazonS3/latest/API/API_S3Files_ListAccessPoints.md "../../../AmazonS3/latest/API/API_S3Files_ListAccessPoints.md")                                              | Get a paginated list of all access points in the account        | List         |
-| [ListFileSystems](../../../AmazonS3/latest/API/API_S3Files_ListFileSystems.md "../../../AmazonS3/latest/API/API_S3Files_ListFileSystems.md")                                                 | Get a paginated list of all file systems in the account         | List         |
-| [ListMountTargets](../../../AmazonS3/latest/API/API_S3Files_ListMountTargets.md "../../../AmazonS3/latest/API/API_S3Files_ListMountTargets.md")                                              | Get a paginated list of all mount targets in the account        | List         |
-| [ListTagsForResource](../../../AmazonS3/latest/API/API_S3Files_ListTagsForResource.md "../../../AmazonS3/latest/API/API_S3Files_ListTagsForResource.md")                                     | List tags for a specified S3 Files resource                     | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="s3files-ClientMount"></a>[ClientMount](https://docs.aws.amazon.com/AmazonS3/latest/API/s3files-client-authorization.html) | Allow an NFS client read-access to a file system | Read | 
+| <a name="s3files-GetAccessPoint"></a>[GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_GetAccessPoint.html) | Get resource information for a specified access point | Read | 
+| <a name="s3files-GetFileSystem"></a>[GetFileSystem](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_GetFileSystem.html) | Get resource information for a specified file system | Read | 
+| <a name="s3files-GetFileSystemPolicy"></a>[GetFileSystemPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_GetFileSystemPolicy.html) | Get the IAM resource policy for a specified file system | Read | 
+| <a name="s3files-GetMountTarget"></a>[GetMountTarget](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_GetMountTarget.html) | Get resource information for a specified mount target | Read | 
+| <a name="s3files-GetSynchronizationConfiguration"></a>[GetSynchronizationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_GetSynchronizationConfiguration.html) | Get a synchronization configuration for a specified file system | Read | 
+| <a name="s3files-ListAccessPoints"></a>[ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_ListAccessPoints.html) | Get a paginated list of all access points in the account | List | 
+| <a name="s3files-ListFileSystems"></a>[ListFileSystems](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_ListFileSystems.html) | Get a paginated list of all file systems in the account | List | 
+| <a name="s3files-ListMountTargets"></a>[ListMountTargets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_ListMountTargets.html) | Get a paginated list of all mount targets in the account | List | 
+| <a name="s3files-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3Files_ListTagsForResource.html) | List tags for a specified S3 Files resource | Read | 

@@ -1,11 +1,16 @@
+
+
 # Data retrieval APIs for AWS Elemental Support Cases
+<a name="awselementalsupportcases"></a>
 
 AWS Elemental Support Cases provides the following APIs for data retrieval.
 
-| Actions                                                                                                    | Description                                                                      | Access level |
-| ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------ |
-| [GetCase](../../../elemental-appliances-software.md "../../../elemental-appliances-software.md")           | Describe a support case in your account                                          | Read         |
-| [GetCasePermission](../../../elemental-appliances-software.md "../../../elemental-appliances-software.md") | Verify whether the caller has the permissions to perform support case operations | Read         |
-| [GetCases](../../../elemental-appliances-software.md "../../../elemental-appliances-software.md")          | List the support cases in your account                                           | Read         |
-| [GetUICache](../../../elemental-appliances-software.md "../../../elemental-appliances-software.md")        | Retrieve cached case user data for use in the Console                            | Read         |
-| [ListTagsForCase](../../../elemental-appliances-software.md "../../../elemental-appliances-software.md")   | List tags on a support case                                                      | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="elemental-support-cases-GetCase"></a>[GetCase](https://docs.aws.amazon.com/elemental-appliances-software) | Describe a support case in your account | Read | 
+| <a name="elemental-support-cases-GetCasePermission"></a>[GetCasePermission](https://docs.aws.amazon.com/elemental-appliances-software) | Verify whether the caller has the permissions to perform support case operations | Read | 
+| <a name="elemental-support-cases-GetCases"></a>[GetCases](https://docs.aws.amazon.com/elemental-appliances-software) | List the support cases in your account | Read | 
+| <a name="elemental-support-cases-GetUICache"></a>[GetUICache](https://docs.aws.amazon.com/elemental-appliances-software) | Retrieve cached case user data for use in the Console | Read | 
+| <a name="elemental-support-cases-ListTagsForCase"></a>[ListTagsForCase](https://docs.aws.amazon.com/elemental-appliances-software) | List tags on a support case | Read | 

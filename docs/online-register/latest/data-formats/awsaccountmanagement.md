@@ -1,14 +1,19 @@
+
+
 # Data retrieval APIs for AWS Account Management
+<a name="awsaccountmanagement"></a>
 
 AWS Account Management provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                            | Description                                                                     | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------ |
-| [GetAccountInformation](../../../accounts/latest/reference/API_GetAccountInformation.md "../../../accounts/latest/reference/API_GetAccountInformation.md")                         | Retrieve the account information for an account                                 | Read         |
-| [GetAlternateContact](../../../accounts/latest/reference/API_GetAlternateContact.md "../../../accounts/latest/reference/API_GetAlternateContact.md")                               | Retrieve the alternate contacts for an account                                  | Read         |
-| [GetContactInformation](../../../accounts/latest/reference/API_GetContactInformation.md "../../../accounts/latest/reference/API_GetContactInformation.md")                         | Retrieve the primary contact information for an account                         | Read         |
-| [GetGovCloudAccountInformation](../../../accounts/latest/reference/API_GetGovCloudAccountInformation.md "../../../accounts/latest/reference/API_GetGovCloudAccountInformation.md") | Retrieve the linked GovCloud account information for an account                 | Read         |
-| [GetPrimaryEmail](../../../accounts/latest/reference/API_GetPrimaryEmail.md "../../../accounts/latest/reference/API_GetPrimaryEmail.md")                                           | Retrieve the primary email address of an account                                | Read         |
-| [GetPrimaryEmailUpdateStatus](../../../accounts/latest/reference/API_GetPrimaryEmailUpdateStatus.md "../../../accounts/latest/reference/API_GetPrimaryEmailUpdateStatus.md")       | Retrieve information about the most recent primary email update for the account | Read         |
-| [GetRegionOptStatus](../../../accounts/latest/reference/API_GetRegionOptStatus.md "../../../accounts/latest/reference/API_GetRegionOptStatus.md")                                  | Get the opt-in status of a Region                                               | Read         |
-| [ListRegions](../../../accounts/latest/reference/API_ListRegions.md "../../../accounts/latest/reference/API_ListRegions.md")                                                       | List the available Regions                                                      | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="account-GetAccountInformation"></a>[GetAccountInformation](https://docs.aws.amazon.com/accounts/latest/reference/API_GetAccountInformation.html) | Retrieve the account information for an account | Read | 
+| <a name="account-GetAlternateContact"></a>[GetAlternateContact](https://docs.aws.amazon.com/accounts/latest/reference/API_GetAlternateContact.html) | Retrieve the alternate contacts for an account | Read | 
+| <a name="account-GetContactInformation"></a>[GetContactInformation](https://docs.aws.amazon.com/accounts/latest/reference/API_GetContactInformation.html) | Retrieve the primary contact information for an account | Read | 
+| <a name="account-GetGovCloudAccountInformation"></a>[GetGovCloudAccountInformation](https://docs.aws.amazon.com/accounts/latest/reference/API_GetGovCloudAccountInformation.html) | Retrieve the linked GovCloud account information for an account | Read | 
+| <a name="account-GetPrimaryEmail"></a>[GetPrimaryEmail](https://docs.aws.amazon.com/accounts/latest/reference/API_GetPrimaryEmail.html) | Retrieve the primary email address of an account | Read | 
+| <a name="account-GetPrimaryEmailUpdateStatus"></a>[GetPrimaryEmailUpdateStatus](https://docs.aws.amazon.com/accounts/latest/reference/API_GetPrimaryEmailUpdateStatus.html) | Retrieve information about the most recent primary email update for the account | Read | 
+| <a name="account-GetRegionOptStatus"></a>[GetRegionOptStatus](https://docs.aws.amazon.com/accounts/latest/reference/API_GetRegionOptStatus.html) | Get the opt-in status of a Region | Read | 
+| <a name="account-ListRegions"></a>[ListRegions](https://docs.aws.amazon.com/accounts/latest/reference/API_ListRegions.html) | List the available Regions | List | 

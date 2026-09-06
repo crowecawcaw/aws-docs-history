@@ -1,14 +1,19 @@
+
+
 # Data retrieval APIs for AWS Directory Service Data
+<a name="awsdirectoryservicedata"></a>
 
 AWS Directory Service Data provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                                                    | Description                                        | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------ |
-| [DescribeGroup](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_DescribeGroup.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_DescribeGroup.md")                   | Describe a group on a directory                    | Read         |
-| [DescribeUser](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_DescribeUser.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_DescribeUser.md")                      | Describe a user on a directory                     | Read         |
-| [ListGroupMembers](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroupMembers.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroupMembers.md")          | List members in a group on a directory             | List         |
-| [ListGroups](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroups.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroups.md")                            | List groups on a directory                         | List         |
-| [ListGroupsForMember](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroupsForMember.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroupsForMember.md") | List the groups that a member is in on a directory | List         |
-| [ListUsers](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListUsers.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListUsers.md")                               | List users on a directory                          | List         |
-| [SearchGroups](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_SearchGroups.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_SearchGroups.md")                      | Search for groups on a directory                   | Read         |
-| [SearchUsers](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_SearchUsers.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_SearchUsers.md")                         | Search for users on a directory                    | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="ds-data-DescribeGroup"></a>[DescribeGroup](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_DescribeGroup.html) | Describe a group on a directory | Read | 
+| <a name="ds-data-DescribeUser"></a>[DescribeUser](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_DescribeUser.html) | Describe a user on a directory | Read | 
+| <a name="ds-data-ListGroupMembers"></a>[ListGroupMembers](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroupMembers.html) | List members in a group on a directory | List | 
+| <a name="ds-data-ListGroups"></a>[ListGroups](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroups.html) | List groups on a directory | List | 
+| <a name="ds-data-ListGroupsForMember"></a>[ListGroupsForMember](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroupsForMember.html) | List the groups that a member is in on a directory | List | 
+| <a name="ds-data-ListUsers"></a>[ListUsers](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListUsers.html) | List users on a directory | List | 
+| <a name="ds-data-SearchGroups"></a>[SearchGroups](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_SearchGroups.html) | Search for groups on a directory | Read | 
+| <a name="ds-data-SearchUsers"></a>[SearchUsers](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_SearchUsers.html) | Search for users on a directory | Read | 

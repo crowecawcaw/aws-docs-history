@@ -1,15 +1,20 @@
+
+
 # Data retrieval APIs for AWS AppFabric
+<a name="awsappfabric"></a>
 
 AWS AppFabric provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                      | Description                                                | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ------------ |
-| [GetAppAuthorization](../../../appfabric/latest/api/API_GetAppAuthorization.md "../../../appfabric/latest/api/API_GetAppAuthorization.md")                   | View details about app authorizations                      | Read         |
-| [GetAppBundle](../../../appfabric/latest/api/API_GetAppBundle.md "../../../appfabric/latest/api/API_GetAppBundle.md")                                        | View details about app bundles                             | Read         |
-| [GetIngestion](../../../appfabric/latest/api/API_GetIngestion.md "../../../appfabric/latest/api/API_GetIngestion.md")                                        | View details about ingestions                              | Read         |
-| [GetIngestionDestination](../../../appfabric/latest/api/API_GetIngestionDestination.md "../../../appfabric/latest/api/API_GetIngestionDestination.md")       | View details about ingestion destinations                  | Read         |
-| [ListAppAuthorizations](../../../appfabric/latest/api/API_ListAppAuthorizations.md "../../../appfabric/latest/api/API_ListAppAuthorizations.md")             | Retrieve a list of app authorizations within an app bundle | List         |
-| [ListAppBundles](../../../appfabric/latest/api/API_ListAppBundles.md "../../../appfabric/latest/api/API_ListAppBundles.md")                                  | Retrieve a list of app bundles in your account             | List         |
-| [ListIngestionDestinations](../../../appfabric/latest/api/API_ListIngestionDestinations.md "../../../appfabric/latest/api/API_ListIngestionDestinations.md") | Retrieve a list of destinations within an ingestion        | List         |
-| [ListIngestions](../../../appfabric/latest/api/API_ListIngestions.md "../../../appfabric/latest/api/API_ListIngestions.md")                                  | Retrieve a list of ingestions within an app bundle         | List         |
-| [ListTagsForResource](../../../appfabric/latest/api/API_ListTagsForResource.md "../../../appfabric/latest/api/API_ListTagsForResource.md")                   | List tags for AppFabric resources                          | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="appfabric-GetAppAuthorization"></a>[GetAppAuthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_GetAppAuthorization.html) | View details about app authorizations | Read | 
+| <a name="appfabric-GetAppBundle"></a>[GetAppBundle](https://docs.aws.amazon.com/appfabric/latest/api/API_GetAppBundle.html) | View details about app bundles | Read | 
+| <a name="appfabric-GetIngestion"></a>[GetIngestion](https://docs.aws.amazon.com/appfabric/latest/api/API_GetIngestion.html) | View details about ingestions | Read | 
+| <a name="appfabric-GetIngestionDestination"></a>[GetIngestionDestination](https://docs.aws.amazon.com/appfabric/latest/api/API_GetIngestionDestination.html) | View details about ingestion destinations | Read | 
+| <a name="appfabric-ListAppAuthorizations"></a>[ListAppAuthorizations](https://docs.aws.amazon.com/appfabric/latest/api/API_ListAppAuthorizations.html) | Retrieve a list of app authorizations within an app bundle | List | 
+| <a name="appfabric-ListAppBundles"></a>[ListAppBundles](https://docs.aws.amazon.com/appfabric/latest/api/API_ListAppBundles.html) | Retrieve a list of app bundles in your account | List | 
+| <a name="appfabric-ListIngestionDestinations"></a>[ListIngestionDestinations](https://docs.aws.amazon.com/appfabric/latest/api/API_ListIngestionDestinations.html) | Retrieve a list of destinations within an ingestion | List | 
+| <a name="appfabric-ListIngestions"></a>[ListIngestions](https://docs.aws.amazon.com/appfabric/latest/api/API_ListIngestions.html) | Retrieve a list of ingestions within an app bundle | List | 
+| <a name="appfabric-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/appfabric/latest/api/API_ListTagsForResource.html) | List tags for AppFabric resources | Read | 

@@ -1,15 +1,20 @@
+
+
 # Data retrieval APIs for Amazon Redshift Data API
+<a name="amazonredshiftdataapi"></a>
 
 Amazon Redshift Data API provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                             | Description                                               | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------ |
-| [DescribeStatement](../../../redshift-data/latest/APIReference/API_DescribeStatement.md "../../../redshift-data/latest/APIReference/API_DescribeStatement.md")                      | Retrieve detailed information about a statement execution | Read         |
-| [DescribeTable](../../../redshift-data/latest/APIReference/API_DescribeTable.md "../../../redshift-data/latest/APIReference/API_DescribeTable.md")                                  | Retrieve metadata about a particular table                | Read         |
-| [GetStagingBucketLocation](../../../redshift-data/latest/APIReference/API_GetStagingBucketLocation.md "../../../redshift-data/latest/APIReference/API_GetStagingBucketLocation.md") | Get staging bucket location for a given managed workgroup | Read         |
-| [GetStatementResult](../../../redshift-data/latest/APIReference/API_GetStatementResult.md "../../../redshift-data/latest/APIReference/API_GetStatementResult.md")                   | Fetch the result of a query                               | Read         |
-| [ListDatabases](../../../redshift-data/latest/APIReference/API_ListDatabases.md "../../../redshift-data/latest/APIReference/API_ListDatabases.md")                                  | List databases for a given cluster                        | Read         |
-| [ListSchemas](../../../redshift-data/latest/APIReference/API_ListSchemas.md "../../../redshift-data/latest/APIReference/API_ListSchemas.md")                                        | List schemas for a given cluster                          | Read         |
-| [ListSessions](../../../redshift-data/latest/APIReference/API_ListSessions.md "../../../redshift-data/latest/APIReference/API_ListSessions.md")                                     | List sessions for a given principal                       | List         |
-| [ListStatements](../../../redshift-data/latest/APIReference/API_ListStatements.md "../../../redshift-data/latest/APIReference/API_ListStatements.md")                               | List queries for a given principal                        | List         |
-| [ListTables](../../../redshift-data/latest/APIReference/API_ListTables.md "../../../redshift-data/latest/APIReference/API_ListTables.md")                                           | List tables for a given cluster                           | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="redshift-data-DescribeStatement"></a>[DescribeStatement](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_DescribeStatement.html) | Retrieve detailed information about a statement execution | Read | 
+| <a name="redshift-data-DescribeTable"></a>[DescribeTable](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_DescribeTable.html) | Retrieve metadata about a particular table | Read | 
+| <a name="redshift-data-GetStagingBucketLocation"></a>[GetStagingBucketLocation](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_GetStagingBucketLocation.html) | Get staging bucket location for a given managed workgroup | Read | 
+| <a name="redshift-data-GetStatementResult"></a>[GetStatementResult](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_GetStatementResult.html) | Fetch the result of a query | Read | 
+| <a name="redshift-data-ListDatabases"></a>[ListDatabases](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListDatabases.html) | List databases for a given cluster | Read | 
+| <a name="redshift-data-ListSchemas"></a>[ListSchemas](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListSchemas.html) | List schemas for a given cluster | Read | 
+| <a name="redshift-data-ListSessions"></a>[ListSessions](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListSessions.html) | List sessions for a given principal | List | 
+| <a name="redshift-data-ListStatements"></a>[ListStatements](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListStatements.html) | List queries for a given principal | List | 
+| <a name="redshift-data-ListTables"></a>[ListTables](https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListTables.html) | List tables for a given cluster | List | 

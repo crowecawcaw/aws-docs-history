@@ -1,16 +1,21 @@
+
+
 # Data retrieval APIs for Amazon Translate
+<a name="amazontranslate"></a>
 
 Amazon Translate provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                           | Description                                                              | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------ |
-| [DescribeTextTranslationJob](../../../translate/latest/APIReference/API_DescribeTextTranslationJob.md "../../../translate/latest/APIReference/API_DescribeTextTranslationJob.md") | Get the properties associated with an asynchronous batch translation job | Read         |
-| [GetParallelData](../../../translate/latest/APIReference/API_GetParallelData.md "../../../translate/latest/APIReference/API_GetParallelData.md")                                  | Get a Parallel Data                                                      | Read         |
-| [GetTerminology](../../../translate/latest/APIReference/API_GetTerminology.md "../../../translate/latest/APIReference/API_GetTerminology.md")                                     | Retrieve a terminology                                                   | Read         |
-| [ListLanguages](../../../translate/latest/APIReference/API_ListLanguages.md "../../../translate/latest/APIReference/API_ListLanguages.md")                                        | List supported languages                                                 | List         |
-| [ListParallelData](../../../translate/latest/APIReference/API_ListParallelData.md "../../../translate/latest/APIReference/API_ListParallelData.md")                               | List Parallel Data associated with your account                          | List         |
-| [ListTagsForResource](../../../translate/latest/APIReference/API_ListTagsForResource.md "../../../translate/latest/APIReference/API_ListTagsForResource.md")                      | List tags for a resource                                                 | Read         |
-| [ListTerminologies](../../../translate/latest/APIReference/API_ListTerminologies.md "../../../translate/latest/APIReference/API_ListTerminologies.md")                            | List terminologies associated with your account                          | List         |
-| [ListTextTranslationJobs](../../../translate/latest/APIReference/API_ListTextTranslationJobs.md "../../../translate/latest/APIReference/API_ListTextTranslationJobs.md")          | List batch translation jobs that you have submitted                      | List         |
-| [TranslateDocument](../../../translate/latest/APIReference/API_TranslateDocument.md "../../../translate/latest/APIReference/API_TranslateDocument.md")                            | Translate a document from a source language to a target language         | Read         |
-| [TranslateText](../../../translate/latest/APIReference/API_TranslateText.md "../../../translate/latest/APIReference/API_TranslateText.md")                                        | Translate text from a source language to a target language               | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="translate-DescribeTextTranslationJob"></a>[DescribeTextTranslationJob](https://docs.aws.amazon.com/translate/latest/APIReference/API_DescribeTextTranslationJob.html) | Get the properties associated with an asynchronous batch translation job | Read | 
+| <a name="translate-GetParallelData"></a>[GetParallelData](https://docs.aws.amazon.com/translate/latest/APIReference/API_GetParallelData.html) | Get a Parallel Data | Read | 
+| <a name="translate-GetTerminology"></a>[GetTerminology](https://docs.aws.amazon.com/translate/latest/APIReference/API_GetTerminology.html) | Retrieve a terminology | Read | 
+| <a name="translate-ListLanguages"></a>[ListLanguages](https://docs.aws.amazon.com/translate/latest/APIReference/API_ListLanguages.html) | List supported languages | List | 
+| <a name="translate-ListParallelData"></a>[ListParallelData](https://docs.aws.amazon.com/translate/latest/APIReference/API_ListParallelData.html) | List Parallel Data associated with your account | List | 
+| <a name="translate-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/translate/latest/APIReference/API_ListTagsForResource.html) | List tags for a resource | Read | 
+| <a name="translate-ListTerminologies"></a>[ListTerminologies](https://docs.aws.amazon.com/translate/latest/APIReference/API_ListTerminologies.html) | List terminologies associated with your account | List | 
+| <a name="translate-ListTextTranslationJobs"></a>[ListTextTranslationJobs](https://docs.aws.amazon.com/translate/latest/APIReference/API_ListTextTranslationJobs.html) | List batch translation jobs that you have submitted | List | 
+| <a name="translate-TranslateDocument"></a>[TranslateDocument](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateDocument.html) | Translate a document from a source language to a target language | Read | 
+| <a name="translate-TranslateText"></a>[TranslateText](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateText.html) | Translate text from a source language to a target language | Read | 

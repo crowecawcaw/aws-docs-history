@@ -1,51 +1,56 @@
+
+
 # Data retrieval APIs for Amazon API Gateway Management
+<a name="amazonapigatewaymanagement"></a>
 
 Amazon API Gateway Management provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                | Description                | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
-| [GetAccount](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                      | Read a particular resource | Read         |
-| [GetApiKey](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                       | Read a particular resource | Read         |
-| [GetApiKeys](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                      | Read a particular resource | Read         |
-| [GetAuthorizer](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                   | Read a particular resource | Read         |
-| [GetAuthorizers](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                  | Read a particular resource | Read         |
-| [GetBasePathMapping](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")              | Read a particular resource | Read         |
-| [GetBasePathMappings](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")             | Read a particular resource | Read         |
-| [GetClientCertificate](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")            | Read a particular resource | Read         |
-| [GetClientCertificates](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")           | Read a particular resource | Read         |
-| [GetDeployment](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                   | Read a particular resource | Read         |
-| [GetDeployments](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                  | Read a particular resource | Read         |
-| [GetDocumentationPart](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")            | Read a particular resource | Read         |
-| [GetDocumentationParts](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")           | Read a particular resource | Read         |
-| [GetDocumentationVersion](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")         | Read a particular resource | Read         |
-| [GetDocumentationVersions](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")        | Read a particular resource | Read         |
-| [GetDomainName](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                   | Read a particular resource | Read         |
-| [GetDomainNameAccessAssociations](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md") | Read a particular resource | Read         |
-| [GetDomainNames](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                  | Read a particular resource | Read         |
-| [GetGatewayResponse](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")              | Read a particular resource | Read         |
-| [GetGatewayResponses](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")             | Read a particular resource | Read         |
-| [GetIntegration](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                  | Read a particular resource | Read         |
-| [GetIntegrationResponse](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")          | Read a particular resource | Read         |
-| [GetMethod](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                       | Read a particular resource | Read         |
-| [GetMethodResponse](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")               | Read a particular resource | Read         |
-| [GetModel](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                        | Read a particular resource | Read         |
-| [GetModels](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                       | Read a particular resource | Read         |
-| [GetPrivateBasePathMapping](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")       | Read a particular resource | Read         |
-| [GetPrivateBasePathMappings](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")      | Read a particular resource | Read         |
-| [GetPrivateDomainName](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")            | Read a particular resource | Read         |
-| [GetRequestValidator](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")             | Read a particular resource | Read         |
-| [GetRequestValidators](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")            | Read a particular resource | Read         |
-| [GetResource](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                     | Read a particular resource | Read         |
-| [GetResources](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                    | Read a particular resource | Read         |
-| [GetRestApi](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                      | Read a particular resource | Read         |
-| [GetRestApis](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                     | Read a particular resource | Read         |
-| [GetSdk](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                          | Read a particular resource | Read         |
-| [GetStage](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                        | Read a particular resource | Read         |
-| [GetStages](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                       | Read a particular resource | Read         |
-| [GetTags](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                         | Read a particular resource | Read         |
-| [GetUsagePlan](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                    | Read a particular resource | Read         |
-| [GetUsagePlanKey](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                 | Read a particular resource | Read         |
-| [GetUsagePlanKeys](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                | Read a particular resource | Read         |
-| [GetUsagePlans](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                   | Read a particular resource | Read         |
-| [GetVpcLink](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                      | Read a particular resource | Read         |
-| [GetVpcLinks](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                     | Read a particular resource | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="apigateway-GetAccount"></a>[GetAccount](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetApiKey"></a>[GetApiKey](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetApiKeys"></a>[GetApiKeys](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetAuthorizer"></a>[GetAuthorizer](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetAuthorizers"></a>[GetAuthorizers](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetBasePathMapping"></a>[GetBasePathMapping](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetBasePathMappings"></a>[GetBasePathMappings](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetClientCertificate"></a>[GetClientCertificate](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetClientCertificates"></a>[GetClientCertificates](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDeployment"></a>[GetDeployment](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDeployments"></a>[GetDeployments](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDocumentationPart"></a>[GetDocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDocumentationParts"></a>[GetDocumentationParts](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDocumentationVersion"></a>[GetDocumentationVersion](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDocumentationVersions"></a>[GetDocumentationVersions](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDomainName"></a>[GetDomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDomainNameAccessAssociations"></a>[GetDomainNameAccessAssociations](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetDomainNames"></a>[GetDomainNames](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetGatewayResponse"></a>[GetGatewayResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetGatewayResponses"></a>[GetGatewayResponses](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetIntegration"></a>[GetIntegration](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetIntegrationResponse"></a>[GetIntegrationResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetMethod"></a>[GetMethod](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetMethodResponse"></a>[GetMethodResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetModel"></a>[GetModel](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetModels"></a>[GetModels](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetPrivateBasePathMapping"></a>[GetPrivateBasePathMapping](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetPrivateBasePathMappings"></a>[GetPrivateBasePathMappings](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetPrivateDomainName"></a>[GetPrivateDomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetRequestValidator"></a>[GetRequestValidator](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetRequestValidators"></a>[GetRequestValidators](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetResource"></a>[GetResource](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetResources"></a>[GetResources](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetRestApi"></a>[GetRestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetRestApis"></a>[GetRestApis](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetSdk"></a>[GetSdk](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetStage"></a>[GetStage](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetStages"></a>[GetStages](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetTags"></a>[GetTags](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetUsagePlan"></a>[GetUsagePlan](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetUsagePlanKey"></a>[GetUsagePlanKey](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetUsagePlanKeys"></a>[GetUsagePlanKeys](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetUsagePlans"></a>[GetUsagePlans](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetVpcLink"></a>[GetVpcLink](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 
+| <a name="apigateway-GetVpcLinks"></a>[GetVpcLinks](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html) | Read a particular resource | Read | 

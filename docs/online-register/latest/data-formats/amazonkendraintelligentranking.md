@@ -1,10 +1,15 @@
+
+
 # Data retrieval APIs for Amazon Kendra Intelligent Ranking
+<a name="amazonkendraintelligentranking"></a>
 
 Amazon Kendra Intelligent Ranking provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                       | Description                                       | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------ |
-| [DescribeRescoreExecutionPlan](../../../kendra/latest/dg/API_Ranking_DescribeRescoreExecutionPlan.md "../../../kendra/latest/dg/API_Ranking_DescribeRescoreExecutionPlan.md") | Describe a RescoreExecutionPlan                   | Read         |
-| [ListRescoreExecutionPlans](../../../kendra/latest/dg/API_Ranking_ListRescoreExecutionPlans.md "../../../kendra/latest/dg/API_Ranking_ListRescoreExecutionPlans.md")          | List all RescoreExecutionPlans                    | List         |
-| [ListTagsForResource](../../../kendra/latest/dg/API_Ranking_ListTagsForResource.md "../../../kendra/latest/dg/API_Ranking_ListTagsForResource.md")                            | List tags for a resource                          | Read         |
-| [Rescore](../../../kendra/latest/dg/API_Ranking_Rescore.md "../../../kendra/latest/dg/API_Ranking_Rescore.md")                                                                | Rescore documents with Kendra Intelligent Ranking | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="kendra-ranking-DescribeRescoreExecutionPlan"></a>[DescribeRescoreExecutionPlan](https://docs.aws.amazon.com/kendra/latest/dg/API_Ranking_DescribeRescoreExecutionPlan.html) | Describe a RescoreExecutionPlan | Read | 
+| <a name="kendra-ranking-ListRescoreExecutionPlans"></a>[ListRescoreExecutionPlans](https://docs.aws.amazon.com/kendra/latest/dg/API_Ranking_ListRescoreExecutionPlans.html) | List all RescoreExecutionPlans | List | 
+| <a name="kendra-ranking-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/kendra/latest/dg/API_Ranking_ListTagsForResource.html) | List tags for a resource | Read | 
+| <a name="kendra-ranking-Rescore"></a>[Rescore](https://docs.aws.amazon.com/kendra/latest/dg/API_Ranking_Rescore.html) | Rescore documents with Kendra Intelligent Ranking | Read | 

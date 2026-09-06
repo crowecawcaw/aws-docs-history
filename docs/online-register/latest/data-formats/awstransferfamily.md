@@ -1,34 +1,39 @@
+
+
 # Data retrieval APIs for AWS Transfer Family
+<a name="awstransferfamily"></a>
 
 AWS Transfer Family provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                      | Description                                      | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------ |
-| [DescribeAccess](../../../transfer/latest/userguide/API_DescribeAccess.md "../../../transfer/latest/userguide/API_DescribeAccess.md")                                        | Describe an access assigned to a server          | Read         |
-| [DescribeAgreement](../../../transfer/latest/userguide/API_DescribeAgreement.md "../../../transfer/latest/userguide/API_DescribeAgreement.md")                               | Describe an agreement assigned to a server       | Read         |
-| [DescribeCertificate](../../../transfer/latest/userguide/API_DescribeCertificate.md "../../../transfer/latest/userguide/API_DescribeCertificate.md")                         | Describe a certificate                           | Read         |
-| [DescribeConnector](../../../transfer/latest/userguide/API_DescribeConnector.md "../../../transfer/latest/userguide/API_DescribeConnector.md")                               | Describe a connector                             | Read         |
-| [DescribeExecution](../../../transfer/latest/userguide/API_DescribeExecution.md "../../../transfer/latest/userguide/API_DescribeExecution.md")                               | Describe an execution associated with a workflow | Read         |
-| [DescribeHostKey](../../../transfer/latest/userguide/API_DescribeHostKey.md "../../../transfer/latest/userguide/API_DescribeHostKey.md")                                     | Describe a host key associated with a server     | Read         |
-| [DescribeProfile](../../../transfer/latest/userguide/API_DescribeProfile.md "../../../transfer/latest/userguide/API_DescribeProfile.md")                                     | Describe a profile                               | Read         |
-| [DescribeSecurityPolicy](../../../transfer/latest/userguide/API_DescribeSecurityPolicy.md "../../../transfer/latest/userguide/API_DescribeSecurityPolicy.md")                | Describe a security policy                       | Read         |
-| [DescribeServer](../../../transfer/latest/userguide/API_DescribeServer.md "../../../transfer/latest/userguide/API_DescribeServer.md")                                        | Describe a server                                | Read         |
-| [DescribeUser](../../../transfer/latest/userguide/API_DescribeUser.md "../../../transfer/latest/userguide/API_DescribeUser.md")                                              | Describe a user associated with a server         | Read         |
-| [DescribeWebApp](../../../transfer/latest/userguide/API_DescribeWebApp.md "../../../transfer/latest/userguide/API_DescribeWebApp.md")                                        | Describe a webapp                                | Read         |
-| [DescribeWebAppCustomization](../../../transfer/latest/userguide/API_DescribeWebAppCustomization.md "../../../transfer/latest/userguide/API_DescribeWebAppCustomization.md") | Describe a webapp customization                  | Read         |
-| [DescribeWorkflow](../../../transfer/latest/userguide/API_DescribeWorkflow.md "../../../transfer/latest/userguide/API_DescribeWorkflow.md")                                  | Describe a workflow                              | Read         |
-| [ListAccesses](../../../transfer/latest/userguide/API_ListAccesses.md "../../../transfer/latest/userguide/API_ListAccesses.md")                                              | List accesses                                    | Read         |
-| [ListAgreements](../../../transfer/latest/userguide/API_ListAgreements.md "../../../transfer/latest/userguide/API_ListAgreements.md")                                        | List agreements                                  | Read         |
-| [ListCertificates](../../../transfer/latest/userguide/API_ListCertificates.md "../../../transfer/latest/userguide/API_ListCertificates.md")                                  | List certificates                                | Read         |
-| [ListConnectors](../../../transfer/latest/userguide/API_ListConnectors.md "../../../transfer/latest/userguide/API_ListConnectors.md")                                        | List connectors                                  | Read         |
-| [ListExecutions](../../../transfer/latest/userguide/API_ListExecutions.md "../../../transfer/latest/userguide/API_ListExecutions.md")                                        | List executions associated with a workflow       | Read         |
-| [ListFileTransferResults](../../../transfer/latest/userguide/API_ListFileTransferResults.md "../../../transfer/latest/userguide/API_ListFileTransferResults.md")             | List file transfer statuses for connectors       | Read         |
-| [ListHostKeys](../../../transfer/latest/userguide/API_ListHostKeys.md "../../../transfer/latest/userguide/API_ListHostKeys.md")                                              | List host keys associated with a server          | Read         |
-| [ListProfiles](../../../transfer/latest/userguide/API_ListProfiles.md "../../../transfer/latest/userguide/API_ListProfiles.md")                                              | List profiles                                    | Read         |
-| [ListSecurityPolicies](../../../transfer/latest/userguide/API_ListSecurityPolicies.md "../../../transfer/latest/userguide/API_ListSecurityPolicies.md")                      | List security policies                           | List         |
-| [ListServers](../../../transfer/latest/userguide/API_ListServers.md "../../../transfer/latest/userguide/API_ListServers.md")                                                 | List servers                                     | List         |
-| [ListTagsForResource](../../../transfer/latest/userguide/API_ListTagsForResource.md "../../../transfer/latest/userguide/API_ListTagsForResource.md")                         | List tags for an AWS Transfer Family resource    | Read         |
-| [ListUsers](../../../transfer/latest/userguide/API_ListUsers.md "../../../transfer/latest/userguide/API_ListUsers.md")                                                       | List users associated with a server              | List         |
-| [ListWebApps](../../../transfer/latest/userguide/API_ListWebApps.md "../../../transfer/latest/userguide/API_ListWebApps.md")                                                 | List webapps                                     | List         |
-| [ListWorkflows](../../../transfer/latest/userguide/API_ListWorkflows.md "../../../transfer/latest/userguide/API_ListWorkflows.md")                                           | List workflows                                   | List         |
-| [TestIdentityProvider](../../../transfer/latest/userguide/API_TestIdentityProvider.md "../../../transfer/latest/userguide/API_TestIdentityProvider.md")                      | Test a server's custom identity provider         | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="transfer-DescribeAccess"></a>[DescribeAccess](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeAccess.html) | Describe an access assigned to a server | Read | 
+| <a name="transfer-DescribeAgreement"></a>[DescribeAgreement](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeAgreement.html) | Describe an agreement assigned to a server | Read | 
+| <a name="transfer-DescribeCertificate"></a>[DescribeCertificate](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeCertificate.html) | Describe a certificate | Read | 
+| <a name="transfer-DescribeConnector"></a>[DescribeConnector](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeConnector.html) | Describe a connector | Read | 
+| <a name="transfer-DescribeExecution"></a>[DescribeExecution](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeExecution.html) | Describe an execution associated with a workflow | Read | 
+| <a name="transfer-DescribeHostKey"></a>[DescribeHostKey](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeHostKey.html) | Describe a host key associated with a server | Read | 
+| <a name="transfer-DescribeProfile"></a>[DescribeProfile](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeProfile.html) | Describe a profile | Read | 
+| <a name="transfer-DescribeSecurityPolicy"></a>[DescribeSecurityPolicy](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeSecurityPolicy.html) | Describe a security policy | Read | 
+| <a name="transfer-DescribeServer"></a>[DescribeServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeServer.html) | Describe a server | Read | 
+| <a name="transfer-DescribeUser"></a>[DescribeUser](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeUser.html) | Describe a user associated with a server | Read | 
+| <a name="transfer-DescribeWebApp"></a>[DescribeWebApp](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeWebApp.html) | Describe a webapp | Read | 
+| <a name="transfer-DescribeWebAppCustomization"></a>[DescribeWebAppCustomization](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeWebAppCustomization.html) | Describe a webapp customization | Read | 
+| <a name="transfer-DescribeWorkflow"></a>[DescribeWorkflow](https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeWorkflow.html) | Describe a workflow | Read | 
+| <a name="transfer-ListAccesses"></a>[ListAccesses](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListAccesses.html) | List accesses | Read | 
+| <a name="transfer-ListAgreements"></a>[ListAgreements](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListAgreements.html) | List agreements | Read | 
+| <a name="transfer-ListCertificates"></a>[ListCertificates](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListCertificates.html) | List certificates | Read | 
+| <a name="transfer-ListConnectors"></a>[ListConnectors](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListConnectors.html) | List connectors | Read | 
+| <a name="transfer-ListExecutions"></a>[ListExecutions](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListExecutions.html) | List executions associated with a workflow | Read | 
+| <a name="transfer-ListFileTransferResults"></a>[ListFileTransferResults](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListFileTransferResults.html) | List file transfer statuses for connectors | Read | 
+| <a name="transfer-ListHostKeys"></a>[ListHostKeys](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListHostKeys.html) | List host keys associated with a server | Read | 
+| <a name="transfer-ListProfiles"></a>[ListProfiles](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListProfiles.html) | List profiles | Read | 
+| <a name="transfer-ListSecurityPolicies"></a>[ListSecurityPolicies](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListSecurityPolicies.html) | List security policies | List | 
+| <a name="transfer-ListServers"></a>[ListServers](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListServers.html) | List servers | List | 
+| <a name="transfer-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListTagsForResource.html) | List tags for an AWS Transfer Family resource | Read | 
+| <a name="transfer-ListUsers"></a>[ListUsers](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListUsers.html) | List users associated with a server | List | 
+| <a name="transfer-ListWebApps"></a>[ListWebApps](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListWebApps.html) | List webapps | List | 
+| <a name="transfer-ListWorkflows"></a>[ListWorkflows](https://docs.aws.amazon.com/transfer/latest/userguide/API_ListWorkflows.html) | List workflows | List | 
+| <a name="transfer-TestIdentityProvider"></a>[TestIdentityProvider](https://docs.aws.amazon.com/transfer/latest/userguide/API_TestIdentityProvider.html) | Test a server's custom identity provider | Read | 

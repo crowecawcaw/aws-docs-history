@@ -1,16 +1,21 @@
+
+
 # Data retrieval APIs for AWS B2B Data Interchange
+<a name="awsb2bdatainterchange"></a>
 
 AWS B2B Data Interchange provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                            | Description                   | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------ |
-| [GetCapability](../../../b2bi/latest/APIReference/API_GetCapability.md "../../../b2bi/latest/APIReference/API_GetCapability.md")                   | Get a capability              | Read         |
-| [GetPartnership](../../../b2bi/latest/APIReference/API_GetPartnership.md "../../../b2bi/latest/APIReference/API_GetPartnership.md")                | Get a partnership             | Read         |
-| [GetProfile](../../../b2bi/latest/APIReference/API_GetProfile.md "../../../b2bi/latest/APIReference/API_GetProfile.md")                            | Get a profile                 | Read         |
-| [GetTransformer](../../../b2bi/latest/APIReference/API_GetTransformer.md "../../../b2bi/latest/APIReference/API_GetTransformer.md")                | Get a transformer             | Read         |
-| [GetTransformerJob](../../../b2bi/latest/APIReference/API_GetTransformerJob.md "../../../b2bi/latest/APIReference/API_GetTransformerJob.md")       | Get a transformer job         | Read         |
-| [ListCapabilities](../../../b2bi/latest/APIReference/API_ListCapabilities.md "../../../b2bi/latest/APIReference/API_ListCapabilities.md")          | List all capabilities         | List         |
-| [ListPartnerships](../../../b2bi/latest/APIReference/API_ListPartnerships.md "../../../b2bi/latest/APIReference/API_ListPartnerships.md")          | List all partnerships         | List         |
-| [ListProfiles](../../../b2bi/latest/APIReference/API_ListProfiles.md "../../../b2bi/latest/APIReference/API_ListProfiles.md")                      | List all profiles             | List         |
-| [ListTagsForResource](../../../b2bi/latest/APIReference/API_ListTagsForResource.md "../../../b2bi/latest/APIReference/API_ListTagsForResource.md") | List tags for a B2Bi resource | Read         |
-| [ListTransformers](../../../b2bi/latest/APIReference/API_ListTransformers.md "../../../b2bi/latest/APIReference/API_ListTransformers.md")          | List all transformers         | List         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="b2bi-GetCapability"></a>[GetCapability](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetCapability.html) | Get a capability | Read | 
+| <a name="b2bi-GetPartnership"></a>[GetPartnership](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetPartnership.html) | Get a partnership | Read | 
+| <a name="b2bi-GetProfile"></a>[GetProfile](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetProfile.html) | Get a profile | Read | 
+| <a name="b2bi-GetTransformer"></a>[GetTransformer](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformer.html) | Get a transformer | Read | 
+| <a name="b2bi-GetTransformerJob"></a>[GetTransformerJob](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformerJob.html) | Get a transformer job | Read | 
+| <a name="b2bi-ListCapabilities"></a>[ListCapabilities](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_ListCapabilities.html) | List all capabilities | List | 
+| <a name="b2bi-ListPartnerships"></a>[ListPartnerships](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_ListPartnerships.html) | List all partnerships | List | 
+| <a name="b2bi-ListProfiles"></a>[ListProfiles](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_ListProfiles.html) | List all profiles | List | 
+| <a name="b2bi-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_ListTagsForResource.html) | List tags for a B2Bi resource | Read | 
+| <a name="b2bi-ListTransformers"></a>[ListTransformers](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_ListTransformers.html) | List all transformers | List | 

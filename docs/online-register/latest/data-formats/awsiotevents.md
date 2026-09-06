@@ -1,23 +1,28 @@
+
+
 # Data retrieval APIs for AWS IoT Events
+<a name="awsiotevents"></a>
 
 AWS IoT Events provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                          | Description                                                         | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------ |
-| [DescribeAlarm](../../../iotevents/latest/apireference/API_iotevents-data_DescribeAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_DescribeAlarm.md")                         | Retrieve information about an alarm instance                        | Read         |
-| [DescribeAlarmModel](../../../iotevents/latest/apireference/API_DescribeAlarmModel.md "../../../iotevents/latest/apireference/API_DescribeAlarmModel.md")                                        | Retrieve information about an alarm model                           | Read         |
-| [DescribeDetector](../../../iotevents/latest/apireference/API_iotevents-data_DescribeDetector.md "../../../iotevents/latest/apireference/API_iotevents-data_DescribeDetector.md")                | Retriev information about a detector instance                       | Read         |
-| [DescribeDetectorModel](../../../iotevents/latest/apireference/API_DescribeDetectorModel.md "../../../iotevents/latest/apireference/API_DescribeDetectorModel.md")                               | Retrieve information about a detector model                         | Read         |
-| [DescribeDetectorModelAnalysis](../../../iotevents/latest/apireference/API_DescribeDetectorModelAnalysis.md "../../../iotevents/latest/apireference/API_DescribeDetectorModelAnalysis.md")       | Retrieve the detector model analysis information                    | Read         |
-| [DescribeInput](../../../iotevents/latest/apireference/API_DescribeInput.md "../../../iotevents/latest/apireference/API_DescribeInput.md")                                                       | Retrieve an information about Input                                 | Read         |
-| [DescribeLoggingOptions](../../../iotevents/latest/apireference/API_DescribeLoggingOptions.md "../../../iotevents/latest/apireference/API_DescribeLoggingOptions.md")                            | Retrieve the current settings of the AWS IoT Events logging options | Read         |
-| [GetDetectorModelAnalysisResults](../../../iotevents/latest/apireference/API_GetDetectorModelAnalysisResults.md "../../../iotevents/latest/apireference/API_GetDetectorModelAnalysisResults.md") | Retrieve the detector model analysis results                        | Read         |
-| [ListAlarmModelVersions](../../../iotevents/latest/apireference/API_ListAlarmModelVersions.md "../../../iotevents/latest/apireference/API_ListAlarmModelVersions.md")                            | List all the versions of an alarm model                             | List         |
-| [ListAlarmModels](../../../iotevents/latest/apireference/API_ListAlarmModels.md "../../../iotevents/latest/apireference/API_ListAlarmModels.md")                                                 | List the alarm models that you created                              | List         |
-| [ListAlarms](../../../iotevents/latest/apireference/API_iotevents-data_ListAlarms.md "../../../iotevents/latest/apireference/API_iotevents-data_ListAlarms.md")                                  | Retrieve information about all alarm instances per alarmModel       | List         |
-| [ListDetectorModelVersions](../../../iotevents/latest/apireference/API_ListDetectorModelVersions.md "../../../iotevents/latest/apireference/API_ListDetectorModelVersions.md")                   | List all the versions of a detector model                           | List         |
-| [ListDetectorModels](../../../iotevents/latest/apireference/API_ListDetectorModels.md "../../../iotevents/latest/apireference/API_ListDetectorModels.md")                                        | List the detector models that you created                           | List         |
-| [ListDetectors](../../../iotevents/latest/apireference/API_iotevents-data_ListDetectors.md "../../../iotevents/latest/apireference/API_iotevents-data_ListDetectors.md")                         | Retrieve information about all detector instances per detectormodel | List         |
-| [ListInputRoutings](../../../iotevents/latest/apireference/API_ListInputRoutings.md "../../../iotevents/latest/apireference/API_ListInputRoutings.md")                                           | List one or more input routings                                     | List         |
-| [ListInputs](../../../iotevents/latest/apireference/API_ListInputs.md "../../../iotevents/latest/apireference/API_ListInputs.md")                                                                | Lists the inputs you have created                                   | List         |
-| [ListTagsForResource](../../../iotevents/latest/apireference/API_ListTagsForResource.md "../../../iotevents/latest/apireference/API_ListTagsForResource.md")                                     | List the tags (metadata) which you have assigned to the resource    | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="iotevents-DescribeAlarm"></a>[DescribeAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_DescribeAlarm.html) | Retrieve information about an alarm instance | Read | 
+| <a name="iotevents-DescribeAlarmModel"></a>[DescribeAlarmModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeAlarmModel.html) | Retrieve information about an alarm model | Read | 
+| <a name="iotevents-DescribeDetector"></a>[DescribeDetector](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_DescribeDetector.html) | Retriev information about a detector instance | Read | 
+| <a name="iotevents-DescribeDetectorModel"></a>[DescribeDetectorModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeDetectorModel.html) | Retrieve information about a detector model | Read | 
+| <a name="iotevents-DescribeDetectorModelAnalysis"></a>[DescribeDetectorModelAnalysis](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeDetectorModelAnalysis.html) | Retrieve the detector model analysis information | Read | 
+| <a name="iotevents-DescribeInput"></a>[DescribeInput](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeInput.html) | Retrieve an information about Input | Read | 
+| <a name="iotevents-DescribeLoggingOptions"></a>[DescribeLoggingOptions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeLoggingOptions.html) | Retrieve the current settings of the AWS IoT Events logging options | Read | 
+| <a name="iotevents-GetDetectorModelAnalysisResults"></a>[GetDetectorModelAnalysisResults](https://docs.aws.amazon.com/iotevents/latest/apireference/API_GetDetectorModelAnalysisResults.html) | Retrieve the detector model analysis results | Read | 
+| <a name="iotevents-ListAlarmModelVersions"></a>[ListAlarmModelVersions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListAlarmModelVersions.html) | List all the versions of an alarm model | List | 
+| <a name="iotevents-ListAlarmModels"></a>[ListAlarmModels](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListAlarmModels.html) | List the alarm models that you created | List | 
+| <a name="iotevents-ListAlarms"></a>[ListAlarms](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListAlarms.html) | Retrieve information about all alarm instances per alarmModel | List | 
+| <a name="iotevents-ListDetectorModelVersions"></a>[ListDetectorModelVersions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListDetectorModelVersions.html) | List all the versions of a detector model | List | 
+| <a name="iotevents-ListDetectorModels"></a>[ListDetectorModels](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListDetectorModels.html) | List the detector models that you created | List | 
+| <a name="iotevents-ListDetectors"></a>[ListDetectors](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html) | Retrieve information about all detector instances per detectormodel | List | 
+| <a name="iotevents-ListInputRoutings"></a>[ListInputRoutings](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListInputRoutings.html) | List one or more input routings | List | 
+| <a name="iotevents-ListInputs"></a>[ListInputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListInputs.html) | Lists the inputs you have created | List | 
+| <a name="iotevents-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListTagsForResource.html) | List the tags (metadata) which you have assigned to the resource | Read | 

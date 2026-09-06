@@ -1,16 +1,21 @@
+
+
 # Data retrieval APIs for AWS Security Incident Response
+<a name="awssecurityincidentresponse"></a>
 
 AWS Security Incident Response provides the following APIs for data retrieval.
 
-| Actions                                                                                                                                                                                     | Description                                      | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------ |
-| [BatchGetMemberAccountDetails](../../../security-ir/latest/APIReference/API_BatchGetMemberAccountDetails.md "../../../security-ir/latest/APIReference/API_BatchGetMemberAccountDetails.md") | Get member account details in batch              | Read         |
-| [GetCase](../../../security-ir/latest/APIReference/API_GetCase.md "../../../security-ir/latest/APIReference/API_GetCase.md")                                                                | Get a case                                       | Read         |
-| [GetCaseAttachmentDownloadUrl](../../../security-ir/latest/APIReference/API_GetCaseAttachmentDownloadUrl.md "../../../security-ir/latest/APIReference/API_GetCaseAttachmentDownloadUrl.md") | Get a case attachment download URL               | Read         |
-| [GetMembership](../../../security-ir/latest/APIReference/API_GetMembership.md "../../../security-ir/latest/APIReference/API_GetMembership.md")                                              | Get a membership                                 | Read         |
-| [ListCaseEdits](../../../security-ir/latest/APIReference/API_ListCaseEdits.md "../../../security-ir/latest/APIReference/API_ListCaseEdits.md")                                              | List case edits                                  | Read         |
-| [ListCases](../../../security-ir/latest/APIReference/API_ListCases.md "../../../security-ir/latest/APIReference/API_ListCases.md")                                                          | List cases                                       | List         |
-| [ListComments](../../../security-ir/latest/APIReference/API_ListComments.md "../../../security-ir/latest/APIReference/API_ListComments.md")                                                 | List case comments                               | Read         |
-| [ListInvestigations](../../../security-ir/latest/APIReference/API_ListInvestigations.md "../../../security-ir/latest/APIReference/API_ListInvestigations.md")                               | List investigations for a case                   | Read         |
-| [ListMemberships](../../../security-ir/latest/APIReference/API_ListMemberships.md "../../../security-ir/latest/APIReference/API_ListMemberships.md")                                        | List memberships                                 | List         |
-| [ListTagsForResource](../../../security-ir/latest/APIReference/API_ListTagsForResource.md "../../../security-ir/latest/APIReference/API_ListTagsForResource.md")                            | List the tags attached to the specified resource | Read         |
+
+
+| Actions | Description | Access level | 
+| --- | --- | --- | 
+| <a name="security-ir-BatchGetMemberAccountDetails"></a>[BatchGetMemberAccountDetails](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_BatchGetMemberAccountDetails.html) | Get member account details in batch | Read | 
+| <a name="security-ir-GetCase"></a>[GetCase](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCase.html) | Get a case | Read | 
+| <a name="security-ir-GetCaseAttachmentDownloadUrl"></a>[GetCaseAttachmentDownloadUrl](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCaseAttachmentDownloadUrl.html) | Get a case attachment download URL | Read | 
+| <a name="security-ir-GetMembership"></a>[GetMembership](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetMembership.html) | Get a membership | Read | 
+| <a name="security-ir-ListCaseEdits"></a>[ListCaseEdits](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListCaseEdits.html) | List case edits | Read | 
+| <a name="security-ir-ListCases"></a>[ListCases](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListCases.html) | List cases | List | 
+| <a name="security-ir-ListComments"></a>[ListComments](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListComments.html) | List case comments | Read | 
+| <a name="security-ir-ListInvestigations"></a>[ListInvestigations](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListInvestigations.html) | List investigations for a case | Read | 
+| <a name="security-ir-ListMemberships"></a>[ListMemberships](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListMemberships.html) | List memberships | List | 
+| <a name="security-ir-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListTagsForResource.html) | List the tags attached to the specified resource | Read | 
