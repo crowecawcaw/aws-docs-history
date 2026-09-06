@@ -1,14 +1,17 @@
+
+
 # IAM Identity Center integration APIs
+<a name="aws-lake-formation-api-Identity-center-integ"></a>
 
 This section contains the operations for creating and managing Lake Formation integration with IAM Identity Center.
 
 ## Operations
-
-- [CreateLakeFormationIdentityCenterConfiguration](../APIReference/API_CreateLakeFormationIdentityCenterConfiguration.md "../APIReference/API_CreateLakeFormationIdentityCenterConfiguration.md")
-- [DeleteLakeFormationIdentityCenterConfiguration](../APIReference/API_DeleteLakeFormationIdentityCenterConfiguration.md "../APIReference/API_DeleteLakeFormationIdentityCenterConfiguration.md")
-- [DescribeLakeFormationIdentityCenterConfiguration](../APIReference/API_DescribeLakeFormationIdentityCenterConfiguration.md "../APIReference/API_DescribeLakeFormationIdentityCenterConfiguration.md")
-- [UpdateLakeFormationIdentityCenterConfiguration](../APIReference/API_UpdateLakeFormationIdentityCenterConfiguration.md "../APIReference/API_UpdateLakeFormationIdentityCenterConfiguration.md")
+<a name="aws-lake-formation-api-Identity-center-integ-actions"></a>
++ [CreateLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_CreateLakeFormationIdentityCenterConfiguration.html)
++ [DeleteLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteLakeFormationIdentityCenterConfiguration.html)
++ [DescribeLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DescribeLakeFormationIdentityCenterConfiguration.html)
++ [UpdateLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateLakeFormationIdentityCenterConfiguration.html)
 
 ## Data Types
-
-- [ExternalFilteringConfiguration](../APIReference/API_ExternalFilteringConfiguration.md "../APIReference/API_ExternalFilteringConfiguration.md")
+<a name="aws-lake-formation-api-aws-lake-formation-api-settings-objects"></a>
++ [ExternalFilteringConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ExternalFilteringConfiguration.html)

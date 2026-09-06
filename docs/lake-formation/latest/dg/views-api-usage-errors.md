@@ -1,15 +1,14 @@
-# View creation failure scenarios during asynchronous operations
 
-The following examples are representative of the types of errors that may result
-from `CreateTable` or `UpdateTable` view API calls. They are
-not exhaustive as the error surface of SQL query failures is quite large.
+
+# View creation failure scenarios during asynchronous operations
+<a name="views-api-usage-errors"></a>
+
+The following examples are representative of the types of errors that may result from `CreateTable` or `UpdateTable` view API calls. They are not exhaustive as the error surface of SQL query failures is quite large.
 
 ## Scenario 1: Amazon Redshift query failure
+<a name="views-api-usage-errors-scenario-1"></a>
 
-The query provided for Amazon Redshift includes a misspelled table name can't be found in
-the Data Catalog during the validation. The resulting error is shown in the
-`Status` field in the `GetTable` response for the
-view.
+The query provided for Amazon Redshift includes a misspelled table name can't be found in the Data Catalog during the validation. The resulting error is shown in the `Status` field in the `GetTable` response for the view.
 
 `GetTable` request:
 
@@ -195,12 +194,9 @@ IncludeStatusDetails = TRUE
 ```
 
 ## Scenario 2: Invalid Amazon Redshift connection
+<a name="views-api-usage-errors-scenario-2"></a>
 
-The Amazon Redshift connection in the following example is malformed because it refers to
-a Amazon Redshift database that doesn't exist in the provided cluster/serverless endpoint.
-Amazon Redshift is not able to validate the view and the `Status` field in the
-`GetTable` response shows the error (`"State":
- "FAILED"` from Amazon Redshift.
+The Amazon Redshift connection in the following example is malformed because it refers to a Amazon Redshift database that doesn't exist in the provided cluster/serverless endpoint. Amazon Redshift is not able to validate the view and the `Status` field in the `GetTable` response shows the error (`"State": "FAILED"` from Amazon Redshift.
 
 `GetTable` request:
 
@@ -383,17 +379,12 @@ stamp: Thu Jul 11 18:43:38 UTC 2024]: Redshift returned error for the statement:
         }
     }
 }
-
-
-
 ```
 
 ## Scenario 3: Athena query failure
+<a name="views-api-usage-errors-scenario-3"></a>
 
-The SQL for Athena here is invalid because the query misspells the database
-name. The Athena query validation catches this and the resulting error is
-surfaced through the `Status` object in a `GetTable`
-call.
+The SQL for Athena here is invalid because the query misspells the database name. The Athena query validation catches this and the resulting error is surfaced through the `Status` object in a `GetTable` call.
 
 `GetTable` request:
 
@@ -580,10 +571,9 @@ ul 11 18:10:41 UTC 2024]: Athena validation FAILED: {ErrorCategory: 2,ErrorType:
 ```
 
 ## Scenario 4: Mismatch storage descriptors
+<a name="views-api-usage-errors-scenario-4"></a>
 
-The SQL provided for the Athena dialect selects `col1` and
-`col2` while the SQL for Redshift selects only `col1`.
-This leads to a storage descriptor mismatch error.
+The SQL provided for the Athena dialect selects `col1` and `col2` while the SQL for Redshift selects only `col1`. This leads to a storage descriptor mismatch error.
 
 `GetTable` request:
 

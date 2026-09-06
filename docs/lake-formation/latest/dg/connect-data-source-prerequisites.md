@@ -1,188 +1,183 @@
+
+
 # Prerequisites for connecting the Data Catalog to external data sources
+<a name="connect-data-source-prerequisites"></a>
 
-To connect the AWS Glue Data Catalog to external data sources, register the connection with Lake Formation, and set up federated catalogs, you
-need to complete the following requirements:
+To connect the AWS Glue Data Catalog to external data sources, register the connection with Lake Formation, and set up federated catalogs, you need to complete the following requirements:
+**Note**  
+We recommend that a Lake Formation data lake administrator creates the AWS Glue connections to connect to external data sources, and create the federated catalogs. 
 
-###### Note
+1. 
 
-We recommend that a Lake Formation data lake administrator creates the AWS Glue connections to connect to
-external data sources, and create the federated catalogs.
+**Create IAM roles.**
+   +  Create a role that has the necessary permissions to deploy resources (Lambda function, Amazon S3 spill bucket, IAM role, and the AWS Glue connection) required to create a connection to the external data source. 
+   + Create a role that has the necessary minimum permissions to access the AWS Glue connection properties (the Lambda function and the Amazon S3 spill bucket). This is the role that you'll include when you register the connection with Lake Formation.
 
-1. ###### Create IAM roles.
-   - Create a role that has the necessary permissions to deploy resources (Lambda function, Amazon S3 spill bucket, IAM role, and the AWS Glue connection) required to create a connection to the external data source.
-   - Create a role that has the necessary minimum permissions to access the AWS Glue connection
-     properties (the Lambda function and the Amazon S3 spill bucket). This is the role that
-     you'll include when you register the connection with Lake Formation.
+     To use Lake Formation to manage and secure the data in your data lake, you must register the AWS Glue connection with Lake Formation. By doing so, Lake Formation can vend credentials to Amazon Athena for querying the federated data sources. 
 
-   To use Lake Formation to manage and secure the data in your data lake, you must
-   register the AWS Glue connection with Lake Formation. By doing so, Lake Formation can vend credentials to
-   Amazon Athena for querying the federated data sources.
+     The role must have `Select` or `Describe` permissions on the Amazon S3 bucket and the Lambda function.
+     +  s3:ListBucket 
+     + s3:GetObject
+     +  lambda:InvokeFunction 
 
-   The role must have `Select` or `Describe` permissions on the Amazon S3 bucket and the Lambda function.
+------
+#### [ JSON ]
 
-        + s3:ListBucket
-        + s3:GetObject
-        + lambda:InvokeFunction
+****  
 
-   JSON
+     ```
+     {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Action": [
+             "s3:*"
+           ],
+           "Resource": [
+             "arn:aws:s3:::amzn-s3-demo-bucket1/object/*",
+             "arn:aws:s3:::amzn-s3-demo-bucket1/object"
+           ]
+         },
+         {
+           "Sid": "lambdainvoke",
+           "Effect": "Allow",
+           "Action": "lambda:InvokeFunction",
+           "Resource": "arn:aws:lambda:us-east-1:123456789012:function:{{example-lambda-function}}"
+         },
+         {
+           "Sid": "gluepolicy",
+           "Effect": "Allow",
+           "Action": "glue:*",
+           "Resource": "*"
+         }
+       ]
+     }
+     ```
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Action": [
-    "s3:*"
-    ],
-    "Resource": [
-    "arn:aws:s3:::amzn-s3-demo-bucket1/object/*",
-    "arn:aws:s3:::amzn-s3-demo-bucket1/object"
-    ]
-    },
-    {
-    "Sid": "lambdainvoke",
-    "Effect": "Allow",
-    "Action": "lambda:InvokeFunction",
-    "Resource": "arn:aws:lambda:us-east-1:123456789012:function:`example-lambda-function`"
-    },
-    {
-    "Sid": "gluepolicy",
-    "Effect": "Allow",
-    "Action": "glue:*",
-    "Resource": "*"
-    }
-    ]
-   }`
+------
+   + Add the following trust policy to the IAM role that is used in registering the connection:
 
-   ```
-   - Add the following trust policy to the IAM role that is used in registering the connection:
+------
+#### [ JSON ]
 
-   JSON
+****  
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Principal": {
-    "Service": [
-    "lakeformation.amazonaws.com"
-    ]
-    },
-    "Action": "sts:AssumeRole"
-    }
-    ]
-   }`
+     ```
+     {
+         "Version":"2012-10-17",		 	 	 
+         "Statement": [
+             {
+                 "Effect": "Allow",
+                 "Principal": {
+                     "Service": [
+                         "lakeformation.amazonaws.com"
+                   ]
+                 },
+                 "Action": "sts:AssumeRole"
+             }
+         ]
+     }
+     ```
 
-   ```
-   - The data lake administrator who registers the connection must have the
-     `iam:PassRole` permission on the role.
+------
+   + The data lake administrator who registers the connection must have the `iam:PassRole` permission on the role.
 
-   The following is an inline policy that grants this permission. Replace
-   `<account-id>` with a valid AWS account number,
-   and replace `<role-name>` with the name of the
-   role.
+     The following is an inline policy that grants this permission. Replace {{<account-id>}} with a valid AWS account number, and replace {{<role-name>}} with the name of the role.
 
-   JSON
+------
+#### [ JSON ]
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Sid": "PassRolePermissions",
-    "Effect": "Allow",
-    "Action": [
-    "iam:PassRole"
-    ],
-    "Resource": [
-    "arn:aws:iam::`111122223333`:role/`example-role-name>`"
-    ]
-    }
-    ]
-   }`
+****  
 
-   ```
-   - To create federated catalogs in Data Catalog, make sure the IAM role you’re using is a Lake Formation data lake administrator by checking the data lake settings (`aws lakeformation get-data-lake-settings`).
+     ```
+     {
+         "Version":"2012-10-17",		 	 	 
+         "Statement": [
+             {
+                 "Sid": "PassRolePermissions",
+                 "Effect": "Allow",
+                 "Action": [
+                     "iam:PassRole"
+                 ],
+                 "Resource": [
+                     "arn:aws:iam::{{111122223333}}:role/{{example-role-name>}}"
+                 ]
+             }
+         ]
+     }
+     ```
 
-   If you're not a data lake administrator, you need the Lake Formation `CREATE_CATALOG` permission to create a catalog.
-   The following example shows how to grant the required permissions to create catalogs.
+------
+   +  To create federated catalogs in Data Catalog, make sure the IAM role you’re using is a Lake Formation data lake administrator by checking the data lake settings (`aws lakeformation get-data-lake-settings`).
 
-   ```
-   aws lakeformation grant-permissions \
-   --cli-input-json \
-           '{
-               "Principal": {
-                "DataLakePrincipalIdentifier":`"arn:aws:iam::123456789012:role/non-admin"`
-               },
-               "Resource": {
-                   "Catalog": {
-                   }
-               },
-               "Permissions": [
-                   "CREATE_CATALOG",
-                   "DESCRIBE"
-               ]
-           }'
+      If you're not a data lake administrator, you need the Lake Formation `CREATE_CATALOG` permission to create a catalog. The following example shows how to grant the required permissions to create catalogs. 
 
-   ```
-
-   In addition to the `CREATE_CATALOG` permission, you need
-   `DATA_LOCATION_ACCESS` on the registered connection to create a federated
-   catalog. A data lake administrator has implicit data location permissions and does not
-   need this grant. For more information, see [Implicit Lake Formation
-   permissions](implicit-permissions.md "implicit-permissions.md").
-
-   The following example shows how to grant `DATA_LOCATION_ACCESS` on a
-   registered connection.
-
-   ```
-   aws lakeformation grant-permissions \
+     ```
+     aws lakeformation grant-permissions \
      --cli-input-json \
-       '{
-         "Principal": {
-           "DataLakePrincipalIdentifier": `"arn:aws:iam::123456789012:role/non-admin-role"`
-         },
-         "Resource": {
-           "DataLocation": {
-             "CatalogId": `"123456789012"`,
-             "ResourceArn": `"arn:aws:glue:us-east-1:123456789012:connection/connection-name"`
-           }
-         },
-         "Permissions": ["DATA_LOCATION_ACCESS"]
-       }'
+             '{
+                 "Principal": {
+                  "DataLakePrincipalIdentifier":{{"arn:aws:iam::123456789012:role/non-admin"}}
+                 },
+                 "Resource": {
+                     "Catalog": {
+                     }
+                 },
+                 "Permissions": [
+                     "CREATE_CATALOG",
+                     "DESCRIBE"
+                 ]
+             }'
+     ```
+
+     In addition to the `CREATE_CATALOG` permission, you need `DATA_LOCATION_ACCESS` on the registered connection to create a federated catalog. A data lake administrator has implicit data location permissions and does not need this grant. For more information, see [Implicit Lake Formation permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+
+     The following example shows how to grant `DATA_LOCATION_ACCESS` on a registered connection.
+
+     ```
+     aws lakeformation grant-permissions \
+       --cli-input-json \
+         '{
+           "Principal": {
+             "DataLakePrincipalIdentifier": {{"arn:aws:iam::123456789012:role/non-admin-role"}}
+           },
+           "Resource": {
+             "DataLocation": {
+               "CatalogId": {{"123456789012"}},
+               "ResourceArn": {{"arn:aws:glue:us-east-1:123456789012:connection/connection-name"}}
+             }
+           },
+           "Permissions": ["DATA_LOCATION_ACCESS"]
+         }'
+     ```
+
+1. Add the following key policy to the AWS KMS key if you're using a customer managed key to encrypt the data in the data source. Replace the account number with a valid AWS account number, and specify role name. By default, the data is encrypted using an KMS key. Lake Formation provides an option to create your custom KMS key for encryption. If you're using a customer managed key, you must add specific key policies to the key. 
+
+   For more information about managing the permissions of a customer managed key, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk).
+
+------
+#### [ JSON ]
+
+****  
 
    ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "kms:Encrypt",
+                   "kms:Decrypt",
+                   "kms:ReEncrypt*",
+                   "kms:GenerateDataKey*",
+                   "kms:DescribeKey"
+               ],
+               "Resource": "{{arn:aws:kms:us-east-1:123456789012:key/key-1}}"
+           }
+       ]
+   }
+   ```
 
-2. Add the following key policy to the AWS KMS key if you're using a customer managed key to
-   encrypt the data in the data source. Replace the account number with a valid AWS account
-   number, and specify role name. By default, the data is encrypted using an KMS key. Lake Formation
-   provides an option to create your custom KMS key for encryption. If you're using a
-   customer managed key, you must add specific key policies to the key.
-
-For more information about managing the permissions of a customer managed key,
-see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*",
- "kms:DescribeKey"
- ],
- "Resource": "`arn:aws:kms:us-east-1:123456789012:key/key-1`"
- }
- ]
-}`
-
-```
+------

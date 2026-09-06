@@ -1,49 +1,45 @@
+
+
 # Using AWS Lake Formation with Amazon Redshift Spectrum
+<a name="RSPC-lf"></a>
 
-[Amazon Redshift Spectrum](../../../redshift/latest/dg/c-using-spectrum.md "../../../redshift/latest/dg/c-using-spectrum.md") lets you to query and retrieve data in Amazon S3 data lakes without loading
-data into Amazon Redshift cluster nodes.
+[Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html) lets you to query and retrieve data in Amazon S3 data lakes without loading data into Amazon Redshift cluster nodes. 
 
-Redshift Spectrum supports two ways of registering an external AWS Glue data catalog enabled with
-Lake Formation.
+Redshift Spectrum supports two ways of registering an external AWS Glue data catalog enabled with Lake Formation.
++ Using a cluster attached IAM role that has permission to the Data Catalog
 
-- Using a cluster attached IAM role that has permission to the Data Catalog
+  To create an IAM role, follow the steps outlined in the below procedure.
 
-To create an IAM role, follow the steps outlined in the below procedure.
+   [Controlling access to the AWS Glue Data Catalog](https://docs.aws.amazon.com/redshift/latest/dg/c-spectrum-iam-policies.html#c-spectrum-glue-acess)
++  Using a federated IAM identity configured to manage access to external AWS Glue Data Catalog resources
 
-[Controlling access to the AWS Glue Data Catalog](../../../redshift/latest/dg/c-spectrum-iam-policies.md#c-spectrum-glue-acess "../../../redshift/latest/dg/c-spectrum-iam-policies.md#c-spectrum-glue-acess")
+  Redshift Spectrum supports querying Lake Formation tables using federated IAM identities. The IAM identities can be an IAM user or an IAM role. For more information on IAM identity federation in Redshift Spectrum, see [Using a federated identity to manage Amazon Redshift access to local resources and Redshift Spectrum external tables](https://docs.aws.amazon.com/redshift/latest/mgmt/authorization-fas-spectrum.html).
 
-- Using a federated IAM identity configured to manage access to external AWS Glue Data Catalog
-  resources
+ With Lake Formation integration with Redshift Spectrum, you can define row, column, and cell-level access control permissions on tables after your data is registered with Lake Formation. 
 
-Redshift Spectrum supports querying Lake Formation tables using federated IAM identities. The IAM identities
-can be an IAM user or an IAM role. For more information on IAM identity
-federation in Redshift Spectrum, see [Using a federated
-identity to manage Amazon Redshift access to local resources and Redshift Spectrum external tables](../../../redshift/latest/mgmt/authorization-fas-spectrum.md "../../../redshift/latest/mgmt/authorization-fas-spectrum.md").
-With Lake Formation integration with Redshift Spectrum, you can define row, column, and cell-level access
-control permissions on tables after your data is registered with Lake Formation.
+For more information see [Using Redshift Spectrum with AWS Lake Formation](https://docs.aws.amazon.com/redshift/latest/dg/spectrum-lake-formation.html). 
 
-For more information see [Using
-Redshift Spectrum with AWS Lake Formation](../../../redshift/latest/dg/spectrum-lake-formation.md "../../../redshift/latest/dg/spectrum-lake-formation.md").
+Redshift Spectrum supports reads or `SELECT` queries on the Lake Formation managed external schema tables. 
 
-Redshift Spectrum supports reads or `SELECT` queries on the Lake Formation managed external schema tables.
-
-For more information, see [Creating external schemas for Redshift Spectrum](../../../redshift/latest/dg/c-spectrum-external-schemas.md "../../../redshift/latest/dg/c-spectrum-external-schemas.md").
+For more information, see [Creating external schemas for Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-spectrum-external-schemas.html).
 
 ## Support for transactional table types
+<a name="tables-RSPC"></a>
 
-This table lists transactional table formats supported in Redshift Spectrum and the applicable
-Lake Formation permissions.
+This table lists transactional table formats supported in Redshift Spectrum and the applicable Lake Formation permissions.
 
-Supported table formats| Table format | Description and allowed operations | Lake Formation permissions supported in Redshift Spectrum |
-| --- | --- | --- |
-| Apache Hudi | A format used to simplify incremental data processing and data pipeline development.<br>Redshift Spectrum supports insert, delete, and upsert write operations using Apache Hudi<br>[**Copy on Write (CoW)**](https://hudi.apache.org/docs/next/table_types#copy-on-write-table "https://hudi.apache.org/docs/next/table_types#copy-on-write-table") table format on<br>Amazon S3.<br>For more information, see [Creating external tables for data managed in Apache Hudi](../../../redshift/latest/dg/c-spectrum-external-tables.md#c-spectrum-column-mapping-hudi "../../../redshift/latest/dg/c-spectrum-external-tables.md#c-spectrum-column-mapping-hudi"). | Use [Data filtering and cell-level security in Lake Formation](data-filtering.md "data-filtering.md") to secure Hudi tables using table, column, row, and cell-level permissions. |
-| Apache Iceberg | An open table format that manages large collections of files as tables and<br>supports modern analytic data lake operations such as record-level insert, update,<br>delete, and time travel queries.<br>For more information, see [Using Apache Iceberg tables with Amazon Redshift](../../../redshift/latest/dg/querying-iceberg.md "../../../redshift/latest/dg/querying-iceberg.md"). | Redshift Spectrum supports Apache Iceberg tables for querying. |
-| Linux Foundation Delta Lake | Delta Lake is an open-source project that helps implement modern data lake<br>architectures commonly built on Amazon S3 or Hadoop Distributed File System<br>(HDFS).Redshift Spectrum supports querying Delta Lake tables. For more information, see<br>[Creating external tables for data managed in Delta Lake](../../../redshift/latest/dg/c-spectrum-external-tables.md#c-spectrum-column-mapping-delta "../../../redshift/latest/dg/c-spectrum-external-tables.md#c-spectrum-column-mapping-delta"). | Table, column, row, and cell-level permissions are supported. |
+
+**Supported table formats**  
+
+| Table format | Description and allowed operations | Lake Formation permissions supported in Redshift Spectrum | 
+| --- | --- | --- | 
+| Apache Hudi | A format used to simplify incremental data processing and data pipeline development.<br />Redshift Spectrum supports insert, delete, and upsert write operations using Apache Hudi [**Copy on Write (CoW)**](https://hudi.apache.org/docs/next/table_types#copy-on-write-table) table format on Amazon S3. <br />For more information, see [ Creating external tables for data managed in Apache Hudi](https://docs.aws.amazon.com/redshift/latest/dg/c-spectrum-external-tables.html#c-spectrum-column-mapping-hudi).  | Use [Data filtering and cell-level security in Lake Formation](data-filtering.md) to secure Hudi tables using table, column, row, and cell-level permissions.  | 
+| Apache Iceberg | An open table format that manages large collections of files as tables and supports modern analytic data lake operations such as record-level insert, update, delete, and time travel queries.<br />For more information, see [Using Apache Iceberg tables with Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/querying-iceberg.html). | Redshift Spectrum supports Apache Iceberg tables for querying. | 
+| Linux Foundation Delta Lake | Delta Lake is an open-source project that helps implement modern data lake architectures commonly built on Amazon S3 or Hadoop Distributed File System (HDFS).Redshift Spectrum supports querying Delta Lake tables. For more information, see [Creating external tables for data managed in Delta Lake](https://docs.aws.amazon.com/redshift/latest/dg/c-spectrum-external-tables.html#c-spectrum-column-mapping-delta). | Table, column, row, and cell-level permissions are supported.  | 
 
 ## Additional resources
+<a name="add-resources-spc"></a>
 
-###### Blog posts and workshops
-
-- [Centralize governance for your data lake using AWS Lake Formation while enabling a modern data architecture with Amazon Redshift Spectrum](https://aws.amazon.com/blogs/big-data/centralize-governance-for-your-data-lake-using-aws-lake-formation-while-enabling-a-modern-data-architecture-with-amazon-redshift-spectrum/ "https://aws.amazon.com/blogs/big-data/centralize-governance-for-your-data-lake-using-aws-lake-formation-while-enabling-a-modern-data-architecture-with-amazon-redshift-spectrum/")
-- [Use Redshift Spectrum to query Apache HUDI Copy On Write (CoW) tables in Amazon S3 data
-  lake](https://catalog.us-east-1.prod.workshops.aws/workshops/9f29cdba-66c0-445e-8cbb-28a092cb5ba7/en-US/lab21 "https://catalog.us-east-1.prod.workshops.aws/workshops/9f29cdba-66c0-445e-8cbb-28a092cb5ba7/en-US/lab21")
+**Blog posts and workshops**
++ [ Centralize governance for your data lake using AWS Lake Formation while enabling a modern data architecture with Amazon Redshift Spectrum](https://aws.amazon.com/blogs/big-data/centralize-governance-for-your-data-lake-using-aws-lake-formation-while-enabling-a-modern-data-architecture-with-amazon-redshift-spectrum/)
++  [Use Redshift Spectrum to query Apache HUDI Copy On Write (CoW) tables in Amazon S3 data lake](https://catalog.us-east-1.prod.workshops.aws/workshops/9f29cdba-66c0-445e-8cbb-28a092cb5ba7/en-US/lab21)
