@@ -1,122 +1,113 @@
+
+
 # SNOMED CT linking
+<a name="ontology-linking-snomed"></a>
 
-Use **InferSNOMEDCT** to detect medical entities and link them to concepts from the 2022-03 version of the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED CT). SNOMED CT provides you with a comprehensive vocabulary of medical concepts, including medical conditions and anatomy, medical tests, treatments, and procedures. To learn more about SNOMED CT, visit [SNOMED CT](https://www.snomed.org/value-of-snomedct "https://www.snomed.org/value-of-snomedct").
+ Use **InferSNOMEDCT** to detect medical entities and link them to concepts from the 2022-03 version of the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED CT). SNOMED CT provides you with a comprehensive vocabulary of medical concepts, including medical conditions and anatomy, medical tests, treatments, and procedures. To learn more about SNOMED CT, visit [SNOMED CT](https://www.snomed.org/value-of-snomedct). 
 
-For each detected medical entity, Amazon Comprehend Medical lists the top five SNOMED CT concept IDs and descriptions associated with the medical concept, along with a confidence score to indicate the confidence of the model in its prediction. The SNOMED CT concept IDs are listed in descending order of confidence along with the confidence scores. The SNOMED CT concept IDs can then be used to structure patient clinical data for medical coding, reporting, or clinical analytics when you use them with the SNOMED CT poly-hierarchy.
+For each detected medical entity, Amazon Comprehend Medical lists the top five SNOMED CT concept IDs and descriptions associated with the medical concept, along with a confidence score to indicate the confidence of the model in its prediction. The SNOMED CT concept IDs are listed in descending order of confidence along with the confidence scores. The SNOMED CT concept IDs can then be used to structure patient clinical data for medical coding, reporting, or clinical analytics when you use them with the SNOMED CT poly-hierarchy. 
 
-**InferSNOMEDCT** is available for customers in the US. For information on SNOMED CT in other countries, and information on SNOMED CT licensing, see [SNOMED CT](https://www.snomed.org/value-of-snomedct "https://www.snomed.org/value-of-snomedct").
+**InferSNOMEDCT** is available for customers in the US. For information on SNOMED CT in other countries, and information on SNOMED CT licensing, see [SNOMED CT](https://www.snomed.org/value-of-snomedct).
 
 **InferSNOMEDCT** is well suited for the following scenarios:
++  Assistance for professional medical coding in patient records 
++  Clinical studies and trials 
++  Population health management
 
-- Assistance for professional medical coding in patient records
-- Clinical studies and trials
-- Population health management
-  **InferSNOMEDCT** detects entities in the following categories.
-  Additional contextual information is also detected and linked as attributes or
-  traits.
-
-- `MEDICAL_CONDITION`: The signs, symptoms, and diagnoses of medical conditions.
-- `ANATOMY`: The parts of the body or body systems and the locations of those parts or systems.
-- `TEST_TREATMENT_PROCEDURE`: The procedures that are used to determine a medical condition.
+**InferSNOMEDCT** detects entities in the following categories. Additional contextual information is also detected and linked as attributes or traits.
++ `MEDICAL_CONDITION`: The signs, symptoms, and diagnoses of medical conditions. 
++ `ANATOMY`: The parts of the body or body systems and the locations of those parts or systems.
++ `TEST_TREATMENT_PROCEDURE`: The procedures that are used to determine a medical condition.
 
 ## Anatomy category
+<a name="anatomy-snomed"></a>
 
-The `ANATOMY` category detects references to the parts of the body or body
-systems and the locations of those parts or systems.
+The `ANATOMY` category detects references to the parts of the body or body systems and the locations of those parts or systems. 
 
 ### Attributes
+<a name="anatomy-attributes-snomed"></a>
 
-The following attributes are detected for the `ANATOMY`
-category:
-
-- `DIRECTION`: Directional terms. For example, left, right, medial, lateral, upper, lower, posterior, anterior, distal, proximal, contralateral, bilateral, ipsilateral, dorsal, or ventral.
-- `SYSTEM_ORGAN_SITE`: Body systems, anatomic locations or
-  regions, and body sites.
+The following attributes are detected for the `ANATOMY` category:
++ `DIRECTION`: Directional terms. For example, left, right, medial, lateral, upper, lower, posterior, anterior, distal, proximal, contralateral, bilateral, ipsilateral, dorsal, or ventral.
++ `SYSTEM_ORGAN_SITE`: Body systems, anatomic locations or regions, and body sites.
 
 ## Medical condition category
+<a name="snomed-med-cond"></a>
 
 The `MEDICAL_CONDITION` category detects the signs, symptoms, and diagnoses of medical conditions.
 
 ### Type
+<a name="med-cond-type-snomed"></a>
 
 For the **MEDICAL\_CONDITION** category, the following type is detected:
-
-- `DX_NAME:` An identification of a medical condition that is determined by evaluation of the symptoms.
++ `DX_NAME:` An identification of a medical condition that is determined by evaluation of the symptoms. 
 
 ### Attributes
+<a name="med-cond-attributes-snomed"></a>
 
 The following attributes are detected for the `MEDICAL_CONDITION` category:
-
-- `ACUITY:` Determination of disease instance, such as chronic, acute, sudden, persistent, or gradual.
-- `QUALITY:` Any descriptive term of the medical condition, such as stage or grade.
-- `DIRECTION`: Directional terms. For example, left, right medial, lateral, upper, lower, posterior, anterior, distal, proximal, contralateral, bilateral, ipsilateral, dorsal, or ventral.
-- `SYSTEM_ORGAN_SITE`: Body systems, anatomic locations or regions, and body sites.
++ `ACUITY:` Determination of disease instance, such as chronic, acute, sudden, persistent, or gradual.
++ `QUALITY:` Any descriptive term of the medical condition, such as stage or grade. 
++ `DIRECTION`: Directional terms. For example, left, right medial, lateral, upper, lower, posterior, anterior, distal, proximal, contralateral, bilateral, ipsilateral, dorsal, or ventral.
++ `SYSTEM_ORGAN_SITE`: Body systems, anatomic locations or regions, and body sites.
 
 ### Traits
+<a name="med-cond-traits"></a>
 
 The following traits are detected for the `MEDICAL_CONDITION` category:
-
-- `DIAGNOSIS`: A medical condition that is determined as the cause or result of the symptoms. Symptoms can be found through physical findings, laboratory or radiological reports, or other means.
-- `HYPOTHETICAL`: An indication that a medical condition is expressed as a hypothesis.
-- `LOW_CONFIDENCE`: An indication that a medical condition is expressed as having high uncertainty. This is not directly related to the confidence scores provided.
-- `NEGATION`: An indication that a medical condition is not present.
-- `PERTAINS_TO_FAMILY`: An indication that a medical condition is relevant to the patient’s family, not the patient.
-- `SIGN`: A medical condition that is reported by the physician.
-- `SYMPTON`: A medical condition that is reported by the patient.
++ `DIAGNOSIS`: A medical condition that is determined as the cause or result of the symptoms. Symptoms can be found through physical findings, laboratory or radiological reports, or other means. 
++ `HYPOTHETICAL`: An indication that a medical condition is expressed as a hypothesis.
++ `LOW_CONFIDENCE`: An indication that a medical condition is expressed as having high uncertainty. This is not directly related to the confidence scores provided.
++ `NEGATION`: An indication that a medical condition is not present.
++ `PERTAINS_TO_FAMILY`: An indication that a medical condition is relevant to the patient’s family, not the patient.
++ `SIGN`: A medical condition that is reported by the physician.
++ `SYMPTON`: A medical condition that is reported by the patient.
 
 ## Test, treatment, and procedure category
+<a name="ttt-snomed"></a>
 
 The `TEST_TREATMENT_PROCEDURE` category detects the procedures that are used to determine a medical condition.
 
 ### Type
+<a name="ttt-type-snomed"></a>
 
 For the **TEST\_TREATMENT\_PROCEDURE** category, the following types are detected:
-
-- `PROCEDURE_NAME:` Interventions performed on the patient to
-  treat a medical condition or to provide patient care.
-- `TEST_NAME:` Procedures performed on a patient for diagnosis,
-  measurement, screening, or a rating that might have a resulting value. This
-  includes any procedure, process, evaluation, or rating to determine a
-  diagnosis, to rule out or find a condition, or to scale or score a patient.
-- `TREATMENT_NAME:` Interventions performed to combat a disease
-  or disorder. This includes medications, such as antivirals and
-  vaccinations.
++ `PROCEDURE_NAME:` Interventions performed on the patient to treat a medical condition or to provide patient care.
++ `TEST_NAME:` Procedures performed on a patient for diagnosis, measurement, screening, or a rating that might have a resulting value. This includes any procedure, process, evaluation, or rating to determine a diagnosis, to rule out or find a condition, or to scale or score a patient. 
++ `TREATMENT_NAME:` Interventions performed to combat a disease or disorder. This includes medications, such as antivirals and vaccinations.
 
 ### Attributes
+<a name="ttt-attributes-snomed"></a>
 
 For the **TEST\_TREATMENT\_PROCEDURE** category, the following attributes are detected:
-
-- `TEST_NAME:` The diagnostic test performed.
-- `TEST_VALUE:` The numeric results from a diagnostic test.
-- `TEST_UNIT:` The units associated with a `TEST_VALUE:` result.
-- `PROCEDURE_NAME:` The name of a surgery or medical procedure performed.
-- `TREATMENT_NAME:` The name of a treatment administered to a patient.
++ `TEST_NAME:` The diagnostic test performed.
++ `TEST_VALUE:` The numeric results from a diagnostic test. 
++ `TEST_UNIT:` The units associated with a `TEST_VALUE:` result.
++ `PROCEDURE_NAME:` The name of a surgery or medical procedure performed.
++ `TREATMENT_NAME:` The name of a treatment administered to a patient.
 
 ### Traits
-
-- `FUTURE`: An indication that a test, treatment, or procedure refers to an action or event that will occur after the subject of the notes.
-- `HYPOTHETICAL`: An indication that a test, treatment, or procedure is expressed as a hypothesis
-- `NEGATION`: An indication that a result or action is negative or not being performed.
-- `PAST_HISTORY`: An indication that a test, treatment, or procedure is from the patient’s past (prior to the current encounter).
+<a name="ttt-traits-snomed"></a>
++ `FUTURE`: An indication that a test, treatment, or procedure refers to an action or event that will occur after the subject of the notes.
++ `HYPOTHETICAL`: An indication that a test, treatment, or procedure is expressed as a hypothesis
++ `NEGATION`: An indication that a result or action is negative or not being performed.
++ `PAST_HISTORY`: An indication that a test, treatment, or procedure is from the patient’s past (prior to the current encounter).
 
 ## SNOMED CT details
+<a name="snomed-details"></a>
 
 Included in the JSON response are the SNOMED CT details, which includes the following information:
-
-- `EDITION:` Only the US edition is supported.
-- `VERSIONDATE:` The date stamp of the SNOMED CT version used.
-- `LANGUAGE:` Analysis on English (US-EN) language is supported.
++ `EDITION:` Only the US edition is supported.
++ `VERSIONDATE: ` The date stamp of the SNOMED CT version used. 
++ `LANGUAGE:` Analysis on English (US-EN) language is supported.
 
 ## Input and response examples
+<a name="snomed-example"></a>
 
-###### Note
+**Note**  
+For specific API input and response syntax, see [InferSNOMEDCT](https://docs.aws.amazon.com/comprehend-medical/latest/api/API_InferSNOMEDCT.html) in the *Amazon Comprehend Medical API Reference*.
 
-For specific API input and response syntax, see
-[InferSNOMEDCT](../api/API_InferSNOMEDCT.md "../api/API_InferSNOMEDCT.md")
-in the _Amazon Comprehend Medical API Reference_.
-
-The following example input text shows how the `InferSNOMEDCT` operation works. To view all
-input text, scroll over the **Copy** button.
+The following example input text shows how the `InferSNOMEDCT` operation works. To view all input text, scroll over the **Copy** button.
 
 ```
 "HEENT : Boggy inferior turbinates, No oropharyngeal lesion"
@@ -136,31 +127,31 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
             "SNOMEDCTConcepts": [
                 {
                     "Code": "69536005",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Head structure (body structure)"
                 },
                 {
                     "Code": "429031000124106",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Review of systems, head, ear, eyes, nose and throat (procedure)"
                 },
                 {
                     "Code": "385383008",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Ear, nose and throat structure (body structure)"
                 },
                 {
                     "Code": "64237003",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Structure of left half of head (body structure)"
                 },
                 {
                     "Code": "113028003",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Ear, nose and throat examination (procedure)"
                 }
             ],
-            "Score": `Float`,
+            "Score": {{Float}},
             "Attributes": [],
             "Type": "SYSTEM_ORGAN_SITE",
             "Id": 0
@@ -172,73 +163,73 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
             "Text": "Boggy inferior turbinates",
             "Traits": [
                 {
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Name": "SIGN"
                 }
             ],
             "SNOMEDCTConcepts": [
                 {
                     "Code": "254477009",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Tumor of inferior turbinate (disorder)"
                 },
                 {
                     "Code": "260762006",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Choroidal invasion status (attribute)"
                 },
                 {
                     "Code": "2455009",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Revision of lumbosubarachnoid shunt (procedure)"
                 },
                 {
                     "Code": "19883003",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Atrophy of nasal turbinates (disorder)"
                 },
                 {
                     "Code": "256723009",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Inferior turbinate flap (substance)"
                 }
             ],
-            "Score": `Float`,
+            "Score": {{Float}},
             "Attributes": [
                 {
                     "Category": "ANATOMY",
-                    "RelationshipScore": `Float`,
+                    "RelationshipScore": {{Float}},
                     "EndOffset": 5,
                     "Text": "HEENT",
                     "Traits": [],
                     "SNOMEDCTConcepts": [
                         {
                             "Code": "69536005",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Head structure (body structure)"
                         },
                         {
                             "Code": "429031000124106",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Review of systems, head, ear, eyes, nose and throat (procedure)"
                         },
                         {
                             "Code": "385383008",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Ear, nose and throat structure (body structure)"
                         },
                         {
                             "Code": "64237003",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Structure of left half of head (body structure)"
                         },
                         {
                             "Code": "113028003",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Ear, nose and throat examination (procedure)"
                         }
                     ],
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "RelationshipType": "SYSTEM_ORGAN_SITE",
                     "Type": "SYSTEM_ORGAN_SITE",
                     "Id": 0,
@@ -257,31 +248,31 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
             "SNOMEDCTConcepts": [
                 {
                     "Code": "310607007",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Sarcoidosis of inferior turbinates (disorder)"
                 },
                 {
                     "Code": "80153006",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Segmented neutrophil (cell)"
                 },
                 {
                     "Code": "46607005",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Nasal turbinate structure (body structure)"
                 },
                 {
                     "Code": "6553002",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Inferior nasal turbinate structure (body structure)"
                 },
                 {
                     "Code": "254477009",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Tumor of inferior turbinate (disorder)"
                 }
             ],
-            "Score": `Float`,
+            "Score": {{Float}},
             "Attributes": [],
             "Type": "SYSTEM_ORGAN_SITE",
             "Id": 3
@@ -295,31 +286,31 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
             "SNOMEDCTConcepts": [
                 {
                     "Code": "31389004",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Oropharyngeal structure (body structure)"
                 },
                 {
                     "Code": "33431000119109",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Lesion of oropharynx (disorder)"
                 },
                 {
                     "Code": "263376008",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Entire oropharynx (body structure)"
                 },
                 {
                     "Code": "716151000",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Structure of oropharynx and/or hypopharynx and/or larynx (body structure)"
                 },
                 {
                     "Code": "764786007",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Oropharyngeal (intended site)"
                 }
             ],
-            "Score": `Float`,
+            "Score": {{Float}},
             "Attributes": [],
             "Type": "SYSTEM_ORGAN_SITE",
             "Id": 5
@@ -331,73 +322,73 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
             "Text": "oropharyngeal lesion",
             "Traits": [
                 {
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Name": "SIGN"
                 }
             ],
             "SNOMEDCTConcepts": [
                 {
                     "Code": "31389004",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Oropharyngeal structure (body structure)"
                 },
                 {
                     "Code": "33431000119109",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Lesion of oropharynx (disorder)"
                 },
                 {
                     "Code": "764786007",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Oropharyngeal (intended site)"
                 },
                 {
                     "Code": "418664002",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Oropharyngeal route (qualifier value)"
                 },
                 {
                     "Code": "110162001",
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "Description": "Abrasion of oropharynx (disorder)"
                 }
             ],
-            "Score": `Float`,
+            "Score": {{Float}},
             "Attributes": [
                 {
                     "Category": "ANATOMY",
-                    "RelationshipScore": `Float`,
+                    "RelationshipScore": {{Float}},
                     "EndOffset": 5,
                     "Text": "HEENT",
                     "Traits": [],
                     "SNOMEDCTConcepts": [
                         {
                             "Code": "69536005",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Head structure (body structure)"
                         },
                         {
                             "Code": "429031000124106",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Review of systems, head, ear, eyes, nose and throat (procedure)"
                         },
                         {
                             "Code": "385383008",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Ear, nose and throat structure (body structure)"
                         },
                         {
                             "Code": "64237003",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Structure of left half of head (body structure)"
                         },
                         {
                             "Code": "113028003",
-                            "Score": `Float`,
+                            "Score": {{Float}},
                             "Description": "Ear, nose and throat examination (procedure)"
                         }
                     ],
-                    "Score": `Float`,
+                    "Score": {{Float}},
                     "RelationshipType": "SYSTEM_ORGAN_SITE",
                     "Type": "SYSTEM_ORGAN_SITE",
                     "Id": 0,
@@ -418,5 +409,4 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
     },
     "ModelVersion": "3.3.0.20220301"
 }
-
 ```
