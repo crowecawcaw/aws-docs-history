@@ -1,19 +1,22 @@
+
+
 # Analysis and maintenance
+<a name="rhel-ase-ha-operations-topics"></a>
 
 This section covers the following topics.
 
-###### Topics
-
-- [Viewing the cluster state](#clsuter-state "#clsuter-state")
-- [Performing planned maintenance](#planned-maintenance "#planned-maintenance")
-- [Post-failure analysis and reset](#analysis-reset "#analysis-reset")
-- [Alerting and monitoring](#alerting-monitoring "#alerting-monitoring")
+**Topics**
++ [Viewing the cluster state](#clsuter-state)
++ [Performing planned maintenance](#planned-maintenance)
++ [Post-failure analysis and reset](#analysis-reset)
++ [Alerting and monitoring](#alerting-monitoring)
 
 ## Viewing the cluster state
+<a name="clsuter-state"></a>
 
 You can view the state of the cluster based on your operating system.
 
-**Operating system based**
+ **Operating system based** 
 
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services. See the following commands for more details.
 
@@ -58,48 +61,46 @@ pcsd: active/enabled
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
-| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
-| `pcs help`           | View more options                                                                                                            |
-| `crm_mon --help-all` | View more options                                                                                                            |
+
+| Command | Description | 
+| --- | --- | 
+|  `crm_mon`  | Display cluster status on the console with updates as they occur | 
+|  `crm_mon -1`  | Display cluster status on the console just once, and exit | 
+|  `crm_mon -Arnf`  | -A Display node attributes<br />-n Group resources by node<br />-r Display inactive resources<br />-f Display resource fail counts | 
+|  `pcs help`  | View more options | 
+|  `crm_mon --help-all`  | View more options | 
 
 ## Performing planned maintenance
+<a name="planned-maintenance"></a>
 
 The cluster connector is designed to integrate the cluster with SAP start framework (`sapstartsrv`), including the rolling kernel switch (RKS) awareness. Stopping and starting the SAP system using `sapcontrol` should not result in any cluster remediation activities as these actions are not interpreted as failures. Validate this scenario when testing your cluster.
 
 There are different options to perform planned maintenance on nodes, resources, and the cluster.
 
-###### Topics
-
-- [Maintenance mode](#maintenance-mode "#maintenance-mode")
-- [Placing a node in standby mode](#node-standby "#node-standby")
-- [Moving a resource (not recommended)](#moving-resource "#moving-resource")
+**Topics**
++ [Maintenance mode](#maintenance-mode)
++ [Placing a node in standby mode](#node-standby)
++ [Moving a resource (not recommended)](#moving-resource)
 
 ### Maintenance mode
+<a name="maintenance-mode"></a>
 
 Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks.
 
-###### Example
-
-On
-Use the following command to turn on maintenance mode.
+**Example**  
+Use the following command to turn on maintenance mode.  
 
 ```
 pcs property set maintenance-mode="true"
 ```
++ Use the following command to turn off maintenance mode.
 
-Off
-
-- Use the following command to turn off maintenance mode.
-
-```
-pcs property set maintenance-mode="false"
-```
+  ```
+  pcs property set maintenance-mode="false"
+  ```
 
 ### Placing a node in standby mode
+<a name="node-standby"></a>
 
 To perform maintenance on the cluster without system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
@@ -114,6 +115,7 @@ pcs node unstandby <rhxdbhost01>
 ```
 
 ### Moving a resource (not recommended)
+<a name="moving-resource"></a>
 
 Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup.
 
@@ -125,27 +127,28 @@ Note: Use “pcs constraint location remove cli-prefer-grp_ARD_ASEDB” to remov
 ```
 
 ## Post-failure analysis and reset
+<a name="analysis-reset"></a>
 
 A review must be conducted after each failure to understand the source of failure as well the reaction of the cluster. In most scenarios, the cluster prevents an application outage. However, a manual action is often required to reset the cluster to a protective state for any subsequent failures.
 
-###### Topics
-
-- [Checking the logs](#checking-logs "#checking-logs")
-- [Cleanup pcs status](#cleanup-pcs "#cleanup-pcs")
-- [Restart failed nodes or pacemaker](#restart-nodes "#restart-nodes")
-- [Further analysis](#further-analysis "#further-analysis")
+**Topics**
++ [Checking the logs](#checking-logs)
++ [Cleanup `pcs status`](#cleanup-pcs)
++ [Restart failed nodes or `pacemaker`](#restart-nodes)
++ [Further analysis](#further-analysis)
 
 ### Checking the logs
+<a name="checking-logs"></a>
 
 Start your troubleshooting by checking the operating system log `/var/log/messages`. You can find additional information in the cluster and pacemaker logs.
-
-- **Cluster logs** – updated in the `corosync.conf` file located at `/etc/corosync/corosync.conf`.
-- **Pacemaker logs** – updated in the `pacemaker.log` file located at `/var/log/pacemaker`.
-- **Resource agents** – `/var/log/messages`
++  **Cluster logs** – updated in the `corosync.conf` file located at `/etc/corosync/corosync.conf`.
++  **Pacemaker logs** – updated in the `pacemaker.log` file located at `/var/log/pacemaker`.
++  **Resource agents** – `/var/log/messages` 
 
 Application based failures can be investigated in the SAP work directory.
 
 ### Cleanup `pcs status`
+<a name="cleanup-pcs"></a>
 
 If failed actions are reported using the `crm status` command, and if they have already been investigated, then you can clear the reports with the following command.
 
@@ -157,43 +160,44 @@ pcs resource cleanup <resource> <hostname>
 pcs stonith cleanup
 ```
 
-###### Note
-
+**Note**  
 Use the help command to understand the impact of these commands.
 
 ### Restart failed nodes or `pacemaker`
+<a name="restart-nodes"></a>
 
 It is recommended that failed (or fenced) nodes are not automatically restarted. It gives operators a chance to investigate the failure, and ensure that the cluster doesn’t make assumptions about the state of resources.
 
 You need to restart the instance or the pacemaker service based on your approach.
 
 ### Further analysis
+<a name="further-analysis"></a>
 
 If further analysis from Red Hat is required, they may request an sos report, or logs of the cluster from `crm_report` or `pcs cluster report`.
 
-**sos report** – The sos report command is a tool that collects configuration details, system information, and diagnostic information from a Red Hat Enterprise Linux system. For instance, the running kernel version, loaded modules, and system and service configuration files. The command also runs external programs to collect further information, and stores this output in the resulting archive. For more information, see Red Hat documentation [What is an sos report and is it different from an sosreport?](https://access.redhat.com/solutions/3592#sos_report "https://access.redhat.com/solutions/3592#sos_report")
+ **sos report** – The sos report command is a tool that collects configuration details, system information, and diagnostic information from a Red Hat Enterprise Linux system. For instance, the running kernel version, loaded modules, and system and service configuration files. The command also runs external programs to collect further information, and stores this output in the resulting archive. For more information, see Red Hat documentation [What is an sos report and is it different from an sosreport?](https://access.redhat.com/solutions/3592#sos_report) 
 
-**crm report** – collects the cluster logs/information from the node where the command is being run. For more information, see Red Hat documentation [How do I generate a crm\_report from a RHEL 6 or 7 High Availability cluster node using pacemaker?](https://access.redhat.com/solutions/787853 "https://access.redhat.com/solutions/787853")
+ **crm report** – collects the cluster logs/information from the node where the command is being run. For more information, see Red Hat documentation [How do I generate a crm\_report from a RHEL 6 or 7 High Availability cluster node using pacemaker?](https://access.redhat.com/solutions/787853) 
 
 ```
 crm_report
 ```
 
-**pcs cluster report** – command collects the cluster logs/information from all the nodes involved in the cluster.
+ **pcs cluster report** – command collects the cluster logs/information from all the nodes involved in the cluster.
 
 ```
 pcs cluster report <destination_path>
 ```
 
-###### Note
-
+**Note**  
 The `pcs cluster report` command relies on passwordless ssh being set up between the nodes.
 
 ## Alerting and monitoring
+<a name="alerting-monitoring"></a>
 
-**Using the cluster alert agents**
+ **Using the cluster alert agents** 
 
-Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a _push_ notification. It passes information about the event via environment variables.
+Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a *push* notification. It passes information about the event via environment variables.
 
 The agents can then be configured to send emails, log to a file, update a monitoring system, etc. For example, the following script can be used to access Amazon SNS.
 

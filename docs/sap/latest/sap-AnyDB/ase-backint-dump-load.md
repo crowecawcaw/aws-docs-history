@@ -1,54 +1,61 @@
+
+
 # Backup and Restore
+<a name="ase-backint-dump-load"></a>
 
-This guide shows you how to backup and restore SAP ASE databases using AWS Backint Agent for SAP ASE.
-You’ll learn how to install and configure the agent, create backups, restore databases, and manage logs.
+This guide shows you how to backup and restore SAP ASE databases using AWS Backint Agent for SAP ASE. You’ll learn how to install and configure the agent, create backups, restore databases, and manage logs.
 
-###### Topics
-
-- [Interactive SQL](#ase-backint-interactive-sql "#ase-backint-interactive-sql")
-- [Placeholders](#ase-backint-placeholders "#ase-backint-placeholders")
-- [Backup Location](#ase-backint-prefix-and-s3-location "#ase-backint-prefix-and-s3-location")
-- [Backup Striping](#ase-backint-backup-striping "#ase-backint-backup-striping")
-- [Create Backup Configuration](#_create_backup_configuration "#_create_backup_configuration")
-- [Database Backup](#ase-backint-database-backup "#ase-backint-database-backup")
-- [Transaction Log Backup](#ase-backint-transaction-log-backup "#ase-backint-transaction-log-backup")
-- [Database Restore](#ase-backint-database-restore "#ase-backint-database-restore")
-- [Transaction Log Restore](#ase-backint-transaction-log-restore "#ase-backint-transaction-log-restore")
-- [Database Restore to Different Target Database](#ase-backint-database-restore-different-target "#ase-backint-database-restore-different-target")
+**Topics**
++ [Interactive SQL](#ase-backint-interactive-sql)
++ [Placeholders](#ase-backint-placeholders)
++ [Backup Location](#ase-backint-prefix-and-s3-location)
++ [Backup Striping](#ase-backint-backup-striping)
++ [Create Backup Configuration](#_create_backup_configuration)
++ [Database Backup](#ase-backint-database-backup)
++ [Transaction Log Backup](#ase-backint-transaction-log-backup)
++ [Database Restore](#ase-backint-database-restore)
++ [Transaction Log Restore](#ase-backint-transaction-log-restore)
++ [Database Restore to Different Target Database](#ase-backint-database-restore-different-target)
 
 ## Interactive SQL
+<a name="ase-backint-interactive-sql"></a>
 
-Interactive SQL (`isql`) is a command line interactive SQL parser to the SAP ASE server.
-Refer to [Using interactive isql from the Command Line](https://help.sap.com/docs/SAP_ASE/4fac18b4f65644b3ae50293f3ecdf95d/a83bcdd9bc2b101488a697dc6bd918f3.html?version=16.0.0.0 "https://help.sap.com/docs/SAP_ASE/4fac18b4f65644b3ae50293f3ecdf95d/a83bcdd9bc2b101488a697dc6bd918f3.html?version=16.0.0.0") for more information.
+Interactive SQL (`isql`) is a command line interactive SQL parser to the SAP ASE server. Refer to [Using interactive isql from the Command Line](https://help.sap.com/docs/SAP_ASE/4fac18b4f65644b3ae50293f3ecdf95d/a83bcdd9bc2b101488a697dc6bd918f3.html?version=16.0.0.0) for more information.
 
 ## Placeholders
+<a name="ase-backint-placeholders"></a>
 
-The commands in this document use placeholders for illustration.
-Their values need to be set according to your environment configuration.
+The commands in this document use placeholders for illustration. Their values need to be set according to your environment configuration.
 
-| Placeholder        | Description                                           | Example Value                                             |
-| ------------------ | ----------------------------------------------------- | --------------------------------------------------------- |
-| `<DB_NAME>`        | Name of the database                                  | `ASE`                                                     |
-| `<MY_PREFIX>`      | Custom prefix for backup identification               | `my_custom_prefix`                                        |
-| `<MY_S3_LOCATION>` | Complete S3 path for restore operations               | `sapaws_ASE_COMPLETE_my_custom_prefix_2/01-06-2025_1159/` |
-| `<SID>`            | SAP ASE System ID                                     | `ASE`                                                     |
-| `<HOSTNAME>`       | Database instance hostname                            | `sapaws`                                                  |
-| `<STRIPES>`        | Number of stripes                                     | `1`                                                       |
-| `<TIMESTAMP>`      | UTC timestamp of backup with format `DD-MM-YYYY_hhmm` | `01-06-2025_1159`                                         |
+
+| Placeholder | Description | Example Value | 
+| --- | --- | --- | 
+|  `<DB_NAME>`  | Name of the database |  `ASE`  | 
+|  `<MY_PREFIX>`  | Custom prefix for backup identification |  `my_custom_prefix`  | 
+|  `<MY_S3_LOCATION>`  | Complete S3 path for restore operations |  `sapaws_ASE_COMPLETE_my_custom_prefix_2/01-06-2025_1159/`  | 
+|  `<SID>`  | SAP ASE System ID |  `ASE`  | 
+|  `<HOSTNAME>`  | Database instance hostname |  `sapaws`  | 
+|  `<STRIPES>`  | Number of stripes |  `1`  | 
+|  `<TIMESTAMP>`  | UTC timestamp of backup with format `DD-MM-YYYY_hhmm`  |  `01-06-2025_1159`  | 
 
 ## Backup Location
+<a name="ase-backint-prefix-and-s3-location"></a>
 
 Your backup location depends on:
 
 1. Agent configuration (S3 bucket and folder)
-2. SAP ASE System ID (SID)
-3. Database instance hostname
-4. Your custom prefix
-5. Number of stripes
-6. UTC timestamp
 
-If you’re performing a backup (load), Backint agent constructs the S3 location automatically.
-If you’re restoring a particular backup (load) created with AWS Backint Agent, you need to specify the S3 location manually.
+1. SAP ASE System ID (SID)
+
+1. Database instance hostname
+
+1. Your custom prefix
+
+1. Number of stripes
+
+1. UTC timestamp
+
+If you’re performing a backup (load), Backint agent constructs the S3 location automatically. If you’re restoring a particular backup (load) created with AWS Backint Agent, you need to specify the S3 location manually.
 
 Database backups:
 
@@ -63,6 +70,7 @@ Transaction log backups:
 ```
 
 ### Finding backups via the AWS CLI
+<a name="finding_backups_via_the_shared_aws_cli"></a>
 
 The AWS CLI command below allows you to list available backups in Amazon S3.
 
@@ -79,6 +87,7 @@ aws s3 ls s3://<BUCKET>/<FOLDER>/<SID>/<HOSTNAME>_<DB_NAME>_TRANSACTION_<MY_PREF
 ```
 
 #### Example:
+<a name="_example"></a>
 
 ```
 > aws s3 ls s3://my_s3_bucket/my_s3_folder/ABC/myhost_ABC_COMPLETE_my_daily_backup_1/
@@ -90,11 +99,9 @@ aws s3 ls s3://<BUCKET>/<FOLDER>/<SID>/<HOSTNAME>_<DB_NAME>_TRANSACTION_<MY_PREF
 ```
 
 ## Backup Striping
+<a name="ase-backint-backup-striping"></a>
 
-Backup Striping allows adjusting the number of simultaneous backup and restore streams to and from Amazon S3.
-The ideal number of stripes depends mainly on the size of your database.
-Striping is defined by appending the following statement to your dump or load command.
-Striping is supported for DUMP and LOAD commands for both, database and transaction log backups.
+Backup Striping allows adjusting the number of simultaneous backup and restore streams to and from Amazon S3. The ideal number of stripes depends mainly on the size of your database. Striping is defined by appending the following statement to your dump or load command. Striping is supported for DUMP and LOAD commands for both, database and transaction log backups.
 
 Add the following statement `(n-1)` times for `n` stripes. The number of stripes in a load statement need to match the number of stripes when creating the backup. The maximum number of stripes is 32.
 
@@ -103,26 +110,25 @@ stripe on "awsbackint::<MY_PREFIX/MY_S3_LOCATION>"
 ```
 
 ## Create Backup Configuration
+<a name="_create_backup_configuration"></a>
 
-SAP ASE provides several methods to configure backup operations.
-The stored procedure [sp\_config\_dump](https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html "https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html") offers a straightforward way to set backup parameters and specify AWS Backint Agent as the backup target.
+SAP ASE provides several methods to configure backup operations. The stored procedure [sp\_config\_dump](https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36273.1600/doc/html/san1393051993446.html) offers a straightforward way to set backup parameters and specify AWS Backint Agent as the backup target.
 
-###### Note
+**Note**  
+Using a backup configuration will not allow you to specify a custom prefix. Instead, SAP ASE will generate a prefix with format `<DB_NAME>.DB.YYYYMMDD.hhmmss.<COUNTER>.000` automatically. Creating a dump configuration is optional and not required in case you prefer using the statements in the following section.
 
-Using a backup configuration will not allow you to specify a custom prefix.
-Instead, SAP ASE will generate a prefix with format `<DB_NAME>.DB.YYYYMMDD.hhmmss.<COUNTER>.000` automatically.
-Creating a dump configuration is optional and not required in case you prefer using the statements in the following section.
+ AWS Backint Agent for SAP ASE supports the following parameters:
 
-AWS Backint Agent for SAP ASE supports the following parameters:
 
-| Parameter               | Description                                                                                                                                                                                                                                                                      | Required |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `@ext_api='awsbackint'` | Specifies AWS Backint Agent as the external API.                                                                                                                                                                                                                                 | Yes      |
-| `@num_stripes`          | Number of stripe devices used during the dump operation. The default is 1.                                                                                                                                                                                                       | No       |
-| `@blocksize`            | Block size for the dump device, overriding the default block size for the device. The value must be at least 1 database page, and an exact multiple of the database page size. For optimal performance, specify blocksize as a power of 2 (such as 65,536, 131,072, or 262,144). | No       |
-| `@compression`          | Compression level for compressed dumps. By default, compression is disabled.                                                                                                                                                                                                     | No       |
+| Parameter | Description | Required | 
+| --- | --- | --- | 
+|  `@ext_api='awsbackint'`  | Specifies AWS Backint Agent as the external API. | Yes | 
+|  `@num_stripes`  | Number of stripe devices used during the dump operation. The default is 1. | No | 
+|  `@blocksize`  | Block size for the dump device, overriding the default block size for the device. The value must be at least 1 database page, and an exact multiple of the database page size. For optimal performance, specify blocksize as a power of 2 (such as 65,536, 131,072, or 262,144). | No | 
+|  `@compression`  | Compression level for compressed dumps. By default, compression is disabled. | No | 
 
 ### Example
+<a name="_example_2"></a>
 
 Create database dump configuration `my_custom_config`, using the external API for AWS Backint Agent for SAP ASE, three stripes, a block size of 16,384 bytes, and compression level of 100.
 
@@ -144,6 +150,7 @@ go
 ```
 
 ## Database Backup
+<a name="ase-backint-database-backup"></a>
 
 Use the following statement to create a full database dump of your database in Amazon S3.
 
@@ -152,6 +159,7 @@ dump database <DB_NAME> to "awsbackint::<MY_PREFIX>"
 ```
 
 ### Example
+<a name="ase-backint-database-backup-example"></a>
 
 Dump database ASE to S3 with prefix `my_custom_prefix`, using two stripes.
 
@@ -162,6 +170,7 @@ go
 ```
 
 ## Transaction Log Backup
+<a name="ase-backint-transaction-log-backup"></a>
 
 Use the following statement to create a transaction log dump of your database in Amazon S3.
 
@@ -170,6 +179,7 @@ dump transaction <DB_NAME> to "awsbackint::<MY_PREFIX>"
 ```
 
 ### Example
+<a name="ase-backint-transaction-backup-example"></a>
 
 Dump transaction log of database ASE to S3 with prefix `my_custom_prefix`, using one stripes.
 
@@ -179,6 +189,7 @@ go
 ```
 
 ## Database Restore
+<a name="ase-backint-database-restore"></a>
 
 Use the following statement to restore your database from Amazon S3.
 
@@ -187,6 +198,7 @@ load database <DB_NAME> from "awsbackint::<MY_S3_LOCATION>"
 ```
 
 ### Example
+<a name="ase-backint-database-restore-example"></a>
 
 Load database ASE from S3, using two stripes.
 
@@ -197,6 +209,7 @@ go
 ```
 
 ## Transaction Log Restore
+<a name="ase-backint-transaction-log-restore"></a>
 
 Use the following statement to restore your transaction logs from Amazon S3.
 
@@ -205,6 +218,7 @@ load transaction <DB_NAME> from "awsbackint::<MY_S3_LOCATION>"
 ```
 
 ### Example
+<a name="ase-backint-transaction-restore-example"></a>
 
 Load transaction logs for database ASE from S3, using one stripes.
 
@@ -214,6 +228,7 @@ go
 ```
 
 ## Database Restore to Different Target Database
+<a name="ase-backint-database-restore-different-target"></a>
 
 ```
 load database <TARGET_DB_NAME> from "awsbackint::<MY_S3_LOCATION>::<SOURCE_DB_NAME>"

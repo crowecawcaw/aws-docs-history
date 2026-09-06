@@ -1,24 +1,27 @@
+
+
 # Analysis and maintenance
+<a name="ase-sles-ha-operations-topics"></a>
 
 This section covers the following topics.
 
-###### Topics
-
-- [Viewing the cluster state](#clsuter-state "#clsuter-state")
-- [Performing planned maintenance](#planned-maintenance "#planned-maintenance")
-- [Post-failure analysis and reset](#analysis-reset "#analysis-reset")
-- [Alerting and monitoring](#alerting-monitoring "#alerting-monitoring")
+**Topics**
++ [Viewing the cluster state](#clsuter-state)
++ [Performing planned maintenance](#planned-maintenance)
++ [Post-failure analysis and reset](#analysis-reset)
++ [Alerting and monitoring](#alerting-monitoring)
 
 ## Viewing the cluster state
+<a name="clsuter-state"></a>
 
 You can view the state of the cluster in two ways - based on your operating system or with a web based console provided by SUSE.
 
-###### Topics
-
-- [Operating system based](#os-based "#os-based")
-- [SUSE Hawk2](#suse-hawk "#suse-hawk")
+**Topics**
++ [Operating system based](#os-based)
++ [SUSE Hawk2](#suse-hawk)
 
 ### Operating system based
+<a name="os-based"></a>
 
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services. See the following commands for more details.
 
@@ -56,15 +59,17 @@ Full List of Resources:
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
-| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
-| `crm help`           | View more options                                                                                                            |
-| `crm_mon --help-all` | View more options                                                                                                            |
+
+| Command | Description | 
+| --- | --- | 
+|  `crm_mon`  | Display cluster status on the console with updates as they occur | 
+|  `crm_mon -1`  | Display cluster status on the console just once, and exit | 
+|  `crm_mon -Arnf`  | -A Display node attributes<br />-n Group resources by node<br />-r Display inactive resources<br />-f Display resource fail counts | 
+|  `crm help`  | View more options | 
+|  `crm_mon --help-all`  | View more options | 
 
 ### SUSE Hawk2
+<a name="suse-hawk"></a>
 
 Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2.
 
@@ -81,49 +86,49 @@ https://your-server:7630/
 e.g https://slxdbhost01:7630
 ```
 
-For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE Documentation.
+For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html) in the SUSE Documentation.
 
 ## Performing planned maintenance
+<a name="planned-maintenance"></a>
 
 The cluster connector is designed to integrate the cluster with SAP start framework (`sapstartsrv`), including the rolling kernel switch (RKS) awareness. Stopping and starting the SAP system using `sapcontrol` should not result in any cluster remediation activities as these actions are not interpreted as failures. Validate this scenario when testing your cluster.
 
 There are different options to perform planned maintenance on nodes, resources, and the cluster.
 
-###### Topics
-
-- [Maintenance mode](#maintenance-mode "#maintenance-mode")
-- [Placing a node in standby mode](#node-standby "#node-standby")
-- [Moving a resource (not recommended)](#moving-resource "#moving-resource")
+**Topics**
++ [Maintenance mode](#maintenance-mode)
++ [Placing a node in standby mode](#node-standby)
++ [Moving a resource (not recommended)](#moving-resource)
 
 ### Maintenance mode
+<a name="maintenance-mode"></a>
 
 Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks.
 
-On
+On  
++ Use one of the following commands to turn on maintenance mode.
 
-- Use one of the following commands to turn on maintenance mode.
-
-```
-crm maintenance on
-```
+  ```
+  crm maintenance on
+  ```
 
 ```
 crm configure property maintenance-mode="true"
 ```
 
-Off
+Off  
++ Use one of the following commands to turn off maintenance mode.
 
-- Use one of the following commands to turn off maintenance mode.
-
-```
-crm maintenance off
-```
+  ```
+  crm maintenance off
+  ```
 
 ```
 crm configure property maintenance-mode="false"
 ```
 
 ### Placing a node in standby mode
+<a name="node-standby"></a>
 
 To perform maintenance on the cluster without system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
@@ -138,6 +143,7 @@ crm node online <slxdbhost01>
 ```
 
 ### Moving a resource (not recommended)
+<a name="moving-resource"></a>
 
 Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup.
 
@@ -154,27 +160,28 @@ Use the following command once the resources have relocated to their target loca
 ```
 
 ## Post-failure analysis and reset
+<a name="analysis-reset"></a>
 
 A review must be conducted after each failure to understand the source of failure as well the reaction of the cluster. In most scenarios, the cluster prevents an application outage. However, a manual action is often required to reset the cluster to a protective state for any subsequent failures.
 
-###### Topics
-
-- [Checking the logs](#checking-logs "#checking-logs")
-- [Cleanup crm status](#cleanup-crm "#cleanup-crm")
-- [Restart failed nodes or pacemaker](#restart-nodes "#restart-nodes")
-- [Further analysis](#further-analysis "#further-analysis")
+**Topics**
++ [Checking the logs](#checking-logs)
++ [Cleanup `crm status`](#cleanup-crm)
++ [Restart failed nodes or `pacemaker`](#restart-nodes)
++ [Further analysis](#further-analysis)
 
 ### Checking the logs
+<a name="checking-logs"></a>
 
 Start your troubleshooting by checking the operating system log `/var/log/messages`. You can find additional information in the cluster and pacemaker logs.
-
-- **Cluster logs** – updated in the `corosync.conf` file located at `/etc/corosync/corosync.conf`.
-- **Pacemaker logs** – updated in the `pacemaker.log` file located at `/var/log/pacemaker`.
-- **Resource agents** – `/var/log/messages`
++  **Cluster logs** – updated in the `corosync.conf` file located at `/etc/corosync/corosync.conf`.
++  **Pacemaker logs** – updated in the `pacemaker.log` file located at `/var/log/pacemaker`.
++  **Resource agents** – `/var/log/messages` 
 
 Application based failures can be investigated in the SAP work directory.
 
 ### Cleanup `crm status`
+<a name="cleanup-crm"></a>
 
 If failed actions are reported using the `crm status` command, and if they have already been investigated, then you can clear the reports with the following command.
 
@@ -183,12 +190,14 @@ crm resource cleanup <resource> <hostname>
 ```
 
 ### Restart failed nodes or `pacemaker`
+<a name="restart-nodes"></a>
 
 It is recommended that failed (or fenced) nodes are not automatically restarted. It gives operators a chance to investigate the failure, and ensure that the cluster doesn’t make assumptions about the state of resources.
 
 You need to restart the instance or the pacemaker service based on your approach.
 
 ### Further analysis
+<a name="further-analysis"></a>
 
 The following commands consolidate information from both nodes, highlighting key events and differentiating between originating node to make the analysis clear.
 
@@ -198,17 +207,17 @@ crm history events
 crm history log
 ```
 
-If further analysis from SUSE is required, an `hb_report` may be requested. For more information, see SUSE Documentation – [Usage of hb\_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501").
+If further analysis from SUSE is required, an `hb_report` may be requested. For more information, see SUSE Documentation – [Usage of hb\_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501).
 
-###### Note
-
-`crm history events` and `hb_report` rely on passwordless ssh being set up between the nodes.
+**Note**  
+ `crm history events` and `hb_report` rely on passwordless ssh being set up between the nodes.
 
 ## Alerting and monitoring
+<a name="alerting-monitoring"></a>
 
-**Using the cluster alert agents**
+ **Using the cluster alert agents** 
 
-Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a _push_ notification. It passes information about the event via environment variables.
+Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a *push* notification. It passes information about the event via environment variables.
 
 The agents can then be configured to send emails, log to a file, update a monitoring system, etc. For example, the following script can be used to access Amazon SNS.
 

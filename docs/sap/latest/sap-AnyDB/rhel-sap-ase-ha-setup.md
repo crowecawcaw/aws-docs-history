@@ -1,35 +1,38 @@
+
+
 # SAP and cluster setup
+<a name="rhel-sap-ase-ha-setup"></a>
 
 This section covers the following topics.
 
-###### Topics
-
-- [Install SAP](#install-sap "#install-sap")
-- [Cluster prerequisites](#cluster-prerequisites "#cluster-prerequisites")
-- [Create cluster and node associations](#associations "#associations")
+**Topics**
++ [Install SAP](#install-sap)
++ [Cluster prerequisites](#cluster-prerequisites)
++ [Create cluster and node associations](#associations)
 
 ## Install SAP
+<a name="install-sap"></a>
 
 The following topics provide information about installing SAP ASE database on AWS Cloud in a highly available cluster. Review SAP Documentation for more details.
 
-###### Topics
-
-- [Use SWPM with high availability](#swpm-ha "#swpm-ha")
-- [Install SAP database instance](#sap-instances "#sap-instances")
-- [Check SAP host agent version](#host-agent-version "#host-agent-version")
+**Topics**
++ [Use SWPM with high availability](#swpm-ha)
++ [Install SAP database instance](#sap-instances)
++ [Check SAP host agent version](#host-agent-version)
 
 ### Use SWPM with high availability
+<a name="swpm-ha"></a>
 
 Before running SAP Software Provisioning Manager (SWPM), ensure that the following prerequisites are met.
-
-- If the operating system groups for SAP are pre-defined, ensure that the user identifier (UID) and group identifier (GID) values for `<syb>adm`, `sapadm`, and `sapsys` are consistent across both instances.
-- You have downloaded the most recent version of Software Provisioning Manager for your SAP version. For more information, see SAP Documentation [Software Provisioning Manager](https://support.sap.com/en/tools/software-logistics-tools/software-provisioning-manager.html?anchorId=section "https://support.sap.com/en/tools/software-logistics-tools/software-provisioning-manager.html?anchorId=section").
-- Ensure that routes, overlay IPs, and virtual host names are mapped to the instance where the installation will run. This is to ensure that the virtual hostname for SAP ASE database is available on the primary instance. For more information, see [IP and hostname resolution prerequisites](../sap-netweaver/sles-setup.md#ip-prerequisites "../sap-netweaver/sles-setup.md#ip-prerequisites").
-- Ensure that FSx for ONTAP mount points are available, either in `/etc/fstab` or using the mount command. For more information, see [File system prerequisites](../sap-netweaver/sles-setup.md#filesystem-prerequisites "../sap-netweaver/sles-setup.md#filesystem-prerequisites"). If you are adding the entries in `/etc/fstab`, ensure that they are removed before configuring the cluster.
++ If the operating system groups for SAP are pre-defined, ensure that the user identifier (UID) and group identifier (GID) values for `<syb>adm`, `sapadm`, and `sapsys` are consistent across both instances.
++ You have downloaded the most recent version of Software Provisioning Manager for your SAP version. For more information, see SAP Documentation [Software Provisioning Manager](https://support.sap.com/en/tools/software-logistics-tools/software-provisioning-manager.html?anchorId=section).
++ Ensure that routes, overlay IPs, and virtual host names are mapped to the instance where the installation will run. This is to ensure that the virtual hostname for SAP ASE database is available on the primary instance. For more information, see [IP and hostname resolution prerequisites](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sles-setup.html#ip-prerequisites).
++ Ensure that FSx for ONTAP mount points are available, either in `/etc/fstab` or using the mount command. For more information, see [File system prerequisites](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sles-setup.html#filesystem-prerequisites). If you are adding the entries in `/etc/fstab`, ensure that they are removed before configuring the cluster.
 
 ### Install SAP database instance
+<a name="sap-instances"></a>
 
-The commands in this section use the example values provided in [Define reference parameters for setup](../sap-netweaver/sles-setup.md#define-parameters "../sap-netweaver/sles-setup.md#define-parameters").
+The commands in this section use the example values provided in [Define reference parameters for setup](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sles-setup.html#define-parameters).
 
 Install SAP ASE database on `<rhxdbhost01>` with virtual hostname `rhxvdb`, using the high availability option of Software Provisioning Manager (SWPM) tool. You can use the `SAPINST_USE_HOSTNAME` parameter to install SAP using a virtual hostname.
 
@@ -37,13 +40,13 @@ Install SAP ASE database on `<rhxdbhost01>` with virtual hostname `rhxvdb`, usin
 <swpm location>/sapinst SAPINST_USE_HOSTNAME=<rhxvdb>
 ```
 
-###### Note
-
+**Note**  
 Before installing SAP ASE database, ASCS and ERS must be installed, and the `/sapmnt` directory must be available on the database server.
 
 ### Check SAP host agent version
+<a name="host-agent-version"></a>
 
-The SAP host agent is used for ASE database instance control and monitoring. This agent is used by SAP cluster resource agents and hooks. It is recommended that you have the latest version installed on both instances. For more details, see [SAP Note 2219592 – Upgrade Strategy of SAP Host Agent](https://me.sap.com/notes/2219592 "https://me.sap.com/notes/2219592").
+The SAP host agent is used for ASE database instance control and monitoring. This agent is used by SAP cluster resource agents and hooks. It is recommended that you have the latest version installed on both instances. For more details, see [SAP Note 2219592 – Upgrade Strategy of SAP Host Agent](https://me.sap.com/notes/2219592).
 
 Use the following command to check the version of the host agent.
 
@@ -52,15 +55,16 @@ Use the following command to check the version of the host agent.
 ```
 
 ## Cluster prerequisites
+<a name="cluster-prerequisites"></a>
 
 This section covers the following topics.
 
-###### Topics
-
-- [Update the hacluster password](#update-hacluster "#update-hacluster")
-- [Setup passwordless authentication between nodes](#setup-authentication "#setup-authentication")
+**Topics**
++ [Update the `hacluster` password](#update-hacluster)
++ [Setup passwordless authentication between nodes](#setup-authentication)
 
 ### Update the `hacluster` password
+<a name="update-hacluster"></a>
 
 This is applicable to both cluster nodes. Change the password of the operating system user `hacluster` using the following command.
 
@@ -69,23 +73,25 @@ passwd hacluster
 ```
 
 ### Setup passwordless authentication between nodes
+<a name="setup-authentication"></a>
 
 For a more comprehensive and easily consumable view of cluster activity, Red Hat provides additional reporting tools. Many of these tools require access to both nodes without entering a password. Red Hat recommends performing this setup for root user.
 
-For more details, see Red Hat documentation [How to setup SSH Key passwordless login in Red Hat Enterprise Linux?](https://access.redhat.com/solutions/9194 "https://access.redhat.com/solutions/9194")
+For more details, see Red Hat documentation [How to setup SSH Key passwordless login in Red Hat Enterprise Linux?](https://access.redhat.com/solutions/9194) 
 
 ## Create cluster and node associations
+<a name="associations"></a>
 
 This section covers the following topics.
 
-###### Topics
-
-- [Start pcsd service](#start-pcsd "#start-pcsd")
-- [Reset configuration – optional](#reset-configuration "#reset-configuration")
-- [Authenticate pcs with user hacluster](#autheticate-pcs "#autheticate-pcs")
-- [Setup node configuration](#node-configuration "#node-configuration")
+**Topics**
++ [Start `pcsd` service](#start-pcsd)
++ [Reset configuration – *optional*](#reset-configuration)
++ [Authenticate `pcs` with user `hacluster`](#autheticate-pcs)
++ [Setup node configuration](#node-configuration)
 
 ### Start `pcsd` service
+<a name="start-pcsd"></a>
 
 This is applicable on both cluster nodes. Run the following command to enable and start the cluster service `pcsd` (pacemaker/corosync configuration system daemon) on both, the primary and secondary node.
 
@@ -110,10 +116,10 @@ systemctl status pcsd.service
            └─1445 /usr/libexec/platform-python -Es /usr/sbin/pcsd
 ```
 
-### Reset configuration – _optional_
+### Reset configuration – *optional*
+<a name="reset-configuration"></a>
 
-###### Note
-
+**Note**  
 The following instructions help you reset the complete configuration. Run these commands only if you want to start setup from the beginning. You can make minor changes with the `crm edit` command.
 
 Run the following command to back up the current configuration for reference.
@@ -129,10 +135,11 @@ pcs cluster destroy
 ```
 
 ### Authenticate `pcs` with user `hacluster`
+<a name="autheticate-pcs"></a>
 
 The following command authenticates `pcs` to the `pcs daemon` on cluster nodes. It should be run on only one of the cluster nodes. The username and password for the `pcs` user must be the same, and the username should be `<hacluster>`.
 
-**RHEL 7.x**
+ **RHEL 7.x** 
 
 ```
 pcs cluster auth <rhxdbhost01> <rhxdbhost02>
@@ -142,7 +149,7 @@ rhxhost02: Authorized
 rhxhost01: Authorized
 ```
 
-**RHEL 8.x**
+ **RHEL 8.x** 
 
 ```
 pcs host auth <rhxdbhost01> <rhxdbhost02>
@@ -153,10 +160,11 @@ rhxhost01: Authorized
 ```
 
 ### Setup node configuration
+<a name="node-configuration"></a>
 
 The following command configures the `cluster configuration` file, and syncs the configuration on both nodes. It should be run on only one of the cluster nodes.
 
-**RHEL 7.x**
+ **RHEL 7.x** 
 
 ```
 pcs cluster setup --name <rhelha> <rhxdbhost01> <rhxdbhost02>
@@ -181,7 +189,7 @@ Restarting pcsd on the nodes in order to reload the certificates...
 <rhxdbhost02>: Success.
 ```
 
-**RHEL 8.x**
+ **RHEL 8.x** 
 
 ```
 pcs cluster setup <rhelha> <rhxdbhost01> <rhxdbhost02>

@@ -1,19 +1,20 @@
+
+
 # Databases for SAP applications on AWS
+<a name="welcome"></a>
 
 This section covers the following guides.
++  [SAP on AWS – IBM Db2 HADR with Pacemaker](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/sap-ibm-pacemaker.html) 
++  [Databases for SAP on AWS with Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/sap-databases-fsx.html) 
++  [SAP ASE for SAP NetWeaver on AWS: high availability configuration for SUSE Linux Enterprise Server (SLES) for SAP applications](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/ase-sles-ha.html) 
++  [SAP ASE for SAP NetWeaver on AWS: high availability configuration for Red Hat Enterprise Linux (RHEL) for SAP applications](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/rhel-ase-ha.html) 
 
-- [SAP on AWS – IBM Db2 HADR with Pacemaker](sap-ibm-pacemaker.md "sap-ibm-pacemaker.md")
-- [Databases for SAP on AWS with Amazon FSx for NetApp ONTAP](sap-databases-fsx.md "sap-databases-fsx.md")
-- [SAP ASE for SAP NetWeaver on AWS: high availability configuration for SUSE Linux Enterprise Server (SLES) for SAP applications](ase-sles-ha.md "ase-sles-ha.md")
-- [SAP ASE for SAP NetWeaver on AWS: high availability configuration for Red Hat Enterprise Linux (RHEL) for SAP applications](rhel-ase-ha.md "rhel-ase-ha.md")
-
-**Additional SAP on AWS documentation**
-
-- [General SAP guides](../general/welcome.md "../general/welcome.md")
-- [SAP HANA on AWS](../sap-hana/welcome.md "../sap-hana/welcome.md")
-- [SAP NetWeaver on AWS](../sap-netweaver/welcome.md "../sap-netweaver/welcome.md")
-- [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md")
-- [AWS Systems Manager for SAP](../../../ssm-sap/latest/userguide/what-is-ssm-for-sap.md "../../../ssm-sap/latest/userguide/what-is-ssm-for-sap.md")
-- [AWS SDK for SAP ABAP](../../../sdk-for-sapabap/latest/developer-guide/home.md "../../../sdk-for-sapabap/latest/developer-guide/home.md")
-- [SAP BusinessObjects on AWS](../sap-businessobjects/welcome.md "../sap-businessobjects/welcome.md")
-- [AWS Migration Hub Orchestrator](../../../migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.md "../../../migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.md")
+ **Additional SAP on AWS documentation** 
++  [General SAP guides](https://docs.aws.amazon.com/sap/latest/general/welcome.html) 
++  [SAP HANA on AWS](https://docs.aws.amazon.com/sap/latest/sap-hana/welcome.html) 
++  [SAP NetWeaver on AWS](https://docs.aws.amazon.com/sap/latest/sap-netweaver/welcome.html) 
++  [AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) 
++  [AWS Systems Manager for SAP](https://docs.aws.amazon.com/ssm-sap/latest/userguide/what-is-ssm-for-sap.html) 
++  [AWS SDK for SAP ABAP](https://docs.aws.amazon.com/sdk-for-sapabap/latest/developer-guide/home.html) 
++  [SAP BusinessObjects on AWS](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/welcome.html) 
++  [AWS Migration Hub Orchestrator](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.html) 

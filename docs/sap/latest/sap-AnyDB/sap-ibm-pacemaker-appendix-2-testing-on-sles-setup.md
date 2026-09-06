@@ -1,15 +1,19 @@
+
+
 # Appendix 2: Testing on SLES Setup
+<a name="sap-ibm-pacemaker-appendix-2-testing-on-sles-setup"></a>
 
 ## Test Case 1: Manual Failover
+<a name="sap-ibm-pacemaker-test-case-1-manual-failover-1"></a>
 
-**Procedure**: Use the command `crm resource move <Db2 primary resource name> force` to move the primary Db2 instance to standby node.
+ **Procedure**: Use the command `crm resource move <Db2 primary resource name> force` to move the primary Db2 instance to standby node.
 
 ```
      dbprim00:  crm resource move msl_db2_db2stj_STJ force
      INFO: Move constraint created for rsc_db2_db2stj_STJ
 ```
 
-**Expected result**: The Db2 primary node is moved from the primary node (`dbprim00`) to the standby node (`dbsec00`).
+ **Expected result**: The Db2 primary node is moved from the primary node (`dbprim00`) to the standby node (`dbsec00`).
 
 ```
      dbprim00:~  crm status
@@ -32,7 +36,7 @@
      res_AWS_IP     (ocf::suse:aws-vpc-move-ip):    Started dbsec00
 ```
 
-**Follow-up actions**: Start the Db2 instance as standby on the new standby node, logged in as `db2<sid>`. Clean up the error logged in as root.
+ **Follow-up actions**: Start the Db2 instance as standby on the new standby node, logged in as `db2<sid>`. Clean up the error logged in as root.
 
 ```
      db2stj> db2start
@@ -43,7 +47,7 @@
      DB20000I  The START HADR ON DATABASE command completed successfully.
 ```
 
-**Remove location constraint**: When using a manual command to move the resource, there is a location constraint created on the node (in this case primary node) which is run, preventing the Db2 resource from running in standby mode.
+ **Remove location constraint**: When using a manual command to move the resource, there is a location constraint created on the node (in this case primary node) which is run, preventing the Db2 resource from running in standby mode.
 
 Use the following command to remove the location constraint.
 
@@ -75,8 +79,9 @@ Once the constraint is removed, the standby instance starts automatically.
 ```
 
 ## Test Case 2: Shut Down the Primary EC2 Instance
+<a name="sap-ibm-pacemaker-test-case-2-shut-down-the-primary-ec2-instance-1"></a>
 
-**Procedure**: Using AWS console or CLI, stop the EC2 instance to simulate EC2 failure.
+ **Procedure**: Using AWS console or CLI, stop the EC2 instance to simulate EC2 failure.
 
 Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
 
@@ -102,11 +107,12 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
      res_AWS_IP     (ocf::suse:aws-vpc-move-ip):    Started dbsec00
 ```
 
-**Follow-up action**: Start the EC2 instance and the standby node should start on `dbprim00`.
+ **Follow-up action**: Start the EC2 instance and the standby node should start on `dbprim00`.
 
 ## Test Case 3: Stop the Db2 Instance on the Primary Instance
+<a name="sap-ibm-pacemaker-test-case-3-stop-the-db2-instance-on-the-primary-instance-1"></a>
 
-**Procedure**: Log in to the Db2 primary instance (`dbprim00`) as `db2<sid> (db2stj)` and run db2stop force.
+ **Procedure**: Log in to the Db2 primary instance (`dbprim00`) as `db2<sid> (db2stj)` and run db2stop force.
 
 ```
      db2stj> db2stop force
@@ -114,7 +120,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
      SQL1064N  DB2STOP processing was successful.
 ```
 
-**Expected result**: The Db2 primary node will failover on primary instance. The standby remains on the standby instance. There is a failed resource alert.
+ **Expected result**: The Db2 primary node will failover on primary instance. The standby remains on the standby instance. There is a failed resource alert.
 
 ```
      dbsec00:~  crm status
@@ -141,7 +147,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
     last-rc-change='Sat Apr 25 19:27:21 2020', queued=0ms, exec=175ms
 ```
 
-**Followup action**: Clear the failed cluster action.
+ **Followup action**: Clear the failed cluster action.
 
 ```
      dbsec00:~  crm resource cleanup
@@ -149,8 +155,9 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
 ```
 
 ## Test Case 4: End the Db2 Process (db2sysc) on the Node that Runs the Primary Database
+<a name="sap-ibm-pacemaker-test-case-4-end-the-db2-process-db2sysc-on-the-node-that-runs-the-primary-database-1"></a>
 
-**Procedure**: Log in to the Db2 primary instance as root and run `ps –ef|grep db2sysc`. Note the PID and then end it.
+ **Procedure**: Log in to the Db2 primary instance as root and run `ps –ef|grep db2sysc`. Note the PID and then end it.
 
 ```
      dbprim00:~  ps -ef|grep db2sysc
@@ -159,7 +166,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
      [root@dbprim00 ~] kill -9 11690
 ```
 
-**Expected result**: The Db2 primary node is restarted on the primary instance. The standby node remains on the standby instance. There is a failed resource alert.
+ **Expected result**: The Db2 primary node is restarted on the primary instance. The standby node remains on the standby instance. There is a failed resource alert.
 
 ```
      dbsec00:~  crm status
@@ -186,7 +193,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
     last-rc-change='Sat Apr 25 19:27:21 2020', queued=0ms, exec=175ms
 ```
 
-**Followup action**: Clear the failed cluster action.
+ **Followup action**: Clear the failed cluster action.
 
 ```
      dbsec00:~  crm resource cleanup
@@ -194,8 +201,9 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
 ```
 
 ## Test Case 5: End the Db2 Process (db2sysc) on the Node that Runs the Standby Database
+<a name="sap-ibm-pacemaker-test-case-5-end-the-db2-process-db2sysc-on-the-node-that-runs-the-standby-database-1"></a>
 
-**Procedure**: Log in to the standby DB instance (`dbsec00`) as root, then run `ps –ef|grep db2sysc`. Note the PID and then end it.
+ **Procedure**: Log in to the standby DB instance (`dbsec00`) as root, then run `ps –ef|grep db2sysc`. Note the PID and then end it.
 
 ```
      dbsec00:~  ps -ef| grep db2sysc
@@ -204,7 +212,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
      dbsec00:~  kill -9 16245
 ```
 
-**Expected result**: The `db2sysc` process is restarted on the standby DB instance. There is a monitoring failure event recorded in the cluster.
+ **Expected result**: The `db2sysc` process is restarted on the standby DB instance. There is a monitoring failure event recorded in the cluster.
 
 ```
      dbsec00:~  crm status
@@ -231,7 +239,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
     last-rc-change='Sat Apr 25 19:39:24 2020', queued=0ms, exec=0ms
 ```
 
-**Followup action**: Clear the monitoring error.
+ **Followup action**: Clear the monitoring error.
 
 ```
      dbsec00:~  crm resource cleanup
@@ -239,8 +247,9 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
 ```
 
 ## Test Case 6: Simulating a Crash of the Node that Runs the Primary Db2
+<a name="sap-ibm-pacemaker-test-case-6-simulating-a-crash-of-the-node-that-runs-the-primary-db2-1"></a>
 
-**Procedure**: Log in to the Db2 primary instance as root, then run `echo 'c' > /proc/sysrq-trigger`.
+ **Procedure**: Log in to the Db2 primary instance as root, then run `echo 'c' > /proc/sysrq-trigger`.
 
 ```
      dbprim00:~  echo 'c' > /proc/sysrq-trigger
@@ -252,7 +261,7 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
      Network error: Software caused connection abort
 ```
 
-**Expected result**: The primary Db2 should failover to standby node.vThe standby is in a stopped state on the previous primary (`dbprim00`).
+ **Expected result**: The primary Db2 should failover to standby node.vThe standby is in a stopped state on the previous primary (`dbprim00`).
 
 ```
      [root@dbsec00 ~] crm status
@@ -286,4 +295,4 @@ Expected Result: The Db2 primary node is moved to a standby server (`dbsec00`).
         pcsd: active/enabled
 ```
 
-**Followup action**: Start the EC2 instance and then start Db2 as standby on the standby instance as you did in [Test Case 2](sap-ibm-pacemaker-appendix-1-testing-on-rhel-setup.md#sap-ibm-pacemaker-test-case-2-shut-down-the-primary-ec2-instance "sap-ibm-pacemaker-appendix-1-testing-on-rhel-setup.md#sap-ibm-pacemaker-test-case-2-shut-down-the-primary-ec2-instance").
+ **Followup action**: Start the EC2 instance and then start Db2 as standby on the standby instance as you did in [Test Case 2](sap-ibm-pacemaker-appendix-1-testing-on-rhel-setup.md#sap-ibm-pacemaker-test-case-2-shut-down-the-primary-ec2-instance).
