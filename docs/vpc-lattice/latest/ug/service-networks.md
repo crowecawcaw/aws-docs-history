@@ -12,7 +12,7 @@ Amazon VPC Lattice. Check marks on the arrows indicate that the services and the
 associated with the service network. Clients in the VPC associated with the service network
 can communicate with both services through the service network.
 
-![A service network with two services and a resource configuration.](/images/vpc-lattice/latest/ug/images/service-network.png)
+![A service network with two services and a resource configuration.](images/service-network.png)
 You can associate one or more services and resource configurations with multiple service
 networks. You can also connect multiple VPCs with one service network. You can connect a VPC
 to only one service network through an association. To connect a VPC to multiple service
