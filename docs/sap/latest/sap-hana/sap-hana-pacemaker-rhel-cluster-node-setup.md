@@ -1,26 +1,27 @@
+
+
 # Cluster Node Setup
+<a name="sap-hana-pacemaker-rhel-cluster-node-setup"></a>
 
 Establish cluster communication between nodes using Corosync and configure required authentication.
 
-###### Topics
-
-- [Deploy a Majority Maker Node (Scale-Out Clusters Only)](#_deploy_a_majority_maker_node_scale_out_clusters_only "#_deploy_a_majority_maker_node_scale_out_clusters_only")
-- [Setup Passwordless Authentication](#_setup_passwordless_authentication "#_setup_passwordless_authentication")
-- [Start and Enable the pcsd service](#_start_and_enable_the_pcsd_service "#_start_and_enable_the_pcsd_service")
-- [Authorize the Cluster](#_authorize_the_cluster "#_authorize_the_cluster")
-- [Generate Corosync Configuration](#_generate_corosync_configuration "#_generate_corosync_configuration")
-- [Verify Configuration](#_verify_configuration "#_verify_configuration")
+**Topics**
++ [Deploy a Majority Maker Node (Scale-Out Clusters Only)](#_deploy_a_majority_maker_node_scale_out_clusters_only)
++ [Setup Passwordless Authentication](#_setup_passwordless_authentication)
++ [Start and Enable the pcsd service](#_start_and_enable_the_pcsd_service)
++ [Authorize the Cluster](#_authorize_the_cluster)
++ [Generate Corosync Configuration](#_generate_corosync_configuration)
++ [Verify Configuration](#_verify_configuration)
 
 ## Deploy a Majority Maker Node (Scale-Out Clusters Only)
+<a name="_deploy_a_majority_maker_node_scale_out_clusters_only"></a>
 
-###### Note
-
+**Note**  
 Only required for clusters with more than two nodes.
 
 When deploying an SAP HANA Scale-Out cluster in AWS, you must include a majority maker node in a third Availability Zone (AZ). The majority maker (tie-breaker) node ensures the cluster remains operational if one AZ fails by preserving the quorum. For the Scale-Out cluster to function, at least all nodes in one AZ plus the majority maker node must be running. If this minimum requirement is not met, the cluster loses its quorum state and any remaining SAP HANA nodes are fenced.
 
-The majority maker requires a minimum EC2 instance configuration of 2 vCPUs, 2 GB RAM, and 50 GB disk space; this instance is exclusively used for quorum management and does not host an SAP HANA database or any other cluster resources.
-=== Change the hacluster Password
+The majority maker requires a minimum EC2 instance configuration of 2 vCPUs, 2 GB RAM, and 50 GB disk space; this instance is exclusively used for quorum management and does not host an SAP HANA database or any other cluster resources. === Change the hacluster Password
 
 On all cluster nodes, change the password of the operating system user hacluster:
 
@@ -29,34 +30,36 @@ On all cluster nodes, change the password of the operating system user hacluster
 ```
 
 ## Setup Passwordless Authentication
+<a name="_setup_passwordless_authentication"></a>
 
 Red Hat cluster tools provide comprehensive reporting and troubleshooting capabilities for cluster activity. Many of these tools require passwordless SSH access between nodes to collect cluster-wide information effectively. Red Hat recommends configuring passwordless SSH for the root user to enable seamless cluster diagnostics and reporting.
 
-See Redhat Documentation [How to setup SSH Key passwordless login in Red Hat Enterprise Linux](https://access.redhat.com/solutions/9194 "https://access.redhat.com/solutions/9194")
+See Redhat Documentation [How to setup SSH Key passwordless login in Red Hat Enterprise Linux](https://access.redhat.com/solutions/9194) 
 
-See [Accessing the Red Hat Knowledge base portal](../../../systems-manager/latest/userguide/fleet-manager-red-hat-knowledge-base-access.md "../../../systems-manager/latest/userguide/fleet-manager-red-hat-knowledge-base-access.md")
+See [Accessing the Red Hat Knowledge base portal](https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-red-hat-knowledge-base-access.html) 
 
-###### Warning
-
+**Warning**  
 Review the security implications for your organization, including root access controls and network segmentation, before implementing this configuration.
 
 ## Start and Enable the pcsd service
+<a name="_start_and_enable_the_pcsd_service"></a>
 
 ```
 # systemctl enable pcsd --now
 ```
 
 ## Authorize the Cluster
+<a name="_authorize_the_cluster"></a>
 
 Run the following command to enable and start the pacemaker cluster service on both nodes:
 
 ```
 # pcs host auth <hostname_1> <hostname_2> -u hacluster -p <password>
 ```
-
-- You will be prompted for the hacluster password you set earlier.
++ You will be prompted for the hacluster password you set earlier.
 
 ## Generate Corosync Configuration
+<a name="_generate_corosync_configuration"></a>
 
 Corosync provides membership and member-communication needs for high availability clusters.
 
@@ -67,37 +70,36 @@ Initial setup can be performed using the following command
 <hostname_1> addr=<host_ip_1> addr=<host_additional_ip_1> \
 <hostname_2> addr=<host_ip_2> addr=<host_additional_ip_2>
 ```
-
-- Example
++ Example
 
 ```
 # pcs cluster setup hana_cluster hanahost01 addr=10.1.20.1 addr=10.1.20.2 hanahost02 addr=10.2.20.1 addr=10.2.20.2
 ```
 
-| IP address type           | Example   |
-| ------------------------- | --------- |
-| <host\_ip\_1>             | 10.2.10.1 |
-| <host\_additional\_ip\_1> | 10.2.10.2 |
-| <host\_ip\_2>             | 10.2.20.1 |
-| <host\_additional\_ip\_2> | 10.2.20.2 |
+
+| IP address type | Example | 
+| --- | --- | 
+| <host\_ip\_1> | 10.2.10.1 | 
+| <host\_additional\_ip\_1> | 10.2.10.2 | 
+| <host\_ip\_2> | 10.2.20.1 | 
+| <host\_additional\_ip\_2> | 10.2.20.2 | 
 
 The timing parameters are optimized for AWS cloud environments:
-
-- Increasing the value of totem token to 15s provides reliable cluster operation while accommodating normal cloud network characteristics. These settings prevent unnecessary failovers during brief network variations
-- When scaling beyond two nodes, remove the two\_node parameter from the quorum section. The timing parameters will automatically adjust using the token\_coefficient feature to maintain appropriate failure detection as nodes are added.
++ Increasing the value of totem token to 15s provides reliable cluster operation while accommodating normal cloud network characteristics. These settings prevent unnecessary failovers during brief network variations
++ When scaling beyond two nodes, remove the two\_node parameter from the quorum section. The timing parameters will automatically adjust using the token\_coefficient feature to maintain appropriate failure detection as nodes are added.
 
 ```
 # pcs cluster config update totem token=15000
 ```
 
 ## Verify Configuration
+<a name="_verify_configuration"></a>
 
 ```
 # pcs cluster start --all
 ```
 
-###### Example
-
+**Example**  
 By enabling the pacemaker service, the server automatically joins the cluster after a reboot. This ensures that your system is protected. Alternatively, you can start the pacemaker service manually on boot. You can then investigate the cause of failure.
 
 Run the following command to check the status of the pacemaker service:
@@ -163,8 +165,7 @@ Daemon Status:
   pcsd: active/enabled
 ```
 
-The primary (hanahost01) and secondary (hanahost02) must show up as online.
-You can find the ring status and the associated IP address of the cluster with corosync-cfgtool command, as shown in the following example:
+The primary (hanahost01) and secondary (hanahost02) must show up as online. You can find the ring status and the associated IP address of the cluster with corosync-cfgtool command, as shown in the following example:
 
 ```
 # corosync-cfgtool -s

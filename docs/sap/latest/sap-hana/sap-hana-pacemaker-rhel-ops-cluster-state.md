@@ -1,10 +1,13 @@
+
+
 # Viewing the cluster state
+<a name="sap-hana-pacemaker-rhel-ops-cluster-state"></a>
 
-###### Topics
-
-- [Operating system based](#_operating_system_based "#_operating_system_based")
+**Topics**
++ [Operating system based](#_operating_system_based)
 
 ## Operating system based
+<a name="_operating_system_based"></a>
 
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services.
 
@@ -82,10 +85,11 @@ Daemon Status:
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
-| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
-| `crm help`           | View more options                                                                                                            |
-| `crm_mon --help-all` | View more options                                                                                                            |
+
+| Command | Description | 
+| --- | --- | 
+|  `crm_mon`  | Display cluster status on the console with updates as they occur | 
+|  `crm_mon -1`  | Display cluster status on the console just once, and exit | 
+|  `crm_mon -Arnf`  | -A Display node attributes<br />-n Group resources by node<br />-r Display inactive resources<br />-f Display resource fail counts | 
+|  `crm help`  | View more options | 
+|  `crm_mon --help-all`  | View more options | 

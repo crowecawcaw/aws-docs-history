@@ -1,36 +1,36 @@
+
+
 # Performing planned maintenance
+<a name="sap-hana-pacemaker-rhel-ops-planned-maint"></a>
 
 When performing maintenance on SAP HANA systems in a cluster environment, it’s important to understand how the cluster interacts with SAP HANA system replication. Planned maintenance activities should be conducted carefully to prevent unnecessary failovers or cluster interventions.
 
 There are different options to perform planned maintenance on nodes, resources, and the cluster.
 
-###### Topics
-
-- [Maintenance mode](#_maintenance_mode "#_maintenance_mode")
-- [Placing a node in standby mode](#_placing_a_node_in_standby_mode "#_placing_a_node_in_standby_mode")
-- [Moving a resource](#_moving_a_resource "#_moving_a_resource")
+**Topics**
++ [Maintenance mode](#_maintenance_mode)
++ [Placing a node in standby mode](#_placing_a_node_in_standby_mode)
++ [Moving a resource](#_moving_a_resource)
 
 ## Maintenance mode
+<a name="_maintenance_mode"></a>
 
 Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks.
 
-###### Example
-
-On
-Use the following commands to turn on maintenance mode.
+**Example**  
+Use the following commands to turn on maintenance mode.  
 
 ```
 # pcs property maintenance-mode=true
 ```
-
-Off
-Use the following command to turn off maintenance mode.
+Use the following command to turn off maintenance mode.  
 
 ```
 # pcs property maintenance-mode=false
 ```
 
 ## Placing a node in standby mode
+<a name="_placing_a_node_in_standby_mode"></a>
 
 To perform maintenance on the cluster without a full system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
@@ -45,6 +45,7 @@ The cluster will cleanly relocate resources, and you can perform activities, inc
 ```
 
 ## Moving a resource
+<a name="_moving_a_resource"></a>
 
 When moving individual resources, be sure you understand resource dependencies and constraints. The following commands demonstrate how to force a HANA takeover. Always review the cluster status and verify any temporary location constraints afterwards.
 

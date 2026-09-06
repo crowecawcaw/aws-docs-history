@@ -1,63 +1,68 @@
+
+
 # SAP HANA scale-out
+<a name="fsx-host-scaleout"></a>
 
-The following section is an example host setup for SAP HANA scale-out with standby node on AWS using FSx for ONTAP as the primary storage solution. You can use SAP HANA host auto failover, an automated solution provided by SAP, for recovering from a failure on your SAP HANA host. For more information, see [SAP HANA - Host Auto-Failover](https://www.sap.com/documents/2016/06/f6b3861d-767c-0010-82c7-eda71af511fa.html "https://www.sap.com/documents/2016/06/f6b3861d-767c-0010-82c7-eda71af511fa.html").
+The following section is an example host setup for SAP HANA scale-out with standby node on AWS using FSx for ONTAP as the primary storage solution. You can use SAP HANA host auto failover, an automated solution provided by SAP, for recovering from a failure on your SAP HANA host. For more information, see [SAP HANA - Host Auto-Failover](https://www.sap.com/documents/2016/06/f6b3861d-767c-0010-82c7-eda71af511fa.html).
 
-###### Topics
-
-- [Linux kernel parameters](#linux-setup-scaleout "#linux-setup-scaleout")
-- [Network File System (NFS)](#nfs-setup-scaleout "#nfs-setup-scaleout")
-- [Create subdirectories](#subdirectories-scaleout "#subdirectories-scaleout")
-- [Create mount points](#mount-points-scaleout "#mount-points-scaleout")
-- [Mount file systems](#mount-filesys-scaleout "#mount-filesys-scaleout")
-- [Set ownership for directories](#directories-scaleout "#directories-scaleout")
-- [SAP HANA parameters](#parameters-scaleout "#parameters-scaleout")
-- [Data volume partitions](#partitions-scaleout "#partitions-scaleout")
-- [Testing host auto failover](#failover-scaleout "#failover-scaleout")
+**Topics**
++ [Linux kernel parameters](#linux-setup-scaleout)
++ [Network File System (NFS)](#nfs-setup-scaleout)
++ [Create subdirectories](#subdirectories-scaleout)
++ [Create mount points](#mount-points-scaleout)
++ [Mount file systems](#mount-filesys-scaleout)
++ [Set ownership for directories](#directories-scaleout)
++ [SAP HANA parameters](#parameters-scaleout)
++ [Data volume partitions](#partitions-scaleout)
++ [Testing host auto failover](#failover-scaleout)
 
 ## Linux kernel parameters
+<a name="linux-setup-scaleout"></a>
 
 1. Create a file `/etc/sysctl.d/91-NetApp-HANA.conf` with the following configurations
 
-```
-net.core.rmem_max = 16777216
-net.core.wmem_max = 16777216
-net.ipv4.tcp_rmem = 4096 131072 16777216
-net.ipv4.tcp_wmem = 4096 16384  16777216
-net.core.netdev_max_backlog = 300000
-net.ipv4.tcp_slow_start_after_idle = 0
-net.ipv4.tcp_no_metrics_save = 1
-net.ipv4.tcp_moderate_rcvbuf = 1
-net.ipv4.tcp_window_scaling = 1
-net.ipv4.tcp_timestamps = 1
-net.ipv4.tcp_sack = 1
-sunrpc.tcp_slot_table_entries = 128
-```
+   ```
+   net.core.rmem_max = 16777216
+   net.core.wmem_max = 16777216
+   net.ipv4.tcp_rmem = 4096 131072 16777216
+   net.ipv4.tcp_wmem = 4096 16384  16777216
+   net.core.netdev_max_backlog = 300000
+   net.ipv4.tcp_slow_start_after_idle = 0
+   net.ipv4.tcp_no_metrics_save = 1
+   net.ipv4.tcp_moderate_rcvbuf = 1
+   net.ipv4.tcp_window_scaling = 1
+   net.ipv4.tcp_timestamps = 1
+   net.ipv4.tcp_sack = 1
+   sunrpc.tcp_slot_table_entries = 128
+   ```
 
-2. To reduce I/O errors during failover of FSx for ONTAP Single-AZ file systems, including [planned maintenance windows](../../../fsx/latest/ONTAPGuide/maintenance-windows.md "../../../fsx/latest/ONTAPGuide/maintenance-windows.md") create an additional file `/etc/sysctl.d/99-fsx-failover.conf`. These parameters optimize NFS client behavior to detect and respond to failover events more quickly.
+1. To reduce I/O errors during failover of FSx for ONTAP Single-AZ file systems, including [planned maintenance windows](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maintenance-windows.html) create an additional file `/etc/sysctl.d/99-fsx-failover.conf`. These parameters optimize NFS client behavior to detect and respond to failover events more quickly.
 
-```
-# NFS client optimizations for faster failover detection
-# Replace 'default' with your interface name (e.g., eth0, ens5) to target a specific interface
-net.ipv4.neigh.default.base_reachable_time_ms = 5000
-net.ipv4.neigh.default.delay_first_probe_time = 1
-net.ipv4.neigh.default.ucast_solicit = 0
-net.ipv4.tcp_syn_retries = 3
-```
+   ```
+   # NFS client optimizations for faster failover detection
+   # Replace 'default' with your interface name (e.g., eth0, ens5) to target a specific interface
+   net.ipv4.neigh.default.base_reachable_time_ms = 5000
+   net.ipv4.neigh.default.delay_first_probe_time = 1
+   net.ipv4.neigh.default.ucast_solicit = 0
+   net.ipv4.tcp_syn_retries = 3
+   ```
 
-For more information and options, see [Troubleshooting I/O errors and NFS lock reclaim failures](../../../fsx/latest/ONTAPGuide/nfs-failover-issues.md "../../../fsx/latest/ONTAPGuide/nfs-failover-issues.md").
+   For more information and options, see [Troubleshooting I/O errors and NFS lock reclaim failures](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/nfs-failover-issues.html).
 
-If these errors occur, in some cases they may cause SAP HANA to perform an emergency shutdown of the indexserver process to protect database consistency. 3. Increase the max sessions slots for NFSv4 to 180.
+   If these errors occur, in some cases they may cause SAP HANA to perform an emergency shutdown of the indexserver process to protect database consistency.
 
-```
-echo options nfs max_session_slots = 180 > /etc/modprobe.d/nfsclient.conf
-```
+1. Increase the max sessions slots for NFSv4 to 180.
+
+   ```
+   echo options nfs max_session_slots = 180 > /etc/modprobe.d/nfsclient.conf
+   ```
 
 To activate these changes, run `sysctl -p` for the kernel parameters and reload the NFS module, or reboot the instance during a planned maintenance window (recommended).
 
 ## Network File System (NFS)
+<a name="nfs-setup-scaleout"></a>
 
-###### Important
-
+**Important**  
 For SAP HANA scale-out systems, FSx for ONTAP only supports NFS version 4.1.
 
 Network File System (NFS) version 4 and higher requires user authentication. You can authenticate with Lightweight Directory Access Protocol (LDAP) server or local user accounts.
@@ -79,8 +84,9 @@ hana-data ec2.internal
 ```
 
 ## Create subdirectories
+<a name="subdirectories-scaleout"></a>
 
-Mount the `/hana/shared` volume and create `shared` and `usr-sap` subdirectories for each host. The following example command applies to 4+1 SAP HANA scale-out systems.
+Mount the `/hana/shared` volume and create `shared` and `usr-sap` subdirectories for each host. The following example command applies to 4\+1 SAP HANA scale-out systems.
 
 ```
 mkdir /mnt/tmp
@@ -98,8 +104,9 @@ umount /mnt/tmp
 ```
 
 ## Create mount points
+<a name="mount-points-scaleout"></a>
 
-On scale-out systems, create the following mount points on all the subordinate and standby nodes. The following example command applies to 4+1 SAP HANA scale-out systems.
+On scale-out systems, create the following mount points on all the subordinate and standby nodes. The following example command applies to 4\+1 SAP HANA scale-out systems.
 
 ```
 mkdir -p /hana/data/HDB/mnt00001
@@ -116,22 +123,23 @@ mkdir -p /usr/sap/HDB
 ```
 
 ## Mount file systems
+<a name="mount-filesys-scaleout"></a>
 
 The created file systems must be mounted as NFS file systems on Amazon EC2. The following table is an example recommendation of NFS options for different SAP HANA file systems.
 
-|                     |                               |                             |                            |                        |
-| ------------------- | ----------------------------- | --------------------------- | -------------------------- | ---------------------- |
-| **File systems**    | **Common mount options**      | **Version options**         | **Transfer size options**  | **Connection options** |
-| SAP HANA data       | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=4             |
-| SAP HANA log        | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
-| SAP HANA shared     | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
-| SAP HANA binary     | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
-| SAP HANA LSS shared | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
 
-- Changes to the `nconnect` parameter take effect only if the NFS file system is unmounted and mounted again.
-- Client systems must have unique host names when accessing FSx for ONTAP. If there are systems with the same name, the second system may not be able to access FSx for ONTAP.
+|  |  |  |  |  | 
+| --- |--- |--- |--- |--- |
+|  **File systems**  |  **Common mount options**  |  **Version options**  |  **Transfer size options**  |  **Connection options**  | 
+| SAP HANA data | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=4 | 
+| SAP HANA log | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 | 
+| SAP HANA shared | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 | 
+| SAP HANA binary | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 | 
+| SAP HANA LSS shared | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2 | 
++ Changes to the `nconnect` parameter take effect only if the NFS file system is unmounted and mounted again.
++ Client systems must have unique host names when accessing FSx for ONTAP. If there are systems with the same name, the second system may not be able to access FSx for ONTAP.
 
-**Example - mount shared volumes**
+ **Example - mount shared volumes** 
 
 Add the following lines to `/etc/fstab` on **all** the hosts to preserve mounted file systems during an instance reboot. You can then run `mount -a` to mount the NFS file systems.
 
@@ -148,19 +156,21 @@ Add the following lines to `/etc/fstab` on **all** the hosts to preserve mounted
 <svm-lss-shared>:/HDB_shared/lss-shared /lss/shared nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
 ```
 
-**Example - mount host-specific volumes**
+ **Example - mount host-specific volumes** 
 
 Add the host-specific line to `/etc/fstab` of **each** host to preserve mounted file systems during an instance reboot. You can then run `mount -a` to mount the NFS file systems.
 
-| Host                  | Line                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Host 1                | `<svm-shared>:/HDB_shared/usr-sap-host1 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2` |
-| Host 2                | `<svm-shared>:/HDB_shared/usr-sap-host2 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2` |
-| Host 3                | `<svm-shared>:/HDB_shared/usr-sap-host3 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2` |
-| Host 4                | `<svm-shared>:/HDB_shared/usr-sap-host4 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2` |
-| Host 5 (standby host) | `<svm-shared>:/HDB_shared/usr-sap-host5 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2` |
+
+| Host | Line | 
+| --- | --- | 
+| Host 1 |  `<svm-shared>:/HDB_shared/usr-sap-host1 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2`  | 
+| Host 2 |  `<svm-shared>:/HDB_shared/usr-sap-host2 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2`  | 
+| Host 3 |  `<svm-shared>:/HDB_shared/usr-sap-host3 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2`  | 
+| Host 4 |  `<svm-shared>:/HDB_shared/usr-sap-host4 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2`  | 
+| Host 5 (standby host) |  `<svm-shared>:/HDB_shared/usr-sap-host5 /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2`  | 
 
 ## Set ownership for directories
+<a name="directories-scaleout"></a>
 
 Use the following command to set the `hdbadm` ownership on SAP HANA data and log directories.
 
@@ -170,15 +180,16 @@ sudo chown hdbadm:sapsys /hana/log/HDB
 ```
 
 ## SAP HANA parameters
+<a name="parameters-scaleout"></a>
 
-Install your SAP HANA system with the required configuration, and then set the following parameters. For more information on SAP HANA installation, see [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html?version=2.0.04 "https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html?version=2.0.04").
+Install your SAP HANA system with the required configuration, and then set the following parameters. For more information on SAP HANA installation, see [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html?version=2.0.04).
 
-###### Topics
-
-- [Optimal performance](#parameters-performance-scaleout "#parameters-performance-scaleout")
-- [NFS lock lease](#parameters-nfslock-scaleout "#parameters-nfslock-scaleout")
+**Topics**
++ [Optimal performance](#parameters-performance-scaleout)
++ [NFS lock lease](#parameters-nfslock-scaleout)
 
 ### Optimal performance
+<a name="parameters-performance-scaleout"></a>
 
 For optimal performance, set the following parameters in the `global.ini` file.
 
@@ -200,14 +211,16 @@ ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'async_
 ```
 
 ### NFS lock lease
+<a name="parameters-nfslock-scaleout"></a>
 
 Starting with SAP HANA 2.0 SPS4, SAP HANA provides parameters to control the failover behavior. It is recommended to use these parameters instead of setting the lease time at the `SVM` level. The following parameters are configured in the `namerserver.ini` file.
 
-| Section                | Parameter              | Value |
-| ---------------------- | ---------------------- | ----- |
-| `failover`             | `normal_retries`       | 9     |
-| `distributed_watchdog` | `deactivation_retries` | 11    |
-| `distributed_watchdog` | `takeover_retries`     | 9     |
+
+| Section | Parameter | Value | 
+| --- | --- | --- | 
+|  `failover`  |  `normal_retries`  | 9 | 
+|  `distributed_watchdog`  |  `deactivation_retries`  | 11 | 
+|  `distributed_watchdog`  |  `takeover_retries`  | 9 | 
 
 The following SQL commands can be used to set these parameters on `SYSTEM` level.
 
@@ -218,35 +231,34 @@ ALTER SYSTEM ALTER CONFIGURATION ('nameserver.ini', 'SYSTEM') SET ('distributed_
 ```
 
 ## Data volume partitions
+<a name="partitions-scaleout"></a>
 
-With SAP HANA 2.0 SPS4, additional data volume partitions allow configuring two or more file system volumes for the DATA volume of an SAP HANA tenant database in a single-host or multi-host system. Data volume partitions enable SAP HANA to scale beyond the size and performance limits of a single volume. You can add additional data volume partitions at any time. For more information, see [Adding additional data volume partitions](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-add-data-volume-partitions.html "https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-add-data-volume-partitions.html").
+With SAP HANA 2.0 SPS4, additional data volume partitions allow configuring two or more file system volumes for the DATA volume of an SAP HANA tenant database in a single-host or multi-host system. Data volume partitions enable SAP HANA to scale beyond the size and performance limits of a single volume. You can add additional data volume partitions at any time. For more information, see [Adding additional data volume partitions](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-add-data-volume-partitions.html).
 
-###### Topics
-
-- [Host preparation](#host-preparation-scaleout "#host-preparation-scaleout")
-- [Enabling data volume partitioning](#enable-partition-scaleout "#enable-partition-scaleout")
-- [Adding additional data volume partition](#add-partition-scaleout "#add-partition-scaleout")
+**Topics**
++ [Host preparation](#host-preparation-scaleout)
++ [Enabling data volume partitioning](#enable-partition-scaleout)
++ [Adding additional data volume partition](#add-partition-scaleout)
 
 ### Host preparation
+<a name="host-preparation-scaleout"></a>
 
 Additional mount points and `/etc/fstab` entries must be created and the new volumes must be mounted.
++ Create additional mount points and assign the required permissions, group, and ownership.
 
-- Create additional mount points and assign the required permissions, group, and ownership.
+  ```
+  mkdir -p /hana/data2/HDB/mnt00001
+  chmod -R 777 /hana/data2/HDB/mnt00001
+  ```
++ Add additional file systems to `/etc/fstab`.
 
-```
-mkdir -p /hana/data2/HDB/mnt00001
-chmod -R 777 /hana/data2/HDB/mnt00001
-```
-
-- Add additional file systems to `/etc/fstab`.
-
-```
-<data2>:/data2 /hana/data2/HDB/mnt00001 nfs <mount options>
-```
-
-- Set the permissions to 777. This is required to enable SAP HANA to add a new data volume in the subsequent step. SAP HANA sets more restrictive permissions automatically during data volume creation.
+  ```
+  <data2>:/data2 /hana/data2/HDB/mnt00001 nfs <mount options>
+  ```
++ Set the permissions to 777. This is required to enable SAP HANA to add a new data volume in the subsequent step. SAP HANA sets more restrictive permissions automatically during data volume creation.
 
 ### Enabling data volume partitioning
+<a name="enable-partition-scaleout"></a>
 
 To enable data volume partitions, add the following entry in the `global.ini` file in the `SYSTEMDB` configuration.
 
@@ -261,11 +273,11 @@ SET ('customizable_functionalities', 'PERSISTENCE_DATAVOLUME_PARTITION_MULTIPATH
 WITH RECONFIGURE;
 ```
 
-###### Note
-
+**Note**  
 You must restart your database after updating the `global.ini` file.
 
 ### Adding additional data volume partition
+<a name="add-partition-scaleout"></a>
 
 Run the following SQL statement against the tenant database to add an additional data volume partition to your tenant database.
 
@@ -276,26 +288,28 @@ ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/HDB/';
 Adding a data volume partition is quick. The new data volume partitions are empty after creation. Data is distributed equally across data volumes over time.
 
 ## Testing host auto failover
+<a name="failover-scaleout"></a>
 
-We recommend testing your SAP HANA host auto failover scenarios. For more information, see [SAP HANA - Host Auto-Failover](https://www.sap.com/documents/2016/06/f6b3861d-767c-0010-82c7-eda71af511fa.html "https://www.sap.com/documents/2016/06/f6b3861d-767c-0010-82c7-eda71af511fa.html").
+We recommend testing your SAP HANA host auto failover scenarios. For more information, see [SAP HANA - Host Auto-Failover](https://www.sap.com/documents/2016/06/f6b3861d-767c-0010-82c7-eda71af511fa.html).
 
-Some words have been redacted and replaced by inclusive terms. These words may appear different in your product, system code or table. For additional details, see [Inclusive Language at SAP](https://help.sap.com/docs/TERMINOLOGY/25cbeaaad3c24eba8ea10b579ce81aa1/83a23df24013403ea4c1fdd0107cc0fd.html "https://help.sap.com/docs/TERMINOLOGY/25cbeaaad3c24eba8ea10b579ce81aa1/83a23df24013403ea4c1fdd0107cc0fd.html").
+Some words have been redacted and replaced by inclusive terms. These words may appear different in your product, system code or table. For additional details, see [Inclusive Language at SAP](https://help.sap.com/docs/TERMINOLOGY/25cbeaaad3c24eba8ea10b579ce81aa1/83a23df24013403ea4c1fdd0107cc0fd.html).
 
 The following table presents the expected results of different test scenarios.
 
-| Scenario                                                                                 | Expected result                                                                                  |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| SAP HANA subordinate node failure using `echo b > /proc/sysrq-trigger`                   | Subordinate node failover to standby node                                                        |
-| SAP HANA coordinator node failure using `HDB` kill                                       | SAP HANA service failover to standby node (other candidate for coordinator node)                 |
-| SAP HANA coordinator node failure while other coordinator nodes act as subordinate nodes | Coordinator node failover to standby node while other coordinator nodes act as subordinate nodes |
 
-###### Topics
+| Scenario | Expected result | 
+| --- | --- | 
+| SAP HANA subordinate node failure using `echo b > /proc/sysrq-trigger`  | Subordinate node failover to standby node | 
+| SAP HANA coordinator node failure using `HDB` kill | SAP HANA service failover to standby node (other candidate for coordinator node) | 
+| SAP HANA coordinator node failure while other coordinator nodes act as subordinate nodes | Coordinator node failover to standby node while other coordinator nodes act as subordinate nodes | 
 
-- [SAP HANA subordinate node failure](#scenario1-scaleout "#scenario1-scaleout")
-- [SAP HANA coordinator node failure](#scenario2-scaleout "#scenario2-scaleout")
-- [SAP HANA coordinator node failure while other coordinator nodes act as subordinate nodes](#scenario3-scaleout "#scenario3-scaleout")
+**Topics**
++ [SAP HANA subordinate node failure](#scenario1-scaleout)
++ [SAP HANA coordinator node failure](#scenario2-scaleout)
++ [SAP HANA coordinator node failure while other coordinator nodes act as subordinate nodes](#scenario3-scaleout)
 
 ### SAP HANA subordinate node failure
+<a name="scenario1-scaleout"></a>
 
 Check the status of the landscape before testing.
 
@@ -337,6 +351,7 @@ hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support>
 ```
 
 ### SAP HANA coordinator node failure
+<a name="scenario2-scaleout"></a>
 
 Check the status of the landscape before crashing the node.
 
@@ -380,6 +395,7 @@ hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support>
 ```
 
 ### SAP HANA coordinator node failure while other coordinator nodes act as subordinate nodes
+<a name="scenario3-scaleout"></a>
 
 Check the status of the landscape before testing.
 

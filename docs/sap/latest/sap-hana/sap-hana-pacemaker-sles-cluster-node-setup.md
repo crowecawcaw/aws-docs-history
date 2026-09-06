@@ -1,22 +1,24 @@
+
+
 # Cluster Node Setup
+<a name="sap-hana-pacemaker-sles-cluster-node-setup"></a>
 
 Establish cluster communication between nodes using Corosync and configure required authentication.
 
-###### Topics
-
-- [Deploy a Majority Maker Node (Scale-Out Clusters Only)](#_deploy_a_majority_maker_node_scale_out_clusters_only "#_deploy_a_majority_maker_node_scale_out_clusters_only")
-- [Change the hacluster Password](#_change_the_hacluster_password "#_change_the_hacluster_password")
-- [Setup Passwordless Authentication](#_setup_passwordless_authentication "#_setup_passwordless_authentication")
-- [Configure the Cluster Nodes](#_configure_the_cluster_nodes "#_configure_the_cluster_nodes")
-- [Modify Generated Corosync Configuration](#_modify_generated_corosync_configuration "#_modify_generated_corosync_configuration")
-- [Verify Corosync Configuration](#_verify_corosync_configuration "#_verify_corosync_configuration")
-- [Configure Cluster Services](#_configure_cluster_services "#_configure_cluster_services")
-- [Verify Cluster Status](#_verify_cluster_status "#_verify_cluster_status")
+**Topics**
++ [Deploy a Majority Maker Node (Scale-Out Clusters Only)](#_deploy_a_majority_maker_node_scale_out_clusters_only)
++ [Change the hacluster Password](#_change_the_hacluster_password)
++ [Setup Passwordless Authentication](#_setup_passwordless_authentication)
++ [Configure the Cluster Nodes](#_configure_the_cluster_nodes)
++ [Modify Generated Corosync Configuration](#_modify_generated_corosync_configuration)
++ [Verify Corosync Configuration](#_verify_corosync_configuration)
++ [Configure Cluster Services](#_configure_cluster_services)
++ [Verify Cluster Status](#_verify_cluster_status)
 
 ## Deploy a Majority Maker Node (Scale-Out Clusters Only)
+<a name="_deploy_a_majority_maker_node_scale_out_clusters_only"></a>
 
-###### Note
-
+**Note**  
 Only required for clusters with more than two nodes.
 
 When deploying an SAP HANA Scale-Out cluster in AWS, you must include a majority maker node in a third Availability Zone (AZ). The majority maker (tie-breaker) node ensures the cluster remains operational if one AZ fails by preserving the quorum. For the Scale-Out cluster to function, at least all nodes in one AZ plus the majority maker node must be running. If this minimum requirement is not met, the cluster loses its quorum state and any remaining SAP HANA nodes are fenced.
@@ -24,6 +26,7 @@ When deploying an SAP HANA Scale-Out cluster in AWS, you must include a majority
 The majority maker requires a minimum EC2 instance configuration of 2 vCPUs, 2 GB RAM, and 50 GB disk space; this instance is exclusively used for quorum management and does not host an SAP HANA database or any other cluster resources.
 
 ## Change the hacluster Password
+<a name="_change_the_hacluster_password"></a>
 
 On all cluster nodes, change the password of the operating system user hacluster:
 
@@ -32,16 +35,17 @@ On all cluster nodes, change the password of the operating system user hacluster
 ```
 
 ## Setup Passwordless Authentication
+<a name="_setup_passwordless_authentication"></a>
 
 For a more comprehensive and easily consumable view of cluster activity, SUSE provides additional reporting tools. Many of these tools require access to both nodes without entering a password. SUSE recommends performing this setup for root user.
 
-For more details, see Configuration to collect cluster report as root with root SSH access between cluster nodes section in SUSE Documentation [Usage of hb\_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501").
+For more details, see Configuration to collect cluster report as root with root SSH access between cluster nodes section in SUSE Documentation [Usage of hb\_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501).
 
-###### Warning
-
+**Warning**  
 Review the security implications for your organization, including root access controls and network segmentation, before implementing this configuration.
 
 ## Configure the Cluster Nodes
+<a name="_configure_the_cluster_nodes"></a>
 
 Initialize the cluster framework on the first node, including all known cluster nodes.
 
@@ -51,7 +55,7 @@ On the primary node as root, run:
 # crm cluster init -u -n <cluster_name> -N <hostname_1> -N <hostname_2>
 ```
 
-_Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_:
+ *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) *:
 
 ```
 hanahost01:~ # crm cluster init -u -n myCluster -N hanahost01 -N hanahost02
@@ -81,24 +85,24 @@ INFO: Done (log saved to /var/log/crmsh/crmsh.log)
 ```
 
 This command:
++ Initializes a two-node cluster named `myCluster` 
++ Configures unicast communication (-u)
++ Sets up the basic corosync configuration
++ Automatically joins the second node to the cluster
++ We do not configure SBD as `fence_aws` will be used for STONITH in AWS environments.
++ QDevice configuration is possible but not covered in this document. Refer to [SUSE Linux Enterprise High Availability Documentation - QDevice and QNetD](https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html).
++ For clusters with more than two nodes, additional nodes can be added either during initialization with additional `-N <hostname_3>` parameters, or later using the following command on each new node:
 
-- Initializes a two-node cluster named `myCluster`
-- Configures unicast communication (-u)
-- Sets up the basic corosync configuration
-- Automatically joins the second node to the cluster
-- We do not configure SBD as `fence_aws` will be used for STONITH in AWS environments.
-- QDevice configuration is possible but not covered in this document. Refer to [SUSE Linux Enterprise High Availability Documentation - QDevice and QNetD](https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html "https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html").
-- For clusters with more than two nodes, additional nodes can be added either during initialization with additional `-N <hostname_3>` parameters, or later using the following command on each new node:
-
-```
-# crm cluster join -c <hostname_1>
-```
+  ```
+  # crm cluster join -c <hostname_1>
+  ```
 
 ## Modify Generated Corosync Configuration
+<a name="_modify_generated_corosync_configuration"></a>
 
 After initializing the cluster, the generated corosync configuration requires some modification to be optimised for cloud envrironments.
 
-**1. Edit the corosync configuration:**
+ **1. Edit the corosync configuration:** 
 
 ```
 # vi /etc/corosync/corosync.conf
@@ -173,7 +177,7 @@ totem {
 }
 ```
 
-**2. Modify the configuration to add the second ring and optimize settings:**
+ **2. Modify the configuration to add the second ring and optimize settings:** 
 
 ```
 totem {
@@ -195,26 +199,28 @@ nodelist {
 }
 ```
 
-_Example IP configuration:_
+ *Example IP configuration:* 
 
-| Network Interface | Node 1    | Node 2    |
-| ----------------- | --------- | --------- |
-| ring0\_addr       | 10.2.10.1 | 10.2.20.1 |
-| ring1\_addr       | 10.2.10.2 | 10.2.20.2 |
 
-**3. Synchronize the modified configuration to all nodes:**
+| Network Interface | Node 1 | Node 2 | 
+| --- | --- | --- | 
+| ring0\_addr | 10.2.10.1 | 10.2.20.1 | 
+| ring1\_addr | 10.2.10.2 | 10.2.20.2 | 
+
+ **3. Synchronize the modified configuration to all nodes:** 
 
 ```
 # csync2 -f /etc/corosync/corosync.conf
 ```
 
-**4. Restart the cluster**
+ **4. Restart the cluster** 
 
 ```
 # crm cluster restart --all
 ```
 
 ## Verify Corosync Configuration
+<a name="_verify_corosync_configuration"></a>
 
 Verify network rings are active:
 
@@ -222,7 +228,7 @@ Verify network rings are active:
 # corosync-cfgtool -s
 ```
 
-_Example output_:
+ *Example output*:
 
 ```
 Printing ring status.
@@ -238,6 +244,7 @@ RING ID 1
 Both network rings should report "active with no faults". If either ring is missing, review the corosync configuration and check that `/etc/corosync/corosync.conf` changes have been synced to the secondary node. You may need to do this manually. Restart the cluster if needed.
 
 ## Configure Cluster Services
+<a name="_configure_cluster_services"></a>
 
 Enable pacemaker to start automatically after reboot:
 
@@ -248,20 +255,21 @@ Enable pacemaker to start automatically after reboot:
 Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead.
 
 ## Verify Cluster Status
+<a name="_verify_cluster_status"></a>
 
-**1. Check pacemaker service status:**
+ **1. Check pacemaker service status:** 
 
 ```
 # systemctl status pacemaker
 ```
 
-**2. Verify cluster status:**
+ **2. Verify cluster status:** 
 
 ```
 # crm_mon -1
 ```
 
-_Example output_:
+ *Example output*:
 
 ```
 Cluster Summary:
