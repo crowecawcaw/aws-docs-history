@@ -1,56 +1,24 @@
+
+
 # Importing and exporting keys
+<a name="keys-importexport"></a>
 
-You can import AWS Payment Cryptography keys from other solutions and export them to other solutions, such
-as HSMs. Many customers exchange keys with service providers using import and export
-functionality. We designed AWS Payment Cryptography to use a modern, electronic approach to key management that
-helps you maintain compliance and controls. We recommend using standards-based electronic key
-exchange instead of paper-based key components. If you need to continue processing paper key components until all partners support electronic key exchange, you can use [Physical Key Exchange](keys-physicalkeyexchange.md "keys-physicalkeyexchange.md").
+You can import AWS Payment Cryptography keys from other solutions and export them to other solutions, such as HSMs. Many customers exchange keys with service providers using import and export functionality. We designed AWS Payment Cryptography to use a modern, electronic approach to key management that helps you maintain compliance and controls. We recommend using standards-based electronic key exchange instead of paper-based key components. If you need to continue processing paper key components until all partners support electronic key exchange, you can use [Physical Key Exchange](keys-physicalkeyexchange.md).
 
-**Minimum key strengths and the effect on import and export functions**
+**Minimum key strengths and the effect on import and export functions**  
+PCI requires specific minimum key strengths for cryptographic operations, key storage, and key transmission. These requirements can change when PCI standards are revised. The rules specify that wrapping keys used for storage or transport must be at least as strong as the key being protected. We enforce this requirement automatically during export and prevent keys from being protected by weaker keys, as shown in the following table.  
+The following table shows the supported combinations of wrapping keys, keys to protect, and protection methods.      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-importexport.html)
+For more information, see [Appendix D - Minimum and Equivalent Key Sizes and Strengths for Approved Algorithms](https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requirements/PCI_HSM_DTRs_v4.pdf) in the PCI HSM standards. 
 
-PCI requires specific minimum key strengths for cryptographic operations, key storage,
-and key transmission. These requirements can change when PCI standards are revised. The
-rules specify that wrapping keys used for storage or transport must be at least as strong
-as the key being protected. We enforce this requirement automatically during export and
-prevent keys from being protected by weaker keys, as shown in the following table.
+**Key Encryption Key (KEK) Exchange**  
+We recommend using [ANSI X9.24 TR-34](terminology.md#terms.tr34) standard. This initial key type can be called a Key Encryption Key (KEK), Zone Master Key (ZMK), or Zone Control Master Key (ZCMK). If your systems or partners don't support TR-34 yet you can use [RSA Wrap/Unwrap](terminology.md#terms.rsawrap). If your needs include exchanging AES-256 keys, you can use [ECDH](terminology.md#terms.ecdh).   
+To import your own test keys or to synchronize keys with your existing HSMs, please see the AWS Payment Cryptography sample code on [GitHub](https://github.com/aws-samples/samples-for-payment-cryptography-service/tree/main/key-import-export). 
 
-The following table shows the supported combinations of wrapping keys, keys to
-protect, and protection methods.
+**Working Key (WK) Exchange**  
+We use industry standards ([ANSI X9.24 TR 31-2018](terminology.md#terms.tr31) and X9.143) for exchanging working keys. This requires that you've already exchanged a KEK using TR-34, RSA Wrap, ECDH or similar schemes. This approach meets the PCI PIN requirement to cryptographically bind key material to its type and usage at all times. Working keys include acquirer working keys, issuer working keys, BDK, and IPEK. 
 
-|                    | **Wrapping<br>Key** |                 |
-| ------------------ | ------------------- | --------------- |
-| **Key To Protect** | TDES\_2KEY          | TDES\_3KEY      | AES\_128        | AES\_192        | AES\_256 | RSA\_2048       | RSA\_3072       | RSA\_4096       | ECC\_p256       | ECC\_p384       | ECC\_p521 | Notes |
-| **TDES\_2KEY**     | TR-31               | TR-31           | TR-31           | TR-31           | TR-31    | TR-34, RSA      | TR-34, RSA      | TR-34, RSA      | ECDH            | ECDH            | ECDH      |       |
-| **TDES\_3KEY**     | ✗ Not supported     | TR-31           | TR-31           | TR-31           | TR-31    | TR-34, RSA      | TR-34, RSA      | TR-34, RSA      | ECDH            | ECDH            | ECDH      |       |
-| **AES\_128**       | ✗ Not supported     | ✗ Not supported | TR-31           | TR-31           | TR-31    | ✗ Not supported | TR-34, RSA      | TR-34, RSA      | ECDH            | ECDH            | ECDH      |       |
-| **AES\_192**       | ✗ Not supported     | ✗ Not supported | ✗ Not supported | TR-31           | TR-31    | ✗ Not supported | ✗ Not supported | ✗ Not supported | ✗ Not supported | ECDH            | ECDH      |       |
-| **AES\_256**       | ✗ Not supported     | ✗ Not supported | ✗ Not supported | ✗ Not supported | TR-31    | ✗ Not supported | ✗ Not supported | ✗ Not supported | ✗ Not supported | ✗ Not supported | ECDH      |       |
-
-For more information, see [Appendix D - Minimum and Equivalent Key Sizes and Strengths for Approved
-Algorithms](https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requirements/PCI_HSM_DTRs_v4.pdf "https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requirements/PCI_HSM_DTRs_v4.pdf") in the PCI HSM standards.
-
-**Key Encryption Key (KEK) Exchange**
-
-We recommend using [ANSI X9.24 TR-34](terminology.md#terms.tr34 "terminology.md#terms.tr34") standard. This initial key type can
-be called a Key Encryption Key (KEK), Zone Master Key (ZMK), or Zone Control Master Key
-(ZCMK). If your systems or partners don't support TR-34 yet you can use [RSA Wrap/Unwrap](terminology.md#terms.rsawrap "terminology.md#terms.rsawrap"). If your needs include exchanging AES-256
-keys, you can use [ECDH](terminology.md#terms.ecdh "terminology.md#terms.ecdh").
-
-###### Note
-
-To import your own test keys or to synchronize keys with your existing HSMs, please
-see the AWS Payment Cryptography sample code on [GitHub](https://github.com/aws-samples/samples-for-payment-cryptography-service/tree/main/key-import-export "https://github.com/aws-samples/samples-for-payment-cryptography-service/tree/main/key-import-export").
-
-**Working Key (WK) Exchange**
-
-We use industry standards ([ANSI X9.24 TR 31-2018](terminology.md#terms.tr31 "terminology.md#terms.tr31") and
-X9.143) for exchanging working keys. This requires that you've already exchanged a KEK
-using TR-34, RSA Wrap, ECDH or similar schemes. This approach meets the PCI PIN
-requirement to cryptographically bind key material to its type and usage at all times.
-Working keys include acquirer working keys, issuer working keys, BDK, and IPEK.
-
-###### Topics
-
-- [Import keys](keys-import.md "keys-import.md")
-- [Export keys](keys-export.md "keys-export.md")
-- [Advanced Topics](keyexchange-advanced.md "keyexchange-advanced.md")
+**Topics**
++ [Import keys](keys-import.md)
++ [Export keys](keys-export.md)
++ [Advanced Topics](keyexchange-advanced.md)

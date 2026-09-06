@@ -1,15 +1,14 @@
+
+
 # Resilience in AWS Payment Cryptography
+<a name="resilience"></a>
 
-AWS global infrastructure is built around AWS Regions and Availability Zones. Regions
-provide multiple physically separated and isolated Availability Zones, which are connected through
-low-latency, high-throughput, and highly redundant networking. With Availability Zones, you can
-design and operate applications and databases that automatically fail over between zones without
-interruption. Availability Zones are more highly available, fault tolerant, and scalable than
-traditional single or multiple data center infrastructures.
+AWS global infrastructure is built around AWS Regions and Availability Zones. Regions provide multiple physically separated and isolated Availability Zones, which are connected through low-latency, high-throughput, and highly redundant networking. With Availability Zones, you can design and operate applications and databases that automatically fail over between zones without interruption. Availability Zones are more highly available, fault tolerant, and scalable than traditional single or multiple data center infrastructures.
 
-For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).
 
 ## Regional isolation
+<a name="region-isolation"></a>
 
 AWS Payment Cryptography is a Regional service that is available in multiple regions.
 
@@ -22,6 +21,7 @@ The AWS Payment Cryptography infrastructure is replicated in at least three Avai
 Changes that you make to the properties or permissions of a payment key are replicated to all hosts in the Region to ensure that subsequent request can be processed correctly by any host in the Region. Requests for cryptographic operations using your payment key are forwarded to a fleet of AWS Payment Cryptography hardware security modules (HSMs), any of which can perform the operation with the payment key.
 
 ## Multi-tenant design
+<a name="multi-tenant"></a>
 
 The multi-tenant design of AWS Payment Cryptography enables it to fulfill the availability SLA, and to sustain high request rates, while protecting the confidentiality of your keys and data.
 

@@ -1,282 +1,267 @@
+
+
 # Visa specific functions
+<a name="use-cases-issuers.networkfunctions.visa"></a>
 
-###### Topics
-
-- [ARQC - CVN18/CVN22](#use-cases-issuers.networkfunctions.visa.cvn18 "#use-cases-issuers.networkfunctions.visa.cvn18")
-- [ARQC - CVN10](#use-cases-issuers.networkfunctions.visa.cvn10 "#use-cases-issuers.networkfunctions.visa.cvn10")
-- [3DS CAVV V7](#use-cases-issuers.networkfunctions.visa.cavv-v7 "#use-cases-issuers.networkfunctions.visa.cavv-v7")
-- [dCVV (Dynamic Card Verification Value) - CVN17](#use-cases-issuers.networkfunctions.visa.dcvv "#use-cases-issuers.networkfunctions.visa.dcvv")
+**Topics**
++ [ARQC - CVN18/CVN22](#use-cases-issuers.networkfunctions.visa.cvn18)
++ [ARQC - CVN10](#use-cases-issuers.networkfunctions.visa.cvn10)
++ [3DS CAVV V7](#use-cases-issuers.networkfunctions.visa.cavv-v7)
++ [dCVV (Dynamic Card Verification Value) - CVN17](#use-cases-issuers.networkfunctions.visa.dcvv)
 
 ## ARQC - CVN18/CVN22
+<a name="use-cases-issuers.networkfunctions.visa.cvn18"></a>
 
-CVN18 and CVN22 utilize the [CSK method](use-cases-issuers.generalfunctions.arqc.md "use-cases-issuers.generalfunctions.arqc.md") of key derivation. The exact transaction data varies between these two methods - please see the scheme documentation for details on
-constructing the transaction data field.
+CVN18 and CVN22 utilize the [CSK method](use-cases-issuers.generalfunctions.arqc.md) of key derivation. The exact transaction data varies between these two methods - please see the scheme documentation for details on constructing the transaction data field.
 
 ## ARQC - CVN10
+<a name="use-cases-issuers.networkfunctions.visa.cvn10"></a>
 
 CVN10 is an older Visa method for EMV transactions that uses per card key derivation rather than session (per transaction) derivation and also uses a different payload. For information on the payload contents, please contact the scheme for details.
 
 ### Create key
+<a name="use-cases-issuers.networkfunctions.visa.cvn10.setup"></a>
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{DeriveKey=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVN10"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+$ aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{DeriveKey=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVN10"},{"Key":"CARD_BIN","Value":"12345678"}]'
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
- "KeyAttributes": {
- "KeyUsage": "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
- "KeyClass": "SYMMETRIC_KEY",
- "KeyAlgorithm": "TDES_2KEY",
- "KeyModesOfUse": {
- "Encrypt": false,
- "Decrypt": false,
- "Wrap": false,
- "Unwrap": false,
- "Generate": false,
- "Sign": false,
- "Verify": false,
- "DeriveKey": true,
- "NoRestrictions": false
- }
- },
- "KeyCheckValue": "08D7B4",
- "KeyCheckValueAlgorithm": "ANSI_X9_24",
- "Enabled": true,
- "Exportable": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2024-03-07T06:41:46.648000-07:00",
- "UsageStartTimestamp": "2024-03-07T06:41:46.626000-07:00"
- }
- }`
+{
+            "Key": {
+                "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
+                "KeyAttributes": {
+                    "KeyUsage": "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
+                    "KeyClass": "SYMMETRIC_KEY",
+                    "KeyAlgorithm": "TDES_2KEY",
+                    "KeyModesOfUse": {
+                        "Encrypt": false,
+                        "Decrypt": false,
+                        "Wrap": false,
+                        "Unwrap": false,
+                        "Generate": false,
+                        "Sign": false,
+                        "Verify": false,
+                        "DeriveKey": true,
+                        "NoRestrictions": false
+                    }
+                },
+                "KeyCheckValue": "08D7B4",
+                "KeyCheckValueAlgorithm": "ANSI_X9_24",
+                "Enabled": true,
+                "Exportable": true,
+                "KeyState": "CREATE_COMPLETE",
+                "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+                "CreateTimestamp": "2024-03-07T06:41:46.648000-07:00",
+                "UsageStartTimestamp": "2024-03-07T06:41:46.626000-07:00"
+            }
+        }
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example *arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk*. You need that in the next step.
 
 ### Validate the ARQC
+<a name="use-cases-issuers.networkfunctions.visa.cvn10.validation"></a>
 
-###### Example
-
-In this example, we will validate an ARQC generated using Visa CVN10.
-
-If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returned. If the arqc is not validated, it will return a http/400 response.
-
-```
-`$` `aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram D791093C8A921769 \
- --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk \
- --major-key-derivation-mode EMV_OPTION_A \
- --transaction-data 00000000170000000000000008400080008000084016051700000000093800000B03011203000000 \
- --session-key-derivation-attributes='{"Visa":{"PanSequenceNumber":"01" \
- ,"PrimaryAccountNumber":"9137631040001422"}}'`
-```
+**Example**  
+In this example, we will validate an ARQC generated using Visa CVN10.   
+If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returned. If the arqc is not validated, it will return a http/400 response.  
 
 ```
-`{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
- "KeyCheckValue": "08D7B4"
- }`
+$ aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram D791093C8A921769 \
+  --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk \
+  --major-key-derivation-mode EMV_OPTION_A \ 
+  --transaction-data 00000000170000000000000008400080008000084016051700000000093800000B03011203000000 \
+  --session-key-derivation-attributes='{"Visa":{"PanSequenceNumber":"01" \ 
+  ,"PrimaryAccountNumber":"9137631040001422"}}'
+```
+
+```
+{
+    "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
+    "KeyCheckValue": "08D7B4"
+  }
 ```
 
 ## 3DS CAVV V7
+<a name="use-cases-issuers.networkfunctions.visa.cavv-v7"></a>
 
-For Visa Secure (3DS) transactions, a CAVV (Cardholder Authentication Verification Value) is generated by the issuer Access Control
-Server (ACS). The CAVV is evidence that cardholder authentication
-occurred, is unique for each authentication transaction and is provided by the acquirer in the authorization message.
-CAVV v7 binds additional data about the transaction to the approval including elements such as merchant name, purchase amount and purchase date.
-In this way, it is effectively a cryptographic hash of the transaction payload.
+For Visa Secure (3DS) transactions, a CAVV (Cardholder Authentication Verification Value) is generated by the issuer Access Control Server (ACS). The CAVV is evidence that cardholder authentication occurred, is unique for each authentication transaction and is provided by the acquirer in the authorization message. CAVV v7 binds additional data about the transaction to the approval including elements such as merchant name, purchase amount and purchase date. In this way, it is effectively a cryptographic hash of the transaction payload.
 
-Cryptographically, CAVV V7 utilizes the CVV algorithm but the inputs have all been changed/repurposed. Please
-consult appropriate third party/Visa documentation on how to produce the inputs to generate a CAVV V7 payload.
+Cryptographically, CAVV V7 utilizes the CVV algorithm but the inputs have all been changed/repurposed. Please consult appropriate third party/Visa documentation on how to produce the inputs to generate a CAVV V7 payload.
 
 ### Create the key
+<a name="use-cases-issuers.networkfunctions.visa.cavv-v7.setup"></a>
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CAVV-V7"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+$ aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CAVV-V7"},{"Key":"CARD_BIN","Value":"12345678"}]'
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
- "KeyAttributes": {
- "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY",
- "KeyClass": "SYMMETRIC_KEY",
- "KeyAlgorithm": "TDES_2KEY",
- "KeyModesOfUse": {
- "Encrypt": false,
- "Decrypt": false,
- "Wrap": false,
- "Unwrap": false,
- "Generate": true,
- "Sign": false,
- "Verify": true,
- "DeriveKey": false,
- "NoRestrictions": false
- }
- },
- "KeyCheckValue": "F3FB13",
- "KeyCheckValueAlgorithm": "ANSI_X9_24",
- "Enabled": true,
- "Exportable": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
- "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
- }
- }`
+{
+            "Key": {
+                "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
+                "KeyAttributes": {
+                    "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY",
+                    "KeyClass": "SYMMETRIC_KEY",
+                    "KeyAlgorithm": "TDES_2KEY",
+                    "KeyModesOfUse": {
+                        "Encrypt": false,
+                        "Decrypt": false,
+                        "Wrap": false,
+                        "Unwrap": false,
+                        "Generate": true,
+                        "Sign": false,
+                        "Verify": true,
+                        "DeriveKey": false,
+                        "NoRestrictions": false
+                    }
+                },
+                "KeyCheckValue": "F3FB13",
+                "KeyCheckValueAlgorithm": "ANSI_X9_24",
+                "Enabled": true,
+                "Exportable": true,
+                "KeyState": "CREATE_COMPLETE",
+                "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+                "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
+                "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
+            }
+        }
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example *arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk*. You need that in the next step.
 
 ### Generate a CAVV V7
+<a name="use-cases-issuers.networkfunctions.visa.cavv-v7.generate"></a>
 
-###### Example
-
-In this example, we will generate a CAVV V7 for a given transactions with
-inputs as specified in the specifications. Note that for this algorithm, fields may be re-used/re-purposed, so it should not be assumed that
-the field labels match the inputs.
-
-For all available parameters see [CardVerificationValue1](../DataAPIReference/API_CardVerificationValue1.md "../DataAPIReference/API_CardVerificationValue1.md") in the API reference guide.
+**Example**  
+In this example, we will generate a CAVV V7 for a given transactions with inputs as specified in the specifications. Note that for this algorithm, fields may be re-used/re-purposed, so it should not be assumed that the field labels match the inputs.   
+For all available parameters see [CardVerificationValue1](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_CardVerificationValue1.html) in the API reference guide.   
 
 ```
-`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk --primary-account-number=171234567890123 --generation-attributes CardVerificationValue1='{CardExpiryDate=9431,ServiceCode=431}'`
-
+$ aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk --primary-account-number=171234567890123 --generation-attributes CardVerificationValue1='{CardExpiryDate=9431,ServiceCode=431}'
 ```
 
 ```
-
-              `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
- "KeyCheckValue": "F3FB13",
- "ValidationData": "491"
- }`
-
+              {
+                  "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
+                  "KeyCheckValue": "F3FB13",
+                  "ValidationData": "491"
+              }
 ```
 
 ### Validate CAVV V7
+<a name="use-cases-issuers.networkfunctions.visa.cavv-v7.verify"></a>
 
-###### Example
-
-For validation, the inputs are CVK, the computed input values and the CAVV provided during the transaction to validate.
-
-For all available parameters see, [CardVerificationValue1](../DataAPIReference/API_CardVerificationValue1.md "../DataAPIReference/API_CardVerificationValue1.md") in the API reference guide.
-
-###### Note
-
-CAVV is not a user entered value (like CVV2) but is calculated by the issuer ACS.
-Consideration should be given to whether it should always validate when provided.
+**Example**  
+For validation, the inputs are CVK, the computed input values and the CAVV provided during the transaction to validate.   
+For all available parameters see, [CardVerificationValue1](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_CardVerificationValue1.html) in the API reference guide.   
+CAVV is not a user entered value (like CVV2) but is calculated by the issuer ACS. Consideration should be given to whether it should always validate when provided.
 
 ```
-`$` `aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk --primary-account-number=171234567890123 --verification-attributes CardVerificationValue1='{CardExpiryDate=9431,ServiceCode=431} --validation-data 491`
-
+$ aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk --primary-account-number=171234567890123 --verification-attributes CardVerificationValue1='{CardExpiryDate=9431,ServiceCode=431} --validation-data 491
 ```
 
 ```
-`{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
- "KeyCheckValue": "F3FB13",
- "ValidationData": "491"
-}`
+{
+                "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
+                "KeyCheckValue": "F3FB13",
+                "ValidationData": "491"
+}
 ```
 
 ## dCVV (Dynamic Card Verification Value) - CVN17
+<a name="use-cases-issuers.networkfunctions.visa.dcvv"></a>
 
-dCVV (dynamic Card Verification Value) is a Visa-specific dynamic cryptogram used
-for contactless EMV transactions. It is known as early EMV and it provides enhanced security by generating a unique verification value
-for each transaction. The dCVV uses inputs including the Primary Account Number (PAN),
-PAN Sequence Number (PSN), Application Transaction Counter (ATC), unpredictable number, and track data.
-It is still used in some places, but has mostly been replaced by other algorithms like CVN18.
+dCVV (dynamic Card Verification Value) is a Visa-specific dynamic cryptogram used for contactless EMV transactions. It is known as early EMV and it provides enhanced security by generating a unique verification value for each transaction. The dCVV uses inputs including the Primary Account Number (PAN), PAN Sequence Number (PSN), Application Transaction Counter (ATC), unpredictable number, and track data. It is still used in some places, but has mostly been replaced by other algorithms like CVN18.
 
-For all available parameters see [DynamicCardVerificationValue](../DataAPIReference/API_DynamicCardVerificationValue.md "../DataAPIReference/API_DynamicCardVerificationValue.md") in the API reference guide.
+For all available parameters see [DynamicCardVerificationValue](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_DynamicCardVerificationValue.html) in the API reference guide.
 
 ### Create key
+<a name="use-cases-issuers.networkfunctions.visa.dcvv.setup"></a>
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"DCVV"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+$ aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"DCVV"},{"Key":"CARD_BIN","Value":"12345678"}]'
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc",
- "KeyAttributes": {
- "KeyUsage": "TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS",
- "KeyClass": "SYMMETRIC_KEY",
- "KeyAlgorithm": "TDES_2KEY",
- "KeyModesOfUse": {
- "Encrypt": false,
- "Decrypt": false,
- "Wrap": false,
- "Unwrap": false,
- "Generate": true,
- "Sign": false,
- "Verify": true,
- "DeriveKey": false,
- "NoRestrictions": false
- }
- },
- "KeyCheckValue": "A8E4D2",
- "KeyCheckValueAlgorithm": "ANSI_X9_24",
- "Enabled": true,
- "Exportable": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2025-02-02T11:45:30.648000-08:00",
- "UsageStartTimestamp": "2025-02-02T11:45:30.626000-08:00"
- }
- }`
+{
+            "Key": {
+                "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc",
+                "KeyAttributes": {
+                    "KeyUsage": "TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS",
+                    "KeyClass": "SYMMETRIC_KEY",
+                    "KeyAlgorithm": "TDES_2KEY",
+                    "KeyModesOfUse": {
+                        "Encrypt": false,
+                        "Decrypt": false,
+                        "Wrap": false,
+                        "Unwrap": false,
+                        "Generate": true,
+                        "Sign": false,
+                        "Verify": true,
+                        "DeriveKey": false,
+                        "NoRestrictions": false
+                    }
+                },
+                "KeyCheckValue": "A8E4D2",
+                "KeyCheckValueAlgorithm": "ANSI_X9_24",
+                "Enabled": true,
+                "Exportable": true,
+                "KeyState": "CREATE_COMPLETE",
+                "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+                "CreateTimestamp": "2025-02-02T11:45:30.648000-08:00",
+                "UsageStartTimestamp": "2025-02-02T11:45:30.626000-08:00"
+            }
+        }
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example *arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc*. You need that in the next step.
 
 ### Generate a dCVV
+<a name="use-cases-issuers.networkfunctions.visa.dcvv.generate"></a>
 
-###### Example
-
-In this example, we will generate a dCVV for a contactless EMV transaction. The inputs include the PAN, PAN Sequence Number, Application Transaction Counter, unpredictable number, and track data.
-
-```
-`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc \
- --primary-account-number=5111112627662122 \
- --generation-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,TrackData=12345,UnpredictableNumber=123}' \
- --validation-data-length 5`
-```
+**Example**  
+In this example, we will generate a dCVV for a contactless EMV transaction. The inputs include the PAN, PAN Sequence Number, Application Transaction Counter, unpredictable number, and track data.   
 
 ```
-`{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc",
- "KeyCheckValue": "A8E4D2",
- "ValidationData": "36667"
-}`
+$ aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc \
+    --primary-account-number=5111112627662122 \
+    --generation-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,TrackData=12345,UnpredictableNumber=123}' \
+    --validation-data-length 5
+```
+
+```
+{
+    "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc",
+    "KeyCheckValue": "A8E4D2",
+    "ValidationData": "36667"
+}
 ```
 
 ### Validate dCVV
+<a name="use-cases-issuers.networkfunctions.visa.dcvv.verify"></a>
 
-###### Example
-
-In this example, we will validate a dCVV provided during a transaction. The same inputs used for generation must be provided for validation.
-
-If AWS Payment Cryptography is able to validate, an http/200 is returned. If the value is not validated, it will return a http/400 response.
-
-```
-`$` `aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc \
- --primary-account-number=5111112627662122 \
- --validation-data=36667 \
- --verification-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,TrackData=12345,UnpredictableNumber=123}'`
-```
+**Example**  
+In this example, we will validate a dCVV provided during a transaction. The same inputs used for generation must be provided for validation.   
+If AWS Payment Cryptography is able to validate, an http/200 is returned. If the value is not validated, it will return a http/400 response.  
 
 ```
-`{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc",
- "KeyCheckValue": "A8E4D2"
-}`
+$ aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc \
+    --primary-account-number=5111112627662122 \
+    --validation-data=36667 \
+    --verification-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,TrackData=12345,UnpredictableNumber=123}'
+```
+
+```
+{
+    "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc",
+    "KeyCheckValue": "A8E4D2"
+}
 ```

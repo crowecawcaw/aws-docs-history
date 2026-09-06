@@ -1,15 +1,16 @@
+
+
 # Listing keys
+<a name="keys-list"></a>
 
-Use the **ListKeys** operation to get a list of keys accessible to you
-in your account and Region.
+ Use the **ListKeys** operation to get a list of keys accessible to you in your account and Region. 
 
-###### Example
+**Example**  
 
 ```
-`$` `aws payment-cryptography list-keys`
+$ aws payment-cryptography list-keys
 ```
-
-Example output:
+Example output:  
 
 ```
 {

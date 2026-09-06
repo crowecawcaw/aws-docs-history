@@ -1,6 +1,6 @@
-# Troubleshooting AWS Payment Cryptography identity and access
 
-Topics will be added to this section as IAM-related issues that are specific to
-AWS Payment Cryptography are identified. For general troubleshooting content on IAM topics, refer to the
-[troubleshooting
-section](../../../IAM/latest/UserGuide/troubleshoot.md "../../../IAM/latest/UserGuide/troubleshoot.md") of the _IAM User Guide_.
+
+# Troubleshooting AWS Payment Cryptography identity and access
+<a name="security_iam_troubleshoot"></a>
+
+Topics will be added to this section as IAM-related issues that are specific to AWS Payment Cryptography are identified. For general troubleshooting content on IAM topics, refer to the [troubleshooting section](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot.html) of the *IAM User Guide*.

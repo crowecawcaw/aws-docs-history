@@ -1,54 +1,40 @@
+
+
 # Creating keys
+<a name="create-keys"></a>
 
-You can create AWS Payment Cryptography keys using the **CreateKey** API operation.
-When you create a key, you specify attributes such as the key algorithm, key usage,
-permitted operations, and whether it's exportable. You can't change these properties
-after you create the AWS Payment Cryptography key.
+ You can create AWS Payment Cryptography keys using the **CreateKey** API operation. When you create a key, you specify attributes such as the key algorithm, key usage, permitted operations, and whether it's exportable. You can't change these properties after you create the AWS Payment Cryptography key. 
 
-###### Note
+**Note**  
+If Multi-Region key replication is enabled for your AWS account and you create an Payment Cryptography key, this key will automatically become a [Primary Region key (PRK)](terminology.md#term.prk). PRK is replicated even if you don't specify the `--replication-regions` parameter in the **CreateKey** command. For more information, see [How Multi-Region key replication works](keys-multi-region-replication.md#how-mrr-works).
 
-If Multi-Region key replication is enabled for your AWS account and you create an Payment Cryptography key,
-this key will automatically become a [Primary Region key
-(PRK)](terminology.md#term.prk "terminology.md#term.prk"). PRK is replicated even if you don't specify the
-`--replication-regions` parameter in the **CreateKey**
-command. For more information, see [How Multi-Region key replication works](keys-multi-region-replication.md#how-mrr-works "keys-multi-region-replication.md#how-mrr-works").
-
-###### Examples
-
-- [Creating a 2KEY TDES base derivation key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
-- [Creating a 2KEY TDES key for CVV/CVV2](#cvvkey-example "#cvvkey-example")
-- [Creating an HMAC key](#hmac-example "#hmac-example")
-- [Creating an AES-256 key](#aes-example "#aes-example")
-- [Creating a PIN Encryption Key (PEK)](#pekkey-example "#pekkey-example")
-- [Creating an asymmetric (RSA) key](#asymmetrickey-example "#asymmetrickey-example")
-- [Creating a PIN Verification Value (PVV) Key](#pvv-example "#pvv-example")
-- [Creating an asymmetric ECC key](#ECDH-example "#ECDH-example")
+**Topics**
++ [Creating a 2KEY TDES base derivation key](#3des-deriv-mrr-example)
++ [Creating a 2KEY TDES key for CVV/CVV2](#cvvkey-example)
++ [Creating an HMAC key](#hmac-example)
++ [Creating an AES-256 key](#aes-example)
++ [Creating a PIN Encryption Key (PEK)](#pekkey-example)
++ [Creating an asymmetric (RSA) key](#asymmetrickey-example)
++ [Creating a PIN Verification Value (PVV) Key](#pvv-example)
++ [Creating an asymmetric ECC key](#ECDH-example)
 
 ## Creating a 2KEY TDES base derivation key
+<a name="3des-deriv-mrr-example"></a>
 
-###### Note
+**Note**  
+Although 3KEY TDES is supported for KeyUsage = TR31\_B0\_BASE\_DERIVATION\_KEY, no operations currently support this key type. The ANSI X9.24 standard ([DUKPT](terminology.md#terms.dukpt)) defines support for TDES\_2KEY and AES key types only.
 
-Although 3KEY TDES is supported for KeyUsage = TR31\_B0\_BASE\_DERIVATION\_KEY,
-no operations currently support this key type. The ANSI X9.24 standard
-([DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt")) defines support
-for TDES\_2KEY and AES key types only.
-
-###### Example
-
-This command creates a 2KEY TDES derivation key for DUKPT that will be
-[replicated](keys-multi-region-replication.md#how-mrr-works "keys-multi-region-replication.md#how-mrr-works") from US West (Oregon) to US East (Ohio) regions.
-The response includes the request parameters, an Amazon Resource Name (ARN) for
-subsequent calls, and a Key Check Value (KCV).
+**Example**  
+This command creates a 2KEY TDES derivation key for DUKPT that will be [replicated](keys-multi-region-replication.md#how-mrr-works) from US West (Oregon) to US East (Ohio) regions. The response includes the request parameters, an Amazon Resource Name (ARN) for subsequent calls, and a Key Check Value (KCV).  
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes \
- "KeyUsage=TR31_B0_BASE_DERIVATION_KEY, \
- KeyClass=SYMMETRIC_KEY,KeyAlgorithm=TDES_2KEY, \
- KeyModesOfUse={DeriveKey=true}" \
- --replication-regions us-east-2 --region us-west-2`
+$ aws payment-cryptography create-key --exportable --key-attributes \
+     "KeyUsage=TR31_B0_BASE_DERIVATION_KEY, \ 
+     KeyClass=SYMMETRIC_KEY,KeyAlgorithm=TDES_2KEY, \
+     KeyModesOfUse={DeriveKey=true}" \ 
+     --replication-regions us-east-2 --region us-west-2
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -82,20 +68,17 @@ Example output:
 ```
 
 ## Creating a 2KEY TDES key for CVV/CVV2
+<a name="cvvkey-example"></a>
 
-###### Example
-
-This command creates a 2KEY TDES key for generating and verifying CVV/CVV2
-values. The response includes the request parameters, an Amazon Resource Name
-(ARN) for subsequent calls, and a Key Check Value (KCV).
+**Example**  
+This command creates a 2KEY TDES key for generating and verifying CVV/CVV2 values. The response includes the request parameters, an Amazon Resource Name (ARN) for subsequent calls, and a Key Check Value (KCV).  
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY, \
- KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY, \
- KeyModesOfUse='{Generate=true,Verify=true}'`
+$ aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY, \
+    KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY, \
+    KeyModesOfUse='{Generate=true,Verify=true}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -130,17 +113,15 @@ Example output:
 ```
 
 ## Creating an HMAC key
+<a name="hmac-example"></a>
 
-###### Example
-
-HMAC keys are used for generating or verifying hash message authentication codes (HMAC). With HMAC keys,
-the hash type is assigned at the time of key creation (such as HMAC\_SHA224 and HMAC\_SHA512) and cannot be modified.
+**Example**  
+HMAC keys are used for generating or verifying hash message authentication codes (HMAC). With HMAC keys, the hash type is assigned at the time of key creation (such as HMAC\_SHA224 and HMAC\_SHA512) and cannot be modified.   
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=HMAC_SHA512,KeyUsage=TR31_M7_HMAC_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate = true,Verify = true}'`
+$ aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=HMAC_SHA512,KeyUsage=TR31_M7_HMAC_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate = true,Verify = true}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -175,18 +156,15 @@ Example output:
 ```
 
 ## Creating an AES-256 key
+<a name="aes-example"></a>
 
-###### Example
-
-This command creates an AES-256 symmetric key for data encryption and decryption.
-AES keys provide strong encryption for sensitive data and are commonly used in payment processing
-for encrypting cardholder data and other sensitive information, however TDES is more commonly used for issuer use cases like EMV.
+**Example**  
+This command creates an AES-256 symmetric key for data encryption and decryption. AES keys provide strong encryption for sensitive data and are commonly used in payment processing for encrypting cardholder data and other sensitive information, however TDES is more commonly used for issuer use cases like EMV.   
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=AES_256,KeyUsage=TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}'`
+$ aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=AES_256,KeyUsage=TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -221,22 +199,17 @@ Example output:
 ```
 
 ## Creating a PIN Encryption Key (PEK)
+<a name="pekkey-example"></a>
 
-###### Example
-
-This command creates a 3KEY TDES key for encrypting PIN values although pin keys can also be AES depending
-on your need for interoperability. You can use
-this key to securely store PINs or decrypt PINs during verification, such as in
-a transaction. The response includes the request parameters, an ARN for
-subsequent calls, and a KCV.
+**Example**  
+This command creates a 3KEY TDES key for encrypting PIN values although pin keys can also be AES depending on your need for interoperability. You can use this key to securely store PINs or decrypt PINs during verification, such as in a transaction. The response includes the request parameters, an ARN for subsequent calls, and a KCV.  
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes \
- KeyAlgorithm=TDES_3KEY,KeyUsage=TR31_P0_PIN_ENCRYPTION_KEY, \
- KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}'`
+$ aws payment-cryptography create-key --exportable --key-attributes \
+    KeyAlgorithm=TDES_3KEY,KeyUsage=TR31_P0_PIN_ENCRYPTION_KEY, \
+    KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -271,20 +244,17 @@ Example output:
 ```
 
 ## Creating an asymmetric (RSA) key
+<a name="asymmetrickey-example"></a>
 
-###### Example
-
-This command generates a new asymmetric RSA 2048-bit key pair. It creates a
-new private key and its matching public key. You can retrieve the public key
-using the [getPublicCertificate](keys.getpubliccertificate-example.md "keys.getpubliccertificate-example.md") API.
+**Example**  
+This command generates a new asymmetric RSA 2048-bit key pair. It creates a new private key and its matching public key. You can retrieve the public key using the [getPublicCertificate](keys.getpubliccertificate-example.md) API.  
 
 ```
-`$` `aws payment-cryptography create-key --exportable \
- --key-attributes KeyAlgorithm=RSA_2048,KeyUsage=TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION, \
- KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{Encrypt=true, Decrypt=True,Wrap=True,Unwrap=True}'`
+$ aws payment-cryptography create-key --exportable \
+    --key-attributes KeyAlgorithm=RSA_2048,KeyUsage=TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION, \
+    KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{Encrypt=true, Decrypt=True,Wrap=True,Unwrap=True}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -319,21 +289,17 @@ Example output:
 ```
 
 ## Creating a PIN Verification Value (PVV) Key
+<a name="pvv-example"></a>
 
-###### Example
-
-This command creates a 3KEY TDES key for generating PVV values. You can use
-this key to generate a PVV that can be compared against a subsequently
-calculated PVV. The response includes the request parameters, an ARN for
-subsequent calls, and a KCV.
+**Example**  
+This command creates a 3KEY TDES key for generating PVV values. You can use this key to generate a PVV that can be compared against a subsequently calculated PVV. The response includes the request parameters, an ARN for subsequent calls, and a KCV.  
 
 ```
-`$` `aws payment-cryptography create-key --exportable \
- --key-attributes KeyAlgorithm=TDES_3KEY,KeyUsage=TR31_V2_VISA_PIN_VERIFICATION_KEY, \
- KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}'`
+$ aws payment-cryptography create-key --exportable \
+    --key-attributes KeyAlgorithm=TDES_3KEY,KeyUsage=TR31_V2_VISA_PIN_VERIFICATION_KEY, \
+    KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {
@@ -368,26 +334,18 @@ Example output:
 ```
 
 ## Creating an asymmetric ECC key
+<a name="ECDH-example"></a>
 
-###### Example
-
-This command generates an ECC key pair for establishing an ECDH (Elliptic
-Curve Diffie-Hellman) key agreement between two parties. With ECDH, each party
-generates its own ECC key pair with key purpose K3 and mode of use X, and they
-exchange public keys. Both parties then use their private key and the received
-public key to establish a shared derived key.
-
-To maintain the single-use principle of cryptographic keys in payments, we
-recommend not reusing ECC key pairs for multiple purposes, such as ECDH key
-derivation and signing.
+**Example**  
+This command generates an ECC key pair for establishing an ECDH (Elliptic Curve Diffie-Hellman) key agreement between two parties. With ECDH, each party generates its own ECC key pair with key purpose K3 and mode of use X, and they exchange public keys. Both parties then use their private key and the received public key to establish a shared derived key.  
+To maintain the single-use principle of cryptographic keys in payments, we recommend not reusing ECC key pairs for multiple purposes, such as ECDH key derivation and signing.  
 
 ```
-`$` `aws payment-cryptography create-key --exportable \
- --key-attributes KeyAlgorithm=ECC_NIST_P256,KeyUsage=TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT, \
- KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{DeriveKey=true}'`
+$ aws payment-cryptography create-key --exportable \
+    --key-attributes KeyAlgorithm=ECC_NIST_P256,KeyUsage=TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT, \
+    KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{DeriveKey=true}'
 ```
-
-Example output:
+Example output:  
 
 ```
 {

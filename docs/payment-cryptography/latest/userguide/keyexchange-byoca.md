@@ -1,622 +1,615 @@
-# Bring Your Own Certificate Authority (BYOCA)
 
-By default, when a public key certificate is needed for asymmetric(RSA,ECC) keys created within the service,
-these certificates are issued by a AWS Payment Cryptography and account-unique certificate authority(CA). This is intended to make it
-simple to use X.509 without the burden of identifying or setting up a CA or managing Certificate Signing Requests(CSR).
+
+# Bring Your Own Certificate Authority (BYOCA)
+<a name="keyexchange-byoca"></a>
+
+By default, when a public key certificate is needed for asymmetric(RSA,ECC) keys created within the service, these certificates are issued by a AWS Payment Cryptography and account-unique certificate authority(CA). This is intended to make it simple to use X.509 without the burden of identifying or setting up a CA or managing Certificate Signing Requests(CSR).
 
 AWS Payment Cryptography also provides the ability to use your own CA when it is required for policy or compliance reasons.
 
-###### Topics
-
-- [Overview](#keyexchange-byoca.overview "#keyexchange-byoca.overview")
-- [BYOCA Export Workflow](#keyexchange-byoca.export-workflow "#keyexchange-byoca.export-workflow")
-- [BYOCA Import Workflow](#keyexchange-byoca.import-workflow "#keyexchange-byoca.import-workflow")
-- [Additional Notes](#keyexchange-byoca.notes "#keyexchange-byoca.notes")
+**Topics**
++ [Overview](#keyexchange-byoca.overview)
++ [BYOCA Export Workflow](#keyexchange-byoca.export-workflow)
++ [BYOCA Import Workflow](#keyexchange-byoca.import-workflow)
++ [Additional Notes](#keyexchange-byoca.notes)
 
 ## Overview
+<a name="keyexchange-byoca.overview"></a>
 
-With BYOCA, you can use your own CA for TR-34 import/export,
-RSA Unwrap, and ECDH key transfers.
-Use BYOCA when you need a consistent certificate chain across your
-organization or when partners require specific CA certificates.
-The following examples show the BYOCA workflow for TR-34 key export and TR-34 key import.
+With BYOCA, you can use your own CA for TR-34 import/export, RSA Unwrap, and ECDH key transfers. Use BYOCA when you need a consistent certificate chain across your organization or when partners require specific CA certificates. The following examples show the BYOCA workflow for TR-34 key export and TR-34 key import.
 
 There are three key differences from the standard TR-34 flow:
 
-1. You create the RSA key with [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md"). Before, `GetParametersForExport` or `GetParametersForImport` created it for you.
-2. The [GetCertificateSigningRequest](../APIReference/API_GetCertificateSigningRequest.md "../APIReference/API_GetCertificateSigningRequest.md") API creates a CSR. Your external CA can then sign it.
-3. The [ExportKey](../APIReference/API_ExportKey.md "../APIReference/API_ExportKey.md") and [ImportKey](../APIReference/API_ImportKey.md "../APIReference/API_ImportKey.md") APIs accept a certificate at call time. The token is now optional.
+1. You create the RSA key with [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html). Before, `GetParametersForExport` or `GetParametersForImport` created it for you.
 
-###### Important Considerations
+1. The [GetCertificateSigningRequest](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetCertificateSigningRequest.html) API creates a CSR. Your external CA can then sign it.
 
-- These examples use RSA-2048 keys and wrap a TDES-2KEY key. When exporting AES-128, make sure that all keys are RSA-3072 or RSA-4096.
-- The most common error is that the key represented by `SigningKeyIdentifier` and `SigningKeyCertificate` do not match.
+1. The [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html) and [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html) APIs accept a certificate at call time. The token is now optional.
+
+**Important Considerations**  
+These examples use RSA-2048 keys and wrap a TDES-2KEY key. When exporting AES-128, make sure that all keys are RSA-3072 or RSA-4096.
+The most common error is that the key represented by `SigningKeyIdentifier` and `SigningKeyCertificate` do not match.
 
 ## BYOCA Export Workflow
+<a name="keyexchange-byoca.export-workflow"></a>
 
 The following steps demonstrate the complete BYOCA workflow for TR-34 export.
 
-###### Steps
-
-- [Step 1: Create RSA Key](#keyexchange-byoca.create-rsa "#keyexchange-byoca.create-rsa")
-- [Step 2: Generate Certificate Signing Request](#keyexchange-byoca.generate-csr "#keyexchange-byoca.generate-csr")
-- [Step 3: Review CSR (Optional)](#keyexchange-byoca.review-csr "#keyexchange-byoca.review-csr")
-- [Step 4: Sign the CSR with a Certificate Authority](#keyexchange-byoca.sign-csr "#keyexchange-byoca.sign-csr")
-- [Step 5: Import CA Certificate](#keyexchange-byoca.import-ca "#keyexchange-byoca.import-ca")
-- [Step 6: Get KRD Encryption Certificate](#keyexchange-byoca.get-krd "#keyexchange-byoca.get-krd")
-- [Step 7: Export Key with BYOCA](#keyexchange-byoca.export-key "#keyexchange-byoca.export-key")
+**Topics**
++ [Step 1: Create RSA Key](#keyexchange-byoca.create-rsa)
++ [Step 2: Generate Certificate Signing Request](#keyexchange-byoca.generate-csr)
++ [Step 3: Review CSR (Optional)](#keyexchange-byoca.review-csr)
++ [Step 4: Sign the CSR with a Certificate Authority](#keyexchange-byoca.sign-csr)
++ [Step 5: Import CA Certificate](#keyexchange-byoca.import-ca)
++ [Step 6: Get KRD Encryption Certificate](#keyexchange-byoca.get-krd)
++ [Step 7: Export Key with BYOCA](#keyexchange-byoca.export-key)
 
 ### Step 1: Create RSA Key
+<a name="keyexchange-byoca.create-rsa"></a>
 
 First, create an RSA Key Pair that will ultimately be the KDH Signing Certificate. You can add tags to identify the key's purpose.
 
-###### Example Create RSA Key for Signing
+**Example Create RSA Key for Signing**  
 
 ```
-`$` `aws payment-cryptography create-key --exportable \
- --key-attributes KeyAlgorithm=RSA_2048,KeyUsage=TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE,KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{Sign=True}'`
+$ aws payment-cryptography create-key --exportable \
+    --key-attributes KeyAlgorithm=RSA_2048,KeyUsage=TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE,KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{Sign=True}'
 ```
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc",
- "KeyAttributes": {
- "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE",
- "KeyClass": "ASYMMETRIC_KEY_PAIR",
- "KeyAlgorithm": "RSA_2048",
- "KeyModesOfUse": {
- "Sign": true
- }
- },
- "KeyCheckValue": "41E3723C",
- "KeyCheckValueAlgorithm": "SHA_1",
- "Enabled": true,
- "Exportable": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY"
- }
-}`
+{
+    "Key": {
+        "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc",
+        "KeyAttributes": {
+            "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE",
+            "KeyClass": "ASYMMETRIC_KEY_PAIR",
+            "KeyAlgorithm": "RSA_2048",
+            "KeyModesOfUse": {
+                "Sign": true
+            }
+        },
+        "KeyCheckValue": "41E3723C",
+        "KeyCheckValueAlgorithm": "SHA_1",
+        "Enabled": true,
+        "Exportable": true,
+        "KeyState": "CREATE_COMPLETE",
+        "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY"
+    }
+}
 ```
 
 Take note of the `KeyArn` as you'll need it in the next step.
 
 ### Step 2: Generate Certificate Signing Request
+<a name="keyexchange-byoca.generate-csr"></a>
 
-Generate a Certificate Signing Request (CSR) to be signed by your external CA using the [GetCertificateSigningRequest](../APIReference/API_GetCertificateSigningRequest.md "../APIReference/API_GetCertificateSigningRequest.md") API. The output is a base64-encoded PEM file.
-If you base64 decode the contents and save them, you will have a valid CSR in PEM format.
+Generate a Certificate Signing Request (CSR) to be signed by your external CA using the [GetCertificateSigningRequest](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetCertificateSigningRequest.html) API. The output is a base64-encoded PEM file. If you base64 decode the contents and save them, you will have a valid CSR in PEM format.
 
-###### Example Generate CSR
-
-```
-`$` `aws payment-cryptography get-certificate-signing-request \
- --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc \
- --signing-algorithm SHA512 \
- --certificate-subject '{
- "CommonName": "MyCertificateAWSUSEAST",
- "Organization": "Amazon",
- "OrganizationUnit": "PaymentCryptography",
- "Country": "US",
- "StateOrProvince": "Virginia",
- "City": "Arlington"
- }'`
-```
+**Example Generate CSR**  
 
 ```
-`{
- "CertificateSigningRequest": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..."
-}`
+$ aws payment-cryptography get-certificate-signing-request \
+    --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc \
+    --signing-algorithm SHA512 \
+    --certificate-subject '{
+        "CommonName": "MyCertificateAWSUSEAST",
+        "Organization": "Amazon",
+        "OrganizationUnit": "PaymentCryptography",
+        "Country": "US",
+        "StateOrProvince": "Virginia",
+        "City": "Arlington"
+    }'
+```
+
+```
+{
+    "CertificateSigningRequest": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..."
+}
 ```
 
 The `CertificateSigningRequest` field contains the entire PEM file, base64-encoded. The PEM file includes the `-----BEGIN CERTIFICATE REQUEST-----` and `-----END CERTIFICATE REQUEST-----` markers. Send this value to your CA for signing.
 
 ### Step 3: Review CSR (Optional)
+<a name="keyexchange-byoca.review-csr"></a>
 
 You can optionally use OpenSSL to review the CSR contents and ensure it's valid and as expected.
 
-###### Example Review CSR with OpenSSL
+**Example Review CSR with OpenSSL**  
 
 ```
-`$` `echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d | openssl req -text`
+$ echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d | openssl req -text
 ```
 
 ### Step 4: Sign the CSR with a Certificate Authority
+<a name="keyexchange-byoca.sign-csr"></a>
 
-After generating the CSR, you need to have it signed by a Certificate Authority (CA). In production environments,
-you would typically use AWS Private CA or your organization's established CA infrastructure.
-For testing purposes, you can use OpenSSL to create a self-signed certificate.
+After generating the CSR, you need to have it signed by a Certificate Authority (CA). In production environments, you would typically use AWS Private CA or your organization's established CA infrastructure. For testing purposes, you can use OpenSSL to create a self-signed certificate.
 
 #### Using AWS Private CA
+<a name="keyexchange-byoca.sign-csr-pca"></a>
 
-To sign the CSR using AWS Private CA, first decode the base64-encoded CSR and save it to a file, then use the
-[IssueCertificate](../../../privateca/latest/APIReference/API_IssueCertificate.md "../../../privateca/latest/APIReference/API_IssueCertificate.md") API.
+To sign the CSR using AWS Private CA, first decode the base64-encoded CSR and save it to a file, then use the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) API.
 
-###### Example Sign CSR with AWS Private CA
-
-```
-`$` `echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > csr.pem`
-
-`$` `aws acm-pca issue-certificate \
- --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
- --csr fileb://csr.pem \
- --signing-algorithm SHA256WITHRSA \
- --validity Value=365,Type=DAYS`
-```
+**Example Sign CSR with AWS Private CA**  
 
 ```
-`{
- "CertificateArn": "arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/abcdef1234567890"
-}`
+$ echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > csr.pem
+
+$ aws acm-pca issue-certificate \
+    --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
+    --csr fileb://csr.pem \
+    --signing-algorithm SHA256WITHRSA \
+    --validity Value=365,Type=DAYS
+```
+
+```
+{
+    "CertificateArn": "arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/abcdef1234567890"
+}
 ```
 
 Then retrieve the signed certificate:
 
-###### Example Retrieve Signed Certificate
+**Example Retrieve Signed Certificate**  
 
 ```
-`$` `aws acm-pca get-certificate \
- --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
- --certificate-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/abcdef1234567890`
+$ aws acm-pca get-certificate \
+    --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
+    --certificate-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/abcdef1234567890
 ```
 
 ```
-`{
- "Certificate": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----",
- "CertificateChain": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----"
-}`
+{
+    "Certificate": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----",
+    "CertificateChain": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----"
+}
 ```
 
 Save the certificate content for use in the export step. You'll need to base64-encode it when providing it to the `ExportKey` API.
 
 #### Using OpenSSL for Testing
+<a name="keyexchange-byoca.sign-csr-openssl"></a>
 
 For testing purposes, you can use OpenSSL to create a self-signed CA and sign the CSR. First, create a CA private key and self-signed certificate:
 
-###### Example Create Test CA with OpenSSL
+**Example Create Test CA with OpenSSL**  
 
 ```
-`$` `# Generate CA private key
-openssl genrsa -out ca-key.pem 4096`
+$ # Generate CA private key
+openssl genrsa -out ca-key.pem 4096
 
-`$` `# Create self-signed CA certificate
+$ # Create self-signed CA certificate
 openssl req -new -x509 -days 3650 -key ca-key.pem -out ca-cert.pem \
- -subj "/C=US/ST=Virginia/L=Arlington/O=TestOrg/CN=Test CA"`
+    -subj "/C=US/ST=Virginia/L=Arlington/O=TestOrg/CN=Test CA"
 ```
 
 Then decode the CSR from the previous step and sign it with your test CA:
 
-###### Example Sign CSR with OpenSSL
+**Example Sign CSR with OpenSSL**  
 
 ```
-`$` `# Decode the base64-encoded CSR
-echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > csr.pem`
+$ # Decode the base64-encoded CSR
+echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > csr.pem
 
-`$` `# Sign the CSR with the CA
+$ # Sign the CSR with the CA
 openssl x509 -req -in csr.pem -CA ca-cert.pem -CAkey ca-key.pem \
- -CAcreateserial -out signed-cert.pem -days 365 -sha512`
+    -CAcreateserial -out signed-cert.pem -days 365 -sha512
 ```
 
 ```
-`Certificate request self-signature ok
-subject=C=US, ST=Virginia, L=Arlington, O=Amazon, OU=PaymentCryptography, CN=MyCertificateAWSUSEAST`
+Certificate request self-signature ok
+subject=C=US, ST=Virginia, L=Arlington, O=Amazon, OU=PaymentCryptography, CN=MyCertificateAWSUSEAST
 ```
 
 The signed certificate is now in `signed-cert.pem`. You'll need to base64-encode this certificate when providing it to the `ExportKey` API:
 
-###### Example Base64 Encode the Signed Certificate
+**Example Base64 Encode the Signed Certificate**  
 
 ```
-`$` `cat signed-cert.pem | base64 -w 0`
+$ cat signed-cert.pem | base64 -w 0
 ```
 
 ### Step 5: Import CA Certificate
+<a name="keyexchange-byoca.import-ca"></a>
 
-Any CA being used needs to be trusted first to prevent arbitrary certificates from being used.
-Import your external CA's root certificate using the [ImportKey](../APIReference/API_ImportKey.md "../APIReference/API_ImportKey.md") API. If using an intermediate CA, call `import-key` again
-but specify `TrustedPublicKey` instead of `RootCertificatePublicKey` and specify the root CA ARN.
+Any CA being used needs to be trusted first to prevent arbitrary certificates from being used. Import your external CA's root certificate using the [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html) API. If using an intermediate CA, call `import-key` again but specify `TrustedPublicKey` instead of `RootCertificatePublicKey` and specify the root CA ARN.
 
-###### Example Import Root CA Certificate
-
-```
-`$` `aws payment-cryptography import-key --key-material='{
- "RootCertificatePublicKey": {
- "KeyAttributes": {
- "KeyAlgorithm": "RSA_4096",
- "KeyClass": "PUBLIC_KEY",
- "KeyModesOfUse": {
- "Verify": true
- },
- "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE"
- },
- "PublicKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t..."
- }
-}'`
-```
+**Example Import Root CA Certificate**  
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xivpaqy7qbbm7cdw",
- "KeyAttributes": {
- "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE",
- "KeyClass": "PUBLIC_KEY",
- "KeyAlgorithm": "RSA_4096",
- "KeyModesOfUse": {
- "Verify": true
- }
- },
- "Enabled": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "EXTERNAL"
- }
-}`
+$ aws payment-cryptography import-key --key-material='{
+    "RootCertificatePublicKey": {
+        "KeyAttributes": {
+            "KeyAlgorithm": "RSA_4096",
+            "KeyClass": "PUBLIC_KEY",
+            "KeyModesOfUse": {
+                "Verify": true
+            },
+            "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE"
+        },
+        "PublicKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t..."
+    }
+}'
+```
+
+```
+{
+    "Key": {
+        "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xivpaqy7qbbm7cdw",
+        "KeyAttributes": {
+            "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE",
+            "KeyClass": "PUBLIC_KEY",
+            "KeyAlgorithm": "RSA_4096",
+            "KeyModesOfUse": {
+                "Verify": true
+            }
+        },
+        "Enabled": true,
+        "KeyState": "CREATE_COMPLETE",
+        "KeyOrigin": "EXTERNAL"
+    }
+}
 ```
 
 Take note of the CA's `KeyArn` for use in the export step.
 
 ### Step 6: Get KRD Encryption Certificate
+<a name="keyexchange-byoca.get-krd"></a>
 
-In this example, we're importing back into AWS Payment Cryptography, so we call the service to receive a KRD public key certificate using the [GetParametersForImport](../APIReference/API_GetParametersForImport.md "../APIReference/API_GetParametersForImport.md") API.
-In a real scenario, this would be provided by the other system, like an HSM, an ATM, a payment terminal or payment terminal management system.
+In this example, we're importing back into AWS Payment Cryptography, so we call the service to receive a KRD public key certificate using the [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html) API. In a real scenario, this would be provided by the other system, like an HSM, an ATM, a payment terminal or payment terminal management system.
 
-###### Example Get Parameters for Import
-
-```
-`$` `aws payment-cryptography get-parameters-for-import \
- --key-material-type "TR34_KEY_BLOCK" \
- --wrapping-key-algorithm RSA_2048`
-```
+**Example Get Parameters for Import**  
 
 ```
-`{
- "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "WrappingKeyCertificateChain": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "WrappingKeyAlgorithm": "RSA_2048",
- "ImportToken": "import-token-v2rxpl6drxeptn7w",
- "ParametersValidUntilTimestamp": "2025-11-01T18:45:31.271000-07:00"
-}`
+$ aws payment-cryptography get-parameters-for-import \
+    --key-material-type "TR34_KEY_BLOCK" \
+    --wrapping-key-algorithm RSA_2048
+```
+
+```
+{
+    "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+    "WrappingKeyCertificateChain": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+    "WrappingKeyAlgorithm": "RSA_2048",
+    "ImportToken": "import-token-v2rxpl6drxeptn7w",
+    "ParametersValidUntilTimestamp": "2025-11-01T18:45:31.271000-07:00"
+}
 ```
 
 ### Step 7: Export Key with BYOCA
+<a name="keyexchange-byoca.export-key"></a>
 
-Finally, export the key using TR-34 with your own CA-signed certificate using the [ExportKey](../APIReference/API_ExportKey.md "../APIReference/API_ExportKey.md") API.
-Provide the signing certificate that was signed by your external CA.
+Finally, export the key using TR-34 with your own CA-signed certificate using the [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html) API. Provide the signing certificate that was signed by your external CA.
 
-###### Example TR-34 Export with BYOCA
-
-```
-`$` `aws payment-cryptography export-key \
- --export-key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/iox73p5f4c4yjiod \
- --key-material '{
- "Tr34KeyBlock": {
- "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/j625deyfqlwctu57",
- "SigningKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc",
- "SigningKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "KeyBlockFormat": "X9_TR34_2012",
- "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t..."
- }
- }'`
-```
+**Example TR-34 Export with BYOCA**  
 
 ```
-`{
- "WrappedKey": {
- "WrappedKeyMaterialFormat": "TR34_KEY_BLOCK",
- "KeyMaterial": "3082055A06092A864886F70D010702A082054B30820547...",
- "KeyCheckValue": "3DCA31",
- "KeyCheckValueAlgorithm": "ANSI_X9_24"
- }
-}`
+$ aws payment-cryptography export-key \
+    --export-key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/iox73p5f4c4yjiod \
+    --key-material '{
+        "Tr34KeyBlock": {
+            "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/j625deyfqlwctu57",
+            "SigningKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc",
+            "SigningKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+            "KeyBlockFormat": "X9_TR34_2012",
+            "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t..."
+        }
+    }'
+```
+
+```
+{
+    "WrappedKey": {
+        "WrappedKeyMaterialFormat": "TR34_KEY_BLOCK",
+        "KeyMaterial": "3082055A06092A864886F70D010702A082054B30820547...",
+        "KeyCheckValue": "3DCA31",
+        "KeyCheckValueAlgorithm": "ANSI_X9_24"
+    }
+}
 ```
 
 The exported key block can now be imported by the receiving system using the standard TR-34 import process.
 
 ## BYOCA Import Workflow
+<a name="keyexchange-byoca.import-workflow"></a>
 
 The following steps walk you through the BYOCA workflow for TR-34 key import. Use this workflow to receive a key into AWS Payment Cryptography with your own CA-signed KRD (Key Receiving Device) encryption certificate. With BYOCA import, you control the trust chain by using a CA you already manage.
 
-###### Steps
-
-- [Step 1: Create RSA Key](#keyexchange-byoca.import-create-rsa "#keyexchange-byoca.import-create-rsa")
-- [Step 2: Generate Certificate Signing Request](#keyexchange-byoca.import-generate-csr "#keyexchange-byoca.import-generate-csr")
-- [Step 3: Review CSR (Optional)](#keyexchange-byoca.import-review-csr "#keyexchange-byoca.import-review-csr")
-- [Step 4: Sign the CSR with a Certificate Authority](#keyexchange-byoca.import-sign-csr "#keyexchange-byoca.import-sign-csr")
-- [Step 5: Import CA Certificate](#keyexchange-byoca.import-ca "#keyexchange-byoca.import-ca")
-- [Step 6: Get KDH Signing Certificate from Sending System](#keyexchange-byoca.import-get-kdh "#keyexchange-byoca.import-get-kdh")
-- [Step 7: Import Key with BYOCA](#keyexchange-byoca.import-key "#keyexchange-byoca.import-key")
+**Topics**
++ [Step 1: Create RSA Key](#keyexchange-byoca.import-create-rsa)
++ [Step 2: Generate Certificate Signing Request](#keyexchange-byoca.import-generate-csr)
++ [Step 3: Review CSR (Optional)](#keyexchange-byoca.import-review-csr)
++ [Step 4: Sign the CSR with a Certificate Authority](#keyexchange-byoca.import-sign-csr)
++ [Step 5: Import CA Certificate](#keyexchange-byoca.import-ca)
++ [Step 6: Get KDH Signing Certificate from Sending System](#keyexchange-byoca.import-get-kdh)
++ [Step 7: Import Key with BYOCA](#keyexchange-byoca.import-key)
 
 ### Step 1: Create RSA Key
+<a name="keyexchange-byoca.import-create-rsa"></a>
 
 Create an RSA key pair to use as the KRD encryption key. This key unwraps and decrypts the incoming key during TR-34 import. The key is non-exportable because it stays within the service as the receiving key.
 
-###### Example Create KRD encryption key
+**Example Create KRD encryption key**  
 
 ```
-`$` `aws payment-cryptography create-key \
- --key-attributes KeyAlgorithm=RSA_2048,KeyUsage=TR31_K2_TR34_ASYMMETRIC_KEY,KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{Unwrap=True,Decrypt=True}'`
+$ aws payment-cryptography create-key \
+    --key-attributes KeyAlgorithm=RSA_2048,KeyUsage=TR31_K2_TR34_ASYMMETRIC_KEY,KeyClass=ASYMMETRIC_KEY_PAIR,KeyModesOfUse='{Unwrap=True,Decrypt=True}'
 ```
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce",
- "KeyAttributes": {
- "KeyUsage": "TR31_K2_TR34_ASYMMETRIC_KEY",
- "KeyClass": "ASYMMETRIC_KEY_PAIR",
- "KeyAlgorithm": "RSA_2048",
- "KeyModesOfUse": {
- "Unwrap": true,
- "Decrypt": true
- }
- },
- "KeyCheckValue": "7FA29C1E",
- "KeyCheckValueAlgorithm": "SHA_1",
- "Enabled": true,
- "Exportable": false,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY"
- }
-}`
+{
+    "Key": {
+        "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce",
+        "KeyAttributes": {
+            "KeyUsage": "TR31_K2_TR34_ASYMMETRIC_KEY",
+            "KeyClass": "ASYMMETRIC_KEY_PAIR",
+            "KeyAlgorithm": "RSA_2048",
+            "KeyModesOfUse": {
+                "Unwrap": true,
+                "Decrypt": true
+            }
+        },
+        "KeyCheckValue": "7FA29C1E",
+        "KeyCheckValueAlgorithm": "SHA_1",
+        "Enabled": true,
+        "Exportable": false,
+        "KeyState": "CREATE_COMPLETE",
+        "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY"
+    }
+}
 ```
 
 Note the `KeyArn` value. You need it in the next step.
 
 ### Step 2: Generate Certificate Signing Request
+<a name="keyexchange-byoca.import-generate-csr"></a>
 
-Generate a Certificate Signing Request (CSR) for the KRD encryption key using the [GetCertificateSigningRequest](../APIReference/API_GetCertificateSigningRequest.md "../APIReference/API_GetCertificateSigningRequest.md") API. The output is a base64-encoded PEM file.
-If you base64 decode the contents and save them, you will have a valid CSR in PEM format.
+Generate a Certificate Signing Request (CSR) for the KRD encryption key using the [GetCertificateSigningRequest](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetCertificateSigningRequest.html) API. The output is a base64-encoded PEM file. If you base64 decode the contents and save them, you will have a valid CSR in PEM format.
 
-###### Example Generate CSR for KRD Key
-
-```
-`$` `aws payment-cryptography get-certificate-signing-request \
- --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce \
- --signing-algorithm SHA512 \
- --certificate-subject '{
- "CommonName": "MyImportKRDCertAWSUSEAST",
- "Organization": "Amazon",
- "OrganizationUnit": "PaymentCryptography",
- "Country": "US",
- "StateOrProvince": "Virginia",
- "City": "Arlington"
- }'`
-```
+**Example Generate CSR for KRD Key**  
 
 ```
-`{
- "CertificateSigningRequest": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..."
-}`
+$ aws payment-cryptography get-certificate-signing-request \
+    --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce \
+    --signing-algorithm SHA512 \
+    --certificate-subject '{
+        "CommonName": "MyImportKRDCertAWSUSEAST",
+        "Organization": "Amazon",
+        "OrganizationUnit": "PaymentCryptography",
+        "Country": "US",
+        "StateOrProvince": "Virginia",
+        "City": "Arlington"
+    }'
+```
+
+```
+{
+    "CertificateSigningRequest": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..."
+}
 ```
 
 The `CertificateSigningRequest` field contains the entire PEM file, base64-encoded. The PEM file includes the `-----BEGIN CERTIFICATE REQUEST-----` and `-----END CERTIFICATE REQUEST-----` markers. Send this value to your CA for signing.
 
 ### Step 3: Review CSR (Optional)
+<a name="keyexchange-byoca.import-review-csr"></a>
 
 You can optionally use OpenSSL to review the CSR contents and ensure it's valid and as expected.
 
-###### Example Review CSR with OpenSSL
+**Example Review CSR with OpenSSL**  
 
 ```
-`$` `echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d | openssl req -text`
+$ echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d | openssl req -text
 ```
 
 ### Step 4: Sign the CSR with a Certificate Authority
+<a name="keyexchange-byoca.import-sign-csr"></a>
 
-After you generate the CSR, have it signed by a Certificate Authority (CA). In production environments,
-you would typically use AWS Private CA or your organization's established CA infrastructure.
-For testing purposes, you can use OpenSSL to create a self-signed certificate.
+After you generate the CSR, have it signed by a Certificate Authority (CA). In production environments, you would typically use AWS Private CA or your organization's established CA infrastructure. For testing purposes, you can use OpenSSL to create a self-signed certificate.
 
 #### Using AWS Private CA
+<a name="keyexchange-byoca.import-sign-csr-pca"></a>
 
-To sign the CSR using AWS Private CA, first decode the base64-encoded CSR and save it to a file, then use the
-[IssueCertificate](../../../privateca/latest/APIReference/API_IssueCertificate.md "../../../privateca/latest/APIReference/API_IssueCertificate.md") API.
+To sign the CSR using AWS Private CA, first decode the base64-encoded CSR and save it to a file, then use the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) API.
 
-###### Example Sign CSR with AWS Private CA
-
-```
-`$` `echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > krd-csr.pem`
-
-`$` `aws acm-pca issue-certificate \
- --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
- --csr fileb://krd-csr.pem \
- --signing-algorithm SHA256WITHRSA \
- --validity Value=365,Type=DAYS`
-```
+**Example Sign CSR with AWS Private CA**  
 
 ```
-`{
- "CertificateArn": "arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/fedcba0987654321"
-}`
+$ echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > krd-csr.pem
+
+$ aws acm-pca issue-certificate \
+    --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
+    --csr fileb://krd-csr.pem \
+    --signing-algorithm SHA256WITHRSA \
+    --validity Value=365,Type=DAYS
+```
+
+```
+{
+    "CertificateArn": "arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/fedcba0987654321"
+}
 ```
 
 Then retrieve the signed certificate:
 
-###### Example Retrieve Signed Certificate
+**Example Retrieve Signed Certificate**  
 
 ```
-`$` `aws acm-pca get-certificate \
- --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
- --certificate-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/fedcba0987654321`
+$ aws acm-pca get-certificate \
+    --certificate-authority-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012 \
+    --certificate-arn arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/fedcba0987654321
 ```
 
 ```
-`{
- "Certificate": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----",
- "CertificateChain": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----"
-}`
+{
+    "Certificate": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----",
+    "CertificateChain": "-----BEGIN CERTIFICATE-----\nMIID...\n-----END CERTIFICATE-----"
+}
 ```
 
 Save the certificate content for use in the import step. Base64-encode the certificate before providing it to the `ImportKey` API.
 
 #### Using OpenSSL for Testing
+<a name="keyexchange-byoca.import-sign-csr-openssl"></a>
 
 For testing purposes, you can use OpenSSL to create a self-signed CA and sign the CSR. First, create a CA private key and self-signed certificate:
 
-###### Example Create Test CA with OpenSSL
+**Example Create Test CA with OpenSSL**  
 
 ```
-`$` `# Generate CA private key
-openssl genrsa -out ca-key.pem 4096`
+$ # Generate CA private key
+openssl genrsa -out ca-key.pem 4096
 
-`$` `# Create self-signed CA certificate
+$ # Create self-signed CA certificate
 openssl req -new -x509 -days 3650 -key ca-key.pem -out ca-cert.pem \
- -subj "/C=US/ST=Virginia/L=Arlington/O=TestOrg/CN=Test CA"`
+    -subj "/C=US/ST=Virginia/L=Arlington/O=TestOrg/CN=Test CA"
 ```
 
 Then decode the CSR from the previous step and sign it with your test CA:
 
-###### Example Sign CSR with OpenSSL
+**Example Sign CSR with OpenSSL**  
 
 ```
-`$` `# Decode the base64-encoded CSR
-echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > krd-csr.pem`
+$ # Decode the base64-encoded CSR
+echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0..." | base64 -d > krd-csr.pem
 
-`$` `# Sign the CSR with the CA
+$ # Sign the CSR with the CA
 openssl x509 -req -in krd-csr.pem -CA ca-cert.pem -CAkey ca-key.pem \
- -CAcreateserial -out krd-signed-cert.pem -days 365 -sha512`
+    -CAcreateserial -out krd-signed-cert.pem -days 365 -sha512
 ```
 
 ```
-`Certificate request self-signature ok
-subject=C=US, ST=Virginia, L=Arlington, O=Amazon, OU=PaymentCryptography, CN=MyImportKRDCertAWSUSEAST`
+Certificate request self-signature ok
+subject=C=US, ST=Virginia, L=Arlington, O=Amazon, OU=PaymentCryptography, CN=MyImportKRDCertAWSUSEAST
 ```
 
 The signed certificate is now in `krd-signed-cert.pem`. Base64-encode this certificate before providing it to the `ImportKey` API:
 
-###### Example Base64 Encode the Signed Certificate
+**Example Base64 Encode the Signed Certificate**  
 
 ```
-`$` `cat krd-signed-cert.pem | base64 -w 0`
+$ cat krd-signed-cert.pem | base64 -w 0
 ```
 
 ### Step 5: Import CA Certificate
+<a name="keyexchange-byoca.import-ca"></a>
 
-Before you use a CA, you must trust it first.
-Import your external CA's root certificate using the [ImportKey](../APIReference/API_ImportKey.md "../APIReference/API_ImportKey.md") API. If using an intermediate CA, call `import-key` again
-but specify `TrustedPublicKey` instead of `RootCertificatePublicKey` and specify the root CA ARN.
+Before you use a CA, you must trust it first. Import your external CA's root certificate using the [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html) API. If using an intermediate CA, call `import-key` again but specify `TrustedPublicKey` instead of `RootCertificatePublicKey` and specify the root CA ARN.
 
-###### Example Import Root CA Certificate
-
-```
-`$` `aws payment-cryptography import-key --key-material='{
- "RootCertificatePublicKey": {
- "KeyAttributes": {
- "KeyAlgorithm": "RSA_4096",
- "KeyClass": "PUBLIC_KEY",
- "KeyModesOfUse": {
- "Verify": true
- },
- "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE"
- },
- "PublicKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t..."
- }
-}'`
-```
+**Example Import Root CA Certificate**  
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/nqr3c5v2wp6yl8az",
- "KeyAttributes": {
- "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE",
- "KeyClass": "PUBLIC_KEY",
- "KeyAlgorithm": "RSA_4096",
- "KeyModesOfUse": {
- "Verify": true
- }
- },
- "Enabled": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "EXTERNAL"
- }
-}`
+$ aws payment-cryptography import-key --key-material='{
+    "RootCertificatePublicKey": {
+        "KeyAttributes": {
+            "KeyAlgorithm": "RSA_4096",
+            "KeyClass": "PUBLIC_KEY",
+            "KeyModesOfUse": {
+                "Verify": true
+            },
+            "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE"
+        },
+        "PublicKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t..."
+    }
+}'
+```
+
+```
+{
+    "Key": {
+        "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/nqr3c5v2wp6yl8az",
+        "KeyAttributes": {
+            "KeyUsage": "TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE",
+            "KeyClass": "PUBLIC_KEY",
+            "KeyAlgorithm": "RSA_4096",
+            "KeyModesOfUse": {
+                "Verify": true
+            }
+        },
+        "Enabled": true,
+        "KeyState": "CREATE_COMPLETE",
+        "KeyOrigin": "EXTERNAL"
+    }
+}
 ```
 
 Note the CA's `KeyArn` for use in the import step.
 
 ### Step 6: Get KDH Signing Certificate from Sending System
+<a name="keyexchange-byoca.import-get-kdh"></a>
 
-In a TR-34 key exchange, the sending side (Key Distribution Host, or KDH) provides its public key certificate for signing.
-This certificate is used to verify the signature on the wrapped key block during import, ensuring the key material came from
-a trusted sender. In production, this certificate typically comes from the sending system—such as an HSM, a payment terminal,
-or a key management system—through its own certificate distribution process.
+In a TR-34 key exchange, the sending side (Key Distribution Host, or KDH) provides its public key certificate for signing. This certificate is used to verify the signature on the wrapped key block during import, ensuring the key material came from a trusted sender. In production, this certificate typically comes from the sending system—such as an HSM, a payment terminal, or a key management system—through its own certificate distribution process.
 
-In this example, you use AWS Payment Cryptography as both the sender and receiver to keep the steps short. Call
-[GetParametersForExport](../APIReference/API_GetParametersForExport.md "../APIReference/API_GetParametersForExport.md")
-to get the KDH signing certificate that would normally be provided by the sending system.
+In this example, you use AWS Payment Cryptography as both the sender and receiver to keep the steps short. Call [GetParametersForExport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html) to get the KDH signing certificate that would normally be provided by the sending system.
 
-###### Example Get Parameters for Export
+**Example Get Parameters for Export**  
 
 ```
-`$` `aws payment-cryptography get-parameters-for-export \
- --key-material-type "TR34_KEY_BLOCK" \
- --signing-key-algorithm RSA_2048`
+$ aws payment-cryptography get-parameters-for-export \
+    --key-material-type "TR34_KEY_BLOCK" \
+    --signing-key-algorithm RSA_2048
 ```
 
 ```
-`{
- "ExportToken": "export-token-k8sfhe2w9rjy4bx6",
- "SigningKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "SigningKeyCertificateChain": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "SigningKeyAlgorithm": "RSA_2048",
- "ParametersValidUntilTimestamp": "2025-11-01T18:45:31.271000-07:00"
-}`
+{
+    "ExportToken": "export-token-k8sfhe2w9rjy4bx6",
+    "SigningKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+    "SigningKeyCertificateChain": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+    "SigningKeyAlgorithm": "RSA_2048",
+    "ParametersValidUntilTimestamp": "2025-11-01T18:45:31.271000-07:00"
+}
 ```
 
 Note the `ExportToken` and `SigningKeyCertificate` for use in the import step.
 
 ### Step 7: Import Key with BYOCA
+<a name="keyexchange-byoca.import-key"></a>
 
-Finally, import the key using TR-34 with your own CA-signed certificate using the `ImportKey` API.
-Provide the KRD encryption certificate that was signed by your external CA.
+Finally, import the key using TR-34 with your own CA-signed certificate using the `ImportKey` API. Provide the KRD encryption certificate that was signed by your external CA.
 
-The `RandomNonce` parameter is required when using 2-pass TR-34. The service does not generate a nonce for you—it
-is a random hex value that you generate, and it must be the same on both the sending and receiving side. When using 1-pass TR-34
-(which relies on a timestamp instead of a nonce), the timestamp must not be in the future. The service does not validate any
-particular freshness (for example, within a certain number of hours), but you can enforce freshness checks on your side if needed.
+The `RandomNonce` parameter is required when using 2-pass TR-34. The service does not generate a nonce for you—it is a random hex value that you generate, and it must be the same on both the sending and receiving side. When using 1-pass TR-34 (which relies on a timestamp instead of a nonce), the timestamp must not be in the future. The service does not validate any particular freshness (for example, within a certain number of hours), but you can enforce freshness checks on your side if needed.
 
-###### Example TR-34 Import with BYOCA
+**Example TR-34 Import with BYOCA**  
 
 ```
-`$` `aws payment-cryptography import-key --key-material='{
- "Tr34KeyBlock": {
- "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/nqr3c5v2wp6yl8az",
- "KeyBlockFormat": "X9_TR34_2012",
- "RandomNonce": "4997FBB4587D571F",
- "SigningKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
- "WrappingKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce",
- "WrappedKeyBlock": "D0112B0AX00E0000B82679114F470F540165EDFBF407..."
- }
-}'`
+$ aws payment-cryptography import-key --key-material='{
+    "Tr34KeyBlock": {
+        "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/nqr3c5v2wp6yl8az",
+        "KeyBlockFormat": "X9_TR34_2012",
+        "RandomNonce": "4997FBB4587D571F",
+        "SigningKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+        "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0t...",
+        "WrappingKeyIdentifier": "arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce",
+        "WrappedKeyBlock": "D0112B0AX00E0000B82679114F470F540165EDFBF407..."
+    }
+}'
 ```
 
 ```
-`{
- "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/gwz7u3rfxd4o52sb",
- "KeyAttributes": {
- "KeyUsage": "TR31_K0_KEY_ENCRYPTION_KEY",
- "KeyClass": "SYMMETRIC_KEY",
- "KeyAlgorithm": "TDES_2KEY",
- "KeyModesOfUse": {
- "Encrypt": true,
- "Decrypt": true
- }
- },
- "KeyCheckValue": "3DCA31",
- "KeyCheckValueAlgorithm": "ANSI_X9_24",
- "Enabled": true,
- "Exportable": true,
- "KeyState": "CREATE_COMPLETE",
- "KeyOrigin": "EXTERNAL"
- }
-}`
+{
+    "Key": {
+        "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/gwz7u3rfxd4o52sb",
+        "KeyAttributes": {
+            "KeyUsage": "TR31_K0_KEY_ENCRYPTION_KEY",
+            "KeyClass": "SYMMETRIC_KEY",
+            "KeyAlgorithm": "TDES_2KEY",
+            "KeyModesOfUse": {
+                "Encrypt": true,
+                "Decrypt": true
+            }
+        },
+        "KeyCheckValue": "3DCA31",
+        "KeyCheckValueAlgorithm": "ANSI_X9_24",
+        "Enabled": true,
+        "Exportable": true,
+        "KeyState": "CREATE_COMPLETE",
+        "KeyOrigin": "EXTERNAL"
+    }
+}
 ```
 
 The key is now imported into AWS Payment Cryptography and ready for use. The `KeyOrigin` field shows `EXTERNAL` indicating the key came from outside the service.
 
 ## Additional Notes
-
-- These examples are shown using the AWS CLI. The same functionality is available in all AWS SDKs including Java, Python, Go, and Rust.
-- If you're testing with a self-signed CA, you can use OpenSSL to create a test CA and sign the CSR. In production, use your organization's established CA infrastructure.
+<a name="keyexchange-byoca.notes"></a>
++ These examples are shown using the AWS CLI. The same functionality is available in all AWS SDKs including Java, Python, Go, and Rust.
++ If you're testing with a self-signed CA, you can use OpenSSL to create a test CA and sign the CSR. In production, use your organization's established CA infrastructure.
