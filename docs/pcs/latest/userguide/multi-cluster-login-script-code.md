@@ -1,4 +1,7 @@
+
+
 # AWS PCS multi-cluster login node configuration script code
+<a name="multi-cluster-login-script-code"></a>
 
 Save the following source code to a file with the following name:
 
@@ -7,13 +10,14 @@ pcs-multi-cluster-login-configure.sh
 ```
 
 ## Script source code
+<a name="multi-cluster-login-script-code-content"></a>
 
 ```
 #!/bin/bash
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
 # AWS PCS Multi-Cluster Standalone Login Node Configuration Script
-#
+# 
 # This script configures AWS Parallel Computing Service (PCS) multi-cluster stand alone login nodes
 # by setting up the Slurm authentication and credential kiosk daemon (sackd)
 # for connecting to remote PCS clusters.
@@ -60,12 +64,12 @@ get_auth_key() {
         echo "Retrieving authentication key from AWS Secrets Manager..." >&2
         local auth_key_arn=$(echo "$CLUSTER_INFO" | jq -r '.cluster.slurmConfiguration.authKey.secretArn')
         local auth_key_version=$(echo "$CLUSTER_INFO" | jq -r '.cluster.slurmConfiguration.authKey.secretVersion')
-
+        
         if [ "$auth_key_arn" = "null" ] || [ "$auth_key_version" = "null" ]; then
             echo "Error: Auth key information not found in cluster configuration" >&2
             exit 1
         fi
-
+        
         if ! aws secretsmanager get-secret-value --secret-id "$auth_key_arn" --version-id "$auth_key_version" --query SecretString --output text --region "$REGION" 2>/dev/null; then
             echo "Error: Failed to retrieve auth key from Secrets Manager" >&2
             exit 1
@@ -85,14 +89,14 @@ get_next_sackd_port() {
     local exclude_file="$1"
     local port=6918
     local used_ports=()
-
+    
     # Get all currently used SACKD ports into an array
     while IFS= read -r line; do
         used_ports+=("$line")
     done < <(find /etc/sysconfig -name "sackd-pcs-*" ! -path "$exclude_file" \
              -exec grep SACKD_PORT= '{}' ';' 2>/dev/null | \
              sed 's/.*SACKD_PORT=//' | sort -n)
-
+    
     # Loop through used ports to find first available port
     for used_port in "${used_ports[@]}"; do
         if [ "$port" -lt "$used_port" ]; then
@@ -101,7 +105,7 @@ get_next_sackd_port() {
             ((port++))
         fi
     done
-
+    
     echo "$port"
 }
 
@@ -110,16 +114,16 @@ configure_cluster() {
     mkdir -p /etc/slurm
     SLURM_JWKS_FILE="/etc/slurm/slurm-${CLUSTER_NAME}.jwks"
     echo '{"keys":[{"alg":"HS256","kty":"oct","kid":"key-'"${CLUSTER_ID}"'","k":"'"${BASE64_SLURM_KEY}"'"}]}' | jq -c '.' > "${SLURM_JWKS_FILE}"
-
+    
     chmod 0600 "$SLURM_JWKS_FILE"
     chown slurm:slurm "$SLURM_JWKS_FILE"
-
+    
     SLURM_INSTALL_PATH="/opt/aws/pcs/scheduler/slurm-${SLURM_VERSION}"
-
+    
     SACKD_RUNTIME_DIRECTORY="/run/slurm-${CLUSTER_NAME}"
     mkdir -p "${SACKD_RUNTIME_DIRECTORY}"
     chown slurm:slurm "${SACKD_RUNTIME_DIRECTORY}"
-
+    
     mkdir -p /etc/sysconfig
     SACKD_SERVICE_NAME="sackd-pcs-${CLUSTER_NAME}"
     SACKD_SERVICE_ENV="/etc/sysconfig/${SACKD_SERVICE_NAME}"
@@ -130,9 +134,9 @@ SLURM_SACK_JWKS='$SLURM_JWKS_FILE'
 RUNTIME_DIRECTORY='$SACKD_RUNTIME_DIRECTORY'
 SACKD_PORT=$SACKD_PORT
 EOF
-
+    
     SACKD_SERVICE_PATH="/etc/systemd/system/${SACKD_SERVICE_NAME}.service"
-
+    
     cat << EOF > "$SACKD_SERVICE_PATH"
 [Unit]
 Description=Slurm auth and cred kiosk daemon
@@ -157,12 +161,12 @@ LimitSTACK=infinity
 [Install]
 WantedBy=multi-user.target
 EOF
-
+    
     chown root:root "$SACKD_SERVICE_PATH"
     chmod 0644 "$SACKD_SERVICE_PATH"
     systemctl daemon-reload && systemctl enable "$SACKD_SERVICE_NAME"
     systemctl restart "$SACKD_SERVICE_NAME"
-
+    
     ACTIVATE_SCRIPT="activate-pcs-${CLUSTER_NAME}"
     cat > "$ACTIVATE_SCRIPT" << EOF
 # Activate script for Slurm cluster ${CLUSTER_NAME}
@@ -205,7 +209,7 @@ main() {
     # Parse arguments
     CLUSTER_IDENTIFIER=""
     PCS_ENDPOINT_URL=""
-
+    
     while [ "$1" != "" ]; do
         case $1 in
             --cluster-identifier)
@@ -228,20 +232,20 @@ main() {
         esac
         shift
     done
-
+    
     # Validate required arguments
     if [ -z "$CLUSTER_IDENTIFIER" ]; then
         echo "Error: --cluster-identifier is required" >&2
         usage >&2
         exit 1
     fi
-
+    
     # Validate running as root
     if [ "$EUID" -ne 0 ]; then
         echo "Error: This script must be run as root" >&2
         exit 1
     fi
-
+    
     # Validate required commands are available
     for cmd in aws jq curl; do
         if ! command -v "$cmd" &> /dev/null; then
@@ -249,7 +253,7 @@ main() {
             exit 1
         fi
     done
-
+    
     # Get the region name from IMDS v2 with error handling (try IPv6 first, fallback to IPv4)
     echo "Retrieving AWS region from instance metadata..."
     # Try IPv6 IMDS endpoint first (fd00:ec2::254) with fast timeout (1s connect, 2s total)
@@ -262,14 +266,14 @@ main() {
             exit 1
         fi
     fi
-
+    
     if ! REGION=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" "${IMDS_ENDPOINT}/latest/dynamic/instance-identity/document" --max-time 5 | jq -r '.region'); then
         echo "Error: Failed to retrieve AWS region from instance metadata" >&2
         exit 1
     fi
-
+    
     echo "Detected AWS region: $REGION"
-
+    
     # Retrieve cluster information from AWS PCS
     echo "Retrieving cluster information for: $CLUSTER_IDENTIFIER"
     # shellcheck disable=SC2086
@@ -277,31 +281,31 @@ main() {
         echo "Error: Failed to retrieve cluster information. Check cluster identifier and AWS permissions." >&2
         exit 1
     fi
-
+    
     CLUSTER_ID=$(echo "$CLUSTER_INFO" | jq -r '.cluster.id')
     CLUSTER_NAME="$(echo "$CLUSTER_INFO" | jq -r '.cluster.name')"
     SLURM_VERSION=$(echo "$CLUSTER_INFO" | jq -r '.cluster.scheduler.version')
     SLURM_VERSION=${SLURM_VERSION#Slurm_}
-
+    
     # Check if Slurm version is >= 25.05
     # shellcheck disable=SC2072
     if [[ "$SLURM_VERSION" < "25.05" ]]; then
         echo "Error: This script requires Slurm version 25.05 or later. Found version: $SLURM_VERSION" >&2
         exit 1
     fi
-
+    
     ENDPOINTS=$(echo "$CLUSTER_INFO" | jq -r '.cluster.endpoints[] | select(.type == "SLURMCTLD") | (if .privateIpAddress != "" then .privateIpAddress else "[" + .ipv6Address + "]" end) + ":" + .port' | tr '\n' ',' | sed 's/,$//')
-
+    
     # Get BASE64_SLURM_KEY
     BASE64_SLURM_KEY=$(get_auth_key)
-
+    
     if [ -z "$BASE64_SLURM_KEY" ]; then
         echo "Error: base64 Slurm key cannot be empty" >&2
         exit 1
     fi
-
+    
     configure_cluster
-
+    
     # Final configuration summary
     echo "========================================"
     echo "Configuration completed successfully!"

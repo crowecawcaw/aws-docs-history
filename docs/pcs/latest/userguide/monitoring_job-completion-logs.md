@@ -1,232 +1,238 @@
+
+
 # Job completion logs in AWS PCS
+<a name="monitoring_job-completion-logs"></a>
 
-Job completion logs give you key details about your AWS Parallel Computing Service (AWS PCS) jobs when they
-complete, at no additional cost. You can use other AWS services to access and process your log data, such as Amazon CloudWatch Logs,
-Amazon Simple Storage Service (Amazon S3), and Amazon Data Firehose; AWS PCS records metadata about your jobs, such as the
-following.
+Job completion logs give you key details about your AWS Parallel Computing Service (AWS PCS) jobs when they complete, at no additional cost. You can use other AWS services to access and process your log data, such as Amazon CloudWatch Logs, Amazon Simple Storage Service (Amazon S3), and Amazon Data Firehose; AWS PCS records metadata about your jobs, such as the following.
++ Job ID and name
++ User and group information
++ Job state (such as `COMPLETED`, `FAILED`, `CANCELLED`)
++ Partition used
++ Time limits
++ Start, end, submit, and eligible times
++ Node list and count
++ Processor count
++ Working directory
++ Resource usage (CPU, memory)
++ Exit codes
++ Node details (names, instance IDs, instance types)
 
-- Job ID and name
-- User and group information
-- Job state (such as `COMPLETED`, `FAILED`, `CANCELLED`)
-- Partition used
-- Time limits
-- Start, end, submit, and eligible times
-- Node list and count
-- Processor count
-- Working directory
-- Resource usage (CPU, memory)
-- Exit codes
-- Node details (names, instance IDs, instance types)
-
-###### Contents
-
-- [Prerequisites](monitoring_job-completion-logs.md#monitoring_job-completion-logs_prereqs "monitoring_job-completion-logs.md#monitoring_job-completion-logs_prereqs")
-- [Set up job completion logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_setup "monitoring_job-completion-logs.md#monitoring_job-completion-logs_setup")
-- [How to find job completion logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_access "monitoring_job-completion-logs.md#monitoring_job-completion-logs_access")
-
-  - [CloudWatch Logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_cloudwatch "monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_cloudwatch")
-  - [Amazon S3](monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_s3 "monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_s3")
-
-- [Job completion log fields](monitoring_job-completion-logs.md#monitoring_job-completion-logs_fields "monitoring_job-completion-logs.md#monitoring_job-completion-logs_fields")
-- [Example job completion logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_example "monitoring_job-completion-logs.md#monitoring_job-completion-logs_example")
+**Contents**
++ [Prerequisites](#monitoring_job-completion-logs_prereqs)
++ [Set up job completion logs](#monitoring_job-completion-logs_setup)
++ [How to find job completion logs](#monitoring_job-completion-logs_access)
+  + [CloudWatch Logs](#monitoring_job-completion-logs_access_cloudwatch)
+  + [Amazon S3](#monitoring_job-completion-logs_access_s3)
++ [Job completion log fields](#monitoring_job-completion-logs_fields)
++ [Example job completion logs](#monitoring_job-completion-logs_example)
 
 ## Prerequisites
+<a name="monitoring_job-completion-logs_prereqs"></a>
 
-The IAM principal that manages the AWS PCS cluster must allow the
-`pcs:AllowVendedLogDeliveryForResource` action.
+The IAM principal that manages the AWS PCS cluster must allow the `pcs:AllowVendedLogDeliveryForResource` action.
 
 The following example IAM policy grants the required permissions.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "PcsAllowVendedLogsDelivery",
- "Effect": "Allow",
- "Action": ["pcs:AllowVendedLogDeliveryForResource"],
- "Resource": [
- "arn:aws:pcs:*::cluster/*"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+      {
+         "Sid": "PcsAllowVendedLogsDelivery",
+         "Effect": "Allow",
+         "Action": ["pcs:AllowVendedLogDeliveryForResource"],
+         "Resource": [
+            "arn:aws:pcs:*::cluster/*"
+         ]
+      }
+   ]
+}
 ```
+
+------
 
 ## Set up job completion logs
+<a name="monitoring_job-completion-logs_setup"></a>
 
-You can set up job completion logs for your AWS PCS cluster with the AWS Management Console or
-AWS CLI.
+You can set up job completion logs for your AWS PCS cluster with the AWS Management Console or AWS CLI.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### To set up job completion logs with the console
+**To set up job completion logs with the console**
 
-1. Open the [AWS PCS console](https://console.aws.amazon.com/pcs "https://console.aws.amazon.com/pcs").
-2. In the navigation pane, choose **Clusters**.
-3. Choose the cluster where you want to add job completion logs.
-4. On the cluster details page, choose the **Logs** tab.
-5. Under **Job Completion Logs**, choose **Add** to add
-   up to 3 log delivery destinations from among CloudWatch Logs, Amazon S3, and Firehose.
-6. Choose **Update log deliveries**.
+1. Open the [AWS PCS console](https://console.aws.amazon.com/pcs).
 
-AWS CLI
+1. In the navigation pane, choose **Clusters**.
 
-###### To set up job completion logs with the AWS CLI
+1. Choose the cluster where you want to add job completion logs.
+
+1. On the cluster details page, choose the **Logs** tab.
+
+1. Under **Job Completion Logs**, choose **Add** to add up to 3 log delivery destinations from among CloudWatch Logs, Amazon S3, and Firehose.
+
+1. Choose **Update log deliveries**.
+
+------
+#### [ AWS CLI ]
+
+**To set up job completion logs with the AWS CLI**
 
 1. Create a log delivery destination:
 
-```
-aws logs put-delivery-destination --region `region` \
-  --name `pcs-logs-destination` \
-  --delivery-destination-configuration \
-  destinationResourceArn=`resource-arn`
-```
+   ```
+   aws logs put-delivery-destination --region {{region}} \
+     --name {{pcs-logs-destination}} \
+     --delivery-destination-configuration \
+     destinationResourceArn={{resource-arn}}
+   ```
 
-Replace:
+   Replace:
+   + {{region}} — The AWS Region where you want to create the destination, such as `us-east-1`
+   + {{pcs-logs-destination}} — A name for the destination
+   + {{resource-arn}} — The Amazon Resource Name (ARN) of a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream.
 
-    * `region` — The AWS Region where you want to create
-     the destination, such as `us-east-1`
-    * `pcs-logs-destination` — A name for the
-     destination
-    * `resource-arn` — The Amazon Resource Name (ARN) of a
-     CloudWatch Logs log group, S3 bucket, or Firehose delivery stream.
+   For more information, see [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html) in the *Amazon CloudWatch Logs API Reference*.
 
-For more information, see [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md") in the _Amazon CloudWatch Logs API Reference_. 2. Set the PCS cluster as a log delivery source:
+1. Set the PCS cluster as a log delivery source:
 
-```
-aws logs put-delivery-source --region `region` \
-  --name `cluster-logs-source-name` \
-  --resource-arn `cluster-arn` \
-  --log-type PCS_JOBCOMP_LOGS
-```
+   ```
+   aws logs put-delivery-source --region {{region}} \
+     --name {{cluster-logs-source-name}} \
+     --resource-arn {{cluster-arn}} \
+     --log-type PCS_JOBCOMP_LOGS
+   ```
 
-Replace:
+   Replace:
+   + {{region}} — The AWS Region of your cluster, such as `us-east-1`
+   + {{cluster-logs-source-name}} — A name for the source
+   + {{cluster-arn}} — the ARN of your AWS PCS cluster
 
-    * `region` — The AWS Region of your cluster, such as
-     `us-east-1`
-    * `cluster-logs-source-name` — A name for the
-     source
-    * `cluster-arn` — the ARN of your AWS PCS cluster
+   For more information, see [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) in the *Amazon CloudWatch Logs API Reference*.
 
-For more information, see [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") in the _Amazon CloudWatch Logs API Reference_. 3. Connect the delivery source to the delivery destination:
+1. Connect the delivery source to the delivery destination:
 
-```
-aws logs create-delivery --region `region` \
-  --delivery-source-name `cluster-logs-source` \
-  --delivery-destination-arn `destination-arn`
-```
+   ```
+   aws logs create-delivery --region {{region}} \
+     --delivery-source-name {{cluster-logs-source}} \
+     --delivery-destination-arn {{destination-arn}}
+   ```
 
-Replace:
+   Replace:
+   + {{region}} — The AWS Region, such as `us-east-1`
+   + {{cluster-logs-source}} — The name of your delivery source
+   + {{destination-arn}} — The ARN of your delivery destination
 
-    * `region` — The AWS Region, such as
-     `us-east-1`
-    * `cluster-logs-source` — The name of your delivery
-     source
-    * `destination-arn` — The ARN of your delivery
-     destination
+   For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) in the *Amazon CloudWatch Logs API Reference*.
 
-For more information, see [CreateDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md") in the _Amazon CloudWatch Logs API Reference_.
+------
 
 ## How to find job completion logs
+<a name="monitoring_job-completion-logs_access"></a>
 
-You can configure log destinations in CloudWatch Logs and Amazon S3. AWS PCS uses the following structured
-path names and file names.
+You can configure log destinations in CloudWatch Logs and Amazon S3. AWS PCS uses the following structured path names and file names.
 
 ### CloudWatch Logs
+<a name="monitoring_job-completion-logs_access_cloudwatch"></a>
 
 AWS PCS uses the following name format for the CloudWatch Logs stream:
 
 ```
-AWSLogs/PCS/`cluster-id`/jobcomp.log
+AWSLogs/PCS/{{cluster-id}}/jobcomp.log
 ```
 
 For example: `AWSLogs/PCS/pcs_abc123de45/jobcomp.log`
 
 ### Amazon S3
+<a name="monitoring_job-completion-logs_access_s3"></a>
 
 AWS PCS uses the following name format for the S3 path:
 
 ```
-AWSLogs/`account-id`/PCS/`region`/`cluster-id`/jobcomp/`year`/`month`/`day`/`hour`/
+AWSLogs/{{account-id}}/PCS/{{region}}/{{cluster-id}}/jobcomp/{{year}}/{{month}}/{{day}}/{{hour}}/
 ```
 
-For example:
-`AWSLogs/111122223333/PCS/us-east-1/pcs_abc123de45/jobcomp/2025/06/19/11/`
+For example: `AWSLogs/111122223333/PCS/us-east-1/pcs_abc123de45/jobcomp/2025/06/19/11/`
 
 AWS PCS uses the following name format for the log files:
 
 ```
-PCS_jobcomp_`year`-`month`-`day`-`hour`_`cluster-id`_`random-id`.log.gz
+PCS_jobcomp_{{year}}-{{month}}-{{day}}-{{hour}}_{{cluster-id}}_{{random-id}}.log.gz
 ```
 
 For example: `PCS_jobcomp_2025-06-19-11_pcs_abc123de45_04be080b.log.gz`
 
 ## Job completion log fields
+<a name="monitoring_job-completion-logs_fields"></a>
 
-AWS PCS writes job completion log data as JSON objects. Each log entry contains top-level
-metadata fields and a `fields` object. The top-level fields identify the cluster,
-event time, and scheduler version. The `fields` object holds the job details. Some
-fields in the `fields` object appear only for array jobs or heterogeneous
-jobs.
+AWS PCS writes job completion log data as JSON objects. Each log entry contains top-level metadata fields and a `fields` object. The top-level fields identify the cluster, event time, and scheduler version. The `fields` object holds the job details. Some fields in the `fields` object appear only for array jobs or heterogeneous jobs.
 
 The following table describes the top-level fields in each log entry.
 
-Top-level fields| Name | Example value | Required | Notes |
-| --- | --- | --- | --- |
-| `resource_id` | `"pcs_22l8nzr3t9"` | Yes | The AWS PCS cluster ID |
-| `resource_type` | `"PCS_CLUSTER"` | Yes | Always `"PCS_CLUSTER"` |
-| `event_timestamp` | `1750370337` | Yes | Unix epoch seconds when the event occurred |
-| `scheduler_type` | `"slurm"` | Yes | The scheduler type for the cluster |
-| `scheduler_major_version` | `"25.11"` | Yes | The major version of the scheduler |
+
+**Top-level fields**  
+
+| Name | Example value | Required | Notes | 
+| --- | --- | --- | --- | 
+| resource\_id | "pcs\_22l8nzr3t9" | Yes | The AWS PCS cluster ID | 
+| resource\_type | "PCS\_CLUSTER" | Yes | Always "PCS\_CLUSTER" | 
+| event\_timestamp | 1750370337 | Yes | Unix epoch seconds when the event occurred | 
+| scheduler\_type | "slurm" | Yes | The scheduler type for the cluster | 
+| scheduler\_major\_version | "25.11" | Yes | The major version of the scheduler | 
 
 The following table describes the fields inside the `fields` object.
 
-Fields inside the `fields` object| Name | Example value | Required | Notes |
-| --- | --- | --- | --- |
-| `job_id` | `11` | Yes | Always present with value |
-| `user` | `"root"` | Yes | Always present with value |
-| `user_id` | `0` | Yes | Always present with value |
-| `group` | `"root"` | Yes | Always present with value |
-| `group_id` | `0` | Yes | Always present with value |
-| `name` | `"wrap"` | Yes | Always present with value |
-| `job_state` | `"COMPLETED"` | Yes | Always present with value |
-| `partition` | `"MpiQueue-abcdef01-7"` | Yes | Always present with value |
-| `time_limit` | `"UNLIMITED"` | Yes | Always present, but might be `"UNLIMITED"` |
-| `start_time` | `"2025-06-19T10:58:57"` | Yes | Always present, but might be `"Unknown"` |
-| `end_time` | `"2025-06-19T10:58:57"` | Yes | Always present, but might be `"Unknown"` |
-| `node_list` | `"MpiNG-abcdef01-2345-1"` | Yes | Always present with value |
-| `node_cnt` | `1` | Yes | Always present with value |
-| `proc_cnt` | `1` | Yes | Always present with value |
-| `work_dir` | `"/root"` | Yes | Always present, but might be `"Unknown"` |
-| `reservation_name` | `"weekly_maintenance"` | Yes | Always present, but might be an empty string `""` |
-| `tres.cpu` | `1` | Yes | Always present with value |
-| `tres.mem.val` | `600` | Yes | Always present with value |
-| `tres.mem.unit` | `"M"` | Yes | Can be `"M"` or `"bb"` |
-| `tres.node` | `1` | Yes | Always present with value |
-| `tres.billing` | `1` | Yes | Always present with value |
-| `account` | `"finance"` | Yes | Always present, but might be an empty string `""` |
-| `qos` | `"normal"` | Yes | Always present, but might be an empty string `""` |
-| `wc_key` | `"project_1"` | Yes | Always present, but might be an empty string `""` |
-| `cluster` | `"unknown"` | Yes | Always present, but might be `"unknown"` |
-| `submit_time` | `"2025-06-19T10:55:46"` | Yes | Always present, but might be `"Unknown"` |
-| `eligible_time` | `"2025-06-19T10:55:46"` | Yes | Always present, but might be `"Unknown"` |
-| `array_job_id` | `12` | No | Only present if the job is an array job |
-| `array_task_id` | `1` | No | Only present if the job is an array job |
-| `het_job_id` | `10` | No | Only present if the job is a heterogeneous job |
-| `het_job_offset` | `0` | No | Only present if the job is a heterogeneous job |
-| `derived_exit_code_status` | `0` | Yes | Always present with value |
-| `derived_exit_code_signal` | `0` | Yes | Always present with value |
-| `exit_code_status` | `0` | Yes | Always present with value |
-| `exit_code_signal` | `0` | Yes | Always present with value |
-| `node_details[0].name` | `"MpiNG-abcdef01-2345-1"` | No | Always present, but `node_details` might be `"[]"` |
-| `node_details[0].instance_id` | `"i-0abcdef01234567a"` | No | Always present, but `node_details` might be `"[]"` |
-| `node_details[0].instance_type` | `"t4g.micro"` | No | Always present, but `node_details` might be `"[]"` |
+
+**Fields inside the `fields` object**  
+
+| Name | Example value | Required | Notes | 
+| --- | --- | --- | --- | 
+| job\_id | 11 | Yes | Always present with value | 
+| user | "root" | Yes | Always present with value | 
+| user\_id | 0 | Yes | Always present with value | 
+| group | "root" | Yes | Always present with value | 
+| group\_id | 0 | Yes | Always present with value | 
+| name | "wrap" | Yes | Always present with value | 
+| job\_state | "COMPLETED" | Yes | Always present with value | 
+| partition | "MpiQueue-abcdef01-7" | Yes | Always present with value | 
+| time\_limit | "UNLIMITED" | Yes | Always present, but might be "UNLIMITED" | 
+| start\_time | "2025-06-19T10:58:57" | Yes | Always present, but might be "Unknown" | 
+| end\_time | "2025-06-19T10:58:57" | Yes | Always present, but might be "Unknown" | 
+| node\_list | "MpiNG-abcdef01-2345-1" | Yes | Always present with value | 
+| node\_cnt | 1 | Yes | Always present with value | 
+| proc\_cnt | 1 | Yes | Always present with value | 
+| work\_dir | "/root" | Yes | Always present, but might be "Unknown" | 
+| reservation\_name | "weekly\_maintenance" | Yes | Always present, but might be an empty string "" | 
+| tres.cpu | 1 | Yes | Always present with value | 
+| tres.mem.val | 600 | Yes | Always present with value | 
+| tres.mem.unit | "M" | Yes | Can be "M" or "bb" | 
+| tres.node | 1 | Yes | Always present with value | 
+| tres.billing | 1 | Yes | Always present with value | 
+| account | "finance" | Yes | Always present, but might be an empty string "" | 
+| qos | "normal" | Yes | Always present, but might be an empty string "" | 
+| wc\_key | "project\_1" | Yes | Always present, but might be an empty string "" | 
+| cluster | "unknown" | Yes | Always present, but might be "unknown" | 
+| submit\_time | "2025-06-19T10:55:46" | Yes | Always present, but might be "Unknown" | 
+| eligible\_time | "2025-06-19T10:55:46" | Yes | Always present, but might be "Unknown" | 
+| array\_job\_id | 12 | No | Only present if the job is an array job | 
+| array\_task\_id | 1 | No | Only present if the job is an array job | 
+| het\_job\_id | 10 | No | Only present if the job is a heterogeneous job | 
+| het\_job\_offset | 0 | No | Only present if the job is a heterogeneous job | 
+| derived\_exit\_code\_status | 0 | Yes | Always present with value | 
+| derived\_exit\_code\_signal | 0 | Yes | Always present with value | 
+| exit\_code\_status | 0 | Yes | Always present with value | 
+| exit\_code\_signal | 0 | Yes | Always present with value | 
+| node\_details[0].name | "MpiNG-abcdef01-2345-1" | No | Always present, but node\_details might be "[]" | 
+| node\_details[0].instance\_id | "i-0abcdef01234567a" | No | Always present, but node\_details might be "[]" | 
+| node\_details[0].instance\_type | "t4g.micro" | No | Always present, but node\_details might be "[]" | 
 
 ## Example job completion logs
+<a name="monitoring_job-completion-logs_example"></a>
 
 The following examples show job completion logs for various job types and states:
 

@@ -1,15 +1,14 @@
+
+
 # Step 1 – Retrieve the address and secret for the target AWS PCS cluster
+<a name="working-with_login-nodes_standalone_get-addr"></a>
 
-Retrieve details about the target AWS PCS cluster using the AWS CLI with the command that
-follows. Before running the command, make the following replacements:
-
-- Replace `region-code` with the AWS Region where the target
-  cluster is running.
-- Replace `cluster-ident` with the name or identifier for the
-  target cluster
+Retrieve details about the target AWS PCS cluster using the AWS CLI with the command that follows. Before running the command, make the following replacements:
++ Replace {{region-code}} with the AWS Region where the target cluster is running.
++ Replace {{cluster-ident}} with the name or identifier for the target cluster
 
 ```
-aws pcs get-cluster --region `region-code` --cluster-identifier `cluster-ident`
+aws pcs get-cluster --region {{region-code}} --cluster-identifier {{cluster-ident}}
 ```
 
 The command will return output similar to this example.
@@ -51,10 +50,6 @@ The command will return output similar to this example.
         ]
     }
 }
-
 ```
 
-In this sample, the cluster Slurm controller endpoint has an IP address of
-`10.3.149.220` and it is running on port `6817`. The
-`secretArn` will be used in later steps to retrieve the cluster secret. The IP
-address and port will be used in later steps to configure the `sackd` service.
+In this sample, the cluster Slurm controller endpoint has an IP address of `10.3.149.220` and it is running on port `6817`. The `secretArn` will be used in later steps to retrieve the cluster secret. The IP address and port will be used in later steps to configure the `sackd` service. 

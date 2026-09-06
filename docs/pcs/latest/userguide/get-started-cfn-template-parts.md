@@ -1,32 +1,25 @@
+
+
 # Parts of a CloudFormation template for AWS PCS
+<a name="get-started-cfn-template-parts"></a>
 
-A CloudFormation template has 1 or more sections that each serve a specific purpose.
-CloudFormation defines standard format, syntax, and language in a template. For more information,
-see [Working
-with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _AWS CloudFormation User Guide_.
+A CloudFormation template has 1 or more sections that each serve a specific purpose. CloudFormation defines standard format, syntax, and language in a template. For more information, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*.
 
-CloudFormation templates are highly customizable and therefore their formats can vary.
-To understand the necessary parts of a CloudFormation template to create an AWS PCS cluster,
-we recommend you examine the sample template we provide to create a sample cluster. This topic
-briefly explains the sections of that sample template.
+CloudFormation templates are highly customizable and therefore their formats can vary. To understand the necessary parts of a CloudFormation template to create an AWS PCS cluster, we recommend you examine the sample template we provide to create a sample cluster. This topic briefly explains the sections of that sample template.
 
-###### Important
+**Important**  
+The code samples in this topic are **not complete**. The presence of ellipsis (`[...]`) indicates that there is additional code that isn't displayed. To download the complete YAML-formatted CloudFormation template, see [CloudFormation templates to create a sample AWS PCS cluster](get-started-cfn-sample-templates.md).
 
-The code samples in this topic are **not complete**.
-The presence of ellipsis (`[...]`) indicates that there is additional code
-that isn't displayed. To download the complete YAML-formatted CloudFormation template, see
-[CloudFormation templates to create a sample AWS PCS cluster](get-started-cfn-sample-templates.md "get-started-cfn-sample-templates.md").
-
-###### Contents
-
-- [Header](get-started-cfn-template-parts.md#get-started-cfn-template-parts-header "get-started-cfn-template-parts.md#get-started-cfn-template-parts-header")
-- [Metadata](get-started-cfn-template-parts.md#get-started-cfn-template-parts-metadata "get-started-cfn-template-parts.md#get-started-cfn-template-parts-metadata")
-- [Parameters](get-started-cfn-template-parts.md#get-started-cfn-template-parts-parameters "get-started-cfn-template-parts.md#get-started-cfn-template-parts-parameters")
-- [Mappings](get-started-cfn-template-parts.md#get-started-cfn-template-parts-mappings "get-started-cfn-template-parts.md#get-started-cfn-template-parts-mappings")
-- [Resources](get-started-cfn-template-parts.md#get-started-cfn-template-parts-resources "get-started-cfn-template-parts.md#get-started-cfn-template-parts-resources")
-- [Outputs](get-started-cfn-template-parts.md#get-started-cfn-template-parts-outputs "get-started-cfn-template-parts.md#get-started-cfn-template-parts-outputs")
+**Contents**
++ [Header](#get-started-cfn-template-parts-header)
++ [Metadata](#get-started-cfn-template-parts-metadata)
++ [Parameters](#get-started-cfn-template-parts-parameters)
++ [Mappings](#get-started-cfn-template-parts-mappings)
++ [Resources](#get-started-cfn-template-parts-resources)
++ [Outputs](#get-started-cfn-template-parts-outputs)
 
 ## Header
+<a name="get-started-cfn-template-parts-header"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -34,21 +27,12 @@ Transform: AWS::Serverless-2016-10-31
 Description: AWS Parallel Computing Service "getting started" cluster
 ```
 
-`AWSTemplateFormatVersion` identifies the template format version
-that the template conforms to. For more information, see
-[CloudFormation
-template format version syntax](../../../AWSCloudFormation/latest/UserGuide/format-version-structure.md "../../../AWSCloudFormation/latest/UserGuide/format-version-structure.md") in the _AWS CloudFormation User Guide_.
+`AWSTemplateFormatVersion` identifies the template format version that the template conforms to. For more information, see [CloudFormation template format version syntax](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) in the *AWS CloudFormation User Guide*.
 
-`Transform` specifies a macro that CloudFormation uses
-to process the template. For more information, see
-[CloudFormation
-template Transform section](../../../AWSCloudFormation/latest/UserGuide/transform-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/transform-section-structure.md") in the _AWS CloudFormation User Guide_.
-The `AWS::Serverless-2016-10-31` transform enables CloudFormation to process a template
-written in the AWS Serverless Application Model (AWS SAM) syntax. For more information, see
-[`AWS::Serverless`
-transform](../../../AWSCloudFormation/latest/UserGuide/transform-aws-serverless.md "../../../AWSCloudFormation/latest/UserGuide/transform-aws-serverless.md") in the _AWS CloudFormation User Guide_.
+`Transform` specifies a macro that CloudFormation uses to process the template. For more information, see [CloudFormation template Transform section](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html) in the *AWS CloudFormation User Guide*. The `AWS::Serverless-2016-10-31` transform enables CloudFormation to process a template written in the AWS Serverless Application Model (AWS SAM) syntax. For more information, see [`AWS::Serverless` transform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html) in the *AWS CloudFormation User Guide*.
 
 ## Metadata
+<a name="get-started-cfn-template-parts-metadata"></a>
 
 ```
 ### Stack metadata
@@ -74,19 +58,12 @@ Metadata:
           - HpcRecipesBranch
 ```
 
-The `metadata` section of a CloudFormation template provides information about the
-template itself. The sample template creates a complete high performance computing (HPC)
-cluster that uses AWS PCS. The metadata section of the sample template declares parameters
-that control how CloudFormation launches (provisions) the corresponding stack.
-There are parameters that control architecture choice (`NodeArchitecture`),
-Slurm version (`SlurmVersion`), and access controls
-(`KeyName` and `ClientIpCidr`).
+The `metadata` section of a CloudFormation template provides information about the template itself. The sample template creates a complete high performance computing (HPC) cluster that uses AWS PCS. The metadata section of the sample template declares parameters that control how CloudFormation launches (provisions) the corresponding stack. There are parameters that control architecture choice (`NodeArchitecture`), Slurm version (`SlurmVersion`), and access controls (`KeyName` and `ClientIpCidr`).
 
 ## Parameters
+<a name="get-started-cfn-template-parts-parameters"></a>
 
-The `Parameters` section defines the custom parameters for the template.
-CloudFormation uses these parameter definitions to construct and validate the form that you interact
-with when you launch a stack from this template.
+The `Parameters` section defines the custom parameters for the template. CloudFormation uses these parameter definitions to construct and validate the form that you interact with when you launch a stack from this template.
 
 ```
 Parameters:
@@ -133,7 +110,7 @@ Parameters:
     Default: 127.0.0.1/32
     Type: String
     AllowedPattern: (\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})
-    ConstraintDescription: Value must be a valid IP or network range of the form x.x.x.x/x.
+    ConstraintDescription: Value must be a valid IP or network range of the form x.x.x.x/x. 
 
   HpcRecipesS3Bucket:
     Type: String
@@ -150,9 +127,9 @@ Parameters:
 ```
 
 ## Mappings
+<a name="get-started-cfn-template-parts-mappings"></a>
 
-The `Mappings` section defines key-value pairs that specify
-values based on certain conditions or dependencies.
+The `Mappings` section defines key-value pairs that specify values based on certain conditions or dependencies.
 
 ```
 Mappings:
@@ -170,25 +147,19 @@ Mappings:
 ```
 
 ## Resources
+<a name="get-started-cfn-template-parts-resources"></a>
 
-The `Resources` section declares the AWS resources
-to provision and configure as part of the stack.
+The `Resources` section declares the AWS resources to provision and configure as part of the stack.
 
 ```
 Resources:
 
   [...]
-
 ```
 
-The template provisions the sample cluster infrastructure in layers.
-It starts with `Networking` for VPC configuration.
-Storage is provided by dual systems: `EfsStorage` for shared storage
-and `FSxLStorage` for high-performance storage.
-The core cluster is established through `PCSCluster`.
+The template provisions the sample cluster infrastructure in layers. It starts with `Networking` for VPC configuration. Storage is provided by dual systems: `EfsStorage` for shared storage and `FSxLStorage` for high-performance storage. The core cluster is established through `PCSCluster`.
 
 ```
-
   Networking:
     Type: AWS::CloudFormation::Stack
     Properties:
@@ -215,7 +186,7 @@ The core cluster is established through `PCSCluster`.
       TemplateURL: !Sub 'https://${HpcRecipesS3Bucket}.s3.amazonaws.com/${HpcRecipesBranch}/recipes/storage/fsx_lustre/assets/persistent.yaml'
 
   [...]
-
+  
   # Cluster
   PCSCluster:
     Type: AWS::PCS::Cluster
@@ -230,18 +201,11 @@ The core cluster is established through `PCSCluster`.
           - !GetAtt [ Networking, Outputs.DefaultPrivateSubnet ]
         SecurityGroupIds:
           - !GetAtt [ PCSSecurityGroup, Outputs.ClusterSecurityGroupId ]
-
 ```
 
-For compute resources, the template creates two node groups:
-`PCSNodeGroupLogin` for a single login node and
-`PCSNodeGroupCompute` for up to four compute nodes.
-These node groups are supported by
-`PCSInstanceProfile` for permissions and
-`PCSLaunchTemplate` for instance configurations.
+For compute resources, the template creates two node groups: `PCSNodeGroupLogin` for a single login node and `PCSNodeGroupCompute` for up to four compute nodes. These node groups are supported by `PCSInstanceProfile` for permissions and `PCSLaunchTemplate` for instance configurations. 
 
 ```
-
   # Compute Node groups
   PCSInstanceProfile:
     Type: AWS::CloudFormation::Stack
@@ -301,26 +265,11 @@ These node groups are supported by
       AmiId: !GetAtt [PcsSampleAmi, AmiId]
       InstanceConfigs:
         - InstanceType: !FindInMap [ Architecture, ComputeNodeInstances, !Ref NodeArchitecture ]
-
 ```
 
-Both node groups include a `NodeLifecycleActions` block that mounts
-shared storage and forwards node logs to Amazon CloudWatch Logs at the
-`nodeBootstrapped` stage. This replaces the older approach of mounting
-file systems through launch-template user data. Amazon EFS is mounted at
-`/home` for user home directories, and FSx for Lustre is mounted at
-`/shared` for high-performance scratch storage. A fourth action forwards
-node lifecycle action logs to Amazon CloudWatch Logs. The mount and directory
-actions use `EVERY_BOOT` so that they run on every reboot and keep storage
-available, while `configure-cloudwatch-logs` uses
-`FIRST_BOOT_ONLY` because the CloudWatch agent configuration persists
-across reboots and does not need to be reapplied. For more information about node
-lifecycle actions, see [Node lifecycle actions](cng-node-lifecycle-actions.md "cng-node-lifecycle-actions.md"). For details on the
-scripts that AWS maintains, see [AWS-maintained
-scripts](cng-node-lifecycle-actions-vetted-scripts.md "cng-node-lifecycle-actions-vetted-scripts.md").
+Both node groups include a `NodeLifecycleActions` block that mounts shared storage and forwards node logs to Amazon CloudWatch Logs at the `nodeBootstrapped` stage. This replaces the older approach of mounting file systems through launch-template user data. Amazon EFS is mounted at `/home` for user home directories, and FSx for Lustre is mounted at `/shared` for high-performance scratch storage. A fourth action forwards node lifecycle action logs to Amazon CloudWatch Logs. The mount and directory actions use `EVERY_BOOT` so that they run on every reboot and keep storage available, while `configure-cloudwatch-logs` uses `FIRST_BOOT_ONLY` because the CloudWatch agent configuration persists across reboots and does not need to be reapplied. For more information about node lifecycle actions, see [Node lifecycle actions](cng-node-lifecycle-actions.md). For details on the scripts that AWS maintains, see [AWS-maintained scripts](cng-node-lifecycle-actions-vetted-scripts.md).
 
 ```
-
       NodeLifecycleActions:
         ScriptCachingPolicy: CACHE_ONCE
         Stages:
@@ -370,13 +319,11 @@ scripts](cng-node-lifecycle-actions-vetted-scripts.md "cng-node-lifecycle-action
                 - '1777'
               OnError: CONTINUE
               ExecutionPolicy: EVERY_BOOT
-
 ```
 
 Job scheduling is handled through `PCSQueueCompute`.
 
 ```
-
   PCSQueueCompute:
     Type: AWS::PCS::Queue
     Properties:
@@ -384,18 +331,16 @@ Job scheduling is handled through `PCSQueueCompute`.
       Name: demo
       ComputeNodeGroupConfigurations:
         - ComputeNodeGroupId: !GetAtt [PCSNodeGroupCompute, Id]
-
 ```
 
-AMI selection happens automatically through the PcsAMILookupFn Lambda function and related
-resources.
+AMI selection happens automatically through the PcsAMILookupFn Lambda function and related resources.
 
 ```
-
+        
   PcsAMILookupRole:
     Type: AWS::IAM::Role
     [...]
-
+    
   PcsAMILookupFn:
     Type: AWS::Lambda::Function
     Properties:
@@ -418,32 +363,32 @@ resources.
 ```
 
 ## Outputs
+<a name="get-started-cfn-template-parts-outputs"></a>
 
-The template outputs cluster identification and management URLs through
-`ClusterId`, `PcsConsoleUrl`, and `Ec2ConsoleUrl`.
+The template outputs cluster identification and management URLs through `ClusterId`, `PcsConsoleUrl`, and `Ec2ConsoleUrl`.
 
 ```
 Outputs:
   ClusterId:
     Description: The Id of the PCS cluster
     Value: !GetAtt [ PCSCluster, Id ]
-
+    
   PcsConsoleUrl:
     Description: URL to access the cluster in the PCS console
     Value: !Sub
       - https://${ConsoleDomain}/pcs/home?region=${AWS::Region}#/clusters/${ClusterId}
       - { ConsoleDomain: !If [ GovCloud, 'console.amazonaws-us-gov.com', !If [ China, 'console.amazonaws.cn', !Sub '${AWS::Region}.console.aws.amazon.com']],
-          ClusterId: !GetAtt [ PCSCluster, Id ]
+          ClusterId: !GetAtt [ PCSCluster, Id ] 
         }
     Export:
       Name: !Sub ${AWS::StackName}-PcsConsoleUrl
-
+      
   Ec2ConsoleUrl:
     Description: URL to access instance(s) in the login node group via Session Manager
     Value: !Sub
       - https://${ConsoleDomain}/ec2/home?region=${AWS::Region}#Instances:instanceState=running;tag:aws:pcs:compute-node-group-id=${NodeGroupLoginId}
       - { ConsoleDomain: !If [ GovCloud, 'console.amazonaws-us-gov.com', !If [ China, 'console.amazonaws.cn', !Sub '${AWS::Region}.console.aws.amazon.com']],
-          NodeGroupLoginId: !GetAtt [ PCSNodeGroupLogin, Id ]
+          NodeGroupLoginId: !GetAtt [ PCSNodeGroupLogin, Id ] 
         }
     Export:
       Name: !Sub ${AWS::StackName}-Ec2ConsoleUrl

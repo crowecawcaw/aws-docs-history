@@ -1,192 +1,165 @@
+
+
 # Scheduler audit logs in AWS PCS
+<a name="monitoring_scheduler-audit-logs"></a>
 
-Scheduler audit logs record Remote Procedure Call (RPC) operations processed by
-your cluster's Slurm controller (`slurmctld`) and database daemon
-(`slurmdbd`). The `AUDIT_RPCS:` prefix in the log message
-identifies these logs. They support security auditing and compliance use cases.
+Scheduler audit logs record Remote Procedure Call (RPC) operations processed by your cluster's Slurm controller (`slurmctld`) and database daemon (`slurmdbd`). The `AUDIT_RPCS:` prefix in the log message identifies these logs. They support security auditing and compliance use cases.
 
-For clusters running Slurm 25.11 and later, AWS PCS delivers audit logs separately
-through the `PCS_SCHEDULER_AUDIT_LOGS` log type. This separation lets you
-control audit log ingestion and storage costs independently from your operational logs,
-because audit logs can make up to 90% of scheduler log volume.
+For clusters running Slurm 25.11 and later, AWS PCS delivers audit logs separately through the `PCS_SCHEDULER_AUDIT_LOGS` log type. This separation lets you control audit log ingestion and storage costs independently from your operational logs, because audit logs can make up to 90% of scheduler log volume.
 
-###### Note
+**Note**  
+For clusters running Slurm versions earlier than 25.11, audit logs remain in `PCS_SCHEDULER_LOGS` and the `PCS_SCHEDULER_AUDIT_LOGS` log type is not available. For more information about scheduler logs, see [Scheduler logs in AWS PCS](monitoring_scheduler-logs.md).
 
-For clusters running Slurm versions earlier than 25.11, audit logs remain in
-`PCS_SCHEDULER_LOGS` and the `PCS_SCHEDULER_AUDIT_LOGS` log
-type is not available. For more information about scheduler logs, see
-[Scheduler logs in AWS PCS](monitoring_scheduler-logs.md "monitoring_scheduler-logs.md").
-
-###### Contents
-
-- [Prerequisites](monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_prereqs "monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_prereqs")
-- [Set up scheduler audit logs](monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_setup "monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_setup")
-- [Scheduler audit log stream paths and names](monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_paths "monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_paths")
-- [Example scheduler audit log record](monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_record "monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_record")
-- [Audit log behavior by Slurm version](monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_behavior "monitoring_scheduler-audit-logs.md#monitoring_scheduler-audit-logs_behavior")
+**Contents**
++ [Prerequisites](#monitoring_scheduler-audit-logs_prereqs)
++ [Set up scheduler audit logs](#monitoring_scheduler-audit-logs_setup)
++ [Scheduler audit log stream paths and names](#monitoring_scheduler-audit-logs_paths)
++ [Example scheduler audit log record](#monitoring_scheduler-audit-logs_record)
++ [Audit log behavior by Slurm version](#monitoring_scheduler-audit-logs_behavior)
 
 ## Prerequisites
+<a name="monitoring_scheduler-audit-logs_prereqs"></a>
 
-Before you can set up scheduler audit logs, you must meet the following
-requirements:
-
-- Your cluster must be running **Slurm 25.11 or
-  later**.
-- The IAM principal that manages the AWS PCS cluster must allow the
-  `pcs:AllowVendedLogDeliveryForResource` action.
+Before you can set up scheduler audit logs, you must meet the following requirements:
++ Your cluster must be running **Slurm 25.11 or later**.
++ The IAM principal that manages the AWS PCS cluster must allow the `pcs:AllowVendedLogDeliveryForResource` action.
 
 The following example IAM policy grants the required permissions.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "PcsAllowVendedLogsDelivery",
- "Effect": "Allow",
- "Action": ["pcs:AllowVendedLogDeliveryForResource"],
- "Resource": [
- "arn:aws:pcs:*::cluster/*"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+      {
+         "Sid": "PcsAllowVendedLogsDelivery",
+         "Effect": "Allow",
+         "Action": ["pcs:AllowVendedLogDeliveryForResource"],
+         "Resource": [
+            "arn:aws:pcs:*::cluster/*"
+         ]
+      }
+   ]
+}
 ```
+
+------
 
 ## Set up scheduler audit logs
+<a name="monitoring_scheduler-audit-logs_setup"></a>
 
-You can set up scheduler audit logs for your AWS PCS cluster with the AWS Management Console or
-AWS CLI. Scheduler audit logs are opt-in. AWS PCS does not deliver them until you
-subscribe.
+You can set up scheduler audit logs for your AWS PCS cluster with the AWS Management Console or AWS CLI. Scheduler audit logs are opt-in. AWS PCS does not deliver them until you subscribe.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### To set up scheduler audit logs with the console
+**To set up scheduler audit logs with the console**
 
-1. Open the [AWS PCS
-   console](https://console.aws.amazon.com/pcs "https://console.aws.amazon.com/pcs").
-2. In the navigation pane, choose
-   **Clusters**.
-3. Choose the cluster where you want to add scheduler audit
-   logs.
-4. On the cluster details page, choose the
-   **Logs** tab.
-5. Under **Scheduler Audit Logs**, choose
-   **Add** to add up to 3 log delivery destinations
-   from among CloudWatch Logs, Amazon S3, and Firehose.
-6. Choose **Update log deliveries**.
+1. Open the [AWS PCS console](https://console.aws.amazon.com/pcs).
 
-AWS CLI
+1. In the navigation pane, choose **Clusters**.
 
-###### To set up scheduler audit logs with the AWS CLI
+1. Choose the cluster where you want to add scheduler audit logs.
+
+1. On the cluster details page, choose the **Logs** tab.
+
+1. Under **Scheduler Audit Logs**, choose **Add** to add up to 3 log delivery destinations from among CloudWatch Logs, Amazon S3, and Firehose.
+
+1. Choose **Update log deliveries**.
+
+------
+#### [ AWS CLI ]
+
+**To set up scheduler audit logs with the AWS CLI**
 
 1. Create a log delivery destination:
 
-```
-aws logs put-delivery-destination --region `region` \
-  --name `pcs-audit-logs-destination` \
-  --delivery-destination-configuration \
-  destinationResourceArn=`resource-arn`
-```
+   ```
+   aws logs put-delivery-destination --region {{region}} \
+     --name {{pcs-audit-logs-destination}} \
+     --delivery-destination-configuration \
+     destinationResourceArn={{resource-arn}}
+   ```
 
-Replace:
+   Replace:
+   + {{region}} — The AWS Region where you want to create the destination, such as `us-east-1`
+   + {{pcs-audit-logs-destination}} — A name for the destination
+   + {{resource-arn}} — The Amazon Resource Name (ARN) of a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream.
 
-    * `region` — The
-     AWS Region where you want to create the destination,
-     such as `us-east-1`
-    * `pcs-audit-logs-destination`
-     — A name for the destination
-    * `resource-arn` — The
-     Amazon Resource Name (ARN) of a CloudWatch Logs log group,
-     S3 bucket, or Firehose delivery stream.
+   For more information, see [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html) in the *Amazon CloudWatch Logs API Reference*.
 
-For more information, see [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md") in the _Amazon
-CloudWatch Logs API Reference_. 2. Set the PCS cluster as a log delivery source:
+1. Set the PCS cluster as a log delivery source:
 
-```
-aws logs put-delivery-source --region `region` \
-  --name `cluster-audit-logs-source-name` \
-  --resource-arn `cluster-arn` \
-  --log-type PCS_SCHEDULER_AUDIT_LOGS
-```
+   ```
+   aws logs put-delivery-source --region {{region}} \
+     --name {{cluster-audit-logs-source-name}} \
+     --resource-arn {{cluster-arn}} \
+     --log-type PCS_SCHEDULER_AUDIT_LOGS
+   ```
 
-Replace:
+   Replace:
+   + {{region}} — The AWS Region of your cluster, such as `us-east-1`
+   + {{cluster-audit-logs-source-name}} — A name for the source
+   + {{cluster-arn}} — the ARN of your AWS PCS cluster
 
-    * `region` — The
-     AWS Region of your cluster, such as
-     `us-east-1`
-    * `cluster-audit-logs-source-name`
-     — A name for the source
-    * `cluster-arn` — the ARN
-     of your AWS PCS cluster
+   For more information, see [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) in the *Amazon CloudWatch Logs API Reference*.
 
-For more information, see [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") in the _Amazon CloudWatch
-Logs API Reference_. 3. Connect the delivery source to the delivery destination:
+1. Connect the delivery source to the delivery destination:
 
-```
-aws logs create-delivery --region `region` \
-  --delivery-source-name `cluster-audit-logs-source` \
-  --delivery-destination-arn `destination-arn`
-```
+   ```
+   aws logs create-delivery --region {{region}} \
+     --delivery-source-name {{cluster-audit-logs-source}} \
+     --delivery-destination-arn {{destination-arn}}
+   ```
 
-Replace:
+   Replace:
+   + {{region}} — The AWS Region, such as `us-east-1`
+   + {{cluster-audit-logs-source}} — The name of your delivery source
+   + {{destination-arn}} — The ARN of your delivery destination
 
-    * `region` — The
-     AWS Region, such as `us-east-1`
-    * `cluster-audit-logs-source`
-     — The name of your delivery source
-    * `destination-arn` — The
-     ARN of your delivery destination
+   For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) in the *Amazon CloudWatch Logs API Reference*.
 
-For more information, see [CreateDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md") in the _Amazon CloudWatch
-Logs API Reference_.
+------
 
 ## Scheduler audit log stream paths and names
+<a name="monitoring_scheduler-audit-logs_paths"></a>
 
-The path and name for AWS PCS scheduler audit logs depend on the destination
-type.
+The path and name for AWS PCS scheduler audit logs depend on the destination type.
++ **CloudWatch Logs**
+  + A CloudWatch Logs stream follows this naming convention.
 
-- **CloudWatch Logs**
+    ```
+    AWSLogs/PCS/${cluster_id}/${log_name}_${scheduler_major_version}_audit.log
+    ```
 
-  - A CloudWatch Logs stream follows this naming convention.
+    Where `${log_name}` is `slurmctld` or `slurmdbd`.  
+**Example**  
 
-  ```
-  AWSLogs/PCS/${cluster_id}/${log_name}_${scheduler_major_version}_audit.log
-  ```
+    ```
+    AWSLogs/PCS/abcdef0123/slurmctld_25.11_audit.log
+    AWSLogs/PCS/abcdef0123/slurmdbd_25.11_audit.log
+    ```
++ **S3 bucket**
+  + An S3 bucket output path follows this naming convention:
 
-  Where `${log_name}` is `slurmctld` or
-  `slurmdbd`.
+    ```
+    AWSLogs/${account-id}/PCS/${region}/${cluster_id}/scheduler_audit/${log_name}/yyyy/MM/dd/HH/
+    ```  
+**Example**  
 
-  ###### Example
-
-  ```
-  AWSLogs/PCS/abcdef0123/slurmctld_25.11_audit.log
-  AWSLogs/PCS/abcdef0123/slurmdbd_25.11_audit.log
-  ```
-
-- **S3 bucket**
-
-  - An S3 bucket output path follows this naming convention:
-
-  ```
-  AWSLogs/${account-id}/PCS/${region}/${cluster_id}/scheduler_audit/${log_name}/yyyy/MM/dd/HH/
-  ```
-
-  ###### Example
-
-  ```
-  AWSLogs/111111111111/PCS/us-east-2/abcdef0123/scheduler_audit/slurmctld/2026/03/01/00/
-  AWSLogs/111111111111/PCS/us-east-2/abcdef0123/scheduler_audit/slurmdbd/2026/03/01/00/
-  ```
+    ```
+    AWSLogs/111111111111/PCS/us-east-2/abcdef0123/scheduler_audit/slurmctld/2026/03/01/00/
+    AWSLogs/111111111111/PCS/us-east-2/abcdef0123/scheduler_audit/slurmdbd/2026/03/01/00/
+    ```
 
 ## Example scheduler audit log record
+<a name="monitoring_scheduler-audit-logs_record"></a>
 
-AWS PCS scheduler audit logs are structured. They use the same schema as scheduler
-logs, with the log message containing the `AUDIT_RPCS:` prefix. Here is
-an example from `slurmctld`.
+AWS PCS scheduler audit logs are structured. They use the same schema as scheduler logs, with the log message containing the `AUDIT_RPCS:` prefix. Here is an example from `slurmctld`.
 
 ```
 {
@@ -221,11 +194,12 @@ Here is an example from `slurmdbd`.
 ```
 
 ## Audit log behavior by Slurm version
+<a name="monitoring_scheduler-audit-logs_behavior"></a>
 
-The following table describes how audit logs are delivered depending on the Slurm
-version running on your cluster.
+The following table describes how audit logs are delivered depending on the Slurm version running on your cluster.
 
-| Slurm version      | `PCS_SCHEDULER_LOGS` contains              | `PCS_SCHEDULER_AUDIT_LOGS` available |
-| ------------------ | ------------------------------------------ | ------------------------------------ |
-| Earlier than 25.11 | All logs, including audit logs             | No                                   |
-| 25.11 and later    | Operational logs only (audit logs removed) | Yes (opt-in)                         |
+
+| Slurm version | `PCS_SCHEDULER_LOGS` contains | `PCS_SCHEDULER_AUDIT_LOGS` available | 
+| --- | --- | --- | 
+| Earlier than 25.11 | All logs, including audit logs | No | 
+| 25.11 and later | Operational logs only (audit logs removed) | Yes (opt-in) | 

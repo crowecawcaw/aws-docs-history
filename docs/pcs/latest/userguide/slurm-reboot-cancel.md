@@ -1,31 +1,37 @@
-# Cancel a pending reboot in AWS PCS
 
-Cancel a pending reboot to avoid unnecessary downtime when the issue has been resolved or
-when reboot is no longer needed.
+
+# Cancel a pending reboot in AWS PCS
+<a name="slurm-reboot-cancel"></a>
+
+Cancel a pending reboot to avoid unnecessary downtime when the issue has been resolved or when reboot is no longer needed.
 
 ## Prerequisites
-
-- Slurm Admin privileges
-- Node must have a pending reboot (showing "reboot issued" status)
-- Access to login node for command execution
+<a name="slurm-reboot-cancel-prerequisites"></a>
++ Slurm Admin privileges
++ Node must have a pending reboot (showing "reboot issued" status)
++ Access to login node for command execution
 
 ## Procedure
+<a name="slurm-reboot-cancel-procedure"></a>
 
 1. Connect to the login node.
-2. Verify the node has a pending reboot using `scontrol show node`.
 
-```
-scontrol show node `nodename`
-```
+1. Verify the node has a pending reboot using `scontrol show node`.
 
-Look for "reboot issued" in the node status. 3. Execute the cancel command.
+   ```
+   scontrol show node {{nodename}}
+   ```
 
-```
-scontrol cancel_reboot `nodename`
-```
+   Look for "reboot issued" in the node status.
 
-4. Verify reboot cancellation and node status return to normal.
+1. Execute the cancel command.
 
-```
-scontrol show node `nodename`
-```
+   ```
+   scontrol cancel_reboot {{nodename}}
+   ```
+
+1. Verify reboot cancellation and node status return to normal.
+
+   ```
+   scontrol show node {{nodename}}
+   ```

@@ -1,4 +1,7 @@
+
+
 # Troubleshooting job submission failures due to MaxJobCount limit
+<a name="troubleshooting-job-submission-maxjobcount"></a>
 
 **Problem:** Job submissions fail with the following error message:
 
@@ -19,6 +22,5 @@ scontrol show jobs | grep -c JobId
 This shows the total number of jobs Slurm is tracking, including completed jobs awaiting purge.
 
 **Solution:** Consider one of the following approaches:
-
-- **Create a larger cluster** – If your workload consistently requires more concurrent jobs, create a new cluster with a larger size. For more information about cluster sizes and their limits, see [Cluster size in AWS PCS](working-with_clusters_size.md "working-with_clusters_size.md").
-- **Reduce job submission rate** – Adjust your job submission scripts to submit jobs at a slower rate, allowing completed jobs time to be purged from Slurm's tracking.
++ **Create a larger cluster** – If your workload consistently requires more concurrent jobs, create a new cluster with a larger size. For more information about cluster sizes and their limits, see [Cluster size in AWS PCS](working-with_clusters_size.md).
++ **Reduce job submission rate** – Adjust your job submission scripts to submit jobs at a slower rate, allowing completed jobs time to be purged from Slurm's tracking.

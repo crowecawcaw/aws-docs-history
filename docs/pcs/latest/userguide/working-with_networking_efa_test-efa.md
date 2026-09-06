@@ -1,14 +1,11 @@
+
+
 # (Optional) Test EFA
+<a name="working-with_networking_efa_test-efa"></a>
 
-You can demonstrate EFA-enabled communication between two nodes in a compute node group by
-running the `fi_pingpong` program, which is included in the EFA software installation.
-If this test is successful, it is likely that EFA is configured properly.
+ You can demonstrate EFA-enabled communication between two nodes in a compute node group by running the `fi_pingpong` program, which is included in the EFA software installation. If this test is successful, it is likely that EFA is configured properly. 
 
-To start, you need two running instances in the compute node group. If your compute node
-group uses static capacity, there should be already be instances available. For a compute node
-group that uses dynamic capacity, you can launch two nodes using the `salloc` command.
-Here is an example from a cluster with a dynamic node group named `hpc7g` associated
-with a queue named `all`.
+ To start, you need two running instances in the compute node group. If your compute node group uses static capacity, there should be already be instances available. For a compute node group that uses dynamic capacity, you can launch two nodes using the `salloc` command. Here is an example from a cluster with a dynamic node group named `hpc7g` associated with a queue named `all`. 
 
 ```
 % salloc --nodes 2 -p all
@@ -18,9 +15,7 @@ salloc: Waiting for resource configuration
 salloc: Nodes hpc7g-[1-2] are ready for job
 ```
 
-Find out the IP address for the two allocated nodes using `scontrol`. In the
-example that follows, the addresses are `10.3.140.69` for `hpc7g-1` and
-`10.3.132.211` for `hpc7g-2`.
+ Find out the IP address for the two allocated nodes using `scontrol`. In the example that follows, the addresses are `10.3.140.69` for `hpc7g-1` and `10.3.132.211` for `hpc7g-2`. 
 
 ```
 % scontrol show nodes hpc7g-[1-2]
@@ -65,29 +60,25 @@ NodeName=hpc7g-2 Arch=aarch64 CoresPerSocket=1
    InstanceId=i-0a2c82623cb1393a7 InstanceType=hpc7g.16xlarge
 ```
 
-Connect to one of the nodes (in this example case, `hpc7g-1`) using SSH (or SSM).
-Note that this is an internal IP address, so you may need to connect from one of your login nodes
-if you use SSH. Also be aware that the instance needs to be configured with an SSH key by way of
-the compute node group launch template.
+Connect to one of the nodes (in this example case, `hpc7g-1`) using SSH (or SSM). Note that this is an internal IP address, so you may need to connect from one of your login nodes if you use SSH. Also be aware that the instance needs to be configured with an SSH key by way of the compute node group launch template.
 
 ```
 % ssh ec2-user@10.3.140.69
 ```
 
-Now, launch `fi_pingpong` in server mode.
+ Now, launch `fi_pingpong` in server mode. 
 
 ```
 /opt/amazon/efa/bin/fi_pingpong -p efa
 ```
 
-Connect to the second instance (`hpc7g-2`).
+ Connect to the second instance (`hpc7g-2`).
 
 ```
 % ssh ec2-user@10.3.132.211
 ```
 
-Run `fi_pingpong` in client mode, connecting to the server on
-`hpc7g-1`. You should see output that resembles the example below.
+ Run `fi_pingpong` in client mode, connecting to the server on `hpc7g-1`. You should see output that resembles the example below. 
 
 ```
 % /opt/amazon/efa/bin/fi_pingpong -p efa 10.3.140.69

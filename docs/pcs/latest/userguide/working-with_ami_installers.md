@@ -1,125 +1,95 @@
+
+
 # Software installers to build custom AMIs for AWS PCS
+<a name="working-with_ami_installers"></a>
 
-AWS provides a downloadable file that can install the AWS PCS software on an instance.
-AWS also provides software that can download, compile, and install relevant versions of Slurm
-and its dependencies. You can use these instructions to build custom AMIs for use with AWS PCS
-or you can use your own methods.
+AWS provides a downloadable file that can install the AWS PCS software on an instance. AWS also provides software that can download, compile, and install relevant versions of Slurm and its dependencies. You can use these instructions to build custom AMIs for use with AWS PCS or you can use your own methods.
 
-###### Contents
-
-- [AWS PCS agent software installer](working-with_ami_installers.md#working-with_ami_installers_service "working-with_ami_installers.md#working-with_ami_installers_service")
-- [Slurm installer](working-with_ami_installers.md#working-with_ami_installers_slurm "working-with_ami_installers.md#working-with_ami_installers_slurm")
-- [Supported operating systems](working-with_ami_installers.md#working-with_ami_installers_os "working-with_ami_installers.md#working-with_ami_installers_os")
-- [Supported instance types](working-with_ami_installers.md#working-wth_ami_installers_instance-types "working-with_ami_installers.md#working-wth_ami_installers_instance-types")
-- [Supported Slurm versions](working-with_ami_installers.md#working-with_ami_installers_slurm-versions "working-with_ami_installers.md#working-with_ami_installers_slurm-versions")
-- [Verify installers using a checksum](working-with_ami_installers.md#working-with_ami_installers_verify "working-with_ami_installers.md#working-with_ami_installers_verify")
+**Contents**
++ [AWS PCS agent software installer](#working-with_ami_installers_service)
++ [Slurm installer](#working-with_ami_installers_slurm)
++ [Supported operating systems](#working-with_ami_installers_os)
++ [Supported instance types](#working-wth_ami_installers_instance-types)
++ [Supported Slurm versions](#working-with_ami_installers_slurm-versions)
++ [Verify installers using a checksum](#working-with_ami_installers_verify)
 
 ## AWS PCS agent software installer
+<a name="working-with_ami_installers_service"></a>
 
-The AWS PCS agent software installer configures an instance to work with AWS PCS during
-the instance bootstrap process. You must use AWS-provided installers to install the AWS PCS
-agent on your custom AMI.
+The AWS PCS agent software installer configures an instance to work with AWS PCS during the instance bootstrap process. You must use AWS-provided installers to install the AWS PCS agent on your custom AMI.
 
-For more information about the AWS PCS agent software, see [AWS PCS agent versions](pcs-agent-versions.md "pcs-agent-versions.md").
+For more information about the AWS PCS agent software, see [AWS PCS agent versions](pcs-agent-versions.md).
 
 ## Slurm installer
+<a name="working-with_ami_installers_slurm"></a>
 
-The Slurm installer downloads, compiles, and installs relevant versions of Slurm and its
-dependencies. You can use the Slurm installer to build custom AMIs for AWS PCS. You can also
-use your own mechanisms if they are consistent with the software configuration that the Slurm
-installer provides. For more information about AWS PCS support for Slurm, see [Slurm versions in AWS PCS](slurm-versions.md "slurm-versions.md").
+ The Slurm installer downloads, compiles, and installs relevant versions of Slurm and its dependencies. You can use the Slurm installer to build custom AMIs for AWS PCS. You can also use your own mechanisms if they are consistent with the software configuration that the Slurm installer provides. For more information about AWS PCS support for Slurm, see [Slurm versions in AWS PCS](slurm-versions.md).
 
 The AWS-provided software installs the following:
++  [Slurm](https://slurm.schedmd.com/) at the requested major and maintenance version (currently version 25.11.x) - [License GPL 2](https://github.com/SchedMD/slurm?tab=License-1-ov-file)
+  +  Slurm is built with `--sysconfdir` set to `/etc/slurm` 
+  +  Slurm is built with the option `--enable-pam` and `--without-munge` 
+  +  Slurm is built with the option `--sharedstatedir=/run/slurm/` 
+  +  Slurm is built with PMIX and JWT support 
+  +  Slurm is installed at `/opt/aws/pcs/schedulers/slurm-25.11` 
++  [OpenPMIX](https://openpmix.github.io/) (version 4.2.6) – [License](https://github.com/openpmix/openpmix?tab=License-1-ov-file) 
+  +  OpenPMIX is installed as a subdirectory of `/opt/aws/pcs/scheduler/` 
++  [libjwt](https://benmcollins.github.io/libjwt/) (version 1.17.0) – [License MPL-2.0](https://github.com/benmcollins/libjwt?tab=MPL-2.0-1-ov-file#readme) 
+  +  libjwt is installed as a subdirectory of `/opt/aws/pcs/scheduler/` 
 
-- [Slurm](https://slurm.schedmd.com/ "https://slurm.schedmd.com/") at the requested major and maintenance
-  version (currently version 25.11.x) - [License GPL 2](https://github.com/SchedMD/slurm?tab=License-1-ov-file "https://github.com/SchedMD/slurm?tab=License-1-ov-file")
-
-  - Slurm is built with `--sysconfdir` set to `/etc/slurm`
-  - Slurm is built with the option `--enable-pam` and
-    `--without-munge`
-  - Slurm is built with the option `--sharedstatedir=/run/slurm/`
-  - Slurm is built with PMIX and JWT support
-  - Slurm is installed at `/opt/aws/pcs/schedulers/slurm-25.11`
-
-- [OpenPMIX](https://openpmix.github.io/ "https://openpmix.github.io/") (version 4.2.6) – [License](https://github.com/openpmix/openpmix?tab=License-1-ov-file "https://github.com/openpmix/openpmix?tab=License-1-ov-file")
-
-  - OpenPMIX is installed as a subdirectory of `/opt/aws/pcs/scheduler/`
-
-- [libjwt](https://benmcollins.github.io/libjwt/ "https://benmcollins.github.io/libjwt/") (version 1.17.0) –
-  [License
-  MPL-2.0](https://github.com/benmcollins/libjwt?tab=MPL-2.0-1-ov-file#readme "https://github.com/benmcollins/libjwt?tab=MPL-2.0-1-ov-file#readme")
-
-  - libjwt is installed as a subdirectory of `/opt/aws/pcs/scheduler/`
-
-The AWS-provided software changes the system configuration as follows:
-
-- The Slurm `systemd` file created by the build is copied to
-  `/etc/systemd/system/` with file name `slurmd-25.11.service`.
-- If they don't exist, a Slurm user and group (`slurm:slurm`) are created with
-  UID/GID of `401`.
-- The folder `/etc/aws/pcs/scheduler/slurm-25.11/plugstack.conf.d/` is created, to store your [Extend Slurm functionality on AWS PCS with SPANK plugins](spank.md "spank.md") configuration.
-- On Amazon Linux 2 and Rocky Linux 9 the installation adds the EPEL repository to install
-  the required software to build Slurm or its dependencies.
-- On RHEL9 the installation will enable `codeready-builder-for-rhel-9-rhui-rpms`
-  and `epel-release-latest-9` from `fedoraproject` to install the required
-  software to build Slurm or its dependencies.
+ The AWS-provided software changes the system configuration as follows: 
++  The Slurm `systemd` file created by the build is copied to `/etc/systemd/system/` with file name `slurmd-25.11.service`.
++  If they don't exist, a Slurm user and group (`slurm:slurm`) are created with UID/GID of `401`.
++  The folder `/etc/aws/pcs/scheduler/slurm-25.11/plugstack.conf.d/` is created, to store your [Extend Slurm functionality on AWS PCS with SPANK plugins](spank.md) configuration.
++  On Amazon Linux 2 and Rocky Linux 9 the installation adds the EPEL repository to install the required software to build Slurm or its dependencies. 
++  On RHEL9 the installation will enable `codeready-builder-for-rhel-9-rhui-rpms` and `epel-release-latest-9` from `fedoraproject` to install the required software to build Slurm or its dependencies. 
 
 ## Supported operating systems
+<a name="working-with_ami_installers_os"></a>
 
-See [Supported operating systems in AWS PCS](operating-systems.md "operating-systems.md").
+See [Supported operating systems in AWS PCS](operating-systems.md).
 
-###### Note
-
-AWS Deep Learning AMIs (DLAMI) versions based on Amazon Linux 2023 and Ubuntu 22.04 should be compatible
-with the AWS PCS software and Slurm installers. For more information, see
-[Choosing Your DLAMI](../../../dlami/latest/devguide/options.md "../../../dlami/latest/devguide/options.md")
-in the _AWS Deep Learning AMIs Developer Guide_.
+**Note**  
+AWS Deep Learning AMIs (DLAMI) versions based on Amazon Linux 2023 and Ubuntu 22.04 should be compatible with the AWS PCS software and Slurm installers. For more information, see [Choosing Your DLAMI](https://docs.aws.amazon.com/dlami/latest/devguide/options.html) in the *AWS Deep Learning AMIs Developer Guide*.
 
 ## Supported instance types
+<a name="working-wth_ami_installers_instance-types"></a>
 
-AWS PCS software and Slurm installers support any x86\_64 or arm64 instance type than
-can run one of the supported operating systems.
+ AWS PCS software and Slurm installers support any x86\_64 or arm64 instance type than can run one of the supported operating systems. 
 
 ## Supported Slurm versions
+<a name="working-with_ami_installers_slurm-versions"></a>
 
-See [Slurm versions in AWS PCS](slurm-versions.md "slurm-versions.md").
+See [Slurm versions in AWS PCS](slurm-versions.md).
 
 ## Verify installers using a checksum
+<a name="working-with_ami_installers_verify"></a>
 
-You can use SHA256 checksums to verify the installer tarball (.tar.gz) files. We recommend
-that you do this to verify the identity of the software publisher and to check that the
-application has not been altered or corrupted since it was published.
+You can use SHA256 checksums to verify the installer tarball (.tar.gz) files. We recommend that you do this to verify the identity of the software publisher and to check that the application has not been altered or corrupted since it was published.
 
-###### To verify a tarball
+**To verify a tarball**  
+Use the **sha256sum** utility for the SHA256 checksum and specify the tarball filename. You must run the command from the directory where you saved the tarball file.
++ SHA256
 
-Use the **sha256sum** utility for the SHA256 checksum and
-specify the tarball filename. You must run the command from the directory where you saved the
-tarball file.
-
-- SHA256
-
-```
-`$` sha256sum `tarball_filename.tar.gz`
-```
+  ```
+  $ sha256sum {{tarball_filename.tar.gz}}
+  ```
 
 The command should return a checksum value in the following format.
 
 ```
-`checksum_value` `tarball_filename.tar.gz`
+{{checksum_value}} {{tarball_filename.tar.gz}}
 ```
 
-Compare the checksum value returned by the command with the checksum value provided in the
-following table. If the checksums match, then it's safe to run the installation script.
+Compare the checksum value returned by the command with the checksum value provided in the following table. If the checksums match, then it's safe to run the installation script.
 
-###### Important
+**Important**  
+If the checksums don't match, don't run the installation script. Contact [Support](https://console.aws.amazon.com/support).
 
-If the checksums don't match, don't run the installation script. Contact [Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
-
-For example, the following command generates the SHA256 checksum for the Slurm 25.11.7-3
-tarball:
+For example, the following command generates the SHA256 checksum for the Slurm 25.11.7-3 tarball:
 
 ```
-`$` sha256sum aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz
+$ sha256sum aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz
 ```
 
 Example output:
@@ -128,56 +98,61 @@ Example output:
 906bd06dc1b4036dff7d1af2e49b0495a5e9e86e971020f869d4dc8bf56d7cb6 aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz
 ```
 
-The following tables list the checksums for recent versions of the installers. Replace
-`us-east-1` with the AWS Region where you use AWS PCS.
+The following tables list the checksums for recent versions of the installers. Replace {{us-east-1}} with the AWS Region where you use AWS PCS.
 
-AWS PCS agent| Installer | Download URL | SHA256 checksum |
-| --- | --- | --- |
-| AWS PCS agent 1.5.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.1-1.tar.gz<br>`` | `<br>9ac3fff38d75774852d947bf6823abc5a75e5c6325cd5aa5a3172b1defa72f9d<br>` |
-| AWS PCS agent 1.5.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.0-1.tar.gz<br>`` | `<br>95a0de1a59d569e28f4dfbdf79da02bb49c4f4febaddc18a5e621c3bee09fa11<br>` |
-| AWS PCS agent 1.4.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.1-1.tar.gz<br>`` | `<br>a5829029a293a1e7486c5a2c3c84c15c9d581b4918d2639c8c3ac5a96d7f10f5<br>` |
-| AWS PCS agent 1.4.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.0-1.tar.gz<br>`` | `<br>e9a342478483df8e4666741ef2aad504321676508d489f88e96311297990a17f<br>` |
-| AWS PCS agent 1.3.2-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.2-1.tar.gz<br>`` | `<br>06b32a952a1c849e3442e35c28ac2e4d6962b09286cad748f3c83d561b52ec6f<br>` |
-| AWS PCS agent 1.3.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.1-1.tar.gz<br>`` | `<br>5b7f1eb7b3a86bd2d331b5cb0138d868dc9452da34b480becd86af892c7e8d19<br>` |
-| AWS PCS agent 1.3.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.0-1.tar.gz<br>`` | `<br>eadc9b65c3db248bdde2a6c41814dfb1b97239f24ad55e03d8526dd9ab4a8d16<br>` |
-| AWS PCS agent 1.2.2-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.2-1.tar.gz<br>`` | `<br>fd7b6ea5442db75d723fc4971781ce6ae511baa21b87c4286fc1df8127b282b8<br>` |
-| AWS PCS agent 1.2.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.1-1.tar.gz<br>`` | `<br>2b784643ca01ccca1baa64fbfb34bb41efe8bdca69470998b74ce3962bc271d4<br>` |
-| AWS PCS agent 1.2.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.0-1.tar.gz<br>`` | `<br>470db8c4fc9e50277b6317f98584b6b547e73523043e34f018eecae767846805<br>` |
-| AWS PCS agent 1.1.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.1.1-1.tar.gz<br>`` | `<br>bef078bf60a6d8ecde2e6c49cd34d088703f02550279e3bf483d57a235334dc6<br>` |
-| AWS PCS agent 1.1.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.1.0-1.tar.gz<br>`` | `<br>594c32194c71bccc5d66e5213213ae38dd2c6d2f9a950bb01accea0bbab0873a<br>` |
-| AWS PCS agent 1.0.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.0.1-1.tar.gz<br>`` | `<br>04e22264019837e3f42d8346daf5886eaacecd21571742eb505ea8911786bcb2<br>` |
-| AWS PCS agent 1.0.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.0.0-1.tar.gz<br>`` | `<br>d2d3d68d00c685435c38af471d7e2492dde5ce9eb222d7b6ef0042144b134ce0<br>` |
 
-Slurm installer| Installer | Download URL | SHA256 checksum |
-| --- | --- | --- |
-| Slurm 25.11.7-3 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz<br>`` | `<br>906bd06dc1b4036dff7d1af2e49b0495a5e9e86e971020f869d4dc8bf56d7cb6<br>` |
-| Slurm 25.11.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz<br>`` | `<br>901305999c4b572229aade737d66865fcb6b52fe0c9c1f27d03f1ffda3b9cf13<br>` |
-| Slurm 25.11.6-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz<br>`` | `<br>553e74598fcc65b532b57bfa9a89820cd00ac8f233aa464c7d194d35540f3ec5<br>` |
-| Slurm 25.11.6-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-1.tar.gz<br>`` | `<br>8eddffd39aa31fef7d4e73106627212ec9ec14ac66d3f37acd8a95406ab3a8af<br>` |
-| Slurm 25.11.2-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz<br>`` | `<br>aa063bc01b2ccd84a82402e8b8dbcd8c7401ebd2e0a670c867d77167944d621a<br>` |
-| Slurm 25.05.8-3 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-3.tar.gz<br>`` | `<br>8836baa5c354156ed8d2613ac4758be900a6c4a084738c01fc6531846722e795<br>` |
-| Slurm 25.05.8-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-2.tar.gz<br>`` | `<br>844e75d082cfab7866f4e8d9daaef0225f8af5df6fa8d118619baca395079a33<br>` |
-| Slurm 25.05.8-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-1.tar.gz<br>`` | `<br>dc8b3de2588e99985d5148e62d6aa947fe39005f721892223133c5f67f243f73<br>` |
-| Slurm 25.05.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.7-1.tar.gz<br>`` | `<br>5019436389649ce0cacf04cd1d1adf1a4e46b9291967af7bf5f0a8ac4a49e4f0<br>` |
-| Slurm 25.05.5-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.5-1.tar.gz<br>`` | `<br>e7bc84db4e71b8c7174e2f581a31233f839affb5306c76a8adba23204dcc703b<br>` |
-| Slurm 25.05.4-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.4-1.tar.gz<br>`` | `<br>3b0f93bce441d4f4f6935175f2c1e81cd961cb923adb416fa6689f5592047a7d<br>` |
-| Slurm 25.05.3-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.3-1.tar.gz<br>`` | `<br>851bb5815b6700ceb30cc4a3fda204ca8ce362c14528c339908983255a936cf0<br>` |
-| Slurm 24.11.7-3 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-3.tar.gz<br>`` | `<br>85e01bf1ead75476df75c7e9d84760becaae844a377777c72be3479e6f27d688<br>` |
-| Slurm 24.11.7-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-2.tar.gz<br>`` | `<br>af0ad1b68051b655f03247300ec993ba9035516f653fb04c6026f248685c420d<br>` |
-| Slurm 24.11.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-1.tar.gz<br>`` | `<br>73d75be82c6f88f6e248fd0cc779a5630c62d91ebabdd9cf0f61b1943b6d7d09<br>` |
-| Slurm 24.11.6-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.6-2.tar.gz<br>`` | `<br>f17cd78e0bc6b9c818b794d9d2685cceabdc73f4fbb12f7566ae5b86a5abc32b<br>` |
-| Slurm 24.11.6-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.6-1.tar.gz<br>`` | `<br>225de9fc18206f5f65f412effe1fd457614ac97ee9822b3ff804a452b0fae522<br>` |
-| Slurm 24.11.5-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.5-1.tar.gz<br>`` | `<br>593efe4d66bef2f3e46d5a382fb5a32f7a3ca2510bcf1b3c85739f4f951810d5<br>` |
-| Slurm 24.05.8-4 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-4.tar.gz<br>`` | `<br>97906967d194aefca933e453c910015ee3ec47ffe07c47ce7bc6cd3c4c79f438<br>` |
-| Slurm 24.05.8-3 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-3.tar.gz<br>`` | `<br>34e6a5989e9c5cc429bf7cfa7c48fe52b74cfea58fcee50a27ac0d1a81c4d99f<br>` |
-| Slurm 24.05.8-2 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-2.tar.gz<br>`` | `<br>c494b0b55c319a4c2f3faf668c759d46c32c4c7aa94ae97d94128328fe95364b<br>` |
-| Slurm 24.05.8-1 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-1.tar.gz<br>`` | `<br>210a43b376af082bbad640b2032655885790c5dab0e6489cc327c7310a375849<br>` |
-| Slurm 24.05.7-1 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.7-1.tar.gz<br>`` | `<br>0b5ed7c81195de2628c78f37c79e63fc4ae99132ca6b019b53a0d68792ee82c5<br>` |
-| Slurm 24.05.5-2 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.5-2.tar.gz<br>`` | `<br>7cc8d8294f2fbff95fe0602cf9e21e02003b5d96c0730e0a18c6aa04c7a4967b<br>` |
-| Slurm 23.11.10-6 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-6.tar.gz<br>`` | `<br>6e3ee3da8c9f4b76e400edfdfcbe0b85d6a597c8ca5fd78291be7106bc4025dd<br>` |
-| Slurm 23.11.10-5 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-5.tar.gz<br>`` | `<br>37ba34be8ac0aa28bbf542c26d38a51b200b91185229912e35a6d3c0cbd09165<br>` |
-| Slurm 23.11.10-4 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-4.tar.gz<br>`` | `<br>bb2d8c919c69dba38d14358f49c7f0427564c5dd4af85a1c9eca2c57ceeae29a<br>` |
-| Slurm 23.11.10-3 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-3.tar.gz<br>`` | `<br>488a10ee0fbd57ec0e0ff7ea708a9e3038fafdc025c6bb391c75c2e2a7852a00<br>` |
-| Slurm 23.11.10-2 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-2.tar.gz<br>`` | `<br>0bbe85423305c05987931168caf98da08a34c25f9eec0690e8e74de0b7bc8752<br>` |
-| Slurm 23.11.10-1 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-1.tar.gz<br>`` | `<br>27e8faa9980e92cdfd8cfdc71f937777f0934552ce61e33dac4ecf5a20321e44<br>` |
-| Slurm 23.11.9-1 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.9-1.tar.gz<br>`` | `<br>1de7d919c8632fe8e2806611bed4fde1005a4fadc795412456e935c7bba2a9b8<br>` |
+**AWS PCS agent**  
+
+| Installer | Download URL | SHA256 checksum | 
+| --- | --- | --- | 
+| AWS PCS agent 1.5.1-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.1-1.tar.gz</pre>  |  <pre>9ac3fff38d75774852d947bf6823abc5a75e5c6325cd5aa5a3172b1defa72f9d</pre>  | 
+| AWS PCS agent 1.5.0-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.0-1.tar.gz</pre>  |  <pre>95a0de1a59d569e28f4dfbdf79da02bb49c4f4febaddc18a5e621c3bee09fa11</pre>  | 
+| AWS PCS agent 1.4.1-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.1-1.tar.gz</pre>  |  <pre>a5829029a293a1e7486c5a2c3c84c15c9d581b4918d2639c8c3ac5a96d7f10f5</pre>  | 
+| AWS PCS agent 1.4.0-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.0-1.tar.gz</pre>  |  <pre>e9a342478483df8e4666741ef2aad504321676508d489f88e96311297990a17f</pre>  | 
+| AWS PCS agent 1.3.2-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.2-1.tar.gz</pre>  |  <pre>06b32a952a1c849e3442e35c28ac2e4d6962b09286cad748f3c83d561b52ec6f</pre>  | 
+| AWS PCS agent 1.3.1-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.1-1.tar.gz</pre>  |  <pre>5b7f1eb7b3a86bd2d331b5cb0138d868dc9452da34b480becd86af892c7e8d19</pre>  | 
+| AWS PCS agent 1.3.0-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.0-1.tar.gz</pre>  |  <pre>eadc9b65c3db248bdde2a6c41814dfb1b97239f24ad55e03d8526dd9ab4a8d16</pre>  | 
+| AWS PCS agent 1.2.2-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.2-1.tar.gz</pre>  |  <pre>fd7b6ea5442db75d723fc4971781ce6ae511baa21b87c4286fc1df8127b282b8</pre>  | 
+| AWS PCS agent 1.2.1-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.1-1.tar.gz</pre>  |  <pre>2b784643ca01ccca1baa64fbfb34bb41efe8bdca69470998b74ce3962bc271d4</pre>  | 
+| AWS PCS agent 1.2.0-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.0-1.tar.gz</pre>  |  <pre>470db8c4fc9e50277b6317f98584b6b547e73523043e34f018eecae767846805</pre>  | 
+| AWS PCS agent 1.1.1-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.1.1-1.tar.gz</pre>  |  <pre>bef078bf60a6d8ecde2e6c49cd34d088703f02550279e3bf483d57a235334dc6</pre>  | 
+| AWS PCS agent 1.1.0-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.1.0-1.tar.gz</pre>  |  <pre>594c32194c71bccc5d66e5213213ae38dd2c6d2f9a950bb01accea0bbab0873a</pre>  | 
+| AWS PCS agent 1.0.1-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.0.1-1.tar.gz</pre>  |  <pre>04e22264019837e3f42d8346daf5886eaacecd21571742eb505ea8911786bcb2</pre>  | 
+| AWS PCS agent 1.0.0-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.0.0-1.tar.gz</pre>  |  <pre>d2d3d68d00c685435c38af471d7e2492dde5ce9eb222d7b6ef0042144b134ce0</pre>  | 
+
+
+**Slurm installer**  
+
+| Installer | Download URL | SHA256 checksum | 
+| --- | --- | --- | 
+| Slurm 25.11.7-3 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz</pre>  |  <pre>906bd06dc1b4036dff7d1af2e49b0495a5e9e86e971020f869d4dc8bf56d7cb6</pre>  | 
+| Slurm 25.11.7-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz</pre>  |  <pre>901305999c4b572229aade737d66865fcb6b52fe0c9c1f27d03f1ffda3b9cf13</pre>  | 
+| Slurm 25.11.6-2 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz</pre>  |  <pre>553e74598fcc65b532b57bfa9a89820cd00ac8f233aa464c7d194d35540f3ec5</pre>  | 
+| Slurm 25.11.6-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-1.tar.gz</pre>  |  <pre>8eddffd39aa31fef7d4e73106627212ec9ec14ac66d3f37acd8a95406ab3a8af</pre>  | 
+| Slurm 25.11.2-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz</pre>  |  <pre>aa063bc01b2ccd84a82402e8b8dbcd8c7401ebd2e0a670c867d77167944d621a</pre>  | 
+| Slurm 25.05.8-3 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-3.tar.gz</pre>  |  <pre>8836baa5c354156ed8d2613ac4758be900a6c4a084738c01fc6531846722e795</pre>  | 
+| Slurm 25.05.8-2 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-2.tar.gz</pre>  |  <pre>844e75d082cfab7866f4e8d9daaef0225f8af5df6fa8d118619baca395079a33</pre>  | 
+| Slurm 25.05.8-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-1.tar.gz</pre>  |  <pre>dc8b3de2588e99985d5148e62d6aa947fe39005f721892223133c5f67f243f73</pre>  | 
+| Slurm 25.05.7-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.7-1.tar.gz</pre>  |  <pre>5019436389649ce0cacf04cd1d1adf1a4e46b9291967af7bf5f0a8ac4a49e4f0</pre>  | 
+| Slurm 25.05.5-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.5-1.tar.gz</pre>  |  <pre>e7bc84db4e71b8c7174e2f581a31233f839affb5306c76a8adba23204dcc703b</pre>  | 
+| Slurm 25.05.4-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.4-1.tar.gz</pre>  |  <pre>3b0f93bce441d4f4f6935175f2c1e81cd961cb923adb416fa6689f5592047a7d</pre>  | 
+| Slurm 25.05.3-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.3-1.tar.gz</pre>  |  <pre>851bb5815b6700ceb30cc4a3fda204ca8ce362c14528c339908983255a936cf0</pre>  | 
+| Slurm 24.11.7-3 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-3.tar.gz</pre>  |  <pre>85e01bf1ead75476df75c7e9d84760becaae844a377777c72be3479e6f27d688</pre>  | 
+| Slurm 24.11.7-2 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-2.tar.gz</pre>  |  <pre>af0ad1b68051b655f03247300ec993ba9035516f653fb04c6026f248685c420d</pre>  | 
+| Slurm 24.11.7-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-1.tar.gz</pre>  |  <pre>73d75be82c6f88f6e248fd0cc779a5630c62d91ebabdd9cf0f61b1943b6d7d09</pre>  | 
+| Slurm 24.11.6-2 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.6-2.tar.gz</pre>  |  <pre>f17cd78e0bc6b9c818b794d9d2685cceabdc73f4fbb12f7566ae5b86a5abc32b</pre>  | 
+| Slurm 24.11.6-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.6-1.tar.gz</pre>  |  <pre>225de9fc18206f5f65f412effe1fd457614ac97ee9822b3ff804a452b0fae522</pre>  | 
+| Slurm 24.11.5-1 |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.5-1.tar.gz</pre>  |  <pre>593efe4d66bef2f3e46d5a382fb5a32f7a3ca2510bcf1b3c85739f4f951810d5</pre>  | 
+| Slurm 24.05.8-4 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-4.tar.gz</pre>  |  <pre>97906967d194aefca933e453c910015ee3ec47ffe07c47ce7bc6cd3c4c79f438</pre>  | 
+| Slurm 24.05.8-3 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-3.tar.gz</pre>  |  <pre>34e6a5989e9c5cc429bf7cfa7c48fe52b74cfea58fcee50a27ac0d1a81c4d99f</pre>  | 
+| Slurm 24.05.8-2 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-2.tar.gz</pre>  |  <pre>c494b0b55c319a4c2f3faf668c759d46c32c4c7aa94ae97d94128328fe95364b</pre>  | 
+| Slurm 24.05.8-1 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-1.tar.gz</pre>  |  <pre>210a43b376af082bbad640b2032655885790c5dab0e6489cc327c7310a375849</pre>  | 
+| Slurm 24.05.7-1 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.7-1.tar.gz</pre>  |  <pre>0b5ed7c81195de2628c78f37c79e63fc4ae99132ca6b019b53a0d68792ee82c5</pre>  | 
+| Slurm 24.05.5-2 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.5-2.tar.gz</pre>  |  <pre>7cc8d8294f2fbff95fe0602cf9e21e02003b5d96c0730e0a18c6aa04c7a4967b</pre>  | 
+| Slurm 23.11.10-6 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-6.tar.gz</pre>  |  <pre>6e3ee3da8c9f4b76e400edfdfcbe0b85d6a597c8ca5fd78291be7106bc4025dd</pre>  | 
+| Slurm 23.11.10-5 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-5.tar.gz</pre>  |  <pre>37ba34be8ac0aa28bbf542c26d38a51b200b91185229912e35a6d3c0cbd09165</pre>  | 
+| Slurm 23.11.10-4 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-4.tar.gz</pre>  |  <pre>bb2d8c919c69dba38d14358f49c7f0427564c5dd4af85a1c9eca2c57ceeae29a</pre>  | 
+| Slurm 23.11.10-3 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-3.tar.gz</pre>  |  <pre>488a10ee0fbd57ec0e0ff7ea708a9e3038fafdc025c6bb391c75c2e2a7852a00</pre>  | 
+| Slurm 23.11.10-2 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-2.tar.gz</pre>  |  <pre>0bbe85423305c05987931168caf98da08a34c25f9eec0690e8e74de0b7bc8752</pre>  | 
+| Slurm 23.11.10-1 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-1.tar.gz</pre>  |  <pre>27e8faa9980e92cdfd8cfdc71f937777f0934552ce61e33dac4ecf5a20321e44</pre>  | 
+| Slurm 23.11.9-1 (deprecated) |  <pre>https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.9-1.tar.gz</pre>  |  <pre>1de7d919c8632fe8e2806611bed4fde1005a4fadc795412456e935c7bba2a9b8</pre>  | 

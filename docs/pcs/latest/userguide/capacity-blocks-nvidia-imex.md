@@ -1,68 +1,37 @@
+
+
 # Configure UltraServer instances
+<a name="capacity-blocks-nvidia-imex"></a>
 
-NVIDIA UltraServer instances (`p6e-gb200.36xlarge`, `p6e-gb200.72xlarge`,
-`p6e-gb300.36xlarge`, `p6e-gb300.72xlarge`) connect multiple GPUs
-across instances using NVLink. GPU-to-GPU communication over NVLink requires the
-[NVIDIA IMEX](https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/index.html "https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/index.html")
-service to be configured with the IP addresses of all compute nodes in the job.
-This page shows you how to create a Slurm prolog script that automatically configures
-IMEX for each job, and how to deploy it in your AWS PCS cluster.
+NVIDIA UltraServer instances (`p6e-gb200.36xlarge`, `p6e-gb200.72xlarge`, `p6e-gb300.36xlarge`, `p6e-gb300.72xlarge`) connect multiple GPUs across instances using NVLink. GPU-to-GPU communication over NVLink requires the [NVIDIA IMEX](https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/index.html) service to be configured with the IP addresses of all compute nodes in the job. This page shows you how to create a Slurm prolog script that automatically configures IMEX for each job, and how to deploy it in your AWS PCS cluster.
 
-###### Note
-
-This prolog script supports `p6e-gb200` and `p6e-gb300`
-instance types.
+**Note**  
+This prolog script supports `p6e-gb200` and `p6e-gb300` instance types.
 
 ## Prerequisites
-
-- A AWS PCS cluster with Slurm 25.05 or later.
-- A compute node group using UltraServer instances with a Capacity Block.
-  For more information, see
-  [Configure an AWS PCS compute node group to use a Capacity Block](capacity-blocks-configure-cng.md "capacity-blocks-configure-cng.md").
-- An AMI with the NVIDIA driver, CUDA, and IMEX packages installed.
-  The IMEX service (`nvidia-imex`) must be enabled on the AMI.
-- The prolog script must be available on all compute nodes at the path
-  configured in the cluster's Slurm `Prolog` setting. You can use
-  a shared file system or include the script in your custom AMI.
+<a name="capacity-blocks-nvidia-imex-prerequisites"></a>
++ A AWS PCS cluster with Slurm 25.05 or later.
++ A compute node group using UltraServer instances with a Capacity Block. For more information, see [Configure an AWS PCS compute node group to use a Capacity Block](capacity-blocks-configure-cng.md).
++ An AMI with the NVIDIA driver, CUDA, and IMEX packages installed. The IMEX service (`nvidia-imex`) must be enabled on the AMI.
++ The prolog script must be available on all compute nodes at the path configured in the cluster's Slurm `Prolog` setting. You can use a shared file system or include the script in your custom AMI.
 
 ## Automatic topology selection
+<a name="capacity-blocks-nvidia-imex-topology"></a>
 
-When you create a AWS PCS cluster with UltraServer compute node groups, the system
-inspects the Capacity Block, identifies the UltraServer type, and configures Slurm
-with the appropriate topology plugin. This process runs automatically and does not
-require any configuration.
+When you create a AWS PCS cluster with UltraServer compute node groups, the system inspects the Capacity Block, identifies the UltraServer type, and configures Slurm with the appropriate topology plugin. This process runs automatically and does not require any configuration.
 
-AWS PCS manages topology through a dynamically generated `topology.yaml`
-file. As the cluster evolves through compute node group additions or removals, AWS PCS
-continuously reconciles the topology configuration to reflect the current cluster state.
+AWS PCS manages topology through a dynamically generated `topology.yaml` file. As the cluster evolves through compute node group additions or removals, AWS PCS continuously reconciles the topology configuration to reflect the current cluster state.
 
-Block topology models uniform, high-bandwidth communication domains where all GPUs
-participate in a single high-speed NVLink domain with near-uniform latency. The
-`topology/block` plugin allocates nodes based on the defined network topology,
-ensuring that jobs are placed within the same UltraServer and GPU-to-GPU communication
-uses NVLink instead of falling back to EFA networking.
+Block topology models uniform, high-bandwidth communication domains where all GPUs participate in a single high-speed NVLink domain with near-uniform latency. The `topology/block` plugin allocates nodes based on the defined network topology, ensuring that jobs are placed within the same UltraServer and GPU-to-GPU communication uses NVLink instead of falling back to EFA networking.
 
 ## Using the topology/block plugin
+<a name="capacity-blocks-nvidia-imex-job-submission"></a>
 
-Jobs submitted to UltraServer queues are automatically placed within the same
-block (UltraServer) by the Slurm scheduler. All nodes in a block are allocated to a
-job before the next block is used. Jobs must use the `--exclusive` flag
-because IMEX requires a dedicated IMEX domain per job, and restarting the IMEX service
-would disrupt any other running jobs on the same nodes. For more information about
-the topology/block plugin, see the
-[Topology guide](https://slurm.schedmd.com/topology.html "https://slurm.schedmd.com/topology.html") and
-[topology.yaml reference](https://slurm.schedmd.com/topology.yaml.html "https://slurm.schedmd.com/topology.yaml.html")
-in the Slurm documentation.
+Jobs submitted to UltraServer queues are automatically placed within the same block (UltraServer) by the Slurm scheduler. All nodes in a block are allocated to a job before the next block is used. Jobs must use the `--exclusive` flag because IMEX requires a dedicated IMEX domain per job, and restarting the IMEX service would disrupt any other running jobs on the same nodes. For more information about the topology/block plugin, see the [Topology guide](https://slurm.schedmd.com/topology.html) and [topology.yaml reference](https://slurm.schedmd.com/topology.yaml.html) in the Slurm documentation.
 
-When submitting jobs, you can use the `--segment=N` argument with
-`sbatch` and `srun` commands to specify the number of nodes
-to group together within the same block. The size of the segment must be less than
-or equal to the planning block size. Using `--segment` does not guarantee
-that segments will be placed on different blocks.
+When submitting jobs, you can use the `--segment=N` argument with `sbatch` and `srun` commands to specify the number of nodes to group together within the same block. The size of the segment must be less than or equal to the planning block size. Using `--segment` does not guarantee that segments will be placed on different blocks.
 
-The following are sample scenarios for allocating blocks on a queue with
-18-node UltraServers (for example, a `u-p6e-gb200x72` which has 18
-`p6e-gb200.36xlarge` instances):
+The following are sample scenarios for allocating blocks on a queue with 18-node UltraServers (for example, a `u-p6e-gb200x72` which has 18 `p6e-gb200.36xlarge` instances):
 
 ```
 # Allocate a whole block (single UltraServer)
@@ -79,73 +48,43 @@ sbatch -N24 --segment=12 --exclusive --partition=ultra job.sh
 ```
 
 ## Best practices for UltraServer topology
+<a name="capacity-blocks-nvidia-imex-best-practices"></a>
 
 For optimal performance with UltraServer architecture in AWS PCS:
-
-- **Use segments for better availability**: Use
-  the `--segment` option with a value smaller than the full block size
-  to allow jobs to be scheduled on blocks that have some drained or unavailable nodes.
-  This trades absolute NVLink locality for quicker job scheduling times. For more
-  information, see
-  [Gaining more
-  control over node scheduling with the Topology/Block Plugin](https://slurm.schedmd.com/SLUG24/NVIDIA-Craig_Tierney.pdf "https://slurm.schedmd.com/SLUG24/NVIDIA-Craig_Tierney.pdf").
-- **Consider job size and block size**: If
-  `BlockSizes=18`, jobs with up to 18 instances always run on a single
-  UltraServer. Jobs requesting more than 18 nodes span multiple UltraServers, with
-  NVLink connectivity within each block and EFA networking between blocks.
-- **Segment trade-offs**: Using
-  `--segment` disables higher-order block size scheduling. Without
-  `--segment`, a full block is filled before the next block is used.
-  With `--segment`, segments can be placed on any block with sufficient
-  available nodes.
++ **Use segments for better availability**: Use the `--segment` option with a value smaller than the full block size to allow jobs to be scheduled on blocks that have some drained or unavailable nodes. This trades absolute NVLink locality for quicker job scheduling times. For more information, see [Gaining more control over node scheduling with the Topology/Block Plugin](https://slurm.schedmd.com/SLUG24/NVIDIA-Craig_Tierney.pdf).
++ **Consider job size and block size**: If `BlockSizes=18`, jobs with up to 18 instances always run on a single UltraServer. Jobs requesting more than 18 nodes span multiple UltraServers, with NVLink connectivity within each block and EFA networking between blocks.
++ **Segment trade-offs**: Using `--segment` disables higher-order block size scheduling. Without `--segment`, a full block is filled before the next block is used. With `--segment`, segments can be placed on any block with sufficient available nodes.
 
 ## Limitations
-
-- AWS PCS requires that UltraServer compute node groups are placed in
-  dedicated queues, separate from non-UltraServer compute node groups.
-- Each compute node group can be associated with only one UltraServer
-  Capacity Block.
-- When a queue contains multiple UltraServer compute node groups, the
-  instance count of each compute node group must have power-of-2 ratios between
-  them (for example, 9 and 18, or 2 and 8).
-- Jobs on UltraServer queues must use the `--exclusive` flag
-  to ensure a dedicated IMEX domain per job.
-- The IMEX domain created by the prolog script includes only the nodes
-  allocated to the job. Since AWS PCS dynamically allocates nodes to jobs, the
-  IMEX domain cannot be pre-created and must be configured at job start time.
-  Jobs that span multiple UltraServers will not have NVLink connectivity between
-  nodes in different UltraServers because the IMEX domain is based on IP addresses
-  and cannot bridge across separate NVLink fabrics.
-- The IMEX `nodes_config.cfg` cannot be modified while the
-  service is running. If the configuration is changed, IMEX permanently blocks
-  communication to mismatched nodes. The only recovery is to stop IMEX on all
-  nodes and restart with a consistent configuration.
+<a name="capacity-blocks-nvidia-imex-limitations"></a>
++ AWS PCS requires that UltraServer compute node groups are placed in dedicated queues, separate from non-UltraServer compute node groups.
++ Each compute node group can be associated with only one UltraServer Capacity Block.
++ When a queue contains multiple UltraServer compute node groups, the instance count of each compute node group must have power-of-2 ratios between them (for example, 9 and 18, or 2 and 8).
++ Jobs on UltraServer queues must use the `--exclusive` flag to ensure a dedicated IMEX domain per job.
++ The IMEX domain created by the prolog script includes only the nodes allocated to the job. Since AWS PCS dynamically allocates nodes to jobs, the IMEX domain cannot be pre-created and must be configured at job start time. Jobs that span multiple UltraServers will not have NVLink connectivity between nodes in different UltraServers because the IMEX domain is based on IP addresses and cannot bridge across separate NVLink fabrics.
++ The IMEX `nodes_config.cfg` cannot be modified while the service is running. If the configuration is changed, IMEX permanently blocks communication to mismatched nodes. The only recovery is to stop IMEX on all nodes and restart with a consistent configuration.
 
 ## Create the IMEX prolog script
+<a name="capacity-blocks-nvidia-imex-prolog"></a>
 
-The following `91_nvidia_imex_prolog.sh` script configures NVIDIA IMEX
-on compute nodes when a Slurm job starts. The script name uses a `91` prefix
-following
-[SchedMD's naming convention](https://slurm.schedmd.com/prolog_epilog.html "https://slurm.schedmd.com/prolog_epilog.html")
-for prolog execution ordering.
+The following `91_nvidia_imex_prolog.sh` script configures NVIDIA IMEX on compute nodes when a Slurm job starts. The script name uses a `91` prefix following [SchedMD's naming convention](https://slurm.schedmd.com/prolog_epilog.html) for prolog execution ordering.
 
 The script performs the following actions:
 
-1. Checks whether the job is exclusive. IMEX configuration requires exclusive
-   jobs to prevent disrupting other running jobs on the same nodes.
-2. Checks whether the instance type is a supported UltraServer type
-   (`p6e-gb200` or `p6e-gb300`).
-3. Checks whether the IMEX service is enabled.
-4. Creates the IMEX default channel device if it does not exist.
-5. Writes the private IP addresses of all job nodes into
-   `/etc/nvidia-imex/nodes_config.cfg`.
-6. Restarts the IMEX service.
+1. Checks whether the job is exclusive. IMEX configuration requires exclusive jobs to prevent disrupting other running jobs on the same nodes.
 
-###### Important
+1. Checks whether the instance type is a supported UltraServer type (`p6e-gb200` or `p6e-gb300`).
 
-This prolog script requires jobs to be submitted with the `--exclusive`
-flag. Restarting IMEX while other jobs are running on the same nodes will disrupt
-those jobs.
+1. Checks whether the IMEX service is enabled.
+
+1. Creates the IMEX default channel device if it does not exist.
+
+1. Writes the private IP addresses of all job nodes into `/etc/nvidia-imex/nodes_config.cfg`.
+
+1. Restarts the IMEX service.
+
+**Important**  
+This prolog script requires jobs to be submitted with the `--exclusive` flag. Restarting IMEX while other jobs are running on the same nodes will disrupt those jobs.
 
 Save the following script as `91_nvidia_imex_prolog.sh`:
 
@@ -281,25 +220,17 @@ function create_default_imex_channel() {
 ```
 
 ## Deploy the prolog script
+<a name="capacity-blocks-nvidia-imex-deploy"></a>
 
-To deploy the prolog script, configure the Slurm `Prolog` and
-`PrologFlags` custom settings on your cluster. You can set these when
-you create a cluster or update an existing cluster.
+To deploy the prolog script, configure the Slurm `Prolog` and `PrologFlags` custom settings on your cluster. You can set these when you create a cluster or update an existing cluster.
 
-For more information about configuring custom Slurm settings, see
-[Custom Slurm settings for AWS PCS clusters](slurm-custom-settings-cluster.md "slurm-custom-settings-cluster.md").
-For the procedure to update a cluster, see
-[Update an AWS PCS cluster](working-with_clusters_update_procedure.md "working-with_clusters_update_procedure.md").
+For more information about configuring custom Slurm settings, see [Custom Slurm settings for AWS PCS clusters](slurm-custom-settings-cluster.md). For the procedure to update a cluster, see [Update an AWS PCS cluster](working-with_clusters_update_procedure.md).
 
 Set the following custom Slurm settings on the cluster:
++ `Prolog` - Set to the path where the prolog script is available on compute nodes, for example `/shared/scripts/prolog.d/91_nvidia_imex_prolog.sh`.
++ `PrologFlags` - Set to `Alloc,NoHold`. The `Alloc` flag runs the prolog on each node when it is first allocated to a job. The `NoHold` flag prevents the job from being held if the prolog fails.
 
-- `Prolog` - Set to the path where the prolog script is available
-  on compute nodes, for example `/shared/scripts/prolog.d/91_nvidia_imex_prolog.sh`.
-- `PrologFlags` - Set to `Alloc,NoHold`. The `Alloc`
-  flag runs the prolog on each node when it is first allocated to a job. The `NoHold`
-  flag prevents the job from being held if the prolog fails.
-
-###### Example Update cluster with prolog settings using the AWS CLI
+**Example Update cluster with prolog settings using the AWS CLI**  
 
 ```
 aws pcs update-cluster \
@@ -313,9 +244,9 @@ aws pcs update-cluster \
 ```
 
 ## Validate the IMEX setup
+<a name="capacity-blocks-nvidia-imex-validate"></a>
 
-The prolog script runs automatically when you submit a Slurm job. Submit a test
-job to verify that IMEX is configured correctly on all nodes.
+The prolog script runs automatically when you submit a Slurm job. Submit a test job to verify that IMEX is configured correctly on all nodes.
 
 Create a job script named `check-imex.sh`:
 
@@ -333,12 +264,10 @@ srun bash -c "/usr/bin/nvidia-imex-ctl -N > imex_result_\${SLURM_JOB_ID}_\$(host
 Submit the job to your UltraServer queue:
 
 ```
-sbatch -p `queue-name` -N `node-count` check-imex.sh
+sbatch -p {{queue-name}} -N {{node-count}} check-imex.sh
 ```
 
-Check the output files. A successful IMEX configuration shows all nodes in
-`READY` state with `C` (Connected) in the connectivity table
-and `Domain State: UP`:
+Check the output files. A successful IMEX configuration shows all nodes in `READY` state with `C` (Connected) in the connectivity table and `Domain State: UP`:
 
 ```
 Connectivity Table Legend:
@@ -396,23 +325,13 @@ Domain State: UP
 ```
 
 ## Troubleshooting
+<a name="capacity-blocks-nvidia-imex-troubleshooting"></a>
 
-Node configuration mapping mismatch
+Node configuration mapping mismatch  
+If you see `!M!` in the connectivity table or `Node configuration mapping mismatch` in the IMEX logs, the `nodes_config.cfg` file is not consistent across all nodes. IMEX permanently blocks communication to mismatched nodes. Verify that the prolog script ran on all nodes and restart the job.
 
-If you see `!M!` in the connectivity table or
-`Node configuration mapping mismatch` in the IMEX logs, the
-`nodes_config.cfg` file is not consistent across all nodes.
-IMEX permanently blocks communication to mismatched nodes. Verify that
-the prolog script ran on all nodes and restart the job.
+IMEX channel device not found  
+If the prolog script fails to create the IMEX channel device, verify that the NVIDIA driver is installed and that `/proc/devices` contains `nvidia-caps-imex-channels`.
 
-IMEX channel device not found
-
-If the prolog script fails to create the IMEX channel device, verify
-that the NVIDIA driver is installed and that
-`/proc/devices` contains `nvidia-caps-imex-channels`.
-
-Prolog script not running
-
-Verify that the `Prolog` and `PrologFlags` settings
-are configured on the cluster. Check that the script file exists on the compute
-nodes and has execute permissions (`chmod 0755`).
+Prolog script not running  
+Verify that the `Prolog` and `PrologFlags` settings are configured on the cluster. Check that the script file exists on the compute nodes and has execute permissions (`chmod 0755`).
