@@ -25,7 +25,7 @@ context. When she and her reviewers are satisfied, and the conditions for approv
 any) have been satisfied, she or one of her reviewers merges her code and closes the pull
 request.
 
-![Creating a pull request](images/codecommit-pull-request-create.png)
+![Creating a pull request](/images/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 Pull requests require two branches: a source branch that contains the code you want
 reviewed, and a destination branch, where you merge the reviewed code. The source branch
 contains the AFTER commit, which is the commit that contains the changes you want to merge

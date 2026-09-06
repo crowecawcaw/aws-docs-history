@@ -33,7 +33,7 @@ changes. You can also add comments. For more information, see [Comment on a comm
 Your preferences for viewing code and other console settings are saved as
 browser cookies whenever you change them. For more information, see [Working with user preferences](user-preferences.md "user-preferences.md").
 
-![Changes shown in Unified view, with white space changes hidden](/images/codecommit/latest/userguide/images/codecommit-commit-changes2c.png)
+![Changes shown in Unified view, with white space changes hidden](images/codecommit-commit-changes2c.png)
 
 ![Changes shown in Split view, with a comment on a line](images/codecommit-commenting-commenttab.png)
 
@@ -78,7 +78,7 @@ You can view the differences between any two commit specifiers in the CodeCommit
 
 5. After you have selected the specifiers, choose **Compare**.
 
-![The comparison view between two branches](images/codecommit-compare-branches.png)
+![The comparison view between two branches](/images/codecommit/latest/userguide/images/codecommit-compare-branches.png)
 
 You can show differences side by side (**Split** view) or
 inline (**Unified** view). You can also hide or show white

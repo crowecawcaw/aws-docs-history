@@ -43,17 +43,17 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
     * To add a comment to a file in the commit, in
      **Changes**, find the name of the file. Choose the
      comment icon
-    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](/images/codecommit/latest/userguide/images/codecommit-commentbubble.png)
+    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)
      that appears next to the file name, enter a
      comment, and then choose **Save**.
 
 
 
-    ![Adding a comment on a file in a pull request.](images/codecommit-commenting-addfilecomment.png)
+    ![Adding a comment on a file in a pull request.](/images/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
     * To add a comment to a changed line in the pull request, in
      **Changes**, go to the line you want to comment on.
      Choose the comment icon
-    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](/images/codecommit/latest/userguide/images/codecommit-commentbubble.png)
+    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)
      that appears for that line, enter a comment, and
      then choose **Save**.
 
