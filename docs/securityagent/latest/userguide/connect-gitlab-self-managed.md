@@ -25,6 +25,10 @@ Before you begin, ensure you have:
 - Maintainer or Owner access to the projects you want to connect
 - Your GitLab instance must serve HTTPS traffic with a minimum TLS version of 1.2
 
+###### Important
+
+If your GitLab Self-Managed instance is reachable over the public internet and restricts inbound access with an IP allow list or firewall, add the AWS Security Agent IP addresses for your AWS Region before you register the integration. For the IP addresses, see [AWS Security Agent IP addresses](about-integrations.md#agent-ip-addresses "about-integrations.md#agent-ip-addresses"). Instances reached through a private connection do not need this step. That traffic arrives over the private network path, not from these public IP addresses.
+
 ###### Note
 
 If your GitLab Self-Managed instance uses TLS certificates issued by a private certificate authority, you can provide the PEM-encoded public key of the certificate when creating a private connection. This allows AWS Security Agent to trust the TLS connection to your instance.

@@ -36,6 +36,70 @@ AWS Security Agent supports the following providers:
 
 For self-hosted providers that are not reachable over the public internet, you can route the agent’s traffic through a private connection. For more information, see [Connect to privately hosted source control](connect-private-connection.md "connect-private-connection.md").
 
+## AWS Security Agent IP addresses
+
+AWS Security Agent connects to your source code repositories from a fixed set of IP addresses, one set per AWS Region. The same IP addresses are used for every supported source code provider: GitHub, GitLab, and Bitbucket. This includes self-hosted GitHub Enterprise Server and GitLab Self-Managed instances that are reachable over the public internet.
+
+###### Important
+
+If your repository provider or the network in front of it restricts access with an IP allow list, add the AWS Security Agent IP addresses for your Agent Space’s AWS Region to that allow list. Wait a few minutes for the change to take effect, then register the integration. Examples include a GitHub organization IP allow list, a GitLab allowed IP range, Bitbucket workspace IP allowlisting, or a firewall in front of a self-hosted instance.
+
+The following IP addresses are used to access your connected repositories:
+
+- US East (N. Virginia) (us-east-1)
+
+  - `34.228.181.128`
+  - `44.219.176.187`
+  - `54.226.244.221`
+
+- US West (Oregon) (us-west-2)
+
+  - `34.212.16.133`
+  - `52.89.67.212`
+  - `54.187.135.61`
+
+- Asia Pacific (Mumbai) (ap-south-1)
+
+  - `13.126.209.199`
+  - `13.234.6.24`
+  - `35.154.102.216`
+
+- Asia Pacific (Singapore) (ap-southeast-1)
+
+  - `18.139.13.125`
+  - `47.130.240.215`
+  - `54.179.238.173`
+
+- Asia Pacific (Sydney) (ap-southeast-2)
+
+  - `13.237.95.197`
+  - `13.238.84.102`
+  - `52.64.174.242`
+
+- Asia Pacific (Tokyo) (ap-northeast-1)
+
+  - `13.192.12.233`
+  - `35.74.181.230`
+  - `57.183.50.158`
+
+- Europe (Frankfurt) (eu-central-1)
+
+  - `18.158.110.140`
+  - `52.57.96.160`
+  - `52.59.55.56`
+
+- Europe (Ireland) (eu-west-1)
+
+  - `34.251.85.24`
+  - `52.30.157.157`
+  - `52.51.192.222`
+
+- South America (São Paulo) (sa-east-1)
+
+  - `54.94.247.213`
+  - `54.207.222.14`
+  - `54.232.201.242`
+
 ## Next steps
 
 - Register a provider from the **Integrations** page. See the connect topic for your provider, such as [Connect AWS Security Agent to GitHub repositories](connect-github.md "connect-github.md").

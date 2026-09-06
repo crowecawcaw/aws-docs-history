@@ -36,67 +36,11 @@ Multiple AWS accounts can connect to the same GitHub organization or user accoun
 
 ###### Important
 
-Your GitHub organization might use an IP allow list. If so, add the AWS Security Agent IP addresses for your AWS Region to the IP allow list. Wait a few minutes for GitHub to apply them, then register the integration.
+Your GitHub organization might use an IP allow list. If so, add the AWS Security Agent IP addresses for your AWS Region to the IP allow list. Wait a few minutes for GitHub to apply them, then register the integration. For the IP addresses, see [AWS Security Agent IP addresses](about-integrations.md#agent-ip-addresses "about-integrations.md#agent-ip-addresses").
 
 Do not rely on the GitHub **Enable IP allow list configuration for installed GitHub Apps** setting. This setting adds IP addresses only for app-installation requests, not for the requests that AWS Security Agent makes during registration. As a result, registration fails even when those addresses appear in your IP allow list.
 
 For more information about enabling allowed IP addresses for your GitHub organization, see [Enabling allowed IP addresses](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses "https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses") in the GitHub documentation.
-
-The following IP addresses are used to access your GitHub resources:
-
-- US East (N. Virginia) (us-east-1)
-
-  - `34.228.181.128`
-  - `44.219.176.187`
-  - `54.226.244.221`
-
-- US West (Oregon) (us-west-2)
-
-  - `34.212.16.133`
-  - `52.89.67.212`
-  - `54.187.135.61`
-
-- Asia Pacific (Mumbai) (ap-south-1)
-
-  - `13.126.209.199`
-  - `13.234.6.24`
-  - `35.154.102.216`
-
-- Asia Pacific (Singapore) (ap-southeast-1)
-
-  - `18.139.13.125`
-  - `47.130.240.215`
-  - `54.179.238.173`
-
-- Asia Pacific (Sydney) (ap-southeast-2)
-
-  - `13.237.95.197`
-  - `13.238.84.102`
-  - `52.64.174.242`
-
-- Asia Pacific (Tokyo) (ap-northeast-1)
-
-  - `13.192.12.233`
-  - `35.74.181.230`
-  - `57.183.50.158`
-
-- Europe (Frankfurt) (eu-central-1)
-
-  - `18.158.110.140`
-  - `52.57.96.160`
-  - `52.59.55.56`
-
-- Europe (Ireland) (eu-west-1)
-
-  - `34.251.85.24`
-  - `52.30.157.157`
-  - `52.51.192.222`
-
-- South America (São Paulo) (sa-east-1)
-
-  - `54.94.247.213`
-  - `54.207.222.14`
-  - `54.232.201.242`
 
 ## Authorize and register the AWS Security Agent GitHub App
 
@@ -163,7 +107,7 @@ Registration fails with an error such as "Security token validation error. Pleas
 
 ###### Resolution
 
-Manually add the AWS Security Agent IP addresses for your AWS Region (see [Prerequisites](#connect-github-prerequisites "#connect-github-prerequisites")) to your organization’s IP allow list. Wait a few minutes for GitHub to apply them, then register the integration again.
+Manually add the AWS Security Agent IP addresses for your AWS Region (see [AWS Security Agent IP addresses](about-integrations.md#agent-ip-addresses "about-integrations.md#agent-ip-addresses")) to your organization’s IP allow list. Wait a few minutes for GitHub to apply them, then register the integration again.
 
 ### Multiple AWS accounts connecting to the same GitHub organization
 

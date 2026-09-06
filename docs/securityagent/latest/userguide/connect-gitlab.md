@@ -34,6 +34,10 @@ Before you begin, ensure you have:
 
 - Permissions to configure integrations in the AWS Security Agent Management Console
 
+###### Important
+
+If your GitLab group or project restricts access with an allowed IP range, or a network firewall sits in front of GitLab, add the AWS Security Agent IP addresses for your AWS Region before you register the integration. For the IP addresses, see [AWS Security Agent IP addresses](about-integrations.md#agent-ip-addresses "about-integrations.md#agent-ip-addresses").
+
 ###### Note
 
 Keep the following in mind when you create your GitLab access token:

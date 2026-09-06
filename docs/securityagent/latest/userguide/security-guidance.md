@@ -118,6 +118,10 @@ AWS Security Agent detects vulnerabilities in the OWASP Top 10 for web applicati
 
   - XML External Entity attack is a type of attack against an application that parses XML input. This attack occurs when XML input containing a reference to an external entity is processed by a weakly configured XML parser
 
+#### Does AWS Security Agent report open network ports?
+
+Yes. During a penetration test, AWS Security Agent scans each target host for open network ports. When a host has open TCP ports beyond the standard web ports your application uses, it adds a single informational Exposed Network Ports finding. The finding lists each open port with its detected service and version. AWS Security Agent identifies these ports for your awareness. It does not attempt to exploit the services on them.
+
 #### What authentication methods does AWS Security Agent support?
 
 AWS Security Agent supports common authentication methods, including OAuth and JWT. For more information, see the [documentation](provide-testing-credentials.md "provide-testing-credentials.md").
