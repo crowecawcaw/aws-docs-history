@@ -1,94 +1,64 @@
+
+
 # Log Amazon Kinesis Data Streams API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon Kinesis Data Streams is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, or an AWS service in Kinesis Data Streams. CloudTrail captures all API calls for
-Kinesis Data Streams as events. The calls captured include calls from the Kinesis Data Streams console and code calls
-to the Kinesis Data Streams API operations. If you create a trail, you can enable continuous delivery
-of CloudTrail events to an Amazon S3 bucket, including events for Kinesis Data Streams. If you don't configure a
-trail, you can still view the most recent events in the CloudTrail console in **Event
-history**. Using the information collected by CloudTrail, you can determine the
-request that was made to Kinesis Data Streams, the IP address from which the request was made, who made
-the request, when it was made, and additional details.
+Amazon Kinesis Data Streams is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Kinesis Data Streams. CloudTrail captures all API calls for Kinesis Data Streams as events. The calls captured include calls from the Kinesis Data Streams console and code calls to the Kinesis Data Streams API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Kinesis Data Streams. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Kinesis Data Streams, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Kinesis Data Streams information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported
-event activity occurs in Kinesis Data Streams, that activity is recorded in a CloudTrail event along with
-other AWS service events in **Event history**. You can view,
-search, and download recent events in your AWS account. For more information, see
-[Viewing Events with CloudTrail
-Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in Kinesis Data Streams, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for Kinesis Data Streams,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an
-Amazon S3 bucket. By default, when you create a trail in the console, the trail applies
-to all AWS Regions. The trail logs events from all Regions in the AWS partition
-and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you
-can configure other AWS services to further analyze and act upon the event data
-collected in CloudTrail logs. For more information, see the following:
-
-- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+For an ongoing record of events in your AWS account, including events for Kinesis Data Streams, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
 Kinesis Data Streams supports logging the following actions as events in CloudTrail log files:
++ [AddTagsToStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html)
++ [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html)
++ [DecreaseStreamRetentionPeriod](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html)
++ [DeleteStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html)
++ [DeregisterStreamConsumer](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeregisterStreamConsumer.html)
++ [DescribeStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html)
++ [DescribeStreamConsumer](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStreamConsumer.html)
++ [DisableEnhancedMonitoring](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DisableEnhancedMonitoring.html)
++ [EnableEnhancedMonitoring](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_EnableEnhancedMonitoring.html)
++ [GetRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html)
++ [GetShardIterator](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html)
++ [IncreaseStreamRetentionPeriod](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.html)
++ [ListStreamConsumers](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreamConsumers.html)
++ [ListStreams](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html)
++ [ListTagsForStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html)
++ [MergeShards](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html)
++ [PutRecord](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html)
++ [PutRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html)
++ [RegisterStreamConsumer](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_RegisterStreamConsumer.html)
++ [RemoveTagsFromStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html)
++ [SplitShard](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html)
++ [StartStreamEncryption](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_StartStreamEncryption.html)
++ [StopStreamEncryption](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_StopStreamEncryption.html)
++ [SubscribeToShard](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SubscribeToShard.html)
++ [UpdateShardCount](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html)
++ [UpdateStreamMode](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamMode.html)
 
-- [AddTagsToStream](../../../kinesis/latest/APIReference/API_AddTagsToStream.md "../../../kinesis/latest/APIReference/API_AddTagsToStream.md")
-- [CreateStream](../../../kinesis/latest/APIReference/API_CreateStream.md "../../../kinesis/latest/APIReference/API_CreateStream.md")
-- [DecreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md")
-- [DeleteStream](../../../kinesis/latest/APIReference/API_DeleteStream.md "../../../kinesis/latest/APIReference/API_DeleteStream.md")
-- [DeregisterStreamConsumer](../../../kinesis/latest/APIReference/API_DeregisterStreamConsumer.md "../../../kinesis/latest/APIReference/API_DeregisterStreamConsumer.md")
-- [DescribeStream](../../../kinesis/latest/APIReference/API_DescribeStream.md "../../../kinesis/latest/APIReference/API_DescribeStream.md")
-- [DescribeStreamConsumer](../../../kinesis/latest/APIReference/API_DescribeStreamConsumer.md "../../../kinesis/latest/APIReference/API_DescribeStreamConsumer.md")
-- [DisableEnhancedMonitoring](../../../kinesis/latest/APIReference/API_DisableEnhancedMonitoring.md "../../../kinesis/latest/APIReference/API_DisableEnhancedMonitoring.md")
-- [EnableEnhancedMonitoring](../../../kinesis/latest/APIReference/API_EnableEnhancedMonitoring.md "../../../kinesis/latest/APIReference/API_EnableEnhancedMonitoring.md")
-- [GetRecords](../../../kinesis/latest/APIReference/API_GetRecords.md "../../../kinesis/latest/APIReference/API_GetRecords.md")
-- [GetShardIterator](../../../kinesis/latest/APIReference/API_GetShardIterator.md "../../../kinesis/latest/APIReference/API_GetShardIterator.md")
-- [IncreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.md")
-- [ListStreamConsumers](../../../kinesis/latest/APIReference/API_ListStreamConsumers.md "../../../kinesis/latest/APIReference/API_ListStreamConsumers.md")
-- [ListStreams](../../../kinesis/latest/APIReference/API_ListStreams.md "../../../kinesis/latest/APIReference/API_ListStreams.md")
-- [ListTagsForStream](../../../kinesis/latest/APIReference/API_ListTagsForStream.md "../../../kinesis/latest/APIReference/API_ListTagsForStream.md")
-- [MergeShards](../../../kinesis/latest/APIReference/API_MergeShards.md "../../../kinesis/latest/APIReference/API_MergeShards.md")
-- [PutRecord](../../../kinesis/latest/APIReference/API_PutRecord.md "../../../kinesis/latest/APIReference/API_PutRecord.md")
-- [PutRecords](../../../kinesis/latest/APIReference/API_PutRecords.md "../../../kinesis/latest/APIReference/API_PutRecords.md")
-- [RegisterStreamConsumer](../../../kinesis/latest/APIReference/API_RegisterStreamConsumer.md "../../../kinesis/latest/APIReference/API_RegisterStreamConsumer.md")
-- [RemoveTagsFromStream](../../../kinesis/latest/APIReference/API_RemoveTagsFromStream.md "../../../kinesis/latest/APIReference/API_RemoveTagsFromStream.md")
-- [SplitShard](../../../kinesis/latest/APIReference/API_SplitShard.md "../../../kinesis/latest/APIReference/API_SplitShard.md")
-- [StartStreamEncryption](../../../kinesis/latest/APIReference/API_StartStreamEncryption.md "../../../kinesis/latest/APIReference/API_StartStreamEncryption.md")
-- [StopStreamEncryption](../../../kinesis/latest/APIReference/API_StopStreamEncryption.md "../../../kinesis/latest/APIReference/API_StopStreamEncryption.md")
-- [SubscribeToShard](../../../kinesis/latest/APIReference/API_SubscribeToShard.md "../../../kinesis/latest/APIReference/API_SubscribeToShard.md")
-- [UpdateShardCount](../../../kinesis/latest/APIReference/API_UpdateShardCount.md "../../../kinesis/latest/APIReference/API_UpdateShardCount.md")
-- [UpdateStreamMode](../../../kinesis/latest/APIReference/API_UpdateStreamMode.md "../../../kinesis/latest/APIReference/API_UpdateStreamMode.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user
-  credentials.
-- Whether the request was made with temporary security credentials for a
-  role or federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail
-userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Example: Kinesis Data Streams log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the
-requested action, the date and time of the action, request parameters, and so on.
-CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't
-appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateStream`, `DescribeStream`,
-`ListStreams`, `DeleteStream`, `SplitShard`, and
-`MergeShards` actions.
+The following example shows a CloudTrail log entry that demonstrates the `CreateStream`, `DescribeStream`, `ListStreams`, `DeleteStream`, `SplitShard`, and `MergeShards` actions.
 
 ```
 {

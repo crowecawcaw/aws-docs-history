@@ -1,16 +1,15 @@
+
+
 # Use `ListStreams` with an AWS SDK or CLI
+<a name="example_kinesis_ListStreams_section"></a>
 
 The following code examples show how to use `ListStreams`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
 ```
     using System;
@@ -42,29 +41,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [ListStreams](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesis-2013-12-02/ListStreams) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list data streams**  
+The following `list-streams` example lists all active data streams in the current account and region.  
 
 ```
-
-- For API details, see
-  [ListStreams](../../../goto/DotNetSDKV3/kinesis-2013-12-02/ListStreams.md "../../../goto/DotNetSDKV3/kinesis-2013-12-02/ListStreams.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list data streams**
-
-The following `list-streams` example lists all active data streams in the current account and region.
-
+aws kinesis list-streams
 ```
-`aws kinesis list-streams`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -74,22 +64,14 @@ Output:
     ]
 }
 ```
+For more information, see [Listing Streams](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-list-streams.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [ListStreams](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/list-streams.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Listing Streams](kinesis-using-sdk-java-list-streams.md "kinesis-using-sdk-java-list-streams.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+------
+#### [ Rust ]
 
-- For API details, see
-  [ListStreams](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/list-streams.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/list-streams.html")
-  in _AWS CLI Command Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
 ```
 async fn show_streams(client: &Client) -> Result<(), Error> {
@@ -106,23 +88,14 @@ async fn show_streams(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListStreams](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.list_streams) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListStreams](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.list_streams "https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.list_streams")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
 ```
     TRY.
@@ -134,14 +107,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_knslimitexceededex.
         MESSAGE 'The request processing has failed because of a limit exceed exception.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListStreams](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListStreams](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

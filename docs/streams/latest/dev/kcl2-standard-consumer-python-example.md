@@ -1,38 +1,27 @@
+
+
 # Develop a Kinesis Client Library consumer in Python
+<a name="kcl2-standard-consumer-python-example"></a>
 
-###### Important
+**Important**  
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+You can use the Kinesis Client Library (KCL) to build applications that process data from your Kinesis data streams. The Kinesis Client Library is available in multiple languages. This topic discusses Python.
 
-You can use the Kinesis Client Library (KCL) to build applications that process
-data from your Kinesis data streams. The Kinesis Client Library is available in multiple
-languages. This topic discusses Python.
+The KCL is a Java library; support for languages other than Java is provided using a multi-language interface called the *MultiLangDaemon*. This daemon is Java-based and runs in the background when you are using a KCL language other than Java. Therefore, if you install the KCL for Python and write your consumer app entirely in Python, you still need Java installed on your system because of the MultiLangDaemon. Further, MultiLangDaemon has some default settings you may need to customize for your use case, for example, the AWS Region that it connects to. For more information about the MultiLangDaemon on GitHub, go to the [KCL MultiLangDaemon project](https://github.com/awslabs/amazon-kinesis-client/tree/v1.x/src/main/java/com/amazonaws/services/kinesis/multilang) page.
 
-The KCL is a Java library; support for languages other than Java is provided using a
-multi-language interface called the _MultiLangDaemon_. This daemon is
-Java-based and runs in the background when you are using a KCL language other than Java. Therefore, if you install the KCL for Python and write your consumer
-app entirely in Python, you still need Java installed on your system because of the
-MultiLangDaemon. Further, MultiLangDaemon has some default settings you may need to
-customize for your use case, for example, the AWS Region that it connects to. For more
-information about the MultiLangDaemon on GitHub, go to the [KCL MultiLangDaemon project](https://github.com/awslabs/amazon-kinesis-client/tree/v1.x/src/main/java/com/amazonaws/services/kinesis/multilang "https://github.com/awslabs/amazon-kinesis-client/tree/v1.x/src/main/java/com/amazonaws/services/kinesis/multilang") page.
+To download the Python KCL from GitHub, go to [Kinesis Client Library (Python)](https://github.com/awslabs/amazon-kinesis-client-python). To download sample code for a Python KCL consumer application, go to the [KCL for Python sample project](https://github.com/awslabs/amazon-kinesis-client-python/tree/master/samples) page on GitHub.
 
-To download the Python KCL from GitHub, go to [Kinesis Client Library (Python)](https://github.com/awslabs/amazon-kinesis-client-python "https://github.com/awslabs/amazon-kinesis-client-python"). To
-download sample code for a Python KCL consumer application, go to the [KCL for Python sample project](https://github.com/awslabs/amazon-kinesis-client-python/tree/master/samples "https://github.com/awslabs/amazon-kinesis-client-python/tree/master/samples") page on
-GitHub.
+You must complete the following tasks when implementing a KCL consumer application in Python:
 
-You must complete the following tasks when implementing a KCL consumer
-application in Python:
-
-###### Tasks
-
-- [Implement the RecordProcessor class methods](#kinesis-record-processor-implementation-interface-py "#kinesis-record-processor-implementation-interface-py")
-- [Modify the configuration properties](#kinesis-record-processor-initialization-py "#kinesis-record-processor-initialization-py")
+**Topics**
++ [Implement the RecordProcessor class methods](#kinesis-record-processor-implementation-interface-py)
++ [Modify the configuration properties](#kinesis-record-processor-initialization-py)
 
 ## Implement the RecordProcessor class methods
+<a name="kinesis-record-processor-implementation-interface-py"></a>
 
-The `RecordProcess` class must extend the
-`RecordProcessorBase` class to implement the following
-methods:
+The `RecordProcess` class must extend the `RecordProcessorBase` class to implement the following methods:
 
 ```
 initialize
@@ -207,10 +196,9 @@ if __name__ == "__main__":
 ```
 
 ## Modify the configuration properties
+<a name="kinesis-record-processor-initialization-py"></a>
 
-The sample provides default values for the configuration properties, as shown in
-the following script. You can override any of these properties with your own
-values.
+The sample provides default values for the configuration properties, as shown in the following script. You can override any of these properties with your own values.
 
 ```
 # The script that abides by the multi-language protocol. This script will
@@ -254,7 +242,7 @@ initialPositionInStream = TRIM_HORIZON
 
 # A worker id that uniquely identifies this worker among all workers using the same applicationName
 # If this isn't provided a MultiLangDaemon instance will assign a unique workerId to itself.
-#workerId =
+#workerId = 
 
 # Shard sync interval in milliseconds - e.g. wait for this long between shard sync tasks.
 #shardSyncIntervalMillis = 60000
@@ -299,29 +287,13 @@ initialPositionInStream = TRIM_HORIZON
 ```
 
 ### Application name
+<a name="kinesis-record-processor-application-name-py"></a>
 
-The KCL requires an application name that is unique among your
-applications and among Amazon DynamoDB tables in the same Region. It uses the
-application name configuration value in the following ways:
-
-- All workers that are associated with this application name are assumed
-  to be working together on the same stream. These workers can be
-  distributed across multiple instances. If you run an additional instance
-  of the same application code, but with a different application name, the
-  KCL treats the second instance as an entirely separate
-  application that is also operating on the same stream.
-- The KCL creates a DynamoDB table with the application name and
-  uses the table to maintain state information (such as checkpoints and
-  worker-shard mapping) for the application. Each application has its own
-  DynamoDB table. For more information, see [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
+The KCL requires an application name that is unique among your applications and among Amazon DynamoDB tables in the same Region. It uses the application name configuration value in the following ways:
++ All workers that are associated with this application name are assumed to be working together on the same stream. These workers can be distributed across multiple instances. If you run an additional instance of the same application code, but with a different application name, the KCL treats the second instance as an entirely separate application that is also operating on the same stream.
++ The KCL creates a DynamoDB table with the application name and uses the table to maintain state information (such as checkpoints and worker-shard mapping) for the application. Each application has its own DynamoDB table. For more information, see [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable).
 
 ### Credentials
+<a name="kinesis-record-processor-creds-py"></a>
 
-You must make your AWS credentials available to one of the credential
-providers in the [default credential providers chain](../../../sdk-for-java/latest/reference/com/amazonaws/auth/DefaultAWSCredentialsProviderChain.md "../../../sdk-for-java/latest/reference/com/amazonaws/auth/DefaultAWSCredentialsProviderChain.md"). You can you use the
-`AWSCredentialsProvider` property to set a credentials provider.
-If you run your consumer application on an Amazon EC2 instance, we recommend that you
-configure the instance with an IAM role. AWS credentials that reflect the
-permissions associated with this IAM role are made available to applications
-on the instance through its instance metadata. This is the most secure way to
-manage credentials for a consumer application running on an EC2 instance.
+You must make your AWS credentials available to one of the credential providers in the [default credential providers chain](https://docs.aws.amazon.com/sdk-for-java/latest/reference/com/amazonaws/auth/DefaultAWSCredentialsProviderChain.html). You can you use the `AWSCredentialsProvider` property to set a credentials provider. If you run your consumer application on an Amazon EC2 instance, we recommend that you configure the instance with an IAM role. AWS credentials that reflect the permissions associated with this IAM role are made available to applications on the instance through its instance metadata. This is the most secure way to manage credentials for a consumer application running on an EC2 instance.

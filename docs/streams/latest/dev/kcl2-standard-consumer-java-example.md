@@ -1,15 +1,14 @@
+
+
 # Develop a Kinesis Client Library consumer in Java
+<a name="kcl2-standard-consumer-java-example"></a>
 
-###### Important
+**Important**  
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
-
-The following code shows an example implementation in Java of
-`ProcessorFactory` and `RecordProcessor`. If you want to take
-advantage of the enhanced fan-out feature, see [Using Consumers with Enhanced Fan-Out](building-enhanced-consumers-kcl-java.md "building-enhanced-consumers-kcl-java.md") .
+The following code shows an example implementation in Java of `ProcessorFactory` and `RecordProcessor`. If you want to take advantage of the enhanced fan-out feature, see [Using Consumers with Enhanced Fan-Out ](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-kcl-java.html).
 
 ```
-
 /*
  *  Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
@@ -323,5 +322,4 @@ public class SampleSingle {
     }
 
 }
-
 ```

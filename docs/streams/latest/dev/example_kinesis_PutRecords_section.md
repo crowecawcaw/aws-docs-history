@@ -1,23 +1,23 @@
+
+
 # Use `PutRecords` with an AWS SDK or CLI
+<a name="example_kinesis_PutRecords_section"></a>
 
 The following code examples show how to use `PutRecords`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To write multiple records into a data stream**
-
-The following `put-records` example writes a data record using the specified partition key and another data record using a different partition key in a single call.
-
-```
-`aws kinesis put-records \
- --stream-name `samplestream` \
- --records `Data=blob1,PartitionKey=partitionkey1` `Data=blob2,PartitionKey=partitionkey2``
+**AWS CLI**  
+**To write multiple records into a data stream**  
+The following `put-records` example writes a data record using the specified partition key and another data record using a different partition key in a single call.  
 
 ```
-
-Output:
+aws kinesis put-records \
+    --stream-name {{samplestream}} \
+    --records {{Data=blob1,PartitionKey=partitionkey1}} {{Data=blob2,PartitionKey=partitionkey2}}
+```
+Output:  
 
 ```
 {
@@ -35,25 +35,16 @@ Output:
     "EncryptionType": "KMS"
 }
 ```
+For more information, see [Developing Producers Using the Amazon Kinesis Data Streams API with the AWS SDK for Java](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [PutRecords](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/put-records.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Developing Producers Using the Amazon Kinesis Data Streams API with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [PutRecords](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/put-records.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/put-records.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/kinesis#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/kinesis#code-examples). 
 
 ```
-
 import { PutRecordsCommand, KinesisClient } from "@aws-sdk/client-kinesis";
 
 /**
@@ -109,14 +100,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const { values } = parseArgs({ options });
   main(values);
 }
-
-
 ```
++  For API details, see [PutRecords](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutRecordsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutRecords](../../../AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutRecordsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutRecordsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,29 +1,27 @@
+
+
 # Use `PutRecord` with an AWS SDK or CLI
+<a name="example_kinesis_PutRecord_section"></a>
 
 The following code examples show how to use `PutRecord`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
 
-- [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md "example_kinesis_Scenario_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To write a record into a data stream**
-
-The following `put-record` example writes a single data record into the specified data stream using the specified partition key.
+**AWS CLI**  
+**To write a record into a data stream**  
+The following `put-record` example writes a single data record into the specified data stream using the specified partition key.  
 
 ```
-`aws kinesis put-record \
- --stream-name `samplestream` \
- --data `sampledatarecord` \
- --partition-key `samplepartitionkey``
-
+aws kinesis put-record \
+    --stream-name {{samplestream}} \
+    --data {{sampledatarecord}} \
+    --partition-key {{samplepartitionkey}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -32,22 +30,14 @@ Output:
     "EncryptionType": "KMS"
 }
 ```
+For more information, see [Developing Producers Using the Amazon Kinesis Data Streams API with the AWS SDK for Java](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [PutRecord](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/put-record.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Developing Producers Using the Amazon Kinesis Data Streams API with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [PutRecord](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/put-record.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/put-record.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples). 
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -160,65 +150,43 @@ public class StockTradesWriter {
         }
     }
 }
-
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesis-2013-12-02/PutRecord) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutRecord](../../../goto/SdkForJavaV2/kinesis-2013-12-02/PutRecord.md "../../../goto/SdkForJavaV2/kinesis-2013-12-02/PutRecord.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Writes a record containing the string supplied to the -Text parameter.**
+**Tools for PowerShell V4**  
+**Example 1: Writes a record containing the string supplied to the -Text parameter.**  
 
 ```
 Write-KINRecord -Text "test data from string" -StreamName "mystream" -PartitionKey "Key1"
-
 ```
-
-**Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.**
+**Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.**  
 
 ```
 Write-KINRecord -FilePath "C:\TestData.txt" -StreamName "mystream" -PartitionKey "Key2"
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutRecord](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Writes a record containing the string supplied to the -Text parameter.**
+**Tools for PowerShell V5**  
+**Example 1: Writes a record containing the string supplied to the -Text parameter.**  
 
 ```
 Write-KINRecord -Text "test data from string" -StreamName "mystream" -PartitionKey "Key1"
-
 ```
-
-**Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.**
+**Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.**  
 
 ```
 Write-KINRecord -FilePath "C:\TestData.txt" -StreamName "mystream" -PartitionKey "Key2"
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutRecord](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
 ```
 class KinesisStream:
@@ -253,24 +221,14 @@ class KinesisStream:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/PutRecord) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutRecord](../../../goto/boto3/kinesis-2013-12-02/PutRecord.md "../../../goto/boto3/kinesis-2013-12-02/PutRecord.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
 ```
 async fn add_record(client: &Client, stream: &str, key: &str, data: &str) -> Result<(), Error> {
@@ -288,23 +246,14 @@ async fn add_record(client: &Client, stream: &str, key: &str, data: &str) -> Res
 
     Ok(())
 }
-
-
 ```
++  For API details, see [PutRecord](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.put_record) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [PutRecord](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.put_record "https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.put_record")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
 ```
     TRY.
@@ -332,14 +281,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_knsresourcenotfoundex.
         MESSAGE 'Resource being accessed is not found.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutRecord](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

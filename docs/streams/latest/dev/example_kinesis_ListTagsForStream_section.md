@@ -1,16 +1,15 @@
+
+
 # Use `ListTagsForStream` with an AWS SDK or CLI
+<a name="example_kinesis_ListTagsForStream_section"></a>
 
 The following code examples show how to use `ListTagsForStream`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
 ```
     using System;
@@ -67,30 +66,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
                 .ForEach(t => Console.WriteLine($"Key: {t.Key} Value: {t.Value}"));
         }
     }
+```
++  For API details, see [ListTagsForStream](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesis-2013-12-02/ListTagsForStream) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list tags for a data stream**  
+The following `list-tags-for-stream` example lists the tags attached to the specified data stream.  
 
 ```
-
-- For API details, see
-  [ListTagsForStream](../../../goto/DotNetSDKV3/kinesis-2013-12-02/ListTagsForStream.md "../../../goto/DotNetSDKV3/kinesis-2013-12-02/ListTagsForStream.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list tags for a data stream**
-
-The following `list-tags-for-stream` example lists the tags attached to the specified data stream.
-
+aws kinesis list-tags-for-stream \
+    --stream-name {{samplestream}}
 ```
-`aws kinesis list-tags-for-stream \
- --stream-name `samplestream``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -103,13 +93,9 @@ Output:
     "HasMoreTags": false
 }
 ```
+For more information, see [Tagging Your Streams](https://docs.aws.amazon.com/streams/latest/dev/tagging.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [ListTagsForStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/list-tags-for-stream.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Tagging Your Streams](tagging.md "tagging.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+------
 
-- For API details, see
-  [ListTagsForStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/list-tags-for-stream.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/list-tags-for-stream.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

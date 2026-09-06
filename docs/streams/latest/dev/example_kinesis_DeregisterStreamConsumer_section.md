@@ -1,16 +1,15 @@
+
+
 # Use `DeregisterStreamConsumer` with an AWS SDK or CLI
+<a name="example_kinesis_DeregisterStreamConsumer_section"></a>
 
 The following code examples show how to use `DeregisterStreamConsumer`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
 ```
     using System;
@@ -69,38 +68,25 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
+```
++  For API details, see [DeregisterStreamConsumer](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesis-2013-12-02/DeregisterStreamConsumer) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To deregister a data stream consumer**  
+The following `deregister-stream-consumer` example deregisters the specified consumer from the specified data stream.  
 
 ```
-
-- For API details, see
-  [DeregisterStreamConsumer](../../../goto/DotNetSDKV3/kinesis-2013-12-02/DeregisterStreamConsumer.md "../../../goto/DotNetSDKV3/kinesis-2013-12-02/DeregisterStreamConsumer.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To deregister a data stream consumer**
-
-The following `deregister-stream-consumer` example deregisters the specified consumer from the specified data stream.
-
+aws kinesis deregister-stream-consumer \
+    --stream-arn {{arn:aws:kinesis:us-west-2:123456789012:stream/samplestream}} \
+    --consumer-name {{KinesisConsumerApplication}}
 ```
-`aws kinesis deregister-stream-consumer \
- --stream-arn `arn:aws:kinesis:us-west-2:123456789012:stream/samplestream` \
- --consumer-name `KinesisConsumerApplication``
+This command produces no output.  
+For more information, see [Developing Consumers with Enhanced Fan-Out Using the Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [DeregisterStreamConsumer](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/deregister-stream-consumer.html) in *AWS CLI Command Reference*. 
 
-```
+------
 
-This command produces no output.
-
-For more information, see [Developing Consumers with Enhanced Fan-Out Using the Kinesis Data Streams API](building-enhanced-consumers-api.md "building-enhanced-consumers-api.md") in the _Amazon Kinesis Data Streams Developer Guide_.
-
-- For API details, see
-  [DeregisterStreamConsumer](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/deregister-stream-consumer.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/deregister-stream-consumer.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

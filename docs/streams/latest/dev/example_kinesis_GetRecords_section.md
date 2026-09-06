@@ -1,27 +1,25 @@
+
+
 # Use `GetRecords` with an AWS SDK or CLI
+<a name="example_kinesis_GetRecords_section"></a>
 
 The following code examples show how to use `GetRecords`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
 
-- [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md "example_kinesis_Scenario_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To obtain records from a shard**
-
-The following `get-records` example gets data records from a Kinesis data stream's shard using the specified shard iterator.
+**AWS CLI**  
+**To obtain records from a shard**  
+The following `get-records` example gets data records from a Kinesis data stream's shard using the specified shard iterator.  
 
 ```
-`aws kinesis get-records \
- --shard-iterator `AAAAAAAAAAF7/0mWD7IuHj1yGv/TKuNgx2ukD5xipCY4cy4gU96orWwZwcSXh3K9tAmGYeOZyLZrvzzeOFVf9iN99hUPw/w/b0YWYeehfNvnf1DYt5XpDJghLKr3DzgznkTmMymDP3R+3wRKeuEw6/kdxY2yKJH0veaiekaVc4N2VwK/GvaGP2Hh9Fg7N++q0Adg6fIDQPt4p8RpavDbk+A4sL9SWGE1``
-
+aws kinesis get-records \
+    --shard-iterator {{AAAAAAAAAAF7/0mWD7IuHj1yGv/TKuNgx2ukD5xipCY4cy4gU96orWwZwcSXh3K9tAmGYeOZyLZrvzzeOFVf9iN99hUPw/w/b0YWYeehfNvnf1DYt5XpDJghLKr3DzgznkTmMymDP3R+3wRKeuEw6/kdxY2yKJH0veaiekaVc4N2VwK/GvaGP2Hh9Fg7N++q0Adg6fIDQPt4p8RpavDbk+A4sL9SWGE1}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -29,22 +27,14 @@ Output:
     "MillisBehindLatest": 80742000
 }
 ```
+For more information, see [Developing Consumers Using the Kinesis Data Streams API with the AWS SDK for Java](https://docs.aws.amazon.com/streams/latest/dev/developing-consumers-with-sdk.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [GetRecords](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/get-records.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Developing Consumers Using the Kinesis Data Streams API with the AWS SDK for Java](developing-consumers-with-sdk.md "developing-consumers-with-sdk.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [GetRecords](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/get-records.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/get-records.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples). 
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -144,29 +134,20 @@ public class GetRecords {
         }
     }
 }
-
-
 ```
++  For API details, see [GetRecords](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesis-2013-12-02/GetRecords) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetRecords](../../../goto/SdkForJavaV2/kinesis-2013-12-02/GetRecords.md "../../../goto/SdkForJavaV2/kinesis-2013-12-02/GetRecords.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example shows how to return and extract data from a series of one or more records. The iterator supplierd to Get-KINRecord determines the starting position of the records to return which in this example are captured into a variable, $records. Each individual record can then be accessed by indexing the $records collection.
-
-Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.**
+**Tools for PowerShell V4**  
+**Example 1: This example shows how to return and extract data from a series of one or more records. The iterator supplierd to Get-KINRecord determines the starting position of the records to return which in this example are captured into a variable, $records. Each individual record can then be accessed by indexing the $records collection. Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.**  
 
 ```
 $records
 $records = Get-KINRecord -ShardIterator "AAAAAAAAAAGIc....9VnbiRNaP"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 MillisBehindLatest NextShardIterator            Records
@@ -176,10 +157,8 @@ MillisBehindLatest NextShardIterator            Records
 
 ```
 $records.Records[0]
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
@@ -189,32 +168,22 @@ ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
 
 ```
 [Text.Encoding]::UTF8.GetString($records.Records[0].Data.ToArray())
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 test data from string
 ```
++  For API details, see [GetRecords](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetRecords](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example shows how to return and extract data from a series of one or more records. The iterator supplierd to Get-KINRecord determines the starting position of the records to return which in this example are captured into a variable, $records. Each individual record can then be accessed by indexing the $records collection.
-
-Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.**
+**Tools for PowerShell V5**  
+**Example 1: This example shows how to return and extract data from a series of one or more records. The iterator supplierd to Get-KINRecord determines the starting position of the records to return which in this example are captured into a variable, $records. Each individual record can then be accessed by indexing the $records collection. Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.**  
 
 ```
 $records
 $records = Get-KINRecord -ShardIterator "AAAAAAAAAAGIc....9VnbiRNaP"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 MillisBehindLatest NextShardIterator            Records
@@ -224,10 +193,8 @@ MillisBehindLatest NextShardIterator            Records
 
 ```
 $records.Records[0]
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
@@ -237,28 +204,19 @@ ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
 
 ```
 [Text.Encoding]::UTF8.GetString($records.Records[0].Data.ToArray())
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 test data from string
 ```
++  For API details, see [GetRecords](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetRecords](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
 ```
 class KinesisStream:
@@ -326,24 +284,14 @@ class KinesisStream:
             raise
         else:
             return self.details
-
-
-
 ```
++  For API details, see [GetRecords](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/GetRecords) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetRecords](../../../goto/boto3/kinesis-2013-12-02/GetRecords.md "../../../goto/boto3/kinesis-2013-12-02/GetRecords.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
 ```
     TRY.
@@ -372,14 +320,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_knsresourcenotfoundex.
         MESSAGE 'Resource being accessed is not found.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetRecords](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetRecords](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

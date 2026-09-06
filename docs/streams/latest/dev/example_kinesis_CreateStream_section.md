@@ -1,21 +1,18 @@
+
+
 # Use `CreateStream` with an AWS SDK or CLI
+<a name="example_kinesis_CreateStream_section"></a>
 
 The following code examples show how to use `CreateStream`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
 
-- [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md "example_kinesis_Scenario_GettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
 ```
     using System;
@@ -65,47 +62,30 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
+```
++  For API details, see [CreateStream](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesis-2013-12-02/CreateStream) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create a data stream**  
+The following `create-stream` example creates a data stream named samplestream with 3 shards.  
 
 ```
-
-- For API details, see
-  [CreateStream](../../../goto/DotNetSDKV3/kinesis-2013-12-02/CreateStream.md "../../../goto/DotNetSDKV3/kinesis-2013-12-02/CreateStream.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a data stream**
-
-The following `create-stream` example creates a data stream named samplestream with 3 shards.
-
+aws kinesis create-stream \
+    --stream-name {{samplestream}} \
+    --shard-count {{3}}
 ```
-`aws kinesis create-stream \
- --stream-name `samplestream` \
- --shard-count `3``
+This command produces no output.  
+For more information, see [Creating a Stream](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [CreateStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/create-stream.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [Creating a Stream](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md") in the _Amazon Kinesis Data Streams Developer Guide_.
-
-- For API details, see
-  [CreateStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/create-stream.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/create-stream.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -163,51 +143,33 @@ public class CreateDataStream {
         }
     }
 }
-
-
 ```
++  For API details, see [CreateStream](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesis-2013-12-02/CreateStream) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateStream](../../../goto/SdkForJavaV2/kinesis-2013-12-02/CreateStream.md "../../../goto/SdkForJavaV2/kinesis-2013-12-02/CreateStream.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates a new stream. By default this cmdlet returns no output so the -PassThru switch is added to return the value supplied to the -StreamName parameter for subsequent use.**
+**Tools for PowerShell V4**  
+**Example 1: Creates a new stream. By default this cmdlet returns no output so the -PassThru switch is added to return the value supplied to the -StreamName parameter for subsequent use.**  
 
 ```
 $streamName = New-KINStream -StreamName "mystream" -ShardCount 1 -PassThru
-
 ```
++  For API details, see [CreateStream](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateStream](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates a new stream.**
+**Tools for PowerShell V5**  
+**Example 1: Creates a new stream.**  
 
 ```
 New-KINStream -StreamName "mystream" -ShardCount 1
-
 ```
++  For API details, see [CreateStream](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateStream](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
 ```
 class KinesisStream:
@@ -242,24 +204,14 @@ class KinesisStream:
         except ClientError:
             logger.exception("Couldn't create stream %s.", name)
             raise
-
-
-
 ```
++  For API details, see [CreateStream](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/CreateStream) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateStream](../../../goto/boto3/kinesis-2013-12-02/CreateStream.md "../../../goto/boto3/kinesis-2013-12-02/CreateStream.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
 ```
 async fn make_stream(client: &Client, stream: &str) -> Result<(), Error> {
@@ -274,23 +226,14 @@ async fn make_stream(client: &Client, stream: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [CreateStream](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.create_stream) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateStream](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.create_stream "https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.create_stream")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
 ```
     TRY.
@@ -305,14 +248,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_knsresourceinuseex.
         MESSAGE 'The request processing has failed because the resource is in use.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateStream](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateStream](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

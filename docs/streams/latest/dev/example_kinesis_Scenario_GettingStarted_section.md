@@ -1,23 +1,20 @@
+
+
 # Learn the basics of Kinesis with an AWS SDK
+<a name="example_kinesis_Scenario_GettingStarted_section"></a>
 
 The following code example shows how to:
++ Create a stream and put a record in it.
++ Create a shard iterator.
++ Read the record, then clean up resources.
 
-- Create a stream and put a record in it.
-- Create a shard iterator.
-- Read the record, then clean up resources.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
 ```
-
     DATA lo_stream_describe_result TYPE REF TO /aws1/cl_knsdescrstreamoutput.
     DATA lo_stream_description TYPE REF TO /aws1/cl_knsstreamdescription.
     DATA lo_sharditerator TYPE REF TO /aws1/cl_knsgetsharditerator01.
@@ -128,18 +125,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_knsresourceinuseex.
         MESSAGE 'The request processing has failed because the resource is in use.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [CreateStream](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [DeleteStream](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [GetRecords](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [GetShardIterator](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [PutRecord](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+------
 
-  - [CreateStream](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [DeleteStream](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [GetRecords](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [GetShardIterator](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [PutRecord](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

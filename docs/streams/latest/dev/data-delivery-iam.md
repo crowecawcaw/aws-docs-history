@@ -1,33 +1,36 @@
-# IAM permissions for data delivery
 
-Use this topic to learn about the IAM permissions required to create and manage delivery
-resources in Amazon Kinesis Data Streams, as well as the service execution role that data delivery assumes
-to deliver data to your destination.
+
+# IAM permissions for data delivery
+<a name="data-delivery-iam"></a>
+
+ Use this topic to learn about the IAM permissions required to create and manage delivery resources in Amazon Kinesis Data Streams, as well as the service execution role that data delivery assumes to deliver data to your destination. 
 
 ## Lifecycle management permissions
+<a name="data-delivery-iam-lifecycle"></a>
 
-To create, update, delete, describe, and list delivery resources, the calling
-IAM principal must have the following permissions:
+ To create, update, delete, describe, and list delivery resources, the calling IAM principal must have the following permissions: 
 
-Delivery lifecycle permissions| Action | Resource | Description |
-| --- | --- | --- |
-| `kinesis:CreateChannel` | Stream ARN (`arn:aws:kinesis:`region`:`account-id`:stream/`stream-name``) | Create a delivery on a Kinesis Data Streams stream. |
-| `kinesis:AssociateStreamsWithChannel` | Stream ARN (`arn:aws:kinesis:`region`:`account-id`:stream/`stream-name``) | Associate a stream with a delivery. This is a virtual action that the<br>calling principal must be granted to create a delivery that reads from<br>the specified stream. It is authorized in addition to<br>`kinesis:CreateChannel`. |
-| `kinesis:UpdateChannel` | Channel ARN (`arn:aws:kinesis:`region`:`account-id`:channel/`channel-id``) | Update an existing delivery configuration. |
-| `kinesis:DeleteChannel` | Channel ARN | Delete an existing delivery. |
-| `kinesis:DescribeChannel` | Channel ARN | Retrieve details of a delivery. |
-| `kinesis:ListChannels` | Account level (`arn:aws:kinesis:`region`:`account-id`:stream/*`) | List all deliveries in the account. |
+
+**Delivery lifecycle permissions**  
+
+| Action | Resource | Description | 
+| --- | --- | --- | 
+| kinesis:CreateChannel | Stream ARN (arn:aws:kinesis:{{region}}:{{account-id}}:stream/{{stream-name}}) | Create a delivery on a Kinesis Data Streams stream. | 
+| kinesis:AssociateStreamsWithChannel | Stream ARN (arn:aws:kinesis:{{region}}:{{account-id}}:stream/{{stream-name}}) | Associate a stream with a delivery. This is a virtual action that the calling principal must be granted to create a delivery that reads from the specified stream. It is authorized in addition to kinesis:CreateChannel. | 
+| kinesis:UpdateChannel | Channel ARN (arn:aws:kinesis:{{region}}:{{account-id}}:channel/{{channel-id}}) | Update an existing delivery configuration. | 
+| kinesis:DeleteChannel | Channel ARN | Delete an existing delivery. | 
+| kinesis:DescribeChannel | Channel ARN | Retrieve details of a delivery. | 
+| kinesis:ListChannels | Account level (arn:aws:kinesis:{{region}}:{{account-id}}:stream/\*) | List all deliveries in the account. | 
 
 ## Service execution role
+<a name="data-delivery-iam-execution-role"></a>
 
-Data delivery assumes an IAM service execution role to deliver data to your
-destination. You must create this role and attach both a trust policy and a
-permission policy.
+ Data delivery assumes an IAM service execution role to deliver data to your destination. You must create this role and attach both a trust policy and a permission policy. 
 
 ### Trust policy
+<a name="data-delivery-iam-trust-policy"></a>
 
-The trust policy allows the Kinesis Data Streams service to assume the role. Include condition
-keys to prevent the confused deputy problem.
+ The trust policy allows the Kinesis Data Streams service to assume the role. Include condition keys to prevent the confused deputy problem. 
 
 ```
 {
@@ -53,9 +56,9 @@ keys to prevent the confused deputy problem.
 ```
 
 ### Permission policy for streaming tables on Apache Iceberg
+<a name="data-delivery-iam-permission-s3tables"></a>
 
-When delivering to streaming tables on Apache Iceberg, the service execution role
-requires the following permissions:
+ When delivering to streaming tables on Apache Iceberg, the service execution role requires the following permissions: 
 
 ```
 {
@@ -192,40 +195,19 @@ requires the following permissions:
     ]
 }
 ```
-
-- `s3tables:PutTableEncryption` is required only when you encrypt
-  the destination table with a customer managed AWS KMS key. Without it,
-  `CreateTable` succeeds but table encryption fails and the table
-  is never created.
-- `s3tables:TagResource` is required because the service tags the
-  tables it creates.
-- The `AllowCreateTableWithTag` and
-  `AllowPutTableDataWithTag` statements are optional. Include them
-  only if you want tag-based access control instead of scoping solely by table
-  ARN. They restrict `s3tables:CreateTable` and
-  `s3tables:PutTableData` to resources carrying a matching
-  `TableName` tag. Omit them if you scope by ARN.
-- Only `glue:GetSchemaVersion` is required for the Glue Schema
-  Registry. It is required for both the `JSON` and
-  `GSR_JSON` input formats.
-- The `KMSForCreateTimeValidation` statement lets Amazon Kinesis Data Streams
-  validate your AWS KMS key when you create the delivery. It is required only
-  when your destination table or source stream uses a customer managed AWS KMS
-  key.
-- The `KMSForS3TablesEncryption` statement grants the AWS KMS
-  operations used to encrypt delivered table data at rest. It is required only
-  when your table bucket uses a customer managed key.
-- The `KMSForCreateTable` statement lets Amazon Kinesis Data Streams read the key
-  configuration when it creates the destination table. It is required only
-  when the table bucket uses a customer managed key.
-- The `KMSForDecryptSourceStreamRecords` statement lets the role
-  decrypt records read from the source stream. It is required only when your
-  Kinesis Data Streams stream is encrypted with a customer managed key.
++ `s3tables:PutTableEncryption` is required only when you encrypt the destination table with a customer managed AWS KMS key. Without it, `CreateTable` succeeds but table encryption fails and the table is never created.
++ `s3tables:TagResource` is required because the service tags the tables it creates.
++ The `AllowCreateTableWithTag` and `AllowPutTableDataWithTag` statements are optional. Include them only if you want tag-based access control instead of scoping solely by table ARN. They restrict `s3tables:CreateTable` and `s3tables:PutTableData` to resources carrying a matching `TableName` tag. Omit them if you scope by ARN.
++ Only `glue:GetSchemaVersion` is required for the Glue Schema Registry. It is required for both the `JSON` and `GSR_JSON` input formats.
++ The `KMSForCreateTimeValidation` statement lets Amazon Kinesis Data Streams validate your AWS KMS key when you create the delivery. It is required only when your destination table or source stream uses a customer managed AWS KMS key.
++ The `KMSForS3TablesEncryption` statement grants the AWS KMS operations used to encrypt delivered table data at rest. It is required only when your table bucket uses a customer managed key.
++ The `KMSForCreateTable` statement lets Amazon Kinesis Data Streams read the key configuration when it creates the destination table. It is required only when the table bucket uses a customer managed key.
++ The `KMSForDecryptSourceStreamRecords` statement lets the role decrypt records read from the source stream. It is required only when your Kinesis Data Streams stream is encrypted with a customer managed key.
 
 ### Permission policy for general purpose Amazon S3 buckets
+<a name="data-delivery-iam-permission-s3"></a>
 
-When delivering to general purpose Amazon S3 buckets, the service execution role
-requires the following permissions:
+ When delivering to general purpose Amazon S3 buckets, the service execution role requires the following permissions: 
 
 ```
 {
@@ -321,48 +303,18 @@ requires the following permissions:
     ]
 }
 ```
++ The `KMSForCreateTimeValidation` statement lets Amazon Kinesis Data Streams validate your AWS KMS key when you create the delivery. It is required only when your destination bucket or source stream uses a customer managed AWS KMS key.
++ The `KMSForS3BucketEncryption` statement grants the AWS KMS operations that Amazon S3 uses to encrypt delivered objects at rest. It is required only when your destination bucket or dead-letter queue bucket uses SSE-KMS with a customer managed key. The `kms:EncryptionContext:aws:s3:arn` values shown use the object ARN, which applies when S3 Bucket Keys are disabled. If you enable S3 Bucket Keys on the destination bucket or the dead-letter queue bucket, Amazon S3 uses the bucket ARN as the encryption context instead of the object ARN, so you must change the corresponding value to that bucket ARN (for example, `arn:aws:s3:::{{delivery-bucket-name}}` or `arn:aws:s3:::{{dlq-bucket-name}}`). For more information, see [Configuring an S3 Bucket Key](https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-bucket-key.html) in the *Amazon S3 User Guide*.
++ The `KMSForDecryptSourceStreamRecords` statement lets the role decrypt records read from the source stream. It is required only when your Kinesis Data Streams stream is encrypted with a customer managed key.
 
-- The `KMSForCreateTimeValidation` statement lets Amazon Kinesis Data Streams
-  validate your AWS KMS key when you create the delivery. It is required only
-  when your destination bucket or source stream uses a customer managed AWS KMS
-  key.
-- The `KMSForS3BucketEncryption` statement grants the AWS KMS
-  operations that Amazon S3 uses to encrypt delivered objects at rest. It is
-  required only when your destination bucket or dead-letter queue bucket uses
-  SSE-KMS with a customer managed key. The
-  `kms:EncryptionContext:aws:s3:arn` values shown use the object
-  ARN, which applies when S3 Bucket Keys are disabled. If you enable S3 Bucket
-  Keys on the destination bucket or the dead-letter queue bucket, Amazon S3 uses the
-  bucket ARN as the encryption context instead of the object ARN, so you must
-  change the corresponding value to that bucket ARN (for example,
-  `arn:aws:s3:::`delivery-bucket-name`` or
- `arn:aws:s3:::`dlq-bucket-name``).
-  For more information, see
-  [Configuring
-  an S3 Bucket Key](../../../AmazonS3/latest/userguide/configuring-bucket-key.md "../../../AmazonS3/latest/userguide/configuring-bucket-key.md") in the _Amazon S3 User Guide_.
-- The `KMSForDecryptSourceStreamRecords` statement lets the role
-  decrypt records read from the source stream. It is required only when your
-  Kinesis Data Streams stream is encrypted with a customer managed key.
-
-###### Important
-
-If you restrict the `s3:PutObject` resource to a specific prefix
-(for example, `arn:aws:s3:::my-bucket/data*`), the object keys
-generated by your output key template must start with that same prefix.
-A mismatch between the IAM resource prefix and the output key template
-results in access denied errors and no data being delivered.
-
-For example, if your policy grants `s3:PutObject` on
-`arn:aws:s3:::my-bucket/data*`, your output key template must
-begin with `data/`, such as
-`data/!{yyyy}/!{MM}/!{dd}/!{HH}/`. To avoid this, either scope the
-resource to the entire bucket (`arn:aws:s3:::my-bucket/*`) or
-ensure the prefixes match exactly.
+**Important**  
+ If you restrict the `s3:PutObject` resource to a specific prefix (for example, `arn:aws:s3:::my-bucket/data*`), the object keys generated by your output key template must start with that same prefix. A mismatch between the IAM resource prefix and the output key template results in access denied errors and no data being delivered.   
+ For example, if your policy grants `s3:PutObject` on `arn:aws:s3:::my-bucket/data*`, your output key template must begin with `data/`, such as `data/!{yyyy}/!{MM}/!{dd}/!{HH}/`. To avoid this, either scope the resource to the entire bucket (`arn:aws:s3:::my-bucket/*`) or ensure the prefixes match exactly. 
 
 ### Optional CloudWatch Logs permissions
+<a name="data-delivery-iam-cloudwatch-logs"></a>
 
-If you enable CloudWatch Logs for your delivery, add the following permissions to
-the service execution role:
+ If you enable CloudWatch Logs for your delivery, add the following permissions to the service execution role: 
 
 ```
 {

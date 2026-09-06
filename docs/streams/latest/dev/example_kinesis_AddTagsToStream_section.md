@@ -1,16 +1,15 @@
+
+
 # Use `AddTagsToStream` with an AWS SDK or CLI
+<a name="example_kinesis_AddTagsToStream_section"></a>
 
 The following code examples show how to use `AddTagsToStream`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
 ```
     using System;
@@ -74,38 +73,25 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
+```
++  For API details, see [AddTagsToStream](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesis-2013-12-02/AddTagsToStream) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To add tags to a data stream**  
+The following `add-tags-to-stream` example assigns a tag with the key `samplekey` and value `example` to the specified stream.  
 
 ```
-
-- For API details, see
-  [AddTagsToStream](../../../goto/DotNetSDKV3/kinesis-2013-12-02/AddTagsToStream.md "../../../goto/DotNetSDKV3/kinesis-2013-12-02/AddTagsToStream.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To add tags to a data stream**
-
-The following `add-tags-to-stream` example assigns a tag with the key `samplekey` and value `example` to the specified stream.
-
+aws kinesis add-tags-to-stream \
+    --stream-name {{samplestream}} \
+    --tags {{samplekey=example}}
 ```
-`aws kinesis add-tags-to-stream \
- --stream-name `samplestream` \
- --tags `samplekey=example``
+This command produces no output.  
+For more information, see [Tagging Your Streams](https://docs.aws.amazon.com/streams/latest/dev/tagging.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [AddTagsToStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/add-tags-to-stream.html) in *AWS CLI Command Reference*. 
 
-```
+------
 
-This command produces no output.
-
-For more information, see [Tagging Your Streams](tagging.md "tagging.md") in the _Amazon Kinesis Data Streams Developer Guide_.
-
-- For API details, see
-  [AddTagsToStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/add-tags-to-stream.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/add-tags-to-stream.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,52 +1,49 @@
+
+
 # (Optional) Extend the consumer
+<a name="tutorial-stock-data-kplkcl-consumer-extension"></a>
 
-The application in the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") might already be sufficient for your
-purposes. This optional section shows how you can extend the consumer code for a
-slightly more elaborate scenario.
+The application in the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md) might already be sufficient for your purposes. This optional section shows how you can extend the consumer code for a slightly more elaborate scenario.
 
-If you want to know about the biggest sell orders each minute, you can modify the
-`StockStats` class in three places to accommodate this new
-priority.
+If you want to know about the biggest sell orders each minute, you can modify the `StockStats` class in three places to accommodate this new priority.
 
-###### To extend the consumer
+**To extend the consumer**
 
 1. Add new instance variables:
 
-```
- // Ticker symbol of the stock that had the largest quantity of shares sold
- private String largestSellOrderStock;
- // Quantity of shares for the largest sell order trade
- private long largestSellOrderQuantity;
-```
+   ```
+    // Ticker symbol of the stock that had the largest quantity of shares sold 
+    private String largestSellOrderStock;
+    // Quantity of shares for the largest sell order trade
+    private long largestSellOrderQuantity;
+   ```
 
-2. Add the following code to `addStockTrade`:
+1. Add the following code to `addStockTrade`:
 
-```
- if (type == TradeType.SELL) {
-     if (largestSellOrderStock == null || trade.getQuantity() > largestSellOrderQuantity) {
-         largestSellOrderStock = trade.getTickerSymbol();
-         largestSellOrderQuantity = trade.getQuantity();
-     }
- }
-```
+   ```
+    if (type == TradeType.SELL) {
+        if (largestSellOrderStock == null || trade.getQuantity() > largestSellOrderQuantity) {
+            largestSellOrderStock = trade.getTickerSymbol();
+            largestSellOrderQuantity = trade.getQuantity();
+        }
+    }
+   ```
 
-3. Modify the `toString` method to print the additional
-   information:
+1. Modify the `toString` method to print the additional information:
 
-```
- public String toString() {
-     return String.format(
-             "Most popular stock being bought: %s, %d buys.%n" +
-             "Most popular stock being sold: %s, %d sells.%n" +
-             "Largest sell order: %d shares of %s.",
-             getMostPopularStock(TradeType.BUY), getMostPopularStockCount(TradeType.BUY),
-             getMostPopularStock(TradeType.SELL), getMostPopularStockCount(TradeType.SELL),
-             largestSellOrderQuantity, largestSellOrderStock);
- }
-```
+   ```
+    public String toString() {
+        return String.format(
+                "Most popular stock being bought: %s, %d buys.%n" +
+                "Most popular stock being sold: %s, %d sells.%n" +
+                "Largest sell order: %d shares of %s.",
+                getMostPopularStock(TradeType.BUY), getMostPopularStockCount(TradeType.BUY),
+                getMostPopularStock(TradeType.SELL), getMostPopularStockCount(TradeType.SELL),
+                largestSellOrderQuantity, largestSellOrderStock);
+    }
+   ```
 
-If you run the consumer now (remember to run the producer also), you should see output
-similar to this:
+If you run the consumer now (remember to run the producer also), you should see output similar to this:
 
 ```
  ****** Shard shardId-000000000001 stats for last 1 minute ******
@@ -57,5 +54,6 @@ similar to this:
 ```
 
 ## Next steps
+<a name="tutorial-stock-data-kplkcl-consumer-extension-next"></a>
 
-[Clean up resources](tutorial-stock-data-kplkcl-finish.md "tutorial-stock-data-kplkcl-finish.md")
+[Clean up resources](tutorial-stock-data-kplkcl-finish.md)

@@ -1,24 +1,17 @@
+
+
 # Develop enhanced fan-out consumers using KCL 2.x in Java
+<a name="building-enhanced-consumers-kcl-java"></a>
 
-###### Important
+**Important**  
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+You can use version 2.0 or later of the Kinesis Client Library (KCL) to develop applications in Amazon Kinesis Data Streams to receive data from streams using enhanced fan-out. The following code shows an example implementation in Java of `ProcessorFactory` and `RecordProcessor`.
 
-You can use version 2.0 or later of the Kinesis Client Library (KCL) to
-develop applications in Amazon Kinesis Data Streams to receive data from streams using enhanced
-fan-out. The following code shows an example implementation in Java of
-`ProcessorFactory` and `RecordProcessor`.
+It is recommended that you use `KinesisClientUtil` to create `KinesisAsyncClient` and to configure `maxConcurrency` in `KinesisAsyncClient`.
 
-It is recommended that you use `KinesisClientUtil` to create
-`KinesisAsyncClient` and to configure `maxConcurrency` in
-`KinesisAsyncClient`.
-
-###### Important
-
-The Amazon Kinesis Client might see significantly increased latency, unless
-you configure `KinesisAsyncClient` to have a
-`maxConcurrency` high enough to allow all leases plus additional
-usages of `KinesisAsyncClient`.
+**Important**  
+The Amazon Kinesis Client might see significantly increased latency, unless you configure `KinesisAsyncClient` to have a `maxConcurrency` high enough to allow all leases plus additional usages of `KinesisAsyncClient`.
 
 ```
 /*
@@ -33,7 +26,7 @@ usages of `KinesisAsyncClient`.
  *  or in the "license" file accompanying this file. This file is distributed
  *  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  *  express or implied. See the License for the specific language governing
- *  permissions and limitations under the License.
+ *  permissions and limitations under the License. 
  */
 
 /*

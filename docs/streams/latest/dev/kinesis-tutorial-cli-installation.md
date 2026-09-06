@@ -1,18 +1,20 @@
+
+
 # Tutorial: Install and configure the AWS CLI for Kinesis Data Streams
+<a name="kinesis-tutorial-cli-installation"></a>
 
 ## Install the AWS CLI
+<a name="install-cli"></a>
 
-For detailed steps on how to install the AWS CLI for Windows and for Linux, OS X, and
-Unix operating systems, see [Installing the AWS CLI](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md").
+For detailed steps on how to install the AWS CLI for Windows and for Linux, OS X, and Unix operating systems, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html). 
 
-Use the following command to list available options and services:
+ Use the following command to list available options and services: 
 
 ```
 aws help
 ```
 
-You will be using the Kinesis Data Streams service, so you can review the AWS CLI subcommands related
-to Kinesis Data Streams using the following command:
+You will be using the Kinesis Data Streams service, so you can review the AWS CLI subcommands related to Kinesis Data Streams using the following command:
 
 ```
 aws kinesis help
@@ -54,14 +56,11 @@ AVAILABLE COMMANDS
        o wait
 ```
 
-This command list corresponds to the Kinesis Data Streams API documented in the [Amazon Kinesis Service API Reference](../../../kinesis/latest/APIReference.md "../../../kinesis/latest/APIReference.md"). For example, the
-`create-stream` command corresponds to the `CreateStream` API
-action.
+ This command list corresponds to the Kinesis Data Streams API documented in the [Amazon Kinesis Service API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/). For example, the `create-stream` command corresponds to the `CreateStream` API action. 
 
-The AWS CLI is now successfully installed, but not configured. This is shown in the
-next section.
+ The AWS CLI is now successfully installed, but not configured. This is shown in the next section. 
 
 ## Configure the AWS CLI
+<a name="config-cli"></a>
 
-For general use, the `aws configure` command is the fastest way to set up
-your AWS CLI installation. For more information, see [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
+ For general use, the `aws configure` command is the fastest way to set up your AWS CLI installation. For more information, see [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).

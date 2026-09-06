@@ -1,21 +1,18 @@
+
+
 # Use `DeleteStream` with an AWS SDK or CLI
+<a name="example_kinesis_DeleteStream_section"></a>
 
 The following code examples show how to use `DeleteStream`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
 
-- [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md "example_kinesis_Scenario_GettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
 ```
     using System;
@@ -68,46 +65,29 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
+```
++  For API details, see [DeleteStream](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesis-2013-12-02/DeleteStream) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To delete a data stream**  
+The following `delete-stream` example deletes the specified data stream.  
 
 ```
-
-- For API details, see
-  [DeleteStream](../../../goto/DotNetSDKV3/kinesis-2013-12-02/DeleteStream.md "../../../goto/DotNetSDKV3/kinesis-2013-12-02/DeleteStream.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a data stream**
-
-The following `delete-stream` example deletes the specified data stream.
-
+aws kinesis delete-stream \
+    --stream-name {{samplestream}}
 ```
-`aws kinesis delete-stream \
- --stream-name `samplestream``
+This command produces no output.  
+For more information, see [Deleting a Stream](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-delete-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
++  For API details, see [DeleteStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/delete-stream.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [Deleting a Stream](kinesis-using-sdk-java-delete-stream.md "kinesis-using-sdk-java-delete-stream.md") in the _Amazon Kinesis Data Streams Developer Guide_.
-
-- For API details, see
-  [DeleteStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/delete-stream.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/delete-stream.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -165,51 +145,33 @@ public class DeleteDataStream {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteStream](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesis-2013-12-02/DeleteStream) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteStream](../../../goto/SdkForJavaV2/kinesis-2013-12-02/DeleteStream.md "../../../goto/SdkForJavaV2/kinesis-2013-12-02/DeleteStream.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Deletes the specified stream. You are prompted for confirmation before the command executes. To suppress confirmation prompting use the -Force switch.**
+**Tools for PowerShell V4**  
+**Example 1: Deletes the specified stream. You are prompted for confirmation before the command executes. To suppress confirmation prompting use the -Force switch.**  
 
 ```
 Remove-KINStream -StreamName "mystream"
-
 ```
++  For API details, see [DeleteStream](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteStream](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Deletes the specified stream. You are prompted for confirmation before the command executes. To suppress confirmation prompting use the -Force switch.**
+**Tools for PowerShell V5**  
+**Example 1: Deletes the specified stream. You are prompted for confirmation before the command executes. To suppress confirmation prompting use the -Force switch.**  
 
 ```
 Remove-KINStream -StreamName "mystream"
-
 ```
++  For API details, see [DeleteStream](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteStream](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
 ```
 class KinesisStream:
@@ -236,24 +198,14 @@ class KinesisStream:
         except ClientError:
             logger.exception("Couldn't delete stream %s.", self.name)
             raise
-
-
-
 ```
++  For API details, see [DeleteStream](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/DeleteStream) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteStream](../../../goto/boto3/kinesis-2013-12-02/DeleteStream.md "../../../goto/boto3/kinesis-2013-12-02/DeleteStream.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
 ```
 async fn remove_stream(client: &Client, stream: &str) -> Result<(), Error> {
@@ -263,23 +215,14 @@ async fn remove_stream(client: &Client, stream: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DeleteStream](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.delete_stream) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteStream](https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.delete_stream "https://docs.rs/aws-sdk-kinesis/latest/aws_sdk_kinesis/client/struct.Client.html#method.delete_stream")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
 ```
     TRY.
@@ -291,14 +234,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_knsresourceinuseex.
         MESSAGE 'The request processing has failed because the resource is in use.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteStream](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteStream](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
