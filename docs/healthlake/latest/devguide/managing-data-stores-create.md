@@ -1,48 +1,38 @@
+
+
 # Creating a HealthLake data store
+<a name="managing-data-stores-create"></a>
 
-Use `CreateFHIRDatastore` to create an AWS HealthLake data store conformant to the FHIR R4
-specification. HealthLake data stores are used for importing, managing, searching, and exporting
-FHIR data. You can choose to import (preload) Synthea open source FHIR R4 health data into
-your data store when you create it. For more information, see [Preloaded data
-types](reference-healthlake-preloaded-data-types.md "reference-healthlake-preloaded-data-types.md").
+Use `CreateFHIRDatastore` to create an AWS HealthLake data store conformant to the FHIR R4 specification. HealthLake data stores are used for importing, managing, searching, and exporting FHIR data. You can choose to import (preload) Synthea open source FHIR R4 health data into your data store when you create it. For more information, see [Preloaded data types](reference-healthlake-preloaded-data-types.md).
 
-###### Important
+**Important**  
+HealthLake supports two types of FHIR data store authorization strategies, AWS SigV4 or SMART on FHIR. You must choose one of the authorization strategies prior to creating a HealthLake FHIR data store. For more information, see [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy).
 
-HealthLake supports two types of FHIR data store authorization strategies, AWS SigV4 or
-SMART on FHIR. You must choose one of the authorization strategies prior to creating a HealthLake
-FHIR data store. For more information, see [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy").
+When you create a HealthLake data store, a FHIR data repository is made available via a RESTful API [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints). After you've created your HealthLake data store, you can request its [Capability Statement](reference-fhir-capability-statement.md) to find all associated FHIR-related capabilities (behaviors).
 
-When you create a HealthLake data store, a FHIR data repository is made available via a RESTful
-API [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints "reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints"). After you've created your
-HealthLake data store, you can request its [Capability Statement](reference-fhir-capability-statement.md "reference-fhir-capability-statement.md") to find all associated FHIR-related capabilities (behaviors).
+After you create a data store, you can change its name, default FHIR validation profiles, NLP configuration, analytics configuration, and identity provider configuration. The encryption configuration can't be changed. For more information, see [Updating a data store](managing-data-stores-update.md).
 
-After you create a data store, you can change its name, default FHIR validation profiles,
-NLP configuration, analytics configuration, and identity provider configuration. The encryption
-configuration can't be changed. For more information, see [Updating a data store](managing-data-stores-update.md "managing-data-stores-update.md").
+The following menus provide examples for the AWS CLI and AWS SDKs and a procedure for the AWS Management Console. For more information, see [`CreateFHIRDatastore`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_CreateFHIRDatastore.html) in the *AWS HealthLake API Reference*.
 
-The following menus provide examples for the AWS CLI and AWS SDKs and a procedure for the
-AWS Management Console. For more information, see [`CreateFHIRDatastore`](../APIReference/API_CreateFHIRDatastore.md "../APIReference/API_CreateFHIRDatastore.md") in the _AWS HealthLake API Reference_.
-
-###### To create a HealthLake data store
-
+**To create a HealthLake data store**  
 Choose a menu based on your access preference to AWS HealthLake.
 
-CLI
+## AWS CLI and SDKs
+<a name="managing-data-stores-create-cli-sdk"></a>
 
-**AWS CLI**
+------
+#### [ CLI ]
 
-**Example 1: Create a SigV4-enabled HealthLake data store**
-
-The following `create-fhir-datastore` example demonstrates how to create a new data store in AWS HealthLake.
-
-```
-`aws healthlake create-fhir-datastore \
- --datastore-type-version `R4` \
- --datastore-name `"FhirTestDatastore"``
+**AWS CLI**  
+**Example 1: Create a SigV4-enabled HealthLake data store**  
+The following `create-fhir-datastore` example demonstrates how to create a new data store in AWS HealthLake.  
 
 ```
-
-Output:
+aws healthlake create-fhir-datastore \
+    --datastore-type-version {{R4}} \
+    --datastore-name {{"FhirTestDatastore"}}
+```
+Output:  
 
 ```
 {
@@ -52,22 +42,18 @@ Output:
     "DatastoreId": "(Data store ID)"
 }
 ```
-
-**Example 2: Create a SMART on FHIR-enabled HealthLake data store**
-
-The following `create-fhir-datastore` example demonstrates how to create a new SMART on FHIR-enabled data store in AWS HealthLake.
+**Example 2: Create a SMART on FHIR-enabled HealthLake data store**  
+The following `create-fhir-datastore` example demonstrates how to create a new SMART on FHIR-enabled data store in AWS HealthLake.  
 
 ```
-`aws healthlake create-fhir-datastore \
- --datastore-name `"your-data-store-name"` \
- --datastore-type-version `R4` \
- --preload-data-config PreloadDataType="SYNTHEA" \
- --sse-configuration '`{ "KmsEncryptionConfig": { "CmkType": "CUSTOMER_MANAGED_KMS_KEY", "KmsKeyId": "arn:aws:kms:us-east-1:your-account-id:key/your-key-id" } }`' \
- --identity-provider-configuration `file://identity_provider_configuration.json``
-
+aws healthlake create-fhir-datastore \
+    --datastore-name {{"your-data-store-name"}} \
+    --datastore-type-version {{R4}} \
+    --preload-data-config PreloadDataType="SYNTHEA" \
+    --sse-configuration '{{{ "KmsEncryptionConfig": {  "CmkType": "CUSTOMER_MANAGED_KMS_KEY", "KmsKeyId": "arn:aws:kms:us-east-1:your-account-id:key/your-key-id" } }}}' \
+    --identity-provider-configuration  {{file://identity_provider_configuration.json}}
 ```
-
-Contents of `identity_provider_configuration.json`:
+Contents of `identity_provider_configuration.json`:  
 
 ```
 {
@@ -77,8 +63,7 @@ Contents of `identity_provider_configuration.json`:
     "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\"]}"
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -88,14 +73,13 @@ Output:
     "DatastoreId": "(Data store ID)"
 }
 ```
+  
++  For API details, see [CreateFHIRDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/create-fhir-datastore.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateFHIRDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/create-fhir-datastore.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/create-fhir-datastore.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -147,12 +131,8 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code shows an example of parameters for a SMART on FHIR-enabled HealthLake data store.
+The following code shows an example of parameters for a SMART on FHIR-enabled HealthLake data store.   
 
 ```
             sse_configuration = {
@@ -192,29 +172,15 @@ The following code shows an example of parameters for a SMART on FHIR-enabled He
             data_store = self.create_fhir_datastore(
                 datastore_name, sse_configuration, identity_provider_configuration
             )
-
-
 ```
++  For API details, see [CreateFHIRDatastore](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/CreateFHIRDatastore) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [CreateFHIRDatastore](../../../goto/boto3/healthlake-2017-07-01/CreateFHIRDatastore.md "../../../goto/boto3/healthlake-2017-07-01/CreateFHIRDatastore.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -237,39 +203,34 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_throttling_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateFHIRDatastore](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateFHIRDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Example availability
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.
 
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+## AWS Console
+<a name="managing-data-stores-create-console"></a>
 
-###### Note
+**Note**  
+The following procedure creates a HealthLake data store with [AWS SigV4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) authorization. The HealthLake Console does not support the creation of a SMART on FHIR data store.
 
-The following procedure creates a HealthLake data store with [AWS SigV4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") authorization. The
-HealthLake Console does not support the creation of a SMART on FHIR data store.
+**To create a HealthLake data store with AWS SigV4 authorization**
 
-###### To create a HealthLake data store with AWS SigV4 authorization
+1. Sign in to the [Create data store](https://console.aws.amazon.com/healthlake/home#/create-datastore) page on the HealthLake Console.
 
-1. Sign in to the [Create data store](https://console.aws.amazon.com/healthlake/home#/create-datastore "https://console.aws.amazon.com/healthlake/home#/create-datastore") page on the HealthLake Console.
-2. Choose **Create Data Store**.
-3. In the **Data Store settings** section, for **Data Store
-   name**, specify a name.
-4. (Optional) In the **Data Store settings** section, for
-   **Preload sample data**, select the check box to preload Synthea
-   data. Synthea data is an open-source sample dataset. For more information, see [Synthea preloaded data types for HealthLake](reference-healthlake-preloaded-data-types.md "reference-healthlake-preloaded-data-types.md").
-5. In the **Data Store encryption** section, choose either
-   **Use AWS owned key (default)** or **Choose a different AWS
-   KMS key (advanced)**.
-6. In the **Tags - _optional_** section, you can
-   add tags to your data store. To learn more about tagging your data store, see [Tagging HealthLake data stores](managing-data-stores-tagging.md "managing-data-stores-tagging.md").
-7. Choose **Create Data Store**.
+1. Choose **Create Data Store**.
 
-The status of your data store is available on the **Data stores**
-page.
+1. In the **Data Store settings** section, for **Data Store name**, specify a name.
+
+1. (Optional) In the **Data Store settings** section, for **Preload sample data**, select the check box to preload Synthea data. Synthea data is an open-source sample dataset. For more information, see [Synthea preloaded data types for HealthLake](reference-healthlake-preloaded-data-types.md).
+
+1. In the **Data Store encryption** section, choose either **Use AWS owned key (default)** or **Choose a different AWS KMS key (advanced)**.
+
+1. In the **Tags - *optional*** section, you can add tags to your data store. To learn more about tagging your data store, see [Tagging HealthLake data stores](managing-data-stores-tagging.md).
+
+1. Choose **Create Data Store**.
+
+   The status of your data store is available on the **Data stores** page.

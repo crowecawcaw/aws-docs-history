@@ -1,72 +1,50 @@
+
+
 # Troubleshooting AWS HealthLake
+<a name="reference-healthlake-troubleshooting"></a>
 
-The following topics provide troubleshooting advice for errors and issues that you might
-encounter when using the AWS CLI, AWS SDKs, or HealthLake console. If you find an issue that is
-not listed in this section, use the **Provide feedback** button on the
-right sidebar of this page to report it.
+The following topics provide troubleshooting advice for errors and issues that you might encounter when using the AWS CLI, AWS SDKs, or HealthLake console. If you find an issue that is not listed in this section, use the **Provide feedback** button on the right sidebar of this page to report it.
 
-###### Topics
-
-- [Data store actions](#troubleshooting-data-store "#troubleshooting-data-store")
-- [Import actions](#troubleshooting-import "#troubleshooting-import")
-- [FHIR APIs](#troubleshooting-fhir-apis "#troubleshooting-fhir-apis")
-- [Data transformation actions](#data-transformation-troubleshooting "#data-transformation-troubleshooting")
-- [NLP integrations](#troubleshooting-nlp-integrations "#troubleshooting-nlp-integrations")
-- [SQL integrations](#troubleshooting-sql-integrations "#troubleshooting-sql-integrations")
+**Topics**
++ [Data store actions](#troubleshooting-data-store)
++ [Import actions](#troubleshooting-import)
++ [FHIR APIs](#troubleshooting-fhir-apis)
++ [Data transformation actions](#data-transformation-troubleshooting)
++ [NLP integrations](#troubleshooting-nlp-integrations)
++ [SQL integrations](#troubleshooting-sql-integrations)
 
 ## Data store actions
+<a name="troubleshooting-data-store"></a>
 
-**Issue:**
-_When I try to create a HealthLake data store, I receive the following
-error:_
+**Issue:** *When I try to create a HealthLake data store, I receive the following error:*
 
 ```
 AccessDeniedException: Insufficient Lake Formation permission(s): Required Database on Catalog
 ```
 
-On November 14, 2022, HealthLake updated the required IAM permissions to create a new
-data store. For more information, see [Configure an IAM user or role to use HealthLake (IAM Administrator)](getting-started-setting-up.md#setting-up-configure-iam "getting-started-setting-up.md#setting-up-configure-iam").
+On November 14, 2022, HealthLake updated the required IAM permissions to create a new data store. For more information, see [Configure an IAM user or role to use HealthLake (IAM Administrator)](getting-started-setting-up.md#setting-up-configure-iam).
 
-**Issue:**
-_When creating a HealthLake data store using the AWS SDKs, the data store creation
-status returns an exception or unknown status._
+**Issue: ** *When creating a HealthLake data store using the AWS SDKs, the data store creation status returns an exception or unknown status.*
 
-Update your AWS SDK to the latest version if your `DescribeFHIRDatastore` or
-`ListFHIRDatastores` API calls return an exception or unknown data store status.
+Update your AWS SDK to the latest version if your `DescribeFHIRDatastore` or `ListFHIRDatastores` API calls return an exception or unknown data store status.
 
 ## Import actions
+<a name="troubleshooting-import"></a>
 
-**Issue:**
-_Can I still use HealthLake if my data isn't in FHIR R4 format?_
+**Issue: ** *Can I still use HealthLake if my data isn't in FHIR R4 format?*
 
-Only FHIR R4 formatted data can be imported into a HealthLake data store. For a list of
-partners that can help transform existing health data to FHIR R4 format, see [AWS HealthLake Partners](../../partners.md "../../partners.md").
+Only FHIR R4 formatted data can be imported into a HealthLake data store. For a list of partners that can help transform existing health data to FHIR R4 format, see [AWS HealthLake Partners](https://docs.aws.amazon.com/healthlake/partners/).
 
-**Issue:**
-_Why did my FHIR import job fail?_
+**Issue:** *Why did my FHIR import job fail?*
 
-A successful import job will generate a folder with results (output log) in
-`.ndjson` format, however, individual records can fail to import. When
-this happens, a second `FAILURE` folder will be generated with a manifest of
-records that failed to import. For more information, see [Importing FHIR data with AWS HealthLake](importing-fhir-data.md "importing-fhir-data.md").
+A successful import job will generate a folder with results (output log) in `.ndjson` format, however, individual records can fail to import. When this happens, a second `FAILURE` folder will be generated with a manifest of records that failed to import. For more information, see [Importing FHIR data with AWS HealthLake](importing-fhir-data.md).
 
-To analyze why an import job failed use the `DescribeFHIRImportJob` API to analyze the
-JobProperties. The following is recommended:
+To analyze why an import job failed use the `DescribeFHIRImportJob` API to analyze the JobProperties. The following is recommended:
++ If the status is `FAILED` and a message is present, the failures are related to job parameters such as input data size or number of input files being beyond HealthLake quotas.
++ If the import job status is `COMPLETED_WITH_ERRORS`, check the manifest file, `manifest.json`, for information on which files did not import successfully. 
++ If the import job status is `FAILED` and a message is not present, go to the job output location to access the manifest file, `manifest.json`. 
 
-- If the status is `FAILED` and a message is present, the failures
-  are related to job parameters such as input data size or number of input files
-  being beyond HealthLake quotas.
-- If the import job status is `COMPLETED_WITH_ERRORS`, check the
-  manifest file, `manifest.json`, for information on which
-  files did not import successfully.
-- If the import job status is `FAILED` and a message is not present,
-  go to the job output location to access the manifest file,
-  `manifest.json`.
-
-For each input file, there is failure output file with input file name for any
-resource that fails to import. The responses contain line number (lineId) corresponding
-to the location of input data, FHIR response object (UpdateResourceResponse), and status
-code (statusCode) of the response.
+ For each input file, there is failure output file with input file name for any resource that fails to import. The responses contain line number (lineId) corresponding to the location of input data, FHIR response object (UpdateResourceResponse), and status code (statusCode) of the response.
 
 A sample output file might be similar to the following:
 
@@ -76,186 +54,103 @@ A sample output file might be similar to the following:
 {"lineId":7, UpdateResourceResponse:{"jsonBlob":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"processing","diagnostics":"2 validation errors detected: Value at 'resourceId' failed to satisfy constraint: Member must satisfy regular expression pattern: [A-Za-z0-9-.]{1,64}; Value at 'resourceId' failed to satisfy constraint: Member must have length greater than or equal to 1"}]}, "statusCode":400}
 {"lineId":9, UpdateResourceResponse:{"jsonBlob":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"processing","diagnostics":"Missing required id field in resource json"}]}, "statusCode":400}
 {"lineId":15, UpdateResourceResponse:{"jsonBlob":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"processing","diagnostics":"Invalid JSON found in input file"}]}, "statusCode":400}
-
 ```
 
-The example above shows that there were failures on lines 3, 4, 7, 9, 15 from the
-corresponding input lines from input file. For each of those lines, the explanations are
-as follows:
-
-- On Line 3, the response explains that `resourceType` provided in
-  line 3 of input file is not valid.
-- On Line 5, the response explains that there is a FHIR validation error in
-  line 5 of input file.
-- On Line 7, the response explains that there is a validation issue with
-  `resourceId` provided as input.
-- On Line 9, the response explains that input file must contain a valid resource
-  id.
-- On line 15, the response of input file is that the file is not in a valid JSON
-  format.
+The example above shows that there were failures on lines 3, 4, 7, 9, 15 from the corresponding input lines from input file. For each of those lines, the explanations are as follows: 
++ On Line 3, the response explains that `resourceType` provided in line 3 of input file is not valid.
++ On Line 5, the response explains that there is a FHIR validation error in line 5 of input file.
++ On Line 7, the response explains that there is a validation issue with `resourceId` provided as input.
++ On Line 9, the response explains that input file must contain a valid resource id.
++ On line 15, the response of input file is that the file is not in a valid JSON format.
 
 ## FHIR APIs
+<a name="troubleshooting-fhir-apis"></a>
 
-**Issue:** _How do I implement authorization for
-the FHIR RESTful APIs?_
+**Issue: ***How do I implement authorization for the FHIR RESTful APIs?*
 
-Determine the [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy") to use.
+Determine the [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy) to use.
 
-To create SigV4 authorization using the AWS SDK for Python (Boto3), create a script similar to the
-following example.
+To create SigV4 authorization using the AWS SDK for Python (Boto3), create a script similar to the following example.
 
 ```
 import boto3
 import requests
 import json
 from requests_auth_aws_sigv4 import AWSSigV4
-
+ 
 # Set the input arguments
 data_store_endpoint = 'https://healthlake.us-east-1.amazonaws.com/datastore/<datastore id>/r4//'
 resource_path = "Patient"
 requestBody = {"resourceType": "Patient", "active": True, "name": [{"use": "official","family": "Dow","given": ["Jen"]},{"use": "usual","given": ["Jen"]}],"gender": "female","birthDate": "1966-09-01"}
 region = 'us-east-1'
-
+ 
 #Frame the resource endpoint
 resource_endpoint = data_store_endpoint+resource_path
 session = boto3.session.Session(region_name=region)
 client = session.client("healthlake")
-
+ 
 # Frame authorization
 auth = AWSSigV4("healthlake", session=session)
-
+ 
 # Call data store FHIR endpoint using SigV4 auth
 
 r = requests.post(resource_endpoint, json=requestBody, auth=auth, )
 print(r.json())
-
 ```
 
-**Issue:**
-_Why am I receiving `AccessDenied` errors when using the FHIR
-RESTful APIs for a data store encrypted with a customer managed KMS
-key?_
+**Issue: ** *Why am I receiving `AccessDenied` errors when using the FHIR RESTful APIs for a data store encrypted with a customer managed KMS key?*
 
-Permissions for both customer managed keys and IAM policies are required for a user or
-role to access a data store. A user must have the required IAM permissions for using a
-customer managed key. If a user revoked or retired a grant that gave HealthLake permission to
-use the customer managed KMS key, HealthLake will return an `AccessDenied`
-error.
+Permissions for both customer managed keys and IAM policies are required for a user or role to access a data store. A user must have the required IAM permissions for using a customer managed key. If a user revoked or retired a grant that gave HealthLake permission to use the customer managed KMS key, HealthLake will return an `AccessDenied` error.
 
-HealthLake must have the permission in place to access customer data, to encrypt new FHIR
-resources imported to a data store, and to decrypt the FHIR resources when they are
-requested. For more information, see [Troubleshooting AWS KMS
-permissions](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md").
+HealthLake must have the permission in place to access customer data, to encrypt new FHIR resources imported to a data store, and to decrypt the FHIR resources when they are requested. For more information, see [Troubleshooting AWS KMS permissions](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html).
 
-**Issue:**
-_A FHIR `POST` API operation to HealthLake using a 10MB document is
-returning the `413 Request Entity Too Large` error._
+**Issue: ** *A FHIR `POST` API operation to HealthLake using a 10MB document is returning the `413 Request Entity Too Large` error.*
 
-AWS HealthLake has a synchronous Create and Update API limit of 5MB to avoid increased
-latencies and timeouts. You can ingest large documents, up to 164MB, using the
-`Binary` resource type using the Bulk Import API.
+AWS HealthLake has a synchronous Create and Update API limit of 5MB to avoid increased latencies and timeouts. You can ingest large documents, up to 164MB, using the `Binary` resource type using the Bulk Import API.
 
 ## Data transformation actions
+<a name="data-transformation-troubleshooting"></a>
 
-**Issue:**
-_When I call a Data Transformation Agent profile or job API, I receive an
-AccessDeniedException._
+**Issue:** *When I call a Data Transformation Agent profile or job API, I receive an AccessDeniedException.*
 
-Your IAM user or role is missing the required Data Transformation Agent permissions. Add the
-`healthlake:*DataTransformation*` actions: for example,
-`healthlake:CreateDataTransformationProfile`,
-`healthlake:StartDataTransformationJob`, and
-`healthlake:UpdateProfileWithAgent`: to your identity-based
-policy. For the full list of actions, see [Setting up](data-transformation-setting-up.md "data-transformation-setting-up.md").
+Your IAM user or role is missing the required Data Transformation Agent permissions. Add the `healthlake:*DataTransformation*` actions: for example, `healthlake:CreateDataTransformationProfile`, `healthlake:StartDataTransformationJob`, and `healthlake:UpdateProfileWithAgent`: to your identity-based policy. For the full list of actions, see [Setting up](data-transformation-setting-up.md).
 
-**Issue:**
-_I receive a ResourceNotFoundException when describing or starting a
-transformation job._
+**Issue:** *I receive a ResourceNotFoundException when describing or starting a transformation job.*
 
-This usually means the profile ID or job ID does not exist in the Region you are
-calling. Verify the ID with the `ListDataTransformationProfiles` or
-`ListDataTransformationJobs` API, and confirm you are operating in the Region
-where the resource was created.
+This usually means the profile ID or job ID does not exist in the Region you are calling. Verify the ID with the `ListDataTransformationProfiles` or `ListDataTransformationJobs` API, and confirm you are operating in the Region where the resource was created.
 
-**Issue:**
-_My transformation job fails to start with a ValidationException._
+**Issue:** *My transformation job fails to start with a ValidationException.*
 
-The data access role you supplied cannot read your source files or write output. Confirm
-that the role's trust policy allows `healthlake.amazonaws.com` to assume it,
-and that its permissions policy grants `s3:GetObject`,
-`s3:PutObject`, and `s3:ListBucket` on your Amazon S3 locations:
-plus `kms:Decrypt` and `kms:GenerateDataKey` if you encrypt output
-with a customer managed AWS KMS key. For the trust and permissions policies, see Operations
-and security.
+The data access role you supplied cannot read your source files or write output. Confirm that the role's trust policy allows `healthlake.amazonaws.com` to assume it, and that its permissions policy grants `s3:GetObject`, `s3:PutObject`, and `s3:ListBucket` on your Amazon S3 locations: plus `kms:Decrypt` and `kms:GenerateDataKey` if you encrypt output with a customer managed AWS KMS key. For the trust and permissions policies, see Operations and security.
 
-**Issue:**
-_My transformation job completed, but the drift report shows low
-coverage._
+**Issue:** *My transformation job completed, but the drift report shows low coverage.*
 
-Low coverage means the profile does not yet map some source sections or elements, so
-that data was not carried into the FHIR output. Open the job's
-`jobLevelDriftResult.json` in the Amazon S3 output location to see the ranked list
-of unmapped source sections and elements, then use the Data Transformation AI agent to add the missing
-resource mappings and republish the profile. For more information, see [Drift detection](data-transformation-features.md#data-transformation-drift-detection "data-transformation-features.md#data-transformation-drift-detection").
+Low coverage means the profile does not yet map some source sections or elements, so that data was not carried into the FHIR output. Open the job's `jobLevelDriftResult.json` in the Amazon S3 output location to see the ranked list of unmapped source sections and elements, then use the Data Transformation AI agent to add the missing resource mappings and republish the profile. For more information, see [Drift detection](data-transformation-features.md#data-transformation-drift-detection).
 
-**Issue:**
-_The Data Transformation AI agent appears to stop responding partway through a
-conversation._
+**Issue:** *The Data Transformation AI agent appears to stop responding partway through a conversation.*
 
-The conversation reached a completion state; it is not closed. Send a follow-up message
-using the same `ConversationId` to continue the session. Note that an AI agent
-session expires after 8 hours and allows a maximum of 15 user messages: see
-Endpoints and quotas. If the session has expired or reached the message limit, start a new
-session.
+The conversation reached a completion state; it is not closed. Send a follow-up message using the same `ConversationId` to continue the session. Note that an AI agent session expires after 8 hours and allows a maximum of 15 user messages: see Endpoints and quotas. If the session has expired or reached the message limit, start a new session.
 
-**Issue:**
-_A synchronous (real-time) conversion request returns a 413 Request Entity Too
-Large error._
+**Issue:** *A synchronous (real-time) conversion request returns a 413 Request Entity Too Large error.*
 
-Your input exceeds the sync conversion size limit. Synchronous conversion accepts C-CDA
-inputs up to 1 MB and combined CSV inputs up to 500 KB per request. For larger datasets,
-run a bulk (asynchronous) transformation job over Amazon S3 instead. For the sync conversion
-limits, see [AWS HealthLake endpoints and quotas](reference-healthlake-endpoints-quotas.md "reference-healthlake-endpoints-quotas.md").
+Your input exceeds the sync conversion size limit. Synchronous conversion accepts C-CDA inputs up to 1 MB and combined CSV inputs up to 500 KB per request. For larger datasets, run a bulk (asynchronous) transformation job over Amazon S3 instead. For the sync conversion limits, see [AWS HealthLake endpoints and quotas](reference-healthlake-endpoints-quotas.md).
 
 ## NLP integrations
+<a name="troubleshooting-nlp-integrations"></a>
 
-**Issue:**
-_How do I turn on HealthLake's integrated natural language processing
-feature?_
+**Issue: ** *How do I turn on HealthLake's integrated natural language processing feature?*
 
 As of November 14, 2022, the default behavior of HealthLake data stores changed.
 
-**Current data stores**: All current HealthLake data stores
-will stop using natural language processing (NLP) on base64-encoded
-`DocumentReference` resources. This means that new
-`DocumentReference` resources will not be analyzed using NLP, and no new
-resources will be generated based off of text in the `DocumentReference`
-resource type. For existing `DocumentReference` resources, the data and
-resources generated via NLP remain, but they will not be updated after February 20, 2023.
+**Current data stores**: All current HealthLake data stores will stop using natural language processing (NLP) on base64-encoded `DocumentReference` resources. This means that new `DocumentReference` resources will not be analyzed using NLP, and no new resources will be generated based off of text in the `DocumentReference` resource type. For existing `DocumentReference` resources, the data and resources generated via NLP remain, but they will not be updated after February 20, 2023.
 
-**New data stores**: HealthLake data stores created after
-February 20, 2023 will _not_ perform natural language processing
-(NLP) on base64-encoded `DocumentReference` resources.
+**New data stores**: HealthLake data stores created after February 20, 2023 will *not* perform natural language processing (NLP) on base64-encoded `DocumentReference` resources.
 
-To turn on HealthLake NLP integration, create a support case using [AWS Support Center Console](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). To create your case, log
-in to your AWS account, and then choose **Create case**. To learn
-more about creating a case and case management, see [Creating support cases and case
-management](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") in the _Support User Guide_.
+To turn on HealthLake NLP integration, create a support case using [AWS Support Center Console](https://console.aws.amazon.com/support/home#/). To create your case, log in to your AWS account, and then choose **Create case**. To learn more about creating a case and case management, see [Creating support cases and case management](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) in the *Support User Guide*.
 
-**Issue:**
-_>How do I find `DocumentReference` resources that could not be
-processed by integrated NLP?_
+**Issue:** *>How do I find `DocumentReference` resources that could not be processed by integrated NLP?*
 
-If a `DocumentReference` resource is not valid, HealthLake provides an extension
-indicating a validation error instead of providing it in the integrated medical NLP
-output. To find `DocumentReference` resources that led to a validation error
-during NLP processing, you can use HealthLake’s FHIR `search` function with
-search key **cm-decoration-status** and search value
-**VALIDATION\_ERROR**. This search will list all
-`DocumentReference` resources that led to validation errors, along with
-an error message describing the nature of the error. The structure of the extension
-field in those `DocumentReference` resources with validation errors will
-resemble the following example.
+If a `DocumentReference` resource is not valid, HealthLake provides an extension indicating a validation error instead of providing it in the integrated medical NLP output. To find `DocumentReference` resources that led to a validation error during NLP processing, you can use HealthLake’s FHIR `search` function with search key **cm-decoration-status** and search value **VALIDATION\_ERROR**. This search will list all `DocumentReference` resources that led to validation errors, along with an error message describing the nature of the error. The structure of the extension field in those `DocumentReference` resources with validation errors will resemble the following example.
 
 ```
 "extension": [
@@ -273,90 +168,53 @@ resemble the following example.
               "url": "http://healthlake.amazonaws.com/aws-cm/"
           }
     ]
-
 ```
 
-###### Note
-
-A `VALIDATION_ERROR` can also occur if NLP decoration creates more than
-10,000 nested objects. When this happens, the document must be split into smaller
-documents before processing.
+**Note**  
+A `VALIDATION_ERROR` can also occur if NLP decoration creates more than 10,000 nested objects. When this happens, the document must be split into smaller documents before processing.
 
 ## SQL integrations
+<a name="troubleshooting-sql-integrations"></a>
 
-**Issue:**
-_Why do I get a Lake Formation `permissions error:
- lakeformation:PutDataLakeSettings` when adding a new data lake
-administrator?_
+**Issue: ** *Why do I get a Lake Formation `permissions error: lakeformation:PutDataLakeSettings` when adding a new data lake administrator?*
 
-If your IAM user or role contains the `AWSLakeFormationDataAdmin` AWS managed
-policy you cannot add new data lake administrators. You will get an error containing the
-following:
+If your IAM user or role contains the `AWSLakeFormationDataAdmin` AWS managed policy you cannot add new data lake administrators. You will get an error containing the following:
 
 ```
 User arn:aws:sts::111122223333:assumed-role/lakeformation-admin-user is not authorized to perform: lakeformation:PutDataLakeSettings on resource: arn:aws:lakeformation:us-east-2:111122223333:catalog:111122223333 with an explicit deny in an identity-based policy
 ```
 
-The AWS managed policy `AdministratorAccess` is required to add an IAM
-user or role as a AWS Lake Formation data lake administrator. If your IAM user or role also
-contains `AWSLakeFormationDataAdmin` the action will fail. The
-`AWSLakeFormationDataAdmin` AWS managed policy contains an explicit deny for
-the AWS Lake Formation API operation, `PutDataLakeSetting`. Even administrators with
-full access to AWS using the `AdministratorAccess` managed policy can be
-limited by the `AWSLakeFormationDataAdmin` policy.
+The AWS managed policy `AdministratorAccess` is required to add an IAM user or role as a AWS Lake Formation data lake administrator. If your IAM user or role also contains `AWSLakeFormationDataAdmin` the action will fail. The `AWSLakeFormationDataAdmin` AWS managed policy contains an explicit deny for the AWS Lake Formation API operation, `PutDataLakeSetting`. Even administrators with full access to AWS using the `AdministratorAccess` managed policy can be limited by the `AWSLakeFormationDataAdmin` policy.
 
-**Issue:**
-_How do I migrate an existing HealthLake data store to use Amazon Athena SQL
-integration?_
+**Issue: ** *How do I migrate an existing HealthLake data store to use Amazon Athena SQL integration?*
 
-HealthLake data stores created before November 14, 2022 are functional, but are not
-queryable in Athena using SQL. To query a preexisting data store with Athena, you must
-first migrate it to a new data store.
+HealthLake data stores created before November 14, 2022 are functional, but are not queryable in Athena using SQL. To query a preexisting data store with Athena, you must first migrate it to a new data store. 
 
-###### To migrate your HealthLake data to a new data store
+**To migrate your HealthLake data to a new data store**
 
 1. Create a new data store.
-2. Export the data from the pre-existing to an Amazon S3 bucket.
-3. Import the data into the new data store from the Amazon S3 bucket.
 
-###### Note
+1. Export the data from the pre-existing to an Amazon S3 bucket.
 
-Exporting data to an Amazon S3 bucket incurs an extra charge. The extra charge depends
-on the size of the data that you export.
+1. Import the data into the new data store from the Amazon S3 bucket.
 
-**Issue:**
-_When creating a new HealthLake data store for SQL integration, the data store
-status is not changing from `Creating`._
+**Note**  
+Exporting data to an Amazon S3 bucket incurs an extra charge. The extra charge depends on the size of the data that you export.
 
-If you try to create a new HealthLake data store, and your data store status is not
-changing from **Creating** you need to update Athena to use the
-AWS Glue Data Catalog. For more information, see [Upgrading to the AWS Glue Data Catalog
-step-by-step](../../../athena/latest/ug/glue-upgrade.md "../../../athena/latest/ug/glue-upgrade.md") in the _Amazon Athena User Guide_.
+**Issue: ** *When creating a new HealthLake data store for SQL integration, the data store status is not changing from `Creating`.*
 
-After successfully upgrading the AWS Glue Data Catalog, you can create a HealthLake data
-store.
+If you try to create a new HealthLake data store, and your data store status is not changing from **Creating** you need to update Athena to use the AWS Glue Data Catalog. For more information, see [Upgrading to the AWS Glue Data Catalog step-by-step](https://docs.aws.amazon.com/athena/latest/ug/glue-upgrade.html) in the *Amazon Athena User Guide*.
 
-To remove an old HealthLake data store, create a support case using [AWS Support Center Console](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). To create your case, log
-in to your AWS account, and then choose **Create case**. To learn
-more, see [Creating support cases and case management](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") in the _Support User
-Guide_.
+After successfully upgrading the AWS Glue Data Catalog, you can create a HealthLake data store.
 
-**Issue:**
-_The Athena console is not working after importing data into a new HealthLake data
-store_
+To remove an old HealthLake data store, create a support case using [AWS Support Center Console](https://console.aws.amazon.com/support/home#/). To create your case, log in to your AWS account, and then choose **Create case**. To learn more, see [Creating support cases and case management](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) in the *Support User Guide*.
 
-After you import data into a new HealthLake data store, the data may not be available for
-immediate use. This is to allow time for the data to be ingested into Apache Iceberg
-tables. Try again at a later time.
+**Issue: ** *The Athena console is not working after importing data into a new HealthLake data store*
 
-**Issue:**
-_How do I connect search results in Athena to other AWS
-services?_
+After you import data into a new HealthLake data store, the data may not be available for immediate use. This is to allow time for the data to be ingested into Apache Iceberg tables. Try again at a later time.
 
-When sharing your search results from Athena with other AWS services, issues can
-occur when you use `json_extract[1]` as part of a SQL search query. To fix
-this issue, you must update to `CATVAR`.
+**Issue: ** *How do I connect search results in Athena to other AWS services?*
 
-You might encounter this issue when trying to **Create** save
-results, a **Table** (static), or a **View**
-(dynamic).
+When sharing your search results from Athena with other AWS services, issues can occur when you use `json_extract[1]` as part of a SQL search query. To fix this issue, you must update to `CATVAR`.
+
+You might encounter this issue when trying to **Create** save results, a **Table** (static), or a **View** (dynamic).

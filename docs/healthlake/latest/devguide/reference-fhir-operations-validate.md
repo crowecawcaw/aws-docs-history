@@ -1,17 +1,21 @@
+
+
 # Validating FHIR Resources with `$validate`
+<a name="reference-fhir-operations-validate"></a>
 
 AWS HealthLake now supports the `$validate` operation for FHIR resources, enabling you to validate a resource against the FHIR specification and check its conformance to a specified profile or base resource definition without performing any storage operations. This operation is particularly useful when you need to:
-
-- Validate FHIR CMS compliance requirements
-- Test resources prior to using them in production
-- Provide real-time validation feedback as users edit clinical data
-- Reduce invalid data submissions to create and update APIs
++ Validate FHIR CMS compliance requirements
++ Test resources prior to using them in production
++ Provide real-time validation feedback as users edit clinical data
++ Reduce invalid data submissions to create and update APIs
 
 ## Usage
+<a name="validate-usage"></a>
 
 The `$validate` operation can be invoked on FHIR resources using POST methods:
 
-###### Supported Operations
+**Supported Operations**  
+
 
 ```
 POST [base]/[type]/[id]/$validate
@@ -19,27 +23,34 @@ POST [base]/[type]/$validate
 ```
 
 ## Supported Payloads
+<a name="validate-payloads"></a>
 
-###### Parameters resource
+**Parameters resource**  
+
 
 HealthLake supports the following FHIR `$validate` parameters:
 
-| Parameter  | Type      | Required | Description                                      |
-| ---------- | --------- | -------- | ------------------------------------------------ |
-| `resource` | Resource  | Yes      | The resource to be validated                     |
-| `profile`  | canonical | No       | Canonical URL of the profile to validate against |
-| `mode`     | code      | No       | Validation mode: `create`, or `update`           |
 
-###### Direct resource with Query Parameters
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| resource | Resource | Yes | The resource to be validated | 
+| profile | canonical | No | Canonical URL of the profile to validate against | 
+| mode | code | No | Validation mode: create, or update | 
 
-| Parameter | Type      | Required | Description                                      |
-| --------- | --------- | -------- | ------------------------------------------------ |
-| `profile` | canonical | No       | Canonical URL of the profile to validate against |
-| `mode`    | code      | No       | Validation mode: `create`, or `update`           |
+**Direct resource with Query Parameters**  
+
+
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| profile | canonical | No | Canonical URL of the profile to validate against | 
+| mode | code | No | Validation mode: create, or update | 
 
 ## Examples
+<a name="validate-examples"></a>
 
-###### POST Request for Resource with ID and Parameters payload
+**POST Request for Resource with ID and Parameters payload**  
+
 
 ```
 POST [base]/Patient/example-patient/$validate
@@ -75,7 +86,8 @@ Content-Type: application/fhir+json
 }
 ```
 
-###### POST Request for Resource Type and Parameters payload
+**POST Request for Resource Type and Parameters payload**  
+
 
 ```
 POST [base]/Patient/$validate
@@ -110,10 +122,11 @@ Content-Type: application/fhir+json
 }
 ```
 
-###### POST Request for Resource with ID and direct resource payload
+**POST Request for Resource with ID and direct resource payload**  
+
 
 ```
-POST [base]/Patient/example-patient/$validate?profile=`http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient&mode=create`
+POST [base]/Patient/example-patient/$validate?profile={{http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient&mode=create}}
 Content-Type: application/fhir+json
 
 {
@@ -130,10 +143,11 @@ Content-Type: application/fhir+json
 }
 ```
 
-###### POST Request for Resource Type and direct resource payload
+**POST Request for Resource Type and direct resource payload**  
+
 
 ```
-POST [base]/Patient/$validate?profile=`http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient&mode=create`
+POST [base]/Patient/$validate?profile={{http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient&mode=create}}
 Content-Type: application/fhir+json
 
 {
@@ -150,8 +164,7 @@ Content-Type: application/fhir+json
 }
 ```
 
-###### Sample Response
-
+**Sample Response**  
 The operation returns an OperationOutcome resource with validation results:
 
 ```
@@ -167,7 +180,8 @@ The operation returns an OperationOutcome resource with validation results:
 }
 ```
 
-###### Sample Response with Validation Errors
+**Sample Response with Validation Errors**  
+
 
 ```
 {
@@ -200,27 +214,33 @@ The operation returns an OperationOutcome resource with validation results:
 ```
 
 ## Behavior
+<a name="validate-behavior"></a>
 
 The `$validate` operation:
 
 1. Validates the resource against the FHIR specification and base resource definition
-2. Checks conformance to specified profiles when the `profile` parameter is provided
-3. Validates based on the specified mode (`create` or `update`)
-4. Returns detailed validation results including errors, warnings, and informational messages
-5. Does not perform any storage operations - validation only
-6. Returns HTTP 200 OK when validation can be performed, regardless of whether validation issues are found
+
+1. Checks conformance to specified profiles when the `profile` parameter is provided
+
+1. Validates based on the specified mode (`create` or `update`)
+
+1. Returns detailed validation results including errors, warnings, and informational messages
+
+1. Does not perform any storage operations - validation only
+
+1. Returns HTTP 200 OK when validation can be performed, regardless of whether validation issues are found
 
 ## Validation Modes
-
-- **create**: Validates the resource as if it were being created (new resource)
-- **update**: Validates the resource as if it were being updated (existing resource)
+<a name="validate-modes"></a>
++ **create**: Validates the resource as if it were being created (new resource)
++ **update**: Validates the resource as if it were being updated (existing resource)
 
 ## Error Handling
+<a name="validate-error-handling"></a>
 
 The operation returns:
++ 200 OK: Validation was performed successfully (regardless of validation outcome)
++ 400 Bad Request: Invalid request format or parameters
++ 404 Not Found: Resource type or profile not found
 
-- 200 OK: Validation was performed successfully (regardless of validation outcome)
-- 400 Bad Request: Invalid request format or parameters
-- 404 Not Found: Resource type or profile not found
-
-For more information about the `$validate` operation specification, see the [FHIR R4 Resource `$validate`](https://www.hl7.org/fhir/R4/operation-resource-validate.html "https://www.hl7.org/fhir/R4/operation-resource-validate.html") documentation.
+For more information about the `$validate` operation specification, see the [FHIR R4 Resource `$validate`](https://www.hl7.org/fhir/R4/operation-resource-validate.html) documentation.

@@ -1,20 +1,17 @@
+
+
 # Understanding drift reports
+<a name="data-transformation-drift-report"></a>
 
-When drift detection is enabled, the bulk job writes an aggregate report named
-`jobLevelDriftResult.json` to your output location. The report tells
-you how much of your source data the profile actually captured, and what it missed:
-so you know where to improve your mappings.
+ When drift detection is enabled, the bulk job writes an aggregate report named `jobLevelDriftResult.json` to your output location. The report tells you how much of your source data the profile actually captured, and what it missed: so you know where to improve your mappings. 
 
-The report's structure depends on the source format: C-CDA reports are organized
-around document sections and entries (identified by OIDs), while CSV reports are organized
-around tables, columns, and rows. Both share the same coverage-rate concept (a fraction
-from 0.0 to 1.0, where higher means more of your source was captured).
-
-- [C-CDA drift report](#data-transformation-drift-report-ccda "#data-transformation-drift-report-ccda")
-- [CSV drift report](#data-transformation-drift-report-csv "#data-transformation-drift-report-csv")
-- [Improving coverage (both formats)](#data-transformation-drift-report-improving "#data-transformation-drift-report-improving")
+ The report's structure depends on the source format: C-CDA reports are organized around document sections and entries (identified by OIDs), while CSV reports are organized around tables, columns, and rows. Both share the same coverage-rate concept (a fraction from 0.0 to 1.0, where higher means more of your source was captured). 
++ [C-CDA drift report](#data-transformation-drift-report-ccda)
++ [CSV drift report](#data-transformation-drift-report-csv)
++ [Improving coverage (both formats)](#data-transformation-drift-report-improving)
 
 ## C-CDA drift report
+<a name="data-transformation-drift-report-ccda"></a>
 
 ```
 {
@@ -30,81 +27,72 @@ from 0.0 to 1.0, where higher means more of your source was captured).
   "avgResourceAccuracy": 0.97,
   "totalUnknownSections": 14,
   "totalUnknownEntries": 63,
-  "documentOids": {
-    "2.16.840.1.113883.10.20.22.1.2": 480
+  "documentOids": { 
+    "2.16.840.1.113883.10.20.22.1.2": 480 
     },
   "unknownSectionOidCount": 2,
-  "unknownSections": {
-    "2.16.840.1.113883.10.20.22.2.14": 12
+  "unknownSections": { 
+    "2.16.840.1.113883.10.20.22.2.14": 12 
     },
   "unknownEntryOidCount": 5,
-  "unknownEntries": {
-    "2.16.840.1.113883.10.20.22.4.13": 40
+  "unknownEntries": { 
+    "2.16.840.1.113883.10.20.22.4.13": 40 
     },
-  "missingResources": {
-    "2.16.840.1.113883.10.20.22.2.6.1": {
-      "AllergyIntolerance": 8
-      }
+  "missingResources": { 
+    "2.16.840.1.113883.10.20.22.2.6.1": { 
+      "AllergyIntolerance": 8 
+      } 
     },
-  "perFileDrift": {
-    "patient-001.xml": 0.95,
-    "patient-002.xml": 0.61
+  "perFileDrift": { 
+    "patient-001.xml": 0.95, 
+    "patient-002.xml": 0.61 
     }
 }
 ```
 
 ### How to read it
+<a name="data-transformation-drift-report-ccda-read"></a>
 
-Start with the coverage rates. These are averages across all processed files,
-expressed as a fraction from 0.0 to 1.0 (multiply by 100 for a percentage).
-Higher is better: a higher rate means more of your source data made it
-into the FHIR output.
+ Start with the coverage rates. These are averages across all processed files, expressed as a fraction from 0.0 to 1.0 (multiply by 100 for a percentage). Higher is better: a higher rate means more of your source data made it into the FHIR output. 
 
-| Field                    | What it means                                                                                                                                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `avgOverallCoverageRate` | The headline number. The average fraction of source content<br>(sections + entries) that the profile mapped to FHIR. 0.88<br>means ~88% of your source data was captured. |
-| `avgSectionCoverageRate` | Average fraction of C-CDA sections (for example, Problems,<br>Medications, Allergies) that were mapped.                                                                   |
-| `avgEntryCoverageRate`   | Average fraction of individual entries within sections (for<br>example, a single problem or medication) that were mapped.                                                 |
-| `avgResourceAccuracy`    | Of the FHIR resources that were expected, the average<br>fraction that were actually produced.                                                                            |
 
-Then find what was missed. These fields point you to the specific mappings to add:
+| Field | What it means | 
+| --- | --- | 
+| avgOverallCoverageRate | The headline number. The average fraction of source content (sections \+ entries) that the profile mapped to FHIR. 0.88 means \~88% of your source data was captured. | 
+| avgSectionCoverageRate | Average fraction of C-CDA sections (for example, Problems, Medications, Allergies) that were mapped. | 
+| avgEntryCoverageRate | Average fraction of individual entries within sections (for example, a single problem or medication) that were mapped. | 
+| avgResourceAccuracy | Of the FHIR resources that were expected, the average fraction that were actually produced. | 
 
-| Field                                             | What it means                                                                                      | What to do                                                      |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `unknownSections`                                 | A map of source section OIDs the profile did not recognize,<br>and how many times each appeared.   | Add mappings for the high-count section OIDs.                   |
-| `unknownEntries`                                  | A map of source entry OIDs the profile did not recognize,<br>and their frequency.                  | Add mappings for the high-count entry OIDs.                     |
-| `missingResources`                                | A map of source OID → the FHIR resource types that<br>were expected but not produced, with counts. | Fix the mappings that should have generated those<br>resources. |
-| `totalUnknownSections` /<br>`totalUnknownEntries` | Total counts of unmapped sections and entries across the<br>job.                                   | Use as a quick "how much is left" signal.                       |
-| `documentOids`                                    | A map of the C-CDA document-type OIDs seen in the job, and<br>how many of each.                    | Confirms which document types your data contains.               |
+ Then find what was missed. These fields point you to the specific mappings to add: 
 
-Prioritize by frequency. The counts in `unknownSections`,
-`unknownEntries`, and `missingResources` tell you which
-gaps affect the most records. An OID that appears 40 times is a bigger win to
-map than one that appears twice.
 
-Drill into specific files. `perFileDrift` maps each source file to
-its overall coverage rate. Sort by the lowest values to find the files the
-profile handled worst: for example, `patient-002.xml`
-at 0.61 is worth inspecting. For a full per-file breakdown (which specific OIDs
-each file missed), see the individual reports under the
-`driftDetectionPerFileResults/` folder.
+| Field | What it means | What to do | 
+| --- | --- | --- | 
+| unknownSections | A map of source section OIDs the profile did not recognize, and how many times each appeared. | Add mappings for the high-count section OIDs. | 
+| unknownEntries | A map of source entry OIDs the profile did not recognize, and their frequency. | Add mappings for the high-count entry OIDs. | 
+| missingResources | A map of source OID → the FHIR resource types that were expected but not produced, with counts. | Fix the mappings that should have generated those resources. | 
+| totalUnknownSections / totalUnknownEntries | Total counts of unmapped sections and entries across the job. | Use as a quick "how much is left" signal. | 
+| documentOids | A map of the C-CDA document-type OIDs seen in the job, and how many of each. | Confirms which document types your data contains. | 
+
+ Prioritize by frequency. The counts in `unknownSections`, `unknownEntries`, and `missingResources` tell you which gaps affect the most records. An OID that appears 40 times is a bigger win to map than one that appears twice. 
+
+ Drill into specific files. `perFileDrift` maps each source file to its overall coverage rate. Sort by the lowest values to find the files the profile handled worst: for example, `patient-002.xml` at 0.61 is worth inspecting. For a full per-file breakdown (which specific OIDs each file missed), see the individual reports under the `driftDetectionPerFileResults/` folder. 
 
 ### Improving coverage
+<a name="data-transformation-drift-report-ccda-improving"></a>
 
-1. Identify the highest-frequency entries in `unknownSections`,
-   `unknownEntries`, and
-   `missingResources`.
-2. Use the Data Transformation AI agent (`UpdateProfileWithAgent`) to add
-   mappings for those OIDs and resources: you can paste an OID and
-   ask the agent to map it.
-3. Publish a new profile version and re-run the job.
-4. Compare the new `avgOverallCoverageRate` to confirm the
-   gap closed.
+1. Identify the highest-frequency entries in `unknownSections`, `unknownEntries`, and `missingResources`.
+
+1. Use the Data Transformation AI agent (`UpdateProfileWithAgent`) to add mappings for those OIDs and resources: you can paste an OID and ask the agent to map it.
+
+1. Publish a new profile version and re-run the job.
+
+1. Compare the new `avgOverallCoverageRate` to confirm the gap closed.
 
 ## CSV drift report
+<a name="data-transformation-drift-report-csv"></a>
 
-For CSV jobs, the report is organized around tables (each CSV file is a table),
-columns, and rows: not sections and OIDs.
+ For CSV jobs, the report is organized around tables (each CSV file is a table), columns, and rows: not sections and OIDs. 
 
 ```
 {
@@ -147,42 +135,40 @@ columns, and rows: not sections and OIDs.
 ```
 
 ### How to read it
+<a name="data-transformation-drift-report-csv-read"></a>
 
-Start with the summary. The coverage rates are fractions from 0.0 to 1.0
-(higher is better):
+ Start with the summary. The coverage rates are fractions from 0.0 to 1.0 (higher is better): 
 
-| Field                 | What it means                                                                                                                                                      |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `overallCoverageRate` | The headline number: the fraction of all columns<br>across all input tables that your profile actually uses. 0.83<br>means ~83% of your source columns are mapped. |
-| `tablesCoverageRate`  | Fraction of your input CSV files (tables) that the profile<br>maps (`tablesProcessed` /<br>`totalTablesInInput`).                                                  |
-| `columnsCoverageRate` | Fraction of columns in the mapped tables that are referenced<br>by a field mapping.                                                                                |
 
-Then check the counts to understand conversion outcomes:
+| Field | What it means | 
+| --- | --- | 
+| overallCoverageRate | The headline number: the fraction of all columns across all input tables that your profile actually uses. 0.83 means \~83% of your source columns are mapped. | 
+| tablesCoverageRate | Fraction of your input CSV files (tables) that the profile maps (tablesProcessed / totalTablesInInput). | 
+| columnsCoverageRate | Fraction of columns in the mapped tables that are referenced by a field mapping. | 
 
-| Field                                                             | What it means                                                       |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `totalTablesInInput` vs<br>`tablesProcessed`                      | How many of your CSV files were actually used vs.<br>found.         |
-| `totalColumnsInInput` /<br>`columnsMapped` /<br>`columnsUnmapped` | How many source columns exist, were used, and were<br>ignored.      |
-| `totalRowsScanned` /<br>`rowsConvertedSuccessfully`               | How many rows were read vs. successfully converted.                 |
-| `rowsFailedCustomerError` /<br>`rowsFailedServerError`            | Rows that failed due to data-quality issues vs. internal<br>errors. |
-| `totalResourcesGenerated`                                         | Total FHIR resources produced.                                      |
+ Then check the counts to understand conversion outcomes: 
 
-Then find what was missed:
 
-| Field             | What it means                                                                                                | What to do                                                         |
-| ----------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `unmappedTables`  | CSV files in your input that the profile does not declare<br>(with the reason and the columns in that file). | Add a table mapping if that file should be<br>converted.           |
-| `unmappedColumns` | Per table, the columns present in the CSV but not used by<br>any field mapping.                              | Add field mappings for the columns you want in the FHIR<br>output. |
+| Field | What it means | 
+| --- | --- | 
+| totalTablesInInput vs tablesProcessed | How many of your CSV files were actually used vs. found. | 
+| totalColumnsInInput / columnsMapped / columnsUnmapped | How many source columns exist, were used, and were ignored. | 
+| totalRowsScanned / rowsConvertedSuccessfully | How many rows were read vs. successfully converted. | 
+| rowsFailedCustomerError / rowsFailedServerError | Rows that failed due to data-quality issues vs. internal errors. | 
+| totalResourcesGenerated | Total FHIR resources produced. | 
+
+ Then find what was missed: 
+
+
+| Field | What it means | What to do | 
+| --- | --- | --- | 
+| unmappedTables | CSV files in your input that the profile does not declare (with the reason and the columns in that file). | Add a table mapping if that file should be converted. | 
+| unmappedColumns | Per table, the columns present in the CSV but not used by any field mapping. | Add field mappings for the columns you want in the FHIR output. | 
 
 ### Sync CSV drift report
+<a name="data-transformation-drift-report-csv-sync"></a>
 
-[How to read it](#data-transformation-drift-report-csv-read "#data-transformation-drift-report-csv-read") describes the bulk
-(asynchronous) format that a transformation job writes to Amazon S3. When you run
-drift detection synchronously, the API response includes the comma-separated
-value (CSV) drift report inline. To enable this, set
-`enableDriftDetection` to `true` on a
-`TransformData` request. Because a sync request processes a single
-input rather than a whole dataset, its report has a simpler structure.
+ [How to read it](#data-transformation-drift-report-csv-read) describes the bulk (asynchronous) format that a transformation job writes to Amazon S3. When you run drift detection synchronously, the API response includes the comma-separated value (CSV) drift report inline. To enable this, set `enableDriftDetection` to `true` on a `TransformData` request. Because a sync request processes a single input rather than a whole dataset, its report has a simpler structure. 
 
 ```
 {
@@ -213,48 +199,22 @@ input rather than a whole dataset, its report has a simpler structure.
 }
 ```
 
-The `summary`, `unmappedTables`, and
-`unmappedColumns` fields carry the same meaning as in the bulk report.
-The sync report differs from the bulk CSV report in the following ways:
-
-- It has no `jobId`, `profileId`, or
-  `profileVersion`, because a sync request is not tied to a
-  transformation job. Instead, it includes a top-level
-  `sourceFormat` field (`CSV`) that identifies the
-  format of the input.
-- It omits the row-failure counts
-  (`rowsFailedCustomerError` and
-  `rowsFailedServerError`) and the bulk report's
-  `totalRowsScanned` and
-  `rowsConvertedSuccessfully` fields. A sync request converts
-  a single input. It either succeeds or returns an error. On success, it
-  reports `totalRowsProcessed` and a
-  `perTableRowCounts` map showing the number of rows processed
-  for each table.
-- It reports `tablesCoverageRate` and
-  `columnsCoverageRate`, but not a combined
-  `overallCoverageRate`.
-- It includes a `warnings` array inline that lists non-fatal
-  issues encountered during the conversion, such as missing primary keys
-  or unrecognized value-map entries.
+ The `summary`, `unmappedTables`, and `unmappedColumns` fields carry the same meaning as in the bulk report. The sync report differs from the bulk CSV report in the following ways: 
++ It has no `jobId`, `profileId`, or `profileVersion`, because a sync request is not tied to a transformation job. Instead, it includes a top-level `sourceFormat` field (`CSV`) that identifies the format of the input.
++ It omits the row-failure counts (`rowsFailedCustomerError` and `rowsFailedServerError`) and the bulk report's `totalRowsScanned` and `rowsConvertedSuccessfully` fields. A sync request converts a single input. It either succeeds or returns an error. On success, it reports `totalRowsProcessed` and a `perTableRowCounts` map showing the number of rows processed for each table.
++ It reports `tablesCoverageRate` and `columnsCoverageRate`, but not a combined `overallCoverageRate`.
++ It includes a `warnings` array inline that lists non-fatal issues encountered during the conversion, such as missing primary keys or unrecognized value-map entries.
 
 ## Improving coverage (both formats)
+<a name="data-transformation-drift-report-improving"></a>
 
-1. Identify the highest-impact gaps: for C-CDA, the
-   highest-frequency entries in
-   `unknownSections`/`unknownEntries`/`missingResources`;
-   for CSV, the entries in `unmappedTables`,
-   `unmappedColumns`, and warnings.
-2. Use the Data Transformation AI agent (`UpdateProfileWithAgent`) to add the
-   missing mappings: you can paste an unmapped OID (C-CDA) or column
-   name (CSV) and ask the agent to map it.
-3. Publish a new profile version and re-run the job.
-4. Compare the new `overallCoverageRate` to confirm the gap
-   closed.
+1. Identify the highest-impact gaps: for C-CDA, the highest-frequency entries in `unknownSections`/`unknownEntries`/`missingResources`; for CSV, the entries in `unmappedTables`, `unmappedColumns`, and warnings.
 
-###### Note
+1. Use the Data Transformation AI agent (`UpdateProfileWithAgent`) to add the missing mappings: you can paste an unmapped OID (C-CDA) or column name (CSV) and ask the agent to map it.
 
-Drift detection reports what a profile did not map; it does not indicate a
-conversion error. Source data can be intentionally left unmapped if it is not
-relevant to your use case. Use the report to decide what is worth
-mapping.
+1. Publish a new profile version and re-run the job.
+
+1. Compare the new `overallCoverageRate` to confirm the gap closed.
+
+**Note**  
+Drift detection reports what a profile did not map; it does not indicate a conversion error. Source data can be intentionally left unmapped if it is not relevant to your use case. Use the report to decide what is worth mapping.

@@ -1,58 +1,51 @@
+
+
 # Tagging HealthLake data stores
+<a name="managing-data-stores-tagging"></a>
 
-You can assign metadata to HealthLake data stores in the form of tags. Each tag is a label
-consisting of a user-defined key and value. Tags help you manage, identify, organize, search
-for, and filter data stores.
+You can assign metadata to HealthLake data stores in the form of tags. Each tag is a label consisting of a user-defined key and value. Tags help you manage, identify, organize, search for, and filter data stores.
 
-###### Important
+**Important**  
+Do not store protected health information (PHI), personally identifiable information (PII), or other confidential or sensitive information in tags. Tags are not intended to be used for private or sensitive data.
 
-Do not store protected health information (PHI), personally identifiable information (PII), or other confidential or sensitive information in tags.
-Tags are not intended to be used for private or sensitive data.
+The following topics describe how to use HealthLake tagging operations using the AWS Management Console, AWS CLI, and AWS SDKs. For more information, see [Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html) in the *AWS General Reference Guide*.
 
-The following topics describe how to use HealthLake tagging operations using the AWS Management Console,
-AWS CLI, and AWS SDKs. For more information, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
-_AWS General Reference Guide_.
-
-###### Topics
-
-- [Tagging a HealthLake data store](#tagresource "#tagresource")
-- [Listing tags for a HealthLake data store](#listtagsforresource "#listtagsforresource")
-- [Untagging a HealthLake data store](#untagresource "#untagresource")
+**Topics**
++ [Tagging a HealthLake data store](#tagresource)
++ [Listing tags for a HealthLake data store](#listtagsforresource)
++ [Untagging a HealthLake data store](#untagresource)
 
 ## Tagging a HealthLake data store
+<a name="tagresource"></a>
 
-Use `TagResource` to tag a HealthLake data store. The following menus provide a
-procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more
-information, see [`TagResource`](../APIReference/API_TagResource.html.md "../APIReference/API_TagResource.html.md") in the _AWS HealthLake API Reference_.
+Use `TagResource` to tag a HealthLake data store. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`TagResource`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_TagResource.html.html) in the *AWS HealthLake API Reference*.
 
-###### To tag a HealthLake data store
-
+**To tag a HealthLake data store**  
 Choose a menu based on your access preference to AWS HealthLake.
 
-CLI
+### AWS CLI and SDKs
+<a name="tagresource-cli-sdk"></a>
 
-**AWS CLI**
+------
+#### [ CLI ]
 
-**To add a tag to data store**
-
-The following `tag-resource` example shows how to add a tag to a data store.
-
-```
-`aws healthlake tag-resource \
- --resource-arn `"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"` \
- --tags '`[{"Key": "key1", "Value": "value1"}]`'`
+**AWS CLI**  
+**To add a tag to data store**  
+The following `tag-resource` example shows how to add a tag to a data store.  
 
 ```
+aws healthlake tag-resource \
+    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}} \
+    --tags '{{[{"Key": "key1", "Value": "value1"}]}}'
+```
+This command produces no output.  
+  
++  For API details, see [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/tag-resource.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Python ]
 
-- For API details, see
-  [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/tag-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/tag-resource.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -81,30 +74,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [TagResource](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/TagResource) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [TagResource](../../../goto/boto3/healthlake-2017-07-01/TagResource.md "../../../goto/boto3/healthlake-2017-07-01/TagResource.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -123,53 +101,56 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_notfound_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [TagResource](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [TagResource](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Example availability
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.
 
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+### AWS Console
+<a name="tagresource-console"></a>
 
-1. Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores "https://console.aws.amazon.com/healthlake/home#/list-datastores") page on the HealthLake Console.
-2. Choose a data store.
+1. Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores) page on the HealthLake Console.
 
-The **Data store details** page opens. 3. Under the **Tags** section, choose **Manage
-tags**.
+1. Choose a data store.
 
-The **Manage tags** page opens. 4. Choose **Add new tag**. 5. Enter a **Key** and **Value** (optional). 6. Choose **Save**.
+   The **Data store details** page opens.
+
+1. Under the **Tags** section, choose **Manage tags**.
+
+   The **Manage tags** page opens.
+
+1. Choose **Add new tag**.
+
+1. Enter a **Key** and **Value** (optional).
+
+1. Choose **Save**.
 
 ## Listing tags for a HealthLake data store
+<a name="listtagsforresource"></a>
 
-Use `ListTagsForResource` to list tags for a HealthLake data store. The following
-menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs.
-For more information, see [`ListTagsForResource`](../APIReference/API_ListTagsForResource.html.md "../APIReference/API_ListTagsForResource.html.md") in the _AWS HealthLake API
-Reference_.
+Use `ListTagsForResource` to list tags for a HealthLake data store. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`ListTagsForResource`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ListTagsForResource.html.html) in the *AWS HealthLake API Reference*.
 
-###### To list tags for a HealthLake data store
-
+**To list tags for a HealthLake data store**  
 Choose a menu based on your access preference to AWS HealthLake.
 
-CLI
+### AWS CLI and SDKs
+<a name="listtagsforresource-cli-sdk"></a>
 
-**AWS CLI**
+------
+#### [ CLI ]
 
-**To list tags for a data store**
-
-The following `list-tags-for-resource` example lists the tags associated with the specified data store.:
-
-```
-`aws healthlake list-tags-for-resource \
- --resource-arn `"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"``
+**AWS CLI**  
+**To list tags for a data store**  
+The following `list-tags-for-resource` example lists the tags associated with the specified data store.:  
 
 ```
-
-Output:
+aws healthlake list-tags-for-resource \
+    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}}
+```
+Output:  
 
 ```
 {
@@ -179,14 +160,13 @@ Output:
     }
 }
 ```
+  
++  For API details, see [ListTagsForResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-tags-for-resource.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListTagsForResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-tags-for-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-tags-for-resource.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -218,30 +198,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [ListTagsForResource](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/ListTagsForResource) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [ListTagsForResource](../../../goto/boto3/healthlake-2017-07-01/ListTagsForResource.md "../../../goto/boto3/healthlake-2017-07-01/ListTagsForResource.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -261,60 +226,54 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_notfound_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListTagsForResource](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListTagsForResource](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Example availability
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.
 
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+### AWS Console
+<a name="listtagsforresource-console"></a>
 
-1. Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores "https://console.aws.amazon.com/healthlake/home#/list-datastores") page on the HealthLake Console.
-2. Choose a data store.
+1. Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores) page on the HealthLake Console.
 
-The **Data store details** page opens. Under the
-**Tags** section, all data store tags are listed.
+1. Choose a data store.
+
+   The **Data store details** page opens. Under the **Tags** section, all data store tags are listed.
 
 ## Untagging a HealthLake data store
+<a name="untagresource"></a>
 
-Use `UntagResource` to remove a tag from a HealthLake data store. The following
-menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs.
-For more information, see [`UntagResource`](../APIReference/API_UntagResource.html.md "../APIReference/API_UntagResource.html.md") in the _AWS HealthLake API
-Reference_.
+Use `UntagResource` to remove a tag from a HealthLake data store. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`UntagResource`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_UntagResource.html.html) in the *AWS HealthLake API Reference*.
 
-###### To untag a HealthLake data store
-
+**To untag a HealthLake data store**  
 Choose a menu based on your access preference to AWS HealthLake.
 
-CLI
+### AWS CLI and SDKs
+<a name="untagresource-cli-sdk"></a>
 
-**AWS CLI**
+------
+#### [ CLI ]
 
-**To remove tags from a data store.**
-
-The following `untag-resource` example shows how to remove tags from a data store.
-
-```
-`aws healthlake untag-resource \
- --resource-arn `"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/b91723d65c6fdeb1d26543a49d2ed1fa"` \
- --tag-keys '`["key1"]`'`
+**AWS CLI**  
+**To remove tags from a data store.**  
+The following `untag-resource` example shows how to remove tags from a data store.  
 
 ```
+aws healthlake untag-resource \
+    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/b91723d65c6fdeb1d26543a49d2ed1fa"}} \
+    --tag-keys '{{["key1"]}}'
+```
+This command produces no output.  
+  
++  For API details, see [UntagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/untag-resource.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Python ]
 
-- For API details, see
-  [UntagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/untag-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/untag-resource.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -345,30 +304,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [UntagResource](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/UntagResource) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [UntagResource](../../../goto/boto3/healthlake-2017-07-01/UntagResource.md "../../../goto/boto3/healthlake-2017-07-01/UntagResource.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -387,22 +331,27 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_notfound_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [UntagResource](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UntagResource](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Example availability
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.
 
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+### AWS Console
+<a name="untagresource-console"></a>
 
-1. Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores "https://console.aws.amazon.com/healthlake/home#/list-datastores") page on the HealthLake Console.
-2. Choose a data store.
+1. Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores) page on the HealthLake Console.
 
-The **Data store details** page opens. 3. Under the **Tags** section, choose **Manage tags**.
+1. Choose a data store.
 
-The **Manage tags** page opens. 4. Choose **Remove** next to the tag you want to remove. 5. Choose **Save**.
+   The **Data store details** page opens.
+
+1. Under the **Tags** section, choose **Manage tags**.
+
+   The **Manage tags** page opens.
+
+1. Choose **Remove** next to the tag you want to remove.
+
+1. Choose **Save**.

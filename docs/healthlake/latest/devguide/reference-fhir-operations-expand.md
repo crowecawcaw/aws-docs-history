@@ -1,50 +1,60 @@
+
+
 # Retrieving ValueSet Codes with `$expand`
+<a name="reference-fhir-operations-expand"></a>
 
 AWS HealthLake now supports the `$expand` operation for ValueSets that were ingested by you as a customer, enabling you to retrieve the complete list of codes contained within those ValueSet resource(s). This operation is particularly useful when you need to:
-
-- Retrieve all possible codes for validation purposes
-- Display available options in user interfaces
-- Perform comprehensive code lookups within a specific terminology context
++ Retrieve all possible codes for validation purposes
++ Display available options in user interfaces
++ Perform comprehensive code lookups within a specific terminology context
 
 ## Usage
+<a name="expand-usage"></a>
 
 The `$expand` operation can be invoked on ValueSet resources using both GET and POST methods:
 
-###### Supported Operations
+**Supported Operations**  
+
 
 ```
 GET/POST [base]/ValueSet/[id]/$expand
-GET [base]/ValueSet/$expand?url=http:`//example.com`
+GET [base]/ValueSet/$expand?url=http:{{//example.com}}
 POST [base]/ValueSet/$expand
 ```
 
 ## Supported Parameters
+<a name="expand-parameters"></a>
 
 HealthLake supports a subset of FHIR R4 `$expand` parameters:
 
-| Parameter | Type    | Required | Description                                                                                                                                                              |
-| --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `url`     | uri     | No       | Canonical URL of the ValueSet to expand                                                                                                                                  |
-| `id`      | id      | No       | ValueSet resource id to expand (for GET or POST operations)                                                                                                              |
-| `filter`  | string  | No       | Filter the code expansion result                                                                                                                                         |
-| `count`   | integer | No       | Number of codes to return                                                                                                                                                |
-| `offset`  | integer | No       | Number of matching codes to skip before returning. Applies after filtering and only to the matching codes, not to the full, unfiltered contents of the original ValueSet |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| url | uri | No | Canonical URL of the ValueSet to expand | 
+| id | id | No | ValueSet resource id to expand (for GET or POST operations) | 
+| filter | string | No | Filter the code expansion result | 
+| count | integer | No | Number of codes to return | 
+| offset | integer | No | Number of matching codes to skip before returning. Applies after filtering and only to the matching codes, not to the full, unfiltered contents of the original ValueSet | 
 
 ## Examples
+<a name="expand-examples"></a>
 
-###### GET Request by ID
+**GET Request by ID**  
+
 
 ```
 GET [base]/ValueSet/example-valueset/$expand
 ```
 
-###### GET Request by URL with Filter
+**GET Request by URL with Filter**  
+
 
 ```
-GET [base]/ValueSet/$expand?url=http:`//example.com/ValueSet/my-valueset&filter=male&count=5`
+GET [base]/ValueSet/$expand?url=http:{{//example.com/ValueSet/my-valueset&filter=male&count=5}}
 ```
 
-###### POST Request with Parameters (by ID)
+**POST Request with Parameters (by ID)**  
+
 
 ```
 POST [base]/ValueSet/example-valueset/$expand
@@ -65,7 +75,8 @@ Content-Type: application/fhir+json
 }
 ```
 
-###### POST Request with Parameters (by URL)
+**POST Request with Parameters (by URL)**  
+
 
 ```
 POST [base]/ValueSet/$expand
@@ -86,8 +97,7 @@ Content-Type: application/fhir+json
 }
 ```
 
-###### Sample Response
-
+**Sample Response**  
 The operation returns a ValueSet resource with an `expansion` element containing the expanded codes:
 
 ```
@@ -132,9 +142,8 @@ The operation returns a ValueSet resource with an `expansion` element containing
 ```
 
 The response includes:
++ expansion.total: Total number of codes in the expanded ValueSet
++ expansion.contains: Array of expanded codes with their system, code, and display values
++ expansion.parameter: Parameters used in the expansion request
 
-- expansion.total: Total number of codes in the expanded ValueSet
-- expansion.contains: Array of expanded codes with their system, code, and display values
-- expansion.parameter: Parameters used in the expansion request
-
-For more information about the `$expand` operation specification, see the [FHIR R4 ValueSet `$expand`](https://build.fhir.org/valueset-operation-expand.html "https://build.fhir.org/valueset-operation-expand.html") documentation.
+For more information about the `$expand` operation specification, see the [FHIR R4 ValueSet `$expand`](https://build.fhir.org/valueset-operation-expand.html) documentation.

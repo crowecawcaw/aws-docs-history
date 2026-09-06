@@ -1,31 +1,30 @@
+
+
 # Use `TagResource` with an AWS SDK or CLI
+<a name="example_healthlake_TagResource_section"></a>
 
 The following code examples show how to use `TagResource`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To add a tag to data store**
-
-The following `tag-resource` example shows how to add a tag to a data store.
-
-```
-`aws healthlake tag-resource \
- --resource-arn `"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"` \
- --tags '`[{"Key": "key1", "Value": "value1"}]`'`
+**AWS CLI**  
+**To add a tag to data store**  
+The following `tag-resource` example shows how to add a tag to a data store.  
 
 ```
+aws healthlake tag-resource \
+    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}} \
+    --tags '{{[{"Key": "key1", "Value": "value1"}]}}'
+```
+This command produces no output.  
+  
++  For API details, see [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/tag-resource.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Python ]
 
-- For API details, see
-  [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/tag-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/tag-resource.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -54,30 +53,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [TagResource](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/TagResource) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [TagResource](../../../goto/boto3/healthlake-2017-07-01/TagResource.md "../../../goto/boto3/healthlake-2017-07-01/TagResource.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -96,14 +80,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_notfound_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [TagResource](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [TagResource](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using HealthLake with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

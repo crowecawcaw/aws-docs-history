@@ -1,13 +1,12 @@
+
+
 # Example SQL queries with complex filtering
+<a name="integrating-athena-complex-filtering"></a>
 
-The following examples demonstrate how to use Amazon Athena SQL queries with complex filtering
-to locate FHIR data from a HealthLake data store.
+The following examples demonstrate how to use Amazon Athena SQL queries with complex filtering to locate FHIR data from a HealthLake data store.
 
-###### Example Create filtering criteria based on demographic data
-
-Identifying the correct patient demographics is important when creating a patient
-cohort. This sample query demonstrates how you can use Trino dot notation and
-`json_extract` to filter data in your HealthLake data store.
+**Example Create filtering criteria based on demographic data**  
+Identifying the correct patient demographics is important when creating a patient cohort. This sample query demonstrates how you can use Trino dot notation and `json_extract` to filter data in your HealthLake data store.  
 
 ```
 SELECT
@@ -29,15 +28,12 @@ SELECT
     , telecom[1].value as telNumber
     , deceasedboolean as deceasedIndicator
     , deceaseddatetime
-FROM `database`.patient;
+FROM database.patient;
 ```
-
 Using the Athena Console, you can further sort and download the results.
 
-###### Example Create filters for a patient and their related conditions
-
-The following example query demonstrates how you can find and sort all the related
-conditions for the patients found in a HealthLake data store.
+**Example Create filters for a patient and their related conditions**  
+The following example query demonstrates how you can find and sort all the related conditions for the patients found in a HealthLake data store.  
 
 ```
 SELECT
@@ -57,18 +53,14 @@ SELECT
     , clinicalstatus.coding[1].display as clinicalStatus
     , encounter.reference as encounterId
     , encounter.type as encountertype
-FROM `database`.patient, condition
+FROM database.patient, condition
 WHERE CONCAT('Patient/', patient.id) = condition.subject.reference
 ORDER BY name;
 ```
+You can use the Athena console to further sort the results or download them for further analysis.
 
-You can use the Athena console to further sort the results or download them for further
-analysis.
-
-###### Example Create filters for patients and their related observations
-
-The following example query demonstrates how to find and sort all related observations
-for patients found in a HealthLake data store.
+**Example Create filters for patients and their related observations**  
+The following example query demonstrates how to find and sort all related observations for patients found in a HealthLake data store.  
 
 ```
 SELECT
@@ -99,19 +91,13 @@ SELECT
     END AS observationvalue
 	, encounter.reference as encounterId
     , encounter.type as encountertype
-FROM `database`.patient, observation
+FROM database.patient, observation
 WHERE CONCAT('Patient/', patient.id) = observation.subject.reference
 ORDER BY name;
-
 ```
 
-###### Example Create filtering conditions for a patient and their related procedures
-
-Connecting procedures to patients is an important aspect of healthcare. The following
-SQL example query demonstrates how to use FHIR `Patient` and
-`Procedure` resource types to accomplish this. The following SQL query
-will return all patients and their related procedures found in your HealthLake data
-store.
+**Example Create filtering conditions for a patient and their related procedures**  
+Connecting procedures to patients is an important aspect of healthcare. The following SQL example query demonstrates how to use FHIR `Patient` and `Procedure` resource types to accomplish this. The following SQL query will return all patients and their related procedures found in your HealthLake data store.  
 
 ```
 SELECT
@@ -127,23 +113,15 @@ SELECT
 	, performer[1]
 	, encounter.reference as encounterId
 	, encounter.type as encountertype
-FROM `database`.patient, procedure
+FROM database.patient, procedure
 WHERE CONCAT('Patient/', patient.id) = procedure.subject.reference
 ORDER BY name;
 ```
+You can use the Athena console to download the results for further analysis or sort them to better understand the results.
 
-You can use the Athena console to download the results for further analysis or sort
-them to better understand the results.
-
-###### Example Create filtering conditions for a patient and their related prescriptions
-
-Seeing a current list of medications that patients are taking is important. Using
-Athena, you can write a SQL query that uses both the `Patient` and
-`MedicationRequest` resource types found in your HealthLake data store.
-
-The following SQL query joins the `Patient` and
-`MedicationRequest` tables imported into Athena. It also organizes the
-prescriptions into their individual entries by using dot notation.
+**Example Create filtering conditions for a patient and their related prescriptions**  
+Seeing a current list of medications that patients are taking is important. Using Athena, you can write a SQL query that uses both the `Patient` and `MedicationRequest` resource types found in your HealthLake data store.  
+The following SQL query joins the `Patient` and `MedicationRequest` tables imported into Athena. It also organizes the prescriptions into their individual entries by using dot notation.  
 
 ```
 SELECT
@@ -162,21 +140,14 @@ SELECT
 	, medicationcodeableconcept.coding[1].code as medicationCode
 	, medicationcodeableconcept.coding[1].display as medicationDescription
 	, dosageinstruction[1].text as dosage
-FROM `database`.patient, medicationrequest
+FROM database.patient, medicationrequest
 WHERE CONCAT('Patient/', patient.id ) = medicationrequest.subject.reference
 ORDER BY name
 ```
+You can use the Athena console to sort the results or download them for further analysis.
 
-You can use the Athena console to sort the results or download them for further
-analysis.
-
-###### Example See medications found in the `MedicationStatement` resource type
-
-The following example query shows you how to organize the nested JSON imported into
-Athena using SQL. The query uses the FHIR `meta` element to indicate when a
-medication has been added by HealthLake's integrated natural language processing (NLP). It
-also uses `json_extract` to search for data inside the array of JSON strings.
-For more information, see [Natural language processing](integrating-nlp.md "integrating-nlp.md").
+**Example See medications found in the `MedicationStatement` resource type**  
+The following example query shows you how to organize the nested JSON imported into Athena using SQL. The query uses the FHIR `meta` element to indicate when a medication has been added by HealthLake's integrated natural language processing (NLP). It also uses `json_extract` to search for data inside the array of JSON strings. For more information, see [Natural language processing](integrating-nlp.md).  
 
 ```
 SELECT
@@ -186,13 +157,10 @@ SELECT
 	, json_extract(modifierextension[1], '$.valueDecimal') AS confidenceScore
 FROM medicationstatement;
 ```
-
 You can use the Athena console to download these results or sort them.
 
-###### Example Filter for a specific disease type
-
-The example shows how you can find a group of patients, aged 18 to 75, who have been
-diagnosed with diabetes.
+**Example Filter for a specific disease type**  
+The example shows how you can find a group of patients, aged 18 to 75, who have been diagnosed with diabetes.  
 
 ```
 SELECT patient.id as patientId,
@@ -240,15 +208,13 @@ SELECT patient.id as patientId,
       '$.valueDecimal'
     ) AS int
   ) AS confidenceScore
-FROM `database`.patient,
-	`database`.condition,
-	`database`.observation
+FROM database.patient,
+	database.condition,
+	database.observation
 WHERE CONCAT('Patient/', patient.id) = condition.subject.reference
 	AND CONCAT('Patient/', patient.id) = observation.subject.reference
   	AND (year(current_date) - year(date(birthdate))) >= 18
   	AND (year(current_date) - year(date(birthdate))) <= 75
   	AND condition.code.coding [ 1 ].display like ('%diabetes%');
 ```
-
-Now you can use the Athena console to sort the results or download them for further
-analysis.
+Now you can use the Athena console to sort the results or download them for further analysis.

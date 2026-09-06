@@ -1,23 +1,23 @@
+
+
 # Use `CreateFHIRDatastore` with an AWS SDK or CLI
+<a name="example_healthlake_CreateFHIRDatastore_section"></a>
 
 The following code examples show how to use `CreateFHIRDatastore`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: Create a SigV4-enabled HealthLake data store**
-
-The following `create-fhir-datastore` example demonstrates how to create a new data store in AWS HealthLake.
-
-```
-`aws healthlake create-fhir-datastore \
- --datastore-type-version `R4` \
- --datastore-name `"FhirTestDatastore"``
+**AWS CLI**  
+**Example 1: Create a SigV4-enabled HealthLake data store**  
+The following `create-fhir-datastore` example demonstrates how to create a new data store in AWS HealthLake.  
 
 ```
-
-Output:
+aws healthlake create-fhir-datastore \
+    --datastore-type-version {{R4}} \
+    --datastore-name {{"FhirTestDatastore"}}
+```
+Output:  
 
 ```
 {
@@ -27,22 +27,18 @@ Output:
     "DatastoreId": "(Data store ID)"
 }
 ```
-
-**Example 2: Create a SMART on FHIR-enabled HealthLake data store**
-
-The following `create-fhir-datastore` example demonstrates how to create a new SMART on FHIR-enabled data store in AWS HealthLake.
+**Example 2: Create a SMART on FHIR-enabled HealthLake data store**  
+The following `create-fhir-datastore` example demonstrates how to create a new SMART on FHIR-enabled data store in AWS HealthLake.  
 
 ```
-`aws healthlake create-fhir-datastore \
- --datastore-name `"your-data-store-name"` \
- --datastore-type-version `R4` \
- --preload-data-config PreloadDataType="SYNTHEA" \
- --sse-configuration '`{ "KmsEncryptionConfig": { "CmkType": "CUSTOMER_MANAGED_KMS_KEY", "KmsKeyId": "arn:aws:kms:us-east-1:your-account-id:key/your-key-id" } }`' \
- --identity-provider-configuration `file://identity_provider_configuration.json``
-
+aws healthlake create-fhir-datastore \
+    --datastore-name {{"your-data-store-name"}} \
+    --datastore-type-version {{R4}} \
+    --preload-data-config PreloadDataType="SYNTHEA" \
+    --sse-configuration '{{{ "KmsEncryptionConfig": {  "CmkType": "CUSTOMER_MANAGED_KMS_KEY", "KmsKeyId": "arn:aws:kms:us-east-1:your-account-id:key/your-key-id" } }}}' \
+    --identity-provider-configuration  {{file://identity_provider_configuration.json}}
 ```
-
-Contents of `identity_provider_configuration.json`:
+Contents of `identity_provider_configuration.json`:  
 
 ```
 {
@@ -52,8 +48,7 @@ Contents of `identity_provider_configuration.json`:
     "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\"]}"
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -63,14 +58,13 @@ Output:
     "DatastoreId": "(Data store ID)"
 }
 ```
+  
++  For API details, see [CreateFHIRDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/create-fhir-datastore.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateFHIRDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/create-fhir-datastore.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/create-fhir-datastore.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -122,12 +116,8 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code shows an example of parameters for a SMART on FHIR-enabled HealthLake data store.
+The following code shows an example of parameters for a SMART on FHIR-enabled HealthLake data store.   
 
 ```
             sse_configuration = {
@@ -167,29 +157,15 @@ The following code shows an example of parameters for a SMART on FHIR-enabled He
             data_store = self.create_fhir_datastore(
                 datastore_name, sse_configuration, identity_provider_configuration
             )
-
-
 ```
++  For API details, see [CreateFHIRDatastore](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/CreateFHIRDatastore) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [CreateFHIRDatastore](../../../goto/boto3/healthlake-2017-07-01/CreateFHIRDatastore.md "../../../goto/boto3/healthlake-2017-07-01/CreateFHIRDatastore.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -212,14 +188,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_throttling_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateFHIRDatastore](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateFHIRDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using HealthLake with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

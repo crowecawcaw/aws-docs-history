@@ -1,13 +1,16 @@
+
+
 # Removing Patient Compartment Resources with `$purge`
+<a name="reference-fhir-operations-purge"></a>
 
 AWS HealthLake supports the `$purge` operation, enabling permanent deletion of all resources within a patient's compartment. This operation is particularly useful when you need to:
-
-- Remove all data associated with a patient
-- Comply with patient data removal requests
-- Manage patient data lifecycle
-- Execute comprehensive patient record cleanup
++ Remove all data associated with a patient
++ Comply with patient data removal requests
++ Manage patient data lifecycle
++ Execute comprehensive patient record cleanup
 
 ## Usage
+<a name="purge-usage"></a>
 
 The `$purge` operation can be invoked on Patient resources:
 
@@ -16,23 +19,28 @@ POST [base]/Patient/[ID]/$purge?deleteAuditEvent=true
 ```
 
 ## Parameters
+<a name="purge-parameters"></a>
 
-| Parameter          | Type    | Required | Default                 | Description                                                                                                                         |
-| ------------------ | ------- | -------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `deleteAuditEvent` | boolean | No       | false                   | When true, deletes associated audit events                                                                                          |
-| `_since`           | string  | No       | Datastore creation time | When entered, selects the starting cutoff time to find resources based on their lastModified time. Cannot be used with start or end |
-| `start`            | string  | No       | Datastore creation time | When entered, selects the cutoff time to find resources based on their lastModified time. Can be used with end                      |
-| `end`              | string  | No       | Job submission time     | When entered, selects the ending cutoff time to find resources based on their lastModified time                                     |
+
+| Parameter | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+| deleteAuditEvent | boolean | No | false | When true, deletes associated audit events | 
+| \_since | string | No | Datastore creation time | When entered, selects the starting cutoff time to find resources based on their lastModified time. Cannot be used with start or end | 
+| start | string | No | Datastore creation time | When entered, selects the cutoff time to find resources based on their lastModified time. Can be used with end | 
+| end | string | No | Job submission time | When entered, selects the ending cutoff time to find resources based on their lastModified time | 
 
 ## Examples
+<a name="purge-examples"></a>
 
-###### Example Request
+**Example Request**  
+
 
 ```
 POST [base]/Patient/example-patient/$purge?deleteAuditEvent=true
 ```
 
-###### Example Response
+**Example Response**  
+
 
 ```
 {
@@ -49,6 +57,7 @@ POST [base]/Patient/example-patient/$purge?deleteAuditEvent=true
 ```
 
 ## Job Status
+<a name="purge-job-status"></a>
 
 To check the status of a purge job:
 
@@ -68,22 +77,29 @@ The operation returns job status information:
 ```
 
 ## Behavior
+<a name="purge-behavior"></a>
 
 The `$purge` operation:
 
 1. Processes asynchronously to handle multiple resources
-2. Maintains ACID transactions for data integrity
-3. Provides job status tracking with resource deletion counts
-4. Permanently removes all resources in the patient compartment
-5. Includes comprehensive audit logging of deletion activities
-6. Supports selective deletion of audit events
+
+1. Maintains ACID transactions for data integrity
+
+1. Provides job status tracking with resource deletion counts
+
+1. Permanently removes all resources in the patient compartment
+
+1. Includes comprehensive audit logging of deletion activities
+
+1. Supports selective deletion of audit events
 
 ## Audit Logging
+<a name="purge-audit-logging"></a>
 
 The `$purge` operation logs as StartFHIRBulkDeleteJob and DescribeFHIRBulkDeleteJob with detailed operation information.
 
 ## Limitations
-
-- Purged resources will not appear in search responses
-- Resources being purged may be temporarily inaccessible during processing
-- All resources in the patient compartment are permanently removed
+<a name="purge-limitations"></a>
++ Purged resources will not appear in search responses
++ Resources being purged may be temporarily inaccessible during processing
++ All resources in the patient compartment are permanently removed

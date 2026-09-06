@@ -1,25 +1,25 @@
+
+
 # Use `StartFHIRImportJob` with an AWS SDK or CLI
+<a name="example_healthlake_StartFHIRImportJob_section"></a>
 
 The following code examples show how to use `StartFHIRImportJob`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To start a FHIR import job**
-
-The following `start-fhir-import-job` example shows how to start a FHIR import job using AWS HealthLake.
-
-```
-`aws healthlake start-fhir-import-job \
- --input-data-config S3Uri="s3://(Bucket Name)/(Prefix Name)/" \
- --job-output-data-config '`{"S3Configuration": {"S3Uri":"s3://(Bucket Name)/(Prefix Name)/","KmsKeyId":"arn:aws:kms:us-east-1:012345678910:key/d330e7fc-b56c-4216-a250-f4c43ef46e83"}}`' \
- --datastore-id `(Data` `store` `ID)` \
- --data-access-role-arn `"arn:aws:iam::(AWS Account ID):role/(Role Name)"``
+**AWS CLI**  
+**To start a FHIR import job**  
+The following `start-fhir-import-job` example shows how to start a FHIR import job using AWS HealthLake.  
 
 ```
-
-Output:
+aws healthlake start-fhir-import-job \
+    --input-data-config S3Uri="s3://(Bucket Name)/(Prefix Name)/" \
+    --job-output-data-config '{{{"S3Configuration": {"S3Uri":"s3://(Bucket Name)/(Prefix Name)/","KmsKeyId":"arn:aws:kms:us-east-1:012345678910:key/d330e7fc-b56c-4216-a250-f4c43ef46e83"}}}}' \
+    --datastore-id {{(Data}} {{store}} {{ID)}} \
+    --data-access-role-arn {{"arn:aws:iam::(AWS Account ID):role/(Role Name)"}}
+```
+Output:  
 
 ```
 {
@@ -28,14 +28,13 @@ Output:
     "JobId": "c145fbb27b192af392f8ce6e7838e34f"
 }
 ```
+  
++  For API details, see [StartFHIRImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/start-fhir-import-job.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [StartFHIRImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/start-fhir-import-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/start-fhir-import-job.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -88,30 +87,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [StartFHIRImportJob](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/StartFHIRImportJob) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [StartFHIRImportJob](../../../goto/boto3/healthlake-2017-07-01/StartFHIRImportJob.md "../../../goto/boto3/healthlake-2017-07-01/StartFHIRImportJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -147,14 +131,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_access_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [StartFHIRImportJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [StartFHIRImportJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using HealthLake with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

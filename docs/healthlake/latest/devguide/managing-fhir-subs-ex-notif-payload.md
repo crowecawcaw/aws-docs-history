@@ -1,7 +1,9 @@
-# Example notification payloads
 
-While a Subscription is being created, HealthLake checks for a successful subscription setup by sending a handshake
-bundle to your configured channel. The following payload is an example of a the handshake bundle.
+
+# Example notification payloads
+<a name="managing-fhir-subs-ex-notif-payload"></a>
+
+ While a Subscription is being created, HealthLake checks for a successful subscription setup by sending a handshake bundle to your configured channel. The following payload is an example of a the handshake bundle. 
 
 ```
 {
@@ -40,7 +42,6 @@ bundle to your configured channel. The following payload is an example of a the 
     }
   }
 }
-
 ```
 
 Example id-only notification bundle.
@@ -91,9 +92,6 @@ Example id-only notification bundle.
     }
   }
 }
-
-
-
 ```
 
 Example full-resource notification bundle.
@@ -171,24 +169,17 @@ Example full-resource notification bundle.
 ```
 
 ## Event versioning
+<a name="managing-fhir-subs-ex-notif-payload-event-vers"></a>
 
 HealthLake supports FHIR history by default.
 
 To know what version of the resource you received in your notification bundle:
-
-- **full-resource:** Because full resource bundles include the entire
-  resource, the version will be included within the `entry[*]` for each resource that is in the bundle.
-- **id-only:** Bundles will not include any resource information. HealthLake
-  includes the version that was matched and included in the bundle through the `entry[0].notificationEvent[*].additionalContext`
-  field. This field is in the format `<ResourceType>/<ResourceId>/_history/<Version Id>` .
-  For more information, see the additionalContext field in the example id-only payload.
++ **full-resource:** Because full resource bundles include the entire resource, the version will be included within the `entry[*]` for each resource that is in the bundle.
++ **id-only:** Bundles will not include any resource information. HealthLake includes the version that was matched and included in the bundle through the `entry[0].notificationEvent[*].additionalContext` field. This field is in the format `<ResourceType>/<ResourceId>/_history/<Version Id>` . For more information, see the additionalContext field in the example id-only payload. 
 
 ## Event duplication detection
+<a name="managing-fhir-subs-ex-notif-payload-event-dup"></a>
 
-HealthLake's FHIR Subscription feature guarantees **at least one** delivery. This means that you may receive the same
-event multiple times, either in the same bundle or in a different bundle. To identify duplicates, HealthLake provides a unique id for each event in the
-notification bundle in `entry[0].notificationEvent[*].id`.
+HealthLake's FHIR Subscription feature guarantees **at least one** delivery. This means that you may receive the same event multiple times, either in the same bundle or in a different bundle. To identify duplicates, HealthLake provides a unique id for each event in the notification bundle in `entry[0].notificationEvent[*].id`.
 
-This id is unique to the specific version of the event that was matched and delivered. For example, if the same Encounter is updated twice and both
-updates matched the filter criteria you will receive two separate events with the same Encounter reference. They will have the same `notificationEvent[*].focus`,
-but will have a unique `notificationEvent[*].id`. Furthermore, these events may be sent in separate bundles or within the same notification bundle.
+This id is unique to the specific version of the event that was matched and delivered. For example, if the same Encounter is updated twice and both updates matched the filter criteria you will receive two separate events with the same Encounter reference. They will have the same `notificationEvent[*].focus`, but will have a unique `notificationEvent[*].id`. Furthermore, these events may be sent in separate bundles or within the same notification bundle.

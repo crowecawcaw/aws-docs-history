@@ -1,27 +1,33 @@
-# FHIR R4 `$attribution-status` operation for HealthLake
 
-Retrieves the attribution status for a specific member, returning a Bundle containing all attribution resources related to the Patient. This operation is part of the [FHIR Member Attribution (ATR) List IG 2.1.0 implementation.](https://build.fhir.org/ig/HL7/davinci-atr/spec.html "https://build.fhir.org/ig/HL7/davinci-atr/spec.html")
+
+# FHIR R4 `$attribution-status` operation for HealthLake
+<a name="reference-fhir-operations-attribution-status"></a>
+
+Retrieves the attribution status for a specific member, returning a Bundle containing all attribution resources related to the Patient. This operation is part of the [FHIR Member Attribution (ATR) List IG 2.1.0 implementation.](https://build.fhir.org/ig/HL7/davinci-atr/spec.html)
 
 ## Endpoint
+<a name="attribution-status-endpoint"></a>
 
 ```
 POST [base]/Group/[id]/$attribution-status
 ```
 
 ## Request Parameters
+<a name="attribution-status-parameters"></a>
 
 The operation accepts the following optional parameters:
 
-| Parameter        | Type       | Description                                                         |
-| ---------------- | ---------- | ------------------------------------------------------------------- |
-| memberId         | Identifier | The MemberId of the member for whom attribution status is requested |
-| patientReference | Reference  | Reference to the patient resource in the Producer's system          |
 
-###### Note
+| Parameter | Type | Description | 
+| --- | --- | --- | 
+| memberId | Identifier | The MemberId of the member for whom attribution status is requested | 
+| patientReference | Reference | Reference to the patient resource in the Producer's system | 
 
+**Note**  
 Either `memberId` or `patientReference` can be provided, or both for validation purposes.
 
 ## Sample Request
+<a name="attribution-status-request-example"></a>
 
 ```
 {
@@ -46,17 +52,20 @@ Either `memberId` or `patientReference` can be provided, or both for validation 
 ```
 
 ## Response
+<a name="attribution-status-response"></a>
 
 Returns a Bundle containing attribution resources related to the Patient:
 
-| Resource                                   | Cardinality | Location                                  |
-| ------------------------------------------ | ----------- | ----------------------------------------- |
-| Patient                                    | 1..1        | Group.member.entity                       |
-| Coverage                                   | 0..1        | Group.member.extension:coverageReference  |
-| Organization/Practitioner/PractitionerRole | 0..1        | Group.member.extension:attributedProvider |
-| Any Resource                               | 0..1        | Group.member.extension:associatedData     |
+
+| Resource | Cardinality | Location | 
+| --- | --- | --- | 
+| Patient | 1..1 | Group.member.entity | 
+| Coverage | 0..1 | Group.member.extension:coverageReference | 
+| Organization/Practitioner/PractitionerRole | 0..1 | Group.member.extension:attributedProvider | 
+| Any Resource | 0..1 | Group.member.extension:associatedData | 
 
 ### Sample Response
+<a name="attribution-status-response-example"></a>
 
 ```
 {
@@ -109,19 +118,20 @@ Returns a Bundle containing attribution resources related to the Patient:
 ```
 
 ## Error Handling
+<a name="attribution-status-error-handling"></a>
 
 The operation handles the following error conditions:
 
-| Error                      | HTTP Status | Description                                    |
-| -------------------------- | ----------- | ---------------------------------------------- |
-| Invalid operation request  | 400         | Non-conformant request parameters or structure |
-| Group resource not found   | 404         | The specified Group ID does not exist          |
-| Patient resource not found | 404         | The specified Patient reference does not exist |
+
+| Error | HTTP Status | Description | 
+| --- | --- | --- | 
+| Invalid operation request | 400 | Non-conformant request parameters or structure | 
+| Group resource not found | 404 | The specified Group ID does not exist | 
+| Patient resource not found | 404 | The specified Patient reference does not exist | 
 
 ## Authorization and Security
+<a name="attribution-status-authorization"></a>
 
-SMART Scope Requirements
-
-Clients must have appropriate privileges to read Group resources and related attribution resources
-
+SMART Scope Requirements  
+Clients must have appropriate privileges to read Group resources and related attribution resources  
 Standard FHIR authorization mechanisms apply to all operations

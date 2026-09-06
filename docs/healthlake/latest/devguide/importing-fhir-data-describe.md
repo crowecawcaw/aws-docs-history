@@ -1,29 +1,29 @@
+
+
 # Getting FHIR import job properties
+<a name="importing-fhir-data-describe"></a>
 
-Use `DescribeFHIRImportJob` to get FHIR import job properties. The following menus provide
-a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more
-information, see [`DescribeFHIRImportJob`](../APIReference/API_DescribeFHIRImportJob.md "../APIReference/API_DescribeFHIRImportJob.md") in the _AWS HealthLake API Reference_.
+Use `DescribeFHIRImportJob` to get FHIR import job properties. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`DescribeFHIRImportJob`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_DescribeFHIRImportJob.html) in the *AWS HealthLake API Reference*.
 
-###### To get FHIR import job properties
-
+**To get FHIR import job properties**  
 Choose a menu based on your access preference to AWS HealthLake.
 
-CLI
+## AWS CLI and SDKs
+<a name="describe-job-import-cli-sdk"></a>
 
-**AWS CLI**
+------
+#### [ CLI ]
 
-**To describe a FHIR import job**
-
-The following `describe-fhir-import-job` example shows how to learn the properties of a FHIR import job using AWS HealthLake.
-
-```
-`aws healthlake describe-fhir-import-job \
- --datastore-id `(Data` `store` `ID)` \
- --job-id `c145fbb27b192af392f8ce6e7838e34f``
+**AWS CLI**  
+**To describe a FHIR import job**  
+The following `describe-fhir-import-job` example shows how to learn the properties of a FHIR import job using AWS HealthLake.  
 
 ```
-
-Output:
+aws healthlake describe-fhir-import-job \
+    --datastore-id {{(Data}} {{store}} {{ID)}} \
+    --job-id {{c145fbb27b192af392f8ce6e7838e34f}}
+```
+Output:  
 
 ```
 {
@@ -41,14 +41,13 @@ Output:
     }
 }
 ```
+  
++  For API details, see [DescribeFHIRImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/describe-fhir-import-job.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeFHIRImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/describe-fhir-import-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/describe-fhir-import-job.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -83,30 +82,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DescribeFHIRImportJob](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/DescribeFHIRImportJob) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [DescribeFHIRImportJob](../../../goto/boto3/healthlake-2017-07-01/DescribeFHIRImportJob.md "../../../goto/boto3/healthlake-2017-07-01/DescribeFHIRImportJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -130,21 +114,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_validation_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeFHIRImportJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeFHIRImportJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Example availability
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.
 
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+## AWS Console
+<a name="describe-import-job-console"></a>
 
-###### Note
-
-FHIR import job information is not available on the HealthLake Console. Instead, use the AWS CLI
-with `DescribeFHIRImportJob` to request import job properties such as [`JobStatus`](../APIReference/API_ImportJobProperties.md#HealthLake-Type-ImportJobProperties-JobStatus "../APIReference/API_ImportJobProperties.md#HealthLake-Type-ImportJobProperties-JobStatus"). For more information, refer to the AWS CLI example on this
-page.
+**Note**  
+FHIR import job information is not available on the HealthLake Console. Instead, use the AWS CLI with `DescribeFHIRImportJob` to request import job properties such as [`JobStatus`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ImportJobProperties.html#HealthLake-Type-ImportJobProperties-JobStatus). For more information, refer to the AWS CLI example on this page.

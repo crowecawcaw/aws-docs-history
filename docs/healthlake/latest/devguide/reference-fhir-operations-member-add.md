@@ -1,8 +1,12 @@
+
+
 # `$member-add` operation for HealthLake
+<a name="reference-fhir-operations-member-add"></a>
 
 The FHIR `$member-add` operation adds a member (patient) to a Group resource, specifically a Member Attribution List. This operation is part of the DaVinci Member Attribution Implementation Guide and supports the reconciliation process for managing member attributions.
 
 ## Operation Endpoint
+<a name="member-add-endpoint"></a>
 
 ```
 POST [base]/datastore/{datastoreId}/r4/Group/{groupId}/$member-add
@@ -10,34 +14,30 @@ Content-Type: application/json
 ```
 
 ## Parameters
+<a name="member-add-parameters"></a>
 
 The operation accepts a FHIR Parameters resource with the following parameter combinations:
 
 ### Parameter Options
+<a name="member-add-parameter-options"></a>
 
 You can use one of the following parameter combinations:
 
-Option 1: Member ID + Provider NPI
+Option 1: Member ID \+ Provider NPI  
+`memberId` \+ `providerNpi`  
+`memberId` \+ `providerNpi` \+ `attributionPeriod`
 
-`memberId` + `providerNpi`
-
-`memberId` + `providerNpi` + `attributionPeriod`
-
-Option 2: Patient Reference + Provider Reference
-
-`patientReference` + `providerReference`
-
-`patientReference` + `providerReference` + `attributionPeriod`
+Option 2: Patient Reference \+ Provider Reference  
+`patientReference` \+ `providerReference`  
+`patientReference` \+ `providerReference` \+ `attributionPeriod`
 
 ### Parameter Details
+<a name="member-add-parameter-details"></a>
 
-memberId (Optional)
-
-The identifier of the member to be added to the Group.
-
-Type: Identifier
-
-System: Patient identifier system
+memberId (Optional)  
+The identifier of the member to be added to the Group.  
+Type: Identifier  
+System: Patient identifier system  
 
 ```
 {
@@ -49,13 +49,10 @@ System: Patient identifier system
 }
 ```
 
-providerNpi (Optional)
-
-The National Provider Identifier (NPI) of the attributed provider.
-
-Type: Identifier
-
-System: http://terminology.hl7.org/CodeSystem/NPI
+providerNpi (Optional)  
+The National Provider Identifier (NPI) of the attributed provider.  
+Type: Identifier  
+System: http://terminology.hl7.org/CodeSystem/NPI  
 
 ```
 {
@@ -67,11 +64,9 @@ System: http://terminology.hl7.org/CodeSystem/NPI
 }
 ```
 
-patientReference (Optional)
-
-Direct reference to the patient resource to be added.
-
-Type: Reference
+patientReference (Optional)  
+Direct reference to the patient resource to be added.  
+Type: Reference  
 
 ```
 {
@@ -82,11 +77,9 @@ Type: Reference
 }
 ```
 
-providerReference (Optional)
-
-Direct reference to the provider resource.
-
-Type: Reference
+providerReference (Optional)  
+Direct reference to the provider resource.  
+Type: Reference  
 
 ```
 {
@@ -97,11 +90,9 @@ Type: Reference
 }
 ```
 
-attributionPeriod (Optional)
-
-The time period over which the patient is attributed to the provider.
-
-Type: Period
+attributionPeriod (Optional)  
+The time period over which the patient is attributed to the provider.  
+Type: Period  
 
 ```
 {
@@ -114,8 +105,10 @@ Type: Period
 ```
 
 ## Request Examples
+<a name="member-add-examples"></a>
 
 ### Using Member ID and Provider NPI
+<a name="member-add-example-id-npi"></a>
 
 ```
 {
@@ -147,6 +140,7 @@ Type: Period
 ```
 
 ### Using Patient and Provider References
+<a name="member-add-example-references"></a>
 
 ```
 {
@@ -176,8 +170,10 @@ Type: Period
 ```
 
 ## Response Format
+<a name="member-add-response"></a>
 
 ### Successful Addition Response
+<a name="member-add-success-response"></a>
 
 ```
 HTTP Status: 200 OK
@@ -198,10 +194,10 @@ Content-Type: application/fhir+json
 ```
 
 ### Error Responses
+<a name="member-add-error-responses"></a>
 
-Invalid Request Syntax
-
-HTTP Status: 400 Bad Request
+Invalid Request Syntax  
+HTTP Status: 400 Bad Request  
 
 ```
 {
@@ -218,9 +214,8 @@ HTTP Status: 400 Bad Request
 }
 ```
 
-Resource Not Found
-
-HTTP Status: 404 Not Found
+Resource Not Found  
+HTTP Status: 404 Not Found  
 
 ```
 {
@@ -237,9 +232,8 @@ HTTP Status: 404 Not Found
 }
 ```
 
-Version Conflict
-
-HTTP Status: 409 Conflict
+Version Conflict  
+HTTP Status: 409 Conflict  
 
 ```
 {
@@ -256,9 +250,8 @@ HTTP Status: 409 Conflict
 }
 ```
 
-Invalid Attribution Status
-
-HTTP Status: 422 Unprocessable Entity
+Invalid Attribution Status  
+HTTP Status: 422 Unprocessable Entity  
 
 ```
 {
@@ -276,69 +269,59 @@ HTTP Status: 422 Unprocessable Entity
 ```
 
 ## Business Rules
+<a name="member-add-business-rules"></a>
 
-Attribution Status Validation
-
-The operation can only be performed when the Group's Attribution Status is:
-
-- `draft`
-- `open`
-
+Attribution Status Validation  
+The operation can only be performed when the Group's Attribution Status is:  
++ `draft`
++ `open`
 Operations are not allowed when the status is `final`.
 
-Duplicate Member Prevention
+Duplicate Member Prevention  
+The system prevents adding duplicate members based on the unique combination of:  
++ Member Identifier
++ Payer Identifier
++ Coverage Identifier
 
-The system prevents adding duplicate members based on the unique combination of:
+Coverage Period Validation  
+When an `attributionPeriod` is provided, it must fall within the bounds of the member's coverage period. The system will:  
++ Search for the member's Coverage resource
++ Use the most recent Coverage (highest versionId) if multiple exist
++ Validate that the attribution period does not exceed the coverage period
 
-- Member Identifier
-- Payer Identifier
-- Coverage Identifier
-
-Coverage Period Validation
-
-When an `attributionPeriod` is provided, it must fall within the bounds of the member's coverage period. The system will:
-
-- Search for the member's Coverage resource
-- Use the most recent Coverage (highest versionId) if multiple exist
-- Validate that the attribution period does not exceed the coverage period
-
-Reference Validation
-
-When both ID and reference are provided for the same resource (patient or provider), the system validates that they correspond to the same resource.
-
+Reference Validation  
+When both ID and reference are provided for the same resource (patient or provider), the system validates that they correspond to the same resource.  
 When both ID and reference.identifier fields are provided for the same resource (patient or provider), an error is thrown.
 
 ## Authentication & Authorization
+<a name="member-add-auth"></a>
 
 The operation requires SMART on FHIR authorization for:
-
-- Read permissions - To validate patient, provider, and group resources
-- Search permissions - To find resources by identifier
-- Update permissions - To modify the Group resource
++ Read permissions - To validate patient, provider, and group resources
++ Search permissions - To find resources by identifier
++ Update permissions - To modify the Group resource
 
 ## Operational Behavior
+<a name="member-add-behavior"></a>
 
-Resource Updates
+Resource Updates  
++ Updates the Group resource version ID
++ Creates a history entry with the original resource state before the operation
++ Adds member information to the Group.member array with:
+  + Patient reference in entity.reference
+  + Attribution period in period
+  + Coverage and provider information in extension fields
 
-- Updates the Group resource version ID
-- Creates a history entry with the original resource state before the operation
-- Adds member information to the Group.member array with:
-
-  - Patient reference in entity.reference
-  - Attribution period in period
-  - Coverage and provider information in extension fields
-
-Validation Steps
-
-- Parameter Validation - Ensures valid parameter combinations
-- Resource Existence - Validates patient, provider, and group resources exist
-- Attribution Status - Confirms group status allows modifications
-- Duplicate Check - Prevents adding existing members
-- Coverage Validation - Ensures attribution period is within coverage bounds
+Validation Steps  
++ Parameter Validation - Ensures valid parameter combinations
++ Resource Existence - Validates patient, provider, and group resources exist
++ Attribution Status - Confirms group status allows modifications
++ Duplicate Check - Prevents adding existing members
++ Coverage Validation - Ensures attribution period is within coverage bounds
 
 ## Limitations
-
-- All referenced resources must exist within the same datastore
-- Operation only works with Member Attribution List Group resources
-- Attribution periods must be within coverage bounds
-- Cannot modify groups with "final" status
+<a name="member-add-limitations"></a>
++ All referenced resources must exist within the same datastore
++ Operation only works with Member Attribution List Group resources
++ Attribution periods must be within coverage bounds
++ Cannot modify groups with "final" status

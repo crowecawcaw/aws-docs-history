@@ -1,29 +1,28 @@
+
+
 # Listing HealthLake data stores
+<a name="managing-data-stores-list"></a>
 
-Use `ListFHIRDatastores` to list all HealthLake data stores in a user's account,
-regardless of data store status. The following menus provide a procedure for the AWS Management Console
-and code examples for the AWS CLI and AWS SDKs. For more information, see [`ListFHIRDatastores`](../APIReference/API_ListFHIRDatastores.md "../APIReference/API_ListFHIRDatastores.md") in the _AWS HealthLake API
-Reference_.
+Use `ListFHIRDatastores` to list all HealthLake data stores in a user's account, regardless of data store status. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`ListFHIRDatastores`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ListFHIRDatastores.html) in the *AWS HealthLake API Reference*.
 
-###### To list all HealthLake data stores
-
+**To list all HealthLake data stores**  
 Choose a menu based on your access preference to AWS HealthLake.
 
-CLI
+## AWS CLI and SDKs
+<a name="managing-data-stores-list-cli-sdk"></a>
 
-**AWS CLI**
+------
+#### [ CLI ]
 
-**To list FHIR data stores**
-
-The following `list-fhir-datastores` example shows to how to use the command and how users can filter results based on data store status in AWS HealthLake.
-
-```
-`aws healthlake list-fhir-datastores \
- --filter `DatastoreStatus=ACTIVE``
+**AWS CLI**  
+**To list FHIR data stores**  
+The following `list-fhir-datastores` example shows to how to use the command and how users can filter results based on data store status in AWS HealthLake.  
 
 ```
-
-Output:
+aws healthlake list-fhir-datastores \
+    --filter {{DatastoreStatus=ACTIVE}}
+```
+Output:  
 
 ```
 {
@@ -53,14 +52,13 @@ Output:
     ]
 }
 ```
+  
++  For API details, see [ListFHIRDatastores](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-fhir-datastores.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListFHIRDatastores](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-fhir-datastores.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-fhir-datastores.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -101,29 +99,15 @@ Python
                 "Couldn't list data stores. Here's why %s", err.response["Error"]["Message"]
             )
             raise
-
-
 ```
++  For API details, see [ListFHIRDatastores](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/ListFHIRDatastores) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [ListFHIRDatastores](../../../goto/boto3/healthlake-2017-07-01/ListFHIRDatastores.md "../../../goto/boto3/healthlake-2017-07-01/ListFHIRDatastores.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -140,19 +124,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_throttling_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListFHIRDatastores](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListFHIRDatastores](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Example availability
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.
 
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+## AWS Console
+<a name="managing-data-stores-list-console"></a>
++ Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores) page on the HealthLake Console.
 
-- Sign in to the [Data stores](https://console.aws.amazon.com/healthlake/home#/list-datastores "https://console.aws.amazon.com/healthlake/home#/list-datastores") page on the HealthLake Console.
-
-All HealthLake data stores are listed under the **Data stores** section.
+  All HealthLake data stores are listed under the **Data stores** section.

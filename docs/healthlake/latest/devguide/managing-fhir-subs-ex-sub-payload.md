@@ -1,4 +1,7 @@
+
+
 # Example Subscription payloads
+<a name="managing-fhir-subs-ex-sub-payload"></a>
 
 The following code examples show how to create Subscription payloads.
 
@@ -28,7 +31,7 @@ Subscription with `event-bridge` channel **and** `id-only` payload type.
   },
   "channel": {
     "type": "event-bridge",
-    "endpoint": "arn:aws:healthlake:eu-west-2:`111122223333`:event-bus/FhirSubscriptions-bus",
+    "endpoint": "arn:aws:healthlake:eu-west-2:{{111122223333}}:event-bus/FhirSubscriptions-bus",
     "payload": "application/fhir+json",
     "_payload": {
       "extension": [
@@ -40,7 +43,6 @@ Subscription with `event-bridge` channel **and** `id-only` payload type.
     }
   }
 }
-
 ```
 
 Subscription with `event-bridge` endpoint **and** `full-resource` payload type.
@@ -79,7 +81,6 @@ Subscription with `event-bridge` endpoint **and** `full-resource` payload type.
     }
   }
 }
-
 ```
 
 **Rest Hook**
@@ -136,7 +137,6 @@ Subscription with `rest-hook` endpoint **and** `id-only` payload type.
     }
   }
 }
-
 ```
 
 Subscription with `rest-hook` channel **and** `full-resource` payload type.
@@ -191,5 +191,4 @@ Subscription with `rest-hook` channel **and** `full-resource` payload type.
     }
   }
 }
-
 ```

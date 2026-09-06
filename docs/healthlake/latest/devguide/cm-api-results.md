@@ -1,15 +1,14 @@
+
+
 # HealthLake integrated NLP example requests
+<a name="cm-api-results"></a>
 
-**Example 1: `Patient` record ingested into a HealthLake data
-store**
+**Example 1: `Patient` record ingested into a HealthLake data store**
 
-Following is an example of a clinical note based on of a `Patient` encounter
-with a health care professional.
+Following is an example of a clinical note based on of a `Patient` encounter with a health care professional.
 
-###### Synthetic data
-
-The text in the following example is synthetic content and does not contain
-protected health information (PHI).
+**Synthetic data**  
+The text in the following example is synthetic content and does not contain protected health information (PHI).
 
 ```
 1991-08-31
@@ -40,7 +39,7 @@ No Known Allergies.
 No Active Medications.
 
 # Assessment and Plan
-Patient is presenting with bee venom (substance), mold (organism), house dust mite (organism), animal dander (substance), grass pollen (substance), tree pollen (substance), lisinopril, sulfamethoxazole / trimethoprim, fish (substance).
+Patient is presenting with bee venom (substance), mold (organism), house dust mite (organism), animal dander (substance), grass pollen (substance), tree pollen (substance), lisinopril, sulfamethoxazole / trimethoprim, fish (substance). 
 
 ## Plan
 
@@ -49,21 +48,15 @@ The patient was prescribed the following medications:
 - nda020800 0.3 ml epinephrine 1 mg/ml auto-injector
 The patient was placed on a careplan:
 - self-care interventions (procedure)
-
 ```
 
-As a reminder, this information is encoded in base64 format in the
-`DocumentReference` resource. When this document is ingested into HealthLake and the
-Amazon Comprehend Medical API operations are complete, to see the results, you can start with the
-`GET`request on the `DocumentReference` resource type.
+As a reminder, this information is encoded in base64 format in the `DocumentReference` resource. When this document is ingested into HealthLake and the Amazon Comprehend Medical API operations are complete, to see the results, you can start with the `GET`request on the `DocumentReference` resource type.
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/DocumentReference
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/DocumentReference
 ```
 
-When the Amazon Comprehend Medical API operations are successful, look for these key-value pairs inside the
-`extension` linked to the following `"url":
- "http://healthlake.amazonaws.com/aws-cm/"`
+When the Amazon Comprehend Medical API operations are successful, look for these key-value pairs inside the `extension` linked to the following `"url": "http://healthlake.amazonaws.com/aws-cm/"`
 
 ```
 {
@@ -76,26 +69,20 @@ When the Amazon Comprehend Medical API operations are successful, look for these
 	}
 ```
 
-The following tabs show you how the ingested medical record is reported in your HealthLake data
-store based on the resource type.
+The following tabs show you how the ingested medical record is reported in your HealthLake data store based on the resource type.
 
-DocumentReference
-To the see the results for a single `DocumentReference` resource type,
-make a `GET` request where the `id` of a specific resource is
-provided.
+------
+#### [ DocumentReference ]
+
+To the see the results for a single `DocumentReference` resource type, make a `GET` request where the `id` of a specific resource is provided.
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/DocumentReference/`0e938f03-da7f-4178-acd8-eea9586c46ed`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/DocumentReference/0e938f03-da7f-4178-acd8-eea9586c46ed
 ```
 
-When successful, you get a `200` HTTP response code, and the following
-JSON response (that has been truncated for clarity).
+When successful, you get a `200` HTTP response code, and the following JSON response (that has been truncated for clarity).
 
-Here is the `http://healthlake.amazonaws.com/system-generated-resources/`
-portion. You can see that a new
-`Linkage/`e366d29f-2c22-4c19-866e-09603937935a``
-has been added. You can also see where HealthLake has added inference-based findings to
-specific `Observation` and `Condition` resource types.
+Here is the `http://healthlake.amazonaws.com/system-generated-resources/` portion. You can see that a new `Linkage/{{e366d29f-2c22-4c19-866e-09603937935a}}` has been added. You can also see where HealthLake has added inference-based findings to specific `Observation` and `Condition` resource types.
 
 To see how these resource types have been amended, choose the related tabs.
 
@@ -125,25 +112,20 @@ To see how these resource types have been amended, choose the related tabs.
 	}
 ```
 
-Linkage
-To the see the results for a single `Linkage` resource type, make a
-`GET` request where the `ID` of a specific resource is provided.
+------
+#### [ Linkage ]
+
+To the see the results for a single `Linkage` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/Linkage/`e366d29f-2c22-4c19-866e-09603937935a`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Linkage/e366d29f-2c22-4c19-866e-09603937935a
 ```
 
-When successful, you get a `200` HTTP response code, and the following
-truncated JSON response.
+When successful, you get a `200` HTTP response code, and the following truncated JSON response.
 
-The response contains the `item` element. In it, the key-value pair
-`"type": "source"` indicates the specific `DocumentReference`
-entry used to modify the `Condition` and `Observations` listed
-under the `"type": "alternate"` key-value pair.
+The response contains the `item` element. In it, the key-value pair `"type": "source"` indicates the specific `DocumentReference` entry used to modify the `Condition` and `Observations` listed under the `"type": "alternate"` key-value pair.
 
-_You also see the `meta` element, and a corresponding key-value
-pair, `"tag": [{"display": "SYSTEM_GENERATED"}]`, indicating these
-resources were created by HealthLake._
+*You also see the `meta` element, and a corresponding key-value pair, `"tag": [{"display": "SYSTEM_GENERATED"}]`, indicating these resources were created by HealthLake.*
 
 ```
 {
@@ -183,36 +165,26 @@ resources were created by HealthLake._
 	}
 ```
 
-Resource type: Observation
-To the see the results for a single `Observation` resource type, make a
-`GET` request where the `ID` of a specific resource is provided.
+------
+#### [ Resource type: Observation ]
+
+To the see the results for a single `Observation` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/Observation/`e366d29f-2c22-4c19-866e-09603937935a`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Observation/e366d29f-2c22-4c19-866e-09603937935a
 ```
 
-The results of the Amazon Comprehend Medical API operations are amended to the following elements:
-`code`, `meta`, and `modifierExtension`.
+The results of the Amazon Comprehend Medical API operations are amended to the following elements: `code`, `meta`, and `modifierExtension`.
 
-###### `code`
-
-An element of type `CodeableConcept`. To learn more, see [`CodeableConcept`](https://hl7.org/fhir/R4/datatypes.html#CodeableConcept "https://hl7.org/fhir/R4/datatypes.html#CodeableConcept") in the
-**FHIR R4 documentation**.
+**`code`**  
+An element of type `CodeableConcept`. To learn more, see [`CodeableConcept`](https://hl7.org/fhir/R4/datatypes.html#CodeableConcept) in the **FHIR R4 documentation**.
 
 HealthLake appends the following three key-value pairs.
++ `"system": "http://healthlake.amazonaws.com/aws-cm/infer-icd10/"`: Where the URL refers to a specific Amazon Comprehend Medical API operation. In this case, InferICD10CM.
++ `"code": "A52.06"`: Where `A52.06` is the ICD-10-CM code that identifies the concept found in the knowledge base from the Centers for Disease Control. 
++ `"display": "Other syphilitic heart involvement"`: Where `"Other syphilitic heart involvement"` is the long description of the ICD-10-CM code in the ontology.
 
-- `"system": "http://healthlake.amazonaws.com/aws-cm/infer-icd10/"`:
-  Where the URL refers to a specific Amazon Comprehend Medical API operation. In this case,
-  InferICD10CM.
-- `"code": "A52.06"`: Where `A52.06` is the ICD-10-CM code
-  that identifies the concept found in the knowledge base from the Centers for Disease
-  Control.
-- `"display": "Other syphilitic heart involvement"`: Where `"Other
- syphilitic heart involvement"` is the long description of the ICD-10-CM code
-  in the ontology.
-
-The following truncated JSON response contains only the `code`
-element.
+The following truncated JSON response contains only the `code` element.
 
 ```
 "code": {
@@ -228,17 +200,12 @@ element.
 	}
 ```
 
-To understand the model's confidence that the assigned ICD-10-CM code is correct,
-use the `modifierExtension` element.
+To understand the model's confidence that the assigned ICD-10-CM code is correct, use the `modifierExtension` element.
 
-###### `meta`
+**`meta`**  
+The `meta` element contains metadata that indicates whether the `code` element contains details that have been added by the Amazon Comprehend Medical API operations.
 
-The `meta` element contains metadata that indicates whether the
-`code` element contains details that have been added by the Amazon Comprehend Medical API
-operations.
-
-The following truncated JSON response contains only the `meta`
-element.
+The following truncated JSON response contains only the `meta` element.
 
 ```
 "meta": {
@@ -249,23 +216,12 @@ element.
 	}
 ```
 
-###### `modifierExtension`
+**`modifierExtension`**  
+The `modifierExtension` element contains more details about the level of confidence of the assigned codes found in the `code` element. It also has key-value pairs that provide a link back to the original DocumentReference used to generate the results and the related Linkage resource type.
 
-The `modifierExtension` element contains more details about the level
-of confidence of the assigned codes found in the `code` element. It also
-has key-value pairs that provide a link back to the original DocumentReference used to
-generate the results and the related Linkage resource type.
+For each `coding` element added, you will see an `entity-score` and an `entity-Concept-Score` added to the modifierExtension. For each value in the key-value pair, you see a score. For `entity-score`, this score is the level of confidence that Amazon Comprehend Medical has in the accuracy of the detection. For `entity-Concept-Score`, this score is the level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to an ICD-10-CM concept.
 
-For each `coding` element added, you will see an
-`entity-score` and an `entity-Concept-Score` added to the
-modifierExtension. For each value in the key-value pair, you see a score. For
-`entity-score`, this score is the level of confidence that Amazon Comprehend Medical has in
-the accuracy of the detection. For `entity-Concept-Score`, this score is the
-level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to an ICD-10-CM
-concept.
-
-The following truncated JSON response contains only the
-`modifierExtension` element.
+The following truncated JSON response contains only the `modifierExtension` element.
 
 ```
 "modifierExtension": [{
@@ -339,36 +295,26 @@ The following truncated JSON response contains only the
 	}
 ```
 
-Condition
-To the see the results for a single `Condition` resource type, make a
-`GET` request where the `ID` of a specific resource is provided.
+------
+#### [ Condition ]
+
+To the see the results for a single `Condition` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/Condition/`b06d343d-ddb8-4f36-82cb-853fcd434dfd`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Condition/b06d343d-ddb8-4f36-82cb-853fcd434dfd
 ```
 
-The results of the Amazon Comprehend Medical API operations are amended to the following elements:
-`code`, `meta`, and `modifierExtension`.
+The results of the Amazon Comprehend Medical API operations are amended to the following elements: `code`, `meta`, and `modifierExtension`.
 
-###### `code`
-
-An element of type `CodeableConcept`. To learn more, see [`CodeableConcept`](https://hl7.org/fhir/R4/datatypes.html#CodeableConcept "https://hl7.org/fhir/R4/datatypes.html#CodeableConcept") in the
-**FHIR R4 documentation**.
+**`code`**  
+An element of type `CodeableConcept`. To learn more, see [`CodeableConcept`](https://hl7.org/fhir/R4/datatypes.html#CodeableConcept) in the **FHIR R4 documentation**.
 
 HealthLake appends the following three key-value pairs.
++ `"system": "http://healthlake.amazonaws.com/aws-cm/infer-icd10/"`: Where the URL refers to a specific Amazon Comprehend Medical API operation. In this case, InferICD10CM.
++ `"code": "I70.0"`: Where `A52.06` is the ICD-10-CM code that identifies the concept found in the knowledge base from the Centers for Disease Control. 
++ `"display": "Atherosclerosis of aorta"`: Where `"Other syphilitic heart involvement"` is the long description of the ICD-10-CM code in the ontology.
 
-- `"system": "http://healthlake.amazonaws.com/aws-cm/infer-icd10/"`:
-  Where the URL refers to a specific Amazon Comprehend Medical API operation. In this case,
-  InferICD10CM.
-- `"code": "I70.0"`: Where `A52.06` is the ICD-10-CM code
-  that identifies the concept found in the knowledge base from the Centers for Disease
-  Control.
-- `"display": "Atherosclerosis of aorta"`: Where `"Other
- syphilitic heart involvement"` is the long description of the ICD-10-CM code
-  in the ontology.
-
-The following truncated JSON response contains only the `code`
-element.
+The following truncated JSON response contains only the `code` element.
 
 ```
 "code": {
@@ -384,17 +330,12 @@ element.
 	}
 ```
 
-To understand the model's confidence that the assigned ICD-10-CM code is correct,
-use the `modifierExtension` element.
+To understand the model's confidence that the assigned ICD-10-CM code is correct, use the `modifierExtension` element.
 
-###### `meta`
+**`meta`**  
+The `meta` element contains metadata that indicates whether the `code` element contains details that have been added by the Amazon Comprehend Medical API operations.
 
-The `meta` element contains metadata that indicates whether the
-`code` element contains details that have been added by the Amazon Comprehend Medical API
-operations.
-
-The following truncated JSON response contains only the `meta`
-element.
+The following truncated JSON response contains only the `meta` element.
 
 ```
 "meta": {
@@ -405,23 +346,12 @@ element.
 	}
 ```
 
-###### `modifierExtension`
+**`modifierExtension`**  
+The `modifierExtension` element contains more details about the level of confidence of the assigned codes found in the `code` element. It also has key-value pairs that provide a link back to the original DocumentReference used to generate the results and the related Linkage resource type.
 
-The `modifierExtension` element contains more details about the level
-of confidence of the assigned codes found in the `code` element. It also
-has key-value pairs that provide a link back to the original DocumentReference used to
-generate the results and the related Linkage resource type.
+For each `coding` element added, you will see an `entity-score` and an `entity-Concept-Score` added to the modifierExtension. For each value in the key-value pair, you see a score. For `entity-score`, this score is the level of confidence that Amazon Comprehend Medical has in the accuracy of the detection. For `entity-Concept-Score`, this score is the level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to an ICD-10-CM concept.
 
-For each `coding` element added, you will see an
-`entity-score` and an `entity-Concept-Score` added to the
-modifierExtension. For each value in the key-value pair, you see a score. For
-`entity-score`, this score is the level of confidence that Amazon Comprehend Medical has in
-the accuracy of the detection. For `entity-Concept-Score`, this score is the
-level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to an ICD-10-CM
-concept.
-
-The following truncated JSON response contains only the
-`modifierExtension` element.
+The following truncated JSON response contains only the `modifierExtension` element.
 
 ```
 "modifierExtension": [{
@@ -494,40 +424,33 @@ The following truncated JSON response contains only the
 	}
 ```
 
-**Example 2: A `DocumentReference` that contains
-`MedicationStatement` resource type**
+------
 
-Here is an example of a clinical note based off of a patient's encounter with a medical
-professional.
+**Example 2: A `DocumentReference` that contains `MedicationStatement` resource type **
 
-###### Synthetic data
+Here is an example of a clinical note based off of a patient's encounter with a medical professional.
 
+**Synthetic data**  
 The text in this example is synthetic content and does not contain protected health information (PHI).
 
 ```
 Tom is not prescribed Advil
 ```
 
-The following tabs show how the ingested medical record is reported in your HealthLake data
-store based on the resource type.
+The following tabs show how the ingested medical record is reported in your HealthLake data store based on the resource type.
 
-DocumentReference
-To the see the results for a single `DocumentReference` resource type,
-make a `GET` request where the `ID` of a specific resource is
-provided.
+------
+#### [ DocumentReference ]
+
+To the see the results for a single `DocumentReference` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/DocumentReference/`c549125d-a218-421f-b8bf-23614c5e796c`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/DocumentReference/c549125d-a218-421f-b8bf-23614c5e796c
 ```
 
-When successful, you get a `200` HTTP response code and the following
-truncated JSON response.
+When successful, you get a `200` HTTP response code and the following truncated JSON response.
 
-The key-value pair, `"url":
- "http://healthlake.amazonaws.com/system-generated-resources/"`, indicates that
-the resource types inside this `extension` have been added by Amazon Comprehend Medical API
-operations. You can see the new `Linkage` resource type, and multiple
-`MedicationStatement` resources.
+The key-value pair, `"url": "http://healthlake.amazonaws.com/system-generated-resources/"`, indicates that the resource types inside this `extension` have been added by Amazon Comprehend Medical API operations. You can see the new `Linkage` resource type, and multiple `MedicationStatement` resources.
 
 ```
 "extension": [{
@@ -572,24 +495,20 @@ operations. You can see the new `Linkage` resource type, and multiple
 		}
 ```
 
-Linkage
-To the see the results for a single `Linkage` resource type, make a
-`GET` request where the `ID` of a specific resource is provided.
+------
+#### [ Linkage ]
+
+To the see the results for a single `Linkage` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/Linkage/`394bb244-177b-4409-8657-26b20ed56dd7`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Linkage/394bb244-177b-4409-8657-26b20ed56dd7
 ```
 
-When successful, you get a `200` HTTP response code and the following
-JSON response.
+When successful, you get a `200` HTTP response code and the following JSON response.
 
-The response contains the `item` element. In it, the key-value pair
-`"type": "source"` indicates the specific `DocumentReference`
-entry used to modify the `MedicationStatement` resource types.
+The response contains the `item` element. In it, the key-value pair `"type": "source"` indicates the specific `DocumentReference` entry used to modify the `MedicationStatement` resource types.
 
-You can also see the `meta` element and a corresponding key-value pair,
-`"tag": [{"display": "SYSTEM_GENERATED"}]`, indicating that these resources
-were created by HealthLake.
+You can also see the `meta` element and a corresponding key-value pair, `"tag": [{"display": "SYSTEM_GENERATED"}]`, indicating that these resources were created by HealthLake.
 
 ```
 {
@@ -648,38 +567,26 @@ were created by HealthLake.
 	}
 ```
 
-MedicationStatement
-To the see the results for a single `MedicationStatement` resource type,
-make a `GET` request where the `ID` of a specific resource is
-provided.
+------
+#### [ MedicationStatement ]
+
+To the see the results for a single `MedicationStatement` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
 ```
-GET https://https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`eeb8005725ae22b35b4edbdc68cf2dfd`/r4/MedicationStatement/`9a89b0d3-6681-45ca-9926-27951edce5c7`
+GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/MedicationStatement/9a89b0d3-6681-45ca-9926-27951edce5c7
 ```
 
-The `MedicationStatement` resource type is where the results of the
-Amazon Comprehend Medical InferRxNorm API operation are found. The results are amended to the following
-elements: `medicationCodeableConcept`, `meta`, and
-`modifierExtension`.
+The `MedicationStatement` resource type is where the results of the Amazon Comprehend Medical InferRxNorm API operation are found. The results are amended to the following elements: `medicationCodeableConcept`, `meta`, and `modifierExtension`.
 
-###### medicationCodeableConcept
-
-An element of type `CodeableConcept`. To learn more, see [`CodeableConcept`](https://hl7.org/fhir/R4/datatypes.html#CodeableConcept "https://hl7.org/fhir/R4/datatypes.html#CodeableConcept") in the
-**FHIR R4 documentation**.
+**medicationCodeableConcept**  
+An element of type `CodeableConcept`. To learn more, see [`CodeableConcept`](https://hl7.org/fhir/R4/datatypes.html#CodeableConcept) in the **FHIR R4 documentation**.
 
 HealthLake appends the following three key-value pairs.
++ `"system": ""http://healthlake.amazonaws.com/aws-cm/infer-rxnorm/`: Where the URL refers to a specific Amazon Comprehend Medical API operation. In this case, InferRxNorm.
++ `"code": "731533"`: Where `731533` is an RxNorm concept ID, also known as the RxCUI.
++ `"display": "ibuprofen 200 MG Oral Capsule [Advil]"`: Where `ibuprofen 200 MG Oral Capsule [Advil]` is the description of the RxNorm concept.
 
-- `"system": ""http://healthlake.amazonaws.com/aws-cm/infer-rxnorm/`:
-  Where the URL refers to a specific Amazon Comprehend Medical API operation. In this case,
-  InferRxNorm.
-- `"code": "731533"`: Where `731533` is an RxNorm concept
-  ID, also known as the RxCUI.
-- `"display": "ibuprofen 200 MG Oral Capsule [Advil]"`: Where
-  `ibuprofen 200 MG Oral Capsule [Advil]` is the description of the
-  RxNorm concept.
-
-The following truncated JSON response contains only the
-`MedicationStatement` element.
+The following truncated JSON response contains only the `MedicationStatement` element.
 
 ```
 "medicationCodeableConcept": {
@@ -693,14 +600,10 @@ The following truncated JSON response contains only the
 	}
 ```
 
-###### `meta`
+**`meta`**  
+The `meta` element contains metadata that indicates whether the `code` element contains details that have been added by the Amazon Comprehend Medical API operations.
 
-The `meta` element contains metadata that indicates whether the
-`code` element contains details that have been added by the Amazon Comprehend Medical API
-operations.
-
-The following truncated JSON response contains only the `meta`
-element.
+The following truncated JSON response contains only the `meta` element.
 
 ```
 "meta": {
@@ -713,11 +616,8 @@ element.
 	}
 ```
 
-###### `modifierExtension`
-
-The `modifierExtension` element contains key-value pairs that provide a
-link back to the original `DocumentReference` used to generate the results
-and the related Linkage resource type.
+**`modifierExtension`**  
+The `modifierExtension` element contains key-value pairs that provide a link back to the original `DocumentReference` used to generate the results and the related Linkage resource type.
 
 ```
 "modifierExtension": [
@@ -735,3 +635,5 @@ and the related Linkage resource type.
 			}
 	]
 ```
+
+------

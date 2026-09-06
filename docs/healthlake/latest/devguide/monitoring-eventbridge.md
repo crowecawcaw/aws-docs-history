@@ -1,63 +1,67 @@
+
+
 # Monitoring HealthLake events using Amazon EventBridge
+<a name="monitoring-eventbridge"></a>
 
-Amazon EventBridge is a serverless service that uses events to connect application components
-together, making it easier for you to build scalable event-driven applications. The basis of
-EventBridge is to create [rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") that route [events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") to [targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md").
-AWS HealthLake provides durable delivery of state changes to EventBridge. For more information, see [What is
-Amazon EventBridge?](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") in the _Amazon EventBridge User Guide_.
+Amazon EventBridge is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications. The basis of EventBridge is to create [rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) that route [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) to [targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html). AWS HealthLake provides durable delivery of state changes to EventBridge. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*.
 
-###### Note
+**Note**  
+To learn how to send HealthLake events to Amazon EventBridge, see [ Amazon EventBridge integration for AWS HealthLake](https://aws.amazon.com/blogs/industries/amazon-eventbridge-integration-for-aws-healthlake) in the *AWS for Industries* blog. 
 
-To learn how to send HealthLake events to Amazon EventBridge, see [Amazon EventBridge integration for
-AWS HealthLake](https://aws.amazon.com/blogs/industries/amazon-eventbridge-integration-for-aws-healthlake "https://aws.amazon.com/blogs/industries/amazon-eventbridge-integration-for-aws-healthlake") in the _AWS for Industries_ blog.
-
-###### Topics
-
-- [HealthLake events sent to EventBridge](#event-notifications-listing "#event-notifications-listing")
-- [HealthLake event structure](#event-notifications-structure "#event-notifications-structure")
+**Topics**
++ [HealthLake events sent to EventBridge](#event-notifications-listing)
++ [HealthLake event structure](#event-notifications-structure)
 
 ## HealthLake events sent to EventBridge
+<a name="event-notifications-listing"></a>
 
 The following table lists all HealthLake events sent to EventBridge for processing.
 
-| HealthLake event type                                                                                                                                                                                                                                                                    | State                   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| **Data store events**                                                                                                                                                                                                                                                                    |
-| Data Store Creating                                                                                                                                                                                                                                                                      | `CREATING`              |
-| Data Store Active                                                                                                                                                                                                                                                                        | `ACTIVE`                |
-| Data Store Deleting                                                                                                                                                                                                                                                                      | `DELETING`              |
-| Data Store Deleted                                                                                                                                                                                                                                                                       | `DELETED`               |
-| Data Store Creation Failed                                                                                                                                                                                                                                                               | `CREATE_FAILED`         |
-| For more information, see [`datastoreStatus`](../APIReference/API_DatastoreProperties.md#HealthLake-Type-DatastoreProperties-DatastoreStatus "../APIReference/API_DatastoreProperties.md#HealthLake-Type-DatastoreProperties-DatastoreStatus") in the _AWS HealthLake API<br>Reference._ |
-| **Import job events**                                                                                                                                                                                                                                                                    |
-| Import Job Submitted                                                                                                                                                                                                                                                                     | `SUBMITTED`             |
-| Import Job In Progress                                                                                                                                                                                                                                                                   | `IN_PROGRESS`           |
-| Import Job Completed With Errors                                                                                                                                                                                                                                                         | `COMPLETED_WITH_ERRORS` |
-| Import Job Completed                                                                                                                                                                                                                                                                     | `COMPLETED`             |
-| Import Job Failed                                                                                                                                                                                                                                                                        | `FAILED`                |
-| For more information, see [`jobStatus`](../APIReference/API_ImportJobProperties.md#HealthLake-Type-ImportJobProperties-JobStatus "../APIReference/API_ImportJobProperties.md#HealthLake-Type-ImportJobProperties-JobStatus") in the _AWS HealthLake API<br>Reference._                   |
-| **Export job events**                                                                                                                                                                                                                                                                    |
-| Export Job Submitted                                                                                                                                                                                                                                                                     | `SUBMITTED`             |
-| Export Job In Progress                                                                                                                                                                                                                                                                   | `IN_PROGRESS`           |
-| Export Job Completed With Errors                                                                                                                                                                                                                                                         | `COMPLETED_WITH_ERRORS` |
-| Export Job Completed                                                                                                                                                                                                                                                                     | `COMPLETED`             |
-| Export Job Failed                                                                                                                                                                                                                                                                        | `FAILED`                |
-| For more information, see [`jobStatus`](../APIReference/API_ExportJobProperties.md#HealthLake-Type-ExportJobProperties-JobStatus "../APIReference/API_ExportJobProperties.md#HealthLake-Type-ExportJobProperties-JobStatus") in the _AWS HealthLake API<br>Reference._                   |
+<a name="event-notifications-table"></a>
+<table>
+<thead>
+  <tr><th>HealthLake event type</th><th>State</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="2"> <b>Data store events</b> </td></tr>
+  <tr><td>     Data Store Creating</td><td><code>CREATING</code></td></tr>
+  <tr><td>     Data Store Active</td><td><code>ACTIVE</code></td></tr>
+  <tr><td>     Data Store Deleting</td><td><code>DELETING</code></td></tr>
+  <tr><td>     Data Store Deleted</td><td><code>DELETED</code></td></tr>
+  <tr><td>     Data Store Creation Failed</td><td><code>CREATE_FAILED</code></td></tr>
+  <tr><td colspan="2">For more information, see <a href="https://docs.aws.amazon.com/healthlake/latest/APIReference/API_DatastoreProperties.html#HealthLake-Type-DatastoreProperties-DatastoreStatus">https://docs.aws.amazon.com/healthlake/latest/APIReference/API_DatastoreProperties.html#HealthLake-Type-DatastoreProperties-DatastoreStatus</a> in the <i>AWS HealthLake API Reference.</i></td></tr>
+  <tr><td colspan="2"> <b>Import job events</b> </td></tr>
+  <tr><td>     Import Job Submitted</td><td><code>SUBMITTED</code></td></tr>
+  <tr><td>     Import Job In Progress</td><td><code>IN_PROGRESS</code></td></tr>
+  <tr><td>     Import Job Completed With Errors</td><td><code>COMPLETED_WITH_ERRORS</code></td></tr>
+  <tr><td>     Import Job Completed</td><td><code>COMPLETED</code></td></tr>
+  <tr><td>     Import Job Failed</td><td><code>FAILED</code></td></tr>
+  <tr><td colspan="2">For more information, see <a href="https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ImportJobProperties.html#HealthLake-Type-ImportJobProperties-JobStatus">https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ImportJobProperties.html#HealthLake-Type-ImportJobProperties-JobStatus</a> in the <i>AWS HealthLake API Reference.</i></td></tr>
+  <tr><td colspan="2"> <b>Export job events</b> </td></tr>
+  <tr><td>     Export Job Submitted</td><td><code>SUBMITTED</code></td></tr>
+  <tr><td>     Export Job In Progress</td><td><code>IN_PROGRESS</code></td></tr>
+  <tr><td>     Export Job Completed With Errors</td><td><code>COMPLETED_WITH_ERRORS</code></td></tr>
+  <tr><td>     Export Job Completed</td><td><code>COMPLETED</code></td></tr>
+  <tr><td>     Export Job Failed</td><td><code>FAILED</code></td></tr>
+  <tr><td colspan="2">For more information, see <a href="https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ExportJobProperties.html#HealthLake-Type-ExportJobProperties-JobStatus">https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ExportJobProperties.html#HealthLake-Type-ExportJobProperties-JobStatus</a> in the <i>AWS HealthLake API Reference.</i></td></tr>
+</tbody>
+</table>
+
 
 ## HealthLake event structure
+<a name="event-notifications-structure"></a>
 
-HealthLake events are objects with JSON structure that also contain metadata details. You can
-use the metadata as input to either recreate an event or learn more information. All
-associated metadata fields are listed in a table under the code examples in the following
-menus. For more information, see [AWS service event
-metadata](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+HealthLake events are objects with JSON structure that also contain metadata details. You can use the metadata as input to either recreate an event or learn more information. All associated metadata fields are listed in a table under the code examples in the following menus. For more information, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-###### Note
+**Note**  
+To learn how to send HealthLake events to Amazon EventBridge, see [ Amazon EventBridge integration for AWS HealthLake](https://aws.amazon.com/blogs/industries/amazon-eventbridge-integration-for-aws-healthlake) in the *AWS for Industries* blog. 
 
-To learn how to send HealthLake events to Amazon EventBridge, see [Amazon EventBridge integration
-for AWS HealthLake](https://aws.amazon.com/blogs/industries/amazon-eventbridge-integration-for-aws-healthlake "https://aws.amazon.com/blogs/industries/amazon-eventbridge-integration-for-aws-healthlake") in the _AWS for Industries_ blog.
+### Data store events
+<a name="event-notifications-data-store"></a>
 
-Data Store Creating
+------
+#### [ Data Store Creating ]
+
 **State - `CREATING`**
 
 ```
@@ -81,10 +85,11 @@ Data Store Creating
         "datastoreEndpoint": "https://healthlake.us-east-1.amazonaws.com/datastore/eeb8005725ae22b35b4edbdc68cf2dfd/r4/"
     }
 }
-
 ```
 
-Data Store Active
+------
+#### [ Data Store Active ]
+
 **State - `ACTIVE`**
 
 ```
@@ -108,10 +113,11 @@ Data Store Active
         "datastoreEndpoint": "https://healthlake.us-east-1.amazonaws.com/datastore/eeb8005725ae22b35b4edbdc68cf2dfd/r4/"
     }
 }
-
 ```
 
-Data Store Deleting
+------
+#### [ Data Store Deleting ]
+
 **State - `DELETING`**
 
 ```
@@ -135,10 +141,11 @@ Data Store Deleting
         "datastoreEndpoint": "https://healthlake.us-east-1.amazonaws.com/datastore/eeb8005725ae22b35b4edbdc68cf2dfd/r4/"
     }
 }
-
 ```
 
-Data Store Deleted
+------
+#### [ Data Store Deleted ]
+
 **State - `DELETED`**
 
 ```
@@ -162,26 +169,35 @@ Data Store Deleted
         "datastoreEndpoint": "https://healthlake.us-east-1.amazonaws.com/datastore/eeb8005725ae22b35b4edbdc68cf2dfd/r4/"
     }
 }
-
 ```
 
-Data store events - metadata descriptions| Name | Type | Description |
-| --- | --- | --- |
-| `version` | string | The EventBridge event schema version. |
-| `id` | string | The Version 4 UUID generated for every event. |
-| `detail-type` | string | The type of event that is being sent. |
-| `source` | string | Identifies the service that generated the event. |
-| `account` | string | The 12-digit AWS account ID of the data store owner. |
-| `time` | string | The time the event occurred. |
-| `region` | string | Identifies the AWS Region of the data store. |
-| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
-| `detail` | object | A JSON object that contains information about the event. |
-| `detail.datastoreId` | string | The data store ID associated with the status change event. |
-| `detail.datastoreName` | string | The data store name. |
-| `detail.datastoreTypeVersion` | string | The data store FHIR version. |
-| `detail.datastoreEndpoint` | string | The data store endpoint. |
+------
 
-Import Job Submitted
+
+**Data store events - metadata descriptions**  
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+| version | string | The EventBridge event schema version. | 
+| id | string | The Version 4 UUID generated for every event. | 
+| detail-type | string | The type of event that is being sent. | 
+| source | string | Identifies the service that generated the event. | 
+| account | string | The 12-digit AWS account ID of the data store owner. | 
+| time | string | The time the event occurred. | 
+| region | string | Identifies the AWS Region of the data store. | 
+| resources | array (string) | A JSON array that contains the ARN of the data store. | 
+| detail | object | A JSON object that contains information about the event. | 
+| detail.datastoreId | string | The data store ID associated with the status change event. | 
+| detail.datastoreName | string | The data store name. | 
+| detail.datastoreTypeVersion | string | The data store FHIR version. | 
+| detail.datastoreEndpoint | string | The data store endpoint. | 
+
+### Import job events
+<a name="event-notifications-import-jobs"></a>
+
+------
+#### [ Import Job Submitted ]
+
 **State - `SUBMITTED`**
 
 ```
@@ -204,14 +220,15 @@ Import Job Submitted
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "inputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/input/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/input/"
         }
     }
 }
-
 ```
 
-Import Job In Progress
+------
+#### [ Import Job In Progress ]
+
 **State - `IN_PROGRESS`**
 
 ```
@@ -234,14 +251,15 @@ Import Job In Progress
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "inputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/input/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/input/"
         }
     }
 }
-
 ```
 
-Import Job Completed
+------
+#### [ Import Job Completed ]
+
 **State - `COMPLETED`**
 
 ```
@@ -264,16 +282,16 @@ Import Job Completed
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "inputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/input/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/input/"
         }
     }
 }
-
 ```
 
-Import Job Completed With Errors
-**State -
-`COMPLETED_WITH_ERRORS`**
+------
+#### [ Import Job Completed With Errors ]
+
+**State - `COMPLETED_WITH_ERRORS`**
 
 ```
 {
@@ -295,14 +313,15 @@ Import Job Completed With Errors
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "inputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/input/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/input/"
         }
     }
 }
-
 ```
 
-Import Job Failed
+------
+#### [ Import Job Failed ]
+
 **State - `FAILED`**
 
 ```
@@ -325,30 +344,39 @@ Import Job Failed
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "inputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/input/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/input/"
         }
     }
 }
-
 ```
 
-Import job events - metadata descriptions| Name | Type | Description |
-| --- | --- | --- |
-| `version` | string | The EventBridge event schema version. |
-| `id` | string | The Version 4 UUID generated for every event. |
-| `detail-type` | string | The type of event that is being sent. |
-| `source` | string | Identifies the service that generated the event. |
-| `account` | string | The 12-digit AWS account ID of the data store owner. |
-| `time` | string | The time the event occurred. |
-| `region` | string | Identifies the AWS Region of the data store. |
-| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
-| `detail` | object | A JSON object that contains information about the event. |
-| `detail.jobId` | string | The import job ID associated with the status change event. |
-| `detail.submitTime` | string | The time the import job was submitted. |
-| `detail.datastoreId` | string | The data store that generated the status change event. |
-| `detail.inputDataConfig` | string | The input prefix path for the Amazon S3 bucket that contains the FHIR files to<br>be imported. |
+------
 
-Export Job Submitted
+
+**Import job events - metadata descriptions**  
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+| version | string | The EventBridge event schema version. | 
+| id | string | The Version 4 UUID generated for every event. | 
+| detail-type | string | The type of event that is being sent. | 
+| source | string | Identifies the service that generated the event. | 
+| account | string | The 12-digit AWS account ID of the data store owner. | 
+| time | string | The time the event occurred. | 
+| region | string | Identifies the AWS Region of the data store. | 
+| resources | array (string) | A JSON array that contains the ARN of the data store. | 
+| detail | object | A JSON object that contains information about the event. | 
+| detail.jobId | string | The import job ID associated with the status change event. | 
+| detail.submitTime | string | The time the import job was submitted. | 
+| detail.datastoreId | string | The data store that generated the status change event. | 
+| detail.inputDataConfig | string | The input prefix path for the Amazon S3 bucket that contains the FHIR files to be imported. | 
+
+### Export job events
+<a name="event-notifications-export-jobs"></a>
+
+------
+#### [ Export Job Submitted ]
+
 **State - `SUBMITTED`**
 
 ```
@@ -371,14 +399,15 @@ Export Job Submitted
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "outputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/output/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/output/"
         }
     }
 }
-
 ```
 
-Export Job In Progress
+------
+#### [ Export Job In Progress ]
+
 **State - `IN_PROGRESS`**
 
 ```
@@ -401,14 +430,15 @@ Export Job In Progress
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "outputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/output/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/output/"
         }
     }
 }
-
 ```
 
-Export Job Completed
+------
+#### [ Export Job Completed ]
+
 **State - `COMPLETED`**
 
 ```
@@ -431,16 +461,16 @@ Export Job Completed
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "outputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/output/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/output/"
         }
     }
 }
-
 ```
 
-Export Job Completed With Errors
-**State -
-`COMPLETED_WITH_ERRORS`**
+------
+#### [ Export Job Completed With Errors ]
+
+**State - `COMPLETED_WITH_ERRORS`**
 
 ```
 {
@@ -462,14 +492,15 @@ Export Job Completed With Errors
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "outputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/output/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/output/"
         }
     }
 }
-
 ```
 
-Export Job Failed
+------
+#### [ Export Job Failed ]
+
 **State - `FAILED`**
 
 ```
@@ -492,25 +523,29 @@ Export Job Failed
         "datastoreId": "eeb8005725ae22b35b4edbdc68cf2dfd",
         "outputDataConfig":
         {
-            "s3Uri": "s3://`amzn-s3-demo-source-bucket`/output/"
+            "s3Uri": "s3://{{amzn-s3-demo-source-bucket}}/output/"
         }
     }
 }
-
 ```
 
-Export job events - metadata descriptions| Name | Type | Description |
-| --- | --- | --- |
-| `version` | string | The EventBridge event schema version. |
-| `id` | string | The Version 4 UUID generated for every event. |
-| `detail-type` | string | The type of event that is being sent. |
-| `source` | string | Identifies the service that generated the event. |
-| `account` | string | The 12-digit AWS account ID of the data store owner. |
-| `time` | string | The time the event occurred. |
-| `region` | string | Identifies the AWS Region of the data store. |
-| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
-| `detail` | object | A JSON object that contains information about the event. |
-| `detail.jobId` | string | The export job ID associated with the status change event. |
-| `detail.submitTime` | string | The time the export job was submitted. |
-| `detail.datastoreId` | string | The data store that generated the status change event. |
-| `detail.outputDataConfig` | string | The output prefix path for the Amazon S3 bucket that contains the FHIR files to<br>be exported. |
+------
+
+
+**Export job events - metadata descriptions**  
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+| version | string | The EventBridge event schema version. | 
+| id | string | The Version 4 UUID generated for every event. | 
+| detail-type | string | The type of event that is being sent. | 
+| source | string | Identifies the service that generated the event. | 
+| account | string | The 12-digit AWS account ID of the data store owner. | 
+| time | string | The time the event occurred. | 
+| region | string | Identifies the AWS Region of the data store. | 
+| resources | array (string) | A JSON array that contains the ARN of the data store. | 
+| detail | object | A JSON object that contains information about the event. | 
+| detail.jobId | string | The export job ID associated with the status change event. | 
+| detail.submitTime | string | The time the export job was submitted. | 
+| detail.datastoreId | string | The data store that generated the status change event. | 
+| detail.outputDataConfig | string | The output prefix path for the Amazon S3 bucket that contains the FHIR files to be exported. | 

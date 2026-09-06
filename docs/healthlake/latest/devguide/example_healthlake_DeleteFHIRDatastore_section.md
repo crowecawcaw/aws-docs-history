@@ -1,22 +1,22 @@
+
+
 # Use `DeleteFHIRDatastore` with an AWS SDK or CLI
+<a name="example_healthlake_DeleteFHIRDatastore_section"></a>
 
 The following code examples show how to use `DeleteFHIRDatastore`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To delete a FHIR data store**
-
-The following `delete-fhir-datastore` example demonstrates how to delete a data store and all of its contents in AWS HealthLake.
-
-```
-`aws healthlake delete-fhir-datastore \
- --datastore-id `(Data` `store` `ID)``
+**AWS CLI**  
+**To delete a FHIR data store**  
+The following `delete-fhir-datastore` example demonstrates how to delete a data store and all of its contents in AWS HealthLake.  
 
 ```
-
-Output:
+aws healthlake delete-fhir-datastore \
+    --datastore-id {{(Data}} {{store}} {{ID)}}
+```
+Output:  
 
 ```
 {
@@ -26,14 +26,13 @@ Output:
     "DatastoreId": "(Data store ID)"
 }
 ```
+  
++  For API details, see [DeleteFHIRDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/delete-fhir-datastore.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteFHIRDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/delete-fhir-datastore.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/delete-fhir-datastore.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -61,30 +60,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteFHIRDatastore](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/DeleteFHIRDatastore) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [DeleteFHIRDatastore](../../../goto/boto3/healthlake-2017-07-01/DeleteFHIRDatastore.md "../../../goto/boto3/healthlake-2017-07-01/DeleteFHIRDatastore.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -106,14 +90,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_notfound_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteFHIRDatastore](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteFHIRDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using HealthLake with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

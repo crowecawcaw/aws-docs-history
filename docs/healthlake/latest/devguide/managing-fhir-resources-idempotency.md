@@ -1,25 +1,20 @@
+
+
 # Idempotency and Concurrency
+<a name="managing-fhir-resources-idempotency"></a>
 
 ## Idempotency Keys
+<a name="idempotency-keys"></a>
 
-AWS HealthLake supports idempotency keys for FHIR `POST` operations, providing a
-robust mechanism to ensure data integrity during resource creation. By including a unique UUID
-as an idempotency key in the request header, healthcare applications can guarantee that each
-FHIR resource is created exactly once, even in scenarios involving network instability or
-automatic retries.
+AWS HealthLake supports idempotency keys for FHIR `POST` operations, providing a robust mechanism to ensure data integrity during resource creation. By including a unique UUID as an idempotency key in the request header, healthcare applications can guarantee that each FHIR resource is created exactly once, even in scenarios involving network instability or automatic retries.
 
-This feature is particularly crucial for healthcare systems where duplicate medical
-records could have serious consequences. When a request is received with the same idempotency
-key as a previous request, HealthLake will return the original resource instead of creating a
-duplicate. For example, this could occur during a retry loop or due to redundant request
-pipelines. Using the idempotency key allows HealthLake to maintain data consistency while providing
-a seamless experience for client applications handling intermittent connectivity
-issues.
+This feature is particularly crucial for healthcare systems where duplicate medical records could have serious consequences. When a request is received with the same idempotency key as a previous request, HealthLake will return the original resource instead of creating a duplicate. For example, this could occur during a retry loop or due to redundant request pipelines. Using the idempotency key allows HealthLake to maintain data consistency while providing a seamless experience for client applications handling intermittent connectivity issues.
 
 ### Implementation
+<a name="implementation"></a>
 
 ```
-`POST` /<baseURL>/Patient
+POST /<baseURL>/Patient
 x-amz-fhir-idempotency-key: 123e4567-e89b-12d3-a456-426614174000
 {
     "resourceType": "Patient",
@@ -28,50 +23,43 @@ x-amz-fhir-idempotency-key: 123e4567-e89b-12d3-a456-426614174000
 ```
 
 ### Response Scenarios
+<a name="response-scenarios"></a>
 
-First Request (201 Created)
+First Request (201 Created)  
++ New resource created successfully
++ Response includes resource ID
 
-- New resource created successfully
-- Response includes resource ID
+Duplicate Request (409 Conflict)  
++ Same idempotency key detected
++ Original resource returned
++ No new resource created
 
-Duplicate Request (409 Conflict)
-
-- Same idempotency key detected
-- Original resource returned
-- No new resource created
-
-Invalid Request (400 Bad Request)
-
-- Malformed UUID
-- Missing required fields
+Invalid Request (400 Bad Request)  
++ Malformed UUID
++ Missing required fields
 
 ### Best Practices
+<a name="best-practices"></a>
++ Generate unique UUID for each new resource creation
++ Store idempotency keys for retry logic
++ Use consistent key format: UUID v4 recommended
++ Implement in client applications handling resource creation
 
-- Generate unique UUID for each new resource creation
-- Store idempotency keys for retry logic
-- Use consistent key format: UUID v4 recommended
-- Implement in client applications handling resource creation
-
-###### Note
-
-This feature is particularly valuable for healthcare systems requiring strict data
-accuracy and preventing duplicate medical records.
+**Note**  
+This feature is particularly valuable for healthcare systems requiring strict data accuracy and preventing duplicate medical records.
 
 ## ETag in AWS HealthLake
+<a name="healthlake-etag"></a>
 
-AWS HealthLake uses ETags for optimistic concurrency control in FHIR resources, providing a
-reliable mechanism to manage concurrent modifications and maintain data consistency. An ETag
-is a unique identifier that represents a specific version of a resource, functioning as a
-version control system through HTTP headers. When reading or modifying resources, applications
-can use ETags to prevent unintended overwrites and ensure data integrity, particularly in
-scenarios with potential concurrent updates.
+AWS HealthLake uses ETags for optimistic concurrency control in FHIR resources, providing a reliable mechanism to manage concurrent modifications and maintain data consistency. An ETag is a unique identifier that represents a specific version of a resource, functioning as a version control system through HTTP headers. When reading or modifying resources, applications can use ETags to prevent unintended overwrites and ensure data integrity, particularly in scenarios with potential concurrent updates.
 
 ### Implementation Example
+<a name="healthlake-etag-implementation"></a>
 
 ```
 // Initial Read
 GET /fhir/Patient/123
-Response:
+Response: 
 ETag: W/"1"
 
 // Update with If-Match
@@ -88,24 +76,21 @@ If-None-Match: *
 ```
 
 ### Response Scenarios
+<a name="healthlake-etag-scenarios"></a>
 
-Successful Operation (200 OK or 204 No Content)
+Successful Operation (200 OK or 204 No Content)  
++ ETag matches current version
++ Operation proceeds as intended
 
-- ETag matches current version
-- Operation proceeds as intended
-
-Version Conflict (412 Precondition Failed)
-
-- ETag doesn't match current version
-- Update rejected to prevent data loss
+Version Conflict (412 Precondition Failed)  
++ ETag doesn't match current version
++ Update rejected to prevent data loss
 
 ### Best Practices
+<a name="healthlake-etag-practices"></a>
++ Include ETags in all update and delete operations
++ Implement retry logic for handling version conflicts
++ Use If-None-Match: \* for create-if-not-exists scenarios
++ Always verify ETag freshness before modifications
 
-- Include ETags in all update and delete operations
-- Implement retry logic for handling version conflicts
-- Use If-None-Match: \* for create-if-not-exists scenarios
-- Always verify ETag freshness before modifications
-
-This concurrency control system is essential for maintaining the integrity of healthcare
-data, especially in environments with multiple users or systems accessing and modifying the
-same resources.
+This concurrency control system is essential for maintaining the integrity of healthcare data, especially in environments with multiple users or systems accessing and modifying the same resources.

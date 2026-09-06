@@ -1,27 +1,27 @@
+
+
 # Use `ListFHIRImportJobs` with an AWS SDK or CLI
+<a name="example_healthlake_ListFHIRImportJobs_section"></a>
 
 The following code examples show how to use `ListFHIRImportJobs`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list all FHIR import jobs**
-
-The following `list-fhir-import-jobs` example shows how to use the command to view a list of all import jobs associated with an account.
-
-```
-`aws healthlake list-fhir-import-jobs \
- --datastore-id `(Data` `store` `ID)` \
- --submitted-before `(DATE` `like` `2024-10-13T19:00:00Z)` \
- --submitted-after `(DATE` `like` `2020-10-13T19:00:00Z` `)` \
- --job-name `"FHIR-IMPORT"` \
- --job-status `SUBMITTED` \
- `-max-results` `(Integer` `between` `1` `and` `500)``
+**AWS CLI**  
+**To list all FHIR import jobs**  
+The following `list-fhir-import-jobs` example shows how to use the command to view a list of all import jobs associated with an account.  
 
 ```
-
-Output:
+aws healthlake list-fhir-import-jobs \
+    --datastore-id {{(Data}} {{store}} {{ID)}} \
+    --submitted-before {{(DATE}} {{like}} {{2024-10-13T19:00:00Z)}} \
+    --submitted-after {{(DATE}} {{like}} {{2020-10-13T19:00:00Z}} {{)}} \
+    --job-name {{"FHIR-IMPORT"}} \
+    --job-status {{SUBMITTED}}  \
+    {{-max-results}} {{(Integer}} {{between}} {{1}} {{and}} {{500)}}
+```
+Output:  
 
 ```
 {
@@ -56,14 +56,13 @@ Output:
     ]
 }
 ```
+  
++  For API details, see [ListFHIRImportJobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-fhir-import-jobs.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListFHIRImportJobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-fhir-import-jobs.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/list-fhir-import-jobs.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
     @classmethod
@@ -123,30 +122,15 @@ Python
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [ListFHIRImportJobs](https://docs.aws.amazon.com/goto/boto3/healthlake-2017-07-01/ListFHIRImportJobs) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples). 
 
-- For API details, see
-  [ListFHIRImportJobs](../../../goto/boto3/healthlake-2017-07-01/ListFHIRImportJobs.md "../../../goto/boto3/healthlake-2017-07-01/ListFHIRImportJobs.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
 ```
     TRY.
@@ -173,14 +157,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_notfound_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListFHIRImportJobs](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListFHIRImportJobs](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using HealthLake with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
