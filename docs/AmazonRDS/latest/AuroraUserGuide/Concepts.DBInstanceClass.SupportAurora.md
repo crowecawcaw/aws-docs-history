@@ -63,7 +63,7 @@ The following tables show the supported DB instance classes for the Amazon Auror
 | db.r8gd.8xlarge  | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
 | db.r8gd.4xlarge  | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
 | db.r8gd.2xlarge  | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
-| db.r8g.xlarge    | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
+| db.r8gd.xlarge   | No           | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and<br>higher |
 
 **db.r7g – memory-optimized instance classes powered by AWS Graviton3 processors**
 

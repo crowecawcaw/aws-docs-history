@@ -48,6 +48,7 @@ We recommend different actions depending on the causes of your insight.
 - [Don't begin any operation involving a database shutdown until the InnoDB history list decreases](#proactive-insights.history-list.actions.no-shutdown "#proactive-insights.history-list.actions.no-shutdown")
 - [Identify and end long-running transactions](#proactive-insights.history-list.actions.long-txn "#proactive-insights.history-list.actions.long-txn")
 - [Identify the top hosts and top users by using Performance Insights.](#proactive-insights.history-list.actions.top-PI "#proactive-insights.history-list.actions.top-PI")
+- [Use transaction timeout to prevent future occurrences](#proactive-insights.history-list.actions.transaction-timeout "#proactive-insights.history-list.actions.transaction-timeout")
 
 ### Don't begin any operation involving a database shutdown until the InnoDB history list decreases
 
@@ -93,6 +94,10 @@ ORDER BY trx_started
 
 Optimize transactions so that large numbers of modified rows are immediately
 committed.
+
+### Use transaction timeout to prevent future occurrences
+
+To prevent long-running transactions from causing a large history list in the future, consider enabling the `aurora_transaction_timeout` parameter. This parameter automatically terminates transactions that exceed a specified duration. For more information, see [Transaction timeout in Amazon Aurora MySQL](AuroraMySQL.TransactionTimeout.md "AuroraMySQL.TransactionTimeout.md").
 
 ## Relevant metrics
 

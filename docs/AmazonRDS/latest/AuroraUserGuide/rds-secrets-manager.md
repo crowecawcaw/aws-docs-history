@@ -27,10 +27,17 @@ Managing master user passwords with Secrets Manager isn't supported for the foll
 
 - Amazon RDS Blue/Green Deployments
 - DB clusters that are part of an Aurora global database
-- Aurora Serverless v1 DB clusters
 - Cross-Region read replicas
 - Binary log external replication
 - Managed master user passwords with the `validate_password` plugin or component enabled on Aurora MySQL
+- If the Amazon RDS-managed secret has cross-Region replication
+  enabled (using AWS Secrets Manager multi-Region secret replication), you
+  can't opt out of Secrets Manager-managed credentials. The `modify-db-cluster`
+  API call with `--no-manage-master-user-password` appears to succeed,
+  but the DB cluster remains on Secrets Manager-managed credentials. To opt out, you must first
+  remove replication from the secret using
+  `aws secretsmanager remove-regions-from-replication`, and then retry
+  the modification.
 
 ## Overview of managing master user passwords with AWS Secrets Manager
 

@@ -27,7 +27,7 @@ Because the shared buffer pool is finite, it can fill up. In this case, requests
 in memory force the database to read blocks from disk. If the `IO:DataFileRead` event occurs
 frequently, your shared buffer pool might be too small to accommodate your workload. This problem is acute for
 `SELECT` queries that read a large number of rows that don't fit in the buffer
-pool. For more information about the buffer pool, see [Buffer pool](AuroraMySQL.Managing.Tuning.concepts.md#AuroraMySQL.Managing.Tuning.concepts.memory.buffer-pool "AuroraMySQL.Managing.Tuning.concepts.md#AuroraMySQL.Managing.Tuning.concepts.memory.buffer-pool").
+pool. For more information about the buffer pool, see [Shared memory in Aurora PostgreSQL](AuroraPostgreSQL.Tuning.concepts.md#AuroraPostgreSQL.Tuning.concepts.shared "AuroraPostgreSQL.Tuning.concepts.md#AuroraPostgreSQL.Tuning.concepts.shared").
 
 ## Likely causes of increased waits
 

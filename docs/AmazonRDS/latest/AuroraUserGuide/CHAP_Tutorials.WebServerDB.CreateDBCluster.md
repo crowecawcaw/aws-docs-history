@@ -20,7 +20,7 @@ Aurora MySQL
 6. For **Engine options**, choose **Aurora
    (MySQL Compatible)**.
 
-![The engine type selection.](images/aurora-engine-options-mysql.png)
+![The engine type selection.](/images/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png)
 
 Keep the default values for **Version** and the
 other engine options. 7. In the **Templates** section, choose
