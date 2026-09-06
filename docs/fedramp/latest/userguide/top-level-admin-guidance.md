@@ -801,6 +801,8 @@ aws configservice put-config-rule \
 - [IAM Best Practices](iam/latest/userguide/best-practices.md "iam/latest/userguide/best-practices.md")
 - [AWS Control Tower User Guide](controltower/latest/userguide/what-is-control-tower.md "controltower/latest/userguide/what-is-control-tower.md")
 - [AWS Security Hub User Guide](securityhub/latest/userguide/what-is-securityhub.md "securityhub/latest/userguide/what-is-securityhub.md")
+- [AWS East/West Certification Package Overview (JSON)](samples/east-west_cpo.json.md "samples/east-west_cpo.json.md")
+- [AWS GovCloud Certification Package Overview (JSON)](samples/govcloud_cpo.json.md "samples/govcloud_cpo.json.md")
 
 **FedRAMP Resources**:
 
