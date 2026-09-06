@@ -1,21 +1,16 @@
-# Use an Iceberg cluster with Flink
 
-Starting with Amazon EMR version 6.9.0, you can use Iceberg with a Flink cluster
-without the setup steps required when using the open source Iceberg Flink
-Integration.
+
+# Use an Iceberg cluster with Flink
+<a name="emr-iceberg-use-flink-cluster"></a>
+
+Starting with Amazon EMR version 6.9.0, you can use Iceberg with a Flink cluster without the setup steps required when using the open source Iceberg Flink Integration.
 
 ## Creating an Iceberg cluster
+<a name="creating-iceberg-cluster"></a>
 
-You can create a cluster with Iceberg installed using the AWS Management Console, the
-AWS CLI, or the Amazon EMR API. In this tutorial, you use the AWS CLI to work with
-Iceberg on an Amazon EMR cluster. To use the console to create a cluster with
-Iceberg installed, follow the steps in [Build an Apache Iceberg data lake using Amazon Athena, Amazon EMR, and
-AWS Glue](https://aws.amazon.com/blogs/big-data/build-an-apache-iceberg-data-lake-using-amazon-athena-amazon-emr-and-aws-glue/ "https://aws.amazon.com/blogs/big-data/build-an-apache-iceberg-data-lake-using-amazon-athena-amazon-emr-and-aws-glue/").
+You can create a cluster with Iceberg installed using the AWS Management Console, the AWS CLI, or the Amazon EMR API. In this tutorial, you use the AWS CLI to work with Iceberg on an Amazon EMR cluster. To use the console to create a cluster with Iceberg installed, follow the steps in [Build an Apache Iceberg data lake using Amazon Athena, Amazon EMR, and AWS Glue](https://aws.amazon.com/blogs/big-data/build-an-apache-iceberg-data-lake-using-amazon-athena-amazon-emr-and-aws-glue/).
 
-To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the
-following steps. For information on specifying the Iceberg classification
-using the AWS CLI, see [Supply a configuration using the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli") or [Supply a configuration using the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk "emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk"). Create a file
-called `configurations.json` with the following content:
+To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the following steps. For information on specifying the Iceberg classification using the AWS CLI, see [Supply a configuration using the AWS CLI when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-cli) or [Supply a configuration using the Java SDK when you create a cluster](emr-configure-apps-create-cluster.md#emr-configure-apps-create-cluster-sdk). Create a file called `configurations.json` with the following content:
 
 ```
 [{
@@ -24,8 +19,7 @@ called `configurations.json` with the following content:
 }]
 ```
 
-Next, create a cluster with the following configuration, replacing the example
-Amazon S3 bucket path and subnet ID with your own values:
+Next, create a cluster with the following configuration, replacing the example Amazon S3 bucket path and subnet ID with your own values:
 
 ```
 aws emr create-cluster --release-label emr-6.9.0 \
@@ -36,19 +30,16 @@ aws emr create-cluster --release-label emr-6.9.0 \
 --log-uri s3://amzn-s3-demo-bucket/ \
 --instance-type m5.xlarge \
 --instance-count 2 \
---service-role EMR_DefaultRole \
+--service-role EMR_DefaultRole \ 
 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,SubnetId=subnet-1234567890abcdef
 ```
 
-Alternatively, you can create an Amazon EMR 6.9.0 cluster with a Flink application
-in it and use the file
-`/usr/share/aws/iceberg/lib/iceberg-flink-runtime.jar` as a JAR
-dependency in a Flink job.
+Alternatively, you can create an Amazon EMR 6.9.0 cluster with a Flink application in it and use the file `/usr/share/aws/iceberg/lib/iceberg-flink-runtime.jar` as a JAR dependency in a Flink job.
 
 ## Using the Flink SQL Client
+<a name="using-flink-sql-client"></a>
 
-The SQL Client script is located under `/usr/lib/flink/bin`. You
-can run the script with the following command:
+The SQL Client script is located under `/usr/lib/flink/bin`. You can run the script with the following command:
 
 ```
 flink-yarn-session -d # starting the Flink YARN Session in detached mode
@@ -58,8 +49,10 @@ flink-yarn-session -d # starting the Flink YARN Session in detached mode
 This launches a Flink SQL Shell.
 
 ## Flink examples
+<a name="flink-examples"></a>
 
 ### Create an Iceberg table
+<a name="create-iceberg-table"></a>
 
 **Flink SQL**
 
@@ -109,6 +102,7 @@ tEnv.executeSql(
 ```
 
 ### Write to an Iceberg table
+<a name="write-to-iceberg-table"></a>
 
 **Flink SQL**
 
@@ -161,10 +155,10 @@ DataStreamSink<Void> dataStreamSink =
         FlinkSink.forRowData(input).tableLoader(tableLoader).append();
 
 env.execute("Datastream Write");
-
 ```
 
 ### Read from an Iceberg table
+<a name="read-from-iceberg-table"></a>
 
 **Flink SQL**
 
@@ -200,7 +194,7 @@ CatalogLoader glueCatlogLoader =
                 props,
                 new Configuration(),
                 "org.apache.iceberg.aws.glue.GlueCatalog");
-
+                
 TableLoader tableLoader =
         TableLoader.fromCatalog(glueCatlogLoader, TableIdentifier.of(db, "sample"));
 
@@ -211,22 +205,20 @@ batch.print().name("print-sink");
 ```
 
 ## Using the Hive catalog
+<a name="using-hive-catalog"></a>
 
-Make sure the Flink and Hive dependencies are resolved as described in [Configure Flink with Hive Metastore and Glue Catalog](flink-configure.md#flink-configure-hive "flink-configure.md#flink-configure-hive").
+Make sure the Flink and Hive dependencies are resolved as described in [Configure Flink with Hive Metastore and Glue Catalog](flink-configure.md#flink-configure-hive).
 
 ## Running a Flink Job
+<a name="running-flink-job"></a>
 
-One way to submit a job to Flink is to use a per job Flink YARN session. This
-can be launched with the following command:
+One way to submit a job to Flink is to use a per job Flink YARN session. This can be launched with the following command:
 
 ```
 sudo flink run -m yarn-cluster -p 4 -yjm 1024m -ytm 4096m $JAR_FILE_NAME
 ```
 
 ## Considerations for using Iceberg with Flink
-
-- When using AWS Glue as a catalog for Iceberg, make sure the database in which you
-  are creating a table exists in AWS Glue. If you are using services such as AWS Lake Formation and
-  you're unable to load the catalog, make sure you have proper access to the service
-  to execute the command.
-- Iceberg Glue integration does not work with the Redshift Managed Storage catalog.
+<a name="flink-considerations"></a>
++ When using AWS Glue as a catalog for Iceberg, make sure the database in which you are creating a table exists in AWS Glue. If you are using services such as AWS Lake Formation and you're unable to load the catalog, make sure you have proper access to the service to execute the command.
++ Iceberg Glue integration does not work with the Redshift Managed Storage catalog.

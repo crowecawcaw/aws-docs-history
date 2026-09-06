@@ -1,39 +1,36 @@
-# Using HCatalog
 
-You can use HCatalog within various applications that use the Hive metastore. The
-examples in this section show how to create a table and use it in the context of Pig and Spark
-SQL.
+
+# Using HCatalog
+<a name="emr-hcatalog-using"></a>
+
+You can use HCatalog within various applications that use the Hive metastore. The examples in this section show how to create a table and use it in the context of Pig and Spark SQL.
 
 ## Disable direct write when using HCatalog HStorer
+<a name="emr-hcatalog-hcatstorer"></a>
 
-Whenever an application uses [HCatStorer](https://cwiki.apache.org/confluence/display/Hive/HCatalog+LoadStore#HCatalogLoadStore-HCatStorer "https://cwiki.apache.org/confluence/display/Hive/HCatalog+LoadStore#HCatalogLoadStore-HCatStorer") to
-write to an HCatalog table stored in Amazon S3, disable the direct write feature of
-Amazon EMR. For example, disable direct write when using the Pig `STORE` command or when running Sqoop jobs that write HCatalog tables to Amazon S3. You can disable the direct write feature by setting the
-`mapred.output.direct.NativeS3FileSystem` and the
-`mapred.output.direct.EmrFileSystem` configurations to
-`false`. The following example demonstrates how to set these configurations using Java.
+Whenever an application uses [HCatStorer](https://cwiki.apache.org/confluence/display/Hive/HCatalog+LoadStore#HCatalogLoadStore-HCatStorer) to write to an HCatalog table stored in Amazon S3, disable the direct write feature of Amazon EMR. For example, disable direct write when using the Pig `STORE` command or when running Sqoop jobs that write HCatalog tables to Amazon S3. You can disable the direct write feature by setting the `mapred.output.direct.NativeS3FileSystem` and the `mapred.output.direct.EmrFileSystem` configurations to `false`. The following example demonstrates how to set these configurations using Java.
 
 ```
-Configuration conf = new Configuration();
-conf.set("mapred.output.direct.NativeS3FileSystem", "false");
+Configuration conf = new Configuration(); 
+conf.set("mapred.output.direct.NativeS3FileSystem", "false"); 
 conf.set("mapred.output.direct.EmrFileSystem", "false");
 ```
 
 ## Create a table using the HCat CLI and use that data in Pig
+<a name="emr-hcatalog-create-table"></a>
 
-Create the following script, `impressions.q`, on your
-cluster:
+Create the following script, `impressions.q`, on your cluster:
 
 ```
 CREATE EXTERNAL TABLE impressions (
-    requestBeginTime string, adId string, impressionId string, referrer string,
+    requestBeginTime string, adId string, impressionId string, referrer string, 
     userAgent string, userCookie string, ip string
   )
   PARTITIONED BY (dt string)
-  ROW FORMAT
+  ROW FORMAT 
     serde 'org.apache.hive.hcatalog.data.JsonSerDe'
     with serdeproperties ( 'paths'='requestBeginTime, adId, impressionId, referrer, userAgent, userCookie, ip' )
-  LOCATION 's3://`[your region]`.elasticmapreduce/samples/hive-ads/tables/impressions/';
+  LOCATION 's3://{{[your region]}}.elasticmapreduce/samples/hive-ads/tables/impressions/';
 ALTER TABLE impressions ADD PARTITION (dt='2009-04-13-08-05');
 ```
 
@@ -48,12 +45,11 @@ OK
 Time taken: 0.519 seconds
 ```
 
-Open the Grunt shell and access the data in
-`impressions`:
+Open the Grunt shell and access the data in `impressions`:
 
 ```
-% pig -useHCatalog -e "A = LOAD 'impressions' USING org.apache.hive.hcatalog.pig.HCatLoader();
-B = LIMIT A 5;
+% pig -useHCatalog -e "A = LOAD 'impressions' USING org.apache.hive.hcatalog.pig.HCatLoader(); 
+B = LIMIT A 5; 
 dump B;"
 <snip>
 (1239610346000,m9nwdo67Nx6q2kI25qt5On7peICfUM,omkxkaRpNhGPDucAiBErSh1cs0MThC,cartoonnetwork.com,Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; FunWebProducts; GTB6; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET,wcVWWTascoPbGt6bdqDbuWTPPHgOPs,69.191.224.234,2009-04-13-08-05)
@@ -63,13 +59,12 @@ dump B;"
 (1239610398000,c362vpAB0soPKGHRS43cj6TRwNeOGn,jeas5nXbQInGAgFB8jlkhnprN6cMw7,cartoonnetwork.com,Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6; .NET CLR 1.1.4322),k96n5PnUmwHKfiUI0TFP0TNMfADgh9,51.131.29.87,2009-04-13-08-05)
 7120 [main] INFO  org.apache.pig.Main  - Pig script completed in 7 seconds and 199 milliseconds (7199 ms)
 16/03/08 23:17:10 INFO pig.Main: Pig script completed in 7 seconds and 199 milliseconds (7199 ms)
-
 ```
 
 ## Accessing the table using Spark SQL
+<a name="emr-hcatalog-spark"></a>
 
-This example creates a Spark DataFrame from the table created in the first example
-and shows the first 20 lines:
+This example creates a Spark DataFrame from the table created in the first example and shows the first 20 lines:
 
 ```
 % spark-shell --jars /usr/lib/hive-hcatalog/share/hcatalog/hive-hcatalog-core-1.0.0-amzn-3.jar
@@ -108,5 +103,4 @@ only showing top 20 rows
 
 
 scala>
-
 ```

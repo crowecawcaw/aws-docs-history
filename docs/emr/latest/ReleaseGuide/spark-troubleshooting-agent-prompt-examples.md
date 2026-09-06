@@ -1,8 +1,12 @@
+
+
 # Prompt Examples
+<a name="spark-troubleshooting-agent-prompt-examples"></a>
 
 Here is a list of prompt examples that can be used in the troubleshooting experience.
 
 ## 1. Troubleshoot Spark job execution failure
+<a name="troubleshoot-job-failure"></a>
 
 EMR on EC2 Troubleshooting:
 
@@ -29,6 +33,7 @@ Troubleshoot my EMR on EKS job run with virtual cluster id <vc-id> and job run i
 ```
 
 ## 2. Request for code fix recommendation
+<a name="request-code-fix"></a>
 
 Request code fix recommendation for EMR on EC2 job:
 

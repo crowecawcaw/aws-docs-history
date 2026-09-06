@@ -1,19 +1,14 @@
-# Installing additional kernels and libraries
 
-When you create a cluster with JupyterHub on Amazon EMR, the default Python 3 kernel for
-Jupyter along with the PySpark and Spark kernels for Sparkmagic are installed on the
-Docker container. You can install additional kernels. You can also install additional
-libraries and packages and then import them for the appropriate shell.
+
+# Installing additional kernels and libraries
+<a name="emr-jupyterhub-install-kernels-libs"></a>
+
+When you create a cluster with JupyterHub on Amazon EMR, the default Python 3 kernel for Jupyter along with the PySpark and Spark kernels for Sparkmagic are installed on the Docker container. You can install additional kernels. You can also install additional libraries and packages and then import them for the appropriate shell.
 
 ## Installing a kernel
+<a name="emr-jupyterhub-install-kernels"></a>
 
-Kernels are installed within the Docker container. The easiest way to accomplish
-this is to create a bash script with installation commands, save it to the master
-node, and then use the `sudo docker exec jupyterhub
- `script_name`` command to run the script
-within the `jupyterhub` container. The following example script installs
-the kernel, and then installs a few libraries for that kernel on the master node so
-that later you can import the libraries using the kernel in Jupyter.
+Kernels are installed within the Docker container. The easiest way to accomplish this is to create a bash script with installation commands, save it to the master node, and then use the `sudo docker exec jupyterhub {{script_name}}` command to run the script within the `jupyterhub` container. The following example script installs the kernel, and then installs a few libraries for that kernel on the master node so that later you can import the libraries using the kernel in Jupyter.
 
 ```
 #!/bin/bash
@@ -37,23 +32,15 @@ sudo docker exec jupyterhub bash /etc/jupyter/install_kernels.sh
 ```
 
 ## Using libraries and installing additional libraries
+<a name="emr-jupyterhub-install-libs"></a>
 
-A core set of machine learning and data science libraries for Python 3 are
-pre-installed with JupyterHub on Amazon EMR. You can use `sudo docker exec jupyterhub bash -c "conda list"` and `sudo docker exec jupyterhub bash -c "pip freeze"`.
+A core set of machine learning and data science libraries for Python 3 are pre-installed with JupyterHub on Amazon EMR. You can use `sudo docker exec jupyterhub bash -c "conda list" ` and `sudo docker exec jupyterhub bash -c "pip freeze"`.
 
-If a Spark job needs libraries on worker nodes, we recommend that you use a
-bootstrap action to run a script to install the libraries when you create the
-cluster. Bootstrap actions run on all cluster nodes during the cluster creation
-process, which simplifies installation. If you install libraries on core/worker
-nodes after a cluster is running, the operation is more complex. We provide an
-example Python program in this section that shows how to install these
-libraries.
+If a Spark job needs libraries on worker nodes, we recommend that you use a bootstrap action to run a script to install the libraries when you create the cluster. Bootstrap actions run on all cluster nodes during the cluster creation process, which simplifies installation. If you install libraries on core/worker nodes after a cluster is running, the operation is more complex. We provide an example Python program in this section that shows how to install these libraries.
 
-The bootstrap action and Python program examples shown in this section use a bash
-script saved to Amazon S3 to install the libraries on all nodes.
+The bootstrap action and Python program examples shown in this section use a bash script saved to Amazon S3 to install the libraries on all nodes.
 
-The script referenced in the following example uses `pip` to install
-paramiko, nltk, scipy, scikit-learn, and pandas for the Python 3 kernel:
+The script referenced in the following example uses `pip` to install paramiko, nltk, scipy, scikit-learn, and pandas for the Python 3 kernel:
 
 ```
 #!/bin/bash
@@ -61,49 +48,43 @@ paramiko, nltk, scipy, scikit-learn, and pandas for the Python 3 kernel:
 sudo python3 -m pip install boto3 paramiko nltk scipy scikit-learn pandas
 ```
 
-After you create the script, upload it to a location in Amazon S3, for example, `s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh`. For more information, see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the _Amazon Simple Storage Service User Guide_ so that you can use it in your bootstrap action or in your Python program.
+After you create the script, upload it to a location in Amazon S3, for example, `s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh`. For more information, see [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html) in the *Amazon Simple Storage Service User Guide* so that you can use it in your bootstrap action or in your Python program.
 
-###### To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the AWS CLI
+**To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the AWS CLI**
 
 1. Create a script similar to the earlier example and save it to a location in Amazon S3. We use the example `s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh`.
-2. Create the cluster with JupyterHub and use the `Path` argument of the `--bootstrap-actions` option to specify the script location as shown in the following example:
 
-###### Note
+1. Create the cluster with JupyterHub and use the `Path` argument of the `--bootstrap-actions` option to specify the script location as shown in the following example:
+**Note**  
+Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
-Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+   ```
+   aws emr create-cluster --name="{{MyJupyterHubCluster}}" --release-label emr-5.36.2 \
+   --applications Name=JupyterHub --log-uri {{s3://amzn-s3-demo-bucket/MyJupyterClusterLogs}} \
+   --use-default-roles --instance-type m5.xlarge --instance-count {{2}} --ec2-attributes KeyName={{MyKeyPair}} \
+   --bootstrap-actions Path={{s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh}},Name={{InstallJupyterLibs}}
+   ```
 
-```
-aws emr create-cluster --name="`MyJupyterHubCluster`" --release-label emr-5.36.2 \
---applications Name=JupyterHub --log-uri `s3://amzn-s3-demo-bucket/MyJupyterClusterLogs` \
---use-default-roles --instance-type m5.xlarge --instance-count `2` --ec2-attributes KeyName=`MyKeyPair` \
---bootstrap-actions Path=`s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh`,Name=`InstallJupyterLibs`
-```
+**To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the console**
 
-###### To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the console
+1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html#console-opt-in).
 
-1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
-2. Choose **Create cluster**, **Go to advanced options**.
-3. Specify settings for **Software and Steps** and **Hardware** as appropriate for your application.
-4. On the **General Cluster Settings** screen, expand **Bootstrap Actions**.
-5. For **Add bootstrap action**, select **Custom action**,
-   **Configure and add**.
-6. For **Name**, enter a friendly name. For **Script
-   location**, enter the location in Amazon S3 of your script (the example
-   we use is
-   _s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh_). Leave
-   **Optional arguments** blank, and choose
-   **Add**.
-7. Specify other settings for your cluster, and choose **Next**.
-8. Specify security settings, and choose **Create cluster**.
+1. Choose **Create cluster**, **Go to advanced options**.
 
-###### Example Installing libraries on core nodes of a running cluster
+1. Specify settings for **Software and Steps** and **Hardware** as appropriate for your application.
 
-After you install libraries on the master node from within Jupyter, you can
-install libraries on running core nodes in various ways. The following example
-shows a Python program written to run on a local machine. When you run the Python program locally, it uses the
-`AWS-RunShellScript` of AWS Systems Manager to run the example script,
-shown earlier in this section, which installs libraries on the cluster's core
-nodes.
+1. On the **General Cluster Settings** screen, expand **Bootstrap Actions**.
+
+1. For **Add bootstrap action**, select **Custom action**, **Configure and add**.
+
+1. For **Name**, enter a friendly name. For **Script location**, enter the location in Amazon S3 of your script (the example we use is *s3://amzn-s3-demo-bucket/install-my-jupyter-libraries.sh*). Leave **Optional arguments** blank, and choose **Add**.
+
+1. Specify other settings for your cluster, and choose **Next**.
+
+1. Specify security settings, and choose **Create cluster**.
+
+**Example Installing libraries on core nodes of a running cluster**  
+After you install libraries on the master node from within Jupyter, you can install libraries on running core nodes in various ways. The following example shows a Python program written to run on a local machine. When you run the Python program locally, it uses the `AWS-RunShellScript` of AWS Systems Manager to run the example script, shown earlier in this section, which installs libraries on the cluster's core nodes.  
 
 ```
 import argparse
@@ -173,5 +154,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```

@@ -1,23 +1,20 @@
+
+
 # Amazon EMR 7.9.0 - Oozie release notes
+<a name="Oozie-release-history-changes-790"></a>
 
 **Oozie changes:**
 
-| Type    | Description            |
-| ------- | ---------------------- |
-| Upgrade | Avro upgrade to 1.11.4 |
+
+| Type | Description | 
+| --- | --- | 
+| Upgrade | Avro upgrade to 1.11.4 | 
 
 **Oozie known issues:**
-
-- Version Conflict in Oozie Sharelib:
-
-  - Oozie sharelib contains multiple versions of commons-cli (versions 1.2 and 1.5).
-  - If you encounter compatibility issues, consider either:
-
-    - Removing commons-cli-1.2 JAR files.
-    - Replacing commons-cli-1.2 with commons-cli-1.5.
-
-- Pig JAR Compatibility:
-
-  - The Pig jar included by default in Oozie sharelib is the open-source jar. This differs from the Pig jar available elsewhere in the EMR cluster,
-    on installing the Pig application, which includes additional EMR-specific enhancements and optimizations. Users should be aware of this difference when
-    developing Pig workflows.
++ Version Conflict in Oozie Sharelib:
+  + Oozie sharelib contains multiple versions of commons-cli (versions 1.2 and 1.5).
+  + If you encounter compatibility issues, consider either:
+    + Removing commons-cli-1.2 JAR files.
+    + Replacing commons-cli-1.2 with commons-cli-1.5.
++ Pig JAR Compatibility:
+  + The Pig jar included by default in Oozie sharelib is the open-source jar. This differs from the Pig jar available elsewhere in the EMR cluster, on installing the Pig application, which includes additional EMR-specific enhancements and optimizations. Users should be aware of this difference when developing Pig workflows.

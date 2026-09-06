@@ -1,12 +1,16 @@
+
+
 # Amazon EMR 7.8.0 - Hive release notes
+<a name="Hive-release-history-780"></a>
 
 ## Amazon EMR 7.8.0 - Hive changes
+<a name="Hive-release-history-changes-780"></a>
 
-| Type    | Description                                                                 |
-| ------- | --------------------------------------------------------------------------- |
-| Bug Fix | Fixes CVE-2024-23953: Apache Hive: Timing Attack Against Signature in LLAP. |
+
+
+| Type | Description | 
+| --- | --- | 
+| Bug Fix | Fixes CVE-2024-23953: Apache Hive: Timing Attack Against Signature in LLAP. | 
 
 **Known issues**
-
-- For Hive Insert Over-write queries with Amazon S3 Express One Zone as the output location, set
-  the core-site config: `fs.s3a.directory.operations.purge.uploads` to `false`.
++ For Hive Insert Over-write queries with Amazon S3 Express One Zone as the output location, set the core-site config: `fs.s3a.directory.operations.purge.uploads` to `false`.

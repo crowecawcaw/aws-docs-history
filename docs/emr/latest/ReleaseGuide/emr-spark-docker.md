@@ -1,83 +1,49 @@
+
+
 # Run Spark applications with Docker on Amazon EMR 6.x
+<a name="emr-spark-docker"></a>
 
-###### Note
-
+**Note**  
 The procedure described works only with Amazon EMR version 6.x.
 
-With Amazon EMR 6.0.0, Spark applications can use Docker containers to define their library
-dependencies, instead of installing dependencies on the individual Amazon EC2 instances in
-the cluster. To run Spark with Docker, you must first configure the Docker registry and
-define additional parameters when submitting a Spark application. For more information,
-see [Configure Docker
-integration](../ManagementGuide/emr-plan-docker.md "../ManagementGuide/emr-plan-docker.md").
+With Amazon EMR 6.0.0, Spark applications can use Docker containers to define their library dependencies, instead of installing dependencies on the individual Amazon EC2 instances in the cluster. To run Spark with Docker, you must first configure the Docker registry and define additional parameters when submitting a Spark application. For more information, see [Configure Docker integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html).
 
-When the application is submitted, YARN invokes Docker to pull the specified Docker
-image and run the Spark application inside a Docker container. This allows you to easily
-define and isolate dependencies. It reduces the time for bootstrapping or preparing
-instances in the Amazon EMR cluster with the libraries needed for job execution.
+When the application is submitted, YARN invokes Docker to pull the specified Docker image and run the Spark application inside a Docker container. This allows you to easily define and isolate dependencies. It reduces the time for bootstrapping or preparing instances in the Amazon EMR cluster with the libraries needed for job execution. 
 
 ## Considerations when running Spark with Docker
+<a name="emr-spark-docker-considerations"></a>
 
-When you run Spark with Docker, make sure the following prerequisites are
-met:
-
-- The `docker` package and CLI are only installed on core and
-  task nodes.
-- On Amazon EMR 6.1.0 and later, you can alternatively install Docker on a
-  primary node by using following commands.
-
-  - ```
+When you run Spark with Docker, make sure the following prerequisites are met:
++ The `docker` package and CLI are only installed on core and task nodes.
++ On Amazon EMR 6.1.0 and later, you can alternatively install Docker on a primary node by using following commands.
+  + 
 
     ```
+    sudo yum install -y docker
+    sudo systemctl start docker
+    ```
++ The `spark-submit` command should always be run from a primary instance on the Amazon EMR cluster.
++ The Docker registries used to resolve Docker images must be defined using the Classification API with the `container-executor` classification key to define additional parameters when launching the cluster:
+  + `docker.trusted.registries`
+  + `docker.privileged-containers.registries`
++ To execute a Spark application in a Docker container, the following configuration options are necessary:
+  + `YARN_CONTAINER_RUNTIME_TYPE=docker`
+  + `YARN_CONTAINER_RUNTIME_DOCKER_IMAGE={DOCKER_IMAGE_NAME}`
++ When using Amazon ECR to retrieve Docker images, you must configure the cluster to authenticate itself. To do so, you must use the following configuration option:
+  + YARN\_CONTAINER\_RUNTIME\_DOCKER\_CLIENT\_CONFIG={DOCKER\_CLIENT\_CONFIG\_PATH\_ON\_HDFS}
++ In Amazon EMR 6.1.0 and later, you are not required to use the listed command `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG={DOCKER_CLIENT_CONFIG_PATH_ON_HDFS}` when the ECR auto authentication feature is enabled.
++ Any Docker image used with Spark must have Java installed in the Docker image.
 
-  sudo yum install -y docker
-  sudo systemctl start docker
-
-  ```
-
-  ```
-
-- The `spark-submit` command should always be run from a primary
-  instance on the Amazon EMR cluster.
-- The Docker registries used to resolve Docker images must be defined using
-  the Classification API with the `container-executor`
-  classification key to define additional parameters when launching the
-  cluster:
-
-  - `docker.trusted.registries`
-  - `docker.privileged-containers.registries`
-
-- To execute a Spark application in a Docker container, the following
-  configuration options are necessary:
-
-  - `YARN_CONTAINER_RUNTIME_TYPE=docker`
-  - `YARN_CONTAINER_RUNTIME_DOCKER_IMAGE={DOCKER_IMAGE_NAME}`
-
-- When using Amazon ECR to retrieve Docker images, you must configure the cluster
-  to authenticate itself. To do so, you must use the following configuration
-  option:
-
-  - YARN\_CONTAINER\_RUNTIME\_DOCKER\_CLIENT\_CONFIG={DOCKER\_CLIENT\_CONFIG\_PATH\_ON\_HDFS}
-
-- In Amazon EMR 6.1.0 and later, you are not required to use the listed command
-  `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG={DOCKER_CLIENT_CONFIG_PATH_ON_HDFS}`
-  when the ECR auto authentication feature is enabled.
-- Any Docker image used with Spark must have Java installed in the Docker
-  image.
-
-For more information about the prerequisites, see [Configure Docker
-integration](../ManagementGuide/emr-plan-docker.md "../ManagementGuide/emr-plan-docker.md").
+For more information about the prerequisites, see [Configure Docker integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html).
 
 ## Creating a Docker image
+<a name="emr-spark-docker-image"></a>
 
-Docker images are created using a Dockerfile, which defines the packages and
-configuration to include in the image. The following two example Dockerfiles use
-PySpark and SparkR.
+Docker images are created using a Dockerfile, which defines the packages and configuration to include in the image. The following two example Dockerfiles use PySpark and SparkR.
 
 **PySpark Dockerfile**
 
-Docker images created from this Dockerfile include Python 3 and the NumPy Python
-package. This Dockerfile uses Amazon Linux 2 and the Amazon Corretto JDK 8.
+Docker images created from this Dockerfile include Python 3 and the NumPy Python package. This Dockerfile uses Amazon Linux 2 and the Amazon Corretto JDK 8.
 
 ```
 FROM amazoncorretto:8
@@ -103,8 +69,7 @@ RUN python3 -c "import numpy as np"
 
 **SparkR Dockerfile**
 
-Docker images created from this Dockerfile include R and the randomForest CRAN
-package. This Dockerfile includes Amazon Linux 2 and the Amazon Corretto JDK 8.
+Docker images created from this Dockerfile include R and the randomForest CRAN package. This Dockerfile includes Amazon Linux 2 and the Amazon Corretto JDK 8.
 
 ```
 FROM amazoncorretto:8
@@ -122,25 +87,16 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
 RUN Rscript -e "install.packages('randomForest')"
 ```
 
-For more information on Dockerfile syntax, see the [Dockerfile reference
-documentation](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/").
+For more information on Dockerfile syntax, see the [Dockerfile reference documentation](https://docs.docker.com/engine/reference/builder/).
 
 ## Using Docker images from Amazon ECR
+<a name="emr-spark-docker-ECR"></a>
 
-Amazon Elastic Container Registry (Amazon ECR) is a fully-managed Docker container registry, which makes it
-easy to store, manage, and deploy Docker container images. When using Amazon ECR, the
-cluster must be configured to trust your instance of ECR, and you must configure
-authentication in order for the cluster to use Docker images from Amazon ECR. For more
-information, see [Configuring YARN to access Amazon ECR](../ManagementGuide/emr-plan-docker.md#emr-docker-ECR "../ManagementGuide/emr-plan-docker.md#emr-docker-ECR").
+Amazon Elastic Container Registry (Amazon ECR) is a fully-managed Docker container registry, which makes it easy to store, manage, and deploy Docker container images. When using Amazon ECR, the cluster must be configured to trust your instance of ECR, and you must configure authentication in order for the cluster to use Docker images from Amazon ECR. For more information, see [Configuring YARN to access Amazon ECR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html#emr-docker-ECR). 
 
-To make sure that Amazon EMR hosts can access the images stored in Amazon ECR, your cluster
-must have the permissions from the `AmazonEC2ContainerRegistryReadOnly`
-policy associated with the instance profile. For more information, see [`AmazonEC2ContainerRegistryReadOnly` Policy](../../../AmazonECR/latest/userguide/ecr_managed_policies.md#AmazonEC2ContainerRegistryReadOnly "../../../AmazonECR/latest/userguide/ecr_managed_policies.md#AmazonEC2ContainerRegistryReadOnly").
+To make sure that Amazon EMR hosts can access the images stored in Amazon ECR, your cluster must have the permissions from the `AmazonEC2ContainerRegistryReadOnly` policy associated with the instance profile. For more information, see [`AmazonEC2ContainerRegistryReadOnly` Policy](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ecr_managed_policies.html#AmazonEC2ContainerRegistryReadOnly).
 
-In this example, the cluster must be created with the following additional
-configuration to ensure that the Amazon ECR registry is trusted. Replace the
-`123456789123.dkr.ecr.us-east-1.amazonaws.com` endpoint
-with your Amazon ECR endpoint.
+In this example, the cluster must be created with the following additional configuration to ensure that the Amazon ECR registry is trusted. Replace the {{123456789123.dkr.ecr.us-east-1.amazonaws.com}} endpoint with your Amazon ECR endpoint.
 
 ```
 [
@@ -162,13 +118,9 @@ with your Amazon ECR endpoint.
 
 **Using PySpark with Amazon ECR**
 
-The following example uses the PySpark Dockerfile, which will be tagged and
-uploaded to Amazon ECR. After you upload the Dockerfile, you can run the PySpark job and
-refer to the Docker image from Amazon ECR.
+The following example uses the PySpark Dockerfile, which will be tagged and uploaded to Amazon ECR. After you upload the Dockerfile, you can run the PySpark job and refer to the Docker image from Amazon ECR.
 
-After you launch the cluster, use SSH to connect to a core node and run the
-following commands to build the local Docker image from the PySpark Dockerfile
-example.
+After you launch the cluster, use SSH to connect to a core node and run the following commands to build the local Docker image from the PySpark Dockerfile example.
 
 First, create a directory and a Dockerfile.
 
@@ -177,32 +129,26 @@ mkdir pyspark
 vi pyspark/Dockerfile
 ```
 
-Paste the contents of the PySpark Dockerfile and run the following commands to
-build a Docker image.
+Paste the contents of the PySpark Dockerfile and run the following commands to build a Docker image.
 
 ```
 sudo docker build -t local/pyspark-example pyspark/
 ```
 
-Create the `emr-docker-examples` ECR repository for the
-examples.
+Create the `emr-docker-examples` ECR repository for the examples.
 
 ```
 aws ecr create-repository --repository-name emr-docker-examples
 ```
 
-Tag and upload the locally built image to ECR, replacing
-`123456789123.dkr.ecr.us-east-1.amazonaws.com` with
-your ECR endpoint.
+Tag and upload the locally built image to ECR, replacing {{123456789123.dkr.ecr.us-east-1.amazonaws.com}} with your ECR endpoint.
 
 ```
 sudo docker tag local/pyspark-example 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
-sudo docker push `123456789123.dkr.ecr.us-east-1.amazonaws.com`/emr-docker-examples:pyspark-example
+sudo docker push {{123456789123.dkr.ecr.us-east-1.amazonaws.com}}/emr-docker-examples:pyspark-example
 ```
 
-Use SSH to connect to the primary node and prepare a Python script with the
-filename `main.py`. Paste the following content into the
-`main.py` file and save it.
+Use SSH to connect to the primary node and prepare a Python script with the filename `main.py`. Paste the following content into the `main.py` file and save it.
 
 ```
 from pyspark.sql import SparkSession
@@ -214,12 +160,7 @@ a = np.arange(15).reshape(3, 5)
 print(a)
 ```
 
-On Amazon EMR 6.0.0, to submit the job, reference the name of the Docker image. Define
-the additional configuration parameters to make sure that the job execution uses
-Docker as the runtime. When using Amazon ECR, the
-`YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG` must reference the
-`config.json` file containing the credentials used to authenticate to
-Amazon ECR.
+On Amazon EMR 6.0.0, to submit the job, reference the name of the Docker image. Define the additional configuration parameters to make sure that the job execution uses Docker as the runtime. When using Amazon ECR, the `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG` must reference the `config.json` file containing the credentials used to authenticate to Amazon ECR.
 
 ```
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
@@ -236,8 +177,7 @@ spark-submit --master yarn \
 main.py -v
 ```
 
-On Amazon EMR 6.1.0 and later, to submit the job, reference the name of the Docker
-image. When ECR auto authentication is enabled, run the following command.
+On Amazon EMR 6.1.0 and later, to submit the job, reference the name of the Docker image. When ECR auto authentication is enabled, run the following command.
 
 ```
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
@@ -251,8 +191,7 @@ spark-submit --master yarn \
 main.py -v
 ```
 
-When the job completes, take note of the YARN application ID, and use the
-following command to obtain the output of the PySpark job.
+When the job completes, take note of the YARN application ID, and use the following command to obtain the output of the PySpark job.
 
 ```
 yarn logs --applicationId application_id | grep -C2 '\[\['
@@ -265,13 +204,9 @@ LogContents:
 
 **Using SparkR with Amazon ECR**
 
-The following example uses the SparkR Dockerfile, which will be tagged and
-uploaded to ECR. Once the Dockerfile is uploaded, you can run the SparkR job and
-refer to the Docker image from Amazon ECR.
+The following example uses the SparkR Dockerfile, which will be tagged and uploaded to ECR. Once the Dockerfile is uploaded, you can run the SparkR job and refer to the Docker image from Amazon ECR.
 
-After you launch the cluster, use SSH to connect to a core node and run the
-following commands to build the local Docker image from the SparkR Dockerfile
-example.
+After you launch the cluster, use SSH to connect to a core node and run the following commands to build the local Docker image from the SparkR Dockerfile example.
 
 First, create a directory and the Dockerfile.
 
@@ -280,25 +215,20 @@ mkdir sparkr
 vi sparkr/Dockerfile
 ```
 
-Paste the contents of the SparkR Dockerfile and run the following commands to
-build a Docker image.
+Paste the contents of the SparkR Dockerfile and run the following commands to build a Docker image.
 
 ```
 sudo docker build -t local/sparkr-example sparkr/
 ```
 
-Tag and upload the locally built image to Amazon ECR, replacing
-`123456789123.dkr.ecr.us-east-1.amazonaws.com` with
-your Amazon ECR endpoint.
+Tag and upload the locally built image to Amazon ECR, replacing {{123456789123.dkr.ecr.us-east-1.amazonaws.com}} with your Amazon ECR endpoint.
 
 ```
-sudo docker tag local/sparkr-example `123456789123.dkr.ecr.us-east-1.amazonaws.com`/emr-docker-examples:sparkr-example
-sudo docker push `123456789123.dkr.ecr.us-east-1.amazonaws.com`/emr-docker-examples:sparkr-example
+sudo docker tag local/sparkr-example {{123456789123.dkr.ecr.us-east-1.amazonaws.com}}/emr-docker-examples:sparkr-example
+sudo docker push {{123456789123.dkr.ecr.us-east-1.amazonaws.com}}/emr-docker-examples:sparkr-example
 ```
 
-Use SSH to connect to the primary node and prepare an R script with the name
-`sparkR.R`. Paste the following contents into the
-`sparkR.R` file.
+Use SSH to connect to the primary node and prepare an R script with the name `sparkR.R`. Paste the following contents into the `sparkR.R` file.
 
 ```
 library(SparkR)
@@ -312,12 +242,7 @@ rfNews()
 sparkR.session.stop()
 ```
 
-On Amazon EMR 6.0.0, to submit the job, refer to the name of the Docker image. Define
-the additional configuration parameters to make sure that the job execution uses
-Docker as the runtime. When using Amazon ECR, the
-`YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG` must refer to the
-`config.json` file containing the credentials used to authenticate to
-ECR.
+On Amazon EMR 6.0.0, to submit the job, refer to the name of the Docker image. Define the additional configuration parameters to make sure that the job execution uses Docker as the runtime. When using Amazon ECR, the `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG` must refer to the `config.json` file containing the credentials used to authenticate to ECR.
 
 ```
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:sparkr-example
@@ -333,8 +258,7 @@ spark-submit --master yarn \
 sparkR.R
 ```
 
-On Amazon EMR 6.1.0 and later, to submit the job, reference the name of the Docker
-image. When ECR auto authentication is enabled, run following command.
+On Amazon EMR 6.1.0 and later, to submit the job, reference the name of the Docker image. When ECR auto authentication is enabled, run following command.
 
 ```
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:sparkr-example
@@ -347,10 +271,7 @@ spark-submit --master yarn \
 sparkR.R
 ```
 
-When the job has completed, note the YARN application ID, and use the following
-command to obtain the output of the SparkR job. This example includes testing to
-make sure that the randomForest library, version installed, and release notes are
-available.
+When the job has completed, note the YARN application ID, and use the following command to obtain the output of the SparkR job. This example includes testing to make sure that the randomForest library, version installed, and release notes are available.
 
 ```
 yarn logs --applicationId application_id | grep -B4 -A10 "Type rfNews"

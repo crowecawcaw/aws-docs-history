@@ -1,13 +1,16 @@
+
+
 # Amazon EMR 7.10.0 - Tez release notes
+<a name="Tez-release-history-7100"></a>
 
 ## Amazon EMR 7.10.0 - Tez changes
+<a name="Tez-release-history-changes-7100"></a>
 
-| Type    | Description                                                                                                                                                                                                                                                                                                                     |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Bug Fix | [TEZ-4595](https://issues.apache.org/jira/browse/TEZ-4595 "https://issues.apache.org/jira/browse/TEZ-4595"): Fixed a bug where Tez would crash when trying to process a new DAG while it was still recovering from a previous<br>failure, causing both DAGs to interfere with each other and throw an INVALID\_EVENT exception. |
+
+| Type | Description | 
+| --- | --- | 
+| Bug Fix | [TEZ-4595](https://issues.apache.org/jira/browse/TEZ-4595): Fixed a bug where Tez would crash when trying to process a new DAG while it was still recovering from a previous failure, causing both DAGs to interfere with each other and throw an INVALID\_EVENT exception. | 
 
 **Tez release notes**
 
-Bug fix notes – The issue occurred when recovery files were present and the Application Master transitioned through RECOVERING → IDLE → RUNNING → IDLE states, creating a brief window
-where Hive could submit new DAGs during the IDLE → RUNNING transition. Modified the state transition logic to skip IDLE state when recovery files are present. The AM now
-follows RECOVERING → RUNNING → IDLE flow, ensuring new DAG submission only occurs after the recovered DAG is fully cleaned up.
+Bug fix notes – The issue occurred when recovery files were present and the Application Master transitioned through RECOVERING → IDLE → RUNNING → IDLE states, creating a brief window where Hive could submit new DAGs during the IDLE → RUNNING transition. Modified the state transition logic to skip IDLE state when recovery files are present. The AM now follows RECOVERING → RUNNING → IDLE flow, ensuring new DAG submission only occurs after the recovered DAG is fully cleaned up.

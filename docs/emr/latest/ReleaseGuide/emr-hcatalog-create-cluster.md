@@ -1,33 +1,31 @@
+
+
 # Creating a cluster with HCatalog
+<a name="emr-hcatalog-create-cluster"></a>
 
 Although HCatalog is included in the Hive project, you must install it as its own application.
 
-###### To launch a cluster with HCatalog installed using the console
+**To launch a cluster with HCatalog installed using the console**
 
-The following procedure creates a cluster with HCatalog installed. For more
-information about creating clusters using the console, including **Advanced Options** see [Plan and configure clusters](../ManagementGuide/emr-plan.md "../ManagementGuide/emr-plan.md") in the _Amazon EMR Management Guide_.
+The following procedure creates a cluster with HCatalog installed. For more information about creating clusters using the console, including **Advanced Options** see [Plan and configure clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*.
 
-1. Open the Amazon EMR console at
-   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
-2. Choose **Create cluster** to use **Quick
-   Create**.
-3. For the **Software Configuration** field, choose **Amazon Release Version emr-4.4.0** or later.
-4. In the **Select Applications** field, choose either
-   **All Applications** or
-   **HCatalog**.
-5. Select other options as necessary and then choose **Create
-   cluster**.
+1. Open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/).
 
-###### To launch a cluster with HCatalog using the AWS CLI
+1. Choose **Create cluster** to use **Quick Create**.
 
-- Create the cluster with the following command:
+1.  For the **Software Configuration** field, choose **Amazon Release Version emr-4.4.0** or later.
 
-###### Note
+1.  In the **Select Applications** field, choose either **All Applications** or **HCatalog**.
 
-Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+1.  Select other options as necessary and then choose **Create cluster**.
 
-```
-aws emr create-cluster --name "Cluster with Hcat" --release-label `emr-7.13.0` \
---applications Name=HCatalog --ec2-attributes KeyName=myKey \
---instance-type m5.xlarge --instance-count 3 --use-default-roles
-```
+**To launch a cluster with HCatalog using the AWS CLI**
++ Create the cluster with the following command:
+**Note**  
+Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+
+  ```
+  aws emr create-cluster --name "Cluster with Hcat" --release-label {{emr-7.13.0}} \
+  --applications Name=HCatalog --ec2-attributes KeyName=myKey \
+  --instance-type m5.xlarge --instance-count 3 --use-default-roles
+  ```

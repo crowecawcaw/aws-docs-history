@@ -1,165 +1,152 @@
+
+
 # Phoenix clients
+<a name="emr-phoenix-clients"></a>
 
-You connect to Phoenix using either a JDBC client built with full dependencies or
-using the "thin client" that uses the Phoenix Query Server and can only be run on a
-master node of a cluster (e.g. by using an SQL client, a step, command line, SSH port
-forwarding, etc.). When using the "fat" JDBC client, it still needs to have access to
-all nodes of the cluster because it connects to HBase services directly. The "thin"
-Phoenix client only needs access to the Phoenix Query Server at a default port 8765.
-There are several [scripts](https://github.com/apache/phoenix/tree/master/bin "https://github.com/apache/phoenix/tree/master/bin") within Phoenix that use these clients.
+You connect to Phoenix using either a JDBC client built with full dependencies or using the "thin client" that uses the Phoenix Query Server and can only be run on a master node of a cluster (e.g. by using an SQL client, a step, command line, SSH port forwarding, etc.). When using the "fat" JDBC client, it still needs to have access to all nodes of the cluster because it connects to HBase services directly. The "thin" Phoenix client only needs access to the Phoenix Query Server at a default port 8765. There are several [scripts](https://github.com/apache/phoenix/tree/master/bin) within Phoenix that use these clients. 
 
-###### Use an Amazon EMR step to query using Phoenix
 
-The following procedure restores a snapshot from HBase and uses that data to run a
-Phoenix query. You can extend this example or create a new script that leverages
-Phoenix's clients to suit your needs.
+
+**Use an Amazon EMR step to query using Phoenix**
+
+The following procedure restores a snapshot from HBase and uses that data to run a Phoenix query. You can extend this example or create a new script that leverages Phoenix's clients to suit your needs. 
 
 1. Create a cluster with Phoenix installed, using the following command:
 
-```
-aws emr create-cluster --name "Cluster with Phoenix" --log-uri s3://`amzn-s3-demo-bucket`/myLogFolder --release-label `emr-7.13.0` \
---applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
---instance-type m5.xlarge --instance-count 3 --use-default-roles
-```
+   ```
+   aws emr create-cluster --name "Cluster with Phoenix" --log-uri s3://{{amzn-s3-demo-bucket}}/myLogFolder --release-label {{emr-7.13.0}} \
+   --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
+   --instance-type m5.xlarge --instance-count 3 --use-default-roles
+   ```
 
-2. Create then upload the following files to Amazon S3:
+1. Create then upload the following files to Amazon S3:
 
-copySnapshot.sh
+   copySnapshot.sh
 
-```
-sudo su hbase -s /bin/sh -c 'hbase snapshot export \
- -D hbase.rootdir=s3://us-east-1.elasticmapreduce.samples/hbase-demo-customer-data/snapshot/ \
--snapshot customer_snapshot1 \
--copy-to hdfs://`masterDNSName`:8020/user/hbase \
--mappers 2 -chuser hbase -chmod 700'
-```
+   ```
+   sudo su hbase -s /bin/sh -c 'hbase snapshot export \
+    -D hbase.rootdir=s3://us-east-1.elasticmapreduce.samples/hbase-demo-customer-data/snapshot/ \
+   -snapshot customer_snapshot1 \
+   -copy-to hdfs://{{masterDNSName}}:8020/user/hbase \
+   -mappers 2 -chuser hbase -chmod 700'
+   ```
 
-runQuery.sh
+   runQuery.sh
 
-```
-aws s3 cp s3://`amzn-s3-demo-bucket`/phoenixQuery.sql /home/hadoop/
-/usr/lib/phoenix/bin/sqlline-thin.py http://localhost:8765 /home/hadoop/phoenixQuery.sql
-```
+   ```
+   aws s3 cp s3://{{amzn-s3-demo-bucket}}/phoenixQuery.sql /home/hadoop/
+   /usr/lib/phoenix/bin/sqlline-thin.py http://localhost:8765 /home/hadoop/phoenixQuery.sql
+   ```
 
-phoenixQuery.sql
-
-###### Note
-
+   phoenixQuery.sql
+**Note**  
 You only need to include `COLUMN_ENCODED_BYTES=0` in the following example when you use Amazon EMR versions 5.26.0 and higher.
 
-```
-CREATE VIEW "customer" (
-pk VARCHAR PRIMARY KEY,
-"address"."state" VARCHAR,
-"address"."street" VARCHAR,
-"address"."city" VARCHAR,
-"address"."zip" VARCHAR,
-"cc"."number" VARCHAR,
-"cc"."expire" VARCHAR,
-"cc"."type" VARCHAR,
-"contact"."phone" VARCHAR)
-COLUMN_ENCODED_BYTES=0;
+   ```
+   CREATE VIEW "customer" (
+   pk VARCHAR PRIMARY KEY, 
+   "address"."state" VARCHAR,
+   "address"."street" VARCHAR,
+   "address"."city" VARCHAR,
+   "address"."zip" VARCHAR,
+   "cc"."number" VARCHAR,
+   "cc"."expire" VARCHAR,
+   "cc"."type" VARCHAR,
+   "contact"."phone" VARCHAR)
+   COLUMN_ENCODED_BYTES=0;
+   
+   CREATE INDEX my_index ON "customer" ("customer"."state") INCLUDE("PK", "customer"."city", "customer"."expire", "customer"."type");
+   
+   SELECT "customer"."type" AS credit_card_type, count(*) AS num_customers FROM "customer" WHERE "customer"."state" = 'CA' GROUP BY "customer"."type";
+   ```
 
-CREATE INDEX my_index ON "customer" ("customer"."state") INCLUDE("PK", "customer"."city", "customer"."expire", "customer"."type");
+   Use the AWS CLI to submit the files to the S3 bucket:
 
-SELECT "customer"."type" AS credit_card_type, count(*) AS num_customers FROM "customer" WHERE "customer"."state" = 'CA' GROUP BY "customer"."type";
-```
+   ```
+   aws s3 cp copySnapshot.sh s3://{{amzn-s3-demo-bucket}}/
+   aws s3 cp runQuery.sh s3://{{amzn-s3-demo-bucket}}/
+   aws s3 cp phoenixQuery.sql s3://{{amzn-s3-demo-bucket}}/
+   ```
 
-Use the AWS CLI to submit the files to the S3 bucket:
+1. Create a table using the following step submitted to the cluster that you created in Step 1:
 
-```
-aws s3 cp copySnapshot.sh s3://`amzn-s3-demo-bucket`/
-aws s3 cp runQuery.sh s3://`amzn-s3-demo-bucket`/
-aws s3 cp phoenixQuery.sql s3://`amzn-s3-demo-bucket`/
-```
+   createTable.json
 
-3. Create a table using the following step submitted to the cluster that you
-   created in Step 1:
+   ```
+   [
+     {
+       "Name": "Create HBase Table",
+       "Args": ["bash", "-c", "echo $'create \"customer\",\"address\",\"cc\",\"contact\"' | hbase shell"],
+       "Jar": "command-runner.jar",
+       "ActionOnFailure": "CONTINUE",
+       "Type": "CUSTOM_JAR"
+     }
+   ]
+   ```
 
-createTable.json
+   ```
+   aws emr add-steps --cluster-id j-{{2AXXXXXXGAPLF}} \
+   --steps file://./createTable.json
+   ```
 
-```
-[
-  {
-    "Name": "Create HBase Table",
-    "Args": ["bash", "-c", "echo $'create \"customer\",\"address\",\"cc\",\"contact\"' | hbase shell"],
-    "Jar": "command-runner.jar",
-    "ActionOnFailure": "CONTINUE",
-    "Type": "CUSTOM_JAR"
-  }
-]
-```
+1. Use `script-runner.jar` to run the `copySnapshot.sh` script that you previously uploaded to your S3 bucket:
 
-```
-aws emr add-steps --cluster-id j-`2AXXXXXXGAPLF` \
---steps file://./createTable.json
-```
+   ```
+   aws emr add-steps --cluster-id j-{{2AXXXXXXGAPLF}} \
+   --steps Type=CUSTOM_JAR,Name="HBase Copy Snapshot",ActionOnFailure=CONTINUE,\
+   Jar=s3://{{region}}.elasticmapreduce/libs/script-runner/script-runner.jar,Args=["s3://{{amzn-s3-demo-bucket}}/copySnapshot.sh"]
+   ```
 
-4. Use `script-runner.jar` to run the
-   `copySnapshot.sh` script that you previously uploaded to
-   your S3 bucket:
+   This runs a MapReduce job to copy your snapshot data to the cluster HDFS.
 
-```
-aws emr add-steps --cluster-id j-`2AXXXXXXGAPLF` \
---steps Type=CUSTOM_JAR,Name="HBase Copy Snapshot",ActionOnFailure=CONTINUE,\
-Jar=s3://`region`.elasticmapreduce/libs/script-runner/script-runner.jar,Args=["s3://`amzn-s3-demo-bucket`/copySnapshot.sh"]
-```
+1. Restore the snapshot that you copied to the cluster using the following step:
 
-This runs a MapReduce job to copy your snapshot data to the cluster
-HDFS. 5. Restore the snapshot that you copied to the cluster using the following
-step:
+   restoreSnapshot.json
 
-restoreSnapshot.json
+   ```
+   [
+     {
+       "Name": "restore",
+       "Args": ["bash", "-c", "echo $'disable \"customer\"; restore_snapshot \"customer_snapshot1\"; enable \"customer\"' | hbase shell"],
+       "Jar": "command-runner.jar",
+       "ActionOnFailure": "CONTINUE",
+       "Type": "CUSTOM_JAR"
+     }
+   ]
+   ```
 
-```
-[
-  {
-    "Name": "restore",
-    "Args": ["bash", "-c", "echo $'disable \"customer\"; restore_snapshot \"customer_snapshot1\"; enable \"customer\"' | hbase shell"],
-    "Jar": "command-runner.jar",
-    "ActionOnFailure": "CONTINUE",
-    "Type": "CUSTOM_JAR"
-  }
-]
-```
+   ```
+   aws emr add-steps --cluster-id j-{{2AXXXXXXGAPLF}} \
+   --steps file://./restoreSnapshot.json
+   ```
 
-```
-aws emr add-steps --cluster-id j-`2AXXXXXXGAPLF` \
---steps file://./restoreSnapshot.json
-```
+1. Use `script-runner.jar` to run the `runQuery.sh` script that you previously uploaded to your S3 bucket:
 
-6. Use `script-runner.jar` to run the
-   `runQuery.sh` script that you previously uploaded to your
-   S3 bucket:
+   ```
+   aws emr add-steps --cluster-id j-{{2AXXXXXXGAPLF}} \
+   --steps Type=CUSTOM_JAR,Name="Phoenix Run Query",ActionOnFailure=CONTINUE,\
+   Jar=s3://{{region}}.elasticmapreduce/libs/script-runner/script-runner.jar,Args=["s3://{{amzn-s3-demo-bucket}}/runQuery.sh"]
+   ```
 
-```
-aws emr add-steps --cluster-id j-`2AXXXXXXGAPLF` \
---steps Type=CUSTOM_JAR,Name="Phoenix Run Query",ActionOnFailure=CONTINUE,\
-Jar=s3://`region`.elasticmapreduce/libs/script-runner/script-runner.jar,Args=["s3://`amzn-s3-demo-bucket`/runQuery.sh"]
-```
+   The query runs and returns the results to the step's `stdout`. It may take a few minutes for this step to complete.
 
-The query runs and returns the results to the step's
-`stdout`. It may take a few minutes for this step to
-complete. 7. Inspect the results of the step's `stdout` at the log URI
-that you used when you created the cluster in Step 1. The results should look
-like the following:
+1. Inspect the results of the step's `stdout` at the log URI that you used when you created the cluster in Step 1. The results should look like the following:
 
-```
-+------------------------------------------+-----------------------------------+
-|             CREDIT_CARD_TYPE             |              NUM_CUSTOMERS        |
-+------------------------------------------+-----------------------------------+
-| american_express                         | 5728                              |
-| dankort                                  | 5782                              |
-| diners_club                              | 5795                              |
-| discover                                 | 5715                              |
-| forbrugsforeningen                       | 5691                              |
-| jcb                                      | 5762                              |
-| laser                                    | 5769                              |
-| maestro                                  | 5816                              |
-| mastercard                               | 5697                              |
-| solo                                     | 5586                              |
-| switch                                   | 5781                              |
-| visa                                     | 5659                              |
-+------------------------------------------+-----------------------------------+
-
-```
+   ```
+   +------------------------------------------+-----------------------------------+
+   |             CREDIT_CARD_TYPE             |              NUM_CUSTOMERS        |
+   +------------------------------------------+-----------------------------------+
+   | american_express                         | 5728                              |
+   | dankort                                  | 5782                              |
+   | diners_club                              | 5795                              |
+   | discover                                 | 5715                              |
+   | forbrugsforeningen                       | 5691                              |
+   | jcb                                      | 5762                              |
+   | laser                                    | 5769                              |
+   | maestro                                  | 5816                              |
+   | mastercard                               | 5697                              |
+   | solo                                     | 5586                              |
+   | switch                                   | 5781                              |
+   | visa                                     | 5659                              |
+   +------------------------------------------+-----------------------------------+
+   ```

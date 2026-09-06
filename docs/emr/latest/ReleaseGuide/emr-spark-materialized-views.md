@@ -1,81 +1,57 @@
+
+
 # Using materialized views with Amazon EMR
+<a name="emr-spark-materialized-views"></a>
 
-Amazon EMR release 7.12.0 and later supports creating and managing Apache Iceberg
-materialized views in the AWS Glue Data Catalog. A materialized view is a managed
-table that stores the precomputed result of a SQL query in Apache Iceberg format and
-incrementally updates as the underlying source tables change. You can use materialized
-views to simplify data transformation pipelines and accelerate query performance for
-complex analytical workloads.
+Amazon EMR release 7.12.0 and later supports creating and managing Apache Iceberg materialized views in the AWS Glue Data Catalog. A materialized view is a managed table that stores the precomputed result of a SQL query in Apache Iceberg format and incrementally updates as the underlying source tables change. You can use materialized views to simplify data transformation pipelines and accelerate query performance for complex analytical workloads.
 
-When you create a materialized view using Spark on Amazon EMR, the view definition and
-metadata are stored in the AWS Glue Data Catalog. The precomputed results are stored
-as Apache Iceberg tables in Amazon S3 Tables buckets or Amazon S3 general purpose
-buckets within your AWS account. The AWS Glue Data Catalog automatically monitors
-source tables and refreshes materialized views using managed compute
-infrastructure.
+When you create a materialized view using Spark on Amazon EMR, the view definition and metadata are stored in the AWS Glue Data Catalog. The precomputed results are stored as Apache Iceberg tables in Amazon S3 Tables buckets or Amazon S3 general purpose buckets within your AWS account. The AWS Glue Data Catalog automatically monitors source tables and refreshes materialized views using managed compute infrastructure.
 
-###### Topics
-
-- [How materialized views work with Amazon EMR](#emr-spark-materialized-views-how-it-works "#emr-spark-materialized-views-how-it-works")
-- [Prerequisites](#emr-spark-materialized-views-prerequisites "#emr-spark-materialized-views-prerequisites")
-- [Configuring Spark to use materialized views](#emr-spark-materialized-views-configure "#emr-spark-materialized-views-configure")
-- [Creating materialized views](#emr-spark-materialized-views-create "#emr-spark-materialized-views-create")
-- [Querying materialized views](#emr-spark-materialized-views-query "#emr-spark-materialized-views-query")
-- [Refreshing materialized views](#emr-spark-materialized-views-refresh "#emr-spark-materialized-views-refresh")
-- [Managing materialized views](#emr-spark-materialized-views-manage "#emr-spark-materialized-views-manage")
-- [Permissions for materialized views](#emr-spark-materialized-views-permissions "#emr-spark-materialized-views-permissions")
-- [Monitoring materialized view operations](#emr-spark-materialized-views-monitoring "#emr-spark-materialized-views-monitoring")
-- [Example: Complete workflow](#emr-spark-materialized-views-example "#emr-spark-materialized-views-example")
-- [Considerations and limitations](#emr-spark-materialized-views-limitations "#emr-spark-materialized-views-limitations")
+**Topics**
++ [How materialized views work with Amazon EMR](#emr-spark-materialized-views-how-it-works)
++ [Prerequisites](#emr-spark-materialized-views-prerequisites)
++ [Configuring Spark to use materialized views](#emr-spark-materialized-views-configure)
++ [Creating materialized views](#emr-spark-materialized-views-create)
++ [Querying materialized views](#emr-spark-materialized-views-query)
++ [Refreshing materialized views](#emr-spark-materialized-views-refresh)
++ [Managing materialized views](#emr-spark-materialized-views-manage)
++ [Permissions for materialized views](#emr-spark-materialized-views-permissions)
++ [Monitoring materialized view operations](#emr-spark-materialized-views-monitoring)
++ [Example: Complete workflow](#emr-spark-materialized-views-example)
++ [Considerations and limitations](#emr-spark-materialized-views-limitations)
 
 ## How materialized views work with Amazon EMR
+<a name="emr-spark-materialized-views-how-it-works"></a>
 
-Materialized views integrate with Amazon EMR through Apache Spark's Iceberg support.
-When you configure your Spark session to use the AWS Glue Data Catalog, you can
-create materialized views using standard SQL syntax. The Spark optimizer can
-automatically rewrite queries to use materialized views when they provide better
-performance, eliminating the need to manually modify application code.
+Materialized views integrate with Amazon EMR through Apache Spark's Iceberg support. When you configure your Spark session to use the AWS Glue Data Catalog, you can create materialized views using standard SQL syntax. The Spark optimizer can automatically rewrite queries to use materialized views when they provide better performance, eliminating the need to manually modify application code.
 
-The AWS Glue Data Catalog handles all operational aspects of materialized view
-maintenance, including:
+The AWS Glue Data Catalog handles all operational aspects of materialized view maintenance, including:
++ Detecting changes in source tables using Apache Iceberg's metadata layer
++ Scheduling and executing refresh operations using managed Spark compute
++ Determining whether to perform full or incremental refresh based on the data changes
++ Storing precomputed results in Apache Iceberg format for multi-engine access
 
-- Detecting changes in source tables using Apache Iceberg's metadata
-  layer
-- Scheduling and executing refresh operations using managed Spark
-  compute
-- Determining whether to perform full or incremental refresh based on the
-  data changes
-- Storing precomputed results in Apache Iceberg format for multi-engine
-  access
-
-You can query materialized views from Amazon EMR using the same Spark SQL interfaces
-you use for regular tables. The precomputed data is also accessible from other
-services including Amazon Athena and Amazon Redshift.
+You can query materialized views from Amazon EMR using the same Spark SQL interfaces you use for regular tables. The precomputed data is also accessible from other services including Amazon Athena and Amazon Redshift.
 
 ## Prerequisites
+<a name="emr-spark-materialized-views-prerequisites"></a>
 
 To use materialized views with Amazon EMR, you need:
-
-- An AWS account
-- An Amazon EMR cluster running release 7.12.0 or later
-- Source tables in Apache Iceberg format registered in the AWS Glue Data
-  Catalog
-- AWS Lake Formation permissions configured for source tables and target
-  databases
-- An S3 Tables bucket or S3 general purpose bucket registered with AWS
-  Lake Formation for storing materialized view data
++ An AWS account
++ An Amazon EMR cluster running release 7.12.0 or later
++ Source tables in Apache Iceberg format registered in the AWS Glue Data Catalog
++ AWS Lake Formation permissions configured for source tables and target databases
++ An S3 Tables bucket or S3 general purpose bucket registered with AWS Lake Formation for storing materialized view data
 
 ## Configuring Spark to use materialized views
+<a name="emr-spark-materialized-views-configure"></a>
 
-To create and manage materialized views, configure your Spark session with the
-required Iceberg extensions and catalog settings. The configuration varies depending
-on whether your source tables and materialized views use S3 Tables buckets or S3
-general purpose buckets.
+To create and manage materialized views, configure your Spark session with the required Iceberg extensions and catalog settings. The configuration varies depending on whether your source tables and materialized views use S3 Tables buckets or S3 general purpose buckets.
 
 ### Configuring for S3 Tables
+<a name="emr-spark-materialized-views-configure-s3-tables"></a>
 
-When using S3 Tables buckets for materialized views, configure separate
-catalog references for your source tables and materialized views:
+When using S3 Tables buckets for materialized views, configure separate catalog references for your source tables and materialized views:
 
 ```
 spark-sql \
@@ -100,9 +76,9 @@ spark-sql \
 ```
 
 ### Configuring for S3 general purpose buckets
+<a name="emr-spark-materialized-views-configure-s3-general"></a>
 
-When using S3 general purpose buckets, configure a single catalog
-reference:
+When using S3 general purpose buckets, configure a single catalog reference:
 
 ```
 spark-sql \
@@ -120,42 +96,34 @@ spark-sql \
 ```
 
 ### Enabling incremental refresh
+<a name="emr-spark-materialized-views-configure-incremental"></a>
 
-To enable incremental refresh optimization, add the following configuration
-properties to your Spark session:
+To enable incremental refresh optimization, add the following configuration properties to your Spark session:
 
 ```
 spark-sql \
   --conf spark.sql.optimizer.incrementalMVRefresh.enabled=true \
-
 ```
 
 ### Configuration parameters
+<a name="emr-spark-materialized-views-configure-parameters"></a>
 
-The following configuration parameters control materialized view
-behavior:
-
-- `spark.sql.extensions` – Enables Iceberg Spark session
-  extensions required for materialized view support.
-- `spark.sql.optimizer.answerQueriesWithMVs.enabled` –
-  Enables automatic query rewrite to use materialized views. Set to true
-  to activate this optimization.
-- `spark.sql.optimizer.incrementalMVRefresh.enabled` –
-  Enables incremental refresh optimization. Set to true to process only
-  changed data during refresh operations.
+The following configuration parameters control materialized view behavior:
++ `spark.sql.extensions` – Enables Iceberg Spark session extensions required for materialized view support.
++ `spark.sql.optimizer.answerQueriesWithMVs.enabled` – Enables automatic query rewrite to use materialized views. Set to true to activate this optimization.
++ `spark.sql.optimizer.incrementalMVRefresh.enabled` – Enables incremental refresh optimization. Set to true to process only changed data during refresh operations.
 
 ## Creating materialized views
+<a name="emr-spark-materialized-views-create"></a>
 
-You create materialized views using the CREATE MATERIALIZED VIEW SQL statement.
-The view definition specifies the transformation logic as a SQL query that
-references one or more source tables.
+You create materialized views using the CREATE MATERIALIZED VIEW SQL statement. The view definition specifies the transformation logic as a SQL query that references one or more source tables.
 
 ### DLLs
+<a name="emr-spark-materialized-views-create-dlls"></a>
 
 **Create View**
 
 ```
-
 { CREATE OR REPLACE MATERIALIZED VIEW | CREATE MATERIALIZED VIEW [ IF NOT EXISTS ] }
    view_identifier
   [ view_clauses ]
@@ -170,124 +138,109 @@ view_clauses =
 
 schedule_clause =
   { EVERY number { HOUR | HOURS | DAY | DAYS | WEEK | WEEKS } }
-
 ```
 
-###### Note
-
+**Note**  
 The view\_clauses must appear before the select\_statement.
 
 ### Creating a basic materialized view
+<a name="emr-spark-materialized-views-create-basic"></a>
 
-The following example creates a materialized view that aggregates order data
-by customer, use fully qualified table names with three part naming convention
-in view definition:
+The following example creates a materialized view that aggregates order data by customer, use fully qualified table names with three part naming convention in view definition:
 
 ```
 CREATE MATERIALIZED VIEW customer_orders
-AS
-SELECT
-    customer_name,
-    COUNT(*) as order_count,
-    SUM(amount) as total_amount
+AS 
+SELECT 
+    customer_name, 
+    COUNT(*) as order_count, 
+    SUM(amount) as total_amount 
 FROM glue_catalog.sales.orders
 GROUP BY customer_name;
 ```
 
 ### Creating a materialized view with automatic refresh
+<a name="emr-spark-materialized-views-create-auto-refresh"></a>
 
-To configure automatic refresh, specify a refresh schedule when creating the
-view using fully qualified table names with three part naming convention in view
-definition:
+To configure automatic refresh, specify a refresh schedule when creating the view using fully qualified table names with three part naming convention in view definition:
 
 ```
 CREATE MATERIALIZED VIEW customer_orders
 SCHEDULE REFRESH EVERY 1 HOUR
-AS
-SELECT
-    customer_name,
-    COUNT(*) as order_count,
-    SUM(amount) as total_amount
+AS 
+SELECT 
+    customer_name, 
+    COUNT(*) as order_count, 
+    SUM(amount) as total_amount 
 FROM glue_catalog.sales.orders
 GROUP BY customer_name;
 ```
 
 ### Creating a materialized view with cross-catalog references
+<a name="emr-spark-materialized-views-create-cross-catalog"></a>
 
-When your source tables are in a different catalog than your materialized
-view, use fully qualified table names with three-part naming convention in both
-view name and view definition:
+When your source tables are in a different catalog than your materialized view, use fully qualified table names with three-part naming convention in both view name and view definition:
 
 ```
 CREATE MATERIALIZED VIEW s3t_catalog.analytics.customer_summary
-AS
-SELECT
-    customer_name,
-    COUNT(*) as order_count,
-    SUM(amount) as total_amount
+AS 
+SELECT 
+    customer_name, 
+    COUNT(*) as order_count, 
+    SUM(amount) as total_amount 
 FROM glue_catalog.sales.orders
 GROUP BY customer_name;
 ```
 
 ## Querying materialized views
+<a name="emr-spark-materialized-views-query"></a>
 
-After creating a materialized view, you can query it like any other table using
-standard SQL SELECT statements:
+After creating a materialized view, you can query it like any other table using standard SQL SELECT statements:
 
 ```
 SELECT * FROM customer_orders;
 ```
 
 ### Automatic query rewrite
+<a name="emr-spark-materialized-views-query-rewrite"></a>
 
-When automatic query rewrite is enabled, the Spark optimizer analyzes your
-queries and automatically uses materialized views when they can improve
-performance. For example, if you execute the following query:
+When automatic query rewrite is enabled, the Spark optimizer analyzes your queries and automatically uses materialized views when they can improve performance. For example, if you execute the following query:
 
 ```
-SELECT
-    customer_name,
-    COUNT(*) as order_count,
-    SUM(amount) as total_amount
+SELECT 
+    customer_name, 
+    COUNT(*) as order_count, 
+    SUM(amount) as total_amount 
 FROM orders
 GROUP BY customer_name;
 ```
 
-The Spark optimizer automatically rewrites this query to use the
-customer\_orders materialized view instead of processing the base orders table,
-provided the materialized view is current.
+The Spark optimizer automatically rewrites this query to use the customer\_orders materialized view instead of processing the base orders table, provided the materialized view is current.
 
 ### Verifying automatic query rewrite
+<a name="emr-spark-materialized-views-query-verify"></a>
 
-To verify whether a query uses automatic query rewrite, use the EXPLAIN
-EXTENDED command:
+To verify whether a query uses automatic query rewrite, use the EXPLAIN EXTENDED command:
 
 ```
 EXPLAIN EXTENDED
-SELECT customer_name, COUNT(*) as order_count, SUM(amount) as total_amount
+SELECT customer_name, COUNT(*) as order_count, SUM(amount) as total_amount 
 FROM orders
 GROUP BY customer_name;
 ```
 
-In the execution plan, look for the materialized view name in the BatchScan
-operation. If the plan shows BatchScan glue\_catalog.analytics.customer\_orders
-instead of BatchScan glue\_catalog.sales.orders, the query has been automatically
-rewritten to use the materialized view.
+In the execution plan, look for the materialized view name in the BatchScan operation. If the plan shows BatchScan glue\_catalog.analytics.customer\_orders instead of BatchScan glue\_catalog.sales.orders, the query has been automatically rewritten to use the materialized view.
 
-###### Note
-
-Automatic query rewrite requires time for the Spark metadata cache to
-populate after creating a materialized view. This process typically
-completes within 30 seconds.
+**Note**  
+Automatic query rewrite requires time for the Spark metadata cache to populate after creating a materialized view. This process typically completes within 30 seconds.
 
 ## Refreshing materialized views
+<a name="emr-spark-materialized-views-refresh"></a>
 
-You can refresh materialized views using two methods: full refresh or incremental
-refresh. Full refresh recomputes the entire materialized view from all base table
-data, while incremental refresh processes only the data that has changed since the
-last refresh.
+You can refresh materialized views using two methods: full refresh or incremental refresh. Full refresh recomputes the entire materialized view from all base table data, while incremental refresh processes only the data that has changed since the last refresh.
 
 ### Manual full refresh
+<a name="emr-spark-materialized-views-refresh-full"></a>
 
 To perform a full refresh of a materialized view:
 
@@ -295,96 +248,89 @@ To perform a full refresh of a materialized view:
 REFRESH MATERIALIZED VIEW customer_orders FULL;
 ```
 
-After executing this command, query the materialized view to verify the
-updated results:
+After executing this command, query the materialized view to verify the updated results:
 
 ```
 SELECT * FROM customer_orders;
 ```
 
 ### Manual incremental refresh
+<a name="emr-spark-materialized-views-refresh-incremental"></a>
 
-To perform an incremental refresh, ensure incremental refresh is enabled in
-your Spark session configuration, then execute:
+To perform an incremental refresh, ensure incremental refresh is enabled in your Spark session configuration, then execute:
 
 ```
 REFRESH MATERIALIZED VIEW customer_orders;
 ```
 
-The AWS Glue Data Catalog automatically determines whether incremental
-refresh is applicable based on the view definition and the amount of changed
-data. If incremental refresh is not possible, the operation falls back to full
-refresh.
+The AWS Glue Data Catalog automatically determines whether incremental refresh is applicable based on the view definition and the amount of changed data. If incremental refresh is not possible, the operation falls back to full refresh.
 
 ### Verifying incremental refresh execution
+<a name="emr-spark-materialized-views-refresh-verify"></a>
 
-To confirm that incremental refresh executed successfully, you can check the
-`lastRefreshType` table properties by running the following
-commands:
+To confirm that incremental refresh executed successfully, you can check the `lastRefreshType` table properties by running the following commands:
 
 ```
-
 SHOW TBLPROPERTIES <mvName>("lastRefreshType")
-
 ```
 
-Also, this can also be achieved by enabling debug logging by modifying your
-Spark log configuration:
+Also, this can also be achieved by enabling debug logging by modifying your Spark log configuration:
 
 1. Open the Spark log4j configuration file:
 
-```
-sudo vim /usr/lib/spark/conf/log4j2.properties
-```
+   ```
+   sudo vim /usr/lib/spark/conf/log4j2.properties
+   ```
 
-2. Add the following logger configurations:
+1. Add the following logger configurations:
 
-```
-logger.spark.name = org.apache.spark.sql
-logger.spark.level = debug
+   ```
+   logger.spark.name = org.apache.spark.sql
+   logger.spark.level = debug
+   
+   logger.inmemcache.name = org.apache.spark.sql.InMemMvMetadataCache
+   logger.inmemcache.level = off
+   ```
 
-logger.inmemcache.name = org.apache.spark.sql.InMemMvMetadataCache
-logger.inmemcache.level = off
-```
+1. After executing a refresh operation, search for the following message in the Spark output:
 
-3. After executing a refresh operation, search for the following message
-   in the Spark output:
-
-```
-DEBUG RefreshMaterializedViewExec: Executed Incremental Refresh
-```
+   ```
+   DEBUG RefreshMaterializedViewExec: Executed Incremental Refresh
+   ```
 
 ## Managing materialized views
+<a name="emr-spark-materialized-views-manage"></a>
 
-Amazon EMR provides SQL commands for managing the lifecycle of materialized
-views.
+Amazon EMR provides SQL commands for managing the lifecycle of materialized views.
 
 ### Describing a materialized view
+<a name="emr-spark-materialized-views-manage-describe"></a>
 
-To view metadata about a materialized view, including its definition, refresh
-status, and last refresh timestamp:
+To view metadata about a materialized view, including its definition, refresh status, and last refresh timestamp:
 
 ```
 DESCRIBE EXTENDED customer_orders;
 ```
 
 ### Altering a materialized view
+<a name="emr-spark-materialized-views-manage-alter"></a>
 
 To modify the refresh schedule of an existing materialized view:
 
 ```
-ALTER MATERIALIZED VIEW customer_orders
+ALTER MATERIALIZED VIEW customer_orders 
 ADD SCHEDULE REFRESH EVERY 2 HOURS;
 ```
 
 To remove automatic refresh:
 
 ```
-ALTER MATERIALIZED VIEW customer_orders
+ALTER MATERIALIZED VIEW customer_orders 
 DROP SCHEDULE;
 ```
 
 ### Dropping a materialized view
+<a name="emr-spark-materialized-views-manage-drop"></a>
 
 To delete a materialized view:
 
@@ -392,189 +338,151 @@ To delete a materialized view:
 DROP MATERIALIZED VIEW customer_orders;
 ```
 
-This command removes the materialized view definition from the AWS Glue Data
-Catalog and deletes the underlying Iceberg table data from your S3
-bucket.
+This command removes the materialized view definition from the AWS Glue Data Catalog and deletes the underlying Iceberg table data from your S3 bucket.
 
 ## Permissions for materialized views
+<a name="emr-spark-materialized-views-permissions"></a>
 
-To create and manage materialized views, you must configure permissions for
-the IAM role that creates the view (the definer role). Amazon EMR supports two
-permission models:
-
-- **IAM policies only** – If you manage your
-  data lake with IAM policies, no AWS Lake Formation configuration is
-  required.
-- **AWS Lake Formation** – If you already
-  use AWS Lake Formation to govern your data lake, you can configure AWS
-  Lake Formation permissions for materialized views.
+To create and manage materialized views, you must configure permissions for the IAM role that creates the view (the definer role). Amazon EMR supports two permission models:
++ **IAM policies only** – If you manage your data lake with IAM policies, no AWS Lake Formation configuration is required.
++ **AWS Lake Formation** – If you already use AWS Lake Formation to govern your data lake, you can configure AWS Lake Formation permissions for materialized views.
 
 ### Required permissions for the definer role
+<a name="emr-spark-materialized-views-permissions-definer"></a>
 
 The definer role must have the following Lake Formation permissions:
++ On source tables – SELECT or ALL permissions without row, column, or cell filters
++ On the target database – CREATE\_TABLE permission
++ On the AWS Glue Data Catalog – GetTable and CreateTable API permissions
 
-- On source tables – SELECT or ALL permissions without row, column, or
-  cell filters
-- On the target database – CREATE\_TABLE permission
-- On the AWS Glue Data Catalog – GetTable and CreateTable API
-  permissions
-
-When you create a materialized view, the definer role's ARN is stored in the
-view definition. The AWS Glue Data Catalog assumes this role when executing
-automatic refresh operations. If the definer role loses access to source tables,
-refresh operations will fail until permissions are restored.
+When you create a materialized view, the definer role's ARN is stored in the view definition. The AWS Glue Data Catalog assumes this role when executing automatic refresh operations. If the definer role loses access to source tables, refresh operations will fail until permissions are restored.
 
 ### Granting access to materialized views
+<a name="emr-spark-materialized-views-permissions-access"></a>
 
-To grant other users access to query a materialized view, use AWS Lake
-Formation to grant SELECT permission on the materialized view table. Users can
-query the materialized view without requiring direct access to the underlying
-source tables.
+To grant other users access to query a materialized view, use AWS Lake Formation to grant SELECT permission on the materialized view table. Users can query the materialized view without requiring direct access to the underlying source tables.
 
-For detailed information about configuring Lake Formation permissions, see
-Granting and revoking permissions on Data Catalog resources in the AWS Lake
-Formation Developer Guide.
+For detailed information about configuring Lake Formation permissions, see Granting and revoking permissions on Data Catalog resources in the AWS Lake Formation Developer Guide.
 
 ## Monitoring materialized view operations
+<a name="emr-spark-materialized-views-monitoring"></a>
 
-The AWS Glue Data Catalog publishes metrics and logs for materialized view
-refresh operations to Amazon CloudWatch. You can monitor refresh status, duration,
-and data volume processed through CloudWatch metrics.
+The AWS Glue Data Catalog publishes metrics and logs for materialized view refresh operations to Amazon CloudWatch. You can monitor refresh status, duration, and data volume processed through CloudWatch metrics.
 
 ### Viewing refresh metrics
+<a name="emr-spark-materialized-views-monitoring-metrics"></a>
 
 To view materialized view refresh metrics:
 
 1. Open the CloudWatch console.
-2. Choose Metrics from the navigation pane.
-3. Select the Glue namespace.
-4. Filter metrics by the materialized view name.
+
+1. Choose Metrics from the navigation pane.
+
+1. Select the Glue namespace.
+
+1. Filter metrics by the materialized view name.
 
 ### Setting up alarms
+<a name="emr-spark-materialized-views-monitoring-alarms"></a>
 
-To receive notifications when refresh operations fail or exceed expected
-duration, create CloudWatch alarms on materialized view metrics. You can also
-configure Amazon EventBridge rules to trigger automated responses to refresh
-events.
+To receive notifications when refresh operations fail or exceed expected duration, create CloudWatch alarms on materialized view metrics. You can also configure Amazon EventBridge rules to trigger automated responses to refresh events.
 
 ## Example: Complete workflow
+<a name="emr-spark-materialized-views-example"></a>
 
-The following example demonstrates a complete workflow for creating and using a
-materialized view on Amazon EMR.
+The following example demonstrates a complete workflow for creating and using a materialized view on Amazon EMR.
 
 1. Connect to your EMR cluster primary node using SSH.
-2. Create a base table with sample data:
 
-```
-spark-sql \
-  --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
-  --conf spark.sql.catalog.glue_catalog=org.apache.iceberg.spark.SparkCatalog \
-  --conf spark.sql.catalog.glue_catalog.type=glue \
-  --conf spark.sql.catalog.glue_catalog.warehouse=s3://amzn-s3-demo-bucket/warehouse \
-  --conf spark.sql.catalog.glue_catalog.glue.region=us-east-1 \
-  --conf spark.sql.catalog.glue_catalog.glue.id=111122223333 \
-  --conf spark.sql.catalog.glue_catalog.glue.account-id=111122223333 \
-  --conf spark.sql.catalog.glue_catalog.glue.lakeformation-enabled=true \
-  --conf spark.sql.defaultCatalog=glue_catalog \
-  --conf spark.sql.optimizer.answerQueriesWithMVs.enabled=true
+1. Create a base table with sample data:
 
+   ```
+   spark-sql \
+     --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+     --conf spark.sql.catalog.glue_catalog=org.apache.iceberg.spark.SparkCatalog \
+     --conf spark.sql.catalog.glue_catalog.type=glue \
+     --conf spark.sql.catalog.glue_catalog.warehouse=s3://amzn-s3-demo-bucket/warehouse \
+     --conf spark.sql.catalog.glue_catalog.glue.region=us-east-1 \
+     --conf spark.sql.catalog.glue_catalog.glue.id=111122223333 \
+     --conf spark.sql.catalog.glue_catalog.glue.account-id=111122223333 \
+     --conf spark.sql.catalog.glue_catalog.glue.lakeformation-enabled=true \
+     --conf spark.sql.defaultCatalog=glue_catalog \
+     --conf spark.sql.optimizer.answerQueriesWithMVs.enabled=true 
+   
+   
+   CREATE DATABASE IF NOT EXISTS sales;
+   
+   USE sales;
+   
+   CREATE TABLE orders (
+       id INT,
+       customer_name STRING,
+       amount DECIMAL(10,2),
+       order_date DATE
+   );
+   
+   INSERT INTO orders VALUES 
+       (1, 'John Doe', 150.00, DATE('2024-01-15')),
+       (2, 'Jane Smith', 200.50, DATE('2024-01-16')),
+       (3, 'Bob Johnson', 75.25, DATE('2024-01-17'));
+   ```
 
-CREATE DATABASE IF NOT EXISTS sales;
+1. Create a materialized view:
 
-USE sales;
+   ```
+   CREATE MATERIALIZED VIEW customer_summary
+   AS 
+   SELECT 
+       customer_name, 
+       COUNT(*) as order_count, 
+       SUM(amount) as total_amount 
+   FROM glue_catalog.sales.orders
+   GROUP BY customer_name;
+   ```
 
-CREATE TABLE orders (
-    id INT,
-    customer_name STRING,
-    amount DECIMAL(10,2),
-    order_date DATE
-);
+1. Query the materialized view:
 
-INSERT INTO orders VALUES
-    (1, 'John Doe', 150.00, DATE('2024-01-15')),
-    (2, 'Jane Smith', 200.50, DATE('2024-01-16')),
-    (3, 'Bob Johnson', 75.25, DATE('2024-01-17'));
-```
+   ```
+   SELECT * FROM customer_summary;
+   ```
 
-3. Create a materialized view:
+1. Insert additional data into the base table:
 
-```
-CREATE MATERIALIZED VIEW customer_summary
-AS
-SELECT
-    customer_name,
-    COUNT(*) as order_count,
-    SUM(amount) as total_amount
-FROM glue_catalog.sales.orders
-GROUP BY customer_name;
-```
+   ```
+   INSERT INTO orders VALUES 
+       (4, 'Jane Smith', 350.00, DATE('2024-01-18')),
+       (5, 'Bob Johnson', 100.25, DATE('2024-01-19'));
+   ```
 
-4. Query the materialized view:
+1. Refresh the materialized view:
 
-```
-SELECT * FROM customer_summary;
-```
+   ```
+   REFRESH MATERIALIZED VIEW customer_summary FULL;
+   ```
 
-5. Insert additional data into the base table:
+1. Verify the updated results:
 
-```
-INSERT INTO orders VALUES
-    (4, 'Jane Smith', 350.00, DATE('2024-01-18')),
-    (5, 'Bob Johnson', 100.25, DATE('2024-01-19'));
-```
-
-6. Refresh the materialized view:
-
-```
-REFRESH MATERIALIZED VIEW customer_summary FULL;
-```
-
-7. Verify the updated results:
-
-```
-SELECT * FROM customer_summary;
-```
+   ```
+   SELECT * FROM customer_summary;
+   ```
 
 ## Considerations and limitations
+<a name="emr-spark-materialized-views-limitations"></a>
 
 Consider the following when using materialized views with Amazon EMR:
-
-- Materialized views require Amazon EMR release 7.12.0 or later.
-- Source tables must be Apache Iceberg tables registered in the AWS Glue
-  Data Catalog. Apache Hive, Apache Hudi, and Linux Foundation Delta Lake
-  tables are not supported at launch.
-- Source tables must reside in the same AWS Region and AWS account as
-  the materialized view.
-- Materialized views cannot reference AWS Glue Data Catalog views,
-  multi-dialect views, or other materialized views as source tables.
-- The view definer role must have full read access (SELECT or ALL
-  permission) on all source tables without row, column, or cell filters
-  applied.
-- Materialized views are eventually consistent with source tables. During
-  the refresh window, queries may return stale data. Execute manual refresh
-  for immediate consistency.
-- The minimum automatic refresh interval is one hour.
-- Incremental refresh supports a restricted subset of SQL operations. The
-  view definition must be a single SELECT-FROM-WHERE-GROUP BY-HAVING block and
-  cannot contain set operations, subqueries, the DISTINCT keyword in SELECT or
-  aggregate functions, window functions, or joins other than INNER
-  JOIN.
-- Incremental refresh does not support user-defined functions or certain
-  built-in functions. Only a subset of Spark SQL built-in functions are
-  supported.
-- Query automatic rewrite only considers materialized views whose
-  definitions belong to a restricted SQL subset similar to incremental refresh
-  restrictions.
-- Full refresh operations override the entire table and make previous
-  snapshots unavailable.
-- Identifiers containing special characters other than alphanumeric
-  characters and underscores are not supported in CREATE MATERIALIZED VIEW
-  queries.
-- Materialized view columns starting with the \_\_ivm prefix are reserved for
-  system use. AWS reserves the right to modify or remove these columns in
-  future releases.
-- The SORT BY, LIMIT, OFFSET, CLUSTER BY, and ORDER BY clauses are not
-  supported in materialized view definitions.
-- Cross-Region and cross-account source tables are not supported.
-- Non-deterministic functions such as rand() or current\_timestamp() are not
-  supported in materialized view definitions.
++ Materialized views require Amazon EMR release 7.12.0 or later.
++ Source tables must be Apache Iceberg tables registered in the AWS Glue Data Catalog. Apache Hive, Apache Hudi, and Linux Foundation Delta Lake tables are not supported at launch.
++ Source tables must reside in the same AWS Region and AWS account as the materialized view.
++ Materialized views cannot reference AWS Glue Data Catalog views, multi-dialect views, or other materialized views as source tables.
++ The view definer role must have full read access (SELECT or ALL permission) on all source tables without row, column, or cell filters applied.
++ Materialized views are eventually consistent with source tables. During the refresh window, queries may return stale data. Execute manual refresh for immediate consistency.
++ The minimum automatic refresh interval is one hour.
++ Incremental refresh supports a restricted subset of SQL operations. The view definition must be a single SELECT-FROM-WHERE-GROUP BY-HAVING block and cannot contain set operations, subqueries, the DISTINCT keyword in SELECT or aggregate functions, window functions, or joins other than INNER JOIN.
++ Incremental refresh does not support user-defined functions or certain built-in functions. Only a subset of Spark SQL built-in functions are supported.
++ Query automatic rewrite only considers materialized views whose definitions belong to a restricted SQL subset similar to incremental refresh restrictions.
++ Full refresh operations override the entire table and make previous snapshots unavailable.
++ Identifiers containing special characters other than alphanumeric characters and underscores are not supported in CREATE MATERIALIZED VIEW queries.
++ Materialized view columns starting with the \_\_ivm prefix are reserved for system use. AWS reserves the right to modify or remove these columns in future releases.
++ The SORT BY, LIMIT, OFFSET, CLUSTER BY, and ORDER BY clauses are not supported in materialized view definitions.
++ Cross-Region and cross-account source tables are not supported.
++ Non-deterministic functions such as rand() or current\_timestamp() are not supported in materialized view definitions.

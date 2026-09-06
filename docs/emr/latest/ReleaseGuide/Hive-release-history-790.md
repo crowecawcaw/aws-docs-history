@@ -1,16 +1,19 @@
+
+
 # Amazon EMR 7.9.0 - Hive release notes
+<a name="Hive-release-history-790"></a>
 
 ## Amazon EMR 7.9.0 - Hive changes
+<a name="Hive-release-history-changes-790"></a>
 
-| Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Bug Fix | Hive Blobstore Committer should not be used if the table being created via CTAS is ACID.                                                                                                                                                                                                                                                                                                                     |
-| Bug Fix | [HIVE-26096](https://issues.apache.org/jira/browse/HIVE-26096 "https://issues.apache.org/jira/browse/HIVE-26096"): Select on single column MultiDelimitSerDe table throws AIOBE (#3158).                                                                                                                                                                                                                     |
-| Upgrade | Upgrade Avro version to 1.11.4 by backporting [HIVE-26954](https://issues.apache.org/jira/browse/HIVE-26954 "https://issues.apache.org/jira/browse/HIVE-26954"), [HIVE-27877](https://issues.apache.org/jira/browse/HIVE-27877 "https://issues.apache.org/jira/browse/HIVE-27877")<br>and [HIVE-28574](https://issues.apache.org/jira/browse/HIVE-28574 "https://issues.apache.org/jira/browse/HIVE-28574"). |
+
+
+| Type | Description | 
+| --- | --- | 
+| Bug Fix | Hive Blobstore Committer should not be used if the table being created via CTAS is ACID. | 
+| Bug Fix | [HIVE-26096](https://issues.apache.org/jira/browse/HIVE-26096): Select on single column MultiDelimitSerDe table throws AIOBE (\#3158). | 
+| Upgrade | Upgrade Avro version to 1.11.4 by backporting [HIVE-26954](https://issues.apache.org/jira/browse/HIVE-26954), [HIVE-27877](https://issues.apache.org/jira/browse/HIVE-27877) and [HIVE-28574](https://issues.apache.org/jira/browse/HIVE-28574). | 
 
 **Known issues**
-
-- For Hive Insert Over-write queries with Amazon S3 Express One Zone as the output location, set
-  the core-site config: `fs.s3a.directory.operations.purge.uploads` to `false`.
-- From EMR-7.3.0 to EMR-7.10.0, there is a Bug due to Hive Iceberg integration which causes HBase table creation in Hive to fail when AWS Glue Data Catalog is
-  used as the metastore. Please reach out to the AWS support team if you encounter this issue.
++ For Hive Insert Over-write queries with Amazon S3 Express One Zone as the output location, set the core-site config: `fs.s3a.directory.operations.purge.uploads` to `false`.
++ From EMR-7.3.0 to EMR-7.10.0, there is a Bug due to Hive Iceberg integration which causes HBase table creation in Hive to fail when AWS Glue Data Catalog is used as the metastore. Please reach out to the AWS support team if you encounter this issue.
