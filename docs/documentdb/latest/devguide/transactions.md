@@ -1,80 +1,80 @@
-# Transactions in Amazon DocumentDB
 
-Amazon DocumentDB (with MongoDB compatibility) supports transactions in Amazon DocumentDB 4.0 and later. You can perform transactions across multiple documents, statements, collections, and databases. Transactions simplify application development by enabling you to perform atomic, consistent, isolated, and durable (ACID) operations across one or more documents within an Amazon DocumentDB cluster. Common use cases for transactions include financial processing, fulfilling and managing orders, and building multi-player games.
+
+# Transactions in Amazon DocumentDB
+<a name="transactions"></a>
+
+Amazon DocumentDB (with MongoDB compatibility) supports transactions in Amazon DocumentDB 4.0 and later. You can perform transactions across multiple documents, statements, collections, and databases. Transactions simplify application development by enabling you to perform atomic, consistent, isolated, and durable (ACID) operations across one or more documents within an Amazon DocumentDB cluster. Common use cases for transactions include financial processing, fulfilling and managing orders, and building multi-player games. 
 
 There is no additional cost for transactions. You only pay for the read and write IOs that you consume as part of the transactions.
 
-###### Topics
-
-- [Requirements](#transactions-requirements "#transactions-requirements")
-- [Best practices](#transactions-best-practices "#transactions-best-practices")
-- [Limitations](#transactions-limitations "#transactions-limitations")
-- [Monitoring and diagnostics](#transactions-monitoring "#transactions-monitoring")
-- [Transaction isolation level](#transactions-isolation-level "#transactions-isolation-level")
-- [Use cases](#transactions-usecases "#transactions-usecases")
-- [Supported commands](#transactions-supported-commands "#transactions-supported-commands")
-- [Unsupported capabilities](#transactions-unsupported-commands "#transactions-unsupported-commands")
-- [Sessions](#transactions-sessions "#transactions-sessions")
-- [Transaction errors](#transactions-errors "#transactions-errors")
+**Topics**
++ [Requirements](#transactions-requirements)
++ [Best practices](#transactions-best-practices)
++ [Limitations](#transactions-limitations)
++ [Monitoring and diagnostics](#transactions-monitoring)
++ [Transaction isolation level](#transactions-isolation-level)
++ [Use cases](#transactions-usecases)
++ [Supported commands](#transactions-supported-commands)
++ [Unsupported capabilities](#transactions-unsupported-commands)
++ [Sessions](#transactions-sessions)
++ [Transaction errors](#transactions-errors)
 
 ## Requirements
+<a name="transactions-requirements"></a>
 
 To use the transactions feature, you need to meet the following requirements:
-
-- You must use Amazon DocumentDB 4.0 or later.
-- You must use a driver compatible with MongoDB 4.0 or later.
++ You must use Amazon DocumentDB 4.0 or later.
++ You must use a driver compatible with MongoDB 4.0 or later. 
 
 ## Best practices
+<a name="transactions-best-practices"></a>
 
 Here are some best practices so that you can get the most using transactions with Amazon DocumentDB.
-
-- Always commit or abort the transaction after it is complete. Leaving a transaction in an incomplete state ties up database resources and can cause write conflicts.
-- It is recommended to keep transactions to the smallest number of commands needed. If you have transactions with multiple statements that can be divided up into multiple smaller transactions, it is advisable to do so to reduce the likelihood of a timeout. Always aim to create short transactions, not long-running reads.
++ Always commit or abort the transaction after it is complete. Leaving a transaction in an incomplete state ties up database resources and can cause write conflicts.
++ It is recommended to keep transactions to the smallest number of commands needed. If you have transactions with multiple statements that can be divided up into multiple smaller transactions, it is advisable to do so to reduce the likelihood of a timeout. Always aim to create short transactions, not long-running reads. 
 
 ## Limitations
+<a name="transactions-limitations"></a>
++ Amazon DocumentDB does not support cursors within a transaction.
++ Amazon DocumentDB cannot create new collections in a transaction and cannot query/update against non-existing collections.
++ Document-level write locks are subject to a 1 minute timeout, which is not configurable by the user.
++ Retryable writes, retryable commit, and retryable abort commands are not supported in Amazon DocumentDB. If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string. By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
++ Each Amazon DocumentDB instance has an upper bound on the number of concurrent transactions that can be open on the instance. For more information, see [Instance quotas](limits.md#limits.instance).
++ For a given transaction, the transaction log size must be less than 32MB.
++ Amazon DocumentDB does support `count()` within a transactions, but not all drivers support this capability. An alternative is to use the `countDocuments()` API, which translates the count query into an aggregation query on the client side.
++ Transactions have a one minute execution limit and sessions have a 30-minute timeout. If a transaction times out, it will be aborted, and any subsequent commands issued within the session for the existing transaction will yield the following error:
 
-- Amazon DocumentDB does not support cursors within a transaction.
-- Amazon DocumentDB cannot create new collections in a transaction and cannot query/update against non-existing collections.
-- Document-level write locks are subject to a 1 minute timeout, which is not configurable by the user.
-- Retryable writes, retryable commit, and retryable abort commands are not supported in Amazon DocumentDB.
-  If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string.
-  By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
-- Each Amazon DocumentDB instance has an upper bound on the number of concurrent transactions that can be open on the instance. For more information, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance").
-- For a given transaction, the transaction log size must be less than 32MB.
-- Amazon DocumentDB does support `count()` within a transactions, but not all drivers support this capability. An alternative is to use the `countDocuments()` API, which translates the count query into an aggregation query on the client side.
-- Transactions have a one minute execution limit and sessions have a 30-minute timeout. If a transaction times out, it will be aborted, and any subsequent commands issued within the session for the existing transaction will yield the following error:
-
-```
-WriteCommandError({
-"ok" : 0,
-"operationTime" : Timestamp(1603491424, 627726),
-"code" : 251,
-"errmsg" : "Given transaction number 0 does not match any in-progress transactions."
-}
-```
+  ```
+  WriteCommandError({
+  "ok" : 0,
+  "operationTime" : Timestamp(1603491424, 627726),
+  "code" : 251,
+  "errmsg" : "Given transaction number 0 does not match any in-progress transactions."
+  }
+  ```
 
 ## Monitoring and diagnostics
+<a name="transactions-monitoring"></a>
 
 With the support for transactions in Amazon DocumentDB 4.0, additional CloudWatch metrics were added to help you monitor your transactions.
 
 New CloudWatch Metrics
++ `DatabaseTransactions`: The number of open transactions taken at a one-minute period.
++ `DatabaseTransactionsAborted`: The number of aborted transactions taken at a one-minute period.
++ `DatabaseTransactionsMax`: The maximum number of open transactions in a one-minute period.
++ `TransactionsAborted`: The number of transactions aborted on an instance in a one-minute period.
++ `TransactionsCommitted`: The number of transactions committed on an instance in a one-minute period.
++ `TransactionsOpen`: The number of transactions open on an instance taken at a one-minute period.
++ `TransactionsOpenMax`: The maximum number of transactions open on an instance in a one-minute period.
++ `TransactionsStarted`: The number of transactions started on an instance in a one-minute period.
 
-- `DatabaseTransactions`: The number of open transactions taken at a one-minute period.
-- `DatabaseTransactionsAborted`: The number of aborted transactions taken at a one-minute period.
-- `DatabaseTransactionsMax`: The maximum number of open transactions in a one-minute period.
-- `TransactionsAborted`: The number of transactions aborted on an instance in a one-minute period.
-- `TransactionsCommitted`: The number of transactions committed on an instance in a one-minute period.
-- `TransactionsOpen`: The number of transactions open on an instance taken at a one-minute period.
-- `TransactionsOpenMax`: The maximum number of transactions open on an instance in a one-minute period.
-- `TransactionsStarted`: The number of transactions started on an instance in a one-minute period.
-
-###### Note
-
-For more CloudWatch metrics for Amazon DocumentDB, go to [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md "cloud_watch.md").
+**Note**  
+For more CloudWatch metrics for Amazon DocumentDB, go to [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md).
 
 Additionally, new fields were added to both `currentOp` `lsid`, `transactionThreadId`, and a new state for “`idle transaction`” and `serverStatus` transactions: `currentActive`, `currentInactive`, `currentOpen`, `totalAborted`, `totalCommitted`, and `totalStarted`.
 
 ## Transaction isolation level
+<a name="transactions-isolation-level"></a>
 
 When starting a transaction, you have the ability to specify both the `readConcern` and `writeConcern` as shown in the following example:
 
@@ -85,17 +85,18 @@ For `readConcern`, Amazon DocumentDB supports snapshot isolation by default. If 
 For `writeConcern`, Amazon DocumentDB supports majority by default and a write quorum is achieved when four copies of the data are persisted across three AZs. If a lower `writeConcern` is specified, Amazon DocumentDB will upgrade the `writeConcern` to majority. Further, all Amazon DocumentDB writes are journaled and journaling cannot be disabled.
 
 ## Use cases
+<a name="transactions-usecases"></a>
 
 In this section, we will walk through two use cases for transactions: multi-statement and multi-collection.
 
 ### Multi-Statement Transactions
+<a name="transactions-usecases-multistatement"></a>
 
 Amazon DocumentDB transactions are multi-statement, which means you can write a transaction that spans multiple statements with an explicit commit or rollback. You can group `insert`, `update`, `delete`, and `findAndModify` actions as a single atomic operation.
 
 A common use case for multi-statement transactions is a debit-credit transaction. For example: you owe a friend money for clothes. Thus, you need to debit (withdraw) $500 from your account and credit $500 (deposit) to your friend's account. To perform that operation, you perform both the debit and credit operations within a single transaction to ensure atomicity. Doing so prevents scenarios where $500 is debited from your account, but not credited to your friend’s account. Here's what this use case would look like:
 
 ```
-
 // *** Transfer $500 from Alice to Bob inside a transaction: Success Scenario***
 // Setup bank account for Alice and Bob. Each have $1000 in their account
 
@@ -103,7 +104,7 @@ var databaseName = "bank";
 var collectionName = "account";
 var amountToTransfer = 500;
 
-var session = db.getMongo().startSession({causalConsistency: false});
+var session = db.getMongo().startSession({causalConsistency: false});   
 var bankDB = session.getDatabase(databaseName);
 var accountColl = bankDB[collectionName];
 accountColl.drop();
@@ -136,7 +137,7 @@ var databaseName = "bank";
 var collectionName = "account";
 var amountToTransfer = 500;
 
-var session = db.getMongo().startSession({causalConsistency: false});
+var session = db.getMongo().startSession({causalConsistency: false});   
 var bankDB = session.getDatabase(databaseName);
 var accountColl = bankDB[collectionName];
 accountColl.drop();
@@ -153,24 +154,23 @@ accountColl.update({"name": "Alice"},{"$set": {"balance": newAliceBalance}});
 var findAliceBalance = accountColl.find({"name": "Alice"}).next().balance;
 
 session.abortTransaction();
-
 ```
 
 ### Multi-collection transactions
+<a name="transactions-usecases-multicollection"></a>
 
-Our transactions are also multi-collection, which means they can be used to perform multiple operations within a single transaction and across multiple collections. This provides a consistent view of data and maintains your data’s integrity. When you commit the commands as a single `<>`, the transactions are all-or-nothing executions—in that, they will either all succeed or all fail.
+Our transactions are also multi-collection, which means they can be used to perform multiple operations within a single transaction and across multiple collections. This provides a consistent view of data and maintains your data’s integrity. When you commit the commands as a single `<>`, the transactions are all-or-nothing executions—in that, they will either all succeed or all fail. 
 
 Here is an example of multi-collection transactions, using the same scenario and data from the example for multi-statement transactions.
 
 ```
-
 // *** Transfer $500 from Alice to Bob inside a transaction: Success Scenario***
 
 // Setup bank account for Alice and Bob. Each have $1000 in their account
 var amountToTransfer = 500;
 var collectionName = "account";
 
-var session = db.getMongo().startSession({causalConsistency: false});
+var session = db.getMongo().startSession({causalConsistency: false});   
 var accountCollInBankA = session.getDatabase("bankA")[collectionName];
 var accountCollInBankB = session.getDatabase("bankB")[collectionName];
 
@@ -205,7 +205,7 @@ accountCollInBankB.find(); // Bob holds $1500 in bankB
 var collectionName = "account";
 var amountToTransfer = 500;
 
-var session = db.getMongo().startSession({causalConsistency: false});
+var session = db.getMongo().startSession({causalConsistency: false});   
 var accountCollInBankA = session.getDatabase("bankA")[collectionName];
 var accountCollInBankB = session.getDatabase("bankB")[collectionName];
 
@@ -233,14 +233,16 @@ session.abortTransaction();
 
 accountCollInBankA.find(); // Alice holds $1000 in bankA
 accountCollInBankB.find(); // Bob holds $1000 in bankB
-
 ```
 
 ### Transaction API examples for callback API
+<a name="transactions-usecases-code-samples"></a>
 
-The callback API is only available for 4.2+ drivers.
+The callback API is only available for 4.2\+ drivers.
 
-Javascript
+------
+#### [ Javascript ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Javascript.
 
 ```
@@ -249,17 +251,17 @@ The following code demonstrates how to utilize the Amazon DocumentDB transaction
 var databaseName = "bank";
 var collectionName = "account";
 var amountToTransfer = 500;
-
-var session = db.getMongo().startSession({causalConsistency: false});
+ 
+var session = db.getMongo().startSession({causalConsistency: false});  
 var bankDB = session.getDatabase(databaseName);
 var accountColl = bankDB[collectionName];
 accountColl.drop();
-
+ 
 accountColl.insert({name: "Alice", balance: 1000});
 accountColl.insert({name: "Bob", balance: 1000});
-
+ 
 session.startTransaction();
-
+ 
 // deduct $500 from Alice's account
 var aliceBalance = accountColl.find({"name": "Alice"}).next().balance;
 assert(aliceBalance >= amountToTransfer);
@@ -267,26 +269,27 @@ var newAliceBalance = aliceBalance - amountToTransfer;
 accountColl.update({"name": "Alice"},{"$set": {"balance": newAliceBalance}});
 var findAliceBalance = accountColl.find({"name": "Alice"}).next().balance;
 assert.eq(newAliceBalance, findAliceBalance);
-
+ 
 // add $500 to Bob's account
 var bobBalance = accountColl.find({"name": "Bob"}).next().balance;
 var newBobBalance = bobBalance + amountToTransfer;
 accountColl.update({"name": "Bob"},{"$set": {"balance": newBobBalance}});
 var findBobBalance = accountColl.find({"name": "Bob"}).next().balance;
 assert.eq(newBobBalance, findBobBalance);
-
+ 
 session.commitTransaction();
-
+ 
 accountColl.find();
-
 ```
 
-Node.js
+------
+#### [ Node.js ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Node.js.
 
 ```
 // Node.js callback API:
-
+                    
 const bankDB = await mongoclient.db("bank");
 var accountColl = await bankDB.createCollection("account");
 var amountToTransfer = 500;
@@ -299,7 +302,7 @@ await accountColl.insertOne({name: "Bob", balance: 1000}, { session });
 
 const transactionOptions = {
     readConcern: { level: 'snapshot' },
-    writeConcern: { w: 'majority' }
+    writeConcern: { w: 'majority' } 
     };
 
 // deduct $500 from Alice's account
@@ -320,15 +323,16 @@ await accountColl.updateOne({name: "Bob"}, {$set: {balance: newBobBalance}}, {se
 await session.commitTransaction();
 bobBalance = await accountColl.findOne({name: "Bob"}, {session});
 assert(newBobBalance == bobBalance.balance);
-
 ```
 
-C#
-The following code demonstrates how to utilize the Amazon DocumentDB transaction API with C#.
+------
+#### [ C\# ]
+
+The following code demonstrates how to utilize the Amazon DocumentDB transaction API with C\#.
 
 ```
 // C# Callback API
-
+                    
 var dbName = "bank";
 var collName = "account";
 var amountToTransfer = 500;
@@ -340,7 +344,7 @@ using (var session = client.StartSession(new ClientSessionOptions{CausalConsiste
     bankDB.DropCollection(collName);
     accountColl.InsertOne(session, new BsonDocument { {"name", "Alice"}, {"balance", 1000 } });
     accountColl.InsertOne(session, new BsonDocument { {"name", "Bob"}, {"balance", 1000 } });
-
+    
     // start transaction
     var transactionOptions = new TransactionOptions(
             readConcern: ReadConcern.Snapshot,
@@ -352,7 +356,7 @@ using (var session = client.StartSession(new ClientSessionOptions{CausalConsiste
             var aliceBalance = accountColl.Find(sess, Builders<BsonDocument>.Filter.Eq("name", "Alice")).FirstOrDefault().GetValue("balance");
             Debug.Assert(aliceBalance >= amountToTransfer);
             var newAliceBalance = aliceBalance.AsInt32 - amountToTransfer;
-            accountColl.UpdateOne(sess, Builders<BsonDocument>.Filter.Eq("name", "Alice"),
+            accountColl.UpdateOne(sess, Builders<BsonDocument>.Filter.Eq("name", "Alice"), 
                                     Builders<BsonDocument>.Update.Set("balance", newAliceBalance));
             aliceBalance = accountColl.Find(sess, Builders<BsonDocument>.Filter.Eq("name", "Alice")).FirstOrDefault().GetValue("balance");
             Debug.Assert(aliceBalance == newAliceBalance);
@@ -360,7 +364,7 @@ using (var session = client.StartSession(new ClientSessionOptions{CausalConsiste
             // add $500 from Bob's account
             var bobBalance = accountColl.Find(sess, Builders<BsonDocument>.Filter.Eq("name", "Bob")).FirstOrDefault().GetValue("balance");
             var newBobBalance = bobBalance.AsInt32 + amountToTransfer;
-            accountColl.UpdateOne(sess, Builders<BsonDocument>.Filter.Eq("name", "Bob"),
+            accountColl.UpdateOne(sess, Builders<BsonDocument>.Filter.Eq("name", "Bob"), 
                                     Builders<BsonDocument>.Update.Set("balance", newBobBalance));
             bobBalance = accountColl.Find(sess, Builders<BsonDocument>.Filter.Eq("name", "Bob")).FirstOrDefault().GetValue("balance");
             Debug.Assert(bobBalance == newBobBalance);
@@ -375,12 +379,14 @@ using (var session = client.StartSession(new ClientSessionOptions{CausalConsiste
 }
 ```
 
-Ruby
+------
+#### [ Ruby ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Ruby.
 
 ```
 // Ruby Callback API
-
+                    
 dbName = "bank"
 collName = "account"
 amountToTransfer = 500
@@ -392,8 +398,8 @@ accountColl.drop()
 
 accountColl.insert_one({"name"=>"Alice", "balance"=>1000})
 accountColl.insert_one({"name"=>"Bob", "balance"=>1000})
-
-    # start transaction
+    
+    # start transaction 
     session.with_transaction(read_concern: {level: :snapshot}, write_concern: {w: :majority}) do
         # deduct $500 from Alice's account
         aliceBalance = accountColl.find({"name"=>"Alice"}, :session=> session).first['balance']
@@ -410,7 +416,7 @@ accountColl.insert_one({"name"=>"Bob", "balance"=>1000})
         bobBalance = accountColl.find({"name"=>"Bob"}, :session=> session).first['balance']
         assert_equal(newBobBalance, bobBalance)
     end
-
+   
    # check results outside of transaction
     aliceBalance = accountColl.find({"name"=>"Alice"}).first['balance']
     bobBalance = accountColl.find({"name"=>"Bob"}).first['balance']
@@ -420,7 +426,9 @@ accountColl.insert_one({"name"=>"Bob", "balance"=>1000})
 session.end_session
 ```
 
-Go
+------
+#### [ Go ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Go.
 
 ```
@@ -485,7 +493,9 @@ assert.Equal(t, aliceNewBalance, 500)
 assert.Equal(t, bobNewBalance, 1500)
 ```
 
-Java
+------
+#### [ Java ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Java.
 
 ```
@@ -542,12 +552,14 @@ try ( ClientSession clientSession = mongoClient.startSession(sessionOptions) ) {
 }
 ```
 
-C
+------
+#### [ C ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with C.
 
 ```
 // Sample Code for C with Callback
-
+                    
 #include <bson.h>
 #include <mongoc.h>
 #include <stdio.h>
@@ -570,7 +582,7 @@ bool callback_session (mongoc_client_session_t *session, void *ctx, bson_t **rep
     bson_t *update = BCON_NEW ("$set", "{", "balance", BCON_INT64 (data->balance), "}");
 
     mongoc_collection_update_one (data->collection, selector, update, data->opts, &local_reply, error);
-
+    
     *reply = bson_copy (&local_reply);
     bson_destroy (&local_reply);
     bson_destroy (update);
@@ -578,7 +590,7 @@ bool callback_session (mongoc_client_session_t *session, void *ctx, bson_t **rep
 }
 
 void test_callback_money_transfer(mongoc_client_t* client, mongoc_collection_t* collection, int amount_to_transfer){
-
+    
     bson_t reply;
     bool r = true;
     const bson_t *doc;
@@ -611,7 +623,7 @@ void test_callback_money_transfer(mongoc_client_t* client, mongoc_collection_t* 
     mongoc_cursor_next (cursor, &doc);
     bson_iter_init (&iter, doc);
     bson_iter_find (&iter, "balance");
-    int64_t alice_balance = (bson_iter_value (&iter))->value.v_int64;
+    int64_t alice_balance = (bson_iter_value (&iter))->value.v_int64; 
     assert(alice_balance >= amount_to_transfer);
     int64_t new_alice_balance = alice_balance - amount_to_transfer;
 
@@ -647,12 +659,12 @@ void test_callback_money_transfer(mongoc_client_t* client, mongoc_collection_t* 
     bob_ctx.opts = opts;
     bob_ctx.balance = new_bob_balance;
     bob_ctx.account = bob_query;
-
+    
     // set read & write concern
     mongoc_read_concern_t *read_concern = mongoc_read_concern_new ();
     mongoc_write_concern_t *write_concern = mongoc_write_concern_new ();
     mongoc_transaction_opt_t *txn_opts = mongoc_transaction_opts_new ();
-
+    
     mongoc_write_concern_set_w(write_concern, MONGOC_WRITE_CONCERN_W_MAJORITY);
     mongoc_read_concern_set_level(read_concern, MONGOC_READ_CONCERN_LEVEL_SNAPSHOT);
     mongoc_transaction_opts_set_write_concern (txn_opts, write_concern);
@@ -661,7 +673,7 @@ void test_callback_money_transfer(mongoc_client_t* client, mongoc_collection_t* 
     // callback
     r = mongoc_client_session_with_transaction (client_session, &callback_session, txn_opts, &bob_ctx, &reply, &error);
     assert(r);
-
+	
 	// find account balance of Bob after transaction
     cursor = mongoc_collection_find_with_opts (collection, bob_query, NULL, NULL);
     mongoc_cursor_next (cursor, &doc);
@@ -707,7 +719,7 @@ int main(int argc, char* argv[]) {
     BSON_APPEND_INT64(bob_account, "balance", 1000);
 
     bool r = true;
-
+    
     r = mongoc_collection_insert_one(collection, alice_account, NULL, NULL, &error);
     if (!r) {printf("Error encountered:%s", error.message);}
     r = mongoc_collection_insert_one(collection, bob_account, NULL, NULL, &error);
@@ -718,12 +730,14 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-Python
+------
+#### [ Python ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Python.
 
 ```
 // Sample Python code with callback api
-
+                    
 import pymongo
 
 def callback(session, balance, query):
@@ -764,9 +778,14 @@ updated_bob_balance = collection.find_one({"name": "Bob"}).get("balance")
 assert updated_bob_balance == new_bob_balance
 ```
 
-### Transaction API examples for core API
+------
 
-Javascript
+### Transaction API examples for core API
+<a name="transactions-usecases-code-samples"></a>
+
+------
+#### [ Javascript ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Javascript.
 
 ```
@@ -775,17 +794,17 @@ The following code demonstrates how to utilize the Amazon DocumentDB transaction
 var databaseName = "bank";
 var collectionName = "account";
 var amountToTransfer = 500;
-
-var session = db.getMongo().startSession({causalConsistency: false});
+ 
+var session = db.getMongo().startSession({causalConsistency: false});  
 var bankDB = session.getDatabase(databaseName);
 var accountColl = bankDB[collectionName];
 accountColl.drop();
-
+ 
 accountColl.insert({name: "Alice", balance: 1000});
 accountColl.insert({name: "Bob", balance: 1000});
-
+ 
 session.startTransaction();
-
+ 
 // deduct $500 from Alice's account
 var aliceBalance = accountColl.find({"name": "Alice"}).next().balance;
 assert(aliceBalance >= amountToTransfer);
@@ -793,30 +812,31 @@ var newAliceBalance = aliceBalance - amountToTransfer;
 accountColl.update({"name": "Alice"},{"$set": {"balance": newAliceBalance}});
 var findAliceBalance = accountColl.find({"name": "Alice"}).next().balance;
 assert.eq(newAliceBalance, findAliceBalance);
-
+ 
 // add $500 to Bob's account
 var bobBalance = accountColl.find({"name": "Bob"}).next().balance;
 var newBobBalance = bobBalance + amountToTransfer;
 accountColl.update({"name": "Bob"},{"$set": {"balance": newBobBalance}});
 var findBobBalance = accountColl.find({"name": "Bob"}).next().balance;
 assert.eq(newBobBalance, findBobBalance);
-
+ 
 session.commitTransaction();
-
+ 
 accountColl.find();
-
 ```
 
-C#
-The following code demonstrates how to utilize the Amazon DocumentDB transaction API with C#.
+------
+#### [ C\# ]
+
+The following code demonstrates how to utilize the Amazon DocumentDB transaction API with C\#.
 
 ```
 // C# Core API
-
-public void TransferMoneyWithRetry(IMongoCollection<bSondocument> accountColl, IClientSessionHandle session)
+                    
+public void TransferMoneyWithRetry(IMongoCollection<bSondocument> accountColl, IClientSessionHandle session) 
 {
     var amountToTransfer = 500;
-
+    
     // start transaction
    var transactionOptions = new TransactionOptions(
                 readConcern: ReadConcern.Snapshot,
@@ -828,7 +848,7 @@ public void TransferMoneyWithRetry(IMongoCollection<bSondocument> accountColl, I
         var aliceBalance = accountColl.Find(session, Builders<bSondocument>.Filter.Eq("name", "Alice")).FirstOrDefault().GetValue("balance");
         Debug.Assert(aliceBalance >= amountToTransfer);
         var newAliceBalance = aliceBalance.AsInt32 - amountToTransfer;
-        accountColl.UpdateOne(session, Builders<bSondocument>.Filter.Eq("name", "Alice"),
+        accountColl.UpdateOne(session, Builders<bSondocument>.Filter.Eq("name", "Alice"), 
                                 Builders<bSondocument>.Update.Set("balance", newAliceBalance));
         aliceBalance = accountColl.Find(session, Builders<bSondocument>.Filter.Eq("name", "Alice")).FirstOrDefault().GetValue("balance");
         Debug.Assert(aliceBalance == newAliceBalance);
@@ -836,7 +856,7 @@ public void TransferMoneyWithRetry(IMongoCollection<bSondocument> accountColl, I
         // add $500 from Bob's account
         var bobBalance = accountColl.Find(session, Builders<bSondocument>.Filter.Eq("name", "Bob")).FirstOrDefault().GetValue("balance");
         var newBobBalance = bobBalance.AsInt32 + amountToTransfer;
-        accountColl.UpdateOne(session, Builders<bSondocument>.Filter.Eq("name", "Bob"),
+        accountColl.UpdateOne(session, Builders<bSondocument>.Filter.Eq("name", "Bob"), 
                                 Builders<bSondocument>.Update.Set("balance", newBobBalance));
         bobBalance = accountColl.Find(session, Builders<bSondocument>.Filter.Eq("name", "Bob")).FirstOrDefault().GetValue("balance");
         Debug.Assert(bobBalance == newBobBalance);
@@ -858,7 +878,7 @@ public void DoTransactionWithRetry(MongoClient client)
     var collName = "account";
     using (var session = client.StartSession(new ClientSessionOptions{CausalConsistency = false}))
     {
-        try
+        try 
         {
             var bankDB = client.GetDatabase(dbName);
             var accountColl = bankDB.GetCollection<bSondocument>(collName);
@@ -867,12 +887,12 @@ public void DoTransactionWithRetry(MongoClient client)
             accountColl.InsertOne(session, new BsonDocument { {"name", "Bob"}, {"balance", 1000 } });
 
             while(true) {
-                try
+                try 
                 {
                         TransferMoneyWithRetry(accountColl, session);
                         break;
                 }
-                catch (MongoException e)
+                catch (MongoException e) 
                 {
                     if(e.HasErrorLabel("TransientTransactionError"))
                     {
@@ -884,7 +904,7 @@ public void DoTransactionWithRetry(MongoClient client)
                     }
                 }
             }
-
+            
             // check values outside of transaction
             var aliceNewBalance = accountColl.Find(Builders<bSondocument>.Filter.Eq("name", "Alice")).FirstOrDefault().GetValue("balance");
             var bobNewBalance = accountColl.Find(Builders<bSondocument>.Filter.Eq("name", "Bob")).FirstOrDefault().GetValue("balance");
@@ -895,17 +915,18 @@ public void DoTransactionWithRetry(MongoClient client)
         {
             Console.WriteLine("Error running transaction: " + e.Message);
         }
-    }
+    }        
 }
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Ruby.
 
 ```
 # Ruby Core API
-
+                    
 def transfer_money_w_retry(session, accountColl)
     amountToTransfer = 500
 
@@ -932,7 +953,7 @@ end
 def do_txn_w_retry(client)
      dbName = "bank"
     collName = "account"
-
+   
     session = client.start_session(:causal_consistency=> false)
     bankDB = Mongo::Database.new(client, dbName)
     accountColl = bankDB[collName]
@@ -958,12 +979,13 @@ def do_txn_w_retry(client)
     bobBalance = accountColl.find({"name"=>"Bob"}).first['balance']
     assert_equal(aliceBalance, 500)
     assert_equal(bobBalance, 1500)
-
+   
 end
-
 ```
 
-Go
+------
+#### [ Go ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Go.
 
 ```
@@ -1006,7 +1028,7 @@ func transferMoneyWithRetry(sessionContext mongo.SessionContext, accountColl *mo
     err = accountColl.FindOne(sessionContext, bson.M{"name": "Bob"}).Decode(&result)
     bobBalance = result.Balance
     assert.Equal(t, bobBalance, newBobBalance)
-
+  
     err = sessionContext.CommitTransaction(sessionContext)
     return err
 }
@@ -1028,7 +1050,7 @@ func doTransactionWithRetry(t *testing.T) {
             if err == nil {
                 println("transaction committed")
                 return nil
-            }
+            } 
             if mongoErr := err.(mongo.CommandError); mongoErr.HasErrorLabel("TransientTransactionError") {
                 continue
             }
@@ -1036,7 +1058,7 @@ func doTransactionWithRetry(t *testing.T) {
             return err
         }
     })
-
+    
     // check results outside of transaction
     var result Account
     accountColl.FindOne(ctx, bson.M{"name": "Alice"}).Decode(&result)
@@ -1048,12 +1070,14 @@ func doTransactionWithRetry(t *testing.T) {
 }
 ```
 
-Java
+------
+#### [ Java ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Java.
 
 ```
 // Java (sync) - Core API
-
+                    
 public void transferMoneyWithRetry() {
    // connect to server
     MongoClientURI mongoURI = new MongoClientURI(uri);
@@ -1311,22 +1335,22 @@ public class SubscriberLatchWrapper<T> implements Subscriber<T> {
         received.clear();
     }
 }
-
-
 ```
 
-C
+------
+#### [ C ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with C.
 
 ```
 // Sample C code with core session
-
+                    
 bool core_session(mongoc_client_session_t *client_session, mongoc_collection_t* collection, bson_t *selector, int64_t balance){
     bool r = true;
     bson_error_t error;
     bson_t *opts = bson_new();
     bson_t *update = BCON_NEW ("$set", "{", "balance", BCON_INT64 (balance), "}");
-
+    
     // set read & write concern
     mongoc_read_concern_t *read_concern = mongoc_read_concern_new ();
     mongoc_write_concern_t *write_concern = mongoc_write_concern_new ();
@@ -1352,7 +1376,7 @@ bool core_session(mongoc_client_session_t *client_session, mongoc_collection_t* 
 }
 
 void test_core_money_transfer(mongoc_client_t* client, mongoc_collection_t* collection, int amount_to_transfer){
-
+    
     bson_t reply;
     bool r = true;
     const bson_t *doc;
@@ -1383,7 +1407,7 @@ void test_core_money_transfer(mongoc_client_t* client, mongoc_collection_t* coll
     mongoc_cursor_next (cursor, &doc);
     bson_iter_init (&iter, doc);
     bson_iter_find (&iter, "balance");
-    int64_t alice_balance = (bson_iter_value (&iter))->value.v_int64;
+    int64_t alice_balance = (bson_iter_value (&iter))->value.v_int64; 
     assert(alice_balance >= amount_to_transfer);
     int64_t new_alice_balance = alice_balance - amount_to_transfer;
 
@@ -1431,7 +1455,7 @@ void test_core_money_transfer(mongoc_client_t* client, mongoc_collection_t* coll
     bson_destroy(doc);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {    
     mongoc_init ();
     mongoc_client_t* client = mongoc_client_new (<connection uri>);
     bson_error_t error;
@@ -1456,7 +1480,7 @@ int main(int argc, char* argv[]) {
     BSON_APPEND_INT64(bob_account, "balance", 1000);
 
     bool r = true;
-
+    
     r = mongoc_collection_insert_one(collection, alice_account, NULL, NULL, &error);
     if (!r) {printf("Error encountered:%s", error.message);}
     r = mongoc_collection_insert_one(collection, bob_account, NULL, NULL, &error);
@@ -1467,7 +1491,9 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-Scala
+------
+#### [ Scala ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Scala.
 
 ```
@@ -1489,14 +1515,14 @@ def transferMoneyWithRetry(sessionObservable: SingleObservable[ClientSession] , 
 
     // add $500 to Bob's account
     var bobBalance = accountColl.find(clientSession, Document("name" -> "Bob")).await().head.getInteger("balance")
-    var newBobBalance = bobBalance + amountToTransfer
+    var newBobBalance = bobBalance + amountToTransfer     
     accountColl.updateOne(clientSession, Document("name" -> "Bob"), Document("$set" -> Document("balance" -> newBobBalance))).await()
     bobBalance = accountColl.find(clientSession, Document("name" -> "Bob")).await().head.getInteger("balance")
     assert(bobBalance == newBobBalance)
 
-    clientSession
+    clientSession   
     })
-
+    
     transactionObservable.flatMap(clientSession => clientSession.commitTransaction()).await()
 }
 
@@ -1505,12 +1531,12 @@ def doTransactionWithRetry(): Unit = {
     val database: MongoDatabase = client.getDatabase("bank")
     val accountColl = database.getCollection("account")
     accountColl.drop().await()
-
+    
     val sessionOptions = ClientSessionOptions.builder().causallyConsistent(false).build()
     var  sessionObservable: SingleObservable[ClientSession] = client.startSession(sessionOptions)
     accountColl.insertOne(Document("name" -> "Alice", "balance" -> 1000)).await()
     accountColl.insertOne(Document("name" -> "Bob", "balance" -> 1000)).await()
-
+    
     var retry = true
     while (retry) {
         try {
@@ -1520,38 +1546,40 @@ def doTransactionWithRetry(): Unit = {
         }
         catch {
         case e: MongoException if e.hasErrorLabel(MongoException.TRANSIENT_TRANSACTION_ERROR_LABEL) => {
-            println("retrying transaction")
+            println("retrying transaction") 
         }
         case other: Throwable => {
             println("transaction failed")
             retry = false
             throw other
-
+            
         }
         }
     }
-
+    
     // check results outside of transaction
     assert(accountColl.find(Document("name" -> "Alice")).results().head.getInteger("balance") == 500)
     assert(accountColl.find(Document("name" -> "Bob")).results().head.getInteger("balance") == 1500)
-
+    
     accountColl.drop().await()
 
 }
 ```
 
-Python
+------
+#### [ Python ]
+
 The following code demonstrates how to utilize the Amazon DocumentDB transaction API with Python.
 
 ```
 // Sample Python code with Core api
 
 import pymongo
-
+                        
 client = pymongo.MongoClient(<connection_string>)
 rc_snapshot = pymongo.read_concern.ReadConcern('snapshot')
 wc_majority = pymongo.write_concern.WriteConcern('majority')
-
+                        
 # To start, drop and create an account collection and insert balances for both Alice and Bob
 collection = client.get_database("bank").get_collection("account")
 collection.drop()
@@ -1559,75 +1587,82 @@ collection.insert_one({"_id": 1, "name": "Alice", "balance": 1000})
 collection.insert_one({"_id": 2, "name": "Bob", "balance": 1000})
 
 amount_to_transfer = 500
-
+                        
 # deduct 500 from Alice's account
 alice_balance = collection.find_one({"name": "Alice"}).get("balance")
 assert alice_balance >= amount_to_transfer
 new_alice_balance = alice_balance - amount_to_transfer
-
+                        
 with client.start_session({'causalConsistency':False}) as session:
     session.start_transaction(read_concern=rc_snapshot, write_concern=wc_majority)
     collection.update_one({"name": "Alice"}, {'$set': {"balance": new_alice_balance}}, session=session)
     session.commit_transaction()
-
+                        
 updated_alice_balance = collection.find_one({"name": "Alice"}).get("balance")
 assert updated_alice_balance == new_alice_balance
-
+                        
 # add 500 to Bob's account
 bob_balance = collection.find_one({"name": "Bob"}).get("balance")
 assert bob_balance >= amount_to_transfer
 new_bob_balance = bob_balance + amount_to_transfer
-
+                        
 with client.start_session({'causalConsistency':False}) as session:
     session.start_transaction(read_concern=rc_snapshot, write_concern=wc_majority)
     collection.update_one({"name": "Bob"}, {'$set': {"balance": new_bob_balance}}, session=session)
     session.commit_transaction()
-
+                        
 updated_bob_balance = collection.find_one({"name": "Bob"}).get("balance")
 assert updated_bob_balance == new_bob_balance
 ```
 
-## Supported commands
+------
 
-| Command                    | Supported |
-| -------------------------- | --------- |
-| `abortTransaction`         | Yes       |
-| `commitTransaction`        | Yes       |
-| `endSessions`              | Yes       |
-| `killSession`              | Yes       |
-| `killAllSession`           | Yes       |
-| `killAllSessionsByPattern` | No        |
-| `refreshSessions`          | No        |
-| `startSession`             | Yes       |
+## Supported commands
+<a name="transactions-supported-commands"></a>
+
+
+| Command | Supported | 
+| --- | --- | 
+| `abortTransaction` | Yes | 
+| `commitTransaction` | Yes | 
+| `endSessions` | Yes | 
+| `killSession` | Yes | 
+| `killAllSession` | Yes | 
+| `killAllSessionsByPattern` | No | 
+| `refreshSessions` | No | 
+| `startSession` | Yes | 
 
 ## Unsupported capabilities
+<a name="transactions-unsupported-commands"></a>
 
-| Methods                                                     | Stages or Commands                                                                                                                           |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `db.collection.aggregate()`                                 | `$collStats`<br>`$currentOp`<br>`$indexStats`<br>`$listSessions`<br>`$out`                                                                   |
-| `db.collection.count()`<br>`db.collection.countDocuments()` | `$where`<br>`$near`<br>`$nearSphere`                                                                                                         |
-| `db.collection.insert()`                                    | `insert` is not supported if it is not run against an existing collection. This method is supported if it targets a pre-existing collection. |
+
+| Methods | Stages or Commands | 
+| --- | --- | 
+| `db.collection.aggregate()` | `$collStats`<br />`$currentOp`<br />`$indexStats`<br />`$listSessions`<br />`$out` | 
+| `db.collection.count()`<br />`db.collection.countDocuments()` | `$where`<br />`$near`<br />`$nearSphere` | 
+| `db.collection.insert()` | `insert` is not supported if it is not run against an existing collection. This method is supported if it targets a pre-existing collection. | 
 
 ## Sessions
+<a name="transactions-sessions"></a>
 
 MongoDB sessions are a framework that is used to support retryable writes, causal consistency, transactions, and manage operations across databases. When a session is created, a logical session identifier (lsid) is generated by the client and is used to tag all operations within that session when sending commands to the server.
 
-Amazon DocumentDB supports the use of sessions to enable transactions, but does not support causal consistency or retryable writes.
+Amazon DocumentDB supports the use of sessions to enable transactions, but does not support causal consistency or retryable writes. 
 
-When utilizing transactions within Amazon DocumentDB, a transaction will be initiated from within a session using the `session.startTransaction()` API and a session supports a single transaction at a time. Similarly, transactions are completed using either the commit (`session.commitTransaction()`) or abort (`session.abortTransaction()`) APIs.
+When utilizing transactions within Amazon DocumentDB, a transaction will be initiated from within a session using the `session.startTransaction()` API and a session supports a single transaction at a time. Similarly, transactions are completed using either the commit (`session.commitTransaction()`) or abort (`session.abortTransaction()`) APIs. 
 
 ### Causal consistency
+<a name="transactions-causal-consistency"></a>
 
 Causal consistency guarantees that within a single client session the client will observe read-after-write consistency, monatomic reads/writes, and writes will follow reads and these guarantees apply across all instances in a cluster, not just the primary. Amazon DocumentDB does not support causal consistency and the following statement will result in an error.
 
 ```
-
 var mySession = db.getMongo().startSession();
 var mySessionObject = mySession.getDatabase('test').getCollection('account');
-
+ 
 mySessionObject.updateOne({"_id": 2}, {"$inc": {"balance": 400}});
 //Result:{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
-
+ 
 mySessionObject.find()
 //Error: error: {
 //         "ok" : 0,
@@ -1635,52 +1670,47 @@ mySessionObject.find()
 //         "errmsg" : "Feature not supported: 'causal consistency'",
 //         "operationTime" : Timestamp(1603461817, 493214)
 //}
-
+ 
 mySession.endSession()
 ```
 
 You can disable causal consistency within a session. Note that doing so will enable you to utilize the session framework, but will not provide causal consistency guarantees for reads. When using Amazon DocumentDB, reads from the primary will be read-after-write consistent and reads from the replica instances will be eventually consistent. Transactions are the primary use case for utilizing sessions.
 
 ```
-
-var mySession = db.getMongo().startSession({causalConsistency: **false**});
+var mySession = db.getMongo().startSession({causalConsistency: false});
 var mySessionObject = mySession.getDatabase('test').getCollection('account');
-
+ 
 mySessionObject.updateOne({"_id": 2}, {"$inc": {"balance": 400}});
 //Result:{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
-
+ 
 mySessionObject.find()
 //{ "_id" : 1, "name" : "Bob", "balance" : 100 }
 //{ "_id" : 2, "name" : "Alice", "balance" : 1700 }
 ```
 
 ### Retryable writes
+<a name="transactions-retryable-writes"></a>
 
-Retryable writes is a capability in which the client will attempt to retry write operations, one time, when network errors occur or if the client is unable to find the primary.
-In Amazon DocumentDB, retryable writes are not supported and must be disabled. You can disable it with the command (`retryWrites=false`) in the connection string.
+Retryable writes is a capability in which the client will attempt to retry write operations, one time, when network errors occur or if the client is unable to find the primary. In Amazon DocumentDB, retryable writes are not supported and must be disabled. You can disable it with the command (`retryWrites=false`) in the connection string.
 
-###### Note
-
-If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string.
-By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
+**Note**  
+If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string. By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
 
 ## Transaction errors
+<a name="transactions-errors"></a>
 
 When using transactions, there are scenarios that can yield an error that states that a transaction number does not match any in progress transaction.
 
 The error can be generated in at least two different scenarios:
-
-- After the one-minute transaction timeout.
-- After an instance restart (due to patching, crash recovery, etc.), it is possible to receive this error even in cases where the transaction successfully committed.
-  During an instance restart, the database can't tell the difference between a transaction that successfully completed versus a transaction that aborted.
-  In other words, the transaction completion state is ambiguous.
++ After the one-minute transaction timeout.
++ After an instance restart (due to patching, crash recovery, etc.), it is possible to receive this error even in cases where the transaction successfully committed. During an instance restart, the database can't tell the difference between a transaction that successfully completed versus a transaction that aborted. In other words, the transaction completion state is ambiguous.
 
 The best way to handle this error is to make transactional updates idempotent -- for example, by using the `$set` mutator instead of an increment/decrement operation. See below:
 
 ```
 { "ok" : 0,
-"operationTime" : Timestamp(1603938167, 1),
+"operationTime" : Timestamp(1603938167, 1), 
 "code" : 251,
-"errmsg" : "Given transaction number 1 does not match any in-progress transactions."
+"errmsg" : "Given transaction number 1 does not match any in-progress transactions." 
 }
 ```

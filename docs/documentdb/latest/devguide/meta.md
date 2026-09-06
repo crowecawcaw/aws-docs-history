@@ -1,12 +1,15 @@
+
+
 # $meta
+<a name="meta"></a>
 
 The `$meta` operator is used to access metadata associated with the current query execution. This operator is primarily used for text search operations, where the metadata can provide information about the relevance of the matched documents.
 
 **Parameters**
-
-- `textScore`: Retrieves the text search score for the document. This score indicates the relevance of the document to the text search query.
++ `textScore`: Retrieves the text search score for the document. This score indicates the relevance of the document to the text search query.
 
 ## Example (MongoDB Shell)
+<a name="meta-examples"></a>
 
 The following example demonstrates how to use the `$meta` operator to retrieve the text search score for documents matching a text search query.
 
@@ -58,10 +61,12 @@ db.documents.find(
 ```
 
 ## Code examples
+<a name="meta-code"></a>
 
 To view a code example for using the `$meta` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -83,7 +88,8 @@ async function findWithTextScore() {
 findWithTextScore();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -100,3 +106,5 @@ for doc in collection.find(
 
 client.close()
 ```
+
+------

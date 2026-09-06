@@ -1,12 +1,15 @@
+
+
 # $and
+<a name="and-aggregation"></a>
 
 The `$and` aggregation operator evaluates multiple expressions and returns `true` only if all expressions evaluate to `true`. If any expression is `false`, it returns `false`.
 
 **Parameters**
-
-- `expressions`: An array of expressions to evaluate.
++ `expressions`: An array of expressions to evaluate.
 
 ## Example (MongoDB Shell)
+<a name="and-aggregation-examples"></a>
 
 The following example demonstrates using the `$and` operator to check if products meet multiple criteria.
 
@@ -51,10 +54,12 @@ db.products.aggregate([
 ```
 
 ## Code examples
+<a name="and-aggregation-code"></a>
 
 To view a code example for using the `$and` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -87,7 +92,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -118,3 +124,5 @@ def example():
 
 example()
 ```
+
+------

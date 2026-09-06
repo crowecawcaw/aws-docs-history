@@ -1,74 +1,57 @@
+
+
 # Rebooting an Amazon DocumentDB instance
+<a name="db-instance-reboot"></a>
 
-Occasionally, you might need to reboot your Amazon DocumentDB instance,
-usually for maintenance reasons. If you make certain changes,
-such as changing the cluster parameter group that is associated
-with a cluster, you must reboot the instances in the cluster for
-the changes to take effect. You can reboot a specified instance
-using the AWS Management Console or the AWS CLI.
+Occasionally, you might need to reboot your Amazon DocumentDB instance, usually for maintenance reasons. If you make certain changes, such as changing the cluster parameter group that is associated with a cluster, you must reboot the instances in the cluster for the changes to take effect. You can reboot a specified instance using the AWS Management Console or the AWS CLI.
 
-Rebooting an instance restarts the database engine service.
-Rebooting results in a momentary outage, during which the
-instance status is set to `rebooting`. An Amazon DocumentDB
-event is created when the reboot is completed.
+Rebooting an instance restarts the database engine service. Rebooting results in a momentary outage, during which the instance status is set to `rebooting`. An Amazon DocumentDB event is created when the reboot is completed.
 
-Rebooting an instance doesn't result in a failover. To failover
-an Amazon DocumentDB cluster, use the AWS Management Console or the AWS CLI operation
-`failover-db-cluster`. For more information, see [Amazon DocumentDB failover](failover.md "failover.md").
+Rebooting an instance doesn't result in a failover. To failover an Amazon DocumentDB cluster, use the AWS Management Console or the AWS CLI operation `failover-db-cluster`. For more information, see [Amazon DocumentDB failover](failover.md). 
 
-You can't reboot your instance if it isn't in the
-_available_ state. Your database can be
-unavailable for several reasons, such as a previously requested
-modification, or a maintenance-window action. For more
-information on instance states, see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md "monitoring_docdb-instance_status.md").
+You can't reboot your instance if it isn't in the *available* state. Your database can be unavailable for several reasons, such as a previously requested modification, or a maintenance-window action. For more information on instance states, see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md). 
 
-Using the AWS Management Console
-The following procedure reboots an instance that you
-specify using the console.
+------
+#### [ Using the AWS Management Console ]
 
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters** .
+The following procedure reboots an instance that you specify using the console.
 
-###### Tip
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
-If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.
+1. In the navigation pane, choose **Clusters **.
+**Tip**  
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
-![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](images/choose-clusters.png) 4. Check the box to the left of the instance you wish to reboot. 5. Choose **Actions**, choose
-**Reboot**, and then choose
-**Reboot** to confirm your reboot.
+1. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.  
+![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
 
-It takes a few minutes for your instance to reboot. You can use the instance only when its status is _available_. You can monitor the instance's status using the console or the AWS CLI. For more information,
-see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md "monitoring_docdb-instance_status.md").
+1. Check the box to the left of the instance you wish to reboot.
 
-Using the AWS CLI
-To reboot an Amazon DocumentDB instance, use the
-`reboot-db-instance` operation with the
-`--db-instance-identifier` parameter. This
-parameter specifies the identifier for the instance to be
-rebooted.
+1. Choose **Actions**, choose **Reboot**, and then choose **Reboot** to confirm your reboot.
+
+It takes a few minutes for your instance to reboot. You can use the instance only when its status is *available*. You can monitor the instance's status using the console or the AWS CLI. For more information, see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md). 
+
+------
+#### [ Using the AWS CLI ]
+
+To reboot an Amazon DocumentDB instance, use the `reboot-db-instance` operation with the `--db-instance-identifier` parameter. This parameter specifies the identifier for the instance to be rebooted.
 
 The following code reboots the instance `sample-instance`.
 
-###### Example
-
-For Linux, macOS, or Unix:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
 aws docdb reboot-db-instance \
        --db-instance-identifier sample-instance
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws docdb reboot-db-instance ^
        --db-instance-identifier sample-instance
 ```
-
-Output from this operation looks something like the
-following.
+Output from this operation looks something like the following.  
 
 ```
 {
@@ -79,7 +62,7 @@ following.
         "DBInstanceStatus": "rebooting",
         "Endpoint": {
             "Address": "sample-instance.node.us-east-1.docdb.amazonaws.com",
-            "Port": 27017,
+            "Port": 27017,   
             "HostedZoneId": "ABCDEFGHIJKLM"
         },
         "InstanceCreateTime": "2020-03-27T08:05:56.314Z",
@@ -131,8 +114,8 @@ following.
         ]
     }
 }
-
 ```
 
-It takes a few minutes for your instance to reboot. You can use the instance only when its status is _available_. You can monitor the instance's
-status using the console or AWS CLI. For more information, see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md "monitoring_docdb-instance_status.md").
+It takes a few minutes for your instance to reboot. You can use the instance only when its status is *available*. You can monitor the instance's status using the console or AWS CLI. For more information, see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md). 
+
+------

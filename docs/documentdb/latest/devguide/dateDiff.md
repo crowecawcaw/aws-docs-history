@@ -1,4 +1,7 @@
+
+
 # $dateDiff
+<a name="dateDiff"></a>
 
 New from version 5.0
 
@@ -7,12 +10,12 @@ Not supported by Elastic cluster.
 The `$dateDiff` aggregation operator calculates the difference between two dates in specified units. It returns the number of unit boundaries crossed between the start and end dates.
 
 **Parameters**
-
-- `startDate`: The beginning date expression.
-- `endDate`: The ending date expression.
-- `unit`: The time unit for the difference. Supported units are `year`, `quarter`, `month`, `week`, `day`, `hour`, `minute`, `second`, and `millisecond`.
++ `startDate`: The beginning date expression.
++ `endDate`: The ending date expression.
++ `unit`: The time unit for the difference. Supported units are `year`, `quarter`, `month`, `week`, `day`, `hour`, `minute`, `second`, and `millisecond`.
 
 ## Example (MongoDB Shell)
+<a name="dateDiff-examples"></a>
 
 The following example demonstrates how to use the `$dateDiff` operator to calculate the number of days between order placement and delivery.
 
@@ -76,10 +79,12 @@ db.shipments.aggregate([
 ```
 
 ## Code examples
+<a name="dateDiff-code"></a>
 
 To view a code example for using the `$dateDiff` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -88,7 +93,7 @@ async function example() {
   const client = await MongoClient.connect('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false');
   const db = client.db('test');
   const shipments = db.collection('shipments');
-
+  
   const result = await shipments.aggregate([
     {
       $project: {
@@ -105,7 +110,7 @@ async function example() {
       }
     }
   ]).toArray();
-
+  
   console.log(result);
   client.close();
 }
@@ -113,7 +118,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -122,7 +128,7 @@ def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
     db = client['test']
     shipments = db['shipments']
-
+    
     result = list(shipments.aggregate([
         {
             "$project": {
@@ -139,9 +145,11 @@ def example():
             }
         }
     ]))
-
+    
     print(result)
     client.close()
 
 example()
 ```
+
+------

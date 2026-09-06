@@ -1,12 +1,15 @@
+
+
 # $unset
+<a name="unset-update"></a>
 
 The `$unset` operator in Amazon DocumentDB is used to remove a specified field from a document. When a field is removed using `$unset`, the field is deleted from the document, and the document size is reduced accordingly. This can be useful when you want to remove unnecessary data from your documents.
 
 **Parameters**
-
-- `field`: The field to remove from the document. This can be a single field or a dotted path to a nested field.
++ `field`: The field to remove from the document. This can be a single field or a dotted path to a nested field.
 
 ## Example (MongoDB Shell)
+<a name="unset-examples"></a>
 
 The following example demonstrates how to use the `$unset` operator to remove the `Words` field from a document in the `example` collection.
 
@@ -51,10 +54,12 @@ db.example.update(
 In this example, the `$unset` operator is used to remove the `Words` field from the document with `DocName` equal to "Document 1". The resulting document no longer contains the `Words` field.
 
 ## Code examples
+<a name="unset-code"></a>
 
 To view a code example for using the `$unset` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -76,7 +81,8 @@ async function removeField() {
 removeField();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -96,3 +102,5 @@ def remove_field():
 
 remove_field()
 ```
+
+------

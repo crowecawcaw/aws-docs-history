@@ -1,15 +1,18 @@
+
+
 # $ne
+<a name="ne"></a>
 
 The `$ne` operator is used to match documents where the value of a field is not equal to the specified value. It is a comparison operator that can be used in query predicates to filter documents.
 
 Planner version 2.0 added index support for `$ne`.
 
 **Parameters**
-
-- `field`: The field to check.
-- `value`: The value to check against.
++ `field`: The field to check.
++ `value`: The value to check against.
 
 ## Example (MongoDB Shell)
+<a name="ne-examples"></a>
 
 In this example, we'll find all documents in the `users` collection where the `status` field is not equal to `"active"`.
 
@@ -48,10 +51,12 @@ db.users.find({ status: { $ne: "active" } });
 ```
 
 ## Code examples
+<a name="ne-code"></a>
 
 To view a code example for using the `$ne` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -70,7 +75,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -84,3 +90,5 @@ print(result)
 
 client.close()
 ```
+
+------

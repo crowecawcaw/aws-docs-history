@@ -1,14 +1,17 @@
+
+
 # $not
+<a name="not"></a>
 
 The `$not` operator is used to negate the result of a given expression. It allows you to select documents where the specified condition does not match.
 
 Planner version 2.0 added index support for `$not {eq}` and `$not {in}`.
 
 **Parameters**
-
-- `expression`: The expression to negate.
++ `expression`: The expression to negate.
 
 ## Example (MongoDB Shell)
+<a name="not-examples"></a>
 
 The following example demonstrates how to use the `$not` operator to find documents where the `status` field is not equal to "active".
 
@@ -47,10 +50,12 @@ db.users.find({ status: { $not: { $eq: "active" } } });
 ```
 
 ## Code examples
+<a name="not-code"></a>
 
 To view a code example for using the `$not` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient, Filters } = require('mongodb');
@@ -72,7 +77,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -91,3 +97,5 @@ for doc in result:
 
 client.close()
 ```
+
+------

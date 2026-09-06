@@ -1,14 +1,17 @@
+
+
 # $toUUID
+<a name="toUUID"></a>
 
 New from version 8.0.1.
 
 The `$toUUID` operator in Amazon DocumentDB converts a string value to a UUID (Binary subtype 4).
 
 **Parameters**
-
-- `expression`: An expression that resolves to a string in UUID format (for example, "12345678-1234-1234-1234-123456789abc").
++ `expression`: An expression that resolves to a string in UUID format (for example, "12345678-1234-1234-1234-123456789abc").
 
 ## Example (MongoDB Shell)
+<a name="toUUID-examples"></a>
 
 The following example shows how to use the `$toUUID` operator to convert string values to UUID format.
 
@@ -39,10 +42,12 @@ db.records.aggregate([
 ```
 
 ## Code examples
+<a name="toUUID-code"></a>
 
 To view a code example for using the `$toUUID` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -64,7 +69,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -83,3 +89,5 @@ def example():
 
 example()
 ```
+
+------

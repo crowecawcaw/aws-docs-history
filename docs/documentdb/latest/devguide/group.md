@@ -1,13 +1,16 @@
+
+
 # $group
+<a name="group"></a>
 
 The `$group` aggregation stage in Amazon DocumentDB allows you to group documents by a specified expression and perform various accumulative operations on the grouped data. This can be useful for tasks such as calculating totals, averages, or other statistics based on the grouped data.
 
 **Parameters**
-
-- `_id`: Specifies the expression by which the input documents should be grouped. This can be a field name, a computed expression, or a combination of both.
-- `accumulator expressions`: (optional) One or more accumulator expressions that should be applied to the grouped data. These expressions use the accumulator operators mentioned above.
++ `_id`: Specifies the expression by which the input documents should be grouped. This can be a field name, a computed expression, or a combination of both.
++ `accumulator expressions`: (optional) One or more accumulator expressions that should be applied to the grouped data. These expressions use the accumulator operators mentioned above.
 
 ## Example (MongoDB Shell)
+<a name="group-examples"></a>
 
 The following example groups customers by their city and calculates the total order amount for each city.
 
@@ -46,10 +49,12 @@ db.customers.aggregate([
 ```
 
 ## Code examples
+<a name="group-code"></a>
 
 To view a code example for using the `$group` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -82,14 +87,15 @@ async function groupByCity() {
 groupByCity();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def group_by_city():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
-
+    
     try:
         db = client.test
         result = list(db.customers.aggregate([
@@ -109,3 +115,5 @@ def group_by_city():
 
 group_by_city()
 ```
+
+------

@@ -1,13 +1,16 @@
+
+
 # $lt
+<a name="lt-aggregation"></a>
 
 The `$lt` aggregation operator compares two values and returns `true` if the first value is less than the second, otherwise returns `false`.
 
 **Parameters**
-
-- `expression1`: The first value to compare.
-- `expression2`: The second value to compare.
++ `expression1`: The first value to compare.
++ `expression2`: The second value to compare.
 
 ## Example (MongoDB Shell)
+<a name="lt-aggregation-examples"></a>
 
 The following example demonstrates using the `$lt` operator to identify low stock items.
 
@@ -46,10 +49,12 @@ db.warehouse.aggregate([
 ```
 
 ## Code examples
+<a name="lt-aggregation-code"></a>
 
 To view a code example for using the `$lt` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -76,7 +81,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -101,3 +107,5 @@ def example():
 
 example()
 ```
+
+------

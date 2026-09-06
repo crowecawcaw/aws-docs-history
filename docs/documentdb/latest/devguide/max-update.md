@@ -1,13 +1,16 @@
+
+
 # $max
+<a name="max-update"></a>
 
 The `$max` update operator updates a field's value only if the specified value is greater than the current field value. This operator is useful for maintaining maximum values across updates.
 
 **Parameters**
-
-- `field`: The field to update.
-- `value`: The value to compare with the current field value.
++ `field`: The field to update.
++ `value`: The value to compare with the current field value.
 
 ## Example (MongoDB Shell)
+<a name="max-update-examples"></a>
 
 The following example demonstrates using the `$max` operator to update the highest recorded score for a player.
 
@@ -39,10 +42,12 @@ The `highScore` field for Alice is updated to 95 because 95 is greater than the 
 ```
 
 ## Code examples
+<a name="max-update-code"></a>
 
 To view a code example for using the `$max` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -64,7 +69,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -84,3 +90,5 @@ def example():
 
 example()
 ```
+
+------

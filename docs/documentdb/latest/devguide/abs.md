@@ -1,12 +1,15 @@
+
+
 # $abs
+<a name="abs"></a>
 
 The `$abs` operator in Amazon DocumentDB returns the absolute value of a number. It can be used in the aggregation pipeline to perform mathematical operations on numeric fields.
 
 **Parameters**
-
-- `number`: The numeric expression for which the absolute value will be returned.
++ `number`: The numeric expression for which the absolute value will be returned.
 
 ## Example (MongoDB Shell)
+<a name="abs-examples"></a>
 
 This example demonstrates the usage of the `$abs` operator to find the absolute value of a numeric field.
 
@@ -44,10 +47,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="abs-code"></a>
 
 To view a code example for using the `$abs` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -71,7 +76,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

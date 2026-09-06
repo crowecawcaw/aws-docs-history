@@ -1,4 +1,7 @@
+
+
 # $toDouble
+<a name="toDouble"></a>
 
 New from version 4.0
 
@@ -9,6 +12,7 @@ The `$toDouble` operator in Amazon DocumentDB is used to convert a value to a do
 `&lt;expression&gt;`: The expression to convert to a double value. This can be any valid expression that resolves to a numeric, string, or boolean value.
 
 ## Example (MongoDB Shell)
+<a name="toDouble-examples"></a>
 
 This example demonstrates how to use the `$toDouble` operator to convert a string value to a numeric value for the purpose of performing a mathematical calculation.
 
@@ -48,10 +52,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="toDouble-code"></a>
 
 To view a code example for using the `$toDouble` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +85,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -105,3 +112,5 @@ def example():
 
 example()
 ```
+
+------

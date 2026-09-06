@@ -1,4 +1,7 @@
+
+
 # $$PRUNE
+<a name="PRUNE"></a>
 
 The `$$PRUNE` system variable is used with the `$redact` stage in the aggregation pipeline to exclude documents or embedded document levels from the results. When a condition evaluates to `$$PRUNE`, the current document or subdocument is removed from the output. It is typically used with `$$DESCEND` (to keep and traverse the document) or `$$KEEP` (to keep the document at all levels).
 
@@ -7,6 +10,7 @@ The `$$PRUNE` system variable is used with the `$redact` stage in the aggregatio
 None. The `$$PRUNE` system variable is used without any parameters and must be used with `$redact`.
 
 ## Example (MongoDB Shell)
+<a name="PRUNE-examples"></a>
 
 The following example demonstrates how to use `$$PRUNE` with `$redact` to exclude users over 30 years old from the results.
 
@@ -54,10 +58,12 @@ db.users.aggregate([
 ```
 
 ## Code examples
+<a name="PRUNE-code"></a>
 
 To view a code example for using the `$$PRUNE` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -88,7 +94,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -112,3 +119,5 @@ result = list(users.aggregate([
 print(result)
 client.close()
 ```
+
+------

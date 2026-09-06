@@ -1,14 +1,17 @@
+
+
 # $ln
+<a name="ln"></a>
 
 New from version 4.0.
 
 The `$ln` operator in Amazon DocumentDB calculates the natural logarithm (base e) of a specified number. It returns the logarithm of the number to the base e.
 
 **Parameters**
-
-- `expression`: The number for which the natural logarithm will be calculated.
++ `expression`: The number for which the natural logarithm will be calculated.
 
 ## Example (MongoDB Shell)
+<a name="ln-examples"></a>
 
 The following example demonstrates the usage of the `$log` operator to calculate the natural logarithm of a number.
 
@@ -44,10 +47,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="ln-code"></a>
 
 To view a code example for using the `$ln` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,13 +77,14 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def example():
-
+  
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
 
     db = client.test
@@ -96,3 +102,5 @@ def example():
 
 example()
 ```
+
+------

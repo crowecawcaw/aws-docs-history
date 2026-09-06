@@ -1,12 +1,15 @@
+
+
 # $dayOfMonth
+<a name="dayOfMonth"></a>
 
 The `$dayOfMonth` aggregation operator in Amazon DocumentDB retrieves the day of the month (from 1 to 31) for a given date. This operator is useful for grouping, filtering, or extracting the day of the month from date fields in your documents.
 
 **Parameters**
-
-- `date expression`: The date expression can be a date field from the document, a date object, or a date string.
++ `date expression`: The date expression can be a date field from the document, a date object, or a date string.
 
 ## Example (MongoDB Shell)
+<a name="dayOfMonth-examples"></a>
 
 This example demonstrates how to use the `$dayOfMonth` operator to extract the day of the month from a date field in the document.
 
@@ -43,10 +46,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="dayOfMonth-code"></a>
 
 To view a code example for using the `$dayOfMonth` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -69,7 +74,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -90,3 +96,5 @@ def example():
 
 example()
 ```
+
+------

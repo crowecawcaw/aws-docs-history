@@ -1,14 +1,17 @@
+
+
 # $floor
+<a name="floor"></a>
 
 New from version 4.0.
 
 The `$floor` operator in Amazon DocumentDB returns the largest integer that is less than or equal to the specified number. This operator is useful for rounding down numeric values.
 
 **Parameters**
-
-- `expression`: The numeric expression to round down.
++ `expression`: The numeric expression to round down.
 
 ## Example (MongoDB Shell)
+<a name="floor-examples"></a>
 
 The following example demonstrates the use of the `$floor` operator to round a decimal value down to the nearest integer.
 
@@ -33,10 +36,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="floor-code"></a>
 
 To view a code example for using the `$floor` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -96,3 +102,5 @@ def example():
 
 example()
 ```
+
+------

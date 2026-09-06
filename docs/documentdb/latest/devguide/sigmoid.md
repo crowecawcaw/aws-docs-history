@@ -1,14 +1,17 @@
+
+
 # $sigmoid
+<a name="sigmoid"></a>
 
 New from version 8.0.1.
 
 The `$sigmoid` operator in Amazon DocumentDB applies the logistic sigmoid function, `1 / (1 + e^(-x))`, to a numeric input. The function maps any real number to a value between 0 and 1, producing an S-shaped curve. This is useful when you need to normalize values into the 0–1 range, such as converting raw scores into probabilities or relevance scores.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a numeric value.
++ `expression`: An expression that resolves to a numeric value.
 
 ## Example (MongoDB Shell)
+<a name="sigmoid-examples"></a>
 
 The following example shows how to use the `$sigmoid` operator to convert logit values into probabilities.
 
@@ -41,10 +44,12 @@ db.predictions.aggregate([
 ```
 
 ## Code examples
+<a name="sigmoid-code"></a>
 
 To view a code example for using the `$sigmoid` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -66,7 +71,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -85,3 +91,5 @@ def example():
 
 example()
 ```
+
+------

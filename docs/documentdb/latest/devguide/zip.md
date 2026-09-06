@@ -1,14 +1,17 @@
+
+
 # $zip
+<a name="zip"></a>
 
 The `$zip` operator in Amazon DocumentDB allows you to combine multiple arrays into a single array of tuples (key-value pairs). This is useful when you need to create new documents or objects by combining data from different sources or arrays within a document.
 
 **Parameters**
-
-- `inputs`: An array of expressions that resolve to arrays. These arrays will be combined into a single array of tuples.
-- `useLongestLength`: (optional) If `true`, the output array will have the length of the longest input array, padding shorter arrays with `null` values. If `false`, the output array will have the length of the shortest input array.
-- `defaults`: (optional) An array of default values to use for the tuples if the corresponding input array is shorter than the longest input array and `useLongestLength` is `true`.
++ `inputs`: An array of expressions that resolve to arrays. These arrays will be combined into a single array of tuples.
++ `useLongestLength`: (optional) If `true`, the output array will have the length of the longest input array, padding shorter arrays with `null` values. If `false`, the output array will have the length of the shortest input array.
++ `defaults`: (optional) An array of default values to use for the tuples if the corresponding input array is shorter than the longest input array and `useLongestLength` is `true`.
 
 ## Example (MongoDB Shell)
+<a name="zip-examples"></a>
 
 The following example demonstrates how to use the `$zip` operator to combine two arrays into a single array of tuples.
 
@@ -78,10 +81,12 @@ db.grades.aggregate([
 ```
 
 ## Code examples
+<a name="zip-code"></a>
 
 To view a code example for using the `$zip` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -113,7 +118,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -143,3 +149,5 @@ def example():
 
 example()
 ```
+
+------

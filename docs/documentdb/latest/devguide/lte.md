@@ -1,13 +1,16 @@
+
+
 # $lte
+<a name="lte"></a>
 
 The `$lte` operator in Amazon DocumentDB is used to match documents where the value of a specified field is less than or equal to the specified value. This operator is useful for filtering and querying data based on numerical comparisons.
 
 **Parameters**
-
-- `field`: The field to compare.
-- `value`: The value to compare against.
++ `field`: The field to compare.
++ `value`: The value to compare against.
 
 ## Example (MongoDB Shell)
+<a name="lte-examples"></a>
 
 The following example demonstrates the usage of the `$lte` operator to retrieve documents where the `quantity` field is less than or equal to 10.
 
@@ -36,10 +39,12 @@ db.inventory.find({ qty: { $lte: 10 } });
 ```
 
 ## Code examples
+<a name="lte-code"></a>
 
 To view a code example for using the `$lte` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require("mongodb");
@@ -58,7 +63,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -76,3 +82,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

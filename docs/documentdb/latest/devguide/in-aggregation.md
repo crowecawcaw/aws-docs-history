@@ -1,13 +1,16 @@
+
+
 # $in
+<a name="in-aggregation"></a>
 
 The `$in` aggregation operator checks if a specified value exists within an array. It returns `true` if the value is found in the array, and `false` otherwise.
 
 **Parameters**
-
-- `value`: The value to search for.
-- `array`: The array to search within.
++ `value`: The value to search for.
++ `array`: The array to search within.
 
 ## Example (MongoDB Shell)
+<a name="in-aggregation-examples"></a>
 
 The following example demonstrates using the `$in` operator to check if a specific skill exists in each employee's skill set.
 
@@ -45,10 +48,12 @@ db.employees.aggregate([
 ```
 
 ## Code examples
+<a name="in-aggregation-code"></a>
 
 To view a code example for using the `$in` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -74,7 +79,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -98,3 +104,5 @@ def example():
 
 example()
 ```
+
+------

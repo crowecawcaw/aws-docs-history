@@ -1,15 +1,18 @@
+
+
 # $bottom
+<a name="bottom"></a>
 
 New from version 8.0.1.
 
 Use the `$bottom` accumulator in the `$group` stage to return the lowest-ranked document per group according to a specified sort order.
 
 **Parameters**
-
-- `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
-- `output`: An expression that specifies the fields to return from the bottom document.
++ `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
++ `output`: An expression that specifies the fields to return from the bottom document.
 
 ## Example (MongoDB Shell)
+<a name="bottom-examples"></a>
 
 The following example shows how to use the `$bottom` accumulator to find the bottom sale (lowest quantity) per item in a sales collection.
 
@@ -42,10 +45,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="bottom-code"></a>
 
 To view a code example for using the `$bottom` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -76,7 +81,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -105,3 +111,5 @@ def example():
 
 example()
 ```
+
+------

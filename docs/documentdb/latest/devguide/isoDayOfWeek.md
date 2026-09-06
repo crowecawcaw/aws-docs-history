@@ -1,12 +1,15 @@
+
+
 # $isoDayOfWeek
+<a name="isoDayOfWeek"></a>
 
 The `$isoDayOfWeek` operator in Amazon DocumentDB returns the ISO day of the week for a date as an integer value. The ISO week date system defines each week starting on a Monday and ending on a Sunday, with week 1 being the week that contains the year's first Thursday.
 
 **Parameters**
-
-- `expression`: The date expression for which to return the ISO day of the week.
++ `expression`: The date expression for which to return the ISO day of the week.
 
 ## Example (MongoDB Shell)
+<a name="isoDayOfWeek-examples"></a>
 
 The following example demonstrates how to use the `$isoDayOfWeek` operator to retrieve the ISO day of the week for a set of event documents.
 
@@ -51,10 +54,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="isoDayOfWeek-code"></a>
 
 To view a code example for using the `$isoDayOfWeek` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -81,7 +86,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -106,3 +112,5 @@ def example():
 
 example()
 ```
+
+------

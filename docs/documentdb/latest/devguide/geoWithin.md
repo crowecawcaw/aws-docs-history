@@ -1,12 +1,15 @@
+
+
 # $geoWithin
+<a name="geoWithin"></a>
 
 The `$geoWithin` operator in Amazon DocumentDB is used to find documents whose location data (represented as GeoJSON objects) are completely contained within a specified shape, such as a polygon or multipolygon. This is useful for querying for objects that are located within a specific geographic region.
 
 **Parameters**
-
-- `$geometry`: A GeoJSON object that represents the shape to query against.
++ `$geometry`: A GeoJSON object that represents the shape to query against.
 
 ## Example (MongoDB Shell)
+<a name="geoWithin-examples"></a>
 
 The following example demonstrates how to use the `$geoWithin` operator to find all airports located within the state of New York.
 
@@ -97,10 +100,12 @@ db.airports.find({
 ```
 
 ## Code examples
+<a name="geoWithin-code"></a>
 
 To view a code example for using the `$geoWithin` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -126,7 +131,8 @@ async function findAirportsWithinState(stateName) {
 findAirportsWithinState('New York');
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -143,7 +149,7 @@ def find_airports_within_state(state_name):
                 }
             }
         }, {'name': 1, 'type': 1, 'code': 1, '_id': 0})
-
+        
         return list(airport_docs)
     except Exception as e:
         print(f'Error: {e}')
@@ -153,3 +159,5 @@ def find_airports_within_state(state_name):
 airports = find_airports_within_state('New York')
 print(airports)
 ```
+
+------

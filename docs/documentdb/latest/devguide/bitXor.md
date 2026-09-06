@@ -1,14 +1,17 @@
+
+
 # $bitXor
+<a name="bitXor"></a>
 
 New from version 8.0.1.
 
 The `$bitXor` operator in Amazon DocumentDB performs a bitwise XOR operation on integer or long values.
 
 **Parameters**
-
-- `expressions`: An array of two or more expressions, which can resolve to integers or longs.
++ `expressions`: An array of two or more expressions, which can resolve to integers or longs.
 
 ## Example (MongoDB Shell)
+<a name="bitXor-examples"></a>
 
 The following example shows how to use the `$bitXor` operator to perform bitwise XOR on two fields.
 
@@ -43,10 +46,12 @@ db.flags.aggregate([
 In binary: 13 (1101) XOR 10 (1010) = 7 (0111); 7 (0111) XOR 5 (0101) = 2 (0010); 15 (1111) XOR 9 (1001) = 6 (0110).
 
 ## Code examples
+<a name="bitXor-code"></a>
 
 To view a code example for using the `$bitXor` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

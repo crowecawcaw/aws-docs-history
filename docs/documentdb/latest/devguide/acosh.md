@@ -1,15 +1,19 @@
+
+
 # $acosh
+<a name="acosh"></a>
 
 New from version 8.0.1.
 
 The `$acosh` operator in Amazon DocumentDB returns the inverse hyperbolic cosine (hyperbolic arccosine) of a value. The input value must be greater than or equal to 1.
 
 **Parameters**
++ `expression`: An expression that resolves to a number greater than or equal to 1.
 
-- `expression`: An expression that resolves to a number greater than or equal to 1.
-  The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
+The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 ## Example (MongoDB Shell)
+<a name="acosh-examples"></a>
 
 The following example shows how to use the `$acosh` operator to calculate the inverse hyperbolic cosine of numeric values.
 
@@ -44,10 +48,12 @@ db.values.aggregate([
 ```
 
 ## Code examples
+<a name="acosh-code"></a>
 
 To view a code example for using the `$acosh` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -70,7 +76,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -92,3 +99,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

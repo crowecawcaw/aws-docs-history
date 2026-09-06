@@ -1,13 +1,17 @@
+
+
 # $toBool
+<a name="toBool"></a>
 
 The `$toBool` operator in Amazon DocumentDB converts an expression to a boolean value.
 
 **Parameters**
++ `expression`: The expression to be converted to a boolean value.
 
-- `expression`: The expression to be converted to a boolean value.
-  **Note**: Any string converts to `true`.
+**Note**: Any string converts to `true`.
 
 ## Example (MongoDB Shell)
+<a name="toBool-examples"></a>
 
 The following example demonstrates using the `$toBool` operator to normalize device state values from different data types.
 
@@ -48,10 +52,12 @@ db.deviceStates.aggregate([
 ```
 
 ## Code examples
+<a name="toBool-code"></a>
 
 To view a code example for using the `$toBool` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +85,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -106,3 +113,5 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+------

@@ -1,114 +1,91 @@
+
+
 # Data encryption at rest for Amazon DocumentDB elastic clusters
+<a name="elastic-encryption"></a>
 
 The following topics help you learn about, create, and monitor AWS Key Management Service encryption keys for Amazon DocumentDB elastic clusters:
 
-###### Topics
+**Topics**
++ [How Amazon DocumentDB elastic clusters use grants in AWS KMS](#ec-encrypt-grants)
++ [Create a customer managed key](#ec-encrypt-create)
++ [Monitoring your encryption keys for Amazon DocumentDB elastic clusters](#ec-encrypt-monitor)
++ [Learn more](#ec-encrypt-learn)
 
-- [How Amazon DocumentDB elastic clusters use grants in AWS KMS](#ec-encrypt-grants "#ec-encrypt-grants")
-- [Create a customer managed key](#ec-encrypt-create "#ec-encrypt-create")
-- [Monitoring your encryption keys for Amazon DocumentDB elastic clusters](#ec-encrypt-monitor "#ec-encrypt-monitor")
-- [Learn more](#ec-encrypt-learn "#ec-encrypt-learn")
-  Amazon DocumentDB elastic clusters automatically integrate with AWS Key Management Service (AWS KMS) for key management and uses a method known as envelope encryption to protect your data.
-  For more information about envelope encryption, see [Envelope encryption](../../../kms/latest/developerguide/concepts.md#enveloping "../../../kms/latest/developerguide/concepts.md#enveloping") in the _AWS Key Management Service Developer Guide_.
+Amazon DocumentDB elastic clusters automatically integrate with AWS Key Management Service (AWS KMS) for key management and uses a method known as envelope encryption to protect your data. For more information about envelope encryption, see [Envelope encryption](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping) in the *AWS Key Management Service Developer Guide*.
 
-An AWS KMS key is a logical representation of a key.
-The KMS key includes metadata, such as the key ID, creation date, description, and key state.
-The KMS key also contains the key material used to encrypt and decrypt data.
-For more information about KMS keys, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys") in the _AWS Key Management Service Developer Guide_.
+An AWS KMS key is a logical representation of a key. The KMS key includes metadata, such as the key ID, creation date, description, and key state. The KMS key also contains the key material used to encrypt and decrypt data. For more information about KMS keys, see [AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in the *AWS Key Management Service Developer Guide*.
 
 Amazon DocumentDB elastic clusters support encryption with two types of keys:
++ **AWS owned keys —** Amazon DocumentDB elastic clusters use these keys by default to automatically encrypt personally identifiable data. You can't view, manage, or use AWS-owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*.
++ **Customer-managed keys —** Symmetric AWS KMS keys that you create, own, and manage. Because you have full control of this layer of encryption, you can perform such tasks as:
+  + Establishing and maintaining key policies
+  + Establishing and maintaining IAM policies and grants
+  + Enabling and disabling key policies
+  + Rotating key cryptographic material
+  + Adding tags
+  + Creating key aliases
+  + Scheduling keys for deletion
 
-- **AWS owned keys —** Amazon DocumentDB elastic clusters use these keys by default to automatically encrypt personally identifiable data.
-  You can't view, manage, or use AWS-owned keys, or audit their use.
-  However, you don't have to take any action or change any programs to protect the keys that encrypt your data.
-  For more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
-- **Customer-managed keys —** Symmetric AWS KMS keys that you create, own, and manage.
-  Because you have full control of this layer of encryption, you can perform such tasks as:
+  For more information, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS Key Management Service Developer Guide*.
 
-  - Establishing and maintaining key policies
-  - Establishing and maintaining IAM policies and grants
-  - Enabling and disabling key policies
-  - Rotating key cryptographic material
-  - Adding tags
-  - Creating key aliases
-  - Scheduling keys for deletion
-    For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
+**Important**  
+You must use a symmetric encryption KMS key to encrypt your cluster as Amazon DocumentDB supports only symmetric encryption KMS keys. Do not use an asymmetric KMS key to attempt to encrypt the data in your Amazon DocumentDB elastic clusters. For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide*.  
+If Amazon DocumentDB can no longer gain access to the encryption key for a cluster — for example, when access to a key is revoked — the encrypted cluster goes into a terminal state. In this case, you can only restore the cluster from a backup. For Amazon DocumentDB, backups are always enabled for 1 day. In addition, if you disable the key for an encrypted Amazon DocumentDB cluster, you will eventually lose read and write access to that cluster. When Amazon DocumentDB encounters a cluster that is encrypted by a key that it doesn't have access to, it puts the cluster into a terminal state. In this state, the cluster is no longer available, and the current state of the database can't be recovered. To restore the cluster, you must re-enable access to the encryption key for Amazon DocumentDB, and then restore the cluster from a backup.
 
-###### Important
-
-You must use a symmetric encryption KMS key to encrypt your cluster as Amazon DocumentDB supports only symmetric encryption KMS keys.
-Do not use an asymmetric KMS key to attempt to encrypt the data in your Amazon DocumentDB elastic clusters.
-For more information, see [Asymmetric keys in AWS KMS](../../../kms/latest/developerguide/symmetric-asymmetric.md "../../../kms/latest/developerguide/symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
-
-If Amazon DocumentDB can no longer gain access to the encryption key for a cluster — for example, when access to a key is revoked — the encrypted cluster goes into a terminal state.
-In this case, you can only restore the cluster from a backup. For Amazon DocumentDB, backups are always enabled for 1 day.
-In addition, if you disable the key for an encrypted Amazon DocumentDB cluster, you will eventually lose read and write access to that cluster.
-When Amazon DocumentDB encounters a cluster that is encrypted by a key that it doesn't have access to, it puts the cluster into a terminal state.
-In this state, the cluster is no longer available, and the current state of the database can't be recovered.
-To restore the cluster, you must re-enable access to the encryption key for Amazon DocumentDB, and then restore the cluster from a backup.
-
-###### Important
-
-You cannot change the KMS key for an encrypted cluster after you have already created it.
-Be sure to determine your encryption key requirements before you create your encrypted elastic cluster.
+**Important**  
+You cannot change the KMS key for an encrypted cluster after you have already created it. Be sure to determine your encryption key requirements before you create your encrypted elastic cluster.
 
 ## How Amazon DocumentDB elastic clusters use grants in AWS KMS
+<a name="ec-encrypt-grants"></a>
 
-Amazon DocumentDB elastic clusters require a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer managed key.
+Amazon DocumentDB elastic clusters require a [grant](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) to use your customer managed key.
 
-When you create a cluster encrypted with a customer managed key, Amazon DocumentDB elastic clusters create a grant on your behalf by sending a `CreateGrant` request to AWS KMS.
-Grants in AWS KMS are used to give Amazon DocumentDB elastic clusters access to a KMS key in a customer account.
+When you create a cluster encrypted with a customer managed key, Amazon DocumentDB elastic clusters create a grant on your behalf by sending a `CreateGrant` request to AWS KMS. Grants in AWS KMS are used to give Amazon DocumentDB elastic clusters access to a KMS key in a customer account.
 
 Amazon DocumentDB elastic clusters require the grant to use your customer managed key for the following internal operations:
-
-- Send `DescribeKey` requests to AWS KMS to verify that the symmetric customer managed key ID, entered when creating an elastic cluster, is valid.
-- Send `GenerateDataKey` requests to AWS KMS to generate data keys encrypted by your customer managed key.
-- Send `Decrypt` requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
-- You can revoke access to the grant, or remove the service's access to the customer managed key at any time.
-  If you do, Amazon DocumentDB elastic clusters won't be able to access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data.
++ Send `DescribeKey` requests to AWS KMS to verify that the symmetric customer managed key ID, entered when creating an elastic cluster, is valid.
++ Send `GenerateDataKey` requests to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send `Decrypt` requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
++ You can revoke access to the grant, or remove the service's access to the customer managed key at any time. If you do, Amazon DocumentDB elastic clusters won't be able to access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data.
 
 ## Create a customer managed key
+<a name="ec-encrypt-create"></a>
 
 You can create a symmetric customer managed key by using the AWS Management Console or the AWS KMS API.
 
 **Symmetric customer managed key creation**
 
-Follow the steps for [Creating a symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
+Follow the steps for [Creating a symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.
 
 **Key policy**
 
-Key policies control access to your customer managed key.
-Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it.
-When you create your customer managed key, you can specify a key policy.
-For more information, see the KMS key access information located in the [AWS Key Management Service overview](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") of the _AWS Key Management Service Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see the KMS key access information located in the [AWS Key Management Service overview](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) of the *AWS Key Management Service Developer Guide*.
 
 To use your customer managed key with Amazon DocumentDB elastic cluster resources, the following API operations must be permitted in the key policy:
++ [`kms:CreateGrant`](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to the grant operations that Amazon DocumentDB elastic clusters require. For more information about using grants, see [Grants in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*.
++ [`kms:DescribeKey`](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) – Provides the customer managed key details to allow Amazon DocumentDB elastic clusters to validate the key.
++ [`kms:Decrypt`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) – Allows Amazon DocumentDB elastic clusters to use the stored encrypted data key to access encrypted data.
++ [`kms:GenerateDataKey`](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) – Allows Amazon DocumentDB elastic clusters to generate an encrypted data key and store it because the data key isn't immediately used to encrypt.
 
-- [`kms:CreateGrant`](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – Adds a grant to a customer managed key.
-  Grants control access to a specified KMS key, which allows access to the grant operations that Amazon DocumentDB elastic clusters require.
-  For more information about using grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS Key Management Service Developer Guide_.
-- [`kms:DescribeKey`](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details to allow Amazon DocumentDB elastic clusters to validate the key.
-- [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – Allows Amazon DocumentDB elastic clusters to use the stored encrypted data key to access encrypted data.
-- [`kms:GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") – Allows Amazon DocumentDB elastic clusters to generate an encrypted data key and store it because the data key isn't immediately used to encrypt.
-
-For more information, see [Permissions for AWS services in key policies](../../../kms/latest/developerguide/key-policy-services.md "../../../kms/latest/developerguide/key-policy-services.md") and [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the _AWS Key Management Service Developer Guide_.
+For more information, see [Permissions for AWS services in key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html) and [Troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html) in the *AWS Key Management Service Developer Guide*.
 
 **Restricting customer managed key access via IAM policies**
 
 In addition to KMS key policies, you can also restrict KMS key permissions in an IAM policy.
 
-You can make the IAM policy stricter in various ways.
-For example, to allow the customer managed key to be used only for requests that originate in Amazon DocumentDB elastic clusters, you can use the [`kms:ViaService` condition key](../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service "../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service") with the `docdb-elastic.<region-name>.amazonaws.com` value.
+You can make the IAM policy stricter in various ways. For example, to allow the customer managed key to be used only for requests that originate in Amazon DocumentDB elastic clusters, you can use the [`kms:ViaService` condition key](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service) with the `docdb-elastic.<region-name>.amazonaws.com` value.
 
-For more information, see [Allowing users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md") in the _AWS Key Management Service Developer Guide_.
+For more information, see [Allowing users in other accounts to use a KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html) in the *AWS Key Management Service Developer Guide*.
 
 ## Monitoring your encryption keys for Amazon DocumentDB elastic clusters
+<a name="ec-encrypt-monitor"></a>
 
 When you use a customer managed key with your Amazon DocumentDB elastic cluster resources, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that Amazon DocumentDB elastic clusters send to AWS KMS.
 
 The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKeyWithoutPlainText`, `Decrypt`, and `DescribeKey` to monitor AWS KMS key operations called by Amazon DocumentDB elastic clusters to access data encrypted by your customer managed key:
 
-CreateGrant
+------
+#### [ CreateGrant ]
 
 ```
 {
@@ -178,7 +155,8 @@ CreateGrant
 }
 ```
 
-GenerateDataKey
+------
+#### [ GenerateDataKey ]
 
 ```
 {
@@ -233,7 +211,8 @@ GenerateDataKey
 }
 ```
 
-Decrypt
+------
+#### [ Decrypt ]
 
 ```
 {
@@ -287,7 +266,8 @@ Decrypt
 }
 ```
 
-DescribeKey
+------
+#### [ DescribeKey ]
 
 ```
 {
@@ -341,9 +321,11 @@ DescribeKey
 }
 ```
 
+------
+
 ## Learn more
+<a name="ec-encrypt-learn"></a>
 
 The following resources provide more information about data encryption at rest:
-
-- For more information about AWS KMS concepts, see [AWS Key Management Service basic concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer Guide_.
-- For more information about AWS KMS security, see [Security best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md") in the _AWS Key Management Service Developer Guide_.
++ For more information about AWS KMS concepts, see [AWS Key Management Service basic concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*.
++ For more information about AWS KMS security, see [Security best practices for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html) in the *AWS Key Management Service Developer Guide*.

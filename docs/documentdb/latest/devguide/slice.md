@@ -1,13 +1,16 @@
+
+
 # $slice
+<a name="slice"></a>
 
 The `$slice` aggregation operator enables you to return a subset of an array by either traversing the array from the beginning or the end of the array. This is used to display a limited number of items from an array field, such as the top or bottom N items.
 
 **Parameters**
-
-- `array`: The array field to be sliced.
-- `n`: An integer that specifies the number of elements to return. A positive value starts from the beginning of the array, while a negative value starts from the end of the array.
++ `array`: The array field to be sliced.
++ `n`: An integer that specifies the number of elements to return. A positive value starts from the beginning of the array, while a negative value starts from the end of the array.
 
 ## Example (MongoDB Shell)
+<a name="slice-examples"></a>
 
 The following example demonstrates how to use `$slice` to return the first two favorite sweets for each chef.
 
@@ -44,10 +47,12 @@ db.sweets.aggregate([
 In this example, the `$slice` operator is used to extract the first two elements from the `favorites` array for each document.
 
 ## Code examples
+<a name="slice-code"></a>
 
 To view a code example for using the `$slice` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

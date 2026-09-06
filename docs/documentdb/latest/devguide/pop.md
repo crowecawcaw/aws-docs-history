@@ -1,13 +1,16 @@
+
+
 # $pop
+<a name="pop"></a>
 
 The `$pop` operator in Amazon DocumentDB is used to remove the first or last element from an array field. It is particularly useful when you need to maintain a fixed-size array or implement a queue-like data structure within a document.
 
 **Parameters**
-
-- `field`: The name of the array field to remove an element from.
-- `value`: An integer value that determines the position of the element to remove. A value of `1` removes the last element, while a value of `-1` removes the first element.
++ `field`: The name of the array field to remove an element from.
++ `value`: An integer value that determines the position of the element to remove. A value of `1` removes the last element, while a value of `-1` removes the first element.
 
 ## Example (MongoDB Shell)
+<a name="pop-examples"></a>
 
 This example demonstrates how to use the `$pop` operator to remove the first and last elements from an array field.
 
@@ -38,10 +41,12 @@ db.users.update({ "_id": 2 }, { $pop: { "hobbies": 1 } })
 ```
 
 ## Code examples
+<a name="pop-code"></a>
 
 To view a code example for using the `$pop` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -66,7 +71,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +95,5 @@ def example():
 
 example()
 ```
+
+------

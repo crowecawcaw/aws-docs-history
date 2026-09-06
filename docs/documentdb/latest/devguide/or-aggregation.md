@@ -1,12 +1,15 @@
+
+
 # $or
+<a name="or-aggregation"></a>
 
 The `$or` aggregation operator evaluates multiple expressions and returns `true` if at least one expression evaluates to `true`. It returns `false` only if all expressions are `false`.
 
 **Parameters**
-
-- `expressions`: An array of expressions to evaluate.
++ `expressions`: An array of expressions to evaluate.
 
 ## Example (MongoDB Shell)
+<a name="or-aggregation-examples"></a>
 
 The following example demonstrates using the `$or` operator to check if products meet any of multiple criteria.
 
@@ -51,10 +54,12 @@ db.items.aggregate([
 ```
 
 ## Code examples
+<a name="or-aggregation-code"></a>
 
 To view a code example for using the `$or` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -87,7 +92,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -118,3 +124,5 @@ def example():
 
 example()
 ```
+
+------

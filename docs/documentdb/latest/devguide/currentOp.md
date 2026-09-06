@@ -1,16 +1,19 @@
+
+
 # $currentOp
+<a name="currentOp"></a>
 
 The `$currentOp` aggregation stage returns information about currently running operations in the database. This stage is useful for monitoring active queries and operations in an aggregation pipeline.
 
 **Parameters**
-
-- `allUsers` (optional): When set to `true`, returns operations for all users. Default is `false`.
-- `idleConnections` (optional): When set to `true`, includes idle connections. Default is `false`.
-- `idleCursors` (optional): When set to `true`, includes information about idle cursors. Default is `false`.
-- `idleSessions` (optional): When set to `true`, includes information about idle sessions. Default is `true`.
-- `localOps` (optional): When set to `true`, includes local operations. Default is `false`.
++ `allUsers` (optional): When set to `true`, returns operations for all users. Default is `false`.
++ `idleConnections` (optional): When set to `true`, includes idle connections. Default is `false`.
++ `idleCursors` (optional): When set to `true`, includes information about idle cursors. Default is `false`.
++ `idleSessions` (optional): When set to `true`, includes information about idle sessions. Default is `true`.
++ `localOps` (optional): When set to `true`, includes local operations. Default is `false`.
 
 ## Example (MongoDB Shell)
+<a name="currentOp-examples"></a>
 
 The following example demonstrates using the `$currentOp` aggregation stage to retrieve information about active read operations.
 
@@ -38,10 +41,12 @@ db.aggregate([
 ```
 
 ## Code examples
+<a name="currentOp-code"></a>
 
 To view a code example for using the `$currentOp` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -62,7 +67,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -81,3 +87,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,14 +1,17 @@
+
+
 # $setUnion
+<a name="setUnion"></a>
 
 The `$setUnion` aggregation operator in Amazon DocumentDB is used to combine two or more sets of values and return a set that contains all the unique elements from the input sets. This operator is useful when you need to perform set-based operations on array fields in your documents.
 
 **Parameters**
-
-- `expression1`: An expression that resolves to an array.
-- `expression2`: An expression that resolves to an array.
-- `expressionN`: Additional expressions that resolve to arrays (optional).
++ `expression1`: An expression that resolves to an array.
++ `expression2`: An expression that resolves to an array.
++ `expressionN`: Additional expressions that resolve to arrays (optional).
 
 ## Example (MongoDB Shell)
+<a name="setUnion-examples"></a>
 
 The following example demonstrates how to use the `$setUnion` operator to combine the unique elements from two array fields in a collection.
 
@@ -48,10 +51,12 @@ db.users.aggregate([
 In this example, the `$setUnion` operator is used to combine the unique elements from the `hobbies` and `skills` array fields for each user document. The resulting `allInterests` field contains the union of all the unique hobbies and skills for each user.
 
 ## Code examples
+<a name="setUnion-code"></a>
 
 To view a code example for using the `$setUnion` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -103,3 +109,5 @@ def example():
 
 example()
 ```
+
+------

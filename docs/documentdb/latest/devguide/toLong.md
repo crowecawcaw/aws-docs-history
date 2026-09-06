@@ -1,14 +1,17 @@
+
+
 # $toLong
+<a name="toLong"></a>
 
 New from version 4.0
 
 The `$toLong` operator in Amazon DocumentDB is used to convert a value to a 64-bit integer (long) data type. This can be useful when you need to perform arithmetic operations or comparisons on numeric values that may be stored as strings or other data types.
 
 **Parameters**
-
-- `expression`: The expression to convert to a 64-bit integer.
++ `expression`: The expression to convert to a 64-bit integer.
 
 ## Example (MongoDB Shell)
+<a name="toLong-examples"></a>
 
 This example demonstrates how to use the `$toLong` operator to convert a string value to a 64-bit integer.
 
@@ -44,10 +47,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="toLong-code"></a>
 
 To view a code example for using the `$toLong` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -73,7 +78,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -97,3 +103,5 @@ def example():
 
 example()
 ```
+
+------

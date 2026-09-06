@@ -1,12 +1,15 @@
+
+
 # $size
+<a name="size"></a>
 
 The `$size` operator is used to return the count of items within an array field. This can be used to determine the number of elements in an array stored in a document.
 
 **Parameters**
-
-- `field`: The field path whose array size you want to return.
++ `field`: The field path whose array size you want to return.
 
 ## Example (MongoDB Shell)
+<a name="size-examples"></a>
 
 This example shows how to use the `$size` operator to return the count of teams each user is following.
 
@@ -45,10 +48,12 @@ db.profiles.aggregate([
 ```
 
 ## Code examples
+<a name="size-code"></a>
 
 To view a code example for using the `$size` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -74,7 +79,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -99,3 +105,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

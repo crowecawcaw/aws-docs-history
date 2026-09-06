@@ -1,14 +1,17 @@
+
+
 # $minute
+<a name="minute"></a>
 
 The `$minute` aggregation pipeline stage in Amazon DocumentDB extracts the minute value from a date or timestamp field.
 
 This operator is useful when you need to perform date and time-based calculations or grouping within your aggregation pipeline.
 
 **Parameters**
-
-- `expression`: The date or timestamp field from which to extract the minute value.
++ `expression`: The date or timestamp field from which to extract the minute value.
 
 ## Example (MongoDB Shell)
+<a name="minute-examples"></a>
 
 The following example demonstrates how to use the `$minute` operator to group the documents by the minute value extracted from the timestamp field and count the number of documents in each group.
 
@@ -51,10 +54,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="minute-code"></a>
 
 To view a code example for using the `$minute` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -91,7 +96,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -127,3 +133,5 @@ def example():
 
 example()
 ```
+
+------

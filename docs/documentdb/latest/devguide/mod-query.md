@@ -1,13 +1,16 @@
+
+
 # $mod
+<a name="mod-query"></a>
 
 The `$mod` query operator selects documents where a field value divided by a divisor has a specified remainder. This is useful for filtering documents based on modulo arithmetic conditions.
 
 **Parameters**
-
-- `divisor`: The number to divide by.
-- `remainder`: The expected remainder value.
++ `divisor`: The number to divide by.
++ `remainder`: The expected remainder value.
 
 ## Example (MongoDB Shell)
+<a name="mod-query-examples"></a>
 
 The following example demonstrates using the `$mod` operator to find all orders where the quantity is an odd number.
 
@@ -40,10 +43,12 @@ db.orders.find({ quantity: { $mod: [2, 1] } });
 This query returns documents where the quantity divided by 2 has a remainder of 1, effectively selecting all odd quantities.
 
 ## Code examples
+<a name="mod-query-code"></a>
 
 To view a code example for using the `$mod` query operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -62,7 +67,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -79,3 +85,5 @@ def example():
 
 example()
 ```
+
+------

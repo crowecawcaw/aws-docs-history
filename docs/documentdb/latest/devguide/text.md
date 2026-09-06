@@ -1,12 +1,15 @@
+
+
 # $text
+<a name="text"></a>
 
 The `$text` operator is used to perform full-text search on text-indexed fields within a document collection. This operator allows you to search for documents that contain specific words or phrases, and can be combined with other query operators to filter results based on additional criteria.
 
 **Parameters**
-
-- `$search`: The text string to search for.
++ `$search`: The text string to search for.
 
 ## Example (MongoDB Shell)
+<a name="text-examples"></a>
 
 The following example demonstrates how to use the `$text` operator to search for documents containing the word "interest" and filter the results based on a "star\_rating" field.
 
@@ -45,10 +48,12 @@ db.test.find({$and: [{star_rating: 5}, {$text: {$search: "interest"}}]})
 The command above returns documents with a text-indexed field containing any form of "interest" and a "star\_rating" equal to 5.
 
 ## Code examples
+<a name="text-code"></a>
 
 To view a code example for using the `$text` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,8 @@ async function searchDocuments() {
 searchDocuments();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ def search_documents():
 
 search_documents()
 ```
+
+------

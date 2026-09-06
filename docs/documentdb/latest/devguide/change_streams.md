@@ -1,86 +1,70 @@
+
+
 # Using change streams with Amazon DocumentDB
+<a name="change_streams"></a>
 
-The change streams feature in Amazon DocumentDB (with MongoDB compatibility) provides
-a time-ordered sequence of change events that occur within your cluster’s
-collections. You can read events from a change stream to implement many
-different use cases, including the following:
+The change streams feature in Amazon DocumentDB (with MongoDB compatibility) provides a time-ordered sequence of change events that occur within your cluster’s collections. You can read events from a change stream to implement many different use cases, including the following:
++ Change notification
++ Full-text search with Amazon OpenSearch Service (OpenSearch Service)
++ Analytics with Amazon Redshift
 
-- Change notification
-- Full-text search with Amazon OpenSearch Service (OpenSearch Service)
-- Analytics with Amazon Redshift
-  Applications can use change streams to subscribe to data changes on individual collections. Change streams events are ordered as they occur on the cluster and are stored for 3 hours (by default) after the event has been recorded. The retention period can be extended up to 7 days using the `change_stream_log_retention_duration` parameter. To modify the change stream retention period, see [Modifying the change stream log retention duration](#change_streams-modifying_log_retention "#change_streams-modifying_log_retention").
+Applications can use change streams to subscribe to data changes on individual collections. Change streams events are ordered as they occur on the cluster and are stored for 3 hours (by default) after the event has been recorded. The retention period can be extended up to 7 days using the `change_stream_log_retention_duration` parameter. To modify the change stream retention period, see [Modifying the change stream log retention duration](#change_streams-modifying_log_retention).
 
-###### Topics
-
-- [Supported operations](#change_streams-supported_ops "#change_streams-supported_ops")
-- [Billing](#change_streams-billing "#change_streams-billing")
-- [Limitations](#change_streams-limitations "#change_streams-limitations")
-- [Enabling change streams](#change_streams-enabling "#change_streams-enabling")
-- [Example: using change streams with Python](#change_streams-using_example "#change_streams-using_example")
-- [Full document lookup](#change_streams-lookup "#change_streams-lookup")
-- [Resuming a change stream](#change_streams-resuming "#change_streams-resuming")
-- [Resuming a change stream with startAtOperationTime](#change_streams-startAtOperation "#change_streams-startAtOperation")
-- [Resuming a change stream with postBatchResumeToken](#change_streams-postBatchResumeToken "#change_streams-postBatchResumeToken")
-- [Transactions in change streams](#change_streams-transactions "#change_streams-transactions")
-- [Modifying the change stream log retention duration](#change_streams-modifying_log_retention "#change_streams-modifying_log_retention")
-- [Using change streams on secondary instances](#change-streams-secondary-instances "#change-streams-secondary-instances")
+**Topics**
++ [Supported operations](#change_streams-supported_ops)
++ [Billing](#change_streams-billing)
++ [Limitations](#change_streams-limitations)
++ [Enabling change streams](#change_streams-enabling)
++ [Example: using change streams with Python](#change_streams-using_example)
++ [Full document lookup](#change_streams-lookup)
++ [Resuming a change stream](#change_streams-resuming)
++ [Resuming a change stream with `startAtOperationTime`](#change_streams-startAtOperation)
++ [Resuming a change stream with `postBatchResumeToken`](#change_streams-postBatchResumeToken)
++ [Transactions in change streams](#change_streams-transactions)
++ [Modifying the change stream log retention duration](#change_streams-modifying_log_retention)
++ [Using change streams on secondary instances](#change-streams-secondary-instances)
 
 ## Supported operations
+<a name="change_streams-supported_ops"></a>
 
 Amazon DocumentDB supports the following operations for change streams:
-
-- All change events supported in the MongoDB `db.collection.watch()`, `db.watch()` and `client.watch()` API.
-- Full document lookup for updates.
-- Aggregation stages: `$match`, `$project`, `$redact`, and `$addFields`and `$replaceRoot`.
-- Resuming a change stream from a resume token
-- Resuming a change stream from a timestamp using `startAtOperation` (applicable to Amazon DocumentDB 4.0+)
++ All change events supported in the MongoDB `db.collection.watch()`, `db.watch()` and `client.watch()` API.
++ Full document lookup for updates.
++ Aggregation stages: `$match`, `$project`, `$redact`, and `$addFields`and `$replaceRoot`.
++ Resuming a change stream from a resume token
++ Resuming a change stream from a timestamp using `startAtOperation` (applicable to Amazon DocumentDB 4.0\+)
 
 ## Billing
+<a name="change_streams-billing"></a>
 
-The Amazon DocumentDB change streams feature is disabled by default and does not incur any additional charges until the feature is enabled. Using change streams in a cluster incurs additional read and write IOs and storage costs. You can use the `modifyChangeStreams` API operation to enable this feature for your cluster. For more information on pricing, see [Amazon DocumentDB pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
+The Amazon DocumentDB change streams feature is disabled by default and does not incur any additional charges until the feature is enabled. Using change streams in a cluster incurs additional read and write IOs and storage costs. You can use the `modifyChangeStreams` API operation to enable this feature for your cluster. For more information on pricing, see [Amazon DocumentDB pricing](https://aws.amazon.com/documentdb/pricing/). 
 
 ## Limitations
+<a name="change_streams-limitations"></a>
 
 Change streams have the following limitations in Amazon DocumentDB:
-
-- On Amazon DocumentDB 3.6. and Amazon DocumentDB 4.0, change streams can only be opened from a connection to the primary instance of an Amazon DocumentDB cluster.
-  Reading from change streams on a replica instance is not supported on Amazon DocumentDB 3.6. and Amazon DocumentDB 4.0.
-  When invoking the `watch()` API operation, you must specify a `primary` read preference to ensure that all reads are directed to the primary instance (see the [Example](#change_streams-using_example "#change_streams-using_example") section).
-- On Amazon DocumentDB 5.0, change streams can be opened from both primary instance and secondary instances, including global clusters.
-  You can specify a secondary read preference to redirect the change streams to secondary instances.
-  See [Using change streams on secondary instances](#change-streams-secondary-instances "#change-streams-secondary-instances") for additional best practices and limitations.
-- Events written to a change stream for a collection are available for up to 7 days (the default is 3 hours). Change streams data is deleted after the log retention duration window, even if no new changes have occurred.
-- A long-running write operation on a collection like
-  `updateMany` or `deleteMany` can temporarily
-  stall the writing of change streams events until the long running
-  write operation is complete.
-- Amazon DocumentDB does not support the MongoDB operations log
-  (`oplog`).
-- With Amazon DocumentDB, you must explicitly enable change streams on a given
-  collection.
-- If the total size of a change streams event (including the change
-  data and full document, if requested) is greater than
-  `16 MB`, the client will experience a read failure on the
-  change streams.
-- The Ruby driver is currently not supported when using `db.watch()` and `client.watch()` with Amazon DocumentDB 3.6.
-- The output from the `updateDescription` command in change streams is different in Amazon DocumentDB than in MongoDB when the updated value of the field is the same as the previous one:
-
-  - Amazon DocumentDB doesn't return a field in the `updateDescription` output if the provided field is specified in the `$set` command and its target value is already equal to the source value.
-  - MongoDB returns the field in the output, even if the specified value is equal to the current value.
++ On Amazon DocumentDB 3.6. and Amazon DocumentDB 4.0, change streams can only be opened from a connection to the primary instance of an Amazon DocumentDB cluster. Reading from change streams on a replica instance is not supported on Amazon DocumentDB 3.6. and Amazon DocumentDB 4.0. When invoking the `watch()` API operation, you must specify a `primary` read preference to ensure that all reads are directed to the primary instance (see the [Example](#change_streams-using_example) section). 
++ On Amazon DocumentDB 5.0, change streams can be opened from both primary instance and secondary instances, including global clusters. You can specify a secondary read preference to redirect the change streams to secondary instances. See [Using change streams on secondary instances](#change-streams-secondary-instances) for additional best practices and limitations.
++ Events written to a change stream for a collection are available for up to 7 days (the default is 3 hours). Change streams data is deleted after the log retention duration window, even if no new changes have occurred. 
++ A long-running write operation on a collection like `updateMany` or `deleteMany` can temporarily stall the writing of change streams events until the long running write operation is complete.
++ Amazon DocumentDB does not support the MongoDB operations log (`oplog`).
++ With Amazon DocumentDB, you must explicitly enable change streams on a given collection.
++ If the total size of a change streams event (including the change data and full document, if requested) is greater than `16 MB`, the client will experience a read failure on the change streams.
++ The Ruby driver is currently not supported when using `db.watch()` and `client.watch()` with Amazon DocumentDB 3.6.
++ The output from the `updateDescription` command in change streams is different in Amazon DocumentDB than in MongoDB when the updated value of the field is the same as the previous one:
+  + Amazon DocumentDB doesn't return a field in the `updateDescription` output if the provided field is specified in the `$set` command and its target value is already equal to the source value.
+  + MongoDB returns the field in the output, even if the specified value is equal to the current value.
 
 ## Enabling change streams
+<a name="change_streams-enabling"></a>
 
-You can enable Amazon DocumentDB change streams for all collections within a
-given database, or only for selected collections. The following are
-examples of how to enable change streams for different use cases using the
-mongo shell. Empty strings are treated as wildcards when specifying
-database and collection names.
+You can enable Amazon DocumentDB change streams for all collections within a given database, or only for selected collections. The following are examples of how to enable change streams for different use cases using the mongo shell. Empty strings are treated as wildcards when specifying database and collection names.
 
 ```
 //Enable change streams for the collection "foo" in database "bar"
 db.adminCommand({modifyChangeStreams: 1,
     database: "bar",
-    collection: "foo",
+    collection: "foo", 
     enable: true});
 ```
 
@@ -88,7 +72,7 @@ db.adminCommand({modifyChangeStreams: 1,
 //Disable change streams on collection "foo" in database "bar"
 db.adminCommand({modifyChangeStreams: 1,
     database: "bar",
-    collection: "foo",
+    collection: "foo", 
     enable: false});
 ```
 
@@ -96,7 +80,7 @@ db.adminCommand({modifyChangeStreams: 1,
 //Enable change streams for all collections in database "bar"
 db.adminCommand({modifyChangeStreams: 1,
     database: "bar",
-    collection: "",
+    collection: "", 
     enable: true});
 ```
 
@@ -104,16 +88,14 @@ db.adminCommand({modifyChangeStreams: 1,
 //Enable change streams for all collections in all databases in a cluster
 db.adminCommand({modifyChangeStreams: 1,
     database: "",
-    collection: "",
+    collection: "", 
     enable: true});
 ```
 
-Change streams will be enabled for a collection if any of the
-following are true:
-
-- Both the database and collection are explicitly enabled.
-- The database containing the collection is enabled.
-- All databases are enabled.
+Change streams will be enabled for a collection if any of the following are true:
++ Both the database and collection are explicitly enabled.
++ The database containing the collection is enabled. 
++ All databases are enabled.
 
 Dropping a collection from a database does not disable change streams for that collection if the parent database also has change streams enabled, or if all databases in the cluster are enabled. If a new collection is created with the same name as the deleted collection, change streams will be enabled for that collection.
 
@@ -124,13 +106,13 @@ You can list all of your cluster’s enabled change streams by using the `$listC
 cursor = new DBCommandCursor(db,
     db.runCommand(
         {aggregate: 1,
-        pipeline: [{$listChangeStreams: 1}],
+        pipeline: [{$listChangeStreams: 1}], 
         cursor:{}}));
 ```
 
 ```
-//List of all databases and collections with change streams enabled
-{ "database" : "test", "collection" : "foo" }
+//List of all databases and collections with change streams enabled 
+{ "database" : "test", "collection" : "foo" } 
 { "database" : "bar", "collection" : "" }
 { "database" : "", "collection" : "" }
 ```
@@ -149,23 +131,23 @@ cursor = new DBCommandCursor(db,
 ```
 
 ## Example: using change streams with Python
+<a name="change_streams-using_example"></a>
 
-The following is an example of using an Amazon DocumentDB change stream with
-Python at the collection level.
+The following is an example of using an Amazon DocumentDB change stream with Python at the collection level.
 
 ```
 import os
 import sys
 from pymongo import MongoClient, ReadPreference
-
+      
 username = "DocumentDBusername"
-password = <Insert your password>
+password = <Insert your password> 
 
 clusterendpoint = "DocumentDBClusterEndpoint”
 client = MongoClient(clusterendpoint, username=username, password=password, tls='true', tlsCAFile='global-bundle.pem')
 
 db = client['bar']
-
+ 
 #While ‘Primary’ is the default read preference, here we give an example of
 #how to specify the required read preference when reading the change streams
 coll = db.get_collection('foo', read_preference=ReadPreference.PRIMARY)
@@ -192,8 +174,8 @@ print(stream.try_next())
 """
 Expected Output:
 None
-"""
-
+""" 
+ 
 #Generate a new change event by updating a document
 result = coll.update_one({'x': 1}, {'$set': {'x': 2}})
 print(stream.try_next())
@@ -209,7 +191,7 @@ Expected Output:
 """
 ```
 
-The following is an example of using an Amazon DocumentDB change stream with Python at the database level.
+The following is an example of using an Amazon DocumentDB change stream with Python at the database level. 
 
 ```
 import os
@@ -227,7 +209,7 @@ stream = db.watch()
 coll = db.get_collection('foo')
 #Write a new document to the collection foo to generate a change event
 coll.insert_one({'x': 1})
-
+ 
 #Read the next change event from the stream (if any)
 print(stream.try_next())
 
@@ -246,8 +228,8 @@ print(stream.try_next())
 """
 Expected Output:
 None
-"""
-
+""" 
+ 
 coll = db.get_collection('foo1')
 
 #Write a new document to another collection to generate a change event
@@ -266,20 +248,17 @@ Expected Output: Since the change stream cursor was the database level you can s
 ```
 
 ## Full document lookup
+<a name="change_streams-lookup"></a>
 
-The update change event does not include the full document; it includes only the change that was made. If your use case requires the complete document affected by an update, you can enable full document lookup when opening the stream.
+The update change event does not include the full document; it includes only the change that was made. If your use case requires the complete document affected by an update, you can enable full document lookup when opening the stream. 
 
-The `fullDocument` document for an update change streams
-event represents the most current version of the updated document at the
-time of document lookup. If changes occurred between the update operation
-and the `fullDocument` lookup, the `fullDocument`
-document might not represent the document state at update time.
+The `fullDocument` document for an update change streams event represents the most current version of the updated document at the time of document lookup. If changes occurred between the update operation and the `fullDocument` lookup, the `fullDocument` document might not represent the document state at update time.
 
 To create a stream object with update lookup enabled, use this example:
 
 ```
 stream = coll.watch(full_document='updateLookup')
-
+ 
 #Generate a new change event by updating a document
 result = coll.update_one({'x': 2}, {'$set': {'x': 3}})
 
@@ -299,6 +278,7 @@ The output of the stream object will look something like this:
 ```
 
 ## Resuming a change stream
+<a name="change_streams-resuming"></a>
 
 You can resume a change stream later by using a resume token, which is equal to the `_id` field of the last retrieved change event document.
 
@@ -308,7 +288,7 @@ import sys
 from pymongo import MongoClient
 
 username = "DocumentDBusername"
-password = <Insert your password>
+password = <Insert your password> 
 clusterendpoint = "DocumentDBClusterEndpoint”
 client = MongoClient(clusterendpoint, username=username, password=password, tls='true', tlsCAFile='global-bundle.pem', retryWrites='false')
 
@@ -344,12 +324,12 @@ print(stream.try_next())
 """
 #Output: Since we are resuming the change stream from the resume token, we will see all events after the first update operation. In our case, the change stream will resume from the update operation {x:5}
 
-{'_id': {'_data': '015f7e8f0c000000060100000006000fe038'},
-'operationType': 'update',
-'clusterTime': Timestamp(1602129676, 6),
-'ns': {'db': 'bar', 'coll': 'foo'},
-'documentKey': {'_id': ObjectId('5f7e8f0ac423bafbfd9adba2')},
-'fullDocument': {'_id': ObjectId('5f7e8f0ac423bafbfd9adba2'), 'x': 5},
+{'_id': {'_data': '015f7e8f0c000000060100000006000fe038'}, 
+'operationType': 'update', 
+'clusterTime': Timestamp(1602129676, 6), 
+'ns': {'db': 'bar', 'coll': 'foo'}, 
+'documentKey': {'_id': ObjectId('5f7e8f0ac423bafbfd9adba2')}, 
+'fullDocument': {'_id': ObjectId('5f7e8f0ac423bafbfd9adba2'), 'x': 5}, 
 'updateDescription': {'updatedFields': {'x': 5}, 'removedFields': []}}
 """
 #Followed by the insert
@@ -357,22 +337,22 @@ print(stream.try_next())
 
 """
 #Output:
-{'_id': {'_data': '015f7e8f0c000000070100000007000fe038'},
-'operationType': 'insert',
-'clusterTime': Timestamp(1602129676, 7),
-'ns': {'db': 'bar', 'coll': 'foo'},
-'documentKey': {'_id': ObjectId('5f7e8f0cbf8c233ed577eb94')},
+{'_id': {'_data': '015f7e8f0c000000070100000007000fe038'}, 
+'operationType': 'insert', 
+'clusterTime': Timestamp(1602129676, 7), 
+'ns': {'db': 'bar', 'coll': 'foo'}, 
+'documentKey': {'_id': ObjectId('5f7e8f0cbf8c233ed577eb94')}, 
 'fullDocument': {'_id': ObjectId('5f7e8f0cbf8c233ed577eb94'), 'y': 5}}
 """
 ```
 
 ## Resuming a change stream with `startAtOperationTime`
+<a name="change_streams-startAtOperation"></a>
 
 You can resume a change stream later from a particular time stamp by using `startAtOperationTime`.
 
-###### Note
-
-The ability to use `startAtOperationTime` is available in Amazon DocumentDB 4.0+. When using `startAtOperationTime`, the change stream cursor will only return changes that occurred at or after the specified Timestamp. The `startAtOperationTime` and `resumeAfter` commands are mutually exclusive and thus cannot be used together.
+**Note**  
+The ability to use `startAtOperationTime` is available in Amazon DocumentDB 4.0\+. When using `startAtOperationTime`, the change stream cursor will only return changes that occurred at or after the specified Timestamp. The `startAtOperationTime` and `resumeAfter` commands are mutually exclusive and thus cannot be used together.
 
 ```
 import os
@@ -380,7 +360,7 @@ import sys
 from pymongo import MongoClient
 
 username = "DocumentDBusername"
-password = <Insert your password>
+password = <Insert your password> 
 clusterendpoint = "DocumentDBClusterEndpoint”
 client = MongoClient(clusterendpoint, username=username, password=password, tls='true', tlsCAFile='rds-root-ca-2020.pem',retryWrites='false')
 db = client['bar']
@@ -406,22 +386,22 @@ print(stream.try_next())
 
 """
 #Output: Since we are resuming the change stream at the time stamp of our first update operation (x:4), the change stream cursor will point to that event
-{'_id': {'_data': '015f7e941a000000030100000003000fe038'},
-'operationType': 'update',
-'clusterTime': Timestamp(1602130970, 3),
-'ns': {'db': 'bar', 'coll': 'foo'},
-'documentKey': {'_id': ObjectId('5f7e9417c423bafbfd9adbb1')},
+{'_id': {'_data': '015f7e941a000000030100000003000fe038'}, 
+'operationType': 'update', 
+'clusterTime': Timestamp(1602130970, 3), 
+'ns': {'db': 'bar', 'coll': 'foo'}, 
+'documentKey': {'_id': ObjectId('5f7e9417c423bafbfd9adbb1')}, 
 'updateDescription': {'updatedFields': {'x': 4}, 'removedFields': []}}
 """
 
 print(stream.try_next())
 """
 #Output: The second event will be the subsequent update operation (x:5)
-{'_id': {'_data': '015f7e9502000000050100000005000fe038'},
-'operationType': 'update',
+{'_id': {'_data': '015f7e9502000000050100000005000fe038'}, 
+'operationType': 'update', 
 'clusterTime': Timestamp(1602131202, 5),
-'ns': {'db': 'bar', 'coll': 'foo'},
-'documentKey': {'_id': ObjectId('5f7e94ffc423bafbfd9adbb2')},
+'ns': {'db': 'bar', 'coll': 'foo'}, 
+'documentKey': {'_id': ObjectId('5f7e94ffc423bafbfd9adbb2')}, 
 'updateDescription': {'updatedFields': {'x': 5}, 'removedFields': []}}
 """
 
@@ -429,19 +409,19 @@ print(stream.try_next())
 
 """
 #Output: And finally the last event will be the insert operation (y:5)
-{'_id': {'_data': '015f7e9502000000060100000006000fe038'},
-'operationType': 'insert',
-'clusterTime': Timestamp(1602131202, 6),
-'ns': {'db': 'bar', 'coll': 'foo'},
-'documentKey': {'_id': ObjectId('5f7e95025c4a569e0f6dde92')},
+{'_id': {'_data': '015f7e9502000000060100000006000fe038'}, 
+'operationType': 'insert', 
+'clusterTime': Timestamp(1602131202, 6), 
+'ns': {'db': 'bar', 'coll': 'foo'}, 
+'documentKey': {'_id': ObjectId('5f7e95025c4a569e0f6dde92')}, 
 'fullDocument': {'_id': ObjectId('5f7e95025c4a569e0f6dde92'), 'y': 5}}
 """
 ```
 
 ## Resuming a change stream with `postBatchResumeToken`
+<a name="change_streams-postBatchResumeToken"></a>
 
-Amazon DocumentDB change stream now returns an additional field called `postBatchResumeToken`.
-This field is returned from the `$changestream` command and `getMore` command.
+Amazon DocumentDB change stream now returns an additional field called `postBatchResumeToken`. This field is returned from the `$changestream` command and `getMore` command.
 
 Example of the `$changestream` command in Python:
 
@@ -488,155 +468,135 @@ stream = db.watch(full_document='updateLookup', resume_after=post_batch_resume_t
 
 Unlike a regular resume token that always corresponds to an operations log (oplog) entry that reflects an actual event, `postBatchResumeToken` corresponds to an oplog entry the change stream has scanned up to on the server, which is not necessarily a matching change.
 
-Attempting to resume with an old regular resume token will force the database to scan all the oplog entries between the specified time stamp and the current time.
-This may generate a lot of queries internally with each sub-query scanning for a small period of time.
-This will cause a spike in CPU usage and degrade the database performance.
-Resuming with the last `postBatchResumeToken` skips the scanning of unmatched oplog entries.
+Attempting to resume with an old regular resume token will force the database to scan all the oplog entries between the specified time stamp and the current time. This may generate a lot of queries internally with each sub-query scanning for a small period of time. This will cause a spike in CPU usage and degrade the database performance. Resuming with the last `postBatchResumeToken` skips the scanning of unmatched oplog entries.
 
 ## Transactions in change streams
+<a name="change_streams-transactions"></a>
 
 Change stream events will not contain events from uncommitted and/or aborted transactions. For example, if you start a transaction with one `INSERT` operation and one `UPDATE` operation, and if your `INSERT` operation succeeds, but the `UPDATE` operation fails, the transaction will be rolled back. Since this transaction was rolled back, your change stream will not contain any events for this transaction.
 
 ## Modifying the change stream log retention duration
+<a name="change_streams-modifying_log_retention"></a>
 
 You can modify the change stream log retention duration to be between 1 hour and 7 days using the AWS Management Console or the AWS CLI.
 
-Using the AWS Management Console
+------
+#### [ Using the AWS Management Console ]
 
-###### To modify the change stream log retention duration
+**To modify the change stream log retention duration**
 
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Parameter groups** .
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
-###### Tip
+1. In the navigation pane, choose **Parameter groups **.
+**Tip**  
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
-If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. In the **Parameter groups** pane, choose the
-cluster parameter group that is associated with your cluster. To
-identify the cluster parameter group that is associated with your
-cluster, see [Determining an Amazon DocumentDB cluster's parameter group](cluster_parameter_groups-describe.md#cluster_parameter_groups-determine "cluster_parameter_groups-describe.md#cluster_parameter_groups-determine"). 4. The resulting page shows the parameters and their corresponding details for your cluster parameter group. Select the parameter `change_stream_log_retention_duration`. 5. On the top right of the page, choose **Edit** to change the value of the parameter.
-The `change_stream_log_retention_duration` parameter can be modified to be between 1 hour and 7 days. 6. Make your change, and then choose **Modify cluster
-parameter** to save the changes. To discard your changes,
-choose **Cancel**.
+1. In the **Parameter groups** pane, choose the cluster parameter group that is associated with your cluster. To identify the cluster parameter group that is associated with your cluster, see [Determining an Amazon DocumentDB cluster's parameter group](cluster_parameter_groups-describe.md#cluster_parameter_groups-determine). 
 
-Using the AWS CLI
-To modify your cluster parameter group's
-`change_stream_log_retention_duration` parameter, use the
-`modify-db-cluster-parameter-group` operation with the
-following parameters:
+1. The resulting page shows the parameters and their corresponding details for your cluster parameter group. Select the parameter `change_stream_log_retention_duration`.
 
-- `--db-cluster-parameter-group-name`
-  — Required. The name of the cluster parameter group that
-  you are modifying. To identify the cluster parameter group that
-  is associated with your cluster, see [Determining an Amazon DocumentDB cluster's parameter group](cluster_parameter_groups-describe.md#cluster_parameter_groups-determine "cluster_parameter_groups-describe.md#cluster_parameter_groups-determine").
-- `--parameters` —
-  Required. The parameter that you are modifying. Each parameter
-  entry must include the following:
+1. On the top right of the page, choose **Edit** to change the value of the parameter. The `change_stream_log_retention_duration` parameter can be modified to be between 1 hour and 7 days.
 
-  - `ParameterName`
-    — The name of the parameter that you are modifying.
-    In this case, it is `change_stream_log_retention_duration`
-  - `ParameterValue`
-    — The new value for this parameter.
-  - `ApplyMethod`
-    — How you want changes to this parameter applied.
-    Permitted values are `immediate` and
-    `pending-reboot`.
+1. Make your change, and then choose **Modify cluster parameter** to save the changes. To discard your changes, choose **Cancel**.
 
-  ###### Note
+------
+#### [ Using the AWS CLI ]
 
-  Parameters with the `ApplyType` of `static` must have an `ApplyMethod` of `pending-reboot`.
+To modify your cluster parameter group's `change_stream_log_retention_duration` parameter, use the `modify-db-cluster-parameter-group` operation with the following parameters:
++ **--db-cluster-parameter-group-name** — Required. The name of the cluster parameter group that you are modifying. To identify the cluster parameter group that is associated with your cluster, see [Determining an Amazon DocumentDB cluster's parameter group](cluster_parameter_groups-describe.md#cluster_parameter_groups-determine). 
++ **--parameters** — Required. The parameter that you are modifying. Each parameter entry must include the following: 
+  + **ParameterName** — The name of the parameter that you are modifying. In this case, it is `change_stream_log_retention_duration` 
+  + **ParameterValue** — The new value for this parameter. 
+  + **ApplyMethod** — How you want changes to this parameter applied. Permitted values are `immediate` and `pending-reboot`. 
+**Note**  
+Parameters with the `ApplyType` of `static` must have an `ApplyMethod` of `pending-reboot`. 
 
-1. To change the values of the parameter
-   `change_stream_log_retention_duration`, run the
-   following command and replace `parameter-value` with
-   the value you want to modify the parameter to.
+1. To change the values of the parameter `change_stream_log_retention_duration`, run the following command and replace `parameter-value` with the value you want to modify the parameter to. 
 
-For Linux, macOS, or Unix:
+   For Linux, macOS, or Unix:
 
-```
-aws docdb modify-db-cluster-parameter-group \
-    --db-cluster-parameter-group-name sample-parameter-group \
-    --parameters "ParameterName=change_stream_log_retention_duration,ParameterValue=<parameter-value>,ApplyMethod=immediate"
-```
+   ```
+   aws docdb modify-db-cluster-parameter-group \
+       --db-cluster-parameter-group-name sample-parameter-group \
+       --parameters "ParameterName=change_stream_log_retention_duration,ParameterValue=<parameter-value>,ApplyMethod=immediate"
+   ```
 
-For Windows:
+   For Windows:
 
-```
-aws docdb modify-db-cluster-parameter-group ^
-    --db-cluster-parameter-group-name sample-parameter-group ^
-    --parameters "ParameterName=change_stream_log_retention_duration,ParameterValue=<parameter-value>,ApplyMethod=immediate"
-```
+   ```
+   aws docdb modify-db-cluster-parameter-group ^
+       --db-cluster-parameter-group-name sample-parameter-group ^
+       --parameters "ParameterName=change_stream_log_retention_duration,ParameterValue=<parameter-value>,ApplyMethod=immediate"
+   ```
 
-Output from this operation looks something like the following (JSON format).
+   Output from this operation looks something like the following (JSON format).
 
-```
-{
-    "DBClusterParameterGroupName": "sample-parameter-group"
-}
-```
+   ```
+   {
+       "DBClusterParameterGroupName": "sample-parameter-group"
+   }
+   ```
 
-2. Wait at least 5 minutes.
-3. List the parameter values of `sample-parameter-group`
-   to ensure that your changes have been made.
+1. Wait at least 5 minutes.
 
-For Linux, macOS, or Unix:
+1. List the parameter values of `sample-parameter-group` to ensure that your changes have been made. 
 
-```
-aws docdb describe-db-cluster-parameters \
-    --db-cluster-parameter-group-name sample-parameter-group
-```
+   For Linux, macOS, or Unix:
 
-For Windows:
+   ```
+   aws docdb describe-db-cluster-parameters \
+       --db-cluster-parameter-group-name sample-parameter-group
+   ```
 
-```
-aws docdb describe-db-cluster-parameters ^
-    --db-cluster-parameter-group-name sample-parameter-group
-```
+   For Windows:
 
-Output from this operation looks something like the following (JSON format).
+   ```
+   aws docdb describe-db-cluster-parameters ^
+       --db-cluster-parameter-group-name sample-parameter-group
+   ```
 
-```
-{
-    "Parameters": [
-        {
-            "ParameterName": "audit_logs",
-            "ParameterValue": "disabled",
-            "Description": "Enables auditing on cluster.",
-            "Source": "system",
-            "ApplyType": "dynamic",
-            "DataType": "string",
-            "AllowedValues": "enabled,disabled",
-            "IsModifiable": true,
-            "ApplyMethod": "pending-reboot"
-        },
-        {
-            `"ParameterName": "change_stream_log_retention_duration"`,
-            `"ParameterValue": "12345"`,
-            "Description": "Duration of time in seconds that the change stream log is retained and can be consumed.",
-            "Source": "user",
-            "ApplyType": "dynamic",
-            "DataType": "integer",
-            "AllowedValues": "3600-86400",
-            "IsModifiable": true,
-            "ApplyMethod": "immediate"
-        }
-    ]
-}
-```
+   Output from this operation looks something like the following (JSON format).
 
-###### Note
+   ```
+   {
+       "Parameters": [
+           {
+               "ParameterName": "audit_logs",
+               "ParameterValue": "disabled",
+               "Description": "Enables auditing on cluster.",
+               "Source": "system",
+               "ApplyType": "dynamic",
+               "DataType": "string",
+               "AllowedValues": "enabled,disabled",
+               "IsModifiable": true,
+               "ApplyMethod": "pending-reboot"
+           },
+           {
+               "ParameterName": "change_stream_log_retention_duration",
+               "ParameterValue": "12345",
+               "Description": "Duration of time in seconds that the change stream log is retained and can be consumed.",
+               "Source": "user",
+               "ApplyType": "dynamic",
+               "DataType": "integer",
+               "AllowedValues": "3600-86400",
+               "IsModifiable": true,
+               "ApplyMethod": "immediate"
+           }
+       ]
+   }
+   ```
 
+------
+
+**Note**  
 Change stream log retention will not delete logs older than the configured `change_stream_log_retention_duration` value until log size is greater than (>) 51,200MB.
 
 ## Using change streams on secondary instances
+<a name="change-streams-secondary-instances"></a>
 
 To get started on using change stream on secondary instances, open the change stream cursor with `readPreference` as the secondary.
 
-You can open a change stream cursor to watch for change events on a specific collection or all collections in a cluster or database.
-You can open a change stream cursor on any Amazon DocumentDB instance and fetch change stream documents from both writer and reader instances.
-You can share change stream tokens (such as `resumeToken` or `startOperationTime`) across different change stream cursors opened on a writer and reader instance.
+You can open a change stream cursor to watch for change events on a specific collection or all collections in a cluster or database. You can open a change stream cursor on any Amazon DocumentDB instance and fetch change stream documents from both writer and reader instances. You can share change stream tokens (such as `resumeToken` or `startOperationTime`) across different change stream cursors opened on a writer and reader instance.
 
 **Example**
 
@@ -644,16 +604,16 @@ You can share change stream tokens (such as `resumeToken` or `startOperationTime
 import os
 import sys
 from pymongo import MongoClient, ReadPreference
-
+      
 username = "DocumentDBusername"
-password = <Your password>
+password = <Your password> 
 
 clusterendpoint = "DocumentDBClusterEndpoint"
 
 client = MongoClient(clusterendpoint, username=username, password=password, tls='true', tlsCAFile='global-bundle.pem')
 
 db = client['bar']
-
+ 
 # Make sure to use SECONDARY to redirect cursor reads from secondary instances
 coll = db.get_collection('foo', read_preference=ReadPreference.SECONDARY)
 
@@ -665,11 +625,6 @@ for event in stream:
 ```
 
 **Guidelines and limitations for change streams on secondary instances**
-
-- Change stream events need to be replicated from the primary instance to the secondary instances.
-  You can monitor the lag from the `DBInstanceReplicaLag` metric in Amazon CloudWatch.
-- Timestamps on secondary instances may not always be in sync with the primary instance.
-  In this case, expect delays on the secondary instance timestamp so it can catch up.
-  As a best practice, use `startAtOperationTime` or `resumeToken` to start the watch on the secondary instance.
-- You might experience lower throughput on secondary instances compared to the primary instance if your document size is large, you are doing `fullDocumentLookup`, and there is high concurrent write workload on the primary instance.
-  As a best practice, monitor your buffer cache hit ratio on the secondary and make sure that buffer cache hit ratio is high.
++ Change stream events need to be replicated from the primary instance to the secondary instances. You can monitor the lag from the `DBInstanceReplicaLag` metric in Amazon CloudWatch.
++ Timestamps on secondary instances may not always be in sync with the primary instance. In this case, expect delays on the secondary instance timestamp so it can catch up. As a best practice, use `startAtOperationTime` or `resumeToken` to start the watch on the secondary instance.
++ You might experience lower throughput on secondary instances compared to the primary instance if your document size is large, you are doing `fullDocumentLookup`, and there is high concurrent write workload on the primary instance. As a best practice, monitor your buffer cache hit ratio on the secondary and make sure that buffer cache hit ratio is high.

@@ -1,17 +1,20 @@
+
+
 # $convert
+<a name="convert"></a>
 
 New from version 4.0
 
 The `$convert` operator in Amazon DocumentDB is used to convert a value from one data type to another. This operator is useful when you need to perform operations on data of different types, such as converting a string to a number or a date to a timestamp.
 
 **Parameters**
-
-- `to`: The target data type to convert the value to. Supported values are `"string"`, `"double"`, `"long"`, `"int"`, `"date"`, and `"boolean"`.
-- `from`: The current data type of the value. If not specified, Amazon DocumentDB will attempt to automatically detect the data type.
-- `onError`: (optional) The value to return if the conversion fails. Can be a specific value or one of the following special values: `"null"`, `"zerofill"`, or `"error"`.
-- `onNull`: (optional) The value to return if the input value is `null`. Can be a specific value or one of the following special values: `"null"`, `"zerofill"`, or `"error"`.
++ `to`: The target data type to convert the value to. Supported values are `"string"`, `"double"`, `"long"`, `"int"`, `"date"`, and `"boolean"`.
++ `from`: The current data type of the value. If not specified, Amazon DocumentDB will attempt to automatically detect the data type.
++ `onError`: (optional) The value to return if the conversion fails. Can be a specific value or one of the following special values: `"null"`, `"zerofill"`, or `"error"`.
++ `onNull`: (optional) The value to return if the input value is `null`. Can be a specific value or one of the following special values: `"null"`, `"zerofill"`, or `"error"`.
 
 ## Example (MongoDB Shell)
+<a name="convert-examples"></a>
 
 The following example demonstrates converting a string value to a date using the `$convert` operator.
 
@@ -57,10 +60,12 @@ db.users.aggregate([
 ```
 
 ## Code examples
+<a name="convert-code"></a>
 
 To view a code example for using the `$convert` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require("mongodb");
@@ -94,7 +99,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -126,3 +132,5 @@ def example():
 
 example()
 ```
+
+------

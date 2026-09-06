@@ -1,19 +1,23 @@
+
+
 # $median
+<a name="median"></a>
 
 New from version 8.0.1.
 
 The `$median` operator in Amazon DocumentDB calculates the median value of numeric data. As an accumulator, it computes the median of numeric values across documents within a group in the `$group` stage of an aggregation pipeline. As an expression, it calculates the median of an array of numbers.
 
 **Parameters**
-
-- `input`: An expression that resolves to a numeric value or an array of numeric values.
-- `method`: A string specifying the calculation method. Currently only `"approximate"` is supported, which uses the t-digest algorithm.
++ `input`: An expression that resolves to a numeric value or an array of numeric values.
++ `method`: A string specifying the calculation method. Currently only `"approximate"` is supported, which uses the t-digest algorithm.
 
 ## Behavior
+<a name="median-behavior"></a>
 
 The `"approximate"` method uses the t-digest algorithm to calculate an approximate median. The result is an existing value from the dataset rather than an interpolation between values. Precision improves as the number of data points increases.
 
 ## Example (MongoDB Shell)
+<a name="median-examples"></a>
 
 The following example shows how to use the `$median` operator to calculate the median test score per class.
 
@@ -55,6 +59,7 @@ db.students.aggregate([
 ```
 
 ## Expression usage example (MongoDB Shell)
+<a name="median-expression-examples"></a>
 
 The `$median` operator can also be used as an expression within a `$project` stage to compute the median of an array field.
 
@@ -89,10 +94,12 @@ db.surveys.aggregate([
 ```
 
 ## Code examples
+<a name="median-code"></a>
 
 To view a code example for using the `$median` operator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -132,7 +139,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -167,3 +175,5 @@ def example():
 
 example()
 ```
+
+------

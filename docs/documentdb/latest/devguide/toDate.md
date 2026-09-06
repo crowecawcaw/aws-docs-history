@@ -1,16 +1,19 @@
+
+
 # $toDate
+<a name="toDate"></a>
 
 New from version 4.0
 
 The `$toDate` aggregation operator in Amazon DocumentDB is used to convert a date or date and time string to a BSON Date type. This is the inverse operation of the `$dateToString` operator.
 
 **Parameters**
-
-- `dateString`: A string representation of a date or date and time to be converted to a BSON Date type.
-- `format`: (optional) A string that specifies the format of the `dateString`. If not provided, the operator will attempt to parse the `dateString` in various standard date and time formats.
-- `timezone`: (optional) A string representing the time zone to use for the conversion. If not provided, the local time zone is used.
++ `dateString`: A string representation of a date or date and time to be converted to a BSON Date type.
++ `format`: (optional) A string that specifies the format of the `dateString`. If not provided, the operator will attempt to parse the `dateString` in various standard date and time formats.
++ `timezone`: (optional) A string representing the time zone to use for the conversion. If not provided, the local time zone is used.
 
 ## Example (MongoDB Shell)
+<a name="toDate-examples"></a>
 
 The following example demonstrates how to use the `$toDate` operator to convert a date string to a BSON Date type.
 
@@ -60,10 +63,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="toDate-code"></a>
 
 To view a code example for using the `$toDate` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -89,7 +94,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -113,3 +119,5 @@ def example():
 
 example()
 ```
+
+------

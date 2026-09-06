@@ -1,22 +1,25 @@
+
+
 # $geometry
+<a name="geometry"></a>
 
 The `$geometry` operator in Amazon DocumentDB is used to specify a GeoJSON geometry object as part of a geospatial query. This operator is used in conjunction with other geospatial query operators like `$geoWithin` and `$geoIntersects` to perform spatial queries on your data.
 
 In Amazon DocumentDB, the `$geometry` operator supports the following GeoJSON geometry types:
++ Point
++ LineString
++ Polygon
++ MultiPoint
++ MultiLineString
++ MultiPolygon
++ GeometryCollection
 
-- Point
-- LineString
-- Polygon
-- MultiPoint
-- MultiLineString
-- MultiPolygon
-- GeometryCollection
-  **Parameters**
-
-- `type`: The type of the GeoJSON geometry object, e.g., `Point`, `Polygon`, etc.
-- `coordinates`: An array of coordinates representing the geometry. The structure of the coordinates array depends on the geometry type.
+**Parameters**
++ `type`: The type of the GeoJSON geometry object, e.g., `Point`, `Polygon`, etc.
++ `coordinates`: An array of coordinates representing the geometry. The structure of the coordinates array depends on the geometry type.
 
 ## Example (MongoDB Shell)
+<a name="geometry-examples"></a>
 
 The following example demonstrates how to use the `$geometry` operator to perform a `$geoIntersects` query in Amazon DocumentDB.
 
@@ -24,17 +27,17 @@ The following example demonstrates how to use the `$geometry` operator to perfor
 
 ```
 db.locations.insertMany([
-  {
+  { 
     "_id": 1,
     "name": "Location 1",
-    "location": {
+    "location": { 
       "type": "Point",
       "coordinates": [-73.983253, 40.753941]
     }
   },
-  {
+  { 
     "_id": 2,
-    "name": "Location 2",
+    "name": "Location 2", 
     "location": {
       "type": "Polygon",
       "coordinates": [[
@@ -94,10 +97,12 @@ db.locations.find({
 ```
 
 ## Code examples
+<a name="geometry-code"></a>
 
 To view a code example for using the `$geometry` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -133,7 +138,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -167,3 +173,5 @@ def example():
 
 example()
 ```
+
+------

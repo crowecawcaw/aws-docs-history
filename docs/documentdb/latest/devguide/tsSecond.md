@@ -1,14 +1,17 @@
+
+
 # $tsSecond
+<a name="tsSecond"></a>
 
 New from version 8.0.1.
 
 The `$tsSecond` operator in Amazon DocumentDB returns the seconds portion of a Timestamp value as a long integer (the Unix epoch seconds).
 
 **Parameters**
-
-- `expression`: An expression that resolves to a Timestamp.
++ `expression`: An expression that resolves to a Timestamp.
 
 ## Example (MongoDB Shell)
+<a name="tsSecond-examples"></a>
 
 The following example shows how to use the `$tsSecond` operator to extract the seconds portion from Timestamp values.
 
@@ -41,10 +44,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="tsSecond-code"></a>
 
 To view a code example for using the `$tsSecond` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient, Timestamp } = require('mongodb');
@@ -66,7 +71,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -85,3 +91,5 @@ def example():
 
 example()
 ```
+
+------

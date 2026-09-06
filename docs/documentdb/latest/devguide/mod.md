@@ -1,13 +1,16 @@
+
+
 # $mod
+<a name="mod"></a>
 
 The `$mod` operator is an arithmetic operator that performs a modulo operation on a number. It returns the remainder of dividing one number by another. This operator is commonly used to determine if a number is odd or even, or to distribute items into a finite number of groups.
 
 **Parameters**
-
-- `expression1`: The dividend expression.
-- `expression2`: The divisor expression.
++ `expression1`: The dividend expression.
++ `expression2`: The divisor expression.
 
 ## Example (MongoDB Shell)
+<a name="mod-examples"></a>
 
 This example demonstrates how to use the `$mod` operator to determine the number of leftover widgets when shipping in packages of 100.
 
@@ -42,10 +45,12 @@ db.widgets.aggregate([
 The output shows the remainder of the `count` divided by 100 for each document, which represents the number of leftover widgets when shipping in packages of 100.
 
 ## Code examples
+<a name="mod-code"></a>
 
 To view a code example for using the `$mod` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ result = list(widgets.aggregate([
 print(result)
 client.close()
 ```
+
+------

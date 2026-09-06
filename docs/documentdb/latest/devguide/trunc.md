@@ -1,15 +1,18 @@
+
+
 # $trunc
+<a name="trunc"></a>
 
 New from version 8.0.1.
 
 The `$trunc` operator in Amazon DocumentDB truncates a number to a specified decimal place, removing digits without rounding.
 
 **Parameters**
-
-- `number`: An expression that resolves to a number.
-- `place`: Optional. An integer expression between -20 and 100 that specifies the number of decimal places to truncate to. A negative value truncates to the left of the decimal. Defaults to 0.
++ `number`: An expression that resolves to a number.
++ `place`: Optional. An integer expression between -20 and 100 that specifies the number of decimal places to truncate to. A negative value truncates to the left of the decimal. Defaults to 0.
 
 ## Example (MongoDB Shell)
+<a name="trunc-examples"></a>
 
 The following example shows how to use the `$trunc` operator to truncate numeric values to one decimal place.
 
@@ -70,10 +73,12 @@ db.samples.aggregate([
 ```
 
 ## Code examples
+<a name="trunc-code"></a>
 
 To view a code example for using the `$trunc` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -95,7 +100,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -114,3 +120,5 @@ def example():
 
 example()
 ```
+
+------

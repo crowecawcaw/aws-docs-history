@@ -1,4 +1,7 @@
+
+
 # $literal
+<a name="literal"></a>
 
 The `$literal` operator in Amazon DocumentDB is used to represent a literal value within an aggregation pipeline stage. It allows you to include a specific value, such as a number, string, or boolean, without interpreting it as a field reference or expression.
 
@@ -9,6 +12,7 @@ This operator is particularly useful when you need to include a literal value as
 None
 
 ## Example (MongoDB Shell)
+<a name="literal-examples"></a>
 
 The following example demonstrates the use of the `$literal` operator to include a literal value in an aggregation pipeline. The `$literal` operator is used to include the value 18 as a literal value in the $gt expression. This allows the aggregation pipeline to compare the age field against the literal value 18 to determine if the person is an adult.
 
@@ -66,10 +70,12 @@ db.collection.aggregate([
 ```
 
 ## Code examples
+<a name="literal-code"></a>
 
 To view a code example for using the `$literal` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -97,7 +103,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -123,3 +130,5 @@ def example():
 
 example()
 ```
+
+------

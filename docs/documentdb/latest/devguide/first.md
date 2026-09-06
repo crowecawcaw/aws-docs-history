@@ -1,4 +1,7 @@
+
+
 # $first
+<a name="first"></a>
 
 New from version 5.0.
 
@@ -7,10 +10,10 @@ Not supported by Elastic cluster.
 The `$first` operator in Amazon DocumentDB returns the first document from a grouped set of documents. It is commonly used in aggregation pipelines to retrieve the first document that matches a specific condition.
 
 **Parameters**
-
-- `expression`: The expression to return as the first value in each group.
++ `expression`: The expression to return as the first value in each group.
 
 ## Example (MongoDB Shell)
+<a name="first-examples"></a>
 
 The following example demonstrates the use of the `$first` operator to retrieve the first item value encountered for each category during the aggregation.
 
@@ -45,10 +48,12 @@ db.products.aggregate([
 ```
 
 ## Code examples
+<a name="first-code"></a>
 
 To view a code example for using the `$first` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +84,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,3 +114,5 @@ def example():
 
 example()
 ```
+
+------

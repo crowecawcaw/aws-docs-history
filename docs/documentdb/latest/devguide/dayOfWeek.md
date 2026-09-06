@@ -1,12 +1,15 @@
+
+
 # $dayOfWeek
+<a name="dayOfWeek"></a>
 
 The `$dayOfWeek` operator in Amazon DocumentDB extracts the day of the week from a given date field. It returns the day of the week as a number between 1 (Sunday) and 7 (Saturday), which is the same behavior as in MongoDB.
 
 **Parameters**
-
-- `date field`: The date field to extract the day of the week from.
++ `date field`: The date field to extract the day of the week from.
 
 ## Example (MongoDB Shell)
+<a name="dayOfWeek-examples"></a>
 
 This example demonstrates how to use the `$dayOfWeek` operator to extract the day of the week from the `date` field in the `weather` collection.
 
@@ -53,10 +56,12 @@ db.weather.aggregate([
 ```
 
 ## Code examples
+<a name="dayOfWeek-code"></a>
 
 To view a code example for using the `$dayOfWeek` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -82,7 +87,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -107,3 +113,5 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+------

@@ -1,14 +1,17 @@
+
+
 # $sqrt
+<a name="sqrt"></a>
 
 New from version 4.0.
 
 The `$sqrt` operator in Amazon DocumentDB is used to calculate the square root of a number.
 
 **Parameters**
-
-- `expression`: The argument can be any valid expression as long as it resolves to a non-negative number.
++ `expression`: The argument can be any valid expression as long as it resolves to a non-negative number.
 
 ## Example (MongoDB Shell)
+<a name="sqrt-examples"></a>
 
 The following example demonstrates the usage of the `$sqrt` operator to calculate the square root of a number.
 
@@ -44,10 +47,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="sqrt-code"></a>
 
 To view a code example for using the `$sqrt` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -82,13 +87,14 @@ async function example() {
 example().catch(console.error);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def example():
-
+  
   client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
 
   try:
@@ -99,8 +105,8 @@ def example():
           {
               "$project": {
                   "_id": 1,
-                  "square_root": {
-                    "$sqrt": "$number"
+                  "square_root": { 
+                    "$sqrt": "$number" 
                   }
               }
           }
@@ -119,3 +125,5 @@ def example():
 
 example()
 ```
+
+------

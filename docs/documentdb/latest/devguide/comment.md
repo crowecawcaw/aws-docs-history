@@ -1,12 +1,15 @@
+
+
 # $comment
+<a name="comment"></a>
 
 The `$comment` operator in Amazon DocumentDB is used to attach a comment to a query. This can be useful for providing additional context or information about the query, which can be helpful for debugging or documenting purposes. The attached comment will appear as part of the output of operations like db.currentOp().
 
 **Parameters**
-
-- `string`: The comment attached to the query.
++ `string`: The comment attached to the query.
 
 ## Example (MongoDB Shell)
+<a name="comment-examples"></a>
 
 The following example demonstrates how to use the `$comment` operator in Amazon DocumentDB.
 
@@ -34,10 +37,12 @@ db.users.find({ age: { $gt: 25 } }, { _id: 0, name: 1, age: 1 }).comment("Retrie
 ```
 
 ## Code examples
+<a name="comment-code"></a>
 
 To view a code example for using the `$comment` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -59,7 +64,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -79,3 +85,5 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+------

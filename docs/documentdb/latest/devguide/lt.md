@@ -1,13 +1,16 @@
+
+
 # $lt
+<a name="lt"></a>
 
 The `$lt` operator in Amazon DocumentDB is used to match values that are less than the specified value. This operator is useful for filtering and querying data based on numerical comparisons.
 
 **Parameters**
-
-- `field`: The field name to check.
-- `value`: The value to compare against.
++ `field`: The field name to check.
++ `value`: The value to compare against.
 
 ## Example (MongoDB Shell)
+<a name="lt-examples"></a>
 
 The following example demonstrates how to use the `$lt` operator to retrieve documents where the `Inventory.OnHand` value is less than 50.
 
@@ -35,10 +38,12 @@ db.example.find({ "Inventory.OnHand": { $lt: 50 } })
 ```
 
 ## Code examples
+<a name="lt-code"></a>
 
 To view a code example for using the `$lt` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -57,7 +62,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -74,3 +80,5 @@ def example():
 
 example()
 ```
+
+------

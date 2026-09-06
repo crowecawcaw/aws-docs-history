@@ -1,14 +1,17 @@
+
+
 # $bsonSize
+<a name="bsonSize"></a>
 
 New from version 8.0.1.
 
 The `$bsonSize` operator in Amazon DocumentDB returns the size in bytes of a document when encoded as BSON.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a document or object.
++ `expression`: An expression that resolves to a document or object.
 
 ## Example (MongoDB Shell)
+<a name="bsonSize-examples"></a>
 
 The following example shows how to use the `$bsonSize` operator to return the BSON size of each document.
 
@@ -40,15 +43,16 @@ db.items.aggregate([
 ]
 ```
 
-###### Note
-
+**Note**  
 Exact sizes depend on BSON encoding of the document fields.
 
 ## Code examples
+<a name="bsonSize-code"></a>
 
 To view a code example for using the `$bsonSize` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -70,7 +74,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +94,5 @@ def example():
 
 example()
 ```
+
+------

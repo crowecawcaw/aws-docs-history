@@ -1,15 +1,18 @@
+
+
 # $lookup
+<a name="lookup"></a>
 
 The `$lookup` aggregation stage in Amazon DocumentDB allows you to perform a left outer join between two collections. This operation lets you combine data from multiple collections based on matching field values. It is particularly useful when you need to incorporate data from related collections into your query results.
 
 **Parameters**
-
-- `from`: The name of the collection to perform the join with.
-- `localField`: The field from the input documents to match against the `foreignField`.
-- `foreignField`: The field from the documents in the `from` collection to match against the `localField`.
-- `as`: The name of the new field to add to the output documents containing the matching documents from the `from` collection.
++ `from`: The name of the collection to perform the join with.
++ `localField`: The field from the input documents to match against the `foreignField`.
++ `foreignField`: The field from the documents in the `from` collection to match against the `localField`.
++ `as`: The name of the new field to add to the output documents containing the matching documents from the `from` collection.
 
 ## Example (MongoDB Shell)
+<a name="lookup-examples"></a>
 
 The following example demonstrates a simple `$lookup` operation that joins data from the `orders` collection into the `customers` collection.
 
@@ -35,10 +38,10 @@ db.orders.insertMany([
 db.customers.aggregate([
   {
     $lookup: {
-      from: "orders",
-      localField: "_id",
-      foreignField: "customer_id",
-      as: "orders"
+      from: "orders",           
+      localField: "_id",        
+      foreignField: "customer_id", 
+      as: "orders" 
     }
   }
 ]);
@@ -66,10 +69,12 @@ db.customers.aggregate([
 ```
 
 ## Code examples
+<a name="lookup-code"></a>
 
 To view a code example for using the `$lookup` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -99,7 +104,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,7 +114,7 @@ def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
 
     db = client.test
-
+    
     collection = db.customers
 
     pipeline = [
@@ -131,3 +137,5 @@ def example():
 
 example()
 ```
+
+------

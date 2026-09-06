@@ -1,15 +1,18 @@
+
+
 # $pow
+<a name="pow"></a>
 
 Introduced in 8.0
 
 The `$pow` operator in Amazon DocumentDB allows you to raise a number to a power. This can be useful for performing exponential calculations within your aggregation pipeline.
 
 **Parameters**
-
-- `<number>` (required): The number to be raised to a power.
-- `<exponent>` (required): The power to which the number should be raised.
++ `<number>` (required): The number to be raised to a power.
++ `<exponent>` (required): The power to which the number should be raised.
 
 ## Example (MongoDB Shell)
+<a name="pow-examples"></a>
 
 The following example demonstrates how to use the `$pow` operator to calculate the square of a number.
 
@@ -42,10 +45,13 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="pow-code"></a>
 
 To view a code example for using the `$pow` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the $pow operator in a Node.js application:
 
 ```
@@ -67,7 +73,9 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the $pow operator in a Python application:
 
 ```
@@ -87,3 +95,5 @@ def example():
 
 example()
 ```
+
+------

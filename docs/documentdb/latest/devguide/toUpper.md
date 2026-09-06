@@ -1,12 +1,15 @@
+
+
 # $toUpper
+<a name="toUpper"></a>
 
 The `$toUpper` operator in Amazon DocumentDB is used to convert a string to uppercase.
 
 **Parameters**
-
-- `expression`: The string expression to convert to uppercase.
++ `expression`: The string expression to convert to uppercase.
 
 ## Example (MongoDB Shell)
+<a name="toUpper-examples"></a>
 
 The following example demonstrates the usage of the `$toUpper` operator to convert the `Desk` field to uppercase.
 
@@ -35,10 +38,12 @@ db.locations.aggregate([
 ```
 
 ## Code examples
+<a name="toUpper-code"></a>
 
 To view a code example for using the `$toUpper` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -60,7 +65,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -80,3 +86,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,36 +1,38 @@
+
+
 # $maxN
+<a name="maxN"></a>
 
 New from version 8.0.1.
 
 The `$maxN` operator in Amazon DocumentDB returns the N largest values. When used as an accumulator in a `$group` stage, it returns an array of the N maximum values in each group. When used as an array expression operator, it returns the N maximum elements of an array.
 
 **Parameters**
-
-- `input`: An expression that resolves to the array or field from which to return the maximum `n` values.
-- `n`: An expression that resolves to a positive integer specifying how many maximum values to return.
++ `input`: An expression that resolves to the array or field from which to return the maximum `n` values.
++ `n`: An expression that resolves to a positive integer specifying how many maximum values to return.
 
 ## Behavior
+<a name="maxN-behavior"></a>
 
 **Array expression operator behavior**
-
-- You cannot specify a value of `n` less than `1`.
-- `$maxN` filters out `null` values found in the `input` array.
-- If the specified `n` is greater than or equal to the number of elements in the `input` array, `$maxN` returns all elements in the `input` array.
-- If `input` resolves to a non-array value, the aggregation operation errors.
-- If `input` contains both numeric and string elements, the string elements are sorted before numeric elements according to the BSON comparison order.
++ You cannot specify a value of `n` less than `1`.
++ `$maxN` filters out `null` values found in the `input` array.
++ If the specified `n` is greater than or equal to the number of elements in the `input` array, `$maxN` returns all elements in the `input` array.
++ If `input` resolves to a non-array value, the aggregation operation errors.
++ If `input` contains both numeric and string elements, the string elements are sorted before numeric elements according to the BSON comparison order.
 
 **Accumulator behavior**
-
-- When used as an accumulator, `n` must be a positive integral expression that is either a constant or depends on the `_id` value for `$group`.
-- `$maxN` filters out null and missing values.
-- If the group contains fewer than `n` elements, `$maxN` returns all elements in the group.
-- `$maxN` compares input data following the BSON comparison order to determine the appropriate output type. When the input data contains multiple data types, the `$maxN` output type is the highest in the comparison order.
++ When used as an accumulator, `n` must be a positive integral expression that is either a constant or depends on the `_id` value for `$group`.
++ `$maxN` filters out null and missing values.
++ If the group contains fewer than `n` elements, `$maxN` returns all elements in the group.
++ `$maxN` compares input data following the BSON comparison order to determine the appropriate output type. When the input data contains multiple data types, the `$maxN` output type is the highest in the comparison order.
 
 **Output ordering**
 
 `$maxN` returns values in no particular sort order. If guaranteeing a particular sort order is a requirement, use `$topN` instead, or wrap the result with `$sortArray`.
 
 ## Example (MongoDB Shell)
+<a name="maxN-examples"></a>
 
 The following example shows how to use the `$maxN` accumulator to retrieve the two highest scores for each subject.
 
@@ -67,6 +69,7 @@ db.scores.aggregate([
 ```
 
 ## Expression usage example (MongoDB Shell)
+<a name="maxN-expression-examples"></a>
 
 The `$maxN` operator can also be used as an expression within a `$project` stage to return the N largest elements from an array field.
 
@@ -99,10 +102,12 @@ db.readings.aggregate([
 ```
 
 ## Code examples
+<a name="maxN-code"></a>
 
 To view a code example for using the `$maxN` operator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -136,7 +141,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -166,3 +172,5 @@ def example():
 
 example()
 ```
+
+------

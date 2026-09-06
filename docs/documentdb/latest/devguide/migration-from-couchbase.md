@@ -1,40 +1,47 @@
+
+
 # Migration from Couchbase Server
+<a name="migration-from-couchbase"></a>
 
-###### Topics
-
-- [Introduction](#introduction "#introduction")
-- [Comparison to Amazon DocumentDB](#comparison-to-amazon-documentdb "#comparison-to-amazon-documentdb")
-- [Discovery](#discovery "#discovery")
-- [Planning](#planning "#planning")
-- [Migration](#migration "#migration")
-- [Validation](#validation "#validation")
+**Topics**
++ [Introduction](#introduction)
++ [Comparison to Amazon DocumentDB](#comparison-to-amazon-documentdb)
++ [Discovery](#discovery)
++ [Planning](#planning)
++ [Migration](#migration)
++ [Validation](#validation)
 
 ## Introduction
+<a name="introduction"></a>
 
 This guide presents the key points to consider when migrating from Couchbase Server to Amazon DocumentDB. It explains considerations for the discovery, planning, execution, and validation phases of your migration. It also explains how to perform offline and online migrations.
 
 ## Comparison to Amazon DocumentDB
+<a name="comparison-to-amazon-documentdb"></a>
 
-|                                               | **Couchbase Server**                                                                                                                                                                                                                                                                                                                                     | **Amazon DocumentDB**                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Data Organization**                         | In versions 7.0 and later, data is organized into buckets, scopes, and collections. In earlier versions, data is organized into buckets.                                                                                                                                                                                                                 | Data is organized into databases and collections.                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Compatibility**                             | There are separate APIs for each service (e.g. data, index, search, etc.). Secondary lookups use SQL++ (formerly known an N1QL); a query language based on ANSI-standard SQL so it is familiar to many developers.                                                                                                                                       | Amazon DocumentDB is [compatible with the MongoDB API](compatibility.md "compatibility.md").                                                                                                                                                                                                                                                                                                                                                  |
-| **Architecture**                              | Storage is attached to each cluster instance. You cannot scale compute independently of storage.                                                                                                                                                                                                                                                         | Amazon DocumentDB is designed for the cloud and to avoid the limitations of traditional database architectures. The [compute and storage layers are separated](db-clusters-understanding.md "db-clusters-understanding.md") in Amazon DocumentDB and the compute layer can be [scaled independently of storage](how-it-works.md "how-it-works.md").                                                                                           |
-| **Add read capacity on demand**               | Clusters can be scaled out by adding instances. Since storage is attached to the instance where the service is running, the time it takes to scale out is dependent on the amount of data that needs to be moved to the new instance, or rebalanced.                                                                                                     | You can achieve read scaling for your Amazon DocumentDB cluster by [creating up to 15 Amazon DocumentDB replicas](db-cluster-manage-performance.md#db-cluster-manage-scaling-reads "db-cluster-manage-performance.md#db-cluster-manage-scaling-reads") in the cluster. There is no impact to the storage layer.                                                                                                                               |
-| **Recover quickly from node failure**         | Clusters have automatic failover capabilities but the time to get the cluster back to full strength is dependent on the amount of data that needs to be moved to the new instance.                                                                                                                                                                       | Amazon DocumentDB can [failover the primary](failover.md "failover.md") typically within 30 seconds and restore the cluster back to full strength in 8-10 minutes regardless of the amount of data in the cluster.                                                                                                                                                                                                                            |
-| **Scale storage as data grows**               | For self-managed clusters storage and IOs do not scale automatically.                                                                                                                                                                                                                                                                                    | Amazon DocumentDB [storage and IOs scale automatically](db-cluster-manage-performance.md#db-cluster-manage-scaling-storage "db-cluster-manage-performance.md#db-cluster-manage-scaling-storage").                                                                                                                                                                                                                                             |
-| **Backup data without affecting performance** | Backups are performed by the backup service and are not enabled by default. Since storage and compute are not separated there can be an impact to performance.                                                                                                                                                                                           | Amazon DocumentDB backups are enabled by default and cannot be turned off. Backups are handled by the storage layer, so they are zero-impact on the compute layer. Amazon DocumentDB supports [restoring from a cluster snapshot](backup_restore-restore_from_snapshot.md "backup_restore-restore_from_snapshot.md") and [restoring to a point in time](backup_restore-point_in_time_recovery.md "backup_restore-point_in_time_recovery.md"). |
-| **Data durability**                           | There can be a maximum of 3 replica copies of data in a cluster for a total of 4 copies. Each instance where the data service is running will have active and 1, 2, or 3 replica copies of the data.                                                                                                                                                     | Amazon DocumentDB maintains 6 copies of data no matter how many compute instances there are with a write quorum of 4 and persist true. Clients receive an acknowledgement after the storage layer has persisted 4 copies of the data.                                                                                                                                                                                                         |
-| **Consistency**                               | Immediate consistency for K/V operations is supported. The Couchbase SDK routes K/V requests to the specific instance that contains the active copy of the data so once an update is acknowledged, the client is guaranteed to read that update. Replication of updates to other services (index, search, analytics, eventing) is eventually consistent. | Amazon DocumentDB replicas are eventually consistent. If immediate consistency reads are required, the client can read from the primary instance.                                                                                                                                                                                                                                                                                             |
-| **Replication**                               | Cross-Data Center Replication (XDCR) provides filtered, active-passive/active-active replication of data in many:many topologies.                                                                                                                                                                                                                        | [Amazon DocumentDB global clusters](global-clusters.md "global-clusters.md") provide active-passive replication in 1:many (up to 10) topologies.                                                                                                                                                                                                                                                                                              |
+
+|  | **Couchbase Server** | **Amazon DocumentDB** | 
+| --- | --- | --- | 
+| Data Organization | In versions 7.0 and later, data is organized into buckets, scopes, and collections. In earlier versions, data is organized into buckets. | Data is organized into databases and collections. | 
+| Compatibility | There are separate APIs for each service (e.g. data, index, search, etc.). Secondary lookups use SQL\+\+ (formerly known an N1QL); a query language based on ANSI-standard SQL so it is familiar to many developers. | Amazon DocumentDB is [compatible with the MongoDB API](compatibility.html). | 
+| Architecture | Storage is attached to each cluster instance. You cannot scale compute independently of storage. | Amazon DocumentDB is designed for the cloud and to avoid the limitations of traditional database architectures. The [compute and storage layers are separated](db-clusters-understanding.html) in Amazon DocumentDB and the compute layer can be [scaled independently of storage](how-it-works.html). | 
+| Add read capacity on demand | Clusters can be scaled out by adding instances. Since storage is attached to the instance where the service is running, the time it takes to scale out is dependent on the amount of data that needs to be moved to the new instance, or rebalanced. | You can achieve read scaling for your Amazon DocumentDB cluster by [creating up to 15 Amazon DocumentDB replicas](db-cluster-manage-performance.html#db-cluster-manage-scaling-reads) in the cluster. There is no impact to the storage layer. | 
+| Recover quickly from node failure | Clusters have automatic failover capabilities but the time to get the cluster back to full strength is dependent on the amount of data that needs to be moved to the new instance. | Amazon DocumentDB can [failover the primary](failover.html) typically within 30 seconds and restore the cluster back to full strength in 8-10 minutes regardless of the amount of data in the cluster. | 
+| Scale storage as data grows | For self-managed clusters storage and IOs do not scale automatically. | Amazon DocumentDB [storage and IOs scale automatically](db-cluster-manage-performance.html#db-cluster-manage-scaling-storage). | 
+| Backup data without affecting performance | Backups are performed by the backup service and are not enabled by default. Since storage and compute are not separated there can be an impact to performance. | Amazon DocumentDB backups are enabled by default and cannot be turned off. Backups are handled by the storage layer, so they are zero-impact on the compute layer. Amazon DocumentDB supports [restoring from a cluster snapshot](backup_restore-restore_from_snapshot.html) and [restoring to a point in time](backup_restore-point_in_time_recovery.html). | 
+| Data durability | There can be a maximum of 3 replica copies of data in a cluster for a total of 4 copies. Each instance where the data service is running will have active and 1, 2, or 3 replica copies of the data. | Amazon DocumentDB maintains 6 copies of data no matter how many compute instances there are with a write quorum of 4 and persist true. Clients receive an acknowledgement after the storage layer has persisted 4 copies of the data. | 
+| Consistency | Immediate consistency for K/V operations is supported. The Couchbase SDK routes K/V requests to the specific instance that contains the active copy of the data so once an update is acknowledged, the client is guaranteed to read that update. Replication of updates to other services (index, search, analytics, eventing) is eventually consistent. | Amazon DocumentDB replicas are eventually consistent. If immediate consistency reads are required, the client can read from the primary instance. | 
+| Replication | Cross-Data Center Replication (XDCR) provides filtered, active-passive/active-active replication of data in many:many topologies. | [Amazon DocumentDB global clusters](global-clusters.html) provide active-passive replication in 1:many (up to 10) topologies. | 
 
 ## Discovery
+<a name="discovery"></a>
 
 Migrating to Amazon DocumentDB requires a thorough understanding of the existing database workload. Workload discovery is the process of analyzing your Couchbase cluster configuration and operational characteristics – data set, indexes, and workload – to help ensure a seamless transition with minimal disruption.
 
 ### Cluster configuration
+<a name="cluster-configuration"></a>
 
-Couchbase uses a service-centric architecture where each capability corresponds to a service. Execute the following command against your Couchbase cluster to determine which services are being used (see [Getting Information on Nodes](https://docs.couchbase.com/server/current/rest-api/rest-node-get-info.html "https://docs.couchbase.com/server/current/rest-api/rest-node-get-info.html")):
+Couchbase uses a service-centric architecture where each capability corresponds to a service. Execute the following command against your Couchbase cluster to determine which services are being used (see [Getting Information on Nodes](https://docs.couchbase.com/server/current/rest-api/rest-node-get-info.html)):
 
 ```
 curl -v -u <administrator>:<password> \
@@ -59,76 +66,97 @@ Sample output:
 Couchbase services include the following:
 
 #### Data service (kv)
+<a name="data-service-kv"></a>
 
 The data service provides read/write access to data in memory and on disk.
 
-Amazon DocumentDB supports K/V operations on JSON data via the [MongoDB API](java-crud-operations.md "java-crud-operations.md").
+Amazon DocumentDB supports K/V operations on JSON data via the [MongoDB API](java-crud-operations.html).
 
 #### Query service (n1ql)
+<a name="query-service-n1ql"></a>
 
-The query service supports the querying of JSON data via SQL++.
+The query service supports the querying of JSON data via SQL\+\+.
 
 Amazon DocumentDB supports the querying of JSON data via the MongoDB API.
 
 #### Index service (index)
+<a name="index-service-index"></a>
 
 The index service creates and maintains indexes on data, enabling faster querying.
 
 Amazon DocumentDB supports a default primary index and the creation of secondary indexes on JSON data via the MongoDB API.
 
 #### Search service (fts)
+<a name="search-service-fts"></a>
 
 The search service supports the creation of indexes for full text search.
 
-The native full text search feature of Amazon DocumentDB allows you to [perform basic text queries on large textual data sets using special purpose text indexes](text-search.md "text-search.md") by using the MongoDB API. For advanced capabilities such as fuzzy search, multilingual search, and cross-collection search, use [Amazon DocumentDB zero-ETL integration with Amazon OpenSearch Service](https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/ "https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/").
+The native full text search feature of Amazon DocumentDB allows you to [perform basic text queries on large textual data sets using special purpose text indexes](text-search.html) by using the MongoDB API. For advanced capabilities such as fuzzy search, multilingual search, and cross-collection search, use [Amazon DocumentDB zero-ETL integration with Amazon OpenSearch Service](https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/).
 
 #### Analytics service (cbas)
+<a name="analytics-service-cbas"></a>
 
 The analytics service supports analyzing JSON data in near real-time.
 
-Amazon DocumentDB supports ad-hoc queries on JSON data via the MongoDB API. You can also [run complex queries on your JSON data in Amazon DocumentDB using Apache Spark running on Amazon EMR](https://aws.amazon.com/blogs/database/run-complex-queries-on-massive-amounts-of-data-stored-on-your-amazon-documentdb-clusters-using-apache-spark-running-on-amazon-emr/ "https://aws.amazon.com/blogs/database/run-complex-queries-on-massive-amounts-of-data-stored-on-your-amazon-documentdb-clusters-using-apache-spark-running-on-amazon-emr/").
+Amazon DocumentDB supports ad-hoc queries on JSON data via the MongoDB API. You can also [run complex queries on your JSON data in Amazon DocumentDB using Apache Spark running on Amazon EMR](https://aws.amazon.com/blogs/database/run-complex-queries-on-massive-amounts-of-data-stored-on-your-amazon-documentdb-clusters-using-apache-spark-running-on-amazon-emr/).
 
 #### Eventing service (eventing)
+<a name="eventing-service-eventing"></a>
 
 The eventing service executes user-defined business logic in response to data changes.
 
-Amazon DocumentDB automates event-driven workloads by [invoking AWS Lambda functions each time that data changes with your Amazon DocumentDB cluster](../../../lambda/latest/dg/with-documentdb-tutorial.md "../../../lambda/latest/dg/with-documentdb-tutorial.md").
+Amazon DocumentDB automates event-driven workloads by [invoking AWS Lambda functions each time that data changes with your Amazon DocumentDB cluster](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb-tutorial.html).
 
 #### Backup service (backup)
+<a name="backup-service-backup"></a>
 
 The backup service schedules full and incremental data backups and merges of previous data backups.
 
-Amazon DocumentDB continuously backs up your data to Amazon S3 with a retention period of 1–35 days so that you can quickly restore to any point within the backup retention period. Amazon DocumentDB also takes automatic snapshots of your data as part of this continuous backup process. You can also [manage backup and restore of Amazon DocumentDB with AWS Backup.](https://aws.amazon.com/blogs/storage/manage-backup-and-restore-of-amazon-documentdb-with-aws-backup/ "https://aws.amazon.com/blogs/storage/manage-backup-and-restore-of-amazon-documentdb-with-aws-backup/").
+Amazon DocumentDB continuously backs up your data to Amazon S3 with a retention period of 1–35 days so that you can quickly restore to any point within the backup retention period. Amazon DocumentDB also takes automatic snapshots of your data as part of this continuous backup process. You can also [manage backup and restore of Amazon DocumentDB with AWS Backup.](https://aws.amazon.com/blogs/storage/manage-backup-and-restore-of-amazon-documentdb-with-aws-backup/).
 
 ### Operational characteristics
+<a name="operational-characteristics"></a>
 
-Use the [Discovery Tool for Couchbase](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/discovery-tool-for-couchbase "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/discovery-tool-for-couchbase") to get the following information about your data set, indexes, and workload. This information will help you size your Amazon DocumentDB cluster.
+Use the [Discovery Tool for Couchbase](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/discovery-tool-for-couchbase) to get the following information about your data set, indexes, and workload. This information will help you size your Amazon DocumentDB cluster.
 
 #### Data set
+<a name="data-set"></a>
 
 The tool retrieves the following bucket, scope, and collection information:
 
 1. bucket name
-2. bucket type
-3. scope name
-4. collection name
-5. total size (bytes)
-6. total items
-7. item size (bytes)
+
+1. bucket type
+
+1. scope name
+
+1. collection name
+
+1. total size (bytes)
+
+1. total items
+
+1. item size (bytes)
 
 #### Indexes
+<a name="couchbase-indexes"></a>
 
 The tool retrieves the following index statistics and all index definitions for all buckets. Note that primary indexes are excluded since Amazon DocumentDB automatically creates a primary index for each collection.
 
 1. bucket name
-2. scope name
-3. collection name
-4. index name
-5. index size (bytes)
+
+1. scope name
+
+1. collection name
+
+1. index name
+
+1. index size (bytes)
 
 #### Workload
+<a name="workload"></a>
 
-The tool retrieves K/V and N1QL query metrics. K/V metric values are gathered at the bucket level and SQL++ metrics are gathered at the cluster level.
+The tool retrieves K/V and N1QL query metrics. K/V metric values are gathered at the bucket level and SQL\+\+ metrics are gathered at the cluster level.
 
 The tool command line options are as follows:
 
@@ -162,7 +190,7 @@ python3 discovery.py \
   --n1ql_step 1000
 ```
 
-K/V metric values will be based on samples every 10 minutes for the past week (see [HTTP method and URI](https://docs.couchbase.com/server/current/rest-api/rest-bucket-stats.html#http-method-and-uri "https://docs.couchbase.com/server/current/rest-api/rest-bucket-stats.html#http-method-and-uri")). SQL++ metric values will based on samples every 1 seconds for the past 60 seconds (see [General Labels](https://docs.couchbase.com/server/current/rest-api/rest-statistics-single.html#general-labels "https://docs.couchbase.com/server/current/rest-api/rest-statistics-single.html#general-labels")). The output of the command will be in the following files:
+K/V metric values will be based on samples every 10 minutes for the past week (see [HTTP method and URI](https://docs.couchbase.com/server/current/rest-api/rest-bucket-stats.html#http-method-and-uri)). SQL\+\+ metric values will based on samples every 1 seconds for the past 60 seconds (see [General Labels](https://docs.couchbase.com/server/current/rest-api/rest-statistics-single.html#general-labels)). The output of the command will be in the following files:
 
 **collection-stats.csv** – bucket, scope, and collection information
 
@@ -204,7 +232,7 @@ pillowfight,369,521,194
 travel-sample,0,0,0
 ```
 
-**n1ql-stats.csv** – SQL++ select, delete, and insert metrics for the cluster
+**n1ql-stats.csv** – SQL\+\+ select, delete, and insert metrics for the cluster
 
 ```
 selects,deletes,inserts
@@ -227,47 +255,59 @@ CREATE INDEX `def_sourceairport` ON `travel-sample`(`sourceairport`)
 ```
 
 ## Planning
+<a name="planning"></a>
 
 In the planning phase you will determine Amazon DocumentDB cluster requirements and mapping of the Couchbase buckets, scopes, and collections to Amazon DocumentDB databases and collections.
 
 ### Amazon DocumentDB cluster requirements
+<a name="amazon-documentdb-cluster-requirements"></a>
 
-Use the data gathered in the discovery phase to size your Amazon DocumentDB cluster. See [Instance sizing](best_practices.md#best_practices-instance_sizing "best_practices.md#best_practices-instance_sizing") for more information about sizing your Amazon DocumentDB cluster.
+Use the data gathered in the discovery phase to size your Amazon DocumentDB cluster. See [Instance sizing](best_practices.html#best_practices-instance_sizing) for more information about sizing your Amazon DocumentDB cluster.
 
 ### Mapping buckets, scopes, and collections to databases and collections
+<a name="mapping-buckets-scopes-and-collections-to-databases-and-collections"></a>
 
 Determine the databases and collections that will exist in your Amazon DocumentDB cluster(s). Consider the following options depending on how data is organized in your Couchbase cluster. These are not the only options, but they provide starting points for you to consider.
 
 #### Couchbase Server 6.x or earlier
+<a name="couchbase-6x-or-earlier"></a>
 
 ##### Couchbase buckets to Amazon DocumentDB collections
+<a name="couchbase-buckets-to-amazon-documentdb-collections"></a>
 
 Migrate each bucket to a different Amazon DocumentDB collection. In this scenario, the Couchbase document `id` value will be used as the Amazon DocumentDB `_id` value.
 
-![Couchbase Server 6.x or earlier buckets to Amazon DocumentDB collections](images/buckets-to-collections.png)
+![Couchbase Server 6.x or earlier buckets to Amazon DocumentDB collections](http://docs.aws.amazon.com/documentdb/latest/devguide/images/buckets-to-collections.png)
+
 
 #### Couchbase Server 7.0 or later
+<a name="couchbase-70-or-later"></a>
 
 ##### Couchbase collections to Amazon DocumentDB collections
+<a name="couchbase-collections-to-amazon-documentdb-collections"></a>
 
 Migrate each collection to a different Amazon DocumentDB collection. In this scenario, the Couchbase document `id` value will be used as the Amazon DocumentDB `_id` value.
 
-![Couchbase Server 7.0 or later collections to Amazon DocumentDB collections](images/collections-to-collections.png)
+![Couchbase Server 7.0 or later collections to Amazon DocumentDB collections](http://docs.aws.amazon.com/documentdb/latest/devguide/images/collections-to-collections.png)
+
 
 ## Migration
+<a name="migration"></a>
 
 ### Index migration
+<a name="index-migration"></a>
 
 Migrating to Amazon DocumentDB involves transferring not just data but also indexes to maintain query performance and optimize database operations. This section outlines the detailed step-by-step process for migrating indexes to Amazon DocumentDB while ensuring compatibility and efficiency.
 
-Use [Amazon Q](../../../amazonq/latest/qdeveloper-ug/chat-with-q.md "../../../amazonq/latest/qdeveloper-ug/chat-with-q.md") (available in the AWS Management Console or your IDE) to convert SQL++ `CREATE INDEX` statements to Amazon DocumentDB `createIndex()` commands.
+Use [Amazon Q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-with-q.html) (available in the AWS Management Console or your IDE) to convert SQL\+\+ `CREATE INDEX` statements to Amazon DocumentDB `createIndex()` commands.
 
 1. Upload the **indexes-<bucket name>.txt** file(s) created by the Discovery Tool for Couchbase.
-2. Enter the following prompt:
 
-`Convert the Couchbase CREATE INDEX statements to Amazon DocumentDB createIndex commands`
+1. Enter the following prompt:
 
-Amazon Q will generate equivalent Amazon DocumentDB `createIndex()` commands. Note that you may need to update the collection names based on how you [mapped the Couchbase buckets, scopes, and collections to Amazon DocumentDB collections](#mapping-buckets-scopes-and-collections-to-databases-and-collections "#mapping-buckets-scopes-and-collections-to-databases-and-collections").
+   `Convert the Couchbase CREATE INDEX statements to Amazon DocumentDB createIndex commands`
+
+Amazon Q will generate equivalent Amazon DocumentDB `createIndex()` commands. Note that you may need to update the collection names based on how you [mapped the Couchbase buckets, scopes, and collections to Amazon DocumentDB collections](#mapping-buckets-scopes-and-collections-to-databases-and-collections).
 
 For example:
 
@@ -299,20 +339,22 @@ db.beerSample.createIndex(
 )
 ```
 
-For any indexes that Amazon Q is not able to convert, refer to [Managing Amazon DocumentDB indexes](managing-indexes.md "managing-indexes.md") and [Indexes and index properties](mongo-apis.md#mongo-apis-index "mongo-apis.md#mongo-apis-index") for more information.
+For any indexes that Amazon Q is not able to convert, refer to [Managing Amazon DocumentDB indexes](managing-indexes.html) and [Indexes and index properties](mongo-apis.html#mongo-apis-index) for more information.
 
 ### Refactor code to use the MongoDB APIs
+<a name="refactor-code-to-use-the-mongodb-apis"></a>
 
-Clients use the Couchbase SDKs to connect to Couchbase Server. Amazon DocumentDB clients use MongoDB drivers to connect to Amazon DocumentDB. All the languages supported by the Couchbase SDKs are also supported by MongoDB drivers. See [MongoDB Drivers](https://www.mongodb.com/docs/drivers/ "https://www.mongodb.com/docs/drivers/") for more information on the driver for your language.
+Clients use the Couchbase SDKs to connect to Couchbase Server. Amazon DocumentDB clients use MongoDB drivers to connect to Amazon DocumentDB. All the languages supported by the Couchbase SDKs are also supported by MongoDB drivers. See [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) for more information on the driver for your language.
 
-Because the APIs are different between Couchbase Server and Amazon DocumentDB, you will need to refactor your code to use the appropriate MongoDB APIs. You can use [Amazon Q](../../../amazonq/latest/qdeveloper-ug/chat-with-q.md "../../../amazonq/latest/qdeveloper-ug/chat-with-q.md") to convert the K/V API calls and SQL++ queries to the equivalent MongoDB APIs:
+Because the APIs are different between Couchbase Server and Amazon DocumentDB, you will need to refactor your code to use the appropriate MongoDB APIs. You can use [Amazon Q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-with-q.html) to convert the K/V API calls and SQL\+\+ queries to the equivalent MongoDB APIs:
 
 1. Upload the source code file(s).
-2. Enter the following prompt:
 
-`Convert the Couchbase API code to Amazon DocumentDB API code`
+1. Enter the following prompt:
 
-Using the [Hello Couchbase](https://docs.couchbase.com/python-sdk/current/hello-world/start-using-sdk.html#hello-couchbase "https://docs.couchbase.com/python-sdk/current/hello-world/start-using-sdk.html#hello-couchbase") Python code sample, Amazon Q generates the following (excerpt):
+   `Convert the Couchbase API code to Amazon DocumentDB API code`
+
+Using the [Hello Couchbase](https://docs.couchbase.com/python-sdk/current/hello-world/start-using-sdk.html#hello-couchbase) Python code sample, Amazon Q generates the following (excerpt):
 
 ```
 from pymongo import MongoClient
@@ -382,38 +424,40 @@ get_airline_by_key("airline_8091")
 lookup_by_callsign("CBS")
 ```
 
-Refer to [Connecting programmatically to Amazon DocumentDB](connect_programmatically.md "connect_programmatically.md") for examples of connecting to Amazon DocumentDB in Python, Node.js, PHP, Go, Java, C#/.NET, R, and Ruby.
+Refer to [Connecting programmatically to Amazon DocumentDB](connect_programmatically.html) for examples of connecting to Amazon DocumentDB in Python, Node.js, PHP, Go, Java, C\#/.NET, R, and Ruby.
 
 ### Select the migration approach
+<a name="select-the-migration-approach"></a>
 
 When migrating data to Amazon DocumentDB, there are two options:
 
-1. [offline migration](#offline-migration "#offline-migration")
-2. [online migration](#online-migration "#online-migration")
+1. [offline migration](#offline-migration)
 
-###### Note
+1. [online migration](#online-migration)
 
+**Note**  
 Amazon DocumentDB uses the `_id` field as the primary key for each document. The migration approaches in this guide store the Couchbase document key in the `_id` field. For offline migration, this is done via the `--include-key _id` option in `cbexport`. For online migration, this is done via the Kafka connector's `ProvidedInKeyStrategy`.
 
 #### Offline migration
+<a name="offline-migration"></a>
 
 Consider an offline migration when:
++ **Downtime is acceptable:** Offline migration involves stopping write operations to the source database, exporting the data, and then importing it to Amazon DocumentDB. This process incurs downtime for your application. If your application or workload can tolerate this period of unavailability, offline migration is a viable option.
++ **Migrating smaller datasets or conducting proofs of concept:** For smaller datasets, the time required for the export and import process is relatively short, making offline migration a quick and simple method. It is also well-suited for development, testing, and proof-of-concept environments where downtime is less critical.
++ **Simplicity is a priority:** The offline method, using cbexport and mongoimport, is generally the most straightforward approach to migrate data. It avoids the complexities of change data capture (CDC) involved in online migration methods.
++ **No ongoing changes need to be replicated:** If the source database is not actively receiving changes during the migration, or if those changes are not critical to be captured and applied to the target during the migration process, then an offline approach is appropriate.
 
-- **Downtime is acceptable:** Offline migration involves stopping write operations to the source database, exporting the data, and then importing it to Amazon DocumentDB. This process incurs downtime for your application. If your application or workload can tolerate this period of unavailability, offline migration is a viable option.
-- **Migrating smaller datasets or conducting proofs of concept:** For smaller datasets, the time required for the export and import process is relatively short, making offline migration a quick and simple method. It is also well-suited for development, testing, and proof-of-concept environments where downtime is less critical.
-- **Simplicity is a priority:** The offline method, using cbexport and mongoimport, is generally the most straightforward approach to migrate data. It avoids the complexities of change data capture (CDC) involved in online migration methods.
-- **No ongoing changes need to be replicated:** If the source database is not actively receiving changes during the migration, or if those changes are not critical to be captured and applied to the target during the migration process, then an offline approach is appropriate.
-
-###### Topics
-
-- [Couchbase Server 6.x or earlier](#couchbase-6x-or-earlier-offline "#couchbase-6x-or-earlier-offline")
-- [Couchbase Server 7.0 or later](#couchbase-70-or-later-offline "#couchbase-70-or-later-offline")
+**Topics**
++ [Couchbase Server 6.x or earlier](#couchbase-6x-or-earlier-offline)
++ [Couchbase Server 7.0 or later](#couchbase-70-or-later-offline)
 
 ##### Couchbase Server 6.x or earlier
+<a name="couchbase-6x-or-earlier-offline"></a>
 
 ##### Couchbase bucket to Amazon DocumentDB collection
+<a name="couchbase-bucket-to-amazon-documentdb-collection-offline"></a>
 
-Export data using [cbexport json](https://docs-archive.couchbase.com/server/6.6/tools/cbexport-json.html "https://docs-archive.couchbase.com/server/6.6/tools/cbexport-json.html") to create a JSON dump of all data in the bucket. For the `--format` option you can use `lines` or `list`.
+Export data using [cbexport json](https://docs-archive.couchbase.com/server/6.6/tools/cbexport-json.html) to create a JSON dump of all data in the bucket. For the `--format` option you can use `lines` or `list`.
 
 ```
 cbexport json \
@@ -426,7 +470,7 @@ cbexport json \
   --include-key _id
 ```
 
-Import the data to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport "backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport") with the appropriate option to import the lines or list:
+Import the data to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.html#backup_restore-dump_restore_import_export_data-mongoimport) with the appropriate option to import the lines or list:
 
 lines:
 
@@ -454,12 +498,14 @@ mongoimport \
 ```
 
 ##### Couchbase Server 7.0 or later
+<a name="couchbase-70-or-later-offline"></a>
 
 To perform an offline migration, use the cbexport and mongoimport tools:
 
 ##### Couchbase bucket with default scope and default collection
+<a name="couchbase-bucket-with-default-scope-and-default-collection-offline"></a>
 
-Export data using [cbexport json](https://docs.couchbase.com/server/current/tools/cbexport-json.html "https://docs.couchbase.com/server/current/tools/cbexport-json.html") to create a JSON dump of all collections in the bucket. For the `--format` option you can use `lines` or `list`.
+Export data using [cbexport json](https://docs.couchbase.com/server/current/tools/cbexport-json.html) to create a JSON dump of all collections in the bucket. For the `--format` option you can use `lines` or `list`.
 
 ```
 cbexport json \
@@ -472,7 +518,7 @@ cbexport json \
   --include-key _id
 ```
 
-Import the data to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport "backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport") with the appropriate option to import the lines or list:
+Import the data to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.html#backup_restore-dump_restore_import_export_data-mongoimport) with the appropriate option to import the lines or list:
 
 lines:
 
@@ -500,8 +546,9 @@ mongoimport \
 ```
 
 ##### Couchbase collections to Amazon DocumentDB collections
+<a name="couchbase-collections-to-amazon-documentdb-collections-offline"></a>
 
-Export data using [cbexport json](https://docs.couchbase.com/server/current/tools/cbexport-json.html "https://docs.couchbase.com/server/current/tools/cbexport-json.html") to create a JSON dump of each collection. Use the `--include-data` option to export each collection. For the `--format` option you can use `lines` or `list`. Use the `--scope-field` and `--collection-field` options to store the name of the scope and collection in the specified fields in each JSON document.
+Export data using [cbexport json](https://docs.couchbase.com/server/current/tools/cbexport-json.html) to create a JSON dump of each collection. Use the `--include-data` option to export each collection. For the `--format` option you can use `lines` or `list`. Use the `--scope-field` and `--collection-field` options to store the name of the scope and collection in the specified fields in each JSON document.
 
 ```
 cbexport json \
@@ -519,7 +566,7 @@ cbexport json \
 
 Because cbexport added the `_scope` and `_collection` fields to every exported document, you can remove them from every document in the export file via search and replace, `sed`, or whatever method you prefer.
 
-Import the data for each collection to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport "backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport") with the appropriate option to import the lines or list:
+Import the data for each collection to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.html#backup_restore-dump_restore_import_export_data-mongoimport) with the appropriate option to import the lines or list:
 
 lines:
 
@@ -547,84 +594,83 @@ mongoimport \
 ```
 
 #### Online migration
+<a name="online-migration"></a>
 
 Consider an online migration when you need to minimize downtime and ongoing changes need to be replicated to Amazon DocumentDB in near-real time.
 
-See [How to perform a live migration from Couchbase to Amazon DocumentDB](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase") to learn how to perform a live migration to Amazon DocumentDB. The documentation walks you through deploying the solution and performing a live migration a bucket to an Amazon DocumentDB cluster.
+See [How to perform a live migration from Couchbase to Amazon DocumentDB](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase) to learn how to perform a live migration to Amazon DocumentDB. The documentation walks you through deploying the solution and performing a live migration a bucket to an Amazon DocumentDB cluster.
 
-###### Topics
-
-- [Couchbase Server 6.x or earlier](#couchbase-6x-or-earlier-online "#couchbase-6x-or-earlier-online")
-- [Couchbase Server 7.0 or later](#couchbase-70-or-later-online "#couchbase-70-or-later-online")
+**Topics**
++ [Couchbase Server 6.x or earlier](#couchbase-6x-or-earlier-online)
++ [Couchbase Server 7.0 or later](#couchbase-70-or-later-online)
 
 ##### Couchbase Server 6.x or earlier
+<a name="couchbase-6x-or-earlier-online"></a>
 
 ##### Couchbase bucket to Amazon DocumentDB collection
+<a name="couchbase-bucket-to-amazon-documentdb-collection-online"></a>
 
-The [migration utility for Couchbase](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase") is pre-configured to perform an online migration of a Couchbase bucket to an Amazon DocumentDB collection. Looking at the [sink connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml "https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml") configuration, the `document.id.strategy` parameter is configured to use the message key value as the `_id` field value (see [Sink Connector Id Strategy Properties](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/id-strategy/#std-label-sink-configuration-id-strategy "https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/id-strategy/#std-label-sink-configuration-id-strategy")):
+The [migration utility for Couchbase](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase) is pre-configured to perform an online migration of a Couchbase bucket to an Amazon DocumentDB collection. Looking at the [sink connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml) configuration, the `document.id.strategy` parameter is configured to use the message key value as the `_id` field value (see [Sink Connector Id Strategy Properties](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/id-strategy/#std-label-sink-configuration-id-strategy)):
 
 ```
-
 ConnectorConfiguration:
   document.id.strategy: 'com.mongodb.kafka.connect.sink.processor.id.strategy.ProvidedInKeyStrategy'
-
 ```
 
 ##### Couchbase Server 7.0 or later
+<a name="couchbase-70-or-later-online"></a>
 
 ##### Couchbase bucket with default scope and default collection
+<a name="couchbase-bucket-with-default-scope-and-default-collection-online"></a>
 
-The [migration utility for Couchbase](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase") is pre-configured to perform an online migration of a Couchbase bucket to an Amazon DocumentDB collection. Looking at the [sink connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml "https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml") configuration, the `document.id.strategy` parameter is configured to use the message key value as the `_id` field value (see [Sink Connector Id Strategy Properties](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/id-strategy/#std-label-sink-configuration-id-strategy "https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/id-strategy/#std-label-sink-configuration-id-strategy")):
+The [migration utility for Couchbase](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/migration-utility-for-couchbase) is pre-configured to perform an online migration of a Couchbase bucket to an Amazon DocumentDB collection. Looking at the [sink connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml) configuration, the `document.id.strategy` parameter is configured to use the message key value as the `_id` field value (see [Sink Connector Id Strategy Properties](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/id-strategy/#std-label-sink-configuration-id-strategy)):
 
 ```
-
 ConnectorConfiguration:
   document.id.strategy: 'com.mongodb.kafka.connect.sink.processor.id.strategy.ProvidedInKeyStrategy'
-
 ```
 
 ##### Couchbase collections to Amazon DocumentDB collections
+<a name="couchbase-collections-to-amazon-documentdb-collections-online"></a>
 
-Configure the [source connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml "https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml") to stream each Couchbase collection in each scope to a separate topic (see [Source Configuration Options](https://docs.couchbase.com/kafka-connector/current/source-configuration-options.html#couchbase.collections "https://docs.couchbase.com/kafka-connector/current/source-configuration-options.html#couchbase.collections")). For example:
+Configure the [source connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml) to stream each Couchbase collection in each scope to a separate topic (see [Source Configuration Options](https://docs.couchbase.com/kafka-connector/current/source-configuration-options.html#couchbase.collections)). For example:
 
 ```
-
 ConnectorConfiguration:
   # add couchbase.collections configuration
   couchbase.collections: '<scope 1>.<collection 1>, <scope 1>.<collection 2>, ...'
-
 ```
 
-Configure the [sink connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml "https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml") to stream from each topic to a separate Amazon DocumentDB collection (see [Sink Connector Configuration Properties](https://github.com/mongodb-labs/mongo-kafka/blob/master/docs/sink.md#sink-connector-configuration-properties "https://github.com/mongodb-labs/mongo-kafka/blob/master/docs/sink.md#sink-connector-configuration-properties")). For example:
+Configure the [sink connector](https://github.com/awslabs/amazon-documentdb-tools/blob/master/migration/migration-utility-for-couchbase/migration-utility-connectors.yaml) to stream from each topic to a separate Amazon DocumentDB collection (see [Sink Connector Configuration Properties](https://github.com/mongodb-labs/mongo-kafka/blob/master/docs/sink.md#sink-connector-configuration-properties)). For example:
 
 ```
-
 ConnectorConfiguration:
-  # remove collection configuration
+  # remove collection configuration  
   #collection: 'test'
-
+  
   # modify topics configuration
   topics: '<bucket>.<scope 1>.<collection 1>, <bucket>.<scope 1>.<collection 2>, ...'
 
-  # add topic.override.%s.%s configurations for each topic
+  # add topic.override.%s.%s configurations for each topic 
   topic.override.<bucket>.<scope 1>.<collection 1>.collection: '<collection>'
   topic.override.<bucket>.<scope 1>.<collection 2>.collection: '<collection>'
-
 ```
 
 ## Validation
+<a name="validation"></a>
 
 This section provides a detailed validation process to verify data consistency and integrity after migrating to Amazon DocumentDB. The validation steps apply regardless of the migration method.
 
-###### Topics
-
-- [Verify that all collections exist in the target](#validation-checklist-step-1 "#validation-checklist-step-1")
-- [Verify document count between source and target clusters](#validation-checklist-step-2 "#validation-checklist-step-2")
-- [Compare documents between source and target clusters](#validation-checklist-step-3 "#validation-checklist-step-3")
+**Topics**
++ [Verify that all collections exist in the target](#validation-checklist-step-1)
++ [Verify document count between source and target clusters](#validation-checklist-step-2)
++ [Compare documents between source and target clusters](#validation-checklist-step-3)
 
 ### Verify that all collections exist in the target
+<a name="validation-checklist-step-1"></a>
 
 #### Couchbase source
+<a name="source-verify-collections"></a>
 
 option 1: query workbench
 
@@ -634,7 +680,7 @@ SELECT RAW `path`
   WHERE `bucket` = '<bucket>'
 ```
 
-option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "https://docs.couchbase.com/server/current/cli/cbq-tool.html") tool
+option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html) tool
 
 ```
 cbq \
@@ -647,8 +693,9 @@ cbq \
 ```
 
 #### Amazon DocumentDB target
+<a name="target-verify-collections"></a>
 
-mongosh (see [Connect to your Amazon DocumentDB cluster](connect-ec2-manual.md#manual-connect-ec2.connect-use "connect-ec2-manual.md#manual-connect-ec2.connect-use")):
+mongosh (see [Connect to your Amazon DocumentDB cluster](connect-ec2-manual.html#manual-connect-ec2.connect-use)):
 
 ```
 db.getSiblingDB('<database>')
@@ -656,10 +703,13 @@ db.getCollectionNames()
 ```
 
 ### Verify document count between source and target clusters
+<a name="validation-checklist-step-2"></a>
 
 #### Couchbase source
+<a name="source-verify-document-count"></a>
 
 ##### Couchbase Server 6.x or earlier
+<a name="source-verify-document-count-couchbase-6x-or-earlier"></a>
 
 option 1: query workbench
 
@@ -668,7 +718,7 @@ SELECT COUNT(*)
 FROM `<bucket>`
 ```
 
-option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "https://docs.couchbase.com/server/current/cli/cbq-tool.html")
+option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html)
 
 ```
 cbq \
@@ -680,6 +730,7 @@ cbq \
 ```
 
 ##### Couchbase Server 7.0 or later
+<a name="source-verify-document-count-couchbase-70-or-later"></a>
 
 option 1: query workbench
 
@@ -688,7 +739,7 @@ SELECT COUNT(*)
 FROM `<bucket>`.`<scope>`.`<collection>`
 ```
 
-option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "https://docs.couchbase.com/server/current/cli/cbq-tool.html")
+option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html)
 
 ```
 cbq \
@@ -700,8 +751,9 @@ cbq \
 ```
 
 #### Amazon DocumentDB target
+<a name="target-verify-document-count"></a>
 
-mongosh (see [Connect to your Amazon DocumentDB cluster](connect-ec2-manual.md#manual-connect-ec2.connect-use "connect-ec2-manual.md#manual-connect-ec2.connect-use")):
+mongosh (see [Connect to your Amazon DocumentDB cluster](connect-ec2-manual.html#manual-connect-ec2.connect-use)):
 
 ```
 db = db.getSiblingDB('<database>')
@@ -709,10 +761,13 @@ db.getCollection('<collection>').countDocuments()
 ```
 
 ### Compare documents between source and target clusters
+<a name="validation-checklist-step-3"></a>
 
 #### Couchbase source
+<a name="source-compare-documents"></a>
 
 ##### Couchbase Server 6.x or earlier
+<a name="source-compare-documents-couchbase-6x-or-earlier"></a>
 
 option 1: query workbench
 
@@ -722,7 +777,7 @@ FROM `<bucket>`
 LIMIT 5
 ```
 
-option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "https://docs.couchbase.com/server/current/cli/cbq-tool.html")
+option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html)
 
 ```
 cbq \
@@ -735,6 +790,7 @@ cbq \
 ```
 
 ##### Couchbase Server 7.0 or later
+<a name="source-compare-documents-couchbase-70-or-later"></a>
 
 option 1: query workbench
 
@@ -744,7 +800,7 @@ FROM `<bucket>`.`<scope>`.`<collection>`
 LIMIT 5
 ```
 
-option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "https://docs.couchbase.com/server/current/cli/cbq-tool.html")
+option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html)
 
 ```
 cbq \
@@ -757,8 +813,9 @@ cbq \
 ```
 
 #### Amazon DocumentDB target
+<a name="target-compare-documents"></a>
 
-mongosh (see [Connect to your Amazon DocumentDB cluster](connect-ec2-manual.md#manual-connect-ec2.connect-use "connect-ec2-manual.md#manual-connect-ec2.connect-use")):
+mongosh (see [Connect to your Amazon DocumentDB cluster](connect-ec2-manual.html#manual-connect-ec2.connect-use)):
 
 ```
 db = db.getSiblingDB('<database>')

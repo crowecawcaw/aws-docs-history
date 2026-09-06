@@ -1,4 +1,7 @@
+
+
 # $tanh
+<a name="tanh"></a>
 
 New from version 8.0.1.
 
@@ -9,23 +12,25 @@ The input expression must resolve to a numeric value.
 The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a number.
++ `expression`: An expression that resolves to a number.
 
 ## Behavior
+<a name="tanh-behavior"></a>
 
-**null, NaN, and +/- Infinity**
+**null, NaN, and \+/- Infinity**
 
-| Example                | Results |
-| ---------------------- | ------- |
-| `{ $tanh: NaN }`       | `NaN`   |
-| `{ $tanh: null }`      | `null`  |
-| `{ $tanh: -Infinity }` | `-1`    |
-| `{ $tanh: Infinity }`  | `1`     |
+
+| Example | Results | 
+| --- | --- | 
+| { $tanh: NaN } | NaN | 
+| { $tanh: null } | null | 
+| { $tanh: -Infinity } | -1 | 
+| { $tanh: Infinity } | 1 | 
 
 When the input is `null` or the referenced field is missing, `$tanh` returns `null`. An input of `NaN` produces `NaN`. For positive infinity the result is `1`; for negative infinity the result is `-1`.
 
 ## Example (MongoDB Shell)
+<a name="tanh-examples"></a>
 
 The following example shows how to use the `$tanh` operator to calculate the hyperbolic tangent of a value.
 
@@ -60,10 +65,12 @@ db.values.aggregate([
 ```
 
 ## Code examples
+<a name="tanh-code"></a>
 
 To view a code example for using the `$tanh` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -86,7 +93,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,3 +116,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

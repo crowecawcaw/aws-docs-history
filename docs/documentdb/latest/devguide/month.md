@@ -1,12 +1,15 @@
+
+
 # $month
+<a name="month"></a>
 
 The `$month` operator in Amazon DocumentDB returns the month of a date as a number between 1 and 12. This operator is useful for extracting the month component from a date field and performing date-based aggregations and analyses.
 
 **Parameters**
-
-- `date_expression`: This is the expression or field that contains the date or timestamp from which you want to extract the month.
++ `date_expression`: This is the expression or field that contains the date or timestamp from which you want to extract the month.
 
 ## Example (MongoDB Shell)
+<a name="month-examples"></a>
 
 The following example demonstrates how to use the `$month` operator to extract the month from a date field and group the data by month.
 
@@ -26,7 +29,7 @@ db.sales.insert([
 
 ```
 db.sales.aggregate([
-  { $group: {
+  { $group: { 
       _id: { month: { $month: "$date" } },
       totalSales: { $sum: "$price" }
     }},
@@ -47,10 +50,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="month-code"></a>
 
 To view a code example for using the `$month` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -85,16 +90,16 @@ async function groupSalesByMonth() {
 }
 
 groupSalesByMonth().catch(console.error);
-
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def group_sales_by_month():
-
+  
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
 
     try:
@@ -104,12 +109,12 @@ def group_sales_by_month():
         pipeline = [
             {
                 "$group": {
-                    "_id": { "$month": "$date" },
-                    "totalSales": { "$sum": "$price" }
+                    "_id": { "$month": "$date" }, 
+                    "totalSales": { "$sum": "$price" }  
                 }
             },
             {
-                "$sort": { "_id": 1 }
+                "$sort": { "_id": 1 } 
             }
         ]
 
@@ -126,3 +131,5 @@ def group_sales_by_month():
 
 group_sales_by_month()
 ```
+
+------

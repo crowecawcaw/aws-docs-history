@@ -1,12 +1,15 @@
+
+
 # $each
+<a name="each"></a>
 
 The `$each` operator is used in conjunction with other update operators, such as `$push` and `$addToSet`, to add multiple values to an array field. It allows adding multiple elements to an array in a single operation, rather than having to execute multiple update operations.
 
 **Parameters**
-
-- `value`: The array of values to add to the array field.
++ `value`: The array of values to add to the array field.
 
 ## Example (MongoDB Shell)
+<a name="each-examples"></a>
 
 The following example demonstrates using the `$each` operator with the `$push` operator to add multiple elements to an array field.
 
@@ -44,10 +47,12 @@ db.fruits.findOne({ _id: 1 })
 ```
 
 ## Code examples
+<a name="each-code"></a>
 
 To view a code example for using the `$each` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

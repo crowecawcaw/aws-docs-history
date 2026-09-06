@@ -1,16 +1,19 @@
+
+
 # $dateSubtract
+<a name="dateSubtract"></a>
 
 New from version 5.0
 
 The `$dateSubtract` aggregation operator in Amazon DocumentDB allows you to subtract a specified duration from a date value.
 
 **Parameters**
-
-- `date`: A date expression that resolves to a date or timestamp.
-- `subtrahend`: A duration expression that specifies the amount of time to subtract from the `date` expression.
-- `unit`: A string that specifies the time unit for the `subtrahend` expression. Supported units are "year", "quarter", "month", "week", "day", "hour", "minute", "second", and "millisecond".
++ `date`: A date expression that resolves to a date or timestamp.
++ `subtrahend`: A duration expression that specifies the amount of time to subtract from the `date` expression.
++ `unit`: A string that specifies the time unit for the `subtrahend` expression. Supported units are "year", "quarter", "month", "week", "day", "hour", "minute", "second", and "millisecond".
 
 ## Example (MongoDB Shell)
+<a name="dateSubtract-examples"></a>
 
 The following example demonstrates how to use the `$dateSubtract` operator to calculate the date one year ago from the current date.
 
@@ -53,10 +56,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="dateSubtract-code"></a>
 
 To view a code example for using the `$dateSubtract` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -88,7 +93,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -119,3 +125,5 @@ def example():
 
 example()
 ```
+
+------

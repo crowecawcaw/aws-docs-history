@@ -1,12 +1,15 @@
+
+
 # $sample
+<a name="sample"></a>
 
 The `$sample` aggregation stage in Amazon DocumentDB is used to randomly select a specified number of documents from a collection. This is useful for tasks such as data analysis, testing, and generating samples for further processing.
 
 **Parameters**
-
-- `size`: The number of documents to randomly select.
++ `size`: The number of documents to randomly select.
 
 ## Example (MongoDB Shell)
+<a name="sample-examples"></a>
 
 The following example demonstrates how to use the `$sample` stage to randomly select two documents from the `temp` collection.
 
@@ -45,10 +48,12 @@ db.temp.aggregate([
 As the results show, 2 of the 10 documents were randomly sampled. You can now use these documents to determine an average or to perform min/max calculations.
 
 ## Code examples
+<a name="sample-code"></a>
 
 To view a code example for using the `$sample` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -69,7 +74,8 @@ async function sampleDocuments() {
 sampleDocuments();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -88,3 +94,5 @@ def sample_documents():
 
 sample_documents()
 ```
+
+------

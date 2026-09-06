@@ -1,21 +1,24 @@
+
+
 # $listSearchIndexes
+<a name="listSearchIndexes"></a>
 
 New from version 8.0.1.
 
 The `$listSearchIndexes` aggregation stage in Amazon DocumentDB returns information about existing search indexes on a collection. It must be the first stage in an aggregation pipeline.
 
 **Parameters**
++ `name`: (optional) The name of the search index to return information about. If omitted, all search indexes on the collection are returned.
 
-- `name`: (optional) The name of the search index to return information about. If omitted, all search indexes on the collection are returned.
-  **Output fields**
+**Output fields**
 
 Each returned document contains the following fields:
++ `name`: The name of the search index.
++ `status`: The build state of the index. One of `READY` (built and valid), `BUILDING` (a concurrent build is in progress), or `FAILED` (the index build did not complete successfully).
++ `queryable`: A boolean indicating whether the index can currently be used to serve queries. This is `false` for hidden indexes (which remain `READY`) and for `FAILED` indexes. A hidden index is the case where `status` is `READY` but `queryable` is `false`.
++ `latestDefinitionVersion`: A document containing `version` (the index format version) and `createdAt` (the time the index was created).
 
-- `name`: The name of the search index.
-- `status`: The build state of the index. One of `READY` (built and valid), `BUILDING` (a concurrent build is in progress), or `FAILED` (the index build did not complete successfully).
-- `queryable`: A boolean indicating whether the index can currently be used to serve queries. This is `false` for hidden indexes (which remain `READY`) and for `FAILED` indexes. A hidden index is the case where `status` is `READY` but `queryable` is `false`.
-- `latestDefinitionVersion`: A document containing `version` (the index format version) and `createdAt` (the time the index was created).
-  **Syntax**
+**Syntax**
 
 ```
 db.collection.aggregate([
@@ -29,6 +32,7 @@ db.collection.aggregate([
 ```
 
 ## Example (MongoDB Shell)
+<a name="listSearchIndexes-examples"></a>
 
 The following example shows how to use the `$listSearchIndexes` stage to list all search indexes on a collection.
 
@@ -81,10 +85,12 @@ db.movies.aggregate([
 ```
 
 ## Code examples
+<a name="listSearchIndexes-code"></a>
 
 To view a code example for using the `$listSearchIndexes` stage, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -117,7 +123,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -146,3 +153,5 @@ def example():
 
 example()
 ```
+
+------

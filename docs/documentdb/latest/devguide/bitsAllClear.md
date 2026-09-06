@@ -1,13 +1,16 @@
+
+
 # $bitsAllClear
+<a name="bitsAllClear"></a>
 
 The `$bitsAllClear` operator in Amazon DocumentDB is used to match the documents where all the specified bits in a field are cleared (set to 0). This operator can be useful for performing bitwise operations on stored data.
 
 **Parameters**
-
-- `field`: The field to check for the specified bits being cleared.
-- `value`: The numeric bitmask that specifies which bits should be checked, or a list of bits positions to be checked. A numeric bitmask can be a binary (0b...), decimal, hexadecimal (0x...), octal (0o...), or binary (BinData) form. In a list of bits positions, the position of the least significant bit is 0.
++ `field`: The field to check for the specified bits being cleared.
++ `value`: The numeric bitmask that specifies which bits should be checked, or a list of bits positions to be checked. A numeric bitmask can be a binary (0b...), decimal, hexadecimal (0x...), octal (0o...), or binary (BinData) form. In a list of bits positions, the position of the least significant bit is 0.
 
 ## Example (MongoDB Shell)
+<a name="bitsAllClear-examples"></a>
 
 The following example demonstrates the usage of the `$bitsAllClear` operator in Amazon DocumentDB.
 
@@ -38,10 +41,12 @@ db.collection.find({
 The query checks if all the bits specified by the bitmask `0b0011` (the two least significant bits) are cleared in the `bits` field. The document with `_id` 2 satisfies this condition, as its `bits` field has those bits cleared.
 
 ## Code examples
+<a name="bitsAllClear-code"></a>
 
 To view a code example for using the `$bitsAllClear` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -63,7 +68,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -83,3 +89,5 @@ def example():
 
 example()
 ```
+
+------

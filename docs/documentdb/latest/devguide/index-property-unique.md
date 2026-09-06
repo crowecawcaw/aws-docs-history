@@ -1,16 +1,22 @@
+
+
 # Index Property: unique
+<a name="index-property-unique"></a>
 
 ## Supported index types
+<a name="index-property-unique-supported"></a>
 
-| Option       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster |
-| ------------ | --- | --- | --- | --- | --------------- |
-| single field | Yes | Yes | Yes | Yes | Yes             |
-| compound     | Yes | Yes | Yes | Yes | Yes             |
-| multi-key    | Yes | Yes | Yes | Yes | Yes             |
+
+| Option | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster | 
+| --- | --- | --- | --- | --- | --- | 
+| single field | Yes | Yes | Yes | Yes | Yes | 
+| compound | Yes | Yes | Yes | Yes | Yes | 
+| multi-key | Yes | Yes | Yes | Yes | Yes | 
 
 Use the unique option to ensure uniqueness for the field(s) across documents in a collection.
 
 ## Examples
+<a name="index-property-unique-examples"></a>
 
 The following examples show how to create unique indexes on the following sample document:
 
@@ -105,6 +111,9 @@ Indexing an array creates an index entry for each element of the array. For exam
 Note the following behavior with unique indexes:
 
 1. If you create a unique index on existing data where two (or more) documents have the same values for the indexed fields, the index build will fail with the following error: `could not create unique index: <collection> index: <index name>`
-2. If you insert a document where the value of the indexed field matches the value of that field in another document, the insert will fail with the following error: `E11000 duplicate key error collection: <collection> index: <index name>`
-3. If you update an existing document so the new value of the indexed field matches the value of that field in another document, the update will fail with the following error: `E11000 duplicate key error collection: <collection> index: <index name>`
-4. If the indexed field is missing from a document, the value will be treated as null. Index builds, inserts, and updates will fail as described above if the indexed field is missing from two (or more) documents.
+
+1. If you insert a document where the value of the indexed field matches the value of that field in another document, the insert will fail with the following error: `E11000 duplicate key error collection: <collection> index: <index name>`
+
+1. If you update an existing document so the new value of the indexed field matches the value of that field in another document, the update will fail with the following error: `E11000 duplicate key error collection: <collection> index: <index name>`
+
+1. If the indexed field is missing from a document, the value will be treated as null. Index builds, inserts, and updates will fail as described above if the indexed field is missing from two (or more) documents.

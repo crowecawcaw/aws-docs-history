@@ -1,15 +1,18 @@
+
+
 # $bit
+<a name="bit"></a>
 
 The `$bit` operator in Amazon DocumentDB allows you to perform bitwise operations on the bits of a given field. This can be useful for tasks like setting, clearing, or checking the state of individual bits within a number.
 
 **Parameters**
-
-- `field`: The field to perform bitwise operations on.
-- `and`: An integer value that is used to perform a bitwise AND operation on the field.
-- `or`: An integer value that is used to perform a bitwise OR operation on the field.
-- `xor`: An integer value that is used to perform a bitwise XOR operation on the field.
++ `field`: The field to perform bitwise operations on.
++ `and`: An integer value that is used to perform a bitwise AND operation on the field.
++ `or`: An integer value that is used to perform a bitwise OR operation on the field.
++ `xor`: An integer value that is used to perform a bitwise XOR operation on the field.
 
 ## Example (MongoDB Shell)
+<a name="bit-examples"></a>
 
 The following example demonstrates how to use the `$bit` operator to perform bitwise operations on a numerical field.
 
@@ -43,10 +46,12 @@ db.numbers.update(
 In this example, the `$bit` operator is used to perform a bitwise AND operation on the "number" field of the document with the `_id` of 1. The result is that the value of the "number" field is set to 1, which is the result of the bitwise AND operation between the original value of 5 and the value 3.
 
 ## Code examples
+<a name="bit-code"></a>
 
 To view a code example for using the `$bit` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -70,7 +75,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +95,5 @@ print(result)
 
 client.close()
 ```
+
+------

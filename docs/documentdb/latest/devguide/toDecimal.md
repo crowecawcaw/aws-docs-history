@@ -1,14 +1,17 @@
+
+
 # $toDecimal
+<a name="toDecimal"></a>
 
 New from version 4.0
 
 The `$toDecimal` operator in Amazon DocumentDB is used to convert a value to the Decimal128 data type. This is useful when you need to perform precise decimal arithmetic or handle large decimal values that cannot be accurately represented using the Double data type.
 
 **Parameters**
-
-- `expression`: The expression to convert to the Decimal128 data type.
++ `expression`: The expression to convert to the Decimal128 data type.
 
 ## Example (MongoDB Shell)
+<a name="toDecimal-examples"></a>
 
 This example demonstrates how to use the `$toDecimal` operator to convert a string value to a Decimal128 data type.
 
@@ -40,10 +43,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="toDecimal-code"></a>
 
 To view a code example for using the `$toDecimal` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +95,5 @@ def example():
 
 example()
 ```
+
+------

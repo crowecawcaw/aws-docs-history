@@ -1,4 +1,7 @@
+
+
 # $set
+<a name="set-stage"></a>
 
 New from version 8.0
 
@@ -7,10 +10,10 @@ Not supported by Elastic cluster.
 The `$set` aggregation stage in Amazon DocumentDB allows you to add new fields or update existing field values in documentation during an aggregation pipeline.
 
 **Parameters**
-
-- `expression`: The expression to evaluate. This can be any valid aggregation expression, including field references and arithmetic operations.
++ `expression`: The expression to evaluate. This can be any valid aggregation expression, including field references and arithmetic operations.
 
 ## Example (MongoDB Shell)
+<a name="set-stage-examples"></a>
 
 The following example demonstrates the use of the `$set` aggregation stage to calculate totals by multiplying the `quantity` field by the `price` field.
 
@@ -57,10 +60,12 @@ db.inventory.aggregate([
 ```
 
 ## Code examples
+<a name="set-stage-code"></a>
 
 To view a code example for using the `$set` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -85,7 +90,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,3 +114,5 @@ def example():
 
 example()
 ```
+
+------

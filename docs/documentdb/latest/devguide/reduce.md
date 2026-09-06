@@ -1,14 +1,17 @@
+
+
 # $reduce
+<a name="reduce"></a>
 
 The `$reduce` aggregation operator in Amazon DocumentDB is used to apply a function of two arguments cumulatively to the elements of an array to reduce the array to a single value. This operator is particularly useful for performing complex calculations or transformations on array data within the aggregation pipeline.
 
 **Parameters**
-
-- `input`: The array to be reduced.
-- `initialValue`: The initial value to be used in the reduction operation.
-- `in`: The expression to be evaluated on each element of the `input` array. This expression should return a value that will be used in the next iteration of the reduction.
++ `input`: The array to be reduced.
++ `initialValue`: The initial value to be used in the reduction operation.
++ `in`: The expression to be evaluated on each element of the `input` array. This expression should return a value that will be used in the next iteration of the reduction.
 
 ## Example (MongoDB Shell)
+<a name="reduce-examples"></a>
 
 The following example demonstrates how to use the `$reduce` operator to calculate the sum of all elements in an array.
 
@@ -55,10 +58,13 @@ db.orders.aggregate([
 The `$reduce` operator iterates over the `items` array, adding each element to the `initialValue` of 0. The result is the sum of all elements in the array.
 
 ## Code examples
+<a name="reduce-code"></a>
 
 To view a code example for using the `$reduce` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the `$reduce` operator in a Node.js application:
 
 ```
@@ -90,7 +96,9 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the `$reduce` operator in a python application:
 
 ```
@@ -121,3 +129,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

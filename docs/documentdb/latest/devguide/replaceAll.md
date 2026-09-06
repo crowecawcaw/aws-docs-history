@@ -1,16 +1,19 @@
+
+
 # $replaceAll
+<a name="replaceAll"></a>
 
 Introduced in 5.0
 
 The `$replaceAll` operator in Amazon DocumentDB is used to replace all occurrences of a specified string pattern within a field with a new string. This operator can be useful for tasks such as data normalization, text cleaning, and string manipulation.
 
 **Parameters**
-
-- `input`: The field or expression containing the string to be replaced.
-- `find`: The string pattern to search for and replace.
-- `replacement`: The string to replace the matched occurrences with.
++ `input`: The field or expression containing the string to be replaced.
++ `find`: The string pattern to search for and replace.
++ `replacement`: The string to replace the matched occurrences with.
 
 ## Example (MongoDB Shell)
+<a name="replaceAll-examples"></a>
 
 The following example demonstrates how to use the `$replaceAll` operator in an aggregation pipeline to replace all occurrences of the string "Chocolatier" with "Chocolate Co." in the "brandName" field of a "products" collection.
 
@@ -91,14 +94,15 @@ db.products.aggregate([
     brandName: null
   }
 ]
-
 ```
 
 ## Code examples
+<a name="replaceAll-code"></a>
 
 To view a code example for using the `$replaceAll` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -130,7 +134,8 @@ async function replaceAll() {
 replaceAll();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -160,3 +165,5 @@ def replace_all():
 
 replace_all()
 ```
+
+------

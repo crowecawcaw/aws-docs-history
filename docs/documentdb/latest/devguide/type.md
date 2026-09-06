@@ -1,14 +1,17 @@
+
+
 # $type
+<a name="type"></a>
 
 The `$type` operator is used to check the data type of a field in a document. It can used when type-specific operations or validations are needed. The `$type` operator returns the BSON type of the evaluated expression. The returned type is a string, which corresponds to the type of the field or expression.
 
 Planner version 2.0 added index support for `$type`.
 
 **Parameters**
-
-- `expression` : The expression to evaluate.
++ `expression` : The expression to evaluate.
 
 ## Example (MongoDB Shell)
+<a name="type-examples"></a>
 
 **Create sample documents**
 
@@ -44,10 +47,12 @@ db.documents.find({
 This query will return the documents where the `age` field is of type "number", the `email` field is of type "string", and the `name` field is of type "string".
 
 ## Code examples
+<a name="type-code"></a>
 
 To view a code example for using the `$type` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,8 @@ async function findByType() {
 findByType();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -95,3 +101,5 @@ def find_by_type():
 
 find_by_type()
 ```
+
+------

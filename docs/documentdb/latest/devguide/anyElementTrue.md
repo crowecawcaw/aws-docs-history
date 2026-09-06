@@ -1,14 +1,17 @@
+
+
 # $anyElementTrue
+<a name="anyElementTrue"></a>
 
 New from version 4.0
 
 The `$anyElementTrue` operator is used to determine if any element in an array is true.
 
 **Parameters**
-
-- `field`: An array field to evaluate.
++ `field`: An array field to evaluate.
 
 ## Example (MongoDB Shell)
+<a name="anyElementTrue-examples"></a>
 
 The following example demonstrates the usage of `$anyElementTrue` to check if any element in an array is true.
 
@@ -47,10 +50,12 @@ db.grades.aggregate([
 ```
 
 ## Code examples
+<a name="anyElementTrue-code"></a>
 
 To view a code example for using the `$anyElementTrue` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -104,3 +110,5 @@ def example():
 
 example()
 ```
+
+------

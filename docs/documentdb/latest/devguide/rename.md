@@ -1,13 +1,16 @@
+
+
 # $rename
+<a name="rename"></a>
 
 The `$rename` operator in Amazon DocumentDB is used to rename a field in a document. This operator can be particularly useful when you need to update the structure of your documents or align them with new data models.
 
 **Parameters**
-
-- `field`: The field to be renamed.
-- `newName`: The new name for the field.
++ `field`: The field to be renamed.
++ `newName`: The new name for the field.
 
 ## Example (MongoDB Shell)
+<a name="rename-examples"></a>
 
 The following example demonstrates how to use the `$rename` operator to rename the `&quot;Date.DoW&quot;` field to `&quot;Date.DayOfWeek&quot;` in a document with the `&quot;DocName&quot;` field set to `&quot;Document 1&quot;`.
 
@@ -51,10 +54,12 @@ db.example.update(
 ```
 
 ## Code examples
+<a name="rename-code"></a>
 
 To view a code example for using the `$rename` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -100,3 +106,5 @@ def example():
 
 example()
 ```
+
+------

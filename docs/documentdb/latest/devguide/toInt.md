@@ -1,14 +1,17 @@
+
+
 # $toInt
+<a name="toInt"></a>
 
 New from version 4.0
 
 The `$toInt` operator in Amazon DocumentDB is used to convert an input value to an integer data type. This operator is useful when you need to ensure that a field or expression is represented as an integer, which can be important for certain operations or data processing tasks.
 
 **Parameters**
-
-- `expression`: The expression to be converted to an integer.
++ `expression`: The expression to be converted to an integer.
 
 ## Example (MongoDB Shell)
+<a name="toInt-examples"></a>
 
 The following example demonstrates how to use the `$toInt` operator to convert a string value to an integer.
 
@@ -41,10 +44,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="toInt-code"></a>
 
 To view a code example for using the `$toInt` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -69,7 +74,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -92,3 +98,5 @@ def example():
 
 example()
 ```
+
+------

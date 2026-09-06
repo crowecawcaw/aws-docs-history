@@ -1,13 +1,16 @@
+
+
 # $subtract
+<a name="subtract"></a>
 
 The `$subtract` operator in Amazon DocumentDB is used to subtract values. It can be used to subtract dates, numbers, or a combination of both. This operator is useful for calculating the difference between two dates or subtracting a value from a number.
 
 **Parameters**
-
-- `expression1`: The first value to be subtracted.
-- `expression2`: The second value to be subtracted from `<expression1>`.
++ `expression1`: The first value to be subtracted.
++ `expression2`: The second value to be subtracted from `<expression1>`.
 
 ## Example (MongoDB Shell)
+<a name="subtract-examples"></a>
 
 The following example demonstrates how to use the `$subtract` operator to calculate the difference between two dates.
 
@@ -50,10 +53,12 @@ db.dates.aggregate([
 In this example, the `$subtract` operator is used to calculate the difference between the `$endDate` and `$startDate` in days.
 
 ## Code examples
+<a name="subtract-code"></a>
 
 To view a code example for using the `$subtract` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -90,17 +95,17 @@ async function example() {
 }
 
 example().catch(console.error);
-
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 
 def example():
-
+  
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
 
     try:
@@ -134,3 +139,5 @@ def example():
 
 example()
 ```
+
+------

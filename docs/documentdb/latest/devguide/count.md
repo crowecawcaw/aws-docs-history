@@ -1,12 +1,15 @@
+
+
 # $count (stage)
+<a name="count"></a>
 
 The `$count` aggregation stage in Amazon DocumentDB is used to count the number of documents that pass into the stage. It is often used as the final stage in an aggregation pipeline to return the total count of documents matching the previous stages.
 
 **Parameters**
-
-- `field`: The field to count. This parameter is optional, and if not provided, the stage will count the total number of input documents.
++ `field`: The field to count. This parameter is optional, and if not provided, the stage will count the total number of input documents.
 
 ## Example (MongoDB Shell)
+<a name="count-examples"></a>
 
 The following example demonstrates how to use the `$count` stage to get the total number of documents in a collection.
 
@@ -38,10 +41,12 @@ db.users.aggregate([
 The example aggregates the `users` collection and uses the `$count` stage to count the total number of documents.
 
 ## Code examples
+<a name="count-code"></a>
 
 To view a code example for using the `$count` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -63,7 +68,8 @@ async function countDocuments() {
 countDocuments();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -83,3 +89,5 @@ def count_documents():
 
 count_documents()
 ```
+
+------

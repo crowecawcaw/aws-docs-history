@@ -1,4 +1,7 @@
+
+
 # $switch
+<a name="switch"></a>
 
 New from version 4.0.
 
@@ -7,11 +10,11 @@ Not supported by Elastic cluster.
 The `$switch` operator is a conditional expression operator in Amazon DocumentDB that allows you to evaluate a list of case expressions and return the value of the first case that evaluates to true, or a default value if no case expression is true.
 
 **Parameters**
-
-- `branches`: An array of documents, each of which has a case field that contains the boolean expression to evaluate, and a then field that contains the value to return if the case expression is true.
-- `default`: (optional) The value to return if none of the case expressions are true.
++ `branches`: An array of documents, each of which has a case field that contains the boolean expression to evaluate, and a then field that contains the value to return if the case expression is true.
++ `default`: (optional) The value to return if none of the case expressions are true.
 
 ## Example (MongoDB Shell)
+<a name="switch-examples"></a>
 
 The following example demonstrates the use of the `$switch` operator to determine the shipping cost for an order based on the order total.
 
@@ -71,10 +74,12 @@ db.orders.aggregate([
 ```
 
 ## Code examples
+<a name="switch-code"></a>
 
 To view a code example for using the `$switch` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -110,7 +115,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -145,3 +151,5 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+------

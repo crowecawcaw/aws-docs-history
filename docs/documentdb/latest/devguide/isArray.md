@@ -1,12 +1,15 @@
+
+
 # $isArray
+<a name="isArray"></a>
 
 The `$isArray` operator in Amazon DocumentDB is used to check if a field in a document is an array. This operator can be useful in aggregation pipelines and conditional expressions to handle array-type fields.
 
 **Parameters**
-
-- `field`: The field path to check if it is an array.
++ `field`: The field path to check if it is an array.
 
 ## Example (MongoDB Shell)
+<a name="isArray-examples"></a>
 
 This example demonstrates how to use the `$isArray` operator to identify documents where the "inventory" field is an array.
 
@@ -65,10 +68,12 @@ db.videos.aggregate([
 ```
 
 ## Code examples
+<a name="isArray-code"></a>
 
 To view a code example for using the `$isArray` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -102,7 +107,8 @@ async function run() {
 run();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -131,3 +137,5 @@ print(result)
 
 client.close()
 ```
+
+------

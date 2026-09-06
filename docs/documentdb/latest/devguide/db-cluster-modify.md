@@ -1,150 +1,82 @@
+
+
 # Modifying an Amazon DocumentDB cluster
+<a name="db-cluster-modify"></a>
 
-To modify a cluster, the cluster must be in the
-_available_ state. You cannot modify a cluster
-that is stopped. If the cluster is stopped, first start the cluster,
-wait for the cluster to become _available_, and
-then make the desired modifications. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
+To modify a cluster, the cluster must be in the *available* state. You cannot modify a cluster that is stopped. If the cluster is stopped, first start the cluster, wait for the cluster to become *available*, and then make the desired modifications. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md). 
 
-Using the AWS Management Console
-Use the following procedure to modify a specific Amazon DocumentDB
-cluster using the console.
+------
+#### [ Using the AWS Management Console ]
 
-###### To modify an Amazon DocumentDB cluster
+Use the following procedure to modify a specific Amazon DocumentDB cluster using the console.
 
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters**.
+**To modify an Amazon DocumentDB cluster**
 
-###### Tip
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
-If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. Specify the cluster that you want to modify by choosing
-the button to the left of the cluster's name. 4. Choose **Actions**, and then choose
-**Modify**. 5. In the **Modify Cluster: <cluster-name>**
-pane, make the changes that you want. You can make changes
-in the following areas:
+1. In the navigation pane, choose **Clusters**.
+**Tip**  
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
-    * **Cluster specifications**—The
-     cluster's name, security groups, and credentials management.
-    * **Cluster storage configuration**—The
-     cluster's data storage mode. Choose between Standard and I/O-Optimized configuration.
-    * **Cluster options**—The
-     cluster's port and parameter group.
-    * **Backup**—The
-     cluster's backup retention period and backup window.
-    * **Log exports**—Enable
-     or disable exporting audit or profiler logs.
-    * **Maintenance**—Set
-     the cluster's maintenance window.
-    * **Deletion protection**—Enable
-     or disable deletion protection on the cluster. Deletion
-     protection is enabled by default.
+1. Specify the cluster that you want to modify by choosing the button to the left of the cluster's name.
 
-6. When you're finished, choose **Continue**
-to view a summary of your changes. 7. If you are satisfied with your changes, you can choose
-**Modify cluster** to modify your cluster.
-Alternatively, you can choose **Back** or
-**Cancel** to edit or cancel your changes,
-respectively.
+1. Choose **Actions**, and then choose **Modify**.
 
-It takes a few minutes for your changes to be applied. You can
-use the cluster only when its status is _available_.
-You can monitor the cluster's status using the console or AWS CLI.
-For more information, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").
+1. In the **Modify Cluster: <cluster-name>** pane, make the changes that you want. You can make changes in the following areas:
+   + **Cluster specifications**—The cluster's name, security groups, and credentials management.
+   + **Cluster storage configuration**—The cluster's data storage mode. Choose between Standard and I/O-Optimized configuration.
+   + **Cluster options**—The cluster's port and parameter group.
+   + **Backup**—The cluster's backup retention period and backup window.
+   + **Log exports**—Enable or disable exporting audit or profiler logs.
+   + **Maintenance**—Set the cluster's maintenance window.
+   + **Deletion protection**—Enable or disable deletion protection on the cluster. Deletion protection is enabled by default.
 
-Using the AWS CLI
-Use the `modify-db-cluster` operation to modify the
-specified cluster using the AWS CLI. For more information, see [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md")
-in the _Amazon DocumentDB API Reference_.
+1. When you're finished, choose **Continue** to view a summary of your changes.
 
-###### Parameters
+1. If you are satisfied with your changes, you can choose **Modify cluster** to modify your cluster. Alternatively, you can choose **Back** or **Cancel** to edit or cancel your changes, respectively. 
 
-- `--db-cluster-identifier`—Required.
-  The identifier of the Amazon DocumentDB cluster that you are going to
-  modify.
-- `--backup-retention-period`—Optional.
-  The number of days for which automated backups are retained.
-  Valid values are 1–35.
-- `--storage-type`—Optional.
-  The cluster's storage configuration.
-  Valid values are `standard` (Standard) or `iopt1` (I/O-optimized).
-- `--db-cluster-parameter-group-name`—Optional.
-  The name of the cluster parameter group to use for the
-  cluster.
-- `--manage-master-user-password`—Optional.
-  Amazon DocumentDB generates the master user password and manages it throughout its lifecycle in Secrets Manager.
-- `--rotate-master-user-password`—Optional.
-  Secrets Manager generates a new secret version for the existing secret.
-  The new version of the secret contains the new primary user password.
-  Amazon DocumentDB changes the primary user password for the cluster to match the password for the new secret version.
+It takes a few minutes for your changes to be applied. You can use the cluster only when its status is *available*. You can monitor the cluster's status using the console or AWS CLI. For more information, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md). 
 
-You must specify the `--apply-immediately` option when you rotate the primary password.
+------
+#### [ Using the AWS CLI ]
 
-- `--master-user-password`—Optional.
-  The new password for the primary database user.
+Use the `modify-db-cluster` operation to modify the specified cluster using the AWS CLI. For more information, see [ModifyDBCluster](https://docs.aws.amazon.com/documentdb/latest/APIReference/API_ModifyDBCluster.html) in the *Amazon DocumentDB API Reference*.
 
-Password constraints:
+**Parameters**
++ **--db-cluster-identifier**—Required. The identifier of the Amazon DocumentDB cluster that you are going to modify.
++ **--backup-retention-period**—Optional. The number of days for which automated backups are retained. Valid values are 1–35.
++ **--storage-type**—Optional. The cluster's storage configuration. Valid values are `standard` (Standard) or `iopt1` (I/O-optimized).
++ **--db-cluster-parameter-group-name**—Optional. The name of the cluster parameter group to use for the cluster.
++ **--manage-master-user-password**—Optional. Amazon DocumentDB generates the master user password and manages it throughout its lifecycle in Secrets Manager.
++ **--rotate-master-user-password**—Optional. Secrets Manager generates a new secret version for the existing secret. The new version of the secret contains the new primary user password. Amazon DocumentDB changes the primary user password for the cluster to match the password for the new secret version.
 
-    + Length is [8—100] printable ASCII characters.
-    + Can use any printable ASCII characters except for
-     the following:
+  You must specify the **--apply-immediately** option when you rotate the primary password.
++ **--master-user-password**—Optional. The new password for the primary database user.
 
+  Password constraints:
+  + Length is [8—100] printable ASCII characters.
+  + Can use any printable ASCII characters except for the following:
+    + **/** (forward slash)
+    + **"** (double quotation mark)
+    + **@** (at symbol)
++ **--new-db-cluster-identifier**—Optional. The new cluster identifier for the cluster when renaming a cluster. This value is stored as a lowercase string.
 
+  Naming constraints:
+  + Length is [1—63] letters, numbers, or hyphens.
+  + First character must be a letter.
+  + Cannot end with a hyphen or contain two consecutive hyphens.
+  + Must be unique for all clusters across Amazon RDS, Amazon Neptune, and Amazon DocumentDB per AWS account, per Region.
++ **--preferred-backup-window**—Optional. The daily time range during which automated backups are created, in Universal Coordinated Time (UTC).
+  + Format: `hh24:mm-hh24:mm`
++ **--preferred-maintenance-window**—Optional. The weekly time range during which system maintenance can occur, in UTC.
+  + Format: `ddd:hh24:mm-ddd:hh24:mm`
+  + Valid days: `Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, and `Sat`.
++ **--deletion-protection** or **--no-deletion-protection**—Optional. Whether deletion protection should be enabled on this cluster. Deletion protection prevents a cluster from being accidentally deleted until the cluster is modified to disable deletion protection. For more information, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md). 
++ **--apply-immediately** or **--no-apply-immediately**—Use `--apply-immediately` to make the change immediately. Use `--no-apply-immediately` to make the change during your cluster's next maintenance window.
 
-
-    	- `/`
-    	 (forward slash)
-    	- `"`
-    	 (double quotation mark)
-    	- `@`
-    	 (at symbol)
-
-- `--new-db-cluster-identifier`—Optional.
-  The new cluster identifier for the cluster when renaming a
-  cluster. This value is stored as a lowercase string.
-
-Naming constraints:
-
-    + Length is [1—63] letters, numbers, or hyphens.
-    + First character must be a letter.
-    + Cannot end with a hyphen or contain two consecutive
-     hyphens.
-    + Must be unique for all clusters across Amazon RDS, Amazon Neptune, and Amazon DocumentDB per AWS account, per Region.
-
-- `--preferred-backup-window`—Optional.
-  The daily time range during which automated backups are
-  created, in Universal Coordinated Time (UTC).
-
-  - Format: `hh24:mm-hh24:mm`
-
-- `--preferred-maintenance-window`—Optional.
-  The weekly time range during which system maintenance can
-  occur, in UTC.
-
-  - Format: `ddd:hh24:mm-ddd:hh24:mm`
-  - Valid days: `Sun`, `Mon`,
-    `Tue`, `Wed`, `Thu`,
-    `Fri`, and `Sat`.
-
-- `--deletion-protection`
-  or `--no-deletion-protection`—Optional.
-  Whether deletion protection should be enabled on this cluster.
-  Deletion protection prevents a cluster from being accidentally
-  deleted until the cluster is modified to disable deletion
-  protection. For more information, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md "db-cluster-delete.md").
-- `--apply-immediately`
-  or `--no-apply-immediately`—Use
-  `--apply-immediately` to make the change immediately.
-  Use `--no-apply-immediately` to make the change
-  during your cluster's next maintenance window.
-
-###### Example
-
-The following code changes the backup retention period for
-the cluster `sample-cluster`.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following code changes the backup retention period for the cluster `sample-cluster`.  
+For Linux, macOS, or Unix:  
 
 ```
 aws docdb modify-db-cluster \
@@ -152,8 +84,7 @@ aws docdb modify-db-cluster \
        --apply-immediately \
        --backup-retention-period 7
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws docdb modify-db-cluster ^
@@ -161,13 +92,12 @@ aws docdb modify-db-cluster ^
        --apply-immediately ^
        --backup-retention-period 7
 ```
-
-Output from this operation looks something like the following.
+Output from this operation looks something like the following.  
 
 ```
 {
     "DBCluster": {
-        **"BackupRetentionPeriod": 7**,
+        "BackupRetentionPeriod": 7,
         "DbClusterResourceId": "cluster-VDP53QEWST7YHM36TTXOPJT5YE",
         "Status": "available",
         "DBClusterMembers": [
@@ -191,7 +121,7 @@ Output from this operation looks something like the following.
         "StorageEncrypted": false,
         "MultiAZ": false,
         "AssociatedRoles": [],
-        "MasterUsername": "`<your-master-user-name>`",
+        "MasterUsername": "{{<your-master-user-name>}}",
         "DBClusterIdentifier": "sample-cluster",
         "VpcSecurityGroups": [
             {
@@ -215,7 +145,6 @@ Output from this operation looks something like the following.
 }
 ```
 
-It takes a few minutes for your changes to be applied. You can
-use the cluster only when its status is _available_.
-You can monitor the cluster's status using the console or AWS CLI.
-For more information, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").
+It takes a few minutes for your changes to be applied. You can use the cluster only when its status is *available*. You can monitor the cluster's status using the console or AWS CLI. For more information, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md). 
+
+------

@@ -1,4 +1,7 @@
+
+
 # $week
+<a name="week"></a>
 
 The `$week` operator in Amazon DocumentDB returns the week number of a date (0-53) based on the ISO 8601 standard. The week number is calculated based on the year and the day of the week, with Monday as the first day of the week.
 
@@ -7,6 +10,7 @@ The `$week` operator in Amazon DocumentDB returns the week number of a date (0-5
 None
 
 ## Example (MongoDB Shell)
+<a name="week-examples"></a>
 
 The following example demonstrates how to use the `$week` operator to retrieve the week number of a given date.
 
@@ -42,10 +46,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="week-code"></a>
 
 To view a code example for using the `$week` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -69,7 +75,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -92,3 +99,5 @@ def example():
 
 example()
 ```
+
+------

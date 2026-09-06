@@ -1,15 +1,18 @@
+
+
 # $exists
+<a name="exists"></a>
 
 The `$exists` operator is used to check whether a field exists in a document or not. `$exists` particularly useful when working with sparse indexes in Amazon DocumentDB, where the indexed field may not be present in all documents.
 
 To use a sparse index that you have created in a query, you must use the `$exists` clause on the fields that cover the index. If you omit `$exists`, Amazon DocumentDB will not use the sparse index for the query.
 
 **Parameters**
-
-- `field`: The field name to check for existence.
-- `value`: A boolean value (`true` or `false`) that specifies whether the field should exist (`true`) or not exist (`false`) in the matching documents.
++ `field`: The field name to check for existence.
++ `value`: A boolean value (`true` or `false`) that specifies whether the field should exist (`true`) or not exist (`false`) in the matching documents.
 
 ## Example (MongoDB Shell)
+<a name="exists-examples"></a>
 
 The following example demonstrates the use of the `$exists` operator with a sparse index on the `special_diets` field in the `food` collection.
 
@@ -45,10 +48,12 @@ db.food.find({ "special_diets": { $exists: true } });
 ```
 
 ## Code examples
+<a name="exists-code"></a>
 
 To view a code example for using the `$exists` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import pymongo
@@ -81,3 +87,5 @@ print(result)
 
 client.close()
 ```
+
+------

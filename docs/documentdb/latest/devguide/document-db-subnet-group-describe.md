@@ -1,50 +1,49 @@
+
+
 # Describing an Amazon DocumentDB subnet group
+<a name="document-db-subnet-group-describe"></a>
 
 You can use the AWS Management Console or the AWS CLI to get the details of an Amazon DocumentDB subnet group.
 
-Using the AWS Management Console
+------
+#### [ Using the AWS Management Console ]
+
 The following procedure shows you how to get the details of an Amazon DocumentDB subnet group.
 
-###### To find the details of a subnet group
+**To find the details of a subnet group**
 
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Subnet groups**.
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
-###### Tip
+1. In the navigation pane, choose **Subnet groups**. 
+**Tip**  
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
-If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. To see the details of a subnet group, choose the name of that subnet group.
+1. To see the details of a subnet group, choose the name of that subnet group.  
+![Screenshot: Showing the details of a subnet group.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-subnet-group-details.png)
 
-![Screenshot: Showing the details of a subnet group.](images/docdb-subnet-group-details.png)
+------
+#### [ Using the AWS CLI ]
 
-Using the AWS CLI
 To find the details of an Amazon DocumentDB subnet group, use the `describe-db-subnet-groups` operation with the following parameter.
 
-###### Parameter
+**Parameter**
++ `--db-subnet=group-name`—Optional. If included, details for the named subnet group are listed. If omitted, details for up to 100 subnet groups are listed.
 
-- `--db-subnet=group-name`—Optional. If included, details for the named subnet group are listed. If omitted, details for up
-  to 100 subnet groups are listed.
-
-###### Example
-
-The following code lists details for the `sample-subnet-group` subnet group that we created in the [Creating an Amazon DocumentDB subnet group](document-db-subnet-group-create.md "document-db-subnet-group-create.md") section.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following code lists details for the `sample-subnet-group` subnet group that we created in the [Creating an Amazon DocumentDB subnet group](document-db-subnet-group-create.md) section.  
+For Linux, macOS, or Unix:  
 
 ```
 aws docdb describe-db-subnet-groups \
-    --db-subnet-group-name `sample-subnet-group`
+    --db-subnet-group-name {{sample-subnet-group}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws docdb describe-db-subnet-groups ^
-    --db-subnet-group-name `sample-subnet-group`
+    --db-subnet-group-name {{sample-subnet-group}}
 ```
-
-Output from this operation looks something like the following (JSON format).
+Output from this operation looks something like the following (JSON format).  
 
 ```
 {
@@ -80,3 +79,5 @@ Output from this operation looks something like the following (JSON format).
     }
 }
 ```
+
+------

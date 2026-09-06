@@ -1,4 +1,7 @@
+
+
 # $search
+<a name="search"></a>
 
 New from version 5.0.
 
@@ -9,6 +12,7 @@ The `$search` operator in Amazon DocumentDB is used to provide text search capab
 None
 
 ## Example (MongoDB Shell)
+<a name="search-examples"></a>
 
 The following example demonstrates how to use the `$search` operator to perform a text search query.
 
@@ -46,10 +50,12 @@ db.textcollection.find(
 ```
 
 ## Code examples
+<a name="search-code"></a>
 
 To view a code example for using the `$search` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -70,7 +76,8 @@ async function findWithText() {
 findWithText();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +96,5 @@ def find_with_text():
 
 find_with_text()
 ```
+
+------

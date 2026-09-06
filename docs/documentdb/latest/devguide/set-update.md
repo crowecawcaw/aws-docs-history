@@ -1,13 +1,16 @@
+
+
 # $set
+<a name="set-update"></a>
 
 The `$set` operator in Amazon DocumentDB is used to update the value of a specified field in a document. This operator allows you to add new fields or modify existing ones within a document. It is a fundamental update operator in the MongoDB Java driver, which is compatible with Amazon DocumentDB.
 
 **Parameters**
-
-- `field`: The field to update.
-- `value`: The new value for the field.
++ `field`: The field to update.
++ `value`: The new value for the field.
 
 ## Example (MongoDB Shell)
+<a name="set-examples"></a>
 
 The following example demonstrates how to use the `$set` operator to update the `Item` field in a document.
 
@@ -57,10 +60,12 @@ db.example.update(
 ```
 
 ## Code examples
+<a name="set-code"></a>
 
 To view a code example for using the `$set` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -84,7 +89,8 @@ async function updateDocument() {
 updateDocument();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -106,3 +112,5 @@ def update_document():
 
 update_document()
 ```
+
+------

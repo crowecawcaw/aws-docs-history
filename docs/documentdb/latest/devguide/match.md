@@ -1,12 +1,15 @@
+
+
 # $match
+<a name="match"></a>
 
 The `$match` pipeline stage in Amazon DocumentDB is used to filter the input documents to only those that match the specified query criteria. It is one of the most commonly used pipeline stages in aggregation operations. The `$match` stage is applied before any other pipeline stages, allowing you to efficiently reduce the number of documents that need to be processed by the subsequent stages.
 
 **Parameters**
-
-- `query`: A document that expresses the selection criteria for the operation. The query document uses the same syntax as the `find()` method.
++ `query`: A document that expresses the selection criteria for the operation. The query document uses the same syntax as the `find()` method.
 
 ## Example (MongoDB Shell)
+<a name="match-examples"></a>
 
 The following example demonstrates the use of the `$match` stage to filter documents based on a specific field value.
 
@@ -42,10 +45,12 @@ db.collection.aggregate([
 The `$match` stage filters the documents to include only those where the `age` field is greater than 30.
 
 ## Code examples
+<a name="match-code"></a>
 
 To view a code example for using the `$match` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,14 +73,15 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
-
+    
     db = client['test']
     collection = db['collection']
 
@@ -89,3 +95,5 @@ def example():
 
 example()
 ```
+
+------

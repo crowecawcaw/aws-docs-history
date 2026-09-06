@@ -1,13 +1,16 @@
+
+
 # $divide
+<a name="divide"></a>
 
 The `$divide` operator in the Amazon DocumentDB aggregation pipeline is used to divide one number by another. It is a useful operator for performing mathematical operations on numeric fields within your documents.
 
 **Parameters**
-
-- `numerator`: The dividend or the number to be divided.
-- `denominator`: The divisor or the number to divide by.
++ `numerator`: The dividend or the number to be divided.
++ `denominator`: The divisor or the number to divide by.
 
 ## Example (MongoDB Shell)
+<a name="divide-examples"></a>
 
 This example demonstrates how to use the `$divide` operator to calculate the hourly rate for employees based on their yearly salary and the number of working hours per year.
 
@@ -45,10 +48,12 @@ db.employees.aggregate([
 ```
 
 ## Code examples
+<a name="divide-code"></a>
 
 To view a code example for using the `$divide` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -74,7 +79,8 @@ async function calculateHourlyRate() {
 calculateHourlyRate();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -98,3 +104,5 @@ def calculate_hourly_rate():
 
 calculate_hourly_rate()
 ```
+
+------

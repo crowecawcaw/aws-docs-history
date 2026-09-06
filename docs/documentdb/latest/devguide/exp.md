@@ -1,14 +1,17 @@
+
+
 # $exp
+<a name="exp"></a>
 
 New from version 4.0
 
 The `$exp` operator in Amazon DocumentDB allows you to raise the constant e to a given number.
 
 **Parameters**
-
-- `expression`: The expression to evaluate. This can be any valid aggregation expression, including field references, arithmetic operations, and other aggregation stages.
++ `expression`: The expression to evaluate. This can be any valid aggregation expression, including field references, arithmetic operations, and other aggregation stages.
 
 ## Example (MongoDB Shell)
+<a name="exp-examples"></a>
 
 The following example demonstrates the use of the `$exp` operator to find all documents where the `quantity` field is greater than the `price` field.
 
@@ -47,10 +50,12 @@ db.items.aggregate([
 ```
 
 ## Code examples
+<a name="exp-code"></a>
 
 To view a code example for using the `$exp` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -73,7 +78,8 @@ async function aggregateExp() {
 aggregateExp();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ def aggregate_exp():
 
 aggregate_exp()
 ```
+
+------

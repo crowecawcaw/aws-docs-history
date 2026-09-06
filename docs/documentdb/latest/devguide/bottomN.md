@@ -1,16 +1,19 @@
+
+
 # $bottomN
+<a name="bottomN"></a>
 
 New from version 8.0.1.
 
 Use the `$bottomN` accumulator in the `$group` stage to return the bottom N elements within a group according to a specified sort order. If a group contains fewer than N elements, `$bottomN` returns all elements in the group.
 
 **Parameters**
-
-- `n`: A positive integer, or an expression that resolves to one, specifying how many bottom results to return per group.
-- `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
-- `output`: An expression that specifies the fields to return from each of the bottom N documents.
++ `n`: A positive integer, or an expression that resolves to one, specifying how many bottom results to return per group.
++ `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
++ `output`: An expression that specifies the fields to return from each of the bottom N documents.
 
 ## Example (MongoDB Shell)
+<a name="bottomN-examples"></a>
 
 The following example shows how to use the `$bottomN` accumulator to find the bottom 2 sales (lowest quantity) per item in a sales collection.
 
@@ -45,10 +48,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="bottomN-code"></a>
 
 To view a code example for using the `$bottomN` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +84,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,3 +114,5 @@ def example():
 
 example()
 ```
+
+------

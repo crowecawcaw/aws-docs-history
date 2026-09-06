@@ -1,31 +1,32 @@
+
+
 # Performing text search with Amazon DocumentDB
+<a name="text-search"></a>
 
-Amazon DocumentDB's native full text search feature (Text Index v1) allows you to perform text search on large textual data sets using special purpose text indexes.
-This section describes the functionalities of the text index feature and provides steps on how to create and use text indexes in Amazon DocumentDB.
-Text search limitations are also listed.
+Amazon DocumentDB's native full text search feature (Text Index v1) allows you to perform text search on large textual data sets using special purpose text indexes. This section describes the functionalities of the text index feature and provides steps on how to create and use text indexes in Amazon DocumentDB. Text search limitations are also listed.
 
-###### Topics
-
-- [Supported functionalities](#text-search-capabilities "#text-search-capabilities")
-- [Using Amazon DocumentDB text index](#using-text-search "#using-text-search")
-- [Differences with MongoDB](#text-index-mongo-diff "#text-index-mongo-diff")
-- [Best practices and guidelines](#text-search-best-practice "#text-search-best-practice")
-- [Text Index V2](#text-index-v2 "#text-index-v2")
-- [Limitations](#text-search-limitations "#text-search-limitations")
+**Topics**
++ [Supported functionalities](#text-search-capabilities)
++ [Using Amazon DocumentDB text index](#using-text-search)
++ [Differences with MongoDB](#text-index-mongo-diff)
++ [Best practices and guidelines](#text-search-best-practice)
++ [Text Index V2](#text-index-v2)
++ [Limitations](#text-search-limitations)
 
 ## Supported functionalities
+<a name="text-search-capabilities"></a>
 
 Amazon DocumentDB text search supports the following MongoDB API compatible functionalities:
-
-- Create text indexes on a single field.
-- Create compound text indexes that include more than one text field.
-- Perform single word or multi-word searches.
-- Control search results using weights.
-- Sort search results by score.
-- Use text index in aggregation pipeline.
-- Search for exact phrase.
++ Create text indexes on a single field.
++ Create compound text indexes that include more than one text field.
++ Perform single word or multi-word searches.
++ Control search results using weights.
++ Sort search results by score.
++ Use text index in aggregation pipeline.
++ Search for exact phrase.
 
 ## Using Amazon DocumentDB text index
+<a name="using-text-search"></a>
 
 To create a text index on a field containing string data, specify the string “text” as shown below:
 
@@ -35,7 +36,7 @@ Single field index:
 db.test.createIndex({"comments": "text"})
 ```
 
-This index supports text search queries in the "comments" string field in the specified collection.
+This index supports text search queries in the "comments" string field in the specified collection. 
 
 Create a compound text index on more than one string field:
 
@@ -43,15 +44,13 @@ Create a compound text index on more than one string field:
 db.test.createIndex({"comments": "text", "title":"text"})
 ```
 
-This index supports text search queries in the "comments" and "title" string fields in the specified collection.
-You can specify up to 30 fields when creating a compound text index.
-Once created, your text search queries will query all the indexed fields.
+This index supports text search queries in the "comments" and "title" string fields in the specified collection. You can specify up to 30 fields when creating a compound text index. Once created, your text search queries will query all the indexed fields.
 
-###### Note
-
+**Note**  
 Only one text index is allowed on each collection.
 
 ### Listing a text index on an Amazon DocumentDB collection
+<a name="w2aac23c11c27b9c19"></a>
 
 You can use `getIndexes()` on your collection to identify and describe indexes, including text indexes, as shown in the following example:
 
@@ -95,11 +94,11 @@ db.test.insertMany([{"_id": 1, "star_rating": 4, "comments": "apple is red"},
 ```
 
 ### Running text search queries
+<a name="w2aac23c11c27b9c21"></a>
 
 **Run a single-word text search query**
 
-You will need to use `$text` and `$search` operators to perform text searches.
-The following example returns all documents where your text indexed field contain the string “apple” or “apple” in other formats such as “apples”:
+You will need to use `$text` and `$search` operators to perform text searches. The following example returns all documents where your text indexed field contain the string “apple” or “apple” in other formats such as “apples”:
 
 ```
 db.test.find({$text: {$search: "apple"}})
@@ -117,8 +116,7 @@ The output of this command looks something like this:
 
 **Run a multi-word text search**
 
-You can also perform multi-word text searches on your Amazon DocumentDB data.
-The command below returns documents with a text indexed field containing “apple” or “pie”:
+You can also perform multi-word text searches on your Amazon DocumentDB data. The command below returns documents with a text indexed field containing “apple” or “pie”:
 
 ```
 db.test.find({$text: {$search: "apple pie"}})
@@ -145,8 +143,7 @@ db.test.find({$text: {$search: "\"apple pie\""}})
 
 Output:
 
-The command above returns documents with text indexed field containing the exact phrase “apple pie”.
-The output of this command looks something like this:
+The command above returns documents with text indexed field containing the exact phrase “apple pie”. The output of this command looks something like this:
 
 ```
 { "_id" : 4, "star_rating" : 2, "comments" : "bake the apple pie in the oven" }
@@ -162,8 +159,7 @@ db.test.find({$and: [{star_rating: 5}, {$text: {$search: "interest"}}]})
 
 Output:
 
-The command above returns documents with a text indexed field containing any form of “interest” and a “star\_rating” equal to 5.
-The output of this command looks something like this:
+The command above returns documents with a text indexed field containing any form of “interest” and a “star\_rating” equal to 5. The output of this command looks something like this:
 
 ```
 { "_id" : 5, "star_rating" : 5, "comments" : "interesting couch" }
@@ -196,8 +192,7 @@ db.test.find({$text: {$search: "apple"}}, {score: {$meta: "textScore"}}).sort({s
 
 Output:
 
-The command above returns documents with a text indexed field containing “apple”, or “apple” in it's other formats like “apples”, and sorts the result based on how relevant the document is related to the search term.
-The output of this command looks something like this:
+The command above returns documents with a text indexed field containing “apple”, or “apple” in it's other formats like “apples”, and sorts the result based on how relevant the document is related to the search term. The output of this command looks something like this:
 
 ```
 { "_id" : 1, "star_rating" : 4, "comments" : "apple is red", "score" : 0.6079270860936958 }
@@ -208,6 +203,7 @@ The output of this command looks something like this:
 `$text` and `$search` are also supported for `aggregate`, `count`, `findAndModify`, `update`, and `delete` commands.
 
 ### Aggregation operators
+<a name="w2aac23c11c27b9c23"></a>
 
 **Aggregation pipeline using `$match`**
 
@@ -252,10 +248,9 @@ The command above returns the following results:
 ```
 
 ### Specify multiple fields when creating a text index
+<a name="w2aac23c11c27b9c25"></a>
 
-You can assign weights to up to three fields in your compound text index.
-The default weight assigned to a field in a text index is one (1).
-Weight is an optional parameter and must be in the range from 1 to 100000.
+You can assign weights to up to three fields in your compound text index. The default weight assigned to a field in a text index is one (1). Weight is an optional parameter and must be in the range from 1 to 100000.
 
 ```
 db.test.createIndex(
@@ -276,63 +271,56 @@ db.test.createIndex(
 ```
 
 ## Differences with MongoDB
+<a name="text-index-mongo-diff"></a>
 
-Amazon DocumentDB’s text index feature uses inverted index with a term-frequency algorithm.
-Text indexes are sparse by default.
-Due to differences in parsing logic, tokenization delimiters, and others, the same result set as MongoDB may not be returned for the same dataset or query shape.
+Amazon DocumentDB’s text index feature uses inverted index with a term-frequency algorithm. Text indexes are sparse by default. Due to differences in parsing logic, tokenization delimiters, and others, the same result set as MongoDB may not be returned for the same dataset or query shape.
 
 The following additional differences between Amazon DocumentDB text index and MongoDB exist:
-
-- Compound indexes using non-text indexes are not supported.
-- Amazon DocumentDB text indexes are case insensitive.
-- Only English language is supported with text index.
-- Text indexing of array (or multi-key) fields is not supported.
-  For example, creating a text index on “a“ with the document {“a”:[“apple”, “pie”]} will fail.
-- Wildcard text indexing is not supported.
-- Unique text indexes are not supported.
-- Excluding a term is not supported.
++ Compound indexes using non-text indexes are not supported.
++ Amazon DocumentDB text indexes are case insensitive.
++ Only English language is supported with text index.
++ Text indexing of array (or multi-key) fields is not supported. For example, creating a text index on “a“ with the document {“a”:[“apple”, “pie”]} will fail.
++ Wildcard text indexing is not supported.
++ Unique text indexes are not supported.
++ Excluding a term is not supported.
 
 ## Best practices and guidelines
-
-- For optimal performance on text search queries involving sorting by text scores, create the text index before loading data.
-- Text indexes require additional storage for an optimized internal copy of the indexed data.
-  This has additional cost implications.
+<a name="text-search-best-practice"></a>
++ For optimal performance on text search queries involving sorting by text scores, create the text index before loading data.
++ Text indexes require additional storage for an optimized internal copy of the indexed data. This has additional cost implications.
 
 ## Text Index V2
+<a name="text-index-v2"></a>
 
 Amazon DocumentDB 8.0 introduces a new version of text index (V2) that changes underlying text search parser to bring more compatibility with the MongoDB.
 
 In addition to the functionalities provided by the V1 text indexes, V2 text indexes also provide the following support:
++ The planner moves $match stages earlier in the pipeline when possible, reducing the number of documents processed by subsequent stages.
++ Improved tokenization of special characters in text fields, such as emails, URLs, and file paths. V2 can parse and match individual tokens within these strings, whereas V1 could not.
 
-- The planner moves $match stages earlier in the pipeline when possible, reducing the number of documents processed by subsequent stages.
-- Improved tokenization of special characters in text fields, such as emails, URLs, and file paths. V2 can parse and match individual tokens within these strings, whereas V1 could not.
-
-```
-
-rs0:PRIMARY> db.coll.createIndex({ "a": "text" });
-rs0:PRIMARY> db.coll.find()
-{ "_id" : 1, "a" : "jane.doe_1234@company.com" }
-{ "_id" : 2, "a" : "janedoe@company.com" }
-{ "_id" : 3, "a" : "/home/user/company/thesis.pdf" }
-{ "_id" : 4, "a" : "/home/user/path/jane.pdf" }
-{ "_id" : 5, "a" : "http://www.company.com/path" }
-{ "_id" : 6, "a" : "https://company.com/path/../home" }
-
-// Sample query
-rs0:PRIMARY> db.coll.find({ $text: { $search: "jane" } });
-
-// V1 text index — no results
-None
-
-// V2 text index — matches tokens within emails and file paths
-{ "_id" : 1, "a" : "jane.doe_1234@company.com" }
-{ "_id" : 4, "a" : "/home/user/path/jane.pdf" }
-
-```
+  ```
+  rs0:PRIMARY> db.coll.createIndex({ "a": "text" });
+  rs0:PRIMARY> db.coll.find()
+  { "_id" : 1, "a" : "jane.doe_1234@company.com" }
+  { "_id" : 2, "a" : "janedoe@company.com" }
+  { "_id" : 3, "a" : "/home/user/company/thesis.pdf" }
+  { "_id" : 4, "a" : "/home/user/path/jane.pdf" }
+  { "_id" : 5, "a" : "http://www.company.com/path" }
+  { "_id" : 6, "a" : "https://company.com/path/../home" }
+  
+  // Sample query
+  rs0:PRIMARY> db.coll.find({ $text: { $search: "jane" } });
+  
+  // V1 text index — no results
+  None
+  
+  // V2 text index — matches tokens within emails and file paths
+  { "_id" : 1, "a" : "jane.doe_1234@company.com" }
+  { "_id" : 4, "a" : "/home/user/path/jane.pdf" }
+  ```
 
 ## Limitations
+<a name="text-search-limitations"></a>
 
 Text search has the following limitations in Amazon DocumentDB:
-
-- Text indexes store lexemes and their position information.
-  The combined size of all lexemes and their position information, within a single document, is limited to 1MB.
++ Text indexes store lexemes and their position information. The combined size of all lexemes and their position information, within a single document, is limited to 1MB.

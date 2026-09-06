@@ -1,4 +1,7 @@
+
+
 # $expr
+<a name="expr"></a>
 
 New from version 4.0.
 
@@ -7,10 +10,10 @@ Not supported by Elastic cluster.
 The `$expr` operator in Amazon DocumentDB allows you to use aggregation expressions within the query language. It enables you to perform complex comparisons and computations on fields within a document, similar to the way you would use aggregation pipeline stages.
 
 **Parameters**
-
-- `expression`: An expression that returns a boolean value, allowing you to perform comparisons and computations on document fields.
++ `expression`: An expression that returns a boolean value, allowing you to perform comparisons and computations on document fields.
 
 ## Example (MongoDB Shell)
+<a name="expr-examples"></a>
 
 The following example demonstrates how to use the `$expr` operator to find all documents where the `manufacturingCost` field is greater than the `price` field.
 
@@ -42,10 +45,12 @@ db.inventory.find({
 ```
 
 ## Code examples
+<a name="expr-code"></a>
 
 To view a code example for using the `$expr` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +95,5 @@ def example():
 
 example()
 ```
+
+------

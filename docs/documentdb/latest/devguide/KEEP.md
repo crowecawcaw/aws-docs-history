@@ -1,4 +1,7 @@
+
+
 # $$KEEP
+<a name="KEEP"></a>
 
 The `$$KEEP` system variable is used with the `$redact` stage in the aggregation pipeline to keep the current document or field unchanged and include it in the output.
 
@@ -7,6 +10,7 @@ The `$$KEEP` system variable is used with the `$redact` stage in the aggregation
 None
 
 ## Example (MongoDB Shell)
+<a name="KEEP-examples"></a>
 
 The following example demonstrates the usage of `$$KEEP` in an Amazon DocumentDB aggregation pipeline. Documents are only kept if access equals "public", otherwise they are removed.
 
@@ -49,10 +53,12 @@ db.articles.aggregate([
 ```
 
 ## Code examples
+<a name="KEEP-code"></a>
 
 To view a code example for using the `$$KEEP` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -89,7 +95,8 @@ async function run() {
 run().catch(console.error);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -118,3 +125,5 @@ print(results)
 
 client.close()
 ```
+
+------

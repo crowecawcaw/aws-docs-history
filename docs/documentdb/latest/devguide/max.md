@@ -1,12 +1,15 @@
+
+
 # $max
+<a name="max"></a>
 
 The `$max` aggregation stage is used to return the maximum value of a specified field across all documents in a pipeline stage. This operator is useful for finding the highest value in a set of documents.
 
 **Parameters**
-
-- `expression`: The expression to use to calculate the maximum value.
++ `expression`: The expression to use to calculate the maximum value.
 
 ## Example (MongoDB Shell)
+<a name="max-examples"></a>
 
 The following example demonstrates how to use the `$max` operator to find the maximum score in a collection of student documents. The `$group` stage groups all documents together, and the `$max` operator is used to calculate the maximum value of the `score` field across all documents.
 
@@ -37,10 +40,12 @@ db.students.aggregate([
 ```
 
 ## Code examples
+<a name="max-code"></a>
 
 To view a code example for using the `$max` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -61,7 +66,8 @@ async function findMaxScore() {
 findMaxScore();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -80,3 +86,5 @@ def find_max_score():
 
 find_max_score()
 ```
+
+------

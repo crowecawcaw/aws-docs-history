@@ -1,4 +1,7 @@
+
+
 # $atan2
+<a name="atan2"></a>
 
 New from version 8.0.1.
 
@@ -11,26 +14,28 @@ The result is in radians. To obtain degrees, apply `$radiansToDegrees` to the ou
 The return type is `double` by default. If the inputs are 128-bit decimals, the output is also a 128-bit decimal.
 
 **Parameters**
-
-- `expression 1` (y): An expression that resolves to a number representing the y-coordinate.
-- `expression 2` (x): An expression that resolves to a number representing the x-coordinate.
++ `expression 1` (y): An expression that resolves to a number representing the y-coordinate.
++ `expression 2` (x): An expression that resolves to a number representing the x-coordinate.
 
 ## Behavior
+<a name="atan2-behavior"></a>
 
 **null and NaN**
 
 If either argument is `null` (or references a missing field), the result is `null`. If either argument is `NaN`, the result is `NaN`. When one argument is `null` and the other is `NaN`, `null` takes precedence.
 
-| Example                         | Results |
-| ------------------------------- | ------- |
-| `{ $atan2: [ NaN, <value> ] }`  | `NaN`   |
-| `{ $atan2: [ <value>, NaN ] }`  | `NaN`   |
-| `{ $atan2: [ null, <value> ] }` | `null`  |
-| `{ $atan2: [ <value>, null ] }` | `null`  |
-| `{ $atan2: [ NaN, null ] }`     | `null`  |
-| `{ $atan2: [ null, NaN ] }`     | `null`  |
+
+| Example | Results | 
+| --- | --- | 
+| { $atan2: [ NaN, <value> ] } | NaN | 
+| { $atan2: [ <value>, NaN ] } | NaN | 
+| { $atan2: [ null, <value> ] } | null | 
+| { $atan2: [ <value>, null ] } | null | 
+| { $atan2: [ NaN, null ] } | null | 
+| { $atan2: [ null, NaN ] } | null | 
 
 ## Example (MongoDB Shell)
+<a name="atan2-examples"></a>
 
 The following example shows how to use the `$atan2` operator to calculate the arctangent of y/x for a set of points.
 
@@ -65,10 +70,12 @@ db.points.aggregate([
 ```
 
 ## Code examples
+<a name="atan2-code"></a>
 
 To view a code example for using the `$atan2` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -91,7 +98,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -113,3 +121,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

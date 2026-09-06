@@ -1,13 +1,16 @@
+
+
 # $arrayElemAt
+<a name="arrayElemAt"></a>
 
 The `$arrayElemAt` operator in Amazon DocumentDB allows you to retrieve an element from an array by its index position. This is particularly useful when you need to access a specific element within an array field in your documents.
 
 **Parameters**
-
-- `array`: The input array from which an element is to be retrieved.
-- `index`: The zero-based index position of the element to retrieve. This value must be a non-negative integer.
++ `array`: The input array from which an element is to be retrieved.
++ `index`: The zero-based index position of the element to retrieve. This value must be a non-negative integer.
 
 ## Example (MongoDB Shell)
+<a name="arrayElemAt-examples"></a>
 
 In this example, we'll demonstrate how to use the `$arrayElemAt` operator to retrieve specific elements from the `flight_miles` array in the `miles` collection.
 
@@ -44,10 +47,12 @@ db.miles.aggregate([
 In this example, we use the `$arrayElemAt` operator to retrieve the first and last elements of the `flight_miles` array for each document.
 
 ## Code examples
+<a name="arrayElemAt-code"></a>
 
 To view a code example for using the `$arrayElemAt` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -95,3 +101,5 @@ def example():
 
 example()
 ```
+
+------

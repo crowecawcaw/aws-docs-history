@@ -1,19 +1,16 @@
+
+
 # $sortArray
+<a name="sortArray"></a>
 
 New from version 8.0
 
 Not supported by Elastic cluster.
 
-The `$sortArray` operator in Amazon DocumentDB sorts the elements of an array.
-For arrays of scalar values, the array is sorted by element value. For arrays of
-documents, the array is sorted by the specified field or fields. The operator
-returns the sorted array in ascending (`1`) or descending
-(`-1`) order.
+The `$sortArray` operator in Amazon DocumentDB sorts the elements of an array. For arrays of scalar values, the array is sorted by element value. For arrays of documents, the array is sorted by the specified field or fields. The operator returns the sorted array in ascending (`1`) or descending (`-1`) order.
 
-###### Note
-
-`$sortArray` is supported in the `$project` stage
-of the aggregation pipeline with query planner version 3.
+**Note**  
+`$sortArray` is supported in the `$project` stage of the aggregation pipeline with query planner version 3.
 
 **Syntax**
 
@@ -22,17 +19,13 @@ of the aggregation pipeline with query planner version 3.
 ```
 
 **Parameters**
-
-- `input`: The array to sort.
-- `sortBy`: The sort order. For an array of scalar values, specify
-  `1` for ascending or `-1` for descending. For an array of
-  documents, specify a document of the form `{ field: 1 }` or
-  `{ field: -1 }` for each field to sort by.
++ `input`: The array to sort.
++ `sortBy`: The sort order. For an array of scalar values, specify `1` for ascending or `-1` for descending. For an array of documents, specify a document of the form `{ field: 1 }` or `{ field: -1 }` for each field to sort by.
 
 ## Example (MongoDB Shell)
+<a name="sortArray-examples"></a>
 
-The following example demonstrates how to use the `$sortArray`
-operator to sort the elements of an array in ascending order.
+The following example demonstrates how to use the `$sortArray` operator to sort the elements of an array in ascending order.
 
 **Create sample documents**
 
@@ -67,16 +60,16 @@ db.miles.aggregate([
 { "_id" : 3, "member_since" : ISODate("1999-01-01T00:00:00Z"), "credit_card" : true, "sorted_flight_miles" : [ 880, 1205 ] }
 ```
 
-In this example, the `$sortArray` operator sorts the
-`flight_miles` array in ascending order. The resulting
-`sorted_flight_miles` field in the output shows the elements of the
-array in sorted order.
+In this example, the `$sortArray` operator sorts the `flight_miles` array in ascending order. The resulting `sorted_flight_miles` field in the output shows the elements of the array in sorted order.
 
 ## Code examples
+<a name="sortArray-code"></a>
 
 To view a code example for using the `$sortArray` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the `$sortArray` operator in a Node.js application:
 
 ```
@@ -105,7 +98,9 @@ async function sortArray() {
 sortArray();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the `$sortArray` operator in a Python application:
 
 ```
@@ -132,3 +127,5 @@ def sort_array():
 
 sort_array()
 ```
+
+------

@@ -1,14 +1,17 @@
+
+
 # $sortByCount
+<a name="sortByCount"></a>
 
 New from version 8.0.1.
 
 The `$sortByCount` aggregation stage in Amazon DocumentDB groups incoming documents based on the value of a specified expression, then computes the count of documents in each distinct group, and sorts the results by count in descending order. It is equivalent to a `$group` stage with a `$sum` accumulator followed by a `$sort` stage on the count field.
 
 **Parameters**
-
-- `expression`: The expression to group by. This can be a field path (prefixed with `$`) or any valid aggregation expression.
++ `expression`: The expression to group by. This can be a field path (prefixed with `$`) or any valid aggregation expression.
 
 ## Example (MongoDB Shell)
+<a name="sortByCount-examples"></a>
 
 The following example shows how to use the `$sortByCount` stage to count and sort documents by a category field.
 
@@ -46,10 +49,12 @@ db.products.aggregate([
 The results are automatically sorted by `count` in descending order.
 
 ## Code examples
+<a name="sortByCount-code"></a>
 
 To view a code example for using the `$sortByCount` stage, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -75,7 +80,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -97,3 +103,5 @@ def example():
 
 example()
 ```
+
+------

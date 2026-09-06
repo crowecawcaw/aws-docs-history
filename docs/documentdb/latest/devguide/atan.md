@@ -1,4 +1,7 @@
+
+
 # $atan
+<a name="atan"></a>
 
 New from version 8.0.1.
 
@@ -11,21 +14,23 @@ The result is in radians. To obtain degrees, apply `$radiansToDegrees` to the ou
 The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a number.
++ `expression`: An expression that resolves to a number.
 
 ## Behavior
+<a name="atan-behavior"></a>
 
 **null and NaN**
 
-| Example           | Results |
-| ----------------- | ------- |
-| `{ $atan: NaN }`  | `NaN`   |
-| `{ $atan: null }` | `null`  |
+
+| Example | Results | 
+| --- | --- | 
+| { $atan: NaN } | NaN | 
+| { $atan: null } | null | 
 
 When the input is `null` or the referenced field is missing, the result is `null`. An input of `NaN` produces `NaN`.
 
 ## Example (MongoDB Shell)
+<a name="atan-examples"></a>
 
 The following example shows how to use the `$atan` operator to calculate the arctangent of a value.
 
@@ -60,10 +65,12 @@ db.values.aggregate([
 ```
 
 ## Code examples
+<a name="atan-code"></a>
 
 To view a code example for using the `$atan` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -86,7 +93,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,3 +116,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

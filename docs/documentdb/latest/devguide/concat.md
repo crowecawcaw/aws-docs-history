@@ -1,14 +1,17 @@
+
+
 # $concat
+<a name="concat"></a>
 
 The `$concat` aggregation operator in Amazon DocumentDB concatenates (or combines) multiple strings in a document to produce a single string that can be returned to the application. This reduces the work done in the application, as the string manipulation is performed at the database level.
 
 **Parameters**
-
-- `expression1`: The first string to concatenate.
-- `expression2`: The second string to concatenate.
-- `...`: Additional strings to concatenate (optional).
++ `expression1`: The first string to concatenate.
++ `expression2`: The second string to concatenate.
++ `...`: Additional strings to concatenate (optional).
 
 ## Example (MongoDB Shell)
+<a name="concat-examples"></a>
 
 In this example, we concatenate the first and last names of users to produce each person's full name.
 
@@ -39,10 +42,12 @@ db.people.aggregate([
 ```
 
 ## Code examples
+<a name="concat-code"></a>
 
 To view a code example for using the `$concat` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -63,7 +68,8 @@ async function concatenateNames() {
 concatenateNames();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -82,3 +88,5 @@ def concatenate_names():
 
 concatenate_names()
 ```
+
+------

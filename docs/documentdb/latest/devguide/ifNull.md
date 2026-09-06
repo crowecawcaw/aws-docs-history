@@ -1,13 +1,16 @@
+
+
 # $ifNull
+<a name="ifNull"></a>
 
 The `$ifNull` operator is used to return a specified value if the input expression evaluates to null or undefined. This operator can be useful in scenarios where you want to provide a default value or handle null/undefined cases.
 
 **Parameters**
-
-- `expression`: The expression to evaluate.
-- `replacement`: The value to return if the `<expression>` evaluates to null or undefined.
++ `expression`: The expression to evaluate.
++ `replacement`: The value to return if the `<expression>` evaluates to null or undefined.
 
 ## Example (MongoDB Shell)
+<a name="ifNull-examples"></a>
 
 The following example demonstrates the usage of the `$ifNull` operator to provide a default value when the `name` field is null or undefined.
 
@@ -45,10 +48,12 @@ db.users.aggregate([
 ```
 
 ## Code examples
+<a name="ifNull-code"></a>
 
 To view a code example for using the `$ifNull` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -82,14 +87,15 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
-
+    
     db = client.test
     collection = db.users
 
@@ -111,3 +117,5 @@ def example():
 
 example()
 ```
+
+------

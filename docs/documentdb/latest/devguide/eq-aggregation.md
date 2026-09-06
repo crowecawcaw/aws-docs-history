@@ -1,13 +1,16 @@
+
+
 # $eq
+<a name="eq-aggregation"></a>
 
 The `$eq` aggregation operator compares two values and returns `true` if they are equal, otherwise returns `false`.
 
 **Parameters**
-
-- `expression1`: The first value to compare.
-- `expression2`: The second value to compare.
++ `expression1`: The first value to compare.
++ `expression2`: The second value to compare.
 
 ## Example (MongoDB Shell)
+<a name="eq-aggregation-examples"></a>
 
 The following example demonstrates using the `$eq` operator to check if product quantities match target values.
 
@@ -47,10 +50,12 @@ db.inventory.aggregate([
 ```
 
 ## Code examples
+<a name="eq-aggregation-code"></a>
 
 To view a code example for using the `$eq` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -104,3 +110,5 @@ def example():
 
 example()
 ```
+
+------

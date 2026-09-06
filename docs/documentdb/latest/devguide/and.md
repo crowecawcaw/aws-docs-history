@@ -1,14 +1,17 @@
+
+
 # $and
+<a name="and"></a>
 
 The `$and` operator in Amazon DocumentDB is used to combine multiple expressions and evaluate them as a single condition. It returns `true` if all the provided expressions evaluate to `true`, and `false` otherwise. This operator is useful for applying multiple criteria to a query.
 
 **Parameters**
-
-- `expression1`: A required expression that evaluates to a boolean value.
-- `expression2`: A required expression that evaluates to a boolean value.
-- `...`: Additional required expressions that evaluate to boolean values.
++ `expression1`: A required expression that evaluates to a boolean value.
++ `expression2`: A required expression that evaluates to a boolean value.
++ `...`: Additional required expressions that evaluate to boolean values.
 
 ## Example (MongoDB Shell)
+<a name="and-examples"></a>
 
 The following example demonstrates the use of the `$and` operator to find all documents in the "users" collection where the "age" field is greater than 18 and the "status" field is "active".
 
@@ -44,10 +47,12 @@ db.users.find({
 ```
 
 ## Code examples
+<a name="and-code"></a>
 
 To view a code example for using the `$and` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -71,7 +76,8 @@ async function findActiveUsersOlderThan18() {
 findActiveUsersOlderThan18();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -93,3 +99,5 @@ def find_active_users_older_than_18():
 
 find_active_users_older_than_18()
 ```
+
+------

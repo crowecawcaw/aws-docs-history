@@ -1,15 +1,18 @@
+
+
 # $dateToString
+<a name="dateToString"></a>
 
 The `$dateToString` aggregation operator in Amazon DocumentDB is used to convert a date or timestamp value to a string representation. This is useful when you need to format the date and time in a specific way for display or further processing.
 
 **Parameters**
-
-- `date`: The date or timestamp value to be converted to a string.
-- `format`: A string that specifies the format in which the date should be represented. The format string can include various format specifiers, such as `%Y` for the four-digit year, `%m` for the two-digit month, `%d` for the two-digit day of the month, etc.
-- `timezone`: (optional) The time zone to use for the conversion. If not specified, the time zone of the server hosting the Amazon DocumentDB cluster is used.
-- `onNull`: (optional) The value to be returned if the `date` parameter is `null`.
++ `date`: The date or timestamp value to be converted to a string.
++ `format`: A string that specifies the format in which the date should be represented. The format string can include various format specifiers, such as `%Y` for the four-digit year, `%m` for the two-digit month, `%d` for the two-digit day of the month, etc.
++ `timezone`: (optional) The time zone to use for the conversion. If not specified, the time zone of the server hosting the Amazon DocumentDB cluster is used.
++ `onNull`: (optional) The value to be returned if the `date` parameter is `null`.
 
 ## Example (MongoDB Shell)
+<a name="dateToString-examples"></a>
 
 The following example demonstrates the usage of the `$dateToString` operator to format the `logDate` field of the `missionLog` collection.
 
@@ -76,10 +79,13 @@ db.missionLog.aggregate([
 ```
 
 ## Code examples
+<a name="dateToString-code"></a>
 
 To view a code example for using the `$dateToString` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the `$dateToString` operator in a Node.js application:
 
 ```
@@ -111,7 +117,9 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the `$dateToString` operator in a Python application:
 
 ```
@@ -142,3 +150,5 @@ def example():
 
 example()
 ```
+
+------

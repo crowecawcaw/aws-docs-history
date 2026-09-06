@@ -1,14 +1,17 @@
+
+
 # $setIntersection
+<a name="setIntersection"></a>
 
 The `$setIntersection` operator in Amazon DocumentDB is used to return the common elements between two or more arrays. This operator is particularly useful when working with sets of data, allowing you to find the intersection of multiple sets.
 
 **Parameters**
-
-- `array1`: The first array to intersect.
-- `array2`: The second array to intersect.
-- `arrayN`: (optional) Additional arrays to intersect.
++ `array1`: The first array to intersect.
++ `array2`: The second array to intersect.
++ `arrayN`: (optional) Additional arrays to intersect.
 
 ## Example (MongoDB Shell)
+<a name="setIntersection-examples"></a>
 
 The following example demonstrates how to use the `$setIntersection` operator to find the common elements between two arrays.
 
@@ -45,10 +48,12 @@ db.collection.aggregate([
 ```
 
 ## Code examples
+<a name="setIntersection-code"></a>
 
 To view a code example for using the `$setIntersection` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -74,7 +79,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -98,3 +104,5 @@ def example():
 
 example()
 ```
+
+------

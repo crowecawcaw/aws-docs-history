@@ -1,14 +1,17 @@
+
+
 # $toObjectId
+<a name="toObjectId"></a>
 
 New from version 4.0
 
 The `$toObjectId` operator in Amazon DocumentDB is used to convert a string representation of an ObjectId to an actual ObjectId data type. This can be useful when working with data that has been stored as string representations of ObjectIds, as it allows you to perform operations that require the ObjectId data type.
 
 **Parameters**
-
-- `expression`: A string expression representing a valid ObjectId.
++ `expression`: A string expression representing a valid ObjectId.
 
 ## Example (MongoDB Shell)
+<a name="toObjectId-examples"></a>
 
 The following example demonstrates how to use the `$toObjectId` operator to convert a string representation of an ObjectId to the ObjectId data type.
 
@@ -41,10 +44,12 @@ db.employees.aggregate([
 ```
 
 ## Code examples
+<a name="toObjectId-code"></a>
 
 To view a code example for using the `$toObjectId` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -88,3 +94,5 @@ def example():
 
 example()
 ```
+
+------

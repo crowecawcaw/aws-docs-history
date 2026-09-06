@@ -1,15 +1,20 @@
+
+
 # Index Property: name
+<a name="index-property-name"></a>
 
 ## Supported index types
+<a name="index-property-name-supported"></a>
 
-| Option       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster |
-| ------------ | --- | --- | --- | --- | --------------- |
-| single field | Yes | Yes | Yes | Yes | Yes             |
-| compound     | Yes | Yes | Yes | Yes | Yes             |
-| multi-key    | Yes | Yes | Yes | Yes | Yes             |
-| text         | No  | No  | Yes | Yes | No              |
-| geospatial   | Yes | Yes | Yes | Yes | Yes             |
-| vector       | No  | No  | Yes | Yes | No              |
+
+| Option | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster | 
+| --- | --- | --- | --- | --- | --- | 
+| single field | Yes | Yes | Yes | Yes | Yes | 
+| compound | Yes | Yes | Yes | Yes | Yes | 
+| multi-key | Yes | Yes | Yes | Yes | Yes | 
+| text | No | No | Yes | Yes | No | 
+| geospatial | Yes | Yes | Yes | Yes | Yes | 
+| vector | No | No | Yes | Yes | No | 
 
 Use the name option to provide an optional name for the index.
 
@@ -47,6 +52,7 @@ All examples use the following sample document:
 ```
 
 ## Single field
+<a name="index-property-name-single-field"></a>
 
 ```
 db.collection.createIndex(
@@ -60,6 +66,7 @@ db.collection.createIndex(
 ```
 
 ## Compound
+<a name="index-property-name-compound"></a>
 
 ```
 db.collection.createIndex(
@@ -74,6 +81,7 @@ db.collection.createIndex(
 ```
 
 ## Multi-key
+<a name="index-property-name-multi-key"></a>
 
 ```
 db.collection.createIndex(
@@ -87,6 +95,7 @@ db.collection.createIndex(
 ```
 
 ## Text
+<a name="index-property-name-text"></a>
 
 ```
 db.collection.createIndex(
@@ -100,6 +109,7 @@ db.collection.createIndex(
 ```
 
 ## Geospatial
+<a name="index-property-name-geospatial"></a>
 
 ```
 db.collection.createIndex(
@@ -113,10 +123,11 @@ db.collection.createIndex(
 ```
 
 ## Vector
+<a name="index-property-name-vector"></a>
 
 ```
 db.runCommand({
-  "createIndexes": "collection",
+  "createIndexes": "collection", 
   "indexes": [{
     "key": {
       "productEmbedding": "vector"
@@ -129,6 +140,6 @@ db.runCommand({
       "m": 16,
       "efConstruction": 64
     }
-  }]
+  }] 
 })
 ```

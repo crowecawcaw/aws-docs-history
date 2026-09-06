@@ -1,4 +1,7 @@
+
+
 # $tan
+<a name="tan"></a>
 
 New from version 8.0.1.
 
@@ -9,22 +12,24 @@ The input expression must resolve to a numeric value. If your value is in degree
 The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a number in radians.
++ `expression`: An expression that resolves to a number in radians.
 
 ## Behavior
+<a name="tan-behavior"></a>
 
-**null, NaN, and +/- Infinity**
+**null, NaN, and \+/- Infinity**
 
-| Example                                       | Results          |
-| --------------------------------------------- | ---------------- |
-| `{ $tan: NaN }`                               | `NaN`            |
-| `{ $tan: null }`                              | `null`           |
-| `{ $tan: Infinity }` or `{ $tan: -Infinity }` | Throws an error. |
+
+| Example | Results | 
+| --- | --- | 
+| { $tan: NaN } | NaN | 
+| { $tan: null } | null | 
+| { $tan: Infinity } or { $tan: -Infinity } | Throws an error. | 
 
 When the input is `null` or the referenced field is missing, `$tan` returns `null`. An input of `NaN` produces `NaN`. Positive or negative infinity causes an error because tangent is undefined at those values.
 
 ## Example (MongoDB Shell)
+<a name="tan-examples"></a>
 
 The following example shows how to use the `$tan` operator to calculate the tangent of an angle in radians.
 
@@ -59,10 +64,12 @@ db.angles.aggregate([
 ```
 
 ## Code examples
+<a name="tan-code"></a>
 
 To view a code example for using the `$tan` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -85,7 +92,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -107,3 +115,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

@@ -1,13 +1,16 @@
+
+
 # $addToSet
+<a name="addToSet"></a>
 
 The `$addToSet` operator in Amazon DocumentDB is used to add a value to an array only if the value is not already present in the array. This is useful for ensuring that an array contains unique elements.
 
 **Parameters**
-
-- `field`: The field to update.
-- `value`: The value to add to the array field. This can be a single value or an expression.
++ `field`: The field to update.
++ `value`: The value to add to the array field. This can be a single value or an expression.
 
 ## Example (MongoDB Shell)
+<a name="addToSet-examples"></a>
 
 The following example demonstrates how to use the `$addToSet` operator to add unique elements to an array.
 
@@ -39,10 +42,12 @@ db.products.update(
 In this example, the `$addToSet` operator adds the "green" tag to the "tags" array of the document where the "item" field is "apple". Since "green" was not already in the array, it was added.
 
 ## Code examples
+<a name="addToSet-code"></a>
 
 To view a code example for using the `$addToSet` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -66,7 +71,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -88,3 +94,5 @@ def example():
 
 example()
 ```
+
+------

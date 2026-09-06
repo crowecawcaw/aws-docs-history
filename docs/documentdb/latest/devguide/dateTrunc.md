@@ -1,4 +1,7 @@
+
+
 # $dateTrunc
+<a name="dateTrunc"></a>
 
 New from version 8.0
 
@@ -7,11 +10,11 @@ Not supported by Elastic cluster.
 The `$dateTrunc` aggregation operator in Amazon DocumentDB truncates a date to a specified unit.
 
 **Parameters**
-
-- `date`: A date expression that resolves to a date or timestamp.
-- `unit`: A string that specifies the time unit for the subtrahend expression. Supported units are `year`, `quarter`, `month`, `week`, `day`, `hour`, `minute`, `second`, and `millisecond`.
++ `date`: A date expression that resolves to a date or timestamp.
++ `unit`: A string that specifies the time unit for the subtrahend expression. Supported units are `year`, `quarter`, `month`, `week`, `day`, `hour`, `minute`, `second`, and `millisecond`.
 
 ## Example (MongoDB Shell)
+<a name="dateTrunc-examples"></a>
 
 The following example demonstrates how to use the `$dateTrunc` operator to truncate a date to to the hour.
 
@@ -69,10 +72,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="dateTrunc-code"></a>
 
 To view a code example for using the `$dateTrunc` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -81,7 +86,7 @@ async function example() {
   const client = await MongoClient.connect('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false');
   const db = client.db('test');
   const events = db.collection('events');
-
+  
   const result = await events.aggregate([
     {
       $project: {
@@ -96,7 +101,7 @@ async function example() {
       }
     }
   ]).toArray();
-
+  
   console.log(result);
   client.close();
 }
@@ -104,7 +109,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -113,7 +119,7 @@ def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
     db = client['test']
     events = db['events']
-
+    
     result = list(events.aggregate([
         {
             "$project": {
@@ -128,9 +134,11 @@ def example():
             }
         }
     ]))
-
+    
     print(result)
     client.close()
 
 example()
 ```
+
+------

@@ -1,14 +1,17 @@
+
+
 # $or
+<a name="or"></a>
 
 The `$or` operator is used to perform a logical OR operation on an array of two or more expressions. It returns documents that match at least one of the expressions. This operator is useful when you need to query for documents that satisfy any one of multiple conditions.
 
 **Parameters**
-
-- `expression1`: The first expression to evaluate.
-- `expression2`: The second expression to evaluate.
-- `...`: Additional expressions to evaluate (optional).
++ `expression1`: The first expression to evaluate.
++ `expression2`: The second expression to evaluate.
++ `...`: Additional expressions to evaluate (optional).
 
 ## Example (MongoDB Shell)
+<a name="or-examples"></a>
 
 The following example demonstrates the usage of the `$or` operator to find documents where the `make` is either "TruckForYou" with the model "Heavy H1" or "SportForYou" with the model "Bolid 1".
 
@@ -54,10 +57,12 @@ db.cars.find({
 ```
 
 ## Code examples
+<a name="or-code"></a>
 
 To view a code example for using the `$or` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -81,7 +86,8 @@ async function findCarsByMakeModel() {
 findCarsByMakeModel();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -103,3 +109,5 @@ def find_cars_by_make_model():
 
 find_cars_by_make_model()
 ```
+
+------

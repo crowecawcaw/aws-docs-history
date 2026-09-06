@@ -1,16 +1,19 @@
+
+
 # $dateAdd
+<a name="dateAdd"></a>
 
 New from version 5.0
 
 The `$dateAdd` aggregation operator in Amazon DocumentDB allows you to add a duration to a date and time value.
 
 **Parameters**
-
-- `date`: A date and time value to add a duration to.
-- `duration`: The duration to add to the `date` value. This can be specified as an object with keys for `years`, `months`, `weeks`, `days`, `hours`, `minutes`, and `seconds`.
-- `timezone`: (optional) The time zone to use when performing the date addition. If not specified, the default time zone of the Amazon DocumentDB cluster is used.
++ `date`: A date and time value to add a duration to.
++ `duration`: The duration to add to the `date` value. This can be specified as an object with keys for `years`, `months`, `weeks`, `days`, `hours`, `minutes`, and `seconds`.
++ `timezone`: (optional) The time zone to use when performing the date addition. If not specified, the default time zone of the Amazon DocumentDB cluster is used.
 
 ## Example (MongoDB Shell)
+<a name="dateAdd-examples"></a>
 
 The following example demonstrates how to use the `$dateAdd` operator to add 2 days and 12 hours to a date.
 
@@ -35,7 +38,7 @@ db.events.aggregate([
       eventDatePlustwodaysandtwelvehours: {
         $dateAdd: {
           startDate: {
-            $dateAdd: {
+            $dateAdd: { 
               startDate: "$eventDate",
               unit: "day",
               amount: 2
@@ -73,10 +76,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="dateAdd-code"></a>
 
 To view a code example for using the `$dateAdd` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -116,7 +121,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -155,3 +161,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,15 +1,18 @@
+
+
 # $setDifference
+<a name="setDifference"></a>
 
 New from version 4.0.
 
 The `$setDifference` operator in Amazon DocumentDB is used to compare two sets and return the elements that are in the first set but not in the second set. This operator is useful for finding the unique elements between two sets.
 
 **Parameters**
-
-- `firstSet` : The first set to compare.
-- `secondSet` : The second set to compare.
++ `firstSet` : The first set to compare.
++ `secondSet` : The second set to compare.
 
 ## Example (MongoDB Shell)
+<a name="setDifference-examples"></a>
 
 The following example demonstrates how to use the `$setDifference` operator to find the unique elements between two sets.
 
@@ -50,10 +53,13 @@ The query performs the following steps:
 2. The `$setDifference` operator compares the `fruits` array with the array `[&quot;banana&quot;, &quot;cherry&quot;, &quot;date&quot;]` and returns the unique elements in the `fruits` array.
 
 ## Code examples
+<a name="setDifference-code"></a>
 
 To view a code example for using the `$setDifference` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of how to use the `$setDifference` operator in a Node.js application:
 
 ```
@@ -86,7 +92,9 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of how to use the `$setDifference` operator in a Python application:
 
 ```
@@ -118,3 +126,5 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+------

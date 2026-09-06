@@ -1,13 +1,16 @@
+
+
 # $sort
+<a name="sort-update"></a>
 
 The `$sort` update modifier orders array elements when used with the `$push` operator. It arranges array elements in ascending or descending order based on specified field values or the elements themselves.
 
 **Parameters**
-
-- `field`: The array field to modify.
-- `order`: Use `1` for ascending order or `-1` for descending order.
++ `field`: The array field to modify.
++ `order`: Use `1` for ascending order or `-1` for descending order.
 
 ## Example (MongoDB Shell)
+<a name="sort-update-examples"></a>
 
 The following example demonstrates using the `$sort` modifier with `$push` to add new quiz scores and keep them sorted in descending order.
 
@@ -55,10 +58,12 @@ db.students.updateOne(
 ```
 
 ## Code examples
+<a name="sort-update-code"></a>
 
 To view a code example for using the `$sort` update modifier, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -89,7 +94,8 @@ async function updateDocument() {
 updateDocument();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -118,3 +124,5 @@ def update_document():
 
 update_document()
 ```
+
+------

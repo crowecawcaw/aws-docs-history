@@ -1,16 +1,19 @@
+
+
 # $topN
+<a name="topN"></a>
 
 New from version 8.0.1.
 
 Use the `$topN` accumulator in the `$group` stage to return the top N elements within a group according to a specified sort order. If a group contains fewer than N elements, `$topN` returns all elements in the group.
 
 **Parameters**
-
-- `n`: A positive integer, or an expression that resolves to one, specifying how many top results to return per group.
-- `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
-- `output`: An expression that specifies the fields to return from each of the top N documents.
++ `n`: A positive integer, or an expression that resolves to one, specifying how many top results to return per group.
++ `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
++ `output`: An expression that specifies the fields to return from each of the top N documents.
 
 ## Example (MongoDB Shell)
+<a name="topN-examples"></a>
 
 The following example shows how to use the `$topN` accumulator to find the top 2 sales (highest quantity) per item in a sales collection.
 
@@ -45,10 +48,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="topN-code"></a>
 
 To view a code example for using the `$topN` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +84,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -108,3 +114,5 @@ def example():
 
 example()
 ```
+
+------

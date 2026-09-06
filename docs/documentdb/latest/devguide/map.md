@@ -1,14 +1,17 @@
+
+
 # $map
+<a name="map"></a>
 
 The `$map` operator in Amazon DocumentDB allows you to apply a specified expression to each element in an array and return a new array with the transformed elements. This operator is particularly useful for manipulating and transforming data within arrays, which can help simplify your application code and improve query performance by pushing the array processing to the database level.
 
 **Parameters**
-
-- `input`: The array to be transformed.
-- `as`: (optional) The name of the variable to be used within the in expression to represent the current element being processed.
-- `in`: The expression to be applied to each element in the input array.
++ `input`: The array to be transformed.
++ `as`: (optional) The name of the variable to be used within the in expression to represent the current element being processed.
++ `in`: The expression to be applied to each element in the input array.
 
 ## Example (MongoDB Shell)
+<a name="map-examples"></a>
 
 The following example demonstrates how to use the $map operator to transform an array of numbers, doubling each value.
 
@@ -43,10 +46,12 @@ db.collection.aggregate([
 ```
 
 ## Code examples
+<a name="map-code"></a>
 
 To view a code example for using the `$map` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -71,7 +76,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ def example():
 
 example()
 ```
+
+------

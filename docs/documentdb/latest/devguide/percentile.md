@@ -1,20 +1,24 @@
+
+
 # $percentile
+<a name="percentile"></a>
 
 New from version 8.0.1.
 
 The `$percentile` operator in Amazon DocumentDB calculates specified percentile values for numeric data. As an accumulator, it computes percentile values across documents within a group in the `$group` stage of an aggregation pipeline. As an expression, it calculates percentiles for an array of numbers.
 
 **Parameters**
-
-- `input`: An expression that resolves to a numeric value or an array of numeric values.
-- `p`: An array of percentile values between 0 and 1, where each value represents a percentile to calculate. For example, `[0.25, 0.5, 0.75]` calculates the 25th, 50th, and 75th percentiles.
-- `method`: A string specifying the calculation method. Currently only `"approximate"` is supported.
++ `input`: An expression that resolves to a numeric value or an array of numeric values.
++ `p`: An array of percentile values between 0 and 1, where each value represents a percentile to calculate. For example, `[0.25, 0.5, 0.75]` calculates the 25th, 50th, and 75th percentiles.
++ `method`: A string specifying the calculation method. Currently only `"approximate"` is supported.
 
 ## Behavior
+<a name="percentile-behavior"></a>
 
 The `"approximate"` method uses the t-digest algorithm to calculate approximate, percentile-based metrics. With small datasets, distinct percentile values may resolve to the same result. For example, with only 5 values per group, p90 and p99 may both return the maximum value in the group. Precision improves as the number of data points increases.
 
 ## Example (MongoDB Shell)
+<a name="percentile-examples"></a>
 
 The following example shows how to use the `$percentile` operator to calculate the 25th and 75th percentile of scores per class.
 
@@ -56,6 +60,7 @@ db.students.aggregate([
 ```
 
 ## Expression usage example (MongoDB Shell)
+<a name="percentile-expression-examples"></a>
 
 The `$percentile` operator can also be used as an expression within a `$project` stage to compute percentiles of an array field.
 
@@ -88,10 +93,12 @@ db.surveys.aggregate([
 ```
 
 ## Code examples
+<a name="percentile-code"></a>
 
 To view a code example for using the `$percentile` operator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -131,7 +138,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -166,3 +174,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,15 +1,18 @@
+
+
 # $top
+<a name="top-accumulator"></a>
 
 New from version 8.0.1.
 
 Use the `$top` accumulator in the `$group` stage to return the highest-ranked document per group according to a specified sort order.
 
 **Parameters**
-
-- `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
-- `output`: An expression that specifies the fields to return from the top document.
++ `sortBy`: A document specifying the sort order. Use `1` for ascending or `-1` for descending.
++ `output`: An expression that specifies the fields to return from the top document.
 
 ## Example (MongoDB Shell)
+<a name="top-examples"></a>
 
 The following example shows how to use the `$top` accumulator to find the top sale (highest quantity) per item in a sales collection.
 
@@ -42,10 +45,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="top-code"></a>
 
 To view a code example for using the `$top` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -76,7 +81,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -105,3 +111,5 @@ def example():
 
 example()
 ```
+
+------

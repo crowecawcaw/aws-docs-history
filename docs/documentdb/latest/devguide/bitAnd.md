@@ -1,14 +1,17 @@
+
+
 # $bitAnd
+<a name="bitAnd"></a>
 
 New from version 8.0.1.
 
 The `$bitAnd` operator in Amazon DocumentDB performs a bitwise AND operation on integer or long values.
 
 **Parameters**
-
-- `expressions`: An array of two or more expressions, which can resolve to integers or longs.
++ `expressions`: An array of two or more expressions, which can resolve to integers or longs.
 
 ## Example (MongoDB Shell)
+<a name="bitAnd-examples"></a>
 
 The following example shows how to use the `$bitAnd` operator to perform bitwise AND on two fields.
 
@@ -43,10 +46,12 @@ db.flags.aggregate([
 In binary: 13 (1101) AND 10 (1010) = 8 (1000); 7 (0111) AND 5 (0101) = 5 (0101); 15 (1111) AND 9 (1001) = 9 (1001).
 
 ## Code examples
+<a name="bitAnd-code"></a>
 
 To view a code example for using the `$bitAnd` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

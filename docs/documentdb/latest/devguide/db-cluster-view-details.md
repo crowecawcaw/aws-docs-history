@@ -1,88 +1,48 @@
-# Describing Amazon DocumentDB clusters
 
-You can use either Amazon DocumentDB Management Console or the AWS CLI to see
-details such as connection endpoints, security groups, VPCs, and
-parameter groups pertaining to your Amazon DocumentDB clusters.
+
+# Describing Amazon DocumentDB clusters
+<a name="db-cluster-view-details"></a>
+
+You can use either Amazon DocumentDB Management Console or the AWS CLI to see details such as connection endpoints, security groups, VPCs, and parameter groups pertaining to your Amazon DocumentDB clusters.
 
 For more information, see the following:
++ [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md)
++ [Finding a cluster's endpoints](db-cluster-endpoints-find.md)
 
-- [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md")
-- [Finding a cluster's endpoints](db-cluster-endpoints-find.md "db-cluster-endpoints-find.md")
+------
+#### [ Using the AWS Management Console ]
 
-Using the AWS Management Console
-Use the following procedure to view the details of a specified
-Amazon DocumentDB cluster using the console.
+Use the following procedure to view the details of a specified Amazon DocumentDB cluster using the console.
 
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters**.
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
-###### Tip
+1. In the navigation pane, choose **Clusters**.
+**Tip**  
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
-If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. In the list of clusters, choose the name of the cluster
-that you want to see the details of. The information about
-the cluster is organized into the following groupings:
+1. In the list of clusters, choose the name of the cluster that you want to see the details of. The information about the cluster is organized into the following groupings:
+   + **Summary** — General information about the cluster, including the engine version, cluster status, pending maintenance, and the status of its parameter group.
+   + **Connectivity & Security** —The **Connect** section lists connection endpoints to connect to this cluster with the mongo shell or with an application. The **Security Groups** section lists the security groups associated with this cluster and their VPC ID and descriptions. 
+   + **Configuration** — The **Cluster details** section lists details about the cluster, including the cluster's Amazon Resource Name (ARN), endpoint, and parameter group. It also lists the cluster's backup information, maintenance details, and security and network settings. The **Cluster instances** section lists the instances that belong to this cluster with each instance's role and cluster parameter group status.
+   + **Monitoring** — The Amazon CloudWatch Logs metrics for this cluster. For more information, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md).
+   + **Events & tags** — The **Recent events** section lists the recent events for this cluster. Amazon DocumentDB keeps a record of events that relate to your clusters, instances, snapshots, security groups, and cluster parameter groups. This information includes the date, time, and message associated with each event. The **Tags** section lists the tags attached to this cluster.
 
-    * **Summary** — General
-     information about the cluster, including the engine
-     version, cluster status, pending maintenance, and the
-     status of its parameter group.
-    * **Connectivity & Security**
-     —The **Connect** section
-     lists connection endpoints to connect to this cluster
-     with the mongo shell or with an application. The
-     **Security Groups** section lists
-     the security groups associated with this cluster and
-     their VPC ID and descriptions.
-    * **Configuration** — The
-     **Cluster details** section lists
-     details about the cluster, including the cluster's
-     Amazon Resource Name (ARN), endpoint, and parameter
-     group. It also lists the cluster's backup information,
-     maintenance details, and security and network
-     settings. The **Cluster instances**
-     section lists the instances that belong to this cluster
-     with each instance's role and cluster parameter group
-     status.
-    * **Monitoring** — The
-     Amazon CloudWatch Logs metrics for this cluster. For more
-     information, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md "cloud_watch.md").
-    * **Events & tags** — The
-     **Recent events** section lists the
-     recent events for this cluster. Amazon DocumentDB keeps a
-     record of events that relate to your clusters,
-     instances, snapshots, security groups, and cluster
-     parameter groups. This information includes the date,
-     time, and message associated with each event. The
-     **Tags** section lists the tags
-     attached to this cluster.
+------
+#### [ Using the AWS CLI ]
 
-Using the AWS CLI
-To view the details of your Amazon DocumentDB clusters using the AWS CLI,
-use the `describe-db-clusters` command as shown in the
-following examples. For more information, see [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")
-in the _Amazon DocumentDB Resource Management API Reference_.
+To view the details of your Amazon DocumentDB clusters using the AWS CLI, use the `describe-db-clusters` command as shown in the following examples. For more information, see [DescribeDBClusters](https://docs.aws.amazon.com/documentdb/latest/APIReference/API_DescribeDBClusters.html) in the *Amazon DocumentDB Resource Management API Reference*. 
 
-###### Note
+**Note**  
+For certain management features such as cluster and instance lifecycle management, Amazon DocumentDB leverages operational technology that is shared with Amazon RDS. The `filterName=engine,Values=docdb` filter parameter returns only Amazon DocumentDB clusters. 
 
-For certain management features such as cluster and instance
-lifecycle management, Amazon DocumentDB leverages operational technology
-that is shared with Amazon RDS. The `filterName=engine,Values=docdb`
-filter parameter returns only Amazon DocumentDB clusters.
-
-###### Example
-
-**Example 1: List all Amazon DocumentDB clusters**
-
-The following AWS CLI code lists the details for all Amazon DocumentDB
-clusters in a Region.
+**Example**  
+**Example 1: List all Amazon DocumentDB clusters **  
+The following AWS CLI code lists the details for all Amazon DocumentDB clusters in a Region.   
 
 ```
 aws docdb describe-db-clusters --filter Name=engine,Values=docdb
 ```
-
-Output from this operation looks something like the following.
+Output from this operation looks something like the following.  
 
 ```
 {
@@ -128,34 +88,26 @@ Output from this operation looks something like the following.
         }
     ]
 }
-
 ```
 
-###### Example
-
-**Example 2: List all details for a
-specified Amazon DocumentDB cluster**
-
-The following AWS CLI code lists the details for the cluster
-`sample-cluster`.
-
-For Linux, macOS, or Unix:
+**Example**  
+**Example 2: List all details for a specified Amazon DocumentDB cluster**  
+The following AWS CLI code lists the details for the cluster `sample-cluster`.  
+For Linux, macOS, or Unix:  
 
 ```
 aws docdb describe-db-clusters \
    --filter Name=engine,Values=docdb \
    --db-cluster-identifier sample-cluster
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws docdb describe-db-clusters ^
    --filter Name=engine,Values=docdb ^
    --db-cluster-identifier sample-cluster
 ```
-
-Output from this operation looks something like the following.
+Output from this operation looks something like the following.  
 
 ```
 {
@@ -197,7 +149,7 @@ Output from this operation looks something like the following.
                     "DBClusterParameterGroupStatus": "in-sync",
                     "PromotionTier": 1
                 },
-
+                
             ],
             "VpcSecurityGroups": [
                 {
@@ -228,23 +180,11 @@ Output from this operation looks something like the following.
 }
 ```
 
-###### Example
-
-**Example 3: List specific details for
-a Amazon DocumentDB cluster**
-
-To list a subset of the clusters' details using the AWS CLI,
-add a `--query` that specifies which cluster
-members the `describe-db-clusters` operation is to
-list. The `--db-cluster-identifier` parameter is the
-identifier for the particular cluster that you want to display
-the details of. For more information on queries, see [How to Filter the Output with the `--query` Option](../../../cli/latest/userguide/cli-usage-output.md#controlling-output-filter "../../../cli/latest/userguide/cli-usage-output.md#controlling-output-filter")
-in the _AWS Command Line Interface User Guide_.
-
-The following example lists the instances in an Amazon DocumentDB
-cluster.
-
-For Linux, macOS, or Unix:
+**Example**  
+**Example 3: List specific details for a Amazon DocumentDB cluster**  
+To list a subset of the clusters' details using the AWS CLI, add a `--query` that specifies which cluster members the `describe-db-clusters` operation is to list. The `--db-cluster-identifier` parameter is the identifier for the particular cluster that you want to display the details of. For more information on queries, see [ How to Filter the Output with the `--query` Option](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output.html#controlling-output-filter) in the *AWS Command Line Interface User Guide*.   
+The following example lists the instances in an Amazon DocumentDB cluster.  
+For Linux, macOS, or Unix:  
 
 ```
 aws docdb describe-db-clusters \
@@ -252,8 +192,7 @@ aws docdb describe-db-clusters \
     --db-cluster-identifier sample-cluster \
     --query 'DBClusters[*].[DBClusterMembers]'
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws docdb describe-db-clusters ^
@@ -261,8 +200,7 @@ aws docdb describe-db-clusters ^
     --db-cluster-identifier sample-cluster ^
     --query 'DBClusters[*].[DBClusterMembers]'
 ```
-
-Output from this operation looks something like the following.
+Output from this operation looks something like the following.  
 
 ```
 [
@@ -283,5 +221,6 @@ Output from this operation looks something like the following.
         ]
     ]
 ]
-
 ```
+
+------

@@ -1,13 +1,16 @@
+
+
 # $cmp
+<a name="cmp"></a>
 
 The `$cmp` operator in Amazon DocumentDB is used to compare two values and return an integer value that indicates their relative order. It is a comparison operator that compares two expressions and returns an integer value of -1, 0, or 1, depending on whether the first value is less than, equal to, or greater than the second value, respectively.
 
 **Parameters**
-
-- `expression1`: The first expression to compare.
-- `expression2`: The second expression to compare.
++ `expression1`: The first expression to compare.
++ `expression2`: The second expression to compare.
 
 ## Example (MongoDB Shell)
+<a name="cmp-examples"></a>
 
 The following example demonstrates the usage of the `$cmp` operator to compare two numeric values.
 
@@ -47,10 +50,13 @@ In this example, the `$cmp` operator compares the `value1` and `value2` fields f
 ```
 
 ## Code examples
+<a name="cmp-code"></a>
 
 To view a code example for using the `$cmp` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the `$cmp` operator in a Node.js application with the `mongodb` driver:
 
 ```
@@ -85,7 +91,9 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the `$cmp` operator in a Python application with the `pymongo` driver:
 
 ```
@@ -123,3 +131,5 @@ The output of both the Node.js and Python examples will be the same as the Mongo
   { "_id" : 3, "value1" : 20, "value2" : 10 }
 ]
 ```
+
+------

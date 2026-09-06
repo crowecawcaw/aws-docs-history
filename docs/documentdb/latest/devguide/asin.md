@@ -1,17 +1,21 @@
+
+
 # $asin
+<a name="asin"></a>
 
 New from version 8.0.1.
 
 The `$asin` operator in Amazon DocumentDB returns the arcsine (inverse sine) of a value. The input value must be between -1 and 1.
 
 **Parameters**
++ `expression`: An expression that resolves to a number between -1 and 1.
 
-- `expression`: An expression that resolves to a number between -1 and 1.
-  The result is in radians. To obtain degrees, apply `$radiansToDegrees` to the output.
+The result is in radians. To obtain degrees, apply `$radiansToDegrees` to the output.
 
 The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 ## Example (MongoDB Shell)
+<a name="asin-examples"></a>
 
 The following example shows how to use the `$asin` operator to calculate the arcsine of numeric values.
 
@@ -46,10 +50,12 @@ db.values.aggregate([
 ```
 
 ## Code examples
+<a name="asin-code"></a>
 
 To view a code example for using the `$asin` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +78,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +101,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

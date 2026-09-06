@@ -1,4 +1,7 @@
+
+
 # $substrBytes
+<a name="substrBytes"></a>
 
 The `$substrBytes` operator in Amazon DocumentDB is used to extract a substring from a string based on a specified byte range. This operator is useful when you need to extract a substring from a string and the number of bytes required to represent each character in the string is important.
 
@@ -7,12 +10,12 @@ Unlike `$substrCP`, which operates on the number of Unicode code points, `$subst
 \*Note:\* `$substr` has been deprecated since version 3.4. `$substr` is now an alias for `$substrBytes`.
 
 **Parameters**
-
-- `string`: The input string from which the substring will be extracted.
-- `startByte`: The zero-based starting byte position of the substring to be extracted. A negative value can be used to specify a position from the end of the string.
-- `length`: The number of bytes in the substring to be extracted.
++ `string`: The input string from which the substring will be extracted.
++ `startByte`: The zero-based starting byte position of the substring to be extracted. A negative value can be used to specify a position from the end of the string.
++ `length`: The number of bytes in the substring to be extracted.
 
 ## Example (MongoDB Shell)
+<a name="substrBytes-examples"></a>
 
 In this example, we'll use `$substrBytes` to extract a substring from a string that contains non-ASCII characters.
 
@@ -51,10 +54,12 @@ db.people.aggregate([
 In this example, we use `$substrBytes` to extract a 3-byte substring starting from the 12th byte of the `Desk` field. This allows us to extract the 2-character state abbreviation, even though the string may contain non-ASCII characters.
 
 ## Code examples
+<a name="substrBytes-code"></a>
 
 To view a code example for using the `$substrBytes` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +84,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -102,3 +108,5 @@ def example():
 
 example()
 ```
+
+------

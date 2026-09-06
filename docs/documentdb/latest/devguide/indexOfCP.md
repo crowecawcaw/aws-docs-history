@@ -1,14 +1,17 @@
+
+
 # $indexOfCP
+<a name="indexOfCP"></a>
 
 The `$indexOfCP` operator in Amazon DocumentDB is used to find the index, in code points (CP), of the first occurrence of a specified substring within a string expression. This can be useful when parsing and extracting content from string fields.
 
 **Parameters**
-
-- `string expression`: The string to search.
-- `substring`: The substring to search for.
-- `[<start>]`: (optional) The position to start the search (zero-based index). Default is 0.
++ `string expression`: The string to search.
++ `substring`: The substring to search for.
++ `[<start>]`: (optional) The position to start the search (zero-based index). Default is 0.
 
 ## Example (MongoDB Shell)
+<a name="indexOfCP-examples"></a>
 
 In this example, we use the `$indexOfCP` operator to find the index of the first occurrence of the hyphen character - in the Desk field of each document.
 
@@ -41,10 +44,12 @@ db.people.aggregate([
 ```
 
 ## Code examples
+<a name="indexOfCP-code"></a>
 
 To view a code example for using the `$indexOfCP` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -66,7 +71,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -83,3 +89,5 @@ print(result)
 
 client.close()
 ```
+
+------

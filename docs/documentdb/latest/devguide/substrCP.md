@@ -1,16 +1,19 @@
+
+
 # $substrCP
+<a name="substrCP"></a>
 
 The `$substrCP` operator in Amazon DocumentDB is used to extract a substring from a string, where the substring is specified as a range of UTF-8 code points (CP). This operator is particularly useful when working with Unicode strings, as it allows you to extract substrings without having to worry about the underlying byte representation of the characters.
 
 Unlike the `$substrBytes` operator, which operates on byte positions, the `$substrCP` operator works with code point positions. This makes it easier to work with strings that contain non-ASCII characters, as the number of code points may not match the number of bytes or characters.
 
 **Parameters**
-
-- `string`: The input string from which to extract the substring.
-- `start`: The starting code point position (zero-based) from which to extract the substring.
-- `length`: The number of code points to extract.
++ `string`: The input string from which to extract the substring.
++ `start`: The starting code point position (zero-based) from which to extract the substring.
++ `length`: The number of code points to extract.
 
 ## Example (MongoDB Shell)
+<a name="substrCP-examples"></a>
 
 In this example, we'll use the `$substrCP` operator to extract the state abbreviation from a string containing the employee's desk location.
 
@@ -47,10 +50,12 @@ db.people.aggregate([
 In this example, we know that the state abbreviation starts at the 25th code point in the `Desk` field and is 2 code points long. By using the `$substrCP` operator, we can extract the state abbreviation without having to worry about the underlying byte representation of the string.
 
 ## Code examples
+<a name="substrCP-code"></a>
 
 To view a code example for using the `$substrCP` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,8 @@ async function findStates() {
 findStates();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ find_states()
 ```
 
 In both the Node.js and Python examples, we use the `$substrCP` operator to extract the state abbreviation from the `Desk` field, similar to the MongoDB Shell example.
+
+------

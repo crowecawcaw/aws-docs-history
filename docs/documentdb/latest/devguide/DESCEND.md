@@ -1,4 +1,7 @@
+
+
 # $$DESCEND
+<a name="DESCEND"></a>
 
 The `$$DESCEND` operator in Amazon DocumentDB is a special positional array operator used within the `$redact` pipeline stage. It instructs the aggregation pipeline to descend into the current document and process all fields, regardless of their nesting level.
 
@@ -9,6 +12,7 @@ When the `$redact` stage encounters the `$$DESCEND` operator, it will keep all t
 None.
 
 ## Example (MongoDB Shell)
+<a name="DESCEND-examples"></a>
 
 In this example, we'll use the `$redact` stage with the `$$DESCEND` operator to selectively display documents where the `code` field is equal to "Reg".
 
@@ -49,10 +53,12 @@ db.patient.aggregate([
 ```
 
 ## Code examples
+<a name="DESCEND-code"></a>
 
 To view a code example for using the `$$DESCEND` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -79,7 +85,8 @@ async function redactPatients() {
 redactPatients();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -104,3 +111,5 @@ def redact_patients():
 
 redact_patients()
 ```
+
+------

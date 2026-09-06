@@ -1,15 +1,18 @@
+
+
 # $round
+<a name="round"></a>
 
 New from version 8.0.1.
 
 The `$round` operator in Amazon DocumentDB rounds a number to a specified decimal place. When a value falls exactly halfway between the two nearest values at that place, `$round` rounds to the nearest even digit. For example, 2.5 rounds to 2, and 3.5 rounds to 4.
 
 **Parameters**
-
-- `number`: An expression that resolves to a number.
-- `place`: Optional. An integer expression between -20 and 100 that specifies the number of decimal places to round to. A negative value rounds to the left of the decimal. Defaults to 0.
++ `number`: An expression that resolves to a number.
++ `place`: Optional. An integer expression between -20 and 100 that specifies the number of decimal places to round to. A negative value rounds to the left of the decimal. Defaults to 0.
 
 ## Example (MongoDB Shell)
+<a name="round-examples"></a>
 
 The following example shows how to use the `$round` operator to round numeric values to one decimal place.
 
@@ -102,10 +105,12 @@ db.samples.aggregate([
 ```
 
 ## Code examples
+<a name="round-code"></a>
 
 To view a code example for using the `$round` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -127,7 +132,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -146,3 +152,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,20 +1,24 @@
+
+
 # $nin
+<a name="nin"></a>
 
 The `$nin` operator is used to match values that are not in the specified array. It is the inverse of the `$in` operator, which matches values that are in the specified array.
 
 Planner version 2.0 added index support for `$nin`.
 
 **Parameters**
++ `field`: The field to check.
++ `array`: The array of values to check against.
 
-- `field`: The field to check.
-- `array`: The array of values to check against.
-   
+ 
 
 **Dollar (`$`) in field names**
 
-See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$`prefixed fields in`$nin` in nested objects.
+See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot) for limitations regarding querying `$` prefixed fields in `$nin` in nested objects.
 
 ## Example (MongoDB Shell)
+<a name="nin-examples"></a>
 
 The following example demonstrates how to use the `$nin` operator to find documents where the `category` field is not equal to "Fiction" or "Mystery".
 
@@ -60,10 +64,12 @@ db.books.find({
 ```
 
 ## Code examples
+<a name="nin-code"></a>
 
 To view a code example for using the `$nin` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -83,7 +89,8 @@ async function findBooksNotInCategories(categories) {
 findBooksNotInCategories(['Fiction', 'Mystery']);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -101,3 +108,5 @@ def find_books_not_in_categories(categories):
 
 find_books_not_in_categories(['Fiction', 'Mystery'])
 ```
+
+------

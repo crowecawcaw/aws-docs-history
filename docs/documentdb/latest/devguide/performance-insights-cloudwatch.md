@@ -1,26 +1,23 @@
+
+
 # Amazon CloudWatch metrics for Performance Insights
+<a name="performance-insights-cloudwatch"></a>
 
-Performance Insights automatically publishes metrics to Amazon CloudWatch. The same data can be
-queried from Performance Insights, but having the metrics in CloudWatch makes it easy to add
-CloudWatch alarms. It also makes it easy to add the metrics to existing CloudWatch
-Dashboards.
+Performance Insights automatically publishes metrics to Amazon CloudWatch. The same data can be queried from Performance Insights, but having the metrics in CloudWatch makes it easy to add CloudWatch alarms. It also makes it easy to add the metrics to existing CloudWatch Dashboards.
 
-| Metric       | Description                                                                                                                                                                                        |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DBLoad       | The number of active sessions for Amazon DocumentDB. Typically, you want the<br>data for the average number of active sessions. In Performance<br>Insights, this data is queried as `db.load.avg`. |
-| DBLoadCPU    | The number of active sessions where the wait state type is CPU. In<br>Performance Insights, this data is queried as<br>`db.load.avg`, filtered by the wait state type<br>`CPU`.                    |
-| DBLoadNonCPU | The number of active sessions where the wait state type is not<br>CPU.                                                                                                                             |
 
-###### Note
+| Metric | Description | 
+| --- | --- | 
+| DBLoad | The number of active sessions for Amazon DocumentDB. Typically, you want the data for the average number of active sessions. In Performance Insights, this data is queried as `db.load.avg`. | 
+| DBLoadCPU | The number of active sessions where the wait state type is CPU. In Performance Insights, this data is queried as `db.load.avg`, filtered by the wait state type `CPU`. | 
+| DBLoadNonCPU | The number of active sessions where the wait state type is not CPU. | 
 
-These metrics are published to CloudWatch only if there is load on the DB
-instance.
+**Note**  
+These metrics are published to CloudWatch only if there is load on the DB instance.
 
-You can examine these metrics using the CloudWatch console, the AWS CLI, or the CloudWatch
-API.
+You can examine these metrics using the CloudWatch console, the AWS CLI, or the CloudWatch API.
 
-For example, you can get the statistics for the `DBLoad` metric by running
-the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command.
+For example, you can get the statistics for the `DBLoad` metric by running the [get-metric-statistics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/get-metric-statistics.html) command.
 
 ```
 aws cloudwatch get-metric-statistics \
@@ -40,44 +37,40 @@ This example generates output similar to the following.
 {
     "Datapoints": [
         {
-            "Timestamp": "2022-03-14T08:42:00Z",
-            "Average": 1.0,
+            "Timestamp": "2022-03-14T08:42:00Z", 
+            "Average": 1.0, 
             "Unit": "None"
-        },
+        }, 
         {
-            "Timestamp": "2022-03-14T08:24:00Z",
-            "Average": 2.0,
+            "Timestamp": "2022-03-14T08:24:00Z", 
+            "Average": 2.0, 
             "Unit": "None"
-        },
+        }, 
         {
-            "Timestamp": "2022-03-14T08:54:00Z",
-            "Average": 6.0,
+            "Timestamp": "2022-03-14T08:54:00Z", 
+            "Average": 6.0, 
             "Unit": "None"
-        },
+        }, 
         {
-            "Timestamp": "2022-03-14T08:36:00Z",
-            "Average": 5.7,
+            "Timestamp": "2022-03-14T08:36:00Z", 
+            "Average": 5.7, 
             "Unit": "None"
-        },
+        }, 
         {
-            "Timestamp": "2022-03-14T08:06:00Z",
-            "Average": 4.0,
+            "Timestamp": "2022-03-14T08:06:00Z", 
+            "Average": 4.0, 
             "Unit": "None"
-        },
+        }, 
         {
-            "Timestamp": "2022-03-14T08:00:00Z",
-            "Average": 5.2,
+            "Timestamp": "2022-03-14T08:00:00Z", 
+            "Average": 5.2, 
             "Unit": "None"
         }
-    ],
+    ], 
     "Label": "DBLoad"
 }
-
 ```
 
-You can use the `DB_PERF_INSIGHTS` metric math function in the CloudWatch console to query Amazon DocumentDB Performance Insights counter metrics.
-The `DB_PERF_INSIGHTS` function also includes the `DBLoad` metric at sub-minute intervals.
-You can set CloudWatch alarms on these metrics.
-For more details on how to create an alarm, see [Create an alarm on Performance Insights counter metrics from an AWS database](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md").
+You can use the `DB_PERF_INSIGHTS` metric math function in the CloudWatch console to query Amazon DocumentDB Performance Insights counter metrics. The `DB_PERF_INSIGHTS` function also includes the `DBLoad` metric at sub-minute intervals. You can set CloudWatch alarms on these metrics. For more details on how to create an alarm, see [Create an alarm on Performance Insights counter metrics from an AWS database](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.html). 
 
-For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
+For more information about CloudWatch, see [What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*. 

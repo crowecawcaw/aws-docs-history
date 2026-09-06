@@ -1,12 +1,15 @@
+
+
 # $objectToArray
+<a name="objectToArray"></a>
 
 The `$objectToArray` aggregation operator in Amazon DocumentDB converts an object (or document) into an array. The input to the operator is a document, and the output consists of an array element for each field-value pair in the input document. This operator is useful when you need to work with the individual fields of a document as an array, such as when you want to find the document with the maximum or minimum value for a particular field.
 
 **Parameters**
-
-- `expression`: The document expression to convert into an array.
++ `expression`: The document expression to convert into an array.
 
 ## Example (MongoDB Shell)
+<a name="objectToArray-examples"></a>
 
 The following example demonstrates how to use the `$objectToArray` operator to find the document with the maximum inventory for a video rental store chain.
 
@@ -100,10 +103,12 @@ db.videos.aggregate([
 ```
 
 ## Code examples
+<a name="objectToArray-code"></a>
 
 To view a code example for using the `$objectToArray` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -142,7 +147,8 @@ async function findMaxInventory() {
 findMaxInventory();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -179,3 +185,5 @@ def find_max_inventory():
 
 find_max_inventory()
 ```
+
+------

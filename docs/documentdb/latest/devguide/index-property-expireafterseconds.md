@@ -1,17 +1,23 @@
+
+
 # Index Property: expireAfterSeconds
+<a name="index-property-expireafterseconds"></a>
 
 ## Supported index types
+<a name="index-property-expireafterseconds-supported"></a>
 
-| Index type   | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster |
-| ------------ | --- | --- | --- | --- | --------------- |
-| single field | Yes | Yes | Yes | Yes | Yes             |
-| multi-key    | Yes | Yes | Yes | Yes | Yes             |
+
+| Index type | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster | 
+| --- | --- | --- | --- | --- | --- | 
+| single field | Yes | Yes | Yes | Yes | Yes | 
+| multi-key | Yes | Yes | Yes | Yes | Yes | 
 
 Use the expireAfterSeconds option to create a time to live (TTL) index. TTL indexes enable you to delete documents based on their age based on the timeout condition for each document. When a document reaches the specified TTL age, it is deleted from the collection.
 
-For best practices with TTL deletes, see [TTL and time series workloads](best_practices.md#best_practices-ttl_timeseries "best_practices.md#best_practices-ttl_timeseries").
+For best practices with TTL deletes, see [TTL and time series workloads](best_practices.md#best_practices-ttl_timeseries).
 
 ## Examples
+<a name="index-property-expireafterseconds-examples"></a>
 
 The following examples show how to create TTL indexes on the following sample document:
 

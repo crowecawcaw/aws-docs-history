@@ -1,22 +1,28 @@
+
+
 # Index Property: partialFilterExpression
+<a name="index-property-partialfilterexpression"></a>
 
 ## Supported index types
+<a name="index-property-partialfilterexpression-supported"></a>
 
-| Option       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster |
-| ------------ | --- | --- | --- | --- | --------------- |
-| single field | No  | No  | Yes | Yes | No              |
-| compound     | No  | No  | Yes | Yes | No              |
-| multi-key    | No  | No  | Yes | Yes | No              |
-| geospatial   | No  | No  | No  | No  | No              |
+
+| Option | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster | 
+| --- | --- | --- | --- | --- | --- | 
+| single field | No | No | Yes | Yes | No | 
+| compound | No | No | Yes | Yes | No | 
+| multi-key | No | No | Yes | Yes | No | 
+| geospatial | No | No | No | No | No | 
 
 Use the partialFilterExpression option to create a partial index that only includes documents that meet a specified filter condition. This allows you to create more efficient indexes by indexing only a subset of documents in a collection, rather than indexing all documents, reducing the index size and saving space in memory. Because the index size is smaller, the queries that use it are more efficient. Amazon DocumentDB will use the partial index in the following scenarios:
++ The query predicate exactly matches the partial index filter expression.
++ The query filter's expected result is a logical subset of the partial filter.
++ A sub-predicate of the query can be used in conjunction with other indexes.
 
-- The query predicate exactly matches the partial index filter expression.
-- The query filter's expected result is a logical subset of the partial filter.
-- A sub-predicate of the query can be used in conjunction with other indexes.
-  For more information, see [Partial index](partial-index.md "partial-index.md").
+For more information, see [Partial index](partial-index.md).
 
 ## Examples
+<a name="index-property-partialfilterexpression-examples"></a>
 
 The following examples show how to create partial indexes on the following sample document:
 

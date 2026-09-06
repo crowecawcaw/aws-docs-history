@@ -1,12 +1,15 @@
+
+
 # $addToSet
+<a name="addToSet-aggregation"></a>
 
 The `$addToSet` aggregation operator returns an array of unique values from a specified expression for each group. It is used within the `$group` stage to accumulate distinct values, automatically eliminating duplicates.
 
 **Parameters**
-
-- `expression`: The expression to evaluate for each document in the group.
++ `expression`: The expression to evaluate for each document in the group.
 
 ## Example (MongoDB Shell)
+<a name="addToSet-aggregation-examples"></a>
 
 The following example demonstrates using the `$addToSet` operator to collect unique cities where orders were placed for each customer.
 
@@ -45,10 +48,12 @@ db.orders.aggregate([
 ```
 
 ## Code examples
+<a name="addToSet-aggregation-code"></a>
 
 To view a code example for using the `$addToSet` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -74,7 +79,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -98,3 +104,5 @@ def example():
 
 example()
 ```
+
+------

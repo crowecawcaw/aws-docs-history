@@ -1,12 +1,15 @@
+
+
 # $replaceRoot
+<a name="replaceRoot"></a>
 
 The `$replaceRoot` operator is used to replace the root document with the specified embedded document. This is useful when you want to promote a nested document to the top level or restructure your data output.
 
 **Parameters**
-
-- `newRoot`: The new root document that will replace the existing root document.
++ `newRoot`: The new root document that will replace the existing root document.
 
 ## Example (MongoDB Shell)
+<a name="replaceRoot-examples"></a>
 
 This example shows how to extract shipping address information from customer orders, which is useful for generating shipping labels or address lists.
 
@@ -50,14 +53,15 @@ db.orders.aggregate([
     zipCode: '97201',
     country: 'USA'
   }
-
 ```
 
 ## Code examples
+<a name="replaceRoot-code"></a>
 
 To view a code example for using the `$replaceRoot` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -83,7 +87,8 @@ async function extractShippingAddresses() {
 extractShippingAddresses();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -107,3 +112,5 @@ def extract_shipping_addresses():
 
 extract_shipping_addresses()
 ```
+
+------

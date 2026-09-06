@@ -1,17 +1,20 @@
+
+
 # $changeStream
+<a name="changeStream"></a>
 
 Not supported by Elastic cluster.
 
 The `$changeStream` aggregation stage opens a change stream cursor to monitor real-time changes to a collection. It returns change event documents when insert, update, replace, or delete operations occur.
 
 **Parameters**
-
-- `fullDocument`: Specifies whether to return the full document for update operations. Options are `default` or `updateLookup`.
-- `resumeAfter`: Optional. Resume token to continue from a specific point in the change stream.
-- `startAtOperationTime`: Optional. Timestamp to start the change stream from.
-- `allChangesForCluster`: Optional. Boolean value. When `true`, watches all changes across the cluster (for admin database). When `false` (default), watches only the specified collection.
++ `fullDocument`: Specifies whether to return the full document for update operations. Options are `default` or `updateLookup`.
++ `resumeAfter`: Optional. Resume token to continue from a specific point in the change stream.
++ `startAtOperationTime`: Optional. Timestamp to start the change stream from.
++ `allChangesForCluster`: Optional. Boolean value. When `true`, watches all changes across the cluster (for admin database). When `false` (default), watches only the specified collection.
 
 ## Example (MongoDB Shell)
+<a name="changeStream-examples"></a>
 
 The following example demonstrates using the `$changeStream` stage to monitor changes to a collection.
 
@@ -46,10 +49,12 @@ if (changeStream.hasNext()) {
 ```
 
 ## Code examples
+<a name="changeStream-code"></a>
 
 To view a code example for using the `$changeStream` aggregation stage, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -109,3 +115,5 @@ def example():
 
 example()
 ```
+
+------

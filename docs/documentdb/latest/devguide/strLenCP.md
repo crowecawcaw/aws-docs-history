@@ -1,12 +1,15 @@
+
+
 # $strLenCP
+<a name="strLenCP"></a>
 
 The `$strLenCP` operator in Amazon DocumentDB is used to determine the length of a string expression in code points (Unicode characters). This is useful when you need to know the number of characters in a string, rather than the number of bytes.
 
 **Parameters**
-
-- `expression`: The string expression for which to return the length in code points.
++ `expression`: The string expression for which to return the length in code points.
 
 ## Example (MongoDB Shell)
+<a name="strLenCP-examples"></a>
 
 The following example demonstrates the usage of the `$strLenCP` operator to determine the length of strings with Unicode characters.
 
@@ -46,10 +49,13 @@ db.people.aggregate([
 Notice the difference in the length measurement for the "Düsseldorf-BVV-021" string, which contains a Unicode character (Ü). The `$strLenCP` operator correctly counts the number of Unicode characters, while the `$strLenBytes` operator counts the number of bytes.
 
 ## Code examples
+<a name="strLenCP-code"></a>
 
 To view a code example for using the `$strLenCP` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the `$strLenCP` operator in a Node.js application with the MongoDB driver:
 
 ```
@@ -76,7 +82,9 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the `$strLenCP` operator in a Python application with the PyMongo driver:
 
 ```
@@ -101,3 +109,5 @@ def example():
 
 example()
 ```
+
+------

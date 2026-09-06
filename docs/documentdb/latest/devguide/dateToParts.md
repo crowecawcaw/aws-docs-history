@@ -1,25 +1,21 @@
+
+
 # $dateToParts
+<a name="dateToParts"></a>
 
 New from version 5.0.1 and 8.0
 
-The `$dateToParts` aggregation operator in Amazon DocumentDB returns a document
-that contains the constituent parts of a date and time value, such as the year,
-month, day, hour, minute, second, and millisecond.
+The `$dateToParts` aggregation operator in Amazon DocumentDB returns a document that contains the constituent parts of a date and time value, such as the year, month, day, hour, minute, second, and millisecond.
 
 **Parameters**
-
-- `date`: The date and time value to break into parts.
-- `timezone`: (optional) The time zone to use when extracting the
-  date parts. If not specified, the parts are returned in UTC.
-- `iso8601`: (optional) If set to `true`, the returned
-  document uses ISO 8601 date parts (`isoWeekYear`,
-  `isoWeek`, `isoDayOfWeek`). The default is
-  `false`.
++ `date`: The date and time value to break into parts.
++ `timezone`: (optional) The time zone to use when extracting the date parts. If not specified, the parts are returned in UTC.
++ `iso8601`: (optional) If set to `true`, the returned document uses ISO 8601 date parts (`isoWeekYear`, `isoWeek`, `isoDayOfWeek`). The default is `false`.
 
 ## Example (MongoDB Shell)
+<a name="dateToParts-examples"></a>
 
-The following example demonstrates how to use the `$dateToParts`
-operator to return the individual parts of a date.
+The following example demonstrates how to use the `$dateToParts` operator to return the individual parts of a date.
 
 **Create sample documents**
 
@@ -59,10 +55,12 @@ db.events.aggregate([
 ```
 
 ## Code examples
+<a name="dateToParts-code"></a>
 
 To view a code example for using the `$dateToParts` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -89,7 +87,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -114,3 +113,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,4 +1,7 @@
+
+
 # $merge
+<a name="merge"></a>
 
 Introduced in 8.0
 
@@ -14,14 +17,14 @@ The `$merge` stage allows you to perform various actions based on the matching c
 ```
 
 **Parameters**
-
-- `into`: (required) The name of the target collection to merge the input documents into.
-- `on`: (required) The field(s) to use as the matching condition between the input documents and the target collection.
-- `whenMatched`: (optional) The action to perform when the input document matches an existing document in the target collection. Supported values are: `"merge"`, `"replace"`, `"keepExisting"`, and `"fail"`.
-- `whenNotMatched`: (optional) The action to perform when the input document does not match any document in the target collection. Supported values are: `"insert"` and `"fail"`.
-- `bypassDocumentValidation`: (optional) When set to `true`, documents written to the target collection by the `$merge` stage bypass any schema validation rules (`$jsonSchema`) defined on that collection. The default is `false`, which enforces the target collection's validation rules. This is supported in Amazon DocumentDB 8.0.
++ `into`: (required) The name of the target collection to merge the input documents into.
++ `on`: (required) The field(s) to use as the matching condition between the input documents and the target collection.
++ `whenMatched`: (optional) The action to perform when the input document matches an existing document in the target collection. Supported values are: `"merge"`, `"replace"`, `"keepExisting"`, and `"fail"`.
++ `whenNotMatched`: (optional) The action to perform when the input document does not match any document in the target collection. Supported values are: `"insert"` and `"fail"`.
++ `bypassDocumentValidation`: (optional) When set to `true`, documents written to the target collection by the `$merge` stage bypass any schema validation rules (`$jsonSchema`) defined on that collection. The default is `false`, which enforces the target collection's validation rules. This is supported in Amazon DocumentDB 8.0.
 
 ## Example (MongoDB Shell)
+<a name="merge-examples"></a>
 
 The following example demonstrates how to use the `$merge` stage to update a `users` collection with new data from an input pipeline.
 
@@ -67,10 +70,13 @@ After running the `$merge` pipeline, the `users` collection will contain the fol
 ```
 
 ## Code examples
+<a name="merge-code"></a>
 
 To view a code example for using the `$merge` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the $merge operator in a Node.js application:
 
 ```
@@ -100,7 +106,9 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the $merge operator in a Python application:
 
 ```
@@ -129,3 +137,5 @@ def example():
 
 example()
 ```
+
+------

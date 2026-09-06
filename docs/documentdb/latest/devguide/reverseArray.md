@@ -1,12 +1,15 @@
+
+
 # $reverseArray
+<a name="reverseArray"></a>
 
 The `$reverseArray` operator in Amazon DocumentDB is used to reverse the elements of an array in the specified order. This operator is useful when you need to reorder the elements of an array in the reverse direction.
 
 **Parameters**
-
-- `expression`: The array expression to reverse.
++ `expression`: The array expression to reverse.
 
 ## Example (MongoDB Shell)
+<a name="reverseArray-examples"></a>
 
 The following example demonstrates how to use the `$reverseArray` operator to reverse the order of elements in an array.
 
@@ -46,10 +49,13 @@ db.miles.aggregate([
 In this example, the `$reverseArray` operator is used to reverse the order of the `flight_miles` array. The resulting `reversed_flight_miles` field in the output shows the elements of the array in the reversed order.
 
 ## Code examples
+<a name="reverseArray-code"></a>
 
 To view a code example for using the `$reverseArray` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of using the `$reverseArray` operator in a Node.js application:
 
 ```
@@ -78,7 +84,9 @@ async function reverseArray() {
 reverseArray();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of using the `$reverseArray` operator in a Python application:
 
 ```
@@ -105,3 +113,5 @@ def reverse_array():
 
 reverse_array()
 ```
+
+------

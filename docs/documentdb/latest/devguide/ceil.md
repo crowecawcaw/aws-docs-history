@@ -1,14 +1,17 @@
+
+
 # $ceil
+<a name="ceil"></a>
 
 New from version 4.0
 
 The `$ceil` operator in Amazon DocumentDB, as in MongoDB, rounds a number up to the nearest integer. This is useful when you need to perform mathematical operations on numeric fields and ensure the result is a whole number.
 
 **Parameters**
-
-- `expression`: The numeric expression to round up.
++ `expression`: The numeric expression to round up.
 
 ## Example (MongoDB Shell)
+<a name="ceil-examples"></a>
 
 This example demonstrates how to use the `$ceil` operator to round up a numeric field.
 
@@ -41,10 +44,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="ceil-code"></a>
 
 To view a code example for using the `$ceil` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -88,3 +94,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,16 +1,19 @@
+
+
 # $regexMatch
+<a name="regexMatch"></a>
 
 New from version 5.0. Not supported by Elastic cluster.
 
 The `$regexMatch` operator in Amazon DocumentDB is used to perform regular expression matching on string fields. It returns a boolean value (`true` or `false`) indicating whether the input string matches the specified pattern.
 
 **Parameters**
-
-- `input`: The string to test against the regular expression.
-- `regex`: The regular expression pattern to match.
-- `options`: (Optional) Flags to modify the regular expression behavior, such as case-insensitive matching (`i`) or multiline matching (`m`).
++ `input`: The string to test against the regular expression.
++ `regex`: The regular expression pattern to match.
++ `options`: (Optional) Flags to modify the regular expression behavior, such as case-insensitive matching (`i`) or multiline matching (`m`).
 
 ## Example (MongoDB Shell)
+<a name="regexMatch-examples"></a>
 
 The following example demonstrates how to use the `$regexMatch` operator to check if names start with the letter 'M'. The operator returns `true` or `false` for each document.
 
@@ -55,10 +58,12 @@ db.users.aggregate([
 ```
 
 ## Code examples
+<a name="regexMatch-code"></a>
 
 To view a code example for using the `$regexMatch` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -91,7 +96,8 @@ async function checkNamePattern() {
 checkNamePattern();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -122,3 +128,5 @@ def check_name_pattern():
 
 check_name_pattern()
 ```
+
+------

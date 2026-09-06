@@ -1,4 +1,7 @@
+
+
 # $rtrim
+<a name="rtrim"></a>
 
 New from version 4.0.
 
@@ -7,11 +10,11 @@ Not supported by Elastic cluster.
 The `$rtrim` operator in Amazon DocumentDB is used to remove trailing characters from a string. By default, it removes trailing whitespace characters, but you can also specify a set of characters to remove by passing the chars argument.
 
 **Parameters**
-
-- `input`: The input string from which to remove trailing whitespace characters.
-- `chars`: (optional) To remove specific characters.
++ `input`: The input string from which to remove trailing whitespace characters.
++ `chars`: (optional) To remove specific characters.
 
 ## Example (MongoDB Shell)
+<a name="rtrim-examples"></a>
 
 The following example demonstrates how to use the `$rtrim` operator to remove trailing specified characters (" \*") from a string.
 
@@ -32,7 +35,7 @@ db.collection.aggregate([
   {
     $project: {
       _id: 0,
-      name: { $rtrim: { input: "$name", chars: " *" } },
+      name: { $rtrim: { input: "$name", chars: " *" } }, 
       age: 1
     }
   }
@@ -50,10 +53,12 @@ db.collection.aggregate([
 ```
 
 ## Code examples
+<a name="rtrim-code"></a>
 
 To view a code example for using the `$rtrim` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient, Bson } = require('mongodb');
@@ -64,7 +69,7 @@ async function example() {
   try {
 
     const db = client.db('test');
-    const collection = db.collection('collection');
+    const collection = db.collection('collection');  
 
     const pipeline = [
       {
@@ -89,7 +94,8 @@ async function example() {
 example().catch(console.error);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -125,3 +131,5 @@ def example():
 
 example()
 ```
+
+------

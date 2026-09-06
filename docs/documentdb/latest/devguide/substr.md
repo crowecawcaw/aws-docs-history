@@ -1,14 +1,17 @@
+
+
 # $substr
+<a name="substr"></a>
 
 The `$substr` operator in Amazon DocumentDB is used to extract a substring from a given string. It is particularly useful when you need to define substrings based on a range of characters, rather than a range of bytes. This is especially important when dealing with Unicode strings, where the number of bytes used to represent a character can vary.
 
 **Parameters**
-
-- `string`: The input string from which to extract the substring.
-- `start`: The starting position (zero-based) of the substring to be extracted. Can be a non-negative integer expression.
-- `length`: The number of characters in the extracted substring. Can be a non-negative integer expression.
++ `string`: The input string from which to extract the substring.
++ `start`: The starting position (zero-based) of the substring to be extracted. Can be a non-negative integer expression.
++ `length`: The number of characters in the extracted substring. Can be a non-negative integer expression.
 
 ## Example (MongoDB Shell)
+<a name="substr-examples"></a>
 
 In this example, we'll demonstrate the use of `$substr` to extract the state abbreviation from an employee's desk location.
 
@@ -45,10 +48,12 @@ db.people.aggregate([
 ```
 
 ## Code examples
+<a name="substr-code"></a>
 
 To view a code example for using the `$substr` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require("mongodb");
@@ -73,7 +78,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -96,3 +102,5 @@ def example():
 
 example()
 ```
+
+------

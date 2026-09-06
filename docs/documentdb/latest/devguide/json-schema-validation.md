@@ -1,21 +1,23 @@
+
+
 # Using JSON schema validation
+<a name="json-schema-validation"></a>
 
 Using the `$jsonSchema` evaluation query operator, you can validate documents being inserted into your collections.
 
-###### Topics
-
-- [Creating and using JSON schema validation](#get-started-with-validation "#get-started-with-validation")
-- [Supported keywords](#json-supported-keywords "#json-supported-keywords")
-- [bypassDocumentValidation](#json-schema-bypass "#json-schema-bypass")
-- [Limitations](#json-schema-limitations "#json-schema-limitations")
+**Topics**
++ [Creating and using JSON schema validation](#get-started-with-validation)
++ [Supported keywords](#json-supported-keywords)
++ [bypassDocumentValidation](#json-schema-bypass)
++ [Limitations](#json-schema-limitations)
 
 ## Creating and using JSON schema validation
+<a name="get-started-with-validation"></a>
 
 ### Creating a collection with schema validation
+<a name="create-collection-with-validation"></a>
 
-You can create a collection with `createCollection` operation and validation rules.
-These validation rules are applied during inserts or updates of Amazon DocumentDB documents.
-The following code example shows validation rules for a collection of employees:
+You can create a collection with `createCollection` operation and validation rules. These validation rules are applied during inserts or updates of Amazon DocumentDB documents. The following code example shows validation rules for a collection of employees:
 
 ```
 db.createCollection("employees", {
@@ -35,7 +37,7 @@ db.createCollection("employees", {
                         "bsonType": ["string"]
                      }
                   },
-                  "additionalProperties" : false
+                  "additionalProperties" : false 
             },
             "employeeId": {
                "bsonType": "string",
@@ -48,7 +50,7 @@ db.createCollection("employees", {
                "bsonType": "number"
             }
          },
-         "additionalProperties" : true
+         "additionalProperties" : true 
       }
    },
    "validationLevel": "strict", "validationAction": "error"
@@ -56,6 +58,7 @@ db.createCollection("employees", {
 ```
 
 ### Inserting a valid document
+<a name="insert-valid-document"></a>
 
 The following example inserts documents that comply with the above schema validation rules:
 
@@ -65,27 +68,27 @@ db.employees.insert({ "name" : { "firstName" : "William", "lastName" : "Taylor" 
 ```
 
 ### Inserting an invalid document
+<a name="insert-invalid-document"></a>
 
-The following example inserts documents that do not comply with the above schema validation rules.
-In this example, the employeeId value is not a string:
+The following example inserts documents that do not comply with the above schema validation rules. In this example, the employeeId value is not a string:
 
 ```
 db.employees.insert({
-    "name" : { "firstName" : "Carol" , "lastName" : "Smith"},
-    "employeeId": 720 ,
-    "salary": 1000.0
+    "name" : { "firstName" : "Carol" , "lastName" : "Smith"}, 
+    "employeeId": 720 , 
+    "salary": 1000.0 
 })
 ```
 
 This example shows incorrect syntax within the document.
 
 ### Modifying a collection
+<a name="modify-collection"></a>
 
-The `collMod` command is used to add or modify validation rules of existing collection.
-The following example adds a salary field to the required field list:
+The `collMod` command is used to add or modify validation rules of existing collection. The following example adds a salary field to the required field list:
 
 ```
-db.runCommand({"collMod" : "employees",
+db.runCommand({"collMod" : "employees", 
    "validator": {
       "$jsonSchema": {
          "bsonType": "object",
@@ -102,7 +105,7 @@ db.runCommand({"collMod" : "employees",
                         "bsonType": ["string"]
                      }
                   },
-                  "additionalProperties" : false
+                  "additionalProperties" : false 
             },
             "employeeId": {
                "bsonType": "string",
@@ -115,30 +118,28 @@ db.runCommand({"collMod" : "employees",
                "bsonType": "number"
             }
          },
-         "additionalProperties" : true
+         "additionalProperties" : true 
       }
    }
 } )
 ```
 
 ### Addressing documents added before the validation rules were changed
+<a name="pre-validation-docs"></a>
 
 To address documents that were added to you collection before the validation rules were changed, use the following `validationLevel` modifiers:
++ **strict**: Applies validation rules on all inserts and updates.
++ **moderate**: Applies validation rules to existing valid documents. During updates, existing invalid documents are not checked.
 
-- **strict**: Applies validation rules on all inserts and updates.
-- **moderate**: Applies validation rules to existing valid documents.
-  During updates, existing invalid documents are not checked.
-
-In the following example, after updating the validation rules on the collection named “employees”, the salary field is required.
-Updating following document will fail:
+In the following example, after updating the validation rules on the collection named “employees”, the salary field is required. Updating following document will fail:
 
 ```
-db.runCommand({
-    update: "employees",
-    updates: [{
-        q: { "employeeId": "c721a" },
-        u: { age: 25 , salary : 1000},
-        upsert: true }]
+db.runCommand({ 
+    update: "employees", 
+    updates: [{ 
+        q: { "employeeId": "c721a" }, 
+        u: { age: 25 , salary : 1000}, 
+        upsert: true }] 
 })
 ```
 
@@ -164,15 +165,15 @@ Updating the validation level to `moderate` will allow the above document to be 
 
 ```
 db.runCommand({
-    "collMod" : "employees",
+    "collMod" : "employees", 
     validationLevel : "moderate"
 })
 
-db.runCommand({
-    update: "employees",
-    updates: [{
-        q: { "employeeId": "c721a" },
-        u: { age: 25 , salary : 1000},
+db.runCommand({ 
+    update: "employees", 
+    updates: [{ 
+        q: { "employeeId": "c721a" }, 
+        u: { age: 25 , salary : 1000}, 
         upsert: true }]
 })
 ```
@@ -189,10 +190,9 @@ Amazon DocumentDB returns the following output:
 ```
 
 ### Retrieving documents with the $jsonSchema
+<a name="json-retrieve-docs"></a>
 
-The `$jsonSchema` operator can be used as a filter to query documents that match the JSON schema.
-This is a top-level operator which can be present in filter documents as a top level field or used with query operators such as `$and`, `$or`, and `$nor`.
-The following examples show the use of $jsonSchema as an individual filter and with other filter operators:
+The `$jsonSchema` operator can be used as a filter to query documents that match the JSON schema. This is a top-level operator which can be present in filter documents as a top level field or used with query operators such as `$and`, `$or`, and `$nor`. The following examples show the use of $jsonSchema as an individual filter and with other filter operators:
 
 Document inserted into an "employee" collection:
 
@@ -206,7 +206,7 @@ Document inserted into an "employee" collection:
 Collection filtered with the `$jsonSchema` operator only:
 
 ```
-db.employees.find({
+db.employees.find({ 
        $jsonSchema: { required: ["age"] } })
 ```
 
@@ -220,8 +220,8 @@ Amazon DocumentDB returns the following output:
 Collection filtered with the `$jsonSchema` operator and another operator:
 
 ```
-db.employees.find({
-       $or: [{ $jsonSchema: { required: ["age", "name"]}},
+db.employees.find({ 
+       $or: [{ $jsonSchema: { required: ["age", "name"]}}, 
             { salary: { $lte:1000}}]});
 ```
 
@@ -237,9 +237,9 @@ Collection filtered with the `$jsonSchema` operator and with `$match` in the agg
 
 ```
 db.employees.aggregate(
-    [{ $match: {
-        $jsonSchema: {
-            required: ["name", "employeeId"],
+    [{ $match: { 
+        $jsonSchema: { 
+            required: ["name", "employeeId"],  
             properties: {"salary" :{"bsonType": "double"}}
         }
        }
@@ -250,11 +250,11 @@ db.employees.aggregate(
 Amazon DocumentDB returns the following output:
 
 ```
-{
+{ 
 "_id" : ObjectId("64e5f8886218c620cf0e8f8a"),
  "name" : { "firstName" : "Carol", "lastName" : "Smith" },
 "employeeId" : "c720a",
-"salary" : 1000
+"salary" : 1000 
 }
 {
 "_id" : ObjectId("64e5f91c6218c620cf0e8f8b"),
@@ -279,12 +279,13 @@ Amazon DocumentDB returns the following output:
 ```
 
 ### Viewing existing validation rules
+<a name="view-validation-rules"></a>
 
 To see the existing validation rules on a collection, use:
 
 ```
 db.runCommand({
-    listCollections: 1,
+    listCollections: 1, 
     filter: { name: 'employees' }
 })
 ```
@@ -369,63 +370,61 @@ Amazon DocumentDB returns the following output:
 Amazon DocumentDB also retains validation rules in the `$out` aggregation stage.
 
 ## Supported keywords
+<a name="json-supported-keywords"></a>
 
 The following fields are supported in the `create` and `collMod` commands:
-
-- **`Validator`** — Supports the `$jsonSchem`a operator.
-- **`ValidationLevel`** — Supports `off`, `strict`, and `moderate` values.
-- **`ValidationAction`** — Supports the `error` value.
++ **`Validator`** — Supports the `$jsonSchem`a operator.
++ **`ValidationLevel`** — Supports `off`, `strict`, and `moderate` values.
++ **`ValidationAction`** — Supports the `error` value.
 
 The $jsonSchema operator supports the following keywords:
-
-- `additionalItems`
-- `additionalProperties`
-- `allOf`
-- `anyOf`
-- `bsonType`
-- `dependencies`
-- `description`
-- `enum`
-- `exclusiveMaximum`
-- `exclusiveMinimum`
-- `items`
-- `maximum`
-- `minimum`
-- `maxItems`
-- `minItems`
-- `maxLength`
-- `minLength`
-- `maxProperties`
-- `minProperties`
-- `multipleOf`
-- `not`
-- `oneOf`
-- `pattern`
-- `patternProperties`
-- `properties`
-- `required`
-- `title`
-- `type`
-- `uniqueItems`
++ `additionalItems`
++ `additionalProperties`
++ `allOf`
++ `anyOf`
++ `bsonType`
++ `dependencies`
++ `description`
++ `enum`
++ `exclusiveMaximum`
++ `exclusiveMinimum`
++ `items`
++ `maximum`
++ `minimum`
++ `maxItems`
++ `minItems`
++ `maxLength`
++ `minLength`
++ `maxProperties`
++ `minProperties`
++ `multipleOf`
++ `not`
++ `oneOf`
++ `pattern`
++ `patternProperties`
++ `properties`
++ `required`
++ `title`
++ `type`
++ `uniqueItems`
 
 ## bypassDocumentValidation
+<a name="json-schema-bypass"></a>
 
 Amazon DocumentDB supports `bypassDocumentValidation` for the following commands and methods:
++ `insert`
++ `update`
++ `findAndModify`
++ `$out` stage in `aggregate` command and in `db.collection.aggregate()` method
 
-- `insert`
-- `update`
-- `findAndModify`
-- `$out` stage in `aggregate` command and in `db.collection.aggregate()` method
-
-Amazon DocumentDB does not support the following commands for `bypassDocumentValidation`:
-
-- `$merge` in `aggregate` command and in `db.collection.aggregate()` method
-- `mapReduce` command and `db.collection.mapReduce()` method
-- `applyOps` command
+Amazon DocumentDB does not support the following commands for `bypassDocumentValidation`: 
++ `$merge` in `aggregate` command and in `db.collection.aggregate()` method
++ `mapReduce` command and `db.collection.mapReduce()` method
++ `applyOps` command
 
 ## Limitations
+<a name="json-schema-limitations"></a>
 
 The following limitations apply to `$jsonSchema` validation:
-
-- Amazon DocumentDB returns the error "Document failed validation" when an operation fails the validation rule.
-- Amazon DocumentDB elastic clusters do not support `$jsonSchema`.
++ Amazon DocumentDB returns the error "Document failed validation" when an operation fails the validation rule.
++ Amazon DocumentDB elastic clusters do not support `$jsonSchema`.

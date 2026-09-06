@@ -1,14 +1,17 @@
+
+
 # $bitNot
+<a name="bitNot"></a>
 
 New from version 8.0.1.
 
-The `$bitNot` operator in Amazon DocumentDB performs a bitwise NOT operation on an integer or long value, returning the bitwise complement. For a given integer or long n, the result is -(n+1).
+The `$bitNot` operator in Amazon DocumentDB performs a bitwise NOT operation on an integer or long value, returning the bitwise complement. For a given integer or long n, the result is -(n\+1).
 
 **Parameters**
-
-- `expression`: An expression that resolves to an integer or long. Returns the bitwise complement, which is -(n+1) for a given integer or long n.
++ `expression`: An expression that resolves to an integer or long. Returns the bitwise complement, which is -(n\+1) for a given integer or long n.
 
 ## Example (MongoDB Shell)
+<a name="bitNot-examples"></a>
 
 The following example shows how to use the `$bitNot` operator to compute the bitwise complement of integer values.
 
@@ -43,10 +46,12 @@ db.numbers.aggregate([
 In binary: NOT 0 = -1; NOT 5 = -6; NOT -3 = 2.
 
 ## Code examples
+<a name="bitNot-code"></a>
 
 To view a code example for using the `$bitNot` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

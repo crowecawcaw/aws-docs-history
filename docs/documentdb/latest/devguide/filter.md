@@ -1,14 +1,17 @@
+
+
 # $filter
+<a name="filter"></a>
 
 The `$filter` operator in Amazon DocumentDB is used to apply a filter expression to each element of an array and return an array containing only the elements that match the specified condition. This operator is useful when you need to perform complex filtering operations on array fields within your documents.
 
 **Parameters**
-
-- `input`: The array field to filter.
-- `as`: The variable name to use for each element of the `input` array within the `cond` expression.
-- `cond`: The boolean expression that determines whether a given element should be included in the output array.
++ `input`: The array field to filter.
++ `as`: The variable name to use for each element of the `input` array within the `cond` expression.
++ `cond`: The boolean expression that determines whether a given element should be included in the output array.
 
 ## Example (MongoDB Shell)
+<a name="filter-examples"></a>
 
 The following example demonstrates how to use the `$filter` operator to project each order's customer and create a new array field paidItems containing only the items from the items array where the price is greater than 15. Essentially, it filters each order’s items to include only products that cost more than 15.
 
@@ -65,10 +68,12 @@ db.orders.aggregate([
 ```
 
 ## Code examples
+<a name="filter-code"></a>
 
 To view a code example for using the `$filter` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -110,7 +115,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -118,7 +124,7 @@ from pprint import pprint
 
 def example():
     uri = 'mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false'
-
+    
     with MongoClient(uri) as client:
         db = client.test
         collection = db.orders
@@ -143,3 +149,5 @@ def example():
 
 example()
 ```
+
+------

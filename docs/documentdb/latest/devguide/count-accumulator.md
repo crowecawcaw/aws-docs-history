@@ -1,4 +1,7 @@
+
+
 # $count (accumulator)
+<a name="count-accumulator"></a>
 
 New from version 8.0.1.
 
@@ -13,10 +16,10 @@ This is different from the `$count` pipeline stage, which is a standalone stage 
 ```
 
 **Parameters**
-
-- The `$count` accumulator takes no arguments. It accepts an empty object `{}` and returns the count of documents in each group.
++ The `$count` accumulator takes no arguments. It accepts an empty object `{}` and returns the count of documents in each group.
 
 ## Example (MongoDB Shell)
+<a name="count-accumulator-examples"></a>
 
 The following example shows how to use the `$count` accumulator to count the number of products in each category.
 
@@ -50,10 +53,12 @@ db.products.aggregate([
 ```
 
 ## Code examples
+<a name="count-accumulator-code"></a>
 
 To view a code example for using the `$count` accumulator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -84,7 +89,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -113,3 +119,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,26 +1,28 @@
+
+
 # Determining a cluster's status
+<a name="db-cluster-status"></a>
 
 You can determine a cluster's status using the AWS Management Console or AWS CLI.
 
-Using the AWS Management Console
-Use the following procedure to see the status of your Amazon DocumentDB
-cluster using the AWS Management Console
+------
+#### [ Using the AWS Management Console ]
 
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters**.
-3. In the **Cluster identifier** column, find
-   the name of the cluster that you are interested in. Then, to
-   find the status of the cluster, read across that row to the
-   **Status** column, as shown below.
+Use the following procedure to see the status of your Amazon DocumentDB cluster using the AWS Management Console
 
-![Screenshot of clusters page with sample-cluster showing active status.](images/db-cluster-status-con.png)
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
-Using the AWS CLI
-Use the `describe-db-clusters` operation to see the
-the status of your Amazon DocumentDB cluster using the AWS CLI.
+1. In the navigation pane, choose **Clusters**.
 
-The following code finds the status of the cluster
-`sample-cluster`.
+1. In the **Cluster identifier** column, find the name of the cluster that you are interested in. Then, to find the status of the cluster, read across that row to the **Status** column, as shown below.  
+![Screenshot of clusters page with sample-cluster showing active status.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-status-con.png)
+
+------
+#### [ Using the AWS CLI ]
+
+Use the `describe-db-clusters` operation to see the the status of your Amazon DocumentDB cluster using the AWS CLI. 
+
+The following code finds the status of the cluster `sample-cluster`.
 
 For Linux, macOS, or Unix:
 
@@ -48,3 +50,5 @@ Output from this operation looks something like the following (JSON format).
     ]
 ]
 ```
+
+------

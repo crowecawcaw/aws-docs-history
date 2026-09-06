@@ -1,15 +1,18 @@
+
+
 # $log
+<a name="log"></a>
 
 New from version 4.0.
 
 The `$log` operator in Amazon DocumentDB calculates the natural logarithm of a number. It returns the base-e logarithm of the specified number.
 
 **Parameters**
-
-- `expression`: The number for which the natural logarithm will be calculated.
-- `base`: Base value to calculate log.
++ `expression`: The number for which the natural logarithm will be calculated.
++ `base`: Base value to calculate log.
 
 ## Example (MongoDB Shell)
+<a name="log-examples"></a>
 
 The following example demonstrates the usage of the `$log` operator to calculate the natural logarithm of a number.
 
@@ -45,10 +48,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="log-code"></a>
 
 To view a code example for using the `$log` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -73,14 +78,15 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
 
 def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
-
+    
     db = client.test
     collection = db.numbers
 
@@ -96,3 +102,5 @@ def example():
 
 example()
 ```
+
+------

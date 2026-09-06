@@ -1,11 +1,14 @@
+
+
 # $hour
+<a name="hour"></a>
 
 The `$hour` operator extracts the hour component from a date or timestamp field.
 
 **Parameters**
++ `dateExpression`: The date to which the operator is applied. This must resolve to a valid BSON date (e.g., a field like $createdAt or a date literal).
 
-- `dateExpression`: The date to which the operator is applied. This must resolve to a valid BSON date (e.g., a field like $createdAt or a date literal).
-  A parameter can also be specified as a document in the following format:
+A parameter can also be specified as a document in the following format:
 
 { date: `&lt;dateExpression&gt;`, timezone: `&lt;timezoneExpression&gt;` }
 
@@ -16,6 +19,7 @@ This allows to apply timezone-aware date operations.
 ```
 
 ## Example (MongoDB Shell)
+<a name="hour-examples"></a>
 
 The following example demonstrates how to use the `$hour` operator to extract the hour component from a date field and group the data accordingly.
 
@@ -67,17 +71,19 @@ db.events.aggregate([
 This query groups the events by the hour component of the `timestamp` field and counts the number of events for each hour.
 
 ## Code examples
+<a name="hour-code"></a>
 
 To view a code example for using the `$hour` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
 
 async function example() {
   const client = new MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false');
-
+  
   try {
     await client.connect();
     const db = client.db('test');
@@ -111,7 +117,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -120,7 +127,7 @@ from datetime import datetime
 def example():
     try:
         client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
-
+        
         db = client.test
         collection = db.events
 
@@ -145,9 +152,11 @@ def example():
 
     except Exception as e:
         print(f"An error occurred: {e}")
-
+    
     finally:
         client.close()
 
 example()
 ```
+
+------

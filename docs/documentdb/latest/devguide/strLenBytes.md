@@ -1,12 +1,15 @@
+
+
 # $strLenBytes
+<a name="strLenBytes"></a>
 
 The `$strLenBytes` operator in Amazon DocumentDB is used to determine the length of a string in bytes. This is useful when you need to understand the storage size of a string field, especially when dealing with Unicode characters that may use more than one byte per character.
 
 **Parameters**
-
-- `expression`: The string expression to calculate the length of.
++ `expression`: The string expression to calculate the length of.
 
 ## Example (MongoDB Shell)
+<a name="strLenBytes-examples"></a>
 
 This example demonstrates how to use the `$strLenBytes` operator to calculate the length of string fields in bytes.
 
@@ -46,10 +49,12 @@ db.people.aggregate([
 Note that the length of the "Düsseldorf-BVV-021" string is 19 bytes, which is different from the number of code points (18) due to the Unicode character "Ü" occupying 2 bytes.
 
 ## Code examples
+<a name="strLenBytes-code"></a>
 
 To view a code example for using the `$strLenBytes` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -75,7 +80,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -99,3 +105,5 @@ def example():
 
 example()
 ```
+
+------

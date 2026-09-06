@@ -1,16 +1,19 @@
+
+
 # $collStats
+<a name="collStats"></a>
 
 New from version 4.0
 
 The `$collStats` aggregation stage in Amazon DocumentDB provides statistics about the specified collection, similar to the `db.collection.stats()` command in the MongoDB shell. This stage can be used to retrieve information about the collection, such as the number of documents, the total size of the collection, and various performance metrics.
 
 **Parameters**
-
-- `latencyStats`: (optional) A document that specifies the options for collecting latency statistics. This parameter is not supported in Amazon DocumentDB.
-- `recordStats`: (optional) A document that specifies the options for collecting record statistics. This parameter is not supported in Amazon DocumentDB.
-- `queryExecStats`: (optional) A document that specifies the options for collecting query execution statistics. This parameter is not supported in Amazon DocumentDB.
++ `latencyStats`: (optional) A document that specifies the options for collecting latency statistics. This parameter is not supported in Amazon DocumentDB.
++ `recordStats`: (optional) A document that specifies the options for collecting record statistics. This parameter is not supported in Amazon DocumentDB.
++ `queryExecStats`: (optional) A document that specifies the options for collecting query execution statistics. This parameter is not supported in Amazon DocumentDB.
 
 ## Example (MongoDB Shell)
+<a name="collStats-examples"></a>
 
 The following example demonstrates how to use the `$collStats` aggregation stage to retrieve statistics about a collection named `test` in the `db` database.
 
@@ -69,10 +72,13 @@ db.test.aggregate([
 ```
 
 ## Code examples
+<a name="collStats-code"></a>
 
 To view a code example for using the `$collStats` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
+
 Here's an example of how to use the `$collStats` aggregation stage in a Node.js application using the official MongoDB Node.js driver:
 
 ```
@@ -95,7 +101,9 @@ async function runCollStatsExample() {
 runCollStatsExample();
 ```
 
-Python
+------
+#### [ Python ]
+
 Here's an example of how to use the `$collStats` aggregation stage in a Python application using the PyMongo driver:
 
 ```
@@ -116,3 +124,5 @@ def run_coll_stats_example():
 
 run_coll_stats_example()
 ```
+
+------

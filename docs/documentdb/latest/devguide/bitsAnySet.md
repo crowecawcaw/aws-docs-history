@@ -1,13 +1,16 @@
+
+
 # $bitsAnySet
+<a name="bitsAnySet"></a>
 
 The `$bitsAnySet` operator in Amazon DocumentDB is used to query documents where at least one bit is set to 1 in the specified bits in a field. This operator allows you to perform bitwise operations on the values stored in fields, enabling efficient querying and analysis of data with bitwise characteristics.
 
 **Parameters**
-
-- `field`: The field name to apply the bitwise operation to.
-- `value`: The numeric bitmask that specifies which bits should be checked, or a list of bits positions to be checked. A numeric bitmask can be a binary (0b...), decimal, hexadecimal (0x...), octal (0o...), or binary (BinData) form. In a list of bits positions, the position of the least significant bit is 0.
++ `field`: The field name to apply the bitwise operation to.
++ `value`: The numeric bitmask that specifies which bits should be checked, or a list of bits positions to be checked. A numeric bitmask can be a binary (0b...), decimal, hexadecimal (0x...), octal (0o...), or binary (BinData) form. In a list of bits positions, the position of the least significant bit is 0.
 
 ## Example (MongoDB Shell)
+<a name="bitsAnySet-examples"></a>
 
 The following example demonstrates how to use the `$bitsAnySet` operator to find documents where at least one bit is set in the `flags` field.
 
@@ -41,10 +44,12 @@ db.collection.find({
 The query returns the documents where at least one of the bits specified in the bitmask `0b1010` is set in the `flags` field.
 
 ## Code examples
+<a name="bitsAnySet-code"></a>
 
 To view a code example for using the `$bitsAnySet` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -66,7 +71,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -83,3 +89,5 @@ print(result)
 
 client.close()
 ```
+
+------

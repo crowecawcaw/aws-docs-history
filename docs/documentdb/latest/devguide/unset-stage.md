@@ -1,4 +1,7 @@
+
+
 # $unset
+<a name="unset-stage"></a>
 
 New from version 8.0
 
@@ -7,10 +10,10 @@ Not supported by Elastic cluster.
 The `$unset` aggregation stage in Amazon DocumentDB allows you to remove fields from documents.
 
 **Parameters**
-
-- `expression`: Field name or list of multiple field names.
++ `expression`: Field name or list of multiple field names.
 
 ## Example (MongoDB Shell)
+<a name="unset-stage-examples"></a>
 
 The following example demonstrates the use of the `$unset` aggregation stage to remove the `price` field.
 
@@ -51,10 +54,12 @@ db.inventory.aggregate([
 ```
 
 ## Code examples
+<a name="unset-stage-code"></a>
 
 To view a code example for using the `$unset` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -77,7 +82,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -98,3 +104,5 @@ def example():
 
 example()
 ```
+
+------

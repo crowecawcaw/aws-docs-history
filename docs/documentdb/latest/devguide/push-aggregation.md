@@ -1,12 +1,15 @@
+
+
 # $push
+<a name="push-aggregation"></a>
 
 The `$push` aggregation operator returns an array of all values from a specified expression for each group. It is typically used within the `$group` stage to accumulate values into an array.
 
 **Parameters**
-
-- `expression`: The expression to evaluate for each document in the group.
++ `expression`: The expression to evaluate for each document in the group.
 
 ## Example (MongoDB Shell)
+<a name="push-aggregation-examples"></a>
 
 The following example demonstrates using the `$push` operator to collect all product names for each category.
 
@@ -45,10 +48,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="push-aggregation-code"></a>
 
 To view a code example for using the `$push` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -74,7 +79,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -98,3 +104,5 @@ def example():
 
 example()
 ```
+
+------

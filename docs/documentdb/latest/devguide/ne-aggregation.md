@@ -1,13 +1,16 @@
+
+
 # $ne
+<a name="ne-aggregation"></a>
 
 The `$ne` aggregation operator compares two values and returns `true` if they are not equal, otherwise returns `false`.
 
 **Parameters**
-
-- `expression1`: The first value to compare.
-- `expression2`: The second value to compare.
++ `expression1`: The first value to compare.
++ `expression2`: The second value to compare.
 
 ## Example (MongoDB Shell)
+<a name="ne-aggregation-examples"></a>
 
 The following example demonstrates using the `$ne` operator to identify orders with status changes.
 
@@ -47,10 +50,12 @@ db.orders.aggregate([
 ```
 
 ## Code examples
+<a name="ne-aggregation-code"></a>
 
 To view a code example for using the `$ne` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -104,3 +110,5 @@ def example():
 
 example()
 ```
+
+------

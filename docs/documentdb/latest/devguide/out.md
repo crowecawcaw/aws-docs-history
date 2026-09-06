@@ -1,15 +1,19 @@
+
+
 # $out
+<a name="out"></a>
 
 The `$out` operator in Amazon DocumentDB is used to write the result of an aggregation pipeline to a specified collection.
 
 `$out` should be the last stage in the pipeline.
 
 **Parameters**
++ `output_collection`: The name of the output collection to write the aggregation results to.
 
-- `output_collection`: The name of the output collection to write the aggregation results to.
-  **Note**: If the collection already exists, it will be replaced with the results of the aggregation stage.
+**Note**: If the collection already exists, it will be replaced with the results of the aggregation stage.
 
 ## Example (MongoDB Shell)
+<a name="out-examples"></a>
 
 The following example demonstrates how to use the `$out` operator in Amazon DocumentDB to write the results of an aggregation pipeline to a new collection.
 
@@ -50,10 +54,12 @@ db.product_categories.find()
 ```
 
 ## Code examples
+<a name="out-code"></a>
 
 To view a code example for using the `$out` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +78,7 @@ async function demo_out_operator() {
   // Retrieve the results from the output collection (limited to 20 records)
   const productCategories = db.collection('product_categories');
   const results = await productCategories.find({}).limit(20).toArray();
-
+  
   console.log('Results stored in product_categories collection:', results);
   await client.close();
 }
@@ -80,7 +86,8 @@ async function demo_out_operator() {
 demo_out_operator();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -99,9 +106,11 @@ def demo_out_operator():
     # Retrieve the results from the output collection (limited to 20 records)
     product_categories = db['product_categories']
     results = list(product_categories.find({}).limit(20))
-
+    
     print('Results stored in product_categories collection:', results)
     client.close()
 
 demo_out_operator()
 ```
+
+------

@@ -1,13 +1,16 @@
+
+
 # $strcasecmp
+<a name="strcasecmp"></a>
 
 The `$strcasecmp` operator in Amazon DocumentDB performs a case-insensitive comparison between two strings. It returns an integer value indicating the lexicographic comparison of the two input strings, ignoring case differences.
 
 **Parameters**
-
-- `string1`: The first string to compare.
-- `string2`: The second string to compare.
++ `string1`: The first string to compare.
++ `string2`: The second string to compare.
 
 ## Example (MongoDB Shell)
+<a name="strcasecmp-examples"></a>
 
 This example demonstrates how to use the `$strcasecmp` operator to compare desk location strings in a `people` collection, ignoring case differences.
 
@@ -45,10 +48,12 @@ db.people.aggregate([
 The output shows that the comparison between the `&quot;Desk&quot;` field and the string `&quot;mke233-wi&quot;` returns `0` for all three documents, indicating that the strings are equal when case is ignored.
 
 ## Code examples
+<a name="strcasecmp-code"></a>
 
 To view a code example for using the `$strcasecmp` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -75,7 +80,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -100,3 +106,5 @@ def example():
 
 example()
 ```
+
+------

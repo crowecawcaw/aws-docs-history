@@ -1,14 +1,17 @@
+
+
 # $range
+<a name="range"></a>
 
 The `$range` aggregation operator in Amazon DocumentDB is used to create an array of consecutive numbers within a specified range. This operator is particularly useful for generating sequences of numbers, such as mile markers for aid stations in a race, as demonstrated in the following examples.
 
 **Parameters**
-
-- `start`: The starting value for the range.
-- `end`: The ending value for the range.
-- `step`: (optional) The step value to use when generating the range. If not provided, the default step value is 1.
++ `start`: The starting value for the range.
++ `end`: The ending value for the range.
++ `step`: (optional) The step value to use when generating the range. If not provided, the default step value is 1.
 
 ## Example (MongoDB Shell)
+<a name="range-examples"></a>
 
 In this example, we'll use the `$range` operator to generate the mile markers for water stations in a bicycle race.
 
@@ -63,10 +66,12 @@ db.races.aggregate([
 ```
 
 ## Code examples
+<a name="range-code"></a>
 
 To view a code example for using the `$range` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -83,7 +88,7 @@ async function example() {
       {
         $project: {
           race: 1,
-          waterStations: { $range: [20, "$distance", 20] }
+          waterStations: { $range: [20, "$distance", 20] } 
         }
       }
     ];
@@ -100,7 +105,8 @@ async function example() {
 example().catch(console.error);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -135,3 +141,5 @@ def example():
 
 example()
 ```
+
+------

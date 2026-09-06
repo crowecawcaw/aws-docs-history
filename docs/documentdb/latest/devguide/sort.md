@@ -1,13 +1,16 @@
+
+
 # $sort
+<a name="sort"></a>
 
 The `$sort` aggregation stage orders documents in the pipeline based on specified field values. Documents are arranged in ascending or descending order according to the sort criteria provided.
 
 **Parameters**
-
-- `field`: The field name to sort by.
-- `order`: Use `1` for ascending order or `-1` for descending order.
++ `field`: The field name to sort by.
++ `order`: Use `1` for ascending order or `-1` for descending order.
 
 ## Example (MongoDB Shell)
+<a name="sort-examples"></a>
 
 The following example demonstrates using the `$sort` stage to order products by price in descending order.
 
@@ -44,10 +47,12 @@ db.products.aggregate([
 ```
 
 ## Code examples
+<a name="sort-code"></a>
 
 To view a code example for using the `$sort` aggregation stage, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,13 +1,16 @@
+
+
 # $addFields
+<a name="addFields"></a>
 
 The `$addFields` stage in the Amazon DocumentDB aggregation pipeline allows you to add new computed fields to documents. This can be useful for adding derived or transformed data to the documents.
 
 **Parameters**
-
-- `newField`: The name of the new field to add.
-- `expression`: An expression that resolves to the value of the new field.
++ `newField`: The name of the new field to add.
++ `expression`: An expression that resolves to the value of the new field.
 
 ## Example (MongoDB Shell)
+<a name="addFields-examples"></a>
 
 The following example demonstrates how to use `$addFields` to add a new field `TotalInventory` that calculates the total inventory based on the `Inventory.OnHand` and `Inventory.OrderQnty` fields.
 
@@ -80,10 +83,12 @@ db.example.aggregate([
 ```
 
 ## Code examples
+<a name="addFields-code"></a>
 
 To view a code example for using the `$addFields` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -105,7 +110,8 @@ console.log(result);
 await client.close();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -125,3 +131,5 @@ result = list(collection.aggregate([
 print(result)
 client.close()
 ```
+
+------

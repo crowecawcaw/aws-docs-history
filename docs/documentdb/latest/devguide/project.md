@@ -1,14 +1,17 @@
+
+
 # $project
+<a name="project"></a>
 
 The `$project` operator in Amazon DocumentDB allows you to selectively include or exclude fields from output documents, pass values to the next pipeline stage, and compute new fields from input document values.
 
 **Parameters**
-
-- `field`: The field to include or exclude from the output documents, it can be a field path (e.g., "a.b.c").
-- `1` or `true`: Includes the field in the output.
-- `0` or `false`: Excludes the field from the output.
++ `field`: The field to include or exclude from the output documents, it can be a field path (e.g., "a.b.c").
++ `1` or `true`: Includes the field in the output.
++ `0` or `false`: Excludes the field from the output.
 
 ## Example (MongoDB Shell)
+<a name="project-examples"></a>
 
 The following example demonstrates the usage of the `$project` operator on students collection
 
@@ -21,7 +24,6 @@ db.students.insertMany([
   { "_id": 3, "name": "Nikhil Jayashankar", "math": 95, "science": 89, "grade": "A" },
   { "_id": 4, "name": "Shirley Rodriguez", "math": 72, "science": 76, "grade": "B" }
   ]);
-
 ```
 
 This query includes only the `name` and `math` fields in the output. The `_id` field is included by default unless explicitly excluded.
@@ -59,10 +61,12 @@ db.students.aggregate([
 ```
 
 ## Code examples
+<a name="project-code"></a>
 
 To view a code example for using the `$project` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -83,7 +87,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -102,3 +107,5 @@ def example():
 
 example()
 ```
+
+------

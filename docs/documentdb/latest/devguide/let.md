@@ -1,13 +1,16 @@
+
+
 # $let
+<a name="let"></a>
 
 The `$let` operator in Amazon DocumentDB is used to bind variables to values and use those variables in the expression. It allows you to define local variables that can be used in subsequent expressions within the same stage of the aggregation pipeline.
 
 **Parameters**
-
-- `vars`: An object that defines the variables to be used in the expression.
-- `in`: The expression in which the variables defined in the vars parameter are used.
++ `vars`: An object that defines the variables to be used in the expression.
++ `in`: The expression in which the variables defined in the vars parameter are used.
 
 ## Example (MongoDB Shell)
+<a name="let-examples"></a>
 
 This example demonstrates the usage of the `$let` operator to calculate the area of a rectangle.
 
@@ -67,10 +70,12 @@ db.shapes.aggregate([
 ```
 
 ## Code examples
+<a name="let-code"></a>
 
 To view a code example for using the `$let` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -106,7 +111,8 @@ async function calculateRectangleAreas() {
 calculateRectangleAreas();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -140,3 +146,5 @@ def calculate_rectangle_areas():
 
 calculate_rectangle_areas()
 ```
+
+------

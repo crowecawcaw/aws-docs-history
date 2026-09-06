@@ -1,13 +1,16 @@
+
+
 # $gte
+<a name="gte"></a>
 
 The `$gte` operator in Amazon DocumentDB is used to match values that are greater than or equal to a specified value. This operator is useful for filtering and querying data based on numerical comparisons.
 
 **Parameters**
-
-- `field`: The field to check against the provided value.
-- `value`: The value to compare against the field.
++ `field`: The field to check against the provided value.
++ `value`: The value to compare against the field.
 
 ## Example (MongoDB Shell)
+<a name="gte-examples"></a>
 
 The following example demonstrates the usage of the `$gte` operator in Amazon DocumentDB to find all documents where the "age" field is greater than or equal to 25.
 
@@ -37,10 +40,12 @@ db.users.find({ age: { $gte: 25 } }, { _id: 0, name: 1, age: 1 });
 ```
 
 ## Code examples
+<a name="gte-code"></a>
 
 To view a code example for using the `$gte` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -59,7 +64,8 @@ async function findUsersAboveAge(age) {
 findUsersAboveAge(25);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -76,3 +82,5 @@ def find_users_above_age(age):
 
 find_users_above_age(25)
 ```
+
+------

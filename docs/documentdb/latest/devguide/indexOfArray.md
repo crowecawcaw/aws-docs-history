@@ -1,14 +1,17 @@
+
+
 # $indexOfArray
+<a name="indexOfArray"></a>
 
 The `$indexOfArray` operator in Amazon DocumentDB is used to find the index of the first occurrence of a specified element in an array. This operator returns the zero-based index position of the first element in the array that matches the specified value. If the value is not found, it returns -1.
 
 **Parameters**
-
-- `array`: The array to search.
-- `value`: The value to search for in the array.
-- `start`: (optional) The position in the array to start the search from. The default value is 0.
++ `array`: The array to search.
++ `value`: The value to search for in the array.
++ `start`: (optional) The position in the array to start the search from. The default value is 0.
 
 ## Example (MongoDB Shell)
+<a name="indexOfArray-examples"></a>
 
 The following example demonstrates how to use the $indexOfArray operator to find the index of the first occurrence of the element "mango" in the "fruits" array for each document.
 
@@ -44,10 +47,12 @@ db.collection.aggregate([
 ```
 
 ## Code examples
+<a name="indexOfArray-code"></a>
 
 To view a code example for using the `$indexOfArray` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -73,7 +78,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -97,3 +103,5 @@ def example():
 
 example()
 ```
+
+------

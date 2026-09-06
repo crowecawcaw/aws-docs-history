@@ -1,16 +1,19 @@
+
+
 # $dateFromString
+<a name="dateFromString"></a>
 
 The `$dateFromString` aggregation operator in Amazon DocumentDB allows you to convert a date-time string into a date object. This is useful when your data is stored as strings but you need to perform date-based operations on the data.
 
 **Parameters**
-
-- `dateString`: A string that represents a date and time.
-- `format`: (optional) A string that specifies the format of the `dateString`. If not provided, Amazon DocumentDB will attempt to parse the string in the ISO-8601 format.
-- `timezone`: (optional) A string that specifies the time zone. If not provided, Amazon DocumentDB will use the time zone of the server.
-- `onError`: (optional) Specifies the action to take if the conversion fails. Possible values are `'error'` (the default, which throws an error), `'null'` (returns `null`), or `'replace'` (replaces the value with the replacement string specified in the `onErrorMessage` option).
-- `onErrorMessage`: (optional) If `onError` is set to `'replace'`, this option specifies the replacement string.
++ `dateString`: A string that represents a date and time.
++ `format`: (optional) A string that specifies the format of the `dateString`. If not provided, Amazon DocumentDB will attempt to parse the string in the ISO-8601 format.
++ `timezone`: (optional) A string that specifies the time zone. If not provided, Amazon DocumentDB will use the time zone of the server.
++ `onError`: (optional) Specifies the action to take if the conversion fails. Possible values are `'error'` (the default, which throws an error), `'null'` (returns `null`), or `'replace'` (replaces the value with the replacement string specified in the `onErrorMessage` option).
++ `onErrorMessage`: (optional) If `onError` is set to `'replace'`, this option specifies the replacement string.
 
 ## Example (MongoDB Shell)
+<a name="dateFromString-examples"></a>
 
 The following example demonstrates how to use `$dateFromString` to convert a date string to a date object in Amazon DocumentDB.
 
@@ -76,10 +79,12 @@ db.missionLog.aggregate([
 ```
 
 ## Code examples
+<a name="dateFromString-code"></a>
 
 To view a code example for using the `$dateFromString` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -109,7 +114,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -137,3 +143,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,14 +1,17 @@
+
+
 # $sin
+<a name="sin"></a>
 
 New from version 8.0.1.
 
 The `$sin` operator in Amazon DocumentDB returns the sine of a value that is measured in radians. Use it in the aggregation pipeline to perform trigonometric calculations on numeric fields.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a number in radians.
++ `expression`: An expression that resolves to a number in radians.
 
 ## Example (MongoDB Shell)
+<a name="sin-examples"></a>
 
 The following example shows how to use the `$sin` operator to calculate the sine of angle values in radians.
 
@@ -43,10 +46,12 @@ db.angles.aggregate([
 ```
 
 ## Code examples
+<a name="sin-code"></a>
 
 To view a code example for using the `$sin` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -69,7 +74,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -91,3 +97,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

@@ -1,14 +1,17 @@
+
+
 # $bitOr
+<a name="bitOr"></a>
 
 New from version 8.0.1.
 
 The `$bitOr` operator in Amazon DocumentDB performs a bitwise OR operation on integer or long values.
 
 **Parameters**
-
-- `expressions`: An array of two or more expressions, which can resolve to integers or longs.
++ `expressions`: An array of two or more expressions, which can resolve to integers or longs.
 
 ## Example (MongoDB Shell)
+<a name="bitOr-examples"></a>
 
 The following example shows how to use the `$bitOr` operator to perform bitwise OR on two fields.
 
@@ -43,10 +46,12 @@ db.flags.aggregate([
 In binary: 13 (1101) OR 10 (1010) = 15 (1111); 7 (0111) OR 5 (0101) = 7 (0111); 15 (1111) OR 9 (1001) = 15 (1111).
 
 ## Code examples
+<a name="bitOr-code"></a>
 
 To view a code example for using the `$bitOr` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

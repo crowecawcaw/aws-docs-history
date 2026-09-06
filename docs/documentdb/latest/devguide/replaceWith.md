@@ -1,4 +1,7 @@
+
+
 # $replaceWith
+<a name="replaceWith"></a>
 
 New from version 8.0
 
@@ -7,10 +10,10 @@ Not supported by Elastic cluster.
 The `$replaceWith` aggregation stage in Amazon DocumentDB is used to replace the input document with a new document. All existing fields on the input document, including the \_id field, are replaced by the new document. `$replaceWith` is commonly used to flatten documents, or promote an embedded document to the top level.
 
 **Parameters**
-
-- `<replacement>` (required): The new document that will replace the existing document.
++ `<replacement>` (required): The new document that will replace the existing document.
 
 ## Example (MongoDB Shell)
+<a name="replaceWith-examples"></a>
 
 The following example demonstrates how to use the `$replaceWith` operator to replace an existing document in an Amazon DocumentDB collection.
 
@@ -64,10 +67,12 @@ db.restaurants.aggregate([
 ```
 
 ## Code examples
+<a name="replaceWith-code"></a>
 
 To view a code example for using the `$replaceWith` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -93,7 +98,8 @@ async function replaceDoc() {
 replaceDoc();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -119,3 +125,5 @@ def replace_document():
 
 replace_document()
 ```
+
+------

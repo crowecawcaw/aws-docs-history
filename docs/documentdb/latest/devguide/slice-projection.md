@@ -1,13 +1,16 @@
+
+
 # $slice
+<a name="slice-projection"></a>
 
 The `$slice` projection operator limits the number of array elements returned in a query result. It allows you to retrieve a specific number of elements from the start or end of an array field without loading the entire array.
 
 **Parameters**
-
-- `field`: The array field to project.
-- `count`: Number of elements to return. Positive values return elements from the start, negative values from the end.
++ `field`: The array field to project.
++ `count`: Number of elements to return. Positive values return elements from the start, negative values from the end.
 
 ## Example (MongoDB Shell)
+<a name="slice-projection-examples"></a>
 
 The following example demonstrates how to use the `$slice` projection operator to return only the first two items from an array field.
 
@@ -39,10 +42,12 @@ db.inventory.find(
 ```
 
 ## Code examples
+<a name="slice-projection-code"></a>
 
 To view a code example for using the `$slice` projection operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -64,7 +69,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -84,3 +90,5 @@ def example():
 
 example()
 ```
+
+------

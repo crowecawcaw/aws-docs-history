@@ -1,148 +1,135 @@
+
+
 # Amazon DocumentDB migration runbook
+<a name="docdb-migration-runbook"></a>
 
-This runbook provides a comprehensive guide for migrating a MongoDB database to Amazon DocumentDB using AWS Database Migration Service (DMS).
-It is designed to support database administrators, cloud engineers, and developers throughout the end-to-end migration journey—from initial discovery to post-migration validation.
+This runbook provides a comprehensive guide for migrating a MongoDB database to Amazon DocumentDB using AWS Database Migration Service (DMS). It is designed to support database administrators, cloud engineers, and developers throughout the end-to-end migration journey—from initial discovery to post-migration validation.
 
-Given the differences in implementation and supported features between MongoDB and Amazon DocumentDB, this runbook emphasizes a structured and systematic approach.
-It outlines essential pre-migration assessments, highlights compatibility considerations, and details the key tasks required to ensure a successful migration with minimal disruption.
+Given the differences in implementation and supported features between MongoDB and Amazon DocumentDB, this runbook emphasizes a structured and systematic approach. It outlines essential pre-migration assessments, highlights compatibility considerations, and details the key tasks required to ensure a successful migration with minimal disruption.
 
 The runbook is organized into the following topics:
++ **[Compatibility](#mig-runbook-compatibility)** — Understand the supported MongoDB features and data types in Amazon DocumentDB, and identify potential incompatibilities.
++ **[Workload discovery](#mig-runbook-workload)** — Analyze existing MongoDB workloads, including read/write patterns, data volumes, and performance baselines.
++ **[Index migration](#mig-runbook-index)** — Analyze strategies for extracting and transforming MongoDB indexes for optimal performance in Amazon DocumentDB.
++ **[User migration](#mig-runbook-user)** — Detail the approach for migrating database users, roles, and access controls to Amazon DocumentDB.
++ **[Data migration](#mig-runbook-data)** — Cover various methods for data migration using AWS DMS, including full load and change data capture (CDC).
++ **[Monitoring](#mig-runbook-monitoring)** — Detail various monitoring approaches when migrating using DMS or native tools.
++ **[Validation](#mig-runbook-validation)** — Provide procedures for data integrity checks, functional validation, and performance comparison post-migration.
 
-- **[Compatibility](#mig-runbook-compatibility "#mig-runbook-compatibility")** — Understand the supported MongoDB features and data types in Amazon DocumentDB, and identify potential incompatibilities.
-- **[Workload discovery](#mig-runbook-workload "#mig-runbook-workload")** — Analyze existing MongoDB workloads, including read/write patterns, data volumes, and performance baselines.
-- **[Index migration](#mig-runbook-index "#mig-runbook-index")** — Analyze strategies for extracting and transforming MongoDB indexes for optimal performance in Amazon DocumentDB.
-- **[User migration](#mig-runbook-user "#mig-runbook-user")** — Detail the approach for migrating database users, roles, and access controls to Amazon DocumentDB.
-- **[Data migration](#mig-runbook-data "#mig-runbook-data")** — Cover various methods for data migration using AWS DMS, including full load and change data capture (CDC).
-- **[Monitoring](#mig-runbook-monitoring "#mig-runbook-monitoring")** — Detail various monitoring approaches when migrating using DMS or native tools.
-- **[Validation](#mig-runbook-validation "#mig-runbook-validation")** — Provide procedures for data integrity checks, functional validation, and performance comparison post-migration.
-  By following the guidance in this runbook, teams can ensure a smooth, secure, and efficient transition to Amazon DocumentDB, while preserving application functionality and minimizing risk.
+By following the guidance in this runbook, teams can ensure a smooth, secure, and efficient transition to Amazon DocumentDB, while preserving application functionality and minimizing risk.
 
 ## Compatibility
+<a name="mig-runbook-compatibility"></a>
 
-###### Topics
+**Topics**
++ [Core feature compatibility](#w2aac15b9c13c13)
++ [Amazon DocumentDB compatibility assessment tool](#w2aac15b9c13c15)
 
-- [Core feature compatibility](#w2aac15b9c13c13 "#w2aac15b9c13c13")
-- [Amazon DocumentDB compatibility assessment tool](#w2aac15b9c13c15 "#w2aac15b9c13c15")
+When migrating from MongoDB to Amazon DocumentDB, a thorough initial assessment and feature compatibility check is essential for a successful migration. This process begins with a comprehensive inventory of your MongoDB features, including aggregation pipeline operators, query patterns, indexes, and data models.
 
-When migrating from MongoDB to Amazon DocumentDB, a thorough initial assessment and feature compatibility check is essential for a successful migration.
-This process begins with a comprehensive inventory of your MongoDB features, including aggregation pipeline operators, query patterns, indexes, and data models.
+Since Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0 API's, applications using newer MongoDB-specific features may require refactoring. Critical areas to evaluate include sharding mechanisms(Amazon DocumentDB uses a different approach), transaction implementations, change streams functionality, and index types (particularly sparse and partial indexes).
 
-Since Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0 API's, applications using newer MongoDB-specific features may require refactoring.
-Critical areas to evaluate include sharding mechanisms(Amazon DocumentDB uses a different approach), transaction implementations, change streams functionality, and index types (particularly sparse and partial indexes).
+Performance characteristics also differ, with Amazon DocumentDB optimized for enterprise workloads with predictable performance. Testing should involve running representative workloads against both systems to identify query patterns that might need optimization.
 
-Performance characteristics also differ, with Amazon DocumentDB optimized for enterprise workloads with predictable performance.
-Testing should involve running representative workloads against both systems to identify query patterns that might need optimization.
-
-Monitoring execution plans to detect potential performance gaps is important during the assessment phase.
-This helps create a clear migration roadmap, identifying necessary application changes and establishing realistic timelines for a smooth transition.
+Monitoring execution plans to detect potential performance gaps is important during the assessment phase. This helps create a clear migration roadmap, identifying necessary application changes and establishing realistic timelines for a smooth transition.
 
 ### Core feature compatibility
+<a name="w2aac15b9c13c13"></a>
+
+
 
 #### Comprehensive feature support
-
-- **CRUD operations** — Enjoy full support for all basic create, read, update, and delete operations, including bulk and query operators - providing seamless application compatibility.
-- **Rich indexing capabilities** — Leverage comprehensive support for single field, compound, TTL, partial, sparse, and 2dsphere indexes, to optimize your query performance and text indexes (version 5) for text-based lookups.
-- **Enterprise-grade replication** — Benefit from a robust automatic failover mechanism with read replicas for superior high availability without operational overhead.
-- **Advanced backup solutions** — Rest easy with automated backup system featuring Point-in-Time Recovery (PITR) and on-demand manual snapshots for data protection.
+<a name="w2aac15b9c13c13b5"></a>
++ **CRUD operations** — Enjoy full support for all basic create, read, update, and delete operations, including bulk and query operators - providing seamless application compatibility.
++ **Rich indexing capabilities** — Leverage comprehensive support for single field, compound, TTL, partial, sparse, and 2dsphere indexes, to optimize your query performance and text indexes (version 5) for text-based lookups.
++ **Enterprise-grade replication** — Benefit from a robust automatic failover mechanism with read replicas for superior high availability without operational overhead.
++ **Advanced backup solutions** — Rest easy with automated backup system featuring Point-in-Time Recovery (PITR) and on-demand manual snapshots for data protection.
 
 #### Enhanced AWS-integrated features
-
-- **Streamlined aggregation** — Take advantage of the most commonly used aggregation stages (`$match`, `$group`, `$sort`, `$project`, etc.) with optimized performance for enterprise workloads.
-- **Transaction support** — Implement multi-document and multi-collection transactions, perfect for most business application needs.
-- **Real-time data tracking** — Enable change streams by a simple command and increase change stream retention period through a simple parameter group setting for real-time data change monitoring.
-- **Location-based services** — Implement geospatial applications with support for `$geoNear` operator and 2dsphere indexes.
-- **Text search capabilities** — Utilize built-in text search functionality for content discovery needs.
+<a name="w2aac15b9c13c13b7"></a>
++ **Streamlined aggregation** — Take advantage of the most commonly used aggregation stages (`$match`, `$group`, `$sort`, `$project`, etc.) with optimized performance for enterprise workloads.
++ **Transaction support** — Implement multi-document and multi-collection transactions, perfect for most business application needs.
++ **Real-time data tracking** — Enable change streams by a simple command and increase change stream retention period through a simple parameter group setting for real-time data change monitoring.
++ **Location-based services** — Implement geospatial applications with support for `$geoNear` operator and 2dsphere indexes.
++ **Text search capabilities** — Utilize built-in text search functionality for content discovery needs.
 
 #### Modern architecture advantages
+<a name="w2aac15b9c13c13b9"></a>
++ **Cloud-native design** — Enjoy AWS-optimized architecture that replaces legacy features like MapReduce with more efficient aggregation pipeline operations.
++ **Enhanced security** — Benefit from AWS Identity and Access Management (IAM), SCRAM-SHA-1, SCRAM-SHA-256, X.509 certificate authentication, and password-based authentication.
++ **Predictable performance** — Experience consistent performance optimized specifically for enterprise workloads.
 
-- **Cloud-native design** — Enjoy AWS-optimized architecture that replaces legacy features like MapReduce with more efficient aggregation pipeline operations.
-- **Enhanced security** — Benefit from AWS Identity and Access Management (IAM), SCRAM-SHA-1, SCRAM-SHA-256, X.509 certificate authentication, and password-based authentication.
-- **Predictable performance** — Experience consistent performance optimized specifically for enterprise workloads.
+For a comprehensive overview of Amazon DocumentDB's capabilities, refer to the [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md) and [Functional differences: Amazon DocumentDB and MongoDB](functional-differences.md) to maximize your database's potential.
 
-For a comprehensive overview of Amazon DocumentDB's capabilities, refer to the [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md") and [Functional differences: Amazon DocumentDB and MongoDB](functional-differences.md "functional-differences.md") to maximize your database's potential.
-
-Amazon DocumentDB does not support all the indexes offered by MongoDB. We provide a free [index tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md "https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md") on GitHub to check the compatibility.
-Run the index tool to assess incompatibility and plan workarounds accordingly.
+Amazon DocumentDB does not support all the indexes offered by MongoDB. We provide a free [index tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md) on GitHub to check the compatibility. Run the index tool to assess incompatibility and plan workarounds accordingly.
 
 ### Amazon DocumentDB compatibility assessment tool
+<a name="w2aac15b9c13c15"></a>
 
-The [Amazon DocumentDB Compatibility Tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/compat-tool/README.md "https://github.com/awslabs/amazon-documentdb-tools/blob/master/compat-tool/README.md") on GitHub analyzes your MongoDB workload and reports operators, commands, and features that are unsupported or require changes in Amazon DocumentDB. It supports target versions from 3.6 through 8.0.1 (default: 8.0.1).
+The [Amazon DocumentDB Compatibility Tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/compat-tool/README.md) on GitHub analyzes your MongoDB workload and reports operators, commands, and features that are unsupported or require changes in Amazon DocumentDB. It supports target versions from 3.6 through 8.0.1 (default: 8.0.1).
 
-**Recommended: URI mode (MongoDB 5.0+)**
+**Recommended: URI mode (MongoDB 5.0\+)**
 
 URI mode connects directly to your MongoDB instance, samples operations in real time, and requires no profiling or log access.
 
 **Alternative methods**
-
-- **Log-based analysis** — Parses MongoDB profiler logs. Captures actual runtime behavior but requires profiling to be enabled and only covers the logging period.
-- **Source code analysis** — Scans application source code for MongoDB API usage. Provides comprehensive coverage but may flag unused code paths and cannot detect dynamically constructed queries.
++ **Log-based analysis** — Parses MongoDB profiler logs. Captures actual runtime behavior but requires profiling to be enabled and only covers the logging period.
++ **Source code analysis** — Scans application source code for MongoDB API usage. Provides comprehensive coverage but may flag unused code paths and cannot detect dynamically constructed queries.
 
 **Prerequisites**
++ Python 3.7\+
++ Clone the tool: `git clone https://github.com/awslabs/amazon-documentdb-tools.git`
++ Install dependencies: `pip install -r compat-tool/requirements.txt`
 
-- Python 3.7+
-- Clone the tool: `git clone https://github.com/awslabs/amazon-documentdb-tools.git`
-- Install dependencies: `pip install -r compat-tool/requirements.txt`
-
-For full usage details and all available options, see the [README](https://github.com/awslabs/amazon-documentdb-tools/blob/master/compat-tool/README.md "https://github.com/awslabs/amazon-documentdb-tools/blob/master/compat-tool/README.md") on GitHub.
+For full usage details and all available options, see the [README](https://github.com/awslabs/amazon-documentdb-tools/blob/master/compat-tool/README.md) on GitHub.
 
 ## Workload discovery
+<a name="mig-runbook-workload"></a>
 
-Migrating from MongoDB to Amazon DocumentDB requires a thorough understanding of the existing database workload.
-Workload discovery is the process of analyzing your database usage patterns, data structures, query performance, and operational dependencies to ensure a seamless transition with minimal disruption.
-This section outlines the key steps involved in workload discovery to facilitate an effective migration from MongoDB to Amazon DocumentDB.
+Migrating from MongoDB to Amazon DocumentDB requires a thorough understanding of the existing database workload. Workload discovery is the process of analyzing your database usage patterns, data structures, query performance, and operational dependencies to ensure a seamless transition with minimal disruption. This section outlines the key steps involved in workload discovery to facilitate an effective migration from MongoDB to Amazon DocumentDB.
 
-###### Topics
-
-- [Assessing the existing MongoDB deployment](#w2aac15b9c15b7 "#w2aac15b9c15b7")
-- [Identifying data model differences](#w2aac15b9c15b9 "#w2aac15b9c15b9")
-- [Query and performance analysis](#w2aac15b9c15c11 "#w2aac15b9c15c11")
-- [Security and access control review](#w2aac15b9c15c13 "#w2aac15b9c15c13")
-- [Operational and monitoring considerations](#w2aac15b9c15c15 "#w2aac15b9c15c15")
+**Topics**
++ [Assessing the existing MongoDB deployment](#w2aac15b9c15b7)
++ [Identifying data model differences](#w2aac15b9c15b9)
++ [Query and performance analysis](#w2aac15b9c15c11)
++ [Security and access control review](#w2aac15b9c15c13)
++ [Operational and monitoring considerations](#w2aac15b9c15c15)
 
 ### Assessing the existing MongoDB deployment
+<a name="w2aac15b9c15b7"></a>
 
 Before migration, it is crucial to evaluate the current MongoDB environment, including:
-
-- **Cluster architecture** — Identify the number of nodes, replica sets, and sharding configurations.
-  When migrating from MongoDB to Amazon DocumentDB, understanding your MongoDB sharding configuration is important because Amazon DocumentDB does not support user-controlled sharding.
-  Applications designed for a sharded MongoDB environment will need architectural changes, as Amazon DocumentDB uses a different scaling approach with its storage-based architecture.
-  You'll need to adapt your data distribution strategy and possibly consolidate sharded collections when moving to Amazon DocumentDB.
-- **Storage and data volume** — Measure the total data size and index size of your cluster.
-  Complement this with the [Oplog review tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/mongodb-oplog-review "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/mongodb-oplog-review") to understand write patterns and data growth velocity.
-  For more information about sizing your cluster, see [Instance sizing](best_practices.md#best_practices-instance_sizing "best_practices.md#best_practices-instance_sizing").
-- **Workload patterns** — Analyze read and write throughput, query execution frequency, and indexing efficiency.
-- **Operational dependencies** — Document all applications, services, and integrations relying on MongoDB.
++ **Cluster architecture** — Identify the number of nodes, replica sets, and sharding configurations. When migrating from MongoDB to Amazon DocumentDB, understanding your MongoDB sharding configuration is important because Amazon DocumentDB does not support user-controlled sharding. Applications designed for a sharded MongoDB environment will need architectural changes, as Amazon DocumentDB uses a different scaling approach with its storage-based architecture. You'll need to adapt your data distribution strategy and possibly consolidate sharded collections when moving to Amazon DocumentDB.
++ **Storage and data volume** — Measure the total data size and index size of your cluster. Complement this with the [Oplog review tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/mongodb-oplog-review) to understand write patterns and data growth velocity. For more information about sizing your cluster, see [Instance sizing](best_practices.md#best_practices-instance_sizing). 
++ **Workload patterns** — Analyze read and write throughput, query execution frequency, and indexing efficiency.
++ **Operational dependencies** — Document all applications, services, and integrations relying on MongoDB.
 
 ### Identifying data model differences
+<a name="w2aac15b9c15b9"></a>
 
 Although Amazon DocumentDB is MongoDB-compatible, there are differences in supported features, such as:
-
-- **Transactions** — Amazon DocumentDB supports ACID transactions but with some [Limitations](transactions.md#transactions-limitations "transactions.md#transactions-limitations").
-- **Schema design** — Ensure that document structures, embedded documents, and references align with [Amazon DocumentDB’s best practices](https://d1.awsstatic.com/product-marketing/Data%20modeling%20with%20Amazon%20DocumentDB.pdf "https://d1.awsstatic.com/product-marketing/Data%20modeling%20with%20Amazon%20DocumentDB.pdf").
++ **Transactions** — Amazon DocumentDB supports ACID transactions but with some [Limitations](transactions.md#transactions-limitations).
++ **Schema design** — Ensure that document structures, embedded documents, and references align with [Amazon DocumentDB’s best practices](https://d1.awsstatic.com/product-marketing/Data%20modeling%20with%20Amazon%20DocumentDB.pdf).
 
 ### Query and performance analysis
+<a name="w2aac15b9c15c11"></a>
 
 Understanding query behavior helps optimize migration and post-migration performance. Key areas to analyze include:
-
-- **Slow queries** — Identify queries with high execution time using MongoDB’s profiling tools.
-- **Query patterns** — Categorize common query types, including CRUD operations and aggregations.
-- **Index usage** — Assess whether indexes are effectively utilized or need optimization in Amazon DocumentDB.
-  To assess index usage and optimize performance in Amazon DocumentDB, use the `$indexStats` aggregation pipeline stage combined with the `explain()` method on your critical queries.
-  Start by running `db.collection.aggregate([{$indexStats{}}])` to identify which indexes are being used.
-  You can do more detailed analysis by executing you most frequent queries with `explainPlan`.
-- **Concurrency & workload distribution** — Evaluate read and write ratios, connection pooling, and performance bottlenecks.
++ **Slow queries** — Identify queries with high execution time using MongoDB’s profiling tools.
++ **Query patterns** — Categorize common query types, including CRUD operations and aggregations.
++ **Index usage** — Assess whether indexes are effectively utilized or need optimization in Amazon DocumentDB. To assess index usage and optimize performance in Amazon DocumentDB, use the `$indexStats` aggregation pipeline stage combined with the `explain()` method on your critical queries. Start by running `db.collection.aggregate([{$indexStats{}}])` to identify which indexes are being used. You can do more detailed analysis by executing you most frequent queries with `explainPlan`.
++ **Concurrency & workload distribution** — Evaluate read and write ratios, connection pooling, and performance bottlenecks.
 
 ### Security and access control review
+<a name="w2aac15b9c15c13"></a>
 
 **Authentication and authorization**
-
-- **MongoDB RBAC to Amazon DocumentDB IAM and RBAC** — Map MongoDB's role-based access control users and roles to AWS Identity and Access Management (IAM) policies and Amazon DocumentDB SCRAM authentication users.
-- **User migration strategy** — Plan for migrating database users, custom roles, and privileges to Amazon DocumentDB's supported authentication mechanisms.
-- **Privilege differences** — Identify MongoDB privileges without direct Amazon DocumentDB equivalents (for example, cluster administration roles).
-- **Application authentication** — Update connection strings and credential management for Amazon DocumentDB's password policies.
-  You can use secrets manager to store your credentials and rotate passwords.
-- **Service account management** — Establish processes for managing service account credentials in AWS Secrets Manager.
-- **Least privilege implementation** — Review and refine access controls to implement least privilege principles in the new environment.
++ **MongoDB RBAC to Amazon DocumentDB IAM and RBAC** — Map MongoDB's role-based access control users and roles to AWS Identity and Access Management (IAM) policies and Amazon DocumentDB SCRAM authentication users.
++ **User migration strategy** — Plan for migrating database users, custom roles, and privileges to Amazon DocumentDB's supported authentication mechanisms.
++ **Privilege differences** — Identify MongoDB privileges without direct Amazon DocumentDB equivalents (for example, cluster administration roles).
++ **Application authentication** — Update connection strings and credential management for Amazon DocumentDB's password policies. You can use secrets manager to store your credentials and rotate passwords.
++ **Service account management** — Establish processes for managing service account credentials in AWS Secrets Manager.
++ **Least privilege implementation** — Review and refine access controls to implement least privilege principles in the new environment.
 
 **Encryption**
 
@@ -150,48 +137,43 @@ Ensure encryption at rest and in transit aligns with compliance requirements.
 
 **Network configuration**
 
-Plan for [Virtual Private Cloud (VPC)](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md") setup and security group rules.
+Plan for [Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html) setup and security group rules.
 
 ### Operational and monitoring considerations
+<a name="w2aac15b9c15c15"></a>
 
 To maintain system reliability, workload discovery should also include:
-
-- **Backup and restore strategy** — Evaluate existing backup methods and Amazon DocumentDB’s backup capabilities.
-- **AWS Backup integration** — Leverage AWS Backup for centralized backup management across AWS services including Amazon DocumentDB.
-- **CloudWatch metrics** — Map MongoDB monitoring metrics to Amazon DocumentDB CloudWatch metrics for CPU, memory, connections, and storage.
-- **Performance Insights** — Implement Amazon DocumentDB Performance Insights to visualize database load and analyze performance issues with detailed query analytics.
-- **Profiler** — Configure Amazon DocumentDB profiler to capture slow-running operations (similar to MongoDB's profiler but with Amazon DocumentDB-specific settings).
-
-  - Enable through parameter groups with appropriate thresholds.
-  - Analyze profiler data to identify optimization opportunities
-
-- **CloudWatch Events** — Set up event-driven monitoring for Amazon DocumentDB cluster events.
-
-  - Configure notifications for backup events, maintenance windows, and failovers.
-  - Integrate with Amazon SNS for alerting and AWS Lambda for automated responses.
-
-- **Audit logging** — Plan for audit logging configuration to track user activity and security-relevant events.
-- **Enhanced monitoring** — Enable enhanced monitoring for granular OS-level metrics at 1-second intervals.
++ **Backup and restore strategy** — Evaluate existing backup methods and Amazon DocumentDB’s backup capabilities.
++ **AWS Backup integration** — Leverage AWS Backup for centralized backup management across AWS services including Amazon DocumentDB.
++ **CloudWatch metrics** — Map MongoDB monitoring metrics to Amazon DocumentDB CloudWatch metrics for CPU, memory, connections, and storage.
++ **Performance Insights** — Implement Amazon DocumentDB Performance Insights to visualize database load and analyze performance issues with detailed query analytics.
++ **Profiler** — Configure Amazon DocumentDB profiler to capture slow-running operations (similar to MongoDB's profiler but with Amazon DocumentDB-specific settings).
+  + Enable through parameter groups with appropriate thresholds.
+  + Analyze profiler data to identify optimization opportunities
++ **CloudWatch Events** — Set up event-driven monitoring for Amazon DocumentDB cluster events.
+  + Configure notifications for backup events, maintenance windows, and failovers.
+  + Integrate with Amazon SNS for alerting and AWS Lambda for automated responses.
++ **Audit logging** — Plan for audit logging configuration to track user activity and security-relevant events.
++ **Enhanced monitoring** — Enable enhanced monitoring for granular OS-level metrics at 1-second intervals.
 
 ## Create new target cluster
+<a name="mig-runbook-configure-target"></a>
 
-Create an Amazon DocumentDB cluster following the steps in
-[Creating an Amazon DocumentDB cluster](db-cluster-create.md "db-cluster-create.md"). When configuring
-the cluster for migration, apply these recommendations:
-
-- **Instance class:** Choose R8G for best performance. If R8G is unavailable in your target Region, use R6G. Choose as large an instance as possible for best full-load throughput. Scale down after migration is complete.
-- **Engine version:** latest (8.0.1)
-- **Number of instances:** Choose 1 instance to minimize costs during migration. Scale to 3 instances for high availability after the full-load migration is complete.
-- **Network settings:** Ensure your Amazon DocumentDB security group allows inbound connections from the DMS replication instance's security group (for online migrations) or from the EC2 migration host (for offline migrations using mongorestore).
+Create an Amazon DocumentDB cluster following the steps in [Creating an Amazon DocumentDB cluster](db-cluster-create.md). When configuring the cluster for migration, apply these recommendations:
++ **Instance class:** Choose R8G for best performance. If R8G is unavailable in your target Region, use R6G. Choose as large an instance as possible for best full-load throughput. Scale down after migration is complete.
++ **Engine version:** latest (8.0.1)
++ **Number of instances:** Choose 1 instance to minimize costs during migration. Scale to 3 instances for high availability after the full-load migration is complete.
++ **Network settings:** Ensure your Amazon DocumentDB security group allows inbound connections from the DMS replication instance's security group (for online migrations) or from the EC2 migration host (for offline migrations using mongorestore).
 
 ## Index migration
+<a name="mig-runbook-index"></a>
 
-Migrating from MongoDB to Amazon DocumentDB involves transferring not just data but also indexes to maintain query performance and optimize database operations.
-This section outlines the detailed step-by-step process for migrating indexes from MongoDB to Amazon DocumentDB while ensuring compatibility and efficiency.
+Migrating from MongoDB to Amazon DocumentDB involves transferring not just data but also indexes to maintain query performance and optimize database operations. This section outlines the detailed step-by-step process for migrating indexes from MongoDB to Amazon DocumentDB while ensuring compatibility and efficiency.
 
 ### Using the Amazon DocumentDB index tool
+<a name="w2aac15b9c19b5"></a>
 
-**Clone the [index tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md "https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md") on GitHub**
+**Clone the [index tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md) on GitHub**
 
 ```
 git clone https://github.com/awslabs/amazon-documentdb-tools.git
@@ -230,13 +212,14 @@ python3 migrationtools/documentdb_index_tool.py \
 ```
 
 ## User migration
+<a name="mig-runbook-user"></a>
 
-Migrating users from MongoDB to Amazon DocumentDB is essential for maintaining access control, authentication, and database security.
-This section outlines detailed steps to successfully migrate MongoDB users while preserving their roles and permissions using the Amazon DocumentDB export user tool.
+Migrating users from MongoDB to Amazon DocumentDB is essential for maintaining access control, authentication, and database security. This section outlines detailed steps to successfully migrate MongoDB users while preserving their roles and permissions using the Amazon DocumentDB export user tool.
 
 ### Using Amazon DocumentDB export users tool
+<a name="w2aac15b9c21b5"></a>
 
-The [`Export Users tool`](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/export-users "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/export-users") exports users and roles from MongoDB or Amazon DocumentDB to JavaScript files, which can then be used to recreate them in another cluster.
+The [`Export Users tool`](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/export-users) exports users and roles from MongoDB or Amazon DocumentDB to JavaScript files, which can then be used to recreate them in another cluster.
 
 **Prerequisites**
 
@@ -283,8 +266,8 @@ mongosh \
   --tls \
   --host <target_endpoint>:27017 \
   --tlsCAFile global-bundle.pem \
-  --username `<username>` \
-  --password `<password>` \
+  --username {{<username>}} \
+  --password {{<password>}} \
   mongodb-roles.js
 ```
 
@@ -296,48 +279,43 @@ mongosh \
   --tls \
   --host <target_endpoint>:27017 \
   --tlsCAFile global-bundle.pem \
-  --username `<username>` \
-  --password `<password>` \
+  --username {{<username>}} \
+  --password {{<password>}} \
   mongodb-users.js
 ```
 
 **Important notes**
-
-- Passwords are not exported for security reasons and must be manually added to the users.js file.
-- Roles must be imported before users to ensure proper role assignments.
-- The tool generates JavaScript files that can be directly executed with the mongosh shell.
-- Custom roles and their privileges are preserved during migration.
-- This approach allows for review and modification of user permissions before importing.
++ Passwords are not exported for security reasons and must be manually added to the users.js file.
++ Roles must be imported before users to ensure proper role assignments.
++ The tool generates JavaScript files that can be directly executed with the mongosh shell.
++ Custom roles and their privileges are preserved during migration.
++ This approach allows for review and modification of user permissions before importing.
 
 This method provides a secure and flexible approach to migrating users and roles from MongoDB to Amazon DocumentDB while allowing for password resets during the migration process.
 
 ## Data migration
+<a name="mig-runbook-data"></a>
 
-###### Topics
-
-- [Online migration](#w2aac15b9c23b5 "#w2aac15b9c23b5")
-- [Offline migration](#w2aac15b9c23b7 "#w2aac15b9c23b7")
+**Topics**
++ [Online migration](#w2aac15b9c23b5)
++ [Offline migration](#w2aac15b9c23b7)
 
 ### Online migration
+<a name="w2aac15b9c23b5"></a>
 
-This section provides detailed steps to perform an online migration from MongoDB to Amazon DocumentDB using AWS DMS to enable minimal downtime and continuous replication.
-To begin, you set up an Amazon DocumentDB cluster as the target and ensure your MongoDB instance is properly configured as the source, typically requiring replica set mode for change data capture.
-Next, you create a DMS replication instance and define source and target endpoints with the necessary connection details.
-After validating the endpoints, you configure and start a migration task that can include full data load, ongoing replication, or both.
+This section provides detailed steps to perform an online migration from MongoDB to Amazon DocumentDB using AWS DMS to enable minimal downtime and continuous replication. To begin, you set up an Amazon DocumentDB cluster as the target and ensure your MongoDB instance is properly configured as the source, typically requiring replica set mode for change data capture. Next, you create a DMS replication instance and define source and target endpoints with the necessary connection details. After validating the endpoints, you configure and start a migration task that can include full data load, ongoing replication, or both.
 
 #### Create new target cluster
+<a name="w2aac15b9c23b5b5"></a>
 
-See [Create new target cluster](#mig-runbook-configure-target "#mig-runbook-configure-target").
+See [Create new target cluster](#mig-runbook-configure-target).
 
 #### Configure source
+<a name="w2aac15b9c23b5b7"></a>
 
 MongoDB and Amazon DocumentDB can both serve as migration sources, depending on your scenario:
-
-- **MongoDB as source** — Common when migrating from an on-premises or a self-managed MongoDB to an Amazon DocumentDB or other AWS database services.
-  Requires running in replica set mode with an adequately sized oplog (make sure it is sized to hold all operations during Full Load) to support change data capture during migration.
-- **Amazon DocumentDB as source** — Typically used for cross-Region replication, version upgrades, or migrating to other database services like MongoDB Atlas.
-  Requires [Enabling change streams](change_streams.md#change_streams-enabling "change_streams.md#change_streams-enabling") by setting the `change_stream_log_retention_duration` parameter in the cluster parameter group to capture ongoing changes during migration.
-  Make sure your `change_stream_log_retention_duration` setting is large enough to cover the time needed to complete the Full Load.
++ **MongoDB as source** — Common when migrating from an on-premises or a self-managed MongoDB to an Amazon DocumentDB or other AWS database services. Requires running in replica set mode with an adequately sized oplog (make sure it is sized to hold all operations during Full Load) to support change data capture during migration.
++ **Amazon DocumentDB as source** — Typically used for cross-Region replication, version upgrades, or migrating to other database services like MongoDB Atlas. Requires [Enabling change streams](change_streams.md#change_streams-enabling) by setting the `change_stream_log_retention_duration` parameter in the cluster parameter group to capture ongoing changes during migration. Make sure your `change_stream_log_retention_duration` setting is large enough to cover the time needed to complete the Full Load.
 
 Before starting migration, configure your source to allow AWS DMS access.
 
@@ -345,8 +323,8 @@ Create a MongoDB user with proper permissions:
 
 ```
 db.createUser({
-  user: "`dmsUser`",
-  pwd: "`<password>`",
+  user: "{{dmsUser}}",
+  pwd: "{{<password>}}",
   roles: [{ role: "readAnyDatabase", db: "admin" }]
 })
 ```
@@ -356,386 +334,386 @@ Configure network and authentication.
 When configuring network connectivity for MongoDB to DMS migration:
 
 **EC2-hosted MongoDB source**
-
-- Modify the EC2 security group to allow inbound traffic from the DMS replication instance security group.
-- Add a rule for TCP port 27017 (or your custom MongoDB port).
-- Use the DMS replication instance's security group ID as the source for precise access control.
-- Ensure the EC2 instance's subnet has a route to the DMS replication instance's subnet.
++ Modify the EC2 security group to allow inbound traffic from the DMS replication instance security group.
++ Add a rule for TCP port 27017 (or your custom MongoDB port).
++ Use the DMS replication instance's security group ID as the source for precise access control.
++ Ensure the EC2 instance's subnet has a route to the DMS replication instance's subnet.
 
 **On-premises MongoDB source**
-
-- Configure your firewall to allow inbound connections from the DMS replication instance's public IP addresses.
-- If using Direct Connect or a VPN, ensure proper routing between your network and the VPC containing the DMS instance.
-- Test connectivity using telnet or nc commands from the DMS subnet to your MongoDB server.
++ Configure your firewall to allow inbound connections from the DMS replication instance's public IP addresses.
++ If using Direct Connect or a VPN, ensure proper routing between your network and the VPC containing the DMS instance.
++ Test connectivity using telnet or nc commands from the DMS subnet to your MongoDB server.
 
 **MongoDB Atlas source**
-
-- Add a DMS replication instance IP addresses to the MongoDB Atlas IP allowlist.
-- Configure VPC peering between AWS VPC and MongoDB Atlas VPC if Atlas is running on AWS.
-- Set up AWS PrivateLink for private connectivity (Enterprise tier), if running on another cloud provider.
-- Create a dedicated user with appropriate read/write permissions.
-- Use a MongoDB Atlas connection string with SSL Mode set to "verify-full".
-- Ensure sufficient oplog size for migration duration.
++ Add a DMS replication instance IP addresses to the MongoDB Atlas IP allowlist.
++ Configure VPC peering between AWS VPC and MongoDB Atlas VPC if Atlas is running on AWS.
++ Set up AWS PrivateLink for private connectivity (Enterprise tier), if running on another cloud provider.
++ Create a dedicated user with appropriate read/write permissions.
++ Use a MongoDB Atlas connection string with SSL Mode set to "verify-full".
++ Ensure sufficient oplog size for migration duration.
 
 **Amazon DocumentDB source**
 
 Configure your source Amazon DocumentDB security group to allow inbound traffic from the DMS replication instance security group.
 
 #### Create DMS replication instance
+<a name="w2aac15b9c23b5b9"></a>
 
-Use [DMS Buddy](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy") on GitHub to create optimal migration infrastructure with optimal DMS settings and instance sizes. If you prefer to configure manually, follow these steps:
+Use [DMS Buddy](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy) on GitHub to create optimal migration infrastructure with optimal DMS settings and instance sizes. If you prefer to configure manually, follow these steps:
 
 1. In the AWS DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Provisioned instances**.
-2. Enter replication instance details:
 
-   - **Instance name**: Choose a unique name.
-   - **Instance class**: Select based on workload. Example: dms.r7i.large (small workloads), dms.r7i.4xlarge (large workloads).
-   - **Engine version**: 3.5.4
-   - **Allocated storage**: Default is 50 GB (increase if needed). This is determined by document size, updates/second and full load duration.
-   - **Multi-AZ Deployment**: Enable for high availability, if needed.
-   - Choose the same VPC as Amazon DocumentDB.
-   - Ensure **Security groups** allow inbound traffic from source and Amazon DocumentDB.
+1. Enter replication instance details:
+   + **Instance name**: Choose a unique name.
+   + **Instance class**: Select based on workload. Example: dms.r7i.large (small workloads), dms.r7i.4xlarge (large workloads).
+   + **Engine version**: 3.5.4
+   + **Allocated storage**: Default is 50 GB (increase if needed). This is determined by document size, updates/second and full load duration.
+   + **Multi-AZ Deployment**: Enable for high availability, if needed.
+   + Choose the same VPC as Amazon DocumentDB.
+   + Ensure **Security groups** allow inbound traffic from source and Amazon DocumentDB.
 
-3. Choose **Create replication instance** and wait for the status to be available.
+1. Choose **Create replication instance** and wait for the status to be available.
 
 #### Create DMS endpoints
+<a name="w2aac15b9c23b5c11"></a>
 
 ##### Create a source endpoint
+<a name="w2aac15b9c23b5c11b3"></a>
 
 **For a MongoDB source**
 
 1. In the DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Endpoints**.
-2. Choose **Create endpoint**.
-3. On the **Create endpoint** page, choose **Source endpoint**.
-4. In the **Endpoint configuration** section:
 
-   - Enter a unique and meaningful **Endpoint identifier** (for example, "mongodb-source").
-   - Choose **MongoDB** as the **Source engine**.
-   - For **Access to endpoint database**, choose **Provide access information manually**.
-   - For **Server name**, enter your `MongoDB server DNS name/IP address`.
-   - For **Port**, enter **27017** (default MongoDB port).
-   - For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
-   - If **Authentication mode** is **Password**, provide:
+1. Choose **Create endpoint**.
 
-     - **Username** and **Password**: Enter MongoDB credentials.
-     - **Database name**: Your source database name.
-     - **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
+1. On the **Create endpoint** page, choose **Source endpoint**.
 
-5. For **Metadata mode**, leave the default setting of **document**.
-6. Additional connection attributes:
+1. In the **Endpoint configuration** section:
+   + Enter a unique and meaningful **Endpoint identifier** (for example, "mongodb-source").
+   + Choose **MongoDB** as the **Source engine**.
+   + For **Access to endpoint database**, choose **Provide access information manually**.
+   + For **Server name**, enter your {{MongoDB server DNS name/IP address}}.
+   + For **Port**, enter **27017** (default MongoDB port).
+   + For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
+   + If **Authentication mode** is **Password**, provide:
+     + **Username** and **Password**: Enter MongoDB credentials.
+     + **Database name**: Your source database name.
+     + **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
 
-   - authSource=admin (if authentication database is different)
-   - replicaSet=<your-replica-set-name> (required for CDC)
+1. For **Metadata mode**, leave the default setting of **document**.
+
+1. Additional connection attributes:
+   + authSource=admin (if authentication database is different)
+   + replicaSet=<your-replica-set-name> (required for CDC)
 
 **For an Amazon DocumentDB source**
 
 1. In the DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Endpoints**.
-2. Choose **Create endpoint**.
-3. On the **Create endpoint** page, choose **Source endpoint**.
-4. In the **Endpoint configuration** section:
 
-   - Enter a unique and meaningful **Endpoint identifier** (for example, "docdb-source").
-   - Choose **Amazon DocumentDB** as the **Source engine**.
-   - For **Access to endpoint database**, choose **Provide access information manually**.
-   - For **Server name**, enter your `source Amazon DocumentDB cluster endpoint`.
-   - For **Port**, enter **27017** (default Amazon DocumentDB port).
-   - For **SSL mode**, choose **verify-full** (recommended for Amazon DocumentDB).
-   - For **CA Certificate**, choose the Amazon RDS root CA certificate.
-   - For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
-   - If **Authentication mode** is **Password**, provide:
+1. Choose **Create endpoint**.
 
-     - **Username** and **Password**: Enter Amazon DocumentDB credentials.
-     - **Database name**: Your source database name.
-     - **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
+1. On the **Create endpoint** page, choose **Source endpoint**.
 
-5. For **Metadata mode**, leave the default setting of **document**.
+1. In the **Endpoint configuration** section:
+   + Enter a unique and meaningful **Endpoint identifier** (for example, "docdb-source").
+   + Choose **Amazon DocumentDB** as the **Source engine**.
+   + For **Access to endpoint database**, choose **Provide access information manually**.
+   + For **Server name**, enter your {{source Amazon DocumentDB cluster endpoint}}.
+   + For **Port**, enter **27017** (default Amazon DocumentDB port).
+   + For **SSL mode**, choose **verify-full** (recommended for Amazon DocumentDB).
+   + For **CA Certificate**, choose the Amazon RDS root CA certificate.
+   + For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
+   + If **Authentication mode** is **Password**, provide:
+     + **Username** and **Password**: Enter Amazon DocumentDB credentials.
+     + **Database name**: Your source database name.
+     + **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
+
+1. For **Metadata mode**, leave the default setting of **document**.
 
 ##### Create a target endpoint (Amazon DocumentDB)
+<a name="w2aac15b9c23b5c11b5"></a>
 
 1. In the DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Endpoints**.
-2. Choose **Create endpoint**.
-3. On the **Create endpoint** page, choose **Target endpoint**.
-4. In the **Endpoint configuration** section:
 
-   - Enter a unique and meaningful **Endpoint identifier** (for example, "docdb-target").
-   - Choose **Amazon DocumentDB** as the **Target engine**.
-   - For **Access to endpoint database**, choose the method you want to use to authenticate access to the database:
+1. Choose **Create endpoint**.
 
-     - If you choose **AWS Secrets Manager**, choose the secret where you store your Amazon DocumentDB credentials in the **Secret** field.
-     - If you choose **Provide access information manually**:
+1. On the **Create endpoint** page, choose **Target endpoint**.
 
-       - For **Server name**, enter your `target Amazon DocumentDB cluster endpoint`.
-       - For **Port**, enter **27017** (default Amazon DocumentDB port).
-       - For **SSL mode**, choose **verify-full** (recommended for Amazon DocumentDB).
-       - For **CA Certificate**, download and specify the CA certificate bundle for SSL verification.
-       - For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
-       - If **Authentication mode** is **Password**, provide:
+1. In the **Endpoint configuration** section:
+   + Enter a unique and meaningful **Endpoint identifier** (for example, "docdb-target").
+   + Choose **Amazon DocumentDB** as the **Target engine**.
+   + For **Access to endpoint database**, choose the method you want to use to authenticate access to the database:
+     + If you choose **AWS Secrets Manager**, choose the secret where you store your Amazon DocumentDB credentials in the **Secret** field.
+     + If you choose **Provide access information manually**: 
+       + For **Server name**, enter your {{target Amazon DocumentDB cluster endpoint}}.
+       + For **Port**, enter **27017** (default Amazon DocumentDB port).
+       + For **SSL mode**, choose **verify-full** (recommended for Amazon DocumentDB).
+       + For **CA Certificate**, download and specify the CA certificate bundle for SSL verification.
+       + For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
+       + If **Authentication mode** is **Password**, provide:
+         + **Username** and **Password**: Enter Amazon DocumentDB credentials.
+         + **Database name**: Your source database name.
+         + **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
 
-         - **Username** and **Password**: Enter Amazon DocumentDB credentials.
-         - **Database name**: Your source database name.
-         - **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
-
-5. For **Metadata mode**, leave the default setting of **document**.
+1. For **Metadata mode**, leave the default setting of **document**.
 
 #### Create replication task
+<a name="w2aac15b9c23b5c13"></a>
 
 1. In the DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Tasks**.
-2. Choose **Create task**.
-3. On the **Create task** page, in the **Task configuration** section:
 
-   - Enter a unique and meaningful **Task identifier** (for example, "mongodb-docdb-replication").
-   - Choose the source endpoint you created previously in the **Source database endpoint** drop-down menu.
-   - Choose the target endpoint you created previously in the **Target database endpoint** drop-down menu.
-   - Choose the replication instance you created previously in the **Provisioned instance** drop-down menu.
-   - For **Task type**, choose **Migrate and replicate**.
-   - For **How long do you intend to continue replicating from source to target?**, choose **For a limited time**.
+1. Choose **Create task**.
 
-4. In the **Settings** section:
+1. On the **Create task** page, in the **Task configuration** section:
+   + Enter a unique and meaningful **Task identifier** (for example, "mongodb-docdb-replication").
+   + Choose the source endpoint you created previously in the **Source database endpoint** drop-down menu.
+   + Choose the target endpoint you created previously in the **Target database endpoint** drop-down menu.
+   + Choose the replication instance you created previously in the **Provisioned instance** drop-down menu.
+   + For **Task type**, choose **Migrate and replicate**.
+   + For **How long do you intend to continue replicating from source to target?**, choose **For a limited time**.
 
-   - For **Target table preparation mode**, choose **Do nothing**. Otherwise, the collections and indexes that were already created will be deleted.
-   - For **Task logs**, check the **Turn on CloudWatch** logs box.
-   - Leave default values for all other settings.
+1. In the **Settings** section:
+   + For **Target table preparation mode**, choose **Do nothing**. Otherwise, the collections and indexes that were already created will be deleted.
+   + For **Task logs**, check the **Turn on CloudWatch** logs box.
+   + Leave default values for all other settings.
 
-5. Back at the top of the **Settings** section, for **Editing mode**, choose **JSON editor** and set the following attributes:
+1. Back at the top of the **Settings** section, for **Editing mode**, choose **JSON editor** and set the following attributes:
 
-```
-{
-  "TargetMetadata": {
-    "ParallelApplyThreads": 5
-  },
-  "FullLoadSettings": {
-    "MaxFullLoadSubTasks": 16
-  }
-}
-```
+   ```
+   {
+     "TargetMetadata": {
+       "ParallelApplyThreads": 5
+     },
+     "FullLoadSettings": {
+       "MaxFullLoadSubTasks": 16
+     }
+   }
+   ```
 
-Set `MaxFullLoadSubTasks` based on your collection count and instance capacity. Use lower values (2–4) for fewer or smaller collections, and higher values (8–16) for many large collections. For automated sizing, see [DMS Buddy](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy") on GitHub. 6. In the **Table mappings** section, add a new selection rule:
+   Set `MaxFullLoadSubTasks` based on your collection count and instance capacity. Use lower values (2–4) for fewer or smaller collections, and higher values (8–16) for many large collections. For automated sizing, see [DMS Buddy](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy) on GitHub.
 
-    * For **Schema name**, add the source database to migrate. Use % to specify multiple databases.
-    * For **Schema table** name, add the source collection to migrate. Use % to specify multiple collections.
-    * For **Action**, leave the default setting of **Include**
+1. In the **Table mappings** section, add a new selection rule:
+   + For **Schema name**, add the source database to migrate. Use % to specify multiple databases.
+   + For **Schema table** name, add the source collection to migrate. Use % to specify multiple collections.
+   + For **Action**, leave the default setting of **Include**
 
-7. For large collections (over 100GB), add **Table settings rule**:
+1. For large collections (over 100GB), add **Table settings rule**:
+   + For **Schema name**, add the source database to migrate. Use % to specify multiple databases.
+   + For **Schema table** name, add the source collection to migrate. Use % to specify multiple collections.
+   + For **Number of partitions**, set based on your workload. For a small number of large collections, set partitions ≥ `MaxFullLoadSubTasks` to keep all workers busy. For many collections loading in parallel, set partitions ≤ `MaxFullLoadSubTasks` since the collection count itself provides sufficient parallelism.
 
-    * For **Schema name**, add the source database to migrate. Use % to specify multiple databases.
-    * For **Schema table** name, add the source collection to migrate. Use % to specify multiple collections.
-    * For **Number of partitions**, set based on your workload. For a small number of large collections, set partitions ≥ `MaxFullLoadSubTasks` to keep all workers busy. For many collections loading in parallel, set partitions ≤ `MaxFullLoadSubTasks` since the collection count itself provides sufficient parallelism.
-
-8. In the **Premigration assessment** section, make sure it is turned off. Premigration assessment is not supported for Amazon DocumentDB as a target and must be disabled.
+1. In the **Premigration assessment** section, make sure it is turned off. Premigration assessment is not supported for Amazon DocumentDB as a target and must be disabled.
 
 ### Offline migration
+<a name="w2aac15b9c23b7"></a>
 
 This section outlines the process to perform an offline migration from a self-managed MongoDB instance to Amazon DocumentDB using native MongoDB tools: `mongodump` and `mongorestore`.
 
 #### Prerequisites
+<a name="w2aac15b9c23b7b5"></a>
 
 **Source MongoDB requirements**
-
-- Access to the source MongoDB instance with appropriate permissions.
-- Install `mongodump`. if needed (it is installed during a MongoDB installation).
-- Make sure there is enough disk space for the dump files.
++ Access to the source MongoDB instance with appropriate permissions.
++ Install `mongodump`. if needed (it is installed during a MongoDB installation).
++ Make sure there is enough disk space for the dump files.
 
 **Target Amazon DocumentDB requirements**
-
-- Make sure you have an Amazon DocumentDB cluster provisioned.
-- Ensure there is an EC2 instance in the same VPC as Amazon DocumentDB to facilitate the migration.
-- Network connectivity must be available between your source environment and Amazon DocumentDB.
-- **mongorestore** must be installed on the migration EC2 instance.
-- Appropriate IAM permissions must be configured to access Amazon DocumentDB,
++ Make sure you have an Amazon DocumentDB cluster provisioned.
++ Ensure there is an EC2 instance in the same VPC as Amazon DocumentDB to facilitate the migration.
++ Network connectivity must be available between your source environment and Amazon DocumentDB.
++ **mongorestore** must be installed on the migration EC2 instance.
++ Appropriate IAM permissions must be configured to access Amazon DocumentDB,
 
 **General requirements**
-
-- AWS CLI must be configured (if using AWS services for intermediate storage)
-- Sufficient bandwidth must be available for data transfer.
-- Downtime window should be approved (if doing a live migration, consider other approaches)
++ AWS CLI must be configured (if using AWS services for intermediate storage)
++ Sufficient bandwidth must be available for data transfer.
++ Downtime window should be approved (if doing a live migration, consider other approaches)
 
 #### Prepare an Amazon DocumentDB cluster
+<a name="w2aac15b9c23b7b7"></a>
 
-See [Create new target cluster](#mig-runbook-configure-target "#mig-runbook-configure-target").
+See [Create new target cluster](#mig-runbook-configure-target).
 
 #### Perform the data dump (mongodump)
+<a name="w2aac15b9c23b7b9"></a>
 
 Choose one of the following options to create a dump file:
++ **Option 1: Basic**
 
-- **Option 1: Basic**
+  ```
+  mongodump \
+    --uri="mongodb://{{<user>}}:{{<password>}}@{{<source_endpoint>}}:27017/{{<database>}}" \
+    --out=/path/to/dump
+  ```
++ **Option 2: Better control and performance**
 
-```
-mongodump \
-  --uri="mongodb://`<user>`:`<password>`@`<source_endpoint>`:27017/`<database>`" \
-  --out=/path/to/dump
-```
+  Compresses the output with gzip, dumps collections in parallel, enables TLS, and reads from a secondary replica if available:
 
-- **Option 2: Better control and performance**
+  ```
+  mongodump \
+    --uri="mongodb://{{<user>}}:{{<password>}}@{{<source_endpoint>}}:27017" \
+    --out=/path/to/dump \
+    --gzip \
+    --numParallelCollections=4 \
+    --tls \
+    --authenticationDatabase=admin \
+    --readPreference=secondaryPreferred
+  ```
++ **Option 3: Large databases**
 
-Compresses the output with gzip, dumps collections in parallel, enables TLS, and reads from a secondary replica if available:
+  Dumps a specific database and collection, filters documents by query, and outputs to a single compressed archive:
 
-```
-mongodump \
-  --uri="mongodb://`<user>`:`<password>`@`<source_endpoint>`:27017" \
-  --out=/path/to/dump \
-  --gzip \
-  --numParallelCollections=4 \
-  --tls \
-  --authenticationDatabase=admin \
-  --readPreference=secondaryPreferred
-```
-
-- **Option 3: Large databases**
-
-Dumps a specific database and collection, filters documents by query, and outputs to a single compressed archive:
-
-```
-mongodump \
-  --host=`<source_endpoint>` \
-  --port=27017 \
-  --username=`<user>` \
-  --password=`<password>` \
-  --db=`<specific_db>` \
-  --collection=`<specific_collection>` \
-  --query='{ "date": { "$gt": "2020-01-01" } }' \
-  --archive=/path/to/archive.gz \
-  --gzip \
-  --tls
-```
+  ```
+  mongodump \
+    --host={{<source_endpoint>}} \
+    --port=27017 \
+    --username={{<user>}} \
+    --password={{<password>}} \
+    --db={{<specific_db>}} \
+    --collection={{<specific_collection>}} \
+    --query='{ "date": { "$gt": "2020-01-01" } }' \
+    --archive=/path/to/archive.gz \
+    --gzip \
+    --tls
+  ```
 
 #### Transfer dump files to restoration environment
+<a name="w2aac15b9c23b7c11"></a>
 
 Choose an appropriate method based on your dump size:
++ **Small** — Directly copy to your migration machine (EC2 instance you created earlier):
 
-- **Small** — Directly copy to your migration machine (EC2 instance you created earlier):
+  ```
+  scp -r /path/to/dump user@migration-machine:/path/to/restore
+  ```
++ **Medium** — Use Amazon S3 as intermediate storage:
 
-```
-scp -r /path/to/dump user@migration-machine:/path/to/restore
-```
-
-- **Medium** — Use Amazon S3 as intermediate storage:
-
-```
-aws s3 cp --recursive /path/to/dump s3://your-bucket/mongodb-dump/
-```
-
-- **Large** — For very large databases, consider AWS DataSync or a physical transfer.
+  ```
+  aws s3 cp --recursive /path/to/dump s3://your-bucket/mongodb-dump/
+  ```
++ **Large** — For very large databases, consider AWS DataSync or a physical transfer.
 
 #### Restore data to Amazon DocumentDB (mongorestore)
+<a name="w2aac15b9c23b7c13"></a>
 
-Before starting the restore process, create the indexes in Amazon DocumentDB.
-You can utilize the [Amazon DocumentDB Index tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool "https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool") to export and import indexes.
+Before starting the restore process, create the indexes in Amazon DocumentDB. You can utilize the [Amazon DocumentDB Index tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool) to export and import indexes.
 
 Choose one of the following options to restore data:
++ **Option 1: Basic restore**
 
-- **Option 1: Basic restore**
+  ```
+  mongorestore \
+    --uri="mongodb://{{<user>}}:{{<password>}}@{{<target_endpoint>}}:27017" \
+    --tls \
+    --tlsCAFile=global-bundle.pem \
+    /path/to/dump
+  ```
++ **Option 2: Better control and performance**
 
-```
-mongorestore \
-  --uri="mongodb://`<user>`:`<password>`@`<target_endpoint>`:27017" \
-  --tls \
-  --tlsCAFile=global-bundle.pem \
-  /path/to/dump
-```
+  Restores gzip-compressed dumps with parallel collection and document insertion. Skips index restoration since indexes are pre-created:
 
-- **Option 2: Better control and performance**
+  ```
+  mongorestore \
+    --uri="mongodb://{{<user>}}:{{<password>}}@{{<target_endpoint>}}:27017" \
+    --tls \
+    --tlsCAFile=global-bundle.pem \
+    --gzip \
+    --numParallelCollections=4 \
+    --numInsertionWorkersPerCollection=4 \
+    --noIndexRestore \
+    /path/to/dump
+  ```
++ **Option 3: Large databases or specific controls**
 
-Restores gzip-compressed dumps with parallel collection and document insertion. Skips index restoration since indexes are pre-created:
+  Restores from a compressed archive with namespace filtering to include or exclude specific databases and collections. Skips index restoration since indexes are pre-created:
 
-```
-mongorestore \
-  --uri="mongodb://`<user>`:`<password>`@`<target_endpoint>`:27017" \
-  --tls \
-  --tlsCAFile=global-bundle.pem \
-  --gzip \
-  --numParallelCollections=4 \
-  --numInsertionWorkersPerCollection=4 \
-  --noIndexRestore \
-  /path/to/dump
-```
-
-- **Option 3: Large databases or specific controls**
-
-Restores from a compressed archive with namespace filtering to include or exclude specific databases and collections. Skips index restoration since indexes are pre-created:
-
-```
-mongorestore \
-  --host=`<target_endpoint>` \
-  --port=27017 \
-  --username=`<user>` \
-  --password=`<password>` \
-  --tls \
-  --tlsCAFile=global-bundle.pem \
-  --archive=/path/to/archive.gz \
-  --gzip \
-  --nsInclude="db1.*" \
-  --nsExclude="db1.sensitive_data" \
-  --noIndexRestore
-```
+  ```
+  mongorestore \
+    --host={{<target_endpoint>}} \
+    --port=27017 \
+    --username={{<user>}} \
+    --password={{<password>}} \
+    --tls \
+    --tlsCAFile=global-bundle.pem \
+    --archive=/path/to/archive.gz \
+    --gzip \
+    --nsInclude="db1.*" \
+    --nsExclude="db1.sensitive_data" \
+    --noIndexRestore
+  ```
 
 ## Monitoring
+<a name="mig-runbook-monitoring"></a>
 
 This section provides a detailed monitoring process to track the progress, performance, and health of an ongoing migration.
 
 The monitoring steps apply regardless of the migration method (AWS DMS, mongodump/mongorestore, or other tools).
 
 ### AWS DMS Migration monitoring (if applicable)
+<a name="w2aac15b9c25b7"></a>
 
 Monitor the following key CloudWatch metrics:
 
 **Full load phase metrics**
-
-- **FullLoadThroughputBandwidthTarget** — Network bandwidth (KB/second) during full load
-- **FullLoadThroughputRowsTarget** — Number of rows/documents loaded per second
-- **FullLoadThroughputTablesTarget** — Number of tables/collections completed per minute
-- **FullLoadProgressPercent** — Percentage of full load completed
-- **TablesLoaded** — Number of tables/collections successfully loaded
-- **TablesLoading** — Number of tables/collections currently loading
-- **TablesQueued** — Number of tables/collections waiting to be loaded
-- **TablesErrored** — Number of tables/collections that failed to load
++ **FullLoadThroughputBandwidthTarget** — Network bandwidth (KB/second) during full load
++ **FullLoadThroughputRowsTarget** — Number of rows/documents loaded per second
++ **FullLoadThroughputTablesTarget** — Number of tables/collections completed per minute
++ **FullLoadProgressPercent** — Percentage of full load completed
++ **TablesLoaded** — Number of tables/collections successfully loaded
++ **TablesLoading** — Number of tables/collections currently loading
++ **TablesQueued** — Number of tables/collections waiting to be loaded
++ **TablesErrored** — Number of tables/collections that failed to load
 
 **CDC phase metrics**
-
-- **CDCLatencyTarget** — Time delay (seconds) between source change and target application
-- **CDCLatencySource** — Time delay (seconds) between change in source and DMS reading it
-- **CDCThroughputRowsTarget** — Rows per second applied during ongoing replication
-- **CDCThroughputBandwidthTarget** — Network bandwidth (KB/second) during CDC
-- **CDCIncomingChanges** — Number of change events received from source
-- **CDCChangesMemoryTarget** — Memory used (MB) for storing changes on target side
++ **CDCLatencyTarget** — Time delay (seconds) between source change and target application
++ **CDCLatencySource** — Time delay (seconds) between change in source and DMS reading it
++ **CDCThroughputRowsTarget** — Rows per second applied during ongoing replication
++ **CDCThroughputBandwidthTarget** — Network bandwidth (KB/second) during CDC
++ **CDCIncomingChanges** — Number of change events received from source
++ **CDCChangesMemoryTarget** — Memory used (MB) for storing changes on target side
 
 **Resource metrics**
-
-- **CPUUtilization** — CPU usage of the replication instance
-- **FreeableMemory** — Available memory on the replication instance
-- **FreeStorageSpace** — Available storage on the replication instance
-- **NetworkTransmitThroughput** — Network throughput for the replication instance
-- **NetworkReceiveThroughput** — Network throughput for the replication instance
++ **CPUUtilization** — CPU usage of the replication instance
++ **FreeableMemory** — Available memory on the replication instance
++ **FreeStorageSpace** — Available storage on the replication instance
++ **NetworkTransmitThroughput** — Network throughput for the replication instance
++ **NetworkReceiveThroughput** — Network throughput for the replication instance
 
 **Error metrics**
-
-- **ErrorsCount** — Total number of errors during migration
-- **TableErrorsCount** — Number of table-specific errors
-- **RecordsErrorsCount** — Number of record-specific errors
++ **ErrorsCount** — Total number of errors during migration
++ **TableErrorsCount** — Number of table-specific errors
++ **RecordsErrorsCount** — Number of record-specific errors
 
 Create CloudWatch alarms for critical metrics like `CDCLatencyTarget` and `CPUUtilization` to receive notifications if migration performance degrades.
 
 #### DMS logs (CloudWatch logs)
+<a name="w2aac15b9c25b7c23"></a>
+
+
 
 1. Go to Amazon CloudWatch Logs console.
-2. Find and choose on your log group. It will look similar to "dms-tasks –".
-3. Look for log streams that might contain error information:
 
-   - Streams with "error" in the name
-   - Streams with task IDs or endpoint names
-   - The most recent log streams during the time of your migration
+1. Find and choose on your log group. It will look similar to "dms-tasks –".
 
-4. Within these streams, search for keywords like:
+1. Look for log streams that might contain error information:
+   + Streams with "error" in the name
+   + Streams with task IDs or endpoint names
+   + The most recent log streams during the time of your migration
 
-   - "error"
-   - "exception"
-   - "failed"
-   - "warning"
+1. Within these streams, search for keywords like:
+   + "error"
+   + "exception"
+   + "failed"
+   + "warning"
 
 #### DMS task status (using AWS CLI)
+<a name="w2aac15b9c25b7c25"></a>
+
+
 
 ```
 aws dms describe-replication-tasks \
-  --filters Name=replication-task-id,Values=`<task_id>` \
+  --filters Name=replication-task-id,Values={{<task_id>}} \
   --query "ReplicationTasks[0].Status"
 ```
 
@@ -744,29 +722,25 @@ Expected status flow:
 creating → ready → running → stopping → stopped (or failed)
 
 #### Monitor using `docdb-dashboarder`
+<a name="w2aac15b9c25b7c27"></a>
 
-The `docdb-dashboarder` tool provides comprehensive monitoring for Amazon DocumentDB clusters by automatically generating CloudWatch dashboards with essential performance metrics.
-These dashboards display critical cluster-level metrics (replica lag, operation counters), instance-level metrics (CPU, memory, connections), and storage metrics (volume usage, backup storage).
-For migration scenarios, the tool offers specialized dashboards that track migration progress with metrics like CDC replication lag and operation rates.
-The dashboards can monitor multiple clusters simultaneously and include support for NVMe-backed instances.
-By visualizing these metrics, teams can proactively identify performance bottlenecks, optimize resource allocation, and ensure smooth operation of their Amazon DocumentDB deployments.
-The tool eliminates the need for manual dashboard creation while providing consistent monitoring across all environments.
-For setup instructions and advanced configuration options, refer to the [Amazon DocumentDB Dashboarder Tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/monitoring/docdb-dashboarder "https://github.com/awslabs/amazon-documentdb-tools/tree/master/monitoring/docdb-dashboarder") GitHub repository.
+The `docdb-dashboarder` tool provides comprehensive monitoring for Amazon DocumentDB clusters by automatically generating CloudWatch dashboards with essential performance metrics. These dashboards display critical cluster-level metrics (replica lag, operation counters), instance-level metrics (CPU, memory, connections), and storage metrics (volume usage, backup storage). For migration scenarios, the tool offers specialized dashboards that track migration progress with metrics like CDC replication lag and operation rates. The dashboards can monitor multiple clusters simultaneously and include support for NVMe-backed instances. By visualizing these metrics, teams can proactively identify performance bottlenecks, optimize resource allocation, and ensure smooth operation of their Amazon DocumentDB deployments. The tool eliminates the need for manual dashboard creation while providing consistent monitoring across all environments. For setup instructions and advanced configuration options, refer to the [Amazon DocumentDB Dashboarder Tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/monitoring/docdb-dashboarder) GitHub repository.
 
 ## Validation
+<a name="mig-runbook-validation"></a>
 
-###### Topics
-
-- [Validation checklist](#w2aac15b9c27b9 "#w2aac15b9c27b9")
-- [Schema and index validation](#w2aac15b9c27c11 "#w2aac15b9c27c11")
-- [Data sampling and field-level validation](#w2aac15b9c27c13 "#w2aac15b9c27c13")
-- [Validation using DataDiffer tool](#w2aac15b9c27c15 "#w2aac15b9c27c15")
+**Topics**
++ [Validation checklist](#w2aac15b9c27b9)
++ [Schema and index validation](#w2aac15b9c27c11)
++ [Data sampling and field-level validation](#w2aac15b9c27c13)
++ [Validation using DataDiffer tool](#w2aac15b9c27c15)
 
 This section provides a detailed validation process to ensure data consistency, integrity, and application compatibility after migrating.
 
 The validation steps apply regardless of the migration method (AWS DMS, mongodump/mongorestore, or other tools).
 
 ### Validation checklist
+<a name="w2aac15b9c27b9"></a>
 
 Verify that the number of documents in each collection matches between source and target:
 
@@ -774,66 +748,66 @@ Verify that the number of documents in each collection matches between source an
 
 ```
 mongosh \
-  --host `<source_endpoint>` \
+  --host {{<source_endpoint>}} \
   --port 27017 \
-  --username `<user>` \
-  --password `<password>` \
-  --eval "db.`<collection>`.countDocuments()"
+  --username {{<user>}} \
+  --password {{<password>}} \
+  --eval "db.{{<collection>}}.countDocuments()"
 ```
 
 **Amazon DocumentDB target**
 
 ```
 mongosh \
-  --host `<target_endpoint>` \
+  --host {{<target_endpoint>}} \
   --port 27017 \
-  --username `<user>` \
-  --password `<password>` \
+  --username {{<user>}} \
+  --password {{<password>}} \
   --tls \
   --tlsCAFile global-bundle.pem \
-  --eval "db.`<collection>`.countDocuments()"
+  --eval "db.{{<collection>}}.countDocuments()"
 ```
 
 ### Schema and index validation
+<a name="w2aac15b9c27c11"></a>
 
 Ensure that:
-
-- all collections exist in the target.
-- indexes are correctly replicated.
-- schema definitions (if enforced) are identical.
++ all collections exist in the target.
++ indexes are correctly replicated.
++ schema definitions (if enforced) are identical.
 
 **Check collections (source vs. target)**
 
 ```
-mongosh --host `<source_endpoint>` \
+mongosh --host {{<source_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
-  --eval "db = db.getSiblingDB('`<database>`'); db.getCollectionNames();"
+  --username {{<username>}} \
+  --password {{<password>}} \
+  --eval "db = db.getSiblingDB('{{<database>}}'); db.getCollectionNames();"
 
-mongosh --host `<target_endpoint>` \
+mongosh --host {{<target_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
+  --username {{<username>}} \
+  --password {{<password>}} \
   --tls --tlsCAFile global-bundle.pem \
-  --eval "db = db.getSiblingDB('`<database>`'); db.getCollectionNames();"
+  --eval "db = db.getSiblingDB('{{<database>}}'); db.getCollectionNames();"
 ```
 
 **Check indexes (source vs. target)**
 
 ```
-mongosh --host `<source_endpoint>` \
+mongosh --host {{<source_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
-  --eval "db.`<collection>`.getIndexes()"
+  --username {{<username>}} \
+  --password {{<password>}} \
+  --eval "db.{{<collection>}}.getIndexes()"
 
-mongosh --host `<target_endpoint>` \
+mongosh --host {{<target_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
+  --username {{<username>}} \
+  --password {{<password>}} \
   --tls --tlsCAFile global-bundle.pem \
-  --eval "db.`<collection>`.getIndexes()"
+  --eval "db.{{<collection>}}.getIndexes()"
 ```
 
 Compare the list of collections to ensure there are no missing or extra collections.
@@ -843,21 +817,22 @@ Verify indexes by checking index names, key definitions, unique constraints, and
 **Check schema validation rules (if using schema validation in MongoDB)**
 
 ```
-mongosh --host `<source_endpoint>` \
+mongosh --host {{<source_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
-  --eval "db.getCollectionInfos({name: '`<collection>`'})[0].options.validator"
+  --username {{<username>}} \
+  --password {{<password>}} \
+  --eval "db.getCollectionInfos({name: '{{<collection>}}'})[0].options.validator"
 
-mongosh --host `<target_endpoint>` \
+mongosh --host {{<target_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
+  --username {{<username>}} \
+  --password {{<password>}} \
   --tls --tlsCAFile global-bundle.pem \
-  --eval "db.getCollectionInfos({name: '`<collection>`'})[0].options.validator"
+  --eval "db.getCollectionInfos({name: '{{<collection>}}'})[0].options.validator"
 ```
 
 ### Data sampling and field-level validation
+<a name="w2aac15b9c27c13"></a>
 
 You can randomly sample documents and compare fields between source and target.
 
@@ -866,22 +841,22 @@ You can randomly sample documents and compare fields between source and target.
 Fetch five random documents (source):
 
 ```
-mongosh --host `<source_endpoint>` \
+mongosh --host {{<source_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
-  --eval "db.`<collection>`.aggregate([{ \$sample: { size: 5 } }])"
+  --username {{<username>}} \
+  --password {{<password>}} \
+  --eval "db.{{<collection>}}.aggregate([{ \$sample: { size: 5 } }])"
 ```
 
 Fetch the same document IDs (target):
 
 ```
-mongosh --host `<target_endpoint>` \
+mongosh --host {{<target_endpoint>}} \
   --port 27017 \
-  --username `<username>` \
-  --password `<password>` \
+  --username {{<username>}} \
+  --password {{<password>}} \
   --tls --tlsCAFile global-bundle.pem \
-  --eval "db.`<collection>`.find({ _id: { \$in: [`<list_of_ids>`] } })"
+  --eval "db.{{<collection>}}.find({ _id: { \$in: [{{<list_of_ids>}}] } })"
 ```
 
 **Automatic sampling**
@@ -890,16 +865,16 @@ mongosh --host `<target_endpoint>` \
 import pymongo
 
 # Connect to source and target
-source_client = pymongo.MongoClient("`<source_uri>`")
-target_client = pymongo.MongoClient("`<target_uri>`",
+source_client = pymongo.MongoClient("{{<source_uri>}}")
+target_client = pymongo.MongoClient("{{<target_uri>}}",
                                     tls=True,
                                     tlsCAFile='global-bundle.pem')
-source_db = source_client["`<db_name>`"]
-target_db = target_client["`<db_name>`"]
+source_db = source_client["{{<db_name>}}"]
+target_db = target_client["{{<db_name>}}"]
 
 # Compare 100 random documents
-for doc in source_db["`<collection>`"].aggregate([{"$sample": {"size": 100}}]):
-    target_doc = target_db["`<collection>`"].find_one({"_id": doc["_id"]})
+for doc in source_db["{{<collection>}}"].aggregate([{"$sample": {"size": 100}}]):
+    target_doc = target_db["{{<collection>}}"].find_one({"_id": doc["_id"]})
     if target_doc != doc:
         print(f"Mismatch in _id: {doc['_id']}")
     else:
@@ -907,18 +882,20 @@ for doc in source_db["`<collection>`"].aggregate([{"$sample": {"size": 100}}]):
 ```
 
 ### Validation using DataDiffer tool
+<a name="w2aac15b9c27c15"></a>
 
-The [DataDiffer tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/data-differ "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/data-differ") on GitHub provides a reliable way to compare data between source and target databases.
+The [DataDiffer tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/data-differ) on GitHub provides a reliable way to compare data between source and target databases.
 
 #### Prerequisites
+<a name="w2aac15b9c27c15b5"></a>
 
 The following prerequisites must be met before installing the DataDiffer tool:
-
-- Python 3.7+
-- PyMongo library
-- Network connectivity to both source MongoDB and target Amazon DocumentDB clusters
++ Python 3.7\+
++ PyMongo library
++ Network connectivity to both source MongoDB and target Amazon DocumentDB clusters
 
 #### Setup and installation
+<a name="w2aac15b9c27c15b7"></a>
 
 **Clone the repository and navigate to the DataDiffer directory**
 
@@ -934,6 +911,7 @@ pip install -r requirements.txt
 ```
 
 #### Running data validation
+<a name="w2aac15b9c27c15b9"></a>
 
 **Create a configuration file (e.g., config.json) with connection details**
 
@@ -977,24 +955,22 @@ python differ.py --batch-config batch_config.json
 ```
 
 #### Interpreting results
+<a name="w2aac15b9c27c15c11"></a>
 
 The tool will output:
-
-- Total documents in source and target
-- Number of matching documents
-- Number of missing documents
-- Number of documents with differences
-- Detailed report of differences (if any)
++ Total documents in source and target
++ Number of matching documents
++ Number of missing documents
++ Number of documents with differences
++ Detailed report of differences (if any)
 
 #### Best practices
+<a name="w2aac15b9c27c15c13"></a>
 
 The following are best practices when using the DataDiffer tool:
-
-- **Run in phases** — First validate document counts, then sample key documents, and finally run a full comparison, if needed.
-- **Check for schema differences** — Amazon DocumentDB has some limitations compared to MongoDB.
-  The tool will highlight incompatible data types or structures.
-- **Validate during quiet periods** — Run validation when write operations are minimal to ensure consistency.
-- **Monitor resource usage** — The comparison process can be resource-intensive.
-  Adjust batch size and thread count accordingly.
-- **Validate indexes** — After data validation, ensure all required indexes have been created on the target Amazon DocumentDB cluster.
-- **Document validation results** — Keep a record of validation results for each collection as part of your migration documentation.
++ **Run in phases** — First validate document counts, then sample key documents, and finally run a full comparison, if needed.
++ **Check for schema differences** — Amazon DocumentDB has some limitations compared to MongoDB. The tool will highlight incompatible data types or structures.
++ **Validate during quiet periods** — Run validation when write operations are minimal to ensure consistency.
++ **Monitor resource usage** — The comparison process can be resource-intensive. Adjust batch size and thread count accordingly.
++ **Validate indexes** — After data validation, ensure all required indexes have been created on the target Amazon DocumentDB cluster.
++ **Document validation results** — Keep a record of validation results for each collection as part of your migration documentation.

@@ -1,13 +1,16 @@
+
+
 # $size
+<a name="size-query"></a>
 
 The `$size` query operator matches documents where an array field has exactly the specified number of elements. This is useful for filtering documents based on array length.
 
 **Parameters**
-
-- `field`: The array field to check.
-- `count`: The exact number of elements the array must contain.
++ `field`: The array field to check.
++ `count`: The exact number of elements the array must contain.
 
 ## Example (MongoDB Shell)
+<a name="size-query-examples"></a>
 
 The following example demonstrates using the `$size` operator to find all products that have exactly three tags.
 
@@ -36,10 +39,12 @@ db.products.find({ tags: { $size: 3 } });
 ```
 
 ## Code examples
+<a name="size-query-code"></a>
 
 To view a code example for using the `$size` query operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -58,7 +63,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -75,3 +81,5 @@ def example():
 
 example()
 ```
+
+------

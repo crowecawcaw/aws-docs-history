@@ -1,12 +1,15 @@
+
+
 # $not
+<a name="not-aggregation"></a>
 
 The `$not` aggregation operator performs a logical NOT operation on an expression. It returns `true` if the expression evaluates to `false`, and `false` if the expression evaluates to `true`.
 
 **Parameters**
-
-- `expression`: The expression to negate.
++ `expression`: The expression to negate.
 
 ## Example (MongoDB Shell)
+<a name="not-aggregation-examples"></a>
 
 The following example demonstrates using the `$not` operator to invert boolean values.
 
@@ -45,10 +48,12 @@ db.users.aggregate([
 ```
 
 ## Code examples
+<a name="not-aggregation-code"></a>
 
 To view a code example for using the `$not` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -75,7 +80,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -100,3 +106,5 @@ def example():
 
 example()
 ```
+
+------

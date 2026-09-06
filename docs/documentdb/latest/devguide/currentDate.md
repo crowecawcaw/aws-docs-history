@@ -1,13 +1,16 @@
+
+
 # $currentDate
+<a name="currentDate"></a>
 
 The `$currentDate` operator is used to set the value of a field to the current date and time. This operator is useful for automatically updating a field with the current timestamp when a document is inserted or updated.
 
 **Parameters**
-
-- `field`: The field to update with the current date and time.
-- `type`: (optional) Specifies the BSON type to use for the current date. Can be either `date` or `timestamp`.
++ `field`: The field to update with the current date and time.
++ `type`: (optional) Specifies the BSON type to use for the current date. Can be either `date` or `timestamp`.
 
 ## Example (MongoDB Shell)
+<a name="currentDate-examples"></a>
 
 The following example demonstrates how to use the `$currentDate` operator to set the `lastModified` field to the current date and time when a new document is inserted.
 
@@ -47,10 +50,12 @@ db.users.findOne({ name: "John Doe" })
 ```
 
 ## Code examples
+<a name="currentDate-code"></a>
 
 To view a code example for using the `$currentDate` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,8 @@ async function updateUserWithCurrentDate() {
 updateUserWithCurrentDate();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -92,3 +98,5 @@ def update_user_with_current_date():
 
 update_user_with_current_date()
 ```
+
+------

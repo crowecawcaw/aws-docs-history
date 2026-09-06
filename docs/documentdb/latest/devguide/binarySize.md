@@ -1,16 +1,17 @@
+
+
 # $binarySize
+<a name="binarySize"></a>
 
 New from version 8.0.1.
 
-The `$binarySize` operator in Amazon DocumentDB returns the size in bytes of a given string or binary data value.
-For string values, this is the UTF-8 encoded byte count, not the character count.
-Multi-byte UTF-8 characters (such as accented characters or CJK characters) will produce a byte count larger than the number of characters in the string.
+The `$binarySize` operator in Amazon DocumentDB returns the size in bytes of a given string or binary data value. For string values, this is the UTF-8 encoded byte count, not the character count. Multi-byte UTF-8 characters (such as accented characters or CJK characters) will produce a byte count larger than the number of characters in the string.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a string or binary data value.
++ `expression`: An expression that resolves to a string or binary data value.
 
 ## Example (MongoDB Shell)
+<a name="binarySize-examples"></a>
 
 The following example shows how to use the `$binarySize` operator to return the byte size of string fields.
 
@@ -43,10 +44,12 @@ db.docs.aggregate([
 ```
 
 ## Code examples
+<a name="binarySize-code"></a>
 
 To view a code example for using the `$binarySize` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +71,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +91,5 @@ def example():
 
 example()
 ```
+
+------

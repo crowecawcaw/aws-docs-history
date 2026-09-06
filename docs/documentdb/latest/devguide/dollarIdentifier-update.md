@@ -1,13 +1,16 @@
+
+
 # $[<identifier>]
+<a name="dollarIdentifier-update"></a>
 
 The `$[<identifier>]` filtered positional operator updates all array elements that match the specified filter conditions. It is used with the `arrayFilters` option to selectively update array elements.
 
 **Parameters**
-
-- `field.$[identifier]`: The array field with the filtered positional operator.
-- `arrayFilters`: An array of filter conditions that determine which elements to update.
++ `field.$[identifier]`: The array field with the filtered positional operator.
++ `arrayFilters`: An array of filter conditions that determine which elements to update.
 
 ## Example (MongoDB Shell)
+<a name="dollarIdentifier-update-examples"></a>
 
 The following example demonstrates using the `$[<identifier>]` operator to update specific array elements based on a condition.
 
@@ -50,10 +53,12 @@ db.students.updateOne(
 ```
 
 ## Code examples
+<a name="dollarIdentifier-update-code"></a>
 
 To view a code example for using the `$[<identifier>]` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function updateDocument() {
 updateDocument();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -101,3 +107,5 @@ def update_document():
 
 update_document()
 ```
+
+------

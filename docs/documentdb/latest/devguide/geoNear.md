@@ -1,19 +1,22 @@
+
+
 # $geoNear
+<a name="geoNear"></a>
 
 The `$geoNear` aggregation stage returns documents in order of proximity to a specified point. It calculates the distance from the point and includes the distance in the output documents.
 
 **Parameters**
-
-- `near`: The point from which to calculate distances, specified as GeoJSON or legacy coordinates.
-- `distanceField`: The field name to store the calculated distance.
-- `spherical`: Boolean indicating whether to use spherical geometry (required for GeoJSON points).
-- `maxDistance`: Optional. Maximum distance from the center point.
-- `minDistance`: Optional. Minimum distance from the center point.
-- `query`: Optional. Additional filter criteria to apply.
-- `limit`: Optional. Maximum number of documents to return.
-- `key`: Optional. Field to use for geospatial query when multiple geospatial indexes exist.
++ `near`: The point from which to calculate distances, specified as GeoJSON or legacy coordinates.
++ `distanceField`: The field name to store the calculated distance.
++ `spherical`: Boolean indicating whether to use spherical geometry (required for GeoJSON points).
++ `maxDistance`: Optional. Maximum distance from the center point.
++ `minDistance`: Optional. Minimum distance from the center point.
++ `query`: Optional. Additional filter criteria to apply.
++ `limit`: Optional. Maximum number of documents to return.
++ `key`: Optional. Field to use for geospatial query when multiple geospatial indexes exist.
 
 ## Example (MongoDB Shell)
+<a name="geoNear-examples"></a>
 
 The following example demonstrates using the `$geoNear` stage to find stores nearest to a given location.
 
@@ -54,10 +57,12 @@ db.stores.aggregate([
 ```
 
 ## Code examples
+<a name="geoNear-code"></a>
 
 To view a code example for using the `$geoNear` aggregation stage, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -84,7 +89,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -109,3 +115,5 @@ def example():
 
 example()
 ```
+
+------

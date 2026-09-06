@@ -1,4 +1,7 @@
+
+
 # $rand
+<a name="rand"></a>
 
 New from version 8.0
 
@@ -9,6 +12,7 @@ The `$rand` operator in Amazon DocumentDB is used to generate a random number be
 None
 
 ## Example (MongoDB Shell)
+<a name="rand-examples"></a>
 
 The following example demonstrates how to use the `$rand` operator to randomly select two documents from the `temp` collection.
 
@@ -49,10 +53,12 @@ db.items.aggregate([
 ```
 
 ## Code examples
+<a name="rand-code"></a>
 
 To view a code example for using the `$rand` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +84,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -102,3 +109,5 @@ def example():
 
 example()
 ```
+
+------

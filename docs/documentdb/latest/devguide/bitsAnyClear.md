@@ -1,13 +1,16 @@
+
+
 # $bitsAnyClear
+<a name="bitsAnyClear"></a>
 
 The `$bitsAnyClear` operator in Amazon DocumentDB is used to match the documents where any of the specified bit in a field are cleared (set to 0). This can be useful for performing bitwise operations on field values stored in documents.
 
 **Parameters**
-
-- `field`: The field to check.
-- `value`: The numeric bitmask that specifies which bits should be checked, or a list of bits positions to be checked. A numeric bitmask can be a binary (0b...), decimal, hexadecimal (0x...), octal (0o...), or binary (BinData) form. In a list of bits positions, the position of the least significant bit is 0.
++ `field`: The field to check.
++ `value`: The numeric bitmask that specifies which bits should be checked, or a list of bits positions to be checked. A numeric bitmask can be a binary (0b...), decimal, hexadecimal (0x...), octal (0o...), or binary (BinData) form. In a list of bits positions, the position of the least significant bit is 0.
 
 ## Example (MongoDB Shell)
+<a name="bitsAnyClear-examples"></a>
 
 The following example demonstrates how to use the `$bitsAnyClear` operator to check if any bit is clear in the `status` field of the `items` collection.
 
@@ -36,10 +39,12 @@ db.items.find({ "status": { $bitsAnyClear: 8 } })
 In this example, the query checks for documents where the `status` field has any bits clear (0) in the bitmask `8` (binary `1000`). The document with `status` values of `7` (binary `111`) matches the query, as it has at least one bit clear in the provided bitmask. The matching clear bit is the 4th least significant bit.
 
 ## Code examples
+<a name="bitsAnyClear-code"></a>
 
 To view a code example for using the `$bitsAnyClear` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -58,7 +63,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -75,3 +81,5 @@ def example():
 
 example()
 ```
+
+------

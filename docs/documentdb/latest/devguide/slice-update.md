@@ -1,13 +1,16 @@
+
+
 # $slice
+<a name="slice-update"></a>
 
 The `$slice` update operator modifies an array by limiting its size. When used with the `$push` operator, it restricts the number of elements in an array, keeping only the specified number of most recent or oldest elements.
 
 **Parameters**
-
-- `field`: The array field to modify.
-- `count`: Maximum number of elements to keep. Positive values keep the first N elements, negative values keep the last N elements.
++ `field`: The array field to modify.
++ `count`: Maximum number of elements to keep. Positive values keep the first N elements, negative values keep the last N elements.
 
 ## Example (MongoDB Shell)
+<a name="slice-update-examples"></a>
 
 The following example demonstrates how to use the `$slice` update operator with `$push` to maintain a fixed-size array of recent scores.
 
@@ -50,10 +53,12 @@ db.students.updateOne(
 In this example, the `$slice: -3` modifier keeps only the last three elements after pushing new values to the array.
 
 ## Code examples
+<a name="slice-update-code"></a>
 
 To view a code example for using the `$slice` update operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -84,7 +89,8 @@ async function updateDocument() {
 updateDocument();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -113,3 +119,5 @@ def update_document():
 
 update_document()
 ```
+
+------

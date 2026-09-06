@@ -1,14 +1,17 @@
+
+
 # $log10
+<a name="log10"></a>
 
 New from version 4.0.
 
 The `$log10` operator in Amazon DocumentDB is used to calculate the base-10 logarithm of a number. It is useful for performing logarithmic calculations on numeric fields within the aggregation pipeline.
 
 **Parameters**
-
-- `expression`: The numeric expression for which the base-10 logarithm is to be calculated.
++ `expression`: The numeric expression for which the base-10 logarithm is to be calculated.
 
 ## Example (MongoDB Shell)
+<a name="log10-examples"></a>
 
 The following example demonstrates how to use the `$log10` operator to calculate the base-10 logarithm of a numeric field.
 
@@ -48,10 +51,12 @@ db.numbers.aggregate([
 ```
 
 ## Code examples
+<a name="log10-code"></a>
 
 To view a code example for using the `$log10` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -61,7 +66,7 @@ async function example() {
 
   try {
     client = await MongoClient.connect('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false');
-
+    
     const db = client.db('test');
     const collection = db.collection('numbers');
 
@@ -87,7 +92,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -96,7 +102,7 @@ def example():
     client = None
     try:
         client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
-
+        
         db = client.test
         collection = db.numbers
 
@@ -110,13 +116,15 @@ def example():
         ]))
 
         print(result)
-
+    
     except Exception as e:
         print(f"An error occurred: {e}")
-
+    
     finally:
         if client:
             client.close()
 
 example()
 ```
+
+------

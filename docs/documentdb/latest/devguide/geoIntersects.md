@@ -1,12 +1,15 @@
+
+
 # $geoIntersects
+<a name="geoIntersects"></a>
 
 The `$geoIntersects` operator in Amazon DocumentDB is used to find documents whose geospatial data intersects with a specified GeoJSON object. This operator is useful for applications that require identifying documents based on their spatial relationship with a given geographic shape, such as a polygon or multipolygon.
 
 **Parameters**
-
-- `$geometry`: A GeoJSON object that represents the shape to check for intersection. The supported GeoJSON object types are `Point`, `LineString`, `Polygon`, and `MultiPolygon`.
++ `$geometry`: A GeoJSON object that represents the shape to check for intersection. The supported GeoJSON object types are `Point`, `LineString`, `Polygon`, and `MultiPolygon`.
 
 ## Example (MongoDB Shell)
+<a name="geoIntersects-examples"></a>
 
 The following example demonstrates how to use the `$geoIntersects` operator to find the state name for a given set of coordinates in Amazon DocumentDB.
 
@@ -69,10 +72,12 @@ db.states.find({
 ```
 
 ## Code examples
+<a name="geoIntersects-code"></a>
 
 To view a code example for using the `$geoIntersects` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -101,7 +106,7 @@ async function findStateByGeoIntersects(longitude, latitude) {
   const document = await collection.findOne(query, { projection });
 
   await client.close();
-
+  
   if (document) {
     return document.name;
   } else {
@@ -110,7 +115,8 @@ async function findStateByGeoIntersects(longitude, latitude) {
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -149,3 +155,5 @@ def find_state_by_geointersects(longitude, latitude):
         if client is not None:
             client.close()
 ```
+
+------

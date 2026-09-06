@@ -1,14 +1,17 @@
+
+
 # $cond
+<a name="cond"></a>
 
 The `$cond` operator in Amazon DocumentDB is used to evaluate a conditional expression and return one of two possible result expressions.
 
 **Parameters**
-
-- `if`: The boolean expression to evaluate.
-- `then`: The expression to return if the `if` expression is true.
-- `else`: The expression to return if the `if` expression is false.
++ `if`: The boolean expression to evaluate.
++ `then`: The expression to return if the `if` expression is true.
++ `else`: The expression to return if the `if` expression is false.
 
 ## Example (MongoDB Shell)
+<a name="cond-examples"></a>
 
 The following example demonstrates the use of the `$cond` operator to return a value based on the age of a person.
 
@@ -58,10 +61,12 @@ db.people.aggregate([
 ```
 
 ## Code examples
+<a name="cond-code"></a>
 
 To view a code example for using the `$cond` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -98,7 +103,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -135,3 +141,5 @@ def example():
 
 example()
 ```
+
+------

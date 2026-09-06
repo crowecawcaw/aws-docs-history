@@ -1,4 +1,7 @@
+
+
 # $natural
+<a name="natural"></a>
 
 The `$natural` operator in Amazon DocumentDB is used to sort the documents in their natural order, which is the order in which they were inserted into the collection. This is in contrast to the default sorting behavior, which is to sort the documents based on the values of the specified fields.
 
@@ -7,6 +10,7 @@ The `$natural` operator in Amazon DocumentDB is used to sort the documents in th
 None
 
 ## Example (MongoDB Shell)
+<a name="natural-examples"></a>
 
 The following example demonstrates how to use the `$natural` operator to sort the documents in a collection in their natural order.
 
@@ -43,10 +47,12 @@ db.people.find({}, { "_id": 1, "name": 1 }).sort({ "$natural": 1 });
 The query sorts the documents in the collection in their natural order, which is the order in which they were inserted.
 
 ## Code examples
+<a name="natural-code"></a>
 
 To view a code example for using the `$natural` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +74,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -85,3 +92,5 @@ def example():
 
 example()
 ```
+
+------

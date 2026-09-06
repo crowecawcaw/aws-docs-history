@@ -1,14 +1,17 @@
+
+
 # $stdDevPop
+<a name="stdDevPop"></a>
 
 New from version 8.0.1.
 
 The `$stdDevPop` operator in Amazon DocumentDB calculates the population standard deviation of numeric values. As an accumulator, it computes the population standard deviation across documents within a group in the `$group` stage of an aggregation pipeline. As an expression, it calculates the population standard deviation of an array of numbers. The population standard deviation uses N as the divisor (not N-1). Non-numeric values are ignored. If there are no numeric values, it returns `null`. If there is only one numeric value, it returns `0`.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a numeric value or an array of numeric values.
++ `expression`: An expression that resolves to a numeric value or an array of numeric values.
 
 ## Example (MongoDB Shell)
+<a name="stdDevPop-examples"></a>
 
 The following example shows how to use the `$stdDevPop` operator to calculate the population standard deviation of scores per subject.
 
@@ -50,6 +53,7 @@ db.scores.aggregate([
 ```
 
 ## Expression usage example (MongoDB Shell)
+<a name="stdDevPop-expression-examples"></a>
 
 The `$stdDevPop` operator can also be used as an expression within a `$project` stage to compute the population standard deviation of an array field.
 
@@ -84,10 +88,12 @@ db.experiments.aggregate([
 ```
 
 ## Code examples
+<a name="stdDevPop-code"></a>
 
 To view a code example for using the `$stdDevPop` operator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -127,7 +133,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -162,3 +169,5 @@ def example():
 
 example()
 ```
+
+------

@@ -1,4 +1,7 @@
+
+
 # $bucket
+<a name="bucket"></a>
 
 New from version 8.0
 
@@ -7,13 +10,13 @@ Not supported by Elastic cluster.
 The `$bucket` aggregation stage in Amazon DocumentDB allows you to group input documents into buckets based on a specified expression and bucket boundaries. This can be useful for analyzing data that falls within certain value ranges or categories.
 
 **Parameters**
-
-- `groupBy` (required): The expression that specifies the value to group by.
-- `boundaries` (required): An array of double values that define the bucket boundaries. Documents are assigned to buckets based on the `groupBy` expression value falling within the specified boundaries.
-- `default` (optional): A literal value that is output for documents whose `groupBy` expression value does not fall into any of the specified boundaries.
-- `output` (optional): An object that specifies the information to output for each bucket. You can use accumulator operators like `$sum`, `$avg`, `$min`, and `$max` to compute aggregations for each bucket.
++ `groupBy` (required): The expression that specifies the value to group by.
++ `boundaries` (required): An array of double values that define the bucket boundaries. Documents are assigned to buckets based on the `groupBy` expression value falling within the specified boundaries.
++ `default` (optional): A literal value that is output for documents whose `groupBy` expression value does not fall into any of the specified boundaries.
++ `output` (optional): An object that specifies the information to output for each bucket. You can use accumulator operators like `$sum`, `$avg`, `$min`, and `$max` to compute aggregations for each bucket.
 
 ## Example (MongoDB Shell)
+<a name="bucket-examples"></a>
 
 The following example demonstrates how to use the `$bucket` stage to group sales data by price range.
 
@@ -61,10 +64,12 @@ db.sales.aggregate([
 ```
 
 ## Code examples
+<a name="bucket-code"></a>
 
 To view a code example for using the `$bucket` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -98,7 +103,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -130,3 +136,5 @@ def example():
 
 example()
 ```
+
+------

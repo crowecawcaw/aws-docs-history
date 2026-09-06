@@ -1,14 +1,17 @@
+
+
 # $unwind
+<a name="unwind"></a>
 
 The `$unwind` operator is used to deconstruct an array field from the input documents to output a document for each element. This can be useful when you want to perform operations on the individual elements of an array, such as filtering, sorting, or transforming the data.
 
 **Parameters**
-
-- `path`: The path to the array field to be unwound.
-- `includeArrayIndex`: (optional) Specifies the name of the new field to hold the index of the array element.
-- `preserveNullAndEmptyArrays`: (optional) Determines whether the operation keeps the original document when the array field is null or an empty array.
++ `path`: The path to the array field to be unwound.
++ `includeArrayIndex`: (optional) Specifies the name of the new field to hold the index of the array element.
++ `preserveNullAndEmptyArrays`: (optional) Determines whether the operation keeps the original document when the array field is null or an empty array.
 
 ## Example (MongoDB Shell)
+<a name="unwind-examples"></a>
 
 The following example demonstrates how to use the `$unwind` operator to deconstruct an array field and perform further operations on the individual elements.
 
@@ -43,10 +46,12 @@ db.people.aggregate([
 ```
 
 ## Code examples
+<a name="unwind-code"></a>
 
 To view a code example for using the `$unwind` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -86,3 +92,5 @@ def example():
 
 example()
 ```
+
+------

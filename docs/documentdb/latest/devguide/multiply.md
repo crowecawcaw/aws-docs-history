@@ -1,14 +1,17 @@
+
+
 # $multiply
+<a name="multiply"></a>
 
 The `$multiply` operator in Amazon DocumentDB is used to multiply the values of two or more fields or expressions. This operator is particularly useful for performing arithmetic operations on numeric fields within documents. It can be employed in various stages of the aggregation pipeline, such as `$project` and `$addFields`, to create new fields or modify existing ones.
 
 **Parameters**
-
-- `expression1`: The first numeric expression to be multiplied.
-- `expression2`: The second numeric expression to be multiplied.
-- `[expression3, ...]`: (optional) Additional numeric expressions to be multiplied.
++ `expression1`: The first numeric expression to be multiplied.
++ `expression2`: The second numeric expression to be multiplied.
++ `[expression3, ...]`: (optional) Additional numeric expressions to be multiplied.
 
 ## Example (MongoDB Shell)
+<a name="multiply-examples"></a>
 
 The following example demonstrates using `$multiply` to calculate `bonus_miles` by multiplying `base_miles` and `bonus_rate` for customers who used a credit card for the trip.
 
@@ -22,7 +25,6 @@ db.miles.insertMany([
 { "_id": 4, "customer_name": "Paulo Santos", "member_since": ISODate("2021-06-19T00:00:00Z"), "base_miles": 2980, "bonus_rate": 1.2, "credit_card": true, "trip_cost": 298 },
 { "_id": 5, "customer_name": "Wang Xiulan", "member_since": ISODate("1995-12-04T00:00:00Z"), "base_miles": 1350, "bonus_rate": 1.9, "credit_card": false, "trip_cost": 135 }
 ]);
-
 ```
 
 **Query example**
@@ -57,10 +59,12 @@ db.miles.aggregate([
 ```
 
 ## Code examples
+<a name="multiply-code"></a>
 
 To view a code example for using the `$multiply` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -92,7 +96,8 @@ async function multiplyBonusMiles() {
 multiplyBonusMiles();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -122,3 +127,5 @@ def multiply_bonus_miles():
 
 multiply_bonus_miles()
 ```
+
+------

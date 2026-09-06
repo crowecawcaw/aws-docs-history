@@ -1,13 +1,16 @@
+
+
 # $mul
+<a name="mul"></a>
 
 The `$mul` operator in Amazon DocumentDB is used to multiply the value of a field by a specified number. This can be useful for updating multiple documents atomically and consistently, such as updating flight miles based on a credit card status.
 
 **Parameters**
-
-- `field`: The field to be multiplied.
-- `multiplier`: The number to multiply the field value by.
++ `field`: The field to be multiplied.
++ `multiplier`: The number to multiply the field value by.
 
 ## Example (MongoDB Shell)
+<a name="mul-examples"></a>
 
 This example demonstrates how to use the `$mul` operator to double the `flight_miles` value for all documents where the `credit_card` field is `true`.
 
@@ -44,10 +47,12 @@ For the customers that have a credit card, their flight miles have been doubled.
 The `$[]` positional array operator is used to apply the `$mul` operation to each element in the `flight_miles` array.
 
 ## Code examples
+<a name="mul-code"></a>
 
 To view a code example for using the `$mul` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -71,7 +76,8 @@ async function updateFlightMiles() {
 updateFlightMiles();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -93,3 +99,5 @@ def update_flight_miles():
 
 update_flight_miles()
 ```
+
+------

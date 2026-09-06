@@ -1,12 +1,15 @@
+
+
 # $minDistance
+<a name="minDistance"></a>
 
 `$minDistance` is a find operator used in conjunction with `$nearSphere` or `$geoNear` to filter documents that are at least at the specified minimum distance from the center point. This operator is supported in Amazon DocumentDB and functions similarly to its counterpart in MongoDB.
 
 **Parameters**
-
-- `$minDistance`: The minimum distance (in meters) from the center point to include documents in the results.
++ `$minDistance`: The minimum distance (in meters) from the center point to include documents in the results.
 
 ## Example (MongoDB Shell)
+<a name="minDistance-examples"></a>
 
 In this example, we'll find all restaurants within a 2-kilometer radius of a specific location in Seattle, Washington.
 
@@ -74,10 +77,12 @@ db.usarestaurants.find({
 ```
 
 ## Code examples
+<a name="minDistance-code"></a>
 
 To view a code example for using the `$minDistance` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -109,7 +114,8 @@ async function findRestaurantsNearby() {
 findRestaurantsNearby();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -139,3 +145,5 @@ def find_restaurants_nearby():
 
 find_restaurants_nearby()
 ```
+
+------

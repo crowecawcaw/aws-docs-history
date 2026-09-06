@@ -1,14 +1,17 @@
+
+
 # $allElementsTrue
+<a name="allElementsTrue"></a>
 
 New from version 4.0
 
 The `$allElementsTrue` operator is used to check if all elements in an array evaluate to a true value.
 
 **Parameters**
-
-- `expression`: An expression that evaluates to an array.
++ `expression`: An expression that evaluates to an array.
 
 ## Example (MongoDB Shell)
+<a name="allElementsTrue-examples"></a>
 
 The following example demonstrates the usage of `$allElementsTrue` to check if all elements in an array are true.
 
@@ -42,10 +45,12 @@ db.collection.find({
 In this example, the query checks if all elements in the `scores` array are greater than 0. The document with `&quot;name&quot;: &quot;Jane&quot;` is excluded because the `scores` array contains a 0, which is a falsy value.
 
 ## Code examples
+<a name="allElementsTrue-code"></a>
 
 To view a code example for using the `$allElementsTrue` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -67,7 +72,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def example():
 
 example()
 ```
+
+------

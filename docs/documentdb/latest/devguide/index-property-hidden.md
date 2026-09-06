@@ -1,4 +1,7 @@
+
+
 # Index property: hidden
+<a name="index-property-hidden"></a>
 
 Amazon DocumentDB supports the `hidden` index property beginning with Amazon DocumentDB 8.0.1.
 
@@ -7,24 +10,26 @@ Hidden indexes are not visible to the query planner and cannot be used to suppor
 The `hidden` property is supported on all index types, including single field, compound, multikey, text, geospatial, and vector indexes.
 
 ## Behavior
+<a name="index-property-hidden-behavior"></a>
 
 Apart from being hidden from the planner, hidden indexes are fully maintained and enforced. For example:
-
-- If a hidden index is a unique index, the index still applies its unique constraint to documents.
-- If a hidden index is a TTL index, the index still expires documents.
-- Hidden indexes are included in `listIndexes` and `db.collection.getIndexes()` results.
-- Hidden indexes are updated on write operations to the collection and continue to consume disk space and memory. As a result, they are included in statistics operations such as `db.collection.stats()` and `$indexStats`.
-- Hiding an unhidden index, or unhiding a hidden index, resets its `$indexStats`. Hiding an already hidden index, or unhiding an already unhidden index, does not reset `$indexStats`.
++ If a hidden index is a unique index, the index still applies its unique constraint to documents.
++ If a hidden index is a TTL index, the index still expires documents.
++ Hidden indexes are included in `listIndexes` and `db.collection.getIndexes()` results.
++ Hidden indexes are updated on write operations to the collection and continue to consume disk space and memory. As a result, they are included in statistics operations such as `db.collection.stats()` and `$indexStats`.
++ Hiding an unhidden index, or unhiding a hidden index, resets its `$indexStats`. Hiding an already hidden index, or unhiding an already unhidden index, does not reset `$indexStats`.
 
 ## Restrictions
-
-- You cannot hide the `_id` index.
-- You cannot use `cursor.hint()` to force the use of a hidden index.
-- `$merge` fails if the required unique index on the `on` fields is hidden. Make the index visible before running `$merge`.
+<a name="index-property-hidden-restrictions"></a>
++ You cannot hide the `_id` index.
++ You cannot use `cursor.hint()` to force the use of a hidden index.
++ `$merge` fails if the required unique index on the `on` fields is hidden. Make the index visible before running `$merge`.
 
 ## Examples
+<a name="index-property-hidden-examples"></a>
 
 ### Create a hidden index
+<a name="index-property-hidden-create"></a>
 
 To create an index in the hidden state, use the `db.collection.createIndex()` method and set the `hidden` option to `true` in the index definition.
 
@@ -59,6 +64,7 @@ db.collection.getIndexes()
 The index option `hidden` is only returned if the value is `true`.
 
 ### Hide an existing index
+<a name="index-property-hidden-hide"></a>
 
 Use the `collMod` command to hide an existing index. Identify the index either by its `name` or by its `keyPattern`, and set `hidden` to `true`.
 
@@ -87,6 +93,7 @@ db.runCommand({
 ```
 
 ### Unhide an existing index
+<a name="index-property-hidden-unhide"></a>
 
 To make a hidden index visible again, use the `collMod` command with `hidden` set to `false`.
 

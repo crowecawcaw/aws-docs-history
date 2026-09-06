@@ -1,14 +1,17 @@
+
+
 # $nor
+<a name="nor"></a>
 
 The `$nor` operator is used to match documents where none of the specified query conditions are true. It is similar to the logical "NOR" operation, where the result is true if none of the operands are true.
 
 **Parameters**
-
-- `expression1`: The first expression to evaluate.
-- `expression2`: The second expression to evaluate.
-- `expressionN`: Additional expressions to evaluate.
++ `expression1`: The first expression to evaluate.
++ `expression2`: The second expression to evaluate.
++ `expressionN`: Additional expressions to evaluate.
 
 ## Example (MongoDB Shell)
+<a name="nor-examples"></a>
 
 The following example demonstrates the usage of the `$nor` operator by retrieving documents where the `qty` field is not less than 20 and the `size` field is not equal to "XL".
 
@@ -43,10 +46,12 @@ db.items.find({
 ```
 
 ## Code examples
+<a name="nor-code"></a>
 
 To view a code example for using the `$nor` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -71,7 +76,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -94,3 +100,5 @@ def example():
 
 example()
 ```
+
+------

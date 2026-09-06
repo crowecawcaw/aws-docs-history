@@ -1,12 +1,15 @@
+
+
 # $avg
+<a name="avg"></a>
 
 The `$avg` aggregation operator in Amazon DocumentDB calculates the average value of the specified expression across the documents that are input to the stage. This operator is useful for computing the average of a numeric field or expression across a set of documents.
 
 **Parameters**
-
-- `expression`: The expression to use to calculate the average. This can be a field path (e.g. `"$field"`) or an expression (e.g. `{ $multiply: ["$field1", "$field2"] }`).
++ `expression`: The expression to use to calculate the average. This can be a field path (e.g. `"$field"`) or an expression (e.g. `{ $multiply: ["$field1", "$field2"] }`).
 
 ## Example (MongoDB Shell)
+<a name="avg-examples"></a>
 
 The following example demonstrates how to use the `$avg` operator to calculate the average score across a set of student documents.
 
@@ -25,7 +28,7 @@ db.students.insertMany([
 
 ```
 db.students.aggregate([
-  { $group: {
+  { $group: { 
     _id: null,
     avgScore: { $avg: "$score" }
   }}
@@ -44,10 +47,12 @@ db.students.aggregate([
 ```
 
 ## Code examples
+<a name="avg-code"></a>
 
 To view a code example for using the `$avg` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function calculateAvgScore() {
 calculateAvgScore();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -87,3 +93,5 @@ def calculate_avg_score():
 
 calculate_avg_score()
 ```
+
+------

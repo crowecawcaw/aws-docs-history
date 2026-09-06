@@ -1,20 +1,22 @@
+
+
 # $lastN
+<a name="lastN"></a>
 
 New from version 8.0.1.
 
 The `$lastN` operator in Amazon DocumentDB returns the last N elements. When used as an accumulator in a `$group` stage, it returns an array of the last N values in each group. When used as an array expression operator, it returns the last N elements of an array.
 
 **Parameters**
-
-- `input`: The expression that resolves to the field or array from which to return values.
-- `n`: A positive integer that specifies how many values to return. When used as an accumulator in a `$group` stage, `n` can also be an expression, as long as it resolves to a positive integer based on the group `_id` field.
++ `input`: The expression that resolves to the field or array from which to return values.
++ `n`: A positive integer that specifies how many values to return. When used as an accumulator in a `$group` stage, `n` can also be an expression, as long as it resolves to a positive integer based on the group `_id` field.
 
 ## Example (MongoDB Shell)
+<a name="lastN-examples"></a>
 
 The following example shows how to use the `$lastN` accumulator to retrieve the last two quantities for each item during the aggregation.
 
-###### Note
-
+**Note**  
 `$lastN` selects values in the order that documents reach the `$group` stage. To return the last N values for a specific ordering (for example, by date or score), add a `$sort` stage before `$group`.
 
 **Create sample documents**
@@ -48,6 +50,7 @@ db.sales.aggregate([
 ```
 
 ## Expression usage example (MongoDB Shell)
+<a name="lastN-expression-examples"></a>
 
 The `$lastN` operator can also be used as an expression within a `$project` stage to return the last N elements of an array field.
 
@@ -80,10 +83,12 @@ db.inventory.aggregate([
 ```
 
 ## Code examples
+<a name="lastN-code"></a>
 
 To view a code example for using the `$lastN` accumulator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -117,7 +122,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -147,3 +153,5 @@ def example():
 
 example()
 ```
+
+------

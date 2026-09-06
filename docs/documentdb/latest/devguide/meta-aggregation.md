@@ -1,12 +1,15 @@
+
+
 # $meta
+<a name="meta-aggregation"></a>
 
 The `$meta` aggregation operator accesses metadata associated with documents in an aggregation pipeline. It is commonly used to retrieve text search scores and sort results by relevance.
 
 **Parameters**
-
-- `textScore`: Retrieves the text search score indicating document relevance to the search query.
++ `textScore`: Retrieves the text search score indicating document relevance to the search query.
 
 ## Example (MongoDB Shell)
+<a name="meta-aggregation-examples"></a>
 
 The following example demonstrates using the `$meta` operator in an aggregation pipeline to retrieve and sort by text search scores.
 
@@ -52,10 +55,12 @@ db.articles.aggregate([
 ```
 
 ## Code examples
+<a name="meta-aggregation-code"></a>
 
 To view a code example for using the `$meta` aggregation operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -78,7 +83,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -99,3 +105,5 @@ def example():
 
 example()
 ```
+
+------

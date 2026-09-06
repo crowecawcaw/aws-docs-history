@@ -1,4 +1,7 @@
+
+
 # $ROOT
+<a name="ROOT"></a>
 
 The `$ROOT` operator in Amazon DocumentDB is used to reference the entire input document within an aggregation pipeline. It allows you to access and manipulate the complete document, including all its nested fields and structures.
 
@@ -7,6 +10,7 @@ The `$ROOT` operator in Amazon DocumentDB is used to reference the entire input 
 None
 
 ## Example (MongoDB Shell)
+<a name="ROOT-examples"></a>
 
 This example demonstrates using `$ROOT` to create an audit log that captures the complete original document along with metadata about when it was processed.
 
@@ -98,10 +102,12 @@ db.orders.aggregate([
 ```
 
 ## Code examples
+<a name="ROOT-code"></a>
 
 To view a code example for using the `$ROOT` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -137,7 +143,8 @@ async function createAuditLog() {
 createAuditLog();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -172,3 +179,5 @@ def create_audit_log():
 
 create_audit_log()
 ```
+
+------

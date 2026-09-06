@@ -1,15 +1,18 @@
+
+
 # $trim
+<a name="trim"></a>
 
 New from version 4.0
 
 The `$trim` operator in Amazon DocumentDB is used to remove leading and/or trailing whitespace characters from a string.
 
 **Parameters**
-
-- `input`: The string expression to trim.
-- `chars`: (optional) Specifies the characters to trim from the beginning and end of the input, the default is whitespace.
++ `input`: The string expression to trim.
++ `chars`: (optional) Specifies the characters to trim from the beginning and end of the input, the default is whitespace.
 
 ## Example (MongoDB Shell)
+<a name="trim-examples"></a>
 
 The following example demonstrates how to use the `$trim` operator to remove leading and trailing whitespace from a string.
 
@@ -42,10 +45,12 @@ db.people.aggregate([
 ```
 
 ## Code examples
+<a name="trim-code"></a>
 
 To view a code example for using the `$trim` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -68,7 +73,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -89,3 +95,5 @@ def example():
 
 example()
 ```
+
+------

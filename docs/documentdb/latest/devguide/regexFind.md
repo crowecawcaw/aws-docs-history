@@ -1,4 +1,7 @@
+
+
 # $regexFind
+<a name="regexFind"></a>
 
 New from version 5.0.
 
@@ -7,12 +10,12 @@ Not supported by Elastic cluster.
 The `$regexFind` operator in Amazon DocumentDB is used to perform regular expression matching on string fields within documents. It allows you to search for and extract specific substrings that match a given regular expression pattern.
 
 **Parameters**
-
-- `input`: The string field or expression to search.
-- `regex`: The regular expression pattern to match.
-- `options`: (optional) An object that specifies optional parameters for the regular expression, such as case-sensitivity and multi-line matching. Supported options are `i` (case-insensitive) and `m` (multi-line).
++ `input`: The string field or expression to search.
++ `regex`: The regular expression pattern to match.
++ `options`: (optional) An object that specifies optional parameters for the regular expression, such as case-sensitivity and multi-line matching. Supported options are `i` (case-insensitive) and `m` (multi-line).
 
 ## Example (MongoDB Shell)
+<a name="regexFind-examples"></a>
 
 The following example demonstrates how to use the `$regexFind` operator to search for documents where the `name` field matches a specific regular expression pattern.
 
@@ -52,13 +55,15 @@ This query will return all documents where the `name` field contains the letter 
 ]
 ```
 
-**Note:** If your query is using Amazon DocumentDB planner version 1, you must use a hint to utilize an index. Without a hint, the query may perform a collection scan. To check your planner version and learn more about using hints, see [Query planner v2](query-planner.md "query-planner.md").
+**Note:** If your query is using Amazon DocumentDB planner version 1, you must use a hint to utilize an index. Without a hint, the query may perform a collection scan. To check your planner version and learn more about using hints, see [Query planner v2](query-planner.md).
 
 ## Code examples
+<a name="regexFind-code"></a>
 
 To view a code example for using the `$regexFind` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -72,7 +77,7 @@ async function main() {
     { $project: { names: { $regexFind: { input: "$name", regex: "john", options: "i" }}}},
     { $match: {names: {$ne: null}}}
   ]).toArray();
-
+  
 
   console.log(results);
 
@@ -82,7 +87,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -100,3 +106,5 @@ print(results)
 
 client.close()
 ```
+
+------

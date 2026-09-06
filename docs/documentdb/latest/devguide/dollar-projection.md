@@ -1,12 +1,15 @@
+
+
 # $
+<a name="dollar-projection"></a>
 
 The `$` projection operator limits the contents of an array field to return only the first element that matches the query condition. It is used to project a single matching array element.
 
 **Parameters**
-
-- `field.$`: The array field with the positional operator to project the first matching element.
++ `field.$`: The array field with the positional operator to project the first matching element.
 
 ## Example (MongoDB Shell)
+<a name="dollar-projection-examples"></a>
 
 The following example demonstrates using the `$` projection operator to return only the matching array element.
 
@@ -40,10 +43,12 @@ db.students.find(
 In this example, only the first grade that is greater than or equal to 90 is returned for each student.
 
 ## Code examples
+<a name="dollar-projection-code"></a>
 
 To view a code example for using the `$` projection operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -65,7 +70,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -85,3 +91,5 @@ def example():
 
 example()
 ```
+
+------

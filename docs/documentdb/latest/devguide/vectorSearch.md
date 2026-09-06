@@ -1,4 +1,7 @@
+
+
 # $vectorSearch
+<a name="vectorSearch"></a>
 
 New from version 8.0
 
@@ -7,11 +10,11 @@ Not supported by Elastic cluster.
 The `$vectorSearch` operator in Amazon DocumentDB allows you to perform vector search, a method used in machine learning to find similar data points by comparing their vector representations using distance or similarity metrics. This capability combines the flexibility and rich querying of a JSON-based document database with the power of vector search, enabling you to build machine learning and generative AI use cases such as semantic search, product recommendation, and more.
 
 **Parameters**
++ `<exact>` (optional): Flag that specifies whether to run Exact Nearest Neighbor (ENN) or Approximate Nearest Neighbor (ANN) search. Value can be one of the following:
++ false - to run ANN search
++ true - to run ENN search
 
-- `<exact>` (optional): Flag that specifies whether to run Exact Nearest Neighbor (ENN) or Approximate Nearest Neighbor (ANN) search. Value can be one of the following:
-- false - to run ANN search
-- true - to run ENN search
-  If omitted or set to false, `numCandidates` is required.
+If omitted or set to false, `numCandidates` is required.
 
 ```
 - `<index>` : Name of the Vector Search index to use.
@@ -22,6 +25,7 @@ The `$vectorSearch` operator in Amazon DocumentDB allows you to perform vector s
 ```
 
 ## Example (MongoDB Shell)
+<a name="vectorSearch-examples"></a>
 
 The following example demonstrates how to use the `$vectorSearch` operator to find similar product descriptions based on their vector representations.
 
@@ -108,10 +112,12 @@ db.products.aggregate([
 ```
 
 ## Code examples
+<a name="vectorSearch-code"></a>
 
 To view a code example for using the `$vectorSearch` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -139,7 +145,8 @@ async function findSimilarProducts(queryVector) {
 findSimilarProducts([0.1, 0.2, 0.3]);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -167,3 +174,5 @@ def find_similar_products(query_vector):
 
 find_similar_products([0.1, 0.2, 0.3])
 ```
+
+------

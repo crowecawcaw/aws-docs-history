@@ -1,4 +1,7 @@
+
+
 # $atanh
+<a name="atanh"></a>
 
 New from version 8.0.1.
 
@@ -9,24 +12,26 @@ The input expression must resolve to a number in the range `-1` to `1` (inclusiv
 The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 **Parameters**
-
-- `expression`: An expression that resolves to a number between `-1` and `1`, inclusive.
++ `expression`: An expression that resolves to a number between `-1` and `1`, inclusive.
 
 ## Behavior
+<a name="atanh-behavior"></a>
 
-**null, NaN, and +/- Infinity**
+**null, NaN, and \+/- Infinity**
 
-| Example                                           | Results          |
-| ------------------------------------------------- | ---------------- |
-| `{ $atanh: NaN }`                                 | `NaN`            |
-| `{ $atanh: null }`                                | `null`           |
-| `{ $atanh: 1 }`                                   | `Infinity`       |
-| `{ $atanh: -1 }`                                  | `-Infinity`      |
-| `{ $atanh: Infinity }` or `{ $atanh: -Infinity }` | Throws an error. |
+
+| Example | Results | 
+| --- | --- | 
+| { $atanh: NaN } | NaN | 
+| { $atanh: null } | null | 
+| { $atanh: 1 } | Infinity | 
+| { $atanh: -1 } | -Infinity | 
+| { $atanh: Infinity } or { $atanh: -Infinity } | Throws an error. | 
 
 When the input is `null` or the referenced field is missing, the result is `null`. An input of `NaN` produces `NaN`. The boundary values `1` and `-1` produce `Infinity` and `-Infinity` respectively. Any value outside the `[-1, 1]` range (including `±Infinity`) causes an error.
 
 ## Example (MongoDB Shell)
+<a name="atanh-examples"></a>
 
 The following example shows how to use the `$atanh` operator to calculate the inverse hyperbolic tangent of a value.
 
@@ -61,10 +66,12 @@ db.values.aggregate([
 ```
 
 ## Code examples
+<a name="atanh-code"></a>
 
 To view a code example for using the `$atanh` operator, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -87,7 +94,8 @@ async function main() {
 main();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -109,3 +117,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

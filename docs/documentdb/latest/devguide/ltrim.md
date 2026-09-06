@@ -1,4 +1,7 @@
+
+
 # $ltrim
+<a name="ltrim"></a>
 
 New from version 4.0.
 
@@ -7,11 +10,11 @@ Not supported by Elastic cluster.
 The `$ltrim` operator in Amazon DocumentDB is used to remove leading characters from a string. By default, it removes leading whitespace characters, but you can also specify a set of characters to remove by passing the chars argument.
 
 **Parameters**
-
-- `input`: The input string from which to remove leading whitespace characters.
-- `chars`: (optional) To remove specific characters.
++ `input`: The input string from which to remove leading whitespace characters.
++ `chars`: (optional) To remove specific characters.
 
 ## Example (MongoDB Shell)
+<a name="ltrim-examples"></a>
 
 The following example demonstrates the usage of `$ltrim` to remove specified characters (" \*") from the beginning of a string.
 
@@ -33,7 +36,7 @@ db.collection.aggregate([
     $project: {
       _id: 0,
       name: {
-        $ltrim: { input: "$name", chars: " *" }
+        $ltrim: { input: "$name", chars: " *" }  
       },
       age: 1
     }
@@ -52,10 +55,12 @@ db.collection.aggregate([
 ```
 
 ## Code examples
+<a name="ltrim-code"></a>
 
 To view a code example for using the `$ltrim` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -96,7 +101,8 @@ async function example() {
 example().catch(console.error);
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -130,9 +136,11 @@ def example():
 
     except Exception as e:
         print(f"An error occurred: {e}")
-
+    
     finally:
         client.close()
 
 example()
 ```
+
+------

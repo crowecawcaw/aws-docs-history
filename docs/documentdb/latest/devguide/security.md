@@ -1,42 +1,35 @@
+
+
 # Security in Amazon DocumentDB
+<a name="security"></a>
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that are built to meet the requirements of the most security-sensitive organizations.
 
-Security is a shared responsibility between AWS and you. This documentation helps you understand how to apply the shared responsibility model when using Amazon DocumentDB.
-The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security _in_ the cloud:
+Security is a shared responsibility between AWS and you. This documentation helps you understand how to apply the shared responsibility model when using Amazon DocumentDB. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) describes this as security *of* the cloud and security *in* the cloud:
++ **Security of the cloud** — AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS compliance programs](https://aws.amazon.com/compliance/programs/). To learn about the compliance programs that apply to Amazon DocumentDB (with MongoDB compatibility), see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/).
++ **Security in the cloud** — Your responsibility is determined by the AWS service that you use. You are also responsible for other factors including the sensitivity of your data, your organization’s requirements, and applicable laws and regulations.
 
-- **Security of the cloud** — AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud.
-  AWS also provides you with services that you can use securely.
-  Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS compliance programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
-  To learn about the compliance programs that apply to Amazon DocumentDB (with MongoDB compatibility), see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
-- **Security in the cloud** — Your responsibility is determined by the AWS service that you use.
-  You are also responsible for other factors including the sensitivity of your data, your organization’s requirements, and applicable laws and regulations.
-  Amazon DocumentDB is authorized under Federal Risk and Authorization Management Program (FedRAMP). It has FedRAMP High authorization for AWS GovCloud (US) Regions and FedRAMP Moderate authorization for AWS US East/West Regions.
-  For details about AWS and compliance efforts, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/").
+Amazon DocumentDB is authorized under Federal Risk and Authorization Management Program (FedRAMP). It has FedRAMP High authorization for AWS GovCloud (US) Regions and FedRAMP Moderate authorization for AWS US East/West Regions. For details about AWS and compliance efforts, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/).
 
-###### Note
+**Note**  
+This chapter applies to both instance-based clusters and Elastic Clusters. For more information, see the topics below.
 
-This chapter applies to both instance-based clusters and Elastic Clusters.
-For more information, see the topics below.
+You also learn how to use other AWS services that help you monitor and secure your Amazon DocumentDB resources. The following topics show you how to configure Amazon DocumentDB to meet your security and compliance objectives. 
 
-You also learn how to use other AWS services that help you monitor and secure your Amazon DocumentDB resources.
-The following topics show you how to configure Amazon DocumentDB to meet your security and compliance objectives.
-
-###### Topics
-
-- [Password management with Amazon DocumentDB and AWS Secrets Manager](docdb-secrets-manager.md "docdb-secrets-manager.md")
-- [Data protection in Amazon DocumentDB](security.data-protection.md "security.data-protection.md")
-- [Identity and Access Management for Amazon DocumentDB](security-iam.md "security-iam.md")
-- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Authentication using IAM identity](iam-identity-auth.md "iam-identity-auth.md")
-- [Authentication using SCRAM-SHA-256](scram-sha-256-auth.md "scram-sha-256-auth.md")
-- [Managing Amazon DocumentDB users](security.managing-users.md "security.managing-users.md")
-- [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md")
-- [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md "ca_cert_rotation.md")
-- [Compliance validation in Amazon DocumentDB](security.compliance-validation.md "security.compliance-validation.md")
-- [Resilience in Amazon DocumentDB](security.disaster-recovery-resiliency.md "security.disaster-recovery-resiliency.md")
-- [Infrastructure security in Amazon DocumentDB](security.infrastructure.md "security.infrastructure.md")
-- [Amazon DocumentDB API and interface VPC endpoints (AWS PrivateLink)](docdb-private-link.md "docdb-private-link.md")
-- [Security best practices for Amazon DocumentDB](security_best_practices.md "security_best_practices.md")
-- [Auditing Amazon DocumentDB events](event-auditing.md "event-auditing.md")
-- [Amazon VPC and Amazon DocumentDB](vpc-docdb.md "vpc-docdb.md")
+**Topics**
++ [Password management with Amazon DocumentDB and AWS Secrets Manager](docdb-secrets-manager.md)
++ [Data protection in Amazon DocumentDB](security.data-protection.md)
++ [Identity and Access Management for Amazon DocumentDB](security-iam.md)
++ [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md)
++ [Authentication using IAM identity](iam-identity-auth.md)
++ [Authentication using SCRAM-SHA-256](scram-sha-256-auth.md)
++ [Managing Amazon DocumentDB users](security.managing-users.md)
++ [Database access using Role-Based Access Control](role_based_access_control.md)
++ [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md)
++ [Compliance validation in Amazon DocumentDB](security.compliance-validation.md)
++ [Resilience in Amazon DocumentDB](security.disaster-recovery-resiliency.md)
++ [Infrastructure security in Amazon DocumentDB](security.infrastructure.md)
++ [Amazon DocumentDB API and interface VPC endpoints (AWS PrivateLink)](docdb-private-link.md)
++ [Security best practices for Amazon DocumentDB](security_best_practices.md)
++ [Auditing Amazon DocumentDB events](event-auditing.md)
++ [Amazon VPC and Amazon DocumentDB](vpc-docdb.md)

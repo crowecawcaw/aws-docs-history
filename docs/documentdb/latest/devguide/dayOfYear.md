@@ -1,12 +1,15 @@
+
+
 # $dayOfYear
+<a name="dayOfYear"></a>
 
 The `$dayOfYear` operator in Amazon DocumentDB returns the day of the year for a date as a number between 1 and 366 (365 in non-leap years).
 
 **Parameters**
-
-- `expression`: The date field or expression from which to extract the day of the year.
++ `expression`: The date field or expression from which to extract the day of the year.
 
 ## Example (MongoDB Shell)
+<a name="dayOfYear-examples"></a>
 
 This example demonstrates how to use the `$dayOfYear` operator to extract the day of the year from a date field in an Amazon DocumentDB collection.
 
@@ -47,10 +50,12 @@ db.weather.aggregate([
 ```
 
 ## Code examples
+<a name="dayOfYear-code"></a>
 
 To view a code example for using the `$dayOfYear` command, choose the tab for the language that you want to use:
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { MongoClient } = require('mongodb');
@@ -76,7 +81,8 @@ async function example() {
 example();
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from pymongo import MongoClient
@@ -100,3 +106,5 @@ def example():
 
 example()
 ```
+
+------
