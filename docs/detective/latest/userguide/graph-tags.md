@@ -1,103 +1,111 @@
+
+
 # Managing tags for a behavior graph
+<a name="graph-tags"></a>
 
 A tag is an optional label that you can define and assign to AWS resources, including certain types of Detective resources. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. For example, you can use tags to apply policies, allocate costs, distinguish between versions of resources, or identify resources that support certain compliance requirements or workflows.
 
-You can assign tags to your behavior graph. You can then use the tag values in IAM policies
-to manage access to behavior graph functions in Detective. See [Authorization based on Detective behavior graph tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
+You can assign tags to your behavior graph. You can then use the tag values in IAM policies to manage access to behavior graph functions in Detective. See [Authorization based on Detective behavior graph tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags).
 
-You also can use tags as a tool for cost reporting. For example, to track costs associated
-with security, you could assign the same tag to your Detective behavior graph, AWS Security Hub CSPM hub resource,
-and Amazon GuardDuty detectors. In AWS Cost Explorer, you could then search for that tag to see a consolidated
-view of the costs across those resources.
+You also can use tags as a tool for cost reporting. For example, to track costs associated with security, you could assign the same tag to your Detective behavior graph, AWS Security Hub CSPM hub resource, and Amazon GuardDuty detectors. In AWS Cost Explorer, you could then search for that tag to see a consolidated view of the costs across those resources.
 
 ## Viewing the tags for a behavior graph
+<a name="graph-tags-list"></a>
 
-You manage the tags for your behavior graph from the **General**
-page.
+You manage the tags for your behavior graph from the **General** page.
 
-Console
+------
+#### [ Console ]
 
-###### To view the list of tags assigned to the behavior graph
+**To view the list of tags assigned to the behavior graph**
 
-1. Open the Amazon Detective console at [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/ "https://console.aws.amazon.com/detective/").
-2. In the navigation pane, under **Settings**, choose
-   **General**.
+1. Open the Amazon Detective console at [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/).
 
-Detective API, AWS CLI
-You can use the Detective API or the AWS Command Line Interface to get the list of tags for your behavior
-graph.
+1. In the navigation pane, under **Settings**, choose **General**.
 
-###### To get the list of tags for a behavior graph (Detective API, AWS CLI)
+------
+#### [ Detective API, AWS CLI ]
 
-- **Detective API:** Use the [`ListTagsForResource`](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") operation. You must provide the ARN of your
-  behavior graph.
-- **AWS CLI:** At the command line, run the
-  `list-tags-for-resource` command.
+You can use the Detective API or the AWS Command Line Interface to get the list of tags for your behavior graph.
 
-```
-aws detective list-tags-for-resource --resource-arn `<behavior graph ARN>`
-```
+**To get the list of tags for a behavior graph (Detective API, AWS CLI)**
++ **Detective API:** Use the [`ListTagsForResource`](https://docs.aws.amazon.com/detective/latest/APIReference/API_ListTagsForResource.html) operation. You must provide the ARN of your behavior graph.
++ **AWS CLI:** At the command line, run the `list-tags-for-resource` command.
 
-**Example**
+  ```
+  aws detective list-tags-for-resource --resource-arn {{<behavior graph ARN>}}
+  ```
 
-```
-aws detective list-tags-for-resource --resource-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234
-```
+  **Example**
+
+  ```
+  aws detective list-tags-for-resource --resource-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234
+  ```
+
+------
 
 ## Adding tags to a behavior graph
+<a name="graph-tags-add"></a>
 
-Console
-From the tag list on the **General** page, you can add tag values to the
-behavior graph.
+------
+#### [ Console ]
 
-###### To add a tag to your behavior graph
+From the tag list on the **General** page, you can add tag values to the behavior graph.
+
+**To add a tag to your behavior graph**
 
 1. Choose **Add new tag**.
-2. For **Key**, enter the name of the tag.
-3. For **Value**, enter the value of the tag.
 
-Detective API, AWS CLI
+1. For **Key**, enter the name of the tag.
+
+1. For **Value**, enter the value of the tag.
+
+------
+#### [ Detective API, AWS CLI ]
+
 You can use the Detective API or the AWS CLI to add tag values to your behavior graph.
 
-###### To add tags to a behavior graph (Detective API, AWS CLI)
+**To add tags to a behavior graph (Detective API, AWS CLI)**
++ **Detective API:** Use the [`TagResource`](https://docs.aws.amazon.com/detective/latest/APIReference/API_TagResource.html) operation. You provide the behavior graph ARN and the tag values to add.
++ **AWS CLI**: At the command line, run the `tag-resource` command.
 
-- **Detective API:** Use the [`TagResource`](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
-  operation. You provide the behavior graph ARN and the tag values to add.
-- **AWS CLI**: At the command line, run the
-  `tag-resource` command.
+  ```
+  aws-detective tag-resource --aws detective tag-resource --resource-arn {{<behavior graph ARN>}} --tags '{"{{TagName}}":"{{TagValue}}"}'
+  ```
 
-```
-aws-detective tag-resource --aws detective tag-resource --resource-arn `<behavior graph ARN>` --tags '{"`TagName`":"`TagValue`"}'
-```
+  **Example**
 
-**Example**
+  ```
+  aws detective tag-resource --resource-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234 --tags '{"Department":"Finance"}'
+  ```
 
-```
-aws detective tag-resource --resource-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234 --tags '{"Department":"Finance"}'
-```
+------
 
 ## Removing tags from a behavior graph
+<a name="graph-tags-remove"></a>
 
-Console
-To remove a tag from the list on the **General** page, choose the
-**Remove** option for that tag.
+------
+#### [ Console ]
 
-Detective API, AWS CLI
+To remove a tag from the list on the **General** page, choose the **Remove** option for that tag.
+
+------
+#### [ Detective API, AWS CLI ]
+
 You can use the Detective API or the AWS CLI to remove tag values from your behavior graph.
 
-###### To remove tags from a behavior graph (Detective API, AWS CLI)
+**To remove tags from a behavior graph (Detective API, AWS CLI)**
++ **Detective API:** Use the [`UntagResource`](https://docs.aws.amazon.com/detective/latest/APIReference/API_UntagResource.html) operation. You provide the behavior graph ARN, and the names of the tags to remove.
++ **AWS CLI**: At the command line, run the `untag-resource` command.
 
-- **Detective API:** Use the [`UntagResource`](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
-  operation. You provide the behavior graph ARN, and the names of the tags to remove.
-- **AWS CLI**: At the command line, run the
-  `untag-resource` command.
+  ```
+  aws detective untag-resource --resource-arn {{<behavior graph ARN>}} --tag-keys "{{TagName}}"
+  ```
 
-```
-aws detective untag-resource --resource-arn `<behavior graph ARN>` --tag-keys "`TagName`"
-```
+  **Example**
 
-**Example**
+  ```
+  aws detective untag-resource --resource-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234 --tag-keys "Department"
+  ```
 
-```
-aws detective untag-resource --resource-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234 --tag-keys "Department"
-```
+------
