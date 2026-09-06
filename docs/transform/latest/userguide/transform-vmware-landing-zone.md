@@ -380,7 +380,7 @@ parents:
 ## Related resources
 
 - [Connect target AWS accounts and regions](transform-vmware-connect-target-account.md "transform-vmware-connect-target-account.md")
-- [Migrate your network to AWS](transform-vmware-migrate-network.md "transform-vmware-migrate-network.md")
+- [Migrate network](transform-vmware-migrate-network.md "transform-vmware-migrate-network.md")
 - [AWS Control Tower User Guide](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md")
 - [AWS Organizations User Guide](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md")
 - [AWS IAM Identity Center User Guide](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md")

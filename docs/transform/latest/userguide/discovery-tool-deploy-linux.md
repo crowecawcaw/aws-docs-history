@@ -6,9 +6,9 @@ The discovery tool is available as a standalone Linux installer for deployment o
 
 - **RAM** – We recommend allocating at least 16 GB
 - **CPU** – We recommend allocating at least 4 cores
-- **Disks** – 35 GB
+- **Disks** – 35 GB minimum. For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md "discovery-tool-disk-sizing.md").
 
-## Supported distributions
+## Supported distributions for the installer host
 
 - **Amazon Linux** – Amazon Linux 2, Amazon Linux 2023
 - **Red Hat Enterprise Linux and derivatives** – RHEL 8–9, Rocky Linux 8–9, AlmaLinux 9

@@ -23,10 +23,10 @@ Remember this password - there is no password recovery mechanism.
   encouraged to keep SSH access disabled most of the times and enable it only
   while actively required. Password change is enforced when running
   `enablessh`.
-- To access the discovery tool data directory at
-  `/home/ec2-user/.local/share/DiscoveryTool`, we recommend
-  switching to `ec2-user` by running `sudo su
- ec2-user`.
+- The discovery tool data directory is at
+  `/home/discovery/.local/share/DiscoveryTool`. The default VM user is
+  `discovery`, so you can access this directory after you sign in to the
+  VM through your hypervisor's console.
 
 ## Configure Kerberos authentication
 
@@ -64,7 +64,7 @@ information and network connectivity.
 
    - The KDC on port 88 (TCP and UDP) for Kerberos
      authentication.
-   - The target Windows servers on WinRM ports (5985 for HTTP,
+   - The target Windows servers on Windows Remote Management (WinRM) ports (5985 for HTTP,
      5986 for HTTPS).
 
 ### Configure Kerberos
@@ -222,6 +222,31 @@ Map the output to your `krb5.conf` configuration as follows:
   from the `nltest` output (for example,
   `dc01.example.com`).
 
+### Using Kerberos with IP addresses
+
+Kerberos identifies each target server by a service principal name (SPN). The SPN is built from the server's fully qualified domain name (FQDN), such as `HTTP/server01.example.com`. Active Directory does not register SPNs for IP addresses.
+
+When the discovery tool knows a server's FQDN, it uses the FQDN first for Kerberos credentials. The discovery tool learns the FQDN from guest metadata reported by VMware Tools on VMware, or by Integration Services on Hyper-V. Most servers that the discovery tool finds through VMware or Hyper-V discovery have an FQDN, so you do not need to do anything for those servers. A server that you import from a CSV file with only an IP address has no FQDN.
+
+The discovery tool also tries any IP addresses it has for a server. An IP address works with Kerberos when the discovery tool can map that IP address to the FQDN with a reverse DNS lookup. Reverse DNS is a best-effort fallback, not a requirement. Set it up only if a server has no FQDN, and you want to use Kerberos with that server. The lookup needs one of the following:
+
+- **A PTR record** – A PTR record for that IP address in your DNS or Active Directory. A PTR record maps an IP address to a host name. It is the reverse of the A record, which maps a host name to an IP address. Many Active Directory domains add PTR records for you when a server joins, so the record might already exist.
+- **An `/etc/hosts` entry** – An entry in `/etc/hosts` on the discovery tool VM, in the form `<ip-address> <fqdn> <short-name>`. Use this when you cannot change DNS. You do not need a DNS administrator.
+
+Reverse lookups must also be turned on for the VM. They are on by default. Do not set `rdns = false` or `dns_canonicalize_hostname = false` in `/etc/krb5.conf`. If either setting is already `false`, Kerberos keeps the IP address in the SPN instead of replacing it with the FQDN, and authentication fails with a `Server not found in Kerberos database` error even when the reverse mapping exists. Remove the setting, or set it to `true`.
+
+To check reverse lookups, run the following command on the discovery tool VM.
+
+```
+getent hosts <target-ip>
+```
+
+The command returns the server's FQDN when reverse lookups work. It reads both `/etc/hosts` and DNS. If it does not return the FQDN, add a PTR record, add an `/etc/hosts` entry, or use the FQDN instead.
+
+###### Note
+
+If no reverse mapping exists, authentication fails with `Server not found in Kerberos database`. This is a principal lookup failure, not a rejected password. It does not count toward Active Directory account lockout.
+
 ## Configure vCenter access
 
 1. On the **Discovery tool** page, under **Step 1. Configure discovery sources**, choose **Configure sources**.
@@ -299,6 +324,67 @@ Configure OS access so that the discovery tool can:
 See [Using Auto-Connect Feature With Caution](discover-tool-security.md#auto-connect-caution "discover-tool-security.md#auto-connect-caution") for important security recommendations regarding the auto-connect feature. 5. Choose **Set up and connect**.
 
 When the OS matching process is completed, you see a message that the data collection is in progress, and an error regarding servers for which a credentials match was not found.
+
+### Requirements for OS-level collection
+
+OS-level collection — server and storage performance metrics, network connection
+tracking, and SQL Server and Oracle database discovery — runs remotely against your
+target servers. The discovery tool installs no agent or software on them. The following are
+the requirements for a target server to be collected.
+
+###### Note
+
+These requirements apply to the servers you are collecting data
+_from_. They are separate from the Linux distributions supported for
+the host you install the discovery tool _on_, which are listed in
+[Supported distributions for the installer host](discovery-tool-deploy-linux.md#discovery-tool-linux-supported-distros "discovery-tool-deploy-linux.md#discovery-tool-linux-supported-distros").
+
+The following list describes the connectivity and account requirements for each type of
+target server.
+
+Linux
+SSH reachable from the discovery tool VM on TCP/22 (or a custom port), and
+an account that can run shell commands. Network connection tracking can also use
+SNMP on UDP/161 instead of SSH. `sudo` is optional. Without
+it, the discovery tool still collects most data, but the server UUID, LVM
+detection, and process-level network connection details are missing. For
+details, see [Linux servers (SSH)](discovery-tool-permissions.md#discovery-tool-permissions-linux "discovery-tool-permissions.md#discovery-tool-permissions-linux").
+
+Windows
+WinRM enabled and reachable on TCP/5985 (HTTP) or TCP/5986 (HTTPS), or a
+custom port. The discovery tool runs all Windows commands through PowerShell
+remoting, so PowerShell must be present on the target server. PowerShell 3.0 or
+later provides full data coverage. For details,
+see [Windows servers (WinRM) — OS metrics](discovery-tool-permissions.md#discovery-tool-permissions-windows-os "discovery-tool-permissions.md#discovery-tool-permissions-windows-os").
+
+Because collection uses standard operating system commands rather than an agent, the
+discovery tool works across a wide range of operating system versions, including older
+ones. The following operating systems are validated end to end. Other versions that meet
+the requirements in the preceding list are also collected.
+
+- **Linux** – Amazon Linux 2, Amazon Linux 2023, RHEL 7.9, Rocky Linux 9.7, AlmaLinux 9.7, SLES 12 SP5, Debian 11, Ubuntu 16.04, and Ubuntu 22.04
+- **Windows** – Windows Server 2012 R2, 2016, 2019, and 2022
+
+###### Reduced data coverage on older operating systems
+
+On older operating systems, the discovery tool substitutes alternative commands and some
+fields can be empty:
+
+- Linux distributions released before `/etc/os-release` became
+  standard — such as RHEL 6, CentOS 6, SLES 11, Ubuntu 14.04 and earlier, and
+  Amazon Linux 1 — are identified from `/etc/*-release` or
+  `uname` instead, which can report less detail.
+- Windows Server 2003 does not include PowerShell. Because the discovery tool
+  runs all Windows commands through PowerShell remoting, it collects no OS-level data from
+  these servers unless you install PowerShell and WinRM on them.
+- On servers that provide only PowerShell 2.0, such as Windows Server 2008,
+  `Get-CimInstance` is unavailable. The discovery tool falls back to
+  `Get-WmiObject` for basic server identity, but most other data, including
+  performance and storage metrics, is unavailable.
+- Servers whose SSH service offers only legacy key exchange or host key
+  algorithms, which is common on RHEL 6 and other distributions of that era, can refuse
+  the connection. If a server cannot be reached over SSH but is reachable manually,
+  verify which algorithms its SSH service offers.
 
 ### Supported protocols setup
 
@@ -442,11 +528,74 @@ receive a reminder notification after 30 days of installation to update. It is r
 to keep the application up-to-date to receive the latest features and security
 patches.
 
-###### To manually update the tool
+There are two ways to update:
 
-1. Download the latest discovery tool image file (OVA for VMware or VHD for Hyper-V) from the provided link.
-2. (Optional) We recommend that you delete the previous discovery tool image file before you deploy the latest one.
-3. Follow the steps in the Deploy the discovery tool section to deploy the updated version.
+- **Update in place** – Updates the application inside your existing VM with the Linux installer. Your collected inventory, credentials, and configuration are preserved. This method needs operating system access to the discovery tool VM. We recommend this method.
+- **Redeploy from a new image** – Deploys a new VM from the latest OVA for VMware or VHD for Hyper-V. A new deployment starts with an empty database. Your existing data and configuration are not carried over unless you migrate them yourself.
+
+### Updating in place with the Linux installer
+
+This method runs on the existing VM. It keeps your database, which holds your collected data, discovery sources, and credentials, and it keeps the database encryption key. Use this method when you want to keep your existing configuration and collected data.
+
+###### Note
+
+This method updates only the discovery tool application. It does not update anything on the VM host, such as the operating system version, the preconfigured shell aliases, or the networking and firewall rules. To get host updates, redeploy from a new image instead. For more information, see [Redeploying from a new image](#discovery-tool-updating-redeploy "#discovery-tool-updating-redeploy").
+
+###### Important
+
+Complete the backup step before you update, so that you can restore your data if the update does not finish.
+
+###### To update the discovery tool in place
+
+1. Access the discovery tool VM through your hypervisor console, or through SSH after you run `enablessh`. For more information, see [Accessing the discovery tool VM](#discovery-tool-vm-access "#discovery-tool-vm-access").
+2. Back up the data directory so that you can restore it if you need to.
+
+```
+sudo tar czf /home/ec2-user/discovery-tool-backup-$(date +%F).tar.gz \
+  -C /home/ec2-user/.local/share DiscoveryTool
+```
+
+The installer keeps the database encryption key. It does not change the key during an update. 3. Download the latest installer script to the VM and make it executable.
+
+```
+curl -O https://s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/AWS-Transform-discovery-tool.sh
+chmod +x AWS-Transform-discovery-tool.sh
+```
+
+4. Stop the discovery tool service.
+
+```
+sudo ./AWS-Transform-discovery-tool.sh stop
+```
+
+5. Run the installer. It detects the existing installation and updates it in place, keeping your data directory, encryption key, and service user. It also installs any required system packages.
+
+```
+sudo ./AWS-Transform-discovery-tool.sh install
+```
+
+6. Start the discovery tool service.
+
+```
+sudo ./AWS-Transform-discovery-tool.sh start
+```
+
+7. Verify the update. Open `https://`ip_address`:5000` in a web browser, sign in, and confirm that the version is updated and that your discovery sources, credentials, and inventory are present.
+
+### Redeploying from a new image
+
+Use this method if you do not have operating system access to the VM, or if you prefer to deploy a new appliance. A redeployed VM starts with an empty database.
+
+###### To redeploy the discovery tool from a new image
+
+1. Download the latest image file: the OVA for VMware or the VHD for Hyper-V.
+2. (Optional) Delete the previous discovery tool image file before you deploy the latest one.
+3. Deploy the new version. For VMware, see [Deploy on VMware](discovery-tool-deploy-vmware.md "discovery-tool-deploy-vmware.md"). For Hyper-V, see [Deploy on Hyper-V](discovery-tool-deploy-hyperv.md "discovery-tool-deploy-hyperv.md").
+4. Configure your discovery sources, credentials, and server imports again on the new VM.
+
+###### Note
+
+If you want to deploy a new discovery tool and keep the data and configuration that you already collected, contact AWS Support before you begin.
 
 ## Revoking access
 

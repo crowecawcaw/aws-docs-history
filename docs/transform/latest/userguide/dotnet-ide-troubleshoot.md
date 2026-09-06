@@ -60,7 +60,7 @@ NODE_EXTRA_CA_CERTS = Path/To/Corporate/Certs
 Otherwise, you must specify the CA certs used by the proxy to disable
 `NODE_TLS_REJECT_UNAUTHORIZED`.
 
-###### To disbale NODE\_TLS\_REJECT\_UNAUTHORIZED on Windows:
+###### To disable NODE\_TLS\_REJECT\_UNAUTHORIZED on Windows:
 
 1. Open the Start menu and search for **Environment Variables**.
 2. Choose **Edit the system environment variables**.

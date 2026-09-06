@@ -21,6 +21,11 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                   | Date               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSTransformLandingZoneAgentPolicy](#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy "#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy") – New policy                                      | Added a new AWS managed policy that grants the permissions needed to set up AWS landing zones, including account provisioning, organizational governance, and AWS Control Tower configuration.                                                                                                                | September 3, 2026  |
+| [AWSTransformNetworkMigrationAgentPolicy](#security-iam-awsmanpol-AWSTransformNetworkMigrationAgentPolicy "#security-iam-awsmanpol-AWSTransformNetworkMigrationAgentPolicy") – New policy                       | Added a new AWS managed policy that grants the permissions needed to deploy and configure network infrastructure, including VPCs, transit gateways, and route tables, for network migration.                                                                                                                  | September 3, 2026  |
+| [AWSTransformServerMigrationAgentPolicy](#security-iam-awsmanpol-AWSTransformServerMigrationAgentPolicy "#security-iam-awsmanpol-AWSTransformServerMigrationAgentPolicy") – New policy                          | Added a new AWS managed policy that grants the permissions needed to perform server migration operations, including replication, testing, and cutover, using AWS Transform MGN.                                                                                                                               | September 3, 2026  |
+| [AWSTransformInfrastructureExecutorAccessBatch](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch "#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch") – Updated policy | Added Amazon SQS `SendMessage` permission to submit jobs to the `atx-dispatcher-queue`, and added CloudFormation visibility for the `AtxDispatcherStack`.                                                                                                                                                     | September 2, 2026  |
+| [AWSTransformInfrastructureExecutorAccessEC2](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2 "#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2") – Updated policy       | Added Amazon SQS `SendMessage` permission to submit jobs to the `atx-dispatcher-queue`, and added CloudFormation visibility for the `AtxDispatcherStack`.                                                                                                                                                     | September 2, 2026  |
 | [AWSTransformInfrastructureExecutorAccessBatch](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch "#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch") – Updated policy | Narrowed AWS Lambda permissions to an explicit function allowlist, added Amazon S3 write access for batch sidecar output, widened CloudFormation and Amazon EventBridge Scheduler resource scoping for multi-stack deployments, and added support for regional AWS Key Management Service key alias variants. | July 27, 2026      |
 | [AWSTransformInfrastructureExecutorAccessEC2](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2 "#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2") – Updated policy       | Widened CloudFormation, Amazon EventBridge Scheduler, and AWS Identity and Access Management PassRole resource scoping for multi-stack deployments, added Security Agent infrastructure visibility, and added support for regional AWS Key Management Service key alias variants.                             | July 27, 2026      |
 | [AWSTransformSecurityAgentExecutorAccess](#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess "#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess") – Updated policy                   | Added CloudFormation permissions to discover and describe the Security Agent infrastructure stack, and migrated the Amazon S3 bucket prefix from `kct-security-agent-*` to `atx-security-agent-*`.                                                                                                            | July 27, 2026      |
@@ -237,6 +242,9 @@ This policy includes the following permissions:
 - **CloudFormation** – Allows describing and listing
   AWS Transform infrastructure stacks, including the Security Agent stack, to check
   deployment status.
+- **Amazon SQS** – Allows sending messages to the
+  `atx-dispatcher-queue` to enqueue transformation jobs through the
+  dispatcher.
 - **Resource Groups Tagging API** – Allows retrieving
   tagged resources to discover AWS Transform infrastructure in your account.
 - **AWS Secrets Manager** – Allows retrieving and
@@ -279,6 +287,9 @@ This policy includes the following permissions:
   infrastructure stacks (including the Security Agent stack), stack events, stack
   resources, and drift detection status, listing stacks, and validating CloudFormation
   templates before deployment.
+- **Amazon SQS** – Allows sending messages to the
+  `atx-dispatcher-queue` to enqueue transformation jobs through the
+  dispatcher.
 - **Amazon EC2** – Allows describing instances, AMIs,
   VPCs, subnets, security groups, key pairs, route tables, NAT gateways, and internet
   gateways. Permits starting and stopping EC2 instances tagged with
@@ -315,6 +326,130 @@ resources within the same AWS account.
 To view the policy permission details see [AWSTransformInfrastructureExecutorAccessEC2](../../../aws-managed-policy/latest/reference/AWSTransformInfrastructureExecutorAccessEC2.md "../../../aws-managed-policy/latest/reference/AWSTransformInfrastructureExecutorAccessEC2.md") in the AWS Managed Policy
 Reference Guide.
 
+## AWS managed policy: AWSTransformLandingZoneAgentPolicy
+
+This policy grants the permissions needed to set up AWS landing zones, including
+account provisioning, organizational governance, and AWS Control Tower configuration.
+Attach this policy to the IAM role that AWS Transform assumes in your management account when it
+builds a landing zone.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Control Tower** – Allows listing and
+  describing landing zones, baselines, enabled baselines, enabled controls, and the
+  status of baseline and control operations. Permits enabling controls and baselines and
+  tagging Control Tower resources.
+- **AWS Organizations** – Allows describing the
+  organization, accounts, organizational units (OUs), and policies, and listing roots,
+  parents, and the OU hierarchy. Permits creating accounts and OUs, moving accounts
+  between OUs, and tagging organization resources. Creating, updating, and attaching
+  service control policies is allowed only when the call is made through AWS Control
+  Tower.
+- **CloudFormation** – Allows creating, updating,
+  tagging, and describing landing zone stacks with names that start with
+  `AtxLz`, reading stack events and templates, and creating, describing,
+  listing, and executing change sets. Deleting stacks is not permitted.
+- **AWS Service Catalog** – Allows creating, updating,
+  deleting, and listing provisioning artifacts for products in your account, which
+  AWS Control Tower uses to provision accounts.
+- **Amazon S3** – Allows creating and managing the
+  `transform-vmware-landing-zone-*` bucket and its objects, including bucket
+  policy, tagging, encryption configuration, and multipart uploads.
+
+The policy implements least-privilege access through resource name prefixes
+(`AtxLz*` and `transform-vmware-landing-zone-*`), tag-based conditions
+on `CreatedBy: AWSTransform` and the workspace ID, the
+`aws:ResourceAccount` condition, an `aws:RequestedRegion` condition
+that restricts operations to your target AWS Region, and an `aws:CalledVia`
+condition that limits service control policy changes to calls made by AWS Control
+Tower.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformLandingZoneAgentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformLandingZoneAgentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformLandingZoneAgentPolicy.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed policy: AWSTransformNetworkMigrationAgentPolicy
+
+This policy grants the permissions needed to deploy and configure network infrastructure,
+including VPCs, transit gateways, and route tables, for network migration. Attach this
+policy to the IAM role that AWS Transform assumes in your target account when it migrates a network
+topology.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Transform MGN (MGN)** – Allows creating, reading,
+  updating, deleting, and tagging network migration definitions and their mapper
+  segments. Permits starting and listing network mappings, analyses, code generations,
+  deployments, and deployed stack deletions.
+- **CloudFormation** – Allows creating, updating,
+  deleting, and describing network stacks with names that start with `Nmd`,
+  listing stacks, and managing termination protection.
+- **Amazon EC2** – Allows describing network topology,
+  including VPCs, subnets, security groups, route tables, network interfaces, NAT
+  gateways, internet gateways, transit gateways and their attachments and route tables,
+  VPN connections, and prefix lists. Permits creating VPCs, internet gateways, transit
+  gateways, and Elastic IP addresses, and tagging them on creation. Through
+  CloudFormation, permits creating, modifying, and deleting these and other network
+  resources, including subnets, route tables and routes, NAT gateways, network
+  interfaces, security groups and rules, and transit gateway attachments and route
+  tables. Attachments to VPCs in other accounts are limited to accounts in your
+  organization.
+- **Reachability Analyzer** – Allows creating and
+  tagging network insights paths, starting analyses, and reading results to validate
+  connectivity between source and target networks. To place analysis probes, permits
+  creating network interfaces and security groups, authorizing security group rules, and
+  deleting those resources, paths, and analyses during cleanup. Includes read-only access
+  to AWS Direct Connect, Elastic Load Balancing, AWS Global Accelerator, and AWS
+  Network Firewall configuration used during path analysis.
+- **AWS Resource Access Manager (RAM)** – Allows
+  creating, updating, tagging, and deleting resource shares and their associations to
+  share transit gateways and Systems Manager parameters with other accounts in your
+  organization. Shares that allow external principals are not permitted.
+- **AWS Lambda** – Allows creating, tagging, invoking,
+  and deleting `network-migration*` functions that CloudFormation uses as
+  custom resources for transit gateway modifications.
+- **AWS Identity and Access Management (IAM)** – Allows creating, tagging,
+  reading, and deleting the `Nmd*modifyTransitGateway*` Lambda execution role,
+  attaching only the `AWSApplicationMigrationNetworkMigrationCustomResource` and
+  `AWSLambdaBasicExecutionRole` policies to it, and passing it to AWS
+  Lambda. Also allows creating the transit gateway service-linked role.
+- **Amazon EC2 Systems Manager (SSM)** – Allows reading and writing
+  `/network-migration/*` parameters and their resource policies for
+  cross-account sharing.
+- **Amazon CloudWatch Logs** – Allows creating log groups and log
+  streams and publishing log events for `/aws/lambda/network-migration*`
+  functions.
+- **Amazon S3** – Allows creating and managing the
+  `transform-vmware-target-*` bucket and the objects in it that store network
+  migration artifacts.
+- **AWS Key Management Service (KMS)** – Allows decrypting, describing,
+  and generating data keys with your workspace encryption key, restricted to Amazon S3
+  usage.
+- **AWS Organizations** – Allows listing accounts to
+  discover the accounts in your organization.
+- **AWS STS** – Allows assuming the
+  `AWSTransformNetworkMigrationAgentSharingRole_`management-or-delegated-admin-account-id``
+  role in other accounts in your organization for multi-account deployments.
+
+The policy implements least-privilege access through resource name prefixes
+(`Nmd*`, `network-migration*`, and
+`transform-vmware-target-*`), tag-based conditions on `CreatedBy` and
+the workspace ID, the `aws:ResourceAccount` and `aws:ResourceOrgID`
+conditions, an `aws:RequestedRegion` condition that restricts operations to your
+target AWS Region, `aws:CalledVia` conditions that limit most network changes to
+calls made by CloudFormation, and an external ID that includes your workspace ID for
+cross-account role assumption.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformNetworkMigrationAgentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformNetworkMigrationAgentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformNetworkMigrationAgentPolicy.md") in the AWS Managed Policy Reference
+Guide.
+
 ## AWS managed policy: AWSTransformSecurityAgentExecutorAccess
 
 This policy grants AWS Transform Continuous Modernization the permissions needed to invoke the
@@ -350,6 +485,78 @@ Security Agent resources within the same AWS account.
 **Permissions details**
 
 To view the policy permission details see [AWSTransformSecurityAgentExecutorAccess](../../../aws-managed-policy/latest/reference/AWSTransformSecurityAgentExecutorAccess.md "../../../aws-managed-policy/latest/reference/AWSTransformSecurityAgentExecutorAccess.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed policy: AWSTransformServerMigrationAgentPolicy
+
+This policy grants the permissions needed to perform server migration operations,
+including replication, testing, and cutover, using AWS Transform MGN. Attach this policy to the IAM
+role that AWS Transform assumes in your target account when it migrates servers.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Transform MGN (MGN)** – Allows describing and managing
+  source servers, applications, waves, jobs, connectors, and launch and replication
+  configuration templates, including creating, updating, deleting, associating, and
+  tagging them. Permits reading and updating account settings, registering agents,
+  starting tests and cutovers, controlling replication (start, stop, pause, and resume),
+  finalizing cutover, archiving source servers, terminating target instances, configuring
+  source server and template post-launch actions, and importing and exporting server
+  inventory.
+- **Amazon EC2** – Allows describing instances, images,
+  volumes, snapshots, VPCs, subnets, security groups, instance types, and launch
+  templates. Permits creating launch template versions and modifying launch templates,
+  restricted to launch templates that carry the
+  `AWSApplicationMigrationServiceManaged` tag, and tagging launch templates and
+  security groups on creation. Through MGN, permits running, starting, stopping, and
+  terminating target instances, modifying instance attributes, creating volumes and
+  snapshots, attaching, detaching, and deleting volumes, deleting launch template
+  versions, and creating security groups and authorizing and revoking their egress rules.
+  Instances can launch into VPCs in your account or into shared VPCs in other accounts in
+  your organization.
+- **Amazon FSx** – Allows describing file systems,
+  storage virtual machines, volumes, and snapshots. Through MGN, permits creating
+  volumes and snapshots, and deleting and tagging volumes, when you use FSx for ONTAP as
+  target storage.
+- **Amazon EC2 Systems Manager (SSM)** – Allows reading AWS-managed and
+  account documents, sending commands to migrated instances, and starting and monitoring
+  post-launch automation executions. Permits managing
+  `ManagedByAWSApplicationMigrationService-*` parameters.
+- **AWS Identity and Access Management (IAM)** – Allows passing the MGN service
+  roles (`AWSApplicationMigrationConversionServerRole`,
+  `AWSApplicationMigrationLaunchInstanceWithDrsRole`, and
+  `AWSApplicationMigrationLaunchInstanceWithSsmRole`) to Amazon EC2.
+- **Amazon S3** – Allows creating and managing the
+  `transform-vmware-target-*` bucket and the objects in it that store
+  migration artifacts, and reading the MGN source automation client signature
+  file.
+- **AWS Key Management Service (KMS)** – Allows decrypting, describing,
+  and generating data keys with your workspace encryption key, restricted to Amazon S3
+  usage.
+- **Service Quotas** – Allows reading the VPC quota for
+  security groups per network interface through MGN.
+- **AWS Secrets Manager** – Allows listing secrets to discover the
+  credentials used for source server discovery.
+- **AWS Organizations** – Allows listing accounts to
+  discover the accounts in your organization.
+- **AWS STS** – Allows assuming the
+  `AWSTransformRehostSharingRole_`management-or-delegated-admin-account-id``
+  role in other accounts in your organization for multi-account migrations.
+
+The policy implements least-privilege access through resource-level permissions,
+tag-based conditions on `CreatedBy`,
+`AWSApplicationMigrationServiceManaged`, and the workspace ID, the
+`aws:ResourceAccount` and `aws:ResourceOrgID` conditions, an
+`aws:RequestedRegion` condition that restricts operations to your target
+AWS Region, `aws:CalledVia` conditions that limit most Amazon EC2, Amazon FSx, and
+Systems Manager actions to calls made by MGN, and an external ID that includes your
+workspace ID for cross-account role assumption.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformServerMigrationAgentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformServerMigrationAgentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformServerMigrationAgentPolicy.md") in the AWS Managed Policy Reference
 Guide.
 
 ## AWS managed policy: DBModDiscoveryAndAssessment

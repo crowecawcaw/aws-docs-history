@@ -211,7 +211,7 @@ _IAM User Guide_.
 }
 ```
 
-### Supported target regions
+## Supported target regions
 
 A migration target region is the AWS Region where migrated resources
 are deployed, including landing zones, network infrastructure, and server

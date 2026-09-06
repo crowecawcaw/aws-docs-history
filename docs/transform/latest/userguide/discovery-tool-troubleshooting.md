@@ -142,11 +142,16 @@ If the connection fails, verify that WinRM is enabled on the target server and t
 
 The following are common Kerberos issues and their solutions.
 
-**Case sensitivity errors**
+**Server not found in Kerberos database**
 
-Symptom: You receive a "Server not found in Kerberos database" error during authentication.
+Symptom: You receive this error during authentication.
 
-This error typically occurs when the Kerberos realm name is not in uppercase. Kerberos realms must be specified in uppercase in your `krb5.conf` file. For example, use `EXAMPLE.COM` instead of `example.com`.
+This error has two common causes:
+
+- **Realm name not in uppercase** – Kerberos realms must be uppercase in your `krb5.conf` file. For example, use `EXAMPLE.COM` instead of `example.com`.
+- **Reverse DNS not working for a server that has no FQDN** – Kerberos builds its service principal name from the FQDN, so the discovery tool must map the IP address to the FQDN first. This cause applies only when the discovery tool has no FQDN for the server, such as a server that you imported from a CSV file with only an IP address. Run `getent hosts <target-ip>` on the discovery tool VM. If the command does not return the FQDN, add a PTR record, add an `/etc/hosts` entry, or use the FQDN. For more information, see [Using Kerberos with IP addresses](discovery-tool-configure.md#kerberos-ip-addresses "discovery-tool-configure.md#kerberos-ip-addresses").
+
+The discovery tool tries a server's FQDN before its IP addresses. If the discovery tool has an FQDN for the server, it also tries the IP addresses as a fallback, so you might see this error for an IP address even though the FQDN attempt is the one that matters. In that case, look at the error for the FQDN attempt to find the cause.
 
 **Account lockout prevention**
 
@@ -171,6 +176,7 @@ If `kinit` succeeds but data collection still fails, check the following:
 2. Verify that the service account has the required permissions on the target servers.
 3. Verify that WinRM is enabled on the target servers.
 4. Verify that the hostname used for collection matches the hostname registered in Active Directory.
+5. If the discovery tool has no FQDN for the server, such as a server that you imported by IP address only, check that the VM maps that IP address to the server's FQDN. Run `getent hosts <target-ip>` on the discovery tool VM. Kerberos builds its service principal name from the FQDN, not the IP address. Without a reverse mapping, the handshake fails even when `kinit` succeeds.
 
 **Kerberos works for some servers but not others**
 
@@ -194,6 +200,10 @@ net localgroup Administrators
 
 WMI requires local administrator privileges to access operating system information. SQL Server collection also requires that the service account has local administrator access on the target server.
 
+###### FQDN unavailable for servers discovered through Hyper-V
+
+For servers discovered through Hyper-V, the discovery tool resolves the server FQDN from guest metadata provided by Integration Services, which is required for Kerberos SPN matching. If Integration Services is not running in the guest, the FQDN is unavailable and Kerberos authentication fails. Confirm that Integration Services is running in the guest (see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent "discovery-tool-setup.md#discovery-tool-guest-agent")).
+
 ### Kerberos configuration checklist
 
 Use the following checklist to verify your Kerberos configuration before you start data collection.
@@ -207,6 +217,7 @@ Use the following checklist to verify your Kerberos configuration before you sta
 - Network connectivity to the KDC on port 88 is confirmed.
 - Network connectivity to target Windows servers on ports 5985 and 5986 is confirmed.
 - (Multi-domain) Each Active Directory domain has its own credential configured in the discovery tool, and `krb5.conf` contains `[realms]` and `[domain_realm]` entries for all domains.
+- (Servers with no FQDN) Running `getent hosts <target-ip>` returns the server's Active Directory FQDN, or the server is configured by FQDN instead.
 
 ## Oracle Database troubleshooting
 
@@ -326,6 +337,27 @@ This warning indicates that the SSH user account does not have sudo access on th
 If the discovery tool is unable to collect the server UUID (showing as empty or missing) for Linux servers, verify that the SSH credentials configured for those servers have sudo privileges. The tool uses `dmidecode` to read the server UUID. If `dmidecode` is not installed, the tool falls back to reading `/sys/class/dmi/id/product_uuid`, which also requires sudo access. Without sudo, neither method can retrieve the UUID.
 
 **Resolution:** Ensure the SSH user account provided to the discovery tool has sudo access on the target Linux servers.
+
+### Server appears in inventory but is never collected
+
+###### Symptom
+
+A server appears in **Discovered inventory** with no IP address, and its
+collection status never leaves pending. This typically means the guest agent is not supplying
+a guest address, so the discovery tool has nothing to connect to for OS-level
+collection.
+
+###### Checks
+
+- On Hyper-V, run `Get-VMIntegrationService -VMName `vm-name`` on the Hyper-V host and confirm that the Key-Value Pair Exchange service is running.
+- On VMware, check the VMware Tools status for the virtual machine in the vSphere Client.
+
+###### Resolution
+
+- Install and start the guest agent (VMware Tools or Hyper-V Integration Services) in the guest, and then wait for the next discovery cycle.
+- Alternatively, import the server from a CSV file with its IP address, which supplies the address directly. For more information, see [Import servers](discovery-tool-configure.md#discovery-tool-bare-metal-import "discovery-tool-configure.md#discovery-tool-bare-metal-import").
+
+For background on the guest-agent dependency, see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent "discovery-tool-setup.md#discovery-tool-guest-agent").
 
 ## Access issues in Discovered inventory
 

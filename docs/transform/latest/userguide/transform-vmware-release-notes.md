@@ -10,11 +10,22 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 
 ## August 2026
 
+- AWS Transform for migrations now lets you apply your source security posture to VPCs you have
+  already provisioned in AWS, instead of creating new VPCs. You upload a source network file
+  that contains firewall rules, tag the existing VPCs you want in scope, and AWS Transform matches
+  your source subnets to those VPCs by CIDR and generates the corresponding security groups.
+  [Learn
+  more about applying security posture to existing VPCs](transform-vmware-apply-security-posture.md "transform-vmware-apply-security-posture.md").
 - AWS Transform for migrations now identifies unused inbound firewall rules migrated from your
   on-premises environment and suggests removing them as part of guided network recommendations.
   This helps you avoid carrying forward security exposure, such as open inbound access, that no
   longer serves a purpose. Removal is limited to unused ingress rules. [Learn
-  more about guided network recommendations](transform-vmware-migrate-network.md#transform-vmware-guided-recommendations "transform-vmware-migrate-network.md#transform-vmware-guided-recommendations").
+  more about guided network recommendations](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-guided-recommendations "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-guided-recommendations").
+- AWS Transform for migrations now flags VPCs that host applications from multiple environments,
+  such as development and production, as part of guided network recommendations. When the
+  environments can be cleanly separated, AWS Transform suggests splitting the VPC to isolate them.
+  [Learn
+  more about guided network recommendations](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-guided-recommendations "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-guided-recommendations").
 
 ## July 2026
 
@@ -64,7 +75,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 - AWS Transform now detects existing VPCs in your target account during network migration review.
   You can see existing VPCs alongside your mapped VPCs, identify CIDR conflicts, and resolve
   them before deployment. [Learn
-  more about existing VPC detection](transform-vmware-migrate-network.md#transform-vmware-brownfield-network "transform-vmware-migrate-network.md#transform-vmware-brownfield-network").
+  more about existing VPC detection](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-brownfield-network "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-brownfield-network").
 - AWS Transform supports replatforming source code repositories to containers during migration
   to AWS. [Learn more about
   containerization](transform-containers.md "transform-containers.md").
@@ -82,7 +93,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
   Landing Zone Accelerator (LZA) formats). [Learn more about landing
   zone creation](transform-vmware-landing-zone.md "transform-vmware-landing-zone.md").
 - Added support for DHCP with security group mapping during network migration. [Learn
-  more about security group creation](transform-vmware-migrate-network.md#transform-vmware-security-group-association "transform-vmware-migrate-network.md#transform-vmware-security-group-association").
+  more about security group creation](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-security-group-association "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-security-group-association").
 - You can now generate interactive diagrams and analytical reports during migration planning.
   Diagram types include network topology maps, application dependency graphs, wave Gantt
   charts, and general charts. Report types include risk assessments, 7Rs recommendations, and
@@ -99,7 +110,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 ## February 2026
 
 - Network migration now supports ingesting [firewall
-  or Software-Defined Networking (SDN) configuration files](transform-vmware-migrate-network.md#transform-vmware-firewall-and-sdn-config-files "transform-vmware-migrate-network.md#transform-vmware-firewall-and-sdn-config-files") without requiring [RVTools discovery
+  or Software-Defined Networking (SDN) configuration files](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-firewall-and-sdn-config-files "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-firewall-and-sdn-config-files") without requiring [RVTools discovery
   data](transform-vmware-discover-source-data.md "transform-vmware-discover-source-data.md"). You can use firewall or SDN configuration files independently, or combine
   them with RVTools exports.
 
@@ -122,7 +133,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
   AWS accounts](migration-multiple-target-accounts.md "migration-multiple-target-accounts.md") in migration execution, enabling you to migrate workloads across
   accounts.
 - Added network migration support for [Cisco
-  ACI, Palo Alto, FortiGate, and ModelizeIT source formats](transform-vmware-migrate-network.md#transform-vmware-source-network-mapping "transform-vmware-migrate-network.md#transform-vmware-source-network-mapping").
+  ACI, Palo Alto, FortiGate, and ModelizeIT source formats](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-source-network-mapping "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-source-network-mapping").
 
 ## October 2025
 
@@ -135,7 +146,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
   enabling you to specify Bring Your Own License (BYOL) or license-included options per
   wave.
 - Added support for [Terraform
-  in network migration](transform-vmware-migrate-network.md#transform-vmware-deploy-network "transform-vmware-migrate-network.md#transform-vmware-deploy-network"), enabling you to deploy network infrastructure using
+  in network migration](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-deploy-network "transform-vmware-migrate-network-new-vpcs.md#transform-vmware-deploy-network"), enabling you to deploy network infrastructure using
   Terraform templates.
 - Added support for updating replication subnet configuration, removing the requirement for a
   default VPC in the target account.
@@ -146,7 +157,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
   regions](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md") with the addition of US East (Ohio), Europe (Stockholm), and Europe
   (Ireland).
 - Added [flexible
-  CIDR range capabilities](transform-vmware-migrate-network.md#vmware-migration-ip "transform-vmware-migrate-network.md#vmware-migration-ip") for network migration, enabling you to customize IP
+  CIDR range capabilities](transform-vmware-migrate-network-new-vpcs.md#ip-migration-approaches "transform-vmware-migrate-network-new-vpcs.md#ip-migration-approaches") for network migration, enabling you to customize IP
   address ranges during network deployment.
 
 ## May 2025

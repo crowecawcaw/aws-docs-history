@@ -1,6 +1,11 @@
 # Resolving package dependencies to prepare for transformation
 
-After [Confirming your repositories to prepare for transformation](dotnet-confirming-repos.md "dotnet-confirming-repos.md"), if AWS Transform finds missing package dependencies, you must complete this step. You can run a Windows PowerShell script to get the missing package dependencies from the same device as your Visual Studio development environment, or you can retrieve the missing packages manually. Then, upload the missing packages.
+In the _Prepare for transformation_ phase, you will:
+
+- Select repositories for transformation.
+- Resolve any missing dependencies.
+- Review and optionally customize the generated modernization plan.
+  If AWS Transform finds missing package dependencies, you must complete this step. You can run a Windows PowerShell script to get the missing package dependencies from the same device as your Visual Studio development environment, or you can retrieve the missing packages manually. Then, upload the missing packages.
 
 The Missing Package Dependencies can be updated in two ways:
 

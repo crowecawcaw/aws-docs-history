@@ -64,6 +64,44 @@ Remote compute must run in private subnets, and
 `atx ct remote network discover` excludes public subnets. If no private subnets
 exist, create networking with `atx ct remote network create`.
 
+AWS Batch jobs fail with InsufficientFreeAddressesInSubnet
+Each AWS Batch job needs one free private IPv4 address, and AWS Batch fails
+a job it cannot place rather than queueing it. Run
+`atx ct remote network discover --vpc `vpc-id` --json` and
+read `availableIpCount` for every subnet in the stack, then compare the smallest
+count against the concurrency limit for the analysis type you are running. Free addresses do
+not add up across subnets — capacity is the smallest count, not the total. To resolve, use
+larger subnets, remove the smallest subnet from the stack, submit fewer repositories at a time,
+or run with `--mode ec2`, which uses one address in total. For the arithmetic and
+minimum subnet sizes, see
+[Sizing subnets and concurrency](ct-working-with.md#ct-remote-sizing "ct-working-with.md#ct-remote-sizing").
+
+Repositories stay pending for a long time with no error
+The run is being paced. AWS Transform limits how many remote jobs run at the same time in
+an AWS account and Region — as few as 5 for `security` analysis — and holds the
+rest until capacity frees up. A run can also wait for free IP addresses in your subnets. Both
+appear as `pending` in `atx ct remote status`, which does not distinguish
+waiting from running. Confirm the limit for your analysis type in
+[Sizing subnets and concurrency](ct-working-with.md#ct-remote-sizing "ct-working-with.md#ct-remote-sizing") and expect the run to
+progress at that rate. Do not submit the run again — resubmitting adds jobs that wait behind
+the same limit. If free addresses are plentiful but jobs still wait, the run is at the
+concurrency limit for its type and larger subnets will not help.
+
+Remote status reports no jobs for a submission that was accepted
+Expected while every job in the submission is still waiting for capacity.
+AWS Transform records job details when the first job starts, so
+`atx ct remote status --batch` can report nothing until then. Wait and run the
+command again.
+
+Repositories fail with no reason after several hours
+A job waits for capacity for up to about 33 hours before AWS Transform abandons it.
+Jobs are also abandoned if AWS Transform cannot evaluate subnet capacity, which happens on stacks
+provisioned before capacity checking was added. Update the stack with
+`atx ct remote update --mode batch --execute --ack`, then submit the affected
+repositories again in smaller groups. If the run was large, size the subnets for the
+concurrency limit of the analysis type first — see
+[Sizing subnets and concurrency](ct-working-with.md#ct-remote-sizing "ct-working-with.md#ct-remote-sizing").
+
 Remote run cannot clone repositories
 Remote containers use tokens stored in AWS Secrets Manager. Register a
 token for each source with
