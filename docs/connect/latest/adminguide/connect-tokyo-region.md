@@ -28,6 +28,7 @@ Asia Pacific (Tokyo) Region.
 
 ###### Note
 
-When you claim a toll free phone number for Connect Customer, there is no corresponding DID
-number with a 03 prefix also assigned, as with other toll free numbers in Japan. If you
-need to use a DID number, you can claim one in Connect Customer.
+In Japan, toll free numbers typically come with a corresponding Direct Inward Dialing
+(DID) number with a prefix such as 03. This DID number receives incoming calls on
+behalf of the toll free number. When you claim a toll free phone number in Connect Customer, you
+receive and manage only the toll free number, not the corresponding DID number.

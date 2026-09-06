@@ -1,12 +1,15 @@
 # Connect Customer support of the inbound only UIFN service
 
 A Universal International Freephone number (UIFN) is a unique **inbound only** freephone number that can be used throughout the world. It
-provides toll-free calling from international locations to your contact center.
+provides toll-free calling from international locations to your contact center. Connect Customer
+provides UIFN for businesses that are unable to get access to local toll free or DID
+numbers due to being unable to meet the documentation requirements.
 
-You can use UIFN with Connect Customer in [many
-countries](#list-of-uifn-countries "#list-of-uifn-countries") registered with the International Telecommunications Union (ITU).
-The ITU supports the administration of the UIFN service. Availability depends on
-carrier support and might vary by country.
+Connect Customer UIFN setup in more than [60 countries](#list-of-uifn-countries "#list-of-uifn-countries")
+that are registered with the International Telecommunications Union. In recent years
+however smaller carriers increasingly do not support UIFN. Please review the below
+validated and supported networks alongside other configurations that are not guaranteed
+before making an informed choice for your customer base.
 
 ###### Note
 

@@ -226,8 +226,8 @@ response time was greater than or equal to 1 minute.
    - **Match all**: Searches for contacts that
      match all of the selected categories.
    - **Match none**: Searches for contacts that
-     did not match any of the selected categories. Note that this
-     would only return contacts that were analyzed by
+     did not match any of the selected categories. This
+     option only returns contacts that were analyzed by
      conversational analytics.
      The following image shows a dropdown menu with all the current
      categories listed.

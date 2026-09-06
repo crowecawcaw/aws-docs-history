@@ -37,6 +37,12 @@ described in this topic. Or programmatically by using the [Predefined attribute 
   it can contain any letter, numeric value, whitespace, or `_.:/=+-@'`
   special characters, but can't start with `aws:` or
   `connect:`.
+- The preceding pattern restriction applies to **customer-created** predefined attributes only. System predefined
+  attributes (such as `connect:WorkloadType`,
+  `connect:Language`, and `connect:Subtype`) use the
+  `connect:` prefix and are managed by Connect Customer. You can add custom
+  values to system attributes where permitted, but you cannot rename or delete the
+  attribute itself.
 - You cannot create duplicate predefined attribute names or values. In addition,
   case sensitivity means you cannot use duplicate names. For example, a new
   predefined attribute with the name `language` cannot be created if a
@@ -61,6 +67,12 @@ The following system attributes are available:
   `connect:Language`.
 - `connect:Subtype`. You cannot change `connect:Subtype`
   but it can be used in routing criteria for routing.
+- `connect:WorkloadType`. Represents the complexity or urgency of a
+  contact's work. You can add up to 500 custom values for
+  `connect:WorkloadType`. These values are
+  used to configure workload-type concurrency in routing profiles, allowing you to
+  set different agent capacity limits for different types of work within the same
+  channel (Task or Email). For more information, see [Channels and concurrency for routing contacts in Connect Customer](channels-and-concurrency.md "channels-and-concurrency.md").
 
 ## Create a predefined attribute
 

@@ -27,6 +27,7 @@ available.
 - [External Tool](#externaltool_region "#externaltool_region")
 - [Forecasting & agent scheduling](#optimization_region "#optimization_region")
 - [Amazon Connect agentic voice](#gv_region "#gv_region")
+- [Agentic CX Designer](#agentic-cx_region "#agentic-cx_region")
 - [Global Resiliency](#gr_region "#gr_region")
 - [In-app, web, and video calling
   capabilities](#inapp_region "#inapp_region")
@@ -265,6 +266,21 @@ The calculated attributes API is available in the following AWS Regions:
 - AWS GovCloud (US-West)
 
 ## Amazon Connect agentic voice
+
+- US East (N. Virginia)
+- US West (Oregon)
+- Europe (Frankfurt)
+- Europe (London)
+- Asia Pacific (Sydney)
+- Asia Pacific (Seoul)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Singapore)
+- Canada (Central)
+
+## Agentic CX Designer
+
+Agentic CX Designer, and the [Agentic CX](agentic-cx-block.md "agentic-cx-block.md") block that connects contacts to Agentic CX
+Designer applications, are available in the following Regions:
 
 - US East (N. Virginia)
 - US West (Oregon)

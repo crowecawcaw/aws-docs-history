@@ -178,7 +178,7 @@ The following table lists the possible values in the
 | `CLIENT_AUTH_ERROR`                   | The Amazon Connect Client Application failed to authenticate                                              | `CLIENT`  |
 | `CLIENT_CONNECTION_ERROR`             | Amazon Connect Client Application is not connected                                                        | `CLIENT`  |
 | `MULTIPLE_CCP_INTERACTION`            | Detected multiple browser interactions with CCP                                                           | `CLIENT`  |
-| `USER_ERROR`                          | Request encountered an user configuration error                                                           | `CLIENT`  |
+| `USER_ERROR`                          | Request encountered a user configuration error                                                            | `CLIENT`  |
 | `SERVICE_ISSUE`                       | Request encountered a service exception                                                                   | `SERVICE` |
 | `UNKNOWN`                             | Unknown failure                                                                                           | `UNKNOWN` |
 

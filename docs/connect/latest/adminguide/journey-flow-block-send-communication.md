@@ -103,7 +103,7 @@ Configure the following properties on the page to use outbound voice channel:
 - **From**: The phone number that the voice call is to be made from. The dropdown menu shows a list of phone numbers that are claimed for your Amazon Connect instance.
 
   - **Set manually**: Use the dropdown menu to select a phone number claimed for your Amazon Connect instance.
-  - **Set dynamically**: Enter an attribute based on a **Namespace** and **Key** that points to the ARN of a phone number claimed for your Amazon Connect instance.
+  - **Set dynamically**: Enter an attribute based on a **Namespace** and **Key** that points to the phone number address (in E.164 format — for example, `+12025551234`) of a phone number claimed for your Amazon Connect instance. For voice, use the address, not the phone number ARN or ID.
 
 - **Dial criteria**: Configure how the voice call should be handled based on detection criteria. Use the dropdown to choose a segment that the voice call will target for.
 - **Engagement preference**: If your contact list includes single account with more than 1 profile, such as joint account holders, and 1 profile could have more than 1 phone number, you can use engagement preference to set contact strategy based on preference.
@@ -120,11 +120,11 @@ You can use an **Invoke Lambda** block earlier in the journey flow to determine 
 ### How it works
 
 1. Add a [Custom action (Invoke Lambda)](journey-flow-block-custom-action.md "journey-flow-block-custom-action.md") block before the **Send communication** block in your journey flow.
-2. The Lambda function runs and returns a JSON response that includes the source phone number or email address ARN in a key of your choice. For example:
+2. The Lambda function runs and returns a JSON response that includes the source value in a key of your choice. The expected format depends on the channel: for a voice call, return the phone number address in E.164 format; for SMS or WhatsApp, return the phone number ARN; for email, return the email address. For example, for a voice call:
 
 ```
 {
-  "sourcePhoneNumber": "arn:aws:connect:us-west-2:123456789012:phone-number/example-id"
+  "sourcePhoneNumber": "+12025551234"
 }
 ```
 

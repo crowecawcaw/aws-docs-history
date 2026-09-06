@@ -10,7 +10,7 @@ following image shows an example audit trail.
 
 ## What do Active, Draft, and Locked mean?
 
-An form is in one of the following states:
+A form is in one of the following states:
 
 - **Active**. A published version of the form that is
   available to evaluators.
@@ -19,4 +19,4 @@ An form is in one of the following states:
 - **Locked**. An evaluation form is locked when you
   activate or publish it. Even after you deactivate the form, it stays locked,
   and becomes a historical version of the form. However, you can activate the
-  historical version to save it as new version.
+  historical version to save it as a new version.

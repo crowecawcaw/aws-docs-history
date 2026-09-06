@@ -15,7 +15,7 @@ to include the ID of the contact and the ID of the agent in the
   during the conversation with agent
   `$.ContactLens.PostCall.Agent.AgentId` in the contact
   `$.ContactLens.PostCall.ContactId`
-  When the action is triggered, his string would resolve to "Customer is unhappy
+  When the action is triggered, this string would resolve to "Customer is unhappy
   about the phone call. A swear word was detected during a conversation with agent
   12345678-1234-1234-1234-EXAMPLEID012 in the contact
   87654321-1234-1234-1234-EXAMPLEID345"

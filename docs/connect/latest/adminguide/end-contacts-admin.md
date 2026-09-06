@@ -37,7 +37,7 @@ To end contacts programmatically, use the [StopContact](../APIReference/API_Stop
 2. **Restrict contact access** (Optional): Restrict a user's
    access to contacts on the **Contact search** and
    **Contact details** pages within their own hierarchy
-   group or any hierarchy groups below them. For more information about this
+   group or any hierarchy groups below them. For more information about these
    permissions, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 3. **End Contact**: Enables a user to end contacts on the
    **Analytics & Optimization** pages. The following

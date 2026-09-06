@@ -37,7 +37,7 @@ Following are some examples:
 
 
     ![The task action with dynamic variables.](images/rules-create-task-dynamic-variables.png)
-    Other rule types support different variables::
+    Other rule types support different variables:
 
 
 

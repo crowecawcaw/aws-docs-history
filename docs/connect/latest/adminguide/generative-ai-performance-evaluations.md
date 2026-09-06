@@ -45,11 +45,11 @@ The following is the overview of the automation process:
    answered with generative AI, you can do a broader rollout by pre-configuring
    on the evaluation form, whether a question will receive an automated answer
    using generative AI.
-5. After you have setup automation, any user performing evaluations using the
+5. After you have set up automation, any user performing evaluations using the
    evaluation form will get automated generative AI answers to the
    pre-configured questions (without requiring additional permissions). For
    more information, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
-6. You can setup automation such that an evaluator first reviews the
+6. You can set up automation such that an evaluator first reviews the
    generative AI answers before submission or you can automatically fill and
    submit evaluations.
 
@@ -126,7 +126,7 @@ the evaluation form on the Connect Customer UI, answers to these questions will 
 automatically filled using generative AI (without requiring you to choose Ask AI).
 You can also use generative AI to automatically fill and submit evaluations. For
 automatically submitted evaluations, you can use generative AI to answer up to 10
-questions per contact (see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). Note that this limit does not apply to
+questions per contact (see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). This limit does not apply to
 automation using contact categories or metrics (for example, longest
 hold duration).
 
@@ -149,7 +149,7 @@ your preferred language, you can set the language of an evaluation form, choosin
 **Chinese**, **Japanese**,
 **Korean**, and **Malay**.
 By explicitly setting the language of an evaluation, you can also perform cross-language
-evaluations, where generative AI fills a evaluation form in English, even when the
+evaluations, where generative AI fills an evaluation form in English, even when the
 conversation transcript is in another language, say Spanish. This enables multilingual
 contact centers to use a standardized evaluation framework across languages.
 

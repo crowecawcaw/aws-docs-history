@@ -24,7 +24,7 @@ interactions are as follows:
 - [Step 1: Create a draft evaluation form](#step-create-draft-form-self-service "#step-create-draft-form-self-service")
 - [Step 2: Set up automation](#step-setup-automation-self-service "#step-setup-automation-self-service")
 - [Step 3: Set up a rule to automatically submit evaluations of self-service interactions](#step-setup-rule-self-service "#step-setup-rule-self-service")
-  Note that after setting up automation on an evaluation form (step 2), you can use
+  After setting up automation on an evaluation form (step 2), you can use
   the same form for AI-assisted (human-in-the loop) evaluations. You can manually start an
   evaluation at which point AI fills the answers automatically. You can then review or revise
   answers before submission. With this approach, you can also test and optimize automation before you
@@ -85,7 +85,7 @@ Type in the question, questions instructions and answer options to be used by AI
 performance of self-service interactions. Under Automation for a question, select **Option 3: Generative AI**. The AI interprets the text of the question, question instructions, and
 analyzes the self-service interaction transcript to fill one of the answer options.
 
-Use @ to enter keywords that generative AI can understand - the words system, AI agent and bot currently
+Use @ to enter keywords that generative AI can understand - the words system, AI agent and bot
 refer to any non-human participant that is interacting with the customer. You can use these words interchangeably.
 
 ![Automation tab showing Option 3: Generative AI selected for evaluating AI agent behavior.](images/self-service-question-gen-ai-automation.png)

@@ -45,4 +45,4 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 - [Key management in Connect Customer](key-management.md "key-management.md")
 - [VPC endpoints
   (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
-- [Service Improvement and how to opt out from using your data for service improvement](data-opt-out.md "data-opt-out.md")
+- [Service improvement and how to opt out of using your data](data-opt-out.md "data-opt-out.md")

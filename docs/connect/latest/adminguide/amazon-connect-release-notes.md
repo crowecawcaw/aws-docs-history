@@ -5,6 +5,26 @@ Inbox. Choose the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## September 2026 Updates
+
+### Connect Customer Global Resiliency now routes contacts across two active AWS Regions
+
+Connect Customer Global Resiliency now supports routing contacts to agents across paired ACGR
+Regions. For example, a contact arriving in US East (N. Virginia) is offered to the
+longest-available matching agent whether that agent is in US East (N. Virginia) or US
+West (Oregon), while managers view analytics and search contacts across both Regions as
+a unified contact center. When agents and contacts are distributed across both Regions,
+your full configuration and any integrations are continuously validated with live
+traffic in both Regions at all times, providing confidence that either environment is
+ready to absorb the full workload. You retain full control over how traffic is
+distributed, and can shift new contacts and agents to a single Region or disable
+cross-region routing at any time.
+
+To request access to this feature, contact your AWS account team. Unified routing,
+analytics, and contact search are now enabled by default for all new ACGR instances
+created on or after September 1, 2026. Existing ACGR instances can opt into this feature
+set on request. For more details, see [Global routing across ACGR Regions](global-routing-across-acgr-regions.md "global-routing-across-acgr-regions.md").
+
 ## August 2026 Updates
 
 ### Connect Customer now supports pagination on analytics dashboard widgets
@@ -1954,7 +1974,7 @@ the customer experience and enabling faster issue resolution. For more informati
 You can set task durations to expire up to 30 days from creation, with a default of 7
 days. For example, you can specify one issue to expire at 2 hours from creation for urgent
 escalations, and specify another issue for mandatory training to stay active for 30 days. For
-more information, see [Create task templates in Connect Customer](task-templates.md "task-templates.md").
+more information, see [Task templates in Connect Customer](task-templates.md "task-templates.md").
 
 #### Track the originating agent when they create a task manually
 
@@ -4647,7 +4667,7 @@ reference.
 
 #### conversational analytics: Use category tags to navigate transcript
 
-For more information, see [Tap or click category tags to navigate through transcript](turn-by-turn-transcript.md#category-navigation "turn-by-turn-transcript.md#category-navigation").
+For more information, see [Choose category tags to navigate through transcript](turn-by-turn-transcript.md#category-navigation "turn-by-turn-transcript.md#category-navigation").
 
 #### Fixes for chat metrics
 

@@ -127,7 +127,7 @@ It can be filtered on the following conversation outcomes using metric level
 filter `BOT_CONVERSATION_OUTCOME_TYPE`.
 
 It can be filtered on the following intent outcomes using metric level filter
-`BOT_INTENTS_OUTCOME_TYPE`.
+`BOT_INTENT_OUTCOME_TYPE`.
 
     + SUCCESS: The bot successfully fulfilled the intent. One of the
      following situations is true:

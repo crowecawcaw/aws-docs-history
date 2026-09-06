@@ -559,17 +559,17 @@ requirements](#uifn-requirements "#uifn-requirements").
 
 ### For ordering phone numbers
 
-| Type of Number               | Are there ID requirements? | Acceptable Identification                                                                                                                                                                                                                                                                                                           |
-| ---------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Local telephone numbers      | Yes                        | Businesses must provide their name, address, a copy of the<br>business registration, and a proof of address. Valid proofs of<br>address include: third-party issued bank statements, utility<br>bills (all issued in the previous 6 months); government<br>documents (issued in the previous year).<br>A local address is required. |
-| National prefixes: +852 58   | Yes                        | Businesses must provide their name, address, a copy of the<br>business registration, and a proof of address. Valid proofs of<br>address include: third-party issued bank statements, utility<br>bills (all issued in the previous 6 months); government<br>documents (issued in the previous year).                                 |
-| Toll-free prefixes: +852 800 | Yes                        | Businesses must provide proof of address.Valid proofs of<br>address include: third-party issued bank statements, utility<br>bills (all issued in the previous 6 months).<br>A global address is acceptable.                                                                                                                         |
+| Type of Number                          | Are there ID requirements? | Acceptable Identification                                                                                                                                                                                                                                                                                                           |
+| --------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Local telephone numbers: +852 2, +852 3 | Yes                        | Businesses must provide their name, address, a copy of the<br>business registration, and a proof of address. Valid proofs of<br>address include: third-party issued bank statements, utility<br>bills (all issued in the previous 6 months); government<br>documents (issued in the previous year).<br>A local address is required. |
+| National prefixes: +852 58              | Yes                        | Businesses must provide their name, address, a copy of the<br>business registration, and a proof of address. Valid proofs of<br>address include: third-party issued bank statements, utility<br>bills (all issued in the previous 6 months); government<br>documents (issued in the previous year).                                 |
+| Toll-free prefixes: +852 800            | Yes                        | Businesses must provide proof of address.Valid proofs of<br>address include: third-party issued bank statements, utility<br>bills (all issued in the previous 6 months).<br>A global address is acceptable.                                                                                                                         |
 
 ### Number portability
 
-| Portability windows | Required Documents                                                                                                                                                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| N/A                 | 1. Last invoice.<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. Documents required for the Type of Number, as listed<br>in the previous table for ordering phone numbers. |
+| Type of Number                          | Portability windows | Required Documents                                                                                                                                                                                                                                                                                         |
+| --------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Local telephone numbers: +852 2, +852 3 | N/A                 | 1. Last invoice.<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. Documents required for the Type of Number, as listed<br>in the previous table for ordering phone numbers. |
 
 ## Hungary (HU)
 
@@ -612,8 +612,6 @@ Porting is not supported.
 | Type of Number                                          | Are there ID requirements? | Acceptable Identification                                                                                                                                                                                                       |
 | ------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Local telephone number prefixes: +62 21, +62 31, +62 61 | Yes                        | Your business address, a contact name, and phone number. It<br>must be a local address corresponding to the area code of the<br>telephone number(s). You must also provide a description of how<br>you plan to use the numbers. |
-| Mobile prefixes: +62 855                                | Yes                        | Proof of business address, a copy of the ID or passport of<br>an authorized representative, and the business registration. You<br>must also provide a description of how you plan to use the<br>numbers.                        |
-| Toll-free prefixes: +62 800                             | No                         |                                                                                                                                                                                                                                 |
 
 ### Number portability
 
@@ -741,11 +739,10 @@ requirements](#uifn-requirements "#uifn-requirements").
 
 ### For ordering phone numbers
 
-| Type of Number                   | Are there ID requirements? | Acceptable Identification                                                                                                                                  |
-| -------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Local telephone numbers: +352 27 | Yes                        | Your residence or business address. It must be a local<br>address corresponding to the area code of the telephone<br>number(s).<br>A contact phone number. |
-| National prefixes:               | Yes                        | An address in Luxembourg is required. Businesses must<br>provide a copy of the business registration.<br>A contact phone number.                           |
-| Toll-free prefixes: +352 800     | Yes                        | Your business name and address. A global address is<br>acceptable.<br>A contact phone number.                                                              |
+| Type of Number                               | Are there ID requirements? | Acceptable Identification                                                                                |
+| -------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Local and national telephone numbers: +352 2 | Yes                        | An address in Luxembourg is required. A copy of the<br>business registration.<br>A contact phone number. |
+| Toll-free prefixes: +352 800                 | Yes                        | Your business name and address. A global address is<br>acceptable.<br>A contact phone number.            |
 
 ### Number portability
 
@@ -1148,19 +1145,17 @@ requirements](#uifn-requirements "#uifn-requirements").
 
 ### For ordering phone numbers
 
-| Type of Number                      | Are there ID requirements? | Acceptable Identification                                                                         |
-| ----------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------- |
-| National prefixes: +65 31 and +65 6 | Yes                        | Address required in country.<br>Documents required for company: Company registration<br>documents |
-| Toll-free prefixes: +65 1800        | Yes                        | Your business address.<br>A global address is acceptable.                                         |
+| Type of Number                      | Are there ID requirements? | Acceptable Identification                                                                                                      |
+| ----------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| National prefixes: +65 31 and +65 6 | Yes                        | Address required in country.<br>Documents required for company: Company registration<br>documents                              |
+| Toll-free prefixes: +65 1800        | Yes                        | Your business address.<br>A global address is acceptable.<br>Documents required for company: Company registration<br>documents |
 
 ### Number portability
 
-| Portability windows            | Required Documents                                                                                                                                                                                                      |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Monday-Friday 9 AM to 5 PM SGT | 1. Last invoice<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. List of Port in Numbers |
-
-Porting-out DIDs is only possible for contiguous number blocks of 10 numbers (...0
-to ...9) due to market practice.
+| Type of number               | Portability windows            | Required Documents                                                                                                                                                                                                                                           |
+| ---------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| National prefixes: +65 6     | Monday-Friday 9 AM to 5 PM SGT | 1. Last invoice<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. List of Port in Numbers                                      |
+| Toll-free prefixes: +65 1800 | Monday-Friday 9 AM to 5 PM SGT | 1. Last invoice<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. Company registration documents<br>4. List of Port in Numbers |
 
 ## Sint Eustatius (BQ)
 
@@ -1318,10 +1313,10 @@ requirements](#uifn-requirements "#uifn-requirements").
 
 ### For ordering phone numbers
 
-| Type of Number              | Are there ID requirements? | Acceptable Identification                                                                               |
-| --------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Local telephone numbers     | Yes                        | Your business address in the country. A copy of the<br>ID/business registration and a proof of address. |
-| Toll-free prefixes: +41 800 | Yes                        | Your business address and a copy of business<br>registration.<br>A global address is acceptable.        |
+| Type of Number              | Are there ID requirements? | Acceptable Identification                                                                             |
+| --------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Local telephone numbers     | Yes                        | Your business address in the country. A copy of your<br>business registration and a proof of address. |
+| Toll-free prefixes: +41 800 | Yes                        | Your business address and a copy of business<br>registration.<br>A global address is acceptable.      |
 
 ### Number portability
 

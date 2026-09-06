@@ -253,3 +253,28 @@ The following tables contain contact data.
 | is\_transferred\_out\_external                      | bigint    | Yes          | A flag indicating whether a contact is transferred from the queue<br>to an external source.                                                                                                                                                                                                                                                                                                                                                                                                  |
 | is\_transferred\_out\_external\_from\_contact\_flow | bigint    | Yes          | A flag indicating whether a contact is transferred to an external<br>destination by contact flow.                                                                                                                                                                                                                                                                                                                                                                                            |
 | data\_lake\_last\_processed\_timestamp              | Timestamp | Yes          | Timestamp, which shows the last time the data lake processed the<br>record. This can include transformation and backfill. This field<br>cannot reliably be used to determine data freshness.                                                                                                                                                                                                                                                                                                 |
+
+###### Manager assist contacts
+
+If your Connect Customer instance has manager assist enabled, manager assist contacts appear in the data lake with `channel` = `CHAT` and `initiationMethod` = `API`. These contacts have a `subType` of `connect:Assistant` and are excluded from out-of-the-box reports.
+
+The `contact_statistic_record` table does not include a `subType` column. To exclude manager assist contacts, JOIN to `contact_record` and filter on the segment attribute, as shown in the following sample query.
+
+### Sample query to exclude manager assist contacts
+
+The following example query excludes manager assist contacts from `contact_statistic_record` results by joining to `contact_record` and filtering on the `connect:Subtype` segment attribute:
+
+```
+-- Exclude Manager Assist contacts from contact_statistic_record queries
+SELECT csr.*
+FROM contact_statistic_record csr
+INNER JOIN contact_record cr
+ON csr.contact_id = cr.contact_id
+AND csr.instance_id = cr.instance_id
+WHERE cr.segment_attributes['connect:Subtype'] IS NULL
+OR cr.segment_attributes['connect:Subtype'] != 'connect:Assistant'
+```
+
+###### Tip
+
+You can also identify manager assist contacts by the presence of the `ai_agents` array in `contact_record`, where `ai_use_case` = `'SelfService'`.

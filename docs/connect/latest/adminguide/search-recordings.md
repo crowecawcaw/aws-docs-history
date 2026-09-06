@@ -27,5 +27,5 @@ referring the audio file on the contact's record.
    the play, download, and delete icons. If you don't have the appropriate
    permissions, you won't see these icons.
 
-![The contact search page, the play, download, and delete recording icons.](/images/connect/latest/adminguide/images/recording-icons.png)
+![The contact search page, the play, download, and delete recording icons.](images/recording-icons.png)
 To learn more about searching, see [Search for completed and in-progress contacts in Connect Customer](contact-search.md "contact-search.md").

@@ -257,6 +257,7 @@ However, note the following functionality:
 | Transfer Contact                     | TransferContact.Enabled       | [Transfer contacts<br>on Analytics and optimization pages](transfer-contacts-admin.md "transfer-contacts-admin.md"). Currently<br>transfer of task contacts to quick connects is supported on the<br>*_Contact details_<br>• page.   |
 | End contact                          | StopContact.Enabled           | [End contacts on<br>Analytics and optimization pages](end-contacts-admin.md "end-contacts-admin.md"). Currently supported<br>on the *_Contact details_<br>• page.                                                                    |
 | Reschedule contact                   | UpdateContactSchedule.Enabled | [Reschedule<br>previously scheduled contact on Analytics and optimization<br>pages](reschedule-contacts-admin.md "reschedule-contacts-admin.md"). Currently supported on the *_Contact<br>details_<br>• page for task contacts only. |
+| Update contact tags                  | Contacts.Tag.Edit             | Add and remove tags from contacts on the<br>*_Contact details_<br>• page. For more<br>information, see [Tag contacts on the Contact details page in Connect Customer](tag-contacts-admin.md "tag-contacts-admin.md").                |
 
 ## Historical changes
 

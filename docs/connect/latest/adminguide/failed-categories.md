@@ -11,7 +11,7 @@ evaluated during contact analysis:
    contact**. When categories are displayed on the
    **Contact details** page, it indicates they were
    successfully matched and applied to the contact.
-2. **Successfully evaluated and but they don't apply
+2. **Successfully evaluated but they don't apply
    to the contact**. When categories are absent from the
    **Contact details** page, it indicates they don't
    apply to the contact but were successfully evaluated by

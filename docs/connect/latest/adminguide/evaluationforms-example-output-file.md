@@ -21,7 +21,7 @@ evaluation form scores, and describes the evaluation form metadata.
 
 When you enable **Contact evaluations** in the Connect Customer
 console, you are prompted to create or choose an S3 bucket to store the evaluations.
-To verify the name of the bucket, go to your instance alias, choose **Data
+To verify the name of the bucket, navigate to your instance alias, choose **Data
 storage**, **Contact evaluations**, then
 **Edit**.
 
@@ -286,7 +286,7 @@ The unique identifier for the evaluation form.
 
 _Type_ – String
 
-_Length contraints_ – Minimum
+_Length constraints_ – Minimum
 length of 1, maximum length of 500
 
 **evaluationDefinitionVersion**
@@ -323,7 +323,7 @@ The evaluation's score.
 The entity that created the evaluation the very first
 time (as opposed to "evaluator" which represents the entity
 that last submitted the evaluation). When the call is made
-from the Connect Customer admin website it contains the username. Wen the call comes
+from the Connect Customer admin website it contains the username. When the call comes
 from the API it contains the ARN of the caller.
 
 _Type_ – String
@@ -548,9 +548,7 @@ length of 1, maximum length of 40
 
 The type of the question.
 
-_Type_ – StrThe combined notes
-in an evaluation have a limit of _N_ x 1024 characters, where _N_ is the number of questions in
-the evaluation.ing
+_Type_ – String
 
 _Valid values_ – `TEXT |
  SINGLESELECT | NUMERIC`
@@ -655,7 +653,7 @@ the question.
 
 _Type_ – Boolean
 
-- notApplicable - The flag that mark the item as not
+- notApplicable - The flag that marks the item as not
   applicable for scoring, it will be excluded from
   scoring calculations.
 

@@ -169,7 +169,7 @@ question to appear in the form only if it is needed.
 
 1. Choose a question that needs a follow-up question. The question type must
    be **Single selection** or **Multiple selection**,
-   and it must be not be an optional question (do not select the **Optional question** checkbox).
+   and it must not be an optional question (do not select the **Optional question** checkbox).
 
 For example, in the following image, question 1.1 is _What was
 the reason for the call?_ and the **Optional
@@ -227,7 +227,7 @@ be answered automatically on a contact using generative AI**, see
 
 ## Step 5: Assign scores and ranges to answers
 
-1. Go to the top of the form. Choose the **Scoring** tab,
+1. Navigate to the top of the form. Choose the **Scoring** tab,
    and then select the **Enable scoring** checkbox.
 
 ![The evaluation forms page, the scoring tab, the Enable scoring checkbox.](images/evaluationforms-enablescoring.png)
@@ -439,7 +439,7 @@ question.
 - The following image shows that the answer to the evaluation question is
   yes when conversational analytics has categorized the contact with a label
   **ProperGreeting**. To label contacts as
-  **ProperGreeting**, you must first setup a rule that
+  **ProperGreeting**, you must first set up a rule that
   detects the words or phrases expected as part of a proper greeting, for
   example, the agent mentioned "Thank you for calling" in the first 30 seconds
   of the interaction. For more information, see [Automatically categorize

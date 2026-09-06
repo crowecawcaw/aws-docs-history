@@ -28,7 +28,7 @@ You can access generative AI-powered post-contact summaries multiple ways:
   summaries from the [APIs](contact-lens-api.md "contact-lens-api.md") into
   third-party systems. They can also [integrate with
   Amazon Kinesis Data Streams](contact-analysis-segment-streams.md "contact-analysis-segment-streams.md") for streaming. This latter option is useful when you
-  have higher loads and you want avoid having the TPS throttled.
+  have higher loads and you want to avoid having the TPS throttled.
 
 ###### Contents
 

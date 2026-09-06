@@ -9,10 +9,10 @@ With Connect Customer, you can specify which evaluation forms support review req
 1. Log in to Connect Customer with a user account that has the following security profile permission: **Analytics and Optimization** - **Evaluation forms - manage form definitions** - **Create**
 2. Choose **Analytics and optimization**, then choose **Evaluation forms**.
 3. Open an existing form by choosing on the hyperlink for the Last version or create a new evaluation form.
-4. Choose on the **Additional settings** tab
+4. Choose the **Additional settings** tab
 5. Choose **Allow review requests**
 6. You can specify the time window till when a review can be requested on an evaluation. The time window is measured from the time of the original submission of an evaluation.
-7. You can also choose one or more recipients who will be notified through email when a review is requested. The email has a link to the contact with the evaluation for which a review is requested. Note that in order for the users to receive emails on a SAML authenticated instance, the secondary email needs to be provided within the user's profile in Connect.
+7. You can also choose one or more recipients who will be notified through email when a review is requested. The email has a link to the contact with the evaluation for which a review is requested. For the users to receive emails on a SAML authenticated instance, the secondary email needs to be provided within the user's profile in Connect.
 8. After you **Activate** the form, subsequent evaluations performed using the form will support review requests.
 
 ![Additional settings tab showing Allow review requests option.](images/evaluationforms-review-enable.png)
@@ -43,7 +43,7 @@ Users with the permission **Evaluation forms - review evaluations - Create and V
 
 ## Searching for pending reviews
 
-As mentioned above, you can configure in the evaluation form, who would be automatically notified through email if a review is requested. These notification emails contain links to contacts with evaluations for which a review is requested. Additionally, users with appropriate permissions can search for contacts with evaluations for which a review is requested or which are already under review:
+As described previously, you can configure in the evaluation form, who would be automatically notified through email if a review is requested. These notification emails contain links to contacts with evaluations for which a review is requested. Additionally, users with appropriate permissions can search for contacts with evaluations for which a review is requested or which are already under review:
 
 1. Log in to Connect Customer with a user account that has [permissions to access contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and the **Evaluation forms - perform evaluations** permission.
 2. On the navigation bar, choose **Analytics and optimization**, **Contact search**.
@@ -56,9 +56,9 @@ As mentioned above, you can configure in the evaluation form, who would be autom
 ## Starting and completing reviews
 
 1. Open the evaluations pane on the **Contact details** page.
-2. Choose on an evaluation listed under **Review requested**.
+2. Choose an evaluation listed under **Review requested**.
 3. Choose **Start review**.
-4. The original evaluation is listed below **Under review** and can be viewed by choosing on it.
+4. The original evaluation is listed under **Under review** and can be viewed by choosing on it.
 5. The in-progress review is listed under **Evaluation reviews**. Users with the **Evaluation forms - review evaluations - Create** permissions can make edits to the evaluation such as changing answers, amending the notes. You can **Save** your review at anytime and choose **Resolve review** to finalize the review.
 6. This will send an automated email notification to the user who had requested the review.
 

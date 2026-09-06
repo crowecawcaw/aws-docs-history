@@ -10,7 +10,7 @@ processes the audio stream sessions.
 | Set Working Queue           | No Effect | Sets Working Queue                                                                                   |
 | Set Contact Attributes      | Supported | Stores key-value pairs as contact attributes. You set a value<br>that is later referenced in a flow. |
 | Get Queue Metrics           | No Effect | Gets queue metrics                                                                                   |
-| Change routing priority/age | No Effect | change routing prioroty of contact                                                                   |
+| Change routing priority/age | No Effect | change routing priority of contact                                                                   |
 | Set Hold Flow               | No Effect | Specifies the flow to invoke when a customer or agent is put on<br>hold.                             |
 | Set Whisper Flow            | No Effect | Specifies the flow to invoke when a customer or agent joined in a<br>voice or chat conversation.     |
 | Set callback Number         | No Effect | Specify the attribute to set the callback number.                                                    |

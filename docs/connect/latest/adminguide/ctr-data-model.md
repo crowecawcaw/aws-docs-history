@@ -112,6 +112,28 @@ contact, in UTC time.
 Type: String
 (_yyyy_-_mm_-*dd*T*hh*:_mm_:*ss*Z)
 
+**ActiveRegion**
+
+The AWS Region where the agent handled the contact.
+
+###### Note
+
+This value may differ from the Region in the agent ARN. For
+cross-region contacts routed via Connect Customer Global Resiliency, the Regions
+embedded in the CTR ARNs (for example, contact ARN, agent ARN, queue
+ARN) reflect the Region of the CTR stream itself; CTRs are generated in
+the Region where the contact originates. Meanwhile, the agent who
+handled the contact could have been connected to a different Region
+based on their Traffic Distribution Group configuration. For example, if
+a contact originates in `us-east-1` but is routed to an agent
+in `us-west-2` via cross-region routing for ACGR, the CTR for
+that contact is published from `us-east-1`, the contact's
+`OriginRegion` returns `us-east-1`, and the
+`ActiveRegion` field in the `Agent` object
+returns `us-west-2`.
+
+Type: String
+
 **ARN**
 
 The Amazon Resource Name of the agent.
@@ -1352,6 +1374,17 @@ Information about the person (customer) who contacts your contact center.
 Information about customer’s capabilities.
 
 Type: [Capabilities](#ctr-Capabilities "#ctr-Capabilities")
+
+**DeviceInfo**
+
+Information about customer's device.
+
+This field is populated only for in-app and web calling contacts,
+when the initiation method is
+`WEBRTC_API`. Otherwise, this field is not present, because
+PSTN voice and chat contacts don't include device information.
+
+Type: [DeviceInfo](#ctr-deviceinfo "#ctr-deviceinfo")
 
 ## Capabilities
 

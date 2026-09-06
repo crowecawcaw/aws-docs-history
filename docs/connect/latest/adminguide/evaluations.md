@@ -7,7 +7,7 @@ Contact Lens Workshop](https://catalog.workshops.aws/amazon-connect-contact-lens
 creating evaluation forms.
 
 **IT administrators**: To enable Connect Customer evaluation
-capabilities, go to the Connect Customer console, choose your instance alias, choose
+capabilities, navigate to the Connect Customer console, choose your instance alias, choose
 **Data storage**, **Content evaluations**,
 **Edit**. You'll be prompted to create or choose an S3 bucket.
 After the bucket is created, you can store evaluations and export them.

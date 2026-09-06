@@ -106,20 +106,42 @@ For a list of languages supported by pattern match, see [AI features](supported-
 
 ## How to use semantic match
 
-Semantic matching is supported only for post-call/chat analysis.
+With **Semantic Match**, you can find phrases that
+have the same meaning as the words you specify, even when the exact
+wording differs. Unlike **Exact Match** (which requires
+the same words) or **Pattern Match** (which uses
+wildcards and proximity), you use semantic match to detect when a
+customer or agent expresses the same intent with different words.
 
-- An "intent" is an example of utterance. It can be a phrase or a
-  sentence.
-- You can enter up to four intents in one card (group).
-- We recommend using semantically similar intents within one card to
-  get the best results. For example, there's category for
-  "politeness." It includes two intents: "greetings" and "goodbye". We
-  recommend separating these intents into two cards:
+For example, if you specify "I want to cancel my subscription,"
+semantic match also finds phrases like "Please end my membership" or
+"How do I stop my plan" because they express the same intent.
 
-  - Card 1: "How are you today" and "How's everything going".
-    They are semantically similar greetings.
-  - Card 2: "Thanks for contacting us" and "Thank you for
-    being our customer." They are semantically similar
-    goodbyes.
-    Separating the intents into two cards provides more accuracy than
-    putting them all into one card.
+###### Post-call and post-chat only
+
+Semantic matching is supported only for post-call and post-chat
+analysis.
+
+When you configure a semantic match condition, you provide
+_intents_ and organize them into
+_cards_.
+
+- An _intent_ is an example phrase or sentence
+  that represents the meaning you want to match.
+- A _card_ is a group of up to four intents.
+  Each card represents one category of meaning that you want to
+  detect.
+
+Group semantically similar intents within one card to improve matching
+accuracy. For example, if you have a _politeness_
+category with both greetings and goodbyes, separate them into two
+cards:
+
+- Card 1 (_greetings_): "How are you
+  today" and "How's everything going."
+- Card 2 (_goodbyes_): "Thanks for
+  contacting us" and "Thank you for being our
+  customer."
+
+Separating intents into two cards improves accuracy because you
+give each card a focused set of meanings to match against.

@@ -28,14 +28,55 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
 3. In the **Channel Settings** section, enter or choose the
    following information:
 
-| Item                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Channel availability**       | Choose which types of contacts will be routed to agents<br>who are assigned to this routing profile.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **Maximum contacts per agent** | For chat, task, and email channels, specify how many<br>contacts that an agent can handle simultaneously, up to<br>10.<br>For emails, this field defines how many emails agents can<br>receive, and double that number is how many outbound emails<br>agents can initiate. For example, if you set<br>*_Maximum contacts per agent_<br>• to 5,<br>agents can receive up to 5 emails and create up to 10<br>agent-initiated outbound emails.                                                                                                                                           |
-| **Cross-channel concurrency**  | Choose one of the following options:<br>• **No other channels while agent is on<br>`channel`**. For<br>example, while an agent is on a chat, they will not<br>receive a voice contact, email, or a task.<br>• **Allow other channel<br>concurrently**. For example, while an<br>agent is on a voice contact, they can be offered<br>contacts from any other channels enabled in the<br>routing profile, such as chats, emails, and<br>tasks.<br>See [Example of how a contact is routed with cross-channel concurrency](#example-routing-concurrency "#example-routing-concurrency"). |
+| Item                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Channel availability**         | Choose which types of contacts will be routed to agents<br>who are assigned to this routing profile.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Maximum contacts per agent**   | For chat, task, and email channels, specify how many<br>contacts that an agent can handle simultaneously, up to<br>10.<br>For emails, this field defines how many emails agents can<br>receive, and double that number is how many outbound emails<br>agents can initiate. For example, if you set<br>*_Maximum contacts per agent_<br>• to 5,<br>agents can receive up to 5 emails and create up to 10<br>agent-initiated outbound emails.                                                                                                                                           |
+| **Cross-channel concurrency**    | Choose one of the following options:<br>• **No other channels while agent is on<br>`channel`**. For<br>example, while an agent is on a chat, they will not<br>receive a voice contact, email, or a task.<br>• **Allow other channel<br>concurrently**. For example, while an<br>agent is on a voice contact, they can be offered<br>contacts from any other channels enabled in the<br>routing profile, such as chats, emails, and<br>tasks.<br>See [Example of how a contact is routed with cross-channel concurrency](#example-routing-concurrency "#example-routing-concurrency"). |
+| **Workload type<br>concurrency** | (Task and Email channels only) Toggle this on to<br>configure agent capacity per workload type instead of a<br>single channel-level number. When enabled, the<br>*_Maximum contacts per agent_<br>• field is<br>disabled for that channel, and you configure capacity through<br>individual workload type rows instead. For more information,<br>see [Channels and concurrency for routing contacts in Connect Customer](channels-and-concurrency.md "channels-and-concurrency.md").                                                                                                  |
 
-4. In the **Queues** section, enter the following
-   information:
+4. (Optional) Configure workload type concurrency.
+
+If you enabled workload type concurrency for a channel in the
+**Channel Settings** section, configure the individual
+workload type rows:
+
+    1. Under the channel (for example, **TASK**), choose
+     **Add workload type**.
+    2. For each workload type row, configure the following:
+
+
+
+
+    | Field | Description |
+    | --- | --- |
+    | **Workload<br>Type** | Select a workload type value from the dropdown.<br>These values come from the system predefined<br>attribute `connect:WorkloadType`. You<br>must create workload type values before they appear<br>here. For more information, see [Create predefined attributes for routing contacts to agents](predefined-attributes.md "predefined-attributes.md"). |
+    | **Concurrency** | Enter the number of contacts of this workload<br>type the agent can handle simultaneously (1–10). |
+    | **Cross-channel<br>behavior** | Choose how this workload type interacts with<br>other channels: **No other channels or<br>workload types**,<br>**Only allow other workload types of the<br>same channel**, or<br>**Allow other channels<br>concurrently**. |
+    3. Repeat for each workload type the agent should handle on this
+     channel.
+    4. Choose **Save**.
+
+Rules and validations:
+
+    * You can add up to 5 workload types per channel in a single routing profile.
+    * The sum of concurrency values across all workload types for a channel
+     cannot exceed the channel's maximum concurrency limit (10).
+    * You cannot have both channel-level concurrency and workload-type
+     concurrency active for the same channel. Enabling one disables the
+     other.
+    * Every workload type assigned to contacts (through flows or APIs) that
+     route to this profile must have a corresponding row here. Missing entries
+     cause contacts to queue indefinitely.
+
+###### Important
+
+When you enable workload type concurrency for a channel, the channel-level
+**Maximum contacts per agent** and
+**Cross-channel concurrency** fields for that channel
+become inactive. All capacity and cross-channel settings are managed per
+workload type. 5. In the **Queues** section, enter the following
+information:
 
 | Item                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -47,13 +88,13 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
 | **Set routing order**                                 | By default Connect Customer routes new contacts to<br>agents that have been in **Available**<br>status the longest. You can customize this behavior, for<br>example, to change the impact that outbound contacts have on<br>the assignment of new inbound<br>contacts.                                                                                                                                                                                                                                                                |
 | **Outbound calls should not impact routing<br>order** | Use this setting if you don't want agents who make<br>outbound contacts to move to the bottom of the list for<br>receiving inbound contacts.<br>By default new contacts are routed to the agent who has<br>been in *_Available_<br>• status longest. By<br>making an outbound contact, the agent drops to the bottom of<br>the list waiting for inbound contacts. You can use this<br>setting to override that default logic and make sure that<br>agents making outbound contacts still get their fair share<br>of inbound contacts. |
 
-5. Add queue and channel combinations in the **Manual
+6. Add queue and channel combinations in the **Manual
    Assignment** section. Manual assignment supports tasks,
    emails, and chats.
 
 For more information about routing with manual assignment, see
-[How routing works with manual assignment](about-routing.md#routing-profile-manual-assignment-works "about-routing.md#routing-profile-manual-assignment-works"). 6. Optionally, add tags to identify, organize, search for, filter, and control
-who can access this routing profile. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 7. Choose **Save**.
+[How routing works with manual assignment](about-routing.md#routing-profile-manual-assignment-works "about-routing.md#routing-profile-manual-assignment-works"). 7. Optionally, add tags to identify, organize, search for, filter, and control
+who can access this routing profile. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 8. Choose **Save**.
 
 ## Tips for setting up channels and concurrency
 
@@ -71,8 +112,7 @@ you want to restart voice contacts for these agents again, select
 - When using **Cross-channel concurrency**, Connect Customer checks
   which contact to offer the agent as follows:
 
-  1.  It checks what contacts/channels the agent is currently
-      handling.
+  1.  It checks what contacts/channels the agent is currently handling.
   2.  Based on what channels they are currently handling, and the
       cross-channel configuration in the agent's routing profile, it
       determines whether the agent can be routed the next contact.
@@ -89,6 +129,14 @@ you want to restart voice contacts for these agents again, select
   email are priority 2.
 
 ![Queue configuration showing two BasicQueue entries with different channel and priority settings.](images/set-channels-and-concurrency-2.png)
+
+- When using workload type concurrency, cross-channel behavior is set per
+  workload type, not per channel. A "Fraud Investigation" workload type might
+  block all other channels, while a "Password Reset" on the same task channel
+  might allow concurrent chats.
+- If a contact's workload type doesn't match any entry in the routing
+  profile, the contact stays in queue. Audit your flows to ensure alignment
+  between assigned workload types and routing profile entries.
 
 ## Example of how a contact is routed with cross-channel concurrency
 

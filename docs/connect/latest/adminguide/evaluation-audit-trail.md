@@ -28,7 +28,7 @@ image.
 
 ![The Change history property.](images/evaluation-audit-change-history.png) 5. You can view the audit trail of subsequent submissions after the initial
 submission. Choose the arrow next to a re-submission to view details of the
-edits. The following image shows an example of an audit trail of that were made
+edits. The following image shows an example of an audit trail of the edits that were made
 to an evaluation after it was submitted.
 
 ![An audit trail of an evaluation that was changed after it was submitted.](images/evaluation-audit.png)

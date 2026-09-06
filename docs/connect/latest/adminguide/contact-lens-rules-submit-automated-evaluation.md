@@ -54,7 +54,7 @@ create such a rule by selecting **Create a rule**,
    source. These two options are highlighted in the following
    image.
 
-![The post-call analysis and post-chat analysis options.](images/defined-conditions-evaluations.png) 2. Define conditions to identity contacts to be automatically evaluated, and then choose **Next**.
+![The post-call analysis and post-chat analysis options.](images/defined-conditions-evaluations.png) 2. Define conditions to identify contacts to be automatically evaluated, and then choose **Next**.
 
 Example conditions that you can use to identify the specific set of agents or contacts on which the evaluation form is applicable are:
 
@@ -86,7 +86,7 @@ You cannot apply rules to past, stored conversations.
 
 ### Trigger automated evaluations with an evaluation forms rule
 
-1. Go to the **Rules** page. Select
+1. Navigate to the **Rules** page. Select
    **Create a rule**, **Evaluation
    forms**.
 2. Under **When**, select the event source as

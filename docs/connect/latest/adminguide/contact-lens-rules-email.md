@@ -98,6 +98,6 @@ You cannot apply rules to past, stored conversations.
   **Email address** is empty inside Connect Customer. When email notifications are sent for SAML users, they must have
   a secondary email configured in order to get it. If a secondary email is not configured, the user will not receive the email.
 
-If the default option for sending emails does not meeting your
-requirements, please contact your Technical Account Manager or Support to
+If the default option for sending emails does not meet your
+requirements, contact your Technical Account Manager or Support to
 discuss with the Connect Customer service team.

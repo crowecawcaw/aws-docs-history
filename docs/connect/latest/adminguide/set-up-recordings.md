@@ -42,7 +42,7 @@ following:
 
 
     	+ When **On**, you can select from Agent and
-    	 Customer, Agent only, or Customer only. This only take effect
+    	 Customer, Agent only, or Customer only. This only takes effect
     	 after the agent joins the call.
     	+ When **Off**, no recording is captured when
     	 the agent joins the call.

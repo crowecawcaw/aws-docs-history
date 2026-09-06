@@ -3,6 +3,14 @@
 Following are examples of what the path looks like for conversational analytics output files when they are stored in the Amazon S3 bucket for
 your instance.
 
+###### Timestamp in the file path
+
+The date and timestamp in the output file path correspond to the
+`ConnectedToAgentTimestamp`, not the
+`InitiationTimestamp`. If the contact spans a UTC day boundary,
+the file appears under the date when the agent connected, not the date when
+the contact started.
+
 - Original analyzed transcript file (JSON)
 
   - /connect-instance-
@@ -26,7 +34,8 @@ your instance.
   - /connect-instance-
     bucket/**Analysis/Voice/Redacted**/2020/02/04/`contact's_ID`\_**call\_recording\_redacted**\_2020-02-04T21:14:16Z.**wav**
 
-###### Important
+###### Deleting recordings
 
-To delete a recording, you must delete the files for both the redacted and
-unredacted recordings.
+To fully remove a recording, you must delete both the redacted and
+unredacted files. If you delete only one version, the other version remains
+accessible.

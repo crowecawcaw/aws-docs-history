@@ -25,7 +25,7 @@ This topic explains the steps for agents to view and acknowledge an evaluation.
 - OR -
 
   - You might have been assigned a task or received an email notification
-    containing the URL for the contact that received an evaluations.
+    containing the URL for the contact that received an evaluation.
 
 - OR -
 

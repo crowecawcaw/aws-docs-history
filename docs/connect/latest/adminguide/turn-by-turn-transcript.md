@@ -80,9 +80,9 @@ For example, where you see red emojis for customer turns and then a green
 emoji, you might choose the timestamp to jump to that specific point of the
 conversation to check how that agent helped the customer.
 
-## Tap or click category tags to navigate through transcript
+## Choose category tags to navigate through transcript
 
-When you tap or click on the category tags, conversational analytics auto-navigates
+When you choose the category tags, conversational analytics auto-navigates
 to the corresponding point-of-interests in the transcript. There are also
 category markers in the visualization of the interaction to indicate which part
 of the recording file has utterances related to the category.

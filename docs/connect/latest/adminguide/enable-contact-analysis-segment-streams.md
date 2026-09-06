@@ -48,7 +48,7 @@ aws kms create-grant \
 
 Where `grantee-principal` is the ARN of the
 service-linked role associated to your Connect Customer instance. To find the
-ARN of the service-linked role, in the Connect Customer console, go to
+ARN of the service-linked role, in the Connect Customer console, choose
 **Overview**, **Distribution
 settings**, **Service-linked role**.
 

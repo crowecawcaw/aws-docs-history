@@ -47,4 +47,5 @@ decisions.
   practices](manager-assist-best-practices.md "manager-assist-best-practices.md")
 - [AI models and data
   processing](manager-assist-ai-models.md "manager-assist-ai-models.md")
+- [Manager assist contacts in metrics and reporting](manager-assist-metrics-reporting.md "manager-assist-metrics-reporting.md")
 - [Service quotas](manager-assist-quotas.md "manager-assist-quotas.md")

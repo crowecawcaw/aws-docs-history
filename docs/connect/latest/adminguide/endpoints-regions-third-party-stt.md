@@ -1,4 +1,4 @@
-# Endpoints and Regions for third-party STT providers
+# Endpoints and Regions for third-party speech providers
 
 By default, Connect Customer communicates with the following endpoints:
 

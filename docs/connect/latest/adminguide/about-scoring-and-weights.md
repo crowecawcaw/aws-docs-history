@@ -9,7 +9,7 @@ the impact of a section or question on the final score of the evaluation.
 
 ## Example score
 
-Let's say you are assigning the score to a question is that critically important
+Let's say you are assigning the score to a question that is critically important
 to your business. If the answer is a Yes, the agent gets 10 points. For No they get
 0 points. This is shown in the following image.
 

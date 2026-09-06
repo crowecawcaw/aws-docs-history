@@ -135,7 +135,7 @@ following options:
   want but don't include the **$** and **.**
   (period) characters. They are not allowed because they are both used in
   defining the attribute paths in JSONPath.
-- You can use the **Set contact attribute** block to set
+- You can use the **Set contact attributes** block to set
   the language attribute required for an Amazon Lex V2 bot. (Your language
   attribute in Connect Customer must match the language model used to build your Amazon Lex
   V2 bot.) The following image shows a language attribute set to
@@ -145,6 +145,32 @@ following options:
 
 Or, you can use the [Set voice](set-voice.md "set-voice.md") block to set the language required for
 an Amazon Lex V2 bot.
+
+- You can use the **Set contact attributes** block to update
+  the task template currently in use on task contacts. The following image
+  shows a task template being set to the "Password reset template".
+
+![The Set contact attributes block configured with System namespace, Task template key, Set manually selected, and Password reset template chosen from the Task template dropdown.](images/set-contact-attributes-task-template.png)
+
+    + Task templates can only be updated on in-progress task contacts
+     before they are connected to an agent.
+    + If setting the task template dynamically, the value must be a
+     valid task template ID.
+    + The task template update will be executed after all other updates,
+     so you can update a task to have compatible references and update the
+     task's task template within the same block.
+
+- You can set attributes on the contact to be the task template ID that the
+  contact currently uses by selecting **Set dynamically**,
+  then selecting **System** and **Task
+  template**.
+- You can use the **Set contact attributes** block to update
+  the contact duration for tasks and emails. The following image shows contact
+  duration being set to 60 minutes.
+
+![The Set contact attributes block configured to set contact duration to 60 minutes.](images/set-contact-attributes-expiry-duration.png)
+
+    + The unit for Expiry Duration is minutes.
 
 For more information about how to use contact attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 

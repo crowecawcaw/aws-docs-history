@@ -82,7 +82,7 @@ parts of interaction, the respective field will be absent.
 
 ###### Note
 
-Currently, sentiment is inferred is for `text/plain`,
+Currently, sentiment is inferred for `text/plain`,
 `text/markdown` chat messages only.
 
 ### Sentiment shift
@@ -117,7 +117,7 @@ of participant:
 
 To calculate the `Average` and `Maximum` response times
 for a given participant, they need to respond to a message from another
-participant (`AGENT` needs to responds to the `CUSTOMER`,
+participant (`AGENT` needs to respond to the `CUSTOMER`,
 or vice versa).
 
 For example, if there was only one message from `CUSTOMER` and then
@@ -127,7 +127,7 @@ conversational analytics will calculate a response time for the
 
 ###### Note
 
-Currently, response time is inferred is for `text/plain`,
+Currently, response time is inferred for `text/plain`,
 `text/markdown` chat messages only.
 
 ## Redaction

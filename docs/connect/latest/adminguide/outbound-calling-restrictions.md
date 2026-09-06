@@ -47,47 +47,13 @@ based on requirements in the following specific jurisdictions.
 South African mobile numbers available under the DID option are designed to be
 national-only services and are not supported for international calling.
 
-### Taiwan
-
-Taiwan DID's are set up to be in-country only services and are not
-internationally reachable.
-
-### Vietnam
-
-Vietnamese carriers are implementing enhanced fraud prevention measures with
-stricter limitations for calling activities. Connect Customer requires that all customers
-calling Vietnamese numbers comply with additional requirements for continued
-use.
-
-#### Eligibility criteria
-
-- **Unsupported use cases**
-
-  - Short calls and alerting (less than 15 seconds).
-  - Any form of cold calling, marketing or advertising.
-  - Any calls to invalid phone numbers. All numbers called
-    must be validated as accurate.
-  - Repeated calls using the same FROM / TO numbers (no more
-    than 3 per day)
-  - Any calls from a number that cannot be called back.
-
-- **Supported use cases**
-
-  - Direct calls to known business entities. For example,
-    calling a hotel or IT support function.
-  - Calling users who attempted to engage with your business.
-    For example, university placement schemes or product
-    purchases.
-  - Customer care activities, for example calling a customer
-    to provide hardware support.
-
 ### China
 
 Chinese carriers are increasingly blocking international routes into China
 unilaterally. Connect Customer has taken steps to continue to support our
 existing customers but require that all customers comply with additional
 requirements for continued use. Starting October 14, 2023 all customers approved
-to call China are required to follow these conditions.
+to make international calls to China are required to follow these conditions.
 
 #### Eligibility criteria
 
@@ -114,8 +80,8 @@ to call China are required to follow these conditions.
 
 #### Data required for setup
 
-To request the ability to call Chinese telephone numbers (+86), perform
-the following steps:
+To request the ability to make international calls to Chinese telephone
+numbers (+86), perform the following steps:
 
 - You must provide an exact list of telephony numbers you will use
   to phone China.
@@ -123,33 +89,32 @@ the following steps:
   - The number must be a DID provided by Connect Customer.
     No other number is acceptable.
   - The number cannot be a DID provided by Hong Kong, Macau,
-    Taiwan, China, or Singapore.
+    Taiwan, or Singapore.
 
   ###### Note
 
   The preceding list might change at any time.
 
-- Any number used to call Chinese telephone numbers must be able to
-  called back. You must also implement a call back message that
-  clearly states the name of the company that is associated with the
-  phone number.
+- Any number used to make international calls to Chinese telephone
+  numbers must be able to called back. You must also implement a call
+  back message that clearly states the name of the company that is
+  associated with the phone number.
 - You must provide a detailed description of your use case, and
   confirm that you meet the [eligibility
   criteria](#criteria-cr "#criteria-cr") described in this topic.
 
 #### Consequences for violating the calling criteria for China
 
-Connect Customer has a zero tolerance policy for calling into China.
-Amazon will suspend your use of Connect Customer if you use the service
-for any of the restricted use cases identified in this topic. It is
-essential that the administrators of your Connect Customer service focus
-on ensuring the members of your organization are aware of these
-restrictions, as ignorance of the rules is not an acceptable reason for
-breach.
+Connect Customer has a zero tolerance policy for international calling into China.
+AWS will suspend your use of Connect Customer if you use the service for any of the
+restricted use cases identified in this topic. It is essential that the
+administrators of your Connect Customer service focus on ensuring the members of your
+organization are aware of these restrictions, as ignorance of the rules is
+not an acceptable reason for breach.
 
 #### Service assurance
 
 In the event of further incidents where Chinese carriers block major
 international routes without prior warning and impact the ability to call
-China, the exemptions in the [Connect Customer Service
-Level Agreement](https://aws.amazon.com/connect/sla/ "https://aws.amazon.com/connect/sla/") will take effect.
+China, the exemptions in the [Connect Customer Service Level
+Agreement](https://aws.amazon.com/connect/sla/ "https://aws.amazon.com/connect/sla/") will take effect.

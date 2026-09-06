@@ -81,6 +81,8 @@ To customize the JSON with your own values, follow these guidelines:
      data.
     + `MAX_OCCURRENCE` returns the most frequently
      occurring value specified in the expression.
+    + `RECENT_OCCURRENCES` returns a list of recent values
+     for the attribute specified in the expression.
 
 - **Range**:
 

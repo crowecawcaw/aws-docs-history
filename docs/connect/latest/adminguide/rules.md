@@ -109,7 +109,7 @@ type of match:
     	+ To create rules that use generative AI
     	 requires an additional permission: **Rules
     	 - Generative AI**.
-    **Pro Tip**:Use
+    **Pro Tip**: Use
      generative AI-powered **Natural language-
      Semantic match** if you previously used
      **Words or Phrases - Semantic

@@ -32,6 +32,21 @@ The following tables lists the Inference regions that a Connect Customer instanc
 | Europe (London) (eu-west-2)               | Europe (London) (eu-west-2)<br>Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Paris) (eu-west-3)<br>Europe (Spain) (eu-south-2)<br>Europe (Stockholm) (eu-north-1)        |
 | AWS GovCloud (US-West) (us-gov-west-1)    | AWS GovCloud (US-West) (us-gov-west-1)<br>AWS GovCloud (US-East) (us-gov-east-1)                                                                                                                                                       |
 
+### Agentic CX designer
+
+Certain nodes in the Agentic CX designer may use additional inference Regions.
+This applies only to the **User input** and **User
+choice** nodes. All other nodes in the Agentic CX designer use the
+inference Regions listed in the preceding table.
+
+The **User input** and **User choice** nodes
+may use the following inference Regions:
+
+| Connect Customer Instance Region       | Inference Regions           |
+| -------------------------------------- | --------------------------- |
+| Asia Pacific (Sydney) (ap-southeast-2) | AWS Regions in Asia Pacific |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | AWS Regions in Asia Pacific |
+
 ## Regulatory compliance
 
 Connect Customer and Amazon Bedrock are in-scope for many of [AWS compliance programs](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"). If you have specific questions regarding compliance, contact customer support.

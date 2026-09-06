@@ -228,6 +228,34 @@ attributes.
 | **Absolute time mode**:<br>you can specify an absolute time range. For example,<br>between 2024/10/01 12:00 AM and 2024/10/07 12:00 AM.                                                                                                                                                                                                                                                                                                                                                        |
 | **Relative time mode**:<br>you can specify the relative time range of furture or<br>past X hours, days, weeks, months, or years.<br>• Future time<br>direction: will filter audience whose attribute has a date<br>value that is between now and a speficied future time. For<br>example, within the next 2 days.<br>• Past time direction:<br>will filter audience whose attribute has a date value that<br>is between a speficied past time and now. For example,<br>within the last 2 days. |
 | Time range is not                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Filters the audience whose attribute has a date value<br>that is not between a specific time range. You can either<br>specify the time range in absolute time mode or relative<br>time mode. See "Time range is" operator in this<br>table for more details. |
+| List                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Contains any of                                                                                                                                                                                                                                              | Filters the audience whose list attribute contains any<br>of the given values. For example, a customer’s calculated<br>attribute contains US or USA.                                      |
+| Contains all of                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Filters the audience whose list attribute contains all of<br>the given values. For example, a customer’s calculated<br>attribute contains both US and USA.                                                                                                   |
+
+###### Note
+
+The **Contains any of** and **Contains all
+of** operators apply to list attributes. The admin website
+shows these operators for a calculated attribute only when its statistic
+is recent occurrences.
+
+###### Note
+
+When you set the **Value** for a calculated attribute
+or profile attribute filter, you can choose one of the following
+options:
+
+**Static values**
+
+Compare against fixed values that you enter.
+
+**Attribute references**
+
+Reference another attribute's value, evaluated
+individually for each customer. Choose the profile attribute
+or calculated attribute that you want to reference from the
+list.
+
+![A filter group with the Value drop-down expanded, showing the Static values and Attribute references options.](images/customer-segments-building-segments-2.png)
 
 ###### Note
 

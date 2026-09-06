@@ -1,4 +1,4 @@
-# Create task templates in Connect Customer
+# Task templates in Connect Customer
 
 Task templates make it easy for agents to capture the right information to create and
 complete a [task](tasks.md "tasks.md"). All the fields they need to create a given
@@ -112,6 +112,31 @@ select a task template when they create a task.
 
 If you want to maintain the standard task experience without selectable
 templates, disable all templates.
+
+## How to update a task template
+
+### Step 1: Open the task template to update
+
+1. Log in to the Connect Customer console with an **Admin**
+   account, or an account assigned to a security profile that has [permissions to create task
+   templates](task-template-permissions.md "task-template-permissions.md").
+2. In the left navigation menu, choose **Channels**,
+   **Task templates**.
+3. On the **Task templates** page, choose the task
+   template you would like to update.
+
+### Step 2: Modify fields and publish
+
+For instructions on updating fields, see [Step 2: Add fields, task assignment, schedule, and expiry](#add-template-fields "#add-template-fields"). For instructions on publishing the
+template, see [Step 3: Publish](#task-template-publish "#task-template-publish").
+
+## Change task template after creation
+
+You can update the task template on a contact before assignment, to support
+tasks that are created without a template (for example [Rules](connect-rules.md "connect-rules.md") or [disconnect
+flows](set-disconnect-flow.md "set-disconnect-flow.md")) or change the agent interaction form to represent the latest task
+data (for example an initial request that was submitted as a refund gets updated to
+an account cancellation and requires a new template).
 
 ## What your agents experience
 

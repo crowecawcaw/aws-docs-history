@@ -43,6 +43,9 @@ text-to-speech provider you want to use.
    and enter the ARN of the provider secret.
 
    - The secret must be in the same AWS Region.
+   - The secret value must contain your provider API key. To use a specific
+     provider Region, store the key as a JSON object. For more information
+     about the secret value format and supported provider Regions, see [Endpoints and Regions for third-party speech providers](endpoints-regions-third-party-stt.md "endpoints-regions-third-party-stt.md").
    - AWS Secrets Manager and KMS policies must permit retrieval and decryption. For
      more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 

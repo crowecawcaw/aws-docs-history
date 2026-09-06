@@ -39,7 +39,7 @@ Agents and contacts are stored on separate, stereo audio channels.
 - For automated (IVR) interactions, the stereo file contains customer audio
   in the right channel and system prompts in the left channel.
 - For agent interactions, the agent audio is stored in the right channel and
-  customer (as well conferenced third parties) audio in the left
+  customer (as well as conferenced third parties) audio in the left
   channel.
 
 Recordings are stored in the Amazon S3 bucket that are [created for your instance](amazon-connect-instances.md#get-started-data-storage "amazon-connect-instances.md#get-started-data-storage"). Any user or
@@ -86,7 +86,7 @@ When the recording for an agent interaction is enabled, the recording is placed 
 your S3 bucket shortly after the contact is disconnected. When IVR recording is
 enabled, the recording is placed in your S3 bucket shortly after the contact is
 disconnected or after the call is answered by an agent. You can [review the recording](review-recorded-conversations.md "review-recorded-conversations.md") for both
-agent interactions and automated interactions (IVR)..
+agent interactions and automated interactions (IVR).
 
 ###### Important
 

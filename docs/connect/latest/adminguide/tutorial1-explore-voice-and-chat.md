@@ -34,7 +34,14 @@ not, here's what you need:
 ![The dashboard icon on the navigation menu.](images/tutorial1-dashboard-menu.png) 2. On the **Dashboard** page, choose **Test
 chat**.
 
-![The dashboard page, the text chat link.](images/tutorial1-test-chat.png) 3. On the **Test Chat** page, choose **Activate
+![The dashboard page, the text chat link.](images/tutorial1-test-chat.png)
+
+###### Note
+
+If you do not see **Test chat** on the
+**Dashboard** page, choose
+**Channels** on the navigation menu, and then choose
+**Test chat**. For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md"). 3. On the **Test Chat** page, choose **Activate
 Contact Control Panel**.
 
 ![The test chat page, the Activate Contact Control Panel link.](images/tutorial1-activate-ccp.png) 4. If your browser prompts you to grant microphone access, choose

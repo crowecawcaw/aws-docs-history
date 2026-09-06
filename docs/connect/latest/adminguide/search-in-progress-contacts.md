@@ -36,7 +36,7 @@ for reference):
 - **Chat**: You can search for contacts after
   they are connected to system, queued, connected to an agent or
   disconnected.
-- **Tasks** and **Email**: You can search for all in-progress after they are
+- **Tasks** and **Email**: You can search for all in-progress contacts after they are
   initiated.
 
 ## How to search for in-progress contacts
@@ -76,7 +76,7 @@ Contact Work state.
   range** filter was
   **Disconnected**.
 - Saved searches on **Contact search** created before
-  to the launch of the ability to search for in-progress contacts
+  the launch of the ability to search for in-progress contacts
   (launched September 2023) have been updated with the filters
   **Contact status = Completed** and
   **Timestamp type = Disconnected**. These selections
@@ -84,7 +84,7 @@ Contact Work state.
 
 ## View in progress contacts
 
-You can choose on a Contact ID within the **Contact search**
+You can choose a Contact ID within the **Contact search**
 results to view details of an in-progress contact.
 
 ![View an in-progress contact.](images/contact-search-in-progress-view.png)

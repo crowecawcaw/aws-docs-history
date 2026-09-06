@@ -1,6 +1,7 @@
 # View extracted information
 
-Extracted information is available in the following locations:
+Extracted information appears in alphabetical order by display label, and is available
+in the following locations:
 
 - **Contact Control Panel (CCP)** – During
   after-call work

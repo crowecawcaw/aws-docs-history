@@ -20,7 +20,7 @@ To transfer contacts programmatically, use the [TransferContact](../APIReference
 2. **Restrict contact access** (Optional): Restrict a user's
    access to contacts on the **Contact search** and
    **Contact details** pages within their own hierarchy
-   group or any hierarchy groups below them. For more information about this
+   group or any hierarchy groups below them. For more information about these
    permissions, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
 3. **Transfer Contact**: Enables a user to transfer contacts
    on the **Analytics & Optimization** pages. The

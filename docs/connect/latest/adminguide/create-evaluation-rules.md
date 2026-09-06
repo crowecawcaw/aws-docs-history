@@ -64,7 +64,7 @@ conversational analytics rules. The following are some of the available conditio
      agent evaluations for a particular line of business or for specific
      customers, such as based on their membership level, their current
      country of residence, or if they have an outstanding order.
-    * **Contact segment attributes**: You can identify contacts within rules using custom contact segment attributes with values populated from other systems or using custom logic. You can [define an attribute](predefined-attributes.md#predefined-attributes-create-web-admin "predefined-attributes.md#predefined-attributes-create-web-admin") and set its value in flows. Custom segment attributes are only present on that specific contact ID, and not the entire contact chain. For example, you can build a rule that identifies that customer closed their account during the conversation.
+    * **Contact segment attributes**: You can identify contacts within rules using custom contact segment attributes with values populated from other systems or using custom logic. You can [define an attribute](predefined-attributes.md#predefined-attributes-create-web-admin "predefined-attributes.md#predefined-attributes-create-web-admin") and set its value in flows. Custom segment attributes are only present on that specific contact ID, and not the entire contact chain. For example, you can build a rule that identifies that the customer closed their account during the conversation.
 
 
     To see the list of contact segment attributes to add to a rule, you need **Predefined attributes - View** permission.

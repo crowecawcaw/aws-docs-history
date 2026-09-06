@@ -43,7 +43,7 @@ ObjectType and at most two fields from that ObjectType.
        ],
        "Expression": "string",
     },
-    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE",
+    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE" | "RECENT_OCCURRENCES",
     "Conditions": {
         "Range": {
              "Value": "number",
@@ -77,7 +77,7 @@ ObjectType and at most two fields from that ObjectType.
        ],
        "Expression": "string",
     },
-    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE"
+    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE" | "RECENT_OCCURRENCES"
     "Conditions": {
         "Range": {
              "Value": "number",
@@ -366,6 +366,7 @@ attribute.
     	- MAXIMUM
     	- AVERAGE
     	- MAX\_OCCURRENCE
+    	- RECENT\_OCCURRENCES
 
 UpdateCalculatedAttributeDefinition
 **UpdateCalculatedAttributeDefinition**
@@ -429,7 +430,7 @@ When updating the Conditions:
        ],
        "Expression": "string",
     },
-    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE"
+    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE" | "RECENT_OCCURRENCES"
     "Conditions": {
         "Range": {
              "Value": "number",
@@ -632,7 +633,7 @@ The request does not have a request body.
        ],
        "Expression": "string",
     },
-    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE"
+    "Statistic": "AVERAGE" | "COUNT" | "SUM" | "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "MINIMUM" | "MAXIMUM" | "MAX_OCCURRENCE" | "RECENT_OCCURRENCES"
 "Conditions": {
 "Range": {
       "Unit": "string",

@@ -1,7 +1,7 @@
-# Access conversational analytics analytics for voice and chat contacts using Amazon Kinesis Data Streams
+# Access conversational analytics for voice and chat contacts using Amazon Kinesis Data Streams
 
-With contact analysis segment streams, you can access conversational analytics
-analytics in for voice and chat contacts. Streaming overcomes the scaling
+With contact analysis segment streams, you can access conversational analytics for voice
+and chat contacts. Streaming overcomes the scaling
 limitations of existing [call and chat analytics
 APIs](contact-lens-api.md "contact-lens-api.md"). For voice contacts, it also provides access to a data segment
 called `Utterance` that you can use to access partial transcripts. This

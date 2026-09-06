@@ -34,8 +34,10 @@ logged off.
 
 - [AgentEvent](#AgentEvent "#AgentEvent")
 - [AgentSnapshot](#AgentSnapshot "#AgentSnapshot")
+- [AgentCrossRegionRoutingConfiguration](#AgentCrossRegionRoutingConfiguration "#AgentCrossRegionRoutingConfiguration")
 - [Configuration](#Configuration "#Configuration")
 - [Contact object](#Contact "#Contact")
+- [GlobalResiliencyMetadata object](#aes-GlobalResiliencyMetadata "#aes-GlobalResiliencyMetadata")
 - [HierarchyGroup object](#Hierarchygroup-object "#Hierarchygroup-object")
 - [AgentHierarchyGroups object](#Hierarchygroups-object "#Hierarchygroups-object")
 - [Proficiency](#proficiency-object "#proficiency-object")
@@ -178,6 +180,46 @@ The contacts
 
 Type: `List of Contact Objects`
 object
+
+**AgentCrossRegionRoutingConfiguration**
+
+Cross-region routing information for the agent, if the agent belongs
+to an instance that uses Connect Customer Global Resiliency. This is present in both
+`CurrentAgentSnapshot` and
+`PreviousAgentSnapshot`.
+
+Type: `AgentCrossRegionRoutingConfiguration` object
+
+## AgentCrossRegionRoutingConfiguration
+
+The `AgentCrossRegionRoutingConfiguration` object includes the following
+properties:
+
+**ConfiguredRegions**
+
+The AWS Regions that the agent is configured to handle
+contacts from. For example, `["us-west-2", "us-east-1"]`.
+
+Type: List of String
+
+**CurrentRegion**
+
+The AWS Region where the agent is currently operating,
+such as based on the Traffic Distribution Group configuration. For
+example, `us-east-1`.
+
+Type: String
+
+The following shows the `AgentCrossRegionRoutingConfiguration` object
+for an agent signed in to us-east-1 and configured to handle contacts from both
+us-west-2 and us-east-1.
+
+```
+"AgentCrossRegionRoutingConfiguration": {
+    "ConfiguredRegions": ["us-west-2", "us-east-1"],
+    "CurrentRegion": "us-east-1"
+}
+```
 
 ## Configuration
 
@@ -356,6 +398,41 @@ Type: String
 The queue the contact was placed in.
 
 Type: `Queue` object
+
+**GlobalResiliencyMetadata**
+
+Information about the contact's active and origin Region.
+
+###### Note
+
+This may differ from the Region the Agent Event Stream is
+published from, in the case of contacts routed cross-region across
+Connect Customer Global Resiliency paired instances.
+
+Type: `GlobalResiliencyMetadata` object
+
+## GlobalResiliencyMetadata object
+
+The `GlobalResiliencyMetadata` object includes the following
+properties:
+
+**ActiveRegion**
+
+The current AWS Region in which the contact is active.
+This indicates where the contact is being processed in real-time.
+
+Type: String
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
+
+**OriginRegion**
+
+The AWS Region where the contact was originally created
+and initiated.
+
+Type: String
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
 
 ## HierarchyGroup object
 

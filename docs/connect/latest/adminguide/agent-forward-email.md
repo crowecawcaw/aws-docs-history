@@ -22,7 +22,8 @@ To forward an email contact to an external address:
 2. Choose the **Forward** option or button.
 3. In the **To** field, enter the external email address or addresses where you want to forward the email. You can only enter 1 email address in the **To** field. Additional recipients can be added to the **CC** field.
 4. Optionally, add a message in the body field to provide context or instructions for the external recipients.
-5. Optionally, add any attachments required.
+5. Optionally, attach files you want to include. Original inbound
+   attachments do not carry over to the forwarded email.
 6. Review the forwarded content, which includes:
 
    - The original email message and thread

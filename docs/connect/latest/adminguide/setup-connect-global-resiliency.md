@@ -40,6 +40,13 @@ For example, you can distribute inbound voice contacts and agents 100% in US Eas
 (N. Virginia) and 0% in US West (Oregon), or 50% in each Region.
 
 - Access reserved capacity across Regions.
+- Enable or disable global routing across the two linked ACGR instances.
+
+###### Note
+
+Global routing, analytics, and contact search are enabled by default for all
+new ACGR instances created on or after September 1, 2026. Existing ACGR
+instances can migrate to this feature set on request.
 
 ###### Contents
 
@@ -53,5 +60,6 @@ For example, you can distribute inbound voice contacts and agents 100% in US Eas
   across Regions](manage-phone-numbers-across-regions.md "manage-phone-numbers-across-regions.md")
 - [Manage chat across
   Regions](manage-chat-across-regions.md "manage-chat-across-regions.md")
+- [Global routing](global-routing-across-acgr-regions.md "global-routing-across-acgr-regions.md")
 - [Metrics, Reports
   and Search across ACGR Regions](metrics-reports-and-search-across-acgr-regions.md "metrics-reports-and-search-across-acgr-regions.md")

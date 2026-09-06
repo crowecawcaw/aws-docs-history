@@ -124,7 +124,7 @@ including:
 
 ### Contact actions
 
-You can perform contact actions such as Transfer, Reschedule, or End
+You can perform contact actions such as Transfer, Reschedule, Update Template, or End
 contact regardless of the contact's active Region. These actions route to the
 contact's active Region.
 

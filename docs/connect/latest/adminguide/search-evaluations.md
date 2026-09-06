@@ -15,16 +15,16 @@ side-by-side alongside audio or screen recordings, conversation transcripts, sum
    can search for up to 8 weeks of contacts at a time. You can review contacts and
    associated evaluations from up to 2 years ago.
 
-![The search filters for evaluations.](images/evaluationforms-searchfilters1.png) 4. Choose on the contact ID in the search results to open a contact and review
+![The search filters for evaluations.](images/evaluationforms-searchfilters1.png) 4. Choose the contact ID in the search results to open a contact and review
 associated evaluations.
 
 ## View evaluations on the contact details page
 
-1. Choose on **Evaluations** on the top right of the
+1. Choose **Evaluations** on the top right of the
    page.
 2. If the contact has received an evaluation it will show under
    **Completed**.
-3. Choose on the evaluation to review the completed evaluation.
+3. Choose the evaluation to review the completed evaluation.
 
 ![The list view of evaluations on the contact details page.](images/evaluation-listView.png)
 

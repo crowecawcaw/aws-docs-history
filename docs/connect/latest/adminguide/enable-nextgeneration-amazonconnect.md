@@ -10,7 +10,8 @@ Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect
 ###### Contents
 
 - [AI capabilities](#customer-ai-capabilities "#customer-ai-capabilities")
-- [Updating existing Connect Customer instances](#how-to-enable-ac "#how-to-enable-ac")
+- [Features only available in Connect Customer](#connect-customer-only-features "#connect-customer-only-features")
+- [Updating an existing instance to Connect Customer](#how-to-enable-ac "#how-to-enable-ac")
 - [How to switch to Customer Basic](#how-to-disable-ac "#how-to-disable-ac")
 
 ## AI capabilities
@@ -37,40 +38,16 @@ capabilities are included with Connect Customer.
   predict contact volumes and optimize agent schedules
 - **Flow designer analytics** — insights
   into contact flow performance
-- **Custom metrics in dashboards and APIs**
-  — build tailored views of contact center performance
-- **Customer-first callbacks** — dials
-  the customer first and only offers the callback to an agent if the customer
-  answers the call
 
-## Updating existing Connect Customer instances
+## Features only available in Connect Customer
 
-All new instances are Connect Customer instances.
+The following features are only available in Connect Customer. They are not included in
+Connect Customer Basic.
 
-If your Connect Customer instance was created before Connect Customer was available, you might need to
-update your instance to Connect Customer.
-
-1. Log in to the AWS Management Console using your AWS account.
-2. In the AWS Management Console, in the search box, type
-   **Connect Customer**. Choose **Connect Customer**.
-3. On the **Connect Customer virtual contact center instances** page,
-   choose the **instance alias** where you want to enable
-   Connect Customer.
-4. In the navigation pane, choose **Connect Customer**.
-5. In the **Enable Connect Customer across your entire
-   instance** section, confirm the status is **Not
-   enabled**.
-6. Choose **Enable**.
-
-## How to switch to Customer Basic
-
-Connect Customer Basic does not include all the AI capabilities available in Connect Customer. If you switch to Connect Customer Basic, some capabilities you are using today might no longer
-be available, including:
-
-- Agentic customer experience designer (ACXD)
+- [Agentic customer experience designer (ACXD)](acxd.md "acxd.md")
 
   - No-code visual canvas
-  - Blended AI logic - agentic AI reasoning and deterministic AI
+  - Blended AI logic — agentic AI reasoning and deterministic AI
   - Live sync of web or mobile app during live voice or chat
 
 - [Agentic voice](agentic-voice.md "agentic-voice.md")
@@ -91,7 +68,7 @@ be available, including:
 - Queue management
 
   - [Contact estimated wait time](get-queue-metrics.md#get-metrics-tips "get-queue-metrics.md#get-metrics-tips")
-  - [Customer-first callbacks](customer-first-cb.md "customer-first-cb.md")
+  - [Customer-first callbacks](customer-first-cb.md "customer-first-cb.md") — dials the customer first and only offers the callback to an agent if the customer answers the call
 
 - [Conversational analytics](analyze-conversations.md "analyze-conversations.md")
 
@@ -115,12 +92,37 @@ be available, including:
   - AI agent performance evaluations
 
 - [Flow designer analytics](monitor-flow-performance.md "monitor-flow-performance.md")
-- [Custom metrics in dashboards and APIs](custom-metrics-topic.md "custom-metrics-topic.md")
+- [Custom metrics in dashboards and APIs](custom-metrics-topic.md "custom-metrics-topic.md") — build tailored views of contact center performance
+
+## Updating an existing instance to Connect Customer
+
+All new instances are Connect Customer instances.
+
+If your Connect Customer instance was created before Connect Customer was available, you might need to
+update your instance to Connect Customer.
+
+1. Log in to the AWS Management Console using your AWS account.
+2. In the AWS Management Console, in the search box, type
+   **Connect Customer**. Choose **Connect Customer**.
+3. On the **Connect Customer virtual contact center instances** page,
+   choose the **instance alias** where you want to enable
+   Connect Customer.
+4. In the navigation pane, choose **Connect Customer**.
+5. In the **Enable Connect Customer across your entire
+   instance** section, confirm the status is **Not
+   enabled**.
+6. Choose **Enable**.
+
+## How to switch to Customer Basic
+
+Connect Customer Basic does not include all the features available in Connect Customer. If you switch to
+Connect Customer Basic, you lose access to the features listed in [Features only available in Connect Customer](#connect-customer-only-features "#connect-customer-only-features"), and some capabilities you currently
+use might no longer be available.
 
 ###### Warning
 
-If these features are configured in contact flows, you might encounter runtime
-errors.
+If features only available in Connect Customer are configured in contact flows and you switch
+to Connect Customer Basic, you might encounter runtime errors.
 
 Complete the following steps to switch from Connect Customer to Connect Customer Basic for a
 given Connect Customer instance.

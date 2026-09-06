@@ -18,7 +18,7 @@ shown in the following image.
 ![The conversational analytics integrations page, the Create conversational analytics connector button.](images/contact-lens-create-connector.png) 4. On the **conversational analytics connector** page, type a
 friendly name for the connector. 5. Under **Connector source type**, use the dropdown menu to
 select from a list of available connector source types. Usually this is an
-external Session Boarder Controller (SBC) that will initiate the SIPREC session.
+external Session Border Controller (SBC) that will initiate the SIPREC session.
 The following image shows a sample dropdown list of source types.
 
 ![The conversational analytics connector page, the Connect source type dropdown list.](images/contact-lens-connector-source-types.png) 6. Under **Voice system type**, use the dropdown list to select

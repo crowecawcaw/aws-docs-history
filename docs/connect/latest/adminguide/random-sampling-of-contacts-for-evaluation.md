@@ -1,6 +1,6 @@
 # Random sampling of contacts for evaluation in Connect Customer
 
-Connect Customer provides managers with a random sample of their agents' contacts for evaluation, removing manager bias and streamlining the evaluation process. On Contact Search, managers can specify the number of contacts that they need to evaluate for each agent, as per union agreements, regulation or internal guidelines. They then receive the required number of contacts, randomly selected from the specified timeframe, for example, 3 contacts per agent from the last week. In addition, managers can apply additional filters within Contact Search to make sure that the provided contacts are suitable for evaluation. For example, contacts must be longer than 180 seconds, have an associated audio or screen recordings, transcripts and have not yet been evaluated. After the sample is generated, you can select an evaluation form and create draft evaluations in bulk for each of the contacts within the sample. Evaluations created in this way will denote that the contact was selected through random sampling, and provide auditability to make sure that the filter criteria did not introduce any bias in selection.
+Connect Customer provides managers with a random sample of their agents' contacts for evaluation, removing manager bias and streamlining the evaluation process. On Contact Search, managers can specify the number of contacts that they need to evaluate for each agent, as per union agreements, regulation or internal guidelines. They then receive the required number of contacts, randomly selected from the specified timeframe, for example, 3 contacts per agent from the last week. In addition, managers can apply additional filters within Contact Search to make sure that the provided contacts are suitable for evaluation. For example, contacts must be longer than 180 seconds, have an associated audio or screen recording, transcripts, and have not yet been evaluated. After the sample is generated, you can select an evaluation form and create draft evaluations in bulk for each of the contacts within the sample. Evaluations created in this way will denote that the contact was selected through random sampling, and provide auditability to make sure that the filter criteria did not introduce any bias in selection.
 
 ###### Random sampling of contacts for evaluation
 
@@ -10,7 +10,7 @@ Connect Customer provides managers with a random sample of their agents' contact
    2. Sample contacts
    3. Evaluation forms – perform evaluations
 
-2. Select the timeframe of contacts for evaluation, such as trailing week. Note that you can sample contacts from a maximum period of 5 weeks.
+2. Select the timeframe of contacts for evaluation, such as trailing week. You can sample contacts from a maximum period of 5 weeks.
 
 ![Select timeframe.](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
 
@@ -50,7 +50,7 @@ This step is required if you need to retrieve the contact sample in the future.
 
 ## Retrieving and viewing sampled contacts for evaluation
 
-To retrieve the contact sample in the future, go to Contact Search and apply the filter Evaluation – contact samples. Note that contact samples are specific to the user that generated the sample.
+To retrieve the contact sample in the future, navigate to Contact search and apply the filter Evaluation – contact samples. Contact samples are specific to the user that generated the sample.
 
 ![Create draft evaluations.](images/evaluationforms-randomsampling-contact-samples-filter.png)
 

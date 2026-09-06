@@ -32,5 +32,7 @@ or API. For more information about customer profiles, see [What is a customer pr
   imported files](customer-segments-imported-files.md "customer-segments-imported-files.md")
 - [Export segments to
   a CSV file](customer-segments-exporting-segments.md "customer-segments-exporting-segments.md")
+- [Track segment
+  membership changes](customer-segments-membership-events.md "customer-segments-membership-events.md")
 - [Use the segment AI assistant](customer-segments-ai-assistant.md "customer-segments-ai-assistant.md")
 - [Troubleshooting](customer-segments-troubleshooting.md "customer-segments-troubleshooting.md")

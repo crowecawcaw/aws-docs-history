@@ -24,3 +24,43 @@ profile to handle multiple channels, you have two options:
 
 To learn more about what the agent experiences in the Contact Control Panel when
 handling multiple chats, see [Use the Contact Control Panel (CCP) in Connect Customer to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").
+
+## Workload-type concurrency
+
+A workload type is a user-defined classification that differentiates contacts
+within the same channel. It is defined as a custom value of the system predefined
+attribute `connect:WorkloadType` (for example, "Tax Filing", "Document
+Review", or "VIP Callback"). You can use workload types to distinguish
+contacts by any dimension that is meaningful to their operation and that warrants
+different agent capacity treatment. You define workload type values in the admin
+console (see [Create predefined attributes for routing contacts to agents](predefined-attributes.md "predefined-attributes.md")) and assign them to contacts using the
+**Set contact attributes** flow block or the
+`UpdateContact` API. If no workload type is explicitly set, the
+contact defaults to its subtype.
+
+For Task and Email channels, you can configure concurrency at the workload type
+level instead of the channel level. When enabled on a routing profile, each workload
+type gets its own concurrency limit (1–10) and cross-channel behavior setting. For
+example, an agent might handle 3 "Document Review" tasks but only 1 "Tax Filing"
+task. The cross-channel behavior options are: **No other channels or workload
+types**, **Only allow other workload types of the same
+channel**, and **Allow other channels concurrently**.
+
+A routing profile cannot mix channel-level and workload-type concurrency on the
+same channel. Enabling one disables the other.
+
+The following limits apply to workload-type concurrency:
+
+- Maximum of 5 workload types per channel per routing profile.
+- Sum of concurrency values per channel must not exceed 10 for Tasks and
+  Emails.
+
+###### Important
+
+If a contact's workload type has no matching entry in the agent's routing
+profile, the contact remains queued indefinitely. Ensure that every workload
+type used in flows or APIs has a corresponding routing profile entry.
+
+When you switch a routing profile between concurrency models, existing contacts
+drain under the previous rules while new contacts follow the updated configuration.
+Expect a brief coexistence period.

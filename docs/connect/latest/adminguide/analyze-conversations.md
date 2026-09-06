@@ -20,7 +20,7 @@ contacts.
 
 - **Real-time chat analytics**: As with real-time
   call analytics, you can detect and resolve customer issues more proactively
-  while the chat is progress and [receive
+  while the chat is in progress and [receive
   an alert](add-rules-for-alerts-chat.md "add-rules-for-alerts-chat.md"). For example, managers can get a real-time email alert when
   customer sentiment for a chat contact turns negative, allowing them to join the
   in-progress contact and help resolve the customer issue.

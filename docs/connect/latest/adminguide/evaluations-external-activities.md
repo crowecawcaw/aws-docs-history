@@ -89,7 +89,7 @@ awscurl \
 
 - You can add additional activity information within attributes. This
   information might be useful for quality managers who are searching and
-  evaluating contacts. For example, the previous API call includes the a
+  evaluating contacts. For example, the previous API call includes a
   custom attribute called `ExternalContactType`. It enables
   managers to distinguish between different types of external activities
   within Contact search.

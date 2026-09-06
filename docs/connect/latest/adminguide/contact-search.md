@@ -44,7 +44,7 @@ contacts using the Connect Customer admin website. For the APIs used to search f
   - **Chat**: You can search for contacts
     after they are connected to system, queued, connected to an agent or
     disconnected.
-  - **Tasks** and **Email**: You can search for all in-progress after they are
+  - **Tasks** and **Email**: You can search for all in-progress contacts after they are
     initiated.
 
 - The search results for a given query are limited to the first 10K results
@@ -86,14 +86,26 @@ When you select multiple values at any hierarchy level, you cannot filter
 on the next hierarchy level(s).
 
 - Filter contacts by channel and channel subtype, such as SMS.
+- Filter contacts by tags. You can include up to 10 tags in the filter. To
+  control which tag combinations appear in the results, choose **Match
+  any**, **Match all**, or **Match
+  none**.
+- Filter contacts by task template.
+
+###### Important
+
+Filtering contacts by task template does not reflect updated templates for
+in-progress contacts. Contact search will only show the original template
+until the contact terminates.
+
 - Filter to search for email contacts using email address (To, From and CC) and
   email subject. Searching on an email subject is not case sensitive. Also,
   searching for a subset of words within an email subject provides search results.
-  For example, if you enter **inquiry**, Connect Customer return emails with
+  For example, if you enter **inquiry**, Connect Customer returns emails with
   the subject **Customer Inquiry**.
 - Filters for [conversation analytics](analyze-conversations.md "analyze-conversations.md").
   You can search for contacts that have conversational analytics enabled.
-  for example, **Conversational analytics: Voice - Agent interaction** returns contacts where the agent interaction has been analyzed by conversational analytics.
+  For example, **Conversational analytics: Voice - Agent interaction** returns contacts where the agent interaction has been analyzed by conversational analytics.
   You can [search for Contact categories](search-conversations.md#contact-category-search "search-conversations.md#contact-category-search") by specifying the full category name. Choose to search using
   **Match any** or **Match all** or **Match none**.
   For example, you can search contacts with both "category A" and "category B", or with either one of the two categories.
@@ -189,7 +201,7 @@ For more information about hierarchy groups, see [Organize agents into teams and
      permissions.
 
 The following table lists the typical permissions and what contacts can be
-views on **Contact search** and **Contact
+viewed on **Contact search** and **Contact
 details** pages.
 
 | Contact search permission | View My Contacts permission | Restrict Contact Access permission | Which contacts can be viewed                                                                       |
@@ -270,6 +282,9 @@ search results. These options are not used to filter your search.
 For example, if you want to include columns for **Agent Name** and
 **Routing profile** in your search output, choose those columns
 here.
+
+To display the tags applied to each contact, add the **Tags**
+column.
 
 ###### Tip
 

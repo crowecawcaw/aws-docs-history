@@ -19,6 +19,7 @@ operations team members.
   Multiple Instances?](single-instance-multiple-instances.md "single-instance-multiple-instances.md")
 - [Operational Excellence](operational-excellence.md "operational-excellence.md")
 - [Security for contact centers](security-bp.md "security-bp.md")
+- [Fraud prevention](fraud-prevention.md "fraud-prevention.md")
 - [Load and penetration /
   security testing](load-and-penetration-testing.md "load-and-penetration-testing.md")
 - [Reliability in Connect Customer](reliability-bp.md "reliability-bp.md")

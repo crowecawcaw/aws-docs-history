@@ -23,7 +23,7 @@ proxy exception list for this feature, see [Allow upload of time-off balances an
 For more information, see [Assign
 permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. On the **Scheduling** page, choose the **Staff
-Rules** tab. 4. Choose Download template and store the .csv file on your desktop. It looks
+Rules** tab. 4. Choose **Download template** and store the .csv file on your desktop. It looks
 similar to the following image.
 
 ![The timeoff balance file for individuals.](images/schedule-timeoff-balance-ic.png) 5. Add data or make changes to the .csv file as needed and then save to your
@@ -119,19 +119,19 @@ Agent 2 has a sick (SICK\_SK) balance of 12 hours.
 
 Agent 3 has a vacation (VACAY\_SK) balance of 15 hours.
 
-Agent 1, 2 and 3 have a 6 hours shift. In these shifts, there is a 30 minute
+Agent 1, 2 and 3 have a 6-hour shift. In these shifts, there is a 30 minute
 **Break** activity for which **Deduct from time off
-balance** is set to **NO**.
+balance** is set to **No**.
 
 **Scenarios**
 
-- Agent 1 requested an all day time off (VACAY\_SK). Once time off is
+- Agent 1 requested an all-day time off (VACAY\_SK). Once time off is
   approved, the system will deduct 5 hours 30 minutes from the current
   time off balance of 30 hours. 30 minutes for the
   **Break** activity will not be deducted because the
   shift activity flag **Deduct from time off balance** is
   set to **No**. The net balance after time off deduction
-  will become 44 hours and 30 minutes.
+  will become 24 hours and 30 minutes.
 - Agent 2 requested time off outside of their shift hours (between
   **9:15 am** – **10:15 am**). In
   this case, given the request is outside of the planned schedule, the
@@ -141,7 +141,7 @@ balance** is set to **NO**.
   partially overlapping the shift. The **Deduct from time off
   balance**
   **Break** activity falls within the time off request.
-  In this scenario, system will deduct 1 hour 15 minutes for the duration
+  In this scenario, the system will deduct 1 hour 15 minutes for the duration
   between **2:45 am** to **4:00 am**.
   The vacation balance for agent 3 would now be 13 hours and 45
   minutes.

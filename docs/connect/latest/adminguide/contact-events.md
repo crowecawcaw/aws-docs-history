@@ -28,6 +28,7 @@ gracefully. Your applications should:
 - [Subscribe to Connect Customer contact events](#subscribe-contact-events "#subscribe-contact-events")
 - [Sample to stop streaming an event type](#stop-streaming-event "#stop-streaming-event")
 - [Sample contact event for when a voice call is connected to an agent](#sample-contact-event "#sample-contact-event")
+- [Sample contact event for a cross-region routed contact](#sample-contact-event-cross-region "#sample-contact-event-cross-region")
 - [Sample contact event for when a voice call is disconnected](#sample-contact-event-call-disconnected "#sample-contact-event-call-disconnected")
 - [Sample event for when contact properties are updated](#sample-updated-event "#sample-updated-event")
 - [Sample contact event for when a voice call is connected to an agent using routing criteria](#sample-routing-criteria-event-connected "#sample-routing-criteria-event-connected")
@@ -194,6 +195,22 @@ Type: String (yyyy-mm-ddThh:mm:ssZ)
 The agent hierarchy group for the agent.
 
 Type: ARN
+
+**ActiveRegion**
+
+The AWS Region where the agent handled the
+contact.
+
+###### Note
+
+For Connect Customer Global Resiliency enabled instances, this value may
+differ from the Region in the `agentArn`, as the agent
+ARN reflects the Region of the event stream, not necessarily the
+Region where the agent was operating. When unified routing is enabled
+for Connect Customer Global Resiliency, Contact Event Stream events are
+replicated and published from both linked Regions.
+
+Type: String
 
 ### AttributeCondition
 
@@ -1284,6 +1301,64 @@ event from Connect Customer to EventBridge.
             "aws:connect:instanceId":"12345678-1234-1234-1234-123456789012",
             "aws:connect:systemEndpoint":"+11234567890"
          }
+    }
+}
+```
+
+## Sample contact event for a cross-region routed contact
+
+Connect Customer Global Resiliency supports routing contacts to agents across linked ACGR Region
+pairs (for more details, see [Global
+routing across ACGR Regions](global-routing-across-acgr-regions.md "global-routing-across-acgr-regions.md")). The following shows a `COMPLETED`
+event for a contact that originated in us-east-1 and was handled by an agent in
+us-west-2. This event was delivered through the us-west-2 stream. Note that
+`agentInfo.activeRegion` (us-west-2) differs from
+`globalResiliencyMetadata.originRegion` (us-east-1), and the top-level
+`region` field shows which regional stream delivered this copy of the
+event.
+
+```
+{
+    "version": "0",
+    "id": "c3ef0c5d-289c-0167-c8d2-df76c1744c65",
+    "detail-type": "Amazon Connect Contact Event",
+    "source": "aws.connect",
+    "account": "111122223333",
+    "time": "2026-05-28T00:06:43Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:...",
+        "contactArn",
+        "instanceArn"
+    ],
+    "detail": {
+        "eventType": "COMPLETED",
+        "contactId": "11111111-1111-1111-1111-111111111111",
+        "channel": "VOICE",
+        "instanceArn": "arn:aws::connect:us-west-2:111122223333:instance/12345678-1234-1234-1234-123456789012",
+        "initiationMethod": "INBOUND",
+        "queueInfo": {
+            "queueArn": "arn:aws::connect:us-west-2:111122223333:instance/12345678-1234-1234-1234-123456789012/queue/12345678-1234-1234-1234-123456789012",
+            "enqueueTimestamp": "2026-05-28T00:05:12.412Z",
+            "queueType": "STANDARD"
+        },
+        "agentInfo": {
+            "agentArn": "arn:aws::connect:us-west-2:111122223333:instance/12345678-1234-1234-1234-123456789012/agent/12345678-1234-1234-1234-123456789012",
+            "connectedToAgentTimestamp": "2026-05-28T00:05:30.973Z",
+            "agentInitiatedHoldDuration": 0,
+            "activeRegion": "us-west-2"
+        },
+        "initiationTimestamp": "2026-05-28T00:04:48.433Z",
+        "connectedToSystemTimestamp": "2026-05-28T00:04:49.234Z",
+        "tags": {
+            "aws:connect:instanceId": "12345678-1234-1234-1234-123456789012",
+            "aws:connect:systemEndpoint": "+11234567890"
+        },
+        "globalResiliencyMetadata": {
+            "activeRegion": "us-east-1",
+            "originRegion": "us-east-1",
+            "trafficDistributionGroupId": "9cc7ce93-4560-48ef-a151-b403dd23d63e"
+        }
     }
 }
 ```

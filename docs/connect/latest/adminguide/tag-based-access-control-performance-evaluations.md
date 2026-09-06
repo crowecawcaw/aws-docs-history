@@ -29,7 +29,7 @@ on the Contact Details page.
 
 - After you enable tag based access control on evaluations, users will lose
   access to any evaluations before tagging the evaluation form. If you are already
-  using performance evaluations, we recommend to first tag evaluation forms and
+  using performance evaluations, we recommend that you first tag evaluation forms and
   accumulate evaluations over several months, before enabling tag based access to
   evaluations.
 - We recommend using a single tag on an evaluation form (for example, "Department: New customer")
@@ -68,7 +68,7 @@ Below are the steps to add tags to an evaluation form.
 
 1. Open the evaluation form with a security profile that has the permission
    **Evaluation forms - manage form definitions** - **Edit**.
-2. Choose on the edit icon next to the Tags.
+2. Choose the edit icon next to the Tags.
 
 ![The edit tags icon in the evaluation form.](images/evaluationforms-tags-edit-form-tags.png) 3. Update the tags.
 
@@ -97,7 +97,7 @@ updating tags on evaluation forms will not change evaluations on historically co
 
 1. Login to **Connect Customer** with a user profile that has access to
    **Security Profiles - View** and **Edit** permissions.
-2. Go to the **Users > Security Profiles** page within security profiles,
+2. Choose **Users > Security Profiles** within security profiles,
    and select a security profile that you want to modify.
 3. Choose **Show advanced options**.
 4. Select **Allow: Tag-based access control**.
@@ -168,7 +168,7 @@ for example, 2 months of evaluations, as this would result in a loss in historic
 You can only create a rule to submit automated evaluations using a form that you have access to.
 For example, suppose there is an automated evaluation form **Auto Insurance Sales Scorecard**
 with the tags "Department: New customer", "Product: Auto Insurance", and your security profile grants you
-access to the tag "Department: New customer" for evaluation forms. Then you would be able to setup a rule
+access to the tag "Department: New customer" for evaluation forms. Then you would be able to set up a rule
 to auto-submit evaluations using the form **Auto Insurance Sales Scorecard**.
 
 ## Tag Based Access Control while setting up Calibration Sessions

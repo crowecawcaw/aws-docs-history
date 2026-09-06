@@ -22,6 +22,7 @@ For more information about key management in Connect Customer, see [Key manageme
 
 ###### Contents
 
+- [Agentic CX designer](#encryption-at-rest-acxd "#encryption-at-rest-acxd")
 - [Amazon AppIntegrations](#encryption-at-rest-appintegrations "#encryption-at-rest-appintegrations")
 - [Connect Customer Cases](#encryption-at-rest-cases "#encryption-at-rest-cases")
 - [Connect Customer Customer Profiles](#encryption-at-rest-customer-profiles "#encryption-at-rest-customer-profiles")
@@ -29,6 +30,12 @@ For more information about key management in Connect Customer, see [Key manageme
 - [Connect Customer Voice ID encryption at rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
 - [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications "#encryption-at-rest-outboundcommunications")
 - [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest- "#forecasts-encryption-at-rest-")
+
+## Agentic CX designer encryption at rest
+
+When you create applications, conversation flows, and other resources in Agentic
+CX designer, all data are encrypted at rest using AWS owned key encryption keys
+stored in AWS Key Management Service.
 
 ## Amazon AppIntegrations data encryption at rest
 

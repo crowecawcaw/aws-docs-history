@@ -65,7 +65,7 @@ Connect Customer Client Application.
   file.
 - Use your organization's software distribution mechanism, such as
   Software Center, to install the
-  A**mazon.Connect.Client.Service** client app on
+  **Amazon.Connect.Client.Service** client app on
   agent desktops.
 - Deploy using your organization's enterprise software distribution
   system such as Microsoft System Center Configuration Manager, SCCM,
@@ -239,7 +239,7 @@ configuration** is shown in the following image.
    - input
      `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`,
      and then choose **Save**.
-     The following image shows where Devices, ChromeS, and Web
+     The following image shows where Devices, Chrome, and Web
      capabilities are located in the left navigation menu in Chrome.
 
 ![The left navigation menu in the Chrome OS.](images/allorigins.png)
