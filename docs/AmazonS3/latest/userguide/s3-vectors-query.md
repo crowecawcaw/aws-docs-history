@@ -1,78 +1,43 @@
+
+
 # Querying vectors
+<a name="s3-vectors-query"></a>
 
-You can run a similarity query with the [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md") API operation, where you
-specify the query vector, the number of relevant results to return (the top K nearest
-neighbors), and the index ARN. Additionally, you can use metadata filters in a query, to
-search only the vectors that match the filter. If you make a request to filter on a
-non-filterable metadata field, the request will return a `400 Bad
- Request` error. For more information about metadata filtering, see [Metadata filtering](s3-vectors-metadata-filtering.md "s3-vectors-metadata-filtering.md").
+You can run a similarity query with the [QueryVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_QueryVectors.html) API operation, where you specify the query vector, the number of relevant results to return (the top K nearest neighbors), and the index ARN. Additionally, you can use metadata filters in a query, to search only the vectors that match the filter. If you make a request to filter on a non-filterable metadata field, the request will return a `400 Bad Request` error. For more information about metadata filtering, see [Metadata filtering](s3-vectors-metadata-filtering.md). 
 
-In the response, the vector keys are returned by default. You can optionally include the
-distance and metadata in the response. When `topK` exceeds the page size, results
-are returned across multiple pages. The response includes a `nextToken` that you
-use to retrieve the next page. Continue making `QueryVectors` requests with the
-same `queryVector`, `topK`, and `filter` parameters,
-passing the `nextToken` from each response, until `nextToken` is no
-longer present. Alternatively, you can use the built-in paginators in the AWS SDKs to
-automatically iterate through all pages without manually handling
-`nextToken`. Pagination tokens remain valid for several minutes after the query is
-executed. If a pagination token expires, re-issue the original query to start a new session.
-Writes to the vector index between page retrievals will not be reflected in that query
-session. For specific limits on `topK` and page size, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
+In the response, the vector keys are returned by default. You can optionally include the distance and metadata in the response. When `topK` exceeds the page size, results are returned across multiple pages. The response includes a `nextToken` that you use to retrieve the next page. Continue making `QueryVectors` requests with the same `queryVector`, `topK`, and `filter` parameters, passing the `nextToken` from each response, until `nextToken` is no longer present. Alternatively, you can use the built-in paginators in the AWS SDKs to automatically iterate through all pages without manually handling `nextToken`. Pagination tokens remain valid for several minutes after the query is executed. If a pagination token expires, re-issue the original query to start a new session. Writes to the vector index between page retrievals will not be reflected in that query session. For specific limits on `topK` and page size, see [Limitations and restrictions](s3-vectors-limitations.md).
 
-When generating the query vector, you should use the same vector embedding model that was
-used to generate the initial vectors that are stored in the vector index. For example, if
-you use the Amazon Titan Text Embeddings V2 model in Amazon Bedrock to generate vector embeddings of
-your documents, use the same embedding model to convert a question to a query vector.
-Additionally, Amazon Bedrock Knowledge Bases provides a fully managed end-to-end RAG workflow where
-Amazon Bedrock automatically fetches data from your S3 data source, converts content into text blocks,
-generates embeddings, and stores them in your vector index. You can then query the knowledge
-base and generate responses based on chunks retrieved from your source data. For more
-information about how to query vectors from an Amazon Bedrock knowledge base in the console, see
-[(Optional) Integrate S3 Vectors with Amazon Bedrock Knowledge Bases](s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial "s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial").
+When generating the query vector, you should use the same vector embedding model that was used to generate the initial vectors that are stored in the vector index. For example, if you use the Amazon Titan Text Embeddings V2 model in Amazon Bedrock to generate vector embeddings of your documents, use the same embedding model to convert a question to a query vector. Additionally, Amazon Bedrock Knowledge Bases provides a fully managed end-to-end RAG workflow where Amazon Bedrock automatically fetches data from your S3 data source, converts content into text blocks, generates embeddings, and stores them in your vector index. You can then query the knowledge base and generate responses based on chunks retrieved from your source data. For more information about how to query vectors from an Amazon Bedrock knowledge base in the console, see [(Optional) Integrate S3 Vectors with Amazon Bedrock Knowledge Bases](s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial).
 
-Furthermore, the open-source Amazon S3 Vectors Embed CLI tool provides a simplified way to perform semantic
-searches from the command line. This open source tool streamlines the
-query process by handling both the vector embedding generation with Amazon Bedrock foundation models and
-executing semantic search operations against your S3 vector indexes. For more information
-about using this tool for querying your vector data, see [Creating vector embeddings and performing semantic searches with s3vectors-embed-cli](s3-vectors-cli.md "s3-vectors-cli.md").
+Furthermore, the open-source Amazon S3 Vectors Embed CLI tool provides a simplified way to perform semantic searches from the command line. This open source tool streamlines the query process by handling both the vector embedding generation with Amazon Bedrock foundation models and executing semantic search operations against your S3 vector indexes. For more information about using this tool for querying your vector data, see [Creating vector embeddings and performing semantic searches with `s3vectors-embed-cli`](s3-vectors-cli.md).
 
-S3 Vectors delivers sub-second response times for cold queries, leveraging Amazon S3
-elastic throughput to efficiently search across billions of vectors. This makes it highly
-cost-effective for workloads with infrequent queries. For warm queries, S3 Vectors can
-deliver response times as low as 100ms, benefiting workloads with repeated or frequent query
-patterns. When query results are returned across multiple pages, subsequent pages can be
-accessed immediately.
+S3 Vectors delivers sub-second response times for cold queries, leveraging Amazon S3 elastic throughput to efficiently search across billions of vectors. This makes it highly cost-effective for workloads with infrequent queries. For warm queries, S3 Vectors can deliver response times as low as 100ms, benefiting workloads with repeated or frequent query patterns. When query results are returned across multiple pages, subsequent pages can be accessed immediately.
 
-For performing similarity queries for your vector embeddings, several factors can
-affect average recall performance, including the vector embedding model, the size of the
-vector dataset (the number of vectors and dimensions), and the distribution of queries.
-S3 Vectors delivers 90%+ average recall for most datasets. Average recall measures the
-quality of query results. A 90% average recall means that the response contains 90% of the
-actual closest vectors (ground truth) that are stored in the vector index relative to the
-query vector. However, because actual performance may vary depending on your specific use
-cases, we recommend conducting your own tests with representative data and queries to
-validate that S3 Vectors meet your recall requirements.
+For performing similarity queries for your vector embeddings, several factors can affect average recall performance, including the vector embedding model, the size of the vector dataset (the number of vectors and dimensions), and the distribution of queries. S3 Vectors delivers 90%\+ average recall for most datasets. Average recall measures the quality of query results. A 90% average recall means that the response contains 90% of the actual closest vectors (ground truth) that are stored in the vector index relative to the query vector. However, because actual performance may vary depending on your specific use cases, we recommend conducting your own tests with representative data and queries to validate that S3 Vectors meet your recall requirements.
 
-SDK for Python
+## Using the AWS SDKs
+<a name="querty-vectors-sdk"></a>
+
+------
+#### [ SDK for Python ]
 
 ```
 # Query a vector index with an embedding from Amazon Titan Text Embeddings V2.
-import boto3
-import json
+import boto3 
+import json 
 
-# Create Bedrock Runtime and S3 Vectors clients in the AWS Region of your choice.
+# Create Bedrock Runtime and S3 Vectors clients in the AWS Region of your choice. 
 bedrock = boto3.client("bedrock-runtime", region_name="us-west-2")
-s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+s3vectors = boto3.client("s3vectors", region_name="us-west-2") 
 
-# Query text to convert to an embedding.
+# Query text to convert to an embedding. 
 input_text = "adventures in space"
 
 # Generate the vector embedding.
 response = bedrock.invoke_model(
     modelId="amazon.titan-embed-text-v2:0",
     body=json.dumps({"inputText": input_text})
-)
+) 
 
 # Extract embedding from response.
 model_response = json.loads(response["body"].read())
@@ -82,8 +47,8 @@ embedding = model_response["embedding"]
 response = s3vectors.query_vectors(
     vectorBucketName="media-embeddings",
     indexName="movies",
-    queryVector={"float32": embedding},
-    topK=3,
+    queryVector={"float32": embedding}, 
+    topK=3, 
     returnDistance=True,
     returnMetadata=True
 )
@@ -93,8 +58,8 @@ print(json.dumps(response["vectors"], indent=2))
 response = s3vectors.query_vectors(
     vectorBucketName="media-embeddings",
     indexName="movies",
-    queryVector={"float32": embedding},
-    topK=3,
+    queryVector={"float32": embedding}, 
+    topK=3, 
     filter={"genre": "scifi"},
     returnDistance=True,
     returnMetadata=True
@@ -131,5 +96,6 @@ for page in paginator.paginate(
 ):
     for vector in page["vectors"]:
         print(vector)
-
 ```
+
+------

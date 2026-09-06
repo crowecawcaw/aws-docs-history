@@ -1,75 +1,58 @@
+
+
 # Conditional functions
+<a name="s3-select-sql-reference-conditional"></a>
 
-###### Important
-
-Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
+**Important**  
+Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
 
 Amazon S3 Select supports the following conditional functions.
 
-###### Topics
-
-- [CASE](#s3-select-sql-reference-case "#s3-select-sql-reference-case")
-- [COALESCE](#s3-select-sql-reference-coalesce "#s3-select-sql-reference-coalesce")
-- [NULLIF](#s3-select-sql-reference-nullif "#s3-select-sql-reference-nullif")
+**Topics**
++ [CASE](#s3-select-sql-reference-case)
++ [COALESCE](#s3-select-sql-reference-coalesce)
++ [NULLIF](#s3-select-sql-reference-nullif)
 
 ## CASE
+<a name="s3-select-sql-reference-case"></a>
 
-The `CASE` expression is a conditional expression, similar to
-`if/then/else` statements found in other languages.
-`CASE` is used to specify a result when there are multiple
-conditions. There are two types of `CASE` expressions: simple and
-searched.
+The `CASE` expression is a conditional expression, similar to `if/then/else` statements found in other languages. `CASE` is used to specify a result when there are multiple conditions. There are two types of `CASE` expressions: simple and searched.
 
-In simple `CASE` expressions, an expression is compared with a value. When a
-match is found, the specified action in the `THEN` clause is applied.
-If no match is found, the action in the `ELSE` clause is
-applied.
+In simple `CASE` expressions, an expression is compared with a value. When a match is found, the specified action in the `THEN` clause is applied. If no match is found, the action in the `ELSE` clause is applied.
 
-In searched `CASE` expressions, each `CASE` is evaluated based on a
-Boolean expression, and the `CASE` statement returns the first
-matching `CASE`. If no matching `CASE` is found among the
-`WHEN` clauses, the action in the `ELSE` clause is
-returned.
+In searched `CASE` expressions, each `CASE` is evaluated based on a Boolean expression, and the `CASE` statement returns the first matching `CASE`. If no matching `CASE` is found among the `WHEN` clauses, the action in the `ELSE` clause is returned.
 
 ### Syntax
+<a name="s3-select-sql-reference-case-syntax"></a>
 
-###### Note
+**Note**  
+Currently, Amazon S3 Select doesn't support `ORDER BY` or queries that contain new lines. Make sure that you use queries with no line breaks.
 
-Currently, Amazon S3 Select doesn't support `ORDER BY` or
-queries that contain new lines. Make sure that you use queries with no
-line breaks.
-
-The following is a simple `CASE` statement that's used to match
-conditions:
+The following is a simple `CASE` statement that's used to match conditions:
 
 ```
-CASE `expression` WHEN `value` THEN `result` [WHEN...] [ELSE `result`] END
+CASE {{expression}} WHEN {{value}} THEN {{result}} [WHEN...] [ELSE {{result}}] END					
 ```
 
-The following is a searched `CASE` statement that's used to evaluate each
-condition:
+The following is a searched `CASE` statement that's used to evaluate each condition:
 
 ```
-CASE WHEN `boolean condition` THEN `result` [WHEN ...] [ELSE `result`] END
+CASE WHEN {{boolean condition}} THEN {{result}} [WHEN ...] [ELSE {{result}}] END					
 ```
 
 ### Examples
+<a name="s3-select-sql-reference-case-examples"></a>
 
-###### Note
+**Note**  
+If you use the Amazon S3 console to run the following examples and your CSV file contains a header row, choose **Exclude the first line of CSV data**. 
 
-If you use the Amazon S3 console to run the following examples and your CSV file contains a
-header row, choose **Exclude the first line of CSV
-data**.
-
-**Example 1:** Use a simple `CASE` expression to
-replace `New York City` with `Big Apple` in a query.
-Replace all other city names with `other`.
+**Example 1:** Use a simple `CASE` expression to replace `New York City` with `Big Apple` in a query. Replace all other city names with `other`.
 
 ```
 SELECT venuecity, CASE venuecity WHEN 'New York City' THEN 'Big Apple' ELSE 'other' END FROM S3Object;
 ```
 
-Query result:
+Query result: 
 
 ```
 venuecity        |   case
@@ -81,15 +64,13 @@ Baltimore        | other
 ...
 ```
 
-**Example 2:** Use a searched `CASE` expression
-to assign group numbers based on the `pricepaid` value for
-individual ticket sales:
+**Example 2:** Use a searched `CASE` expression to assign group numbers based on the `pricepaid` value for individual ticket sales:
 
 ```
-SELECT pricepaid, CASE WHEN CAST(pricepaid as FLOAT) < 10000 THEN 'group 1' WHEN CAST(pricepaid as FLOAT) > 10000 THEN 'group 2' ELSE 'group 3' END FROM S3Object;
+SELECT pricepaid, CASE WHEN CAST(pricepaid as FLOAT) < 10000 THEN 'group 1' WHEN CAST(pricepaid as FLOAT) > 10000 THEN 'group 2' ELSE 'group 3' END FROM S3Object;					
 ```
 
-Query result:
+Query result: 
 
 ```
 pricepaid |  case
@@ -103,24 +84,25 @@ pricepaid |  case
 ```
 
 ## COALESCE
+<a name="s3-select-sql-reference-coalesce"></a>
 
-`COALESCE` evaluates the arguments in order and returns the first non-unknown
-value, that is, the first non-null or non-missing value. This function does not
-propagate null and missing values.
+`COALESCE` evaluates the arguments in order and returns the first non-unknown value, that is, the first non-null or non-missing value. This function does not propagate null and missing values.
 
 ### Syntax
+<a name="s3-select-sql-reference-coalesce-syntax"></a>
 
 ```
-COALESCE ( `expression`, `expression`, ... )
+COALESCE ( {{expression}}, {{expression}}, ... )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-coalesce-parameters"></a>
 
-_`expression`_
-
+ *`{{expression}}`*   
 The target expression that the function operates on.
 
 ### Examples
+<a name="s3-select-sql-reference-coalesce-examples"></a>
 
 ```
 COALESCE(1)                -- 1
@@ -135,25 +117,25 @@ COALESCE(missing, 1)       -- 1
 ```
 
 ## NULLIF
+<a name="s3-select-sql-reference-nullif"></a>
 
-Given two expressions, `NULLIF` returns `NULL` if the two
-expressions evaluate to the same value; otherwise, `NULLIF` returns
-the result of evaluating the first expression.
+Given two expressions, `NULLIF` returns `NULL` if the two expressions evaluate to the same value; otherwise, `NULLIF` returns the result of evaluating the first expression.
 
 ### Syntax
+<a name="s3-select-sql-reference-nullif-syntax"></a>
 
 ```
-NULLIF ( `expression1`, `expression2` )
+NULLIF ( {{expression1}}, {{expression2}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-nullif-parameters"></a>
 
-`*`expression1`,
- `expression2`*`
-
+ `{{expression1}}, {{expression2}}`   
 The target expressions that the function operates on.
 
 ### Examples
+<a name="s3-select-sql-reference-nullif-examples"></a>
 
 ```
 NULLIF(1, 1)             -- null

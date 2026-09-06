@@ -1,103 +1,100 @@
+
+
 # Retrieving object versions from a versioning-enabled bucket
+<a name="RetrievingObjectVersions"></a>
 
-Versioning in Amazon S3 is a way of keeping multiple variants of an object in the same
-bucket. A simple `GET` request retrieves the current version of an object.
-The following figure shows how `GET` returns the current version of the
-object, `photo.gif`.
+Versioning in Amazon S3 is a way of keeping multiple variants of an object in the same bucket. A simple `GET` request retrieves the current version of an object. The following figure shows how `GET` returns the current version of the object, `photo.gif`.
 
-![How GET returns the current version of the object.](images/versioning_GET_NoVersionID.png)
-To retrieve a specific version, you have to specify its version ID. The following
-figure shows that a `GET versionId` request retrieves the specified version
-of the object (not necessarily the current one).
+![How GET returns the current version of the object.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GET_NoVersionID.png)
 
-![How a GET versionId request retrieves the specified version of the object.](images/versioning_GET_Versioned.png)
-You can retrieve object versions in Amazon S3 using the console, AWS SDKs, or REST
-API.
 
-###### Note
+To retrieve a specific version, you have to specify its version ID. The following figure shows that a `GET versionId` request retrieves the specified version of the object (not necessarily the current one).
 
-To access object versions older than 300 versions, you must use the AWS CLI or the
-object's URL.
+![How a GET versionId request retrieves the specified version of the object.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GET_Versioned.png)
 
-You can restore a previous version of an object using the Amazon S3 console by deleting
-the current version. Deleting the current version makes the previous version the new
-current version.
 
-###### To restore a previous version by deleting the current version
+You can retrieve object versions in Amazon S3 using the console, AWS SDKs, or REST API.
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the **Buckets** list, choose the name of the bucket that
-   contains the object.
-3. In the **Objects** list, choose the name of the object.
-4. Choose **Versions**.
+**Note**  
+ To access object versions older than 300 versions, you must use the AWS CLI or the object's URL.
 
-Amazon S3 shows all the versions for the object. 5. Select the check box next to the **Version ID** of the current
-(latest) version that you want to delete. 6. Choose **Delete**. 7. In the **Delete objects** dialog box, enter
-`permanently delete`, and then choose
-**Delete objects**.
+## Using the S3 console
+<a name="retrieving-object-versions"></a>
 
-After you delete the current version, the previous version becomes the
-current version.
+You can restore a previous version of an object using the Amazon S3 console by deleting the current version. Deleting the current version makes the previous version the new current version.
 
-###### To download a previous version
+**To restore a previous version by deleting the current version**
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the **Buckets** list, choose the name of the bucket that
-   contains the object.
-3. In the **Objects** list, choose the name of the object.
-4. Choose **Versions**.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-Amazon S3 shows all the versions for the object. 5. Select the check box next to the **Version ID** for the versions
-that you want to retrieve. 6. Choose **Actions**, choose **Download**, and
-save the object.
-You also can view, download, and delete object versions in the object overview panel. For
-more information, see [Viewing object properties in the Amazon S3 console](view-object-properties.md "view-object-properties.md").
+1. In the **Buckets** list, choose the name of the bucket that contains the object.
 
-###### Note
+1. In the **Objects** list, choose the name of the object.
 
-To copy a previous version in place (making it the new current version), use the
-AWS CLI or AWS SDKs — this approach isn't available in the Amazon S3 console. For an
-example, see the AWS CLI tab.
+1. Choose **Versions**.
 
-###### Important
+   Amazon S3 shows all the versions for the object.
 
-You can undelete an object only if it was deleted as the latest (current) version. You
-can't undelete a previous version of an object that was deleted. For more information,
-see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md").
+1. Select the check box next to the **Version ID** of the current (latest) version that you want to delete.
 
-The examples for uploading objects in nonversioned and versioning-enabled
-buckets are the same. However, for versioning-enabled buckets, Amazon S3 assigns a
-version number. Otherwise, the version number is null.
+1. Choose **Delete**.
 
-For examples of downloading objects using AWS SDKs for Java, .NET, and PHP,
-see [Downloading
-objects](download-objects.md "download-objects.md").
+1. In the **Delete objects** dialog box, enter **permanently delete**, and then choose **Delete objects**.
 
-For examples of listing the version of objects using AWS SDKs for .NET and Rust,
-see
-[List the version of objects in an Amazon S3 bucket](../../../code-library/latest/ug/s3_example_s3_ListObjectVersions_section.md "../../../code-library/latest/ug/s3_example_s3_ListObjectVersions_section.md").
+   After you delete the current version, the previous version becomes the current version.
 
-###### To retrieve a specific object version
+**To download a previous version**
 
-1. Set `versionId` to the ID of the version of the object that
-   you want to retrieve.
-2. Send a `GET Object versionId` request.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-###### Example— Retrieving a versioned object
+1. In the **Buckets** list, choose the name of the bucket that contains the object.
 
-The following request retrieves version
-`L4kqtJlcpXroDTDmpUMLUo` of `my-image.jpg`.
+1. In the **Objects** list, choose the name of the object.
+
+1. Choose **Versions**.
+
+   Amazon S3 shows all the versions for the object.
+
+1. Select the check box next to the **Version ID** for the versions that you want to retrieve.
+
+1. Choose **Actions**, choose **Download**, and save the object.
+
+You also can view, download, and delete object versions in the object overview panel. For more information, see [Viewing object properties in the Amazon S3 console](view-object-properties.md).
+
+**Note**  
+To copy a previous version in place (making it the new current version), use the AWS CLI or AWS SDKs — this approach isn't available in the Amazon S3 console. For an example, see the AWS CLI tab.
+
+**Important**  
+You can undelete an object only if it was deleted as the latest (current) version. You can't undelete a previous version of an object that was deleted. For more information, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md).
+
+## Using the AWS SDKs
+<a name="retrieve-obj-version-sdks"></a>
+
+The examples for uploading objects in nonversioned and versioning-enabled buckets are the same. However, for versioning-enabled buckets, Amazon S3 assigns a version number. Otherwise, the version number is null.
+
+For examples of downloading objects using AWS SDKs for Java, .NET, and PHP, see [Downloading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html).
+
+For examples of listing the version of objects using AWS SDKs for .NET and Rust, see [List the version of objects in an Amazon S3 bucket](https://docs.aws.amazon.com/code-library/latest/ug/s3_example_s3_ListObjectVersions_section.html).
+
+## Using the REST API
+<a name="retrieve-obj-version-rest"></a>
+
+**To retrieve a specific object version**
+
+1. Set `versionId` to the ID of the version of the object that you want to retrieve.
+
+1. Send a `GET Object versionId` request.
+
+**Example — Retrieving a versioned object**  
+The following request retrieves version `L4kqtJlcpXroDTDmpUMLUo` of `my-image.jpg`.  
 
 ```
-GET /my-image.jpg?versionId=L4kqtJlcpXroDTDmpUMLUo HTTP/1.1
-Host: bucket.s3.amazonaws.com
-Date: Wed, 28 Oct 2009 22:32:00 GMT
-Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+1. GET /my-image.jpg?versionId=L4kqtJlcpXroDTDmpUMLUo HTTP/1.1
+2. Host: bucket.s3.amazonaws.com
+3. Date: Wed, 28 Oct 2009 22:32:00 GMT
+4. Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
 ```
 
-You can retrieve just the metadata of an object (not the content). For information,
-see [Retrieving the metadata of an object version](RetMetaOfObjVersion.md "RetMetaOfObjVersion.md").
+You can retrieve just the metadata of an object (not the content). For information, see [Retrieving the metadata of an object version](RetMetaOfObjVersion.md).
 
-For information about restoring a previous object version, see [Restoring previous versions](RestoringPreviousVersions.md "RestoringPreviousVersions.md").
+For information about restoring a previous object version, see [Restoring previous versions](RestoringPreviousVersions.md).

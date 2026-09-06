@@ -1,46 +1,55 @@
-# Listing vector indexes
 
-You can view all vector indexes within a vector bucket. The listing operation supports prefix-based filtering to help you find
-specific indexes when you have many indexes in a bucket. For more information about `ListIndexes`, prefix limits, and response limits, see [ListIndexes](../API/API_S3VectorBuckets_ListIndexes.md "../API/API_S3VectorBuckets_ListIndexes.md") in the Amazon Simple Storage Service API Reference.
+
+# Listing vector indexes
+<a name="s3-vectors-index-list"></a>
+
+You can view all vector indexes within a vector bucket. The listing operation supports prefix-based filtering to help you find specific indexes when you have many indexes in a bucket. For more information about `ListIndexes`, prefix limits, and response limits, see [ListIndexes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_ListIndexes.html) in the Amazon Simple Storage Service API Reference. 
 
 ## Prefix search capability
+<a name="s3-vectors-index-prefix-search-capability"></a>
 
 Prefix search allows you to list indexes that start with a specific prefix, making it easier to organize and find related vector indexes. This is particularly useful when you use naming conventions that group related indexes together:
++ **By data type:** `text-embeddings-`, `image-features-`, `audio-vectors-`
++ **By model:** `model1-embeddings-`, `model2-vectors-`, `custom-model-`
++ **By use case:** `search-index-`, `recommendation-`, `similarity-`
++ **By environment:** `prod-vectors-`, `staging-vectors-`, `dev-vectors-`
 
-- **By data type:** `text-embeddings-`, `image-features-`, `audio-vectors-`
-- **By model:** `model1-embeddings-`, `model2-vectors-`, `custom-model-`
-- **By use case:** `search-index-`, `recommendation-`, `similarity-`
-- **By environment:** `prod-vectors-`, `staging-vectors-`, `dev-vectors-`
+### Using the S3 console
+<a name="s3-vectors-index-list-console"></a>
 
-###### To list vector indexes
+**To list vector indexes**
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **Vector buckets**.
-3. In the list of vector buckets, choose the name of the bucket containing the indexes you want to view.
-4. The console displays a comprehensive list of all vector indexes in the bucket, including:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-   - **Name** – The name for each index.
-   - **Create date** – When the index was created.
-   - **Amazon Resource Name (ARN)** – Full ARN for each index.
+1. In the left navigation pane, choose **Vector buckets**.
 
-###### To filter the list
+1. In the list of vector buckets, choose the name of the bucket containing the indexes you want to view.
+
+1. The console displays a comprehensive list of all vector indexes in the bucket, including:
+   + **Name** – The name for each index.
+   + **Create date** – When the index was created.
+   + **Amazon Resource Name (ARN)** – Full ARN for each index.
+
+**To filter the list**
 
 1. Enter an index name or prefix in the search box above the index list. Use prefixes to find groups of related indexes.
-2. The list updates in real-time as you type.
-   Use the following example commands and replace the `user input placeholders` with your own information.
+
+1. The list updates in real-time as you type.
+
+### Using the AWS CLI
+<a name="s3-vectors-list-cli"></a>
+
+Use the following example commands and replace the {{user input placeholders}} with your own information.
 
 **To list indexes with a specific prefix in a vector bucket**
 
 Example request:
 
 ```
-
 aws s3vectors list-indexes \
-  --vector-bucket-name "``amzn-s3-demo-bucket``" \
-  --prefix "`idx`" \
-  --max-results `1`
-
+  --vector-bucket-name "{{{{amzn-s3-demo-bucket}}}}" \
+  --prefix "{{idx}}" \
+  --max-results {{1}}
 ```
 
 Example response:
@@ -50,9 +59,9 @@ Example response:
     "nextToken": "lObb29ZkzxMGtBXs97Rkbs26xdtKemu4brsnq2jX8DCocADkILv5cRphemXS3PXXFnQBihQBmESgEeKaGA",
     "indexes": [
         {
-            "vectorBucketName": "``amzn-s3-demo-bucket``",
+            "vectorBucketName": "{{{{amzn-s3-demo-bucket}}}}",
             "indexName": "idx",
-            "indexArn": "arn:aws:s3vectors:``aws-region``:`111122223333`:bucket/`amzn-s3-demo-vector-bucket`/index/`idx`",
+            "indexArn": "arn:aws:s3vectors:{{{{aws-region}}}}:{{111122223333}}:bucket/{{amzn-s3-demo-vector-bucket}}/index/{{idx}}",
             "creationTime": "2025-06-12T15:50:23+00:00"
         }
     ]
@@ -65,32 +74,36 @@ Example request:
 
 ```
 aws s3vectors list-indexes \
-  --vector-bucket-name "``amzn-s3-demo-bucket``" \
-  --prefix "`idx`" \
-  --next-token "`lObb29ZkzxMGtBXs97Rkbs26xdtKemu4brsnq2jX8DCocADkILv5cRphemXS3PXXFnQBihQBmESgEeKaGA`"
+  --vector-bucket-name "{{{{amzn-s3-demo-bucket}}}}" \
+  --prefix "{{idx}}" \
+  --next-token "{{lObb29ZkzxMGtBXs97Rkbs26xdtKemu4brsnq2jX8DCocADkILv5cRphemXS3PXXFnQBihQBmESgEeKaGA}}"
 ```
 
-Example response:
+Example response: 
 
 ```
 {
     "indexes": [
         {
-            "vectorBucketName": "``amzn-s3-demo-bucket``",
+            "vectorBucketName": "{{{{amzn-s3-demo-bucket}}}}",
             "indexName": "idx2",
-            "indexArn": "arn:aws:s3vectors:``aws-region``:`111122223333`:bucket/`amzn-s3-demo-vector-bucket`/index/`idx2`",
+            "indexArn": "arn:aws:s3vectors:{{{{aws-region}}}}:{{111122223333}}:bucket/{{amzn-s3-demo-vector-bucket}}/index/{{idx2}}",
             "creationTime": "2025-06-12T15:45:37+00:00"
         }
     ]
 }
 ```
 
-SDK for Python
+### Using the AWS SDKs
+<a name="s3-vectors-list-sdk"></a>
+
+------
+#### [ SDK for Python ]
 
 ```
 import boto3
 
-# Create a S3 Vectors client in the AWS Region of your choice.
+# Create a S3 Vectors client in the AWS Region of your choice. 
 s3vectors = boto3.client("s3vectors", region_name="us-west-2")
 
 #List vector indexes in your vector bucket
@@ -98,3 +111,5 @@ response = s3vectors.list_indexes(vectorBucketName="media-embeddings")
 indexes = response["indexes"]
 print(indexes)
 ```
+
+------

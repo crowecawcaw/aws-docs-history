@@ -1,72 +1,72 @@
+
+
 # Enabling website hosting
+<a name="EnableWebsiteHosting"></a>
 
-When you configure a bucket as a static website, you must enable static website
-hosting, configure an index document, and set permissions.
+When you configure a bucket as a static website, you must enable static website hosting, configure an index document, and set permissions.
 
-You can enable static website hosting using the Amazon S3 console, REST API, the AWS
-SDKs, the AWS CLI, or CloudFormation.
+You can enable static website hosting using the Amazon S3 console, REST API, the AWS SDKs, the AWS CLI, or CloudFormation.
 
-To configure your website with a custom domain, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
+To configure your website with a custom domain, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md).
 
-###### To enable static website hosting
+## Using the S3 console
+<a name="HowDoIWebsiteConfiguration"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **General purpose buckets**.
-3. In the buckets list, choose the name of the bucket that you want to
-   enable static website hosting for.
-4. Choose **Properties**.
-5. Under **Static website hosting**, choose **Edit**.
-6. Choose **Use this bucket to host a website**.
-7. Under **Static website hosting**, choose **Enable**.
-8. In **Index document**, enter the file name of the index document,
-   typically `index.html`.
+**To enable static website hosting**
 
-The index document name is case sensitive and must exactly match the file name of the HTML index document that you plan to upload to your S3 bucket. When you configure a bucket for website hosting, you must specify an index document.
-Amazon S3 returns this index document when requests are made to the root domain or any of the
-subfolders. For more information, see [Configuring an index document](IndexDocumentSupport.md "IndexDocumentSupport.md"). 9. To provide your own custom error document for 4XX class
-errors, in **Error document**, enter the custom error document file name.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-The error document name is case sensitive and must exactly match the file name of the HTML error document that you plan to upload to your S3 bucket. If you don't specify a custom error document and an error occurs, Amazon S3 returns a
-default HTML error document. For more information, see [Configuring a custom error document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"). 10. (Optional) If you want to specify advanced redirection rules, in **Redirection rules**, enter JSON to describe the rules.
+1. In the left navigation pane, choose **General purpose buckets**.
 
-For example, you can conditionally route requests according to specific object key
-names or prefixes in the request. For more information, see [Configure redirection rules to use advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
+1. In the buckets list, choose the name of the bucket that you want to enable static website hosting for.
 
-Amazon S3 enables static website hosting for your bucket. At the bottom of the page, under **Static website hosting**, you see the website endpoint for your bucket. 12. Under **Static website hosting**, note the **Endpoint**.
+1. Choose **Properties**.
 
-The **Endpoint** is the Amazon S3 website endpoint for your bucket.
-After you finish configuring your bucket as a static website, you can use this endpoint to test your
-website.
-For more information about sending REST requests directly to enable static
-website hosting, see the following sections in the Amazon Simple Storage Service API Reference:
+1. Under **Static website hosting**, choose **Edit**.
 
-- [PUT Bucket
-  website](../API/RESTBucketPUTwebsite.md "../API/RESTBucketPUTwebsite.md")
-- [GET Bucket
-  website](../API/RESTBucketGETwebsite.md "../API/RESTBucketGETwebsite.md")
-- [DELETE Bucket
-  website](../API/RESTBucketDELETEwebsite.md "../API/RESTBucketDELETEwebsite.md")
-  To host a static website on Amazon S3, you configure an Amazon S3 bucket for
-  website hosting and then upload your website content to the bucket. You can also use the
-  AWS SDKs to create, update, and delete the website configuration programmatically. The
-  SDKs provide wrapper classes around the Amazon S3 REST API. If your application requires it, you
-  can send REST API requests directly from your application.
+1. Choose **Use this bucket to host a website**. 
 
-.NET
-The following example shows how to use the AWS SDK for .NET to manage website configuration
-for a bucket. To add a website configuration to a bucket, you provide a bucket name and
-a website configuration. The website configuration must include an index document and
-can contain an optional error document. These documents must be stored in the bucket.
-For more information, see [PUT Bucket
-website](../API/RESTBucketPUTwebsite.md "../API/RESTBucketPUTwebsite.md"). For more information about the Amazon S3 website feature, see [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md").
+1. Under **Static website hosting**, choose **Enable**.
 
-The following C# code example adds a website configuration to the specified
-bucket. The configuration specifies both the index document and the error document
-names. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+1. In **Index document**, enter the file name of the index document, typically `index.html`. 
+
+   The index document name is case sensitive and must exactly match the file name of the HTML index document that you plan to upload to your S3 bucket. When you configure a bucket for website hosting, you must specify an index document. Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. For more information, see [Configuring an index document](IndexDocumentSupport.md).
+
+1. To provide your own custom error document for 4XX class errors, in **Error document**, enter the custom error document file name. 
+
+   The error document name is case sensitive and must exactly match the file name of the HTML error document that you plan to upload to your S3 bucket. If you don't specify a custom error document and an error occurs, Amazon S3 returns a default HTML error document. For more information, see [Configuring a custom error document](CustomErrorDocSupport.md).
+
+1. (Optional) If you want to specify advanced redirection rules, in **Redirection rules**, enter JSON to describe the rules.
+
+   For example, you can conditionally route requests according to specific object key names or prefixes in the request. For more information, see [Configure redirection rules to use advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects).
+
+1. Choose **Save changes**.
+
+   Amazon S3 enables static website hosting for your bucket. At the bottom of the page, under **Static website hosting**, you see the website endpoint for your bucket.
+
+1. Under **Static website hosting**, note the **Endpoint**.
+
+   The **Endpoint** is the Amazon S3 website endpoint for your bucket. After you finish configuring your bucket as a static website, you can use this endpoint to test your website.
+
+## Using the REST API
+<a name="ConfigWebSiteREST"></a>
+
+For more information about sending REST requests directly to enable static website hosting, see the following sections in the Amazon Simple Storage Service API Reference:
++ [PUT Bucket website](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTwebsite.html)
++ [GET Bucket website](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETwebsite.html)
++ [DELETE Bucket website](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETEwebsite.html)
+
+## Using the AWS SDKs
+<a name="ManagingBucketWebsiteConfig"></a>
+
+To host a static website on Amazon S3, you configure an Amazon S3 bucket for website hosting and then upload your website content to the bucket. You can also use the AWS SDKs to create, update, and delete the website configuration programmatically. The SDKs provide wrapper classes around the Amazon S3 REST API. If your application requires it, you can send REST API requests directly from your application. 
+
+------
+#### [ .NET ]
+
+The following example shows how to use the AWS SDK for .NET to manage website configuration for a bucket. To add a website configuration to a bucket, you provide a bucket name and a website configuration. The website configuration must include an index document and can contain an optional error document. These documents must be stored in the bucket. For more information, see [PUT Bucket website](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTwebsite.html). For more information about the Amazon S3 website feature, see [Hosting a static website using Amazon S3](WebsiteHosting.md). 
+
+The following C\# code example adds a website configuration to the specified bucket. The configuration specifies both the index document and the error document names. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -129,17 +129,14 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
 
-PHP
-The following PHP example adds a website configuration to the specified bucket. The
-`create_website_config` method explicitly provides the index document and
-error document names. The example also retrieves the website configuration and prints
-the response. For more information about the Amazon S3 website feature, see [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md").
+------
+#### [ PHP ]
 
-For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
+The following PHP example adds a website configuration to the specified bucket. The `create_website_config` method explicitly provides the index document and error document names. The example also retrieves the website configuration and prints the response. For more information about the Amazon S3 website feature, see [Hosting a static website using Amazon S3](WebsiteHosting.md).
+
+For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
 
 ```
  require 'vendor/autoload.php';
@@ -173,18 +170,15 @@ echo $result->getPath('IndexDocument/Suffix');
 $s3->deleteBucketWebsite([
     'Bucket' => $bucket
 ]);
-
-
 ```
 
-For more information about using the AWS CLI to configure an S3 bucket as a
-static website, see [website](../../../cli/latest/reference/s3/website.md "../../../cli/latest/reference/s3/website.md") in the
-_AWS CLI Command Reference_.
+------
 
-Next, you must configure your index document and set permissions. For information, see
-[Configuring an index document](IndexDocumentSupport.md "IndexDocumentSupport.md") and
-[Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
+## Using the AWS CLI
+<a name="enabling-website-cli"></a>
 
-You can also optionally configure an [error
-document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"), [web traffic logging](LoggingWebsiteTraffic.md "LoggingWebsiteTraffic.md"),
-or a [redirect](how-to-page-redirect.md "how-to-page-redirect.md").
+For more information about using the AWS CLI to configure an S3 bucket as a static website, see [website](https://docs.aws.amazon.com/cli/latest/reference/s3/website.html) in the *AWS CLI Command Reference*.
+
+Next, you must configure your index document and set permissions. For information, see [Configuring an index document](IndexDocumentSupport.md) and [Setting permissions for website access](WebsiteAccessPermissionsReqd.md). 
+
+You can also optionally configure an [error document](CustomErrorDocSupport.md), [web traffic logging](LoggingWebsiteTraffic.md), or a [redirect](how-to-page-redirect.md).

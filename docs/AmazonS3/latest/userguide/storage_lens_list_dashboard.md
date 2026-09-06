@@ -1,37 +1,32 @@
+
+
 # List Amazon S3 Storage Lens dashboards
+<a name="storage_lens_list_dashboard"></a>
 
-###### To list S3 Storage Lens dashboards
+ 
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, navigate to **Storage Lens**.
-3. Choose **Dashboards**. You can now view the dashboards in your AWS account.
+## Using the AWS CLI
+<a name="S3ListStorageLensConfigurationsCLI"></a>
 
-###### Example
-
-The following example command lists the S3 Storage Lens dashboards in your AWS account. To use these
-examples, replace the `user input placeholders` with
-your own information.
+**Example**  
+The following example command lists the S3 Storage Lens dashboards in your AWS account. To use these examples, replace the `{{user input placeholders}}` with your own information.  
 
 ```
-aws s3control list-storage-lens-configurations --account-id=`222222222222` --region=`us-east-1` --next-token=`abcdefghij1234`
+aws s3control list-storage-lens-configurations --account-id={{222222222222}} --region={{us-east-1}} --next-token={{abcdefghij1234}}
 ```
 
-###### Example
-
-The following example lists S3 Storage Lens configurations without a next token. To use these
-examples, replace the `user input placeholders` with
-your own information.
+**Example**  
+The following example lists S3 Storage Lens configurations without a next token. To use these examples, replace the `{{user input placeholders}}` with your own information.  
 
 ```
-aws s3control list-storage-lens-configurations --account-id=`222222222222` --region=`us-east-1`
+aws s3control list-storage-lens-configurations --account-id={{222222222222}} --region={{us-east-1}}
 ```
 
-###### Example– List S3 Storage Lens dashboard configurations
+## Using the AWS SDK for Java
+<a name="S3ListStorageLensConfigurationsJava"></a>
 
-The following examples shows you how to list S3 Storage Lens configurations in SDK for Java. To use
-this example, replace the `user input placeholders`
-with your own information." to each example description.
+**Example – List S3 Storage Lens dashboard configurations**  
+The following examples shows you how to list S3 Storage Lens configurations in SDK for Java. To use this example, replace the `{{user input placeholders}}` with your own information." to each example description.  
 
 ```
 package aws.example.s3control;
@@ -46,18 +41,18 @@ import com.amazonaws.services.s3control.model.ListStorageLensConfigurationsReque
 
 import java.util.List;
 
-import static com.amazonaws.regions.Regions.`US_WEST_2`;
+import static com.amazonaws.regions.Regions.{{US_WEST_2}};
 
 public class ListDashboard {
 
     public static void main(String[] args) {
-        String sourceAccountId = "`111122223333`";
-        String nextToken = "`nextToken`";
+        String sourceAccountId = "{{111122223333}}";
+        String nextToken = "{{nextToken}}";
 
         try {
             AWSS3Control s3ControlClient = AWSS3ControlClient.builder()
                     .withCredentials(new ProfileCredentialsProvider())
-                    .withRegion(`US_WEST_2`)
+                    .withRegion({{US_WEST_2}})
                     .build();
 
             final List<ListStorageLensConfigurationEntry> configurations =
@@ -78,5 +73,4 @@ public class ListDashboard {
         }
     }
 }
-
 ```

@@ -1,87 +1,70 @@
+
+
 # Uploading an object using multipart upload
+<a name="mpu-upload-object"></a>
 
-You can use the multipart upload to programmatically upload a single object to Amazon S3.
-Each object is uploaded as a set of parts. Each part is a
-contiguous portion of the object's data. You can upload these object parts independently and
-in any order. If transmission of any part fails, you can retransmit that part without
-affecting other parts. After all parts of your object are uploaded, Amazon S3 assembles
-these parts and creates the object. Anonymous users cannot initiate multipart uploads.
+You can use the multipart upload to programmatically upload a single object to Amazon S3. Each object is uploaded as a set of parts. Each part is a contiguous portion of the object's data. You can upload these object parts independently and in any order. If transmission of any part fails, you can retransmit that part without affecting other parts. After all parts of your object are uploaded, Amazon S3 assembles these parts and creates the object. Anonymous users cannot initiate multipart uploads.
 
-###### Note
+**Note**  
+Multipart upload copy operations do not copy annotations from the source object by default. To include annotations when copying objects using multipart upload (for example, with the AWS CLI `aws s3 cp` command for objects larger than approximately 8 MB), specify `--copy-props all`.
 
-Multipart upload copy operations do not copy annotations from the source object by
-default. To include annotations when copying objects using multipart upload (for example,
-with the AWS CLI `aws s3 cp` command for objects larger than approximately 8
-MB), specify `--copy-props all`.
+For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see [Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md).
 
-For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
-[Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+The following section show how to use multipart upload with the AWS Command Line Interface, and AWS SDKs.
 
-The following section show how to use multipart upload with the AWS Command Line Interface, and
-AWS SDKs.
+## Using the S3 console
+<a name="MultipartUploadConsole"></a>
 
-You can upload any file type—images, backups, data, movies, and so on—into an
-S3 bucket. The maximum size of a file that you can upload by using the Amazon S3 console is 160 GB.
-To upload a file larger than 160 GB, use the AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST
-API.
+You can upload any file type—images, backups, data, movies, and so on—into an S3 bucket. The maximum size of a file that you can upload by using the Amazon S3 console is 160 GB. To upload a file larger than 160 GB, use the AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST API.
 
-For instructions on uploading an object through the AWS Management Console, see [Uploading objects](upload-objects.md "upload-objects.md").
+For instructions on uploading an object through the AWS Management Console, see [Uploading objects](upload-objects.md).
 
-The following describe the Amazon S3 operations for multipart upload using the AWS CLI.
+## Using the AWS CLI
+<a name="UsingCLImpUpload"></a>
 
-- [Initiate Multipart
-  Upload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html")
-- [Upload Part](../../../cli/latest/reference/s3api/upload-part.md "../../../cli/latest/reference/s3api/upload-part.md")
-- [Upload Part
-  (Copy)](../../../cli/latest/reference/s3api/upload-part-copy.md "../../../cli/latest/reference/s3api/upload-part-copy.md")
-- [Complete Multipart
-  Upload](../../../cli/latest/reference/s3api/complete-multipart-upload.md "../../../cli/latest/reference/s3api/complete-multipart-upload.md")
-- [Abort Multipart Upload](../../../cli/latest/reference/s3api/abort-multipart-upload.md "../../../cli/latest/reference/s3api/abort-multipart-upload.md")
-- [List Parts](../../../cli/latest/reference/s3api/list-parts.md "../../../cli/latest/reference/s3api/list-parts.md")
-- [List Multipart
-  Uploads](../../../cli/latest/reference/s3api/list-multipart-uploads.md "../../../cli/latest/reference/s3api/list-multipart-uploads.md")
-  The following sections in the
-  _Amazon Simple Storage Service API Reference_ describe the REST API for
-  multipart upload.
+The following describe the Amazon S3 operations for multipart upload using the AWS CLI. 
++ [Initiate Multipart Upload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html)
++ [Upload Part](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html)
++ [Upload Part (Copy)](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html)
++ [Complete Multipart Upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html)
++ [Abort Multipart Upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/abort-multipart-upload.html)
++ [List Parts](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-parts.html)
++ [List Multipart Uploads](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-multipart-uploads.html)
 
-- [Initiate Multipart Upload](../API/mpUploadInitiate.md "../API/mpUploadInitiate.md")
-- [Upload Part](../API/mpUploadUploadPart.md "../API/mpUploadUploadPart.md")
-- [Complete Multipart Upload](../API/mpUploadComplete.md "../API/mpUploadComplete.md")
-- [Stop Multipart Upload](../API/mpUploadAbort.md "../API/mpUploadAbort.md")
-- [List Parts](../API/mpUploadListParts.md "../API/mpUploadListParts.md")
-- [List Multipart Uploads](../API/mpUploadListMPUpload.md "../API/mpUploadListMPUpload.md")
-  Some AWS SDKs expose a high-level API that simplifies multipart upload by combining the different API operations required to complete a multipart upload into a single operation. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
+## Using the REST API
+<a name="UsingRESTAPImpUpload"></a>
 
-If you need to pause and resume multipart uploads, vary part sizes during the
-upload, or do not know the size of the data in advance, use the low-level API methods.
-The low-level API methods for multipart uploads offer additional functionality, for more information, see [Using the AWS SDKs (low-level API)](#mpu-upload-low-level "#mpu-upload-low-level").
+The following sections in the *Amazon Simple Storage Service API Reference* describe the REST API for multipart upload. 
++ [Initiate Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html)
++ [Upload Part](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPart.html)
++ [Complete Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html)
++ [Stop Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadAbort.html)
++ [List Parts](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadListParts.html)
++ [List Multipart Uploads](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadListMPUpload.html)
 
-Java
-For examples of how to perform a multipart upload with the AWS SDK for Java, see [Upload or download large files to and from Amazon S3 using an AWS SDK](../API/s3_example_s3_Scenario_UsingLargeFiles_section.md "../API/s3_example_s3_Scenario_UsingLargeFiles_section.md") in the _Amazon S3 API Reference_.
+## Using the AWS SDKs (high-level API)
+<a name="multipart-upload-high-level"></a>
 
-.NET
-To upload a file to an S3 bucket, use the `TransferUtility`
-class. When uploading data from a file, you must provide the object's
-key name. If you don't, the API uses the file name for the key name.
-When uploading data from a stream, you must provide the object's key
-name.
+Some AWS SDKs expose a high-level API that simplifies multipart upload by combining the different API operations required to complete a multipart upload into a single operation. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md). 
 
-To set advanced upload options—such as the part size, the
-number of threads when uploading the parts concurrently, metadata, the
-storage class, or ACL—use the
-`TransferUtilityUploadRequest` class.
+If you need to pause and resume multipart uploads, vary part sizes during the upload, or do not know the size of the data in advance, use the low-level API methods. The low-level API methods for multipart uploads offer additional functionality, for more information, see [Using the AWS SDKs (low-level API)](#mpu-upload-low-level). 
 
-###### Note
+------
+#### [ Java ]
 
-When you're using a stream for the source of data, the `TransferUtility` class does not do concurrent uploads.
+For examples of how to perform a multipart upload with the AWS SDK for Java, see [Upload or download large files to and from Amazon S3 using an AWS SDK](https://docs.aws.amazon.com/AmazonS3/latest/API/s3_example_s3_Scenario_UsingLargeFiles_section.html) in the *Amazon S3 API Reference*.
 
-The following C# example uploads a file to an Amazon S3 bucket in multiple
-parts. It shows how to use various `TransferUtility.Upload`
-overloads to upload a file. Each successive call to upload replaces the
-previous upload. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+------
+#### [ .NET ]
+
+To upload a file to an S3 bucket, use the `TransferUtility` class. When uploading data from a file, you must provide the object's key name. If you don't, the API uses the file name for the key name. When uploading data from a stream, you must provide the object's key name.
+
+To set advanced upload options—such as the part size, the number of threads when uploading the parts concurrently, metadata, the storage class, or ACL—use the `TransferUtilityUploadRequest` class. 
+
+**Note**  
+When you're using a stream for the source of data, the `TransferUtility` class does not do concurrent uploads. 
+
+The following C\# example uploads a file to an Amazon S3 bucket in multiple parts. It shows how to use various `TransferUtility.Upload` overloads to upload a file. Each successive call to upload replaces the previous upload. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -124,7 +107,7 @@ namespace Amazon.DocSamples.S3
                 Console.WriteLine("Upload 2 completed");
 
                 // Option 3. Upload data from a type of System.IO.Stream.
-                using (var fileToUpload =
+                using (var fileToUpload = 
                     new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 {
                     await fileTransferUtility.UploadAsync(fileToUpload,
@@ -160,14 +143,13 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-###### Example
-
-Upload a large file.
+**Example**  
+Upload a large file.  
 
 ```
 import { S3Client } from "@aws-sdk/client-s3";
@@ -220,13 +202,10 @@ export const main = async ({ bucketName, key }) => {
     }
   }
 };
-
-
 ```
 
-###### Example
-
-Download a large file.
+**Example**  
+Download a large file.  
 
 ```
 import { fileURLToPath } from "node:url";
@@ -306,20 +285,17 @@ export const main = async ({ bucketName, key }) => {
     }
   }
 };
-
 ```
 
-Go
-For more information about the Go code example for multipart upload, see [Upload or download large files to and
-from Amazon S3 using an AWS SDK](../API/s3_example_s3_Scenario_UsingLargeFiles_section.md "../API/s3_example_s3_Scenario_UsingLargeFiles_section.md").
+------
+#### [ Go ]
 
-###### Example
+For more information about the Go code example for multipart upload, see [Upload or download large files to and from Amazon S3 using an AWS SDK](https://docs.aws.amazon.com/AmazonS3/latest/API/s3_example_s3_Scenario_UsingLargeFiles_section.html).
 
-Upload a large object by using an upload manager to break
-the data into parts and upload them concurrently.
+**Example**  
+Upload a large object by using an upload manager to break the data into parts and upload them concurrently.  
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -344,12 +320,9 @@ import (
 type BucketBasics struct {
 	S3Client *s3.Client
 }
-
-
 ```
 
 ```
-
 // UploadLargeObject uses an upload manager to upload data to an object in a bucket.
 // The upload manager breaks large data into parts and uploads the parts concurrently.
 func (basics BucketBasics) UploadLargeObject(ctx context.Context, bucketName string, objectKey string, largeObject []byte) error {
@@ -382,17 +355,12 @@ func (basics BucketBasics) UploadLargeObject(ctx context.Context, bucketName str
 
 	return err
 }
-
-
 ```
 
-###### Example
-
-Download a large object by using a download manager to get
-the data in parts and download them concurrently.
+**Example**  
+Download a large object by using a download manager to get the data in parts and download them concurrently.  
 
 ```
-
 // DownloadLargeObject uses a download manager to download an object from a bucket.
 // The download manager gets the data in parts and writes them to a buffer until all of
 // the data has been downloaded.
@@ -412,19 +380,14 @@ func (basics BucketBasics) DownloadLargeObject(ctx context.Context, bucketName s
 	}
 	return buffer.Bytes(), err
 }
-
-
 ```
 
-PHP
-This topic explains how to use the high-level
-`Aws\S3\Model\MultipartUpload\UploadBuilder` class from
-the AWS SDK for PHP for multipart file uploads. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
+------
+#### [ PHP ]
 
-The following PHP example uploads a file to an Amazon S3 bucket. The
-example demonstrates how to set parameters for the
-`MultipartUploader` object.
+This topic explains how to use the high-level `Aws\S3\Model\MultipartUpload\UploadBuilder` class from the AWS SDK for PHP for multipart file uploads. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
+
+The following PHP example uploads a file to an Amazon S3 bucket. The example demonstrates how to set parameters for the `MultipartUploader` object. 
 
 ```
  require 'vendor/autoload.php';
@@ -454,13 +417,12 @@ try {
 } catch (MultipartUploadException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
-
 ```
 
-Python
-The following example loads an object using the high-level multipart
-upload Python API (the `TransferManager` class).
+------
+#### [ Python ]
+
+The following example loads an object using the high-level multipart upload Python API (the `TransferManager` class). 
 
 ```
 import sys
@@ -663,42 +625,29 @@ def download_with_sse(
         download_file_path, ExtraArgs=extra_args, Callback=transfer_callback
     )
     return transfer_callback.thread_info
-
-
-
 ```
 
-The AWS SDK exposes a low-level API that closely resembles the Amazon S3 REST API for
-multipart uploads (see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md"). Use the low-level API when you need to pause and resume multipart uploads, vary part
-sizes during the upload, or do not know the size of the upload data in advance. When you
-don't have these requirements, use the high-level API (see [Using the AWS SDKs (high-level API)](#multipart-upload-high-level "#multipart-upload-high-level")).
+------
 
-JavaThe following
-example shows how to use the low-level Java classes to upload a file. It performs the
-following steps:
+## Using the AWS SDKs (low-level API)
+<a name="mpu-upload-low-level"></a>
 
-- Initiates a multipart upload using the `AmazonS3Client.initiateMultipartUpload()`
-  method, and passes in an `InitiateMultipartUploadRequest`
-  object.
-- Saves the upload ID that the `AmazonS3Client.initiateMultipartUpload()` method
-  returns. You provide this upload ID for each subsequent multipart upload
-  operation.
-- Uploads the parts of the object. For each part, you call the
-  `AmazonS3Client.uploadPart()` method. You provide part upload
-  information using an `UploadPartRequest` object.
-- For each part, saves the ETag from the response of the
-  `AmazonS3Client.uploadPart()` method in a list. You use the ETag
-  values to complete the multipart upload.
-- Calls the `AmazonS3Client.completeMultipartUpload()` method to complete the
-  multipart upload.
+The AWS SDK exposes a low-level API that closely resembles the Amazon S3 REST API for multipart uploads (see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md). Use the low-level API when you need to pause and resume multipart uploads, vary part sizes during the upload, or do not know the size of the upload data in advance. When you don't have these requirements, use the high-level API (see [Using the AWS SDKs (high-level API)](#multipart-upload-high-level)).
 
-###### Example
+------
+#### [ Java ]
 
-For instructions on creating and testing a working sample, see [Getting
-Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
+The following example shows how to use the low-level Java classes to upload a file. It performs the following steps:
++ Initiates a multipart upload using the `AmazonS3Client.initiateMultipartUpload()` method, and passes in an `InitiateMultipartUploadRequest` object.
++ Saves the upload ID that the `AmazonS3Client.initiateMultipartUpload()` method returns. You provide this upload ID for each subsequent multipart upload operation.
++ Uploads the parts of the object. For each part, you call the `AmazonS3Client.uploadPart()` method. You provide part upload information using an `UploadPartRequest` object. 
++ For each part, saves the ETag from the response of the `AmazonS3Client.uploadPart()` method in a list. You use the ETag values to complete the multipart upload.
++ Calls the `AmazonS3Client.completeMultipartUpload()` method to complete the multipart upload. 
+
+**Example**  
+For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
 ```
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -779,24 +728,17 @@ public class LowLevelMultipartUpload {
         }
     }
 }
-
-
 ```
 
-.NET The following C# example shows how to use the low-level SDK for .NET multipart upload API to
-upload a file to an S3 bucket. For information about Amazon S3 multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
+------
+#### [ .NET ]
 
-###### Note
+The following C\# example shows how to use the low-level SDK for .NET multipart upload API to upload a file to an S3 bucket. For information about Amazon S3 multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md).
 
-When you use the SDK for .NET API to upload large objects, a timeout might occur
-while data is being written to the request stream. You can set an explicit
-timeout using the `UploadPartRequest`.
+**Note**  
+When you use the SDK for .NET API to upload large objects, a timeout might occur while data is being written to the request stream. You can set an explicit timeout using the `UploadPartRequest`. 
 
-The following C# example uploads a file to an S3 bucket using the low-level multipart
-upload API. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+The following C\# example uploads a file to an S3 bucket using the low-level multipart upload API. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -823,7 +765,7 @@ namespace Amazon.DocSamples.S3
         {
             s3Client = new AmazonS3Client(bucketRegion);
             Console.WriteLine("Uploading an object");
-            UploadObjectAsync().Wait();
+            UploadObjectAsync().Wait(); 
         }
 
         private static async Task UploadObjectAsync()
@@ -849,7 +791,7 @@ namespace Amazon.DocSamples.S3
             try
             {
                 Console.WriteLine("Uploading parts");
-
+        
                 long filePosition = 0;
                 for (int i = 1; filePosition < contentLength; i++)
                 {
@@ -903,21 +845,19 @@ namespace Amazon.DocSamples.S3
         }
         public static void UploadPartProgressEventCallback(object sender, StreamTransferProgressArgs e)
         {
-            // Process event.
+            // Process event. 
             Console.WriteLine("{0}/{1}", e.TransferredBytes, e.TotalBytes);
         }
     }
 }
-
 ```
 
-PHP
-This topic shows how to use the low-level `uploadPart` method from
-version 3 of the AWS SDK for PHP to upload a file in multiple parts. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
+------
+#### [ PHP ]
 
-The following PHP example uploads a file to an Amazon S3 bucket using the low-level
-PHP API multipart upload.
+This topic shows how to use the low-level `uploadPart` method from version 3 of the AWS SDK for PHP to upload a file in multiple parts. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
+
+The following PHP example uploads a file to an Amazon S3 bucket using the low-level PHP API multipart upload.
 
 ```
  require 'vendor/autoload.php';
@@ -987,22 +927,21 @@ $result = $s3->completeMultipartUpload([
 $url = $result['Location'];
 
 echo "Uploaded $filename to $url." . PHP_EOL;
-
 ```
 
-The AWS SDK for Ruby version 3 supports Amazon S3 multipart uploads in two ways. For the first
-option, you can use managed file uploads. For more information, see [Uploading Files to
-Amazon S3](https://aws.amazon.com/blogs/developer/uploading-files-to-amazon-s3/ "https://aws.amazon.com/blogs/developer/uploading-files-to-amazon-s3/") in the _AWS Developer Blog_. Managed file
-uploads are the recommended method for uploading files to a bucket. They provide the
-following benefits:
+------
 
-- Manage multipart uploads for objects larger than 15MB.
-- Correctly open files in binary mode to avoid encoding issues.
-- Use multiple threads for uploading parts of large objects in parallel.
-  Alternatively, you can use the following multipart upload client operations directly:
+## Using the AWS SDK for Ruby
+<a name="mpuoverview-ruby-sdk"></a>
 
-- [create\_multipart\_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#create_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#create_multipart_upload-instance_method") – Initiates a multipart upload and returns an upload ID.
-- [upload\_part](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part-instance_method") – Uploads a part in a multipart upload.
-- [upload\_part\_copy](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part_copy-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#upload_part_copy-instance_method") – Uploads a part by copying data from an existing object as data source.
-- [complete\_multipart\_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#complete_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#complete_multipart_upload-instance_method") – Completes a multipart upload by assembling previously uploaded parts.
-- [abort\_multipart\_upload](../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#abort_multipart_upload-instance_method "../../../sdk-for-ruby/v3/api/Aws/S3/Client.md#abort_multipart_upload-instance_method") – Stops a multipart upload.
+The AWS SDK for Ruby version 3 supports Amazon S3 multipart uploads in two ways. For the first option, you can use managed file uploads. For more information, see [Uploading Files to Amazon S3](https://aws.amazon.com/blogs/developer/uploading-files-to-amazon-s3/) in the *AWS Developer Blog*. Managed file uploads are the recommended method for uploading files to a bucket. They provide the following benefits:
++ Manage multipart uploads for objects larger than 15MB.
++ Correctly open files in binary mode to avoid encoding issues.
++ Use multiple threads for uploading parts of large objects in parallel.
+
+Alternatively, you can use the following multipart upload client operations directly:
++ [create\_multipart\_upload](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#create_multipart_upload-instance_method) – Initiates a multipart upload and returns an upload ID.
++ [upload\_part](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#upload_part-instance_method) – Uploads a part in a multipart upload.
++ [upload\_part\_copy](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#upload_part_copy-instance_method) – Uploads a part by copying data from an existing object as data source.
++ [complete\_multipart\_upload](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#complete_multipart_upload-instance_method) – Completes a multipart upload by assembling previously uploaded parts.
++ [abort\_multipart\_upload](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#abort_multipart_upload-instance_method) – Stops a multipart upload.

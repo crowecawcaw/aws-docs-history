@@ -1,14 +1,18 @@
+
+
 # Downloading an object from a directory bucket
+<a name="directory-buckets-objects-GetExamples"></a>
 
-The following code examples show how to read data from (download) an object in an Amazon S3
-directory bucket by using the `GetObject` API operation.
+ The following code examples show how to read data from (download) an object in an Amazon S3 directory bucket by using the `GetObject` API operation. 
 
-SDK for Java 2.x
+## Using the AWS SDKs
+<a name="directory-bucket-copy-sdks"></a>
 
-###### Example
+------
+#### [ SDK for Java 2.x ]
 
-The following code example shows how to read data from an object in a directory bucket
-by using the AWS SDK for Java 2.x.
+**Example**  
+The following code example shows how to read data from an object in a directory bucket by using the AWS SDK for Java 2.x.   
 
 ```
 public static void getObject(S3Client s3Client, String bucketName, String objectKey) {
@@ -18,15 +22,15 @@ public static void getObject(S3Client s3Client, String bucketName, String object
             .key(objectKey)
             .bucket(bucketName)
             .build();
-
+            
          ResponseBytes GetObjectResponse objectBytes = s3Client.getObjectAsBytes(objectRequest);
          byte[] data = objectBytes.asByteArray();
-
+         
          //Print object contents to console
          String s = new String(data, StandardCharsets.UTF_8);
          System.out.println(s);
     }
-
+    
     catch (S3Exception e) {
         System.err.println(e.awsErrorDetails().errorMessage());
         System.exit(1);
@@ -34,12 +38,11 @@ public static void getObject(S3Client s3Client, String bucketName, String object
 }
 ```
 
-SDK for Python
+------
+#### [ SDK for Python ]
 
-###### Example
-
-The following code example shows how to read data from an object in a directory bucket
-by using the AWS SDK for Python (Boto3).
+**Example**  
+The following code example shows how to read data from an object in a directory bucket by using the AWS SDK for Python (Boto3).   
 
 ```
 import boto3
@@ -50,7 +53,7 @@ def get_object(s3_client: boto3.client, bucket_name: str, key_name: str) -> Stre
     """
     Gets the object.
     :param s3_client:
-    :param bucket_name: The bucket that contains the object.
+    :param bucket_name: The bucket that contains the object. 
     :param key_name: The key of the object to be downloaded.
     :return: The object data in bytes.
     """
@@ -63,26 +66,25 @@ def get_object(s3_client: boto3.client, bucket_name: str, key_name: str) -> Stre
         raise
     else:
         return body
-
+        
 def main():
     s3_client = boto3.client('s3')
-    resp = get_object(s3_client, '`doc-example-bucket`--`use1-az4`--x-s3', '`sample.txt`')
+    resp = get_object(s3_client, '{{doc-example-bucket}}--{{use1-az4}}--x-s3', '{{sample.txt}}')
     print(resp)
-
+    
 if __name__ == "__main__":
      main()
 ```
 
-The following `get-object` example command shows how you can use the AWS CLI
-to download an object from Amazon S3. This command gets the object
-`KEY_NAME` from the directory bucket
-``bucket-base-name`--`zone-id`--x-s3`. The object will be downloaded to a file
- named ``LOCAL_FILE_NAME`. To run this command, replace the `user input placeholders``
-with your own information.
+------
+
+## Using the AWS CLI
+<a name="directory-download-object-cli"></a>
+
+The following `get-object` example command shows how you can use the AWS CLI to download an object from Amazon S3. This command gets the object `{{KEY_NAME}}` from the directory bucket `{{bucket-base-name}}--{{zone-id}}--x-s3`. The object will be downloaded to a file named `{{LOCAL_FILE_NAME}}`. To run this command, replace the `{{user input placeholders}}` with your own information.
 
 ```
-aws s3api get-object --bucket `bucket-base-name`--`zone-id`--x-s3 --key `KEY_NAME` `LOCAL_FILE_NAME`
+aws s3api get-object --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --key {{KEY_NAME}} {{LOCAL_FILE_NAME}}
 ```
 
-For more information, see [get-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html") in the
-_AWS CLI Command Reference_.
+For more information, see [get-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html) in the *AWS CLI Command Reference*.

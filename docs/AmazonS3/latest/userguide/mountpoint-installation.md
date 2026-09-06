@@ -1,294 +1,275 @@
+
+
 # Installing Mountpoint
+<a name="mountpoint-installation"></a>
 
-You can download and install prebuilt packages of Mountpoint for Amazon S3 by using the command line.
-The instructions for downloading and installing Mountpoint vary, depending on which
-Linux operating system that you're using.
+You can download and install prebuilt packages of Mountpoint for Amazon S3 by using the command line. The instructions for downloading and installing Mountpoint vary, depending on which Linux operating system that you're using. 
 
-###### Topics
-
-- [Amazon Linux 2023 (AL2023)](#mountpoint-install-al2023 "#mountpoint-install-al2023")
-- [Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)](#mountpoint-install-rpm "#mountpoint-install-rpm")
-- [DEB-based distributions (Debian, Ubuntu)](#mountpoint.install.deb "#mountpoint.install.deb")
-- [Other Linux distributions](#mountpoint-install-other "#mountpoint-install-other")
-- [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify "#mountpoint-install-verify")
+**Topics**
++ [Amazon Linux 2023 (AL2023)](#mountpoint-install-al2023)
++ [Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)](#mountpoint-install-rpm)
++ [DEB-based distributions (Debian, Ubuntu)](#mountpoint.install.deb)
++ [Other Linux distributions](#mountpoint-install-other)
++ [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify)
 
 ## Amazon Linux 2023 (AL2023)
+<a name="mountpoint-install-al2023"></a>
 
 Mountpoint is available directly in the Amazon Linux 2023 repository since AL2023 version 2023.9.20251110.
 
 1. Install it by entering the following command:
 
-```
-sudo dnf install mount-s3
-```
+   ```
+   sudo dnf install mount-s3
+   ```
 
-2. Verify that Mountpoint for Amazon S3 is successfully installed:
+1. Verify that Mountpoint for Amazon S3 is successfully installed:
 
-```
-mount-s3 --version
-```
+   ```
+   mount-s3 --version
+   ```
 
-You should see output similar to the following:
+   You should see output similar to the following:
 
-```
-mount-s3 1.21.0+1.amzn2023
-```
+   ```
+   mount-s3 1.21.0+1.amzn2023
+   ```
 
 ## Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)
+<a name="mountpoint-install-rpm"></a>
 
 1. Copy the following download URL for your architecture.
 
-_x86\_64_:
+   *x86\_64*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.rpm
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.rpm
+   ```
 
-_ARM64 (Graviton)_:
+   *ARM64 (Graviton)*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.rpm
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.rpm
+   ```
 
-2. Download the Mountpoint for Amazon S3 package. Replace
-   `download-link` with the appropriate download
-   URL from the preceding step.
+1. Download the Mountpoint for Amazon S3 package. Replace `{{download-link}}` with the appropriate download URL from the preceding step.
 
-```
-wget `download-link`
-```
+   ```
+   wget {{download-link}}
+   ```
 
-3. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy
-   the appropriate signature URL for your architecture.
+1. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy the appropriate signature URL for your architecture. 
 
-_x86\_64_:
+   *x86\_64*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.rpm.asc
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.rpm.asc
+   ```
 
-_ARM64 (Graviton)_:
+   *ARM64 (Graviton)*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.rpm.asc
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.rpm.asc
+   ```
 
-Next, see [Verifying the signature of the
-Mountpoint for Amazon S3 package](#mountpoint-install-verify "#mountpoint-install-verify"). 4. Install the package by using the following command:
+   Next, see [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify).
 
-```
-sudo yum install ./mount-s3.rpm
-```
+1. Install the package by using the following command:
 
-5. Verify that Mountpoint is successfully installed by entering the following
-   command:
+   ```
+   sudo yum install ./mount-s3.rpm
+   ```
 
-```
-mount-s3 --version
-```
+1. Verify that Mountpoint is successfully installed by entering the following command:
 
-You should see output similar to the following:
+   ```
+   mount-s3 --version
+   ```
 
-```
-mount-s3 1.21.0
-```
+   You should see output similar to the following:
+
+   ```
+   mount-s3 1.21.0
+   ```
 
 ## DEB-based distributions (Debian, Ubuntu)
+<a name="mountpoint.install.deb"></a>
 
-1. Copy the download URL for your architecture.
+1. Copy the download URL for your architecture. 
 
-_x86\_64_:
+   *x86\_64*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.deb
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.deb
+   ```
 
-_ARM64 (Graviton)_:
+   *ARM64 (Graviton)*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.deb
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.deb
+   ```
 
-2. Download the Mountpoint for Amazon S3 package. Replace
-   `download-link` with the appropriate download
-   URL from the preceding step.
+1. Download the Mountpoint for Amazon S3 package. Replace `{{download-link}}` with the appropriate download URL from the preceding step.
 
-```
-wget `download-link`
-```
+   ```
+   wget {{download-link}}
+   ```
 
-3. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy
-   the signature URL for your architecture.
+1. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy the signature URL for your architecture.
 
-_x86\_64_:
+   *x86\_64*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.deb.asc
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.deb.asc
+   ```
 
-_ARM64 (Graviton)_:
+   *ARM64 (Graviton)*:
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.deb.asc
-```
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.deb.asc
+   ```
 
-Next, see [Verifying the signature of the
-Mountpoint for Amazon S3 package](#mountpoint-install-verify "#mountpoint-install-verify"). 4. Install the package by using the following command:
+   Next, see [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify).
 
-```
-sudo apt-get install ./mount-s3.deb
-```
+1. Install the package by using the following command:
 
-5. Verify that Mountpoint for Amazon S3 is successfully installed by running the following
-   command:
+   ```
+   sudo apt-get install ./mount-s3.deb
+   ```
 
-```
-mount-s3 --version
-```
+1. Verify that Mountpoint for Amazon S3 is successfully installed by running the following command:
 
-You should see output similar to the following:
+   ```
+   mount-s3 --version
+   ```
 
-```
-mount-s3 1.21.0
-```
+   You should see output similar to the following:
+
+   ```
+   mount-s3 1.21.0
+   ```
 
 ## Other Linux distributions
+<a name="mountpoint-install-other"></a>
 
-1. Consult your operating system documentation to install the `FUSE` and
-   `libfuse2` packages, which are required.
-2. Copy the download URL for your architecture.
+1. Consult your operating system documentation to install the `FUSE` and `libfuse2` packages, which are required. 
 
-_x86\_64_:
+1. Copy the download URL for your architecture. 
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.tar.gz
-```
+   *x86\_64*:
 
-_ARM64
-(Graviton)_:
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.tar.gz
+   ```
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.tar.gz
-```
+   *ARM64 (Graviton)*:
 
-3. Download the Mountpoint for Amazon S3 package. Replace
-   `download-link` with the appropriate download
-   URL from the preceding step.
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.tar.gz
+   ```
 
-```
-wget `download-link`
-```
+1. Download the Mountpoint for Amazon S3 package. Replace `{{download-link}}` with the appropriate download URL from the preceding step.
 
-4. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy
-   the signature URL for your architecture.
+   ```
+   wget {{download-link}}
+   ```
 
-_x86\_64_:
+1. (Optional) Verify the authenticity and integrity of the downloaded file. First, copy the signature URL for your architecture. 
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.tar.gz.asc
-```
+   *x86\_64*:
 
-_ARM64 (Graviton)_:
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/x86_64/mount-s3.tar.gz.asc
+   ```
 
-```
-https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.tar.gz.asc
-```
+   *ARM64 (Graviton)*:
 
-Next, see [Verifying the signature of the
-Mountpoint for Amazon S3 package](#mountpoint-install-verify "#mountpoint-install-verify"). 5. Install the package by using the following command:
+   ```
+   https://s3.amazonaws.com/mountpoint-s3-release/latest/arm64/mount-s3.tar.gz.asc
+   ```
 
-```
-sudo mkdir -p /opt/aws/mountpoint-s3 && sudo tar -C /opt/aws/mountpoint-s3 -xzf ./mount-s3.tar.gz
-```
+   Next, see [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify).
 
-6. Add the `mount-s3` binary to your `PATH` environment variable.
-   In your `$HOME/.profile` file, append the following line:
+1. Install the package by using the following command:
 
-```
-export PATH=$PATH:/opt/aws/mountpoint-s3/bin
-```
+   ```
+   sudo mkdir -p /opt/aws/mountpoint-s3 && sudo tar -C /opt/aws/mountpoint-s3 -xzf ./mount-s3.tar.gz
+   ```
 
-Save the `.profile` file, and run the following command:
+1. Add the `mount-s3` binary to your `PATH` environment variable. In your `$HOME/.profile` file, append the following line:
 
-```
-source $HOME/.profile
-```
+   ```
+   export PATH=$PATH:/opt/aws/mountpoint-s3/bin
+   ```
 
-7. Verify that Mountpoint for Amazon S3 is successfully installed by running the following
-   command:
+   Save the `.profile` file, and run the following command:
 
-```
-mount-s3 --version
-```
+   ```
+   source $HOME/.profile
+   ```
 
-You should see output similar to the following:
+1. Verify that Mountpoint for Amazon S3 is successfully installed by running the following command:
 
-```
-mount-s3 1.21.0
-```
+   ```
+   mount-s3 --version
+   ```
+
+   You should see output similar to the following:
+
+   ```
+   mount-s3 1.21.0
+   ```
 
 ## Verifying the signature of the Mountpoint for Amazon S3 package
+<a name="mountpoint-install-verify"></a><a name="verify"></a>
 
-1. Install GnuPG (the `gpg` command). It is required to
-   verify the authenticity and integrity of a downloaded Mountpoint for Amazon S3 package.
-   GnuPG is installed by default on Amazon Linux Amazon Machine Images (AMIs).
-   After you installGnuPG, proceed to step 2.
-2. Download the Mountpoint public key by running the following command:
+1. Install GnuPG (the `gpg` command). It is required to verify the authenticity and integrity of a downloaded Mountpoint for Amazon S3 package. GnuPG is installed by default on Amazon Linux Amazon Machine Images (AMIs). After you installGnuPG, proceed to step 2. 
 
-```
-wget https://s3.amazonaws.com/mountpoint-s3-release/public_keys/KEYS
-```
+1. Download the Mountpoint public key by running the following command:
 
-3. Import the Mountpoint public key into your keyring by running the following
-   command:
+   ```
+   wget https://s3.amazonaws.com/mountpoint-s3-release/public_keys/KEYS
+   ```
 
-```
-gpg --import KEYS
-```
+1. Import the Mountpoint public key into your keyring by running the following command:
 
-4. Verify the fingerprint of the Mountpoint public key by running the following
-   command:
+   ```
+   gpg --import KEYS
+   ```
 
-```
-gpg --fingerprint mountpoint-s3@amazon.com
-```
+1. Verify the fingerprint of the Mountpoint public key by running the following command:
 
-Confirm that the displayed fingerprint string matches one of the following:
+   ```
+   gpg --fingerprint mountpoint-s3@amazon.com
+   ```
 
-```
-8AEF E705 EBE3 29C0 948C  75A6 6F1C 3B3A EF4B 030B
-673F E406 1506 BB46 9A0E  F857 BE39 7A52 B086 DA5A (older key)
-```
+   Confirm that the displayed fingerprint string matches one of the following:
 
-If the fingerprint string doesn't match, do not finish installing
-Mountpoint, and contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/"). 5. Download the package signature file. Replace
-`signature-link` with the appropriate
-signature link from the preceding sections.
+   ```
+   8AEF E705 EBE3 29C0 948C  75A6 6F1C 3B3A EF4B 030B
+   673F E406 1506 BB46 9A0E  F857 BE39 7A52 B086 DA5A (older key)
+   ```
 
-```
-wget `signature-link`
-```
+   If the fingerprint string doesn't match, do not finish installing Mountpoint, and contact [AWS Support](https://aws.amazon.com/premiumsupport/).
 
-6. Verify the signature of the downloaded package by running the following command.
-   Replace `signature-filename` with the file name
-   from the previous step.
+1. Download the package signature file. Replace `{{signature-link}}` with the appropriate signature link from the preceding sections.
 
-```
-gpg --verify `signature-filename`
-```
+   ```
+   wget {{signature-link}}
+   ```
 
-For example, on RPM-based distributions, including Amazon Linux, enter the following
-command:
+1. Verify the signature of the downloaded package by running the following command. Replace `{{signature-filename}}` with the file name from the previous step.
 
-```
-gpg --verify mount-s3.rpm.asc
-```
+   ```
+   gpg --verify {{signature-filename}}
+   ```
 
-7. The output should include the phrase `Good signature`. If the output
-   includes the phrase `BAD signature`, redownload the Mountpoint
-   package file and repeat these steps. If the issue persists, do not finish installing
-   Mountpoint, and contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
+   For example, on RPM-based distributions, including Amazon Linux, enter the following command:
 
-The output may include a warning about a trusted signature. This does not indicate a
-problem. It only means that you have not independently verified the Mountpoint
-public key.
+   ```
+   gpg --verify mount-s3.rpm.asc
+   ```
+
+1. The output should include the phrase `Good signature`. If the output includes the phrase `BAD signature`, redownload the Mountpoint package file and repeat these steps. If the issue persists, do not finish installing Mountpoint, and contact [AWS Support](https://aws.amazon.com/premiumsupport/). 
+
+   The output may include a warning about a trusted signature. This does not indicate a problem. It only means that you have not independently verified the Mountpoint public key.

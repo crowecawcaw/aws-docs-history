@@ -1,23 +1,20 @@
-# Visualizing metadata table data with Amazon Quick
 
-With Amazon Quick, you can create interactive dashboards to analyze and visualize SQL query results
-about your S3 managed metadata tables. Quick dashboards can help you monitor statistics, track
-changes, and get operational insights about your metadata tables.
+
+# Visualizing metadata table data with Amazon Quick
+<a name="metadata-tables-quicksight-dashboards"></a>
+
+With Amazon Quick, you can create interactive dashboards to analyze and visualize SQL query results about your S3 managed metadata tables. Quick dashboards can help you monitor statistics, track changes, and get operational insights about your metadata tables.
 
 A dashboard about your journal table might show you:
++ What's the percentage of object uploads compared to deletions?
++ Which objects were deleted by S3 Lifecycle in the past 24 hours?
++ Which IP addresses did the most recent `PUT` requests come from?
 
-- What's the percentage of object uploads compared to deletions?
-- Which objects were deleted by S3 Lifecycle in the past 24 hours?
-- Which IP addresses did the most recent `PUT` requests come from?
-  A dashboard about your inventory table might show you:
+A dashboard about your inventory table might show you:
++ How many objects are in different storage classes?
++ What percentage of your storage data is small objects compared to large objects?
++ What types of objects are in my bucket?
 
-- How many objects are in different storage classes?
-- What percentage of your storage data is small objects compared to large objects?
-- What types of objects are in my bucket?
-  After you [integrate your S3 table
-  buckets](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md") with AWS analytics services, you can create datasets from your metadata tables and
-  work with them in Amazon Quick using SPICE or direct SQL queries from your query
-  engine. Quick supports Amazon Athena and Amazon Redshift as data sources.
+After you [integrate your S3 table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html) with AWS analytics services, you can create datasets from your metadata tables and work with them in Amazon Quick using SPICE or direct SQL queries from your query engine. Quick supports Amazon Athena and Amazon Redshift as data sources.
 
-For more information, see [Visualizing table data with
-Amazon Quick](s3-tables-integrating-quicksight.md "s3-tables-integrating-quicksight.md").
+For more information, see [Visualizing table data with Amazon Quick](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-quicksight.html).

@@ -1,53 +1,59 @@
-# Viewing vector index tags
 
-You can view or list tags applied to Amazon S3 vector indexes. For more information about
-tagging vector indexes, see [Using tags with S3 vector indexes](vector-index-tagging.md "vector-index-tagging.md").
+
+# Viewing vector index tags
+<a name="viewing-vector-index-tags"></a>
+
+You can view or list tags applied to Amazon S3 vector indexes. For more information about tagging vector indexes, see [Using tags with S3 vector indexes](vector-index-tagging.md).
 
 ## Permissions
+<a name="view-index-tag-permissions"></a>
 
 To view tags applied to a vector index, you must have the following permission:
-
-- `s3vectors:ListTagsForResource`
++ `s3vectors:ListTagsForResource`
 
 ## Troubleshooting errors
+<a name="view-index-tag-troubleshooting"></a>
 
-If you encounter an error when attempting to list or view the tags of a vector index,
-you can do the following:
-
-- Verify that you have the required [Permissions](#view-index-tag-permissions "#view-index-tag-permissions") to view or list the tags of the vector index.
+If you encounter an error when attempting to list or view the tags of a vector index, you can do the following:
++ Verify that you have the required [Permissions](#view-index-tag-permissions) to view or list the tags of the vector index.
 
 ## Steps
+<a name="view-index-tag-steps"></a>
 
-You can view tags applied to vector indexes by using the Amazon S3 console, the
-AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and AWS SDKs.
+You can view tags applied to vector indexes by using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and AWS SDKs.
 
-###### To view tags applied to a vector index using the Amazon S3 console
+### Using the S3 console
+<a name="view-index-tag-console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **vector indexes**.
-3. Choose the vector index name.
-4. Choose the **Properties** tab.
-5. Scroll to the **Tags** section to view all of the tags applied
-   to the vector index.
-6. The **Tags** section shows the User-defined tags by default.
-   You can select the AWS-generated tags tab to view tags applied to your vector
-   index by AWS services.
+**To view tags applied to a vector index using the Amazon S3 console**
 
-For information about the Amazon S3 REST API support for viewing the tags applied to
-a vector index, see the following section in the Amazon Simple Vectors API
-Reference:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-[ListTagsforResource](../API/API_S3VectorBuckets_ListTagsForResource.md "../API/API_S3VectorBuckets_ListTagsForResource.md")
+1. In the left navigation pane, choose **vector indexes**.
 
-To install the AWS CLI, see [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
-in the _AWS Command Line Interface User Guide_.
+1. Choose the vector index name.
 
-The following CLI example shows you how to view tags applied to a vector index. To
-use the command replace the `user input placeholders` with
-your own information.
+1. Choose the **Properties** tab.
+
+1. Scroll to the **Tags** section to view all of the tags applied to the vector index.
+
+1. The **Tags** section shows the User-defined tags by default. You can select the AWS-generated tags tab to view tags applied to your vector index by AWS services.
+
+### Using the REST API
+<a name="view-index-tag-api"></a>
+
+For information about the Amazon S3 REST API support for viewing the tags applied to a vector index, see the following section in the Amazon Simple Vectors API Reference:
+
+[ListTagsforResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_ListTagsForResource.html)
+
+### Using the AWS CLI
+<a name="view-index-tag-cli"></a>
+
+To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.
+
+The following CLI example shows you how to view tags applied to a vector index. To use the command replace the {{user input placeholders}} with your own information.
 
 ```
-aws s3vectors list-tags-for-resource \
-  --resource-arn arn:aws:s3vectors:us-east-1:012345678900:bucket/`acc-bucket`/index/`accounts-index`
+aws s3vectors list-tags-for-resource \ 
+  --resource-arn arn:aws:s3vectors:us-east-1:012345678900:bucket/{{acc-bucket}}/index/{{accounts-index}}
 ```

@@ -1,57 +1,53 @@
+
+
 # Accessing S3 data using credentials vended by S3 Access Grants
+<a name="access-grants-get-data"></a>
 
-After a grantee [obtains temporary
-credentials](access-grants-credentials.md "access-grants-credentials.md") through their access grant, they can use these temporary credentials
-to call Amazon S3 API operations to access your data.
+After a grantee [obtains temporary credentials](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-credentials.html) through their access grant, they can use these temporary credentials to call Amazon S3 API operations to access your data. 
 
-Grantees can access S3 data by using the AWS Command Line Interface (AWS CLI), the AWS SDKs, and the Amazon S3 REST
-API. Additionally, you can use the AWS [Python](https://github.com/aws/boto3-s3-access-grants-plugin "https://github.com/aws/boto3-s3-access-grants-plugin") and [Java](https://github.com/aws/aws-s3-accessgrants-plugin-java-v2 "https://github.com/aws/aws-s3-accessgrants-plugin-java-v2") plugins to call S3 Access Grants
+Grantees can access S3 data by using the AWS Command Line Interface (AWS CLI), the AWS SDKs, and the Amazon S3 REST API. Additionally, you can use the AWS [Python](https://github.com/aws/boto3-s3-access-grants-plugin) and [Java](https://github.com/aws/aws-s3-accessgrants-plugin-java-v2) plugins to call S3 Access Grants
 
-After the grantee obtains their temporary credentials from S3 Access Grants, they can set up a
-profile with these credentials to retrieve the data.
+## Using the AWS CLI
+<a name="access-grants-get-data-cli"></a>
 
-To install the AWS CLI, see [Installing the
-AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
+After the grantee obtains their temporary credentials from S3 Access Grants, they can set up a profile with these credentials to retrieve the data. 
 
-To use the following example commands, replace the `user input
- placeholders` with your own information.
+To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.
 
-###### Example– Set up a profile
+To use the following example commands, replace the `{{user input placeholders}}` with your own information.
+
+**Example – Set up a profile**  
 
 ```
-aws configure set aws_access_key_id "`$accessKey`" --profile `access-grants-consumer-access-profile`
-aws configure set aws_secret_access_key "`$secretKey`" --profile `access-grants-consumer-access-profile`
-aws configure set aws_session_token "`$sessionToken`" --profile `access-grants-consumer-access-profile`
+aws configure set aws_access_key_id "{{$accessKey}}" --profile {{access-grants-consumer-access-profile}}
+aws configure set aws_secret_access_key "{{$secretKey}}" --profile {{access-grants-consumer-access-profile}}
+aws configure set aws_session_token "{{$sessionToken}}" --profile {{access-grants-consumer-access-profile}}
 ```
 
-To use the following example command, replace the `user input
- placeholders` with your own information.
+To use the following example command, replace the `{{user input placeholders}}` with your own information.
 
-###### Example– Get the S3 data
-
-The grantee can use the [get-object](../../../cli/latest/reference/s3api/get-object.md "../../../cli/latest/reference/s3api/get-object.md") AWS CLI command to access the data. The
-grantee can also use [put-object](../../../cli/latest/reference/s3api/put-object.md "../../../cli/latest/reference/s3api/put-object.md"), [ls](../../../cli/latest/reference/s3/ls.md "../../../cli/latest/reference/s3/ls.md"), and other
-S3 AWS CLI commands.
+**Example – Get the S3 data**  
+The grantee can use the [get-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/get-object.html) AWS CLI command to access the data. The grantee can also use [put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html), [ls](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html), and other S3 AWS CLI commands.   
 
 ```
 aws s3api get-object \
---bucket `amzn-s3-demo-bucket1` \
---key `myprefix` \
---region `us-east-2` \
---profile `access-grants-consumer-access-profile`
+--bucket {{amzn-s3-demo-bucket1}} \
+--key {{myprefix}} \
+--region {{us-east-2}} \
+--profile {{access-grants-consumer-access-profile}}
 ```
 
-This section provides examples of how grantees can access your S3 data by using the AWS
-SDKs.
+## Using the AWS SDKs
+<a name="access-grants-get-data-using-sdk"></a>
 
-Java
-The following Java code example gets an object from an S3 bucket. For
-instructions on creating and testing a working sample, see [Getting
-Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the _AWS SDK for Java Developer
-Guide_.
+This section provides examples of how grantees can access your S3 data by using the AWS SDKs.
+
+------
+#### [ Java ]
+
+The following Java code example gets an object from an S3 bucket. For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the *AWS SDK for Java Developer Guide*.
 
 ```
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -137,31 +133,33 @@ public class GetObject2 {
         System.out.println();
     }
 }
-
-
 ```
 
+------
+
 ## Supported S3 actions in S3 Access Grants
+<a name="access-grants-s3-actions"></a>
 
-A grantee can use the temporary credential vended by S3 Access Grants to perform S3 actions on the S3 data they have access to. The following is a list of allowable S3 actions that a grantee can perform. Which actions are allowable depends on the level of permission granted in the access grant, either `READ`, `WRITE`, or `READWRITE`.
+A grantee can use the temporary credential vended by S3 Access Grants to perform S3 actions on the S3 data they have access to. The following is a list of allowable S3 actions that a grantee can perform. Which actions are allowable depends on the level of permission granted in the access grant, either `READ`, `WRITE`, or `READWRITE`. 
 
-###### Note
+**Note**  
+In addition to the Amazon S3 permissions listed below, Amazon S3 can call the AWS Key Management Service (AWS KMS) [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) (`kms:decrypt`) `READ` permission or the AWS KMS [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) (`kms:generateDataKey`) `WRITE` permission. These permissions don't allow direct access to the AWS KMS key.
 
-In addition to the Amazon S3 permissions listed below, Amazon S3 can call the AWS Key Management Service (AWS KMS) [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") (`kms:decrypt`) `READ` permission or the AWS KMS [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") (`kms:generateDataKey`) `WRITE` permission. These permissions don't allow direct access to the AWS KMS key.
 
-| S3 IAM action                   | API action & doc                                                                                                                                                                                                                                                                                                                                                                                                               | S3 Access Grants Permission | S3 resource |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- | ----------- |
-| `s3:GetObject`                  | [GetObject](../API/API_GetObject.md "../API/API_GetObject.md")                                                                                                                                                                                                                                                                                                                                                                 | `READ`                      | Object      |
-| `s3:GetObjectVersion`           | [GetObject](../API/API_GetObject.md "../API/API_GetObject.md")                                                                                                                                                                                                                                                                                                                                                                 | `READ`                      | Object      |
-| `s3:GetObjectAcl`               | [GetObjectAcl](../API/API_GetObjectAcl.md "../API/API_GetObjectAcl.md")                                                                                                                                                                                                                                                                                                                                                        | `READ`                      | Object      |
-| `s3:GetObjectVersionAcl`        | [GetObjectAcl](../API/API_GetObjectAcl.md "../API/API_GetObjectAcl.md")                                                                                                                                                                                                                                                                                                                                                        | `READ`                      | Object      |
-| `s3:ListMultipartUploads`       | [ListParts](../API/API_ListParts.md "../API/API_ListParts.md")                                                                                                                                                                                                                                                                                                                                                                 | `READ`                      | Object      |
-| `s3:PutObject`                  | [PutObject](../API/API_PutObject.md "../API/API_PutObject.md"), [CreateMultipartUpload](../API/API_CreateMultipartUpload.md "../API/API_CreateMultipartUpload.md"), [UploadPart](../API/API_UploadPart.md "../API/API_UploadPart.md"), [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md"), [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md") | `WRITE`                     | Object      |
-| `s3:PutObjectAcl`               | [PutObjectAcl](../API/API_PutObjectAcl.md "../API/API_PutObjectAcl.md")                                                                                                                                                                                                                                                                                                                                                        | `WRITE`                     | Object      |
-| `s3:PutObjectVersionAcl`        | [PutObjectAcl](../API/API_PutObjectAcl.md "../API/API_PutObjectAcl.md")                                                                                                                                                                                                                                                                                                                                                        | `WRITE`                     | Object      |
-| `s3:DeleteObject`               | [DeleteObject](../API/API_DeleteObject.md "../API/API_DeleteObject.md")                                                                                                                                                                                                                                                                                                                                                        | `WRITE`                     | Object      |
-| `s3:DeleteObjectVersion`        | [DeleteObject](../API/API_DeleteObject.md "../API/API_DeleteObject.md")                                                                                                                                                                                                                                                                                                                                                        | `WRITE`                     | Object      |
-| `s3:AbortMultipartUpload`       | [AbortMultipartUpload](../API/API_AbortMultipartUpload.md "../API/API_AbortMultipartUpload.md")                                                                                                                                                                                                                                                                                                                                | `WRITE`                     | Object      |
-| `s3:ListBucket`                 | [HeadBucket](../API/API_HeadBucket.md "../API/API_HeadBucket.md"), [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md"), [ListObjects](../API/API_ListObjects.md "../API/API_ListObjects.md")                                                                                                                                                                                                            | `READ`                      | Bucket      |
-| `s3:ListBucketVersions`         | [ListObjectVersions](../API/API_ListObjectVersions.md "../API/API_ListObjectVersions.md")                                                                                                                                                                                                                                                                                                                                      | `READ`                      | Bucket      |
-| `s3:ListBucketMultipartUploads` | [ListMultipartUploads](../API/API_ListMultipartUploads.md "../API/API_ListMultipartUploads.md")                                                                                                                                                                                                                                                                                                                                | `READ`                      | Bucket      |
+
+| S3 IAM action | API action & doc | S3 Access Grants Permission | S3 resource | 
+| --- | --- | --- | --- | 
+| s3:GetObject | [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) | READ | Object | 
+| s3:GetObjectVersion | [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) | READ | Object | 
+| s3:GetObjectAcl | [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html) | READ | Object | 
+| s3:GetObjectVersionAcl | [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html) | READ | Object | 
+| s3:ListMultipartUploads | [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html) | READ | Object | 
+| s3:PutObject | [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html), [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html), [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html), [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html), [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html) | WRITE | Object | 
+| s3:PutObjectAcl | [PutObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html) | WRITE | Object | 
+| s3:PutObjectVersionAcl | [PutObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html) | WRITE | Object | 
+| s3:DeleteObject | [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html) | WRITE | Object | 
+| s3:DeleteObjectVersion | [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html) | WRITE | Object | 
+| s3:AbortMultipartUpload | [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html) | WRITE | Object | 
+| s3:ListBucket | [HeadBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html), [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html), [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html) | READ | Bucket | 
+| s3:ListBucketVersions | [ListObjectVersions](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html) | READ | Bucket | 
+| s3:ListBucketMultipartUploads | [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html) | READ | Bucket | 

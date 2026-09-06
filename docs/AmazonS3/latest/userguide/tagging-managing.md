@@ -1,55 +1,60 @@
+
+
 # Managing object tags
+<a name="tagging-managing"></a>
 
-This section explains how you can manage object tags using the AWS SDKs for
-Java and .NET or the Amazon S3 console.
+This section explains how you can manage object tags using the AWS SDKs for Java and .NET or the Amazon S3 console.
 
-Object tagging gives you a way to categorize storage in general purpose buckets. Each tag is a key-value pair
-that adheres to the following rules:
+Object tagging gives you a way to categorize storage in general purpose buckets. Each tag is a key-value pair that adheres to the following rules:
++ You can associate up to 10 tags with an object. Tags that are associated with an object must have unique tag keys.
++ A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length. Amazon S3 object tags are internally represented in UTF-16. Note that in UTF-16, characters consume either 1 or 2 character positions.
++ The key and values are case sensitive. 
 
-- You can associate up to 10 tags with an object. Tags that are associated with an object must have unique tag keys.
-- A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length. Amazon S3 object tags are internally represented in UTF-16. Note that in UTF-16, characters consume either 1 or 2 character positions.
-- The key and values are case sensitive.
-  For more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md"). For more information about tag restrictions, see
-  [User-Defined
-  Tag Restrictions](../../../awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.md "../../../awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.md") in the _AWS Billing and Cost Management User Guide_.
+For more information about object tags, see [Tagging your objects](object-tagging.md). For more information about tag restrictions, see [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html) in the *AWS Billing and Cost Management User Guide*. 
 
-###### To add tags to an object
+## Using the S3 console
+<a name="add-object-tags"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **General purpose buckets**.
-3. In the bucket list, choose the name of the bucket that
-   contains the object.
-4. Select the check box to the left of the names of the objects you want to
-   change.
-5. In the **Actions** menu, choose **Edit
-   tags**.
-6. Review the objects listed, and choose **Add tags**.
-7. Each object tag is a key-value pair. Enter a **Key** and a
-   **Value**. To add another tag, choose **Add Tag**.
+**To add tags to an object**
 
-You can enter up to 10 tags for an object. 8. Choose **Save changes**.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-Amazon S3 adds the tags to the specified objects.
-For more information, see also
-[Viewing object properties in the Amazon S3 console](view-object-properties.md "view-object-properties.md") and
-[Uploading objects](upload-objects.md "upload-objects.md")
-in this guide.
+1. In the left navigation pane, choose **General purpose buckets**.
 
-Java
-To manage object tags using the AWS SDK for Java, you can set tags for a new object and retrieve or replace tags for an existing object. For more information about object tagging, see [Tagging your objects](object-tagging.md "object-tagging.md").
+1. In the bucket list, choose the name of the bucket that contains the object.
 
-Upload an object to a bucket and set tags using an S3Client. For examples, see [Upload an object to a bucket](../API/s3_example_s3_PutObject_section.md "../API/s3_example_s3_PutObject_section.md") in the _Amazon S3 API Reference_.
+1. Select the check box to the left of the names of the objects you want to change.
 
-.NET
-The following example shows how to use the AWS SDK for .NET to set the tags for a new
-object and retrieve or replace the tags for an existing object. For more information
-about object tagging, see [Tagging your objects](object-tagging.md "object-tagging.md").
+1. In the **Actions** menu, choose **Edit tags**.
 
-For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+1. Review the objects listed, and choose **Add tags**.
+
+1. Each object tag is a key-value pair. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. 
+
+   You can enter up to 10 tags for an object.
+
+1. Choose **Save changes**.
+
+   Amazon S3 adds the tags to the specified objects.
+
+For more information, see also [Viewing object properties in the Amazon S3 console](view-object-properties.md) and [Uploading objects](upload-objects.md) in this guide. 
+
+## Using the AWS SDKs
+<a name="tagging-manage-sdk"></a>
+
+------
+#### [ Java ]
+
+To manage object tags using the AWS SDK for Java, you can set tags for a new object and retrieve or replace tags for an existing object. For more information about object tagging, see [Tagging your objects](object-tagging.md).
+
+Upload an object to a bucket and set tags using an S3Client. For examples, see [Upload an object to a bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/s3_example_s3_PutObject_section.html) in the *Amazon S3 API Reference*.
+
+------
+#### [ .NET ]
+
+The following example shows how to use the AWS SDK for .NET to set the tags for a new object and retrieve or replace the tags for an existing object. For more information about object tagging, see [Tagging your objects](object-tagging.md). 
+
+For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -146,5 +151,6 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
+
+------

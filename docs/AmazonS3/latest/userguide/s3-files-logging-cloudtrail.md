@@ -1,77 +1,45 @@
+
+
 # Logging with CloudTrail for S3 Files
+<a name="s3-files-logging-cloudtrail"></a>
 
-Amazon S3 Files is integrated with CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in S3 Files. CloudTrail captures all API calls for S3 Files
-as events, including calls from the S3 Files console and code calls to the S3 Files API
-operations.
+Amazon S3 Files is integrated with CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in S3 Files. CloudTrail captures all API calls for S3 Files as events, including calls from the S3 Files console and code calls to the S3 Files API operations.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for S3 Files. If you don't configure a trail, you can still view
-the most recent events in the CloudTrail console in **Event history**.
-Using the information collected by CloudTrail, you can determine the request that was made to S3
-Files, the IP address from which the request was made, who made the request, when it was
-made, and additional details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for S3 Files. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to S3 Files, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
 ## S3 Files information in CloudTrail
+<a name="s3-files-logging-cloudtrail-info"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in Amazon S3 Files, that activity is recorded in a CloudTrail event along with other
-AWS service events in **Event history**. You can view,
-search, and download recent events in your AWS account. For more information, see
-[Viewing events with
-CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _CloudTrail User
-Guide_.
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Amazon S3 Files, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *CloudTrail User Guide*.
 
-For an ongoing record of events in your AWS account, including events for S3 Files,
-create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By
-default, when you create a trail in the console, the trail applies to all AWS Regions.
-The trail logs events from all Regions in the AWS partition and delivers the log files
-to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS
-services to further analyze and act upon the event data collected in CloudTrail logs.
+For an ongoing record of events in your AWS account, including events for S3 Files, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs.
 
-For more information, see the following topics in the _CloudTrail User
-Guide_:
+For more information, see the following topics in the *CloudTrail User Guide*:
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS service integrations with CloudTrail logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All [S3 Files APIs](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_S3_Files.html) are logged by CloudTrail. For example, calls to the `CreateFileSystem`, `CreateMountTarget` and `TagResource` operations generate entries in the CloudTrail log files. S3 Files also generates CloudTrail logs when you mount your file system on a compute resource.
 
-All [S3 Files
-APIs](../API/API_Operations_Amazon_S3_Files.md "../API/API_Operations_Amazon_S3_Files.md") are logged by CloudTrail. For example, calls to the
-`CreateFileSystem`, `CreateMountTarget` and
-`TagResource` operations generate entries in the CloudTrail log files. S3 Files
-also generates CloudTrail logs when you mount your file system on a compute resource.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or IAM user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+For more information, see [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *CloudTrail User Guide*.
 
-- Whether the request was made with root user or IAM user
-  credentials.
-- Whether the request was made with temporary security credentials for a
-  role or federated user.
-- Whether the request was made by another AWS
-  service.
-
-For more information, see [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _CloudTrail User
-Guide_.
-
-S3 Files does not log data events. Data events include file read and write operations
-performed on the file system.
+S3 Files does not log data events. Data events include file read and write operations performed on the file system.
 
 ## Understanding S3 Files log file entries
+<a name="s3-files-logging-cloudtrail-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon
-S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 ### Example: CreateFileSystem
+<a name="s3-files-logging-cloudtrail-example-createfs"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateFileSystem` action:
+The following example shows a CloudTrail log entry that demonstrates the `CreateFileSystem` action:
 
 ```
 {
@@ -144,9 +112,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### Example: CreateMountTarget
+<a name="s3-files-logging-cloudtrail-example-createmt"></a>
 
-The following example shows a CloudTrail log entry for the
-`CreateMountTarget` action:
+The following example shows a CloudTrail log entry for the `CreateMountTarget` action:
 
 ```
 {

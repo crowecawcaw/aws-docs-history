@@ -1,35 +1,53 @@
-# Viewing the tags of an access point for directory buckets
 
-You can view or list tags applied to Amazon S3 Access Points for directory buckets. For additional information, see [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md").
+
+# Viewing the tags of an access point for directory buckets
+<a name="access-points-db-tag-view"></a>
+
+You can view or list tags applied to Amazon S3 Access Points for directory buckets. For additional information, see [Using tags with S3 directory buckets](directory-buckets-tagging.md).
 
 ## Permissions
+<a name="access-points-db-tag-view-permissions"></a>
 
-To view tags applied to an access point, you must have the following permission:
-
-- `s3express:ListTagsForResource`
+To view tags applied to an access point, you must have the following permission: 
++ `s3express:ListTagsForResource`
 
 ## Troubleshooting errors
+<a name="access-points-db-tag-view-troubleshooting"></a>
 
-If you encounter an error when attempting to list or view the tags of an access point for directory buckets, you can do the following:
-
-- Verify that you have the required [Permissions](#access-points-db-tag-view-permissions "#access-points-db-tag-view-permissions") to view or list the tags of the access point for directory buckets.
+If you encounter an error when attempting to list or view the tags of an access point for directory buckets, you can do the following: 
++ Verify that you have the required [Permissions](#access-points-db-tag-view-permissions) to view or list the tags of the access point for directory buckets.
 
 ## Steps
+<a name="access-points-db-tag-view-steps"></a>
 
 You can view tags applied to access points for directory buckets by using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and AWS SDKs.
 
+## Using the S3 console
+<a name="access-points-db-tag-view-console"></a>
+
 To view tags applied to an access point for directory buckets using the Amazon S3 console:
 
-1. Sign in to Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **Access Points (Directory Buckets)**.
-3. Choose the access point name.
-4. Choose the **Properties** tab.
-5. Scroll to the **Tags** section to view all of the tags applied to the access point for directory buckets.
-6. The **Tags** section shows the **User-defined tags** by default. You can select the **AWS-generated tags** tab to view tags applied to your access point by AWS services.
-   This section provides an example of how to view tags applied to an access point for directory buckets by using the AWS SDKs.
+1. Sign in to Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-SDK for Java 2.x
-This example shows you how to view tags applied to an access point for directory buckets by using the AWS SDK for Java 2.x.
+1. In the left navigation pane, choose **Access Points (Directory Buckets)**.
+
+1. Choose the access point name. 
+
+1. Choose the **Properties** tab. 
+
+1. Scroll to the **Tags** section to view all of the tags applied to the access point for directory buckets. 
+
+1. The **Tags** section shows the **User-defined tags** by default. You can select the **AWS-generated tags** tab to view tags applied to your access point by AWS services.
+
+## Using the AWS SDKs
+<a name="access-points-db-tag-view-sdks"></a>
+
+This section provides an example of how to view tags applied to an access point for directory buckets by using the AWS SDKs.
+
+------
+#### [ SDK for Java 2.x ]
+
+This example shows you how to view tags applied to an access point for directory buckets by using the AWS SDK for Java 2.x. 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -39,34 +57,40 @@ import software.amazon.awssdk.services.s3control.model.ListTagsForResourceRespon
 
 public class ListTagsForResourceExample {
     public static void listTagsForResourceExample() {
-        S3ControlClient s3Control = S3ControlClient.builder().region(Region.`US_WEST_2`).build();
+        S3ControlClient s3Control = S3ControlClient.builder().region(Region.{{US_WEST_2}}).build();
 
         ListTagsForResourceRequest listTagsForResourceRequest = ListTagsForResourceRequest.builder()
-                .resourceArn("arn:aws::s3:`us-west-2`:`111122223333`:accesspoint/``my-access-point``/*")
-                .accountId("`111122223333`")
+                .resourceArn("arn:aws::s3:{{us-west-2}}:{{111122223333}}:accesspoint/{{{{my-access-point}}}}/*")
+                .accountId("{{111122223333}}")
                 .build();
         ListTagsForResourceResponse response = s3Control.listTagsForResource(listTagsForResourceRequest);
         System.out.println("Tags on my resource:");
         System.out.println(response.toString());
     }
 }
-
 ```
 
-For information about the Amazon S3 REST API support for viewing the tags applied to a directory bucket, see the following section in the _Amazon Simple Storage Service API Reference_:
+------
 
-- [ListTagsforResource](../API/API_control_ListTagsForResource.md "../API/API_control_ListTagsForResource.md")
-  To install the AWS CLI, see [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
+## Using the REST API
+<a name="access-points-db-tag-view-api"></a>
 
-The following CLI example shows you how to view tags applied to an access point for directory buckets. To use the command replace the `user input placeholders` with your own information.
+For information about the Amazon S3 REST API support for viewing the tags applied to a directory bucket, see the following section in the *Amazon Simple Storage Service API Reference*:
++ [ListTagsforResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html)
+
+## Using the AWS CLI
+<a name="access-points-db-tag-view-cli"></a>
+
+To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.
+
+The following CLI example shows you how to view tags applied to an access point for directory buckets. To use the command replace the {{user input placeholders}} with your own information.
 
 **Request:**
 
 ```
 aws s3control list-tags-for-resource \
---account-id `111122223333` \
---resource-arn arn:aws::s3express:`region`:`444455556666`:bucket/prefix--`use1-az4`--x-s3 \
-
+--account-id {{111122223333}} \
+--resource-arn arn:aws::s3express:{{region}}:{{444455556666}}:bucket/prefix--{{use1-az4}}--x-s3 \
 ```
 
 **Response - tags present:**
@@ -75,20 +99,19 @@ aws s3control list-tags-for-resource \
 {
   "Tags": [
       {
-          "Key": "`MyKey1`",
-          "Value": "`MyValue1`"
+          "Key": "{{MyKey1}}",
+          "Value": "{{MyValue1}}"
       },
       {
-          "Key": "`MyKey2`",
-          "Value": "`MyValue2`"
+          "Key": "{{MyKey2}}",
+          "Value": "{{MyValue2}}"
       },
       {
-          "Key": "`MyKey3`",
-          "Value": "`MyValue3`"
+          "Key": "{{MyKey3}}",
+          "Value": "{{MyValue3}}"
       }
   ]
 }
-
 ```
 
 **Response - no tags present:**
@@ -97,5 +120,4 @@ aws s3control list-tags-for-resource \
 {
   "Tags": []
 }
-
 ```

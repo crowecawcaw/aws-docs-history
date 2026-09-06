@@ -1,28 +1,27 @@
-# Creating and managing a Lifecycle configuration for your directory bucket
 
-You can create a lifecycle configuration for directory buckets by using the AWS Command Line Interface
-(AWS CLI), AWS SDKs and REST APIs.
+
+# Creating and managing a Lifecycle configuration for your directory bucket
+<a name="directory-bucket-create-lc"></a>
+
+You can create a lifecycle configuration for directory buckets by using the AWS Command Line Interface (AWS CLI), AWS SDKs and REST APIs.
+
+## Using the AWS CLI
+<a name="set-lifecycle-config-cli"></a>
 
 You can use the following AWS CLI commands to manage S3 Lifecycle configurations:
++ `put-bucket-lifecycle-configuration`
++ `get-bucket-lifecycle-configuration`
++ `delete-bucket-lifecycle`
 
-- `put-bucket-lifecycle-configuration`
-- `get-bucket-lifecycle-configuration`
-- `delete-bucket-lifecycle`
-  For instructions on setting up the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](../API/setup-aws-cli.md "../API/setup-aws-cli.md") in the _Amazon S3 API Reference_.
+For instructions on setting up the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](https://docs.aws.amazon.com/AmazonS3/latest/API/setup-aws-cli.html) in the *Amazon S3 API Reference*.
 
-The Amazon S3 Lifecycle configuration is an XML file. But when you're using the AWS CLI, you
-cannot specify the XML format. You must specify the JSON format instead. The
-following are example XML lifecycle configurations and the equivalent JSON
-configurations that you can specify in an AWS CLIcommand.
+The Amazon S3 Lifecycle configuration is an XML file. But when you're using the AWS CLI, you cannot specify the XML format. You must specify the JSON format instead. The following are example XML lifecycle configurations and the equivalent JSON configurations that you can specify in an AWS CLIcommand.
 
-The following AWS CLI example puts a lifecycle configuration policy on a directory bucket. This policy specifies that all objects that have the flagged prefix (myprefix) and are the defined object size expire after 7 days.
-To use this example, replace each `user input placeholder` with your own information.
+The following AWS CLI example puts a lifecycle configuration policy on a directory bucket. This policy specifies that all objects that have the flagged prefix (myprefix) and are the defined object size expire after 7 days. To use this example, replace each {{user input placeholder}} with your own information.
 
 Save the lifecycle configuration policy to a JSON file. In this example, the file is named lifecycle1.json.
 
-###### Example
-
-JSON
+**Example**  
 
 ```
 {
@@ -34,7 +33,7 @@ JSON
         "ID": "Lifecycle expiration rule",
         "Filter": {
             "And": {
-                "Prefix": `"myprefix/"`,
+                "Prefix": {{"myprefix/"}},
                 "ObjectSizeGreaterThan": 500,
                 "ObjectSizeLessThan": 64000
             }
@@ -43,18 +42,14 @@ JSON
     }
     ]
 }
+```
+Submit the JSON file as part of the `put-bucket-lifecycle-configuration` CLI command. To use this command, replace each {{user input placeholder}} with your own information.  
 
 ```
-
-Submit the JSON file as part of the `put-bucket-lifecycle-configuration` CLI command. To use this command, replace each `user input placeholder` with your own information.
-
-```
-aws s3api put-bucket-lifecycle-configuration --region `us-west-2` --profile default --bucket `amzn-s3-demo-bucket--usw2-az1--x-s3` --lifecycle-configuration file:`//lc-policy.json` --checksum-algorithm `crc32c`
+aws s3api put-bucket-lifecycle-configuration --region {{us-west-2}} --profile default --bucket {{amzn-s3-demo-bucket--usw2-az1--x-s3}} --lifecycle-configuration file:{{//lc-policy.json}} --checksum-algorithm {{crc32c}} 
 ```
 
-###### Example
-
-XML
+**Example**  
 
 ```
 <LifecycleConfiguration>
@@ -67,7 +62,7 @@ XML
                 <ObjectSizeLessThan>64000</ObjectSizeLessThan>
             </And>
         </Filter>
-        <Status>Enabled</Status>
+        <Status>Enabled</Status>     
         <Expiration>
              <Days>7</Days>
         </Expiration>
@@ -75,9 +70,13 @@ XML
 </LifecycleConfiguration>
 ```
 
-SDK for Java
+## Using the AWS SDKs
+<a name="directory-bucket-upload-sdks"></a>
 
-###### Example
+------
+#### [ SDK for Java ]
+
+**Example**  
 
 ```
 import software.amazon.awssdk.services.s3.model.PutBucketLifecycleConfigurationRequest;
@@ -97,7 +96,7 @@ import software.amazon.awssdk.services.s3.model.AbortIncompleteMultipartUpload;
 // PUT a Lifecycle policy
 LifecycleRuleFilter objectExpirationFilter = LifecycleRuleFilter.builder().and(LifecycleRuleAndOperator.builder().prefix("dir1/").objectSizeGreaterThan(3L).objectSizeLessThan(20L).build()).build();
 LifecycleRuleFilter mpuExpirationFilter = LifecycleRuleFilter.builder().prefix("dir2/").build();
-
+       
 LifecycleRule objectExpirationRule = LifecycleRule.builder().id("lc").filter(objectExpirationFilter).status("Enabled").expiration(LifecycleExpiration.builder()
                     .days(10)
                     .build())
@@ -106,7 +105,7 @@ LifecycleRule mpuExpirationRule = LifecycleRule.builder().id("lc-mpu").filter(mp
                         .daysAfterInitiation(10)
                         .build())
                 .build();
-
+        
 PutBucketLifecycleConfigurationRequest putLifecycleRequest = PutBucketLifecycleConfigurationRequest.builder()
                 .bucket("amzn-s3-demo-bucket--usw2-az1--x-s3")
                 .checksumAlgorithm(ChecksumAlgorithm.CRC32)
@@ -118,16 +117,17 @@ PutBucketLifecycleConfigurationRequest putLifecycleRequest = PutBucketLifecycleC
 
 PutBucketLifecycleConfigurationResponse resp = client.putBucketLifecycleConfiguration(putLifecycleRequest);
 
-// GET the Lifecycle policy
+// GET the Lifecycle policy 
 GetBucketLifecycleConfigurationResponse getResp = client.getBucketLifecycleConfiguration(GetBucketLifecycleConfigurationRequest.builder().bucket("amzn-s3-demo-bucket--usw2-az1--x-s3").build());
 
 // DELETE the Lifecycle policy
 DeleteBucketLifecycleResponse delResp = client.deleteBucketLifecycle(DeleteBucketLifecycleRequest.builder().bucket("amzn-s3-demo-bucket--usw2-az1--x-s3").build());
 ```
 
-SDK for Go
+------
+#### [ SDK for Go ]
 
-###### Example
+**Example**  
 
 ```
 package main
@@ -151,25 +151,25 @@ func putBucketLifecycleConfiguration(client *s3.Client, bucketName string ) erro
                     ID:     aws.String("lc"),
                     Filter: &types.LifecycleRuleFilter{
                         And: &types.LifecycleRuleAndOperator{
-                            Prefix: aws.String("foo/"),
-                            ObjectSizeGreaterThan: aws.Int64(1000000),
-                            ObjectSizeLessThan:    aws.Int64(100000000),
+                            Prefix: aws.String("foo/"), 
+                            ObjectSizeGreaterThan: aws.Int64(1000000), 
+                            ObjectSizeLessThan:    aws.Int64(100000000), 
                             },
                         },
-
+                    
                     Status: types.ExpirationStatusEnabled,
                     Expiration: &types.LifecycleExpiration{
-                        Days: aws.Int32(int32(1)),
+                        Days: aws.Int32(int32(1)), 
                     },
                 },
                 {
                     ID:     aws.String("abortmpu"),
                     Filter: &types.LifecycleRuleFilter{
-                        Prefix: aws.String("bar/"),
+                        Prefix: aws.String("bar/"), 
                     },
                     Status: types.ExpirationStatusEnabled,
                     AbortIncompleteMultipartUpload: &types.AbortIncompleteMultipartUpload{
-                        DaysAfterInitiation: aws.Int32(int32(5)),
+                        DaysAfterInitiation: aws.Int32(int32(5)), 
                     },
                 },
             },
@@ -204,7 +204,7 @@ func main() {
         log.Fatalf("unable to load SDK config, %v", err)
     }
     s3Client := s3.NewFromConfig(cfg)
-    bucketName := "amzn-s3-demo-bucket--usw2-az1--x-s3"
+    bucketName := "amzn-s3-demo-bucket--usw2-az1--x-s3" 
     putBucketLifecycleConfiguration(s3Client, bucketName)
     getBucketLifecycleConfiguration(s3Client, bucketName)
     deleteBucketLifecycleConfiguration(s3Client, bucketName)
@@ -212,9 +212,10 @@ func main() {
 }
 ```
 
-SDK for .NET
+------
+#### [ SDK for .NET ]
 
-###### Example
+**Example**  
 
 ```
 using Amazon;
@@ -265,10 +266,10 @@ namespace Amazon.DocSamples.S3
                         }
                 };
 
-                // Add the configuration to the bucket.
+                // Add the configuration to the bucket. 
                 await AddExampleLifecycleConfigAsync(client, lifeCycleConfiguration);
 
-                // Retrieve an existing configuration.
+                // Retrieve an existing configuration. 
                 lifeCycleConfiguration = await RetrieveLifecycleConfigAsync(client);
 
                 // Add a new rule.
@@ -292,7 +293,7 @@ namespace Amazon.DocSamples.S3
                     }
                 });
 
-                // Add the configuration to the bucket.
+                // Add the configuration to the bucket. 
                 await AddExampleLifecycleConfigAsync(client, lifeCycleConfiguration);
 
                 // Verify that there are now two rules.
@@ -350,9 +351,10 @@ namespace Amazon.DocSamples.S3
 }
 ```
 
-SDK for Python
+------
+#### [ SDK for Python ]
 
-###### Example
+**Example**  
 
 ```
 import boto3
@@ -401,3 +403,5 @@ client.delete_bucket_lifecycle(
     Bucket=bucket_name
 )
 ```
+
+------

@@ -1,71 +1,64 @@
+
+
 # Configuring cross-origin resource sharing (CORS)
+<a name="enabling-cors-examples"></a>
 
-Cross-origin resource sharing (CORS) defines a way for client web applications that are
-loaded in one domain to interact with resources in a different domain. With CORS support, you
-can build rich client-side web applications with Amazon S3 and selectively allow cross-origin
-access to your Amazon S3 resources.
+Cross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to your Amazon S3 resources. 
 
-This section shows you how to enable CORS using the Amazon S3 console, the Amazon S3 REST API, and
-the AWS SDKs. To configure your bucket to allow cross-origin requests, you add a CORS configuration to the
-bucket. A CORS configuration is a document that defines rules that identify the origins that you
-will allow to access your bucket, the operations (HTTP methods) supported for each origin, and
-other operation-specific information. In the S3 console, the CORS configuration must be a JSON
-document.
+This section shows you how to enable CORS using the Amazon S3 console, the Amazon S3 REST API, and the AWS SDKs. To configure your bucket to allow cross-origin requests, you add a CORS configuration to the bucket. A CORS configuration is a document that defines rules that identify the origins that you will allow to access your bucket, the operations (HTTP methods) supported for each origin, and other operation-specific information. In the S3 console, the CORS configuration must be a JSON document.
 
-For example CORS configurations in JSON and XML, see [Elements of a CORS configuration](ManageCorsUsing.md "ManageCorsUsing.md").
+For example CORS configurations in JSON and XML, see [Elements of a CORS configuration](ManageCorsUsing.md).
 
-This section explains how to use the Amazon S3 console to add a cross-origin resource sharing
-(CORS) configuration to an S3 bucket.
+## Using the S3 console
+<a name="add-cors-configuration"></a>
 
-When you enable CORS on the bucket, the access control lists (ACLs) and other access
-permission policies continue to apply.
+This section explains how to use the Amazon S3 console to add a cross-origin resource sharing (CORS) configuration to an S3 bucket. 
 
-###### Important
+When you enable CORS on the bucket, the access control lists (ACLs) and other access permission policies continue to apply.
 
-In the S3 console, the CORS configuration must be JSON. For examples CORS
-configurations in JSON and XML, see [Elements of a CORS configuration](ManageCorsUsing.md "ManageCorsUsing.md").
+**Important**  
+In the S3 console, the CORS configuration must be JSON. For examples CORS configurations in JSON and XML, see [Elements of a CORS configuration](ManageCorsUsing.md).
 
-###### To add a CORS configuration to an S3 bucket
+**To add a CORS configuration to an S3 bucket**
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **General purpose buckets**.
-3. In the buckets list, choose the name of the bucket that you
-   want to create a bucket policy for.
-4. Choose **Permissions**.
-5. In the **Cross-origin resource sharing (CORS)** section, choose **Edit**.
-6. In the **CORS configuration editor** text box, type or copy and paste a
-   new CORS configuration, or edit an existing configuration.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-The CORS configuration is a JSON file. The text that you type in the editor must be valid JSON. For more information, see [Elements of a CORS configuration](ManageCorsUsing.md "ManageCorsUsing.md"). 7. Choose **Save changes**.
+1. In the left navigation pane, choose **General purpose buckets**.
 
-###### Note
+1. In the buckets list, choose the name of the bucket that you want to create a bucket policy for.
 
-Amazon S3 displays the Amazon Resource Name (ARN) for the bucket next to the
-**CORS configuration editor** title. For more information about ARNs,
-see [Amazon Resource Names (ARNs)
-and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") in the _Amazon Web Services General Reference_.
-You can use the AWS SDK to manage cross-origin resource sharing (CORS) for a bucket.
-For more information about CORS, see [Using cross-origin resource sharing (CORS)](cors.md "cors.md").
+1. Choose **Permissions**.
 
-The following examples:
+1. In the **Cross-origin resource sharing (CORS)** section, choose **Edit**.
 
-- Creates a CORS configuration and sets the configuration on a bucket
-- Retrieves the configuration and modifies it by adding a rule
-- Adds the modified configuration to the bucket
-- Deletes the configuration
+1. In the **CORS configuration editor** text box, type or copy and paste a new CORS configuration, or edit an existing configuration.
 
-Java
+   The CORS configuration is a JSON file. The text that you type in the editor must be valid JSON. For more information, see [Elements of a CORS configuration](ManageCorsUsing.md).
 
-###### Example
+1. Choose **Save changes**.
+**Note**  
+Amazon S3 displays the Amazon Resource Name (ARN) for the bucket next to the **CORS configuration editor** title. For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
 
-###### Example
+## Using the AWS SDKs
+<a name="ManageCorsUsingSDK"></a>
 
-For instructions on how to create and test a working sample, see [Getting
-Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
+You can use the AWS SDK to manage cross-origin resource sharing (CORS) for a bucket. For more information about CORS, see [Using cross-origin resource sharing (CORS)](cors.md).
+
+ The following examples:
++ Creates a CORS configuration and sets the configuration on a bucket
++ Retrieves the configuration and modifies it by adding a rule
++ Adds the modified configuration to the bucket
++ Deletes the configuration
+
+------
+#### [ Java ]
+
+**Example**  
+
+**Example**  
+ For instructions on how to create and test a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
 ```
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -174,18 +167,13 @@ public class CORS {
         }
     }
 }
-
-
 ```
 
-.NET
+------
+#### [ .NET ]
 
-###### Example
-
-For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+**Example**  
+For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
 ```
 using Amazon;
@@ -201,7 +189,7 @@ namespace Amazon.DocSamples.S3
     {
         private const string bucketName = "*** bucket name ***";
         // Specify your bucket region (an example region is shown).
-        private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USWest2;
+        private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USWest2; 
         private static IAmazonS3 s3Client;
 
         public static void Main()
@@ -213,7 +201,7 @@ namespace Amazon.DocSamples.S3
         {
             try
             {
-                // Create a new configuration request and add two rules
+                // Create a new configuration request and add two rules    
                 CORSConfiguration configuration = new CORSConfiguration
                 {
                     Rules = new System.Collections.Generic.List<CORSRule>
@@ -235,10 +223,10 @@ namespace Amazon.DocSamples.S3
                         }
                 };
 
-                // Add the configuration to the bucket.
+                // Add the configuration to the bucket. 
                 await PutCORSConfigurationAsync(configuration);
 
-                // Retrieve an existing configuration.
+                // Retrieve an existing configuration. 
                 configuration = await RetrieveCORSConfigurationAsync();
 
                 // Add a new rule.
@@ -249,7 +237,7 @@ namespace Amazon.DocSamples.S3
                     AllowedOrigins = new List<string> { "http://www.example.com" }
                 });
 
-                // Add the configuration to the bucket.
+                // Add the configuration to the bucket. 
                 await PutCORSConfigurationAsync(configuration);
 
                 // Verify that there are now three rules.
@@ -333,15 +321,15 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
 
-To set a CORS configuration on your bucket, you can use the AWS Management Console. If your application
-requires it, you can also send REST requests directly. The following sections in the
-_Amazon Simple Storage Service API Reference_ describe the REST API actions related to the CORS
-configuration:
+------
 
-- [PutBucketCors](../API/RESTBucketPUTcors.md "../API/RESTBucketPUTcors.md")
-- [GetBucketCors](../API/RESTBucketGETcors.md "../API/RESTBucketGETcors.md")
-- [DeleteBucketCors](../API/RESTBucketDELETEcors.md "../API/RESTBucketDELETEcors.md")
-- [OPTIONS object](../API/RESTOPTIONSobject.md "../API/RESTOPTIONSobject.md")
+## Using the REST API
+<a name="EnableCorsUsingREST"></a>
+
+To set a CORS configuration on your bucket, you can use the AWS Management Console. If your application requires it, you can also send REST requests directly. The following sections in the *Amazon Simple Storage Service API Reference* describe the REST API actions related to the CORS configuration: 
++ [PutBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTcors.html)
++ [GetBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETcors.html)
++ [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETEcors.html)
++ [OPTIONS object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)

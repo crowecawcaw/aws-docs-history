@@ -1,39 +1,39 @@
+
+
 # Conversion functions
+<a name="s3-select-sql-reference-conversion"></a>
 
-###### Important
-
-Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
+**Important**  
+Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
 
 Amazon S3 Select supports the following conversion function.
 
-###### Topics
-
-- [CAST](#s3-select-sql-reference-cast "#s3-select-sql-reference-cast")
+**Topics**
++ [CAST](#s3-select-sql-reference-cast)
 
 ## CAST
+<a name="s3-select-sql-reference-cast"></a>
 
-The `CAST` function converts an entity, such as an expression that
-evaluates to a single value, from one type to another.
+The `CAST` function converts an entity, such as an expression that evaluates to a single value, from one type to another. 
 
 ### Syntax
+<a name="s3-select-sql-reference-cast-syntax"></a>
 
 ```
-CAST ( `expression` AS `data_type` )
+CAST ( {{expression}} AS {{data_type}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-cast-parameters"></a>
 
-_`expression`_
+ *`{{expression}}`*   
+A combination of one or more values, operators, and SQL functions that evaluate to a value.
 
-A combination of one or more values, operators, and SQL
-functions that evaluate to a value.
-
-_`data_type`_
-
-The target data type, such as `INT`, to cast the
-expression to. For a list of supported data types, see [Data types](s3-select-sql-reference-data-types.md "s3-select-sql-reference-data-types.md").
+ *`{{data_type}}`*   
+The target data type, such as `INT`, to cast the expression to. For a list of supported data types, see [Data types](s3-select-sql-reference-data-types.md).
 
 ### Examples
+<a name="s3-select-sql-reference-cast-examples"></a>
 
 ```
 CAST('2007-04-05T14:30Z' AS TIMESTAMP)

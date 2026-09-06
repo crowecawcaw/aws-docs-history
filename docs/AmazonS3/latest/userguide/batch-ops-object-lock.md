@@ -1,118 +1,113 @@
+
+
 # Enabling S3 Object Lock using S3 Batch Operations
+<a name="batch-ops-object-lock"></a>
 
-You can use Amazon S3 Batch Operations with S3 Object Lock to manage retention or enable
-a legal hold for many Amazon S3 objects at once. You specify the list of target objects in
-your manifest and submit it to Batch Operations for completion. For more information, see
-[S3 Object Lock retention](batch-ops-retention-date.md "batch-ops-retention-date.md") and [S3 Object Lock legal hold](batch-ops-legal-hold.md "batch-ops-legal-hold.md").
+You can use Amazon S3 Batch Operations with S3 Object Lock to manage retention or enable a legal hold for many Amazon S3 objects at once. You specify the list of target objects in your manifest and submit it to Batch Operations for completion. For more information, see [S3 Object Lock retention](batch-ops-retention-date.md) and [S3 Object Lock legal hold](batch-ops-legal-hold.md). 
 
-The following examples show how to create an AWS Identity and Access Management (IAM) role with
-S3 Batch Operations permissions and update the role permissions to create jobs that enable
-Object Lock. You must also have a `CSV` manifest that identifies the
-objects for your S3 Batch Operations job. For more information, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest "batch-ops-create-job.md#specify-batchjob-manifest").
+The following examples show how to create an AWS Identity and Access Management (IAM) role with S3 Batch Operations permissions and update the role permissions to create jobs that enable Object Lock. You must also have a `CSV` manifest that identifies the objects for your S3 Batch Operations job. For more information, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest).
 
-To use the following examples, replace the `user input
- placeholders` with your own information.
+To use the following examples, replace the {{`user input placeholders`}} with your own information. 
 
-1. Create an IAM role and assign S3 Batch Operations permissions to
-   run.
+## Using the AWS CLI
+<a name="batchops-example-cli-object-lock"></a>
 
-This step is required for all S3 Batch Operations jobs.
+1. Create an IAM role and assign S3 Batch Operations permissions to run.
 
-```
-export AWS_PROFILE='`aws-user`'
+   This step is required for all S3 Batch Operations jobs.
 
-read -d '' `batch_operations_trust_policy` <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": [
-          "batchoperations.s3.amazonaws.com"
-        ]
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-EOF
-aws iam create-role --role-name `batch_operations-objectlock` \
---assume-role-policy-document "${`batch_operations_trust_policy`}"
-```
+   ```
+   export AWS_PROFILE='{{aws-user}}'
+   
+   read -d '' {{batch_operations_trust_policy}} <<EOF
+   {
+     "Version": "2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": [
+             "batchoperations.s3.amazonaws.com"
+           ]
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
+   }
+   EOF
+   aws iam create-role --role-name {{batch_operations-objectlock}} \
+   --assume-role-policy-document "${{{batch_operations_trust_policy}}}"
+   ```
 
-2. Set up S3 Batch Operations with S3 Object Lock to run.
+1. Set up S3 Batch Operations with S3 Object Lock to run.
 
-In this step, you allow the role to do the following:
+   In this step, you allow the role to do the following:
 
-    1. Run Object Lock on the S3 bucket that contains the target
-     objects that you want Batch Operations to run on.
-    2. Read the S3 bucket where the manifest CSV file and the objects
-     are located.
-    3. Write the results of the S3 Batch Operations job to the reporting
-     bucket.
+   1. Run Object Lock on the S3 bucket that contains the target objects that you want Batch Operations to run on.
 
-```
-read -d '' `batch_operations_permissions` <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "s3:GetBucketObjectLockConfiguration",
-            "Resource": [
-                "arn:aws:s3:::{{`amzn-s3-demo-manifest-bucket`}}"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::{{`amzn-s3-demo-manifest-bucket`}}/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::{{`amzn-s3-demo-completion-report-bucket`}}/*"
-            ]
-        }
-    ]
-}
-EOF
+   1. Read the S3 bucket where the manifest CSV file and the objects are located.
 
-aws iam put-role-policy --role-name `batch_operations-objectlock` \
---policy-name `object-lock-permissions` \
---policy-document "${`batch_operations_permissions`}"
-```
+   1. Write the results of the S3 Batch Operations job to the reporting bucket.
 
-You can create an IAM role with S3 Batch Operations
-permissions, and update the role permissions to create jobs that enable
-Object Lock by using the AWS SDK for Java. You must also have a
-`CSV` manifest identifying the objects for your
-S3 Batch Operations job. For more information, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest "batch-ops-create-job.md#specify-batchjob-manifest").
+   ```
+   read -d '' {{batch_operations_permissions}} <<EOF
+   {
+       "Version": "2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "s3:GetBucketObjectLockConfiguration",
+               "Resource": [
+                   "arn:aws:s3:::{{{{amzn-s3-demo-manifest-bucket}}}}"
+               ]
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "s3:GetObject",
+                   "s3:GetObjectVersion",
+                   "s3:GetBucketLocation"
+               ],
+               "Resource": [
+                   "arn:aws:s3:::{{{{amzn-s3-demo-manifest-bucket}}}}/*"
+               ]
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "s3:PutObject",
+                   "s3:GetBucketLocation"
+               ],
+               "Resource": [
+                   "arn:aws:s3:::{{{{amzn-s3-demo-completion-report-bucket}}}}/*"
+               ]
+           }
+       ]
+   }
+   EOF
+   
+   aws iam put-role-policy --role-name {{batch_operations-objectlock}} \
+   --policy-name {{object-lock-permissions}} \
+   --policy-document "${{{batch_operations_permissions}}}"
+   ```
+
+## Using the AWS SDK for Java
+<a name="batchops-examples-java-object-lock"></a>
+
+You can create an IAM role with S3 Batch Operations permissions, and update the role permissions to create jobs that enable Object Lock by using the AWS SDK for Java. You must also have a `CSV` manifest identifying the objects for your S3 Batch Operations job. For more information, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest).
 
 Perform the following steps:
 
-1. Create an IAM role and assign S3 Batch Operations permissions to run.
-   This step is required for all S3 Batch Operations jobs.
-2. Set up S3 Batch Operations with S3 Object Lock to run.
+1. Create an IAM role and assign S3 Batch Operations permissions to run. This step is required for all S3 Batch Operations jobs.
 
-You allow the role to do the following:
+1. Set up S3 Batch Operations with S3 Object Lock to run.
 
-    1. Run Object Lock on the S3 bucket that contains the target
-     objects that you want Batch Operations to run on.
-    2. Read the S3 bucket where the manifest CSV file and the objects
-     are located.
-    3. Write the results of the S3 Batch Operations job to the reporting
-     bucket.
+   You allow the role to do the following:
 
-For a code example that demonstrates how to create an IAM role for enabling S3 Object Lock using S3 Batch Operations with the AWS SDK for Java, see [CreateObjectLockRole.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/batch/CreateObjectLockRole.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/batch/CreateObjectLockRole.java") in the _AWS SDK for Java 2.x Code Examples_.
+   1. Run Object Lock on the S3 bucket that contains the target objects that you want Batch Operations to run on.
+
+   1. Read the S3 bucket where the manifest CSV file and the objects are located.
+
+   1. Write the results of the S3 Batch Operations job to the reporting bucket.
+
+For a code example that demonstrates how to create an IAM role for enabling S3 Object Lock using S3 Batch Operations with the AWS SDK for Java, see [CreateObjectLockRole.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/batch/CreateObjectLockRole.java) in the *AWS SDK for Java 2.x Code Examples*.

@@ -1,59 +1,54 @@
+
+
 # Setting and monitoring default encryption for directory buckets
+<a name="s3-express-bucket-encryption"></a>
 
-Amazon S3 buckets have bucket encryption enabled by default, and new objects are automatically
-encrypted by using server-side encryption with Amazon S3 managed keys (SSE-S3). This encryption
-applies to all new objects in your Amazon S3 buckets, and comes at no cost to you.
+Amazon S3 buckets have bucket encryption enabled by default, and new objects are automatically encrypted by using server-side encryption with Amazon S3 managed keys (SSE-S3). This encryption applies to all new objects in your Amazon S3 buckets, and comes at no cost to you.
 
-If you need more control over your encryption keys, such as managing key rotation and access
-policy grants, you can elect to use server-side encryption with AWS Key Management Service (AWS KMS) keys
-(SSE-KMS).
+If you need more control over your encryption keys, such as managing key rotation and access policy grants, you can elect to use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS).
 
-###### Note
+**Note**  
+We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your `CreateSession` requests or `PUT` object requests. Then, new objects are automatically encrypted with the desired encryption settings. For more information about the encryption overriding behaviors in directory buckets, see [Specifying server-side encryption with AWS KMS for new object uploads](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html).
+To encrypt new objects in a directory bucket with SSE-KMS, you must specify SSE-KMS as the directory bucket's default encryption configuration with a KMS key (specifically, a customer managed key). Then, when a session is created for Zonal endpoint API operations, new objects are automatically encrypted and decrypted with SSE-KMS and S3 Bucket Keys during the session.
+When you set default bucket encryption to SSE-KMS, S3 Bucket Keys are always enabled for `GET` and `PUT` operations in a directory bucket and can’t be disabled. S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html), [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html), [the Copy operation in Batch Operations](directory-buckets-objects-Batch-Ops.md), or [the import jobs](create-import-job.md). In this case, Amazon S3 makes a call to AWS KMS every time a copy request is made for a KMS-encrypted object. For more information about how S3 Bucket Keys reduce your AWS KMS request costs, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md). 
+When you specify an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+Dual-layer server-side encryption with AWS KMS keys (DSSE-KMS) and server-side encryption with customer-provided keys (SSE-C) aren't supported for default encryption in directory buckets.
 
-- We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
-  `CreateSession` requests or `PUT` object requests. Then, new objects
-  are automatically encrypted with the desired encryption settings. For more information about the encryption overriding behaviors in directory buckets, see [Specifying server-side encryption with AWS KMS for new object uploads](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md").
-- To encrypt new objects in a directory bucket with SSE-KMS, you must specify SSE-KMS as the directory bucket's default encryption configuration with a KMS key (specifically, a customer managed key). Then, when a session is created for Zonal endpoint API operations, new objects are automatically encrypted and decrypted with SSE-KMS and S3 Bucket Keys during the session.
-- When you set default bucket encryption to SSE-KMS, S3 Bucket Keys are always enabled for `GET` and `PUT` operations in a directory bucket and can’t be disabled. S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets
-  to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md"), [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md"), [the Copy operation in Batch Operations](directory-buckets-objects-Batch-Ops.md "directory-buckets-objects-Batch-Ops.md"), or
-  [the import jobs](create-import-job.md "create-import-job.md"). In this case, Amazon S3 makes a call to AWS KMS every time a copy request is made for a KMS-encrypted object. For more information about how S3 Bucket Keys reduce your AWS KMS request costs, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md").
-- When you specify an [AWS KMS customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
-- Dual-layer server-side encryption with AWS KMS keys (DSSE-KMS) and server-side encryption with customer-provided keys (SSE-C) aren't supported for default
-  encryption in directory buckets.
-  For more information
-  about configuring default encryption, see [Configuring default encryption](default-bucket-encryption.md "default-bucket-encryption.md").
+For more information about configuring default encryption, see [Configuring default encryption](default-bucket-encryption.md).
 
-For more information about the permissions required for default encryption, see [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") in the
-_Amazon Simple Storage Service API Reference_.
+For more information about the permissions required for default encryption, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) in the *Amazon Simple Storage Service API Reference*.
 
-You can configure Amazon S3 default encryption for an S3 bucket by using the Amazon S3 console, the
-AWS SDKs, the Amazon S3 REST API, and the AWS Command Line Interface (AWS CLI).
+You can configure Amazon S3 default encryption for an S3 bucket by using the Amazon S3 console, the AWS SDKs, the Amazon S3 REST API, and the AWS Command Line Interface (AWS CLI).
 
-###### To configure default encryption on an Amazon S3 bucket
+## Using the S3 console
+<a name="s3-express-bucket-encryption-how-to-set-up-console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **Buckets**.
-3. In the **Buckets** list, choose the name of the bucket that you
-   want.
-4. Choose the **Properties** tab.
-5. Under **Server-side encryption settings**, directory buckets use
-   Server-side encryption with **Amazon S3 managed keys
-   (SSE-S3)**.
-6. Choose **Save changes**.
-   These examples show you how to configure default encryption by using SSE-S3 or by using
-   SSE-KMS with an S3 Bucket Key.
+**To configure default encryption on an Amazon S3 bucket**
 
-For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about using the AWS CLI to
-configure default encryption, see [put-bucket-encryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html").
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-###### Example– Default encryption with SSE-S3
+1. In the left navigation pane, choose **Buckets**.
 
-This example configures default bucket encryption with Amazon S3 managed keys. To use the command, replace the `user input placeholders`
-with your own information.
+1. In the **Buckets** list, choose the name of the bucket that you want. 
+
+1. Choose the **Properties** tab.
+
+1. Under **Server-side encryption settings**, directory buckets use Server-side encryption with **Amazon S3 managed keys (SSE-S3)**.
+
+1. Choose **Save changes**.
+
+## Using the AWS CLI
+<a name="s3-express-default-bucket-encryption-cli"></a>
+
+These examples show you how to configure default encryption by using SSE-S3 or by using SSE-KMS with an S3 Bucket Key.
+
+For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md). For more information about using the AWS CLI to configure default encryption, see [put-bucket-encryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html).
+
+**Example – Default encryption with SSE-S3**  
+This example configures default bucket encryption with Amazon S3 managed keys. To use the command, replace the {{user input placeholders}} with your own information.  
 
 ```
-aws s3api put-bucket-encryption --bucket `bucket-base-name`--`zone-id`--x-s3 --server-side-encryption-configuration '{
+aws s3api put-bucket-encryption --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --server-side-encryption-configuration '{
     "Rules": [
         {
             "ApplyServerSideEncryptionByDefault": {
@@ -64,18 +59,16 @@ aws s3api put-bucket-encryption --bucket `bucket-base-name`--`zone-id`--x-s3 --s
 }'
 ```
 
-###### Example– Default encryption with SSE-KMS using an S3 Bucket Key
-
-This example configures default bucket encryption with SSE-KMS using an S3 Bucket Key. To use the command, replace the `user input placeholders`
-with your own information.
+**Example – Default encryption with SSE-KMS using an S3 Bucket Key**  
+This example configures default bucket encryption with SSE-KMS using an S3 Bucket Key. To use the command, replace the {{user input placeholders}} with your own information.  
 
 ```
-aws s3api put-bucket-encryption --bucket `bucket-base-name`--`zone-id`--x-s3 --server-side-encryption-configuration '{
+aws s3api put-bucket-encryption --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --server-side-encryption-configuration '{
     "Rules": [
             {
                 "ApplyServerSideEncryptionByDefault": {
                     "SSEAlgorithm": "aws:kms",
-                    "KMSMasterKeyID": "`KMS-Key-ARN`"
+                    "KMSMasterKeyID": "{{KMS-Key-ARN}}"
                 },
                 "BucketKeyEnabled": true
             }
@@ -83,32 +76,27 @@ aws s3api put-bucket-encryption --bucket `bucket-base-name`--`zone-id`--x-s3 --s
     }'
 ```
 
-Use the REST API `PutBucketEncryption` operation to set default encryption
-with a type of server-side encryption to use — SSE-S3, or SSE-KMS.
+## Using the REST API
+<a name="s3-express-bucket-encryption-how-to-set-up-api"></a>
 
-For more information, see [PutBucketEncryption](../API/RESTBucketPUTencryption.md "../API/RESTBucketPUTencryption.md") in the _Amazon Simple Storage Service API Reference_.
+Use the REST API `PutBucketEncryption` operation to set default encryption with a type of server-side encryption to use — SSE-S3, or SSE-KMS. 
 
-When using AWS SDKs, you can request Amazon S3 to use AWS KMS keys for server-side
-encryption. The following AWS SDKs for Java and
-.NET examples configure default encryption configuration for a directory bucket with SSE-KMS and an S3 Bucket Key. For information about other SDKs, see [Sample code
-and libraries](https://aws.amazon.com/code "https://aws.amazon.com/code") on the AWS Developer Center.
+For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon Simple Storage Service API Reference*.
 
-###### Important
+## Using the AWS SDKs
+<a name="s3-express-kms-put-bucket-encryption-using-sdks"></a>
 
-When you use an AWS KMS key for server-side encryption in Amazon S3, you must choose a symmetric encryption KMS key.
-Amazon S3 supports only symmetric encryption KMS keys. For more information about these keys, see
-[Symmetric encryption KMS keys](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks") in the _AWS Key Management Service Developer Guide_.
+When using AWS SDKs, you can request Amazon S3 to use AWS KMS keys for server-side encryption. The following AWS SDKs for Java and .NET examples configure default encryption configuration for a directory bucket with SSE-KMS and an S3 Bucket Key. For information about other SDKs, see [Sample code and libraries](https://aws.amazon.com/code) on the AWS Developer Center.
 
-Java
-With the AWS SDK for Java 2.x, you can request Amazon S3 to use an
-AWS KMS key by using the `applyServerSideEncryptionByDefault` method to specify the default encryption configuration of your directory bucket for
-data encryption with SSE-KMS.
+**Important**  
+When you use an AWS KMS key for server-side encryption in Amazon S3, you must choose a symmetric encryption KMS key. Amazon S3 supports only symmetric encryption KMS keys. For more information about these keys, see [Symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks) in the *AWS Key Management Service Developer Guide*.
 
-You create a symmetric
-encryption KMS key and specify that in the request.
+------
+#### [ Java ]
+
+With the AWS SDK for Java 2.x, you can request Amazon S3 to use an AWS KMS key by using the `applyServerSideEncryptionByDefault` method to specify the default encryption configuration of your directory bucket for data encryption with SSE-KMS. You create a symmetric encryption KMS key and specify that in the request.
 
 ```
-
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutBucketEncryptionRequest;
 import software.amazon.awssdk.services.s3.model.ServerSideEncryption;
@@ -133,7 +121,7 @@ public class Main {
                 .bucketKeyEnabled(true)
                 .applyServerSideEncryptionByDefault(serverSideEncryptionByDefault)
                 .build();
-
+  
         ServerSideEncryptionConfiguration serverSideEncryptionConfiguration = ServerSideEncryptionConfiguration.builder()
                 .rules(rule)
                 .build();
@@ -144,32 +132,23 @@ public class Main {
                 .build();
 
         s3.putBucketEncryption(putRequest);
-
+        
     }
 }
-
-
 ```
 
-For more information about creating customer managed keys, see [Programming the AWS KMS API](../../../kms/latest/developerguide/programming-top.md "../../../kms/latest/developerguide/programming-top.md") in
-the _AWS Key Management Service Developer Guide_.
+For more information about creating customer managed keys, see [Programming the AWS KMS API](https://docs.aws.amazon.com/kms/latest/developerguide/programming-top.html) in the *AWS Key Management Service Developer Guide*.
 
-For working code examples of uploading an object, see the following topics. To
-use these examples, you must update the code examples and provide encryption
-information as shown in the preceding code fragment.
+For working code examples of uploading an object, see the following topics. To use these examples, you must update the code examples and provide encryption information as shown in the preceding code fragment.
++ For uploading an object in a single operation, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md).
++ For multipart upload API operations, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md). 
 
-- For uploading an object in a single operation, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
-- For multipart upload
-  API operations, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+------
+#### [ .NET ]
 
-.NET
-With the AWS SDK for .NET, you can request Amazon S3 to use an
-AWS KMS key by using the `ServerSideEncryptionByDefault` property to specify the default encryption configuration of your directory bucket for
-data encryption with SSE-KMS. You create a symmetric encryption customer managed key and specify that in the
-request.
+With the AWS SDK for .NET, you can request Amazon S3 to use an AWS KMS key by using the `ServerSideEncryptionByDefault` property to specify the default encryption configuration of your directory bucket for data encryption with SSE-KMS. You create a symmetric encryption customer managed key and specify that in the request.
 
 ```
-
     // Set the bucket server side encryption to use AWSKMS with a customer-managed key id.
     // bucketName: Name of the directory bucket. "bucket-base-name--zonsid--x-s3"
     // kmsKeyId: The Id of the customer managed KMS Key. "your-kms-customer-managed-key-id"
@@ -197,7 +176,7 @@ request.
                 BucketName = bucketName,
                 ServerSideEncryptionConfiguration = serverSideEncryptionByDefault,
             });
-
+            
             return encryptionResponse.HttpStatusCode == HttpStatusCode.OK;
         }
         catch (AmazonS3Exception ex)
@@ -208,35 +187,26 @@ request.
         }
         return false;
     }
-
-
-
 ```
 
-For more information about creating customer managed keys, see [Programming the AWS KMS API](../../../kms/latest/developerguide/programming-top.md "../../../kms/latest/developerguide/programming-top.md") in
-the _AWS Key Management Service Developer Guide_.
+For more information about creating customer managed keys, see [Programming the AWS KMS API](https://docs.aws.amazon.com/kms/latest/developerguide/programming-top.html) in the *AWS Key Management Service Developer Guide*. 
 
-For working code examples of uploading an object, see the following topics. To
-use these examples, you must update the code examples and provide encryption
-information as shown in the preceding code fragment.
+For working code examples of uploading an object, see the following topics. To use these examples, you must update the code examples and provide encryption information as shown in the preceding code fragment.
++ For uploading an object in a single operation, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md).
++ For multipart upload API operations, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md). 
 
-- For uploading an object in a single operation, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
-- For multipart upload
-  API operations, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+------
 
 ## Monitoring default encryption for directory buckets with AWS CloudTrail
+<a name="s3-express-bucket-encryption-tracking"></a>
 
-You can track default encryption configuration requests for Amazon S3 directory buckets by using AWS CloudTrail
-events. The following API event names are used in CloudTrail logs:
+You can track default encryption configuration requests for Amazon S3 directory buckets by using AWS CloudTrail events. The following API event names are used in CloudTrail logs:
++ `PutBucketEncryption`
++ `GetBucketEncryption`
++ `DeleteBucketEncryption`
 
-- `PutBucketEncryption`
-- `GetBucketEncryption`
-- `DeleteBucketEncryption`
+**Note**  
+EventBridge isn't supported in directory buckets.
+Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS) or server-side encryption with customer-provided encryption keys (SSE-C) aren't supported in directory buckets.
 
-###### Note
-
-- EventBridge isn't supported in directory buckets.
-- Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS) or server-side encryption with customer-provided encryption keys (SSE-C) aren't supported in directory buckets.
-
-For more information about monitoring default encryption with
-AWS CloudTrail, see [Monitoring default encryption with AWS CloudTrail and Amazon EventBridge](bucket-encryption-tracking.md "bucket-encryption-tracking.md").
+For more information about monitoring default encryption with AWS CloudTrail, see [Monitoring default encryption with AWS CloudTrail and Amazon EventBridge](bucket-encryption-tracking.md).

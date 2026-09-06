@@ -1,56 +1,53 @@
+
+
 # Date functions
+<a name="s3-select-sql-reference-date"></a>
 
-###### Important
-
-Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
+**Important**  
+Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
 
 Amazon S3 Select supports the following date functions.
 
-###### Topics
-
-- [DATE\_ADD](#s3-select-sql-reference-date-add "#s3-select-sql-reference-date-add")
-- [DATE\_DIFF](#s3-select-sql-reference-date-diff "#s3-select-sql-reference-date-diff")
-- [EXTRACT](#s3-select-sql-reference-extract "#s3-select-sql-reference-extract")
-- [TO\_STRING](#s3-select-sql-reference-to-string "#s3-select-sql-reference-to-string")
-- [TO\_TIMESTAMP](#s3-select-sql-reference-to-timestamp "#s3-select-sql-reference-to-timestamp")
-- [UTCNOW](#s3-select-sql-reference-utcnow "#s3-select-sql-reference-utcnow")
+**Topics**
++ [DATE\_ADD](#s3-select-sql-reference-date-add)
++ [DATE\_DIFF](#s3-select-sql-reference-date-diff)
++ [EXTRACT](#s3-select-sql-reference-extract)
++ [TO\_STRING](#s3-select-sql-reference-to-string)
++ [TO\_TIMESTAMP](#s3-select-sql-reference-to-timestamp)
++ [UTCNOW](#s3-select-sql-reference-utcnow)
 
 ## DATE\_ADD
+<a name="s3-select-sql-reference-date-add"></a>
 
-Given a date part, a quantity, and a timestamp, `DATE_ADD` returns an updated
-timestamp by altering the date part by the quantity.
+Given a date part, a quantity, and a timestamp, `DATE_ADD` returns an updated timestamp by altering the date part by the quantity.
 
 ### Syntax
+<a name="s3-select-sql-reference-date-add-syntax"></a>
 
 ```
-DATE_ADD( `date_part`, `quantity`, `timestamp` )
+DATE_ADD( {{date_part}}, {{quantity}}, {{timestamp}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-date-add-parameters"></a>
 
-_`date_part`_
+*`{{date_part}}`*   
+Specifies which part of the date to modify. This can be one of the following:  
++ year
++ month
++ day
++ hour
++ minute
++ second
 
-Specifies which part of the date to modify. This can be one of
-the following:
+ *`{{quantity}}`*   
+The value to apply to the updated timestamp. Positive values for `{{quantity}}` add to the timestamp's date\_part, and negative values subtract.
 
-- year
-- month
-- day
-- hour
-- minute
-- second
-
-_`quantity`_
-
-The value to apply to the updated timestamp. Positive values for
-`quantity` add to
-the timestamp's date\_part, and negative values subtract.
-
-_`timestamp`_
-
+ *`{{timestamp}}`*   
 The target timestamp that the function operates on.
 
 ### Examples
+<a name="s3-select-sql-reference-date-add-examples"></a>
 
 ```
 DATE_ADD(year, 5, `2010-01-01T`)                -- 2015-01-01 (equivalent to 2015-01-01T)
@@ -64,40 +61,31 @@ DATE_ADD(second, 1, `2017-01-02T03:04:05.006Z`) -- 2017-01-02T03:04:06.006Z
 ```
 
 ## DATE\_DIFF
+<a name="s3-select-sql-reference-date-diff"></a>
 
-Given a date part and two valid timestamps, `DATE_DIFF` returns the difference
-in date parts. The return value is a negative integer when the
-`date_part` value of
-`timestamp1` is greater than the
-`date_part` value of
-`timestamp2`. The return value is
-a positive integer when the `date_part`
-value of `timestamp1` is less than the
-`date_part` value of
-`timestamp2`.
+Given a date part and two valid timestamps, `DATE_DIFF` returns the difference in date parts. The return value is a negative integer when the `{{date_part}}` value of `{{timestamp1}}` is greater than the `{{date_part}}` value of `{{timestamp2}}`. The return value is a positive integer when the `{{date_part}}` value of `{{timestamp1}}` is less than the `{{date_part}}` value of `{{timestamp2}}`.
 
 ### Syntax
+<a name="s3-select-sql-reference-date-diff-syntax"></a>
 
 ```
-DATE_DIFF( `date_part`, `timestamp1`, `timestamp2` )
+DATE_DIFF( {{date_part}}, {{timestamp1}}, {{timestamp2}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-date-diff-parameters"></a>
 
-_`date_part`_
+ *{{`date_part`}}*   
+Specifies which part of the timestamps to compare. For the definition of `date_part`, see [DATE\_ADD](#s3-select-sql-reference-date-add).
 
-Specifies which part of the timestamps to compare. For the definition of
-`date_part`, see [DATE\_ADD](#s3-select-sql-reference-date-add "#s3-select-sql-reference-date-add").
-
-_`timestamp1`_
-
+ *{{`timestamp1`}}*   
 The first timestamp to compare.
 
-_`timestamp2`_
-
+ *{{`timestamp2`}}*   
 The second timestamp to compare.
 
 ### Examples
+<a name="s3-select-sql-reference-date-diff-examples"></a>
 
 ```
 DATE_DIFF(year, `2010-01-01T`, `2011-01-01T`)            -- 1
@@ -108,37 +96,36 @@ DATE_DIFF(day, `2010-01-01T23:00`, `2010-01-02T01:00`) -- 0 (need to be at least
 ```
 
 ## EXTRACT
+<a name="s3-select-sql-reference-extract"></a>
 
-Given a date part and a timestamp, `EXTRACT` returns the timestamp's date part
-value.
+Given a date part and a timestamp, `EXTRACT` returns the timestamp's date part value.
 
 ### Syntax
+<a name="s3-select-sql-reference-extract-syntax"></a>
 
 ```
-EXTRACT( `date_part` FROM `timestamp` )
+EXTRACT( {{date_part}} FROM {{timestamp}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-extract-parameters"></a>
 
-_`date_part`_
+ *{{`date_part`}}*   
+Specifies which part of the timestamps to extract. This can be one of the following:  
++ `YEAR`
++ `MONTH`
++ `DAY`
++ `HOUR`
++ `MINUTE`
++ `SECOND`
++ `TIMEZONE_HOUR`
++ `TIMEZONE_MINUTE`
 
-Specifies which part of the timestamps to extract. This can be one of the
-following:
-
-- `YEAR`
-- `MONTH`
-- `DAY`
-- `HOUR`
-- `MINUTE`
-- `SECOND`
-- `TIMEZONE_HOUR`
-- `TIMEZONE_MINUTE`
-
-_`timestamp`_
-
+ *{{`timestamp`}}*   
 The target timestamp that the function operates on.
 
 ### Examples
+<a name="s3-select-sql-reference-extract-examples"></a>
 
 ```
 EXTRACT(YEAR FROM `2010-01-01T`)                           -- 2010
@@ -151,61 +138,29 @@ EXTRACT(TIMEZONE_MINUTE FROM `2017-01-02T03:04:05+07:08`)  -- 8
 ```
 
 ## TO\_STRING
+<a name="s3-select-sql-reference-to-string"></a>
 
-Given a timestamp and a format pattern, `TO_STRING` returns a string
-representation of the timestamp in the given format.
+Given a timestamp and a format pattern, `TO_STRING` returns a string representation of the timestamp in the given format.
 
 ### Syntax
+<a name="s3-select-sql-reference-size-syntax"></a>
 
 ```
-TO_STRING ( `timestamp` `time_format_pattern` )
+TO_STRING ( {{timestamp}} {{time_format_pattern}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-size-parameters"></a>
 
-_`timestamp`_
-
+ *`{{timestamp}}`*   
 The target timestamp that the function operates on.
 
-_`time_format_pattern`_
-
-A string that has the following special character interpretations:
-
-| Format           | Example         | Description                                                                                              |
-| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------- |
-| `yy`             | `69`            | 2-digit year                                                                                             |
-| `y`              | `1969`          | 4-digit year                                                                                             |
-| `yyyy`           | `1969`          | Zero-padded 4-digit year                                                                                 |
-| `M`              | `1`             | Month of year                                                                                            |
-| `MM`             | `01`            | Zero-padded month of<br>year                                                                             |
-| `MMM`            | `Jan`           | Abbreviated month year<br>name                                                                           |
-| `MMMM`           | `January`       | Full month of year name                                                                                  |
-| `MMMMM`          | `J`             | Month of year first letter (NOTE: This format is not valid for use with the<br>`TO_TIMESTAMP` function.) |
-| `d`              | `2`             | Day of month (1-31)                                                                                      |
-| `dd`             | `02`            | Zero-padded day of month<br>(01-31)                                                                      |
-| `a`              | `AM`            | AM or PM of day                                                                                          |
-| `h`              | `3`             | Hour of day (1-12)                                                                                       |
-| `hh`             | `03`            | Zero-padded hour of day<br>(01-12)                                                                       |
-| `H`              | `3`             | Hour of day (0-23)                                                                                       |
-| `HH`             | `03`            | Zero-padded hour of day<br>(00-23)                                                                       |
-| `m`              | `4`             | Minute of hour (0-59)                                                                                    |
-| `mm`             | `04`            | Zero-padded minute of hour<br>(00-59)                                                                    |
-| `s`              | `5`             | Second of minute (0-59)                                                                                  |
-| `ss`             | `05`            | Zero-padded second of minute<br>(00-59)                                                                  |
-| `S`              | `0`             | Fraction of a second (precision: 0.1, range: 0.0-0.9)                                                    |
-| `SS`             | `6`             | Fraction of a second (precision: 0.01, range: 0.0-0.99)                                                  |
-| `SSS`            | `60`            | Fraction of a second (precision: 0.001, range: 0.0-0.999)                                                |
-| `…`              | `…`             | …                                                                                                        |
-| `SSSSSSSSS`      | `60000000`      | Fraction of a second (maximum precision: 1 nanosecond, range: 0.0-0.999999999)                           |
-| `n`              | `60000000`      | Nano of a second                                                                                         |
-| `X`              | `+07` or `Z`    | Offset in hours, or `Z` if the offset is 0                                                               |
-| `XX` or `XXXX`   | `+0700` or `Z`  | Offset in hours and minutes, or `Z` if the offset is 0                                                   |
-| `XXX` or `XXXXX` | `+07:00` or `Z` | Offset in hours and minutes, or `Z` if the offset is 0                                                   |
-| `x`              | `7`             | Offset in hours                                                                                          |
-| `xx` or `xxxx`   | `700`           | Offset in hours and<br>minutes                                                                           |
-| `xxx` or `xxxxx` | `+07:00`        | Offset in hours and<br>minutes                                                                           |
+ *`{{time_format_pattern}}`*   
+A string that has the following special character interpretations:      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-select-sql-reference-date.html)
 
 ### Examples
+<a name="s3-select-sql-reference-size-examples"></a>
 
 ```
 TO_STRING(`1969-07-20T20:18Z`,  'MMMM d, y')                    -- "July 20, 1969"
@@ -220,24 +175,25 @@ TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXXX')  -- "1969-07-20T2
 ```
 
 ## TO\_TIMESTAMP
+<a name="s3-select-sql-reference-to-timestamp"></a>
 
-Given a string, `TO_TIMESTAMP` converts it to a timestamp.
-`TO_TIMESTAMP` is the inverse operation of
-`TO_STRING`.
+Given a string, `TO_TIMESTAMP` converts it to a timestamp. `TO_TIMESTAMP` is the inverse operation of `TO_STRING`.
 
 ### Syntax
+<a name="s3-select-sql-reference-to-timestamp-syntax"></a>
 
 ```
-TO_TIMESTAMP ( `string` )
+TO_TIMESTAMP ( {{string}} )
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-to-timestamp-parameters"></a>
 
-_`string`_
-
+ *`{{string}}`*   
 The target string that the function operates on.
 
 ### Examples
+<a name="s3-select-sql-reference-to-timestamp-examples"></a>
 
 ```
 TO_TIMESTAMP('2007T')                         -- `2007T`
@@ -245,20 +201,24 @@ TO_TIMESTAMP('2007-02-23T12:14:33.079-08:00') -- `2007-02-23T12:14:33.079-08:00`
 ```
 
 ## UTCNOW
+<a name="s3-select-sql-reference-utcnow"></a>
 
 `UTCNOW` returns the current time in UTC as a timestamp.
 
 ### Syntax
+<a name="s3-select-sql-reference-utcnow-syntax"></a>
 
 ```
 UTCNOW()
 ```
 
 ### Parameters
+<a name="s3-select-sql-reference-utcnow-parameters"></a>
 
 `UTCNOW` takes no parameters.
 
 ### Examples
+<a name="s3-select-sql-reference-utcnow-examples"></a>
 
 ```
 UTCNOW() -- 2017-10-13T16:02:11.123Z

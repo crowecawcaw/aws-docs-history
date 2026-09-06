@@ -1,53 +1,44 @@
+
+
 # Writing Lambda functions for S3 Object Lambda Access Points
+<a name="olap-writing-lambda"></a>
 
-###### Note
-
-As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
+**Note**  
+As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
 
 This section details how to write AWS Lambda functions for use with Amazon S3 Object Lambda Access Points.
 
 To learn about complete end-to-end procedures for some S3 Object Lambda tasks, see the following:
++ [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md)
++ [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md)
++ [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-writing-lambda.html)
 
-- [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
-- [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
-- [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-writing-lambda.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-writing-lambda.html")
-
-###### Topics
-
-- [Working with GetObject requests in Lambda](#olap-getobject-response "#olap-getobject-response")
-- [Working with HeadObject requests in Lambda](#olap-headobject "#olap-headobject")
-- [Working with ListObjects requests in Lambda](#olap-listobjects "#olap-listobjects")
-- [Working with ListObjectsV2 requests in Lambda](#olap-listobjectsv2 "#olap-listobjectsv2")
-- [Event context format and usage](olap-event-context.md "olap-event-context.md")
-- [Working with Range and partNumber headers](range-get-olap.md "range-get-olap.md")
+**Topics**
++ [Working with `GetObject` requests in Lambda](#olap-getobject-response)
++ [Working with `HeadObject` requests in Lambda](#olap-headobject)
++ [Working with `ListObjects` requests in Lambda](#olap-listobjects)
++ [Working with `ListObjectsV2` requests in Lambda](#olap-listobjectsv2)
++ [Event context format and usage](olap-event-context.md)
++ [Working with Range and partNumber headers](range-get-olap.md)
 
 ## Working with `GetObject` requests in Lambda
+<a name="olap-getobject-response"></a>
 
-This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
-`GetObject`. S3 Object Lambda includes the Amazon S3 API operation,
-`WriteGetObjectResponse`, which enables the Lambda function to provide
-customized data and response headers to the `GetObject` caller.
+This section assumes that your Object Lambda Access Point is configured to call the Lambda function for `GetObject`. S3 Object Lambda includes the Amazon S3 API operation, `WriteGetObjectResponse`, which enables the Lambda function to provide customized data and response headers to the `GetObject` caller. 
 
-`WriteGetObjectResponse` gives you extensive control over the status code,
-response headers, and response body, based on your processing needs. You can use
-`WriteGetObjectResponse` to respond with the whole transformed object,
-portions of the transformed object, or other responses based on the context of your
-application. The following section shows unique examples of using the
-`WriteGetObjectResponse` API operation.
+`WriteGetObjectResponse` gives you extensive control over the status code, response headers, and response body, based on your processing needs. You can use `WriteGetObjectResponse` to respond with the whole transformed object, portions of the transformed object, or other responses based on the context of your application. The following section shows unique examples of using the `WriteGetObjectResponse` API operation.
++ **Example 1:** Respond with HTTP status code 403 (Forbidden) 
++ **Example 2:** Respond with a transformed image
++ **Example 3:** Stream compressed content
 
-- **Example 1:** Respond with HTTP status code
-  403 (Forbidden)
-- **Example 2:** Respond with a transformed
-  image
-- **Example 3:** Stream compressed
-  content
+**Example 1: Respond with HTTP status code 403 (Forbidden) **
 
-**Example 1: Respond with HTTP status code 403 (Forbidden)**
+You can use `WriteGetObjectResponse` to respond with the HTTP status code 403 (Forbidden) based on the content of the object.
 
-You can use `WriteGetObjectResponse` to respond with the HTTP status
-code 403 (Forbidden) based on the content of the object.
+------
+#### [ Java ]
 
-Java
+
 
 ```
 package com.amazon.s3.objectlambda;
@@ -104,11 +95,14 @@ public class Example1 {
 }
 ```
 
-Python
+------
+#### [ Python ]
+
+
 
 ```
 import boto3
-import requests
+import requests 
 
 def handler(event, context):
     s3 = boto3.client('s3')
@@ -116,7 +110,7 @@ def handler(event, context):
     """
     Retrieve the operation context object from the event. This object indicates where the WriteGetObjectResponse request
     should be delivered and contains a presigned URL in 'inputS3Url' where we can download the requested object from.
-    The 'userRequest' object has information related to the user who made this 'GetObject' request to
+    The 'userRequest' object has information related to the user who made this 'GetObject' request to 
     S3 Object Lambda.
     """
     get_context = event["getObjectContext"]
@@ -134,7 +128,7 @@ def handler(event, context):
         response = requests.get(s3_url)
         s3.write_get_object_response(RequestRoute=route, RequestToken=token, Body=response.content)
     else:
-        # If the token is not present, we send an error back to the user.
+        # If the token is not present, we send an error back to the user. 
         s3.write_get_object_response(RequestRoute=route, RequestToken=token, StatusCode=403,
         ErrorCode="NoSuperSecretTokenFound", ErrorMessage="The request was not secret enough.")
 
@@ -142,7 +136,10 @@ def handler(event, context):
     return { 'status_code': 200 }
 ```
 
-Node.js
+------
+#### [ Node.js ]
+
+
 
 ```
 const { S3 } = require('aws-sdk');
@@ -164,7 +161,7 @@ exports.handler = async (event) => {
 
     if (!isTokenPresent) {
         // If the token is not present, we send an error back to the user. The 'await' in front of the request
-        // indicates that we want to wait for this request to finish sending before moving on.
+        // indicates that we want to wait for this request to finish sending before moving on. 
         await s3.writeGetObjectResponse({
             RequestRoute: outputRoute,
             RequestToken: outputToken,
@@ -188,15 +185,16 @@ exports.handler = async (event) => {
 }
 ```
 
-**Example 2: Respond with a transformed
-image**
+------
 
-When performing an image transformation, you might find that you need all the
-bytes of the source object before you can start processing them. In this case, your
-`WriteGetObjectResponse` request returns the whole object to the
-requesting application in one call.
+**Example 2: Respond with a transformed image**
 
-Java
+When performing an image transformation, you might find that you need all the bytes of the source object before you can start processing them. In this case, your `WriteGetObjectResponse` request returns the whole object to the requesting application in one call.
+
+------
+#### [ Java ]
+
+
 
 ```
 package com.amazon.s3.objectlambda;
@@ -250,11 +248,14 @@ public class Example2V2 {
 }
 ```
 
-Python
+------
+#### [ Python ]
+
+
 
 ```
 import boto3
-import requests
+import requests 
 import io
 from PIL import Image
 
@@ -262,7 +263,7 @@ def handler(event, context):
     """
     Retrieve the operation context object from the event. This object indicates where the WriteGetObjectResponse request
     should be delivered and has a presigned URL in 'inputS3Url' where we can download the requested object from.
-    The 'userRequest' object has information related to the user who made this 'GetObject' request to
+    The 'userRequest' object has information related to the user who made this 'GetObject' request to 
     S3 Object Lambda.
     """
     get_context = event["getObjectContext"]
@@ -289,7 +290,10 @@ def handler(event, context):
     return { 'status_code': 200 }
 ```
 
-Node.js
+------
+#### [ Node.js ]
+
+
 
 ```
 const { S3 } = require('aws-sdk');
@@ -325,14 +329,16 @@ exports.handler = async (event) => {
 }
 ```
 
+------
+
 **Example 3: Stream compressed content**
 
-When you're compressing objects, compressed data is produced incrementally.
-Consequently, you can use your `WriteGetObjectResponse` request to return
-the compressed data as soon as it's ready. As shown in this example, you don't need
-to know the length of the completed transformation.
+When you're compressing objects, compressed data is produced incrementally. Consequently, you can use your `WriteGetObjectResponse` request to return the compressed data as soon as it's ready. As shown in this example, you don't need to know the length of the completed transformation.
 
-Java
+------
+#### [ Java ]
+
+
 
 ```
 package com.amazon.s3.objectlambda;
@@ -377,7 +383,10 @@ public class Example3 {
 }
 ```
 
-Python
+------
+#### [ Python ]
+
+
 
 ```
 import boto3
@@ -388,7 +397,7 @@ from botocore.config import Config
 
 """
 A helper class to work with content iterators. Takes an interator and compresses the bytes that come from it. It
-implements 'read' and '__iter__' so that the SDK can stream the response.
+implements 'read' and '__iter__' so that the SDK can stream the response. 
 """
 class Compress:
     def __init__(self, content_iter):
@@ -448,7 +457,10 @@ def handler(event, context):
     return {'status_code': 200}
 ```
 
-Node.js
+------
+#### [ Node.js ]
+
+
 
 ```
 const { S3 } = require('aws-sdk');
@@ -464,8 +476,8 @@ exports.handler = async (event) => {
     const { outputRoute, outputToken, inputS3Url } = getObjectContext;
 
     // Download the object from S3 and process it as a stream, because it might be a huge object and we don't want to
-    // buffer it in memory. Note the use of 'await' because we want to wait for 'writeGetObjectResponse' to finish
-    // before we can exit the Lambda function.
+    // buffer it in memory. Note the use of 'await' because we want to wait for 'writeGetObjectResponse' to finish 
+    // before we can exit the Lambda function. 
     await axios({
         method: 'GET',
         url: inputS3Url,
@@ -489,89 +501,58 @@ exports.handler = async (event) => {
 }
 ```
 
-###### Note
+------
 
-Although S3 Object Lambda allows up to 60 seconds to send a complete response to the
-caller through the `WriteGetObjectResponse` request, the actual amount of
-time available might be less. For example, your Lambda function timeout might be less
-than 60 seconds. In other cases, the caller might have more stringent timeouts.
+**Note**  
+Although S3 Object Lambda allows up to 60 seconds to send a complete response to the caller through the `WriteGetObjectResponse` request, the actual amount of time available might be less. For example, your Lambda function timeout might be less than 60 seconds. In other cases, the caller might have more stringent timeouts. 
 
-For the original caller to receive a response other than HTTP status code 500
-(Internal Server Error), the `WriteGetObjectResponse` call must be completed.
-If the Lambda function returns, with an exception or otherwise, before the
-`WriteGetObjectResponse` API operation is called, the original caller
-receives a 500 (Internal Server Error) response. Exceptions thrown during the time it
-takes to complete the response result in truncated responses to the caller. If the Lambda
-function receives an HTTP status code 200 (OK) response from the
-`WriteGetObjectResponse` API call, then the original caller has sent the
-complete request. The Lambda function's response, whether an exception is thrown or not,
-is ignored by S3 Object Lambda.
+For the original caller to receive a response other than HTTP status code 500 (Internal Server Error), the `WriteGetObjectResponse` call must be completed. If the Lambda function returns, with an exception or otherwise, before the `WriteGetObjectResponse` API operation is called, the original caller receives a 500 (Internal Server Error) response. Exceptions thrown during the time it takes to complete the response result in truncated responses to the caller. If the Lambda function receives an HTTP status code 200 (OK) response from the `WriteGetObjectResponse` API call, then the original caller has sent the complete request. The Lambda function's response, whether an exception is thrown or not, is ignored by S3 Object Lambda.
 
-When calling the `WriteGetObjectResponse` API operation, Amazon S3 requires
-the route and request token from the event context. For more information, see [Event context format and usage](olap-event-context.md "olap-event-context.md").
+When calling the `WriteGetObjectResponse` API operation, Amazon S3 requires the route and request token from the event context. For more information, see [Event context format and usage](olap-event-context.md).
 
-The route and request token parameters are required to connect the
-`WriteGetObjectResult` response with the original caller. Even though it
-is always appropriate to retry 500 (Internal Server Error) responses, because the
-request token is a single-use token, subsequent attempts to use it might result in HTTP
-status code 400 (Bad Request) responses. Although the call to
-`WriteGetObjectResponse` with the route and request tokens doesn't need
-to be made from the invoked Lambda function, it must be made by an identity in the same
-account. The call also must be completed before the Lambda function finishes
-execution.
+The route and request token parameters are required to connect the `WriteGetObjectResult` response with the original caller. Even though it is always appropriate to retry 500 (Internal Server Error) responses, because the request token is a single-use token, subsequent attempts to use it might result in HTTP status code 400 (Bad Request) responses. Although the call to `WriteGetObjectResponse` with the route and request tokens doesn't need to be made from the invoked Lambda function, it must be made by an identity in the same account. The call also must be completed before the Lambda function finishes execution.
 
 ## Working with `HeadObject` requests in Lambda
+<a name="olap-headobject"></a>
 
-This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
-`HeadObject`. Lambda will receive a JSON payload that contains a key
-called `headObjectContext`. Inside the context, there is a single property
-called `inputS3Url`, which is a presigned URL for the supporting access point for
-`HeadObject`.
+This section assumes that your Object Lambda Access Point is configured to call the Lambda function for `HeadObject`. Lambda will receive a JSON payload that contains a key called `headObjectContext`. Inside the context, there is a single property called `inputS3Url`, which is a presigned URL for the supporting access point for `HeadObject`.
 
-The presigned URL will include the following properties if they're specified:
+The presigned URL will include the following properties if they're specified: 
++ `versionId` (in the query parameters)
++ `requestPayer` (in the `x-amz-request-payer` header)
++ `expectedBucketOwner` (in the `x-amz-expected-bucket-owner` header)
 
-- `versionId` (in the query parameters)
-- `requestPayer` (in the `x-amz-request-payer`
-  header)
-- `expectedBucketOwner` (in the
-  `x-amz-expected-bucket-owner` header)
+Other properties won't be presigned, and thus won't be included. Non-signed options sent as headers can be added manually to the request when calling the presigned URL that's found in the `userRequest` headers. Server-side encryption options are not supported for `HeadObject`.
 
-Other properties won't be presigned, and thus won't be included. Non-signed options
-sent as headers can be added manually to the request when calling the presigned URL
-that's found in the `userRequest` headers. Server-side encryption options are
-not supported for `HeadObject`.
+For the request syntax URI parameters, see [`HeadObject`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html) in the *Amazon Simple Storage Service API Reference*.
 
-For the request syntax URI parameters, see [`HeadObject`](../API/API_HeadObject.md "../API/API_HeadObject.md") in
-the _Amazon Simple Storage Service API Reference_.
-
-The following example shows a Lambda JSON input payload for
-`HeadObject`.
+The following example shows a Lambda JSON input payload for `HeadObject`.
 
 ```
 {
-  "xAmzRequestId": "`requestId`",
+  "xAmzRequestId": "{{requestId}}",
   "**headObjectContext**": {
-    "**inputS3Url**": "https://`my-s3-ap-111122223333`.s3-accesspoint.`us-east-1`.amazonaws.com/example?X-Amz-Security-Token=<snip>"
+    "**inputS3Url**": "https://{{my-s3-ap-111122223333}}.s3-accesspoint.{{us-east-1}}.amazonaws.com/example?X-Amz-Security-Token=<snip>"
   },
   "configuration": {
-       "accessPointArn": "arn:aws:s3-object-lambda:`us-east-1`:`111122223333`:accesspoint/`example-object-lambda-ap`",
-       "supportingAccessPointArn": "arn:aws:s3:`us-east-1`:`111122223333`:accesspoint/`example-ap`",
+       "accessPointArn": "arn:aws:s3-object-lambda:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-object-lambda-ap}}",
+       "supportingAccessPointArn": "arn:aws:s3:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-ap}}",
        "payload": "{}"
   },
   "userRequest": {
-       "url": "https://object-lambda-`111122223333`.s3-object-lambda.`us-east-1`.amazonaws.com/`example`",
+       "url": "https://object-lambda-{{111122223333}}.s3-object-lambda.{{us-east-1}}.amazonaws.com/{{example}}",
        "headers": {
-           "Host": "object-lambda-`111122223333`.s3-object-lambda.`us-east-1`.amazonaws.com",
+           "Host": "object-lambda-{{111122223333}}.s3-object-lambda.{{us-east-1}}.amazonaws.com",
            "Accept-Encoding": "identity",
-           "X-Amz-Content-SHA256": "`e3b0c44298fc1example`"
+           "X-Amz-Content-SHA256": "{{e3b0c44298fc1example}}"
        }
    },
    "userIdentity": {
        "type": "AssumedRole",
-       "principalId": "`principalId`",
-       "arn": "arn:aws:sts::`111122223333`:assumed-role/Admin/`example`",
-       "accountId": "`111122223333`",
-       "accessKeyId": "`accessKeyId`",
+       "principalId": "{{principalId}}",
+       "arn": "arn:aws:sts::{{111122223333}}:assumed-role/Admin/{{example}}",       
+       "accountId": "{{111122223333}}",
+       "accessKeyId": "{{accessKeyId}}",
        "sessionContext": {
             "attributes": {
             "mfaAuthenticated": "false",
@@ -579,9 +560,9 @@ The following example shows a Lambda JSON input payload for
        },
        "sessionIssuer": {
             "type": "Role",
-            "principalId": "`principalId`",
-            "arn": "arn:aws:iam::`111122223333`:role/Admin",
-            "accountId": "`111122223333`",
+            "principalId": "{{principalId}}",
+            "arn": "arn:aws:iam::{{111122223333}}:role/Admin",
+            "accountId": "{{111122223333}}",
             "userName": "Admin"
             }
        }
@@ -590,11 +571,9 @@ The following example shows a Lambda JSON input payload for
 }
 ```
 
-Your Lambda function should return a JSON object that contains the headers and
-values that will be returned for the `HeadObject` call.
+Your Lambda function should return a JSON object that contains the headers and values that will be returned for the `HeadObject` call.
 
-The following example shows the structure of the Lambda response JSON for
-`HeadObject`.
+The following example shows the structure of the Lambda response JSON for `HeadObject`.
 
 ```
 {
@@ -631,7 +610,7 @@ The following example shows the structure of the Lambda response JSON for
         "x-amz-storage-class": <string>,
         "x-amz-tagging-count": <number>,
         "x-amz-version-id": <string>,
-        <x-amz-meta-headers>: <string>, // user-defined metadata
+        <x-amz-meta-headers>: <string>, // user-defined metadata 
         "x-amz-meta-meta1": <string>, // example of the user-defined metadata header, it will need the x-amz-meta prefix
         "x-amz-meta-meta2": <string>
         ...
@@ -639,97 +618,90 @@ The following example shows the structure of the Lambda response JSON for
 }
 ```
 
-The following example shows how to use the presigned URL to populate your response
-by modifying the header values as needed before returning the JSON.
+The following example shows how to use the presigned URL to populate your response by modifying the header values as needed before returning the JSON.
 
-Python
+------
+#### [ Python ]
+
+
 
 ```
 import requests
 
 def lambda_handler(event, context):
     print(event)
-
+    
     # Extract the presigned URL from the input.
     s3_url = event["headObjectContext"]["inputS3Url"]
 
-    # Get the head of the object from S3.
+    # Get the head of the object from S3.     
     response = requests.head(s3_url)
-
-    # Return the error to S3 Object Lambda (if applicable).
+    
+    # Return the error to S3 Object Lambda (if applicable).           
     if (response.status_code >= 400):
         return {
             "statusCode": response.status_code,
-            "errorCode": "RequestFailure",
-            "errorMessage": "Request to S3 failed"
+            "errorCode": "RequestFailure",                         
+            "errorMessage": "Request to S3 failed"    
     }
-
+    
     # Store the headers in a dictionary.
     response_headers = dict(response.headers)
 
     # This obscures Content-Type in a transformation, it is optional to add
-    response_headers["Content-Type"] = ""
+    response_headers["Content-Type"] = "" 
 
-    # Return the headers to S3 Object Lambda.
+    # Return the headers to S3 Object Lambda.     
     return {
         "statusCode": response.status_code,
-        "headers": response_headers
+        "headers": response_headers     
         }
 ```
 
+------
+
 ## Working with `ListObjects` requests in Lambda
+<a name="olap-listobjects"></a>
 
-This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
-`ListObjects`. Lambda will receive the JSON payload with a new object
-named `listObjectsContext`. `listObjectsContext`contains a single
-property, `inputS3Url`, which is a presigned URL for the supporting access point for
-`ListObjects`.
+This section assumes that your Object Lambda Access Point is configured to call the Lambda function for `ListObjects`. Lambda will receive the JSON payload with a new object named `listObjectsContext`. `listObjectsContext`contains a single property, `inputS3Url`, which is a presigned URL for the supporting access point for `ListObjects`.
 
-Unlike `GetObject` and `HeadObject`, the presigned URL will
-include the following properties if they're specified:
+Unlike `GetObject` and `HeadObject`, the presigned URL will include the following properties if they're specified:
++ All the query parameters
++ `requestPayer` (in the `x-amz-request-payer` header) 
++ `expectedBucketOwner` (in the `x-amz-expected-bucket-owner` header)
 
-- All the query parameters
-- `requestPayer` (in the `x-amz-request-payer` header)
-- `expectedBucketOwner` (in the
-  `x-amz-expected-bucket-owner` header)
+For the request syntax URI parameters, see [`ListObjects`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html) in the *Amazon Simple Storage Service API Reference*.
 
-For the request syntax URI parameters, see [`ListObjects`](../API/API_ListObjects.md "../API/API_ListObjects.md") in
-the _Amazon Simple Storage Service API Reference_.
+**Important**  
+We recommend that you use the newer version, [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html), when developing applications. For backward compatibility, Amazon S3 continues to support `ListObjects`.
 
-###### Important
-
-We recommend that you use the newer version, [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md"), when
-developing applications. For backward compatibility, Amazon S3 continues to support
-`ListObjects`.
-
-The following example shows the Lambda JSON input payload for
-`ListObjects`.
+The following example shows the Lambda JSON input payload for `ListObjects`.
 
 ```
 {
-    "xAmzRequestId": "`requestId`",
+    "xAmzRequestId": "{{requestId}}",
      "**listObjectsContext**": {
-     "**inputS3Url**": "https://`my-s3-ap-111122223333`.s3-accesspoint.`us-east-1`.amazonaws.com/?X-Amz-Security-Token=<snip>",
+     "**inputS3Url**": "https://{{my-s3-ap-111122223333}}.s3-accesspoint.{{us-east-1}}.amazonaws.com/?X-Amz-Security-Token=<snip>",
      },
     "configuration": {
-        "accessPointArn": "arn:aws:s3-object-lambda:`us-east-1`:`111122223333`:accesspoint/`example-object-lambda-ap`",
-        "supportingAccessPointArn": "arn:aws:s3:`us-east-1`:`111122223333`:accesspoint/`example-ap`",
+        "accessPointArn": "arn:aws:s3-object-lambda:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-object-lambda-ap}}",
+        "supportingAccessPointArn": "arn:aws:s3:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-ap}}",
         "payload": "{}"
     },
     "userRequest": {
-        "url": "https://object-lambda-`111122223333`.s3-object-lambda.`us-east-1`.amazonaws.com/`example`",
+        "url": "https://object-lambda-{{111122223333}}.s3-object-lambda.{{us-east-1}}.amazonaws.com/{{example}}",
         "headers": {
-            "Host": "object-lambda-`111122223333`.s3-object-lambda.`us-east-1`.amazonaws.com",
+            "Host": "object-lambda-{{111122223333}}.s3-object-lambda.{{us-east-1}}.amazonaws.com",
             "Accept-Encoding": "identity",
-            "X-Amz-Content-SHA256": "`e3b0c44298fc1example`"
+            "X-Amz-Content-SHA256": "{{e3b0c44298fc1example}}"
         }
     },
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`principalId`",
-        "arn": "arn:aws:sts::`111122223333`:assumed-role/Admin/`example`",
-        "accountId": "`111122223333`",
-        "accessKeyId": "`accessKeyId`",
+        "principalId": "{{principalId}}",
+        "arn": "arn:aws:sts::{{111122223333}}:assumed-role/Admin/{{example}}",
+        "accountId": "{{111122223333}}",
+        "accessKeyId": "{{accessKeyId}}",
         "sessionContext": {
             "attributes": {
                 "mfaAuthenticated": "false",
@@ -737,9 +709,9 @@ The following example shows the Lambda JSON input payload for
             },
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`principalId`",
-                "arn": "arn:aws:iam::`111122223333`:role/Admin",
-                "accountId": "`111122223333`",
+                "principalId": "{{principalId}}",
+                "arn": "arn:aws:iam::{{111122223333}}:role/Admin",
+                "accountId": "{{111122223333}}",
                 "userName": "Admin"
             }
         }
@@ -748,21 +720,17 @@ The following example shows the Lambda JSON input payload for
 }
 ```
 
-Your Lambda function should return a JSON object that contains the status code, list
-XML result, or error information that will be returned from S3 Object Lambda.
+Your Lambda function should return a JSON object that contains the status code, list XML result, or error information that will be returned from S3 Object Lambda.
 
-S3 Object Lambda does not process or validate `listResultXml`, but instead forwards it
-to `ListObjects` caller. For `listBucketResult`, S3 Object Lambda expects certain properties
-to be of a specific type and will throw exceptions if it cannot parse them. `listResultXml` and
-`listBucketResult` can not be provided at the same time.
+S3 Object Lambda does not process or validate `listResultXml`, but instead forwards it to `ListObjects` caller. For `listBucketResult`, S3 Object Lambda expects certain properties to be of a specific type and will throw exceptions if it cannot parse them. `listResultXml` and `listBucketResult` can not be provided at the same time.
 
-The following example demonstrates how to use the presigned URL to call Amazon S3 and use
-the result to populate a response, including error checking.
+The following example demonstrates how to use the presigned URL to call Amazon S3 and use the result to populate a response, including error checking.
 
-Python
+------
+#### [ Python ]
 
 ```
-import requests
+import requests 
 import xmltodict
 
 def lambda_handler(event, context):
@@ -791,7 +759,7 @@ def lambda_handler(event, context):
 
     # Convert back to XML.
     listResultXml = xmltodict.unparse(response_dict)
-
+    
     # Create response with listResultXml.
     response_with_list_result_xml = {
         'statusCode': 200,
@@ -827,95 +795,88 @@ def sanitize_response_dict(response_dict: dict):
     return new_response_dict
 ```
 
-The following example shows the structure of the Lambda response JSON for
-`ListObjects`.
+------
+
+The following example shows the structure of the Lambda response JSON for `ListObjects`.
 
 ```
-{
+{ 
   "statusCode": <number>; // Required
   "errorCode": <string>;
   "errorMessage": <string>;
   "listResultXml": <string>; // This can also be Error XML string in case S3 returned error response when calling the pre-signed URL
 
-  "listBucketResult": {  // listBucketResult can be provided instead of listResultXml, however they can not both be provided in the JSON response
+  "listBucketResult": {  // listBucketResult can be provided instead of listResultXml, however they can not both be provided in the JSON response  
         "name": <string>,  // Required for 'listBucketResult'
-        "prefix": <string>,
-        "marker": <string>,
-        "nextMarker": <string>,
+        "prefix": <string>,  
+        "marker": <string>, 
+        "nextMarker": <string>, 
         "maxKeys": <int>,   // Required for 'listBucketResult'
-        "delimiter": <string>,
-        "encodingType": <string>
+        "delimiter": <string>, 
+        "encodingType": <string>  
         "isTruncated": <boolean>,  // Required for 'listBucketResult'
-        "contents": [  {
+        "contents": [  { 
             "key": <string>,  // Required for 'content'
-            "lastModified": <string>,
-            "eTag": <string>,
+            "lastModified": <string>,  
+            "eTag": <string>,  
             "checksumAlgorithm": <string>,   // CRC32,  CRC32C,  SHA1,  SHA256
             "size": <int>,   // Required for 'content'
-            "owner": {
+            "owner": {  
                 "displayName": <string>,  // Required for 'owner'
                 "id": <string>,  // Required for 'owner'
-            },
-            "storageClass": <string>
-            },
-        ...
-        ],
-        "commonPrefixes": [  {
+            },  
+            "storageClass": <string>  
+            },  
+        ...  
+        ],  
+        "commonPrefixes": [  {  
             "prefix": <string>   // Required for 'commonPrefix'
-        },
-        ...
-        ],
+        },  
+        ...  
+        ],  
     }
 }
 ```
 
 ## Working with `ListObjectsV2` requests in Lambda
+<a name="olap-listobjectsv2"></a>
 
-This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
-`ListObjectsV2`. Lambda will receive the JSON payload with a new object
-named `listObjectsV2Context`. `listObjectsV2Context` contains a
-single property, `inputS3Url`, which is a presigned URL for the supporting
-access point for `ListObjectsV2`.
+This section assumes that your Object Lambda Access Point is configured to call the Lambda function for `ListObjectsV2`. Lambda will receive the JSON payload with a new object named `listObjectsV2Context`. `listObjectsV2Context` contains a single property, `inputS3Url`, which is a presigned URL for the supporting access point for `ListObjectsV2`.
 
-Unlike `GetObject` and `HeadObject`, the presigned URL will
-include the following properties, if they're specified:
+Unlike `GetObject` and `HeadObject`, the presigned URL will include the following properties, if they're specified: 
++ All the query parameters
++ `requestPayer` (in the `x-amz-request-payer` header) 
++ `expectedBucketOwner` (in the `x-amz-expected-bucket-owner` header)
 
-- All the query parameters
-- `requestPayer` (in the `x-amz-request-payer` header)
-- `expectedBucketOwner` (in the
-  `x-amz-expected-bucket-owner` header)
+For the request syntax URI parameters, see [`ListObjectsV2`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html) in the *Amazon Simple Storage Service API Reference*.
 
-For the request syntax URI parameters, see [`ListObjectsV2`](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md")
-in the _Amazon Simple Storage Service API Reference_.
-
-The following example shows the Lambda JSON input payload for
-`ListObjectsV2`.
+The following example shows the Lambda JSON input payload for `ListObjectsV2`.
 
 ```
 {
-    "xAmzRequestId": "`requestId`",
+    "xAmzRequestId": "{{requestId}}",
      "**listObjectsV2Context**": {
-     "**inputS3Url**": "https://`my-s3-ap-111122223333`.s3-accesspoint.`us-east-1`.amazonaws.com/?list-type=2&X-Amz-Security-Token=<snip>",
+     "**inputS3Url**": "https://{{my-s3-ap-111122223333}}.s3-accesspoint.{{us-east-1}}.amazonaws.com/?list-type=2&X-Amz-Security-Token=<snip>",
      },
     "configuration": {
-        "accessPointArn": "arn:aws:s3-object-lambda:`us-east-1`:`111122223333`:accesspoint/`example-object-lambda-ap`",
-        "supportingAccessPointArn": "arn:aws:s3:`us-east-1`:`111122223333`:accesspoint/`example-ap`",
+        "accessPointArn": "arn:aws:s3-object-lambda:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-object-lambda-ap}}",
+        "supportingAccessPointArn": "arn:aws:s3:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-ap}}",
         "payload": "{}"
     },
     "userRequest": {
-        "url": "https://object-lambda-`111122223333`.s3-object-lambda.`us-east-1`.amazonaws.com/`example`",
+        "url": "https://object-lambda-{{111122223333}}.s3-object-lambda.{{us-east-1}}.amazonaws.com/{{example}}",
         "headers": {
-            "Host": "object-lambda-`111122223333`.s3-object-lambda.`us-east-1`.amazonaws.com",
+            "Host": "object-lambda-{{111122223333}}.s3-object-lambda.{{us-east-1}}.amazonaws.com",
             "Accept-Encoding": "identity",
-            "X-Amz-Content-SHA256": "`e3b0c44298fc1example`"
+            "X-Amz-Content-SHA256": "{{e3b0c44298fc1example}}"
         }
     },
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`principalId`",
-        "arn": "arn:aws:sts::`111122223333`:assumed-role/Admin/`example`",
-        "accountId": "`111122223333`",
-        "accessKeyId": "`accessKeyId`",
+        "principalId": "{{principalId}}",
+        "arn": "arn:aws:sts::{{111122223333}}:assumed-role/Admin/{{example}}",
+        "accountId": "{{111122223333}}",
+        "accessKeyId": "{{accessKeyId}}",
         "sessionContext": {
             "attributes": {
                 "mfaAuthenticated": "false",
@@ -923,32 +884,28 @@ The following example shows the Lambda JSON input payload for
             },
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`principalId`",
-                "arn": "arn:aws:iam::`111122223333`:role/Admin",
-                "accountId": "`111122223333`",
+                "principalId": "{{principalId}}",
+                "arn": "arn:aws:iam::{{111122223333}}:role/Admin",
+                "accountId": "{{111122223333}}",
                 "userName": "Admin"
             }
         }
     },
-  "protocolVersion": "1.00"
+  "protocolVersion": "1.00" 
 }
 ```
 
-Your Lambda function should return a JSON object that contains the status code,
-list XML result, or error information that will be returned from S3 Object Lambda.
+Your Lambda function should return a JSON object that contains the status code, list XML result, or error information that will be returned from S3 Object Lambda.
 
-S3 Object Lambda does not process or validate `listResultXml`, but instead forwards it
-to `ListObjectsV2` caller. For `listBucketResult`, S3 Object Lambda expects certain properties
-to be of a specific type and will throw exceptions if it cannot parse them. `listResultXml` and
-`listBucketResult` can not be provided at the same time.
+S3 Object Lambda does not process or validate `listResultXml`, but instead forwards it to `ListObjectsV2` caller. For `listBucketResult`, S3 Object Lambda expects certain properties to be of a specific type and will throw exceptions if it cannot parse them. `listResultXml` and `listBucketResult` can not be provided at the same time.
 
-The following example demonstrates how to use the presigned URL to call Amazon S3 and
-use the result to populate a response, including error checking.
+The following example demonstrates how to use the presigned URL to call Amazon S3 and use the result to populate a response, including error checking.
 
-Python
+------
+#### [ Python ]
 
 ```
-import requests
+import requests 
 import xmltodict
 
 def lambda_handler(event, context):
@@ -977,7 +934,7 @@ def lambda_handler(event, context):
 
     # Convert back to XML.
     listResultXml = xmltodict.unparse(response_dict)
-
+    
     # Create response with listResultXml.
     response_with_list_result_xml = {
         'statusCode': 200,
@@ -1013,46 +970,47 @@ def sanitize_response_dict(response_dict: dict):
     return new_response_dict
 ```
 
-The following example shows the structure of the Lambda response JSON for
-`ListObjectsV2`.
+------
+
+The following example shows the structure of the Lambda response JSON for `ListObjectsV2`.
 
 ```
-{
-    "statusCode": <number>; // Required
-    "errorCode": <string>;
-    "errorMessage": <string>;
-    "listResultXml": <string>; // This can also be Error XML string in case S3 returned error response when calling the pre-signed URL
-
-    "listBucketResult": {  // listBucketResult can be provided instead of listResultXml, however they can not both be provided in the JSON response
-        "name": <string>, // Required for 'listBucketResult'
-        "prefix": <string>,
-        "startAfter": <string>,
-        "continuationToken": <string>,
+{  
+    "statusCode": <number>; // Required  
+    "errorCode": <string>;  
+    "errorMessage": <string>;  
+    "listResultXml": <string>; // This can also be Error XML string in case S3 returned error response when calling the pre-signed URL  
+  
+    "listBucketResult": {  // listBucketResult can be provided instead of listResultXml, however they can not both be provided in the JSON response 
+        "name": <string>, // Required for 'listBucketResult'  
+        "prefix": <string>,  
+        "startAfter": <string>,  
+        "continuationToken": <string>,  
         "nextContinuationToken": <string>,
-        "keyCount": <int>, // Required for 'listBucketResult'
-        "maxKeys": <int>, // Required for 'listBucketResult'
-        "delimiter": <string>,
-        "encodingType": <string>
-        "isTruncated": <boolean>, // Required for 'listBucketResult'
-        "contents": [ {
-            "key": <string>, // Required for 'content'
-            "lastModified": <string>,
-            "eTag": <string>,
-            "checksumAlgorithm": <string>, // CRC32, CRC32C, SHA1, SHA256
-            "size": <int>, // Required for 'content'
-            "owner": {
-                "displayName": <string>, // Required for 'owner'
-                "id": <string>, // Required for 'owner'
-            },
-            "storageClass": <string>
-            },
-            ...
-        ],
-        "commonPrefixes": [ {
-            "prefix": <string> // Required for 'commonPrefix'
-            },
-        ...
-        ],
-    }
+        "keyCount": <int>, // Required for 'listBucketResult'  
+        "maxKeys": <int>, // Required for 'listBucketResult'  
+        "delimiter": <string>,  
+        "encodingType": <string>  
+        "isTruncated": <boolean>, // Required for 'listBucketResult'  
+        "contents": [ {  
+            "key": <string>, // Required for 'content'  
+            "lastModified": <string>,  
+            "eTag": <string>,  
+            "checksumAlgorithm": <string>, // CRC32, CRC32C, SHA1, SHA256  
+            "size": <int>, // Required for 'content'  
+            "owner": {  
+                "displayName": <string>, // Required for 'owner'  
+                "id": <string>, // Required for 'owner'  
+            },  
+            "storageClass": <string>  
+            },  
+            ...  
+        ],  
+        "commonPrefixes": [ {  
+            "prefix": <string> // Required for 'commonPrefix'  
+            },  
+        ...  
+        ],  
+    }  
 }
 ```

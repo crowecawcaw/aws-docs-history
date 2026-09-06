@@ -1,46 +1,36 @@
+
+
 # Uploading a directory using the high-level .NET TransferUtility class
+<a name="HLuploadDirDotNet"></a>
 
-You can use the `TransferUtility` class to upload an entire directory. By
-default, the API uploads only the files at the root of the specified directory. You can,
-however, specify recursively uploading files in all of the sub directories.
+You can use the `TransferUtility` class to upload an entire directory. By default, the API uploads only the files at the root of the specified directory. You can, however, specify recursively uploading files in all of the sub directories. 
 
-To select files in the specified directory based on filtering criteria, specify
-filtering expressions. For example, to upload only the `PDF` files from a directory,
-specify the `"*.pdf"` filter expression.
+To select files in the specified directory based on filtering criteria, specify filtering expressions. For example, to upload only the `PDF` files from a directory, specify the `"*.pdf"` filter expression. 
 
-When uploading files from a directory, you don't specify the key names for the
-resulting objects. Amazon S3 constructs the key names using the original file path. For
-example, assume that you have a directory called `c:\myfolder` with the
-following structure:
+When uploading files from a directory, you don't specify the key names for the resulting objects. Amazon S3 constructs the key names using the original file path. For example, assume that you have a directory called `c:\myfolder` with the following structure:
 
-###### Example
+**Example**  
 
 ```
-C:\myfolder
-      \a.txt
-      \b.pdf
-      \media\
-             An.mp3
+1. C:\myfolder
+2.       \a.txt
+3.       \b.pdf
+4.       \media\               
+5.              An.mp3
 ```
 
 When you upload this directory, Amazon S3 uses the following key names:
 
-###### Example
+**Example**  
 
 ```
-a.txt
-b.pdf
-media/An.mp3
+1. a.txt
+2. b.pdf
+3. media/An.mp3
 ```
 
-###### Example
-
-The following C# example uploads a directory to an Amazon S3 bucket. It shows how to
-use various `TransferUtility.UploadDirectory` overloads to upload the
-directory. Each successive call to upload replaces the previous upload. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+**Example**  
+The following C\# example uploads a directory to an Amazon S3 bucket. It shows how to use various `TransferUtility.UploadDirectory` overloads to upload the directory. Each successive call to upload replaces the previous upload. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
 ```
 using Amazon;
@@ -79,8 +69,8 @@ namespace Amazon.DocSamples.S3
                     existingBucketName);
                 Console.WriteLine("Upload statement 1 completed");
 
-                // 2. Upload only the .txt files from a directory
-                //    and search recursively.
+                // 2. Upload only the .txt files from a directory 
+                //    and search recursively. 
                 await directoryTransferUtility.UploadDirectoryAsync(
                                                directoryPath,
                                                existingBucketName,
@@ -88,7 +78,7 @@ namespace Amazon.DocSamples.S3
                                                SearchOption.AllDirectories);
                 Console.WriteLine("Upload statement 2 completed");
 
-                // 3. The same as Step 2 and some optional configuration.
+                // 3. The same as Step 2 and some optional configuration. 
                 //    Search recursively for .txt files to upload.
                 var request = new TransferUtilityUploadDirectoryRequest
                 {
@@ -114,5 +104,4 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```

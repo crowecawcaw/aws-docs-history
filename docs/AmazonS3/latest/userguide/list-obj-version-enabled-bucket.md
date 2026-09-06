@@ -1,70 +1,53 @@
+
+
 # Listing objects in a versioning-enabled bucket
+<a name="list-obj-version-enabled-bucket"></a>
 
-This section provides examples of listing object versions from a versioning-enabled
-bucket. Amazon S3 stores object version information in the _versions_
-subresource that is associated with the bucket. For more information, see [General purpose buckets configuration options](UsingBucket.md#bucket-config-options-intro "UsingBucket.md#bucket-config-options-intro").
-In order to list the objects in a versioning-enabled bucket, you need the
-`ListBucketVersions` permission.
+This section provides examples of listing object versions from a versioning-enabled bucket. Amazon S3 stores object version information in the *versions* subresource that is associated with the bucket. For more information, see [General purpose buckets configuration options](UsingBucket.md#bucket-config-options-intro). In order to list the objects in a versioning-enabled bucket, you need the `ListBucketVersions` permission.
 
-Follow these steps to use the Amazon S3 console to see the different versions of an
-object.
+## Using the S3 console
+<a name="view-object-versions"></a>
 
-###### To see multiple versions of an object
+Follow these steps to use the Amazon S3 console to see the different versions of an object.
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the **Buckets** list, choose the name of the bucket that
-   contains the object.
-3. To see a list of the versions of the objects in the bucket, choose the **Show
-   versions** switch.
+**To see multiple versions of an object**
 
-For each object version, the console shows a unique version ID, the date and time the
-object version was created, and other properties. (Objects stored in your bucket before you
-set the versioning state have a version ID of **null**.)
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-To list the objects without the versions, choose the **List versions**
-switch.
-You also can view, download, and delete object versions in the object overview pane on the
-console. For more information, see [Viewing object properties in the Amazon S3 console](view-object-properties.md "view-object-properties.md").
+1. In the **Buckets** list, choose the name of the bucket that contains the object.
 
-###### Note
+1. To see a list of the versions of the objects in the bucket, choose the **Show versions** switch. 
 
-To access object versions older than 300 versions, you must use the AWS CLI or the
-object's URL.
+   For each object version, the console shows a unique version ID, the date and time the object version was created, and other properties. (Objects stored in your bucket before you set the versioning state have a version ID of **null**.)
 
-###### Important
+   To list the objects without the versions, choose the **List versions** switch.
 
-You can undelete an object only if it was deleted as the latest (current) version. You
-can't undelete a previous version of an object that was deleted. For more information, see
-[Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md").
+You also can view, download, and delete object versions in the object overview pane on the console. For more information, see [Viewing object properties in the Amazon S3 console](view-object-properties.md).
 
-The examples in this section show how to retrieve an object listing from a
-versioning-enabled bucket. Each request returns up to 1,000 versions, unless you
-specify a lower number. If the bucket contains more versions than this limit,
-you send a series of requests to retrieve the list of all versions. This process
-of returning results in "pages" is called
-_pagination_.
+**Note**  
+ To access object versions older than 300 versions, you must use the AWS CLI or the object's URL.
 
-To show how pagination works, the examples limit each response to two object
-versions. After retrieving the first page of results, each example checks to
-determine whether the version list was truncated. If it was, the example
-continues retrieving pages until all versions have been retrieved.
+**Important**  
+You can undelete an object only if it was deleted as the latest (current) version. You can't undelete a previous version of an object that was deleted. For more information, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md).
 
-###### Note
+## Using the AWS SDKs
+<a name="list-obj-version-enabled-bucket-sdk-examples"></a>
 
-The following examples also work with a bucket that isn't
-versioning-enabled, or for objects that don't have individual versions. In
-those cases, Amazon S3 returns the object listing with a version ID of
-`null`.
+The examples in this section show how to retrieve an object listing from a versioning-enabled bucket. Each request returns up to 1,000 versions, unless you specify a lower number. If the bucket contains more versions than this limit, you send a series of requests to retrieve the list of all versions. This process of returning results in "pages" is called *pagination*.
 
-For information about using other AWS SDKs, see the [AWS Developer Center](https://aws.amazon.com/code/ "https://aws.amazon.com/code/").
+To show how pagination works, the examples limit each response to two object versions. After retrieving the first page of results, each example checks to determine whether the version list was truncated. If it was, the example continues retrieving pages until all versions have been retrieved. 
 
-Java
-For instructions on creating and testing a working sample, see [Getting
-Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
+**Note**  
+The following examples also work with a bucket that isn't versioning-enabled, or for objects that don't have individual versions. In those cases, Amazon S3 returns the object listing with a version ID of `null`.
+
+ For information about using other AWS SDKs, see the [AWS Developer Center](https://aws.amazon.com/code/). 
+
+------
+#### [ Java ]
+
+For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.
 
 ```
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -123,15 +106,12 @@ public class ListKeysVersioningEnabledBucket {
         }
     }
 }
-
-
 ```
 
-.NET
-For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+------
+#### [ .NET ]
+
+For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -170,7 +150,7 @@ namespace Amazon.DocSamples.S3
                 };
                 do
                 {
-                    ListVersionsResponse response = await s3Client.ListVersionsAsync(request);
+                    ListVersionsResponse response = await s3Client.ListVersionsAsync(request); 
                     // Process response.
                     foreach (S3ObjectVersion entry in response.Versions)
                     {
@@ -178,7 +158,7 @@ namespace Amazon.DocSamples.S3
                             entry.Key, entry.Size);
                     }
 
-                    // If response is truncated, set the marker to get the next
+                    // If response is truncated, set the marker to get the next 
                     // set of keys.
                     if (response.IsTruncated)
                     {
@@ -202,108 +182,69 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
 
-###### Example— Listing all object versions in a bucket
+------
 
-To list all the versions of all the objects in a bucket, you use the
-`versions` subresource in a `GET Bucket` request.
-Amazon S3 can retrieve a maximum of 1,000 objects, and each object version counts
-fully as an object. Therefore, if a bucket contains two keys (for example,
-`photo.gif` and `picture.jpg`),
-and the first key has 990 versions and the second key has 400 versions, a
-single request would retrieve all 990 versions of
-`photo.gif` and only the most recent 10 versions of
-`picture.jpg`.
+## Using the REST API
+<a name="ListingtheObjectsinaVersioningEnabledBucket"></a>
 
-Amazon S3 returns object versions in the order in which they were stored, with
-the most recently stored returned first.
-
-In a `GET Bucket` request, include the `versions`
-subresource.
+**Example — Listing all object versions in a bucket**  
+To list all the versions of all the objects in a bucket, you use the `versions` subresource in a `GET Bucket` request. Amazon S3 can retrieve a maximum of 1,000 objects, and each object version counts fully as an object. Therefore, if a bucket contains two keys (for example, `photo.gif` and `picture.jpg`), and the first key has 990 versions and the second key has 400 versions, a single request would retrieve all 990 versions of `photo.gif` and only the most recent 10 versions of `picture.jpg`.  
+Amazon S3 returns object versions in the order in which they were stored, with the most recently stored returned first.  
+In a `GET Bucket` request, include the `versions` subresource.  
 
 ```
-GET /?**versions** HTTP/1.1
-Host: `bucketName`.s3.amazonaws.com
-Date: Wed, 28 Oct 2009 22:32:00 +0000
-Authorization: AWS `AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=`
+1. GET /?versions HTTP/1.1
+2. Host: {{bucketName}}.s3.amazonaws.com
+3. Date: Wed, 28 Oct 2009 22:32:00 +0000
+4. Authorization: AWS {{AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=}}
 ```
 
-###### Example— Retrieving all versions of a key
+**Example — Retrieving all versions of a key**  
+ To retrieve a subset of object versions, you use the request parameters for `GET Bucket`. For more information, see [GET Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGET.html).   
 
-To retrieve a subset of object versions, you use the request parameters for `GET
- Bucket`. For more information, see [GET Bucket](../API/RESTBucketGET.md "../API/RESTBucketGET.md").
+1. Set the `prefix` parameter to the key of the object that you want to retrieve.
 
-1. Set the `prefix` parameter to the key of the object
-   that you want to retrieve.
-2. Send a `GET Bucket` request using the
-   `versions` subresource and
-   `prefix`.
+1. Send a `GET Bucket` request using the `versions` subresource and `prefix`.
 
-`GET /?versions&prefix=objectName HTTP/1.1`
+   `GET /?versions&prefix=objectName HTTP/1.1`
 
-###### Example— Retrieving objects using a prefix
-
-The following example retrieves objects whose key is or begins with
-`myObject`.
+**Example — Retrieving objects using a prefix**  
+The following example retrieves objects whose key is or begins with `myObject`.  
 
 ```
-GET /?versions&prefix=myObject HTTP/1.1
-Host: bucket.s3.amazonaws.com
-Date: Wed, 28 Oct 2009 22:32:00 GMT
-Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+1. GET /?versions&prefix=myObject HTTP/1.1
+2. Host: bucket.s3.amazonaws.com
+3. Date: Wed, 28 Oct 2009 22:32:00 GMT
+4. Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
 ```
+You can use the other request parameters to retrieve a subset of all versions of the object. For more information, see [GET Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGET.html) in the *Amazon Simple Storage Service API Reference*.
 
-You can use the other request parameters to retrieve a subset of all versions of the
-object. For more information, see [GET Bucket](../API/RESTBucketGET.md "../API/RESTBucketGET.md")
-in the _Amazon Simple Storage Service API Reference_.
+**Example — Retrieving a listing of additional objects if the response is truncated**  
+If the number of objects that could be returned in a `GET` request exceeds the value of `max-keys`, the response contains `<isTruncated>true</isTruncated>`, and includes the first key (in `NextKeyMarker`) and the first version ID (in `NextVersionIdMarker`) that satisfy the request, but were not returned. You use those returned values as the starting position in a subsequent request to retrieve the additional objects that satisfy the `GET` request.   
+Use the following process to retrieve additional objects that satisfy the original `GET Bucket versions` request from a bucket. For more information about `key-marker`, `version-id-marker`, `NextKeyMarker`, and `NextVersionIdMarker`, see [GET Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGET.html) in the *Amazon Simple Storage Service API Reference*.  
+The following are additional responses that satisfy the original `GET` request:  
++ Set the value of `key-marker` to the key returned in `NextKeyMarker` in the previous response.
++ Set the value of `version-id-marker` to the version ID returned in `NextVersionIdMarker` in the previous response.
++ Send a `GET Bucket versions` request using `key-marker` and `version-id-marker`.
 
-###### Example— Retrieving a listing of additional objects if the response is truncated
-
-If the number of objects that could be returned in a `GET`
-request exceeds the value of `max-keys`, the response contains
-`<isTruncated>true</isTruncated>`, and includes
-the first key (in `NextKeyMarker`) and the first version ID (in
-`NextVersionIdMarker`) that satisfy the request, but were not
-returned. You use those returned values as the starting position in a
-subsequent request to retrieve the additional objects that satisfy the
-`GET` request.
-
-Use the following process to retrieve additional objects that satisfy the original
-`GET Bucket versions` request from a bucket. For more
-information about `key-marker`, `version-id-marker`,
-`NextKeyMarker`, and `NextVersionIdMarker`, see
-[GET
-Bucket](../API/RESTBucketGET.md "../API/RESTBucketGET.md") in the _Amazon Simple Storage Service API Reference_.
-
-The following are additional responses that satisfy the original `GET`
-request:
-
-- Set the value of `key-marker` to the key returned in
-  `NextKeyMarker` in the previous response.
-- Set the value of `version-id-marker` to the version ID
-  returned in `NextVersionIdMarker` in the previous
-  response.
-- Send a `GET Bucket versions` request using
-  `key-marker` and
-  `version-id-marker`.
-
-###### Example— Retrieving objects starting with a specified key and version ID
+**Example — Retrieving objects starting with a specified key and version ID**  
 
 ```
-GET /?versions&key-marker=myObject&version-id-marker=298459348571 HTTP/1.1
-Host: bucket.s3.amazonaws.com
-Date: Wed, 28 Oct 2009 22:32:00 GMT
-Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
+1. GET /?versions&key-marker=myObject&version-id-marker=298459348571 HTTP/1.1
+2. Host: bucket.s3.amazonaws.com
+3. Date: Wed, 28 Oct 2009 22:32:00 GMT
+4. Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
 ```
 
-The following command returns metadata about all versions of the objects in a
-bucket.
+## Using the AWS CLI
+<a name="list-obj-version-enabled-bucket-cli"></a>
+
+The following command returns metadata about all versions of the objects in a bucket. 
 
 ```
-aws s3api list-object-versions --bucket `amzn-s3-demo-bucket1`
+aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket1}}
 ```
 
-For more information about `list-object-versions` see [list-object-versions](../../../cli/latest/reference/s3api/list-object-versions.md "../../../cli/latest/reference/s3api/list-object-versions.md") in the
-_AWS CLI Command Reference_.
+For more information about `list-object-versions` see [list-object-versions](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-object-versions.html) in the *AWS CLI Command Reference*.

@@ -1,19 +1,23 @@
+
+
 # CloudTrail log file example for S3 Vectors
+<a name="s3-vectors-cloudtrail-log-example"></a>
 
 The following examples show CloudTrail log entries for S3 Vectors data events. Data events are logged when you perform operations on vector data within your vector indexes.
 
 ## Example: CloudTrail log file for `GetVectors` data event
+<a name="s3-vectors-cloudtrail-getvectors-example"></a>
 
 ```
 {
     "eventVersion": "1.11",
     "userIdentity": {
         "type": "IAMUser",
-        "principalId": "`123456789012`",
-        "arn": "arn:aws:iam::123456789012:user/`myUserName`",
+        "principalId": "{{123456789012}}",
+        "arn": "arn:aws:iam::123456789012:user/{{myUserName}}",
         "accountId": "123456789012",
-        "accessKeyId": "`AKIAIOSFODNN7EXAMPLE`",
-        "userName": "`myUserName`"
+        "accessKeyId": "{{AKIAIOSFODNN7EXAMPLE}}",
+        "userName": "{{myUserName}}"
     },
     "eventTime": "2024-11-22T17:12:25Z",
     "eventSource": "s3vectors.amazonaws.com",
@@ -24,9 +28,9 @@ The following examples show CloudTrail log entries for S3 Vectors data events. D
     "requestParameters": {
         "vectorBucketName": "amzn-s3-demo-vector-bucket",
         "returnMetadata": "false",
-        "indexName": "`111aa1111-22bb-33cc-44dd-5555eee66ffff`",
+        "indexName": "{{111aa1111-22bb-33cc-44dd-5555eee66ffff}}",
         "returnData": "false"
-    },
+    },            
     "responseElements": null,
     "additionalEventData": {
         "SignatureVersion": "SigV4",
@@ -38,11 +42,11 @@ The following examples show CloudTrail log entries for S3 Vectors data events. D
     "resources": [{
         "accountId": "123456789012",
         "type": "AWS::S3Vectors::VectorBucket",
-        "ARN": "arn:aws:s3vectors:us-east-1:123456789012:bucket/`amzn-s3-demo-vector-bucket`"
+        "ARN": "arn:aws:s3vectors:us-east-1:123456789012:bucket/{{amzn-s3-demo-vector-bucket}}"
     }, {
         "accountId": "123456789012",
         "type": "AWS::S3Vectors::Index",
-        "ARN": "arn:aws:s3vectors:us-east-1:123456789012:bucket/`amzn-s3-demo-vector-bucket`/index/`111aa1111-22bb-33cc-44dd-5555eee66ffff`"
+        "ARN": "arn:aws:s3vectors:us-east-1:123456789012:bucket/{{amzn-s3-demo-vector-bucket}}/index/{{111aa1111-22bb-33cc-44dd-5555eee66ffff}}"
     }],
     "eventType": "AwsApiCall",
     "managementEvent": false,
@@ -51,21 +55,21 @@ The following examples show CloudTrail log entries for S3 Vectors data events. D
     "tlsDetails": {
         "tlsVersion": "TLSv1.2",
         "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
-        "clientProvidedHostHeader": "`client-host`"
+        "clientProvidedHostHeader": "{{client-host}}"
     }
 }
 ```
 
 ## Understanding S3 Vectors log file entries
+<a name="s3-vectors-cloudtrail-understanding"></a>
 
 CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 S3 Vectors CloudTrail log entries contain the following key elements:
-
-- **eventSource** - Always `s3vectors.amazonaws.com` for S3 Vectors events.
-- **eventName** - The S3 Vectors API operation that was performed.
-- **eventCategory** - Either `Management` for control plane operations or `Data` for data plane operations.
-- **readOnly**: `true` for read operations (for examples, [GetVectors](../API/API_S3VectorBuckets_GetVectors.md "../API/API_S3VectorBuckets_GetVectors.md"), [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md"), [ListVectors](../API/API_S3VectorBuckets_ListVectors.md "../API/API_S3VectorBuckets_ListVectors.md")) and `false` for write operations ([PutVectors](../API/API_S3VectorBuckets_PutVectors.md "../API/API_S3VectorBuckets_PutVectors.md"), [DeleteVectors](../API/API_S3VectorBuckets_DeleteVectors.md "../API/API_S3VectorBuckets_DeleteVectors.md")).
-- **resources** - The S3 Vectors resources involved in the operation, including vector buckets and vector indexes.
-- **requestParameters** - The parameters that were sent with the request.
-- **responseElements** - The response elements returned by the S3 Vectors service.
++ **eventSource** - Always `s3vectors.amazonaws.com` for S3 Vectors events.
++ **eventName** - The S3 Vectors API operation that was performed.
++ **eventCategory** - Either `Management` for control plane operations or `Data` for data plane operations.
++ **readOnly**: `true` for read operations (for examples, [GetVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_GetVectors.html), [QueryVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_QueryVectors.html), [ListVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_ListVectors.html)) and `false` for write operations ([PutVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_PutVectors.html), [DeleteVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_DeleteVectors.html)).
++ **resources** - The S3 Vectors resources involved in the operation, including vector buckets and vector indexes.
++ **requestParameters** - The parameters that were sent with the request.
++ **responseElements** - The response elements returned by the S3 Vectors service.

@@ -1,12 +1,12 @@
+
+
 # Reserved keywords
+<a name="s3-select-sql-reference-keyword-list"></a>
 
-###### Important
+**Important**  
+Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
 
-Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
-
-The following is the list of reserved keywords for Amazon S3 Select. These keywords include
-function names, data types, operators, and so on, that are needed to run the SQL
-expressions that are used to query object content.
+The following is the list of reserved keywords for Amazon S3 Select. These keywords include function names, data types, operators, and so on, that are needed to run the SQL expressions that are used to query object content.
 
 ```
 absolute

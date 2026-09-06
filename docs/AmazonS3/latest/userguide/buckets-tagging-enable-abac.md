@@ -1,53 +1,41 @@
+
+
 # Enabling ABAC in general purpose buckets
+<a name="buckets-tagging-enable-abac"></a>
 
 Attribute-based access control (ABAC) is an authorization strategy that you use to define permissions based on attributes, i.e., tags. By default, ABAC is disabled for all Amazon S3 general purpose buckets. To use ABAC for general purpose buckets, you must enable it.
 
-Before enabling ABAC for your general purpose bucket, we recommend that you first complete the tasks described in the following topics:
+Before enabling ABAC for your general purpose bucket, we recommend that you first complete the tasks described in the following topics: 
 
-###### Topics
-
-- [Auditing your policies before enabling ABAC](#buckets-tagging-enable-abac-audit "#buckets-tagging-enable-abac-audit")
+**Topics**
++ [Auditing your policies before enabling ABAC](#buckets-tagging-enable-abac-audit)
 
 ## Auditing your policies before enabling ABAC
+<a name="buckets-tagging-enable-abac-audit"></a>
 
-Before you enable ABAC for your bucket, if your bucket has tags, audit your access
-control policies to review if tag-based conditions reference any of the existing tags on your
-buckets. If they do, confirm that these policies are set up as intended and that enabling
-tag-based access control does not create unintentional authorization changes to your Amazon S3
-workflows. Doing so will help you ensure that your policies function as intended after ABAC is
-enabled on your buckets. For examples of using attribute-based conditions with tags, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
+Before you enable ABAC for your bucket, if your bucket has tags, audit your access control policies to review if tag-based conditions reference any of the existing tags on your buckets. If they do, confirm that these policies are set up as intended and that enabling tag-based access control does not create unintentional authorization changes to your Amazon S3 workflows. Doing so will help you ensure that your policies function as intended after ABAC is enabled on your buckets. For examples of using attribute-based conditions with tags, see [Using tags with S3 general purpose buckets](buckets-tagging.md).
 
 ### Including the required permissions in your IAM policies
+<a name="buckets-tagging-enable-abac-permissions"></a>
 
-You need the following Amazon S3 permissions to enable ABAC for your bucket:
+You need the following Amazon S3 permissions to enable ABAC for your bucket: 
++ `s3:PutBucketAbac` – Update the ABAC status for your general purpose bucket.
++ `s3:GetBucketAbac` – View the ABAC status for your general purpose bucket
 
-- `s3:PutBucketAbac` – Update the ABAC status for your general purpose bucket.
-- `s3:GetBucketAbac` – View the ABAC status for your general purpose bucket
+After you enable ABAC, the permissions you previously used to add tags to a bucket or delete tags from a bucket, `PutBucketTagging` or `DeleteBucketTagging`, will no longer work. Instead, use the `TagResource` and *UntagResource* APIs to perform these tasks. 
 
-After you enable ABAC, the permissions you previously used to add tags to a bucket or delete
-tags from a bucket, `PutBucketTagging` or `DeleteBucketTagging`, will
-no longer work. Instead, use the `TagResource` and
-_UntagResource_ APIs to perform these tasks.
+We recommend you use `TagResource` and `UntagResource` APIs to manage tagging before enabling ABAC on your buckets. The Amazon S3 Console and CloudFormation now use the `TagResource` and `UntagResource` APIs by default. You can also disable ABAC on your bucket by using the `PutBucketAbac` API. You can use `GetBucketTagging` to list tags on your buckets. This API will continue to work after you enable ABAC for your buckets. Alternatively you can also use `ListTagsForResource` to list all tags on your buckets. 
 
-We recommend you use `TagResource` and `UntagResource` APIs to
-manage tagging before enabling ABAC on your buckets. The Amazon S3 Console and CloudFormation now use the
-`TagResource` and `UntagResource` APIs by default. You can also
-disable ABAC on your bucket by using the `PutBucketAbac` API. You can use
-`GetBucketTagging` to list tags on your buckets. This API will continue to work
-after you enable ABAC for your buckets. Alternatively you can also use
-`ListTagsForResource` to list all tags on your buckets.
-
-You will need the following permissions to apply tags to and remove them from general purpose buckets.
-
-- `s3:TagResource` - Add tags to an AWS resource, such as an Amazon S3 general purpose bucket.
-- `s3:UntagResource` - Remove tags from an AWS resource, such as an Amazon S3 general purpose bucket.
-- `s3:ListTagsForResource` - View the tags applied to an AWS resource, such as an Amazon S3 general purpose bucket.
+You will need the following permissions to apply tags to and remove them from general purpose buckets. 
++ `s3:TagResource` - Add tags to an AWS resource, such as an Amazon S3 general purpose bucket.
++ `s3:UntagResource` - Remove tags from an AWS resource, such as an Amazon S3 general purpose bucket.
++ `s3:ListTagsForResource` - View the tags applied to an AWS resource, such as an Amazon S3 general purpose bucket.
 
 The following IAM policy grants the permission to enable ABAC and view its status for your bucket.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -61,25 +49,41 @@ The following IAM policy grants the permission to enable ABAC and view its statu
 }
 ```
 
-For more information on tagging general purpose buckets and example ABAC policies for general purpose buckets, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
+For more information on tagging general purpose buckets and example ABAC policies for general purpose buckets, see [Using tags with S3 general purpose buckets](buckets-tagging.md). 
 
 ### Steps
+<a name="bucket-tag-add-steps"></a>
 
 If you have `s3:PutBucketAbac` permission for a general purpose bucket, you can enable ABAC for the bucket by using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and AWS SDKs.
 
+### Using the S3 console
+<a name="bucket-enable-abac-console"></a>
+
 To enable ABAC for a general purpose bucket using the Amazon S3 console:
 
-1. Sign in to Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **buckets**.
-3. Choose the bucket name.
-4. Choose the **Properties** tab.
-5. In the **Bucket ABAC** panel, and choose **Edit**.
-6. Choose the **Enable** toggle.
-7. Review and acknowledge the permissions you will need to manage tags after you enable ABAC: `TagResource`, `UntagResource`, and `ListTagsForResource`.
-8. Choose **Save changes**.
+1. Sign in to Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-SDK for Java 2.x
-This example shows you how to add enable ABAC for a general purpose bucket by using the AWS SDK for Java 2.x. To use the command replace the `user input placeholders` with your own information.
+1. In the left navigation pane, choose **buckets**.
+
+1. Choose the bucket name. 
+
+1. Choose the **Properties** tab. 
+
+1. In the **Bucket ABAC** panel, and choose **Edit**. 
+
+1. Choose the **Enable** toggle. 
+
+1. Review and acknowledge the permissions you will need to manage tags after you enable ABAC: `TagResource`, `UntagResource`, and `ListTagsForResource`. 
+
+1. Choose **Save changes**. 
+
+### Using the AWS SDKs
+<a name="bucket-enable-abac-sdks"></a>
+
+------
+#### [ SDK for Java 2.x ]
+
+This example shows you how to add enable ABAC for a general purpose bucket by using the AWS SDK for Java 2.x. To use the command replace the {{user input placeholders}} with your own information. 
 
 ```
 import software.amazon.awssdk.services.s3.S3Client;
@@ -88,7 +92,7 @@ import software.amazon.awssdk.services.s3.model.GetBucketAbacRequest;
 import software.amazon.awssdk.services.s3.model.GetBucketAbacResponse;
 import software.amazon.awssdk.services.s3.model.PutBucketAbacRequest;
 import software.amazon.awssdk.services.s3.model.PutBucketAbacResponse;
-import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.regions.Region; 
 
 public class BucketAbac {
     public static void main(String[] args) {
@@ -106,7 +110,7 @@ public class BucketAbac {
 
     /**
      * Sets the ABAC (Attribute-Based Access Control) status for a specified S3 bucket.
-     *
+     * 
      * @param s3 The S3Client instance to use for the API call
      * @param bucketName The name of the S3 bucket to update
      * @param status The desired ABAC status ("Enabled" or "Disabled")
@@ -126,10 +130,10 @@ public class BucketAbac {
             System.exit(1);
         }
     }
-
+    
     /**
      * Retrieves the current ABAC (Attribute-Based Access Control) status for a specified S3 bucket.
-     *
+     * 
      * @param s3 The S3Client instance to use for the API call
      * @param bucketName The name of the S3 bucket to query
     */
@@ -145,18 +149,24 @@ public class BucketAbac {
         }
     }
 }
-
 ```
 
 This example shows you how to add enable ABAC for a general purpose bucket by using the AWS SDK for Java 2.x. To use the command replace the `user input placeholders` with your own information.
 
-For information about the Amazon S3 REST API support for adding tags to a general purpose bucket, see the following section in the _Amazon Simple Storage Service API Reference_:
+------
 
-- [PutBucketAbac](../API/API_control_PutBucketABAC.md "../API/API_control_PutBucketABAC.md")
+### Using the REST API
+<a name="bucket-enable-abac-api"></a>
 
-To install the AWS CLI, see [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
+For information about the Amazon S3 REST API support for adding tags to a general purpose bucket, see the following section in the *Amazon Simple Storage Service API Reference*:
++ [PutBucketAbac](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketABAC.html)
 
-The following CLI example shows you how to enable ABAC for a general purpose bucket by using the AWS CLI. To use the command replace the `user input placeholders` with your own information.
+### Using the AWS CLI
+<a name="bucket-enable-abac-cli"></a>
+
+To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.
+
+The following CLI example shows you how to enable ABAC for a general purpose bucket by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
 **Request:**
 
@@ -172,5 +182,4 @@ aws s3api put-bucket-abac --bucket amzn-s3-demo-bucket --abac-status Status=Disa
 # Get ABAC status on a general purpose bucket
 
 aws s3api get-bucket-abac --bucket amzn-s3-demo-bucket --region us-east-2
-
 ```

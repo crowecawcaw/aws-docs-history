@@ -1,36 +1,23 @@
+
+
 # Managing public access to access points for general purpose buckets
+<a name="access-points-bpa-settings"></a>
 
-Amazon S3 access points support independent _block public access_
-settings for each access point. When you create an access point, you can specify block
-public access settings that apply to that access point. For any request made through an
-access point, Amazon S3 evaluates the block public access settings for that access point, the
-underlying bucket, and the bucket owner's account. If any of these settings indicate
-that the request should be blocked, Amazon S3 rejects the request.
+Amazon S3 access points support independent *block public access* settings for each access point. When you create an access point, you can specify block public access settings that apply to that access point. For any request made through an access point, Amazon S3 evaluates the block public access settings for that access point, the underlying bucket, and the bucket owner's account. If any of these settings indicate that the request should be blocked, Amazon S3 rejects the request.
 
-For more information about the S3 Block Public Access feature, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
+For more information about the S3 Block Public Access feature, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md).
 
-###### Important
+**Important**  
+All block public access settings are enabled by default for access points. You must explicitly disable any settings that you don't want during access point creation.
+You can not turn off any block public access settings when creating or using an access point attached to an Amazon FSx file system.
+After you create an access point, you can't change its block public access settings.
 
-- All block public access settings are enabled by default for access points.
-  You must explicitly disable any settings that you don't want during access point creation.
-- You can not turn off any block public access settings when creating or using an
-  access point attached to an Amazon FSx file system.
-- After you create an access point, you can't change its block public access settings.
-
-###### Example
-
-_**Example: Create an access point with
-Custom Block Public Access Settings**_
-
-This example creates an access point named `example-ap` for bucket
-`amzn-s3-demo-bucket` in account `123456789012` with
-non-default Block Public Access settings. The example then retrieves the new access point's
-configuration to verify its Block Public Access settings.
-
-AWS CLI
+**Example**  
+***Example: Create an access point with Custom Block Public Access Settings***  
+This example creates an access point named `example-ap` for bucket `{{amzn-s3-demo-bucket}}` in account `123456789012` with non-default Block Public Access settings. The example then retrieves the new access point's configuration to verify its Block Public Access settings.  
 
 ```
-aws s3control create-access-point --name example-ap --account-id 123456789012 --bucket `amzn-s3-demo-bucket`--public-access-block-configuration BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=true,RestrictPublicBuckets=true
+aws s3control create-access-point --name example-ap --account-id 123456789012 --bucket {{amzn-s3-demo-bucket}}--public-access-block-configuration BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=true,RestrictPublicBuckets=true
 ```
 
 ```
@@ -38,7 +25,7 @@ aws s3control get-access-point --name example-ap --account-id 123456789012
 
 {
     "Name": "example-ap",
-    "Bucket": "`amzn-s3-demo-bucket`",
+    "Bucket": "{{amzn-s3-demo-bucket}}",
     "NetworkOrigin": "Internet",
     "PublicAccessBlockConfiguration": {
         "BlockPublicAcls": false,

@@ -1,44 +1,44 @@
+
+
 # Deleting an AWS resource tag from a Storage Lens group
+<a name="storage-lens-groups-delete-tags"></a>
 
-The following examples demonstrate how to delete an AWS resource tag from a Storage
-Lens group. You can delete tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and
-AWS SDK for Java.
+The following examples demonstrate how to delete an AWS resource tag from a Storage Lens group. You can delete tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
-###### To delete an AWS resource tag from a Storage Lens group
+## Using the S3 console
+<a name="storage-lens-groups-delete-tags-console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the left navigation pane, choose **Storage Lens
-   groups**.
-3. Under **Storage Lens groups**, choose the Storage
-   Lens group that you want to update.
-4. Under **AWS resource tags**, select the key-value
-   pair that you want to delete.
-5. Choose **Delete**. The **Delete AWS
-   resource tags** dialog box appears.
+**To delete an AWS resource tag from a Storage Lens group**
 
-###### Note
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-If tags are used to control access, proceeding with this action
-can affect related resources. After you permanently delete a tag, it
-can't be restored. 6. Choose **Delete** to permanently delete the key-value
-pair.
-The following AWS CLI command deletes two AWS resource tags from an existing
-Storage Lens group: To use this example command, replace the
-`user input placeholders` with
-your own information.
+1. In the left navigation pane, choose **Storage Lens groups**.
+
+1. Under **Storage Lens groups**, choose the Storage Lens group that you want to update.
+
+1. Under **AWS resource tags**, select the key-value pair that you want to delete.
+
+1. Choose **Delete**. The **Delete AWS resource tags** dialog box appears.
+**Note**  
+If tags are used to control access, proceeding with this action can affect related resources. After you permanently delete a tag, it can't be restored.
+
+1. Choose **Delete** to permanently delete the key-value pair.
+
+## Using the AWS CLI
+<a name="storage-lens-groups-delete-tags-cli"></a>
+
+The following AWS CLI command deletes two AWS resource tags from an existing Storage Lens group: To use this example command, replace the `{{user input placeholders}}` with your own information.
 
 ```
-aws s3control untag-resource --account-id `111122223333` \
---resource-arn arn:aws:s3:`us-east-1`:`111122223333`:storage-lens-group/`Marketing-Department` \
---region `us-east-1` --tag-keys `k1` `k2`
+aws s3control untag-resource --account-id {{111122223333}} \
+--resource-arn arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{Marketing-Department}} \
+--region {{us-east-1}} --tag-keys {{k1}} {{k2}}
 ```
 
-The following AWS SDK for Java example deletes two AWS resource tags from the
-Storage Lens group Amazon Resource Name (ARN) that you specify in account
-`111122223333`. To use
-this example, replace the `user input
- placeholders` with your own information.
+## Using the AWS SDK for Java
+<a name="storage-lens-groups-delete-tags-sdk-java"></a>
+
+The following AWS SDK for Java example deletes two AWS resource tags from the Storage Lens group Amazon Resource Name (ARN) that you specify in account `{{111122223333}}`. To use this example, replace the `{{user input placeholders}}` with your own information.
 
 ```
 package aws.example.s3control;
@@ -52,19 +52,19 @@ import software.amazon.awssdk.services.s3control.model.UntagResourceRequest;
 
 public class UntagResource {
     public static void main(String[] args) {
-        String resourceARN = "`Resource_ARN`";
-        String accountId = "`111122223333`";
+        String resourceARN = "{{Resource_ARN}}";
+        String accountId = "{{111122223333}}";
 
         try {
-            String tagKey1 = "`resource-tag-key-1`";
-            String tagKey2 = "`resource-tag-key-2`";
+            String tagKey1 = "{{resource-tag-key-1}}";
+            String tagKey2 = "{{resource-tag-key-2}}";
             UntagResourceRequest untagResourceRequest = UntagResourceRequest.builder()
-                    .resourceArn(`resourceARN`)
-                    .tagKeys(`tagKey1`, `tagKey2`)
-                    .accountId(`accountId`)
+                    .resourceArn({{resourceARN}})
+                    .tagKeys({{tagKey1}}, {{tagKey2}})
+                    .accountId({{accountId}})
                     .build();
             S3ControlClient s3ControlClient = S3ControlClient.builder()
-                    .region(Region.`US_WEST_2`)
+                    .region(Region.{{US_WEST_2}})
                     .credentialsProvider(ProfileCredentialsProvider.create())
                     .build();
             s3ControlClient.untagResource(untagResourceRequest);

@@ -1,23 +1,19 @@
+
+
 # Tracking a multipart upload with the AWS SDKs
+<a name="track-mpu"></a>
 
-You can track an object's upload progress to Amazon S3 with a listen interface. The high-level
-multipart upload API provides such a listen interface, called `ProgressListener`.
-Progress events occur periodically and notify the listener that bytes have been transferred.
-For more general information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
+You can track an object's upload progress to Amazon S3 with a listen interface. The high-level multipart upload API provides such a listen interface, called `ProgressListener`. Progress events occur periodically and notify the listener that bytes have been transferred. For more general information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md).
 
-For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
-[Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see [Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md).
 
 The following section show how to track a multipart upload with the AWS SDKs.
 
-Java
+------
+#### [ Java ]
 
-###### Example
-
-The following Java code uploads a file and uses the `ExecutionInterceptor` to
-track the upload progress. For instructions on how to create and test a
-working sample, see [Getting
-Started](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md") in the AWS SDK for Java 2.x Developer Guide.
+**Example**  
+The following Java code uploads a file and uses the `ExecutionInterceptor` to track the upload progress. For instructions on how to create and test a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html) in the AWS SDK for Java 2.x Developer Guide.   
 
 ```
 import java.nio.file.Paths;
@@ -86,11 +82,10 @@ public class TrackMPUProgressUsingHighLevelAPI {
 }
 ```
 
-.NETThe following C# example uploads a file to an S3 bucket using the
-`TransferUtility` class, and tracks the progress of the upload. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+------
+#### [ .NET ]
+
+The following C\# example uploads a file to an S3 bucket using the `TransferUtility` class, and tracks the progress of the upload. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -157,5 +152,6 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
+
+------
