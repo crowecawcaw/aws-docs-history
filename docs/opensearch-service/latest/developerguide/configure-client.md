@@ -15,7 +15,7 @@ To ingest data into a pipeline, send it to the ingestion endpoint. To locate the
 ingestion URL, navigate to the **Pipeline settings** page and copy the
 **Ingestion URL**.
 
-![Pipeline settings page showing details like status, capacity, and ingestion URL for data input.](/images/opensearch-service/latest/developerguide/images/pipeline-endpoint.png)
+![Pipeline settings page showing details like status, capacity, and ingestion URL for data input.](images/pipeline-endpoint.png)
 
 To construct the full ingestion endpoint for pull-based sources like [OTel trace](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-trace/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-trace/") and [OTel metrics](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-metrics-source/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-metrics-source/"), add the ingestion path from your pipeline configuration to
 the ingestion URL.
