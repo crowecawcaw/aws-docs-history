@@ -1,48 +1,38 @@
+
+
 # Deleting storage virtual machines (SVM)
+<a name="deleting-svms"></a>
 
-You can only delete an FSx for ONTAP SVM by using the Amazon FSx console, the AWS CLI, and
-API. Before you can delete an SVM, you must delete all non-root volumes attached to the
-SVM first.
+You can only delete an FSx for ONTAP SVM by using the Amazon FSx console, the AWS CLI, and API. Before you can delete an SVM, you must delete all non-root volumes attached to the SVM first.
 
-###### Important
-
+**Important**  
 You cannot delete an SVM by using the NetApp ONTAP CLI or API.
 
-###### Note
+**Note**  
+Before you delete a storage virtual machine, make sure that no applications are accessing the data in the SVM, and that you have deleted all non-root volumes attached to the SVM.
 
-Before you delete a storage virtual machine, make sure that no applications
-are accessing the data in the SVM, and that you have deleted all non-root volumes
-attached to the SVM.
+**To delete a storage virtual machine (console)**
 
-###### To delete a storage virtual machine (console)
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/).
 
-1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2. Choose the SVM that you want to delete as follows:
+1. Choose the SVM that you want to delete as follows:
+   + In the left navigation pane, choose **File systems**, and then choose the ONTAP file system for which you want to delete an SVM.
+   + Choose the **Storage virtual machines** tab.
 
-   - In the left navigation pane, choose **File systems**, and then choose the
-     ONTAP file system for which you want to delete an SVM.
-   - Choose the **Storage virtual machines**
-     tab.
+     –Or–
+   + To display a list of all the SVMs available, expand **ONTAP** and choose **Storage virtual machines**.
 
-   –Or–
-   - To display a list of all the SVMs available, expand **ONTAP** and
-     choose **Storage virtual machines**.
-     Select the SVM that you want to delete from the list.
+   Select the SVM that you want to delete from the list.
 
-3. In the **Volumes** tab, view the list of volumes attached to the SVM. If
-   there are any non-root volumes attached to the SVM, you must delete them before
-   you can delete the SVM. See [Deleting volumes](deleting-volumes.md "deleting-volumes.md") for more information.
-4. Choose **Delete storage virtual machine** from the
-   **Actions** menu.
-5. In the delete confirmation dialog box, choose **Delete
-   storage virtual machine**.
+1. In the **Volumes** tab, view the list of volumes attached to the SVM. If there are any non-root volumes attached to the SVM, you must delete them before you can delete the SVM. See [Deleting volumes](deleting-volumes.md) for more information.
 
-###### To delete a storage virtual machine (CLI)
+1. Choose **Delete storage virtual machine** from the **Actions** menu.
 
-- To delete an FSx for ONTAP storage virtual machine, use the [delete-storage-virtual-machine](../../../cli/latest/reference/fsx/delete-storage-virtual-machine.md "../../../cli/latest/reference/fsx/delete-storage-virtual-machine.md") CLI command (or the
-  equivalent [DeleteStorageVirtualMachine](../APIReference/API_DeleteStorageVirtualMachine.md "../APIReference/API_DeleteStorageVirtualMachine.md") API operation), as shown in
-  the following example.
+1. In the delete confirmation dialog box, choose **Delete storage virtual machine**.
 
-```
-`aws fsx delete-storage-virtual-machine --storage-virtual-machine-id svm-abcdef0123456789d`
-```
+**To delete a storage virtual machine (CLI)**
++ To delete an FSx for ONTAP storage virtual machine, use the [delete-storage-virtual-machine](https://docs.aws.amazon.com/cli/latest/reference/fsx/delete-storage-virtual-machine.html) CLI command (or the equivalent [DeleteStorageVirtualMachine](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteStorageVirtualMachine.html) API operation), as shown in the following example.
+
+  ```
+  aws fsx delete-storage-virtual-machine --storage-virtual-machine-id svm-abcdef0123456789d
+  ```

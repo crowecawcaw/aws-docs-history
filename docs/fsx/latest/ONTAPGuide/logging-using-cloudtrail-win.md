@@ -1,69 +1,40 @@
+
+
 # Monitoring FSx for ONTAP API Calls with AWS CloudTrail
+<a name="logging-using-cloudtrail-win"></a>
 
-Amazon FSx is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in Amazon FSx. CloudTrail captures all Amazon FSx API calls for
-Amazon FSx for NetApp ONTAP as events. Captured calls include calls from the Amazon FSx console and from code calls to
-Amazon FSx API operations.
+Amazon FSx is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon FSx. CloudTrail captures all Amazon FSx API calls for Amazon FSx for NetApp ONTAP as events. Captured calls include calls from the Amazon FSx console and from code calls to Amazon FSx API operations.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
-including events for Amazon FSx. If you don't configure a trail, you can still view the most
-recent events in the CloudTrail console in **Event history**. Using the information
-collected by CloudTrail, you can determine the request that was made to Amazon FSx. You can also
-determine the IP address from which the request was made, who made the request, when it was
-made, and additional details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon FSx. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon FSx. You can also determine the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Amazon FSx Information in CloudTrail
+<a name="fsxW-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When API activity
-occurs in Amazon FSx, that activity is recorded in a CloudTrail event along with other AWS
-service events in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When API activity occurs in Amazon FSx, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for Amazon FSx,
-create a trail. A _trail_ enables CloudTrail to deliver log files
-to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all AWS Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure
-other AWS services to further analyze and act upon the event data collected in CloudTrail logs.
-For more information, see the following topics in the _AWS CloudTrail User Guide:_
+For an ongoing record of events in your AWS account, including events for Amazon FSx, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all AWS Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following topics in the *AWS CloudTrail User Guide:* 
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS service integrations with CloudTrail Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail Logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS
-  notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail
-  log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Amazon FSx [API calls](https://docs.aws.amazon.com/fsx/latest/APIReference/Welcome.html) are logged by CloudTrail. For example, calls to the `CreateFileSystem` and `TagResource` operations generate entries in the CloudTrail log files. 
 
-All Amazon FSx [API
-calls](../APIReference/Welcome.md "../APIReference/Welcome.md") are logged by CloudTrail. For example, calls to the `CreateFileSystem`
-and `TagResource` operations generate entries in the CloudTrail log files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide._
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide.*
 
 ## Understanding Amazon FSx Log File Entries
+<a name="w-understanding-service-name-entries"></a>
 
-A _trail_ is a configuration that enables delivery of
-events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log
-entries. An _event_ represents a single request from any
-source and includes information about the requested action, the date and time of the action,
-request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public
-API calls, so they don't appear in any specific order.
+A *trail* is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An *event* represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the
-`TagResource` operation when a tag for a file system is created from the
-console.
+The following example shows a CloudTrail log entry that demonstrates the `TagResource` operation when a tag for a file system is created from the console.
 
 ```
 {
@@ -99,9 +70,7 @@ console.
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`UntagResource` action when a tag for a file system is deleted from the
-console.
+The following example shows a CloudTrail log entry that demonstrates the `UntagResource` action when a tag for a file system is deleted from the console.
 
 ```
 {

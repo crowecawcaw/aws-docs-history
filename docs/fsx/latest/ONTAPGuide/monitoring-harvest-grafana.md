@@ -1,282 +1,242 @@
-# Monitoring FSx for ONTAP file systems using Harvest and Grafana
 
-NetApp Harvest is an open source tool for gathering performance and capacity metrics from ONTAP systems,
-and is compatible with FSx for ONTAP. You can use Harvest with Grafana for an open source monitoring solution.
+
+# Monitoring FSx for ONTAP file systems using Harvest and Grafana
+<a name="monitoring-harvest-grafana"></a>
+
+NetApp Harvest is an open source tool for gathering performance and capacity metrics from ONTAP systems, and is compatible with FSx for ONTAP. You can use Harvest with Grafana for an open source monitoring solution.
 
 ## Getting started with Harvest and Grafana
+<a name="harvest-grafana"></a>
 
-The following section details how you can set up and configure Harvest and Grafana to measure your FSx for ONTAP
-file system’s performance and storage capacity utilization.
+The following section details how you can set up and configure Harvest and Grafana to measure your FSx for ONTAP file system’s performance and storage capacity utilization. 
 
-You can monitor your Amazon FSx for NetApp ONTAP file system by using Harvest and Grafana.
-NetApp Harvest monitors ONTAP data centers by collecting performance, capacity, and
-hardware metrics from FSx for ONTAP file systems. Grafana provides a dashboard where
-the collected Harvest metrics can be displayed.
+You can monitor your Amazon FSx for NetApp ONTAP file system by using Harvest and Grafana. NetApp Harvest monitors ONTAP data centers by collecting performance, capacity, and hardware metrics from FSx for ONTAP file systems. Grafana provides a dashboard where the collected Harvest metrics can be displayed.
 
 ## Supported Harvest dashboards
+<a name="supported-harvest-dashboards"></a>
 
-Amazon FSx for NetApp ONTAP exposes a different set of metrics than does on-premises NetApp ONTAP. Therefore,
-only the following out-of-the-box Harvest dashboards tagged with `fsx` are currently supported for use with FSx for ONTAP.
-Some of the panels in these dashboards may be missing information that is not supported.
-
-- Harvest: Metadata
-- ONTAP: Aggregate
-- ONTAP: cDOT
-- ONTAP: Cluster
-- ONTAP: Compliance
-- ONTAP: Datacenter
-- ONTAP: Data Protection
-- ONTAP: LUN
-- ONTAP: Network
-- ONTAP: Node
-- ONTAP: Qtree
-- ONTAP: Security
-- ONTAP: SnapMirror
-- ONTAP: SnapMirror Destinations
-- ONTAP: SnapMirror Sources
-- ONTAP: SVM
-- ONTAP: Volume
-- ONTAP: Volume by SVM
-- ONTAP: Volume Deep Dive
+Amazon FSx for NetApp ONTAP exposes a different set of metrics than does on-premises NetApp ONTAP. Therefore, only the following out-of-the-box Harvest dashboards tagged with `fsx` are currently supported for use with FSx for ONTAP. Some of the panels in these dashboards may be missing information that is not supported.
++ Harvest: Metadata
++ ONTAP: Aggregate
++ ONTAP: cDOT
++ ONTAP: Cluster
++ ONTAP: Compliance
++ ONTAP: Datacenter
++ ONTAP: Data Protection
++ ONTAP: LUN
++ ONTAP: Network
++ ONTAP: Node
++ ONTAP: Qtree
++ ONTAP: Security
++ ONTAP: SnapMirror
++ ONTAP: SnapMirror Destinations
++ ONTAP: SnapMirror Sources
++ ONTAP: SVM
++ ONTAP: Volume
++ ONTAP: Volume by SVM
++ ONTAP: Volume Deep Dive
 
 The following Harvest dashboards are supported by FSx for ONTAP, but are not enabled by default in Harvest.
-
-- ONTAP: FlexCache
-- ONTAP: FlexGroup
-- ONTAP: NFS Clients
-- ONTAP: NFSv4 Storepool Monitors
-- ONTAP: NFS Troubleshooting
-- ONTAP: NVMe Namespaces
-- ONTAP: SMB
-- ONTAP: Workload
++ ONTAP: FlexCache
++ ONTAP: FlexGroup
++ ONTAP: NFS Clients
++ ONTAP: NFSv4 Storepool Monitors
++ ONTAP: NFS Troubleshooting
++ ONTAP: NVMe Namespaces
++ ONTAP: SMB
++ ONTAP: Workload
 
 ## Unsupported Harvest dashboards
+<a name="unsupported-dashboards"></a>
 
-The following Harvest dashboards are _not_ supported by FSx for ONTAP.
-
-- ONTAP: Disk
-- ONTAP: External Service Operation
-- ONTAP: File Systems Analytics (FSA)
-- ONTAP: Headroom
-- ONTAP: Health
-- ONTAP: MAV Request
-- ONTAP: MetroCluster
-- ONTAP: Power
-- ONTAP: Shelf
-- ONTAP: S3 Object Stores
+The following Harvest dashboards are *not* supported by FSx for ONTAP.
++ ONTAP: Disk
++ ONTAP: External Service Operation
++ ONTAP: File Systems Analytics (FSA)
++ ONTAP: Headroom
++ ONTAP: Health
++ ONTAP: MAV Request
++ ONTAP: MetroCluster
++ ONTAP: Power
++ ONTAP: Shelf
++ ONTAP: S3 Object Stores
 
 ## CloudFormation template
+<a name="harvest-grafana-template"></a>
 
-To get started, you can deploy an CloudFormation template that automatically launches an
-Amazon EC2 instance running Harvest and Grafana. As an input to the CloudFormation template, you
-specify the `fsxadmin` user and the Amazon FSx management endpoint for the
-file system which will be added as part of this deployment. After the deployment is
-completed, you can log in to the Grafana dashboard to monitor your file system.
+To get started, you can deploy an CloudFormation template that automatically launches an Amazon EC2 instance running Harvest and Grafana. As an input to the CloudFormation template, you specify the `fsxadmin` user and the Amazon FSx management endpoint for the file system which will be added as part of this deployment. After the deployment is completed, you can log in to the Grafana dashboard to monitor your file system.
 
-This solution uses CloudFormation to automate the deployment of the Harvest and Grafana
-solution. The template creates an Amazon EC2 Linux instance and installs Harvest and
-Grafana software. To use this solution, download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml "https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml") CloudFormation template.
+This solution uses CloudFormation to automate the deployment of the Harvest and Grafana solution. The template creates an Amazon EC2 Linux instance and installs Harvest and Grafana software. To use this solution, download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml) CloudFormation template.
 
-###### Note
-
-Implementing this solution incurs billing for the associated AWS services. For more
-information, see the pricing details pages for those services.
+**Note**  
+Implementing this solution incurs billing for the associated AWS services. For more information, see the pricing details pages for those services.
 
 ## Amazon EC2 instance types
+<a name="ec2-instance-types"></a>
 
-When configuring the template, you provide the Amazon EC2 instance type. NetApp's recommendation
-for the instance size depends on how many file systems you monitor and the number of metrics you choose
-to collect. With the default configuration, for each 10 file systems you monitor, NetApp recommends:
+When configuring the template, you provide the Amazon EC2 instance type. NetApp's recommendation for the instance size depends on how many file systems you monitor and the number of metrics you choose to collect. With the default configuration, for each 10 file systems you monitor, NetApp recommends:
++ CPU: 2 cores
++ Memory: 1 GB
++ Disk: 500 MB (mostly used by log files)
 
-- CPU: 2 cores
-- Memory: 1 GB
-- Disk: 500 MB (mostly used by log files)
+Following are some sample configurations and the `t3` instance type you might choose.
 
-Following are some sample configurations and the `t3` instance type
-you might choose.
 
-| File systems | CPU     | Disk    | Instance type |
-| ------------ | ------- | ------- | ------------- |
-| Under 10     | 2 cores | 500 MB  | `t3.micro`    |
-| 10–40        | 4 cores | 1000 MB | `t3.xlarge`   |
-| 40+          | 8 cores | 2000 MB | `t3.2xlarge`  |
 
-For more information on Amazon EC2 instance types,
-see [General purpose instances](../../../AWSEC2/latest/UserGuide/general-purpose-instances.md "../../../AWSEC2/latest/UserGuide/general-purpose-instances.md")
-in the _Amazon EC2 User Guide_.
+| File systems | CPU | Disk | Instance type | 
+| --- | --- | --- | --- | 
+| Under 10 | 2 cores | 500 MB | `t3.micro` | 
+| 10–40 | 4 cores | 1000 MB | `t3.xlarge` | 
+| 40\+ | 8 cores | 2000 MB | `t3.2xlarge` | 
+
+For more information on Amazon EC2 instance types, see [General purpose instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/general-purpose-instances.html) in the *Amazon EC2 User Guide*.
 
 ### Instance port rules
+<a name="instance-port-rules"></a>
 
-When you set up your Amazon EC2 instance, make sure that ports 3000 and 9090 are open for
-inbound traffic for the security group that the Amazon EC2 Harvest and Grafana instance is in.
-Because the instance that is launched connects to an endpoint over HTTPS, it needs to
-resolve the endpoint, which needs port 53 TCP/UDP for DNS. Additionally, to reach the
-endpoint it needs port 443 TCP for HTTPS and Internet Access.
+When you set up your Amazon EC2 instance, make sure that ports 3000 and 9090 are open for inbound traffic for the security group that the Amazon EC2 Harvest and Grafana instance is in. Because the instance that is launched connects to an endpoint over HTTPS, it needs to resolve the endpoint, which needs port 53 TCP/UDP for DNS. Additionally, to reach the endpoint it needs port 443 TCP for HTTPS and Internet Access.
 
 ## Deployment procedure
+<a name="harvest-grafana-deployment"></a>
 
-The following procedure configures and deploys the Harvest/Grafana solution. It
-takes about five minutes to deploy. Before you start, you must have an FSx for ONTAP file
-system running in an Amazon Virtual Private Cloud (Amazon VPC) in your AWS account, and the parameter information
-for the template listed below. For more information on creating a file system,
-see [Creating file systems](creating-file-systems.md "creating-file-systems.md").
+The following procedure configures and deploys the Harvest/Grafana solution. It takes about five minutes to deploy. Before you start, you must have an FSx for ONTAP file system running in an Amazon Virtual Private Cloud (Amazon VPC) in your AWS account, and the parameter information for the template listed below. For more information on creating a file system, see [Creating file systems](creating-file-systems.md).
 
-###### To launch the Harvest/Grafana solution stack
+**To launch the Harvest/Grafana solution stack**
 
-1. Download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml "https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml") CloudFormation template. For more information on creating an
-   CloudFormation stack, see [Creating a stack on
-   the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_.
+1. Download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml) CloudFormation template. For more information on creating an CloudFormation stack, see [Creating a stack on the AWS CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) in the *AWS CloudFormation User Guide*.
+**Note**  
+By default, this template launches in the US East (N. Virginia) AWS Region. You must launch this solution in an AWS Region where Amazon FSx is available. For more information, see [Amazon FSx endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fsxn.html) in the *AWS General Reference. *
 
-###### Note
+1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system. This solution uses the following default values.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/monitoring-harvest-grafana.html)
 
-By default, this template launches in the US East (N. Virginia) AWS Region. You must launch
-this solution in an AWS Region where Amazon FSx is available. For more information, see [Amazon FSx endpoints and quotas](../../../general/latest/gr/fsxn.md "../../../general/latest/gr/fsxn.md") in the
-_AWS General Reference._ 2. For **Parameters**, review the parameters for the template and modify
-them for the needs of your file system. This solution uses the following default values.
+1. Choose **Next**.
 
-| Parameter        | Default                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| InstanceType     | `t3.micro`                                                      | The Amazon EC2 instance type. Following are the `t3` instance types.<br>• `t3.micro`<br>• `t3.small`<br>• `t3.medium`<br>• `t3.large`<br>• `t3.xlarge`<br>• `t3.2xlarge`<br>For the complete list of allowed Amazon EC2 instance type values<br>for this parameter, see<br>the fsx-ontap-harvest-grafana.template.                                                                                                                     |
-| KeyPair          | No default value                                                | The key pair that is used to access the Amazon EC2 instance.                                                                                                                                                                                                                                                                                                                                                                           |
-| SecurityGroup    | No default value                                                | The Security group ID for the Harvest/Grafana Instance.<br>Ensure Inbound ports 3000 and 9090, in addition to ports 53 and 443, are open<br>from the clients you wish to use to access your Grafana dashboard.                                                                                                                                                                                                                         |
-| Subnet Type      | No default value                                                | Specify the subnet type, either `public` or `private`.<br>Use a `public` subnet for resources that must be connected to the internet,<br>and a private subnet for resources that won't be connected to the internet. For more<br>information, see [Subnet types](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types")<br>in the _Amazon VPC User Guide_. |
-| Subnet           | No default value                                                | Specify the same subnet as your Amazon FSx for NetApp ONTAP file system's<br>preferred subnet. You can find the file system's<br>*_Preferred subnet_<br>• ID in the Amazon FSx console,<br>in the *_Network & security_<br>• tab of the FSx for ONTAP<br>file system details page                                                                                                                                                      |
-| LatestLinuxAmiId | `/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2` | The latest version of the Amazon Linux 2 AMI in a given AWS Region.                                                                                                                                                                                                                                                                                                                                                                    |
-| FSxEndPoint      | No default value                                                | The file system's Management endpoint IP address. You can find the<br>file system's management endpoint *_IP address_<br>• in the<br>Amazon FSx console, in the *_Administration_<br>• tab of the FSx for ONTAP<br>file system details page.                                                                                                                                                                                           |
-| SecretName       | No default value                                                | AWS Secrets Manager secret name containing the password for the file system's<br>`fsxadmin` user. This is the password you provided when you created<br>the file system.                                                                                                                                                                                                                                                               |
+1. For **Options**, choose **Next**.
 
-3. Choose **Next**.
-4. For **Options**, choose **Next**.
-5. For **Review**, review and confirm the settings. You must select the
-   check box acknowledging that the template create IAM resources.
-6. Choose **Create** to deploy the stack.
+1. For **Review**, review and confirm the settings. You must select the check box acknowledging that the template create IAM resources.
 
-You can view the status of the stack in the CloudFormation console in the **Status**
-column. You should see a status of **CREATE\_COMPLETE** in about five
-minutes.
+1. Choose **Create** to deploy the stack.
+
+You can view the status of the stack in the CloudFormation console in the **Status** column. You should see a status of **CREATE\_COMPLETE** in about five minutes.
 
 ## Logging in to Grafana
+<a name="harvest-grafana-login"></a>
 
-After the deployment has finished, use your browser to log in to the Grafana dashboard at
-the IP and port 3000 of the Amazon EC2 instance:
+After the deployment has finished, use your browser to log in to the Grafana dashboard at the IP and port 3000 of the Amazon EC2 instance:
 
 ```
-`http://`EC2_instance_IP`:3000`
+http://{{EC2_instance_IP}}:3000
 ```
 
-When prompted, use the Grafana default user name (`admin`) and password (`pass`).
-We recommend that you change your password as soon as you log in.
+When prompted, use the Grafana default user name (`admin`) and password (`pass`). We recommend that you change your password as soon as you log in.
 
-For more information, see the [NetApp Harvest](https://github.com/NetApp/harvest "https://github.com/NetApp/harvest") page on GitHub.
+For more information, see the [ NetApp Harvest](https://github.com/NetApp/harvest) page on GitHub.
 
 ## Troubleshooting Harvest and Grafana
+<a name="troubleshooting-harvest-grafana"></a>
 
-If you are encountering any data missing mentioned in Harvest and Grafana dashboards or are having trouble
-setting up Harvest and Grafana with FSx for ONTAP, check the following topics for a potential solution.
+If you are encountering any data missing mentioned in Harvest and Grafana dashboards or are having trouble setting up Harvest and Grafana with FSx for ONTAP, check the following topics for a potential solution.
 
-###### Topics
-
-- [SVM and volume dashboards are blank](#svm-volume-blank-dashboards "#svm-volume-blank-dashboards")
-- [CloudFormation stack rolled back after timeout](#cfn-stack-rolled-back "#cfn-stack-rolled-back")
+**Topics**
++ [SVM and volume dashboards are blank](#svm-volume-blank-dashboards)
++ [CloudFormation stack rolled back after timeout](#cfn-stack-rolled-back)
 
 ### SVM and volume dashboards are blank
+<a name="svm-volume-blank-dashboards"></a>
 
-If the CloudFormation stack deployed successfully and can contact Grafana but the SVM and volume dashboards are blank,
-use the following procedure to troubleshoot your environment. You will need SSH access to the Amazon EC2 instance
-that Harvest and Grafana is deployed on.
+If the CloudFormation stack deployed successfully and can contact Grafana but the SVM and volume dashboards are blank, use the following procedure to troubleshoot your environment. You will need SSH access to the Amazon EC2 instance that Harvest and Grafana is deployed on.
 
 1. SSH into the Amazon EC2 instance that your Harvest and Grafana clients are running on.
 
-```
-`[~]$` ssh ec2-user@`ec2_ip_address`
-```
+   ```
+   [~]$ ssh ec2-user@{{ec2_ip_address}}
+   ```
 
-2. Use the following command to open the `harvest.yml` file and:
+1. Use the following command to open the `harvest.yml` file and:
+   + Verify that an entry was created for your FSx for ONTAP instance as `Cluster-2`.
+   + Verify that the entries for username and password match your `fsxadmin` credentials.
 
-   - Verify that an entry was created for your FSx for ONTAP instance as `Cluster-2`.
-   - Verify that the entries for username and password match your `fsxadmin` credentials.
+   ```
+   [ec2-user@ip-{{ec2_ip_address}} ~]$ sudo cat /home/ec2-user/harvest_install/harvest/harvest.yml
+   ```
 
-```
-`[ec2-user@ip-`ec2_ip_address` ~]$` `sudo cat /home/ec2-user/harvest_install/harvest/harvest.yml`
-```
+1. If the password field is blank, open the file in an editor and update it with the `fsxadmin` password, as follows:
 
-3. If the password field is blank, open the file in an editor and update it with the `fsxadmin` password, as follows:
+   ```
+   [ec2-user@ip-{{ec2_ip_address}} ~]$ sudo vi /home/ec2-user/harvest_install/harvest/harvest.yml
+   ```
 
-```
-`[ec2-user@ip-`ec2_ip_address` ~]$` `sudo vi /home/ec2-user/harvest_install/harvest/harvest.yml`
-```
+1. Ensure the `fsxadmin` user credentials are stored in Secrets Manager in the following format for any future deployments, replacing `{{fsxadmin_password}}` with your password.
 
-4. Ensure the `fsxadmin` user credentials are stored in Secrets Manager in the following format for
-   any future deployments, replacing `fsxadmin_password` with your password.
-
-```
-{"username" : "fsxadmin", "password" : "`fsxadmin_password`"}
-```
+   ```
+   {"username" : "fsxadmin", "password" : "{{fsxadmin_password}}"}
+   ```
 
 ### CloudFormation stack rolled back after timeout
+<a name="cfn-stack-rolled-back"></a>
 
-If you are unable to deploy the CloudFormation stack successfully and it is rolling back with errors, use the
-following procedure to resolve the issue. You will need SSH access to the EC2 instance deployed by the CloudFormation stack.
+If you are unable to deploy the CloudFormation stack successfully and it is rolling back with errors, use the following procedure to resolve the issue. You will need SSH access to the EC2 instance deployed by the CloudFormation stack.
 
 1. Redeploy the CloudFormation stack, making sure that automatic rollback is disabled.
-2. SSH into the Amazon EC2 instance that your Harvest and Grafana clients are running on.
 
-```
-`[~]$` ssh ec2-user@`ec2_ip_address`
-```
+1. SSH into the Amazon EC2 instance that your Harvest and Grafana clients are running on.
 
-3. Verfy that the docker containers were successfully started using the following command.
+   ```
+   [~]$ ssh ec2-user@{{ec2_ip_address}}
+   ```
 
-```
-`[ec2-user@ip-`ec2_ip_address` ~]$` `sudo docker ps`
-```
+1. Verfy that the docker containers were successfully started using the following command.
 
-In the response you should see five containers as follows:
+   ```
+   [ec2-user@ip-{{ec2_ip_address}} ~]$ sudo docker ps
+   ```
 
-```
-CONTAINER ID   IMAGE                   COMMAND                  CREATED         STATUS                          PORTS                    NAMES
-6b9b3f2085ef   rahulguptajss/harvest   "bin/poller --config…"   8 minutes ago   Restarting (1) 20 seconds ago                            harvest_cluster-2
-3cf3e3623fde   rahulguptajss/harvest   "bin/poller --config…"   8 minutes ago   Up About a minute                                        harvest_cluster-1
-708f3b7ef6f8   grafana/grafana         "/run.sh"                8 minutes ago   Up 8 minutes                    0.0.0.0:3000->3000/tcp   harvest_grafana
-0febee61cab7   prom/alertmanager       "/bin/alertmanager -…"   8 minutes ago   Up 8 minutes                    0.0.0.0:9093->9093/tcp   harvest_prometheus_alertmanager
-1706d8cd5a0c   prom/prometheus         "/bin/prometheus --c…"   8 minutes ago   Up 8 minutes                    0.0.0.0:9090->9090/tcp   harvest_prometheus
-```
+   In the response you should see five containers as follows:
 
-4. If the docker containers are not running, check for failures in the `/var/log/cloud-init-output.log`
-   file as follows.
+   ```
+   CONTAINER ID   IMAGE                   COMMAND                  CREATED         STATUS                          PORTS                    NAMES
+   6b9b3f2085ef   rahulguptajss/harvest   "bin/poller --config…"   8 minutes ago   Restarting (1) 20 seconds ago                            harvest_cluster-2
+   3cf3e3623fde   rahulguptajss/harvest   "bin/poller --config…"   8 minutes ago   Up About a minute                                        harvest_cluster-1
+   708f3b7ef6f8   grafana/grafana         "/run.sh"                8 minutes ago   Up 8 minutes                    0.0.0.0:3000->3000/tcp   harvest_grafana
+   0febee61cab7   prom/alertmanager       "/bin/alertmanager -…"   8 minutes ago   Up 8 minutes                    0.0.0.0:9093->9093/tcp   harvest_prometheus_alertmanager
+   1706d8cd5a0c   prom/prometheus         "/bin/prometheus --c…"   8 minutes ago   Up 8 minutes                    0.0.0.0:9090->9090/tcp   harvest_prometheus
+   ```
 
-```
-`[ec2-user@ip-`ec2_ip_address` ~]$` `sudo cat /var/log/cloud-init-output.log`
-     `PLAY [Manage Harvest] **********************************************************
+1. If the docker containers are not running, check for failures in the `/var/log/cloud-init-output.log` file as follows.
 
-TASK [Gathering Facts] *********************************************************
-ok: [localhost]
+   ```
+   [ec2-user@ip-{{ec2_ip_address}} ~]$ sudo cat /var/log/cloud-init-output.log
+        PLAY [Manage Harvest] **********************************************************
+    
+   TASK [Gathering Facts] *********************************************************
+   ok: [localhost]
+    
+   TASK [Verify images] ***********************************************************
+   failed: [localhost] (item=prom/prometheus) => {"ansible_loop_var": "item", "changed": false, "item": "prom/prometheus",
+   "msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104, 'Co
+   nnection reset by peer'))"}
+   failed: [localhost] (item=prom/alertmanager) => {"ansible_loop_var": "item", "changed": false, "item": "prom/alertmanage
+   r", "msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104,
+   'Connection reset by peer'))"}
+   failed: [localhost] (item=rahulguptajss/harvest) => {"ansible_loop_var": "item", "changed": false, "item": "rahulguptajs
+   s/harvest", "msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetEr
+   ror(104, 'Connection reset by peer'))"}
+   failed: [localhost] (item=grafana/grafana) => {"ansible_loop_var": "item", "changed": false, "item": "grafana/grafana",
+   "msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104, 'Co
+   nnection reset by peer'))"}
+    
+   PLAY RECAP *********************************************************************
+   localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+   ```
 
-TASK [Verify images] ***********************************************************
-failed: [localhost] (item=prom/prometheus) => {"ansible_loop_var": "item", "changed": false, "item": "prom/prometheus",
-"msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104, 'Co
-nnection reset by peer'))"}
-failed: [localhost] (item=prom/alertmanager) => {"ansible_loop_var": "item", "changed": false, "item": "prom/alertmanage
-r", "msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104,
-'Connection reset by peer'))"}
-failed: [localhost] (item=rahulguptajss/harvest) => {"ansible_loop_var": "item", "changed": false, "item": "rahulguptajs
-s/harvest", "msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetEr
-ror(104, 'Connection reset by peer'))"}
-failed: [localhost] (item=grafana/grafana) => {"ansible_loop_var": "item", "changed": false, "item": "grafana/grafana",
-"msg": "Error connecting: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104, 'Co
-nnection reset by peer'))"}
+1. If there are failures, execute the following commands to deploy the Harvest and Grafana containers.
 
-PLAY RECAP *********************************************************************
-localhost : ok=1 changed=0 unreachable=0 failed=1 skipped=0 rescued=0 ignored=0`
-```
+   ```
+   [ec2-user@ip-{{ec2_ip_address}} ~]$ sudo su
+        [ec2-user@ip-{{ec2_ip_address}} ~]$ cd /home/ec2-user/harvest_install
+        [ec2-user@ip-{{ec2_ip_address}} ~]$ /usr/local/bin/ansible-playbook manage_harvest.yml
+        [ec2-user@ip-{{ec2_ip_address}} ~]$ /usr/local/bin/ansible-playbook manage_harvest.yml --tags api
+   ```
 
-5. If there are failures, execute the following commands to deploy the Harvest and Grafana containers.
-
-```
-`[ec2-user@ip-`ec2_ip_address` ~]$` `sudo su`
-     `[ec2-user@ip-`ec2_ip_address` ~]$` `cd /home/ec2-user/harvest_install`
-     `[ec2-user@ip-`ec2_ip_address` ~]$` `/usr/local/bin/ansible-playbook manage_harvest.yml`
-     `[ec2-user@ip-`ec2_ip_address` ~]$` `/usr/local/bin/ansible-playbook manage_harvest.yml --tags api`
-```
-
-6. Validate the containers started successfully by running **sudo docker ps** and connecting to your Harvest and Grafana URL.
+1. Validate the containers started successfully by running **sudo docker ps** and connecting to your Harvest and Grafana URL.

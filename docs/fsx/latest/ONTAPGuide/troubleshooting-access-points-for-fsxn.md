@@ -1,133 +1,120 @@
+
+
 # Troubleshooting S3 access point issues
+<a name="troubleshooting-access-points-for-fsxn"></a>
 
 This section describes symptoms, causes, and resolutions for when you encounter issues accessing your FSx data from S3 access points.
 
 ## S3 access point is in MISCONFIGURED state
+<a name="misconfigured-access-point"></a>
 
 An S3 access point attachment can transition to the `MISCONFIGURED` state for the following reasons:
++ **File system identity cannot be resolved** – The UNIX or Windows user associated with the access point can no longer be resolved on the file system. This can happen if the user is removed from the name service (for example, local files, LDAP, or Active Directory), or if the name service becomes unreachable. To resolve this, ensure the user exists and is resolvable on the SVM. For more information, see [S3 access point creation failed due to file system user identity lookup failure](#name-mapping).
++ **Attached volume is offline or unmounted** – The volume that the access point is attached to is offline or has been unmounted (no longer has a junction path). To resolve this, bring the volume back online or remount it. See [ONTAP documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html) for more details.
 
-- **File system identity cannot be resolved** – The UNIX or Windows
-  user associated with the access point can no longer be resolved on the file system. This can happen if the user
-  is removed from the name service (for example, local files, LDAP, or Active Directory), or if the name
-  service becomes unreachable. To resolve this, ensure the user exists and is resolvable on the SVM. For
-  more information, see [S3 access point creation failed due to file system user identity lookup failure](#name-mapping "#name-mapping").
-- **Attached volume is offline or unmounted** – The volume that the
-  access point is attached to is offline or has been unmounted (no longer has a junction path). To resolve this,
-  bring the volume back online or remount it. See
-  [ONTAP
-  documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html "https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html") for more details.
-
-Amazon FSx periodically checks for these conditions and automatically returns the access point to
-`AVAILABLE` when the underlying issue is resolved.
+Amazon FSx periodically checks for these conditions and automatically returns the access point to `AVAILABLE` when the underlying issue is resolved.
 
 ## S3 access point creation failed due to file system user identity lookup failure
+<a name="name-mapping"></a>
 
-When creating and attaching an S3 Access Point, a [`FileSystemIdentity`](../APIReference/API_OntapFileSystemIdentity.md#FSx-Type-OntapFileSystemIdentity-Type "../APIReference/API_OntapFileSystemIdentity.md#FSx-Type-OntapFileSystemIdentity-Type") must be provided. You are responsible for configuring
-the provided UNIX or Windows user within ONTAP.
+When creating and attaching an S3 Access Point, a [`FileSystemIdentity`](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OntapFileSystemIdentity.html#FSx-Type-OntapFileSystemIdentity-Type) must be provided. You are responsible for configuring the provided UNIX or Windows user within ONTAP. 
 
-If a [`UnixUser`](../APIReference/API_OntapUnixFileSystemUser.md "../APIReference/API_OntapUnixFileSystemUser.md") is provided, ONTAP must be able to map the UnixUser name to UNIX UID/GIDs. ONTAP determines how to perform this
-mapping using the [name service switch configuration](https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-name-service-switch-config-concept.html "https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-name-service-switch-config-concept.html").
-
-```
-`>` vserver services name-service ns-switch show
-```
+If a [`UnixUser`](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OntapUnixFileSystemUser.html) is provided, ONTAP must be able to map the UnixUser name to UNIX UID/GIDs. ONTAP determines how to perform this mapping using the [name service switch configuration](https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-name-service-switch-config-concept.html). 
 
 ```
-`Vserver Database Order
---------------- ------------ ---------
-svm_1 hosts files,
- dns
-svm_1 group files,
- ldap
-svm_1 passwd files,
- ldap
-svm_1 netgroup nis,
- files`
+> vserver services name-service ns-switch show
 ```
 
-Please ensure your UnixUser has an entry in the `passwd` and `group` databases using a valid source (`files`,`ldap`, etc).
-The `files` source can be configured using the `vserver services name-service unix-user` and `vserver services name-service unix-group` commands.
-The `ldap` source can be configured using the `vserver services name-service ldap` command.
+```
+Vserver         Database       Order
+--------------- ------------   ---------
+svm_1           hosts          files,
+                               dns
+svm_1           group          files,
+                               ldap
+svm_1           passwd         files,
+                               ldap
+svm_1           netgroup       nis,
+                               files
+```
 
-If a [`WindowsUser`](../APIReference/API_OntapWindowsFileSystemUser.md "../APIReference/API_OntapWindowsFileSystemUser.md") is provided, ONTAP must be able to find the WindowsUser name in the joined Active Directory domain.
+ Please ensure your UnixUser has an entry in the `passwd` and `group` databases using a valid source (`files`,`ldap`, etc). The `files` source can be configured using the `vserver services name-service unix-user` and `vserver services name-service unix-group` commands. The `ldap` source can be configured using the `vserver services name-service ldap` command. 
 
-To confirm if a provided UnixUser or WindowsUser is mapped correctly, using `fsxadmin` you can use the following command (replace `-unix-user-name` with `-win-name` for WindowsUsers):
+ If a [`WindowsUser`](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OntapWindowsFileSystemUser.html) is provided, ONTAP must be able to find the WindowsUser name in the joined Active Directory domain. 
+
+ To confirm if a provided UnixUser or WindowsUser is mapped correctly, using `fsxadmin` you can use the following command (replace `-unix-user-name` with `-win-name` for WindowsUsers): 
 
 ```
-`>` vserver services access-check authentication show-creds -node `FsxId0fd48ff588b9d3eee-01` -vserver `svm_name` -unix-user-name `root` -show-partial-unix-creds true
+> vserver services access-check authentication show-creds -node {{FsxId0fd48ff588b9d3eee-01}} -vserver {{svm_name}} -unix-user-name {{root}} -show-partial-unix-creds true
 ```
 
 Example successful output:
 
 ```
- `UNIX UID: root
+ UNIX UID: root
 
  GID: daemon
  Supplementary GIDs:
- daemon`
+  daemon
 ```
 
 Example unsuccessful output:
 
 ```
-`Error: Acquire UNIX credentials procedure failed
- [ 2 ms] Entry for user-name: unmapped-user not found in the
- current source: FILES. Entry for user-name: unmapped-user
- not found in any of the available sources
-**[ 3] FAILURE: Unable to retrieve UID for UNIX user
-** unmapped-user
+Error: Acquire UNIX credentials procedure failed
+  [  2 ms] Entry for user-name: unmapped-user not found in the
+           current source: FILES. Entry for user-name: unmapped-user
+           not found in any of the available sources
+**[     3] FAILURE: Unable to retrieve UID for UNIX user
+**         unmapped-user
 
-Error: command failed: Failed to resolve user name to a UNIX ID. Reason: "SecD Error: object not found".`
+Error: command failed: Failed to resolve user name to a UNIX ID. Reason: "SecD Error: object not found".
 ```
 
-An incorrect user mapping may result in `Access Denied` errors from S3. See example failure reasons below.
+ An incorrect user mapping may result in `Access Denied` errors from S3. See example failure reasons below. 
 
 **`Entry for user-name not found in the current source: LDAP`**
 
-If your `ns-switch` is configured to use an `ldap` source, please ensure ONTAP is configured to use your LDAP server properly. See [NetApp's Technical Report for configuring LDAP](https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf "https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf") for more information.
+If your `ns-switch` is configured to use an `ldap` source, please ensure ONTAP is configured to use your LDAP server properly. See [NetApp's Technical Report for configuring LDAP](https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf) for more information.
 
 **`RESULT_ERROR_DNS_CANT_REACH_SERVER` or `RESULT_ERROR_SECD_IN_DISCOVERY`**
 
 This error indicates an issue with the vserver's DNS configuration in ONTAP. Run the following to ensure your vserver's DNS is configured properly:
 
 ```
-`>` dns check -vserver `svm_name`
+> dns check -vserver {{svm_name}}
 ```
 
 **`NT_STATUS_PENDING`**
 
-This error indicates an issue communicating with the domain controller. The underlying cause may be due to a lack of SMB credits. See [NetApp KB](https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/How_ONTAP_implements_SMB_crediting "https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/How_ONTAP_implements_SMB_crediting") for more information.
+This error indicates an issue communicating with the domain controller. The underlying cause may be due to a lack of SMB credits. See [NetApp KB](https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/How_ONTAP_implements_SMB_crediting) for more information.
 
 ## S3 access point creation failed because the volume is not mounted.
+<a name="junction"></a>
 
-S3 access points can only be attached to FSx for ONTAP volumes that are mounted (have junction paths). This also applies to DP (Data Protection) volumes types. See [ONTAP volume mount documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html "https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html") for more information.
+S3 access points can only be attached to FSx for ONTAP volumes that are mounted (have junction paths). This also applies to DP (Data Protection) volumes types. See [ONTAP volume mount documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html) for more information.
 
 ## S3 access point creation failed because the S3 protocol is disabled on the SVM
+<a name="s3-protocol-not-allowed"></a>
 
 S3 access points require the S3 protocol to be enabled on the Storage Virtual Machine (SVM). To enable the S3 protocol, run the following command in the ONTAP CLI using `fsxadmin`:
 
 ```
-`>` vserver add-protocols -vserver `svm_name` -protocols s3
+> vserver add-protocols -vserver {{svm_name}} -protocols s3
 ```
 
 To verify the protocol is enabled:
 
 ```
-`>` vserver show -vserver `svm_name` -fields allowed-protocols,disallowed-protocols
+> vserver show -vserver {{svm_name}} -fields allowed-protocols,disallowed-protocols
 ```
 
 ## The file system is unable to handle S3 requests
+<a name="no-request-handling"></a>
 
-If the S3 request volume for a particular workload exceeds the file system’s capacity to handle the traffic, you may experience
-S3 request errors (for example, `Internal Server Error`, `503 Slow Down`, and `Service Unavailable`).
-You can proactively monitor and alarm on the performance of your file system using Amazon CloudWatch metrics (for example, `Network throughput
- utilization` and `CPU utilization`). If you observe degraded performance, you can resolve this issue by increasing the file system's
-throughput capacity.
+If the S3 request volume for a particular workload exceeds the file system’s capacity to handle the traffic, you may experience S3 request errors (for example, `Internal Server Error`, `503 Slow Down`, and `Service Unavailable`). You can proactively monitor and alarm on the performance of your file system using Amazon CloudWatch metrics (for example, `Network throughput utilization` and `CPU utilization`). If you observe degraded performance, you can resolve this issue by increasing the file system's throughput capacity.
 
 ## Access Denied with default S3 access point permissions for automatically created service roles
+<a name="ap-arn-format"></a>
 
-Some S3-integrated AWS services will create a custom service role and customize the attached permissions to your
-specific usecase. When specifying your S3 access point alias as the S3 resource, those attached permissions may include your access point
-using a bucket ARN format (for example, `arn:aws:s3:::my-fsx-ap-foo7detztxouyjpwtu8krroppxytruse1a-ext-s3alias`)
-rather than the access point ARN format (for example, `arn:aws:s3:us-east-1:1234567890:accesspoint/my-fsx-ap`).
-To resolve this, modify the policy to use the ARN of the access point.
+Some S3-integrated AWS services will create a custom service role and customize the attached permissions to your specific usecase. When specifying your S3 access point alias as the S3 resource, those attached permissions may include your access point using a bucket ARN format (for example, `arn:aws:s3:::my-fsx-ap-foo7detztxouyjpwtu8krroppxytruse1a-ext-s3alias`) rather than the access point ARN format (for example, `arn:aws:s3:us-east-1:1234567890:accesspoint/my-fsx-ap`). To resolve this, modify the policy to use the ARN of the access point.

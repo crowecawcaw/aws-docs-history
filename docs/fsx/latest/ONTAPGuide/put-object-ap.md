@@ -1,15 +1,14 @@
+
+
 # Uploading a file using an S3 access point
+<a name="put-object-ap"></a>
 
-The following `put-object` example command shows how you can
-use the AWS CLI to upload a file through an access point. You must include an outfile, which
-is a file name for the uploaded object.
+The following `put-object` example command shows how you can use the AWS CLI to upload a file through an access point. You must include an outfile, which is a file name for the uploaded object.
 
-The example uploads the file `my-new-image.jpg`
-through the access point `my-ontap-ap` and saves the
-uploaded file as `my-new-image.jpg`.
+The example uploads the file {{`my-new-image.jpg`}} through the access point {{`my-ontap-ap`}} and saves the uploaded file as {{`my-new-image.jpg`}}.
 
 ```
-`$` `aws s3api put-object --bucket `my-ontap-ap-hrzrlukc5m36ft7okagglf3gmwluquse1b`-ext-s3alias --key `my-new-image.jpg` --body `my-new-image.jpg``
+$ aws s3api put-object --bucket {{my-ontap-ap-hrzrlukc5m36ft7okagglf3gmwluquse1b}}-ext-s3alias --key {{my-new-image.jpg}} --body  {{my-new-image.jpg}}
 ```
 
-You can also use the REST API to upload an object through an access point. For more information, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") in the _Amazon Simple Storage Service API Reference_.
+You can also use the REST API to upload an object through an access point. For more information, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) in the *Amazon Simple Storage Service API Reference*.
