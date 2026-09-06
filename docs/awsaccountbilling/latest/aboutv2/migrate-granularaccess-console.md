@@ -1,35 +1,31 @@
+
+
 # Using the console to bulk migrate your policies
+<a name="migrate-granularaccess-console"></a>
 
-###### Note
+**Note**  
+The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:  
+`aws-portal` namespace
+`purchase-orders:ViewPurchaseOrders`
+`purchase-orders:ModifyPurchaseOrders`
+If you're using AWS Organizations, you can use the [bulk policy migrator scripts](migrate-iam-permissions.md) or bulk policy migrator to update polices from your payer account. You can also use the [old to granular action mapping reference](migrate-granularaccess-iam-mapping-reference.md) to verify the IAM actions that need to be added.  
+If you have an AWS account, or are a part of an AWS Organizations created on or after March 6, 2023, 11:00 AM (PDT), the fine-grained actions are already in effect in your organization.
 
-The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:
+This section covers how you can use the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/) to migrate your legacy policies from your Organizations accounts or standard accounts to the fine-grained actions in bulk. You can complete migrating your legacy policies using the console in two ways:
 
-- `*aws-portal*` namespace
-- `*purchase-orders:ViewPurchaseOrders*`
-- `*purchase-orders:ModifyPurchaseOrders*`
-  If you're using AWS Organizations, you can use the [bulk policy migrator scripts](migrate-iam-permissions.md "migrate-iam-permissions.md") or bulk policy migrator to update
-  polices from your payer account. You can also use the [old to granular action
-  mapping reference](migrate-granularaccess-iam-mapping-reference.md "migrate-granularaccess-iam-mapping-reference.md") to verify the IAM actions that need to be added.
+**Using the AWS recommended migration process**  
+This is a streamlined, single-action process where you migrates legacy actions to the fine-grained actions as mapped by AWS. For more information, see [Using recommended actions to bulk migrate legacy policies](migrate-console-streamlined.md).
 
-If you have an AWS account, or are a part of an AWS Organizations created on or after
-March 6, 2023, 11:00 AM (PDT), the fine-grained actions are already in effect in your
-organization.
-
-This section covers how you can use the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/") to migrate your legacy policies from your Organizations accounts or standard accounts to the fine-grained actions in bulk. You can complete migrating your legacy policies using the console in two ways:
-
-**Using the AWS recommended migration process**
-
-This is a streamlined, single-action process where you migrates legacy actions to the fine-grained actions as mapped by AWS. For more information, see [Using recommended actions to bulk migrate legacy policies](migrate-console-streamlined.md "migrate-console-streamlined.md").
-
-**Using the customized migration process**
-
-This process allows you to review and change the actions recommended by AWS prior to the bulk migration, as well as customize which accounts in your organization are migrated. For more information, see [Customizing actions to bulk migrate legacy policies](migrate-console-customized.md "migrate-console-customized.md").
+**Using the customized migration process**  
+This process allows you to review and change the actions recommended by AWS prior to the bulk migration, as well as customize which accounts in your organization are migrated. For more information, see [Customizing actions to bulk migrate legacy policies](migrate-console-customized.md).
 
 ## Prerequisites for bulk migrating using the console
+<a name="migrate-granularaccess-console-prereq"></a>
 
-Both migration options require you to consent in the console so that AWS can recommend fine-grained actions to the legacy IAM actions you have assigned. To do this, you will need to login to your AWS account as an [IAM principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") with the following IAM actions to continue with the policy updates.
+Both migration options require you to consent in the console so that AWS can recommend fine-grained actions to the legacy IAM actions you have assigned. To do this, you will need to login to your AWS account as an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) with the following IAM actions to continue with the policy updates.
 
-Management account
+------
+#### [ Management account ]
 
 ```
 // Required to view page
@@ -55,7 +51,7 @@ Management account
 "lambda:CreateFunction",
 "lambda:InvokeFunction",
 "lambda:RemovePermission",
-"scheduler:GetSchedule",
+"scheduler:GetSchedule", 
 "scheduler:DeleteSchedule",
 "scheduler:CreateSchedule",
 "cloudformation:ActivateOrganizationsAccess",
@@ -110,7 +106,8 @@ Management account
 "notifications:ListNotificationHubs" // Added to ensure Notifications API does not return 403
 ```
 
-Member account or standard account
+------
+#### [ Member account or standard account ]
 
 ```
 // Required to view page
@@ -128,7 +125,7 @@ Member account or standard account
 "s3:GetObject",
 "s3:PutObject",
 "s3:ListBucket",
-"s3:PutBucketAcl",
+"s3:PutBucketAcl", 
 "s3:PutEncryptionConfiguration",
 "s3:PutBucketVersioning",
 "s3:PutBucketPublicAccessBlock",
@@ -151,21 +148,26 @@ Member account or standard account
 "notifications:ListNotificationHubs" // Added to ensure Notifications API does not return 403
 ```
 
-###### Topics
+------
 
-- [Using recommended actions to bulk migrate legacy policies](migrate-console-streamlined.md "migrate-console-streamlined.md")
-- [Customizing actions to bulk migrate legacy policies](migrate-console-customized.md "migrate-console-customized.md")
-- [Rollingback your bulk migration policy changes](migrate-console-rollback.md "migrate-console-rollback.md")
-- [Confirming your migration](#migrate-console-complete "#migrate-console-complete")
+**Topics**
++ [Prerequisites for bulk migrating using the console](#migrate-granularaccess-console-prereq)
++ [Using recommended actions to bulk migrate legacy policies](migrate-console-streamlined.md)
++ [Customizing actions to bulk migrate legacy policies](migrate-console-customized.md)
++ [Rollingback your bulk migration policy changes](migrate-console-rollback.md)
++ [Confirming your migration](#migrate-console-complete)
 
 ## Confirming your migration
+<a name="migrate-console-complete"></a>
 
 You can see if there are any AWS Organizations accounts that still need to migrate by using the migration tool.
 
-###### To confirm if all accounts migrated
+**To confirm if all accounts migrated**
 
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
-2. In the search bar at the top of the page, enter `Bulk Policy Migrator`.
-3. On the **Manage new IAM actions** page, choose the **Migrate accounts** tab.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/).
+
+1. In the search bar at the top of the page, enter **Bulk Policy Migrator**.
+
+1. On the **Manage new IAM actions** page, choose the **Migrate accounts** tab.
 
 All accounts have migrated successfully if the table doesn't show any remaining accounts.

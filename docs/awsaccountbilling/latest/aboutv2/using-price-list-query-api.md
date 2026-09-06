@@ -1,120 +1,114 @@
-# Finding services and products using AWS Price List Query API
 
-|                                                                                                                                                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:*<br>• This survey is in English only. |
+
+# Finding services and products using AWS Price List Query API
+<a name="using-price-list-query-api"></a>
+
+
+|  | 
+| --- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA). Your responses will be anonymous. **Note:** This survey is in English only. | 
 
 We recommend that you use the Price List Query API when you want to:
++ Find pricing information about a product.
++ Search for products and rates that match your filters.
++ Quickly find products and prices that you need when you're developing applications that have limited resources, such as front-end environments.
 
-- Find pricing information about a product.
-- Search for products and rates that match your filters.
-- Quickly find products and prices that you need when you're developing applications
-  that have limited resources, such as front-end environments.
-  To find AWS services, their products, and the product attributes and prices, see the
-  following steps.
+To find AWS services, their products, and the product attributes and prices, see the following steps.
 
-Once you find the service, you can then get its attributes by using the
-`DescribeServices` API operation. If you know the service code, you
-can also use the AWS Price List Query API to get attributes for a service. Then, you
-can use the service attributes to find the products that meet your requirements
-based on the attribute values.
+## Step 1: Finding available AWS services
+<a name="price-list-query-api-find-services"></a>
+
+Once you find the service, you can then get its attributes by using the `DescribeServices` API operation. If you know the service code, you can also use the AWS Price List Query API to get attributes for a service. Then, you can use the service attributes to find the products that meet your requirements based on the attribute values.
 
 ### Examples: Find services
+<a name="examples-cli-price-list-query-api"></a>
 
 The following AWS Command Line Interface (AWS CLI) commands show how to find services.
 
-###### Example: Find all services
+**Example: Find all services**  
 
 ```
 aws pricing describe-services --region us-east-1
 ```
-
-**Response**
+**Response**  
 
 ```
 {
-    "FormatVersion": "aws_v1",
-    "NextToken": "abcdefg123",
-    "Services": [
+    "FormatVersion": "aws_v1", 
+    "NextToken": "abcdefg123", 
+    "Services": [ 
         {
-            "AttributeNames": [
-                "volumeType",
-                "maxIopsvolume",
-                "instanceCapacity10xlarge",
-                "locationType",
-                "operation"
-            ],
-            "ServiceCode": "AmazonEC2"
+            "AttributeNames": [ 
+                "volumeType", 
+                "maxIopsvolume", 
+                "instanceCapacity10xlarge", 
+                "locationType", 
+                "operation" 
+            ], 
+            "ServiceCode": "AmazonEC2" 
         },
         {
-            "AttributeNames": [
-                "productFamily",
-                "volumeType",
-                "engineCode",
-                "memory"
-            ],
-            "ServiceCode": "AmazonRDS"
+            "AttributeNames": [ 
+                "productFamily", 
+                "volumeType", 
+                "engineCode", 
+                "memory" 
+            ], 
+            "ServiceCode": "AmazonRDS" 
         },
-        {...}
-    ]
+        {...} 
+    ] 
 }
 ```
 
-###### Example: Find service metadata for Amazon Elastic Compute Cloud (Amazon EC2)
-
-The following command shows how to find service metadata for Amazon EC2.
+**Example: Find service metadata for Amazon Elastic Compute Cloud (Amazon EC2)**  
+The following command shows how to find service metadata for Amazon EC2.  
 
 ```
 aws pricing describe-services --region us-east-1 --service-code AmazonEC2
 ```
-
-**Response**
+**Response**  
 
 ```
 {
-    "FormatVersion": "aws_v1",
-    "NextToken": "abcdefg123",
-    "Services": [
+    "FormatVersion": "aws_v1", 
+    "NextToken": "abcdefg123", 
+    "Services": [ 
         {
-            "AttributeNames": [
-                "productFamily",
-                "volumeType",
-                "engineCode",
-                "memory"
-            ],
-            "ServiceCode": "AmazonEC2"
+            "AttributeNames": [ 
+                "productFamily", 
+                "volumeType", 
+                "engineCode", 
+                "memory" 
+            ], 
+            "ServiceCode": "AmazonEC2" 
         }
-    ]
+    ] 
 }
 ```
 
-The AWS Region is the API endpoint for the Price List Query API. The endpoints
-aren't related to product or service attributes.
+The AWS Region is the API endpoint for the Price List Query API. The endpoints aren't related to product or service attributes.
 
-For more information, see [DescribeServices](../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md "../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md") in the
-_AWS Billing and Cost Management API Reference_.
+For more information, see [DescribeServices](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html) in the *AWS Billing and Cost Management API Reference*.
 
-In [step 1](#price-list-query-api-find-services "#price-list-query-api-find-services"), you retrieved
-a list of attributes for an AWS service. In this step, you use these attributes to
-search for products. In step 3, you need the available values for these
-attributes.
+## Step 2: Finding available values for attributes
+<a name="price-list-query-api-find-attributes"></a>
 
-To find the values for an attribute, use the `GetAttributeValues` API
-operation. To call the API, specify the `AttributeName` and
-`ServiceCode` parameters.
+In [step 1](#price-list-query-api-find-services), you retrieved a list of attributes for an AWS service. In this step, you use these attributes to search for products. In step 3, you need the available values for these attributes.
+
+To find the values for an attribute, use the `GetAttributeValues` API operation. To call the API, specify the `AttributeName` and `ServiceCode` parameters.
 
 ### Example: Get attribute values
+<a name="examples-to-find-attributes"></a>
 
-The following AWS Command Line Interface (AWS CLI) command shows how to get attribute values for
-an AWS service.
+The following AWS Command Line Interface (AWS CLI) command shows how to get attribute values for an AWS service.
 
-###### Example: Find attribute values for Amazon Relational Database Service (Amazon RDS)
+**Example: Find attribute values for Amazon Relational Database Service (Amazon RDS)**  
 
 ```
 aws pricing get-attribute-values --service-code AmazonRDS --attribute-name operation --region us-east-1
 ```
-
-**Response**
+**Response**  
 
 ```
 {
@@ -136,37 +130,30 @@ aws pricing get-attribute-values --service-code AmazonRDS --attribute-name opera
 }
 ```
 
-The AWS Region is the API endpoint for the Price List Query API. The endpoints
-aren't related to product or service attributes.
+The AWS Region is the API endpoint for the Price List Query API. The endpoints aren't related to product or service attributes.
 
-For more information, see [GetAttributeValues](../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md#API_pricing_GetAttributeValues_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md#API_pricing_GetAttributeValues_SeeAlso") in the
-_AWS Billing and Cost Management API Reference_.
+For more information, see [GetAttributeValues](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html) and [language-specific AWS SDKs](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html#API_pricing_GetAttributeValues_SeeAlso) in the *AWS Billing and Cost Management API Reference*.
 
-In this step, you use the information from [step 1](#price-list-query-api-find-services "#price-list-query-api-find-services") and [step 2](#price-list-query-api-find-attributes "#price-list-query-api-find-attributes") to find the
-products and their terms. To get information about products, use the
-`GetProducts` API operation. You can specify a list of filters to
-return the products that you want.
+## Step 3: Finding products from attributes
+<a name="using-the-aws-price-list-query-api-finding-products-from-attributes"></a>
 
-###### Note
+In this step, you use the information from [step 1](#price-list-query-api-find-services) and [step 2](#price-list-query-api-find-attributes) to find the products and their terms. To get information about products, use the `GetProducts` API operation. You can specify a list of filters to return the products that you want.
 
-The Price List Query API supports only `"AND"` matching. The response
-to your command only contains products that match all specified filters.
+**Note**  
+The Price List Query API supports only `"AND"` matching. The response to your command only contains products that match all specified filters.
 
 ### Examples: Find products from attributes
+<a name="example-cli-filters-for-finding-products-from-attributes"></a>
 
-The following AWS Command Line Interface (AWS CLI) commands show how to find products by using
-attributes.
+The following AWS Command Line Interface (AWS CLI) commands show how to find products by using attributes.
 
-###### Example: Find products with specified filters
-
-The following command shows how you can specify filters for Amazon Relational Database Service
-(Amazon RDS).
+**Example: Find products with specified filters**  
+The following command shows how you can specify filters for Amazon Relational Database Service (Amazon RDS).  
 
 ```
 aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters Type=TERM_MATCH,Field=operation,Value="CreateDBInstance:0002"
 ```
-
-**Response**
+**Response**  
 
 ```
 {
@@ -195,17 +182,13 @@ aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters T
 }
 ```
 
-###### Example: Use the filters.json file to specify filters
-
-The following command shows how you can specify a JSON file that contains
-all filters.
+**Example: Use the `filters.json` file to specify filters**  
+The following command shows how you can specify a JSON file that contains all filters.  
 
 ```
 aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters file://filters.json
 ```
-
-For example, the `filters.json` file might include the
-following filters.
+For example, the `filters.json` file might include the following filters.  
 
 ```
 [
@@ -216,9 +199,7 @@ following filters.
   }
 ]
 ```
-
-The following example shows how you can specify more than one
-filter.
+The following example shows how you can specify more than one filter.  
 
 ```
 [
@@ -235,8 +216,7 @@ filter.
   ...
 ]
 ```
-
-**Response**
+**Response**  
 
 ```
 {
@@ -266,8 +246,6 @@ filter.
 ```
 
 For more information, see the following topics:
-
-- [GetProducts](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso") in the
-  _AWS Billing and Cost Management API Reference_
-- [Reading the service price list files](reading-service-price-list-files.md "reading-service-price-list-files.md")
-- [Finding prices in the service price list file](finding-prices-in-service-price-list-files.md "finding-prices-in-service-price-list-files.md")
++ [GetProducts](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetProducts.html) and [language-specific AWS SDKs](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetProducts.html#API_pricing_GetProducts_SeeAlso) in the *AWS Billing and Cost Management API Reference*
++ [Reading the service price list files](reading-service-price-list-files.md)
++ [Finding prices in the service price list file](finding-prices-in-service-price-list-files.md)

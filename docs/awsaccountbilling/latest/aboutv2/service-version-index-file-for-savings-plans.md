@@ -1,17 +1,21 @@
-# Service version index file for Savings Plan
 
-|                                                                                                                                                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:*<br>• This survey is in English only. |
+
+# Service version index file for Savings Plan
+<a name="service-version-index-file-for-savings-plans"></a>
+
+
+|  | 
+| --- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA). Your responses will be anonymous. **Note:** This survey is in English only. | 
 
 To understand the service version index file for Savings Plan, see the following references:
 
-###### Contents
-
-- [Example: Service version index file for Savings Plan](service-version-index-file-for-savings-plans.md#service-version-index-file-savings-plans-example "service-version-index-file-for-savings-plans.md#service-version-index-file-savings-plans-example")
-- [Service version index definitions](service-version-index-file-for-savings-plans.md#service-version-index-definitions "service-version-index-file-for-savings-plans.md#service-version-index-definitions")
+**Contents**
++ [Example: Service version index file for Savings Plan](#service-version-index-file-savings-plans-example)
++ [Service version index definitions](#service-version-index-definitions)
 
 ## Example: Service version index file for Savings Plan
+<a name="service-version-index-file-savings-plans-example"></a>
 
 The service version index file for a Savings Plan looks like the following.
 
@@ -35,35 +39,24 @@ The service version index file for a Savings Plan looks like the following.
 ```
 
 ## Service version index definitions
+<a name="service-version-index-definitions"></a>
 
 The following list defines the terms in the service version index file.
 
-**disclaimer**
-
+**disclaimer**  
 Any disclaimers that apply to the service version index file.
 
-**publicationDate**
+**publicationDate**  
+The date and time in UTC format when a service version index file was published. For example, `2023-03-28T23:47:21Z`.
 
-The date and time in UTC format when a service version index file was published. For
-example, `2023-03-28T23:47:21Z`.
+**currentOfferVersionUrl**  
+The relative URL of the regional index file for latest version number of the service. For example, `/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/current/region_index.json`.
 
-**currentOfferVersionUrl**
-
-The relative URL of the regional index file for latest version
-number of the service. For example,
-`/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/current/region_index.json`.
-
-**versions**
-
+**versions**  
 The list of available version for this AWS service.
 
-**versions:version:publicationDate**
+**versions:version:publicationDate**  
+The date and time in UTC format when an service version index file was published. For example, `2023-04-07T14:57:05Z`
 
-The date and time in UTC format when an service version index file
-was published. For example, `2023-04-07T14:57:05Z`
-
-**versions:version:offerVersionUrl**
-
-The relative URL for the service regional index file of this
-version. For example,
-`/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230407145705/region_index.json`.
+**versions:version:offerVersionUrl**  
+The relative URL for the service regional index file of this version. For example, `/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230407145705/region_index.json`.

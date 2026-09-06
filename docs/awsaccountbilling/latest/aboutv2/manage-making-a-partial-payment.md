@@ -1,49 +1,58 @@
+
+
 # Making partial payments
+<a name="manage-making-a-partial-payment"></a>
 
-You can use the **Payments** page of the AWS Billing and Cost Management console to pay your
-AWS bill using the partial payment method. This section outlines the procedure in the console, as well as how to troubleshoot scenarios if your payment attempt fails.
+You can use the **Payments** page of the AWS Billing and Cost Management console to pay your AWS bill using the partial payment method. This section outlines the procedure in the console, as well as how to troubleshoot scenarios if your payment attempt fails.<a name="making-partial-payment-procedure"></a>
 
-###### To make a partial payment
+**To make a partial payment**
 
-1. Open the AWS Billing and Cost Management console at
-   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Payments**.
+1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
-The **Payments due** table lists all outstanding
-invoices. If there are no invoices that are listed, you don't need to do
-anything at this time. 3. If there are outstanding invoices, select the invoices that you want to pay in the
-**Payments due** table, and then choose
-**Complete payment**. 4. On the **Complete a payment** page, your default payment method is
-chosen.
+1. In the navigation pane, choose **Payments**.
 
-    1. To continue with the default payment method, proceed to the next step.
-    2. To use a different payment method, or if your current selection isn't eligible for partial payments, choose **Change**.
-    3. To add a new payment method, see [Managing credit cards](manage-cc.md "manage-cc.md").
+   The **Payments due** table lists all outstanding invoices. If there are no invoices that are listed, you don't need to do anything at this time.
 
-5. In the **Payments due** table, select the invoices to pay. 6. Under the **Payment amount** column, enter the partial payment amount you're paying for each invoice. 7. Choose **Verify and pay**.
+1. If there are outstanding invoices, select the invoices that you want to pay in the **Payments due** table, and then choose **Complete payment**.
 
-After your bank processes your payment, you're redirected to the
-**Payments** page.
+1. On the **Complete a payment** page, your default payment method is chosen.
 
-###### Note
+   1. To continue with the default payment method, proceed to the next step.
 
-- Chinese yuan (CNY) China Union Pay credit cards are not eligible for partial payments.
-- Subscription invoices and AWS Marketplace invoices are not eligible for partial payments.
-- Each payment is at least 10% of the total invoice amount.
-- If the remaining balance would be less than 10% of the original invoice amount, the full balance must be paid.
-- The payment amount is at least 300 units in the invoice currency (for example, 300 USD, 300 JPY).
+   1. To use a different payment method, or if your current selection isn't eligible for partial payments, choose **Change**.
+
+   1. To add a new payment method, see [Managing credit cards](manage-cc.md).
+
+1. In the **Payments due** table, select the invoices to pay.
+
+1. Under the **Payment amount** column, enter the partial payment amount you're paying for each invoice.
+
+1. Choose **Verify and pay**.
+
+   After your bank processes your payment, you're redirected to the **Payments** page.
+
+**Note**  
+Chinese yuan (CNY) China Union Pay credit cards are not eligible for partial payments.
+Subscription invoices and AWS Marketplace invoices are not eligible for partial payments.
+Each payment is at least 10% of the total invoice amount.
+If the remaining balance would be less than 10% of the original invoice amount, the full balance must be paid.
+The payment amount is at least 300 units in the invoice currency (for example, 300 USD, 300 JPY).
 
 ## Troubleshooting partial payments
+<a name="making-partial-payment-troubleshoot"></a>
 
-If you receive an email notification that AWS failed the previous charge attempt on your payment card, attempt the following troubleshooting process.
+If you receive an email notification that AWS failed the previous charge attempt on your payment card, attempt the following troubleshooting process.<a name="making-partial-payment-troubleshoot-steps"></a>
 
-###### To troubleshoot a partial payment charge fail
+**To troubleshoot a partial payment charge fail**
 
-1. Open the AWS Billing and Cost Management console at
-   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Payments**.
-3. The **Payments due** table, select the invoices to pay.
-4. Choose the amount to pay.
-5. Choose **Complete payment**.
+1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
+
+1. In the navigation pane, choose **Payments**.
+
+1. The **Payments due** table, select the invoices to pay.
+
+1. Choose the amount to pay.
+
+1. Choose **Complete payment**.
 
 If the transaction continues to fail, contact your bank to understand why they are declining your transaction. Alternatively, you can pay with another eligible card.

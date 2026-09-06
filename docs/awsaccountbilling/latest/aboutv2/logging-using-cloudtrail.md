@@ -1,221 +1,211 @@
+
+
 # Logging Billing and Cost Management API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Billing and Cost Management is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or an AWS service in Billing and Cost Management. CloudTrail captures API calls for Billing and Cost Management as events,
-including calls from the Billing and Cost Management console and from code calls to the Billing and Cost Management APIs. For a full list of CloudTrail events related to Billing, see [AWS Billing CloudTrail events](#billing-cloudtrail-events "#billing-cloudtrail-events").
+Billing and Cost Management is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Billing and Cost Management. CloudTrail captures API calls for Billing and Cost Management as events, including calls from the Billing and Cost Management console and from code calls to the Billing and Cost Management APIs. For a full list of CloudTrail events related to Billing, see [AWS Billing CloudTrail events](#billing-cloudtrail-events).
 
-If you create a
-trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for
-Billing and Cost Management. If you don't configure a trail, you can still view the most recent events in the CloudTrail
-console in **Event history**. Using the information collected by CloudTrail, you can
-determine the request that was made to Billing and Cost Management, the IP address from which the request was made, who
-made the request, when it was made, and additional details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Billing and Cost Management. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Billing and Cost Management, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## AWS Billing CloudTrail events
+<a name="billing-cloudtrail-events"></a>
 
-This section shows a full list of the CloudTrail events related to Billing and Cost Management.
+This section shows a full list of the CloudTrail events related to Billing and Cost Management. 
 
-| Event name                                  | Definition                                                                                                                                                                     | Event source                          |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| `AddPurchaseOrder`                          | Logs the creation of a purchase order.                                                                                                                                         | `purchase-orders.amazonaws.com`       |
-| `AcceptFxPaymentCurrencyTermsAndConditions` | Logs the acceptance of the terms and conditions of paying in a currency other<br>than USD.                                                                                     | `billingconsole.amazonaws.com`        |
-| `CloseAccount`                              | Logs the closing of an account.                                                                                                                                                | `billingconsole.amazonaws.com`        |
-| `CreateCustomerVerificationDetails`         | (For customers with an India billing or contact address only)<br>Logs the creation of the customer verification details of the account.                                        | `customer-verification.amazonaws.com` |
-| `CreateOrigamiReportPreference`             | Logs the creation of the cost and usage report; management account only.                                                                                                       | `billingconsole.amazonaws.com`        |
-| `DeletePurchaseOrder`                       | Logs the deletion of a purchase order.                                                                                                                                         | `purchase-orders.amazonaws.com`       |
-| `DeleteOrigamiReportPreferences`            | Logs the deletion of the cost and usage report; management account only.                                                                                                       | `billingconsole.amazonaws.com`        |
-| `DownloadCommercialInvoice`                 | Logs the download of a commercial invoice.                                                                                                                                     | `billingconsole.amazonaws.com`        |
-| `DownloadECSVForBillingPeriod`              | Logs the download of the eCSV file (monthly usage report) for a specific billing<br>period.                                                                                    | `billingconsole.amazonaws.com`        |
-| `DownloadRegistrationDocument`              | Logs the download of the tax registration document.                                                                                                                            | `billingconsole.amazonaws.com`        |
-| `EnableBillingAlerts`                       | Logs the opt-in of receiving CloudWatch billing alerts for estimated charges.                                                                                                  | `billingconsole.amazonaws.com`        |
-| `FindECSVForBillingPeriod`                  | Logs the retrieval of the ECSV file for a specific billing period.                                                                                                             | `billingconsole.amazonaws.com`        |
-| `GetAccountEDPStatus`                       | Logs the retrieval of the account’s EDP status.                                                                                                                                | `billingconsole.amazonaws.com`        |
-| `GetAddresses`                              | Logs the access to tax address, billing address, and contact address of an<br>account.                                                                                         | `billingconsole.amazonaws.com`        |
-| `GetAllAccounts`                            | Logs the access to all member account numbers of the management account.                                                                                                       | `billingconsole.amazonaws.com`        |
-| `GetBillsForBillingPeriod`                  | Logs the access of the account's usage and charges for a specific billing<br>period.                                                                                           | `billingconsole.amazonaws.com`        |
-| `GetBillsForLinkedAccount`                  | Logs the access of a management account retrieving the usage and charges of one<br>of the member accounts in the consolidated billing family for a specific billing<br>period. | `billingconsole.amazonaws.com`        |
-| `GetCommercialInvoicesForBillingPeriod`     | Logs the access to the account's commercial invoices metadata for the specific<br>billing period.                                                                              | `billingconsole.amazonaws.com`        |
-| `GetConsolidatedBillingFamilySummary`       | Logs the access of the management account retrieving the summary of the entire<br>consolidated billing family.                                                                 | `billingconsole.amazonaws.com`        |
-| `GetCustomerVerificationEligibility`        | (For customers with an India billing or contact address only)<br>Logs the retrieval of the customer verification eligibility of the<br>account.                                | `customer-verification.amazonaws.com` |
-| `GetCustomerVerificationDetails`            | (For customers with an India billing or contact address only)<br>Logs the retrieval of the customer verification details of the account.                                       | `customer-verification.amazonaws.com` |
-| `GetLinkedAccountNames`                     | Logs the retrieval from a management account of the member account names<br>belonging to its consolidated billing family for a specific billing period.                        | `billingconsole.amazonaws.com`        |
-| `GetPurchaseOrder`                          | Logs the retrieval of a purchase order.                                                                                                                                        | `purchase-orders.amazonaws.com`       |
-| `GetSupportedCountryCodes`                  | Logs the access to all country codes supported by tax console.                                                                                                                 | `billingconsole.amazonaws.com`        |
-| `GetTotal`                                  | Logs the retrieval of the account’s total charges.                                                                                                                             | `billingconsole.amazonaws.com`        |
-| `GetTotalAmountForForecast`                 | Logs the access to the forecasted charges for the specific billing<br>period.                                                                                                  | `billingconsole.amazonaws.com`        |
-| `ListCostAllocationTags`                    | Logs the retrieval and listing of cost allocation tags.                                                                                                                        | `ce.amazonaws.com`                    |
-| `ListCostAllocationTagBackfillHistory`      | Logs the retrieval and listing of cost allocation tag backfill request history.                                                                                                | `ce.amazonaws.com`                    |
-| `ListPurchaseOrders`                        | Logs the retrieval and listing of purchase orders.                                                                                                                             | `purchase-orders.amazonaws.com`       |
-| `ListPurchaseOrderInvoices`                 | Logs of the retrieval and list of invoices associated to a purchase<br>order.                                                                                                  | `purchase-orders.amazonaws.com`       |
-| `ListTagsForResource`                       | Lists the tags associated with a resource. For `payments`, this<br>action refers to a payment method. For `purchase-orders`, this action<br>refers to a purchase order.        | `purchase-orders.amazonaws.com`       |
-| `RedeemPromoCode`                           | Logs the redemption of promotional credits for an account.                                                                                                                     | `billingconsole.amazonaws.com`        |
-| `SetAccountContractMetadata`                | Logs the creation, deletion, or update of the necessary contract information for<br>public sector customers.                                                                   | `billingconsole.amazonaws.com`        |
-| `SetAccountPreferences`                     | Logs the updates of the account name, email, and password.                                                                                                                     | `billingconsole.amazonaws.com`        |
-| `SetAdditionalContacts`                     | Logs the creation, deletion, or update of the alternate contacts for billing,<br>operations, and security communications.                                                      | `billingconsole.amazonaws.com`        |
-| `SetContactAddress`                         | Logs the creation, deletion, or update of the account owner contact information,<br>including the address and phone number.                                                    | `billingconsole.amazonaws.com`        |
-| `SetCreatedByOptIn`                         | Logs the opt-in of the `awscreatedby` cost allocation tag<br>preference.                                                                                                       | `billingconsole.amazonaws.com`        |
-| `SetCreditSharing`                          | Logs the history of the credit sharing preference for the management<br>account.                                                                                               | `billingconsole.amazonaws.com`        |
-| `SetFreetierBudgetsPreference`              | Logs the preference (opt-in or opt-out) of receiving Free Tier usage<br>alerts.                                                                                                | `billingconsole.amazonaws.com`        |
-| `SetFxPaymentCurrency`                      | Logs the creation, deletion, or update of the preferred currency used to pay your<br>invoice.                                                                                  | `billingconsole.amazonaws.com`        |
-| `SetIAMAccessPreference`                    | Logs the creation, deletion, or update of the IAM users ability to access to<br>the billing console. This setting is only for customers with root access.                      | `billingconsole.amazonaws.com`        |
-| `SetPANInformation`                         | Logs the creating, deletion, or update of PAN information under AWS India.                                                                                                     | `billingconsole.amazonaws.com`        |
-| `SetPayInformation`                         | Logs the payment method history (invoice or credit/debit card) for the<br>account.                                                                                             | `billingconsole.amazonaws.com`        |
-| `SetRISharing`                              | Logs the history of the RI/Savings Plans sharing preference for the management<br>account.                                                                                     | `billingconsole.amazonaws.com`        |
-| `SetSecurityQuestions`                      | Logs the creation, deletion, or update of the security challenge questions to<br>help AWS identify you as the owner of the account.                                            | `billingconsole.amazonaws.com`        |
-| `StartCostAllocationTagBackfill`            | Logs the creation of a backfill request for the activation status of all cost allocation tags.                                                                                 | `ce.amazonaws.com`                    |
-| `TagResource`                               | Logs the tagging of a resource. For `payments`, this action refers to<br>a payment method. For `purchase-orders`, this action refers to a purchase<br>order.                   | `purchase-orders.amazonaws.com`       |
-| `UntagResource`                             | Logs the deletion of tags from a resource. For `payments`, this<br>action refers to a payment method. For `purchase-orders`, this action<br>refers to a purchase order.        | `purchase-orders.amazonaws.com`       |
-| `UpdateCostAllocationTagsStatus`            | Logs the active or inactive state of a particular cost allocation tag.                                                                                                         | `ce.amazonaws.com`                    |
-| `UpdateCustomerVerificationDetails`         | (For customers with an India billing or contact address only)<br>Logs the update of the customer verification details of the account.                                          | `customer-verification.amazonaws.com` |
-| `UpdateOrigamiReportPreference`             | Logs the update of the cost and usage report; management account only.                                                                                                         | `billingconsole.amazonaws.com`        |
-| `UpdatePurchaseOrder`                       | Logs the update of a purchase order.                                                                                                                                           | `purchase-orders.amazonaws.com`       |
-| `UpdatePurchaseOrderStatus`                 | Logs the update of a purchase order status.                                                                                                                                    | `purchase-orders.amazonaws.com`       |
-| `ValidateAddress`                           | Logs the validation of the tax address of an account.                                                                                                                          | `billingconsole.amazonaws.com`        |
+
+
+| Event name | Definition | Event source | 
+| --- | --- | --- | 
+| `AddPurchaseOrder` | Logs the creation of a purchase order. | purchase-orders.amazonaws.com | 
+| `AcceptFxPaymentCurrencyTermsAndConditions` | Logs the acceptance of the terms and conditions of paying in a currency other than USD. | billingconsole.amazonaws.com | 
+| `CloseAccount` | Logs the closing of an account. | billingconsole.amazonaws.com | 
+| `CreateCustomerVerificationDetails` | (For customers with an India billing or contact address only)<br />Logs the creation of the customer verification details of the account. | customer-verification.amazonaws.com | 
+| `CreateOrigamiReportPreference` | Logs the creation of the cost and usage report; management account only. | billingconsole.amazonaws.com | 
+| `DeletePurchaseOrder` | Logs the deletion of a purchase order. | purchase-orders.amazonaws.com | 
+| `DeleteOrigamiReportPreferences` | Logs the deletion of the cost and usage report; management account only. | billingconsole.amazonaws.com | 
+| `DownloadCommercialInvoice` | Logs the download of a commercial invoice. | billingconsole.amazonaws.com | 
+| `DownloadECSVForBillingPeriod` | Logs the download of the eCSV file (monthly usage report) for a specific billing period. | billingconsole.amazonaws.com | 
+| `DownloadRegistrationDocument` | Logs the download of the tax registration document. | billingconsole.amazonaws.com | 
+| `EnableBillingAlerts` | Logs the opt-in of receiving CloudWatch billing alerts for estimated charges. | billingconsole.amazonaws.com | 
+| `FindECSVForBillingPeriod` | Logs the retrieval of the ECSV file for a specific billing period. | billingconsole.amazonaws.com | 
+| `GetAccountEDPStatus` | Logs the retrieval of the account’s EDP status. | billingconsole.amazonaws.com | 
+| `GetAddresses` | Logs the access to tax address, billing address, and contact address of an account. | billingconsole.amazonaws.com | 
+| `GetAllAccounts` | Logs the access to all member account numbers of the management account. | billingconsole.amazonaws.com | 
+| `GetBillsForBillingPeriod` | Logs the access of the account's usage and charges for a specific billing period. | billingconsole.amazonaws.com | 
+| `GetBillsForLinkedAccount` | Logs the access of a management account retrieving the usage and charges of one of the member accounts in the consolidated billing family for a specific billing period. | billingconsole.amazonaws.com | 
+| `GetCommercialInvoicesForBillingPeriod` | Logs the access to the account's commercial invoices metadata for the specific billing period. | billingconsole.amazonaws.com | 
+| `GetConsolidatedBillingFamilySummary` | Logs the access of the management account retrieving the summary of the entire consolidated billing family. | billingconsole.amazonaws.com | 
+| `GetCustomerVerificationEligibility` | (For customers with an India billing or contact address only)<br />Logs the retrieval of the customer verification eligibility of the account. | customer-verification.amazonaws.com | 
+| `GetCustomerVerificationDetails` | (For customers with an India billing or contact address only)<br />Logs the retrieval of the customer verification details of the account. | customer-verification.amazonaws.com | 
+| `GetLinkedAccountNames` | Logs the retrieval from a management account of the member account names belonging to its consolidated billing family for a specific billing period. | billingconsole.amazonaws.com | 
+| `GetPurchaseOrder` | Logs the retrieval of a purchase order. | purchase-orders.amazonaws.com | 
+| `GetSupportedCountryCodes` | Logs the access to all country codes supported by tax console. | billingconsole.amazonaws.com | 
+| `GetTotal` | Logs the retrieval of the account’s total charges. | billingconsole.amazonaws.com | 
+| `GetTotalAmountForForecast` | Logs the access to the forecasted charges for the specific billing period. | billingconsole.amazonaws.com | 
+| `ListCostAllocationTags` | Logs the retrieval and listing of cost allocation tags. | ce.amazonaws.com | 
+| `ListCostAllocationTagBackfillHistory` | Logs the retrieval and listing of cost allocation tag backfill request history. | ce.amazonaws.com | 
+| `ListPurchaseOrders` | Logs the retrieval and listing of purchase orders. | purchase-orders.amazonaws.com | 
+| `ListPurchaseOrderInvoices`  | Logs of the retrieval and list of invoices associated to a purchase order. | purchase-orders.amazonaws.com | 
+| `ListTagsForResource`  | Lists the tags associated with a resource. For `payments`, this action refers to a payment method. For `purchase-orders`, this action refers to a purchase order. | purchase-orders.amazonaws.com | 
+| `RedeemPromoCode` | Logs the redemption of promotional credits for an account. | billingconsole.amazonaws.com | 
+| `SetAccountContractMetadata` | Logs the creation, deletion, or update of the necessary contract information for public sector customers. | billingconsole.amazonaws.com | 
+| `SetAccountPreferences` | Logs the updates of the account name, email, and password. | billingconsole.amazonaws.com | 
+| `SetAdditionalContacts` | Logs the creation, deletion, or update of the alternate contacts for billing, operations, and security communications. | billingconsole.amazonaws.com | 
+| `SetContactAddress` | Logs the creation, deletion, or update of the account owner contact information, including the address and phone number. | billingconsole.amazonaws.com | 
+| `SetCreatedByOptIn` | Logs the opt-in of the awscreatedby cost allocation tag preference. | billingconsole.amazonaws.com | 
+| `SetCreditSharing` | Logs the history of the credit sharing preference for the management account. | billingconsole.amazonaws.com | 
+| `SetFreetierBudgetsPreference` | Logs the preference (opt-in or opt-out) of receiving Free Tier usage alerts. | billingconsole.amazonaws.com | 
+| `SetFxPaymentCurrency` | Logs the creation, deletion, or update of the preferred currency used to pay your invoice. | billingconsole.amazonaws.com | 
+| `SetIAMAccessPreference` | Logs the creation, deletion, or update of the IAM users ability to access to the billing console. This setting is only for customers with root access. | billingconsole.amazonaws.com | 
+| `SetPANInformation` | Logs the creating, deletion, or update of PAN information under AWS India. | billingconsole.amazonaws.com | 
+| `SetPayInformation` | Logs the payment method history (invoice or credit/debit card) for the account. | billingconsole.amazonaws.com | 
+| `SetRISharing` | Logs the history of the RI/Savings Plans sharing preference for the management account. | billingconsole.amazonaws.com | 
+| `SetSecurityQuestions` | Logs the creation, deletion, or update of the security challenge questions to help AWS identify you as the owner of the account. | billingconsole.amazonaws.com | 
+| `StartCostAllocationTagBackfill` | Logs the creation of a backfill request for the activation status of all cost allocation tags. | ce.amazonaws.com | 
+| `TagResource`  | Logs the tagging of a resource. For `payments`, this action refers to a payment method. For `purchase-orders`, this action refers to a purchase order. | purchase-orders.amazonaws.com | 
+| `UntagResource` | Logs the deletion of tags from a resource. For `payments`, this action refers to a payment method. For `purchase-orders`, this action refers to a purchase order. | purchase-orders.amazonaws.com | 
+| `UpdateCostAllocationTagsStatus` | Logs the active or inactive state of a particular cost allocation tag. | ce.amazonaws.com | 
+| `UpdateCustomerVerificationDetails` | (For customers with an India billing or contact address only)<br />Logs the update of the customer verification details of the account. | customer-verification.amazonaws.com | 
+| `UpdateOrigamiReportPreference` | Logs the update of the cost and usage report; management account only. | billingconsole.amazonaws.com | 
+| `UpdatePurchaseOrder`  | Logs the update of a purchase order. | purchase-orders.amazonaws.com | 
+| `UpdatePurchaseOrderStatus` | Logs the update of a purchase order status. | purchase-orders.amazonaws.com | 
+| `ValidateAddress` | Logs the validation of the tax address of an account. | billingconsole.amazonaws.com | 
 
 ### Payments CloudTrail events
+<a name="billing-payments-cloudtrail-events"></a>
 
-This section shows a full list of the CloudTrail events for the **Payments** feature in the AWS Billing console. These CloudTrail events use `payments.amazonaws.com` instead of
-`billingconsole.amazonaws.com`.
+This section shows a full list of the CloudTrail events for the **Payments** feature in the AWS Billing console. These CloudTrail events use `payments.amazonaws.com` instead of `billingconsole.amazonaws.com`.
 
-| Event name                                                              | Definition                                                                 |
-| ----------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `Financing_AcceptFinancingApplicationTerms`                             | Logs the acceptance of terms in a financing application.                   |
-| `Financing_CreateFinancingApplication`                                  | Logs the creation of a financing application.                              |
-| `Financing_GetFinancingApplication`                                     | Logs the access of a financing application.                                |
-| `Financing_GetFinancingApplicationDocument`                             | Logs the access of a document associated with a financing application.     |
-| `Financing_GetFinancingLine`                                            | Logs the access of a financing line.                                       |
-| `Financing_GetFinancingLineWithdrawal`                                  | Logs the access of a financing line withdrawal.                            |
-| `Financing_GetFinancingLineWithdrawalDocument`                          | Logs the access of a document associated with a financing line withdrawal. |
-| `Financing_GetFinancingLineWithdrawalStatements`                        | Logs the access of statements associated with a financing line withdrawal. |
-| `Financing_GetFinancingOption`                                          | Logs the access of a financing option.                                     |
-| `Financing_ListFinancingApplications`                                   | Logs the list of financing application metadata.                           |
-| `Financing_ListFinancingLines`                                          | Logs the list of financing line metadata.                                  |
-| `Financing_ListFinancingLineWithdrawals`                                | Logs the list of financing line withdrawal metadata.                       |
-| `Financing_UpdateFinancingApplication`                                  | Logs the update of a financing application.                                |
-| `Instruments_Authenticate`                                              | Logs the payment instrument authentication.                                |
-| `Instruments_Create`                                                    | Logs the creation of payment instruments.                                  |
-| `Instruments_Delete`                                                    | Logs the deletion of payment instruments.                                  |
-| `Instruments_Get`                                                       | Logs the access of payment instruments.                                    |
-| `Instruments_List`                                                      | Logs the list of payment instrument metadata.                              |
-| `Instruments_StartCreate`                                               | Logs the operations before payment instrument creation.                    |
-| `Instruments_Update`                                                    | Logs the update of payment instruments.                                    |
-| `ListTagsForResource`                                                   | Logs the list of tags associated with a payments resource.                 |
-| `Policy_GetPaymentInstrumentEligibility`                                | Logs the access of payment instrument eligibility.                         |
-| `Preferences_BatchGetPaymentProfiles`                                   | Logs the access of payment profiles.                                       |
-| `Preferences_CreatePaymentProfile`                                      | Logs the creation of payment profiles.                                     |
-| `Preferences_DeletePaymentProfile`                                      | Logs the deletion of payment profiles.                                     |
-| `Preferences_ListPaymentProfiles`                                       | Logs the list of payment profiles metadata.                                |
-| `Preferences_UpdatePaymentProfile`                                      | Logs the update of payment profiles.                                       |
-| `Programs_ListPaymentProgramOptions`                                    | Logs the list of payment program options.                                  |
-| `Programs_ListPaymentProgramStatus`                                     | Logs the list of payment program eligiblity and enrolment status.          |
-| `TagResource`                                                           | Logs the tagging of a payments resource.                                   |
-| `TermsAndConditions_AcceptTermsAndConditionsForProgramByAccountId`      | Logs the accepted payments terms and conditions.                           |
-| `TermsAndConditions_GetAcceptedTermsAndConditionsForProgramByAccountId` | Logs the access of accepted terms and conditions.                          |
-| `TermsAndConditions_GetRecommendedTermsAndConditionsForProgram`         | Logs the access of recommended terms and conditions.                       |
-| `UntagResource`                                                         | Logs the deletion of tags from a payments resource.                        |
+
+
+| Event name | Definition | 
+| --- | --- | 
+| `Financing_AcceptFinancingApplicationTerms` | Logs the acceptance of terms in a financing application. | 
+| `Financing_CreateFinancingApplication` | Logs the creation of a financing application. | 
+| `Financing_GetFinancingApplication` | Logs the access of a financing application. | 
+| `Financing_GetFinancingApplicationDocument` | Logs the access of a document associated with a financing application. | 
+| `Financing_GetFinancingLine` | Logs the access of a financing line. | 
+| `Financing_GetFinancingLineWithdrawal` | Logs the access of a financing line withdrawal. | 
+| `Financing_GetFinancingLineWithdrawalDocument` | Logs the access of a document associated with a financing line withdrawal. | 
+| `Financing_GetFinancingLineWithdrawalStatements` | Logs the access of statements associated with a financing line withdrawal. | 
+| `Financing_GetFinancingOption` | Logs the access of a financing option. | 
+| `Financing_ListFinancingApplications` | Logs the list of financing application metadata. | 
+| `Financing_ListFinancingLines` | Logs the list of financing line metadata. | 
+| `Financing_ListFinancingLineWithdrawals` | Logs the list of financing line withdrawal metadata. | 
+| `Financing_UpdateFinancingApplication` | Logs the update of a financing application. | 
+| Instruments\_Authenticate | Logs the payment instrument authentication. | 
+| `Instruments_Create` | Logs the creation of payment instruments. | 
+| `Instruments_Delete` | Logs the deletion of payment instruments. | 
+| `Instruments_Get` | Logs the access of payment instruments. | 
+| `Instruments_List` | Logs the list of payment instrument metadata. | 
+| `Instruments_StartCreate` | Logs the operations before payment instrument creation. | 
+| `Instruments_Update` | Logs the update of payment instruments. | 
+| `ListTagsForResource` | Logs the list of tags associated with a payments resource. | 
+| `Policy_GetPaymentInstrumentEligibility` | Logs the access of payment instrument eligibility. | 
+| `Preferences_BatchGetPaymentProfiles` | Logs the access of payment profiles. | 
+| `Preferences_CreatePaymentProfile` | Logs the creation of payment profiles. | 
+| `Preferences_DeletePaymentProfile` | Logs the deletion of payment profiles. | 
+| `Preferences_ListPaymentProfiles` | Logs the list of payment profiles metadata. | 
+| `Preferences_UpdatePaymentProfile` | Logs the update of payment profiles. | 
+| `Programs_ListPaymentProgramOptions` | Logs the list of payment program options. | 
+| `Programs_ListPaymentProgramStatus` | Logs the list of payment program eligiblity and enrolment status. | 
+| `TagResource` | Logs the tagging of a payments resource. | 
+| `TermsAndConditions_AcceptTermsAndConditionsForProgramByAccountId` | Logs the accepted payments terms and conditions. | 
+| `TermsAndConditions_GetAcceptedTermsAndConditionsForProgramByAccountId` | Logs the access of accepted terms and conditions. | 
+| `TermsAndConditions_GetRecommendedTermsAndConditionsForProgram` | Logs the access of recommended terms and conditions. | 
+| `UntagResource` | Logs the deletion of tags from a payments resource. | 
 
 ### Tax settings CloudTrail events
+<a name="billing-tax-cloudtrail-events"></a>
 
-This section shows a full list of the CloudTrail events for the **Tax settings** feature in the AWS Billing console. These CloudTrail events use `taxconsole.amazonaws.com` or `tax.amazonaws.com` instead of
-`billingconsole.amazonaws.com`.
+This section shows a full list of the CloudTrail events for the **Tax settings** feature in the AWS Billing console. These CloudTrail events use `taxconsole.amazonaws.com` or `tax.amazonaws.com` instead of `billingconsole.amazonaws.com`.
 
-CloudTrail events for Tax settings console| Event name | Definition | Event source |
-| --- | --- | --- |
-| `BatchGetTaxExemptions` | Logs the access to US tax exemptions of an account, and any linked accounts. | `taxconsole.amazon.com` |
-| `CreateCustomerCase` | Logs the creation of a customer support case to validate US tax exemption for<br>an account. | `taxconsole.amazon.com` |
-| `DownloadTaxInvoice` | Logs the download of a tax invoice. | `taxconsole.amazon.com` |
-| `GetTaxExemptionTypes` | Logs the access to all supported US exemption types by tax console. | `taxconsole.amazon.com` |
-| `GetTaxInheritance` | Logs the access to tax inheritance preference (turning on or off) of an<br>account. | `taxconsole.amazon.com` |
-| `GetTaxInvoicesMetadata` | Logs the retrieval of tax invoices metadata. | `taxconsole.amazon.com` |
-| `GetTaxRegistration` | Logs the access to the tax registration number of an account. | `taxconsole.amazon.com` |
-| `PreviewTaxRegistrationChange` | Logs the preview of tax registration changes before confirmation. | `taxconsole.amazon.com` |
-| `SetTaxInheritance` | Logs the preference (opt-in or opt-out) of tax inheritance. | `taxconsole.amazon.com` |
 
-CloudTrail events for Tax settings API| Event name | Definition | Event source |
-| --- | --- | --- |
-| `BatchDeleteTaxRegistration` | Logs the batch deletion of the tax registration for multiple accounts. | `tax.amazonaws.com` |
-| `BatchGetTaxExemptions` | Logs the access to tax exemptions of one or multiple accounts. | `tax.amazonaws.com` |
-| `BatchPutTaxRegistration` | Logs the settings of the tax registration of multiple accounts. | `tax.amazonaws.com` |
-| `DeleteTaxRegistration` | Logs the deletion of the tax registration number for an account. | `tax.amazonaws.com` |
-| `GetTaxExemptionTypes` | Logs the access to all supported tax exemption types by the tax console. | `tax.amazonaws.com` |
-| `GetTaxInheritance` | Logs the access to tax inheritance preference (turning on or off) of an account. | `tax.amazonaws.com` |
-| `GetTaxRegistration` | Logs the access to the tax registration of an account. | `tax.amazonaws.com` |
-| `GetTaxRegistrationDocument` | Logs retrieving the tax registration document of an account. | `tax.amazonaws.com` |
-| `ListTaxExemptions` | Logs the access to tax exemptions of the AWS organization accounts. | `tax.amazonaws.com` |
-| `ListTaxRegistrations` | Logs the access to tax registration details of all member accounts of the<br>management account. | `tax.amazonaws.com` |
-| `PutTaxExemption` | Logs setting tax exemption of one or multiple accounts. | `tax.amazonaws.com` |
-| `PutTaxInheritance` | Logs setting the preference (opt in or opt out) of tax inheritance. | `tax.amazonaws.com` |
-| `PutTaxRegistration` | Logs the settings of the tax registration of an account. | `tax.amazonaws.com` |
+**CloudTrail events for Tax settings console**  
+
+| Event name | Definition | Event source | 
+| --- | --- | --- | 
+| `BatchGetTaxExemptions` | Logs the access to US tax exemptions of an account, and any linked accounts.  | taxconsole.amazon.com | 
+| `CreateCustomerCase` | Logs the creation of a customer support case to validate US tax exemption for an account. | taxconsole.amazon.com | 
+| `DownloadTaxInvoice` | Logs the download of a tax invoice. | taxconsole.amazon.com | 
+| `GetTaxExemptionTypes` | Logs the access to all supported US exemption types by tax console. | taxconsole.amazon.com | 
+| `GetTaxInheritance` | Logs the access to tax inheritance preference (turning on or off) of an account. | taxconsole.amazon.com | 
+| `GetTaxInvoicesMetadata` | Logs the retrieval of tax invoices metadata. | taxconsole.amazon.com | 
+| `GetTaxRegistration` | Logs the access to the tax registration number of an account. | taxconsole.amazon.com | 
+| `PreviewTaxRegistrationChange` | Logs the preview of tax registration changes before confirmation. | taxconsole.amazon.com | 
+| `SetTaxInheritance` | Logs the preference (opt-in or opt-out) of tax inheritance. | taxconsole.amazon.com | 
+
+
+**CloudTrail events for Tax settings API**  
+
+| Event name | Definition | Event source | 
+| --- | --- | --- | 
+| `BatchDeleteTaxRegistration` | Logs the batch deletion of the tax registration for multiple accounts. | tax.amazonaws.com | 
+| `BatchGetTaxExemptions` | Logs the access to tax exemptions of one or multiple accounts. | tax.amazonaws.com | 
+| `BatchPutTaxRegistration` | Logs the settings of the tax registration of multiple accounts. | tax.amazonaws.com  | 
+| `DeleteTaxRegistration` | Logs the deletion of the tax registration number for an account. | tax.amazonaws.com  | 
+| `GetTaxExemptionTypes` | Logs the access to all supported tax exemption types by the tax console. | tax.amazonaws.com | 
+| `GetTaxInheritance` | Logs the access to tax inheritance preference (turning on or off) of an account. | tax.amazonaws.com | 
+| `GetTaxRegistration` | Logs the access to the tax registration of an account. | tax.amazonaws.com | 
+| `GetTaxRegistrationDocument` | Logs retrieving the tax registration document of an account. | tax.amazonaws.com | 
+| `ListTaxExemptions` | Logs the access to tax exemptions of the AWS organization accounts. | tax.amazonaws.com | 
+| `ListTaxRegistrations` | Logs the access to tax registration details of all member accounts of the management account. | tax.amazonaws.com  | 
+| `PutTaxExemption` | Logs setting tax exemption of one or multiple accounts. | tax.amazonaws.com  | 
+| `PutTaxInheritance` | Logs setting the preference (opt in or opt out) of tax inheritance. | tax.amazonaws.com | 
+| `PutTaxRegistration` | Logs the settings of the tax registration of an account. | tax.amazonaws.com | 
 
 ### Invoicing CloudTrail events
+<a name="billing-invoice-cloudtrail-events"></a>
 
 This section shows a full list of the CloudTrail events for the **Invoicing** feature in the AWS Billing console. These CloudTrail events use `invoicing.amazonaws.com`.
 
-| Event name           | Definition                                       |
-| -------------------- | ------------------------------------------------ |
-| `CreateInvoiceUnit`  | Logs the creation of an invoice unit.            |
-| `DeleteInvoiceUnit`  | Logs the deletion of an invoice unit.            |
-| `GetInvoiceProfiles` | Logs the access of an account's invoice profile. |
-| `GetInvoiceUnit`     | Logs the access of an invoice unit.              |
-| `ListInvoiceUnits`   | Logs the retrieval and listing of invoice units. |
-| `UpdateInvoiceUnit`  | Logs the update of an invoice unit.              |
+
+
+| Event name | Definition | 
+| --- | --- | 
+| `CreateInvoiceUnit` | Logs the creation of an invoice unit.  | 
+| `DeleteInvoiceUnit` | Logs the deletion of an invoice unit. | 
+| `GetInvoiceProfiles` | Logs the access of an account's invoice profile. | 
+| `GetInvoiceUnit` | Logs the access of an invoice unit. | 
+| `ListInvoiceUnits` | Logs the retrieval and listing of invoice units. | 
+| `UpdateInvoiceUnit` | Logs the update of an invoice unit. | 
 
 ## Billing and Cost Management information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported event
-activity occurs in Billing and Cost Management, that activity is recorded in a CloudTrail event along with other AWS
-service events in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in Billing and Cost Management, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. 
 
-For an ongoing record of events in your AWS account, including events for Billing and Cost Management, create a
-trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you
-create a trail in the console, the trail applies to all AWS Regions. The trail logs events
-from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you
-specify. Additionally, you can configure other AWS services to further analyze and act upon
-the event data collected in CloudTrail logs.
+For an ongoing record of events in your AWS account, including events for Billing and Cost Management, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. 
 
-For more information, see the following:
+For more information, see the following: 
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for
-  Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS
-  Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail
-  Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or IAM user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or IAM user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## CloudTrail log entry examples
+<a name="CT-examples"></a>
 
 The following examples are provided for specific Billing and Cost Management CloudTrail log entry scenarios.
 
-###### Topics
-
-- [Billing and Cost Management log file entries](#understanding-service-name-entries "#understanding-service-name-entries")
-- [Tax console](#CT-example-tax "#CT-example-tax")
-- [Payments](#CT-example-payments-create "#CT-example-payments-create")
+**Topics**
++ [Billing and Cost Management log file entries](#understanding-service-name-entries)
++ [Tax console](#CT-example-tax)
++ [Payments](#CT-example-payments-create)
 
 ### Billing and Cost Management log file entries
+<a name="understanding-service-name-entries"></a>
 
-A _trail_ is a configuration that enables delivery of events as log
-files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An
-event represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files are not
-an ordered stack trace of the public API calls, so they don't appear in any specific
-order.
+ A *trail* is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 The following example shows a CloudTrail log entry that demonstrates the `SetContactAddress` action.
 
@@ -255,6 +245,7 @@ The following example shows a CloudTrail log entry that demonstrates the `SetCon
 ```
 
 ### Tax console
+<a name="CT-example-tax"></a>
 
 The following example shows a CloudTrail log entry that uses the `CreateCustomerCase` action.
 
@@ -290,6 +281,7 @@ The following example shows a CloudTrail log entry that uses the `CreateCustomer
 ```
 
 ### Payments
+<a name="CT-example-payments-create"></a>
 
 The following example shows a CloudTrail log entry that uses the `Instruments_Create` action.
 
