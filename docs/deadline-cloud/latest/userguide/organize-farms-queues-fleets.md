@@ -83,8 +83,8 @@ end-to-end steps to bring a vendor onto your farm, see [Onboard users to your fa
 
 To keep work under a security or privacy restriction on dedicated workers,
 create a queue and a fleet for that work, and associate the fleet only with that
-queue. Jobs are scheduled only to fleets associated with their queue, so the
-association is what keeps other work off the restricted workers. See [Associate a queue and fleet](associate-a-queue-and-fleet.md "associate-a-queue-and-fleet.md"). For work that must not share
+queue. Jobs are scheduled only to fleets associated with their queue, so a fleet
+associated with a single queue runs that queue's jobs and no others. See [Associate a queue and fleet](associate-a-queue-and-fleet.md "associate-a-queue-and-fleet.md"). For work that must not share
 anything with the rest of the studio, use a separate farm instead.
 
 Complete the boundary around the restricted queue:

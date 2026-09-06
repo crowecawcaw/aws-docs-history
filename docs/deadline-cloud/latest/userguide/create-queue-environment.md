@@ -28,16 +28,17 @@ console.
 ## Default conda queue environment
 
 When you create a queue associated with a service-managed fleet, you have the
-option of adding a default queue environment that supports [conda](https://docs.conda.io/en/latest/ "https://docs.conda.io/en/latest/") to download
-and install packages in a virtual environment for your jobs.
+option of adding a default queue environment that supports conda to download
+and install packages in a virtual environment for your jobs. For more information, see
+[conda
+documentation](https://docs.conda.io/en/latest/ "https://docs.conda.io/en/latest/") on the conda website.
 
 If you add a default queue environment with the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), the environment is
 created for you. If you add a queue another way, such as the AWS CLI or with CloudFormation,
 you'll need to create the queue environment yourself. To ensure you have the correct
-contents for the environment, you can refer to queue environment template YAML files
-on GitHub. For the contents of the default queue environment, see the [default queue environment YAML file](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_from_console.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_from_console.yaml") on GitHub.
+contents for the environment, you can refer to the queue environment template YAML files. For the contents of the default queue environment, see the [default queue environment YAML file](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_from_console.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_from_console.yaml") on the GitHub website.
 
-There are other [queue environment templates](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments#the-sample-queue-environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments#the-sample-queue-environments") available on GitHub that you can use as a
+There are other [queue environment templates](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments#the-sample-queue-environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments#the-sample-queue-environments") available on the GitHub website that you can use as a
 starting point for your own needs.
 
 Conda provides packages from _channels_. A
@@ -173,14 +174,16 @@ environment, the environment adds two parameters to the job. These parameters
 specify the conda packages and channels to use to configure the job's
 environment before tasks are processed. The parameters are:
 
-- `CondaPackages` – a space-separated list of [package match specifications](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications "https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications"), such as `blender=3.6`
+- `CondaPackages` – a space-separated list of package match
+  specifications, such as `blender=3.6`
   or `numpy>1.22`. The default is empty to skip creating a virtual
-  environment.
-- `CondaChannels` – a space separated list of [conda channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") such as
+  environment. For more information, see [Package match specifications](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications "https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications") on the conda website.
+- `CondaChannels` – a space separated list of conda channels such as
   `deadline-cloud`, `conda-forge`, or
   `s3://`amzn-s3-demo-bucket`/conda/channel`.
   The default is `deadline-cloud`, a channel available to
   service-managed fleets that provides partner DCC applications and renderers.
+  For more information, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") on the conda website.
 
 When you use an integrated submitter to send a job to Deadline Cloud from your DCC, the
 submitter populates the value of the `CondaPackages` parameter based on

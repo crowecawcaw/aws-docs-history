@@ -37,6 +37,13 @@ and fleet in the farm. A grant on a queue or fleet applies only to that
 resource, so you can give a team the contributor level on its own queue and the
 viewer level everywhere else.
 
+A grant on a group applies to whoever is in the group when they make a
+request. When you add a user to the group in your identity source, that user
+gets the group's access without any change to the grant, and when you remove a
+user from the group, that user loses the group's access the same way. The
+group's membership on the farm, queue, or fleet stays in place; you don't
+update or refresh it as the group's members change.
+
 When a user has grants at more than one level, Deadline Cloud applies the highest one.
 For example, a user with the viewer level on the farm and the manager level on
 one queue has manager permissions on that queue and viewer permissions
@@ -69,6 +76,11 @@ person created or updated them. The monitor desktop application
 also shares these credentials with the Deadline Cloud CLI and the integrated submitters,
 so the same access levels apply there.
 
+The credentials that the monitor issues are temporary. When you remove a
+user's access or disable the user in your identity source, the user can't sign
+in again or get new credentials, but credentials already issued keep working
+until they expire, at most 15 minutes later.
+
 If you sign in through the monitor, you don't need an IAM user or policies
 of your own. To
 change what an access level allows, for example to let contributors cancel their
@@ -99,7 +111,9 @@ resources, and condition keys, see [Identity and Access Management in Deadline C
 The following tables list the permissions at each access level for each
 resource type that a grant can be placed on, with the default AWS managed
 policies. A grant on a farm also confers the queue and fleet permissions on
-every queue and fleet in that farm. To change what a level allows, see [How access levels relate to IAM](#permissions-and-iam "#permissions-and-iam"). To grant an access level, see [Assign permissions to users and groups](assign-permissions-procedure.md "assign-permissions-procedure.md").
+every queue and fleet in that farm. Budgets and usage data appear only in the
+farm table. The owner level on a queue or fleet doesn't include them; you
+grant them with the owner level on the farm. To change what a level allows, see [How access levels relate to IAM](#permissions-and-iam "#permissions-and-iam"). To grant an access level, see [Assign permissions to users and groups](assign-permissions-procedure.md "assign-permissions-procedure.md").
 
 Farm permissions by access level| Permission | Viewer | Contributor | Manager | Owner |
 | --- | --- | --- | --- | --- |
@@ -117,11 +131,9 @@ Queue permissions by access level| Permission | Viewer | Contributor | Manager |
 | Submit jobs to queue | No | Yes | Yes | Yes |
 | Edit and cancel jobs | No | No | Yes | Yes |
 | Manage queue user access | No | No | Yes | Yes |
-| View queue budget allocation | No | No | No | Yes |
 
 Fleet permissions by access level| Permission | Viewer | Contributor | Manager | Owner |
 | --- | --- | --- | --- | --- |
 | View fleet details | Yes | Yes | Yes | Yes |
 | View workers in fleet | Yes | Yes | Yes | Yes |
 | Manage fleet user access | No | No | Yes | Yes |
-| View fleet cost data | No | No | No | Yes |

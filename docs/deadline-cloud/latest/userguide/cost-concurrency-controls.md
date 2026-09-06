@@ -134,7 +134,7 @@ the deadline, lower the settings again.
 
 You can update fleet auto scaling settings and budgets from the Deadline Cloud
 console. To change capacity on a schedule, such as raising the standby worker count
-during working hours, use the sample CloudFormation template at [fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling") on GitHub. If you need more capacity than your
+during working hours, use the sample CloudFormation template at [fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling") on the GitHub website. If you need more capacity than your
 account's service quotas allow, see [Service quotas and throttling for Deadline Cloud](deadline-cloud-quotas.md "deadline-cloud-quotas.md").
 
 ## Combine controls

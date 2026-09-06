@@ -124,7 +124,7 @@ your human users to use temporary credentials through [AWS IAM Identity Center](
 
 Complete the following steps before creating a cron job or scheduled task for automatic download.
 
-1. If you haven't already, install [Python](https://www.python.org/ "https://www.python.org/").
+1. If you haven't already, install [Python](https://www.python.org/ "https://www.python.org/") from the Python website.
 2. Install the Deadline CLI by running:
 
 ```
@@ -184,7 +184,7 @@ PS C:\> Get-Command deadline
    1. Download the .zip file from GitHub.
 
       1. Open the [deadline-cloud-samples
-         GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline").
+         repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") on the GitHub website.
       2. Choose **Code** and then, from the dropdown menu, select **Download ZIP**.
       3. Unzip the downloaded archive to a local directory.
 
@@ -464,7 +464,7 @@ Windows
 The scheduled task created using these instructions only work when the user is logged in.
 
 To set it up at system startup without requiring user login, see the official
-[Windows documentation](https://learn.microsoft.com/en-us/windows/win32/taskschd/using-the-task-scheduler "https://learn.microsoft.com/en-us/windows/win32/taskschd/using-the-task-scheduler").
+[Windows documentation](https://learn.microsoft.com/en-us/windows/win32/taskschd/using-the-task-scheduler "https://learn.microsoft.com/en-us/windows/win32/taskschd/using-the-task-scheduler") on the Microsoft website.
 
 For all steps below use Command Prompt - run as Administrator:
 

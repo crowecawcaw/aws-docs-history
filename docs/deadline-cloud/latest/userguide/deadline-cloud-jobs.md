@@ -8,10 +8,11 @@ A _submitter_ is a plugin for your digital content creation (DCC)
 application that manages creating a job in the interface of your DCC application. After you
 create the job, you use the submitter to send it to Deadline Cloud for processing.
 
-The submitter creates an [Open Job Specification
-(OpenJD)](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") template that describes the job. At the same time it uploads your asset files
-to an Amazon Simple Storage Service (Amazon S3) bucket. To reduce upload time, the submitter only sends files that have
-changed since the last upload to Amazon S3.
+The submitter creates an Open Job Specification (OpenJD) template that describes the job.
+At the same time it uploads your asset files to an Amazon Simple Storage Service (Amazon S3) bucket. To reduce upload
+time, the submitter only sends files that have changed since the last upload to Amazon S3. For more
+information about OpenJD, see the [OpenJD
+specifications](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") on the GitHub website.
 
 You can also create a job in the following ways.
 

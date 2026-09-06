@@ -66,7 +66,7 @@ To install the Deadline Cloud for Nuke submitter, you need:
 There are two ways to install the Deadline Cloud for Nuke submitter:
 
 - Using the Deadline Cloud submitter installer (recommended).
-- [Manually installing the submitter from source](https://github.com/aws-deadline/deadline-cloud-for-nuke/blob/mainline/DEVELOPMENT.md#manual-installation "https://github.com/aws-deadline/deadline-cloud-for-nuke/blob/mainline/DEVELOPMENT.md#manual-installation").
+- Manually installing the submitter from source. For instructions, see [Manual installation](https://github.com/aws-deadline/deadline-cloud-for-nuke/blob/mainline/DEVELOPMENT.md#manual-installation "https://github.com/aws-deadline/deadline-cloud-for-nuke/blob/mainline/DEVELOPMENT.md#manual-installation") on the GitHub website.
 
 ### Using the Deadline Cloud submitter installer
 
@@ -84,8 +84,8 @@ You can install the Deadline Cloud for Nuke submitter using the Deadline Cloud s
 
 The Deadline Cloud for Nuke submitter supports two types of jobs:
 
-- Render jobs - Render the output files created by one or more of the [Write nodes](https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html "https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html") in your Nuke script.
-- CopyCat training jobs - Perform training for a [CopyCat node](https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html "https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html") in your Nuke script.
+- Render jobs - Render the output files created by one or more of the Write nodes in your Nuke script. For more information, see [Write nodes](https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html "https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html") on the Foundry website.
+- CopyCat training jobs - Perform training for a CopyCat node in your Nuke script. For more information, see [CopyCat](https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html "https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html") on the Foundry website.
 
 ### Render jobs
 
@@ -104,14 +104,14 @@ To use the Deadline Cloud for Nuke submitter, you need:
 
 #### Nuke render-specific settings
 
-The **Job-specific settings** tab has options specific to jobs created in Nuke.
+The **Job-specific settings** tab has options specific to jobs created in Nuke:
 
 ![Submitter interface showing Nuke render-specific job settings.](images/nuke-render_job_settings.png)
 
-- _Write nodes_ - Which [write nodes](https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html "https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html") to render outputs for. You can either select to render all write nodes, or select a specific node.
-- _Views_ - Which [views](https://learn.foundry.com/nuke/content/comp_environment/stereoscopic_films/setting_up_stereo_views.html "https://learn.foundry.com/nuke/content/comp_environment/stereoscopic_films/setting_up_stereo_views.html") should be rendered.
-- _Override frame range_ - Select this option to render a different frame or frame range than is set in Nuke. Frame ranges follow the [Open Job Description](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#34111-intrangeexpr "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#34111-intrangeexpr") pattern.
-- _Use proxy mode_ - Manages whether to use [proxy mode](https://learn.foundry.com/nuke/9.0/content/getting_started/managing_scripts/proxy_mode.html "https://learn.foundry.com/nuke/9.0/content/getting_started/managing_scripts/proxy_mode.html") in the submitted job.
+- _Write nodes_ - Which write nodes to render outputs for. You can either select to render all write nodes, or select a specific node. For more information, see [Write nodes](https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html "https://learn.foundry.com/nuke/content/comp_environment/rendering/output_write_nodes.html") on the Foundry website.
+- _Views_ - Which views should be rendered. For more information, see [Setting up stereo views](https://learn.foundry.com/nuke/content/comp_environment/stereoscopic_films/setting_up_stereo_views.html "https://learn.foundry.com/nuke/content/comp_environment/stereoscopic_films/setting_up_stereo_views.html") on the Foundry website.
+- _Override frame range_ - Select this option to render a different frame or frame range than is set in Nuke. Frame ranges follow the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#34111-intrangeexpr "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#34111-intrangeexpr") on the GitHub website.
+- _Use proxy mode_ - Manages whether to use proxy mode in the submitted job. For more information, see [Proxy mode](https://learn.foundry.com/nuke/9.0/content/getting_started/managing_scripts/proxy_mode.html "https://learn.foundry.com/nuke/9.0/content/getting_started/managing_scripts/proxy_mode.html") on the Foundry website.
 - _Continue on error_ - If selected, Nuke tries to continue rendering when it encounters an error. If cleared, Nuke fails the task when it encounters an error.
 - _Chunk size_ - Number of frames to group into each chunk (1-150). Use 1 for one frame per task (default). Higher values group frames into contiguous chunks to reduce per-task overhead. For more information, see [Task chunking for job templates](../developerguide/build-job-bundle-chunking.md "../developerguide/build-job-bundle-chunking.md").
 - _Target chunk duration (seconds)_ - When you specify a value, the scheduler dynamically adjusts chunk sizes based on observed runtimes of completed chunks, aiming for this duration for each chunk. Leave at 0 to use a fixed chunk size for all chunks.
@@ -119,7 +119,7 @@ The **Job-specific settings** tab has options specific to jobs created in Nuke.
 - _Render task timeout_ - Maximum duration of each action which performs a render. Default is 6 days.
 - _Setup timeout_ - Maximum duration of each action which sets up the job for rendering, such as scene load. Default is 1 day.
 - _Teardown timeout_ - Maximum duration of action which tears down the setup required for rendering. Default is 1 hour.
-- _Include gizmos in job bundle_ - Whether to include [gizmos](https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html "https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html") in the job bundle.
+- _Include gizmos in job bundle_ - Whether to include gizmos in the job bundle. For more information, see [Creating and sourcing gizmos](https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html "https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html") on the Foundry website.
 
 For information about the other submitter tabs, see the [Deadline Cloud guide for using a submitter](jobs-using-submitter.md "jobs-using-submitter.md").
 
@@ -134,7 +134,7 @@ To use the Deadline Cloud for Nuke submitter to train CopyCat nodes, you need:
 **To submit a CopyCat training job from Nuke to Deadline Cloud**:
 
 1. Create or open a Nuke script containing a CopyCat node.
-2. Attach ground-truth and input nodes to the CopyCat node, and configure knobs on the node to desired values. See [Foundry's CopyCat documentation](https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html "https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html") for details on using CopyCat.
+2. Attach ground-truth and input nodes to the CopyCat node, and configure knobs on the node to desired values. For details on using CopyCat, see [CopyCat](https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html "https://learn.foundry.com/nuke/content/reference_guide/air_nodes/copycat.html") on the Foundry website.
 3. Save your Nuke file.
 4. From the top navigation bar, choose **Deadline Cloud**. From the drop-down menu, choose **Submit CopyCat Training to Deadline Cloud**.
 5. Use the tabs in the dialog to customize your job.
@@ -152,7 +152,7 @@ The **Job-specific settings** tab has options specific to CopyCat training jobs 
 - _Render task timeout_ - Maximum duration of each action. In the case of CopyCat, the training is a single action. Default is 6 days.
 - _Setup timeout_ - Maximum duration of each action which sets up the job, such as scene load. Default is 1 day.
 - _Teardown timeout_ - Maximum duration of action which tears down the setup. Default is 1 hour.
-- _Include gizmos in job bundle_ - Whether to include [gizmos](https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html "https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html") in the job bundle.
+- _Include gizmos in job bundle_ - Whether to include gizmos in the job bundle. For more information, see [Creating and sourcing gizmos](https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html "https://learn.foundry.com/nuke/content/comp_environment/configuring_nuke/creating_sourcing_gizmos.html") on the Foundry website.
 
 For information about the other submitter tabs, see the [Deadline Cloud guide for using a submitter](jobs-using-submitter.md "jobs-using-submitter.md").
 
@@ -183,7 +183,7 @@ You can add third-party Nuke plugins to a service-managed fleet by building a co
 
 RevisionFX DENoise is a noise-reduction plugin for Nuke compositing jobs. You can build a conda package for DENoise 3.6.9 on Linux workers with the nuke-denoise conda recipe, and then add it to a custom conda channel. A commercial DENoise license is required.
 
-Conda recipe: [nuke-denoise conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise")
+For the recipe, see [nuke-denoise conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise") on the GitHub website.
 
 ## Nuke compositing features
 
@@ -202,7 +202,7 @@ Compositing features are automatically detected and configured by the Nuke integ
 
 ## Open source resources
 
-The submitter and adaptor are open source and available on GitHub:
+The submitter and adaptor are open source and available on the GitHub website:
 
 - [Deadline Cloud for Nuke](https://github.com/aws-deadline/deadline-cloud-for-nuke "https://github.com/aws-deadline/deadline-cloud-for-nuke")
-- [Nuke conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes") are available on GitHub for supported versions.
+- [Nuke conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes") for supported versions.

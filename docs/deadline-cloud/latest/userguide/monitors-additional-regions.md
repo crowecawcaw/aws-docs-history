@@ -9,7 +9,12 @@ Regions.
 ## Managing users across Regions
 
 You can add users and groups to farms in any Region from the Deadline Cloud console.
-The console handles cross-Region AWS IAM Identity Center (IAM Identity Center) membership assignment. For
+The console handles cross-Region AWS IAM Identity Center (IAM Identity Center) membership assignment. Your
+IAM Identity Center instance doesn't need to be in the same Region as the farm: a membership
+references the IAM Identity Center user or group by its identifier, so you can assign the
+same users and groups to farms in any Region. If you assign memberships with
+the API or the AWS CLI, for example with `AssociateMemberToQueue`,
+send the request to the Region that contains the farm. For
 more information about managing farm membership, see [Managing users in Deadline Cloud](managing-users.md "managing-users.md").
 
 ## When to create additional monitors

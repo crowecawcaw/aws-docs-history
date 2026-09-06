@@ -190,6 +190,52 @@ instructions, see [View session and worker logs in Deadline Cloud](view-logs.md 
 2,147,483,647 - |`your exit code`|
 ```
 
+### Why does my job fail on Windows when my file paths are long?
+
+Jobs can fail on Windows workers when your project uses long paths, even though the same
+files render on your workstation. The files transfer correctly, and the failure happens when the
+rendering application opens one. Symptoms include the following:
+
+- The rendering application can't find the scene file or one of its dependencies, even
+  though the file was uploaded with the job.
+- A task log contains `FileNotFoundError`, or a `[WinError 3] The system
+ cannot find the path specified` message naming a long path.
+- The job succeeds when you shorten the scene file name and change nothing else.
+
+Windows limits most file paths to 260 characters. Two things make that limit easier to
+reach on a render farm than on a workstation:
+
+- Long path support is per application, not per machine. Windows honors the
+  `LongPathsEnabled` registry setting only for applications that declare
+  `longPathAware` in their application manifest, so enabling it on a worker host
+  doesn't lift the limit for an application that doesn't declare it.
+- macOS and Linux allow up to 1,024 characters, so submitting
+  from one of those workstations to a Windows fleet can produce paths that are valid where you
+  created them and too long where they render.
+
+Deadline Cloud applies the Windows extended-length path prefix to its own file operations, so
+transfer and upload aren't affected. It can't apply that prefix inside a rendering application
+that opens files with its own code, which is why the failure appears at render time. Session and
+job attachment directory names also use part of the 260 characters.
+
+To resolve the failure, use one or more of the following approaches, starting with the most
+reliable:
+
+1. Shorten the paths in your project. This approach is the only one that works for every
+   application, because it avoids the limit instead of working around it.
+2. Use a queue environment that shortens the path the application sees. Deadline Cloud publishes a
+   sample that junctions the job attachment directory to a short path and supplies matching path
+   mapping rules. See [windows\_path\_limit\_junction\_fix.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/windows_path_limit_junction_fix.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/windows_path_limit_junction_fix.yaml") in the `deadline-cloud-samples`
+   repository on the GitHub website. It takes effect only for integrations that read those
+   rules.
+3. Render on a Linux fleet if your software is available there.
+   Linux isn't subject to the limit.
+
+###### Note
+
+These approaches enlarge the path budget available to your project rather than removing the
+260-character limit. A long enough path still fails.
+
 ### Why is my step pending?
 
 Steps may stay in the `PENDING` state when one or more of their dependencies are
@@ -224,4 +270,4 @@ Linux
 
 ## Additional resources
 
-You can find additional information and resources on [GitHub](https://github.com/aws-deadline "https://github.com/aws-deadline").
+You can find additional information and resources in the [aws-deadline repositories](https://github.com/aws-deadline "https://github.com/aws-deadline") on the GitHub website.

@@ -35,7 +35,7 @@ In Deadline Cloud, 3ds Max is installed using host configuration scripts instead
 
 To use 3ds Max with Deadline Cloud:
 
-1. Create a service-managed fleet and associate it with a queue. Configure the fleet with GPU support if you intend to use GPU-accelerated rendering features. The fleet must be configured with a host configuration script that installs 3ds Max. For more information, see [3ds Max Host Configuration script setup](https://aws.amazon.com/blogs/media/how-to-use-3ds-max-with-service-managed-fleets-on-aws-deadline-cloud/ "https://aws.amazon.com/blogs/media/how-to-use-3ds-max-with-service-managed-fleets-on-aws-deadline-cloud/") and the [3ds Max Host Config example on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax").
+1. Create a service-managed fleet and associate it with a queue. Configure the fleet with GPU support if you intend to use GPU-accelerated rendering features. The fleet must be configured with a host configuration script that installs 3ds Max. For more information, see [3ds Max Host Configuration script setup](https://aws.amazon.com/blogs/media/how-to-use-3ds-max-with-service-managed-fleets-on-aws-deadline-cloud/ "https://aws.amazon.com/blogs/media/how-to-use-3ds-max-with-service-managed-fleets-on-aws-deadline-cloud/") and the [3ds Max Host Config example](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax") on the GitHub website.
 2. Install the Deadline Cloud monitor and 3ds Max submitter on your artist workstation using the Deadline Cloud Submitter and monitor Installers. For more information, see [Set up your workstation](submitter.md "submitter.md").
 3. Submit your job directly from 3ds Max using the integrated submitter to the queue.
 4. Monitor the job and download the output using the Deadline Cloud monitor.
@@ -50,7 +50,7 @@ Before setting up the 3ds Max submitter, configure the Deadline Cloud fleet as f
 
 ### Examples
 
-Examples are available for 3ds Max 2024-2027 in the [3ds Max host configuration scripts folder](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax") on the GitHub website. The examples cover the V-Ray, Corona, and Arnold renderers, and the tyFlow, Pencil+, and AEC plugins. To request additional examples, suggest ideas in the [GitHub discussion forum](https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions "https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions").
+Examples are available for 3ds Max 2024-2027 in the [3ds Max host configuration scripts folder](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax") on the GitHub website. The examples cover the V-Ray, Corona, and Arnold renderers, and the tyFlow, Pencil+, and AEC plugins. To request additional examples, suggest ideas in the [3ds Max discussion forum](https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions "https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions") on the GitHub website.
 
 ###### Note
 
@@ -158,7 +158,7 @@ For information about the other submitter tabs, see the [Deadline Cloud guide fo
 
 #### Maximum number of state sets / batch views per job
 
-The [Open Job Description (OpenJD) specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas") limits a job to a maximum of 50 job parameters. Because the submitter creates per-step parameters for each state set or batch view, this places a practical ceiling on how many can be included in a single job submission.
+The Open Job Description (OpenJD) specification limits a job to a maximum of 50 job parameters. Because the submitter creates per-step parameters for each state set or batch view, this places a practical ceiling on how many can be included in a single job submission. For more information, see the [OpenJD Template Schemas](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas") on the GitHub website.
 
 The submitter uses a fixed set of global parameters, plus per-step parameters that scale with the number of state sets or batch views:
 
@@ -262,7 +262,7 @@ For general information about creating and submitting job bundles, see [Open Job
 
 **Reference implementation**:
 
-The [tile\_render\_with\_vray\_linux](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux") sample in the deadline-cloud-samples repository demonstrates:
+The [tile\_render\_with\_vray\_linux](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux") sample on the GitHub website demonstrates:
 
 - How to split large images into tiles.
 - Parallel rendering of tiles on Linux workers.
@@ -311,7 +311,7 @@ Because 3ds Max is installed with host configuration scripts instead of conda pa
 - **Forest Pack** provides scattering and distribution tools for creating forests, vegetation, and other scattered objects.
 - **RailClone** is a parametric modeling plugin for creating linear and area-based structures such as fences, roads, and buildings.
 
-For example host configuration scripts that include these plugins, see [3dsmax-2025-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1") and [3dsmax-2027-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1").
+For example host configuration scripts that include these plugins, see [3dsmax-2025-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1") and [3dsmax-2027-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1") on the GitHub website.
 
 You can also use the **Pencil+ 4** line rendering plugin from PSOFT. Because Pencil+ uses network (NTR) licensing, render it with the command-line render workflow to produce watermark-free output. For more information, see [Command-line rendering with 3dsmaxcmd](#3dsmaxcmd-render "#3dsmaxcmd-render").
 
@@ -337,7 +337,7 @@ Deadline Cloud supports rendering 3ds Max jobs using the following renderers whe
 
 ## Open source resources
 
-The submitter and adaptor are open source and available on GitHub:
+The submitter and adaptor are open source and available on the GitHub website:
 
 - [3ds Max Submitter and Adaptor](https://github.com/aws-deadline/deadline-cloud-for-3ds-max "https://github.com/aws-deadline/deadline-cloud-for-3ds-max")
 - [Deadline Cloud Samples (for 3ds Max workflow examples)](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")

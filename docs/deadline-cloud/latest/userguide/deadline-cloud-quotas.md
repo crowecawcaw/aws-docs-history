@@ -20,6 +20,14 @@ form](https://console.aws.amazon.com/support/home#/case/create?issueType=service
 
 Your AWS account has the following quotas related to Deadline Cloud.
 
+The _associated members_ quotas count the memberships that you
+assign to a farm, fleet, queue, or job. Each user grant and each group grant counts
+as one membership, so a group counts as one member no matter how many users it
+contains. Deadline Cloud doesn't limit the number of users in a group or the number of
+groups that a user belongs to; the quotas for AWS IAM Identity Center apply instead. To grant
+access to more users within the membership quota, assign groups instead of
+individual users. For more information, see [How permissions work in Deadline Cloud](permissions-overview.md "permissions-overview.md").
+
 Compute for service-managed fleets counts against the Deadline Cloud vCPU and GPU quotas in the
 following table, not against your Amazon Elastic Compute Cloud (Amazon EC2) service quotas. For more information,
 see [Quotas for related services](#related-service-quotas "#related-service-quotas").

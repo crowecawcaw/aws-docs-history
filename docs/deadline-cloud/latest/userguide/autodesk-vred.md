@@ -89,7 +89,7 @@ DeadlineCloudForVRED()
 8. Choose **Save**.
 9. Restart VRED Pro. When VRED opens, the **Deadline Cloud** menu displays in the menu bar.
 
-For manual installation or developer workflows, see the [manual installation instructions in the GitHub repository](https://github.com/aws-deadline/deadline-cloud-for-vred/blob/mainline/DEVELOPMENT.md "https://github.com/aws-deadline/deadline-cloud-for-vred/blob/mainline/DEVELOPMENT.md").
+For manual installation or developer workflows, see the [manual installation instructions](https://github.com/aws-deadline/deadline-cloud-for-vred/blob/mainline/DEVELOPMENT.md "https://github.com/aws-deadline/deadline-cloud-for-vred/blob/mainline/DEVELOPMENT.md") on the GitHub website.
 
 ### Updating the submitter
 
@@ -201,7 +201,7 @@ VRED supports the following render engines for Deadline Cloud jobs:
 
 ## Open source resources
 
-The submitter and adaptor are open source and available on GitHub:
+The submitter and adaptor are open source and available on the GitHub website:
 
 - [VRED Submitter and Adaptor](https://github.com/aws-deadline/deadline-cloud-for-vred "https://github.com/aws-deadline/deadline-cloud-for-vred")
-- [VRED Conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2026") are available on GitHub for supported versions.
+- [VRED Conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2026") are available for supported versions.

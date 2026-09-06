@@ -7,7 +7,7 @@ service-managed fleet.
 
 The VFX Reference Platform is updated annually. These considerations for using an AL2023 including
 Deadline Cloud service-managed fleets are based on the calendar year (CY) 2022 through 2024
-Reference Platforms. For more information, see [VFX Reference Platform](https://vfxplatform.com/ "https://vfxplatform.com/").
+Reference Platforms. For more information, see [VFX Reference Platform](https://vfxplatform.com/ "https://vfxplatform.com/") on the VFX Reference Platform website.
 
 ###### Note
 
@@ -31,4 +31,4 @@ following:
   compatible with VFX Reference Platform CY2022, CY2023, and CY2024.
 - Other libraries with versions specified by the VFX Reference Platform are not provided by the
   service-managed fleet. You must provide the library with any application used on
-  a service-managed fleet. For a list of libraries, see the [reference platform](https://vfxplatform.com/ "https://vfxplatform.com/").
+  a service-managed fleet. For a list of libraries, see the [reference platform](https://vfxplatform.com/ "https://vfxplatform.com/") on the VFX Reference Platform website.
