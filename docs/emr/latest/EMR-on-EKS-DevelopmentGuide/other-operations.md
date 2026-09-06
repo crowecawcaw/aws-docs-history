@@ -1,22 +1,21 @@
-# Getting information about interactive endpoints with CLI commands
 
-This topic covers the supported operations on an interactive endpoint other than [create-managed-endpoint](create-managed-endpoint.md "create-managed-endpoint.md").
+
+# Getting information about interactive endpoints with CLI commands
+<a name="other-operations"></a>
+
+This topic covers the supported operations on an interactive endpoint other than [`create-managed-endpoint`](create-managed-endpoint.md).
 
 ## Fetch interactive endpoint details
+<a name="fetch-details"></a>
 
-After you create an interactive endpoint, you can retrieve its details using the
-`describe-managed-endpoint` AWS CLI command. Insert your own values for
-`managed-endpoint-id`,
-`virtual-cluster-id`, and
-`region`:
+After you create an interactive endpoint, you can retrieve its details using the `describe-managed-endpoint` AWS CLI command. Insert your own values for {{managed-endpoint-id}}, {{virtual-cluster-id}}, and {{region}}:
 
 ```
-aws emr-containers describe-managed-endpoint ‐‐id `managed-endpoint-id` \
- ‐‐virtual-cluster-id `virtual-cluster-id` ‐‐region `region`
+aws emr-containers describe-managed-endpoint ‐‐id {{managed-endpoint-id}} \
+ ‐‐virtual-cluster-id {{virtual-cluster-id}} ‐‐region {{region}}
 ```
 
-The output looks similar to the following, with the specified endpoint, such as ARN, ID,
-and name.
+The output looks similar to the following, with the specified endpoint, such as ARN, ID, and name.
 
 ```
 {
@@ -66,13 +65,12 @@ and name.
 ```
 
 ## List all interactive endpoints associated with a virtual cluster
+<a name="list-all-managed-endpoints"></a>
 
-Use the `list-managed-endpoints` AWS CLI command to fetch a list of all the
-interactive endpoints associated with a specified virtual cluster. Replace
-`virtual-cluster-id` with the ID of your virtual cluster.
+Use the `list-managed-endpoints` AWS CLI command to fetch a list of all the interactive endpoints associated with a specified virtual cluster. Replace `virtual-cluster-id` with the ID of your virtual cluster.
 
 ```
-aws emr-containers list-managed-endpoints ‐‐virtual-cluster-id `virtual-cluster-id`
+aws emr-containers list-managed-endpoints ‐‐virtual-cluster-id {{virtual-cluster-id}}
 ```
 
 The output of the `list-managed-endpoint` command is shown below:
@@ -122,5 +120,4 @@ The output of the `list-managed-endpoint` command is shown below:
         "tags": {}
     }]
 }
-
 ```

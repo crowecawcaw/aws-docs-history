@@ -1,12 +1,12 @@
-# Verify Spark driver service account security requirements for spark-submit
 
-The Spark driver pod uses a Kubernetes service account to access the Kubernetes API
-server to create and watch executor pods. Driver service account must have appropriate
-permissions to list, create, edit, patch and delete pods in your cluster. You can verify
-that you can list these resources by running the following command:
+
+# Verify Spark driver service account security requirements for spark-submit
+<a name="spark-submit-security"></a>
+
+The Spark driver pod uses a Kubernetes service account to access the Kubernetes API server to create and watch executor pods. Driver service account must have appropriate permissions to list, create, edit, patch and delete pods in your cluster. You can verify that you can list these resources by running the following command:
 
 ```
-kubectl auth can-i `list|create|edit|delete|patch` pods
+kubectl auth can-i {{list|create|edit|delete|patch}} pods
 ```
 
 Verify that you have the necessary permissions by running each command.
@@ -19,7 +19,7 @@ kubectl auth can-i delete pods
 kubectl auth can-i patch pods
 ```
 
-The following rules apply to this service role:
+The following rules apply to this service role: 
 
 ```
  rules:

@@ -1,21 +1,23 @@
-# Troubleshooting Amazon EMR on EKS Spark operator
 
-Refer to the following sections if you encounter problems with the Amazon EMR on EKS Spark operator. For more information including steps to complete the installation, see [Running Spark jobs with the Spark operator](spark-operator.md "spark-operator.md").
+
+# Troubleshooting Amazon EMR on EKS Spark operator
+<a name="troubleshooting-sparkop"></a>
+
+Refer to the following sections if you encounter problems with the Amazon EMR on EKS Spark operator. For more information including steps to complete the installation, see [Running Spark jobs with the Spark operator](spark-operator.md).
 
 ## Error on Helm chart installation
+<a name="troubleshooting-sparkop-helmerror"></a>
 
-If you followed the steps in [Install the Spark operator](spark-operator-gs.md#spark-operator-install "spark-operator-gs.md#spark-operator-install") and it returned a `INSTALLATION FAILED` error like the one below when you tried to install or verify
-the Helm chart, you might not have obtained the authentication tokens to the Amazon ECR
-repository for the operator.
+If you followed the steps in [Install the Spark operator](spark-operator-gs.md#spark-operator-install) and it returned a `INSTALLATION FAILED` error like the one below when you tried to install or verify the Helm chart, you might not have obtained the authentication tokens to the Amazon ECR repository for the operator.
 
-To resolve this issue, repeat the step in [Install the Spark operator](spark-operator-gs.md#spark-operator-install "spark-operator-gs.md#spark-operator-install") to authenticate your Helm client to the
-Amazon ECR registry. Then, try the installation step again.
+To resolve this issue, repeat the step in [Install the Spark operator](spark-operator-gs.md#spark-operator-install) to authenticate your Helm client to the Amazon ECR registry. Then, try the installation step again.
 
 ```
 Error: INSTALLATION FAILED: Kubernetes cluster unreachable: the server has asked for the client to provide credentials
 ```
 
 ## UnsupportedFileSystemException: No FileSystem for scheme "s3"
+<a name="troubleshooting-sparkop-filesys"></a>
 
 You might encounter the following exception in thread "main":
 

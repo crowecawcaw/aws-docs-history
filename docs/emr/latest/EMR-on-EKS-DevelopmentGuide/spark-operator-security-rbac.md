@@ -1,23 +1,22 @@
+
+
 # Setting up cluster access permissions with role-based access control (RBAC)
+<a name="spark-operator-security-rbac"></a>
 
-To deploy the Spark operator, Amazon EMR on EKS creates two roles and service accounts for
-the Spark operator and the Spark apps.
+To deploy the Spark operator, Amazon EMR on EKS creates two roles and service accounts for the Spark operator and the Spark apps.
 
-###### Topics
-
-- [Operator service account and role](#spark-operator-sa-oper "#spark-operator-sa-oper")
-- [Spark service account and role](#spark-operator-sa-spark "#spark-operator-sa-spark")
+**Topics**
++ [Operator service account and role](#spark-operator-sa-oper)
++ [Spark service account and role](#spark-operator-sa-spark)
 
 ## Operator service account and role
+<a name="spark-operator-sa-oper"></a>
 
-Amazon EMR on EKS creates the **operator service account and
-role** to manage `SparkApplications` for Spark jobs and for
-other resources such as services.
+Amazon EMR on EKS creates the **operator service account and role** to manage `SparkApplications` for Spark jobs and for other resources such as services.
 
-The default name for this service account is
-`emr-containers-sa-spark-operator`.
+The default name for this service account is `emr-containers-sa-spark-operator`.
 
-The following rules apply to this service role:
+The following rules apply to this service role: 
 
 ```
  rules:
@@ -119,17 +118,13 @@ The following rules apply to this service role:
 ```
 
 ## Spark service account and role
+<a name="spark-operator-sa-spark"></a>
 
-A Spark driver pod needs a Kubernetes service account in the same namespace as the
-pod. This service account needs permissions to create, get, list, patch and delete
-executor pods, and to create a Kubernetes headless service for the driver. The driver
-fails and exits without the service account unless the default service account in the
-pod's namespace has the required permissions.
+A Spark driver pod needs a Kubernetes service account in the same namespace as the pod. This service account needs permissions to create, get, list, patch and delete executor pods, and to create a Kubernetes headless service for the driver. The driver fails and exits without the service account unless the default service account in the pod's namespace has the required permissions.
 
-The default name for this service account is
-`emr-containers-sa-spark`.
+The default name for this service account is `emr-containers-sa-spark`.
 
-The following rules apply to this service role:
+The following rules apply to this service role: 
 
 ```
  rules:

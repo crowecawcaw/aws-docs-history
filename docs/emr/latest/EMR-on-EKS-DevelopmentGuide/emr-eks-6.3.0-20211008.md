@@ -1,13 +1,10 @@
+
+
 # emr-6.3.0-20211008
+<a name="emr-eks-6.3.0-20211008"></a>
 
-**Release notes**: `emr-6.3.0-20211008` was
-released on Dec 9, 2021. Compared to the previous version, this version contains issue fixes and
-security updates.
+**Release notes**: `emr-6.3.0-20211008` was released on Dec 9, 2021. Compared to the previous version, this version contains issue fixes and security updates.
 
-**Regions:**
-`emr-6.3.0-20211008` is available in all Regions supported by Amazon EMR on EKS. For more
-information, see [Amazon EMR on EKS
-service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
+**Regions: ** `emr-6.3.0-20211008` is available in all Regions supported by Amazon EMR on EKS. For more information, see [Amazon EMR on EKS service endpoints](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints). 
 
-**Container image tag**:
-`emr-6.3.0:20211008`
+**Container image tag**: `emr-6.3.0:20211008`

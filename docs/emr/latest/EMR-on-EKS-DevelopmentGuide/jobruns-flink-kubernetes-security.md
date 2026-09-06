@@ -1,22 +1,21 @@
-# Security role permissions for running a Flink application
 
-This topic describes security roles for deploying and running a Flink application. There are two roles required to manage a deployment and to
-create and manage jobs, the operator role and job role. This topic introduces them and
-lists their permissions.
+
+# Security role permissions for running a Flink application
+<a name="jobruns-flink-kubernetes-security"></a>
+
+This topic describes security roles for deploying and running a Flink application. There are two roles required to manage a deployment and to create and manage jobs, the operator role and job role. This topic introduces them and lists their permissions.
 
 ## Role based access control
+<a name="jobruns-flink-kubernetes-security-rbac"></a>
 
-To deploy the operator and run Flink jobs, we must create two Kubernetes roles: one
-operator and one job role. Amazon EMR creates the two roles by default when you install the
-operator.
+To deploy the operator and run Flink jobs, we must create two Kubernetes roles: one operator and one job role. Amazon EMR creates the two roles by default when you install the operator.
 
 ## Operator role
+<a name="jobruns-flink-kubernetes-security-operator-role"></a>
 
-We use the operator role to manage `flinkdeployments` to create and manage
-the JobManager for each Flink job and other resources, like services.
+We use the operator role to manage `flinkdeployments` to create and manage the JobManager for each Flink job and other resources, like services.
 
-The operator role's default name is `emr-containers-sa-flink-operator` and
-requires the following permissions.
+The operator role's default name is `emr-containers-sa-flink-operator` and requires the following permissions.
 
 ```
 rules:
@@ -77,9 +76,9 @@ rules:
 ```
 
 ## Job role
+<a name="jobruns-flink-security-job-role"></a>
 
-The JobManager uses the job role to create and manage TaskManagers and ConfigMaps for
-each job.
+The JobManager uses the job role to create and manage TaskManagers and ConfigMaps for each job.
 
 ```
 rules:

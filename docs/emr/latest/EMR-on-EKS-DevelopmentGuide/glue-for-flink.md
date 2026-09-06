@@ -1,19 +1,18 @@
+
+
 # Using AWS Glue with Flink
+<a name="glue-for-flink"></a>
 
-Amazon EMR on EKS with Apache Flink releases 6.15.0 and higher supports using the AWS Glue Data Catalog as a metadata
-store for streaming and batch SQL workflows.
+Amazon EMR on EKS with Apache Flink releases 6.15.0 and higher supports using the AWS Glue Data Catalog as a metadata store for streaming and batch SQL workflows.
 
-You must first create an AWS Glue database named `default` that serves as your Flink SQL Catalog. This
-Flink Catalog stores metadata such as databases, tables, paritions, views, functions, and other information needed to access data
-in other external systems.
+You must first create an AWS Glue database named `default` that serves as your Flink SQL Catalog. This Flink Catalog stores metadata such as databases, tables, paritions, views, functions, and other information needed to access data in other external systems.
 
 ```
 aws glue create-database \
     --database-input "{\"Name\":\"default\"}"
 ```
 
-To enable AWS Glue support, use a `FlinkDeployment` spec. This example spec uses a Python script
-to quickly issue some Flink SQL statements to interact with the AWS Glue catalog.
+To enable AWS Glue support, use a `FlinkDeployment` spec. This example spec uses a Python script to quickly issue some Flink SQL statements to interact with the AWS Glue catalog.
 
 ```
 apiVersion: flink.apache.org/v1beta1
@@ -25,7 +24,7 @@ spec:
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "1"
     aws.glue.enabled: "true"
-  executionRoleArn: `job-execution-role-arn`;
+  executionRoleArn: {{job-execution-role-arn}};
   emrReleaseLabel: "emr-6.15.0-flink-latest"
   jobManager:
     highAvailabilityEnabled: false
@@ -38,9 +37,9 @@ spec:
       memory: "2048m"
       cpu: 1
   job:
-    jarURI: s3://<`S3_bucket_with_your_script`/`pyflink-glue-script.py`
+    jarURI: s3://<{{S3_bucket_with_your_script}}/{{pyflink-glue-script.py}}
     entryClass: "org.apache.flink.client.python.PythonDriver"
-    args: ["-py", "/opt/flink/usrlib/`pyflink-glue-script.py`"]
+    args: ["-py", "/opt/flink/usrlib/{{pyflink-glue-script.py}}"] 
     parallelism: 1
     upgradeMode: stateless
 ```
@@ -71,7 +70,7 @@ def glue_demo():
           DROP DATABASE IF EXISTS eks_flink_db CASCADE;
                       """)
     t_env.execute_sql("""
-          CREATE DATABASE IF NOT EXISTS eks_flink_db WITH ('hive.database.location-uri'= 's3a://`S3-bucket-to-store-metadata`/flink/flink-glue-for-hive/warehouse/');
+          CREATE DATABASE IF NOT EXISTS eks_flink_db WITH ('hive.database.location-uri'= 's3a://{{S3-bucket-to-store-metadata}}/flink/flink-glue-for-hive/warehouse/');
                       """)
     t_env.execute_sql("""
           USE eks_flink_db;
@@ -80,7 +79,7 @@ def glue_demo():
           CREATE TABLE IF NOT EXISTS eksglueorders (
             order_number BIGINT,
             price        DECIMAL(32,2),
-            buyer        RO `first_name STRING, last_name STRING`,
+            buyer        RO {{first_name STRING, last_name STRING}},
             order_time   TIMESTAMP(3)
           ) WITH (
             'connector' = 'datagen'
@@ -90,11 +89,11 @@ def glue_demo():
           CREATE TABLE IF NOT EXISTS eksdestglueorders (
             order_number BIGINT,
             price        DECIMAL(32,2),
-            buyer        ROW `first_name STRING, last_name STRING`,
+            buyer        ROW {{first_name STRING, last_name STRING}},
             order_time   TIMESTAMP(3)
           ) WITH (
             'connector' = 'filesystem',
-            'path' = 's3://`S3-bucket-to-store-metadata`/flink/flink-glue-for-hive/warehouse/eksdestglueorders',
+            'path' = 's3://{{S3-bucket-to-store-metadata}}/flink/flink-glue-for-hive/warehouse/eksdestglueorders',
             'format' = 'json'
           );
                   """)
@@ -102,7 +101,7 @@ def glue_demo():
           CREATE TABLE IF NOT EXISTS print_table (
             order_number BIGINT,
             price        DECIMAL(32,2),
-            buyer        ROW `first_name STRING, last_name STRING`,
+            buyer        ROW {{first_name STRING, last_name STRING}},
             order_time   TIMESTAMP(3)
           ) WITH (
             'connector' = 'print'

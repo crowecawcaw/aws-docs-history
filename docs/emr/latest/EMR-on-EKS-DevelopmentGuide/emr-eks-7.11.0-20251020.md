@@ -1,12 +1,10 @@
+
+
 # emr-7.11.0-20251020
+<a name="emr-eks-7.11.0-20251020"></a>
 
-**Release notes**: `emr-7.11.0-20251020` was released in
-November 2025. This is the initial release of Amazon EMR 7.11.0 (Spark).
+**Release notes**: `emr-7.11.0-20251020` was released in November 2025. This is the initial release of Amazon EMR 7.11.0 (Spark).
 
-**Regions:**
-`emr-emr-7.11.0-20251020` is available in all Regions supported by Amazon EMR on EKS. For more
-information, see [Amazon EMR on EKS
-service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
+**Regions:** `emr-emr-7.11.0-20251020` is available in all Regions supported by Amazon EMR on EKS. For more information, see [Amazon EMR on EKS service endpoints](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints).
 
-**Container image tag**:
-`emr-7.11.0-20251020`
+**Container image tag**: `emr-7.11.0-20251020`

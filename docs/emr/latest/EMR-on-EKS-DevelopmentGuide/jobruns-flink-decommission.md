@@ -1,65 +1,41 @@
-# Graceful decommission of Spot Instances with Flink on Amazon EMR on EKS
 
-Flink with Amazon EMR on EKS can improve the job restart time during task recovery or
-scaling operations.
+
+# Graceful decommission of Spot Instances with Flink on Amazon EMR on EKS
+<a name="jobruns-flink-decommission"></a>
+
+Flink with Amazon EMR on EKS can improve the job restart time during task recovery or scaling operations.
 
 ## Overview
+<a name="jobruns-flink-decommission-overview"></a>
 
-Amazon EMR on EKS releases 6.15.0 and higher support graceful decommission of Task
-Managers on Spot Instances in Amazon EMR on EKS with Apache Flink. As part of this feature,
-Amazon EMR on EKS with Flink provides the following capabilities:
-
-- Just-in-time checkpointing – Flink
-  streaming jobs can respond to Spot Instance interruption, perform
-  just-in-time (JIT) checkpoint of the running jobs, and prevent scheduling of
-  additional tasks on these Spot Instances. JIT checkpoint is supported with
-  default and adaptive scheduler.
-- Combined restart mechanism – A
-  combined restart mechanism makes a best-effort attempt to restart the job
-  after it reaches target resource parallelism or the end of the current
-  configured window. This also prevents consecutive job restarts that might be
-  caused by multiple Spot Instance terminations. Combined restart mechanism is
-  available with adaptive scheduler only.
+Amazon EMR on EKS releases 6.15.0 and higher support graceful decommission of Task Managers on Spot Instances in Amazon EMR on EKS with Apache Flink. As part of this feature, Amazon EMR on EKS with Flink provides the following capabilities:
++ **Just-in-time checkpointing** – Flink streaming jobs can respond to Spot Instance interruption, perform just-in-time (JIT) checkpoint of the running jobs, and prevent scheduling of additional tasks on these Spot Instances. JIT checkpoint is supported with default and adaptive scheduler.
++ **Combined restart mechanism** – A combined restart mechanism makes a best-effort attempt to restart the job after it reaches target resource parallelism or the end of the current configured window. This also prevents consecutive job restarts that might be caused by multiple Spot Instance terminations. Combined restart mechanism is available with adaptive scheduler only.
 
 These capabilities provide the following benefits:
-
-- You can leverage Spot Instances to run Task Managers and reduce cluster
-  expenditure.
-- Improved liveness for Spot Instance Task Manager results in higher
-  resilience and more efficient job scheduling.
-- Your Flink jobs will have more uptime because there will be less restarts
-  from Spot Instance termination.
++ You can leverage Spot Instances to run Task Managers and reduce cluster expenditure.
++ Improved liveness for Spot Instance Task Manager results in higher resilience and more efficient job scheduling.
++ Your Flink jobs will have more uptime because there will be less restarts from Spot Instance termination.
 
 ## How graceful decommissioning works
+<a name="jobruns-flink-decommission-howitworks"></a>
 
-Consider the following example: you provision an Amazon EMR on EKS cluster running Apache
-Flink, and you specify On-Demand nodes for Job Manager, and Spot Instance nodes for
-Task Manager. Two minutes before termination, Task Manager receives an interruption
-notice.
+Consider the following example: you provision an Amazon EMR on EKS cluster running Apache Flink, and you specify On-Demand nodes for Job Manager, and Spot Instance nodes for Task Manager. Two minutes before termination, Task Manager receives an interruption notice.
 
-In this scenario, the Job Manager would handle the Spot Instance interruption
-signal, block scheduling of additional tasks on the Spot Instance, and initiate JIT
-checkpointing for the streaming job.
+In this scenario, the Job Manager would handle the Spot Instance interruption signal, block scheduling of additional tasks on the Spot Instance, and initiate JIT checkpointing for the streaming job.
 
-Then, the Job Manager would restart the job graph only after there is sufficient
-availability of new resources to satisfy current job parallelism in the current
-restart interval window. The restart window interval is decided on the basis of Spot
-Instance replacement duration, creation of new Task Manager pods, and registration
-with Job Manager.
+Then, the Job Manager would restart the job graph only after there is sufficient availability of new resources to satisfy current job parallelism in the current restart interval window. The restart window interval is decided on the basis of Spot Instance replacement duration, creation of new Task Manager pods, and registration with Job Manager.
 
 ## Prerequisites
+<a name="jobruns-flink-decommission-prereqs"></a>
 
-To use graceful decommisioning, create and run a streaming job on an Amazon EMR on EKS
-cluster running Apache Flink. Enable Adaptive Scheduler and Task Managers scheduled
-on at least one Spot Instance, as shown in the following example. You should use
-On-Demand nodes for Job Manager, and you can use On-Demand nodes for Task Managers
-as long as there's at least one Spot Instance, too.
+To use graceful decommisioning, create and run a streaming job on an Amazon EMR on EKS cluster running Apache Flink. Enable Adaptive Scheduler and Task Managers scheduled on at least one Spot Instance, as shown in the following example. You should use On-Demand nodes for Job Manager, and you can use On-Demand nodes for Task Managers as long as there's at least one Spot Instance, too.
 
 ```
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
 metadata:
-  name: `deployment_name`
+  name: {{deployment_name}}
 spec:
   flinkVersion: v1_17
   flinkConfiguration:
@@ -82,16 +58,17 @@ spec:
     nodeSelector:
       'eks.amazonaws.com/capacityType': 'SPOT'
   job:
-    jarURI: `flink_job_jar_path`
+    jarURI: {{flink_job_jar_path}}
 ```
 
 ## Configuration
+<a name="jobruns-flink-decommission-config"></a>
 
-This section covers most of the configurations that you can specify for your
-decommissioning needs.
+This section covers most of the configurations that you can specify for your decommissioning needs. 
 
-| Key                                                              | Description                                                                                                                                 | Default value | Acceptable values                    |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------ |
-| `cluster.taskmanager.graceful-decommission.enabled`              | Enable graceful decommission of Task Manager.                                                                                               | `true`        | `true`, `false`                      |
-| `jobmanager.adaptive-scheduler.combined-restart.enabled`         | Enable combined restart mechanism in Adaptive Scheduler.                                                                                    | `false`       | `true`, `false`                      |
-| `jobmanager.adaptive-scheduler.combined-restart.window-interval` | The combined restart window interval to perfom merged restarts for<br>the job. An integer without a unit is interpreted as<br>milliseconds. | `1m`          | Examples: `30`, `60s`, `3m`,<br>`1h` |
+
+| Key | Description | Default value | Acceptable values | 
+| --- | --- | --- | --- | 
+|  cluster.taskmanager.graceful-decommission.enabled  | Enable graceful decommission of Task Manager. |  true  |  true, false  | 
+|  jobmanager.adaptive-scheduler.combined-restart.enabled  | Enable combined restart mechanism in Adaptive Scheduler. |  false  |  true, false  | 
+|  jobmanager.adaptive-scheduler.combined-restart.window-interval  | The combined restart window interval to perfom merged restarts for the job. An integer without a unit is interpreted as milliseconds. |  1m  |  Examples: 30, 60s, 3m, 1h  | 
