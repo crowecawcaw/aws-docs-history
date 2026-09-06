@@ -1,189 +1,128 @@
+
+
 # Gateway endpoints
+<a name="gateway-endpoints"></a>
 
-Gateway VPC endpoints provide reliable connectivity to Amazon S3 and DynamoDB without requiring an
-internet gateway or a NAT device for your VPC. Gateway endpoints do not use AWS PrivateLink,
-unlike other types of VPC endpoints.
+Gateway VPC endpoints provide reliable connectivity to Amazon S3 and DynamoDB without requiring an internet gateway or a NAT device for your VPC. Gateway endpoints do not use AWS PrivateLink, unlike other types of VPC endpoints.
 
-Amazon S3 and DynamoDB support both gateway endpoints and interface endpoints. For a comparison of the
-options, see the following:
+Amazon S3 and DynamoDB support both gateway endpoints and interface endpoints. For a comparison of the options, see the following: 
++ [Types of VPC endpoints for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html#types-of-vpc-endpoints-for-s3)
++ [Types of VPC endpoints for Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/privatelink-interface-endpoints.html#types-of-vpc-endpoints-for-ddb)
 
-- [Types of VPC endpoints for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#types-of-vpc-endpoints-for-s3 "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#types-of-vpc-endpoints-for-s3")
-- [Types of VPC endpoints for Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/privatelink-interface-endpoints.md#types-of-vpc-endpoints-for-ddb "../../../amazondynamodb/latest/developerguide/privatelink-interface-endpoints.md#types-of-vpc-endpoints-for-ddb")
-
-###### Pricing
-
+**Pricing**  
 There is no additional charge for using gateway endpoints.
 
-###### Contents
-
-- [Overview](#gateway-endpoint-overview "#gateway-endpoint-overview")
-- [Routing](#gateway-endpoint-routing "#gateway-endpoint-routing")
-- [Security](#gateway-endpoint-security "#gateway-endpoint-security")
-- [IP address type](#gateway-endpoint-ip-address-type "#gateway-endpoint-ip-address-type")
-- [DNS record IP type](#gateway-endpoint-dns-record-ip-type "#gateway-endpoint-dns-record-ip-type")
-- [Endpoints for Amazon S3](vpc-endpoints-s3.md "vpc-endpoints-s3.md")
-- [Endpoints for DynamoDB](vpc-endpoints-ddb.md "vpc-endpoints-ddb.md")
+**Topics**
++ [Overview](#gateway-endpoint-overview)
++ [Routing](#gateway-endpoint-routing)
++ [Security](#gateway-endpoint-security)
++ [IP address type](#gateway-endpoint-ip-address-type)
++ [DNS record IP type](#gateway-endpoint-dns-record-ip-type)
++ [Endpoints for Amazon S3](vpc-endpoints-s3.md)
++ [Endpoints for DynamoDB](vpc-endpoints-ddb.md)
 
 ## Overview
+<a name="gateway-endpoint-overview"></a>
 
-You can access Amazon S3 and DynamoDB through their public service endpoints or through
-gateway endpoints. This overview compares these methods.
+You can access Amazon S3 and DynamoDB through their public service endpoints or through gateway endpoints. This overview compares these methods.
 
-###### Access through an internet gateway
+**Access through an internet gateway**  
+The following diagram shows how instances access Amazon S3 and DynamoDB through their public service endpoints. Traffic to Amazon S3 or DynamoDB from an instance in a public subnet is routed to the internet gateway for the VPC and then to the service. Instances in a private subnet can't send traffic to Amazon S3 or DynamoDB, because by definition private subnets do not have routes to an internet gateway. To enable instances in the private subnet to send traffic to Amazon S3 or DynamoDB, you would add a NAT device to the public subnet and route traffic in the private subnet to the NAT device. While traffic to Amazon S3 or DynamoDB traverses the internet gateway, it does not leave the AWS network.
 
-The following diagram shows how instances access Amazon S3 and DynamoDB through their public
-service endpoints. Traffic to Amazon S3 or DynamoDB from an instance in a public subnet is routed to
-the internet gateway for the VPC and then to the service. Instances in a private subnet
-can't send traffic to Amazon S3 or DynamoDB, because by definition private subnets do not have
-routes to an internet gateway. To enable instances in the private subnet to send traffic to
-Amazon S3 or DynamoDB, you would add a NAT device to the public subnet and route traffic in the
-private subnet to the NAT device. While traffic to Amazon S3 or DynamoDB traverses the internet
-gateway, it does not leave the AWS network.
+![Traffic leaves your VPC through an internet gateway, but stays in the AWS network.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/without-gateway-endpoints.png)
 
-![Traffic leaves your VPC through an internet gateway, but stays in the AWS network.](images/without-gateway-endpoints.png)
 
-###### Access through a gateway endpoint
+**Access through a gateway endpoint**  
+The following diagram shows how instances access Amazon S3 and DynamoDB through a gateway endpoint. Traffic from your VPC to Amazon S3 or DynamoDB is routed to the gateway endpoint. Each subnet route table must have a route that sends traffic destined for the service to the gateway endpoint using the prefix list for the service. For more information, see [AWS-managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-aws-managed-prefix-lists.html) in the *Amazon VPC User Guide*.
 
-The following diagram shows how instances access Amazon S3 and DynamoDB through a gateway
-endpoint. Traffic from your VPC to Amazon S3 or DynamoDB is routed to the gateway endpoint. Each
-subnet route table must have a route that sends traffic destined for the service to the
-gateway endpoint using the prefix list for the service. For more information, see
-[AWS-managed
-prefix lists](../userguide/working-with-aws-managed-prefix-lists.md "../userguide/working-with-aws-managed-prefix-lists.md") in the _Amazon VPC User Guide_.
+![Traffic from your VPC is routed to the gateway endpoint.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/gateway-endpoints.png)
 
-![Traffic from your VPC is routed to the gateway endpoint.](images/gateway-endpoints.png)
 
 ## Routing
+<a name="gateway-endpoint-routing"></a>
 
-When you create a gateway endpoint, you select the VPC route tables for the subnets
-that you enable. The following route is automatically added to each route table that you
-select. The destination is a prefix list for the service owned by AWS and the target
-is the gateway endpoint.
+When you create a gateway endpoint, you select the VPC route tables for the subnets that you enable. The following route is automatically added to each route table that you select. The destination is a prefix list for the service owned by AWS and the target is the gateway endpoint.
 
-| Destination      | Target                |
-| ---------------- | --------------------- |
-| `prefix_list_id` | `gateway_endpoint_id` |
 
-###### Considerations
+| Destination | Target | 
+| --- | --- | 
+| {{prefix\_list\_id}} | {{gateway\_endpoint\_id}} | 
 
-- You can review the endpoint routes that we add to your route table, but you
-  cannot modify or delete them. To add an endpoint route to a route table, associate
-  it with the gateway endpoint. We delete the endpoint route when you disassociate
-  the route table from the gateway endpoint or when you delete the gateway endpoint.
-- All instances in the subnets associated with a route table associated with
-  a gateway endpoint automatically use the gateway endpoint to access the service.
-  Instances in subnets that aren't associated with these route tables use the public
-  service endpoint, not the gateway endpoint.
-- A route table can have both an endpoint route to Amazon S3 and an endpoint route
-  to DynamoDB. You can have endpoint routes to the same service (Amazon S3 or DynamoDB) in
-  multiple route tables. You can't have multiple endpoint routes to the same
-  service (Amazon S3 or DynamoDB) in a single route table.
-- We use the most specific route that matches the traffic to determine how to
-  route the traffic (longest prefix match). For route tables with an endpoint route,
-  this means the following:
-
-  - If there is a route that sends all internet traffic (0.0.0.0/0) to an
-    internet gateway, the endpoint route takes precedence for traffic destined for
-    the service (Amazon S3 or DynamoDB) in the current Region. Traffic destined for a
-    different AWS service uses the internet gateway.
-  - Traffic that's destined for the service (Amazon S3 or DynamoDB) in a different Region
-    goes to the internet gateway because prefix lists are specific to a Region.
-  - If there is a route that specifies the exact IP address range for the service
-    (Amazon S3 or DynamoDB) in the same Region, that route takes precedence over the endpoint
-    route.
+**Considerations**
++ You can review the endpoint routes that we add to your route table, but you cannot modify or delete them. To add an endpoint route to a route table, associate it with the gateway endpoint. We delete the endpoint route when you disassociate the route table from the gateway endpoint or when you delete the gateway endpoint.
++ All instances in the subnets associated with a route table associated with a gateway endpoint automatically use the gateway endpoint to access the service. Instances in subnets that aren't associated with these route tables use the public service endpoint, not the gateway endpoint.
++ A route table can have both an endpoint route to Amazon S3 and an endpoint route to DynamoDB. You can have endpoint routes to the same service (Amazon S3 or DynamoDB) in multiple route tables. You can't have multiple endpoint routes to the same service (Amazon S3 or DynamoDB) in a single route table.
++ We use the most specific route that matches the traffic to determine how to route the traffic (longest prefix match). For route tables with an endpoint route, this means the following:
+  + If there is a route that sends all internet traffic (0.0.0.0/0) to an internet gateway, the endpoint route takes precedence for traffic destined for the service (Amazon S3 or DynamoDB) in the current Region. Traffic destined for a different AWS service uses the internet gateway.
+  + Traffic that's destined for the service (Amazon S3 or DynamoDB) in a different Region goes to the internet gateway because prefix lists are specific to a Region.
+  + If there is a route that specifies the exact IP address range for the service (Amazon S3 or DynamoDB) in the same Region, that route takes precedence over the endpoint route.
 
 ## Security
+<a name="gateway-endpoint-security"></a>
 
-When your instances access Amazon S3 or DynamoDB through a gateway endpoint, they access the
-service using its public endpoint. The security groups for these instances must allow
-traffic to and from the service. The following is an example outbound rule. It references
-the ID of the [prefix list](../userguide/working-with-aws-managed-prefix-lists.md "../userguide/working-with-aws-managed-prefix-lists.md")
-for the service.
+When your instances access Amazon S3 or DynamoDB through a gateway endpoint, they access the service using its public endpoint. The security groups for these instances must allow traffic to and from the service. The following is an example outbound rule. It references the ID of the [prefix list](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-aws-managed-prefix-lists.html) for the service.
 
-| Destination      | Protocol | Port range |
-| ---------------- | -------- | ---------- |
-| `prefix_list_id` | TCP      | 443        |
 
-The network ACLs for the subnets for these instances must also allow traffic to and from
-the service. The following is an example outbound rule. You can't reference prefix lists in
-network ACL rules, but you can get the IP address ranges for the service from its prefix
-list.
+| Destination | Protocol | Port range | 
+| --- | --- | --- | 
+| {{prefix\_list\_id}} | TCP | 443 | 
 
-| Destination            | Protocol | Port range |
-| ---------------------- | -------- | ---------- |
-| `service_cidr_block_1` | TCP      | 443        |
-| `service_cidr_block_2` | TCP      | 443        |
-| `service_cidr_block_3` | TCP      | 443        |
+The network ACLs for the subnets for these instances must also allow traffic to and from the service. The following is an example outbound rule. You can't reference prefix lists in network ACL rules, but you can get the IP address ranges for the service from its prefix list.
+
+
+| Destination | Protocol | Port range | 
+| --- | --- | --- | 
+| {{service\_cidr\_block\_1}} | TCP | 443 | 
+| {{service\_cidr\_block\_2}} | TCP | 443 | 
+| {{service\_cidr\_block\_3}} | TCP | 443 | 
 
 ## IP address type
+<a name="gateway-endpoint-ip-address-type"></a>
 
 The IP address type determines which prefix list is associated with your route table.
 
-###### Requirements to enable IPv6 for a gateway endpoint
-
-- The IP address type of a gateway endpoint must be compatible with the subnets for
-  the gateway endpoint, as described here:
-
-  - **IPv4** – Add the service's IPv4 prefix list to your route table.
-  - **IPv6** – Add the service's IPv6 prefix list to your route table.
-    This option is supported only if all selected subnets are IPv6 only subnets.
-  - **Dualstack** – Add the service's IPv4 prefix list to your
-    route table and add the service's IPv6 prefix list to your route table. This option is
-    supported only if all selected subnets have both IPv4 and IPv6 address ranges.
+**Requirements to enable IPv6 for a gateway endpoint**
++ The IP address type of a gateway endpoint must be compatible with the subnets for the gateway endpoint, as described here:
+  + **IPv4** – Add the service's IPv4 prefix list to your route table.
+  + **IPv6** – Add the service's IPv6 prefix list to your route table. This option is supported only if all selected subnets are IPv6 only subnets.
+  + **Dualstack** – Add the service's IPv4 prefix list to your route table and add the service's IPv6 prefix list to your route table. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges.
 
 ## DNS record IP type
+<a name="gateway-endpoint-dns-record-ip-type"></a>
 
-By default, a gateway endpoint returns DNS records based on the service endpoint you call.
-If you create your gateway endpoint using the IPv4 service endpoint, such as
-`s3.us-east-2.amazonaws.com`, Amazon S3 returns A records to your clients, and all
-subnets in your route table use IPv4.
+By default, a gateway endpoint returns DNS records based on the service endpoint you call. If you create your gateway endpoint using the IPv4 service endpoint, such as `s3.us-east-2.amazonaws.com`, Amazon S3 returns A records to your clients, and all subnets in your route table use IPv4.
 
-In contrast, if you create your gateway endpoint using the dualstack service endpoint,
-such as `s3.dualstack.us-east-2.amazonaws.com`, Amazon S3 returns both A and AAAA
-records to your clients, and the subnets in your route table use IPv4 and IPv6.
+In contrast, if you create your gateway endpoint using the dualstack service endpoint, such as `s3.dualstack.us-east-2.amazonaws.com`, Amazon S3 returns both A and AAAA records to your clients, and the subnets in your route table use IPv4 and IPv6.
 
-###### Note
-
+**Note**  
 For directory buckets, or S3 Express One Zone, the gateway endpoints for the data plane would be `s3express-use2-az1.us-east-2.amazonaws.com` and `s3express-use2-az1.dualstack.us-east-2.amazonaws.com` respectively.
 
-The DNS record IP type affects how traffic is routed to your clients. If you create a
-gateway endpoint using the IPv4 service endpoint and then call the dualstack service endpoint,
-traffic that uses AAAA records won't be routed through the gateway endpoint. Traffic will be
-dropped or routed over an IPv6-compatible path if one is present. If you use a service-defined
-DNS record IP type, make sure your service can handle variable calls from multiple service
-endpoints.
+The DNS record IP type affects how traffic is routed to your clients. If you create a gateway endpoint using the IPv4 service endpoint and then call the dualstack service endpoint, traffic that uses AAAA records won't be routed through the gateway endpoint. Traffic will be dropped or routed over an IPv6-compatible path if one is present. If you use a service-defined DNS record IP type, make sure your service can handle variable calls from multiple service endpoints.
 
-Instead of the default DNS record IP type setting of [service-defined](../../../AWSEC2/latest/APIReference/API_DnsOptionsSpecification.md "../../../AWSEC2/latest/APIReference/API_DnsOptionsSpecification.md"),
-you can customize the DNS record IP type to choose which records are returned for a specific
-endpoint. The following table shows the
-supported DNS record IP types and the returned record types:
+Instead of the default DNS record IP type setting of [service-defined](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DnsOptionsSpecification.html), you can customize the DNS record IP type to choose which records are returned for a specific endpoint. The following table shows the supported DNS record IP types and the returned record types:
 
-| DNS record IP type | Returned record types                      |
-| ------------------ | ------------------------------------------ |
-| IPv4               | A                                          |
-| IPv6               | AAAA                                       |
-| Dualstack          | A and AAAA                                 |
-| service-defined    | The records depend on the service endpoint |
 
-To choose a DNS record IP type, you must use a compatible IP address type for the endpoint
-service. The following table shows the supported DNS record IP type for each IP address types
-for gateway endpoints:
+| DNS record IP type | Returned record types | 
+| --- | --- | 
+| IPv4 | A | 
+| IPv6 | AAAA | 
+| Dualstack | A and AAAA | 
+| service-defined | The records depend on the service endpoint | 
 
-| IP address type | Supported DNS record IP types            |
-| --------------- | ---------------------------------------- |
-| IPv4            | IPv4, service-defined\*                  |
-| IPv6            | IPv6, service-defined\*                  |
-| Dualstack       | IPv4, IPv6, Dualstack, service-defined\* |
+To choose a DNS record IP type, you must use a compatible IP address type for the endpoint service. The following table shows the supported DNS record IP type for each IP address types for gateway endpoints:
+
+
+| IP address type | Supported DNS record IP types | 
+| --- | --- | 
+| IPv4 | IPv4, service-defined\* | 
+| IPv6 | IPv6, service-defined\* | 
+| Dualstack | IPv4, IPv6, Dualstack, service-defined\* | 
 
 \* Represents the default DNS record IP type.
 
-###### Note
+**Note**  
+ To use DNS record IP types other than service-defined for your Gateway endpoint, you must allow `enableDnsSupport` and `enableDnsHostnames` attributes in your VPC settings.
 
-To use DNS record IP types other than service-defined for your Gateway endpoint, you must allow `enableDnsSupport` and `enableDnsHostnames` attributes in your VPC settings.
+You can't change the DNS record IP type for a DynamoDB gateway endpoint. DynamoDB only supports the DNS record IP type of service-defined.
 
-You can't change the DNS record IP type for a DynamoDB gateway endpoint. DynamoDB
-only supports the DNS record IP type of service-defined.
-
-The DNS record IP type behavior is different for interface endpoints. For more information, see
-[DNS record IP type for interface
-endpoints](privatelink-access-aws-services.md#aws-services-dns-record-ip-type "privatelink-access-aws-services.md#aws-services-dns-record-ip-type").
+The DNS record IP type behavior is different for interface endpoints. For more information, see [DNS record IP type for interface endpoints](privatelink-access-aws-services.md#aws-services-dns-record-ip-type).
