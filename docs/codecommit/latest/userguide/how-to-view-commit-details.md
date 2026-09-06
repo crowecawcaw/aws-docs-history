@@ -1,457 +1,349 @@
+
+
 # View commit details in AWS CodeCommit
+<a name="how-to-view-commit-details"></a>
 
-You can use the AWS CodeCommit console to browse the history of commits in a repository. This can
-help you identify changes made in a repository, including:
+You can use the AWS CodeCommit console to browse the history of commits in a repository. This can help you identify changes made in a repository, including:
++ When and by whom the changes were made.
++ When specific commits were merged into a branch.
 
-- When and by whom the changes were made.
-- When specific commits were merged into a branch.
-  Viewing the history of commits for a branch might also help you understand the difference
-  between branches. If you use tagging, you can also quickly view the commit that was labeled with
-  a tag and the parents of that tagged commit. At the command line, you can use Git to view
-  details about the commits in a local repo or a CodeCommit repository.
+Viewing the history of commits for a branch might also help you understand the difference between branches. If you use tagging, you can also quickly view the commit that was labeled with a tag and the parents of that tagged commit. At the command line, you can use Git to view details about the commits in a local repo or a CodeCommit repository. 
 
 ## Browse commits in a repository
+<a name="how-to-view-commit-details-console"></a>
 
-You can use the AWS CodeCommit console to browse the history of commits to a repository. You can
-also view a graph of the commits in the repository and its branches over time. This can help
-you understand the history of the repository, including when changes were made.
+You can use the AWS CodeCommit console to browse the history of commits to a repository. You can also view a graph of the commits in the repository and its branches over time. This can help you understand the history of the repository, including when changes were made.
 
-###### Note
+**Note**  
+Using the **git rebase** command to rebase a repository changes the history of a repository, which might cause commits to appear out of order. For more information, see [Git Branching-Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) or your Git documentation.
 
-Using the **git rebase** command to rebase a repository changes the
-history of a repository, which might cause commits to appear out of order. For more
-information, see [Git
-Branching-Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing "https://git-scm.com/book/en/v2/Git-Branching-Rebasing") or your Git documentation.
-
-###### Topics
-
-- [Browse the commit history of a repository](#how-to-view-commit-details-console-history "#how-to-view-commit-details-console-history")
-- [View a graph of the commit history of a repository](#how-to-view-commit-details-console-visualizer "#how-to-view-commit-details-console-visualizer")
+**Topics**
++ [Browse the commit history of a repository](#how-to-view-commit-details-console-history)
++ [View a graph of the commit history of a repository](#how-to-view-commit-details-console-visualizer)
 
 ### Browse the commit history of a repository
+<a name="how-to-view-commit-details-console-history"></a>
 
-You can browse the commit history for a specific branch or tag of the repository,
-including information about the committer and the commit message. You can also view the code
-for a commit.
+You can browse the commit history for a specific branch or tag of the repository, including information about the committer and the commit message. You can also view the code for a commit.
 
-###### To browse the history of commits
+**To browse the history of commits**
 
-1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
-2. In **Repositories**, choose the repository for which you want to
-   review the commit history.
-3. In the navigation pane, choose **Commits**. In the commit history
-   view, a history of commits for the repository in the default branch is displayed, in
-   reverse chronological order of the commit date. Date and time are in coordinated
-   universal time (UTC). You can view the commit history of a different branch by choosing
-   the view selector button and then choosing a branch from the list. If you are using tags
-   in your repository, you can view a commit with a specific tag and its parents
-   by
-   choosing that tag in the view selector button.
+1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home).
 
-![The commits view in the console](images/codecommit-commit-list.png) 4. To view the difference between a commit and its parent, and to see any comments on
-the changes, choose the abbreviated commit ID. For more information, see [Compare a commit to its parent](how-to-compare-commits.md#how-to-compare-commits-parent "how-to-compare-commits.md#how-to-compare-commits-parent") and [Comment on a commit](how-to-commit-comment.md "how-to-commit-comment.md").
-To view the difference between a commit and any other commit specifier, including a
-branch, tag, or commit ID, see [Compare any two commit specifiers](how-to-compare-commits.md#how-to-compare-commits-compare "how-to-compare-commits.md#how-to-compare-commits-compare"). 5. Do one or more of the following:
+1. In **Repositories**, choose the repository for which you want to review the commit history. 
 
-    * To view the date and time a change was made, hover over the commit
-     date.
-    * To view the full commit ID, copy and then paste it into a text editor or other location. To copy it, choose **Copy
-     ID**.
-    * To view the code as it was at the time of a commit, choose
-     **Browse**. The contents of the repository as they were at the
-     time of that commit is displayed in the **Code** view. The view
-     selector button displays the abbreviated commit ID instead of a branch or
-     tag.
+1. In the navigation pane, choose **Commits**. In the commit history view, a history of commits for the repository in the default branch is displayed, in reverse chronological order of the commit date. Date and time are in coordinated universal time (UTC). You can view the commit history of a different branch by choosing the view selector button and then choosing a branch from the list. If you are using tags in your repository, you can view a commit with a specific tag and its parents by choosing that tag in the view selector button.  
+![The commits view in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-list.png)
+
+1. To view the difference between a commit and its parent, and to see any comments on the changes, choose the abbreviated commit ID. For more information, see [Compare a commit to its parent](how-to-compare-commits.md#how-to-compare-commits-parent) and [Comment on a commit](how-to-commit-comment.md). To view the difference between a commit and any other commit specifier, including a branch, tag, or commit ID, see [Compare any two commit specifiers](how-to-compare-commits.md#how-to-compare-commits-compare).
+
+1. Do one or more of the following:
+   + To view the date and time a change was made, hover over the commit date.
+   + To view the full commit ID, copy and then paste it into a text editor or other location. To copy it, choose **Copy ID**.
+   + To view the code as it was at the time of a commit, choose **Browse**. The contents of the repository as they were at the time of that commit is displayed in the **Code** view. The view selector button displays the abbreviated commit ID instead of a branch or tag.
 
 ### View a graph of the commit history of a repository
+<a name="how-to-view-commit-details-console-visualizer"></a>
 
-You can view a graph of the commits made to a repository. The **Commit
-Visualizer** view is a directed acyclic graph (DAG) representation of all the
-commits made to a branch of the repository. This graphical representation can help you
-understand when commits and associated features were added or merged. It can also help you
-pinpoint when a change was made in relation to other changes.
+You can view a graph of the commits made to a repository. The **Commit Visualizer** view is a directed acyclic graph (DAG) representation of all the commits made to a branch of the repository. This graphical representation can help you understand when commits and associated features were added or merged. It can also help you pinpoint when a change was made in relation to other changes.
 
-###### Note
+**Note**  
+Commits that are merged using the fast-forward method do not appear as separate lines in the graph of commits.
 
-Commits that are merged using the fast-forward method do not appear as separate lines
-in the graph of commits.
+**To view a graph of commits**
 
-###### To view a graph of commits
+1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home).
 
-1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
-2. In **Repositories**, choose the repository for which you want to
-   view a commit graph.
-3. In the navigation pane, choose **Commits**, and then choose the
-   **Commit visualizer** tab.
+1. In **Repositories**, choose the repository for which you want to view a commit graph. 
 
-![A graphical view of a repository in the console](images/codecommit-cv-complex1.png)
+1. In the navigation pane, choose **Commits**, and then choose the **Commit visualizer** tab.  
+![A graphical view of a repository in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 
-In the commit graph, the abbreviated commit ID and the subject for each commit
-message appears next to that point in the graph.
+   In the commit graph, the abbreviated commit ID and the subject for each commit message appears next to that point in the graph. 
+**Note**  
+The graph can display up to 35 branches on a page. If there are more than 35 branches, the graph is too complex to display. You can simplify the view in two ways:   
+By using the view selector button to show the graph for a specific branch.
+By pasting a full commit ID into the search box to render the graph from that commit.
 
-###### Note
-
-The graph can display up to 35 branches on a page. If there are more than 35
-branches, the graph is too complex to display. You can simplify the view in two
-ways:
-
-    * By using the view selector button to show the graph for a specific
-     branch.
-    * By pasting a full commit ID into the search box to render the graph from
-     that commit.
-
-4. To render a new graph from a commit, choose the point in the graph that corresponds to that commit. The
-view selector button changes to the abbreviated commit ID.
-
-![A new graph rendered from a specific commit](images/codecommit-cv-commit.png)
+1. To render a new graph from a commit, choose the point in the graph that corresponds to that commit. The view selector button changes to the abbreviated commit ID.  
+![A new graph rendered from a specific commit](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-commit.png)
 
 ## View commit details (AWS CLI)
+<a name="how-to-view-commit-details-cli"></a>
 
-Git lets you view details about commits. You can also use the AWS CLI to view
-details about the commits in a local repo or in a CodeCommit repository by running the
-following commands:
-
-- To view information about a commit, run
-  **[aws codecommit get-commit](#how-to-view-commit-details-cli-commit "#how-to-view-commit-details-cli-commit")**.
-- To view information about multiple commits, run **[aws codecommit
-  batch-get-commits](#how-to-view-commit-details-cli-batch-get-commits "#how-to-view-commit-details-cli-batch-get-commits")**.
-- To view information about a merge commit, run **[aws codecommit
-  get-merge-commit](#how-to-view-commit-details-cli-merge-commit "#how-to-view-commit-details-cli-merge-commit")**.
-- To view information about changes for a commit specifier (branch, tag, HEAD, or other
-  fully qualified references, such as commit IDs), run
-  **[aws codecommit get-differences](#how-to-view-commit-details-cli-differences "#how-to-view-commit-details-cli-differences")**.
-- To view the base64-encoded content of a Git blob object in a repository, run
-  **[aws codecommit get-blob](#how-to-view-commit-details-cli-blob "#how-to-view-commit-details-cli-blob")**.
+Git lets you view details about commits. You can also use the AWS CLI to view details about the commits in a local repo or in a CodeCommit repository by running the following commands:
++ To view information about a commit, run **[aws codecommit get-commit](#how-to-view-commit-details-cli-commit)**.
++ To view information about multiple commits, run **[aws codecommit batch-get-commits](#how-to-view-commit-details-cli-batch-get-commits)**.
++ To view information about a merge commit, run **[aws codecommit get-merge-commit](#how-to-view-commit-details-cli-merge-commit)**.
++ To view information about changes for a commit specifier (branch, tag, HEAD, or other fully qualified references, such as commit IDs), run **[aws codecommit get-differences](#how-to-view-commit-details-cli-differences)**.
++ To view the base64-encoded content of a Git blob object in a repository, run **[aws codecommit get-blob](#how-to-view-commit-details-cli-blob)**.
 
 ### To view information about a commit
+<a name="how-to-view-commit-details-cli-commit"></a>
 
 1. Run the **aws codecommit get-commit** command, specifying:
+   + The name of the CodeCommit repository (with the `--repository-name` option).
+   + The full commit ID. 
 
-   - The name of the CodeCommit repository (with the
-     `--repository-name` option).
-   - The full commit ID.
-     For example, to view information about a commit with the ID
-     `317f8570EXAMPLE` in a CodeCommit repository named
-     `MyDemoRepo`:
+   For example, to view information about a commit with the ID `317f8570EXAMPLE` in a CodeCommit repository named `MyDemoRepo`:
 
-```
-aws codecommit get-commit  --repository-name MyDemoRepo  --commit-id 317f8570EXAMPLE
-```
+   ```
+   aws codecommit get-commit  --repository-name MyDemoRepo  --commit-id 317f8570EXAMPLE 
+   ```
 
-2. If successful, the output of this command includes the following:
+1. If successful, the output of this command includes the following:
+   + Information about the author of the commit (as configured in Git), including the date in timestamp format and the coordinated universal time (UTC) offset.
+   + Information about the committer (as configured in Git) including the date in timestamp format and the UTC offset.
+   + The ID of the Git tree where the commit exists.
+   + The commit ID of the parent commit.
+   + The commit message.
 
-   - Information about the author of the commit (as configured in Git), including the
-     date in timestamp format and the coordinated universal time (UTC) offset.
-   - Information about the committer (as configured in Git) including the date in
-     timestamp format and the UTC offset.
-   - The ID of the Git tree where the commit exists.
-   - The commit ID of the parent commit.
-   - The commit message.
-     Here is some example output, based on the preceding example command:
+   Here is some example output, based on the preceding example command:
 
-```
-{
-    "commit": {
-        "additionalData": "",
-        "committer": {
-            "date": "1484167798 -0800",
-            "name": "Mary Major",
-            "email": "mary_major@example.com"
-        },
-        "author": {
-            "date": "1484167798 -0800",
-            "name": "Mary Major",
-            "email": "mary_major@example.com"
-        },
-        "treeId": "347a3408EXAMPLE",
-        "parents": [
-            "4c925148EXAMPLE"
-        ],
-        "message": "Fix incorrect variable name"
-    }
-}
-```
+   ```
+   {
+       "commit": {
+           "additionalData": "",
+           "committer": {
+               "date": "1484167798 -0800",
+               "name": "Mary Major",
+               "email": "mary_major@example.com"
+           },
+           "author": {
+               "date": "1484167798 -0800",
+               "name": "Mary Major",
+               "email": "mary_major@example.com"
+           },
+           "treeId": "347a3408EXAMPLE",
+           "parents": [
+               "4c925148EXAMPLE"
+           ],
+           "message": "Fix incorrect variable name"
+       }
+   }
+   ```
 
 ### To view information about a merge commit
+<a name="how-to-view-commit-details-cli-merge-commit"></a>
 
 1. Run the **get-merge-commit** command, specifying:
+   + A commit specifier for the source of the merge (with the **--source-commit-specifier** option).
+   + A commit specifier for the destination for the merge (with the **--destination-commit-specifier** option). 
+   + The merge option you want to use (with the **--merge-option** option).
+   + The name of the repository (with the **--repository-name** option).
 
-   - A commit specifier for the source of the merge (with the
-     **--source-commit-specifier** option).
-   - A commit specifier for the destination for the merge (with the
-     **--destination-commit-specifier** option).
-   - The merge option you want to use (with the **--merge-option**
-     option).
-   - The name of the repository (with the **--repository-name**
-     option).
-     For example, to view information about a merge commit for the source branch named
-     `bugfix-bug1234` with a destination branch named
-     `main` using the `THREE_WAY_MERGE`
-     strategy in a repository named `MyDemoRepo`:
+   For example, to view information about a merge commit for the source branch named {{bugfix-bug1234}} with a destination branch named {{main}} using the {{THREE\_WAY\_MERGE}} strategy in a repository named {{MyDemoRepo}}:
 
-```
-aws codecommit get-merge-commit --source-commit-specifier `bugfix-bug1234` --destination-commit-specifier `main` --merge-option `THREE_WAY_MERGE` --repository-name `MyDemoRepo`
-```
+   ```
+   aws codecommit get-merge-commit --source-commit-specifier {{bugfix-bug1234}} --destination-commit-specifier {{main}} --merge-option {{THREE_WAY_MERGE}} --repository-name {{MyDemoRepo}}
+   ```
 
-2. If successful, the output of this command returns information similar to the
-   following:
+1. If successful, the output of this command returns information similar to the following:
 
-```
-{
-    "sourceCommitId": "c5709475EXAMPLE",
-    "destinationCommitId": "317f8570EXAMPLE",
-    "baseCommitId": "fb12a539EXAMPLE",
-    "mergeCommitId": "ffc4d608eEXAMPLE"
-}
-```
+   ```
+   {
+       "sourceCommitId": "c5709475EXAMPLE", 
+       "destinationCommitId": "317f8570EXAMPLE", 
+       "baseCommitId": "fb12a539EXAMPLE",
+       "mergeCommitId": "ffc4d608eEXAMPLE"
+   }
+   ```
 
 ### To view information about multiple commits
+<a name="how-to-view-commit-details-cli-batch-get-commits"></a>
 
 1. Run the **batch-get-commits** command, specifying:
+   + The name of the CodeCommit repository (with the `--repository-name` option).
+   + A list of full commit IDs for every commit about which you want to view information. 
 
-   - The name of the CodeCommit repository (with the
-     `--repository-name` option).
-   - A list of full commit IDs for every commit about which you want to view
-     information.
-     For example, to view information about commits with the IDs
-     `317f8570EXAMPLE` and `4c925148EXAMPLE` in a CodeCommit repository
-     named `MyDemoRepo`:
+   For example, to view information about commits with the IDs `317f8570EXAMPLE` and `4c925148EXAMPLE` in a CodeCommit repository named `MyDemoRepo`:
 
-```
-aws codecommit batch-get-commits  --repository-name MyDemoRepo  --commit-ids 317f8570EXAMPLE 4c925148EXAMPLE
-```
+   ```
+   aws codecommit batch-get-commits  --repository-name MyDemoRepo  --commit-ids 317f8570EXAMPLE 4c925148EXAMPLE
+   ```
 
-2. If successful, the output of this command includes the following:
+1. If successful, the output of this command includes the following:
+   + Information about the authors of the commits (as configured in Git), including the date in timestamp format and the coordinated universal time (UTC) offset.
+   + Information about the committers (as configured in Git) including the date in timestamp format and the UTC offset.
+   + The IDs of the Git tree where the commit exists.
+   + The commit IDs of the parent commit.
+   + The commit messages.
 
-   - Information about the authors of the commits (as configured in Git), including
-     the date in timestamp format and the coordinated universal time (UTC) offset.
-   - Information about the committers (as configured in Git) including the date in
-     timestamp format and the UTC offset.
-   - The IDs of the Git tree where the commit exists.
-   - The commit IDs of the parent commit.
-   - The commit messages.
-     Here is some example output, based on the preceding example command:
+   Here is some example output, based on the preceding example command:
 
-```
-{
-    "commits": [
-      {
-        "additionalData": "",
-        "committer": {
-            "date": "1508280564 -0800",
-            "name": "Mary Major",
-            "email": "mary_major@example.com"
-        },
-        "author": {
-            "date": "1508280564 -0800",
-            "name": "Mary Major",
-            "email": "mary_major@example.com"
-        },
-        "commitId": "317f8570EXAMPLE",
-        "treeId": "1f330709EXAMPLE",
-        "parents": [
-            "6e147360EXAMPLE"
-        ],
-        "message": "Change variable name and add new response element"
-    },
-    {
-        "additionalData": "",
-        "committer": {
-            "date": "1508280542 -0800",
-            "name": "Li Juan",
-            "email": "li_juan@example.com"
-        },
-        "author": {
-            "date": "1508280542 -0800",
-            "name": "Li Juan",
-            "email": "li_juan@example.com"
-        },
-        "commitId": "4c925148EXAMPLE",
-        "treeId": "1f330709EXAMPLE",
-        "parents": [
-            "317f8570EXAMPLE"
-        ],
-        "message": "Added new class"
-    }
-}
-```
+   ```
+   {
+       "commits": [
+         {
+           "additionalData": "",
+           "committer": {
+               "date": "1508280564 -0800",
+               "name": "Mary Major",
+               "email": "mary_major@example.com"
+           },
+           "author": {
+               "date": "1508280564 -0800",
+               "name": "Mary Major",
+               "email": "mary_major@example.com"
+           },
+           "commitId": "317f8570EXAMPLE",
+           "treeId": "1f330709EXAMPLE",
+           "parents": [
+               "6e147360EXAMPLE"
+           ],
+           "message": "Change variable name and add new response element"
+       },
+       {
+           "additionalData": "",
+           "committer": {
+               "date": "1508280542 -0800",
+               "name": "Li Juan",
+               "email": "li_juan@example.com"
+           },
+           "author": {
+               "date": "1508280542 -0800",
+               "name": "Li Juan",
+               "email": "li_juan@example.com"
+           },
+           "commitId": "4c925148EXAMPLE",
+           "treeId": "1f330709EXAMPLE",
+           "parents": [
+               "317f8570EXAMPLE"
+           ],
+           "message": "Added new class"
+       }   
+   }
+   ```
 
 ### To view information about the changes for a commit specifier
+<a name="how-to-view-commit-details-cli-differences"></a>
 
-1. Run the
-   **aws codecommit get-differences**
-   command, specifying:
+1. Run the **aws codecommit get-differences** command, specifying:
+   + The name of the CodeCommit repository (with the `--repository-name` option).
+   + The commit specifiers you want to get information about. Only `--after-commit-specifier` is required. If you do not specify `--before-commit-specifier`, all files current as of the `--after-commit-specifier` are shown. 
 
-   - The name of the CodeCommit repository (with the
-     `--repository-name` option).
-   - The commit specifiers you want to get information about. Only
-     `--after-commit-specifier` is required. If you do not specify
-     `--before-commit-specifier`, all files current as of the
-     `--after-commit-specifier` are shown.
-     For example, to view information about the differences between commits with the IDs
-     `317f8570EXAMPLE` and
-     `4c925148EXAMPLE` in a CodeCommit repository named
-     `MyDemoRepo`:
+   For example, to view information about the differences between commits with the IDs `317f8570EXAMPLE` and `4c925148EXAMPLE` in a CodeCommit repository named `MyDemoRepo`:
 
-```
-aws codecommit get-differences  --repository-name MyDemoRepo  --before-commit-specifier 317f8570EXAMPLE --after-commit-specifier 4c925148EXAMPLE
-```
+   ```
+   aws codecommit get-differences  --repository-name MyDemoRepo  --before-commit-specifier 317f8570EXAMPLE --after-commit-specifier 4c925148EXAMPLE
+   ```
 
-2. If successful, the output of this command includes the following:
+1. If successful, the output of this command includes the following:
+   + A list of differences, including the change type (A for added, D for deleted, or M for modified).
+   + The mode of the file change type.
+   + The ID of the Git blob object that contains the change.
 
-   - A list of differences, including the change type (A for added, D for deleted, or
-     M for modified).
-   - The mode of the file change type.
-   - The ID of the Git blob object that contains the change.
-     Here is some example output, based on the preceding example command:
+   Here is some example output, based on the preceding example command:
 
-```
-{
-    "differences": [
-        {
-            "afterBlob": {
-                "path": "blob.txt",
-                "blobId": "2eb4af3bEXAMPLE",
-                "mode": "100644"
-            },
-            "changeType": "M",
-            "beforeBlob": {
-                "path": "blob.txt",
-                "blobId": "bf7fcf28fEXAMPLE",
-                "mode": "100644"
-            }
-        }
-    ]
-}
-```
+   ```
+   {
+       "differences": [
+           {
+               "afterBlob": {
+                   "path": "blob.txt",
+                   "blobId": "2eb4af3bEXAMPLE",
+                   "mode": "100644"
+               },
+               "changeType": "M",
+               "beforeBlob": {
+                   "path": "blob.txt",
+                   "blobId": "bf7fcf28fEXAMPLE",
+                   "mode": "100644"
+               }
+           }
+       ]
+   }
+   ```
 
 ### To view information about a Git blob object
+<a name="how-to-view-commit-details-cli-blob"></a>
 
-1. Run the
-   **aws codecommit get-blob**
-   command, specifying:
+1. Run the **aws codecommit get-blob** command, specifying:
+   + The name of the CodeCommit repository (with the `--repository-name` option).
+   + The ID of the Git blob (with the `--blob-id `option). 
 
-   - The name of the CodeCommit repository (with the
-     `--repository-name` option).
-   - The ID of the Git blob (with the `--blob-id` option).
-     For example, to view information about a Git blob with the ID of
-     `2eb4af3bEXAMPLE` in a CodeCommit repository named
-     `MyDemoRepo`:
+   For example, to view information about a Git blob with the ID of `2eb4af3bEXAMPLE` in a CodeCommit repository named `MyDemoRepo`:
 
-```
-aws codecommit get-blob  --repository-name MyDemoRepo  --blob-id 2eb4af3bEXAMPLE
-```
+   ```
+   aws codecommit get-blob  --repository-name MyDemoRepo  --blob-id 2eb4af3bEXAMPLE
+   ```
 
-2. If successful, the output of this command includes the following:
+1. If successful, the output of this command includes the following:
+   + The base64-encoded content of the blob, usually a file.
 
-   - The base64-encoded content of the blob, usually a file.
-     For example, the output of the previous command might be similar to the
-     following:
+   For example, the output of the previous command might be similar to the following:
 
-```
-{
-    "content": "QSBCaW5hcnkgTGFyToEXAMPLE="
-}
-```
+   ```
+   {
+       "content": "QSBCaW5hcnkgTGFyToEXAMPLE="
+   }
+   ```
 
 ### To view a line-level diff between two blobs
+<a name="how-to-view-commit-details-cli-blob-differences"></a>
 
-Use **get-blob-differences** to display a line-level diff between two
-file versions. The command returns an ordered list of hunks—contiguous runs of changed
-lines with surrounding context—that you can use to render side-by-side or unified diff
-views in your tooling.
+Use **get-blob-differences** to display a line-level diff between two file versions. The command returns an ordered list of hunks—contiguous runs of changed lines with surrounding context—that you can use to render side-by-side or unified diff views in your tooling.
 
 1. Run the **get-blob-differences** command, specifying:
+   + The name of the CodeCommit repository (with the `--repository-name` option).
+   + The ID of the after blob—the version to compare to (with the `--after-blob-id` option).
+   + Optionally, the ID of the before blob (with the `--before-blob-id` option). If you do not specify a before blob, the command computes the diff against an empty before-state, which is the same as treating the file as newly added.
+   + Optionally, the number of unchanged context lines per hunk (with the `--context-lines` option, integer between 0 and 20; defaults to 3).
+   + Optionally, whether to ignore whitespace-only changes (with the `--ignore-whitespace` option).
+   + Optionally, the maximum total number of diff hunks to return in the command's output (with the `--max-items` option, any positive integer). The AWS Command Line Interface (AWS CLI) might make multiple internal service calls to collect results. If more results exist beyond `--max-items`, the output includes a `NextToken` pagination token.
+   + Optionally, the number of results per service call (with the `--page-size` option, integer between 1 and 1000; defaults to 100).
+   + Optionally, a pagination token from a previous response (with the `--starting-token` option). Use this value to retrieve the next page when the output includes a `NextToken`.
 
-   - The name of the CodeCommit repository (with the
-     `--repository-name` option).
-   - The ID of the after blob—the version to compare to (with the
-     `--after-blob-id` option).
-   - Optionally, the ID of the before blob (with the `--before-blob-id`
-     option). If you do not specify a before blob, the command computes the diff against
-     an empty before-state, which is the same as treating the file as newly
-     added.
-   - Optionally, the number of unchanged context lines per hunk (with the
-     `--context-lines` option, integer between 0 and 20; defaults to
-     3).
-   - Optionally, whether to ignore whitespace-only changes (with the
-     `--ignore-whitespace` option).
-   - Optionally, the maximum total number of diff hunks to return in the
-     command's output (with the `--max-items` option, any positive
-     integer). The AWS Command Line Interface (AWS CLI) might make multiple internal
-     service calls to collect results. If more results exist beyond
-     `--max-items`, the output includes a `NextToken` pagination
-     token.
-   - Optionally, the number of results per service call (with the
-     `--page-size` option, integer between 1 and 1000; defaults to
-     100).
-   - Optionally, a pagination token from a previous response (with the
-     `--starting-token` option). Use this value to retrieve the next page
-     when the output includes a `NextToken`.
-     For example, to view the line-level diff between two blob versions of a file in a
-     CodeCommit repository named `MyDemoRepo`, with three lines of
-     context:
+   For example, to view the line-level diff between two blob versions of a file in a CodeCommit repository named `MyDemoRepo`, with three lines of context:
 
-```
-aws codecommit get-blob-differences --repository-name MyDemoRepo --before-blob-id bf7fcf28fEXAMPLE --after-blob-id 2eb4af3bEXAMPLE
-```
+   ```
+   aws codecommit get-blob-differences --repository-name MyDemoRepo --before-blob-id bf7fcf28fEXAMPLE --after-blob-id 2eb4af3bEXAMPLE
+   ```
 
-2. If successful, the output of this command includes the following:
+1. If successful, the output of this command includes the following:
+   + The list of diff hunks, each with start lines and counts for both versions and an ordered list of line-level changes (`CONTEXT`, `ADD`, or `DELETE`). `ADD` changes omit `beforeLineNumber`, and `DELETE` changes omit `afterLineNumber`.
+   + Whether the content was treated as binary (`isBinary`).
+   + The size of each blob in bytes (`beforeBlobSize`, `afterBlobSize`).
+   + If the diff spans multiple pages, an opaque `NextToken` that you can pass to a follow-up **get-blob-differences** call (with the `--starting-token` option) to retrieve the next page. When the response contains the final page, `NextToken` is omitted.
 
-   - The list of diff hunks, each with start lines and counts for both versions and
-     an ordered list of line-level changes (`CONTEXT`, `ADD`, or
-     `DELETE`). `ADD` changes omit
-     `beforeLineNumber`, and `DELETE` changes omit
-     `afterLineNumber`.
-   - Whether the content was treated as binary
-     (`isBinary`).
-   - The size of each blob in bytes (`beforeBlobSize`,
-     `afterBlobSize`).
-   - If the diff spans multiple pages, an opaque `NextToken` that you
-     can pass to a follow-up **get-blob-differences** call (with the
-     `--starting-token` option) to retrieve the next page. When the
-     response contains the final page, `NextToken` is omitted.
-     For example, the output of the previous command might be similar to the
-     following:
+   For example, the output of the previous command might be similar to the following:
 
-```
-{
-    "hunks": [
-        {
-            "beforeStartLine": 1,
-            "beforeLineCount": 4,
-            "afterStartLine": 1,
-            "afterLineCount": 5,
-            "changes": [
-                { "type": "CONTEXT", "beforeLineNumber": 1, "afterLineNumber": 1, "content": "import os" },
-                { "type": "DELETE",  "beforeLineNumber": 2, "content": "DEBUG = False" },
-                { "type": "ADD",     "afterLineNumber": 2, "content": "DEBUG = True" },
-                { "type": "ADD",     "afterLineNumber": 3, "content": "VERBOSE = True" },
-                { "type": "CONTEXT", "beforeLineNumber": 3, "afterLineNumber": 4, "content": "" },
-                { "type": "CONTEXT", "beforeLineNumber": 4, "afterLineNumber": 5, "content": "def main():" }
-            ]
-        }
-    ],
-    "isBinary": false,
-    "beforeBlobSize": 142,
-    "afterBlobSize": 168
-}
-```
+   ```
+   {
+       "hunks": [
+           {
+               "beforeStartLine": 1,
+               "beforeLineCount": 4,
+               "afterStartLine": 1,
+               "afterLineCount": 5,
+               "changes": [
+                   { "type": "CONTEXT", "beforeLineNumber": 1, "afterLineNumber": 1, "content": "import os" },
+                   { "type": "DELETE",  "beforeLineNumber": 2, "content": "DEBUG = False" },
+                   { "type": "ADD",     "afterLineNumber": 2, "content": "DEBUG = True" },
+                   { "type": "ADD",     "afterLineNumber": 3, "content": "VERBOSE = True" },
+                   { "type": "CONTEXT", "beforeLineNumber": 3, "afterLineNumber": 4, "content": "" },
+                   { "type": "CONTEXT", "beforeLineNumber": 4, "afterLineNumber": 5, "content": "def main():" }
+               ]
+           }
+       ],
+       "isBinary": false,
+       "beforeBlobSize": 142,
+       "afterBlobSize": 168
+   }
+   ```
 
 ## View commit details (Git)
+<a name="how-to-view-commit-details-git"></a>
 
-Before you follow these steps, you should have already connected the local repo to
-the CodeCommit repository and committed changes. For instructions, see [Connect to a repository](how-to-connect.md "how-to-connect.md").
+Before you follow these steps, you should have already connected the local repo to the CodeCommit repository and committed changes. For instructions, see [Connect to a repository](how-to-connect.md).
 
-To show the changes for the most recent commit to a repository, run
-the **git show** command.
+To show the changes for the most recent commit to a repository, run the **git show** command.
 
 ```
 git show
 ```
 
-The command produces output similar to the
-following:
+The command produces output similar to the following:
 
 ```
 commit 4f8c6f9d
@@ -470,13 +362,10 @@ index 0000000..443b974
 \ No newline at end of file
 ```
 
-###### Note
+**Note**  
+In this and the following examples, commit IDs have been abbreviated. The full commit IDs are not shown.
 
-In this and the following examples, commit IDs have been abbreviated. The full commit
-IDs are not shown.
-
-To view the changes that occurred, use the **git show** command with the
-commit ID:
+To view the changes that occurred, use the **git show** command with the commit ID:
 
 ```
 git show 94ba1e60
@@ -496,17 +385,13 @@ index 0000000..080f68f
 +The horse (Equus ferus caballus) is one of two extant subspecies of Equus ferus.
 ```
 
-To see the differences between two commits, run the **git
-diff** command and include the two commit
-IDs.
+To see the differences between two commits, run the **git diff** command and include the two commit IDs.
 
 ```
-git diff `ce22850d` `4f8c6f9d`
+git diff {{ce22850d}} {{4f8c6f9d}}
 ```
 
-In this example, the difference between the two commits is that two files were added. The
-command produces output similar to the
-following:
+In this example, the difference between the two commits is that two files were added. The command produces output similar to the following:
 
 ```
 diff --git a/bees.txt b/bees.txt
@@ -526,8 +411,7 @@ index 0000000..443b974
 \ No newline at end of file
 ```
 
-To use Git to view details about the commits in a local repo, run the
-**git log** command:
+To use Git to view details about the commits in a local repo, run the **git log** command:
 
 ```
 git log
@@ -549,8 +433,7 @@ Date:   Mon May 22 14:54:55 2014 -0700
     Added cat.txt and dog.txt
 ```
 
-To show only commit IDs and messages, run the **git log --pretty=oneline**
-command:
+To show only commit IDs and messages, run the **git log --pretty=oneline** command:
 
 ```
 git log --pretty=oneline

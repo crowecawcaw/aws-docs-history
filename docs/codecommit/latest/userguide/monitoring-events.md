@@ -1,53 +1,47 @@
-# Monitoring CodeCommit events in Amazon EventBridge and Amazon CloudWatch Events
 
-You can monitor AWS CodeCommit events in EventBridge, which delivers a stream of real-time data from
-your own applications, software-as-a-service (SaaS) applications, and AWS services. EventBridge
-routes that data to targets such as AWS Lambda and Amazon Simple Notification Service. These events are the same as
-those that appear in Amazon CloudWatch Events, which delivers a near real-time stream of system events that
-describe changes in AWS resources.
+
+# Monitoring CodeCommit events in Amazon EventBridge and Amazon CloudWatch Events
+<a name="monitoring-events"></a>
+
+You can monitor AWS CodeCommit events in EventBridge, which delivers a stream of real-time data from your own applications, software-as-a-service (SaaS) applications, and AWS services. EventBridge routes that data to targets such as AWS Lambda and Amazon Simple Notification Service. These events are the same as those that appear in Amazon CloudWatch Events, which delivers a near real-time stream of system events that describe changes in AWS resources. 
 
 The following examples show events for CodeCommit.
 
-###### Note
+**Note**  
+CodeCommit supports providing `displayName` and `emailAddress` information included in session tags in events, if that information is available. For more information, see [Session Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html) and [Using tags to provide identity information in CodeCommit](security-iam.md#security-iam_service-with-iam-tags-identity).
 
-CodeCommit supports providing `displayName` and `emailAddress` information
-included in session tags in events, if that information is available. For more information,
-see [Session
-Tags](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md") and [Using tags to provide identity information in CodeCommit](security-iam.md#security-iam_service-with-iam-tags-identity "security-iam.md#security-iam_service-with-iam-tags-identity").
-
-###### Topics
-
-- [referenceCreated event](#referenceCreated "#referenceCreated")
-- [referenceUpdated event](#referenceUpdated "#referenceUpdated")
-- [referenceDeleted event](#referenceDeleted "#referenceDeleted")
-- [unreferencedMergeCommitCreated event](#unreferencedMergeCommitCreated "#unreferencedMergeCommitCreated")
-- [commentOnCommitCreated event](#commentOnCommitCreated "#commentOnCommitCreated")
-- [commentOnCommitUpdated event](#commentOnCommitUpdated "#commentOnCommitUpdated")
-- [commentOnPullRequestCreated event](#commentOnPullRequestCreated "#commentOnPullRequestCreated")
-- [commentOnPullRequestUpdated event](#commentOnPullRequestUpdated "#commentOnPullRequestUpdated")
-- [pullRequestCreated event](#pullRequestCreated "#pullRequestCreated")
-- [pullRequestSourceBranchUpdated event](#pullRequestSourceBranchUpdated "#pullRequestSourceBranchUpdated")
-- [pullRequestStatusChanged event](#pullRequestStatusChanged "#pullRequestStatusChanged")
-- [pullRequestMergeStatusUpdated event](#pullRequestMergeStatusUpdated "#pullRequestMergeStatusUpdated")
-- [approvalRuleTemplateCreated event](#approvalRuleTemplateCreated "#approvalRuleTemplateCreated")
-- [approvalRuleTemplateUpdated event](#approvalRuleTemplateUpdated "#approvalRuleTemplateUpdated")
-- [approvalRuleTemplateDeleted event](#approvalRuleTemplateDeleted "#approvalRuleTemplateDeleted")
-- [approvalRuleTemplateAssociatedWithRepository event](#approvalRuleTemplateAssociatedWithRepository "#approvalRuleTemplateAssociatedWithRepository")
-- [approvalRuleTemplateDisassociatedWithRepository event](#approvalRuleTemplateDisassociatedWithRepository "#approvalRuleTemplateDisassociatedWithRepository")
-- [approvalRuleTemplateBatchAssociatedWithRepositories event](#approvalRuleTemplateBatchAssociatedWithRepositories "#approvalRuleTemplateBatchAssociatedWithRepositories")
-- [approvalRuleTemplateBatchDisassociatedFromRepositories event](#approvalRuleTemplateBatchDisassociatedFromRepositories "#approvalRuleTemplateBatchDisassociatedFromRepositories")
-- [pullRequestApprovalRuleCreated event](#pullRequestApprovalRuleCreated "#pullRequestApprovalRuleCreated")
-- [pullRequestApprovalRuleDeleted event](#pullRequestApprovalRuleDeleted "#pullRequestApprovalRuleDeleted")
-- [pullRequestApprovalRuleOverridden event](#pullRequestApprovalRuleOverridden "#pullRequestApprovalRuleOverridden")
-- [pullRequestApprovalStateChanged event](#pullRequestApprovalStateChanged "#pullRequestApprovalStateChanged")
-- [pullRequestApprovalRuleUpdated event](#pullRequestApprovalRuleUpdated "#pullRequestApprovalRuleUpdated")
-- [reactionCreated event](#reactionCreated "#reactionCreated")
-- [reactionUpdated event](#reactionUpdated "#reactionUpdated")
+**Topics**
++ [referenceCreated event](#referenceCreated)
++ [referenceUpdated event](#referenceUpdated)
++ [referenceDeleted event](#referenceDeleted)
++ [unreferencedMergeCommitCreated event](#unreferencedMergeCommitCreated)
++ [commentOnCommitCreated event](#commentOnCommitCreated)
++ [commentOnCommitUpdated event](#commentOnCommitUpdated)
++ [commentOnPullRequestCreated event](#commentOnPullRequestCreated)
++ [commentOnPullRequestUpdated event](#commentOnPullRequestUpdated)
++ [pullRequestCreated event](#pullRequestCreated)
++ [pullRequestSourceBranchUpdated event](#pullRequestSourceBranchUpdated)
++ [pullRequestStatusChanged event](#pullRequestStatusChanged)
++ [pullRequestMergeStatusUpdated event](#pullRequestMergeStatusUpdated)
++ [approvalRuleTemplateCreated event](#approvalRuleTemplateCreated)
++ [approvalRuleTemplateUpdated event](#approvalRuleTemplateUpdated)
++ [approvalRuleTemplateDeleted event](#approvalRuleTemplateDeleted)
++ [approvalRuleTemplateAssociatedWithRepository event](#approvalRuleTemplateAssociatedWithRepository)
++ [approvalRuleTemplateDisassociatedWithRepository event](#approvalRuleTemplateDisassociatedWithRepository)
++ [approvalRuleTemplateBatchAssociatedWithRepositories event](#approvalRuleTemplateBatchAssociatedWithRepositories)
++ [approvalRuleTemplateBatchDisassociatedFromRepositories event](#approvalRuleTemplateBatchDisassociatedFromRepositories)
++ [pullRequestApprovalRuleCreated event](#pullRequestApprovalRuleCreated)
++ [pullRequestApprovalRuleDeleted event](#pullRequestApprovalRuleDeleted)
++ [pullRequestApprovalRuleOverridden event](#pullRequestApprovalRuleOverridden)
++ [pullRequestApprovalStateChanged event](#pullRequestApprovalStateChanged)
++ [pullRequestApprovalRuleUpdated event](#pullRequestApprovalRuleUpdated)
++ [reactionCreated event](#reactionCreated)
++ [reactionUpdated event](#reactionUpdated)
 
 ## referenceCreated event
+<a name="referenceCreated"></a>
 
-In this example event, a branch named `myBranch` has been created in a
-repository named `MyDemoRepo`.
+In this example event, a branch named `myBranch` has been created in a repository named `MyDemoRepo`.
 
 ```
 {
@@ -74,9 +68,9 @@ repository named `MyDemoRepo`.
 ```
 
 ## referenceUpdated event
+<a name="referenceUpdated"></a>
 
-In this example event, a branch named `myBranch` has been updated by a merge
-in a repository named `MyDemoRepo`.
+In this example event, a branch named `myBranch` has been updated by a merge in a repository named `MyDemoRepo`.
 
 ```
 {
@@ -110,9 +104,9 @@ in a repository named `MyDemoRepo`.
 ```
 
 ## referenceDeleted event
+<a name="referenceDeleted"></a>
 
-In this example event, a branch named `myBranch` has been deleted in a
-repository named `MyDemoRepo`.
+In this example event, a branch named `myBranch` has been deleted in a repository named `MyDemoRepo`.
 
 ```
 {
@@ -139,9 +133,9 @@ repository named `MyDemoRepo`.
 ```
 
 ## unreferencedMergeCommitCreated event
+<a name="unreferencedMergeCommitCreated"></a>
 
-In this example event, an unreferenced merge commit has been created in a repository
-named `MyDemoRepo`.
+In this example event, an unreferenced merge commit has been created in a repository named `MyDemoRepo`. 
 
 ```
 {
@@ -171,11 +165,9 @@ named `MyDemoRepo`.
 ```
 
 ## commentOnCommitCreated event
+<a name="commentOnCommitCreated"></a>
 
-In this example event, a federated user named `Mary_Major` commented on a
-commit. In this example, their federated identity provider configured session tags for
-`displayName` and `emailAddress`. That information is included in
-the event.
+In this example event, a federated user named `Mary_Major` commented on a commit. In this example, their federated identity provider configured session tags for `displayName` and `emailAddress`. That information is included in the event.
 
 ```
 {
@@ -206,11 +198,9 @@ the event.
 ```
 
 ## commentOnCommitUpdated event
+<a name="commentOnCommitUpdated"></a>
 
-In this example event, a user who assumed a role named `Admin` with a session
-name of `Mary_Major` edited a comment on a commit. In this example, the role
-included configured session tags for `displayName` and `emailAddress`.
-That information is included in the event.
+In this example event, a user who assumed a role named `Admin` with a session name of `Mary_Major` edited a comment on a commit. In this example, the role included configured session tags for `displayName` and `emailAddress`. That information is included in the event.
 
 ```
 {
@@ -241,11 +231,9 @@ That information is included in the event.
 ```
 
 ## commentOnPullRequestCreated event
+<a name="commentOnPullRequestCreated"></a>
 
-In this example event, a federated user named `Saanvi_Sarkar` commented on a
-pull request. In this example, their federated identity provider configured session tags for
-`displayName` and `emailAddress`. That information is included in
-the event.
+In this example event, a federated user named `Saanvi_Sarkar` commented on a pull request. In this example, their federated identity provider configured session tags for `displayName` and `emailAddress`. That information is included in the event.
 
 ```
 {
@@ -277,11 +265,9 @@ the event.
 ```
 
 ## commentOnPullRequestUpdated event
+<a name="commentOnPullRequestUpdated"></a>
 
-In this example event, a federated user named `Saanvi_Sarkar` edited a
-comment on a pull request. In this example, their federated identity provider configured
-session tags for `displayName` and `emailAddress`. That information is
-included in the event.
+In this example event, a federated user named `Saanvi_Sarkar` edited a comment on a pull request. In this example, their federated identity provider configured session tags for `displayName` and `emailAddress`. That information is included in the event.
 
 ```
 {
@@ -311,11 +297,9 @@ included in the event.
 ```
 
 ## pullRequestCreated event
+<a name="pullRequestCreated"></a>
 
-In this example event, a pull request was created in a repository named
-`MyDemoRepo` by a user who assumed a role named `Admin` with a
-session name of `Mary_Major`. No session tag information was provided, so that
-information is not included in the event.
+In this example event, a pull request was created in a repository named `MyDemoRepo` by a user who assumed a role named `Admin` with a session name of `Mary_Major`. No session tag information was provided, so that information is not included in the event.
 
 ```
 {
@@ -352,10 +336,9 @@ information is not included in the event.
 ```
 
 ## pullRequestSourceBranchUpdated event
+<a name="pullRequestSourceBranchUpdated"></a>
 
-In this example event, a user who assumed a role named `Admin` with a session
-name of `Mary_Major` updated the source branch named `test-branch` for
-a pull request with the ID of 1.
+In this example event, a user who assumed a role named `Admin` with a session name of `Mary_Major` updated the source branch named `test-branch` for a pull request with the ID of 1.
 
 ```
 {
@@ -392,10 +375,9 @@ a pull request with the ID of 1.
 ```
 
 ## pullRequestStatusChanged event
+<a name="pullRequestStatusChanged"></a>
 
-In this example event, a user who assumed a role named `Admin` with a session
-name of `Mary_Major` closed a pull request with the ID of 1. The pull request was
-not merged.
+In this example event, a user who assumed a role named `Admin` with a session name of `Mary_Major` closed a pull request with the ID of 1. The pull request was not merged.
 
 ```
 {
@@ -432,9 +414,9 @@ not merged.
 ```
 
 ## pullRequestMergeStatusUpdated event
+<a name="pullRequestMergeStatusUpdated"></a>
 
-In this example event, a user who assumed a role named `Admin` with a session
-name of `Mary_Major` merged a pull request with the ID of 1.
+In this example event, a user who assumed a role named `Admin` with a session name of `Mary_Major` merged a pull request with the ID of 1.
 
 ```
 {
@@ -472,9 +454,9 @@ name of `Mary_Major` merged a pull request with the ID of 1.
 ```
 
 ## approvalRuleTemplateCreated event
+<a name="approvalRuleTemplateCreated"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` created
-an approval rule template named `2-approvers-required-for-main`.
+In this example event, a user with an IAM user name of `Mary_Major` created an approval rule template named `2-approvers-required-for-main`.
 
 ```
 {
@@ -501,10 +483,9 @@ an approval rule template named `2-approvers-required-for-main`.
 ```
 
 ## approvalRuleTemplateUpdated event
+<a name="approvalRuleTemplateUpdated"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` edited
-an approval rule template named `2-approvers-required-for-main`. The approval
-rule template is not associated with any repositories.
+In this example event, a user with an IAM user name of `Mary_Major` edited an approval rule template named `2-approvers-required-for-main`. The approval rule template is not associated with any repositories.
 
 ```
 {
@@ -516,7 +497,7 @@ rule template is not associated with any repositories.
   "time": "2019-11-12T23:03:30Z",
   "region": "us-east-2",
   "resources": [
-
+    
   ],
   "detail": {
     "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
@@ -533,10 +514,9 @@ rule template is not associated with any repositories.
 ```
 
 ## approvalRuleTemplateDeleted event
+<a name="approvalRuleTemplateDeleted"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` deleted
-an approval rule template named `2-approvers-required-for-main`. The approval
-rule template is not associated with any repositories.
+In this example event, a user with an IAM user name of `Mary_Major` deleted an approval rule template named `2-approvers-required-for-main`. The approval rule template is not associated with any repositories.
 
 ```
 {
@@ -563,10 +543,9 @@ rule template is not associated with any repositories.
 ```
 
 ## approvalRuleTemplateAssociatedWithRepository event
+<a name="approvalRuleTemplateAssociatedWithRepository"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major`
-associated an approval rule template named `2-approvers-required-for-main` with
-a repository named `MyDemoRepo`.
+In this example event, a user with an IAM user name of `Mary_Major` associated an approval rule template named `2-approvers-required-for-main` with a repository named `MyDemoRepo`. 
 
 ```
 {
@@ -597,10 +576,9 @@ a repository named `MyDemoRepo`.
 ```
 
 ## approvalRuleTemplateDisassociatedWithRepository event
+<a name="approvalRuleTemplateDisassociatedWithRepository"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major`
-disassociated an approval rule template named `2-approvers-required-for-main`
-from a repository named `MyDemoRepo`.
+In this example event, a user with an IAM user name of `Mary_Major` disassociated an approval rule template named `2-approvers-required-for-main` from a repository named `MyDemoRepo`. 
 
 ```
 {
@@ -631,10 +609,9 @@ from a repository named `MyDemoRepo`.
 ```
 
 ## approvalRuleTemplateBatchAssociatedWithRepositories event
+<a name="approvalRuleTemplateBatchAssociatedWithRepositories"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` batch
-associated an approval rule template named `2-approvers-required-for-main` with
-a repository named `MyDemoRepo` and a repository named `MyTestRepo`.
+In this example event, a user with an IAM user name of `Mary_Major` batch associated an approval rule template named `2-approvers-required-for-main` with a repository named `MyDemoRepo` and a repository named `MyTestRepo`. 
 
 ```
 {
@@ -665,11 +642,9 @@ a repository named `MyDemoRepo` and a repository named `MyTestRepo`.
 ```
 
 ## approvalRuleTemplateBatchDisassociatedFromRepositories event
+<a name="approvalRuleTemplateBatchDisassociatedFromRepositories"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` batch
-disassociated an approval rule template named `2-approvers-required-for-main`
-from a repository named `MyDemoRepo` and a repository named
-`MyTestRepo`.
+In this example event, a user with an IAM user name of `Mary_Major` batch disassociated an approval rule template named `2-approvers-required-for-main` from a repository named `MyDemoRepo` and a repository named `MyTestRepo`. 
 
 ```
 {
@@ -700,10 +675,9 @@ from a repository named `MyDemoRepo` and a repository named
 ```
 
 ## pullRequestApprovalRuleCreated event
+<a name="pullRequestApprovalRuleCreated"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` created
-an approval rule named `1-approver-needed` for a pull request with the ID of
-`227`.
+In this example event, a user with an IAM user name of `Mary_Major` created an approval rule named `1-approver-needed` for a pull request with the ID of `227`.
 
 ```
 {
@@ -745,11 +719,9 @@ an approval rule named `1-approver-needed` for a pull request with the ID of
 ```
 
 ## pullRequestApprovalRuleDeleted event
+<a name="pullRequestApprovalRuleDeleted"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` deleted
-an approval rule named `1-approver-needed` for a pull request with the ID of
-`227`. An IAM user with the name `Saanvi_Sarkar` originally
-authored the approval rule.
+In this example event, a user with an IAM user name of `Mary_Major` deleted an approval rule named `1-approver-needed` for a pull request with the ID of `227`. An IAM user with the name `Saanvi_Sarkar` originally authored the approval rule.
 
 ```
 {
@@ -791,10 +763,9 @@ authored the approval rule.
 ```
 
 ## pullRequestApprovalRuleOverridden event
+<a name="pullRequestApprovalRuleOverridden"></a>
 
-In this example event, the approval rule requirements for a pull request have been set
-aside (OVERRIDE) by a user with an IAM user name of `Mary_Major`. The pull
-request was authored by a user with an IAM user name of `Li_Juan`.
+In this example event, the approval rule requirements for a pull request have been set aside (OVERRIDE) by a user with an IAM user name of `Mary_Major`. The pull request was authored by a user with an IAM user name of `Li_Juan`.
 
 ```
 {
@@ -833,8 +804,7 @@ request was authored by a user with an IAM user name of `Li_Juan`.
 }
 ```
 
-In this example event, the approval rule requirements for a pull request have been
-reinstated (REVOKE).
+In this example event, the approval rule requirements for a pull request have been reinstated (REVOKE).
 
 ```
 {
@@ -874,9 +844,9 @@ reinstated (REVOKE).
 ```
 
 ## pullRequestApprovalStateChanged event
+<a name="pullRequestApprovalStateChanged"></a>
 
-In this example event, a pull request has been approved by a user with an IAM user name
-of `Mary_Major`.
+In this example event, a pull request has been approved by a user with an IAM user name of `Mary_Major`. 
 
 ```
 {
@@ -915,8 +885,7 @@ of `Mary_Major`.
 }
 ```
 
-In this example event, an approval for a pull request has been revoked by a user with an
-IAM user name of `Mary_Major`.
+In this example event, an approval for a pull request has been revoked by a user with an IAM user name of `Mary_Major`.
 
 ```
 {
@@ -956,10 +925,9 @@ IAM user name of `Mary_Major`.
 ```
 
 ## pullRequestApprovalRuleUpdated event
+<a name="pullRequestApprovalRuleUpdated"></a>
 
-In this example event, an approval rule for a pull request has been edited by a user
-with an IAM user name of `Mary_Major`. This user also authored the
-pull request.
+In this example event, an approval rule for a pull request has been edited by a user with an IAM user name of `Mary_Major`. This user also authored the pull request.
 
 ```
 {
@@ -1001,9 +969,9 @@ pull request.
 ```
 
 ## reactionCreated event
+<a name="reactionCreated"></a>
 
-In this example event, a reaction to a comment has been added by a user
-with an IAM user name of `Mary_Major`.
+In this example event, a reaction to a comment has been added by a user with an IAM user name of `Mary_Major`. 
 
 ```
 {
@@ -1032,9 +1000,9 @@ with an IAM user name of `Mary_Major`.
 ```
 
 ## reactionUpdated event
+<a name="reactionUpdated"></a>
 
-In this example event, a reaction to a comment has been updated by a user
-with an IAM user name of `Mary_Major`. Users can only update their own reactions.
+In this example event, a reaction to a comment has been updated by a user with an IAM user name of `Mary_Major`. Users can only update their own reactions.
 
 ```
 {
