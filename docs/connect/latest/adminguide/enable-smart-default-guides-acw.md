@@ -1,46 +1,35 @@
+
+
 # Enable smart default guides for after contact work
+<a name="enable-smart-default-guides-acw"></a>
 
-Connect Customer provides a default Step-by-Step Guide for after contact work (ACW) that
-automatically launches when an agent enters the ACW state. This guide standardizes
-post-contact workflows by surfacing wrap-up tasks such as disposition codes, contact
-summaries, and follow-up actions directly in the agent workspace, without requiring
-manual configuration.
+Connect Customer provides a default Step-by-Step Guide for after contact work (ACW) that automatically launches when an agent enters the ACW state. This guide standardizes post-contact workflows by surfacing wrap-up tasks such as disposition codes, contact summaries, and follow-up actions directly in the agent workspace, without requiring manual configuration.
 
-New Connect Customer instances created after this feature's launch date automatically include
-the smart default Guide. For existing instances, you can enable this capability by
-importing the default flow and configuring it to use the AWS managed view.
+New Connect Customer instances created after this feature's launch date automatically include the smart default Guide. For existing instances, you can enable this capability by importing the default flow and configuring it to use the AWS managed view.
 
-**To enable smart default guides on an existing
-instance:**
+**To enable smart default guides on an existing instance:**
 
-1. Copy the flow schema (JSON) provided in the **Flow
-   schema** section.
-2. In the Connect Customer admin workspace, navigate to **Routing** >
-   **Flows**.
-3. Choose **Create flow**, then select **Import
-   flow** and upload the copied JSON schema as a file.
-4. Open the imported flow in the flow designer.
-5. Locate the **Show View** block in the flow. Select it to
-   open its configuration.
-6. Under **View**, a view name might already be displayed, but
-   you must select the AWS managed view titled **after contact
-   work** from the dropdown.
-7. Save and publish the flow.
-8. Navigate to the inbound contact flow that handles the contacts you want to
-   enable ACW guides for. Add or configure a **Set event
-   flow** block and set it to reference the sample after contact
-   work flow you imported in the previous steps. Save and publish the inbound
-   contact flow.
-   Once published, agents handling contacts through that inbound flow will
-   automatically receive the guided ACW experience when they enter the after contact
-   work state. The guide includes disposition code capture, contact summary review, and
-   follow-up tracking. You can customize the flow or view content to match your
-   organization's specific wrap-up requirements.
+1. Copy the flow schema (JSON) provided in the **Flow schema** section.
+
+1. In the Connect Customer admin workspace, navigate to **Routing** > **Flows**.
+
+1. Choose **Create flow**, then select **Import flow** and upload the copied JSON schema as a file.
+
+1. Open the imported flow in the flow designer.
+
+1. Locate the **Show View** block in the flow. Select it to open its configuration.
+
+1. Under **View**, a view name might already be displayed, but you must select the AWS managed view titled **after contact work** from the dropdown.
+
+1. Save and publish the flow.
+
+1. Navigate to the inbound contact flow that handles the contacts you want to enable ACW guides for. Add or configure a **Set event flow** block and set it to reference the sample after contact work flow you imported in the previous steps. Save and publish the inbound contact flow.
+
+Once published, agents handling contacts through that inbound flow will automatically receive the guided ACW experience when they enter the after contact work state. The guide includes disposition code capture, contact summary review, and follow-up tracking. You can customize the flow or view content to match your organization's specific wrap-up requirements.
 
 **Flow schema**
 
 ```
-
 {
   "Version": "2019-10-30",
   "StartAction": "e4b91d3f-dda6-4ec8-b51a-57bc96e88c52",
@@ -115,5 +104,4 @@ instance:**
     { "Parameters": {}, "Identifier": "930a4e8d-8727-4783-b23a-4c896387a052", "Type": "DisconnectParticipant", "Transitions": {} }
   ]
 }
-
 ```

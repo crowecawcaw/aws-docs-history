@@ -1,133 +1,100 @@
+
+
 # Connect Customer support of the inbound only UIFN service
+<a name="uifn-service"></a>
 
-A Universal International Freephone number (UIFN) is a unique **inbound only** freephone number that can be used throughout the world. It
-provides toll-free calling from international locations to your contact center. Connect Customer
-provides UIFN for businesses that are unable to get access to local toll free or DID
-numbers due to being unable to meet the documentation requirements.
+A Universal International Freephone number (UIFN) is a unique **inbound only** freephone number that can be used throughout the world. It provides toll-free calling from international locations to your contact center. Connect Customer provides UIFN for businesses that are unable to get access to local toll free or DID numbers due to being unable to meet the documentation requirements.
 
-Connect Customer UIFN setup in more than [60 countries](#list-of-uifn-countries "#list-of-uifn-countries")
-that are registered with the International Telecommunications Union. In recent years
-however smaller carriers increasingly do not support UIFN. Please review the below
-validated and supported networks alongside other configurations that are not guaranteed
-before making an informed choice for your customer base.
+Connect Customer UIFN setup in more than [60 countries](#list-of-uifn-countries) that are registered with the International Telecommunications Union. In recent years however smaller carriers increasingly do not support UIFN. Please review the below validated and supported networks alongside other configurations that are not guaranteed before making an informed choice for your customer base.
 
-###### Note
+**Note**  
+With Connect Customer, you can enable UIFNs in as many countries as you need, however, it requires a minimum of 5 countries.
 
-With Connect Customer, you can enable UIFNs in as many countries as you need, however, it
-requires a minimum of 5 countries.
+A UIFN is composed of a 3-digit country code for a global service application, such as **800**, and an 8-digit Global Subscriber Number (GSN). This results in an 11-digit fixed format. 
 
-A UIFN is composed of a 3-digit country code for a global service application, such as
-**800**, and an 8-digit Global Subscriber Number (GSN).
-This results in an 11-digit fixed format.
+For example, your UIFN could be \+800 12345678, where 12345678 is your number.
 
-For example, your UIFN could be +800 12345678, where 12345678 is your number.
-
-Due to the special nature of UIFN, attempting to call a UIFN from Connect Customer in a "loopback
-mode" is not supported. UIFNs are designed to be called from end phone configurations in
-the country's public telephone network.
+Due to the special nature of UIFN, attempting to call a UIFN from Connect Customer in a "loopback mode" is not supported. UIFNs are designed to be called from end phone configurations in the country's public telephone network.
 
 ## How to get a UIFN
+<a name="how-to-get-a-uifn"></a>
 
-To request a UIFN within a specific AWS Region, create an AWS Support case. In the
-support case, provide the following information.
+To request a UIFN within a specific AWS Region, create an AWS Support case. In the support case, provide the following information.
++ Choose the countries you want to enable from the [list of available countries](#list-of-uifn-countries). 
++ The Connect Customer instance(s) associated with the new UIFN numbers. Connect Customer can support routing numbers to multiple Regions, such as Australia to the Asia Pacific (Sydney) Region, United States to a US Region, or if desired to a single global instance.
++ The required ID verification for your country. Most countries subscribe to [standard ID verification requirements](phone-number-requirements.md#uifn-requirements) for ordering UIFN numbers. However, we recommend checking [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md) for your country to be sure. 
 
-- Choose the countries you want to enable from the [list of available countries](#list-of-uifn-countries "#list-of-uifn-countries").
-- The Connect Customer instance(s) associated with the new UIFN numbers. Connect Customer can
-  support routing numbers to multiple Regions, such as Australia to the
-  Asia Pacific (Sydney) Region, United States to a US Region, or if desired to a single
-  global instance.
-- The required ID verification for your country. Most countries subscribe to
-  [standard ID verification
-  requirements](phone-number-requirements.md#uifn-requirements "phone-number-requirements.md#uifn-requirements") for ordering UIFN numbers. However, we recommend
-  checking [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md") for your country to be sure.
+  For number portability, after you open a case, Amazon will provide you with *Service Provider Change Authorization and Designation of Agency* document.
 
-For number portability, after you open a case, Amazon will provide you
-with _Service Provider Change Authorization and Designation of
-Agency_ document.
+Connect Customer can route UIFNs to multiple AWS Regions. For example, if a UIFN is enabled for Australia, it can be routed to your Connect Customer instance that is located in the Asia Pacific (Sydney) Region. If a UIFN is enabled for **more** countries, each country can be routed to your Connect Customer instance, which might be in any supported AWS Region.
 
-Connect Customer can route UIFNs to multiple AWS Regions. For example, if a UIFN is enabled
-for Australia, it can be routed to your Connect Customer instance that is located in the
-Asia Pacific (Sydney) Region. If a UIFN is enabled for **more**
-countries, each country can be routed to your Connect Customer instance, which might be in any
-supported AWS Region.
+The following image shows the body of a sample UIFN request submitted to AWS Support. This request is for two UIFNs. The first is for a UIFN that is enabled for Argentina, Brazil, and Colombia, and connected to a Connect Customer instance in the US West (Oregon) Region. The second request is for a UIFN that is enabled for Japan, Australia, and New Zealand and connected to a Connect Customer instance located in the Asia Pacific (Singapore) Region. 
 
-The following image shows the body of a sample UIFN request submitted to
-AWS Support. This request is for two UIFNs. The first is for a UIFN that is enabled
-for Argentina, Brazil, and Colombia, and connected to a Connect Customer instance in the
-US West (Oregon) Region. The second request is for a UIFN that is enabled for Japan,
-Australia, and New Zealand and connected to a Connect Customer instance located in the
-Asia Pacific (Singapore) Region.
+![A support case requesting two UIFNs.](http://docs.aws.amazon.com/connect/latest/adminguide/images/uifn-example-request.png)
 
-![A support case requesting two UIFNs.](images/uifn-example-request.png)
 
-###### Important
-
-**UIFN is an inbound-only service**. Before
-opening a ticket to request a UIFN:
-
-1. Make sure you understand that this number cannot be used for
-   outbound.
-2. Check the National reachability of the country in the following
-   section.
-   Full National reachability means the UIFN reaches all local (in-country)
-   networks. UIFNs in some countries have limited reachability and will only work
-   with specific carriers/networks where you need to use different codes to dial
-   the number (for example, Japan).
+**Important**  
+**UIFN is an inbound-only service**. Before opening a ticket to request a UIFN:  
+Make sure you understand that this number cannot be used for outbound.
+Check the National reachability of the country in the following section.
+Full National reachability means the UIFN reaches all local (in-country) networks. UIFNs in some countries have limited reachability and will only work with specific carriers/networks where you need to use different codes to dial the number (for example, Japan).
 
 ## Countries that support UIFNs
+<a name="list-of-uifn-countries"></a>
 
-| Country                   | How to dial a UIFN and Reachability                                                                                                                                                                                                                                                 | How many days it takes a UIFN to be set up |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Argentina                 | 00-800-XXXX-XXXX<br>National reachability: all fixed networks                                                                                                                                                                                                                       | 10-25                                      |
-| Australia                 | 0011-800-XXXX-XXXX<br>National reachability: Optus, Telstra, Vodafone mobile                                                                                                                                                                                                        | 10-30                                      |
-| Austria                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Belgium                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Brazil                    | 0021-800-XXXX-XXXX<br>National reachability: full<br>Activation of international direct dialing service is required<br>for calling parties for both fixed and mobile lines.<br>The subscriber must have enabled the use of Embratel/Claro's<br>international selection code (0021). | 20-30                                      |
-| Bulgaria                  | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-20                                      |
-| Canada                    | 011-800-XXXX-XXXX<br>National reachability: full<br>Calling from payphones is not supported.                                                                                                                                                                                        | 20-40                                      |
-| China                     | 00-800-XXXX-XXXX<br>National reachability:<br>• China telecom fixed and mobile networks<br>• China Unicom fixed network                                                                                                                                                             | 20-40                                      |
-| Colombia                  | Dialing format:<br>• TIGO landline: 005-800 -XXXX-XXXX<br>• TIGO: 00414-800-XXXX-XXXX<br>• CLARO: 00444-800-XXXX-XXXX<br>• MOVISTAR: 009-800-XXXX-XXXX<br>National reachability: full                                                                                               | 30-60                                      |
-| Costa Rica                | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-30                                      |
-| Croatia                   | 00-800-XXXX-XXXX<br>National reachability: all fixed; T-Mobile network                                                                                                                                                                                                              | 20-30                                      |
-| Czech Republic            | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 20-30                                      |
-| Denmark                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-20                                      |
-| Estonia                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-25                                      |
-| France                    | 00-800-XXXX-XXXX<br>National reachability: full, including Monaco                                                                                                                                                                                                                   | 10-15                                      |
-| French Guiana             | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Germany                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Greece                    | 00-800-XXXX-XXXX<br>National reachability: all fixed; Cosmotel mobile<br>network                                                                                                                                                                                                    | 10-15                                      |
-| Guadeloupe                | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Hong Kong                 | 006-800-XXXX-XXXX<br>National reachability: full<br>CLI not guaranteed.                                                                                                                                                                                                             | 20-40                                      |
-| Hungary                   | 00-800-XXXX-XXXX<br>National reachability: full<br>Activation of international direct dialing service is required<br>for calling parties for both fixed and mobile lines.<br>Airtime charges might apply when calling from mobiles.                                                 | 10-15                                      |
-| Iceland                   | 00-800-XXXX-XXXX<br>National reachability: all fixed; Iceland Telecom, IMC,<br>Vodafone mobile networks.                                                                                                                                                                            | 10-20                                      |
-| Israel                    | Dialing format:<br>• LANLI: 012800XXXXXXX<br>• BEZEQ: 013800XXXXXXX<br>• BARAK: 014800XXXXXXX<br>National reachability: full                                                                                                                                                        | 20-50                                      |
-| Italy                     | 00-800-XXXX-XXXX<br>National reachability: all fixed networks, including Vatican<br>and San Marino                                                                                                                                                                                  | 10-15                                      |
-| Japan                     | Dialing format:<br>• **KDDI**:<br>001-010-800-XXXX-XXXX<br>**SoftBank**:<br>0061-010-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                   | 20-40                                      |
-| Latvia                    | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Lithuania                 | 00-800-XXXX-XXXX<br>National reachability: all fixed networks; Telia LT<br>mobile                                                                                                                                                                                                   | 15-30                                      |
-| Luxembourg                | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Macao                     | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-25                                      |
-| North Macedonia           | 00-800-XXXX-XXXX<br>National reachability: MakTel fixed, T-Mobile network                                                                                                                                                                                                           | 40-60                                      |
-| Malta                     | 00-800-XXXX-XXXX<br>National reachability: GO and VANILLA fixed networks. GO<br>mobile networks.                                                                                                                                                                                    | 10-15                                      |
-| Martinique                | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Mayotte                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Monaco                    | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 20-30                                      |
-| Netherlands               | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| New Zealand               | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Peru                      | 00-800-XXXX-XXXX<br>National reachability: America Moviles, Nextel, Telefonica<br>Moviles, TESAM, Globalstar networks.<br>Telefonica del Peru fixed and mobile network                                                                                                              | 30-50                                      |
-| Philippines               | 00-800-XXXX-XXXX<br>National reachability: all fixed networks                                                                                                                                                                                                                       | 10-15                                      |
-| Portugal                  | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Reunion                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Romania                   | 00-800-XXXX-XXXX<br>National reachability: Orange fixed and mobile network, Rodasy<br>fixed and mobile network, Romtelekom fixed and mobile network,<br>Cosmote mobile network                                                                                                      | 10-30                                      |
-| Saint Pierre And Miquelon | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Singapore                 | 001 800 XXXX XXXX<br>Activation of international direct dialing service is required<br>for calling parties of both fixed and mobile lines.<br>Airtime charges might apply when calling from mobiles.<br>Calling from Starhub payphones is not supported.                            | 20-30                                      |
-| Slovakia                  | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-30                                      |
-| Slovenia                  | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-30                                      |
-| South Africa              | 00-800-XXXX-XXXX<br>National reachability: partial<br>Not reachable from MTN and prepaid subscribers.                                                                                                                                                                               | 10-15                                      |
-| South Korea               | 002-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                    | 10-20                                      |
-| Spain                     | 00-800-XXXX-XXXX<br>National reachability: full<br>Concurrent calls: 100 concurrent calls                                                                                                                                                                                           | 10-15                                      |
-| Switzerland               | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Taiwan                    | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 10-15                                      |
-| Thailand                  | 001-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                    | 10-20                                      |
-| United Kingdom            | 00-800-XXXX-XXXX<br>National reachability: BT, Vodafone, EE networks                                                                                                                                                                                                                | 20-40                                      |
-| Uruguay                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-25                                      |
+
+| Country | How to dial a UIFN and Reachability  | How many days it takes a UIFN to be set up | 
+| --- | --- | --- | 
+| Argentina | 00-800-XXXX-XXXX<br />National reachability: all fixed networks | 10-25 | 
+| Australia | 0011-800-XXXX-XXXX<br />National reachability: Optus, Telstra, Vodafone mobile | 10-30 | 
+| Austria | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Belgium | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Brazil | 0021-800-XXXX-XXXX<br />National reachability: full<br />Activation of international direct dialing service is required for calling parties for both fixed and mobile lines.<br />The subscriber must have enabled the use of Embratel/Claro's international selection code (0021). | 20-30 | 
+| Bulgaria | 00-800-XXXX-XXXX<br />National reachability: full | 10-20 | 
+| Canada | 011-800-XXXX-XXXX<br />National reachability: full<br />Calling from payphones is not supported. | 20-40 | 
+| China | 00-800-XXXX-XXXX<br />National reachability: +  China telecom fixed and mobile networks <br />+  China Unicom fixed network  | 20-40 | 
+| Colombia | Dialing format:+  TIGO landline: 005-800 -XXXX-XXXX <br />+  TIGO: 00414-800-XXXX-XXXX <br />+  CLARO: 00444-800-XXXX-XXXX <br />+  MOVISTAR: 009-800-XXXX-XXXX <br />National reachability: full | 30-60 | 
+| Costa Rica | 00-800-XXXX-XXXX<br />National reachability: full | 15-30 | 
+| Croatia | 00-800-XXXX-XXXX<br />National reachability: all fixed; T-Mobile network | 20-30 | 
+| Czech Republic | 00-800-XXXX-XXXX<br />National reachability: full | 20-30 | 
+| Denmark | 00-800-XXXX-XXXX<br />National reachability: full | 10-20 | 
+| Estonia | 00-800-XXXX-XXXX<br />National reachability: full | 15-25 | 
+| France | 00-800-XXXX-XXXX<br />National reachability: full, including Monaco | 10-15 | 
+| French Guiana | 00-800-XXXX-XXXX<br />National reachability: full | 30-60 | 
+| Germany | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Greece | 00-800-XXXX-XXXX<br />National reachability: all fixed; Cosmotel mobile network | 10-15 | 
+| Guadeloupe | 00-800-XXXX-XXXX<br />National reachability: full | 30-60 | 
+| Hong Kong | 006-800-XXXX-XXXX<br />National reachability: full<br />CLI not guaranteed. | 20-40 | 
+| Hungary | 00-800-XXXX-XXXX<br />National reachability: full<br />Activation of international direct dialing service is required for calling parties for both fixed and mobile lines. <br />Airtime charges might apply when calling from mobiles. | 10-15 | 
+| Iceland | 00-800-XXXX-XXXX<br />National reachability: all fixed; Iceland Telecom, IMC, Vodafone mobile networks. | 10-20 | 
+| Israel | Dialing format:+  LANLI: 012800XXXXXXX <br />+  BEZEQ: 013800XXXXXXX <br />+  BARAK: 014800XXXXXXX <br />National reachability: full | 20-50 | 
+| Italy | 00-800-XXXX-XXXX<br />National reachability: all fixed networks, including Vatican and San Marino | 10-15 | 
+| Japan | Dialing format:+  **KDDI**: 001-010-800-XXXX-XXXX <br />**SoftBank**: 0061-010-800-XXXX-XXXX <br />National reachability: full  | 20-40 | 
+| Latvia | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Lithuania | 00-800-XXXX-XXXX<br />National reachability: all fixed networks; Telia LT mobile | 15-30 | 
+| Luxembourg | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Macao | 00-800-XXXX-XXXX<br />National reachability: full | 15-25 | 
+| North Macedonia | 00-800-XXXX-XXXX<br />National reachability: MakTel fixed, T-Mobile network | 40-60 | 
+| Malta | 00-800-XXXX-XXXX<br />National reachability: GO and VANILLA fixed networks. GO mobile networks. | 10-15 | 
+| Martinique | 00-800-XXXX-XXXX<br />National reachability: full | 30-60 | 
+| Mayotte | 00-800-XXXX-XXXX<br />National reachability: full | 30-60 | 
+| Monaco | 00-800-XXXX-XXXX<br />National reachability: full | 20-30 | 
+| Netherlands | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| New Zealand | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Peru | 00-800-XXXX-XXXX<br />National reachability: America Moviles, Nextel, Telefonica Moviles, TESAM, Globalstar networks. <br />Telefonica del Peru fixed and mobile network  | 30-50 | 
+| Philippines | 00-800-XXXX-XXXX<br />National reachability: all fixed networks | 10-15 | 
+| Portugal | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Reunion | 00-800-XXXX-XXXX<br />National reachability: full | 30-60 | 
+| Romania | 00-800-XXXX-XXXX<br />National reachability: Orange fixed and mobile network, Rodasy fixed and mobile network, Romtelekom fixed and mobile network, Cosmote mobile network | 10-30 | 
+| Saint Pierre And Miquelon | 00-800-XXXX-XXXX<br />National reachability: full | 30-60 | 
+| Singapore | 001 800 XXXX XXXX<br />Activation of international direct dialing service is required for calling parties of both fixed and mobile lines.<br />Airtime charges might apply when calling from mobiles.<br />Calling from Starhub payphones is not supported. | 20-30 | 
+| Slovakia | 00-800-XXXX-XXXX<br />National reachability: full | 15-30 | 
+| Slovenia | 00-800-XXXX-XXXX<br />National reachability: full | 15-30 | 
+| South Africa | 00-800-XXXX-XXXX<br />National reachability: partial<br />Not reachable from MTN and prepaid subscribers. | 10-15 | 
+| South Korea | 002-800-XXXX-XXXX<br />National reachability: full | 10-20 | 
+| Spain | 00-800-XXXX-XXXX<br />National reachability: full<br />Concurrent calls: 100 concurrent calls | 10-15 | 
+| Switzerland | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Taiwan | 00-800-XXXX-XXXX<br />National reachability: full | 10-15 | 
+| Thailand | 001-800-XXXX-XXXX<br />National reachability: full | 10-20 | 
+| United Kingdom | 00-800-XXXX-XXXX<br />National reachability: BT, Vodafone, EE networks | 20-40 | 
+| Uruguay | 00-800-XXXX-XXXX<br />National reachability: full | 15-25 | 

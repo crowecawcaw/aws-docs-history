@@ -1,26 +1,22 @@
+
+
 # Error notifications: When conversational analytics can't analyze a contact
+<a name="contact-lens-error-notifications"></a>
 
-It's possible that conversational analytics can't analyze a contact file, even
-though analysis is enabled on the flow. When this happens, conversational analytics
-sends error notifications using Amazon EventBridge events.
+It's possible that conversational analytics can't analyze a contact file, even though analysis is enabled on the flow. When this happens, conversational analytics sends error notifications using Amazon EventBridge events. 
 
-Events are emitted on a
-[best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")
-basis.
+Events are emitted on a [best effort](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) basis.
 
 ## Subscribe to EventBridge notifications
+<a name="contact-lens-error-notifications-subscribe"></a>
 
-To subscribe to these notifications, create a custom EventBridge rule that
-matches the following:
+To subscribe to these notifications, create a custom EventBridge rule that matches the following:
++ "source" = "aws.connect"
++ "detail-type" = "conversational analytics Analysis State Change"
 
-- "source" = "aws.connect"
-- "detail-type" = "conversational analytics Analysis State Change"
+You can also add to the pattern to be notified when a specific event code occurs. For more information, see [Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/filtering-examples-structure.html) in the *Amazon EventBridge User Guide*.
 
-You can also add to the pattern to be notified when a specific event code
-occurs. For more information, see [Event Patterns](../../../eventbridge/latest/userguide/filtering-examples-structure.md "../../../eventbridge/latest/userguide/filtering-examples-structure.md") in the
-_Amazon EventBridge User Guide_.
-
-The format of a notification looks like the following sample:
+The format of a notification looks like the following sample: 
 
 ```
 {
@@ -46,18 +42,19 @@ The format of a notification looks like the following sample:
 ```
 
 ## Event codes
+<a name="contact-lens-event-codes-listed"></a>
 
-The following table lists the event codes that might result when
-conversational analytics can't analyze a contact.
+ The following table lists the event codes that might result when conversational analytics can't analyze a contact.
 
-| Event reason code                       | Description                                                                                                                                                                                                               |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID\_ANALYSIS\_CONFIGURATION        | Conversational analytics received invalid values when<br>the flow was initiated, such as an unsupported or<br>invalid language code, or an unsupported value for<br>redaction behavior.                                   |
-| RECORDING\_FILE\_CANNOT\_BE\_READ       | Conversational analytics can't get the recording file.<br>This might be because file isn't present in the S3<br>bucket, or there are problems with permissions.                                                           |
-| RECORDING\_FILE\_TOO\_SMALL             | The recording file is too small for analysis (less<br>than 105 ms).<br>If file doesn't have expected format, an<br>INVALID error occurs. Empty JSON is<br>also an unexpected object.                                      |
-| RECORDING\_FILE\_TOO\_LARGE             | The recording file exceeds the duration limit for<br>analysis.<br>• Voice: More than 14,400 seconds, or 4<br>hours<br>• Chat: More than 20K messages in a<br>transcript                                                   |
-| RECORDING\_FILE\_INVALID                | The recording file is invalid.                                                                                                                                                                                            |
-| RECORDING\_FILE\_CANNOT\_BE\_READ       | An error occurred when conversational analytics tried to<br>read the recording file.                                                                                                                                      |
-| RECORDING\_FILE\_EMPTY                  | The recording file is empty.                                                                                                                                                                                              |
-| RECORDING\_SAMPLE\_RATE\_NOT\_SUPPORTED | The sample rate of the audio file is not supported.<br>conversational analytics supports audio files<br>with an 8kHz sample rate. That is the sample rate for<br>Connect Customer recordings.                             |
-| INSUFFICIENT\_CONVERSATION\_CONTENT     | Conversational analytics did not find enough plain text content<br>in the conversation to generate an analysis. This can<br>occur when the conversation is too short, or the content<br>didn't convert to any plain text. |
+
+| Event reason code | Description | 
+| --- | --- | 
+| INVALID\_ANALYSIS\_CONFIGURATION | Conversational analytics received invalid values when the flow was initiated, such as an unsupported or invalid language code, or an unsupported value for redaction behavior. | 
+| RECORDING\_FILE\_CANNOT\_BE\_READ | Conversational analytics can't get the recording file. This might be because file isn't present in the S3 bucket, or there are problems with permissions. | 
+| RECORDING\_FILE\_TOO\_SMALL | The recording file is too small for analysis (less than 105 ms).<br />If file doesn't have expected format, an INVALID error occurs. Empty JSON is also an unexpected object. | 
+| RECORDING\_FILE\_TOO\_LARGE | The recording file exceeds the duration limit for analysis. +  Voice: More than 14,400 seconds, or 4 hours <br />+  Chat: More than 20K messages in a transcript  | 
+| RECORDING\_FILE\_INVALID | The recording file is invalid. | 
+| RECORDING\_FILE\_CANNOT\_BE\_READ | An error occurred when conversational analytics tried to read the recording file. | 
+| RECORDING\_FILE\_EMPTY | The recording file is empty. | 
+| RECORDING\_SAMPLE\_RATE\_NOT\_SUPPORTED | The sample rate of the audio file is not supported. conversational analytics supports audio files with an 8kHz sample rate. That is the sample rate for Connect Customer recordings. | 
+| INSUFFICIENT\_CONVERSATION\_CONTENT | Conversational analytics did not find enough plain text content in the conversation to generate an analysis. This can occur when the conversation is too short, or the content didn't convert to any plain text. | 

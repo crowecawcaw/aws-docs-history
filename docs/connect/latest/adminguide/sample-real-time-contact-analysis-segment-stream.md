@@ -1,13 +1,14 @@
-# Sample conversational analytics segment streams to analyze calls using conversational analytics
 
-This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED,
-and FAILED events that can occur during a voice contact.
+
+# Sample conversational analytics segment streams to analyze calls using conversational analytics
+<a name="sample-real-time-contact-analysis-segment-stream"></a>
+
+This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and FAILED events that can occur during a voice contact. 
 
 ## Sample STARTED event
-
-- EventType: STARTED
-- Published at the beginning of the conversational analytics
-  session.
+<a name="sample-started-event"></a>
++ EventType: STARTED
++ Published at the beginning of the conversational analytics session.
 
 ```
 {
@@ -22,13 +23,9 @@ and FAILED events that can occur during a voice contact.
 ```
 
 ## Sample SEGMENTS event
-
-- EventType: SEGMENTS
-- Published during a conversational analytics session. This event
-  contains a list of segments with analyzed information. The list of
-  segments might include "`Utterance`,"
-  "`Transcript`," "`Categories`" or
-  "`PostContactSummary`" segments.
+<a name="sample-segments-event"></a>
++ EventType: SEGMENTS
++ Published during a conversational analytics session. This event contains a list of segments with analyzed information. The list of segments might include "`Utterance`," "`Transcript`," "`Categories`" or "`PostContactSummary`" segments.
 
 ```
 {
@@ -129,10 +126,9 @@ and FAILED events that can occur during a voice contact.
 ```
 
 ## Sample COMPLETED event
-
-- EventType: COMPLETED
-- Published at the end of the conversational analytics session if
-  the analysis completed successfully.
+<a name="sample-completed-event"></a>
++ EventType: COMPLETED
++ Published at the end of the conversational analytics session if the analysis completed successfully.
 
 ```
 {
@@ -147,10 +143,9 @@ and FAILED events that can occur during a voice contact.
 ```
 
 ## Sample FAILED event
-
-- EventType: FAILED
-- Published at the end of the conversational analytics session if
-  the analysis failed.
+<a name="sample-failed-event"></a>
++ EventType: FAILED
++ Published at the end of the conversational analytics session if the analysis failed.
 
 ```
 {

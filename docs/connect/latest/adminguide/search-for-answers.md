@@ -1,31 +1,29 @@
+
+
 # Search for content using Connect Customer agent assist
+<a name="search-for-answers"></a>
 
-|                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Powered by Amazon Bedrock**:<br>AI agents is built on Amazon Bedrock and includes [automated abuse<br>detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") implemented in Amazon Bedrock to enforce safety, security, and the<br>responsible use of artificial intelligence (AI). |
 
-With Connect Customer agent assist agents can use natural language to search across connected knowledge
-sources to receive generated recommendations, like actions to take and links to more
-information.
+|  | 
+| --- |
+| **Powered by Amazon Bedrock**: AI agents is built on Amazon Bedrock and includes [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html) implemented in Amazon Bedrock to enforce safety, security, and the responsible use of artificial intelligence (AI). | 
 
-For example, you can type questions or phrases in the search box (such as, "how long
-after purchase can handbags be exchanged?") without having to guess which keywords will
-work. agent assist searches the connected sources, and returns a specific solution generated
-from your knowledge content along with links to relevant information.
+With Connect Customer agent assist agents can use natural language to search across connected knowledge sources to receive generated recommendations, like actions to take and links to more information. 
 
-You can search for content at any time: while on a contact, on After Contact Work, or
-between contacts.
+For example, you can type questions or phrases in the search box (such as, "how long after purchase can handbags be exchanged?") without having to guess which keywords will work. agent assist searches the connected sources, and returns a specific solution generated from your knowledge content along with links to relevant information. 
 
-###### To search for content
+You can search for content at any time: while on a contact, on After Contact Work, or between contacts. 
 
-1. In the search box, type words or phrases in natural language.
+**To search for content**
 
-The following image shows an example of a natural language query and the
-solution that is displayed.
+1. In the search box, type words or phrases in natural language. 
 
-![A natural language query and an AI generated solution.](images/wisdom-nlu.png) 2. If more information is needed, choose the article that you want to view. 3. The article appears in a new tab. For example, the following image shows the
-Cancellation policy article.
+   The following image shows an example of a natural language query and the solution that is displayed.  
+![A natural language query and an AI generated solution.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-nlu.png)
 
-![An article appearing in a new tab on the agent workspace.](images/wisdom-agent-asks-question.png) 4. The list of search results is cleared only after you complete ACW and choose
-**Close contact**, or select the **Close**
-icon next to the search box.
+1. If more information is needed, choose the article that you want to view. 
+
+1. The article appears in a new tab. For example, the following image shows the Cancellation policy article.  
+![An article appearing in a new tab on the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-agent-asks-question.png)
+
+1. The list of search results is cleared only after you complete ACW and choose **Close contact**, or select the **Close** icon next to the search box. 

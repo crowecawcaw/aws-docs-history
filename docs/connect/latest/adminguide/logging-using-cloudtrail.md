@@ -1,72 +1,42 @@
+
+
 # Log Connect Customer API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Connect Customer is integrated with AWS CloudTrail, a service that provides a record of the Connect Customer API calls
-that a user, role, or AWS service makes. CloudTrail captures Connect Customer API calls as events. All
-public Connect Customer APIs support CloudTrail.
+Connect Customer is integrated with AWS CloudTrail, a service that provides a record of the Connect Customer API calls that a user, role, or AWS service makes. CloudTrail captures Connect Customer API calls as events. All public Connect Customer APIs support CloudTrail. 
 
-###### Note
+**Note**  
+For access to the updated Connect Customer admin website and CloudTrail support, you must use service-linked roles. For more information, see [Use service-linked roles and role permissions for Connect Customer](connect-slr.md).
 
-- For access to the updated Connect Customer admin website and CloudTrail support, you must use service-linked roles. For more information, see
-  [Use service-linked roles and role permissions for Connect Customer](connect-slr.md "connect-slr.md").
-  Using the information that CloudTrail collects, you can identify a specific request to a Connect Customer
-  API, the IP address of the requester, the requester's identity, the date and time of the
-  request, and so on. If you configure a trail, you can enable continuous delivery of CloudTrail
-  events to an Amazon S3 bucket. If you don't configure a trail, you can view the most recent
-  events in **Event History** in the CloudTrail console.
+Using the information that CloudTrail collects, you can identify a specific request to a Connect Customer API, the IP address of the requester, the requester's identity, the date and time of the request, and so on. If you configure a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket. If you don't configure a trail, you can view the most recent events in **Event History** in the CloudTrail console.
 
-For more information about CloudTrail, including how to configure and enable it, see [Creating a Trail For Your
-AWS Account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [AWS CloudTrail
-User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, including how to configure and enable it, see [Creating a Trail For Your AWS Account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Connect Customer information in CloudTrail
+<a name="connect-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported
-event activity occurs in Connect Customer, that activity is recorded in a CloudTrail event along
-with other AWS service events in **Event history**. You can view,
-search, and download recent events in your AWS account. For more information, see
-[Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in Connect Customer, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for
-Connect Customer, create a trail. A _trail_ enables CloudTrail to deliver log
-files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail
-applies to all AWS Regions. The trail logs events from all AWS Regions and delivers
-the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other
-AWS services to further analyze and act upon the event data collected in CloudTrail logs.
-For more information, see the following:
+For an ongoing record of events in your AWS account, including events for Connect Customer, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all AWS Regions and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a
-  trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail
-  supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring
-  Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or AWS Identity and Access Management (IAM) credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM)
-  credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Example: Connect Customer log file entries
+<a name="understanding-connect-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+ A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetContactAttributes` action.
+The following example shows a CloudTrail log entry that demonstrates the `GetContactAttributes` action.
 
 ```
 {
@@ -76,7 +46,7 @@ The following example shows a CloudTrail log entry that demonstrates the
          "principalId": "AAAAAAA1111111EXAMPLE",
          "arn": "arn:aws:sts::123456789012:assumed-role/John",
          "accountId": "123456789012",
-         "accessKeyId": "AAAAAAA1111111EXAMPLE",
+         "accessKeyId": "AAAAAAA1111111EXAMPLE",          
          "sessionContext": {
             "attributes": {
                 "mfaAuthenticated": "false",
@@ -108,21 +78,16 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventType": "AwsApiCall",
     "recipientAccountId": "123456789012"
 }
-
-
 ```
 
 ## Example: Connect Customer Voice ID log file entries
+<a name="understanding-voiceid-entries"></a>
 
-Just like Connect Customer, Voice ID is integrated with CloudTrail. When enabled, the service emits
-events for the Voice ID API calls made by a user, role, or an AWS service. You can
-reuse the same CloudTrail resources created for Connect Customer, including the trail and the S3 bucket,
-to receive CloudTrail logs for Voice ID as well.
+Just like Connect Customer, Voice ID is integrated with CloudTrail. When enabled, the service emits events for the Voice ID API calls made by a user, role, or an AWS service. You can reuse the same CloudTrail resources created for Connect Customer, including the trail and the S3 bucket, to receive CloudTrail logs for Voice ID as well. 
 
-For security reasons, the sensitive fields which might contain PII information in the
-API requests and responses are redacted in the events.
+For security reasons, the sensitive fields which might contain PII information in the API requests and responses are redacted in the events.
 
-The following example shows a CloudTrail log entry that demonstrates the `CreateDomain` action.
+The following example shows a CloudTrail log entry that demonstrates the ` CreateDomain` action.
 
 ```
 {
@@ -132,7 +97,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
     "principalId": "AROA5STZEFPSWCM4YHJB2:SampleUser",
     "arn": "arn:aws:sts::111122223333:assumed-role/SampleRole/SampleUser",
     "accountId": "111122223333",
-    "accessKeyId": "AAAAAAA1111111EXAMPLE",
+    "accessKeyId": "AAAAAAA1111111EXAMPLE",  
     "sessionContext": {
       "sessionIssuer": {
         "type": "Role",

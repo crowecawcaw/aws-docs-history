@@ -1,203 +1,263 @@
+
+
 # Customer Profiles standard air preference object fields
+<a name="standard-air-preference-object-fields"></a>
 
-The following table lists all the fields in the Customer Profiles standard
-air preference object.
+The following table lists all the fields in the Customer Profiles standard air preference object.
 
-Air preference| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| PreferenceId | String | The unique identifier of a standard air<br>preference |
-| Name | String | The name of the preference |
-| CreatedDate | String | The date when the preference was created |
-| CreatedBy | String | The identifier of the creator |
-| UpdatedDate | String | The date of last update |
-| UpdatedBy | String | The identifier of the person who last updated |
-| StartDate | String | The preference start date |
-| EndDate | String | The preference end date |
-| Status | String | The current status of the preference |
-| ReferenceId | String | The id to the object referenced |
-| ReferenceType | String | The type of object referenced |
-| TravelType | String | The type of travel (for example, direct flights) |
-| Transfer | String | The preferred type of transfer |
-| ArrivalAirport | String | The preferred arrival airport |
-| ArrivalTerminal | String | The preferred arrival airport terminal |
-| DepartureAirport | String | The preferred departure airport |
-| DepartureTerminal | String | The preferred departure airport terminal |
-| HomeAirport | String | The home airport |
-| CheckInChannel | String | The mode of checkin |
-| CheckInChannelDevice | String | The device used for checkin |
-| Language | Language | Details on preferred languages for communication |
-| Seat | Seat | Detail on seat selection |
-| Journey | Journey | Trip preferences |
-| Accessibility | Accessibility | Details on accessibility requests |
-| Insurance | Insurance | Details on insurance |
-| Interest | Interest | Details on interests |
-| Loyalty | Loyalty | Details on loyalty |
-| Dining | Dining | Dining preferences |
-| MediaEntertainment | MediaEntertainment | Media and entertainment preferences |
-| PaymentForm | PaymentForm | Payment method preferences |
-| PetInfo | PetInfo | Pet details |
-| SpecialRequest | SpecialRequest | Special Request details |
-| TicketDistribution | TicketDistribution | Ticket Distribution preferences |
-| Marketing | Marketing | Marketing preferences |
-| Medical | Medical | Preferences on medical |
-| Baggage | Baggage | Preferences on baggage |
-| ContactDetail | ContactDetail | Details about contact in preference |
-| ContactDetailAddress | ContactDetailAddress | Address for the contact detail |
-| ContactDetailCommunication | ContactDetailCommunication | Preferences on communication |
-| Attributes | Map<String, String> | Key-value pair of attributes of an air preference |
 
-The standard air preference objects are indexed by the keys in the
-following table.
+**Air preference**  
 
-Standard Index Fields| Standard index name | Standard preference record field |
-| --- | --- |
-| \_airPreferenceId | PreferenceId |
-| \_airReferenceId | ReferenceId |
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| PreferenceId | String | The unique identifier of a standard air preference | 
+| Name | String | The name of the preference | 
+| CreatedDate | String | The date when the preference was created | 
+| CreatedBy | String | The identifier of the creator | 
+| UpdatedDate | String | The date of last update | 
+| UpdatedBy | String | The identifier of the person who last updated | 
+| StartDate | String | The preference start date | 
+| EndDate | String | The preference end date | 
+| Status | String | The current status of the preference | 
+| ReferenceId | String | The id to the object referenced | 
+| ReferenceType | String | The type of object referenced | 
+| TravelType | String | The type of travel (for example, direct flights) | 
+| Transfer | String | The preferred type of transfer | 
+| ArrivalAirport | String | The preferred arrival airport | 
+| ArrivalTerminal | String | The preferred arrival airport terminal | 
+| DepartureAirport | String | The preferred departure airport | 
+| DepartureTerminal | String | The preferred departure airport terminal | 
+| HomeAirport | String | The home airport | 
+| CheckInChannel | String | The mode of checkin | 
+| CheckInChannelDevice | String | The device used for checkin | 
+| Language | Language | Details on preferred languages for communication | 
+| Seat | Seat | Detail on seat selection | 
+| Journey | Journey | Trip preferences | 
+| Accessibility | Accessibility | Details on accessibility requests | 
+| Insurance | Insurance | Details on insurance | 
+| Interest | Interest | Details on interests | 
+| Loyalty | Loyalty | Details on loyalty | 
+| Dining | Dining | Dining preferences | 
+| MediaEntertainment | MediaEntertainment | Media and entertainment preferences | 
+| PaymentForm | PaymentForm | Payment method preferences | 
+| PetInfo | PetInfo | Pet details | 
+| SpecialRequest | SpecialRequest | Special Request details | 
+| TicketDistribution | TicketDistribution | Ticket Distribution preferences | 
+| Marketing | Marketing | Marketing preferences | 
+| Medical | Medical | Preferences on medical | 
+| Baggage | Baggage | Preferences on baggage | 
+| ContactDetail | ContactDetail | Details about contact in preference | 
+| ContactDetailAddress | ContactDetailAddress | Address for the contact detail | 
+| ContactDetailCommunication | ContactDetailCommunication | Preferences on communication | 
+| Attributes | Map<String, String> | Key-value pair of attributes of an air preference | 
 
-For example, you can use `_airPreferenceId` as a key name with
-the [SearchProfiles API](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") to find a profile that has an air preference
-whose PreferenceId matches with the search value. You can find the standard
-airPreference objects associated with a specific profile by using the [ListProfileObjects API](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") with the `ProfileId` and
-`ObjectTypeName` set to `_airPreference`.
+The standard air preference objects are indexed by the keys in the following table.
 
-ContactDetail data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Type | String | The type of contact (for example, personal, emergency) |
-| PreferenceLevel | String | Priority level of this contact |
-| PhoneNumber | String | Phone number |
-| Relationship | String | The relationship to the profile |
-| EmailAddress | String | Email address |
-| EmailLanguage | String | Preferred language for contact detail email<br>communication |
-| PhoneLanguage | String | Preferred language for contact detail phone<br>communication |
 
-ContactDetailAddress data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Type | String | The type of address for the contact |
-| Address1 | String | The first line of a contact address. |
-| Address2 | String | The second line of a contact address. |
-| Address3 | String | The third line of a contact address. |
-| Address4 | String | The fourth line of a contact address. |
-| City | String | The city of a contact address. |
-| Country | String | The country of a contact address. |
-| County | String | The county of a contact address. |
-| PostalCode | String | The postal of a contact address. |
-| Province | String | The province of a contact address. |
-| State | String | The state of a contact address. |
+**Standard Index Fields**  
 
-ContactDetailCommunication data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Method | String | Communication method (for example, SMS, Email) |
-| PreferenceLevel | String | Level of preference for communication method |
+| Standard index name | Standard preference record field | 
+| --- | --- | 
+| \_airPreferenceId | PreferenceId | 
+| \_airReferenceId | ReferenceId | 
 
-Language data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| PhoneLanguage | String | Preferred language for phone communication |
-| EmailLanguage | String | Preferred language for email communication |
-| InPersonLanguage | String | Preferred language for in person communication |
-| PreferenceLevel | String | Language preference level |
+For example, you can use `_airPreferenceId` as a key name with the [SearchProfiles API](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) to find a profile that has an air preference whose PreferenceId matches with the search value. You can find the standard airPreference objects associated with a specific profile by using the [ListProfileObjects API](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) with the `ProfileId` and `ObjectTypeName` set to `_airPreference`.
 
-Seat data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| PreferenceLevel | String | Priority of seat preferences |
-| Direction | String | The Preferred seat direction (for example, front, back) |
-| Location | String | The Preferred seat location (for example, window, aisle) |
-| Position | String | The Seat position (for example, left, right) |
-| Row | String | The desired seat row |
-| ClassOfService | String | The travel class (for example, Economy, Business) |
-| NeighborFree | String | Preference for a seat without neighbors |
-| Infant | String | Preference for infant seat |
-| ExtraSeat | String | Preference for extra seat |
 
-Journey data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| MaxConnections | String | The maximum allowed connections |
-| PreferredAirline | String | Preferred airline |
-| UpgradeAuction | String | Opt-in for upgrade auctions |
-| FlightTime | String | Preferred Flight time |
-| FlightMaxDuration | String | Preferred maximum travel duration |
+**ContactDetail data type**  
 
-Accessibility data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Wheelchair | String | Wheelchair accessibility info |
-| Bathroom | String | Bathroom accessibility info |
-| Assistance | String | Assistance infomation |
-| DisabilityType | String | Information on disability |
-| SupportAnimal | String | Support animal information |
-| ProximityToFacilities | String | Needs proximity to facilities |
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Type | String | The type of contact (for example, personal, emergency) | 
+| PreferenceLevel | String | Priority level of this contact | 
+| PhoneNumber | String | Phone number | 
+| Relationship | String | The relationship to the profile | 
+| EmailAddress | String | Email address | 
+| EmailLanguage | String | Preferred language for contact detail email communication | 
+| PhoneLanguage | String | Preferred language for contact detail phone communication | 
 
-Insurance data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Name | String | Insurance provider or plan name |
-| PreferenceLevel | String | Level of preference for insurance |
 
-Interest data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Name | String | Specific area of interest |
-| PreferenceLevel | String | Priority of this interest |
+**ContactDetailAddress data type**  
 
-Loyalty data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Name | String | Name of loyalty program |
-| MembershipId | String | Membership ID in the loyalty program |
-| PreferenceLevel | String | Loyalty program preference level |
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Type | String | The type of address for the contact | 
+| Address1 | String | The first line of a contact address. | 
+| Address2 | String | The second line of a contact address. | 
+| Address3 | String | The third line of a contact address. | 
+| Address4 | String | The fourth line of a contact address. | 
+| City | String | The city of a contact address. | 
+| Country | String | The country of a contact address. | 
+| County | String | The county of a contact address. | 
+| PostalCode | String | The postal of a contact address. | 
+| Province | String | The province of a contact address. | 
+| State | String | The state of a contact address. | 
 
-Dining data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| MealType | String | Preferred type of meal |
-| FavoriteCuisine | String | Favorite cuisine types |
-| Beverage | String | Preferred beverages |
-| DietaryRestriction | String | Dietary restrictions |
-| AllergyInfo | String | Details on allergies |
-| PreferenceLevel | String | Dining preference level |
 
-Media and entertainment data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Name | String | Name of preferred entertainment |
-| PreferenceLevel | String | Preference level for media/entertainment |
+**ContactDetailCommunication data type**  
 
-PaymentForm data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Name | String | Name of payment method |
-| Type | String | Type of payment (for example, credit card, PayPal) |
-| PreferenceLevel | String | Payment method preference level |
-| UsageContext | String | Where the payment method is used |
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Method | String | Communication method (for example, SMS, Email) | 
+| PreferenceLevel | String | Level of preference for communication method | 
 
-PetInfo data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Type | String | Type of pet |
-| PreferenceLevel | String | Preference level regarding pets |
 
-SpecialRequest data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Type | String | Type of special request |
-| Name | String | Name or description of request |
-| PreferenceLevel | String | Priority level of the request |
+**Language data type**  
 
-TicketDistribution data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| PreferenceLevel | String | Level of preference for ticket distribution |
-| Method | String | Ticket delivery method (for example, email, physical) |
-| TicketTime | String | Preferred time for ticket delivery |
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| PhoneLanguage | String | Preferred language for phone communication | 
+| EmailLanguage | String | Preferred language for email communication | 
+| InPersonLanguage | String | Preferred language for in person communication | 
+| PreferenceLevel | String | Language preference level | 
 
-Marketing data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| ChannelType | String | Type of marketing channel (for example, SMS, Email) |
-| OptIn | String | Opt-in status for marketing |
-| Frequency | String | Frequency of marketing communications |
-| StartDate | String | Start date of marketing preference |
-| EndDate | String | End date of marketing preference |
 
-Medical data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Oxygen | String | (Airline supplied, passenger owned, concentrator,<br>etc) |
-| MedicalEquipment | String | Details on medical equipment (for example, CPAP machine, oxygen<br>concentrator). |
-| Assistance | String | Specifies whether the traveler needs general medical<br>assistance during travel (for example, in-flight support, help with<br>medication). |
-| Stretcher | String | If the traveler requires a stretcher during flight,<br>typically used for medical transport cases. |
-| WheelChair | String | Wheelchair details (non-spillable, wet cell, immobile,<br>RampNeeded, stairsAssistance, airline provided, etc) |
+**Seat data type**  
 
-Baggage data type| Standard airPreference field | Data type | Description |
-| --- | --- | --- |
-| Animal | String | Indicates if the traveler is traveling with a service<br>animal or pet, and includes relevant specifications or<br>restrictions. (inHold, Cabin) |
-| BaggageType | String | Specifies the preferred type of baggage handling (for example,<br>carry-on only, checked baggage, oversized). |
-| Assistance | String | Indicates whether the traveler requires assistance with<br>carrying or managing their baggage, such as airport porter<br>services or curbside luggage help. |
-| PreferenceLevel | String | Level of preference for Baggage fields |
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| PreferenceLevel | String | Priority of seat preferences | 
+| Direction | String | The Preferred seat direction (for example, front, back) | 
+| Location | String | The Preferred seat location (for example, window, aisle) | 
+| Position | String | The Seat position (for example, left, right) | 
+| Row | String | The desired seat row | 
+| ClassOfService | String | The travel class (for example, Economy, Business) | 
+| NeighborFree | String | Preference for a seat without neighbors | 
+| Infant | String | Preference for infant seat | 
+| ExtraSeat | String | Preference for extra seat | 
+
+
+**Journey data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| MaxConnections | String | The maximum allowed connections | 
+| PreferredAirline | String | Preferred airline | 
+| UpgradeAuction | String | Opt-in for upgrade auctions | 
+| FlightTime | String | Preferred Flight time | 
+| FlightMaxDuration | String | Preferred maximum travel duration | 
+
+
+**Accessibility data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Wheelchair | String | Wheelchair accessibility info | 
+| Bathroom | String | Bathroom accessibility info | 
+| Assistance | String | Assistance infomation | 
+| DisabilityType | String | Information on disability | 
+| SupportAnimal | String | Support animal information | 
+| ProximityToFacilities | String | Needs proximity to facilities | 
+
+
+**Insurance data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Name | String | Insurance provider or plan name | 
+| PreferenceLevel | String | Level of preference for insurance | 
+
+
+**Interest data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Name | String | Specific area of interest | 
+| PreferenceLevel | String | Priority of this interest | 
+
+
+**Loyalty data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Name | String | Name of loyalty program | 
+| MembershipId | String | Membership ID in the loyalty program | 
+| PreferenceLevel | String | Loyalty program preference level | 
+
+
+**Dining data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| MealType | String | Preferred type of meal | 
+| FavoriteCuisine | String | Favorite cuisine types | 
+| Beverage | String | Preferred beverages | 
+| DietaryRestriction | String | Dietary restrictions | 
+| AllergyInfo | String | Details on allergies | 
+| PreferenceLevel | String | Dining preference level | 
+
+
+**Media and entertainment data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Name | String | Name of preferred entertainment | 
+| PreferenceLevel | String | Preference level for media/entertainment | 
+
+
+**PaymentForm data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Name | String | Name of payment method | 
+| Type | String | Type of payment (for example, credit card, PayPal) | 
+| PreferenceLevel | String | Payment method preference level | 
+| UsageContext | String | Where the payment method is used | 
+
+
+**PetInfo data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Type | String | Type of pet | 
+| PreferenceLevel | String | Preference level regarding pets | 
+
+
+**SpecialRequest data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Type | String | Type of special request | 
+| Name | String | Name or description of request | 
+| PreferenceLevel | String | Priority level of the request | 
+
+
+**TicketDistribution data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| PreferenceLevel | String | Level of preference for ticket distribution | 
+| Method | String | Ticket delivery method (for example, email, physical) | 
+| TicketTime | String | Preferred time for ticket delivery | 
+
+
+**Marketing data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| ChannelType | String | Type of marketing channel (for example, SMS, Email) | 
+| OptIn | String | Opt-in status for marketing | 
+| Frequency | String | Frequency of marketing communications | 
+| StartDate | String | Start date of marketing preference | 
+| EndDate | String | End date of marketing preference | 
+
+
+**Medical data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Oxygen | String | (Airline supplied, passenger owned, concentrator, etc) | 
+| MedicalEquipment | String | Details on medical equipment (for example, CPAP machine, oxygen concentrator). | 
+| Assistance | String | Specifies whether the traveler needs general medical assistance during travel (for example, in-flight support, help with medication). | 
+| Stretcher | String | If the traveler requires a stretcher during flight, typically used for medical transport cases. | 
+| WheelChair | String | Wheelchair details (non-spillable, wet cell, immobile, RampNeeded, stairsAssistance, airline provided, etc) | 
+
+
+**Baggage data type**  
+
+| Standard airPreference field | Data type | Description | 
+| --- | --- | --- | 
+| Animal | String | Indicates if the traveler is traveling with a service animal or pet, and includes relevant specifications or restrictions. (inHold, Cabin) | 
+| BaggageType | String | Specifies the preferred type of baggage handling (for example, carry-on only, checked baggage, oversized). | 
+| Assistance | String | Indicates whether the traveler requires assistance with carrying or managing their baggage, such as airport porter services or curbside luggage help. | 
+| PreferenceLevel | String | Level of preference for Baggage fields | 

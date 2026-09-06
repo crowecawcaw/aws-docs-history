@@ -1,112 +1,102 @@
+
+
 # Test the sample voice and chat experience in Connect Customer
+<a name="tutorial1-explore-voice-and-chat"></a>
 
-To better understand what the voice and chat experiences are like for your agents and
-customers, you can test them without doing any development.
+To better understand what the voice and chat experiences are like for your agents and customers, you can test them without doing any development. 
 
-This tutorial shows you how to access and use the [Contact Control Panel (CCP)](agent-user-guide.md "agent-user-guide.md"). The CCP is a web page that agents use to accept
-and manage voice and chat contacts.
+This tutorial shows you how to access and use the [Contact Control Panel (CCP)](agent-user-guide.md). The CCP is a web page that agents use to accept and manage voice and chat contacts.
 
-###### Test flows that you build
-
-This tutorial tests the sample voice and chat experience. To test flows that you
-build yourself, use the Connect Customer test and simulation tools. For more information, see
-[Connect Customer Testing and Simulation](testing-simulation.md "testing-simulation.md").
+**Test flows that you build**  
+This tutorial tests the sample voice and chat experience. To test flows that you build yourself, use the Connect Customer test and simulation tools. For more information, see [Connect Customer Testing and Simulation](testing-simulation.md).
 
 **Prerequisites**
 
-This tutorial is part of a series. If you performed Tutorial 1, you're ready to go. If
-not, here's what you need:
+This tutorial is part of a series. If you performed Tutorial 1, you're ready to go. If not, here's what you need:
++ An AWS account
++ A configured Connect Customer instance
++ An Connect Customer administrative account
++ A claimed phone number
 
-- An AWS account
-- A configured Connect Customer instance
-- An Connect Customer administrative account
-- A claimed phone number
-
-###### Contents
-
-- [Step 1: Handle a voice contact](#tutorial1-explore-voice "#tutorial1-explore-voice")
-- [Step 2: Use the CCP to handle a chat contact](#tutorial1-test-2 "#tutorial1-test-2")
+**Topics**
++ [Step 1: Handle a voice contact](#tutorial1-explore-voice)
++ [Step 2: Use the CCP to handle a chat contact](#tutorial1-test-2)
 
 ## Step 1: Handle a voice contact
+<a name="tutorial1-explore-voice"></a>
 
-1. On the Connect Customer navigation menu, choose **Dashboard**.
+1. On the Connect Customer navigation menu, choose **Dashboard**.   
+![The dashboard icon on the navigation menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-dashboard-menu.png)
 
-![The dashboard icon on the navigation menu.](images/tutorial1-dashboard-menu.png) 2. On the **Dashboard** page, choose **Test
-chat**.
+1. On the **Dashboard** page, choose **Test chat**.   
+![The dashboard page, the text chat link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat.png)
+**Note**  
+If you do not see **Test chat** on the **Dashboard** page, choose **Channels** on the navigation menu, and then choose **Test chat**. For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md).
 
-![The dashboard page, the text chat link.](images/tutorial1-test-chat.png)
+1. On the **Test Chat** page, choose **Activate Contact Control Panel**.  
+![The test chat page, the Activate Contact Control Panel link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-activate-ccp.png)
 
-###### Note
+1. If your browser prompts you to grant microphone access, choose **Allow**.  
+![The browser prompts to allow your instance to access your microphone.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-allow-microphone.png)
 
-If you do not see **Test chat** on the
-**Dashboard** page, choose
-**Channels** on the navigation menu, and then choose
-**Test chat**. For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md"). 3. On the **Test Chat** page, choose **Activate
-Contact Control Panel**.
+1. If your browser prompts you to allow notifications, choose **Allow**.  
+![The browser prompts to allow notifications.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-allow-notifications.png)
 
-![The test chat page, the Activate Contact Control Panel link.](images/tutorial1-activate-ccp.png) 4. If your browser prompts you to grant microphone access, choose
-**Allow**.
+1. In the test CCP, set your status to **Available**.  
+![The CCP, the Available status setting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-testccp-available.png)
 
-![The browser prompts to allow your instance to access your microphone.](images/tutorial1-allow-microphone.png) 5. If your browser prompts you to allow notifications, choose
-**Allow**.
+1. Use your mobile phone to call the phone number that you claimed earlier. If you didn't write down the number, you can find it by going to **Channels**, **Phone numbers**.
 
-![The browser prompts to allow notifications.](images/tutorial1-allow-notifications.png) 6. In the test CCP, set your status to **Available**.
+1. When your call is joined to Connect Customer you'll hear "Press 1 to be put in queue for an agent, 2 to ..." This is the [Sample inbound flow](sample-inbound-flow.md) that Connect Customer runs by default. You're going to change this later in the tutorial.
 
-![The CCP, the Available status setting.](images/tutorial1-testccp-available.png) 7. Use your mobile phone to call the phone number that you claimed earlier.
-If you didn't write down the number, you can find it by going to
-**Channels**, **Phone
-numbers**. 8. When your call is joined to Connect Customer you'll hear "Press 1 to be put in queue
-for an agent, 2 to ..." This is the [Sample inbound flow](sample-inbound-flow.md "sample-inbound-flow.md") that Connect Customer runs by default.
-You're going to change this later in the tutorial. 9. You can play around with the different options in the Sample inbound flow.
-To connect to an agent, press **1**,
-**1**, **1**. 10. In the CCP, choose **Accept call**.
+1. You can play around with the different options in the Sample inbound flow. To connect to an agent, press **1**, **1**, **1**.
 
-![The CCP, an incoming call.](images/tutorial1-accept-call.png) 11. You'll see what the CCP looks like when an agent is connected to a
-customer.
+1. In the CCP, choose **Accept call**.   
+![The CCP, an incoming call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-accept-call.png)
 
-![The CCP, a connected call.](images/tutorial1-first-call.png) 12. Choose **End call**.
+1. You'll see what the CCP looks like when an agent is connected to a customer.   
+![The CCP, a connected call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-first-call.png)
 
-Now the contact is in the After Contact Work (ACW) state. This is when the
-agent might enter some notes about the contact.
+1. Choose **End call**. 
 
-![The CCP, after call work, the close contact button.](images/tutorial1-acw.png) 13. Choose **Close contact**. This frees the agent to take
-another incoming contact.
+   Now the contact is in the After Contact Work (ACW) state. This is when the agent might enter some notes about the contact.  
+![The CCP, after call work, the close contact button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-acw.png)
 
-Well done! You've handled your first voice contact!
+1. Choose **Close contact**. This frees the agent to take another incoming contact. 
 
-###### Tip
+Well done\! You've handled your first voice contact\! 
 
-As an administrator, you can launch the CCP from anywhere on the Connect Customer console
-by choosing the phone icon on the top of the page.
+**Tip**  
+As an administrator, you can launch the CCP from anywhere on the Connect Customer console by choosing the phone icon on the top of the page.  
 
-![The phone icon at the top of the Connect Customer console that launches the CCP.](images/tutorial1-phone-icon.png)
+![The phone icon at the top of the Connect Customer console that launches the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-phone-icon.png)
+
 
 ### Next step
+<a name="tutorial1-test-voice-next-step"></a>
 
-Go to [Step 2: Use the CCP to handle a chat contact](#tutorial1-test-2 "#tutorial1-test-2") to
-experience how to handle a chat contact.
+Go to [Step 2: Use the CCP to handle a chat contact](#tutorial1-test-2) to experience how to handle a chat contact.
 
 ## Step 2: Use the CCP to handle a chat contact
+<a name="tutorial1-test-2"></a>
 
-In Step 1, you used the Contact Control Panel (CCP) to manage a voice contact. In
-this step, you experience how to use the CCP to manage a chat contact.
+In Step 1, you used the Contact Control Panel (CCP) to manage a voice contact. In this step, you experience how to use the CCP to manage a chat contact. 
 
-1. This procedure assumes you've completed [Step 1: Handle a voice contact](#tutorial1-explore-voice "#tutorial1-explore-voice"). If you haven't, please do so
-   now.
-2. On the **Test chat** page, choose the chat bubble to
-   start a chat.
+1. This procedure assumes you've completed [Step 1: Handle a voice contact](#tutorial1-explore-voice). If you haven't, please do so now.
 
-![The test chat page, the chat bubble.](images/tutorial1-chat-bubble.png) 3. The Sample inbound flow automatically transfers to you a queue. However,
-you can type a message as the customer and the agent receives it. For
-example, _I need help resetting my password_.
+1. On the **Test chat** page, choose the chat bubble to start a chat.  
+![The test chat page, the chat bubble.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-chat-bubble.png)
 
-![A chat conversation in the CCP, showing messages from the flow, and customer.](images/tutorial1-start-chat.png) 4. In the CCP, accept the incoming chat.
+1. The Sample inbound flow automatically transfers to you a queue. However, you can type a message as the customer and the agent receives it. For example, *I need help resetting my password*.  
+![A chat conversation in the CCP, showing messages from the flow, and customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-start-chat.png)
 
-![The CCP, an incoming chat, the button to accept the chat.](images/tutorial1-accept-chat.png) 5. Use the CCP to send chat messages to the customer. 6. When you're done chatting, choose **End chat**. Then in
-the CCP, choose **Close contact**.
+1. In the CCP, accept the incoming chat.   
+![The CCP, an incoming chat, the button to accept the chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-accept-chat.png)
 
-Congratulations! You've experienced what it's like to chat using Connect Customer.
+1. Use the CCP to send chat messages to the customer. 
 
-Next, try Tutorial 3 to set up an IT Help Desk. It shows you how to set up
-routing, create a flow, and then test the custom voice and chat experience. Go to
-[Create an IT help desk in Connect Customer](tutorial1-create-helpdesk.md "tutorial1-create-helpdesk.md").
+1. When you're done chatting, choose **End chat**. Then in the CCP, choose **Close contact**.
+
+Congratulations\! You've experienced what it's like to chat using Connect Customer. 
+
+Next, try Tutorial 3 to set up an IT Help Desk. It shows you how to set up routing, create a flow, and then test the custom voice and chat experience. Go to [Create an IT help desk in Connect Customer](tutorial1-create-helpdesk.md).

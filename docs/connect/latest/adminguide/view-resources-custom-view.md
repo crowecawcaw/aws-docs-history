@@ -1,40 +1,37 @@
-# Custom views in the Connect Customer agent workspace
 
-Using APIs you can create your own view resources. The View resource includes
-CloudFormation, CloudTrail, and tagging support.
+
+# Custom views in the Connect Customer agent workspace
+<a name="view-resources-custom-view"></a>
+
+Using APIs you can create your own view resources. The View resource includes CloudFormation, CloudTrail, and tagging support.
 
 ## Views API example
+<a name="view-resources-custom-view-example"></a>
 
 **View description**
 
-This view nests two cards within a container, and places a skip button to
-their right.
+This view nests two cards within a container, and places a skip button to their right. 
 
 **CLI command**
 
 ```
-
 aws connect create-view --name CustomerManagedCardsNoContainer \
 --status PUBLISHED --content file://view-content.json \
 --instance-id $INSTANCE_ID --region $REGION
-
 ```
 
 **view-content.json**
 
 ```
-
 {
   "Template": <stringified-template-json>
   "Actions": ["CardSelected", "Skip"]
 }
-
 ```
 
 **Template JSON (not stringified)**
 
 ```
-
 {
     "Head": {
         "Title": "CustomerManagedFormView",
@@ -54,14 +51,14 @@ aws connect create-view --name CustomerManagedCardsNoContainer \
                     "_id": "cafe_card",
                     "Type": "Card",
                     "Props": {
-
+                        
                         "Id": "cafe-card",
                         "Heading": "Cafe Card",
                         "Icon": "Cafe",
                         "Status": "Status Field",
                         "Description": "This is the cafe card.",
                         "Action": "CardSelected" // Note that these actions also appear in the view-content.json file.
-
+                          
                     },
                     "Content": []
                 },
@@ -87,86 +84,69 @@ aws connect create-view --name CustomerManagedCardsNoContainer \
         }
     ]
 }
-
 ```
 
 ## The View
+<a name="view-resources-custom-the-view"></a>
 
 **Inputs**
 
-`$.NoIconCardHeading` indicates that an input for the field
-`NoIconCardHeading` is necessary to render the view.
+`$.NoIconCardHeading` indicates that an input for the field `NoIconCardHeading` is necessary to render the view.
 
-Let's say `NoIconCardHeading` is set to `No Icon
- Card`.
+Let's say `NoIconCardHeading` is set to `No Icon Card`.
 
 **Appearance**
 
-![The agent workspace view card.](images/view-resources-custom-the-view.png)
+![The agent workspace view card.](http://docs.aws.amazon.com/connect/latest/adminguide/images/view-resources-custom-the-view.png)
+
 
 ## View output example
+<a name="view-resources-custom-view-output-example"></a>
 
-Views output two main pieces of data: the `Action` taken, and the
-`Output` data.
+Views output two main pieces of data: the `Action` taken, and the `Output` data.
 
-When using a view with the [Show view
-block](show-view-block.md "show-view-block.md"), `Action` represents a branch, and `Output`
-data is set to the `$.Views.ViewResultData` flow attribute, as
-mentioned in the Show View block documentation.
+When using a view with the [Show view block](https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html), `Action` represents a branch, and `Output` data is set to the `$.Views.ViewResultData` flow attribute, as mentioned in the Show View block documentation.
 
-**Scenario 1: Choose the **Cafe Card**
-Card**
+**Scenario 1: Choose the **Cafe Card** Card**
 
 ```
-
 "Action": "CardSelected"
 "Output": {
     "Heading": "CafeCard",
     "Id": "CafeCard"
 }
-
 ```
 
-**Scenario 2: Choose the **Skip**
-Button**
+**Scenario 2: Choose the **Skip** Button**
 
 ```
-
 "Action": "Skip"
 "Output": {
     "action": "Button"
 }
-
 ```
 
 ## Form View output example
+<a name="view-resources-custom-form-view-output-example"></a>
 
-When using the **AWS-managed view (Form view)**, the result
-of form data will be under _FormData_.
+When using the **AWS-managed view (Form view)**, the result of form data will be under *FormData*.
 
 ```
-
 {
    FormData: {
        email: "a@amazon.com"
    }
 }
-
 ```
 
-You can access the data in the show view block such as
-`$.Views.ViewResultData.FormData.email`.
+You can access the data in the show view block such as `$.Views.ViewResultData.FormData.email`.
 
-When using the **Custom view (with form component)**, the
-result of form data be come directly under output.
+When using the **Custom view (with form component)**, the result of form data be come directly under output.
 
 ```
-
 {
     email: "a@amazon.com"
 }
-
 ```
 
-You can access the data in the show view block such as
-`$.Views.ViewResultData.email`.
+You can access the data in the show view block such as `$.Views.ViewResultData.email`.

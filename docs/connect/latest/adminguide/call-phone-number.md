@@ -1,94 +1,75 @@
-# Flow block in Connect Customer: Call phone number
 
-This topic defines the flow block for the call phone number used for voice
-interactions with contact center customers.
+
+# Flow block in Connect Customer: Call phone number
+<a name="call-phone-number"></a>
+
+This topic defines the flow block for the call phone number used for voice interactions with contact center customers.
 
 ## Description
-
-- Use this block to set the caller ID number for an outbound call in an
-  **Outbound Whisper** flow.
+<a name="call-phone-number-description"></a>
++ Use this block to set the caller ID number for an outbound call in an **Outbound Whisper** flow.
 
 ## Supported channels
+<a name="call-phone-number-channels"></a>
 
-The following table lists how this block routes a contact who is using the
-specified channel.
+The following table lists how this block routes a contact who is using the specified channel. 
 
-| Channel | Supported? |
-| ------- | ---------- |
-| Voice   | Yes        |
-| Chat    | No         |
-| Task    | No         |
-| Email   | No         |
+
+| Channel | Supported? | 
+| --- | --- | 
+| Voice | Yes | 
+| Chat | No  | 
+| Task | No | 
+| Email | No | 
 
 ## Flow types
+<a name="call-phone-number-types"></a>
 
-You can use this block in the following [flow
-types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
-
-- Outbound Whisper flow
+You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types):
++ Outbound Whisper flow
 
 ## Properties
+<a name="call-phone-number-properties"></a>
 
-The following image shows an example of what the **Call phone
-number** properties page looks like when you select a phone number
-manually. The **Select a number from your instance** option is
-selected, and the dropdown menu displays a list of available phone numbers claimed
-for your instance.
+The following image shows an example of what the **Call phone number** properties page looks like when you select a phone number manually. The **Select a number from your instance** option is selected, and the dropdown menu displays a list of available phone numbers claimed for your instance.
 
-![The Call phone number properties page. The Select a number from your instance option.](images/call-phone-number1.png)
+![The Call phone number properties page. The Select a number from your instance option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number1.png)
 
-The following image shows an example of what the **Call phone
-number** properties page looks like when you select a phone number
-dynamically. The **Use Attribute** option is selected. The
-**Namespace** box is set to **User-defined**.
-The **Attribute** box is set to
-**MainPhoneNumber**.
 
-![The properties page of the Call phone number block. The Use Attribute option is selected, Namespace is set to User-defined.](images/call-phone-number2.png)
+The following image shows an example of what the **Call phone number** properties page looks like when you select a phone number dynamically. The **Use Attribute** option is selected. The **Namespace** box is set to **User-defined**. The **Attribute** box is set to **MainPhoneNumber**. 
 
-Outbound whisper flows run in Connect Customer immediately after an agent accepts the call
-during direct dial and callback scenarios. When the flow runs:
+![The properties page of the Call phone number block. The Use Attribute option is selected, Namespace is set to User-defined.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number2.png)
 
-- The caller ID number is set if one is specified in the [Call phone number](call-phone-number.md "call-phone-number.md")
-  block.
-- If no caller ID is specified in the [Call phone number](call-phone-number.md "call-phone-number.md") block, the caller ID number
-  defined for the queue is used when the call is placed.
-- When there is an error with a call that is initiated by the [Call phone number](call-phone-number.md "call-phone-number.md")
-  block, the call is disconnected and the agent is placed in
-  **AfterContactWork** (ACW).
 
-Only published flows can be selected as the outbound whisper flow for a
-queue.
+Outbound whisper flows run in Connect Customer immediately after an agent accepts the call during direct dial and callback scenarios. When the flow runs: 
++ The caller ID number is set if one is specified in the [Call phone number](#call-phone-number) block.
++ If no caller ID is specified in the [Call phone number](#call-phone-number) block, the caller ID number defined for the queue is used when the call is placed.
++ When there is an error with a call that is initiated by the [Call phone number](#call-phone-number) block, the call is disconnected and the agent is placed in **AfterContactWork** (ACW).
 
-###### Note
+Only published flows can be selected as the outbound whisper flow for a queue.
 
-To use a custom caller ID, you must open an Support ticket to enable this feature.
-For more information, see [Set up outbound caller
-ID](queues-callerid.md "queues-callerid.md").
+**Note**  
+To use a custom caller ID, you must open an Support ticket to enable this feature. For more information, see [Set up outbound caller ID](https://docs.aws.amazon.com/connect/latest/adminguide/queues-callerid.html).
 
 ## Configured block
+<a name="call-phone-number-configured-block"></a>
 
-The following image shows an example of what this block looks like when it is
-configured. It shows the **Caller ID** phone number, and a
-**Success** branch.
+The following image shows an example of what this block looks like when it is configured. It shows the **Caller ID** phone number, and a **Success** branch.
 
-![A configured Call phone number block.](images/call-phone-number-configured.png)
+![A configured Call phone number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number-configured.png)
 
-There is no error branch for the block. If a call is not successfully initiated,
-the flow ends and the agent is placed in an **AfterContactWork**
-(ACW).
+
+There is no error branch for the block. If a call is not successfully initiated, the flow ends and the agent is placed in an **AfterContactWork** (ACW). 
 
 ## Sample flows
+<a name="call-phone-number-sample-flows"></a>
 
-Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
-that describe the sample flows which include this block.
-
-- [Sample customer queue priority flow in Connect Customer](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
-- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see [Sample flows in Connect Customer](contact-flow-samples.md). Following are topics that describe the sample flows which include this block.
++ [Sample customer queue priority flow in Connect Customer](sample-customer-queue-priority.md)
++  [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md)
 
 ## Scenarios
+<a name="call-phone-number-scenarios"></a>
 
 See these topics for more information about caller ID works:
-
-- [Set up outbound caller ID in Connect Customer](queues-callerid.md "queues-callerid.md")
++ [Set up outbound caller ID in Connect Customer](queues-callerid.md)

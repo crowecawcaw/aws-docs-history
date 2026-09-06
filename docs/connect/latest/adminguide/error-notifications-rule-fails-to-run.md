@@ -1,34 +1,24 @@
+
+
 # Error notifications when a Connect Customer rule fails to run
+<a name="error-notifications-rule-fails-to-run"></a>
 
-It's important to know when a specific rule action has failed in a production
-environment, and what caused the failure. Then you can proactively mitigate such
-failures in future.
+It's important to know when a specific rule action has failed in a production environment, and what caused the failure. Then you can proactively mitigate such failures in future.
 
-To get real-time insights on the actions that failed to run, you integrate
-Connect Customer Rules with Amazon EventBridge events. With this integration, you can be notified when, for
-example, the "Create task" action failed to run because the maximum number of
-**Concurrent active tasks per instance** reached the
-service quota. When this happens, Connect Customer sends error notifications using Amazon EventBridge
-events.
+To get real-time insights on the actions that failed to run, you integrate Connect Customer Rules with Amazon EventBridge events. With this integration, you can be notified when, for example, the "Create task" action failed to run because the maximum number of **Concurrent active tasks per instance** reached the service quota. When this happens, Connect Customer sends error notifications using Amazon EventBridge events.
 
-Events are emitted on a
-[best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")
-basis.
+Events are emitted on a [best effort](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) basis.
 
 ## Subscribe to EventBridge notifications
+<a name="rule-error-notifications-subscribe"></a>
 
-To subscribe to these notifications, create a custom EventBridge rule that
-matches the following:
+To subscribe to these notifications, create a custom EventBridge rule that matches the following:
++ "source" = "aws.connect"
++ "detail-type" = "conversational analytics Rules Action Execution Failed"
 
-- "source" = "aws.connect"
-- "detail-type" = "conversational analytics Rules Action Execution
-  Failed"
+You can also add to the pattern to be notified when a specific event code occurs. For more information, see [Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/filtering-examples-structure.html) in the *Amazon EventBridge User Guide*.
 
-You can also add to the pattern to be notified when a specific event code
-occurs. For more information, see [Event Patterns](../../../eventbridge/latest/userguide/filtering-examples-structure.md "../../../eventbridge/latest/userguide/filtering-examples-structure.md") in the
-_Amazon EventBridge User Guide_.
-
-The format of a notification looks like the following sample:
+The format of a notification looks like the following sample: 
 
 ```
 {
@@ -53,30 +43,24 @@ The format of a notification looks like the following sample:
 ```
 
 ## Supported action types
+<a name="supported-action-types-rules"></a>
++ `CREATE_TASK`
++ `GENERATE_EVENTBRIDGE_EVENT`
++ `SEND_NOTIFICATION`
 
-- `CREATE_TASK`
-- `GENERATE_EVENTBRIDGE_EVENT`
-- `SEND_NOTIFICATION`
-
-For information about `ASSIGN_CONTACT_CATEGORY`, see [Error
-notifications: When conversational analytics can't analyze a
-contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").
+For information about `ASSIGN_CONTACT_CATEGORY`, see [Error notifications: When conversational analytics can't analyze a contact](contact-lens-error-notifications.md).
 
 ## Supported trigger events
-
-- `REAL_TIME_CALL`
-- `REAL_TIME_CHAT`
-- `POST_CALL`
-- `POST_CHAT`
-- `THIRD_PARTY`
+<a name="supported-trigger-events"></a>
++ `REAL_TIME_CALL`
++ `REAL_TIME_CHAT`
++ `POST_CALL`
++ `POST_CHAT`
++ `THIRD_PARTY`
 
 ## Reason codes for failed actions
+<a name="reason-codes-failed-actions"></a>
 
-When an action fails, the error notification service collects the reason
-codes from the supported actions. For more information about the reason
-codes for Task and EventBridge action failures, see the following topics:
-
-- For reason codes for Task action failures, see [Errors](../APIReference/API_StartTaskContact.md#API_StartTaskContact_Errors "../APIReference/API_StartTaskContact.md#API_StartTaskContact_Errors") in the **StartTaskContact** API
-  topic in the _Connect Customer API Reference Guide_.
-- For reason codes for EventBridge action failures, see [Errors](../../../eventbridge/latest/APIReference/API_PutEvents.md#API_PutEvents_Errors "../../../eventbridge/latest/APIReference/API_PutEvents.md#API_PutEvents_Errors") in the **PutEvents** API topic
-  in the _Amazon EventBridge API Reference Guide_.
+When an action fails, the error notification service collects the reason codes from the supported actions. For more information about the reason codes for Task and EventBridge action failures, see the following topics:
++ For reason codes for Task action failures, see [Errors](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html#API_StartTaskContact_Errors) in the **StartTaskContact** API topic in the *Connect Customer API Reference Guide*.
++ For reason codes for EventBridge action failures, see [Errors](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html#API_PutEvents_Errors) in the **PutEvents** API topic in the *Amazon EventBridge API Reference Guide*.

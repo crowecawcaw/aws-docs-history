@@ -1,218 +1,138 @@
+
+
 # Agent event streams data model in Connect Customer
+<a name="agent-event-stream-model"></a>
 
-Agent event streams are created in JavaScript Object Notation (JSON) format. For each
-event type, a JSON blob is sent to the Kinesis data stream. The following event types are
-included in agent event streams:
+Agent event streams are created in JavaScript Object Notation (JSON) format. For each event type, a JSON blob is sent to the Kinesis data stream. The following event types are included in agent event streams:
++ LOGIN—An agent login to the contact center.
++ LOGOUT—An agent logout from the contact center.
++ STATE\_CHANGE—One of the following changed:
+  + The agent changed their status in the Contact Control Panel (CCP). For example, they changed it from Available to on Break.
+  + The state of the conversation between the agent and contact changed. For example, they were connected and then on hold. 
+  + One of the following settings changed in the agent's configuration:
+    + Their routing profile
+    + The queues in their routing profile
+    + Auto-accept call
+    + Sip address
+    + Agent hierarchy group
+    + Language preference setting in the CCP
++ HEART\_BEAT—This event is published every 120 seconds if there are no other events published during that interval.
+**Note**  
+These events continue to be published up to an hour after an agent has logged off. 
 
-- LOGIN—An agent login to the contact center.
-- LOGOUT—An agent logout from the contact center.
-- STATE\_CHANGE—One of the following changed:
-
-  - The agent changed their status in the Contact Control Panel (CCP). For
-    example, they changed it from Available to on Break.
-  - The state of the conversation between the agent and contact changed.
-    For example, they were connected and then on hold.
-  - One of the following settings changed in the agent's
-    configuration:
-
-    - Their routing profile
-    - The queues in their routing profile
-    - Auto-accept call
-    - Sip address
-    - Agent hierarchy group
-    - Language preference setting in the CCP
-
-- HEART\_BEAT—This event is published every 120 seconds if there are no
-  other events published during that interval.
-
-###### Note
-
-These events continue to be published up to an hour after an agent has
-logged off.
-
-###### Event Objects
-
-- [AgentEvent](#AgentEvent "#AgentEvent")
-- [AgentSnapshot](#AgentSnapshot "#AgentSnapshot")
-- [AgentCrossRegionRoutingConfiguration](#AgentCrossRegionRoutingConfiguration "#AgentCrossRegionRoutingConfiguration")
-- [Configuration](#Configuration "#Configuration")
-- [Contact object](#Contact "#Contact")
-- [GlobalResiliencyMetadata object](#aes-GlobalResiliencyMetadata "#aes-GlobalResiliencyMetadata")
-- [HierarchyGroup object](#Hierarchygroup-object "#Hierarchygroup-object")
-- [AgentHierarchyGroups object](#Hierarchygroups-object "#Hierarchygroups-object")
-- [Proficiency](#proficiency-object "#proficiency-object")
-- [Queue object](#queue-object "#queue-object")
-- [RoutingProfile object](#routingprofile "#routingprofile")
+**Topics**
++ [AgentEvent](#AgentEvent)
++ [AgentSnapshot](#AgentSnapshot)
++ [AgentCrossRegionRoutingConfiguration](#AgentCrossRegionRoutingConfiguration)
++ [Configuration](#Configuration)
++ [Contact object](#Contact)
++ [GlobalResiliencyMetadata object](#aes-GlobalResiliencyMetadata)
++ [HierarchyGroup object](#Hierarchygroup-object)
++ [AgentHierarchyGroups object](#Hierarchygroups-object)
++ [Proficiency](#proficiency-object)
++ [Queue object](#queue-object)
++ [RoutingProfile object](#routingprofile)
 
 ## AgentEvent
+<a name="AgentEvent"></a>
 
 The `AgentEvent` object includes the following properties:
 
-**AgentARN**
-
-The Amazon Resource Name (ARN) for the agent account.
-
+**AgentARN**  
+The Amazon Resource Name (ARN) for the agent account.  
 Type: ARN
 
-**AWSAccountId**
-
-The 12-digit AWS account ID for the AWS account associated with
-the Connect Customer instance.
-
+**AWSAccountId**  
+The 12-digit AWS account ID for the AWS account associated with the Connect Customer instance.  
 Type: String
 
-**CurrentAgentSnapshot**
-
-Contains agent configuration, such as username, first name, last name,
-routing profile, hierarchy groups, contacts, and agent status.
-
+**CurrentAgentSnapshot**  
+Contains agent configuration, such as username, first name, last name, routing profile, hierarchy groups, contacts, and agent status.  
 Type: `AgentSnapshot` object
 
-**EventId**
-
-Universally unique identifier (UUID) for the event.
-
+**EventId**  
+Universally unique identifier (UUID) for the event.  
 Type: String
 
-**EventTimestamp**
+**EventTimestamp**  
+A time stamp for the event, in ISO 8601 standard format.  
+Type: String (*yyyy*-*mm*-*dd*T*hh*:*mm*:*ss*.*sss*Z)
 
-A time stamp for the event, in ISO 8601 standard format.
+**EventType**  
+The type of event.   
+Valid values: `STATE_CHANGE` \| `HEART_BEAT` \| `LOGIN` \| `LOGOUT` 
 
-Type: String
-(_yyyy_-_mm_-*dd*T*hh*:_mm_:_ss_.*sss*Z)
-
-**EventType**
-
-The type of event.
-
-Valid values: `STATE_CHANGE` | `HEART_BEAT` |
-`LOGIN` | `LOGOUT`
-
-**InstanceARN**
-
-Amazon Resource Name for the Connect Customer instance in which the agent's user
-account is created.
-
+**InstanceARN**  
+Amazon Resource Name for the Connect Customer instance in which the agent's user account is created.  
 Type: ARN
 
-**PreviousAgentSnapshot**
-
-Contains agent configuration, such as username, first name, last name,
-routing profile, hierarchy groups), contacts, and agent status.
-
+**PreviousAgentSnapshot**  
+Contains agent configuration, such as username, first name, last name, routing profile, hierarchy groups), contacts, and agent status.   
 Type: `AgentSnapshot` object
 
-**Version**
-
-The version of the agent event stream in date format, such as
-2019-05-25.
-
+**Version**  
+The version of the agent event stream in date format, such as 2019-05-25.  
 Type: String
 
 ## AgentSnapshot
+<a name="AgentSnapshot"></a>
 
 The `AgentSnapshot` object includes the following properties:
 
-**AgentStatus**
+**AgentStatus**  
+Agent status data, including:  
++ ARN—The ARN for the agent's current agent status (not for the agent). 
++ Name—This is the [status of the agent that they manually set in the CCP](metrics-agent-status.md), or that the supervisor manually [changes in the real-time metrics report](rtm-change-agent-activity-state.md). 
 
-Agent status data, including:
+  For example, their status might be **Available**, which means that they are ready for inbound contacts to be routed to them. Or it might be a custom status, such as Break or Training, which means that inbound contacts can't be routed to them BUT they can still make outbound calls.
 
-- ARN—The ARN for the agent's current agent status (not
-  for the agent).
-- Name—This is the [status of the agent that they manually set in the
-  CCP](metrics-agent-status.md "metrics-agent-status.md"), or that the supervisor manually [changes in the
-  real-time metrics report](rtm-change-agent-activity-state.md "rtm-change-agent-activity-state.md").
+  A status of `Error` indicates an internal Connect Customer error.
++ StartTimestamp—The timestamp in ISO 8601 standard format for the time at which the agent entered the status.
 
-For example, their status might be
-**Available**, which means that they are
-ready for inbound contacts to be routed to them. Or it might be
-a custom status, such as Break or Training, which means that
-inbound contacts can't be routed to them BUT they can still make
-outbound calls.
-
-A status of `Error` indicates an internal Connect Customer error.
-
-- StartTimestamp—The timestamp in ISO 8601 standard
-  format for the time at which the agent entered the
-  status.
-
-Type: String
-(_yyyy_-_mm_-*dd*T*hh*:_mm_:_ss_.*sss*Z)
-
-- Type—ROUTABLE, CUSTOM, or OFFLINE
-
+  Type: String (*yyyy*-*mm*-*dd*T*hh*:*mm*:*ss*.*sss*Z)
++ Type—ROUTABLE, CUSTOM, or OFFLINE
 Type: `AgentStatus` object.
 
-**NextAgentStatus**
+**NextAgentStatus**  
+If the agent set a next agent status, the data appears here.  
++ ARN—The ARN of the agent status that the agent has set as their next status.
++ Name—This is the name of the agent status that the agent has set as their next status.
++ EnqueuedTimestamp—The timestamp in ISO 8601 standard format for the time at which the agent set their next status and paused routing of incoming contacts.
 
-If the agent set a next agent status, the data appears here.
-
-- ARN—The ARN of the agent status that the agent has set
-  as their next status.
-- Name—This is the name of the agent status that the
-  agent has set as their next status.
-- EnqueuedTimestamp—The timestamp in ISO 8601 standard
-  format for the time at which the agent set their next status and
-  paused routing of incoming contacts.
-
-Type: String
-(_yyyy_-_mm_-*dd*T*hh*:_mm_:_ss_.*sss*Z)
-
+  Type: String (*yyyy*-*mm*-*dd*T*hh*:*mm*:*ss*.*sss*Z)
 Type: `NextAgentStatus` object.
 
-**Configuration**
-
-Information about the agent, including:
-
-- FirstName—The agent's first name.
-- HierarchyGroups—The hierarchy group the agent is
-  assigned to, if any.
-- LastName—The agent's last name.
-- RoutingProfile—The routing profile the agent is
-  assigned to.
-- Username—the agent's Connect Customer user name.
-
+**Configuration**  
+Information about the agent, including:   
++ FirstName—The agent's first name.
++ HierarchyGroups—The hierarchy group the agent is assigned to, if any.
++ LastName—The agent's last name.
++ RoutingProfile—The routing profile the agent is assigned to.
++ Username—the agent's Connect Customer user name.
 Type: `Configuration` object
 
-**Contacts**
+**Contacts**  
+The contacts  
+Type: `List of Contact Objects` object
 
-The contacts
-
-Type: `List of Contact Objects`
-object
-
-**AgentCrossRegionRoutingConfiguration**
-
-Cross-region routing information for the agent, if the agent belongs
-to an instance that uses Connect Customer Global Resiliency. This is present in both
-`CurrentAgentSnapshot` and
-`PreviousAgentSnapshot`.
-
+**AgentCrossRegionRoutingConfiguration**  
+Cross-region routing information for the agent, if the agent belongs to an instance that uses Connect Customer Global Resiliency. This is present in both `CurrentAgentSnapshot` and `PreviousAgentSnapshot`.  
 Type: `AgentCrossRegionRoutingConfiguration` object
 
 ## AgentCrossRegionRoutingConfiguration
+<a name="AgentCrossRegionRoutingConfiguration"></a>
 
-The `AgentCrossRegionRoutingConfiguration` object includes the following
-properties:
+The `AgentCrossRegionRoutingConfiguration` object includes the following properties:
 
-**ConfiguredRegions**
-
-The AWS Regions that the agent is configured to handle
-contacts from. For example, `["us-west-2", "us-east-1"]`.
-
+**ConfiguredRegions**  
+The AWS Regions that the agent is configured to handle contacts from. For example, `["us-west-2", "us-east-1"]`.  
 Type: List of String
 
-**CurrentRegion**
-
-The AWS Region where the agent is currently operating,
-such as based on the Traffic Distribution Group configuration. For
-example, `us-east-1`.
-
+**CurrentRegion**  
+The AWS Region where the agent is currently operating, such as based on the Traffic Distribution Group configuration. For example, `us-east-1`.  
 Type: String
 
-The following shows the `AgentCrossRegionRoutingConfiguration` object
-for an agent signed in to us-east-1 and configured to handle contacts from both
-us-west-2 and us-east-1.
+The following shows the `AgentCrossRegionRoutingConfiguration` object for an agent signed in to us-east-1 and configured to handle contacts from both us-west-2 and us-east-1.
 
 ```
 "AgentCrossRegionRoutingConfiguration": {
@@ -222,353 +142,220 @@ us-west-2 and us-east-1.
 ```
 
 ## Configuration
+<a name="Configuration"></a>
 
 The `Configuration` object includes the following properties:
 
-**FirstName**
-
-The first name entered in the agent's Connect Customer account.
-
-Type: String
-
+**FirstName**  
+The first name entered in the agent's Connect Customer account.  
+Type: String  
 Length: 1-100
 
-**AgentHierarchyGroups**
-
-The hierarchy group, up to five levels of grouping, for the agent
-associated with the event.
-
+**AgentHierarchyGroups**  
+The hierarchy group, up to five levels of grouping, for the agent associated with the event.  
 Type: `AgentHierarchyGroups` object
 
-**LastName**
-
-The last name entered in the agent's Connect Customer account.
-
-Type: String
-
+**LastName**  
+The last name entered in the agent's Connect Customer account.  
+Type: String  
 Length: 1-100
 
-**Proficiencies**
-
-List of all the proficiencies assigned to the agent.
-
+**Proficiencies**  
+List of all the proficiencies assigned to the agent.  
 Type: List of Proficiency objects
 
-**RoutingProfile**
-
-The routing profile assigned to the agent associated with the
-event.
-
+**RoutingProfile**  
+The routing profile assigned to the agent associated with the event.  
 Type: `RoutingProfile` object.
 
-**Username**
-
-The user name for the agent's Connect Customer user account.
-
-Type: String
-
+**Username**  
+The user name for the agent's Connect Customer user account.  
+Type: String  
 Length: 1-100
 
 ## Contact object
+<a name="Contact"></a>
 
 The `Contact` object includes the following properties:
 
-**ContactId**
-
-The identifier for the contact.
-
-Type: String
-
+**ContactId**  
+The identifier for the contact.  
+Type: String  
 Length: 1-256
 
-**InitialContactId**
-
-The original identifier of the contact that was transferred.
-
-Type: String
-
+**InitialContactId**  
+The original identifier of the contact that was transferred.  
+Type: String  
 Length: 1-256
 
-**Channel**
+**Channel**  
+The method of communication.  
+Valid values: `VOICE`, `CHAT`, `TASKS`
 
-The method of communication.
+**InitiationMethod**  
+Indicates how the contact was initiated.   
+Valid values:  
++  `INBOUND`: The customer initiated voice (phone) contact with your contact center. 
++  `OUTBOUND`: An agent initiated voice (phone) contact with the customer, by using the CCP to call their number. This initiation method calls the [StartOutboundVoiceContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundVoiceContact.html) API.
++  `TRANSFER`: The customer was transferred by an agent to another agent or to a queue, using quick connects in the CCP. This results in a new contact record being created.
++  `CALLBACK`: The customer was contacted as part of a callback flow. 
 
-Valid values: `VOICE`, `CHAT`,
-`TASKS`
+  For more information about the InitiationMethod in this scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md). 
++  `API`: The contact was initiated with Connect Customer by API. This could be an outbound contact you created and queued to an agent, using the [StartOutboundVoiceContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundVoiceContact.html) API, or it could be a live chat that was initiated by the customer with your contact center, where you called the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API.
++  `WEBRTC_API`: The contact used the communication widget to make an in-app voice/video call to an agent.
++  `QUEUE_TRANSFER`: While the customer was in one queue (listening to Customer queue flow), they were transferred into another queue using a flow block.
++  `MONITOR`: A supervisor initiated monitor on an agent. The supervisor can silently monitor the agent and customer, or barge the conversation.
+**Note**  
+This status shows only if you have opted into [Multi-Party Calls and Enhanced Monitoring](update-instance-settings.md#update-telephony-options). 
++  `DISCONNECT`: When a [Set disconnect flow](set-disconnect-flow.md) block is triggered, it specifies which flow to run after a disconnect event during a contact. 
 
-**InitiationMethod**
+  A disconnect event is when:
+  + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
+  + A chat, or task is disconnected.
+  + A task is disconnected as a result of a flow action.
+  + A task expires. The task is automatically disconnected when it completes its expiry timer. The default is 7 days and task expiry is configurable up to 90 days. 
 
-Indicates how the contact was initiated.
+  If a new contact is created while running a disconnect flow, then the initiation method for that new contact is DISCONNECT.
++  `EXTERNAL_OUTBOUND`: An agent initiated voice (phone) contact with an external participant to your contact center using either quick connect in the CCP or a flow block.
++  `AGENT_REPLY`: An agent has replied to an inbound email contact to create an outbound email reply.
++  `FLOW`: An email initiated by a flow block.
++  `CAMPAIGN_PREVIEW`: The contact was initiated by an outbound campaign using preview dialing mode. The agent previews customer information before the call is placed.
 
-Valid values:
-
-- `INBOUND`: The customer initiated voice (phone)
-  contact with your contact center.
-- `OUTBOUND`: An agent initiated voice (phone) contact
-  with the customer, by using the CCP to call their number. This
-  initiation method calls the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API.
-- `TRANSFER`: The customer was transferred by an agent
-  to another agent or to a queue, using quick connects in the CCP.
-  This results in a new contact record being created.
-- `CALLBACK`: The customer was contacted as part of a
-  callback flow.
-
-For more information about the InitiationMethod in this
-scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
-
-- `API`: The contact was initiated with Connect Customer by API.
-  This could be an outbound contact you created and queued to an
-  agent, using the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
-  live chat that was initiated by the customer with your contact
-  center, where you called the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
-- `WEBRTC_API`: The contact used the communication
-  widget to make an in-app voice/video call to an agent.
-- `QUEUE_TRANSFER`: While the customer was in one queue
-  (listening to Customer queue flow), they were transferred into
-  another queue using a flow block.
-- `MONITOR`: A supervisor initiated monitor on an
-  agent. The supervisor can silently monitor the agent and
-  customer, or barge the conversation.
-
-###### Note
-
-This status shows only if you have opted into [Multi-Party Calls and
-Enhanced Monitoring](update-instance-settings.md#update-telephony-options "update-instance-settings.md#update-telephony-options").
-
-- `DISCONNECT`: When a [Set disconnect flow](set-disconnect-flow.md "set-disconnect-flow.md") block is
-  triggered, it specifies which flow to run after a disconnect
-  event during a contact.
-
-A disconnect event is when:
-
-    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
-    + A chat, or task is disconnected.
-    + A task is disconnected as a result of a flow action.
-    + A task expires. The task is automatically disconnected when it completes its expiry timer.
-     The default is 7 days and task expiry is configurable up to 90 days.
-
-If a new contact is created while running a disconnect flow,
-then the initiation method for that new contact is
-DISCONNECT.
-
-- `EXTERNAL_OUTBOUND`: An agent initiated voice (phone) contact with an external participant
-  to your contact center using either quick connect in the CCP or a flow block.
-- `AGENT_REPLY`: An agent has replied to an inbound email contact to create an outbound email reply.
-- `FLOW`: An email initiated by a flow block.
-- `CAMPAIGN_PREVIEW`: The contact was initiated by an outbound campaign using preview dialing mode.
-  The agent previews customer information before the call is placed.
-
-**State**
-
-The state of the contact.
-
-Valid values: `INCOMING` | `PENDING` |
-`CONNECTING` | `CONNECTED` |
-`CONNECTED_ONHOLD` | `MISSED` |
-`PAUSED` | `REJECTED` | `ERROR` |
-`ENDED`
-
-###### Note
-
+**State**  
+The state of the contact.  
+Valid values: `INCOMING` \| `PENDING` \| `CONNECTING` \| `CONNECTED` \| `CONNECTED_ONHOLD` \| `MISSED` \| `PAUSED` \| `REJECTED` \| `ERROR` \| `ENDED`   
 The `PAUSED` state is only available for tasks.
 
-**StateStartTimestamp**
+**StateStartTimestamp**  
+The time at which the contact entered the current state.  
+Type: String (*yyyy*-*mm*-*dd*T*hh*:*mm*:*ss*.*sss*Z)
 
-The time at which the contact entered the current state.
+**ConnectedToAgentTimestamp**  
+The time at which the contact was connected to an agent.  
+Type: String (*yyyy*-*mm*-*dd*T*hh*:*mm*:*ss*.*sss*Z)
 
-Type: String
-(_yyyy_-_mm_-*dd*T*hh*:_mm_:_ss_.*sss*Z)
+**QueueTimestamp**  
+The time at which the contact was put into a queue.  
+Type: String (*yyyy*-*mm*-*dd*T*hh*:*mm*:*ss*.*sss*Z)
 
-**ConnectedToAgentTimestamp**
-
-The time at which the contact was connected to an agent.
-
-Type: String
-(_yyyy_-_mm_-*dd*T*hh*:_mm_:_ss_.*sss*Z)
-
-**QueueTimestamp**
-
-The time at which the contact was put into a queue.
-
-Type: String
-(_yyyy_-_mm_-*dd*T*hh*:_mm_:_ss_.*sss*Z)
-
-**Queue**
-
-The queue the contact was placed in.
-
+**Queue**  
+The queue the contact was placed in.  
 Type: `Queue` object
 
-**GlobalResiliencyMetadata**
-
-Information about the contact's active and origin Region.
-
-###### Note
-
-This may differ from the Region the Agent Event Stream is
-published from, in the case of contacts routed cross-region across
-Connect Customer Global Resiliency paired instances.
-
+**GlobalResiliencyMetadata**  
+Information about the contact's active and origin Region.  
+This may differ from the Region the Agent Event Stream is published from, in the case of contacts routed cross-region across Connect Customer Global Resiliency paired instances.
 Type: `GlobalResiliencyMetadata` object
 
 ## GlobalResiliencyMetadata object
+<a name="aes-GlobalResiliencyMetadata"></a>
 
-The `GlobalResiliencyMetadata` object includes the following
-properties:
+The `GlobalResiliencyMetadata` object includes the following properties:
 
-**ActiveRegion**
-
-The current AWS Region in which the contact is active.
-This indicates where the contact is being processed in real-time.
-
-Type: String
-
+**ActiveRegion**  
+The current AWS Region in which the contact is active. This indicates where the contact is being processed in real-time.  
+Type: String  
 Length Constraints: Minimum length of 0. Maximum length of 1024.
 
-**OriginRegion**
-
-The AWS Region where the contact was originally created
-and initiated.
-
-Type: String
-
+**OriginRegion**  
+The AWS Region where the contact was originally created and initiated.  
+Type: String  
 Length Constraints: Minimum length of 0. Maximum length of 1024.
 
 ## HierarchyGroup object
+<a name="Hierarchygroup-object"></a>
 
 The `HierarchyGroup` object includes the following properties:
 
-**ARN**
-
-The Amazon Resource Name (ARN) for the agent hierarchy.
-
+**ARN**  
+The Amazon Resource Name (ARN) for the agent hierarchy.  
 Type: String
 
-**Name**
-
-The name of the hierarchy group.
-
+**Name**  
+The name of the hierarchy group.  
 Type: String
 
 ## AgentHierarchyGroups object
+<a name="Hierarchygroups-object"></a>
 
-The `AgentHierarchyGroups` object includes the following
-properties:
+The `AgentHierarchyGroups` object includes the following properties:
 
-**Level1**
-
-Includes details for Level1 of the hierarchy assigned to the
-agent.
-
+**Level1**  
+Includes details for Level1 of the hierarchy assigned to the agent.  
 Type: `HierarchyGroup` object
 
-**Level2**
-
-Includes details for Level2 of the hierarchy assigned to the
-agent.
-
+**Level2**  
+Includes details for Level2 of the hierarchy assigned to the agent.  
 Type: `HierarchyGroup` object
 
-**Level3**
-
-Includes details for Level3 of the hierarchy assigned to the
-agent.
-
+**Level3**  
+Includes details for Level3 of the hierarchy assigned to the agent.  
 Type: `HierarchyGroup` object
 
-**Level4**
-
-Includes details for Level4 of the hierarchy assigned to the
-agent.
-
+**Level4**  
+Includes details for Level4 of the hierarchy assigned to the agent.  
 Type: `HierarchyGroup` object
 
-**Level5**
-
-Includes details for Level5 of the hierarchy assigned to the
-agent.
-
+**Level5**  
+Includes details for Level5 of the hierarchy assigned to the agent.  
 Type: `HierarchyGroup` object
 
 ## Proficiency
+<a name="proficiency-object"></a>
 
 The `Proficiency` object includes the following properties:
 
-**Name**
-
-The name of predefined attribute.
-
-Type: String
-
+**Name**  
+The name of predefined attribute.  
+Type: String  
 Length: 1-64
 
-**Value**
-
-The value of predefined attribute.
-
+**Value**  
+The value of predefined attribute.  
 Type: String
 
-**ProficiencyLevel**
-
-The proficiency level of the agent.
-
-Type: Float
-
+**ProficiencyLevel**  
+The proficiency level of the agent.  
+Type: Float  
 Valid values: 1.0, 2.0, 3.0, 4.0 and 5.0
 
 ## Queue object
+<a name="queue-object"></a>
 
 The `Queue` object includes the following properties:
 
-**ARN**
-
-The Amazon Resource Name (ARN) for the queue.
-
+**ARN**  
+The Amazon Resource Name (ARN) for the queue.  
 Type: String
 
-**Name**
-
-The name of the queue.
-
+**Name**  
+The name of the queue.  
 Type: String
 
-**Channels**
-
-The type of communication channel.
-
+**Channels**  
+The type of communication channel.  
 Type: List of Channel objects
 
 ## RoutingProfile object
+<a name="routingprofile"></a>
 
 The `RoutingProfile` object includes the following properties:
 
-**ARN**
-
-The Amazon Resource Name (ARN) for the agent's routing profile.
-
+**ARN**  
+The Amazon Resource Name (ARN) for the agent's routing profile.  
 Type: String
 
-**Name**
-
-The name of the routing profile.
-
+**Name**  
+The name of the routing profile.  
 Type: String
 
-**InboundQueues**
-
-The `Queue` objects associated with the agent's routing
-profile.
-
+**InboundQueues**  
+The `Queue` objects associated with the agent's routing profile.  
 Type: List of `Queue` object
 
-**DefaultOutboundQueue**
-
-The default outbound queue for the agent's routing profile.
-
+**DefaultOutboundQueue**  
+The default outbound queue for the agent's routing profile.  
 Type: `Queue` object
 
-**Concurrency**
-
-A list of concurrency information. Concurrency information objects
-have AvailableSlots (number), Channel (a channel object), and
-MaximumSlots (number) values.
+**Concurrency**  
+A list of concurrency information. Concurrency information objects have AvailableSlots (number), Channel (a channel object), and MaximumSlots (number) values.

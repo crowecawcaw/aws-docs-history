@@ -1,73 +1,45 @@
+
+
 # Apply granular access control to historical metrics reports in Connect Customer
+<a name="hm-tag-based-access-control"></a>
 
-You can use resource tags and access control tags to apply granular access to
-users, queues, and routing profiles for historical metrics. For example, you can
-control who has access to view specific users, queues, and routing profile
-historical metrics.
+You can use resource tags and access control tags to apply granular access to users, queues, and routing profiles for historical metrics. For example, you can control who has access to view specific users, queues, and routing profile historical metrics. 
 
-Connect Customer also supports tag-based access controls for real-time metrics, agent
-activity audit, dashboards and the login/logout report. For more information, see
-[Apply tag-based access controls to dashboards and reports in Connect Customer](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md").
 
-With tag-based access controls, you can configure granular access to specific
-resources based on assigned resource tags. You can configure tag-based access
-controls by using the API or the Connect Customer admin website for supported resources. You must configure
-resource tags and access control tags before tag-based access control is applied to
-users, queues, and routing profiles for real-time metrics. For more information, see
-[Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
+
+Connect Customer also supports tag-based access controls for real-time metrics, agent activity audit, dashboards and the login/logout report. For more information, see [Apply tag-based access controls to dashboards and reports in Connect Customer](dashboard-tag-based-access-control.md).
+
+With tag-based access controls, you can configure granular access to specific resources based on assigned resource tags. You can configure tag-based access controls by using the API or the Connect Customer admin website for supported resources. You must configure resource tags and access control tags before tag-based access control is applied to users, queues, and routing profiles for real-time metrics. For more information, see [Add tags to resources in Connect Customer](tagging.md) and [Apply tag-based access control in Connect Customer](tag-based-access-control.md).
 
 ## How to enable tag-based access control for historical metrics reports
+<a name="hm-enable-tag-based-access-control"></a>
 
-To apply tags to control access to users, queues, and routing profiles metrics
-in historical metrics reports:
+To apply tags to control access to users, queues, and routing profiles metrics in historical metrics reports:
 
-1. Apply tags to the resources that you're going use in the historical
-   metrics report, such as users, queues, and routing profiles. For more
-   information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
-2. You need to be assigned to a security profile that specifically grants
-   you access to the resources that have been tagged. On the Security
-   profiles page, choose **Show advanced** options to
-   assign these permissions.
-3. In addition, you need the one of following permissions to view the
-   historical metrics reports:
+1. Apply tags to the resources that you're going use in the historical metrics report, such as users, queues, and routing profiles. For more information, see [Add tags to resources in Connect Customer](tagging.md). 
 
-   - **Analytics and Optimization - Access metrics -
-     Access**: If you choose this option, access is also
-     granted to Real-time metrics, Historical metrics, Agent activity
-     audit, and Dashboards. This means you are granting users
-     permission see all data for Dashboards where tag-based access
-     controls are not currently applied.
-     OR
+1. You need to be assigned to a security profile that specifically grants you access to the resources that have been tagged. On the Security profiles page, choose **Show advanced** options to assign these permissions.
 
-   - **Analytics and Optimization - Historical metrics -
-     Access**
+1. In addition, you need the one of following permissions to view the historical metrics reports: 
+   + **Analytics and Optimization - Access metrics - Access**: If you choose this option, access is also granted to Real-time metrics, Historical metrics, Agent activity audit, and Dashboards. This means you are granting users permission see all data for Dashboards where tag-based access controls are not currently applied.
+
+   OR
+   + **Analytics and Optimization - Historical metrics - Access**
 
 ## Limitations
+<a name="hm-acl-limitations"></a>
 
-The following limitations apply when you use tag-based access controls with
-historical metrics:
-
-- You can only filter and group by the same resource (user, queue, or
-  routing profile). For example, you cannot filter by queue for an agent
-  grouping and you cannot group by queue and routing profile. The only
-  additional grouping you can do is channel (for example, Group by queue
-  and channel).
-- You can filter for 500 resources per report.
-- You can't group by agent hierarchy, phone numbers, or email address.
-  You can't filter by agent hierarchy, phone numbers, email address, or
-  agent queues.
+The following limitations apply when you use tag-based access controls with historical metrics:
++ You can only filter and group by the same resource (user, queue, or routing profile). For example, you cannot filter by queue for an agent grouping and you cannot group by queue and routing profile. The only additional grouping you can do is channel (for example, Group by queue and channel).
++ You can filter for 500 resources per report.
++ You can't group by agent hierarchy, phone numbers, or email address. You can't filter by agent hierarchy, phone numbers, email address, or agent queues. 
 
 ## How to transition to tag-based access control
+<a name="hm-acl-transition"></a>
 
-If you open a saved report containing tables with users, queues, or routing
-profiles that you don't have access to anymore due to tag-based access control,
-or if groupings or non-primary filters are applied to tables, you won't see data
-in those tables.
+If you open a saved report containing tables with users, queues, or routing profiles that you don't have access to anymore due to tag-based access control, or if groupings or non-primary filters are applied to tables, you won't see data in those tables. 
 
 To view the data, perform one of the following steps:
-
-- Edit your table filters to include the agents, queues, or routing
-  profiles that you have access to.
-- Create a new report that includes the resources you have access
-  to.
-- Remove the groupings and non-primary filters from the table.
++ Edit your table filters to include the agents, queues, or routing profiles that you have access to.
++ Create a new report that includes the resources you have access to.
++ Remove the groupings and non-primary filters from the table.

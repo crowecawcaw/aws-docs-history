@@ -1,22 +1,17 @@
+
+
 # Accessibility compliance
+<a name="accessibility-compliance"></a>
 
-We strive to provide an accessible user interface for Connect Customer. See the accessibility
-compliance reports (ACR) that are regularly published in [AWS Artifact](https://aws.amazon.com/artifact/ "https://aws.amazon.com/artifact/"). For more information, see
-[Getting
-started with AWS Artifact](../../../artifact/latest/ug/getting-started.md "../../../artifact/latest/ug/getting-started.md")
+We strive to provide an accessible user interface for Connect Customer. See the accessibility compliance reports (ACR) that are regularly published in [AWS Artifact](https://aws.amazon.com/artifact/). For more information, see [Getting started with AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/getting-started.html) 
 
-For information about AWS compliance programs, see [Compliance validation in Connect Customer](compliance-validation.md "compliance-validation.md").
+For information about AWS compliance programs, see [Compliance validation in Connect Customer](compliance-validation.md).
 
 ## Screen readers supported in Connect Customer
+<a name="supported-screen-readers"></a>
 
-Screen readers can be used optionally by people who have difficulties seeing
-websites or applications. For example, people who are blind or who have very limited
-vision might want to use a screen reader. To learn about three popular screen readers,
-all supported by Connect Customer, see the following websites:
+Screen readers can be used optionally by people who have difficulties seeing websites or applications. For example, people who are blind or who have very limited vision might want to use a screen reader. To learn about three popular screen readers, all supported by Connect Customer, see the following websites:
++  [JAWS](https://www.freedomscientific.com/products/software/jaws/)
++ [NVDA](https://www.nvaccess.org/download/)
 
-- [JAWS](https://www.freedomscientific.com/products/software/jaws/ "https://www.freedomscientific.com/products/software/jaws/")
-- [NVDA](https://www.nvaccess.org/download/ "https://www.nvaccess.org/download/")
-
-If you use an Apple device, another option is to use VoiceOver. No download is
-required. On an Apple device, go to **Settings**,
-**Accessibility**, **VoiceOver**.
+If you use an Apple device, another option is to use VoiceOver. No download is required. On an Apple device, go to **Settings**, **Accessibility**, **VoiceOver**.

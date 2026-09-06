@@ -1,28 +1,28 @@
+
+
 # Sample agent event stream in Connect Customer
+<a name="sample-agent-event-stream"></a>
 
-In the following sample agent event stream, the agent is assigned to a routing profile
-that requires them to take both chats and calls. They can take one call, and up to three
-chats at a time.
+In the following sample agent event stream, the agent is assigned to a routing profile that requires them to take both chats and calls. They can take one call, and up to three chats at a time. 
 
-###### Note
-
-For how many chats and tasks an agent can take concurrently, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+**Note**  
+For how many chats and tasks an agent can take concurrently, see [Connect Customer service quotas](amazon-connect-service-limits.md).
 
 ```
 {
     "AWSAccountId": "012345678901",
     "AgentARN": "arn:aws:connect:us-west-2:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/agent/agent-ARN",
-    "CurrentAgentSnapshot":
+    "CurrentAgentSnapshot": 
       {
     "AgentStatus": {
-            "ARN": "example-ARN", //**The ARN for the agent's current agent status (not for the agent).**
-            "Name": "Available",  //**This shows the agent status in the CCP is set to Available.**
+            "ARN": "example-ARN", //The ARN for the agent's current agent status (not for the agent).
+            "Name": "Available",  //This shows the agent status in the CCP is set to Available. 
             "StartTimestamp": "2019-08-13T20:52:30.704Z"
         },
      "NextAgentStatus": {
-            "Name": "Lunch", //**They set their next status, which pauses new contacts being routed to them while they finish their current contacts.**
-            "ARN": "example-ARN2",  //**The ARN of the agent status that the agent has set as their next status.**
-            "EnqueuedTimestamp": "2019-08-13T20:58:00.004Z",   //**When the agent set their next status and paused routing of incoming contacts.**
+            "Name": "Lunch", //They set their next status, which pauses new contacts being routed to them while they finish their current contacts.
+            "ARN": "example-ARN2",  //The ARN of the agent status that the agent has set as their next status. 
+            "EnqueuedTimestamp": "2019-08-13T20:58:00.004Z",   //When the agent set their next status and paused routing of incoming contacts.
         }
       } ,
         "Configuration": {
@@ -42,23 +42,23 @@ For how many chats and tasks an agent can take concurrently, see [Connect Custom
                 "ARN": "arn:aws:connect:us-west-2:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/routing-profile/routing-profile-ARN",
                 "Concurrency": [
                     {
-                        "AvailableSlots": 3, //**This shows the agent has 3 slots available.**
-                                            //**They aren't on any chats right now.**
+                        "AvailableSlots": 3, //This shows the agent has 3 slots available. 
+                                            //They aren't on any chats right now.
                         "Channel": "CHAT",
-                        "MaximumSlots": 3  //**The agent's routing profile allows them to take up to 3 chats.**
+                        "MaximumSlots": 3  //The agent's routing profile allows them to take up to 3 chats.
                     },
                     {
-                        "AvailableSlots": 1, //**The agent has 1 slot available to take a call.**
+                        "AvailableSlots": 1, //The agent has 1 slot available to take a call.
                         "Channel": "VOICE",
-                        "MaximumSlots": 1  //**The agent's routing profile allows them to take 1 call at a time.**
+                        "MaximumSlots": 1  //The agent's routing profile allows them to take 1 call at a time.
                     }
                 ],
                 "DefaultOutboundQueue": {
                     "ARN": "arn:aws:connect:us-west-2:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/queue/queue-ARN",
                     "Channels": [
-                        "VOICE"  //**This outbound queue only works for calls.**
+                        "VOICE"  //This outbound queue only works for calls. 
                     ],
-                    "Name": "OutboundQueue"
+                    "Name": "OutboundQueue"  
                 },
                 "InboundQueues": [
                     {
@@ -67,8 +67,8 @@ For how many chats and tasks an agent can take concurrently, see [Connect Custom
                             "VOICE",
                             "CHAT"
                         ],
-                        "Name": null  //**This queue has a name of "null" because it's an agent queue,**
-                                      //**and agent queues don't have names.**
+                        "Name": null  //This queue has a name of "null" because it's an agent queue, 
+                                      //and agent queues don't have names.
                     },
                     {
                         "ARN": "arn:aws:connect:us-west-2:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/queue/queue-ARN",
@@ -76,7 +76,7 @@ For how many chats and tasks an agent can take concurrently, see [Connect Custom
                             "CHAT",
                             "VOICE"
                         ],
-                        "Name": "Omni-channel-queue" //**This inbound queue takes both chats and calls.**
+                        "Name": "Omni-channel-queue" //This inbound queue takes both chats and calls. 
                     }
                 ],
                 "Name": "AgentEventStreamProfile"

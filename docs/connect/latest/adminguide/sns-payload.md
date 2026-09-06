@@ -1,56 +1,39 @@
+
+
 # Use the Amazon SNS payload after enabling message streaming in Connect Customer
+<a name="sns-payload"></a>
 
-After you’ve enabled message streaming successfully, you might need to filter the
-message to send it to the intended participant: agent, customer, or all.
+After you’ve enabled message streaming successfully, you might need to filter the message to send it to the intended participant: agent, customer, or all.
 
-To filter by participant, read the specific SNS headers attribute—
-`MessageVisibility`—to determine whether the message is intended
-for customer-only, agent-only, or all.
+To filter by participant, read the specific SNS headers attribute— `MessageVisibility`—to determine whether the message is intended for customer-only, agent-only, or all. 
++ To send to the customer only: For all code that faces the customer, clients need to filter out messages intended for the customer and build the following logic for forwarding the message to them.
 
-- To send to the customer only: For all code that faces the customer, clients
-  need to filter out messages intended for the customer and build the following
-  logic for forwarding the message to them.
+  ```
+  if ( ( MessageVisibility == CUSTOMER || MessageVisibility == ALL)  && ParticipantRole != CUSTOMER )
+  ```
++ To send to the agent only:
 
-```
-if ( ( MessageVisibility == CUSTOMER || MessageVisibility == ALL)  && ParticipantRole != CUSTOMER )
-```
+  ```
+  if ( ( MessageVisibility == AGENT || MessageVisibility == ALL)  && ParticipantRole != AGENT )
+  ```
 
-- To send to the agent only:
-
-```
-if ( ( MessageVisibility == AGENT || MessageVisibility == ALL)  && ParticipantRole != AGENT )
-```
-
-You can also use the filtering capability in Amazon SNS by building custom [subscription filtering policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md"). This offloads the message filtering logic
-from the SNS topic subscriber to the SNS service itself.
+You can also use the filtering capability in Amazon SNS by building custom [subscription filtering policies](https://docs.aws.amazon.com/sns/latest/dg/sns-subscription-filter-policies.html). This offloads the message filtering logic from the SNS topic subscriber to the SNS service itself.
 
 ## Message attributes in the payload
+<a name="sns-message-attributes"></a>
 
 Following is a description of each message attribute in the Amazon SNS payload:
-
-- `InitialContactId`: The initial contact ID of the chat.
-- `ContactId`: The current contact ID of the chat. The
-  `InitialContactId` and `ContactId` can differ if
-  there has been new agent in the chat or the queue-to-queue contact
-  flow.
-- `ParticipantRole`: The participant who sent the message.
-- `InstanceId`: The Connect Customer instance ID.
-- `AccountId`: The AWS account ID.
-- `Type`: Possible values: `EVENT`,
-  `MESSAGE`.
-- `ContentType`: Possible values:
-  `application/vnd.amazonaws.connect.event.typing`,
-  `application/vnd.amazonaws.connect.event.participant.joined`,
-  `application/vnd.amazonaws.connect.event.participant.left`,
-  `application/vnd.amazonaws.connect.event.transfer.succeeded`,
-  `application/vnd.amazonaws.connect.event.transfer.failed`,
-  `application/vnd.amazonaws.connect.message.interactive`,
-  `application/vnd.amazonaws.connect.event.chat.ended`, and
-  more.
-- `MessageVisibility`: Possible values: `AGENT`,
-  `CUSTOMER`, `ALL`.
++ `InitialContactId`: The initial contact ID of the chat.
++ `ContactId`: The current contact ID of the chat. The `InitialContactId` and `ContactId` can differ if there has been new agent in the chat or the queue-to-queue contact flow.
++ `ParticipantRole`: The participant who sent the message.
++ `InstanceId`: The Connect Customer instance ID.
++ `AccountId`: The AWS account ID.
++ `Type`: Possible values: `EVENT`, `MESSAGE`.
++ `ContentType`: Possible values: `application/vnd.amazonaws.connect.event.typing`, `application/vnd.amazonaws.connect.event.participant.joined`, `application/vnd.amazonaws.connect.event.participant.left`, `application/vnd.amazonaws.connect.event.transfer.succeeded`, `application/vnd.amazonaws.connect.event.transfer.failed`, `application/vnd.amazonaws.connect.message.interactive`, `application/vnd.amazonaws.connect.event.chat.ended`, and more. 
++ `MessageVisibility`: Possible values: `AGENT`, `CUSTOMER`, `ALL`.
 
 ## Example SNS payload
+<a name="sns-message-payload"></a>
 
 ```
 {

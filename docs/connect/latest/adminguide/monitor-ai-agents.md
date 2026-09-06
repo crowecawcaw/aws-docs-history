@@ -1,228 +1,194 @@
-# Monitor AI agents using CloudWatch
 
-To gain visibility into the real-time recommendations that AI agents provide to your
-agents, and the customer intents they detect through natural language understanding, you
-can query CloudWatch Logs. CloudWatch Logs give you visibility into the entire contact journey: the
-conversation, triggers, intents, recommendations. You can also use this information for
-debugging, or provide it to Support when you contact them for help.
+
+# Monitor AI agents using CloudWatch
+<a name="monitor-ai-agents"></a>
+
+To gain visibility into the real-time recommendations that AI agents provide to your agents, and the customer intents they detect through natural language understanding, you can query CloudWatch Logs. CloudWatch Logs give you visibility into the entire contact journey: the conversation, triggers, intents, recommendations. You can also use this information for debugging, or provide it to Support when you contact them for help.
 
 This topic explains how to enable logging for AI agents.
 
-###### Contents
-
-- [Required IAM
-  permissions](#permissions-cw-q "#permissions-cw-q")
-- [Enable logging](#enable-assistant-logging "#enable-assistant-logging")
-- [Supported log
-  types](#supported-log-types-q "#supported-log-types-q")
-- [Check for CloudWatch Logs quotas](#cwl-quotas "#cwl-quotas")
-- [Documenting CloudWatch Events by using Interactive Handler](#documenting-cw-events-ih "#documenting-cw-events-ih")
-- [Examples of common queries to
-  debug assistant logs](#example2-assistant-log "#example2-assistant-log")
+**Topics**
++ [Required IAM permissions](#permissions-cw-q)
++ [Enable logging](#enable-assistant-logging)
++ [Supported log types](#supported-log-types-q)
++ [Check for CloudWatch Logs quotas](#cwl-quotas)
++ [Documenting CloudWatch Events by using Interactive Handler](#documenting-cw-events-ih)
++ [Examples of common queries to debug assistant logs](#example2-assistant-log)
 
 ## Required IAM permissions
+<a name="permissions-cw-q"></a>
 
-Before you enable logging for a Connect assistant, check that you have the
-following AWS Identity and Access Management permissions. They are required for the user account that is
-signed into the Connect Customer console:
+Before you enable logging for a Connect assistant, check that you have the following AWS Identity and Access Management permissions. They are required for the user account that is signed into the Connect Customer console:
++ `wisdom:AllowVendedLogDeliveryForResource`: Required to allow logs to be delivered for the assistant resource. 
 
-- `wisdom:AllowVendedLogDeliveryForResource`: Required to allow
-  logs to be delivered for the assistant resource.
-
-To view an example IAM role with all the required permissions for your specific
-logging destination, see [Logging that requires additional permissions [V2]](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-vended-logs-permissions-V2 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-vended-logs-permissions-V2"). That topic contains
-examples for different logging destinations, such as logs sent to CloudWatch Logs and logs
-sent to Amazon S3 The examples show how to allow updates to your specific logging
-destination resource.
+To view an example IAM role with all the required permissions for your specific logging destination, see [Logging that requires additional permissions [V2]](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2). That topic contains examples for different logging destinations, such as logs sent to CloudWatch Logs and logs sent to Amazon S3 The examples show how to allow updates to your specific logging destination resource.
 
 ## Enable logging for AI agents
+<a name="enable-assistant-logging"></a>
 
-To enable logging for AI agents, you use the CloudWatch API. Complete the following steps.
+To enable logging for AI agents, you use the CloudWatch API. Complete the following steps. 
 
-1. Get the ARN of your _assistant_ (also known as
-   its [domain](ai-agent-initial-setup.md#ai-agent-requirements "ai-agent-initial-setup.md#ai-agent-requirements")). After you [create an assistant](ai-agent-initial-setup.md#enable-ai-agents-step1 "ai-agent-initial-setup.md#enable-ai-agents-step1"), you can obtain it's
-   ARN from the Connect Customer console or by calling the [GetAssistant](../APIReference/API_amazon-q-connect_GetAssistant.md "../APIReference/API_amazon-q-connect_GetAssistant.md") API. The ARN follows this format:
+1. Get the ARN of your *assistant* (also known as its [*domain*](ai-agent-initial-setup.md#ai-agent-requirements)). After you [create an assistant](ai-agent-initial-setup.md#enable-ai-agents-step1), you can obtain it's ARN from the Connect Customer console or by calling the [GetAssistant](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_GetAssistant.html) API. The ARN follows this format: 
 
-`arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant-id`` 2. Call [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md"): Use this CloudWatch API to create a delivery
-source for the assistant. Pass the ARN of the assistant as the
-`resourceArn`. For `logType`, specify
-`EVENT_LOGS` to collect logs from your assistant.
+   `arn:aws:wisdom:your-region:your-account-id:assistant/assistant-id`
 
-```
-{
-"logType": "EVENT_LOGS",
-"name": "`your-assistant-delivery-source`",
-"resourceArn": "arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant_id`
-}
-```
+1. Call [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html): Use this CloudWatch API to create a delivery source for the assistant. Pass the ARN of the assistant as the `resourceArn`. For `logType`, specify `EVENT_LOGS` to collect logs from your assistant.
 
-3. Call [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md"): Use this CloudWatch API to configure where
-   the logs are to be stored. You can choose CloudWatch Logs, Amazon S3, or Amazon Data Firehose as the
-   destination for storing logs. You must specify the ARN of one of the
-   destination options for where your logs are to be stored. You can choose the
-   `outputFormat` of the logs to be one of the following:
-   `json`, `plain`, `w3c`,
-   `raw`, `parquet`.
+   ```
+   {
+   "logType": "EVENT_LOGS",
+   "name": "{{your-assistant-delivery-source}}",
+   "resourceArn": "arn:aws:wisdom:{{your-region}}:{{your-account-id}}:assistant/{{assistant_id}}
+   }
+   ```
 
-The following example shows how to configure logs to be stored in an
-Amazon CloudWatch Logs Group and in JSON format.
+1. Call [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html): Use this CloudWatch API to configure where the logs are to be stored. You can choose CloudWatch Logs, Amazon S3, or Amazon Data Firehose as the destination for storing logs. You must specify the ARN of one of the destination options for where your logs are to be stored. You can choose the `outputFormat` of the logs to be one of the following: `json`, `plain`, `w3c`, `raw`, `parquet`. 
 
-```
-{
-"deliveryDestinationConfiguration": {
-    "destinationResourceArn": "arn:aws:logs:`your-region`:`your-account-id`:log-group:`your-log-group-name`:*"
-},
-"name": "string",
-"outputFormat": "json",
-"tags": {
-    "key": "value"
-}
-}
-```
+   The following example shows how to configure logs to be stored in an Amazon CloudWatch Logs Group and in JSON format.
 
-4. Call [CreateDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md"): Use this CloudWatch API to link the delivery source
-   to the delivery destination that you created in the previous steps. This API
-   operation associates the delivery source with the end destination.
+   ```
+   {
+   "deliveryDestinationConfiguration": {
+       "destinationResourceArn": "arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*"
+   },
+   "name": "string",
+   "outputFormat": "json",
+   "tags": {
+       "key": "value"
+   }
+   }
+   ```
 
-```
-{
-"deliveryDestinationArn": "string",
-"deliverySourceName": "string",
-"tags": {
-    "string": "string"
-}
-}
-```
+1. Call [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html): Use this CloudWatch API to link the delivery source to the delivery destination that you created in the previous steps. This API operation associates the delivery source with the end destination.
 
-The following example shows how to run the previous steps as a sequence of AWS CLI
-commands. This example enables event logging for an assistant and sends the logs to a
-Amazon CloudWatch Logs log group. Run the commands in order, and replace each
-`value` with your own resource names and ARNs.
+   ```
+   {
+   "deliveryDestinationArn": "string",
+   "deliverySourceName": "string",
+   "tags": {
+       "string": "string"
+   }
+   }
+   ```
 
-1. Create a delivery source for the assistant. Use the assistant ARN as the
-   resource ARN, and specify `EVENT_LOGS` as the log type.
+The following example shows how to run the previous steps as a sequence of AWS CLI commands. This example enables event logging for an assistant and sends the logs to a Amazon CloudWatch Logs log group. Run the commands in order, and replace each {{value}} with your own resource names and ARNs.
 
-```
-aws logs put-delivery-source \
-    --name `your-assistant-delivery-source` \
-    --resource-arn arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant-id` \
-    --log-type EVENT_LOGS
-```
+1. Create a delivery source for the assistant. Use the assistant ARN as the resource ARN, and specify `EVENT_LOGS` as the log type.
 
-2. Create a delivery destination that points to your log group. To send logs to
-   Amazon S3 or Amazon Data Firehose instead, specify that resource ARN.
+   ```
+   aws logs put-delivery-source \
+       --name {{your-assistant-delivery-source}} \
+       --resource-arn arn:aws:wisdom:{{your-region}}:{{your-account-id}}:assistant/{{assistant-id}} \
+       --log-type EVENT_LOGS
+   ```
 
-```
-aws logs put-delivery-destination \
-    --name `your-delivery-destination` \
-    --delivery-destination-configuration "destinationResourceArn=arn:aws:logs:`your-region`:`your-account-id`:log-group:`your-log-group-name`" \
-    --output-format json
-```
+1. Create a delivery destination that points to your log group. To send logs to Amazon S3 or Amazon Data Firehose instead, specify that resource ARN.
 
-3. Link the delivery source to the delivery destination. Use the destination ARN
-   that the previous command returns.
+   ```
+   aws logs put-delivery-destination \
+       --name {{your-delivery-destination}} \
+       --delivery-destination-configuration "destinationResourceArn=arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}" \
+       --output-format json
+   ```
 
-```
-aws logs create-delivery \
-    --delivery-source-name `your-assistant-delivery-source` \
-    --delivery-destination-arn arn:aws:logs:`your-region`:`your-account-id`:delivery-destination:`your-delivery-destination`
-```
+1. Link the delivery source to the delivery destination. Use the destination ARN that the previous command returns.
 
-After you create the delivery, you can view logged events in your log group. To
-confirm that logging works, generate assistant activity, and then query the log group as
-described in [Examples of common queries to
-debug assistant logs](#example2-assistant-log "#example2-assistant-log").
+   ```
+   aws logs create-delivery \
+       --delivery-source-name {{your-assistant-delivery-source}} \
+       --delivery-destination-arn arn:aws:logs:{{your-region}}:{{your-account-id}}:delivery-destination:{{your-delivery-destination}}
+   ```
+
+After you create the delivery, you can view logged events in your log group. To confirm that logging works, generate assistant activity, and then query the log group as described in [Examples of common queries to debug assistant logs](#example2-assistant-log).
 
 ## Supported log types
+<a name="supported-log-types-q"></a>
 
 AI agents support the following log type:
-
-- `EVENT_LOGS`: Logs that track event of an Connect assistant
-  during calls, chats, tasks, and emails.
++ `EVENT_LOGS`: Logs that track event of an Connect assistant during calls, chats, tasks, and emails.
 
 ## Check for CloudWatch Logs quotas
+<a name="cwl-quotas"></a>
 
-We recommend checking [Amazon CloudWatch Logs endpoints and quotas](../../../general/latest/gr/cwl_region.md "../../../general/latest/gr/cwl_region.md")
-to see whether there are any quotas for making CloudWatch Logs delivery-related API calls.
-Quotas set a maximum number of times you can call an API or create a resource.
-Exceeding the limit results in a `ServiceQuotaExceededException`
-error.
+We recommend checking [Amazon CloudWatch Logs endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/cwl_region.html) to see whether there are any quotas for making CloudWatch Logs delivery-related API calls. Quotas set a maximum number of times you can call an API or create a resource. Exceeding the limit results in a `ServiceQuotaExceededException` error.
 
 ## Documenting CloudWatch Events by using Interactive Handler
+<a name="documenting-cw-events-ih"></a>
 
 ### Event Type Definitions
+<a name="event-type-definitions"></a>
 
-The following table describes each event type. Note that different event types
-contain different fields. Refer to the [Field Definitions](#field-definitions "#field-definitions") section for detailed information about
-each field.
+The following table describes each event type. Note that different event types contain different fields. Refer to the [Field Definitions](#field-definitions) section for detailed information about each field.
 
-| EventType                                         | Definition                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TRANSCRIPT\_CREATE\_SESSION                       | Logged when a new AI agents session is created.<br>This marks the beginning of a conversation.                                                                                                                                                                              |
-| TRANSCRIPT\_INTENT\_TRIGGERING\_REFERENCE         | Logged when a specific customer intent is detected in the<br>conversation, which might trigger automated responses or<br>workflows.                                                                                                                                         |
-| TRANSCRIPT\_LARGE\_LANGUAGE\_MODEL\_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM.                                                                                                            |
-| TRANSCRIPT\_QUERY\_ASSISTANT                      | Logged when one of the following AI agents is invoked:<br>AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer,<br>EmailOverview, EmailResponse, ManualSearch, NoteTaking.                                                                                        |
-| TRANSCRIPT\_RECOMMENDATION                        | Logged when the system provides a recommendation to an agent<br>or customer, which might include knowledge articles, generated<br>responses, or suggested actions.                                                                                                          |
-| TRANSCRIPT\_RESULT\_FEEDBACK                      | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                                                                                                                               |
-| TRANSCRIPT\_SELF\_SERVICE\_MESSAGE                | Logged when a customer interacts with a SelfService AI agent                                                                                                                                                                                                                |
-| TRANSCRIPT\_SESSION\_POLLED                       | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                                                                                                                              |
-| TRANSCRIPT\_TRIGGER\_DETECTION\_MODEL\_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                                                                                                                            |
-| TRANSCRIPT\_UTTERANCE                             | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                                                                                                                                         |
-| TRANSCRIPT\_ORCHESTRATION\_MESSAGE                | Logged for each step within an orchestration loop, including<br>the initial customer message, bot text responses, reasoning,<br>tool use requests, and tool results. Captures the full detail<br>of multi-turn agentic reasoning performed by an Orchestration<br>AI agent. |
-| TRANSCRIPT\_ORCHESTRATION\_ERROR                  | Logged when an error occurs during orchestration, such as<br>exceeding the maximum number of orchestration iterations,<br>system capacity constraints, or a general orchestration<br>failure.                                                                               |
-| TRANSCRIPT\_AI\_AGENT\_TRACE                      | Logged for each execution span during AI agent orchestration,<br>capturing detailed traces including LLM configuration, token usage,<br>messages, and guardrail assessment results.                                                                                         |
+
+| EventType | Definition | 
+| --- | --- | 
+| TRANSCRIPT\_CREATE\_SESSION | Logged when a new AI agents session is created. This marks the beginning of a conversation. | 
+| TRANSCRIPT\_INTENT\_TRIGGERING\_REFERENCE | Logged when a specific customer intent is detected in the conversation, which might trigger automated responses or workflows. | 
+| TRANSCRIPT\_LARGE\_LANGUAGE\_MODEL\_INVOCATION | Logged when a large language model (LLM) is invoked to generate responses or process conversation content. Records the inputs to and outputs from the LLM. | 
+| TRANSCRIPT\_QUERY\_ASSISTANT | Logged when one of the following AI agents is invoked: AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer, EmailOverview, EmailResponse, ManualSearch, NoteTaking. | 
+| TRANSCRIPT\_RECOMMENDATION | Logged when the system provides a recommendation to an agent or customer, which might include knowledge articles, generated responses, or suggested actions. | 
+| TRANSCRIPT\_RESULT\_FEEDBACK | Logged when feedback is provided about a search or query result's usefulness or relevance. | 
+| TRANSCRIPT\_SELF\_SERVICE\_MESSAGE | Logged when a customer interacts with a SelfService AI agent | 
+| TRANSCRIPT\_SESSION\_POLLED | Logged when the system detects an agent is connected to a session (A session is polled when a GetRecommendations API call has been made) | 
+| TRANSCRIPT\_TRIGGER\_DETECTION\_MODEL\_INVOCATION | Logged when the trigger detection model is invoked to determine if a conversation has intents | 
+| TRANSCRIPT\_UTTERANCE | Logged when a message is sent by any participant in the conversation, recording the actual conversation content. | 
+| TRANSCRIPT\_ORCHESTRATION\_MESSAGE | Logged for each step within an orchestration loop, including the initial customer message, bot text responses, reasoning, tool use requests, and tool results. Captures the full detail of multi-turn agentic reasoning performed by an Orchestration AI agent. | 
+| TRANSCRIPT\_ORCHESTRATION\_ERROR | Logged when an error occurs during orchestration, such as exceeding the maximum number of orchestration iterations, system capacity constraints, or a general orchestration failure. | 
+| TRANSCRIPT\_AI\_AGENT\_TRACE | Logged for each execution span during AI agent orchestration, capturing detailed traces including LLM configuration, token usage, messages, and guardrail assessment results. | 
 
 ### Field Definitions
+<a name="field-definitions"></a>
 
 The following table describes each field.
 
-| Field                               | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ai\_agent\_id                       | Unique identifier for the AI agent<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| assistant\_id                       | Unique identifier for the Connect assistant<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| completion                          | The raw completion text returned by the LLM or generated for<br>the message.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| connect\_user\_arn                  | Amazon Resource Name (ARN) of the Connect user accessing the<br>session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| event\_timestamp                    | Unix timestamp (in milliseconds) when the event<br>occurred.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| event\_type                         | Type of the event, indicating what action or process occurred<br>in the system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| generation\_id                      | Unique identifier for a specific AI-generated<br>response.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| intent                              | The intent text or description.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| intent\_clicked                     | Boolean indicating if the recommendation was triggered by a<br>clicked intent.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| intent\_id                          | Unique identifier for the detected intent.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| issue\_probability                  | Numerical probability (0.0–1.0) that an issue was detected in<br>the conversation (A probability greater than 0.5 will invoke<br>intent generation)                                                                                                                                                                                                                                                                                                                                                                                                    |
-| is\_recommendation\_useful          | Boolean indicating whether the user found the result<br>helpful.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| is\_valid\_trigger                  | Boolean indicating whether the detection model analysis<br>resulted in a valid trigger.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| model\_id                           | Identifier of the AI model used to invoke the LLM.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| parsed\_response                    | The processed/parsed version of the language model response,<br>often in structured format.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| prompt                              | The input prompt used to invoke the LLM.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| prompt\_type                        | Type of AI prompt used for processing the<br>message or query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| recommendation                      | The actual recommendation text content provided to the<br>user                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| recommendation\_id                  | Unique identifier for the recommendation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| response                            | The final response text generated for the user after<br>processing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| session\_event\_id                  | Unique identifier for a specific event within the<br>session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| session\_event\_ids                 | List of session event identifiers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| session\_id                         | Unique identifier for the AI agents session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| session\_message\_id                | Unique identifier for a self-service message within a<br>session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| session\_name                       | Name of the session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| utterance                           | The actual message text exchanged in the<br>conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| orchestration\_id                   | Unique identifier for the orchestration run. Corresponds to<br>the initial customer message ID that triggered<br>orchestration.                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| orchestration\_iteration            | The iteration number within the orchestration loop.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ai\_agent\_orchestration\_use\_case | The orchestrator use case, such as<br>`CONNECT_AGENT_ASSISTANCE` or<br>`CONNECT_SELF_SERVICE`.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| participant                         | The participant role for the message, such as<br>`CUSTOMER` or `BOT`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| values                              | JSON-serialized list of message values. Each entry has a<br>type: `text` (with a text value),<br>`tool_use` (with toolUseId, toolId, name, and<br>arguments), `tool_result` (with toolUseId, toolId,<br>name, values, and error), or `reasoning` (with a<br>text value).                                                                                                                                                                                                                                                                               |
-| guardrail\_blocked                  | Boolean indicating whether the response was blocked by an<br>AI guardrail.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| orchestration\_error                | JSON-serialized error details containing<br>`errorMessage` and an optional<br>`errorDetails` object (with<br>`estimatedInputTokens` and<br>`estimatedOutputTokens`).                                                                                                                                                                                                                                                                                                                                                                                   |
-| span                                | JSON-serialized map of the full span object. Each key is<br>snake\_case. Notable keys include<br>`input_messages` (conversation history sent to the<br>model), `output_messages` (model response messages),<br>`guardrail_assessments` (list of guardrail<br>evaluation results with `guardrailId`,<br>`guardrailName`, `source`,<br>`action`, and `policies`), and<br>`input_messages_truncated` (`"true"` when<br>input messages were truncated to fit the 256KB record limit).<br>Present only when `event_type` is<br>`TRANSCRIPT_AI_AGENT_TRACE`. |
+
+| Field | Definition | 
+| --- | --- | 
+| ai\_agent\_id | Unique identifier for the AI agent resource. | 
+| assistant\_id | Unique identifier for the Connect assistant resource. | 
+| completion | The raw completion text returned by the LLM or generated for the message. | 
+| connect\_user\_arn | Amazon Resource Name (ARN) of the Connect user accessing the session. | 
+| event\_timestamp | Unix timestamp (in milliseconds) when the event occurred. | 
+| event\_type | Type of the event, indicating what action or process occurred in the system. | 
+| generation\_id | Unique identifier for a specific AI-generated response. | 
+| intent | The intent text or description. | 
+| intent\_clicked | Boolean indicating if the recommendation was triggered by a clicked intent. | 
+| intent\_id | Unique identifier for the detected intent. | 
+| issue\_probability | Numerical probability (0.0–1.0) that an issue was detected in the conversation (A probability greater than 0.5 will invoke intent generation) | 
+| is\_recommendation\_useful | Boolean indicating whether the user found the result helpful. | 
+| is\_valid\_trigger | Boolean indicating whether the detection model analysis resulted in a valid trigger. | 
+| model\_id | Identifier of the AI model used to invoke the LLM. | 
+| parsed\_response | The processed/parsed version of the language model response, often in structured format. | 
+| prompt | The input prompt used to invoke the LLM. | 
+| prompt\_type | Type of AI prompt used for processing the message or query. | 
+| recommendation | The actual recommendation text content provided to the user | 
+| recommendation\_id | Unique identifier for the recommendation. | 
+| response | The final response text generated for the user after processing. | 
+| session\_event\_id | Unique identifier for a specific event within the session. | 
+| session\_event\_ids | List of session event identifiers. | 
+| session\_id | Unique identifier for the AI agents session. | 
+| session\_message\_id | Unique identifier for a self-service message within a session. | 
+| session\_name | Name of the session. | 
+| utterance | The actual message text exchanged in the conversation. | 
+| orchestration\_id | Unique identifier for the orchestration run. Corresponds to the initial customer message ID that triggered orchestration. | 
+| orchestration\_iteration | The iteration number within the orchestration loop. | 
+| ai\_agent\_orchestration\_use\_case | The orchestrator use case, such as CONNECT\_AGENT\_ASSISTANCE or CONNECT\_SELF\_SERVICE. | 
+| participant | The participant role for the message, such as CUSTOMER or BOT. | 
+| values | JSON-serialized list of message values. Each entry has a type: text (with a text value), tool\_use (with toolUseId, toolId, name, and arguments), tool\_result (with toolUseId, toolId, name, values, and error), or reasoning (with a text value). | 
+| guardrail\_blocked | Boolean indicating whether the response was blocked by an AI guardrail. | 
+| orchestration\_error | JSON-serialized error details containing errorMessage and an optional errorDetails object (with estimatedInputTokens and estimatedOutputTokens). | 
+| span | JSON-serialized map of the full span object. Each key is snake\_case. Notable keys include input\_messages (conversation history sent to the model), output\_messages (model response messages), guardrail\_assessments (list of guardrail evaluation results with guardrailId, guardrailName, source, action, and policies), and input\_messages\_truncated ("true" when input messages were truncated to fit the 256KB record limit). Present only when event\_type is TRANSCRIPT\_AI\_AGENT\_TRACE. | 
 
 ### Examples of assistant logs
+<a name="assistant-log-examples"></a>
 
-Below are examples of different event logs for each event type. Refer to the
-[Event Type Definitions](#event-type-definitions "#event-type-definitions") section for detailed explanations
-of each event type.
+Below are examples of different event logs for each event type. Refer to the [Event Type Definitions](#event-type-definitions) section for detailed explanations of each event type.
 
 #### CreateSession
+<a name="create-session-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173612,
@@ -230,13 +196,12 @@ of each event type.
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
 "session_name": "nabbccdd-9999-4b23-aaee-112233445566"
 }
-
 ```
 
 #### IntentTriggeringReference
+<a name="intent-triggering-reference-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173623,
@@ -245,15 +210,14 @@ of each event type.
 "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 #### LargeLanguageModelInvocation
+<a name="large-language-model-invocation-example"></a>
 
 Query Reformulation
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -269,13 +233,11 @@ Query Reformulation
 "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 Intent Detection
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -291,13 +253,11 @@ Intent Detection
 "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 Intent Answer Generation
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -313,13 +273,11 @@ Intent Answer Generation
 "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 Manual Search Generation
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -334,13 +292,12 @@ Manual Search Generation
 "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
 "session_id": "******************-*****************"
 }
-
 ```
 
 #### QueryAssistant
+<a name="query-assistant-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173667,
@@ -348,13 +305,12 @@ Manual Search Generation
 "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 #### Recommendation
+<a name="recommendation-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173656,
@@ -364,13 +320,12 @@ Manual Search Generation
 "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 #### ResultFeedback
+<a name="result-feedback-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173667,
@@ -379,13 +334,12 @@ Manual Search Generation
 "is_recommendation_useful": 1,
 "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff"
 }
-
 ```
 
 #### SelfServiceMessage
+<a name="self-service-message-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "completion": "{\"citations\":[{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":276,\"start\":0},\"text\":\"To autoscale Amazon DynamoDB...\"}}]}",
@@ -399,13 +353,12 @@ Manual Search Generation
 "session_message_id": "mdee1234-5678-4eab-9333-ffeebb998877",
 "utterance": "[Customer] How can I autoscale DyanmoDB?"
 }
-
 ```
 
 #### TranscriptSessionPolled
+<a name="transcript-session-polled-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "connect_user_arn": "arn:aws:connect:us-east-1:204585150770:instance/seaa9988-2233-4f44-8899-abcabcabcabc/agent/agbbccdd-9999-4b23-aaee-112233445566",
@@ -414,13 +367,12 @@ Manual Search Generation
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
 "session_name": "nabbccdd-9999-4b23-aaee-112233445566"
 }
-
 ```
 
 #### TriggerDetectionModelInvocation
+<a name="trigger-detection-model-invocation-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173634,
@@ -431,13 +383,12 @@ Manual Search Generation
 "session_event_ids": ["seaa9988-2233-4f44-8899-abcabcabcabc"],
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 #### Utterance
+<a name="utterance-example"></a>
 
 ```
-
 {
 "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
 "event_timestamp": 1729530173623,
@@ -446,15 +397,14 @@ Manual Search Generation
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
 "utterance": "[Customer] My laptop won't connect to WiFi after the recent update"
 }
-
 ```
 
 #### OrchestrationMessage
+<a name="orchestration-message-example"></a>
 
 Customer message
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -468,13 +418,11 @@ Customer message
 "session_message_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
 "values": "[{\"type\":\"text\",\"value\":\"How do I reset my password?\"}]"
 }
-
 ```
 
 Bot text response
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -490,13 +438,11 @@ Bot text response
 "session_message_id": "mfff1234-5678-4eab-9333-112233445566",
 "values": "[{\"type\":\"text\",\"value\":\"I can help you reset your password. Let me look up your account.\"}]"
 }
-
 ```
 
 Tool use
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -511,13 +457,11 @@ Tool use
 "session_message_id": "maaa2222-3333-4bbb-cccc-ddddeeeeffff",
 "values": "[{\"type\":\"tool_use\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"arguments\":{\"email\":\"customer@example.com\"}}]"
 }
-
 ```
 
 Tool result
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -532,13 +476,11 @@ Tool result
 "session_message_id": "mbbb3333-4444-5ccc-dddd-eeeeffff0000",
 "values": "[{\"type\":\"tool_result\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"values\":[{\"type\":\"text\",\"value\":\"Password reset email sent successfully.\"}],\"error\":null}]"
 }
-
 ```
 
 Reasoning
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -553,15 +495,14 @@ Reasoning
 "session_message_id": "mccc4444-5555-6ddd-eeee-ffff00001111",
 "values": "[{\"type\":\"reasoning\",\"value\":\"The password reset was successful. I should inform the customer and ask if they need further help.\"}]"
 }
-
 ```
 
 #### OrchestrationError
+<a name="orchestration-error-example"></a>
 
 Maximum orchestration iterations exceeded
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -574,13 +515,11 @@ Maximum orchestration iterations exceeded
 "orchestration_iteration": 9,
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 System capacity constraints
 
 ```
-
 {
 "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
 "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
@@ -593,15 +532,14 @@ System capacity constraints
 "orchestration_iteration": 3,
 "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
-
 ```
 
 #### AIAgentTrace
+<a name="ai-agent-trace-example"></a>
 
 Successful orchestration span (no guardrail intervention)
 
 ```
-
 {
 "timestamp": 1729530173612,
 "resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -646,13 +584,11 @@ Successful orchestration span (no guardrail intervention)
     "system_instructions": "[{\"messageId\":\"sys-1\",\"participant\":\"USER\",\"timestamp\":0,\"values\":[{\"text\":{\"value\":\"You are an AI assistant for contact center agents.\"}}]}]"
 }
 }
-
 ```
 
 Guardrail blocks output (topic policy violation)
 
 ```
-
 {
 "timestamp": 1729530173612,
 "resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -690,13 +626,11 @@ Guardrail blocks output (topic policy violation)
     "guardrail_assessments": "[{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"INPUT\",\"action\":\"NONE\"},{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"OUTPUT\",\"action\":\"BLOCKED\",\"policies\":[{\"policyType\":\"TOPIC\",\"action\":\"BLOCKED\",\"details\":\"Policy Circumvention\"}]}]"
 }
 }
-
 ```
 
 Truncated input messages (long conversation)
 
 ```
-
 {
 "timestamp": 1729530173612,
 "resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
@@ -727,18 +661,13 @@ Truncated input messages (long conversation)
     "guardrail_assessments": "[{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"INPUT\",\"action\":\"NONE\"},{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"OUTPUT\",\"action\":\"NONE\"}]"
 }
 }
-
 ```
 
 ## Examples of common queries to debug assistant logs
+<a name="example2-assistant-log"></a>
 
-You can interact with logs by using queries. For example, you can query for all
-events within a session by using `SESSION_NAME`.
+You can interact with logs by using queries. For example, you can query for all events within a session by using `SESSION_NAME`.
 
-Following are two common queries to return all the logs generated for a specific
-session.
-
-- `filter session_name =
- "`SessionName`"`
-- `filter session_id =
- "`SessionId`"`
+Following are two common queries to return all the logs generated for a specific session. 
++  `filter session_name = "{{SessionName}}"`
++ `filter session_id = "{{SessionId}}"`

@@ -1,30 +1,21 @@
+
+
 # Delete quick connects in the Connect Customer admin website
+<a name="quick-connects-delete"></a>
 
 There are two ways you can delete a quick connect:
++ Use the Connect Customer admin website. This topic provides instructions.
++ Use the [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) API.
 
-- Use the Connect Customer admin website. This topic provides instructions.
-- Use the [DeleteQuickConnect](../APIReference/API_DeleteQuickConnect.md "../APIReference/API_DeleteQuickConnect.md") API.
+**To delete a quick connect**
 
-###### To delete a quick connect
+1. Log in to your Connect Customer instance (https://{{instance name}}.my.connect.aws/) with an Admin account or a user account that has **Quick connects - Delete** permissions in its [security profile](connect-security-profiles.md). (To find the name of your instance, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md).)
 
-1. Log in to your Connect Customer instance (https://`instance
- name`.my.connect.aws/) with an Admin account or a user account
-   that has **Quick connects - Delete** permissions in its [security profile](connect-security-profiles.md "connect-security-profiles.md"). (To find the
-   name of your instance, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").)
-2. On the navigation menu, choose **Routing**, **Quick
-   connects**.
-3. Select the quick connect, and then choose the **Delete**
-   icon.
+1. On the navigation menu, choose **Routing**, **Quick connects**.
 
-If you don't see the delete option, check the following:
+1. Select the quick connect, and then choose the **Delete** icon. 
 
-    * You are using the latest Connect Customer user interface. The following image
-     shows a banner at the top of the **Quick connects**
-     page. Choose **Try it now** to use the latest Connect Customer
-     user interface.
-
-
-
-    ![A banner at the top of the quick connects page, the try it now button.](images/quick-connect-newinterface.png)
-    * You have **Quick connects - Delete** permission in
-     your security profile.
+   If you don't see the delete option, check the following:
+   + You are using the latest Connect Customer user interface. The following image shows a banner at the top of the **Quick connects** page. Choose **Try it now** to use the latest Connect Customer user interface.  
+![A banner at the top of the quick connects page, the try it now button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/quick-connect-newinterface.png)
+   + You have **Quick connects - Delete** permission in your security profile.

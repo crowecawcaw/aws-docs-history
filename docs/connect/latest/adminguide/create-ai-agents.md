@@ -1,156 +1,101 @@
-# Create AI agents in Connect Customer
 
-An _AI agent_ is a resource that configures and customizes
-the end-to-end AI agent experience. For example, the AI agent tells the AI Assistant how to
-handle a manual search: which AI prompts and AI guardrails it should use, and which
-locale to use for the response.
+
+# Create AI agents in Connect Customer
+<a name="create-ai-agents"></a>
+
+An *AI agent* is a resource that configures and customizes the end-to-end AI agent experience. For example, the AI agent tells the AI Assistant how to handle a manual search: which AI prompts and AI guardrails it should use, and which locale to use for the response. 
 
 Connect Customer provides the following out of the box system AI agents:
++ Orchestration
++ Answer Recommendation
++ Manual Search
++ Self Service
++ Email Response
++ Email Overview
++ Email Generative Answer
++ Note Taking
++ Agent Assistance
++ Case Summarization
 
-- Orchestration
-- Answer Recommendation
-- Manual Search
-- Self Service
-- Email Response
-- Email Overview
-- Email Generative Answer
-- Note Taking
-- Agent Assistance
-- Case Summarization
-  Each use case is configured to use a default AI system agent. This can also be customized.
+Each use case is configured to use a default AI system agent. This can also be customized. 
 
-For example, the following image shows an AI agents experience that is configured to use
-a customized AI agent for the Agent Assistance use case and uses the system
-default AI agents for the rest.
+For example, the following image shows an AI agents experience that is configured to use a customized AI agent for the Agent Assistance use case and uses the system default AI agents for the rest.
 
-![The default and custom AI agents specified for Connect Customer.](images/ai-agent-default.png)
+![The default and custom AI agents specified for Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-default.png)
+
+
 Here's how customized AI agents work:
-
-- You can override one or more of the system AI agents with your customized AI
-  agents.
-- Your customized AI agent then becomes default for the specified use
-  case.
-- When you create a customized AI agent, you can specify one or more of your own
-  customized AI prompts, and one guardrail.
-- Most use cases—**Answer recommendation**,
-  **Self service**, **Email response**, and
-  **Email generative answer**—support two types of AI
-  prompts. If you choose to create a new AI prompt for one type but not the other,
-  then the AI agent continues using the system default for the AI prompt you
-  didn't override. This way you can choose to override only specific parts of the
-  default agent assist experience.
++ You can override one or more of the system AI agents with your customized AI agents.
++ Your customized AI agent then becomes default for the specified use case.
++ When you create a customized AI agent, you can specify one or more of your own customized AI prompts, and one guardrail.
++ Most use cases—**Answer recommendation**, **Self service**, ** Email response**, and **Email generative answer**—support two types of AI prompts. If you choose to create a new AI prompt for one type but not the other, then the AI agent continues using the system default for the AI prompt you didn't override. This way you can choose to override only specific parts of the default agent assist experience.
 
 ## How to create AI agents
+<a name="howto-create-ai-agents"></a>
 
-1. Log in to the Connect Customer admin website at https://`instance
- name`.my.connect.aws/. Use an admin account, or an account with
-   **AI agent designer** - **AI agents** -
-   **Create** permission in it's security profile.
-2. On the navigation menu, choose **AI agent designer**, **AI
-   agents**.
-3. On the **AI Agents** page, choose **Create AI
-   Agent**.
-4. On the **Create AI Agent** dialog box, for **AI
-   Agent type**, use the dropdown box to choose from one of the
-   following types:
+1. Log in to the Connect Customer admin website at https://{{instance name}}.my.connect.aws/. Use an admin account, or an account with **AI agent designer** - **AI agents** - **Create** permission in it's security profile.
 
-   - **Orchestration**: An AI agent with agentic capabilities
-     that orchestrates different use cases per customer needs. It can engage in
-     multi-turn conversation and invoke pre-configured tools.
-     It uses the **Orchestration** type of AI prompt.
-   - **Answer recommendation**: An AI agent that
-     drives the automatic intent-based recommendations that are pushed to
-     agents when they engage in a contact with customers. It uses the
-     following types of AI prompt:
+1. On the navigation menu, choose **AI agent designer**, **AI agents**.
 
-     - **Intent labelling generation** AI prompt
-       to generate the intents for the customer service agent to
-       choose as a first step.
-     - **Query reformulation** AI prompt after
-       an intent has been chosen. It uses this prompt to formulate
-       an appropriate query which is then used to fetch relevant
-       knowledge base excerpts.
-     - **Answer generation**, the generated
-       query and excerpts are fed into this prompt using the
-       `$.query` and `$.contentExcerpt`
-       variables respectively.
+1. On the **AI Agents** page, choose **Create AI Agent**. 
 
-   - **Manual search**: An AI agent that produces
-     solutions in response to on-demand searches initiated by an agent.
-     It uses the **Answer generation** type of AI
-     prompt.
-   - **Self-service**: An AI agent produces solutions
-     for self-service. It uses the **Self-service answer
-     generation** and **Self-service
-     pre-processing** types of AI prompt.
-   - **Email response**: An AI agent that helps
-     sending an email response of a conversation script to the end
-     customer.
-   - **Email overview**: An AI agent that provides an
-     overview of email content.
-   - **Email generative answer**: An AI agent that
-     generates answers for email responses.
+1. On the **Create AI Agent** dialog box, for **AI Agent type**, use the dropdown box to choose from one of the following types:
+   + **Orchestration**: An AI agent with agentic capabilities that orchestrates different use cases per customer needs. It can engage in multi-turn conversation and invoke pre-configured tools. It uses the **Orchestration** type of AI prompt.
+   + **Answer recommendation**: An AI agent that drives the automatic intent-based recommendations that are pushed to agents when they engage in a contact with customers. It uses the following types of AI prompt: 
+     +  **Intent labelling generation** AI prompt to generate the intents for the customer service agent to choose as a first step.
+     + **Query reformulation** AI prompt after an intent has been chosen. It uses this prompt to formulate an appropriate query which is then used to fetch relevant knowledge base excerpts.
+     + **Answer generation**, the generated query and excerpts are fed into this prompt using the `$.query` and `$.contentExcerpt` variables respectively. 
+   + **Manual search**: An AI agent that produces solutions in response to on-demand searches initiated by an agent. It uses the **Answer generation** type of AI prompt.
 
-###### Important
+      
+   + **Self-service**: An AI agent produces solutions for self-service. It uses the **Self-service answer generation** and **Self-service pre-processing** types of AI prompt.
+   + **Email response**: An AI agent that helps sending an email response of a conversation script to the end customer.
+   + **Email overview**: An AI agent that provides an overview of email content.
+   + **Email generative answer**: An AI agent that generates answers for email responses.
+**Important**  
+**Answer recommendation** and **Self service** support two types of AI prompts. If you choose to create a new AI prompt for one type but not the other, then the AI agent continues using the system default for the one you didn't replace. This way you can choose to override only specific parts of the default agent assist experience.
 
-**Answer recommendation** and **Self
-service** support two types of AI prompts. If you choose to
-create a new AI prompt for one type but not the other, then the AI agent
-continues using the system default for the one you didn't replace. This
-way you can choose to override only specific parts of the default agent assist
-experience. 5. On the **Agent builder** page, you can specify the locale
-to use for the response. For a list of supported locales, see [Supported locale codes](ai-agent-configure-language-support.md#supported-locale-codes-q "ai-agent-configure-language-support.md#supported-locale-codes-q").
+1. On the **Agent builder** page, you can specify the locale to use for the response. For a list of supported locales, see [Supported locale codes](ai-agent-configure-language-support.md#supported-locale-codes-q). 
 
-You can choose the locale for **Orchestration**,
-**Answer recommendation**,
-**Manual search**, **Email response**,
-**Email overview**, and **Email generative
-answer** types of AI agents. You cannot choose the locale for
-**Self-service**; only English is supported. 6. Choose the AI prompts you want to override the defaults. Note that you're
-choosing a published AI prompt _version_, not just a
-saved AI prompt. If desired, add an AI guardrail to your AI agent.
+   You can choose the locale for **Orchestration**, **Answer recommendation**, **Manual search**, **Email response**, **Email overview**, and **Email generative answer** types of AI agents. You cannot choose the locale for **Self-service**; only English is supported.
 
-###### Note
+1. Choose the AI prompts you want to override the defaults. Note that you're choosing a published AI prompt *version*, not just a saved AI prompt. If desired, add an AI guardrail to your AI agent.
+**Note**  
+If you don't specifically override a default AI prompt with a customized one, the default continues to be used.
 
-If you don't specifically override a default AI prompt with a
-customized one, the default continues to be used. 7. Choose **Save**. You can continue updating and saving the
-AI agent until you're satisfied it is complete. 8. To make the new AI agent version available as a potential default, choose
-**Publish**.
+1. Choose **Save**. You can continue updating and saving the AI agent until you're satisfied it is complete.
+
+1. To make the new AI agent version available as a potential default, choose **Publish**.
 
 ## Associate an AI agent with a flow
+<a name="ai-agents-flows"></a>
 
-To use the default out-of-the-box agent assist functionality, you add a [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to your flows. This
-block associates the Assistant and the default mapping of AI agents.
+To use the default out-of-the-box agent assist functionality, you add a [Connect assistant](connect-assistant-block.md) block to your flows. This block associates the Assistant and the default mapping of AI agents. 
 
-To override this default behavior, create a Lambda, and then use the [AWS Lambda
-function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block to add it to your
-flows.
+To override this default behavior, create a Lambda, and then use the [AWS Lambda function](invoke-lambda-function-block.md) block to add it to your flows. 
 
 ## Sample CLI commands to create and manage AI agents
+<a name="cli-ai-agents"></a>
 
-This section provides several sample AWS CLI commands to help you create and
-manage AI agents.
+This section provides several sample AWS CLI commands to help you create and manage AI agents.
 
-###### Contents
-
-- [Create an AI agent that uses every customized AI prompt version](#cli-ai-agents-sample1 "#cli-ai-agents-sample1")
-- [Partially configure an AI agent](#cli-ai-agents-sample2 "#cli-ai-agents-sample2")
-- [Configure an AI prompt version for manual searches](#cli-ai-agents-sample3 "#cli-ai-agents-sample3")
-- [Use AI agents to override the knowledge base configuration](#cli-ai-agents-sample4 "#cli-ai-agents-sample4")
-- [Create AI agent versions](#cli-ai-agents-sample5 "#cli-ai-agents-sample5")
-- [Set AI agents for use with agent assist](#cli-ai-agents-sample6 "#cli-ai-agents-sample6")
-- [Revert to system defaults](#cli-ai-agents-sample6b "#cli-ai-agents-sample6b")
+**Topics**
++ [Create an AI agent that uses every customized AI prompt version](#cli-ai-agents-sample1)
++ [Partially configure an AI agent](#cli-ai-agents-sample2)
++ [Configure an AI prompt version for manual searches](#cli-ai-agents-sample3)
++ [Use AI agents to override the knowledge base configuration](#cli-ai-agents-sample4)
++ [Create AI agent versions](#cli-ai-agents-sample5)
++ [Set AI agents for use with agent assist](#cli-ai-agents-sample6)
++ [Revert to system defaults](#cli-ai-agents-sample6b)
 
 ### Create an AI agent that uses every customized AI prompt version
+<a name="cli-ai-agents-sample1"></a>
 
-agent assist uses the AI prompt version for its functionality if one is specified
-for an AI agent. Otherwise it defaults to the system behavior.
+ agent assist uses the AI prompt version for its functionality if one is specified for an AI agent. Otherwise it defaults to the system behavior. 
 
-Use the following sample AWS CLI command to create an AI agent that uses
-every customized AI prompt version for answer recommendations.
+Use the following sample AWS CLI command to create an AI agent that uses every customized AI prompt version for answer recommendations.
 
 ```
-
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_answer_recommendation_ai_agent \
@@ -166,17 +111,13 @@ aws qconnect create-ai-agent \
 ```
 
 ### Partially configure an AI agent
+<a name="cli-ai-agents-sample2"></a>
 
-You can partially configure an AI agent by specifying it should use some
-customized AI prompt versions. For what's not specified, it uses the default AI
-prompts.
+ You can partially configure an AI agent by specifying it should use some customized AI prompt versions. For what's not specified, it uses the default AI prompts.
 
-Use the following sample AWS CLI command to create an answer recommendation
-AI agent that uses a customized AI prompt version and lets the system defaults
-handle the rest.
+Use the following sample AWS CLI command to create an answer recommendation AI agent that uses a customized AI prompt version and lets the system defaults handle the rest. 
 
 ```
-
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_answer_recommendation_ai_agent \
@@ -190,15 +131,13 @@ aws qconnect create-ai-agent \
 ```
 
 ### Configure an AI prompt version for manual searches
+<a name="cli-ai-agents-sample3"></a>
 
-The manual search AI agent type only has one AI prompt version so there is no
-partial configuration possible.
+The manual search AI agent type only has one AI prompt version so there is no partial configuration possible.
 
-Use the following sample AWS CLI command to specify an AI prompt version for
-manual search.
+Use the following sample AWS CLI command to specify an AI prompt version for manual search.
 
 ```
-
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_manual_search_ai_agent \
@@ -212,24 +151,15 @@ aws qconnect create-ai-agent \
 ```
 
 ### Use AI agents to override the knowledge base configuration
+<a name="cli-ai-agents-sample4"></a>
 
-You can use AI agents to configure which assistant associations agent assist should
-use and how it should use them. The association supported for customization is
-the knowledge base which supports:
+ You can use AI agents to configure which assistant associations agent assist should use and how it should use them. The association supported for customization is the knowledge base which supports: 
++  Specifying the knowledge base to be used by using its `associationId`. 
++  Specifying content filters for the search performed over the associated knowledge base by using a `contentTagFilter`. 
++  Specifying the number of results to be used from a search against the knowledge base by using `maxResults`. 
++  Specifying an `overrideKnowledgeBaseSearchType` that can be used to control the type of search performed against the knowledge base. The options are `SEMANTIC` which uses vector embeddings or `HYBRID` which uses vector embeddings and raw text. 
 
-- Specifying the knowledge base to be used by using its
-  `associationId`.
-- Specifying content filters for the search performed over the
-  associated knowledge base by using a `contentTagFilter`.
-- Specifying the number of results to be used from a search against the
-  knowledge base by using `maxResults`.
-- Specifying an `overrideKnowledgeBaseSearchType` that can
-  be used to control the type of search performed against the knowledge
-  base. The options are `SEMANTIC` which uses vector embeddings
-  or `HYBRID` which uses vector embeddings and raw text.
-
-For example, use the following AWS CLI command to create an AI agent with a
-customized knowledge base configuration.
+ For example, use the following AWS CLI command to create an AI agent with a customized knowledge base configuration.
 
 ```
 aws qconnect create-ai-agent \
@@ -260,13 +190,11 @@ aws qconnect create-ai-agent \
 ```
 
 ### Create AI agent versions
+<a name="cli-ai-agents-sample5"></a>
 
-Just like AI prompts, after an AI agent has been created, you can create a
-version which is an immutable instance of the AI agent that can be used by agent assist
-at runtime.
+ Just like AI prompts, after an AI agent has been created, you can create a version which is an immutable instance of the AI agent that can be used by agent assist at runtime. 
 
-Use the following sample AWS CLI command to create an AI agent
-version.
+Use the following sample AWS CLI command to create an AI agent version.
 
 ```
 aws qconnect create-ai-agent-version \
@@ -274,30 +202,27 @@ aws qconnect create-ai-agent-version \
   --ai-agent-id <YOUR_AI_AGENT_ID>
 ```
 
-After a version has been created, the Id of the AI agent can be qualified by
-using the following format:
+ After a version has been created, the Id of the AI agent can be qualified by using the following format: 
 
 ```
- <AI_AGENT_ID>:<VERSION_NUMBER>
+ <AI_AGENT_ID>:<VERSION_NUMBER>            
 ```
 
 ### Set AI agents for use with agent assist
+<a name="cli-ai-agents-sample6"></a>
 
-After you have created AI prompt versions and AI agent versions for your use
-case, you can set them for use with agent assist.
+ After you have created AI prompt versions and AI agent versions for your use case, you can set them for use with agent assist.
 
 #### Set AI agent versions in the agent assist Assistant
+<a name="cli-ai-agents-sample6a"></a>
 
-You can set an AI agent version as the default to be used in the agent assist
-Assistant.
+ You can set an AI agent version as the default to be used in the agent assist Assistant. 
 
-Use the following sample AWS CLI command to set the AI agent version as
-the default. After the AI agent version is set, it will be used when the
-next Connect Customer contact and associated agent assist session are created.
+Use the following sample AWS CLI command to set the AI agent version as the default. After the AI agent version is set, it will be used when the next Connect Customer contact and associated agent assist session are created. 
 
 ```
 aws qconnect update-assistant-ai-agent \
-  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
+  --assistant-id {{<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>}} \
   --ai-agent-type MANUAL_SEARCH \
   --configuration '{
     "aiAgentId": "<MANUAL_SEARCH_AI_AGENT_ID_WITH_VERSION_QUALIFIER>"
@@ -305,49 +230,36 @@ aws qconnect update-assistant-ai-agent \
 ```
 
 #### Set AI agent versions in agent assist sessions
+<a name="connect-sessions-setting-ai-agents-for-use-customize-q"></a>
 
-You can also set an AI agent version for every distinct agent assist session
-when creating or updating a session.
+ You can also set an AI agent version for every distinct agent assist session when creating or updating a session. 
 
-Use the following sample AWS CLI command to set the AI agent version for
-every distinct session.
+Use the following sample AWS CLI command to set the AI agent version for every distinct session.
 
 ```
 aws qconnect update-session \
-  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
-  --session-id `<YOUR_CONNECT_AI_AGENT_SESSION_ID>` \
+  --assistant-id {{<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>}} \
+  --session-id {{<YOUR_CONNECT_AI_AGENT_SESSION_ID>}} \
   --ai-agent-configuration '{
     "ANSWER_RECOMMENDATION": { "aiAgentId": "<ANSWER_RECOMMENDATION_AI_AGENT_ID_WITH_VERSION_QUALIFIER>" },
     "MANUAL_SEARCH": { "aiAgentId": "<MANUAL_SEARCH_AI_AGENT_ID_WITH_VERSION_QUALIFIER>" }
   }'
 ```
 
-AI agent versions set on sessions take precedence over those set at the
-level of the agent assist Assistant, which in turn takes precedence over system
-defaults. This order of precedence can be used to set AI agent versions on
-sessions created for particular contact center business segments. For
-example, by using flows to automate the setting of AI agent versions for
-particular Connect Customer queues [using a
-Lambda flow block](connect-lambda-functions.md "connect-lambda-functions.md").
+ AI agent versions set on sessions take precedence over those set at the level of the agent assist Assistant, which in turn takes precedence over system defaults. This order of precedence can be used to set AI agent versions on sessions created for particular contact center business segments. For example, by using flows to automate the setting of AI agent versions for particular Connect Customer queues [using a Lambda flow block](connect-lambda-functions.md). 
 
 ### Revert to system defaults
+<a name="cli-ai-agents-sample6b"></a>
 
-You can revert to the default AI agent versions if erasing customization is
-required for any reason.
+ You can revert to the default AI agent versions if erasing customization is required for any reason. 
 
-Use the following sample AWS CLI command to list AI agent versions and
-revert to the original ones.
+Use the following sample AWS CLI command to list AI agent versions and revert to the original ones.
 
 ```
 aws qconnect list-ai-agents \
-  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
+  --assistant-id {{<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>}} \
   --origin SYSTEM
 ```
 
-###### Note
-
-`--origin SYSTEM` is specified as an argument to fetch the system
-AI agent versions. Without this argument, your customized AI agent versions
-will be listed. After the AI agent versions are listed, use them to reset to
-the default agent assist experience at the level of the agent assist Assistant or session;
-use the CLI command described in [Set AI agents for use with agent assist](#cli-ai-agents-sample6 "#cli-ai-agents-sample6").
+**Note**  
+ `--origin SYSTEM` is specified as an argument to fetch the system AI agent versions. Without this argument, your customized AI agent versions will be listed. After the AI agent versions are listed, use them to reset to the default agent assist experience at the level of the agent assist Assistant or session; use the CLI command described in [Set AI agents for use with agent assist](#cli-ai-agents-sample6). 

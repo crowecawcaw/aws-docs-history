@@ -1,52 +1,45 @@
+
+
 # Export your unified customer profile data
+<a name="set-up-real-time-export"></a>
 
-Connect Customer Customer Profiles provides real-time data export of unified customer profiles to
-an Amazon Kinesis Data Stream. You can enable data streaming and automatically receive
-data for new profiles and updates to existing profiles into your Amazon Kinesis Data
-Stream.
+Connect Customer Customer Profiles provides real-time data export of unified customer profiles to an Amazon Kinesis Data Stream. You can enable data streaming and automatically receive data for new profiles and updates to existing profiles into your Amazon Kinesis Data Stream.
 
-You can keep your source systems data, such as CRMs and marketing automation tools,
-up-to-date with the latest information from Connect Customer Customer Profiles. For example, when a
-customer calls your contact center to update their address, an agent can make the change
-to add the new customer address. The updated profile information is sent to a
-Kinesis Data Stream in real-time.
+You can keep your source systems data, such as CRMs and marketing automation tools, up-to-date with the latest information from Connect Customer Customer Profiles. For example, when a customer calls your contact center to update their address, an agent can make the change to add the new customer address. The updated profile information is sent to a Kinesis Data Stream in real-time.
 
-To set this up, you need to enable **Data export** in the Customer Profiles
-console.
+To set this up, you need to enable **Data export** in the Customer Profiles console.
 
 ## Enable real-time export
+<a name="enable-real-time-export"></a>
 
 **To enable data streaming for your domain**
 
 1. Open the Connect Customer Customer Profiles console.
-2. Select the **Data export** tab and choose
-   **Enable data streaming**
 
-![Real-time data export enable Kinesis data stream.](images/enable-real-time-export-1.png) 3. Choose **Enable data streaming** and select an existing
-Kinesis data stream from the drop-down menu, or choose **create a
-new Kinesis data stream** to open the Kinesis console and
-create the stream. For more information, see [Creating and Managing
-Streams](../../../streams/latest/dev/working-with-streams.md "../../../streams/latest/dev/working-with-streams.md").
+1. Select the **Data export** tab and choose **Enable data streaming**  
+![Real-time data export enable Kinesis data stream.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-1.png)
 
-![Real-time data export enable Kinesis data stream.](images/enable-real-time-export-2.png) 4. Choose the **Enable data streaming** button to save your
-settings.
+1. Choose **Enable data streaming** and select an existing Kinesis data stream from the drop-down menu, or choose **create a new Kinesis data stream** to open the Kinesis console and create the stream. For more information, see [Creating and Managing Streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html).  
+![Real-time data export enable Kinesis data stream.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-2.png)
+
+1. Choose the **Enable data streaming** button to save your settings.
 
 ## Disable real-time export
+<a name="disable-real-time-export"></a>
 
 **To disable data streaming for your domain**
 
 1. Open the Connect Customer Customer Profiles console.
-2. Select the **Data export** tab and choose
-   **Disable data streaming**.
 
-![Real-time data export disable Kinesis data stream.](images/disable-real-time-export-1.png)
+1. Select the **Data export** tab and choose **Disable data streaming**.  
+![Real-time data export disable Kinesis data stream.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disable-real-time-export-1.png)
 
 ## Real-time export Kinesis payload
+<a name="real-time-export-kinesis-payload"></a>
 
 **Sample output event in JSON**
 
 ```
-
 {
     "SchemaVersion": 0,
     "EventId": "eventId",
@@ -67,71 +60,47 @@ settings.
     },
     "IsMessageRealTime": true
 }
-
 ```
 
-**SchemaVersion**
-
+**SchemaVersion**  
 The current version of the schema.
 
-**EventId**
-
+**EventId**  
 The unique event ID.
 
-**EventTimestamp**
-
+**EventTimestamp**  
 Timestamp of the event using the ISO8601 standard.
 
-**EventType**
+**EventType**  
+The type of event exported.  
+Values: CREATED, UPDATED, HEALTH\_CHECK  
++ CREATED: The export event was for CreateProfile.
++ UPDATED: The export event was for a UpdateProfile.
++ HEALTH\_CHECK: The export event was for a HealthCheck event to make sure Customer Profiles could successfully `putEvent` in Kinesis Stream.
 
-The type of event exported.
+**DomainName**  
+The domain the event belongs to. `/Domain` of the event
 
-Values: CREATED, UPDATED, HEALTH\_CHECK
+**ObjectTypeName**  
+Object type of the event  
+Values: `_profile`, `_asset`, `_order`, `_case`. You can also use predefined template name such as `Salesforce-Account` or a custom defined object name that you can create using the [ PutProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutProfileObjectType.html) API.
 
-- CREATED: The export event was for CreateProfile.
-- UPDATED: The export event was for a UpdateProfile.
-- HEALTH\_CHECK: The export event was for a HealthCheck event to
-  make sure Customer Profiles could successfully
-  `putEvent` in Kinesis Stream.
+**AssociatedProfileId**  
+ID of the Standard Profile that the Object is associated to. It is only present if the object type is not `_profile`
 
-**DomainName**
-
-The domain the event belongs to. `/Domain` of the
-event
-
-**ObjectTypeName**
-
-Object type of the event
-
-Values: `_profile`, `_asset`,
-`_order`, `_case`. You can also use predefined
-template name such as `Salesforce-Account` or a custom
-defined object name that you can create using the [PutProfileObjectType](../../../customerprofiles/latest/APIReference/API_PutProfileObjectType.md "../../../customerprofiles/latest/APIReference/API_PutProfileObjectType.md") API.
-
-**AssociatedProfileId**
-
-ID of the Standard Profile that the Object is associated to. It is
-only present if the object type is not `_profile`
-
-**ProfileObjectUniqueKey**
-
-The unique identifier of the ProfileObject generated by the
-service.
-
+**ProfileObjectUniqueKey**  
+The unique identifier of the ProfileObject generated by the service.  
 Type: String
 
-**Object**
-
+**Object**  
 The Standard Profile or Standard Profile Object itself.
 
-**IsMessageRealTime**
-
+**IsMessageRealTime**  
 Flag to inform if the message is real-time or was re-driven.
 
 **Sample payload in JSON**
 
 ```
-
 {
     "SchemaVersion": 0,
     "EventId": "6049bf39-0000-0000-0000-b75656dd51a8",
@@ -160,5 +129,4 @@ Flag to inform if the message is real-time or was re-driven.
     },
     "IsMessageRealTime": true
 }
-
 ```

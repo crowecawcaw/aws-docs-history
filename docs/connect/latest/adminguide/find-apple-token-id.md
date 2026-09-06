@@ -1,7 +1,6 @@
+
+
 # Find your Apple token when integrating Apple Messages for Business with Connect Customer
-
-- In [Apple Business Register](https://register.apple.com/ "https://register.apple.com/")
-  navigate to **Messaging Service Provider** and choose
-  **Copy Token**.
-
-![The messaging service provider page., the copy token link.](images/abc-msp-copytoken.png)
+<a name="find-apple-token-id"></a>
++ In [Apple Business Register](https://register.apple.com/) navigate to **Messaging Service Provider** and choose **Copy Token**.  
+![The messaging service provider page., the copy token link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-msp-copytoken.png)

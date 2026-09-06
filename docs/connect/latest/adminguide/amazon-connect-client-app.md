@@ -1,283 +1,189 @@
+
+
 # Connect Customer Client Application
+<a name="amazon-connect-client-app"></a>
 
-Connect Customer screen recording is supported in Windows and Chrome OS. This page provides the
-download and installation instructions for the screen recording application in each
-operating system, and the minimum system requirements for the agent devices.
+Connect Customer screen recording is supported in Windows and Chrome OS. This page provides the download and installation instructions for the screen recording application in each operating system, and the minimum system requirements for the agent devices.
 
-###### Important
+**Important**  
+To use [Rule-based redaction for screen recordings](rule-based-redaction-screen-recording.md), you must install Connect Customer Client Application version 3.0.2 or later. Rule-based redaction also requires the Connect Customer browser extension on every browser that agents use during recorded contacts. For deployment instructions, see [Deploy the browser extension](deploy-browser-extension.md).
 
-To use [Rule-based redaction
-for screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md"), you must install
-Connect Customer Client Application version 3.0.2 or later. Rule-based redaction also requires the Connect Customer browser
-extension on every browser that agents use during recorded contacts. For deployment
-instructions, see [Deploy the browser
-extension](deploy-browser-extension.md "deploy-browser-extension.md").
-
-###### Contents
-
-- [Windows](#windows-client "#windows-client")
-- [Chrome OS](#chrome-os "#chrome-os")
-- [Release notes](release-notes.md "release-notes.md")
+**Topics**
++ [Windows](#windows-client)
++ [Chrome OS](#chrome-os)
++ [Release notes](release-notes.md)
 
 ## Windows
+<a name="windows-client"></a>
 
 ### Version information
+<a name="version-info"></a>
++ Version: v3.0.4 (latest)
++ Release date: August 13, 2026
++ Download link: [AmazonConnectClientWin-v3.0.4](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.4.zip) 
++ Release note: For more information, see [Release notes](release-notes.md).
 
-- Version: v3.0.4 (latest)
-- Release date: August 13, 2026
-- Download link: [AmazonConnectClientWin-v3.0.4](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.4.zip "https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.4.zip")
-- Release note: For more information, see [Release notes](release-notes.md "release-notes.md").
+The above link downloads the **AmazonConnectClientWin-[version].zip** file. The zip file contains the **Amazon.Connect.Client.Service.Setup.[version].msi** file. For installation instructions, see [Client installation instructions](#client-install).
 
-The above link downloads the
-**AmazonConnectClientWin-[version].zip** file. The zip file
-contains the
-**Amazon.Connect.Client.Service.Setup.[version].msi** file.
-For installation instructions, see [Client installation instructions](#client-install "#client-install").
-
-To be notified when there is an update to the Connect Customer Client Application, we recommend
-subscribing to the RSS feed of this administrator guide. Choose the
-**RSS** link that appears under the title of this page
-(it's next to the PDF link).
+To be notified when there is an update to the Connect Customer Client Application, we recommend subscribing to the RSS feed of this administrator guide. Choose the **RSS** link that appears under the title of this page (it's next to the PDF link).
 
 ### Client installation instructions
+<a name="client-install"></a>
 
-In this step you install the
-**Amazon.Connect.Client.Service** file onto the agent's
-desktop, or into the virtual environment that the agent uses. This is the
-Connect Customer Client Application.
+In this step you install the **Amazon.Connect.Client.Service** file onto the agent's desktop, or into the virtual environment that the agent uses. This is the Connect Customer Client Application.
 
-###### Note
-
-- In case of Windows multi-session OS, run the installer only once
-  on the machine. Screen recording on Windows multi-session OS is
-  supported only by version 2.0.0 or later.
-- If your Connect Customer instance is in AWS GovCloud (US-West), you must install
-  version 2.0.3 or later.
-- You need to configure an allowlist of Connect Customer domains that are
-  allowed to communicate with the client application. Screen
-  recordings are captured only from Connect Customer domains specified in your
-  allowlist.
+**Note**  
+In case of Windows multi-session OS, run the installer only once on the machine. Screen recording on Windows multi-session OS is supported only by version 2.0.0 or later.
+If your Connect Customer instance is in AWS GovCloud (US-West), you must install version 2.0.3 or later.
+You need to configure an allowlist of Connect Customer domains that are allowed to communicate with the client application. Screen recordings are captured only from Connect Customer domains specified in your allowlist.
 
 #### Programmatic installation by using software distribution tools
+<a name="programmatic-installation"></a>
++ Download the latest version of the **Amazon.Connect.Client.Service.Setup.msi** file.
++ Use your organization's software distribution mechanism, such as Software Center, to install the **Amazon.Connect.Client.Service** client app on agent desktops.
++ Deploy using your organization's enterprise software distribution system such as Microsoft System Center Configuration Manager, SCCM, or other automated deployment tools.
++ Include the `ALLOWED_CONNECT_DOMAINS` parameter by using the following syntax:
 
-- Download the latest version of the
-  **Amazon.Connect.Client.Service.Setup.msi**
-  file.
-- Use your organization's software distribution mechanism, such as
-  Software Center, to install the
-  **Amazon.Connect.Client.Service** client app on
-  agent desktops.
-- Deploy using your organization's enterprise software distribution
-  system such as Microsoft System Center Configuration Manager, SCCM,
-  or other automated deployment tools.
-- Include the `ALLOWED_CONNECT_DOMAINS` parameter by
-  using the following syntax:
-
-```
-msiexec /i Amazon.Connect.Client.Service.Setup.msi ALLOWED_CONNECT_DOMAINS="connect-dev-instance.my.connect.aws,connect-prod-instance.my.connect.aws"
-```
+  ```
+  msiexec /i Amazon.Connect.Client.Service.Setup.msi ALLOWED_CONNECT_DOMAINS="connect-dev-instance.my.connect.aws,connect-prod-instance.my.connect.aws"
+  ```
 
 #### Manual installation
-
-- Download the latest version of the
-  **Amazon.Connect.Client.Service.Setup.msi** file.
-- Choose the installer file.
-- Enter the Connect Customer domains allowlist when prompted. The following
-  image shows an example of how to specify a domain in the allowlist
-  on the **Configure Installation Settings** dialog
-  box. For more examples, see _Guidelines for specifying your
-  Amazon Connect domains allowlist_ below.
-
-![The Configure Installation Settings dialog box.](images/domain-allowlist-windows.png)
-
-- Choose **Install** to complete the
-  installation.
+<a name="manual-installation"></a>
++ Download the latest version of the **Amazon.Connect.Client.Service.Setup.msi **file.
++ Choose the installer file.
++ Enter the Connect Customer domains allowlist when prompted. The following image shows an example of how to specify a domain in the allowlist on the **Configure Installation Settings** dialog box. For more examples, see *Guidelines for specifying your Amazon Connect domains allowlist* below.  
+![The Configure Installation Settings dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/domain-allowlist-windows.png)
++ Choose **Install** to complete the installation.
 
 #### Verify the Connect Customer Client Application is running and functioning correctly
+<a name="verify-installation"></a>
 
 ##### To verify that the application is running:
+<a name="verify-running"></a>
++ In Windows Task Manager, check for a background process named **Amazon.Connect.Client.Service**. This is the Connect Customer Client Application.
++ In Windows Task Manager, under **Users processes**, check for another process named **Amazon.Connect.Client.RecordingSession** after the user accepts the very first contact where screen recording is enabled. 
 
-- In Windows Task Manager, check for a background process named
-  **Amazon.Connect.Client.Service**. This is
-  the Connect Customer Client Application.
-- In Windows Task Manager, under **Users
-  processes**, check for another process named
-  **Amazon.Connect.Client.RecordingSession**
-  after the user accepts the very first contact where screen
-  recording is enabled.
-
-The following image shows
-**Amazon.Connect.Client.RecordingSession**
-in Task Manager.
-
-![Amazon.Connect.Client.RecordingSession in Task Manager.](images/taskmanager.png)
+  The following image shows **Amazon.Connect.Client.RecordingSession** in Task Manager.  
+![Amazon.Connect.Client.RecordingSession in Task Manager.](http://docs.aws.amazon.com/connect/latest/adminguide/images/taskmanager.png)
 
 ##### To verify that the application is functioning correctly and creating log files:
+<a name="verify-functioning"></a>
 
-1. Navigate to the following directory:
-   `C:\ProgramData\Amazon\Amazon.Connect.Client.Service\logs`
-2. Open log files that are present in the directory.
-3. In a successful installation the log files contain the
-   following line: `Checking that services are still
- running, result : true`
-4. Navigate to the following directory:
-   `%USERPROFILE%\AppData\Local\Amazon\Amazon.Connect.Client.RecordingSession\Logs`
-5. Open log files that are present in the directory.
-6. In a successful installation the log files contain the
-   following line: `Session initiation completed
- with result: True`
+1. Navigate to the following directory: `C:\ProgramData\Amazon\Amazon.Connect.Client.Service\logs`
+
+1. Open log files that are present in the directory.
+
+1. In a successful installation the log files contain the following line: `Checking that services are still running, result : true`
+
+1. Navigate to the following directory: `%USERPROFILE%\AppData\Local\Amazon\Amazon.Connect.Client.RecordingSession\Logs`
+
+1. Open log files that are present in the directory.
+
+1. In a successful installation the log files contain the following line: `Session initiation completed with result: True`
 
 #### Guidelines for specifying your Connect Customer domains allowlist
+<a name="domain-allowlist-guidelines"></a>
 
-Be sure to adhere to the following guidelines when you enter domains in
-the **Allowed Connect Domains** box. Otherwise your
-installation will fail.
-
-- Format: Comma-separated Connect Customer domains
-- Valid characters for Connect Customer domains: Use only A-Z, a-z, 0-9, hyphen
-  (-), period (.)
-- Protocol prefixes such as https:// or http:// are not
-  required.
-- Limitations:
-
-  - Maximum 500 domain entries
-  - Maximum 256 characters per domain entry
-  - Maximum 128,000 characters total input length
+Be sure to adhere to the following guidelines when you enter domains in the **Allowed Connect Domains** box. Otherwise your installation will fail.
++ Format: Comma-separated Connect Customer domains
++ Valid characters for Connect Customer domains: Use only A-Z, a-z, 0-9, hyphen (-), period (.)
++ Protocol prefixes such as https:// or http:// are not required.
++ Limitations:
+  + Maximum 500 domain entries
+  + Maximum 256 characters per domain entry
+  + Maximum 128,000 characters total input length
 
 Following are examples of how to specify your domain.
 
 ##### Correct
-
-- domain1.my.connect.aws,domain2.my.connect.aws
-- ddomain-1.my.connect.aws, 1-domain.my.connect.aws
-- domain-12.my.connect.aws
+<a name="correct-examples"></a>
++ domain1.my.connect.aws,domain2.my.connect.aws
++ ddomain-1.my.connect.aws, 1-domain.my.connect.aws
++ domain-12.my.connect.aws
 
 ##### Incorrect
-
-- \_123domain.foo
-- domain:2.foo
-- \*domain.my.connect.aws
-- https://domain1.my.connect.aws
-- \*.my.connect.aws
+<a name="incorrect-examples"></a>
++ \_123domain.foo
++ domain:2.foo
++ \*domain.my.connect.aws
++ https://domain1.my.connect.aws
++ \*.my.connect.aws
 
 ## Chrome OS
+<a name="chrome-os"></a>
 
 Connect Customer screen recording feature on ChromeOS requires two components:
++ Isolated Web App
++ Google Chrome Browser Extension
 
-- Isolated Web App
-- Google Chrome Browser Extension
-
-The installation of these components on Agent Chrome devices can be performed
-through Google Enterprise Admin Console. The following URLs configure the installation of
-the Isolated Web App and Chrome browser extension, and you can set them
-to automatic update through web manifest configuration JSON.
+The installation of these components on Agent Chrome devices can be performed through Google Enterprise Admin Console. The following URLs configure the installation of the Isolated Web App and Chrome browser extension, and you can set them to automatic update through web manifest configuration JSON.
 
 ### Download location and Install instructions
+<a name="download-install"></a>
 
-Complete the following steps on the Google Enterprise Admin Console. Apply the
-policy for all the agent devices where screen recording feature needs to be
-enabled.
+Complete the following steps on the Google Enterprise Admin Console. Apply the policy for all the agent devices where screen recording feature needs to be enabled.
 
 #### Install Isolated Web App
+<a name="isolated-web-app"></a>
++ Web Bundle ID: `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`
++ Update Manifest URL: `https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update_manifest.json`
 
-- Web Bundle ID:
-  `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`
-- Update Manifest URL:
-  `https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update_manifest.json`
+**To install Isolated Web App**
 
-###### To install Isolated Web App
+1. Navigate to the [Google Admin Portal](https://admin.google.com) (https://admin.google.com) and login with your Google enterprise admin credentials.
 
-1. Navigate to the [Google Admin
-   Portal](https://admin.google.com "https://admin.google.com") (https://admin.google.com) and login with your
-   Google enterprise admin credentials.
-2. Select **Add an Isolated Web App**.
-3. Copy and paste the following details, and then choose
-   **Save**:
+1. Select **Add an Isolated Web App**.
 
-   - Web Bundle ID:
-     `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`
-   - Update Manifest URL:
-     https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update\_manifest.json
-     The following image shows an example **Add an Isolated Web
-     App** dialog box that has been completed.
+1. Copy and paste the following details, and then choose **Save**:
+   + Web Bundle ID: `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`
+   + Update Manifest URL: https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update\_manifest.json
 
-![A completed Add an Isolated Web App dialog box.](images/addisolatedwebapp.png) 4. Configure **Installation Policy** to `Force
- Install + Pin to ChromeOS Taskbar` and change
-**Launch on Login** to `Force Launch and
- Prevent Closing` to make sure Isolated Web App starts
-automatically when a computer is logged into and restarts.
+   The following image shows an example **Add an Isolated Web App** dialog box that has been completed.  
+![A completed Add an Isolated Web App dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/addisolatedwebapp.png)
 
-![The Installation policy and Launch on login sections.](images/installationpolicy.png) 5. Configure **Managed configuration** to allowlist
-your Connect Customer domains that are allowed to initiate screen recording on
-agent machines. An example of **Managed
-configuration** is shown in the following image.
+1. Configure **Installation Policy** to `Force Install + Pin to ChromeOS Taskbar` and change **Launch on Login** to `Force Launch and Prevent Closing` to make sure Isolated Web App starts automatically when a computer is logged into and restarts.  
+![The Installation policy and Launch on login sections.](http://docs.aws.amazon.com/connect/latest/adminguide/images/installationpolicy.png)
 
-![The Managed configuration section.](images/managedconfiguration.png)
+1. Configure **Managed configuration** to allowlist your Connect Customer domains that are allowed to initiate screen recording on agent machines. An example of **Managed configuration** is shown in the following image.   
+![The Managed configuration section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/managedconfiguration.png)
+   + The key name MUST be `allowListedDomain`. Domain names should not include any paths, query strings, or trailing slashes (/).
+   + Replace `your-instance-alias-*` with your actual Connect Customer instance alias.
 
-    * The key name MUST be `allowListedDomain`.
-     Domain names should not include any paths, query strings, or
-     trailing slashes (/).
-    * Replace `your-instance-alias-*` with your
-     actual Connect Customer instance alias.
+   ```
+   {
+   "allowListedDomain": [
+   "https://your-instance-alias-1.my.connect.aws",
+   "https://your-instance-alias-2.my.connect.aws"]
+   }
+   ```
 
-```
-{
-"allowListedDomain": [
-"https://your-instance-alias-1.my.connect.aws",
-"https://your-instance-alias-2.my.connect.aws"]
-}
-```
+1. Complete the following steps to configure the Isolated Web App to allow Direct sockets, Screen recording, and Window management permissions: 
+   + Navigate to **Devices**, **Chrome**, **Web capabilities**, **Add Origin**.
+   + input `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`, and then choose **Save**.
 
-6. Complete the following steps to configure the Isolated Web App to
-   allow Direct sockets, Screen recording, and Window management
-   permissions:
+   The following image shows where Devices, Chrome, and Web capabilities are located in the left navigation menu in Chrome.   
+![The left navigation menu in the Chrome OS.](http://docs.aws.amazon.com/connect/latest/adminguide/images/allorigins.png)
 
-   - Navigate to **Devices**,
-     **Chrome**, **Web
-     capabilities**, **Add
-     Origin**.
-   - input
-     `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`,
-     and then choose **Save**.
-     The following image shows where Devices, Chrome, and Web
-     capabilities are located in the left navigation menu in Chrome.
+The following image shows the location of **Direct sockets**, **Screen recording**, and **Window management** on the Web capabilities page.
 
-![The left navigation menu in the Chrome OS.](images/allorigins.png)
+![The location of Direct sockets, Screen recording, and Window management Web capabilities page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/directsockets.png)
 
-The following image shows the location of **Direct
-sockets**, **Screen recording**, and
-**Window management** on the Web capabilities
-page.
-
-![The location of Direct sockets, Screen recording, and Window management Web capabilities page.](images/directsockets.png)
 
 #### Install Google Chrome Browser Extension
+<a name="chrome-extension"></a>
++ Extension ID: cjmichfmnimgeoadokmeaiclklkdccod
++ Custom URL: `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/updates.xml`
 
-- Extension ID: cjmichfmnimgeoadokmeaiclklkdccod
-- Custom URL:
-  `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/updates.xml`
+**To install Google Chrome Browser Extension**
 
-###### To install Google Chrome Browser Extension
+1. Navigate to **Add Chrome app or extension by ID**, as shown in the following image.  
+![The Add Chrome app or extension by ID option in the left navigation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/appandextensions.png)
 
-1. Navigate to **Add Chrome app or extension by
-   ID**, as shown in the following image.
+1. In the **Add Chrome app or extension by ID**, choose **From a custom URL** and enter the following information:
+   + Extension ID: `cjmichfmnimgeoadokmeaiclklkdccod`
+   + Custom URL: `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/updates.xml`  
+![The Add Chrome app or extension by ID dialog box, the From a custom URL option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chromeapp.png)
 
-![The Add Chrome app or extension by ID option in the left navigation.](images/appandextensions.png) 2. In the **Add Chrome app or extension by ID**,
-choose **From a custom URL** and enter the
-following information:
-
-    * Extension ID:
-     `cjmichfmnimgeoadokmeaiclklkdccod`
-    * Custom URL:
-     `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/updates.xml`
-
-
-
-    ![The Add Chrome app or extension by ID dialog box, the From a custom URL option.](images/chromeapp.png)
-
-3. Configure **Installation Policy** to
-**Force Install**, and then choose
-**Save**, as shown in the following
-image.
-
-![The Installation Policy option set to Force install.](images/forceinstall.png)
+1. Configure **Installation Policy** to **Force Install**, and then choose **Save**, as shown in the following image.  
+![The Installation Policy option set to Force install.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forceinstall.png)

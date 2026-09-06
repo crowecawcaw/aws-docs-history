@@ -1,21 +1,19 @@
-# Default security profiles in Connect Customer
 
-Connect Customer includes default security profiles for general roles. You can review the
-permissions granted by these profiles and use them if they align with the permissions
-that your users need. Otherwise, create a security profile that grants your users only
-the permissions they need.
+
+# Default security profiles in Connect Customer
+<a name="default-security-profiles"></a>
+
+Connect Customer includes default security profiles for general roles. You can review the permissions granted by these profiles and use them if they align with the permissions that your users need. Otherwise, create a security profile that grants your users only the permissions they need.
 
 The following table lists the default security profiles.
 
-| Security profile      | Description                                                                                        |
-| --------------------- | -------------------------------------------------------------------------------------------------- |
-| **Admin**             | Grants administrators permission to perform a majority of<br>actions.                              |
-| **Agent**             | Grants agents permission to access the CCP.                                                        |
-| **CallCenterManager** | Grants managers permission to perform actions related to user<br>management, metrics, and routing. |
-| **QualityAnalyst**    | Grants analysts permission to perform actions related to<br>metrics.                               |
 
-###### Note
+| Security profile | Description | 
+| --- | --- | 
+| **Admin** | Grants administrators permission to perform a majority of actions. | 
+| **Agent** | Grants agents permission to access the CCP. | 
+| **CallCenterManager** | Grants managers permission to perform actions related to user management, metrics, and routing. | 
+| **QualityAnalyst** | Grants analysts permission to perform actions related to metrics. | 
 
-New permissions are added on a regular basis. We recommend revisiting your
-permission configurations to ensure your users can access the latest Connect Customer
-features.
+**Note**  
+New permissions are added on a regular basis. We recommend revisiting your permission configurations to ensure your users can access the latest Connect Customer features.

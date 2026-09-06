@@ -1,109 +1,68 @@
+
+
 # Analyze conversations using conversational analytics in Connect Customer conversational analytics
+<a name="analyze-conversations"></a>
 
-With conversational analytics, you can analyze conversations
-between customers and agents or customers and conversational AI, across voice, chat, and email, using natural language
-processing. Conversational analytics performs sentiment analysis and detects issues. You can also automatically categorize
-contacts.
+With conversational analytics, you can analyze conversations between customers and agents or customers and conversational AI, across voice, chat, and email, using natural language processing. Conversational analytics performs sentiment analysis and detects issues. You can also automatically categorize contacts. 
 
-###### Speech analytics support
+**Speech analytics support**
++ **Real-time call analytics**: Use to detect and resolve customer issues more proactively while the call is in progress. For example, it can [analyze and alert](add-rules-for-alerts.md) you when a customer is getting frustrated because the agent is unable to resolve a complicated problem. With real-time call analytics, you can provide more immediate assistance. 
++ **Post-call analytics**: Use to understand trends of customer conversations, self-service interactions, and agent compliance. This helps you identify opportunities to improve conversational AI and coach agents after the call.
 
-- **Real-time call analytics**: Use to detect and
-  resolve customer issues more proactively while the call is in progress. For
-  example, it can [analyze and alert](add-rules-for-alerts.md "add-rules-for-alerts.md")
-  you when a customer is getting frustrated because the agent is unable to resolve
-  a complicated problem. With real-time call analytics, you can provide more immediate assistance.
-- **Post-call analytics**: Use to understand trends
-  of customer conversations, self-service interactions, and agent compliance. This helps you identify
-  opportunities to improve conversational AI and coach agents after the call.
+**Chat analytics support**
++ **Real-time chat analytics**: As with real-time call analytics, you can detect and resolve customer issues more proactively while the chat is in progress and [receive an alert](add-rules-for-alerts-chat.md). For example, managers can get a real-time email alert when customer sentiment for a chat contact turns negative, allowing them to join the in-progress contact and help resolve the customer issue. 
++ **Post-chat analytics**: Use to understand trends of customer conversations with both bots and agents. It provides information specific to a chat interaction, such as the agent greeting time, and agent and customer response times. The response times and sentiments help you investigate the customer's experience with the bot versus the agent, and identify areas for improvement. 
++ Each processed chat message is charged the same way. While not all messages might have all features applied (for example, summarization is applied to `text/plain` messages only), if conversational analytics is enabled on the contact, the message is counted for billing. For more information about pricing, see [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/).
 
-###### Chat analytics support
+**Email analytics support**
++ **Email analytics**: Use to analyze email conversations between customers and agents. conversational analytics automatically categorizes email contacts, redacts sensitive data from email transcripts, and generates contact summaries. This helps you understand email conversation trends and ensure compliance across your email channel.
++ Because email contacts are asynchronous, with one participant acting at a time, the real-time and post-contact distinction that applies to voice and chat does not apply to email. An email analysis is initiated as soon as the [Flow block in Connect Customer: Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md) is used when an email contact is received or sent.
 
-- **Real-time chat analytics**: As with real-time
-  call analytics, you can detect and resolve customer issues more proactively
-  while the chat is in progress and [receive
-  an alert](add-rules-for-alerts-chat.md "add-rules-for-alerts-chat.md"). For example, managers can get a real-time email alert when
-  customer sentiment for a chat contact turns negative, allowing them to join the
-  in-progress contact and help resolve the customer issue.
-- **Post-chat analytics**: Use to understand trends
-  of customer conversations with both bots and agents. It provides information
-  specific to a chat interaction, such as the agent greeting time, and agent and
-  customer response times. The response times and sentiments help you investigate
-  the customer's experience with the bot versus the agent, and identify areas for
-  improvement.
-- Each processed chat message is charged the same way. While not all messages might have
-  all features applied (for example, summarization is applied to `text/plain`
-  messages only), if conversational analytics is enabled on the
-  contact, the message is counted for billing. For more information about pricing, see
-  [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
-
-###### Email analytics support
-
-- **Email analytics**: Use to analyze email
-  conversations between customers and agents. conversational analytics automatically
-  categorizes email contacts, redacts sensitive data from email transcripts, and
-  generates contact summaries. This helps you understand email conversation
-  trends and ensure compliance across your email channel.
-- Because email contacts are asynchronous, with one participant
-  acting at a time, the real-time and post-contact distinction that applies to
-  voice and chat does not apply to email. An email analysis is initiated as soon as
-  the [Flow block in Connect Customer: Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
-  is used when an email contact is received or sent.
-  You can protect your customer's privacy by redacting sensitive data, such as name,
-  address, and credit card information from transcripts and audio recordings.
+You can protect your customer's privacy by redacting sensitive data, such as name, address, and credit card information from transcripts and audio recordings. 
 
 ## Sample Contact details page for a call
+<a name="sample-contactdetails-call"></a>
 
-The following image shows the conversational analytics for a voice call. Notice
-that it includes **Talk time** metrics.
+The following image shows the conversational analytics for a voice call. Notice that it includes **Talk time** metrics.
 
-![A sample contact details page with talk time metrics.](images/contactlens-contactdetails-call1b.png)
+![A sample contact details page with talk time metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-call1b.png)
 
-1. **Customer sentiment trend**: This graph shows how
-   customer sentiment changes as the contact progresses. For more information,
-   see [Investigate sentiment
-   scores](sentiment-scores.md "sentiment-scores.md").
-2. **Customer sentiment**: This graph shows the distribution
-   of customer sentiment for the entire call. This is calculated by counting
-   the total number of conversation turns or chat messages where a customer had
-   Positive, Neutral, and Negative sentiment.
-3. **Talk time**: This graph shows the distribution of talk
-   time and non talk-time during the entire call. The talk time is further
-   split into agent and customer talk time.
 
-The following image shows the next section on the **Contact
-details** page for a voice call: the audio analysis and transcript.
-Notice that personally identifiable information (PII) has been [redacted from the transcript](sensitive-data-redaction.md "sensitive-data-redaction.md").
+1. **Customer sentiment trend**: This graph shows how customer sentiment changes as the contact progresses. For more information, see [Investigate sentiment scores](sentiment-scores.md).
 
-![The audio analysis and transcript for the contact.](images/contactlens-contactdetails-call2b.png)
+1. **Customer sentiment**: This graph shows the distribution of customer sentiment for the entire call. This is calculated by counting the total number of conversation turns or chat messages where a customer had Positive, Neutral, and Negative sentiment.
+
+1. **Talk time**: This graph shows the distribution of talk time and non talk-time during the entire call. The talk time is further split into agent and customer talk time. 
+
+The following image shows the next section on the **Contact details** page for a voice call: the audio analysis and transcript. Notice that personally identifiable information (PII) has been [ redacted from the transcript](sensitive-data-redaction.md). 
+
+![The audio analysis and transcript for the contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-call2b.png)
+
 
 ## Sample Contact details page for real-time chat analytics
+<a name="sample-contactdetails-chat"></a>
 
-The following image shows the conversational analytics for a real-time chat.
-Notice that it includes Key highlights and customer sentiment.
+The following image shows the conversational analytics for a real-time chat. Notice that it includes Key highlights and customer sentiment.
 
-![A contact details page with conversational analytics for a real-time chat.](images/contactlens-realtime-chat.png)
+![A contact details page with conversational analytics for a real-time chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-realtime-chat.png)
+
 
 ## Sample Contact details page for post-chat analytics
+<a name="sample-contactdetails-chat"></a>
 
-The following image shows post-chat analytics. Notice that it includes chat
-response metrics, such as **Agent greeting time** (the time from
-the agent joining the chat to when they send the first response), **Customer
-response time**, and **Agent response time**.
+The following image shows post-chat analytics. Notice that it includes chat response metrics, such as **Agent greeting time** (the time from the agent joining the chat to when they send the first response), **Customer response time**, and **Agent response time**.
 
-![A contact details page with summary and conversational analytics for a chat.](images/contactlens-contactdetails-chat1b.png)
+![A contact details page with summary and conversational analytics for a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat1b.png)
 
-The following image shows the next section on the **Contact
-details** page for a chat: the interaction analysis and transcript.
-Notice that you can investigate the customer's interaction with a bot versus the
-agent.
 
-![The contact details page, the interaction analysis and transcript for a chat.](images/contactlens-contactdetails-chat2b.png)
+The following image shows the next section on the **Contact details** page for a chat: the interaction analysis and transcript. Notice that you can investigate the customer's interaction with a bot versus the agent.
+
+![The contact details page, the interaction analysis and transcript for a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat2b.png)
+
 
 ## Sample Contact details page for email analytics
+<a name="sample-contactdetails-email"></a>
 
-The following image shows the conversational analytics for an email contact.
-Email analytics includes categorization, sensitive data redaction, and contact
-summaries. Because email contacts are asynchronous, there are no real-time
-analytics or sentiment scores.
+The following image shows the conversational analytics for an email contact. Email analytics includes categorization, sensitive data redaction, and contact summaries. Because email contacts are asynchronous, there are no real-time analytics or sentiment scores.
 
-![A sample contact details page with conversational analytics for an email contact.](images/contactlens-contactdetails-email.png)
+![A sample contact details page with conversational analytics for an email contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-email.png)

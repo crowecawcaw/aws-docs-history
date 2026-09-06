@@ -1,60 +1,40 @@
+
+
 # Standard queues and agent queues in your Connect Customer contact center
+<a name="concepts-queues-standard-and-agent"></a>
 
 There are two types of queues:
++ **Standard queues**: This is where contacts wait before they are routed to and accepted by agents.
++ **Agent queues**: These queues are created automatically when you add an agent to your contact center.
 
-- **Standard queues**: This is where contacts wait
-  before they are routed to and accepted by agents.
-- **Agent queues**: These queues are created
-  automatically when you add an agent to your contact center.
+  Contacts are only routed to agent queues when explicitly sent there as part of a flow. For example, you might route contacts to a specific agent who's responsible for certain customer issues, such as billing or premium support. Or you might use agent queues to route to an agent's voice-mail. 
 
-Contacts are only routed to agent queues when explicitly sent there as part of
-a flow. For example, you might route contacts to a specific agent who's
-responsible for certain customer issues, such as billing or premium support. Or
-you might use agent queues to route to an agent's voice-mail.
-Contacts waiting in agent queues are higher priority than contacts waiting in standard
-queues. Contacts in agent queues have the highest priority and zero delay:
-
-- Highest priority: If there's another contact in the basic queue, Connect Customer chooses
-  to give the agent the contact from the agent queue first.
-- Zero delay: If the agent is available, the contact immediately gets routed to
-  them.
+Contacts waiting in agent queues are higher priority than contacts waiting in standard queues. Contacts in agent queues have the highest priority and zero delay: 
++ Highest priority: If there's another contact in the basic queue, Connect Customer chooses to give the agent the contact from the agent queue first.
++ Zero delay: If the agent is available, the contact immediately gets routed to them.
 
 ## Queues in metrics reports
+<a name="concepts-queues-in-reports"></a>
 
-In a [real-time metrics report](real-time-metrics-reports.md "real-time-metrics-reports.md"),
-you can monitor how many contacts are in standard queues and agent queues. The
-following image shows a sample real-time metrics Queues report where an Agents table
-and Agent queues table have been added. It shows:
+In a [real-time metrics report](real-time-metrics-reports.md), you can monitor how many contacts are in standard queues and agent queues. The following image shows a sample real-time metrics Queues report where an Agents table and Agent queues table have been added. It shows:
++ **BasicQueue**, which is a standard queue. It shows one agent (John) is online.
++ **Agents** table, which shows the agent John has set his CCP to **Available** and is ready to take contacts. A supervisor can change an agent's status from here. For example, set to **Offline**.
++ **Agent queues** table, which shows John's agent queue. It shows John is online and can take contact from this queue, too.
 
-- **BasicQueue**, which is a standard queue. It shows one
-  agent (John) is online.
-- **Agents** table, which shows the agent John has set his
-  CCP to **Available** and is ready to take contacts. A
-  supervisor can change an agent's status from here. For example, set to
-  **Offline**.
-- **Agent queues** table, which shows John's agent queue.
-  It shows John is online and can take contact from this queue, too.
+![A queues report with Agents table and Agent queues table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-standard-and-agent-queues.png)
 
-![A queues report with Agents table and Agent queues table.](images/rtm-standard-and-agent-queues.png)
 
-When an agent gets a contact from a standard queue, the contact never appears in
-the agent queue. It just goes directly to the agent.
+When an agent gets a contact from a standard queue, the contact never appears in the agent queue. It just goes directly to the agent. 
 
-In a [historical metrics report](historical-metrics.md "historical-metrics.md"), by
-default agent queues don't appear in a Queues table. To show them, choose the
-**Settings** icon, then choose **Show agent
-queues**.
+In a [historical metrics report](historical-metrics.md), by default agent queues don't appear in a Queues table. To show them, choose the **Settings** icon, then choose **Show agent queues**. 
 
-![The agent queues dropdown menu on the Table settings page.](images/hmr-queues-settings-agent-queues.png)
+![The agent queues dropdown menu on the Table settings page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queues-settings-agent-queues.png)
 
-###### Tip
 
+**Tip**  
 The metrics APIs don't support agent queues.
 
 ## Default queue: BasicQueue
+<a name="concepts-default-queue"></a>
 
-Connect Customer includes a default queue named **BasicQueue**. Along with
-the [default flows](contact-flow-default.md "contact-flow-default.md") and default routing
-profile (named **Basic routing profile**), it powers your contact
-center so you don't need to do any customization. This is what you can use to get
-started quickly.
+Connect Customer includes a default queue named **BasicQueue**. Along with the [default flows](contact-flow-default.md) and default routing profile (named **Basic routing profile**), it powers your contact center so you don't need to do any customization. This is what you can use to get started quickly. 

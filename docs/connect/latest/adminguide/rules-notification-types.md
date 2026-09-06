@@ -1,42 +1,21 @@
+
+
 # Connect Customer conversational analytics notification types
+<a name="rules-notification-types"></a>
 
 Conversational analytics provides the following notification types:
++ Conversational analytics Post Call/Chat Rules Matched: An EventBridge event is delivered whenever a conversational analytics rule is matched and has triggered the EventBridge rule action. 
 
-- Conversational analytics Post Call/Chat Rules Matched: An EventBridge event is
-  delivered whenever a conversational analytics rule is matched and has triggered
-  the EventBridge rule action.
+  This event contains useful information about the conversational analytics rule that is triggered including the category assigned, and details of the agent, contact and queue.
++ Conversational analytics Real Time Call/Chat Rules Matched: An EventBridge event is delivered whenever a conversational analytics rule is matched and has triggered in real time. 
 
-This event contains useful information about the conversational analytics rule
-that is triggered including the category assigned, and details of the agent,
-contact and queue.
+  This event contains useful information about the conversational analytics rule that is triggered including the category assigned, and details of the agent, contact and queue.
++ Conversational analytics Analysis State Change: An EventBridge event is delivered when conversational analytics is unable to analyze a contact recording. The event contains the Event Reason Code which provides the details on why it was unable to process the recording.
 
-- Conversational analytics Real Time Call/Chat Rules Matched: An EventBridge event is
-  delivered whenever a conversational analytics rule is matched and has triggered
-  in real time.
+You can use these notification types in a variety of scenarios. For example, use conversational analytics analysis State Change events to signal unexpected errors in the processing of a contact file where EventBridge event details can be subsequently stored in a CloudWatch log for additional review, trigger additional workflows, or alert relevant support teams for further investigation. 
 
-This event contains useful information about the conversational analytics rule
-that is triggered including the category assigned, and details of the agent,
-contact and queue.
-
-- Conversational analytics Analysis State Change: An EventBridge event is delivered when
-  conversational analytics is unable to analyze a contact recording. The event
-  contains the Event Reason Code which provides the details on why it was
-  unable to process the recording.
-  You can use these notification types in a variety of scenarios. For example, use
-  conversational analytics analysis State Change events to signal unexpected errors in
-  the processing of a contact file where EventBridge event details can be subsequently stored
-  in a CloudWatch log for additional review, trigger additional workflows, or alert relevant
-  support teams for further investigation.
-
-The conversational analytics events for speech and chat analytics enable numerous new
-use cases such as surfacing and visualization of additional insights, for
-example:
-
-- Generate alerts on real-time customer sentiment drops across all call and
-  chat conversations
-- Aggregating and reporting on reoccurring issues and topics
-- Measuring the impact of the latest marketing campaign by detecting how
-  many customers referenced it during a call
-- Customizing agent compliance standards for each Region and lines of
-  business, and enrolling agents into additional training where
-  required.
+The conversational analytics events for speech and chat analytics enable numerous new use cases such as surfacing and visualization of additional insights, for example:
++ Generate alerts on real-time customer sentiment drops across all call and chat conversations
++ Aggregating and reporting on reoccurring issues and topics
++ Measuring the impact of the latest marketing campaign by detecting how many customers referenced it during a call
++ Customizing agent compliance standards for each Region and lines of business, and enrolling agents into additional training where required.

@@ -1,40 +1,21 @@
+
+
 # Forecasting & agent scheduling in Connect Customer
+<a name="forecasting-capacity-planning-scheduling"></a>
 
-###### Tip
+**Tip**  
+**New user?** Check out the [Connect Customer forecasting, capacity planning, and scheduling workshop](https://catalog.workshops.aws/amazon-connect-optimization/en-US). This online course is for Contact Center Administrators, Workforce Managers, Forecasters and Schedulers who are responsible for the forecasting and scheduling of agents.
 
-**New user?** Check out the [Connect Customer
-forecasting, capacity planning, and scheduling workshop](https://catalog.workshops.aws/amazon-connect-optimization/en-US "https://catalog.workshops.aws/amazon-connect-optimization/en-US"). This online course
-is for Contact Center Administrators, Workforce Managers, Forecasters and Schedulers who
-are responsible for the forecasting and scheduling of agents.
+To run a contact center, you need the right number of agents working at the right times to achieve your operational goals. It's critical to not overspend or overrun your workforce.
 
-To run a contact center, you need the right number of agents working at the right times to
-achieve your operational goals. It's critical to not overspend or overrun your
-workforce.
+Connect Customer provides a set of services powered by machine learning that help you optimize your contact center by offering the following:
++ [Forecasting](forecasting.md). Analyze and predict contact volume based on historical data. What will future demand—the contact volume and handle time—look like? Connect Customer forecasting provides accurate and auto-generated forecasts that are automatically updated daily.
++ [Scheduling](scheduling.md). Generate agent schedules for day-to-day workloads that are flexible, and meet business and compliance requirements. Offer agents flexible schedules and work-life balance. How many agents are needed in each shift? Which agent works in which slot? 
+  + [Schedule Adherence](schedule-adherence.md). Enable contact center supervisors to monitor schedule adherence and improve agent productivity. Schedule adherence metrics are available after the agent schedules are published.
++ [Capacity planning](capacity-planning.md). Predict how many agents your contact center will require. Optimize plans by scenarios, service level goals, and metrics, such as shrinkage.
 
-Connect Customer provides a set of services powered by machine learning that help you optimize your
-contact center by offering the following:
+For information about where Connect Customer forecasting & agent scheduling is available, see [Availability of Connect Customer features by Region](regions.md). 
 
-- [Forecasting](forecasting.md "forecasting.md"). Analyze and
-  predict contact volume based on historical data. What will future demand—the
-  contact volume and handle time—look like? Connect Customer forecasting provides accurate
-  and auto-generated forecasts that are automatically updated daily.
-- [Scheduling](scheduling.md "scheduling.md"). Generate agent
-  schedules for day-to-day workloads that are flexible, and meet business and
-  compliance requirements. Offer agents flexible schedules and work-life balance. How
-  many agents are needed in each shift? Which agent works in which slot?
+The following diagram shows a typical end-to-end optimization workflow by persona: Connect Customer administrator, forecaster, scheduler, capacity planner, and agent. It lists the tasks performed by each persona. 
 
-  - [Schedule Adherence](schedule-adherence.md "schedule-adherence.md"). Enable contact center
-    supervisors to monitor schedule adherence and improve agent productivity.
-    Schedule adherence metrics are available after the agent schedules are
-    published.
-
-- [Capacity planning](capacity-planning.md "capacity-planning.md").
-  Predict how many agents your contact center will require. Optimize plans by
-  scenarios, service level goals, and metrics, such as shrinkage.
-  For information about where Connect Customer forecasting & agent scheduling is available, see [Availability of Connect Customer features by Region](regions.md "regions.md").
-
-The following diagram shows a typical end-to-end optimization workflow by persona: Connect Customer
-administrator, forecaster, scheduler, capacity planner, and agent. It lists the tasks
-performed by each persona.
-
-![A five column diagram, one column for each persona, the tasks they perform.](images/wfm-workflow-overview.png)
+![A five column diagram, one column for each persona, the tasks they perform.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-workflow-overview.png)

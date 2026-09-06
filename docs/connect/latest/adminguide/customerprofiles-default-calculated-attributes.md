@@ -1,14 +1,16 @@
+
+
 # Default calculated attributes in Connect Customer Customer Profiles
+<a name="customerprofiles-default-calculated-attributes"></a>
 
 ## Default CTR calculated attributes
+<a name="customerprofiles-default-calculated-attributes-ctr"></a>
 
-Connect Customer Customer Profiles provides out-of-the box default attributes based on
-contact records. The attributes are as follows:
+Connect Customer Customer Profiles provides out-of-the box default attributes based on contact records. The attributes are as follows:
 
 **Most frequent channel**
 
 ```
-
 {
    "CalculatedAttributeName": "_most_frequent_channel",
    "DisplayName": "Most frequent channel",
@@ -34,13 +36,11 @@ contact records. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 **Last channel**
 
 ```
-
 {
    "CalculatedAttributeName": "_last_channel",
    "DisplayName": "Last channel",
@@ -62,13 +62,11 @@ contact records. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 **Last agent identifier**
 
 ```
-
 {
    "CalculatedAttributeName": "_last_agent_id",
    "DisplayName": "Last agent identifier",
@@ -90,13 +88,11 @@ contact records. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 **Frequent caller**
 
 ```
-
 {
    "CalculatedAttributeName": "_frequent_caller",
    "DisplayName": "Frequent caller",
@@ -126,13 +122,11 @@ contact records. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 **Average hold time**
 
 ```
-
 {
    "CalculatedAttributeName": "_average_hold_time",
    "DisplayName": "Average hold time",
@@ -161,13 +155,11 @@ contact records. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 **Average call duration**
 
 ```
-
 {
    "CalculatedAttributeName": "_average_call_duration",
    "DisplayName": "Average call duration",
@@ -196,13 +188,11 @@ contact records. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 **Customer's maximum hold time**
 
 ```
-
 {
     "CalculatedAttributeName": "_maximum_hold_time",
     "DisplayName": "Customer's maximum hold time",
@@ -229,13 +219,11 @@ contact records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Call count**
 
 ```
-
 {
     "CalculatedAttributeName": "_call_count",
     "DisplayName": "Call count",
@@ -260,18 +248,16 @@ contact records. The attributes are as follows:
     "Tags": {
     }
   }
-
 ```
 
 ## Default profile calculated attribute
+<a name="customerprofiles-default-calculated-attributes-profile"></a>
 
-Connect Customer Customer Profiles provides an out-of-the box default attribute based on
-a profile. The attributes are as follows:
+Connect Customer Customer Profiles provides an out-of-the box default attribute based on a profile. The attributes are as follows:
 
 **New Customer**
 
 ```
-
 {
    "CalculatedAttributeName": "_new_customer",
    "DisplayName": "New customer",
@@ -297,13 +283,12 @@ a profile. The attributes are as follows:
    "Tags": {
    }
 }
-
 ```
 
 ## Default asset calculated attributes
+<a name="customerprofiles-default-calculated-attributes-asset"></a>
 
-Connect Customer Customer Profiles provides out-of-the box default attributes based on
-assets. The attributes are as follows:
+Connect Customer Customer Profiles provides out-of-the box default attributes based on assets. The attributes are as follows:
 
 **Count of assets**
 
@@ -328,7 +313,6 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **First asset purchased date**
@@ -354,7 +338,6 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Last asset purchased date**
@@ -380,7 +363,6 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Total asset price**
@@ -406,7 +388,6 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Average asset price**
@@ -432,7 +413,6 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **First asset name**
@@ -458,7 +438,6 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Last asset name**
@@ -484,13 +463,12 @@ assets. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 ## Default case calculated attributes
+<a name="customerprofiles-default-calculated-attributes-case"></a>
 
-Connect Customer Customer Profiles provides out-of-the box default attributes based on
-cases. The attributes are as follows:
+Connect Customer Customer Profiles provides out-of-the box default attributes based on cases. The attributes are as follows:
 
 **Count of cases**
 
@@ -515,7 +493,6 @@ cases. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **First case created date**
@@ -541,7 +518,6 @@ cases. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Last case created date**
@@ -567,7 +543,6 @@ cases. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Count of open cases**
@@ -611,7 +586,6 @@ cases. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Count of closed cases**
@@ -655,13 +629,12 @@ cases. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 ## Default communication record calculated attributes
+<a name="customerprofiles-default-calculated-attributes-communication-record"></a>
 
-Connect Customer Customer Profiles provides out-of-the box default attributes based on
-communication records. The attributes are as follows:
+Connect Customer Customer Profiles provides out-of-the box default attributes based on communication records. The attributes are as follows:
 
 **Last email open date**
 
@@ -708,7 +681,6 @@ communication records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Email open count**
@@ -756,7 +728,6 @@ communication records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Email delivery count**
@@ -804,7 +775,6 @@ communication records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **SMS delivered count**
@@ -852,7 +822,6 @@ communication records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Last SMS blocked date**
@@ -900,7 +869,6 @@ communication records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Last SMS carrier blocked date**
@@ -948,13 +916,12 @@ communication records. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 ## Default order calculated attributes
+<a name="customerprofiles-default-calculated-attributes-order"></a>
 
-Connect Customer Customer Profiles provides out-of-the box default attributes based on
-orders. The attributes are as follows:
+Connect Customer Customer Profiles provides out-of-the box default attributes based on orders. The attributes are as follows:
 
 **Count of orders**
 
@@ -979,7 +946,6 @@ orders. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **First order created date**
@@ -1005,7 +971,6 @@ orders. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Last order created date**
@@ -1031,7 +996,6 @@ orders. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Total price of all orders**
@@ -1057,7 +1021,6 @@ orders. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```
 
 **Orders average of total price**
@@ -1083,5 +1046,4 @@ orders. The attributes are as follows:
     },
     "Launched": false
   }
-
 ```

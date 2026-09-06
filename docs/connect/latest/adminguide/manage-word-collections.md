@@ -1,47 +1,36 @@
-# Manage word collections when you create conversational analytics rules in conversational analytics
 
-A _word collection_ is a set of pre-built words and phrases
-that you can use to define the exact match condition when you create
-conversational analytics rules. When you add exact match conditions to a rule,
-you can choose a list of words and phrases from a dropdown menu.
+
+# Manage word collections when you create conversational analytics rules in conversational analytics
+<a name="manage-word-collections"></a>
+
+A *word collection* is a set of pre-built words and phrases that you can use to define the exact match condition when you create conversational analytics rules. When you add exact match conditions to a rule, you can choose a list of words and phrases from a dropdown menu.
 
 ## Required permissions
+<a name="word-collections-permissions"></a>
 
-Conversational analytics Rules - Word Collections uses the same set of security
-profile permissions as conversational analytics Rules. For more information, see
-[Security profile permissions for conversational analytics rules](permissions-for-rules.md "permissions-for-rules.md").
+Conversational analytics Rules - Word Collections uses the same set of security profile permissions as conversational analytics Rules. For more information, see [Security profile permissions for conversational analytics rules](permissions-for-rules.md).
 
 ## How to access the word collection management page
+<a name="word-collections-how-to-access"></a>
 
-1. When you create or update a conversational analytics rule, choose
-   the gear icon on top right of the **Exact match**
-   condition card, as shown in the following image.
+1. When you create or update a conversational analytics rule, choose the gear icon on top right of the **Exact match** condition card, as shown in the following image.  
+![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/word-collections-permissions-how-to-access-1.png)
 
-![Keywords or phrases option in the UI.](images/word-collections-permissions-how-to-access-1.png) 2. On the **Word collections** management page, you
-can view existing word collections and create new word
-collections.
-
-![Keywords or phrases option in the UI.](images/word-collections-permissions-how-to-access-2.png)
+1. On the **Word collections** management page, you can view existing word collections and create new word collections.  
+![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/word-collections-permissions-how-to-access-2.png)
 
 ## How to create a user word collection
+<a name="create-user-word-collections"></a>
 
-######
+1. On the **Word collections** management page, choose **Create a word collection**.  
+![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-user-word-collections-1.png)
 
-1. On the **Word collections** management page,
-   choose **Create a word collection**.
-
-![Keywords or phrases option in the UI.](images/create-user-word-collections-1.png) 2. Enter the name of the word collection, add words and phrases, then
-choose **Save**.
-
-![Keywords or phrases option in the UI.](images/create-user-word-collections-2.png)
+1. Enter the name of the word collection, add words and phrases, then choose **Save**.  
+![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-user-word-collections-2.png)
 
 ## Word collection limits
-
-- Connect Customer has a default limit of 100 user word collections per
-  instance.
-- Each word collection can have a maximum of 100 words or
-  phrases.
-- Each word or phrase is limited to no more than 512
-  characters.
-- You can manage only user word collections. You can not manage or
-  edit system word collections.
+<a name="word-collections-limits"></a>
++ Connect Customer has a default limit of 100 user word collections per instance.
++ Each word collection can have a maximum of 100 words or phrases.
++ Each word or phrase is limited to no more than 512 characters.
++ You can manage only user word collections. You can not manage or edit system word collections.

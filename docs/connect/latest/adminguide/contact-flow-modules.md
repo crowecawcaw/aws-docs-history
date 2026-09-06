@@ -1,247 +1,269 @@
-# Flow modules for reusable functions in Connect Customer
 
-Flow modules are reusable sections of a flow. You can create them to extract repeatable
-logic across your flows, and create common functions. For example:
+
+# Flow modules for reusable functions in Connect Customer
+<a name="contact-flow-modules"></a>
+
+Flow modules are reusable sections of a flow. You can create them to extract repeatable logic across your flows, and create common functions. For example:
 
 1. You can create a module that sends SMS text messages to customers.
-2. You can invoke the module in flows that handle situations where customers want to
-   reset their passwords, check their bank balances, or receive a one-time
-   password.
-   Following are the benefits of using modules:
 
-- Simplify managing common functionality across flows. For example, an SMS module
-  could validate the format of phone number, confirm SMS opt-in preferences, and
-  integrate with an SMS service, such as Amazon Pinpoint.
-- Makes it more efficient to maintain flows. For example, you can quickly propagate
-  changes across all flows that invoke a flow module.
-- Helps separate flow designer responsibilities. For example, you can have both
-  technical module designers and non-technical flow designers.
-- Support for more reusable and dynamic experiences with flow modules. For example, you can define a module with custom input/output objects and branches to be reused across different contact flow use cases.
-- Easier flow module management. You can create multiple immutable versions of your modules to track and test changes effectively. Additionally, you can create aliases that point to specific versions, allowing you to update aliases as needed to implement changes across all contact flows that reference them.
+1. You can invoke the module in flows that handle situations where customers want to reset their passwords, check their bank balances, or receive a one-time password.
+
+Following are the benefits of using modules:
++ Simplify managing common functionality across flows. For example, an SMS module could validate the format of phone number, confirm SMS opt-in preferences, and integrate with an SMS service, such as Amazon Pinpoint.
++ Makes it more efficient to maintain flows. For example, you can quickly propagate changes across all flows that invoke a flow module.
++ Helps separate flow designer responsibilities. For example, you can have both technical module designers and non-technical flow designers.
++ Support for more reusable and dynamic experiences with flow modules. For example, you can define a module with custom input/output objects and branches to be reused across different contact flow use cases.
++ Easier flow module management. You can create multiple immutable versions of your modules to track and test changes effectively. Additionally, you can create aliases that point to specific versions, allowing you to update aliases as needed to implement changes across all contact flows that reference them.
 
 ## Where you can use modules
+<a name="where-to-use-modules"></a>
 
-You can use modules across all [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types").
+You can use modules across all [flow types](create-contact-flow.md#contact-flow-types).
 
 ## Limitations
+<a name="modules-limits"></a>
++ Modules do not allow overriding flow local data of the invoking flow. This means you can't use the following with modules:
+  + External attributes
+  + Amazon Lex attributes
+  + Customer Profiles attributes
+  + agent assist attributes
+  + Queue metrics
+  + Stored customer input
++ When using one module to invoke other modules: A module being used as a tool can only invoke other modules used as tools.
++ If your module contains blocks that are not supported by the specific flow type, this incompatibility might lead the blocks to take the error branch.
 
-- Modules do not allow overriding flow local data of the invoking flow. This
-  means you can't use the following with modules:
+To pass any data to a module, or to get any data from a module, you need to pass and retrieve attributes.
 
-  - External attributes
-  - Amazon Lex attributes
-  - Customer Profiles attributes
-  - agent assist attributes
-  - Queue metrics
-  - Stored customer input
-
-- When using one module to invoke other modules: A module being used as a tool can only invoke other modules used as tools.
-- If your module contains blocks that are not supported by the specific flow type, this incompatibility might lead the blocks to take the error branch.
-
-To pass any data to a module, or to get any data from a module, you
-need to pass and retrieve attributes.
-
-For example, you want data that is written from Lambda (an External attribute) and pass it to the module so you can make
-a decision. Your Lambda identifies whether the customer
-is a VIP member. You need that information inside the module because if they are a VIP
-member, you want to play a prompt thanking them for their membership. Since default Lambda is not available inside a module, you use attributes to pass and
-retrieve data.
+For example, you want data that is written from Lambda (an External attribute) and pass it to the module so you can make a decision. Your Lambda identifies whether the customer is a VIP member. You need that information inside the module because if they are a VIP member, you want to play a prompt thanking them for their membership. Since default Lambda is not available inside a module, you use attributes to pass and retrieve data. 
 
 ## Use module within module
+<a name="use-module-within-module"></a>
 
 You can invoke modules within other modules, supporting up to five levels of nesting with a stack limit to prevent recursive invocations. This feature promotes code reuse, supports complex modular designs, and improves the organization of large-scale solutions, leading to more efficient and maintainable workflows.
 
 ### Example of nested modules
+<a name="example-nested-modules"></a>
 
 This module shows how to check call back number from customers and allows them to update the call back number by invoking a sub module. Flows that invoke this module can set and update customer call back number.
 
 Following is an image of the customer call back module that invokes the sub module for setting the call back number:
 
-![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches.](images/module-nested-call-back-number-example.png)
+![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-nested-call-back-number-example.png)
+
 
 Following is an image of the set call back number sub module::
 
-![Call flow diagram showing customer input validation, callback confirmation, and caller ID validation steps.](images/module-nested-call-back-number-sub-example.png)
+![Call flow diagram showing customer input validation, callback confirmation, and caller ID validation steps.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-nested-call-back-number-sub-example.png)
+
 
 ## Security profile permissions for modules
+<a name="module-permissions"></a>
 
-Before you can add modules to Inbound flows, you must have permissions in your
-security profile. By default, the **Admin** and
-**CallCenterManager** security profiles have these
-permissions.
+Before you can add modules to Inbound flows, you must have permissions in your security profile. By default, the **Admin** and **CallCenterManager** security profiles have these permissions.
 
 ## Create basic module
+<a name="use-modules"></a>
 
-For information about the number of modules that you can create for each Connect Customer
-instance, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For information about the number of modules that you can create for each Connect Customer instance, see [Connect Customer service quotas](amazon-connect-service-limits.md).
 
-1. Log in to the Connect Customer console with an account assigned to a security profile
-   that has permissions to create modules.
-2. On the navigation menu, choose **Routing**, **Contact
-   flows**.
-3. Choose **Modules**, **Create flow module**.
-4. (optional) In the **Details** tab, you can enter description and add up 50 tags for the module.
-5. In the **Designer** tab, add the blocks that you want to your module. When finished, choose
-   **Publish**. This makes the module available to use in
-   other modules and flows.
+1. Log in to the Connect Customer console with an account assigned to a security profile that has permissions to create modules.
+
+1. On the navigation menu, choose **Routing**, **Contact flows**.
+
+1. Choose **Modules**, **Create flow module**. 
+
+1. (optional) In the **Details** tab, you can enter description and add up 50 tags for the module.
+
+1. In the **Designer** tab, add the blocks that you want to your module. When finished, choose **Publish**. This makes the module available to use in other modules and flows.
 
 ## Add a module to a flow
+<a name="add-modules"></a>
 
-1. Log in to the Connect Customer console with an account assigned to a security profile
-   that has permissions to create flows. You don't need permissions to create
-   modules.
-2. On the navigation menu, choose **Routing**, **Contact
-   flows**.
-3. Choose **Create flow** and select any flow type.
-4. To add a module, go to the **Integrate** section, and choose
-   **Invoke flow module**.
-5. When you're finished creating your flow, choose **Publish**.
+1. Log in to the Connect Customer console with an account assigned to a security profile that has permissions to create flows. You don't need permissions to create modules.
+
+1. On the navigation menu, choose **Routing**, **Contact flows**.
+
+1. Choose **Create flow** and select any flow type. 
+
+1. To add a module, go to the **Integrate** section, and choose **Invoke flow module**. 
+
+1. When you're finished creating your flow, choose **Publish**. 
 
 ## Example module
+<a name="example-module"></a>
 
-This module shows how to get a random fun fact by invoking a Lambda function. The
-module uses a contact attribute (`$.Attributes.FunFact`) to retrieve the fun
-fact. Flows that invoke this module can play a FunFact to customers, depending on their
-incoming contact type.
+This module shows how to get a random fun fact by invoking a Lambda function. The module uses a contact attribute (`$.Attributes.FunFact`) to retrieve the fun fact. Flows that invoke this module can play a FunFact to customers, depending on their incoming contact type. 
 
-The inbound flows in your instance can invoke this common module and get the fun
-fact.
+The inbound flows in your instance can invoke this common module and get the fun fact.
 
 Following is an image of the FunFact module:
 
-![The funfact module in the flow designer.](images/module-example1.png)
+![The funfact module in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-example1.png)
+
 
 Following is an image of the FunFactSampleFlow that invokes the module:
 
-![The funfactsampleflow in the flow designer.](images/module-example2.png)
+![The funfactsampleflow in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-example2.png)
+
 
 ## Module versioning and aliasing
+<a name="module-versioning-aliasing"></a>
 
 To improve maintenance efficiency and reduce deployment risks, versioning and aliasing are supported for modules. Module versions are Immutable snapshots to ensure each module version remains unchanged, providing consistency and reliability. With module aliases, you can assign descriptive names to versions for easier identification and management. Latest revision tracking automatically updates to the newest version when you invoke a module and select $.LATEST as the alias.
 
 ### Create version for modules
+<a name="create-module-version"></a>
 
 You can create versions of your modules to track changes and maintain different iterations.
 
-![Creating a version for a module in the console.](images/module-version-create.png)
+![Creating a version for a module in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-create.png)
+
 
 ### Create alias for modules
+<a name="create-module-alias"></a>
 
 You can create aliases that point to specific module versions for easier management.
 
-![Creating an alias for a module in the console.](images/module-alias-create.png)
+![Creating an alias for a module in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-alias-create.png)
+
 
 ### View specific version or alias of modules
+<a name="view-module-version-alias"></a>
 
 You can view specific versions or aliases of your modules in read-only mode.
 
-![Viewing module versions in the console.](images/module-version-view1.png)
+![Viewing module versions in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-view1.png)
 
-![Viewing module aliases in the console.](images/module-version-view2.png)
+
+![Viewing module aliases in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-view2.png)
+
 
 Choose on the specific version or alias to view the modules in read-only mode:
 
-![Read-only view of a specific module version.](images/module-readonly-view.png)
+![Read-only view of a specific module version.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-readonly-view.png)
+
 
 ### Use module versions and alias in flows
+<a name="use-module-versions-alias"></a>
 
 You can reference specific module versions or aliases when invoking modules in your flows.
 
-![Using module versions and aliases in flows.](images/module-use-in-flows.png)
+![Using module versions and aliases in flows.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-use-in-flows.png)
+
 
 ## Create custom block module
+<a name="create-custom-block-module"></a>
 
 You can begin creating a custom block module by navigating to the Settings tab of your new or existing flow module. Here, you can configure input and output data types for your module. While the input/output schemas default to Object type, you have flexibility to define other data types for properties within the root input and output schemas, the following data types are supported: String, Number, Integer, Boolean, Object, Array, and Null.
 
 ### Configure custom block module
+<a name="configure-custom-block-module"></a>
 
 You can start creating custom block module by navigating the **Settings** tab of your new or existing flow module, you can configure any data type of input and output for your module, however, the input/output schema are Object type by default. For properties under the root input and output schema, data types supported are String, Number, Integer, Boolean, Object, Array, and Null.
 
 You can use **Designer** mode to create input and output model structure or you can use **JSON schema** to define them.
 
-![Designer mode for custom block module configuration.](images/module-custom-designer.png)
+![Designer mode for custom block module configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-designer.png)
 
-![JSON schema mode for custom block module configuration.](images/module-custom-json.png)
+
+![JSON schema mode for custom block module configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-json.png)
+
 
 You can define up to 8 custom branches for your module.
 
-![Custom branches configuration for modules.](images/module-custom-branches.png)
+![Custom branches configuration for modules.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-branches.png)
+
 
 ### Accessing module related attributes
+<a name="accessing-module-attributes"></a>
 
-As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes by using the [Flow block in Connect Customer: Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block, or use them directly through a JSONPath reference. For details about module attributes, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes by using the [Flow block in Connect Customer: Set contact attributes](set-contact-attributes.md) block, or use them directly through a JSONPath reference. For details about module attributes, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md).
 
 ### Example custom block module
+<a name="example-custom-block-module"></a>
 
 This module shows how to get customers authenticated based on their provided phone number and PIN by invoking Lambda functions. The module takes an input as phone number and outputs the customerId, customerName, and customerEmail. The module also supports 2 custom branch which are authenticated and unauthenticated. Flows that invoke this module can simply pass in a phone number to authenticate customers and get basic customer information for further actions.
 
 Following is an image of the Authentication module with settings:
 
-![Authentication module settings - input configuration.](images/module-auth-settings1.png)
+![Authentication module settings - input configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings1.png)
 
-![Authentication module settings - output configuration.](images/module-auth-settings2.png)
 
-![Authentication module settings - branches configuration.](images/module-auth-settings3.png)
+![Authentication module settings - output configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings2.png)
 
-![Authentication module settings - summary view.](images/module-auth-settings4.png)
+
+![Authentication module settings - branches configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings3.png)
+
+
+![Authentication module settings - summary view.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings4.png)
+
 
 Following is an image of a sample customer support flow that invokes the module to authenticate the customer using a phone number:
 
-![Sample customer support flow using the authentication module.](images/module-auth-flow-example.png)
+![Sample customer support flow using the authentication module.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-flow-example.png)
+
 
 ## Create module as tools
+<a name="create-module-as-tools"></a>
 
 To enable Flow Modules to be invoked outside of a Flow by various systems as independent execution units, expanding their utility and supporting powerful use cases with established automation tools such as Q in Connect, where AI Agents can use modules as tools to fulfill actions identified during customer service interactions, such as executing payment workflows and automated task workflows. With this approach, you can define business logic once as modules and execute it across multiple channels and contexts, ensuring consistency while reducing development overhead.
 
 ### Create new module as tool
+<a name="create-new-module-as-tool"></a>
 
-![Create new module as tool interface.](images/module-as-tool-create-new.png)
+![Create new module as tool interface.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-create-new.png)
+
 
 ### Create module as tool from existing module
+<a name="create-module-tool-from-existing"></a>
 
-![Create module as tool from existing module interface.](images/module-as-tool-from-existing.png)
+![Create module as tool from existing module interface.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-from-existing.png)
+
 
 ### Module as tool supported blocks
+<a name="module-tool-supported-blocks"></a>
 
 When you are creating a new tool module, you will only see supported list of blocks from the block library to build your module. For converting your existing module as tool, you will see which are your existing blocks that are not supported in a tool module. The following list of blocks are supported for module as tool.
 
-| Blocks                             |
-| ---------------------------------- |
-| Cases                              |
-| ChangeRoutingPriority              |
-| CheckCallProgress                  |
-| CheckContactAttributes             |
-| CheckHoursOfOperation              |
-| CheckQueueStatus                   |
-| CheckStaffing                      |
-| CheckVoiceId                       |
-| CreatePersistentContactAssociation |
-| CreateTask                         |
-| CustomerProfiles                   |
-| DataTable                          |
-| DistributeByPercentage             |
-| GetQueueMetrics                    |
-| InvokeFlowModule                   |
-| InvokeLambdaFunction               |
-| InvokeThirdPartyAction             |
-| Loop                               |
-| Resume                             |
-| ResumeContact                      |
-| Return                             |
-| SendMessage                        |
-| SetAttributes                      |
-| SetCallbackNumber                  |
-| SetCustomerQueueFlow               |
-| SetDisconnectFlow                  |
-| SetEventHook                       |
-| SetHoldFlow                        |
-| SetLoggingBehavior                 |
-| SetQueue                           |
-| SetRecordingAndAnalyticsBehavior   |
-| SetRoutingCriteria                 |
-| SetRoutingProficiency              |
-| SetVoice                           |
-| SetVoiceId                         |
-| SetWhisperFlow                     |
-| SetWisdomAssistant                 |
-| TagContact                         |
+
+| Blocks | 
+| --- | 
+| Cases | 
+| ChangeRoutingPriority | 
+| CheckCallProgress | 
+| CheckContactAttributes | 
+| CheckHoursOfOperation | 
+| CheckQueueStatus | 
+| CheckStaffing | 
+| CheckVoiceId | 
+| CreatePersistentContactAssociation | 
+| CreateTask | 
+| CustomerProfiles | 
+| DataTable | 
+| DistributeByPercentage | 
+| GetQueueMetrics | 
+| InvokeFlowModule | 
+| InvokeLambdaFunction | 
+| InvokeThirdPartyAction | 
+| Loop | 
+| Resume | 
+| ResumeContact | 
+| Return | 
+| SendMessage | 
+| SetAttributes | 
+| SetCallbackNumber | 
+| SetCustomerQueueFlow | 
+| SetDisconnectFlow | 
+| SetEventHook | 
+| SetHoldFlow | 
+| SetLoggingBehavior | 
+| SetQueue | 
+| SetRecordingAndAnalyticsBehavior | 
+| SetRoutingCriteria | 
+| SetRoutingProficiency | 
+| SetVoice | 
+| SetVoiceId | 
+| SetWhisperFlow | 
+| SetWisdomAssistant | 
+| TagContact | 

@@ -1,43 +1,41 @@
+
+
 # Reference queries for the Connect Customer data lake
+<a name="data-lake-reference-queries"></a>
 
-This topic provides Athena SQL queries (Trino engine v3) for calculating
-common Connect Customer metrics from data lake tables. All queries use
-double-quoted identifiers and assume a `connect_datalake`
-database name. Adjust the database name to match your Glue catalog
-configuration.
+This topic provides Athena SQL queries (Trino engine v3) for calculating common Connect Customer metrics from data lake tables. All queries use double-quoted identifiers and assume a `connect_datalake` database name. Adjust the database name to match your Glue catalog configuration.
 
-Replace `<YOUR_INSTANCE_ID>` in each query with your
-Connect Customer instance ID.
+Replace `<YOUR_INSTANCE_ID>` in each query with your Connect Customer instance ID.
 
-###### Contents
-
-- [Contact and queue metrics](#data-lake-rq-contact-queue "#data-lake-rq-contact-queue")
-- [Agent performance metrics](#data-lake-rq-agent-performance "#data-lake-rq-agent-performance")
-- [Chat metrics](#data-lake-rq-chat "#data-lake-rq-chat")
-- [Conversational analytics metrics](#data-lake-rq-contact-lens "#data-lake-rq-contact-lens")
-- [AI agent metrics](#data-lake-rq-ai-agent "#data-lake-rq-ai-agent")
-- [Flow metrics](#data-lake-rq-flow "#data-lake-rq-flow")
-- [Evaluation metrics](#data-lake-rq-evaluations "#data-lake-rq-evaluations")
-- [Outbound campaign metrics](#data-lake-rq-campaigns "#data-lake-rq-campaigns")
-- [Cases metrics](#data-lake-rq-cases "#data-lake-rq-cases")
-- [Bot metrics](#data-lake-rq-bot "#data-lake-rq-bot")
-- [Common query patterns](#data-lake-rq-patterns "#data-lake-rq-patterns")
-- [Agent schedule adherence (activity-level)](#data-lake-rq-schedule-adherence "#data-lake-rq-schedule-adherence")
-- [Best practices](#data-lake-rq-best-practices "#data-lake-rq-best-practices")
+**Topics**
++ [Contact and queue metrics](#data-lake-rq-contact-queue)
++ [Agent performance metrics](#data-lake-rq-agent-performance)
++ [Chat metrics](#data-lake-rq-chat)
++ [Conversational analytics metrics](#data-lake-rq-contact-lens)
++ [AI agent metrics](#data-lake-rq-ai-agent)
++ [Flow metrics](#data-lake-rq-flow)
++ [Evaluation metrics](#data-lake-rq-evaluations)
++ [Outbound campaign metrics](#data-lake-rq-campaigns)
++ [Cases metrics](#data-lake-rq-cases)
++ [Bot metrics](#data-lake-rq-bot)
++ [Common query patterns](#data-lake-rq-patterns)
++ [Agent schedule adherence (activity-level)](#data-lake-rq-schedule-adherence)
++ [Best practices](#data-lake-rq-best-practices)
 
 ## Contact and queue metrics
+<a name="data-lake-rq-contact-queue"></a>
 
 ### Abandonment rate
+<a name="data-lake-rq-abandonment-rate"></a>
 
 **Definition:** Percentage of contacts disconnected by the customer while in queue. Callbacks excluded.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
     "queue_id",
-    CAST(SUM("is_abandoned") AS DOUBLE)
+    CAST(SUM("is_abandoned") AS DOUBLE) 
         / NULLIF(SUM("is_queued"), 0) * 100.0 AS "abandonment_rate_pct"
 FROM "connect_datalake"."contact_statistic_record"
 WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
@@ -48,11 +46,11 @@ ORDER BY "abandonment_rate_pct" DESC;
 ```
 
 ### Contacts abandoned
+<a name="data-lake-rq-contacts-abandoned"></a>
 
 **Definition:** Count of contacts disconnected by the customer while waiting in queue.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -66,18 +64,18 @@ GROUP BY "queue_id";
 ```
 
 ### Contacts abandoned in X seconds
+<a name="data-lake-rq-contacts-abandoned-x-seconds"></a>
 
 **Definition:** Count of contacts abandoned within X seconds of being enqueued.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
     "queue_id",
     SUM(
-        CASE WHEN "is_abandoned" = 1
-             AND "queue_time_ms" <= 30000
+        CASE WHEN "is_abandoned" = 1 
+             AND "queue_time_ms" <= 30000 
              THEN 1 ELSE 0 END
     ) AS "contacts_abandoned_in_30s"
 FROM "connect_datalake"."contact_statistic_record"
@@ -88,11 +86,11 @@ GROUP BY "queue_id";
 ```
 
 ### Average queue abandon time
+<a name="data-lake-rq-avg-queue-abandon-time"></a>
 
 **Definition:** Average time contacts waited in queue before abandoning.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -108,11 +106,11 @@ GROUP BY "queue_id";
 ```
 
 ### Average queue answer time
+<a name="data-lake-rq-avg-queue-answer-time"></a>
 
 **Definition:** Average time contacts waited in queue before being answered by an agent.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -128,19 +126,19 @@ GROUP BY "queue_id";
 ```
 
 ### Service level
+<a name="data-lake-rq-service-level"></a>
 
 **Definition:** Count and percentage of contacts answered within X seconds.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
     "queue_id",
-    SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000
+    SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000 
              THEN 1 ELSE 0 END) AS "contacts_answered_in_20s",
     SUM("is_queued") AS "contacts_queued",
-    CAST(SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000
+    CAST(SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000 
                   THEN 1 ELSE 0 END) AS DOUBLE)
         / NULLIF(SUM("is_queued"), 0) * 100.0 AS "service_level_20s_pct"
 FROM "connect_datalake"."contact_statistic_record"
@@ -151,11 +149,11 @@ GROUP BY "queue_id";
 ```
 
 ### Contacts queued
+<a name="data-lake-rq-contacts-queued"></a>
 
 **Definition:** Count of contacts placed into a queue.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -169,11 +167,11 @@ GROUP BY "queue_id";
 ```
 
 ### Contacts handled
+<a name="data-lake-rq-contacts-handled"></a>
 
 **Definition:** Count of contacts connected to an agent.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -187,11 +185,11 @@ GROUP BY "queue_id";
 ```
 
 ### Contacts transferred in
+<a name="data-lake-rq-contacts-transferred-in"></a>
 
 **Definition:** Contacts transferred into a queue.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -205,11 +203,11 @@ GROUP BY "queue_id";
 ```
 
 ### Contacts transferred out
+<a name="data-lake-rq-contacts-transferred-out"></a>
 
 **Definition:** Contacts transferred out of a queue.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -225,11 +223,11 @@ GROUP BY "queue_id";
 ```
 
 ### Maximum queued time
+<a name="data-lake-rq-max-queued-time"></a>
 
 **Definition:** Longest time any contact spent waiting in queue.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -244,11 +242,11 @@ GROUP BY "queue_id";
 ```
 
 ### Average contact duration
+<a name="data-lake-rq-avg-contact-duration"></a>
 
 **Definition:** Average time from contact initiation to disconnect.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -265,13 +263,14 @@ GROUP BY "queue_id";
 ```
 
 ## Agent performance metrics
+<a name="data-lake-rq-agent-performance"></a>
 
 ### Average handle time
+<a name="data-lake-rq-avg-handle-time"></a>
 
 **Definition:** Average time from contact connection to ACW completion.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -287,11 +286,11 @@ GROUP BY "agent_id";
 ```
 
 ### After contact work time
+<a name="data-lake-rq-acw-time"></a>
 
 **Definition:** Total time agents spent in ACW state.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -306,11 +305,11 @@ GROUP BY "agent_id";
 ```
 
 ### Customer hold time
+<a name="data-lake-rq-customer-hold-time"></a>
 
 **Definition:** Total time customers spent on hold after connecting to agent.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -325,11 +324,11 @@ GROUP BY "agent_id";
 ```
 
 ### Agent idle time
+<a name="data-lake-rq-agent-idle-time"></a>
 
 **Definition:** Time agent spent in Available status without handling contacts.
 
-**Source table:**
-`agent_statistic_record`
+**Source table:** `agent_statistic_record`
 
 ```
 SELECT
@@ -343,17 +342,17 @@ GROUP BY "user_id";
 ```
 
 ### Occupancy
+<a name="data-lake-rq-occupancy"></a>
 
 **Definition:** Percentage of time agents were active on contacts versus available plus active.
 
-**Source table:**
-`agent_statistic_record`
+**Source table:** `agent_statistic_record`
 
 ```
 SELECT
     "user_id" AS "agent_id",
     CAST(SUM("agent_on_contact_time") AS DOUBLE)
-        / NULLIF(SUM("agent_on_contact_time") + SUM("agent_idle_time"), 0)
+        / NULLIF(SUM("agent_on_contact_time") + SUM("agent_idle_time"), 0) 
         * 100.0 AS "occupancy_pct"
 FROM "connect_datalake"."agent_statistic_record"
 WHERE "published_date" >= TIMESTAMP '2026-06-09 00:00:00'
@@ -363,11 +362,11 @@ GROUP BY "user_id";
 ```
 
 ### Agent non-response
+<a name="data-lake-rq-agent-non-response"></a>
 
 **Definition:** Count of contacts routed to agent but not answered.
 
-**Source table:**
-`agent_queue_statistic_record`
+**Source table:** `agent_queue_statistic_record`
 
 ```
 SELECT
@@ -382,16 +381,16 @@ GROUP BY "user_id", "queue_id";
 ```
 
 ### Agent answer rate
+<a name="data-lake-rq-agent-answer-rate"></a>
 
 **Definition:** Percentage of routed contacts answered by the agent.
 
-**Source table:**
-`agent_queue_statistic_record`
+**Source table:** `agent_queue_statistic_record`
 
 ```
 SELECT
     "user_id" AS "agent_id",
-    CAST(SUM("contacts_handled") AS DOUBLE)
+    CAST(SUM("contacts_handled") AS DOUBLE) 
         / NULLIF(SUM("contacts_offered"), 0) * 100.0 AS "agent_answer_rate_pct"
 FROM "connect_datalake"."agent_queue_statistic_record"
 WHERE "published_date" >= TIMESTAMP '2026-06-09 00:00:00'
@@ -401,11 +400,11 @@ GROUP BY "user_id";
 ```
 
 ### Online time
+<a name="data-lake-rq-online-time"></a>
 
 **Definition:** Total time agent CCP was set to status other than Offline.
 
-**Source table:**
-`agent_statistic_record`
+**Source table:** `agent_statistic_record`
 
 ```
 SELECT
@@ -419,18 +418,19 @@ GROUP BY "user_id";
 ```
 
 ## Chat metrics
+<a name="data-lake-rq-chat"></a>
 
 ### Average agent first response time
+<a name="data-lake-rq-avg-agent-first-response-time"></a>
 
 **Definition:** Average time for agent to send first message after obtaining a chat contact.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
     "queue_id",
-    AVG("chat_contact_metrics_agent_first_response_time_ms") / 1000.0
+    AVG("chat_contact_metrics_agent_first_response_time_ms") / 1000.0 
         AS "avg_agent_first_response_sec"
 FROM "connect_datalake"."contact_record"
 WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
@@ -442,11 +442,11 @@ GROUP BY "queue_id";
 ```
 
 ### Average agent response time
+<a name="data-lake-rq-avg-agent-response-time"></a>
 
 **Definition:** Average time agents take to respond to customer messages.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -464,11 +464,11 @@ GROUP BY "queue_id";
 ```
 
 ### Average total messages
+<a name="data-lake-rq-avg-total-messages"></a>
 
 **Definition:** Average total messages per chat contact.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -484,11 +484,11 @@ GROUP BY "queue_id";
 ```
 
 ### Conversations abandoned
+<a name="data-lake-rq-conversations-abandoned"></a>
 
 **Definition:** Contacts where chat was abandoned by agent or customer.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -498,20 +498,21 @@ FROM "connect_datalake"."contact_record"
 WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
   AND "disconnect_timestamp" <  TIMESTAMP '2026-06-10 00:00:00'
   AND "channel" = 'CHAT'
-  AND ("chat_agent_metrics_conversation_abandon" = true
+  AND ("chat_agent_metrics_conversation_abandon" = true 
        OR "chat_customer_metrics_conversation_abandon" = true)
   AND "instance_id" = '<YOUR_INSTANCE_ID>'
 GROUP BY "queue_id";
 ```
 
 ## Conversational analytics metrics
+<a name="data-lake-rq-contact-lens"></a>
 
 ### Average talk time
+<a name="data-lake-rq-avg-talk-time"></a>
 
 **Definition:** Average combined agent and customer talk time per voice contact.
 
-**Source table:**
-`contact_lens_conversational_analytics`
+**Source table:** `contact_lens_conversational_analytics`
 
 ```
 SELECT
@@ -524,11 +525,11 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ### Average non-talk time
+<a name="data-lake-rq-avg-non-talk-time"></a>
 
 **Definition:** Average hold plus silence time per voice contact.
 
-**Source table:**
-`contact_lens_conversational_analytics`
+**Source table:** `contact_lens_conversational_analytics`
 
 ```
 SELECT
@@ -541,11 +542,11 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ### Sentiment scores
+<a name="data-lake-rq-sentiment-scores"></a>
 
 **Definition:** Overall sentiment scores for agent and customer.
 
-**Source table:**
-`contact_lens_conversational_analytics`
+**Source table:** `contact_lens_conversational_analytics`
 
 ```
 SELECT
@@ -560,11 +561,11 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ### Average agent interruptions
+<a name="data-lake-rq-avg-agent-interruptions"></a>
 
 **Definition:** Average count of agent interruptions per contact.
 
-**Source table:**
-`contact_lens_conversational_analytics`
+**Source table:** `contact_lens_conversational_analytics`
 
 ```
 SELECT
@@ -577,13 +578,14 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ## AI agent metrics
+<a name="data-lake-rq-ai-agent"></a>
 
 ### AI agent invocation success rate
+<a name="data-lake-rq-ai-invocation-success-rate"></a>
 
 **Definition:** Rate of successful AI Agent invocations.
 
-**Source table:**
-`ai_agent`
+**Source table:** `ai_agent`
 
 ```
 SELECT
@@ -600,11 +602,11 @@ GROUP BY "ai_agent_name";
 ```
 
 ### AI handoff rate
+<a name="data-lake-rq-ai-handoff-rate"></a>
 
 **Definition:** Rate of AI sessions that escalated to human agents.
 
-**Source table:**
-`ai_session`
+**Source table:** `ai_session`
 
 ```
 SELECT
@@ -619,11 +621,11 @@ WHERE "creation_timestamp" >= CAST('2026-06-09' AS TIMESTAMP) * 1000
 ```
 
 ### AI quality scores
+<a name="data-lake-rq-ai-quality-scores"></a>
 
 **Definition:** Average goal success, faithfulness, and completeness scores.
 
-**Source table:**
-`ai_session`
+**Source table:** `ai_session`
 
 ```
 SELECT
@@ -637,11 +639,11 @@ WHERE "creation_timestamp" >= CAST('2026-06-09' AS TIMESTAMP) * 1000
 ```
 
 ### AI tool accuracy
+<a name="data-lake-rq-ai-tool-accuracy"></a>
 
 **Definition:** Accuracy scores for AI tool parameter usage, selection, and utilization.
 
-**Source table:**
-`ai_tool`
+**Source table:** `ai_tool`
 
 ```
 SELECT
@@ -657,13 +659,14 @@ GROUP BY "ai_tool_name";
 ```
 
 ## Flow metrics
+<a name="data-lake-rq-flow"></a>
 
 ### Flows started
+<a name="data-lake-rq-flows-started"></a>
 
 **Definition:** Count of flows that began execution.
 
-**Source table:**
-`contact_flow_events`
+**Source table:** `contact_flow_events`
 
 ```
 SELECT
@@ -678,11 +681,11 @@ GROUP BY "flow_resource_id", "flow_type";
 ```
 
 ### Flow outcome percentage
+<a name="data-lake-rq-flow-outcome-pct"></a>
 
 **Definition:** Percentage of each flow outcome type.
 
-**Source table:**
-`contact_flow_events`
+**Source table:** `contact_flow_events`
 
 ```
 WITH flow_counts AS (
@@ -708,11 +711,11 @@ ORDER BY "flow_resource_id", "outcome_pct" DESC;
 ```
 
 ### Average flow time
+<a name="data-lake-rq-avg-flow-time"></a>
 
 **Definition:** Average duration of flow executions.
 
-**Source table:**
-`contact_flow_events`
+**Source table:** `contact_flow_events`
 
 ```
 SELECT
@@ -729,13 +732,14 @@ GROUP BY "flow_resource_id";
 ```
 
 ## Evaluation metrics
+<a name="data-lake-rq-evaluations"></a>
 
 ### Evaluations performed
+<a name="data-lake-rq-evaluations-performed"></a>
 
 **Definition:** Number of submitted evaluations.
 
-**Source table:**
-`contact_evaluation_record`
+**Source table:** `contact_evaluation_record`
 
 ```
 SELECT
@@ -750,11 +754,11 @@ WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ### Average evaluation score
+<a name="data-lake-rq-avg-evaluation-score"></a>
 
 **Definition:** Average evaluation score across submitted evaluations.
 
-**Source table:**
-`contact_evaluation_record`
+**Source table:** `contact_evaluation_record`
 
 ```
 SELECT
@@ -769,17 +773,17 @@ WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ### Automatic fails percent
+<a name="data-lake-rq-automatic-fails"></a>
 
 **Definition:** Percentage of evaluations that triggered automatic fail.
 
-**Source table:**
-`contact_evaluation_record`
+**Source table:** `contact_evaluation_record`
 
 ```
 SELECT
     CAST(
         COUNT(DISTINCT CASE WHEN "automatic_fail" = true THEN "evaluation_id" END) AS DOUBLE
-    ) / NULLIF(COUNT(DISTINCT "evaluation_id"), 0) * 100.0
+    ) / NULLIF(COUNT(DISTINCT "evaluation_id"), 0) * 100.0 
         AS "automatic_fail_pct"
 FROM "connect_datalake"."contact_evaluation_record"
 WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
@@ -791,13 +795,14 @@ WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ## Outbound campaign metrics
+<a name="data-lake-rq-campaigns"></a>
 
 ### Campaign contacts
+<a name="data-lake-rq-campaign-contacts"></a>
 
 **Definition:** Count of outbound campaign contacts.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -812,11 +817,11 @@ GROUP BY "campaign_id";
 ```
 
 ### Human answered
+<a name="data-lake-rq-human-answered"></a>
 
 **Definition:** Outbound campaign calls connected to a live customer.
 
-**Source table:**
-`contact_record`
+**Source table:** `contact_record`
 
 ```
 SELECT
@@ -832,13 +837,14 @@ GROUP BY "campaign_id";
 ```
 
 ## Cases metrics
+<a name="data-lake-rq-cases"></a>
 
 ### Cases created
+<a name="data-lake-rq-cases-created"></a>
 
 **Definition:** Total cases created in a time period.
 
-**Source table:**
-`case_events`
+**Source table:** `case_events`
 
 ```
 SELECT
@@ -851,11 +857,11 @@ WHERE "event_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ### Average case resolution time
+<a name="data-lake-rq-avg-case-resolution"></a>
 
 **Definition:** Average time from case creation to close.
 
-**Source table:**
-`case_events`
+**Source table:** `case_events`
 
 ```
 SELECT
@@ -870,13 +876,14 @@ WHERE "last_closed_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ## Bot metrics
+<a name="data-lake-rq-bot"></a>
 
 ### Bot conversation outcomes
+<a name="data-lake-rq-bot-outcomes"></a>
 
 **Definition:** Percentage breakdown of bot conversation outcomes.
 
-**Source table:**
-`bot_conversations`
+**Source table:** `bot_conversations`
 
 ```
 WITH bot_outcomes AS (
@@ -900,15 +907,16 @@ FROM bot_outcomes;
 ```
 
 ## Common query patterns
+<a name="data-lake-rq-patterns"></a>
 
 The following patterns show how to combine multiple data lake tables for comprehensive dashboards and reporting.
 
 ### Daily summary dashboard
+<a name="data-lake-rq-daily-summary"></a>
 
 **Definition:** Comprehensive daily queue metrics including service level.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -916,11 +924,11 @@ SELECT
     SUM("is_queued") AS "contacts_queued",
     SUM("is_handled") AS "contacts_handled",
     SUM("is_abandoned") AS "contacts_abandoned",
-    AVG(CASE WHEN "is_handled" = 1 THEN "queue_answer_time_ms" END) / 1000.0
+    AVG(CASE WHEN "is_handled" = 1 THEN "queue_answer_time_ms" END) / 1000.0 
         AS "avg_answer_time_sec",
-    AVG(CASE WHEN "is_handled" = 1 THEN "handle_time_ms" END) / 1000.0
+    AVG(CASE WHEN "is_handled" = 1 THEN "handle_time_ms" END) / 1000.0 
         AS "avg_handle_time_sec",
-    CAST(SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000
+    CAST(SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000 
                   THEN 1 ELSE 0 END) AS DOUBLE)
         / NULLIF(SUM("is_queued"), 0) * 100.0 AS "sl_20s_pct"
 FROM "connect_datalake"."contact_statistic_record"
@@ -932,11 +940,11 @@ ORDER BY "contacts_queued" DESC;
 ```
 
 ### Hourly trend analysis
+<a name="data-lake-rq-hourly-trend"></a>
 
 **Definition:** Hourly contact volume and service level trends.
 
-**Source table:**
-`contact_statistic_record`
+**Source table:** `contact_statistic_record`
 
 ```
 SELECT
@@ -945,7 +953,7 @@ SELECT
     SUM("is_queued") AS "contacts_queued",
     SUM("is_handled") AS "contacts_handled",
     SUM("is_abandoned") AS "contacts_abandoned",
-    CAST(SUM("is_abandoned") AS DOUBLE)
+    CAST(SUM("is_abandoned") AS DOUBLE) 
         / NULLIF(SUM("is_queued"), 0) * 100.0 AS "abandon_rate_pct",
     AVG(CASE WHEN "is_handled" = 1 THEN "handle_time_ms" END) / 1000.0 AS "aht_sec"
 FROM "connect_datalake"."contact_statistic_record"
@@ -957,11 +965,11 @@ ORDER BY "hour";
 ```
 
 ### Conversational analytics enriched contacts
+<a name="data-lake-rq-contact-lens-enriched"></a>
 
 **Definition:** Enrich contact records with conversational analytics.
 
-**Source table:**
-`contact_record` joined with `contact_lens_conversational_analytics`
+**Source table:** `contact_record` joined with `contact_lens_conversational_analytics`
 
 ```
 SELECT
@@ -984,40 +992,24 @@ WHERE cr."disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 ```
 
 ## Agent schedule adherence (activity-level)
+<a name="data-lake-rq-schedule-adherence"></a>
 
-**Definition:** Compares an agent's
-actual activity state (from `agent_statistic_record`)
-against their scheduled shift activities (from scheduling tables) for
-each time interval in a day. Produces a per-interval adherence
-determination: IN (agent was doing what they were scheduled to do) or
-OUT (they weren't).
+**Definition:** Compares an agent's actual activity state (from `agent_statistic_record`) against their scheduled shift activities (from scheduling tables) for each time interval in a day. Produces a per-interval adherence determination: IN (agent was doing what they were scheduled to do) or OUT (they weren't).
 
-**Output columns:** Agent, Date, Begin,
-End, Scheduled Activity, Actual Activity, Adherence State,
-Duration
+**Output columns:** Agent, Date, Begin, End, Scheduled Activity, Actual Activity, Adherence State, Duration
 
 **Source tables:**
-
-- `staff_shifts` — Agent shifts for the day
-  (latest non-deleted version)
-- `staff_shift_activities` — Scheduled
-  activity blocks within each shift
-- `shift_activities` — Activity name lookup
-  (maps ARN to human-readable name)
-- `agent_statistic_record` — Actual agent
-  state per interval
-- `users` — Agent name and ARN
-  resolution
++ `staff_shifts` — Agent shifts for the day (latest non-deleted version)
++ `staff_shift_activities` — Scheduled activity blocks within each shift
++ `shift_activities` — Activity name lookup (maps ARN to human-readable name)
++ `agent_statistic_record` — Actual agent state per interval
++ `users` — Agent name and ARN resolution
 
 **Adherence logic (simplified):**
-
-- Scheduled "Open" — agent is IN if status is Available,
-  On Contact, or ACW
-- Scheduled "Break" — agent is IN if status is Break or
-  Lunch
-- Scheduled "Meeting" — agent is IN if status is Training
-  or Meeting
-- Otherwise — OUT
++ Scheduled "Open" — agent is IN if status is Available, On Contact, or ACW
++ Scheduled "Break" — agent is IN if status is Break or Lunch
++ Scheduled "Meeting" — agent is IN if status is Training or Meeting
++ Otherwise — OUT
 
 ```
 WITH latest_shift_versions AS (
@@ -1147,25 +1139,10 @@ ORDER BY interval_start_time ASC;
 ```
 
 ## Best practices
-
-- **Partition pruning** —
-  Always include partition filters (`disconnect_timestamp`,
-  `published_date`, or `creation_timestamp`)
-  to minimize scan costs.
-- **Deduplication** —
-  Connect Customer delivers records at least once. Use
-  `DISTINCT` on primary keys when exact counts
-  are required.
-- **Time zones** —
-  All timestamps are in UTC. Apply `AT TIME ZONE`
-  for local reporting.
-- **Milliseconds** —
-  Most duration fields are stored in milliseconds. Divide by
-  1000.0 for seconds.
-- **Instance ID filter** —
-  Always filter by `instance_id` in multi-instance
-  environments.
-- **Real-time metrics** —
-  For true real-time metrics, use the
-  `GetCurrentMetricData` API. The data lake provides
-  historical data only.
+<a name="data-lake-rq-best-practices"></a>
++ **Partition pruning** — Always include partition filters (`disconnect_timestamp`, `published_date`, or `creation_timestamp`) to minimize scan costs.
++ **Deduplication** — Connect Customer delivers records at least once. Use `DISTINCT` on primary keys when exact counts are required.
++ **Time zones** — All timestamps are in UTC. Apply `AT TIME ZONE` for local reporting.
++ **Milliseconds** — Most duration fields are stored in milliseconds. Divide by 1000.0 for seconds.
++ **Instance ID filter** — Always filter by `instance_id` in multi-instance environments.
++ **Real-time metrics** — For true real-time metrics, use the `GetCurrentMetricData` API. The data lake provides historical data only.

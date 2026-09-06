@@ -1,226 +1,231 @@
-# Required permissions for using custom IAM policies to manage Connect Customer Cases
 
-If you're using custom IAM policies to manage access to the Connect Customer Cases, your
-users need some or all of the permissions listed in this article, depending on the tasks
-they need to do.
+
+# Required permissions for using custom IAM policies to manage Connect Customer Cases
+<a name="required-permissions-iam-cases"></a>
+
+If you're using custom IAM policies to manage access to the Connect Customer Cases, your users need some or all of the permissions listed in this article, depending on the tasks they need to do.
 
 ## View Cases domain details
+<a name="view-cases-domain-iam"></a>
 
-There are two options for granting users IAM permissions to view Cases
-domain details on the Connect Customer console.
+There are two options for granting users IAM permissions to view Cases domain details on the Connect Customer console.
 
 ### Option 1: Minimum required IAM permissions
+<a name="option1-view-cases-domain-iam"></a>
 
-To view Cases domain details in the Connect Customer console, users must have the
-following IAM permissions:
-
-- `connect:ListInstances`
-- `ds:DescribeDirectories`
-- `connect:ListIntegrationAssociations`
-- `cases:GetDomain`
+To view Cases domain details in the Connect Customer console, users must have the following IAM permissions:
++ `connect:ListInstances`
++ `ds:DescribeDirectories`
++ `connect:ListIntegrationAssociations`
++ `cases:GetDomain`
 
 Following is a sample IAM policy with these permissions:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowsViewingConnectConsole",
- "Effect": "Allow",
- "Action": [
- "connect:ListInstances",
- "ds:DescribeDirectories"
- ],
- "Resource": "*"
- },
- {
- "Sid": "ListIntegrationAssociations",
- "Effect": "Allow",
- "Action": [
- "connect:ListIntegrationAssociations"
- ],
- "Resource": "*"
- },
- {
- "Sid": "CasesGetDomain",
- "Effect": "Allow",
- "Action": [
- "cases:GetDomain"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowsViewingConnectConsole",
+            "Effect": "Allow",
+            "Action": [
+                "connect:ListInstances",
+                "ds:DescribeDirectories"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ListIntegrationAssociations",
+            "Effect": "Allow",
+            "Action": [
+                "connect:ListIntegrationAssociations"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CasesGetDomain",
+            "Effect": "Allow",
+            "Action": [
+                "cases:GetDomain"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
+
+------
 
 Note the following:
-
-- `cases:GetDomain` Action is required on Resource
-  `*`
-- `connect:ListIntegrationAssociations` action supports the
-  `instance` resource type. See the table in [Actions defined by Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions").
++ `cases:GetDomain` Action is required on Resource `*`
++ `connect:ListIntegrationAssociations` action supports the `instance` resource type. See the table in [Actions defined by Connect Customer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions).
 
 ### Option 2: Update the existing Connect Customer policy with `cases:GetDomain` and `profile:SearchProfiles`
+<a name="option2-view-cases-domain-iam"></a>
 
-Include the [AmazonConnectReadOnlyAccess](security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy") policy, and add
-`cases:GetDomain`, as shown in the following example.
+Include the [AmazonConnectReadOnlyAccess](security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy) policy, and add `cases:GetDomain`, as shown in the following example. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "CasesGetDomain",
- "Effect": "Allow",
- "Action": [
- "cases:GetDomain"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "CasesGetDomain",
+            "Effect": "Allow",
+            "Action": [
+                "cases:GetDomain"
+            ],
+            "Resource": "*"
+        }        
+    ]
+}
+```
+
+------
 
 ## Onboard to Cases
+<a name="onboard-cases-iam"></a>
 
-There are two options for granting users IAM permissions to onboard to
-Cases using the Connect Customer console.
+There are two options for granting users IAM permissions to onboard to Cases using the Connect Customer console.
 
 ### Option 1: Minimum required permissions
+<a name="option1-onboard-cases-iam"></a>
 
-To onboard to Cases by using the Connect Customer console, users must have the
-following IAM permissions:
-
-- `connect:ListInstances`
-- `ds:DescribeDirectories`
-- `connect:ListIntegrationAssociations`
-- `cases:GetDomain`
-- `cases:CreateDomain`
-- `connect:CreateIntegrationAssociation`
-- `connect:DescribeInstance`
-- `iam:PutRolePolicy`
-- `profile:SearchProfiles`
+To onboard to Cases by using the Connect Customer console, users must have the following IAM permissions:
++ `connect:ListInstances`
++ `ds:DescribeDirectories`
++ `connect:ListIntegrationAssociations`
++ `cases:GetDomain`
++ `cases:CreateDomain`
++ `connect:CreateIntegrationAssociation`
++ `connect:DescribeInstance`
++ `iam:PutRolePolicy`
++ `profile:SearchProfiles`
 
 Following is a sample IAM policy with these permissions:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowsViewingConnectConsole",
- "Effect": "Allow",
- "Action": [
- "connect:ListInstances",
- "ds:DescribeDirectories"
- ],
- "Resource": "*"
- },
- {
- "Sid": "ListIntegrationAssociations",
- "Effect": "Allow",
- "Action": [
- "connect:ListIntegrationAssociations"
- ],
- "Resource": "*"
- },
- {
- "Sid": "CasesGetDomain",
- "Effect": "Allow",
- "Action": [
- "cases:GetDomain"
- ],
- "Resource": "*"
- },
- {
- "Sid": "CasesCreateDomain",
- "Effect": "Allow",
- "Action": [
- "cases:CreateDomain"
- ],
- "Resource": "*"
- },
- {
- "Sid": "CreateIntegrationAssociationsAndDependencies",
- "Effect": "Allow",
- "Action": [
- "connect:CreateIntegrationAssociation",
- "connect:DescribeInstance"
- ],
- "Resource": "*"
- },
- {
- "Sid": "AttachAnyPolicyToAmazonConnectRole",
- "Effect": "Allow",
- "Action": "iam:PutRolePolicy",
- "Resource": "arn:aws:iam::*:role/aws-service-role/connect.amazonaws.com/AWSServiceRoleForAmazonConnect*"
- },
- {
- "Sid": "ProfileSearchProfiles",
- "Effect": "Allow",
- "Action": [
- "profile:SearchProfiles"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowsViewingConnectConsole",
+            "Effect": "Allow",
+            "Action": [
+                "connect:ListInstances",
+                "ds:DescribeDirectories"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ListIntegrationAssociations",
+            "Effect": "Allow",
+            "Action": [
+                "connect:ListIntegrationAssociations"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CasesGetDomain",
+            "Effect": "Allow",
+            "Action": [
+                "cases:GetDomain"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CasesCreateDomain",
+            "Effect": "Allow",
+            "Action": [
+                "cases:CreateDomain"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CreateIntegrationAssociationsAndDependencies",
+            "Effect": "Allow",
+            "Action": [
+                "connect:CreateIntegrationAssociation",
+                "connect:DescribeInstance"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AttachAnyPolicyToAmazonConnectRole",
+            "Effect": "Allow",
+            "Action": "iam:PutRolePolicy",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/connect.amazonaws.com/AWSServiceRoleForAmazonConnect*"
+        },
+        {
+            "Sid": "ProfileSearchProfiles",
+            "Effect": "Allow",
+            "Action": [
+                "profile:SearchProfiles"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
+
+------
 
 Note the following:
-
-- `cases:GetDomain` Action is required on Resource
-  `*`
-- You can scope the permissions to specific Connect Customer tasks by using the
-  information in [Actions, resources, and condition keys for Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md "../../../service-authorization/latest/reference/list_amazonconnect.md").
-- `profile:SearchProfiles` Action is required because the
-  `CreateCase` API calls the `SearchProfiles`
-  API to search for customer profiles to validate against, and then
-  associate the profile with the case.
++ `cases:GetDomain` Action is required on Resource `*`
++ You can scope the permissions to specific Connect Customer tasks by using the information in [Actions, resources, and condition keys for Connect Customer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html).
++ `profile:SearchProfiles` Action is required because the `CreateCase` API calls the `SearchProfiles` API to search for customer profiles to validate against, and then associate the profile with the case.
 
 ### Option 2: Use a combination of existing policies
+<a name="option2-onboard-cases-iam"></a>
 
 The following combination of policies will also work:
++ **AmazonConnect\_FullAccess** policy
++ `iam:PutRolePolicy` to modify the service-linked role. For an example, see [AWS managed policy: AmazonConnect\_FullAccess policy](security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy). 
++ The following IAM policy:
 
-- **AmazonConnect\_FullAccess** policy
-- `iam:PutRolePolicy` to modify the service-linked role. For
-  an example, see [AWS managed policy: AmazonConnect\_FullAccess policy](security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectfullaccesspolicy").
-- The following IAM policy:
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "CasesGetDomain",
- "Effect": "Allow",
- "Action": [
- "cases:GetDomain",
- "cases:CreateDomain"
- ],
- "Resource": "*"
- },
- {
- "Sid": "ProfileSearchProfiles",
- "Effect": "Allow",
- "Action": [
- "profile:SearchProfiles"
- ],
- "Resource": "*"
- }
- ]
-}`
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [
+          {
+              "Sid": "CasesGetDomain",
+              "Effect": "Allow",
+              "Action": [
+                  "cases:GetDomain",
+                  "cases:CreateDomain"
+              ],
+              "Resource": "*"
+          },
+          {
+              "Sid": "ProfileSearchProfiles",
+              "Effect": "Allow",
+              "Action": [
+                  "profile:SearchProfiles"
+              ],
+              "Resource": "*"
+          }
+      ]
+  }
+  ```
 
-```
+------

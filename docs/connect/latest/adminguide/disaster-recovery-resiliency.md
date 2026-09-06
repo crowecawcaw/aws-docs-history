@@ -1,66 +1,43 @@
+
+
 # Resilience in Connect Customer
+<a name="disaster-recovery-resiliency"></a>
 
-The AWS global infrastructure is built around AWS Regions and Availability
-Zones (AZs). AWS Regions provide multiple physically separated and isolated
-AZs, which are connected with low-latency, high-throughput, and highly redundant networking.
-These AZs are physically separated by many miles, but still close enough together (60 miles
-or less) to be used as a single logical data center.
+The AWS global infrastructure is built around AWS Regions and Availability Zones (AZs). AWS Regions provide multiple physically separated and isolated AZs, which are connected with low-latency, high-throughput, and highly redundant networking. These AZs are physically separated by many miles, but still close enough together (60 miles or less) to be used as a single logical data center. 
 
-Each AZ features one or more discrete data centers, each housed in its own facility with
-redundant power, networking, and connectivity. These measures act as safeguards, and
-minimize the likelihood of an issue like a power outage or earthquake impacting multiple
-data centers or multiple AZs.
+Each AZ features one or more discrete data centers, each housed in its own facility with redundant power, networking, and connectivity. These measures act as safeguards, and minimize the likelihood of an issue like a power outage or earthquake impacting multiple data centers or multiple AZs. 
 
-AZs are more highly available, fault tolerant, and scalable than traditional single or
-multiple data center infrastructures.
+AZs are more highly available, fault tolerant, and scalable than traditional single or multiple data center infrastructures.
 
-For more information about AWS Regions and Availability Zones, see [AWS Global
-Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).
 
-Connect Customer runs on AWS proven infrastructure operating in multiple AZs within various
-geographic regions around the world. This makes Connect Customer more highly available, fault tolerant,
-and scalable than would be possible if a contact center solution was run from a single data
-center.
+Connect Customer runs on AWS proven infrastructure operating in multiple AZs within various geographic regions around the world. This makes Connect Customer more highly available, fault tolerant, and scalable than would be possible if a contact center solution was run from a single data center. 
 
-Within each AWS Region you can create a Connect Customer instance, with a minimum of
-3 AZs. When you create a Connect Customer instance, that instance is propagated across those AZs in an
-active-active-active configuration. If there is a failure in one AZ, that node is taken out
-of rotation without impacting production. With this architecture, you can perform
-maintenance, release new features, and expand infrastructure without requiring any
-downtime.
+Within each AWS Region you can create a Connect Customer instance, with a minimum of 3 AZs. When you create a Connect Customer instance, that instance is propagated across those AZs in an active-active-active configuration. If there is a failure in one AZ, that node is taken out of rotation without impacting production. With this architecture, you can perform maintenance, release new features, and expand infrastructure without requiring any downtime.
 
 ## Single-region telephony and softphone architecture
+<a name="telephony-recovery-resiliency"></a>
 
-Connect Customer is integrated with multiple telephony providers with redundant dedicated network
-paths to three or more AZs in every AWS Region where the service is
-offered today. If a particular component, data center, or an entire AZ experiences
-failure, the affected endpoint is automatically taken out of rotation. This helps you
-to continue providing a consistent quality experience for your customers.
+Connect Customer is integrated with multiple telephony providers with redundant dedicated network paths to three or more AZs in every AWS Region where the service is offered today. If a particular component, data center, or an entire AZ experiences failure, the affected endpoint is automatically taken out of rotation. This helps you to continue providing a consistent quality experience for your customers. 
 
-Inbound (US toll-free) and outbound calls in Connect Customer are processed through multiple
-telecom carriers. Each carrier is connected to multiple AZs in an active-active
-configuration. This makes sure that impairment of a network path or an entire AZ does not
-impact your end-customer experience. If there is an impairment at the carrier level,
-this design helps minimize impact to your customer's experience by placing outbound
-calls and accepting US inbound toll-free calls across multiple carriers.
+Inbound (US toll-free) and outbound calls in Connect Customer are processed through multiple telecom carriers. Each carrier is connected to multiple AZs in an active-active configuration. This makes sure that impairment of a network path or an entire AZ does not impact your end-customer experience. If there is an impairment at the carrier level, this design helps minimize impact to your customer's experience by placing outbound calls and accepting US inbound toll-free calls across multiple carriers.
 
-The following diagram illustrates this process:
+The following diagram illustrates this process: 
 
-![Single-region telephony and softphone architecture.](images/disaster-recovery-resiliency.png)
+![Single-region telephony and softphone architecture.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disaster-recovery-resiliency.png)
 
-1. Callers reach your contact center using carriers that operate across multiple
-   AZs at all times.
-2. [RespOrg](https://en.wikipedia.org/wiki/RespOrg "https://en.wikipedia.org/wiki/RespOrg") routes US
-   toll-free traffic across multiple carriers in an active-active fashion.
-3. Outbound calling is load balanced across multiple telephony providers.
-4. An agent's browser chooses from at least two servers across multiple AZs,
-   based on reachability.
+
+1. Callers reach your contact center using carriers that operate across multiple AZs at all times.
+
+1.  [RespOrg](https://en.wikipedia.org/wiki/RespOrg) routes US toll-free traffic across multiple carriers in an active-active fashion.
+
+1. Outbound calling is load balanced across multiple telephony providers.
+
+1. An agent's browser chooses from at least two servers across multiple AZs, based on reachability.
 
 ## More resources
+<a name="more-resources-resiliency"></a>
 
-To learn more about resiliency for Connect Customer, the following resources from AWS Workshop
-Studio are highly recommended:
-
-- [Connect Customer Global Resiliency Best Practices](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US/connectbestpractices "https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US/connectbestpractices")
-- [Connect Customer Global Resiliency and AWS Services Multi-Region Best
-  Practices](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US/awsservicesbestpractices "https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US/awsservicesbestpractices")
+To learn more about resiliency for Connect Customer, the following resources from AWS Workshop Studio are highly recommended:
++ [Connect Customer Global Resiliency Best Practices](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US/connectbestpractices) 
++ [Connect Customer Global Resiliency and AWS Services Multi-Region Best Practices](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US/awsservicesbestpractices) 

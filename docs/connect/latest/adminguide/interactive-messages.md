@@ -1,127 +1,97 @@
+
+
 # Add Amazon Lex interactive messages for customers in chat
+<a name="interactive-messages"></a>
 
-Interactive messages are rich messages that present a prompt and pre-configured display
-options for a customer to choose. These messages are powered by Amazon Lex and configured through
-Amazon Lex using an AWS Lambda function.
+Interactive messages are rich messages that present a prompt and pre-configured display options for a customer to choose. These messages are powered by Amazon Lex and configured through Amazon Lex using an AWS Lambda function. 
 
-###### Tip
-
-If you have integrated with Apple Messages for Business, see [Interactive Message Types](https://register.apple.com/resources/messages/msp-rest-api/type-interactive "https://register.apple.com/resources/messages/msp-rest-api/type-interactive") on the Apple website.
+**Tip**  
+If you have integrated with Apple Messages for Business, see [Interactive Message Types](https://register.apple.com/resources/messages/msp-rest-api/type-interactive) on the Apple website.
 
 ## Validation limits
+<a name="validation-limits"></a>
 
-The string field limits (for example, title, subtitle) are expected to be
-enforced by the client (that is, a custom built interface or the hosted communications widget).
-The [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessage.md "../../../connect-participant/latest/APIReference/API_SendMessage.md") API checks only that the total size of the string is less than
-20KB.
+The string field limits (for example, title, subtitle) are expected to be enforced by the client (that is, a custom built interface or the hosted communications widget). The [SendMessage](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html) API checks only that the total size of the string is less than 20KB.
++ When you use the hosted communications widget without customizing it, if the string exceeds field limits, it is truncated on the user interface and an ellipsis (...) is appended. You can determine how to enforce field limits by customizing the widget. 
++ If you are integrating with other platforms (such as Apple Messages for Business), review the limits in this topic for Connect Customer, and review the limits in the documentation for the other platform. For example, quick replies are not supported on older versions of iOS. 
 
-- When you use the hosted communications widget without customizing it, if the string
-  exceeds field limits, it is truncated on the user interface and an ellipsis
-  (...) is appended. You can determine how to enforce field limits by customizing
-  the widget.
-- If you are integrating with other platforms (such as Apple Messages for
-  Business), review the limits in this topic for Connect Customer, and review the limits in
-  the documentation for the other platform. For example, quick replies are not
-  supported on older versions of iOS.
+All other field limits must be followed for the message to be successfully sent.
 
-All other field limits must be followed for the message to be successfully
-sent.
-
-###### Image URL requirements for Apple Messages for Business
-
-When using interactive messages with the [Apple Messages for Business](apple-messages-for-business.md "apple-messages-for-business.md") channel, image URLs
-(`imageData`) must be Amazon S3 object URLs. Other publicly accessible
-URLs are not supported. In addition, the following requirements apply:
-
-- The S3 bucket must grant read access to the
-  `connect.amazonaws.com` service principal, or the S3 object
-  must be publicly accessible.
-- The image size must not exceed 200 KB.
+**Image URL requirements for Apple Messages for Business**  
+When using interactive messages with the [Apple Messages for Business](apple-messages-for-business.md) channel, image URLs (`imageData`) must be Amazon S3 object URLs. Other publicly accessible URLs are not supported. In addition, the following requirements apply:  
+The S3 bucket must grant read access to the `connect.amazonaws.com` service principal, or the S3 object must be publicly accessible.
+The image size must not exceed 200 KB.
 
 ## Message display templates
+<a name="message-display-templates"></a>
 
-Connect Customer provides the following message display templates. Use them to render information
-to customers in a chat:
+Connect Customer provides the following message display templates. Use them to render information to customers in a chat:
++  [List picker](#list-picker)
++ [Time picker](#time-picker)
++ [Panel](#panel)
++ [Quick reply](#quick-reply-template)
++ [Carousel](#carousel-template)
++ [Apple form template](#apple-form-template)
++ [Apple pay template](#apple-pay-template)
++ [iMessage app template](#imessage-app-template)
++ [WhatsApp list](#whatsapp-list)
++ [WhatsApp reply button](#whatsapp-reply-button)
++ [Rich formatting in titles and subtitles](#rich-link-formatting)
 
-- [List picker](#list-picker "#list-picker")
-- [Time picker](#time-picker "#time-picker")
-- [Panel](#panel "#panel")
-- [Quick reply](#quick-reply-template "#quick-reply-template")
-- [Carousel](#carousel-template "#carousel-template")
-- [Apple form template](#apple-form-template "#apple-form-template")
-- [Apple pay template](#apple-pay-template "#apple-pay-template")
-- [iMessage app template](#imessage-app-template "#imessage-app-template")
-- [WhatsApp list](#whatsapp-list "#whatsapp-list")
-- [WhatsApp reply button](#whatsapp-reply-button "#whatsapp-reply-button")
-- [Rich formatting in titles and
-  subtitles](#rich-link-formatting "#rich-link-formatting")
-
-These templates define how the information renders, and what information is surfaced
-in the chat interface. When interactive messages are sent through chat, flows validate
-that the message format follows one of these templates.
+These templates define how the information renders, and what information is surfaced in the chat interface. When interactive messages are sent through chat, flows validate that the message format follows one of these templates.
 
 ## List picker template
+<a name="list-picker"></a>
 
-Use the list picker template to present the customer with a list of up to six choices.
-Each choice can have its own image.
+Use the list picker template to present the customer with a list of up to six choices. Each choice can have its own image. 
 
-The following images show two examples of how the list picker template renders
-information in a chat.
+The following images show two examples of how the list picker template renders information in a chat. 
++ One image shows three buttons, each one with the name of a fruit in text: apple, orange, banana.
++ The second image shows a picture of a store and then under it, three buttons, each one with the name, image, and price of the fruit.
 
-- One image shows three buttons, each one with the name of a fruit in text:
-  apple, orange, banana.
-- The second image shows a picture of a store and then under it, three buttons,
-  each one with the name, image, and price of the fruit.
+![The list picker template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-listpicker-images2.png)
 
-![The list picker template rendering information in a chat.](images/interactive-messages-listpicker-images2.png)
 
-The following code is the list picker template that you can use in your Lambda. Note
-the following:
-
-- **Bold text** indicates a mandatory
-  parameter.
-- In some cases, if the parent element isn't mandatory, but the fields in the
-  parent element are, then the fields are mandatory. For example, see the
-  `data.replyMessage` structure in the following template. If the
-  structure exists, `title` is mandatory. Otherwise a complete
-  `replyMessage` is optional.
+The following code is the list picker template that you can use in your Lambda. Note the following:
++ **Bold text** indicates a mandatory parameter.
++ In some cases, if the parent element isn't mandatory, but the fields in the parent element are, then the fields are mandatory. For example, see the `data.replyMessage` structure in the following template. If the structure exists, `title` is mandatory. Otherwise a complete `replyMessage` is optional. 
 
 ```
 {
-   "**templateType":"ListPicker",**
-   "**version":"1.0",**
-   "**data":{**
-      "replyMessage":{
-         "**title":"Thanks for selecting!",**
+   "templateType":"ListPicker",                       
+   "version":"1.0",                                   
+   "data":{                                           
+      "replyMessage":{                             
+         "title":"Thanks for selecting!",             
          "subtitle":"Produce selected",
-         "imageType":"URL",
-         "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/fruit_34.3kb.jpg",
+         "imageType":"URL",                                
+         "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/fruit_34.3kb.jpg",                          
          "imageDescription":"Select a produce to buy"
       },
-      "**content":{**
-         "**title":"What produce would you like to buy?",**
+      "content":{                                       
+         "title":"What produce would you like to buy?",
          "subtitle":"Tap to select option",
-         "imageType":"URL",
-         "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/fruit_34.3kb.jpg",
+         "imageType":"URL",                       
+         "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/fruit_34.3kb.jpg",                  
          "imageDescription":"Select a produce to buy",
-         "**elements":[**
+         "elements":[                                   
             {
-               "**title":"Apple",**
+               "title":"Apple",                          
                "subtitle":"$1.00",
                "imageType":"URL",
                "imageData":"https://interactive-message-testing.s3-us-west-2.amazonaws.com/apple_4.2kb.jpg"
             },
             {
-               "**title":"Orange",**
+               "title":"Orange",                         
                "subtitle":"$1.50",
-               "imageType":"URL",
-               "imageData":"https://interactive-message-testing.s3-us-west-2.amazonaws.com/orange_17.7kb.jpg",
+               "imageType":"URL",                  
+               "imageData":"https://interactive-message-testing.s3-us-west-2.amazonaws.com/orange_17.7kb.jpg",           
             },
              {
-               "**title":"Banana",**
+               "title":"Banana",                         
                "subtitle":"$10.00",
-               "imageType":"URL",
-               "imageData":"https://interactive-message-testing.s3-us-west-2.amazonaws.com/banana_7.9kb.jpg",
+               "imageType":"URL",                  
+               "imageData":"https://interactive-message-testing.s3-us-west-2.amazonaws.com/banana_7.9kb.jpg",            
                "imageDescription":"Banana"
             }
          ]
@@ -129,133 +99,147 @@ the following:
 ```
 
 ### List picker limits
+<a name="list-picker-limits"></a>
 
-The following table lists the limits for each of the list picker elements, should
-you choose to build your own Lambda from scratch. The mandatory parameters are in
-bold.
+The following table lists the limits for each of the list picker elements, should you choose to build your own Lambda from scratch. The mandatory parameters are in bold.
 
-To send unlimited options, implement action buttons in your application. For more
-information, see [Implementation of action buttons in interactive message list
-picker/panel](https://github.com/amazon-connect/amazon-connect-chat-interface/blob/master/.github/docs/InteractiveMessageActionButtonImplementation.md "https://github.com/amazon-connect/amazon-connect-chat-interface/blob/master/.github/docs/InteractiveMessageActionButtonImplementation.md").
+To send unlimited options, implement action buttons in your application. For more information, see [Implementation of action buttons in interactive message list picker/panel](https://github.com/amazon-connect/amazon-connect-chat-interface/blob/master/.github/docs/InteractiveMessageActionButtonImplementation.md). 
 
-| Parent field       | Field            | Required | Minimum characters | Maximum characters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Other requirement                                |
-| ------------------ | ---------------- | -------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-|                    | **templateType** | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Valid template type                              |
-|                    | **data**         | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                  |
-|                    | **version**      | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Must be "1.0"                                    |
-| **data**           | **content**      | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                  |
-| replyMessage       | No               |          |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **content**        | **title**        | Yes      | 1                  | 5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Should be a description for promptless templates |
-| **elements**       | Yes              | 1 item   | 10 items           | This is an array of elements. Maximum 10 elements in the<br>array. To send unlimited elements, use the action buttons<br>feature.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| subtitle           | No               | 0        | 5000               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| multiSelect        | No               |          |                    | *_Boolean_<br>• indicates<br>whether the customer can make multiple selections. Defaults to<br>false. This field is applicable only for [Apple Messages for<br>Business flows](apple-messages-for-business.md "apple-messages-for-business.md").                                                                                                                                                                                                                                                                                                                                                   |
-| targetForLinks     | No               |          |                    | Must be one of the following values: `_blank`,<br>`_parent`, `_top`,<br>`_self`.<br>• **\_blank**: Default<br>behavior. Opens link in new browser tab.<br>• **\_parent**: Opens the<br>link in the parent browsing context. In other words, if<br>there is a parent-child relationship between multiple<br>iframe container applications, it will open the link in<br>the parent iframe to the current context.<br>• **\_top**: Opens the link<br>in the topmost browsing context.<br>• **\_self**: Opens link in<br>the current browsing context.<br>**Please see the note after this<br>table.** |
-| imageType          | No               | 0        | 50                 | Must be "URL"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| imageData          | No               | 0        | 200                | Must be a valid publicly accessible URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| imageDescription   | No               | 0        | 50                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| referenceId        | No               |          |                    | String. Only required for action button feature.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| listId             | No               |          |                    | String. Only required for action button feature.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| preIndex           | No               |          |                    | Number. Only required for action button feature.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| nextIndex          | No               |          |                    | Number. Only required for action button feature.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| templateIdentifier | No               |          |                    | Number. Should be an UUID. *_This field<br>is required_<br>• if List Picker/Panel is being used in<br>a Carousel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **elements**       | **title**        | Yes      | 1                  | 5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                  |
-| subtitle           | No               | 0        | 5000               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| imageType          | No               | 0        | 50                 | Must be "URL"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| imageData          | No               | 0        | 200                | Must be a valid publicly accessible URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| imageDescription   | No               | 0        | 50                 | Cannot exist without an image                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| actionDetail       | No               |          |                    | Only required for action button feature. Must be<br>"PREVIOUS\_OPTIONS" or "SHOW\_MORE".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| replyMessage       | **title**        | Yes      | 1                  | 5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                  |
-| subtitle           | No               | 0        | 5000               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| imageType          | No               | 0        | 50                 | Must be "URL"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| imageData          | No               | 0        | 200                | Must be a valid publicly accessible URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| imageDescription   | No               | 0        | 50                 | Cannot exist without an image                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-###### Note
 
-If you are using the `targetForLinks` field and Connect Customer
-communications widget, to open links in the same browser tab, you must
-add the following attribute to the widget code snippet to allow the current
-iframe to open and navigate links within the same tab:
+
+- ****
+  - **Field:** **templateType**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Valid template type
+
+- ****
+  - **Field:** **data**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****
+  - **Field:** **version**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Must be "1.0"
+
+- ****data** **
+  - **Field:** content  / **Required:** Yes / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+  - **Field:** replyMessage / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+
+- ****content** **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
+  - **Field:** elements / **Required:** Yes / **Minimum characters:** 1 item / **Maximum characters:** 10 items / **Other requirement:** This is an array of elements. Maximum 10 elements in the array. To send unlimited elements, use the action buttons feature.
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 / **Other requirement:** 
+  - **Field:** multiSelect / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** **Boolean** - indicates whether the customer can make multiple selections. Defaults to false. This field is applicable only for [Apple Messages for Business flows](apple-messages-for-business.md). 
+  - **Field:** targetForLinks / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** Must be one of the following values: `_blank`, `_parent`, `_top`, `_self`.+  **\_blank**: Default behavior. Opens link in new browser tab. <br />+  **\_parent**: Opens the link in the parent browsing context. In other words, if there is a parent-child relationship between multiple iframe container applications, it will open the link in the parent iframe to the current context. <br />+  **\_top**: Opens the link in the topmost browsing context. <br />+  **\_self**: Opens link in the current browsing context. <br />**Please see the note after this table.**
+  - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
+  - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
+  - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** 
+  - **Field:** referenceId / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** String. Only required for action button feature.
+  - **Field:** listId / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** String. Only required for action button feature.
+  - **Field:** preIndex / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** Number. Only required for action button feature.
+  - **Field:** nextIndex / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** Number. Only required for action button feature.
+
+- **templateIdentifier**
+  - **Field:** No
+  - **Required:**  
+  - **Minimum characters:** 
+  - **Maximum characters:** Number. Should be an UUID. **This field is required** if List Picker/Panel is being used in a Carousel.
+
+- ****elements** **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
+  - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
+  - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Cannot exist without an image
+  - **Field:** actionDetail / **Required:** No / **Minimum characters:**   / **Maximum characters:**   / **Other requirement:** Only required for action button feature. Must be "PREVIOUS\_OPTIONS" or "SHOW\_MORE".
+
+- **replyMessage **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
+  - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
+  - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Cannot exist without an image
+
+
+
+**Note**  
+If you are using the `targetForLinks` field and Connect Customer communications widget, to open links in the same browser tab, you must add the following attribute to the widget code snippet to allow the current iframe to open and navigate links within the same tab:  
 
 ```
-
-amazon_connect('updateSandboxAttributes', 'allow-scripts allow-same-origin allow-popups allow-downloads allow-top-navigation-by-user-activation')
-
+amazon_connect('updateSandboxAttributes', 'allow-scripts allow-same-origin allow-popups allow-downloads allow-top-navigation-by-user-activation')                                       
 ```
 
 ## Time picker template
+<a name="time-picker"></a>
 
-The time picker template is useful for enabling customers to schedule appointments.
-You can provide up to 40 timeslots to the customer in a chat.
+The time picker template is useful for enabling customers to schedule appointments. You can provide up to 40 timeslots to the customer in a chat. 
 
-The following images show two examples of how the time picker template renders
-information in a chat.
+The following images show two examples of how the time picker template renders information in a chat.
++ One image shows one date, and under it, one time slot.
++ The second image shows one date, and under it, two time slots.
 
-- One image shows one date, and under it, one time slot.
-- The second image shows one date, and under it, two time slots.
+![The time picker template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-timepicker.png)
 
-![The time picker template rendering information in a chat.](images/interactive-messages-timepicker.png)
 
 The following image shows the time picker with an image
 
-###### Note
+**Note**  
+If you are using this message template with the [Apple Messages for Business](apple-messages-for-business.md) channel and do not add an image, Connect Customer will add a default image in both the reply and response message.
 
-If you are using this message template with the [Apple Messages for Business](apple-messages-for-business.md "apple-messages-for-business.md") channel and do not add an
-image, Connect Customer will add a default image in both the reply and response message.
+![The time picker with an image.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-timepicker-with-image.png)
 
-![The time picker with an image.](images/interactive-messages-timepicker-with-image.png)
 
-The following code is the time picker template that you can use in your Lambda.
-Note the
-following:
-
-- **Bold text** indicates a mandatory
-  parameter.
-- In some cases, if the parent element isn't mandatory, but the fields the
-  parent element are, then the fields are mandatory. For example, see the
-  `data.replyMessage` structure in the following template. If the
-  structure exists, `title` is mandatory. Otherwise a complete
-  `replyMessage` is optional.
+The following code is the time picker template that you can use in your Lambda. Note the following:
++ **Bold text** indicates a mandatory parameter.
++ In some cases, if the parent element isn't mandatory, but the fields the parent element are, then the fields are mandatory. For example, see the `data.replyMessage` structure in the following template. If the structure exists, `title` is mandatory. Otherwise a complete `replyMessage` is optional. 
 
 ```
 {
-   "**templateType":"TimePicker",**
-   "**version":"1.0",**
-   "**data":{**
+   "templateType":"TimePicker",                                 
+   "version":"1.0",                                             
+   "data":{                                                    
       "replyMessage":{
-         "**title":"Thanks for selecting",**
+         "title":"Thanks for selecting",                        
          "subtitle":"Appointment selected",
-         "imageType":"URL",
+         "imageType":"URL",                                       
          "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/booked.jpg",
          "imageDescription":"Appointment booked"
       },
-      "**content":{**
-         "**title":"Schedule appointment",**
+      "content":{                                               
+         "title":"Schedule appointment",                       
          "subtitle":"Tap to select option",
-         "imageType":"URL",
+         "imageType":"URL",                                       
          "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/calendar.jpg",
          "imageDescription":"Appointment booked",
          "timeZoneOffset":-450,
          "location":{
-            "**latitude":47.616299,**
-            "**longitude":-122.4311,**
-            "**title":"Oscar",**
+            "latitude":47.616299,                               
+            "longitude":-122.4311,                              
+            "title":"Oscar",                                    
             "radius":1,
          },
-         "**timeslots":[**
+         "timeslots":[                                          
                {
-                  "**date" : "2020-10-31T17:00+00:00",**
-                  "**duration": 60,**
+                  "date" : "2020-10-31T17:00+00:00",             
+                  "duration": 60,                               
                },
                {
-                  "**date" : "2020-11-15T13:00+00:00",**
-                  "**duration": 60,**
+                  "date" : "2020-11-15T13:00+00:00",            
+                  "duration": 60,                              
                },
                {
-                  "**date" : "2020-11-15T16:00+00:00",**
-                  "**duration": 60,**
+                  "date" : "2020-11-15T16:00+00:00",            
+                  "duration": 60,                              
                }
-            ],
+            ],           
          }
       }
    }
@@ -263,89 +247,112 @@ following:
 ```
 
 ### Time picker limits
+<a name="time-picker-limits"></a>
 
-The following table lists the limits for each of the time picker elements. Use
-this information if you choose to build your own Lambda from scratch. The mandatory
-parameters are in bold.
+The following table lists the limits for each of the time picker elements. Use this information if you choose to build your own Lambda from scratch. The mandatory parameters are in bold.
 
-| Parent field     | Field            | Required | Minimum characters | Maximum characters                                                                                                                                                                                                                                                                  | Other requirement                                                                                                                                             |
-| ---------------- | ---------------- | -------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                  | **templateType** | Yes      |                    |                                                                                                                                                                                                                                                                                     | Valid template type                                                                                                                                           |
-|                  | **data**         | Yes      |                    |                                                                                                                                                                                                                                                                                     |                                                                                                                                                               |
-|                  | **version**      | Yes      |                    |                                                                                                                                                                                                                                                                                     | Must be "1.0"                                                                                                                                                 |
-|                  |                  |          |                    |                                                                                                                                                                                                                                                                                     |                                                                                                                                                               |
-| **data**         | replyMessage     | No       |                    |                                                                                                                                                                                                                                                                                     |                                                                                                                                                               |
-| **content**      | Yes              |          |                    |                                                                                                                                                                                                                                                                                     |
-| replyMessage     | **title**        | Yes      | 1                  | 5000                                                                                                                                                                                                                                                                                | Should be description for promptless templates                                                                                                                |
-| subtitle         | No               | 0        | 5000               |                                                                                                                                                                                                                                                                                     |
-| imageType        | No               | 0        | 50                 | Must be "URL"                                                                                                                                                                                                                                                                       |
-| imageData        | No               | 0        | 200                | Must be a valid publicly accessible URL                                                                                                                                                                                                                                             |
-| imageDescription | No               | 0        | 50                 | Cannot exist without an image                                                                                                                                                                                                                                                       |
-| **content**      | **title**        | Yes      | 1                  | 5000                                                                                                                                                                                                                                                                                | Should be description for promptless templates                                                                                                                |
-| subtitle         | No               | 0        | 200                |                                                                                                                                                                                                                                                                                     |
-| imageType        | No               | 0        | 50                 | Must be "URL"                                                                                                                                                                                                                                                                       |
-| imageData        | No               | 0        | 200                | Must be a valid publicly accessible URL                                                                                                                                                                                                                                             |
-| imageDescription | No               | 0        | 50                 | Cannot exist without an image                                                                                                                                                                                                                                                       |
-| timezone offset  | No               | -720     | 840                | This is an optional field when not set. Our sample client<br>defaults to the user's timezone. If set, this displays per the<br>timezone entered. The field should be an integer representing<br>the number of minutes from GMT, specifying the timezone of the<br>event's location. |
-| location         | No               |          |                    |                                                                                                                                                                                                                                                                                     |
-| **timeslots**    | Yes              | 1        | 40                 | This is an array of timeslots. Maximum of 40 elements in<br>the array.                                                                                                                                                                                                              |
-| location         | **longitude**    | Yes      | -180               | 180                                                                                                                                                                                                                                                                                 | Must be [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format "https://en.wikipedia.org/wiki/Double-precision_floating-point_format") |
-| **latitude**     | Yes              | -90      | 90                 | Must be [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format "https://en.wikipedia.org/wiki/Double-precision_floating-point_format")                                                                                                                       |
-| **title**        | Yes              | 1        | 5000               |                                                                                                                                                                                                                                                                                     |
-| radius           | No               | 0        | 200                |                                                                                                                                                                                                                                                                                     |
-| **timeslots**    | **date**         | Yes      |                    |                                                                                                                                                                                                                                                                                     | Should be in ISO-8601 time format:<br>YYYY-MM-DDTHH:MM+00:00<br>For example:<br>"2020-08-14T21:21+00:00"                                                      |
-| **duration**     | Yes              | 1        | 3600               |                                                                                                                                                                                                                                                                                     |
+
+
+
+- ****
+  - **Field:** **templateType**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Valid template type
+
+- ****
+  - **Field:** **data**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****
+  - **Field:** **version**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Must be "1.0"
+
+- ****
+  - **Field:** 
+  - **Required:** 
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****data** **
+  - **Field:** replyMessage / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+  - **Field:** content  / **Required:** Yes / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+
+- **replyMessage **
+  - **Field:** **title** / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 / **Other requirement:** Should be description for promptless templates
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** imageType / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Must be "URL"
+  - **Field:** imageData / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 200 / **Other requirement:** Must be a valid publicly accessible URL
+  - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Cannot exist without an image
+
+- ****content****
+  - **Field:** **title** / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 / **Other requirement:** Should be description for promptless templates
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** 
+  - **Field:** imageType / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Must be "URL"
+  - **Field:** imageData / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 200 / **Other requirement:** Must be a valid publicly accessible URL
+  - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Cannot exist without an image
+  - **Field:** timezone offset / **Required:** No / **Minimum characters:** -720 / **Maximum characters:** 840  / **Other requirement:** This is an optional field when not set. Our sample client defaults to the user's timezone. If set, this displays per the timezone entered. The field should be an integer representing the number of minutes from GMT, specifying the timezone of the event's location.
+  - **Field:** location / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+  - **Field:** timeslots / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 40 / **Other requirement:** This is an array of timeslots. Maximum of 40 elements in the array.
+
+- **location**
+  - **Field:** longitude / **Required:** Yes / **Minimum characters:** -180 / **Maximum characters:** 180  / **Other requirement:** Must be [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) 
+  - **Field:** latitude / **Required:** Yes / **Minimum characters:** -90 / **Maximum characters:** 90 / **Other requirement:** Must be [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) 
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000 / **Other requirement:** 
+  - **Field:** radius / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 200 / **Other requirement:** 
+
+- ****timeslots** **
+  - **Field:** date / **Required:** Yes / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** Should be in ISO-8601 time format: YYYY-MM-DDTHH:MM\+00:00<br />For example:<br />"2020-08-14T21:21\+00:00"
+  - **Field:** duration / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 3600 / **Other requirement:** 
+
+
 
 ## Panel template
+<a name="panel"></a>
 
-By using the panel template, you can present the customer with up to 10 choices under
-one question. However, you can include only one image, rather than an image with each
-choice.
+By using the panel template, you can present the customer with up to 10 choices under one question. However, you can include only one image, rather than an image with each choice. 
 
-The follow image shows an example of how the panel template renders information in a
-chat. It shows an image at the top of the message, and under the image it shows a prompt
-that asks _How can I help? Tap to select option_. Under the prompt
-three options are displayed to the customer: **Check self-service
-options**, **Talk to an agent**, **End
-chat**.
+The follow image shows an example of how the panel template renders information in a chat. It shows an image at the top of the message, and under the image it shows a prompt that asks *How can I help? Tap to select option*. Under the prompt three options are displayed to the customer: **Check self-service options**, **Talk to an agent**, **End chat**. 
 
-![The panel template rendering information in a chat.](images/interactive-messages-panel1.png)
+![The panel template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-panel1.png)
 
-The following code is the panel template that you can use in your Lambda. Note the
-following:
 
-- **Bold text** indicates a mandatory
-  parameter.
-- In some cases, if the parent element isn't mandatory, but the fields in the
-  parent element are, then the fields are mandatory. For example, see the
-  `data.replyMessage` structure in the following template. If the
-  structure exists, a `title` is mandatory. Otherwise, a complete
-  `replyMessage` is optional.
+The following code is the panel template that you can use in your Lambda. Note the following:
++ **Bold text** indicates a mandatory parameter.
++ In some cases, if the parent element isn't mandatory, but the fields in the parent element are, then the fields are mandatory. For example, see the `data.replyMessage` structure in the following template. If the structure exists, a `title` is mandatory. Otherwise, a complete `replyMessage` is optional.
 
 ```
 {
-   **"templateType":"Panel",**
-   **"version":"1.0",**
-   **"data":{**
-      "replyMessage":{
-         **"title":"Thanks for selecting!",**
+   "templateType":"Panel",                            
+   "version":"1.0",                                   
+   "data":{                                          
+      "replyMessage":{                             
+         "title":"Thanks for selecting!",             
          "subtitle":"Option selected",
       },
-      **"content":{**
-         **"title":"How can I help you?",**
+      "content":{                                      
+         "title":"How can I help you?",                
          "subtitle":"Tap to select option",
-         "imageType":"URL",
-         "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/company.jpg",
+         "imageType":"URL",                       
+         "imageData":"https://interactive-msg.s3-us-west-2.amazonaws.com/company.jpg",                  
          "imageDescription":"Select an option",
-         **"elements":[**
+         "elements":[                                 
             {
-               **"title":"Check self-service options",**
+               "title":"Check self-service options",   
             },
             {
-               **"title":"Talk to an agent",**
+               "title":"Talk to an agent",                     
             },
             {
-               **"title":"End chat",**
+               "title":"End chat",                    
             }
          ]
       }
@@ -354,47 +361,82 @@ following:
 ```
 
 ### Panel limits
+<a name="panel-limits"></a>
 
-The following table lists the limits for each of the panel elements, should you
-choose to build your own Lambda from scratch. The mandatory parameters are in
-bold.
+The following table lists the limits for each of the panel elements, should you choose to build your own Lambda from scratch. The mandatory parameters are in bold.
 
-To send unlimited options, implement action buttons in your application. For more
-information, see [Implementation of action buttons in interactive message list
-picker/panel](https://github.com/amazon-connect/amazon-connect-chat-interface/blob/master/.github/docs/InteractiveMessageActionButtonImplementation.md "https://github.com/amazon-connect/amazon-connect-chat-interface/blob/master/.github/docs/InteractiveMessageActionButtonImplementation.md").
+To send unlimited options, implement action buttons in your application. For more information, see [Implementation of action buttons in interactive message list picker/panel](https://github.com/amazon-connect/amazon-connect-chat-interface/blob/master/.github/docs/InteractiveMessageActionButtonImplementation.md). 
 
-| Parent field       | Field            | Required | Minimum characters | Maximum characters                                                                                                | Other requirement                                                                        |
-| ------------------ | ---------------- | -------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-|                    | **templateType** | Yes      |                    |                                                                                                                   | Valid template type                                                                      |
-|                    | **data**         | Yes      |                    |                                                                                                                   |                                                                                          |
-|                    | **version**      | Yes      |                    |                                                                                                                   | Must be "1.0"                                                                            |
-| **data**           | replyMessage     | No       |                    |                                                                                                                   |                                                                                          |
-| **content**        | Yes              |          |                    |                                                                                                                   |
-| **content**        | **title**        | Yes      | 1                  | 5000                                                                                                              | Should be a description for promptless templates                                         |
-| subtitle           | No               | 0        | 5000               |                                                                                                                   |
-| **elements**       | Yes              | 1 item   | 10 items           | This is an array of elements. Maximum 10 elements in the<br>array.                                                |
-| imageType          | No               | 0        | 50                 | Must be "URL"                                                                                                     |
-| imageData          | No               | 0        | 200                | Must be a valid publicly accessible URL                                                                           |
-| imageDescription   | No               | 0        | 50                 | Cannot exist without an image                                                                                     |
-| referenceId        | No               |          |                    | String. Only required for action button feature.                                                                  |
-| listId             | No               |          |                    | String. Only required for action button feature.                                                                  |
-| preIndex           | No               |          |                    | Number. Only required for action button feature.                                                                  |
-| nextIndex          | No               |          |                    | Number. Only required for action button feature.                                                                  |
-| templateIdentifier | No               |          |                    | Number. Should be an UUID. *_This field<br>is required_<br>• if List Picker/Panel is being used in<br>a Carousel. |
-| **elements**       | **title**        | Yes      | 1                  | 5000                                                                                                              |                                                                                          |
-|                    | actionDetail     | No       |                    |                                                                                                                   | Only required for action button feature. Must be<br>"PREVIOUS\_OPTIONS" or "SHOW\_MORE". |
-| replyMessage       | **title**        | Yes      | 1                  | 5000                                                                                                              |                                                                                          |
-| subtitle           | No               | 0        | 5000               |                                                                                                                   |
+
+
+
+- ****
+  - **Field:** **templateType**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Valid template type
+
+- ****
+  - **Field:** **data**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****
+  - **Field:** **version**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Must be "1.0"
+
+- ****data** **
+  - **Field:** replyMessage / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+  - **Field:** content  / **Required:** Yes / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+
+- ****content** **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 / **Other requirement:** 
+  - **Field:** elements / **Required:** Yes / **Minimum characters:** 1 item / **Maximum characters:** 10 items / **Other requirement:** This is an array of elements. Maximum 10 elements in the array.
+  - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
+  - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
+  - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Cannot exist without an image
+  - **Field:** referenceId / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** String. Only required for action button feature.
+  - **Field:** listId / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** String. Only required for action button feature.
+  - **Field:** preIndex / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** Number. Only required for action button feature.
+  - **Field:** nextIndex / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** Number. Only required for action button feature.
+  - **Field:** templateIdentifier / **Required:** No / **Minimum characters:**   / **Maximum characters:**  / **Other requirement:** Number. Should be an UUID. **This field is required** if List Picker/Panel is being used in a Carousel.
+
+- ****elements** **
+  - **Field:** title
+  - **Required:** Yes
+  - **Minimum characters:** 1 
+  - **Maximum characters:** 5000 
+  - **Other requirement:** 
+
+- ****
+  - **Field:** actionDetail
+  - **Required:** No
+  - **Minimum characters:**  
+  - **Maximum characters:**  
+  - **Other requirement:** Only required for action button feature. Must be "PREVIOUS\_OPTIONS" or "SHOW\_MORE".
+
+- **replyMessage **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+
+
 
 ## Quick reply template
+<a name="quick-reply-template"></a>
 
-Use quick reply messages to get simple responses from customers, and then to customers
-in an in-line list. Images are not supported for quick replies.
+Use quick reply messages to get simple responses from customers, and then to customers in an in-line list. Images are not supported for quick replies.
 
-The following image shows an example of how the quick reply template renders
-information in a chat.
+The following image shows an example of how the quick reply template renders information in a chat.
 
-![The panel template rendering information in a chat.](images/quick-reply-template.png)
+![The panel template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/quick-reply-template.png)
+
 
 The following code is the quick reply template that you can use in your Lambda.
 
@@ -424,52 +466,85 @@ The following code is the quick reply template that you can use in your Lambda.
 ```
 
 ### Quick reply limits
+<a name="quickreply-limits"></a>
 
-The following table lists the limits for each of the quick reply elements. Use
-this information if you choose to build your own Lambda from scratch. The mandatory
-parameters are in bold.
+The following table lists the limits for each of the quick reply elements. Use this information if you choose to build your own Lambda from scratch. The mandatory parameters are in bold.
 
-| Parent field | Field            | Required | Minimum characters                                                                               | Maximum characters                                                                                                                                                                                                                                                        | Other requirement                                |
-| ------------ | ---------------- | -------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-|              | **templateType** |          |                                                                                                  |                                                                                                                                                                                                                                                                           | Valid template type                              |
-|              | **data**         | Yes      |                                                                                                  |                                                                                                                                                                                                                                                                           |                                                  |
-|              | **version**      | Yes      |                                                                                                  |                                                                                                                                                                                                                                                                           | Must be "1.0"                                    |
-| **data**     | **content**      | Yes      |                                                                                                  |                                                                                                                                                                                                                                                                           |                                                  |
-| replyMessage | No               |          |                                                                                                  |                                                                                                                                                                                                                                                                           |
-| **content**  | **title**        | Yes      | 1                                                                                                | 5000                                                                                                                                                                                                                                                                      | Should be a description for promptless templates |
-| **elements** | Yes              | 2 item   | 10 items for web chats<br>5 items for Apple Business Chat (this is a hard limit set by<br>Apple) | This is an array of elements. Minimum 2 elements and maximum<br>10 elements in the array.<br>To work around Apple's limit of 5 items, consider implementing<br>multiple quick replies with a "Show more" option. Or use<br>ListPicker since it allows for up to 10 items. |
-| **elements** | **title**        | Yes      | 1                                                                                                | 200                                                                                                                                                                                                                                                                       |                                                  |
-| replyMessage | **title**        | Yes      | 1                                                                                                | 5000                                                                                                                                                                                                                                                                      |                                                  |
+
+
+
+- ****
+  - **Field:** **templateType**
+  - **Required:** 
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Valid template type
+
+- ****
+  - **Field:** **data**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****
+  - **Field:** **version**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Must be "1.0"
+
+- ****data** **
+  - **Field:** content / **Required:** Yes / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+  - **Field:** replyMessage / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
+
+- ****content** **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
+  - **Field:** elements / **Required:** Yes / **Minimum characters:** 2 item / **Maximum characters:** 10 items for web chats<br />5 items for Apple Business Chat (this is a hard limit set by Apple) / **Other requirement:** This is an array of elements. Minimum 2 elements and maximum 10 elements in the array.<br />To work around Apple's limit of 5 items, consider implementing multiple quick replies with a "Show more" option. Or use ListPicker since it allows for up to 10 items.
+
+- ****elements** **
+  - **Field:** title
+  - **Required:** Yes
+  - **Minimum characters:** 1
+  - **Maximum characters:** 200 
+  - **Other requirement:** 
+
+- **replyMessage **
+  - **Field:** title
+  - **Required:** Yes
+  - **Minimum characters:** 1
+  - **Maximum characters:** 5000 
+  - **Other requirement:** 
+
+
 
 ## Carousel template
+<a name="carousel-template"></a>
 
-Use carousels to display up to 5 list pickers or panels to customers in a single
-message. Similar to the list picker and time picker, you can add more options to the
-carousel by using the SHOW\_MORE feature.
+Use carousels to display up to 5 list pickers or panels to customers in a single message. Similar to the list picker and time picker, you can add more options to the carousel by using the SHOW\_MORE feature.
 
-The following GIF shows an example of how the carousel template renders information in
-a chat. Customers scroll through the carousel of images by using the left and right
-arrows.
+The following GIF shows an example of how the carousel template renders information in a chat. Customers scroll through the carousel of images by using the left and right arrows. 
 
-![A carousel in a customers chat experience.](images/carousel-interactive.gif)
+![A carousel in a customers chat experience.](http://docs.aws.amazon.com/connect/latest/adminguide/images/carousel-interactive.gif)
 
-The following image shows two **Learn More** hyperlinks, which are
-examples of carousel picker hyperlink elements.
 
-![A carousel picker with hyperlinks.](images/carousel-interactive1.png)
+The following image shows two **Learn More** hyperlinks, which are examples of carousel picker hyperlink elements.
 
-The following code is the carousel template that you can use in your Lambda.
+![A carousel picker with hyperlinks.](http://docs.aws.amazon.com/connect/latest/adminguide/images/carousel-interactive1.png)
+
+
+The following code is the carousel template that you can use in your Lambda. 
 
 ```
 {
-  "templateType": "Carousel",
-  "version": "1.0",
-  "data": {
-      "content": {
-        "title": "View our popular destinations",
-        "elements": [
+  "templateType": "Carousel",            
+  "version": "1.0",                      
+  "data": {                              
+      "content": {                           
+        "title": "View our popular destinations",   
+        "elements": [                               
         {
-          "templateIdentifier": "template0",
+          "templateIdentifier": "template0",        
           "templateType": "Panel",
           "version": "1.0",
           "data": {
@@ -491,7 +566,7 @@ The following code is the carousel template that you can use in your Lambda.
           }
         },
         {
-          "templateIdentifier": "template1",
+          "templateIdentifier": "template1",   
           "templateType": "Panel",
           "version": "1.0",
           "data": {
@@ -519,98 +594,96 @@ The following code is the carousel template that you can use in your Lambda.
 ```
 
 For hosted communications widget users:
++ The selections on the carousel template result in a JSON string response structured like the following example, to be sent back to Lambda (other interactive message types return regular string response with only `selectionText` value):
 
-- The selections on the carousel template result in a JSON string response
-  structured like the following example, to be sent back to Lambda (other
-  interactive message types return regular string response with only
-  `selectionText` value):
+  ```
+  {
+      templateIdentifier: "template0",
+      listTitle: "California",
+      selectionText: "Book hotels"
+  }
+  ```
++ In carousels, you can provide hyperlinks in the list picker/panel elements. To create a hyperlink instead of a button, include the following additional fields for the element that should be a hyperlink:
 
-```
-{
-    templateIdentifier: "template0",
-    listTitle: "California",
-    selectionText: "Book hotels"
-}
-```
-
-- In carousels, you can provide hyperlinks in the list picker/panel elements. To
-  create a hyperlink instead of a button, include the following additional fields
-  for the element that should be a hyperlink:
-
-```
-{
-    title: "Book flights",
-    ...
-    type: "hyperlink",
-    url: "https://www.example.com/Flights"
-}
-```
+  ```
+  {
+      title: "Book flights",
+      ...
+      type: "hyperlink",
+      url: "https://www.example.com/Flights"
+  }
+  ```
 
 ### Carousel limits
+<a name="carousel-limits"></a>
 
-The following table lists the limits for each of the carousel elements. Use this
-information if you choose to build your own Lambda from scratch. The mandatory
-parameters are in bold.
+The following table lists the limits for each of the carousel elements. Use this information if you choose to build your own Lambda from scratch. The mandatory parameters are in bold.
 
-| Parent field                      | Field            | Required | Minimum characters | Maximum characters                                                                                                                                                                                                                                                                                                                                                                                         | Other requirement                                |
-| --------------------------------- | ---------------- | -------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-|                                   | **templateType** | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                            | Valid template type                              |
-|                                   | **data**         | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                            |                                                  |
-|                                   | **version**      | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                            | Must be "1.0"                                    |
-| **data**                          | **content**      | Yes      |                    |                                                                                                                                                                                                                                                                                                                                                                                                            |                                                  |
-| **content**                       | **title**        | Yes      | 1                  | 5000                                                                                                                                                                                                                                                                                                                                                                                                       | Should be a description for promptless templates |
-| **elements**                      | Yes              | 2 item   | 5 items            | This is an array of either list pickers *_or_<br>• panel templates. Only one interactive message<br>type is accepted per carousel. Each element should include the<br>top-level field **templateIdentifier**. Minimum 2 templates and<br>maximum 5 templates in the array.<br>NoteFor the best customer experience, we recommend that each<br>template has consistent use of images/number of<br>elements. |
-| **omitTitleFromCarouselResponse** | No               |          |                    | *_Boolean_<br>• Optionally respond<br>with "`SelectionText`" instead of the<br>default "`PickerTitle`:<br>`SelectionText`".                                                                                                                                                                                                                                                                                |
-| **carouselIsVertical**            | No               |          |                    | *_Boolean_<br>• Optionally render<br>`Carousel` elements with vertical scroll.                                                                                                                                                                                                                                                                                                                             |
+
+
+
+- ****
+  - **Field:** **templateType**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Valid template type
+
+- ****
+  - **Field:** **data**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****
+  - **Field:** **version**
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** Must be "1.0"
+
+- ****data** **
+  - **Field:** content 
+  - **Required:** Yes
+  - **Minimum characters:** 
+  - **Maximum characters:** 
+  - **Other requirement:** 
+
+- ****content** **
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
+  - **Field:** elements / **Required:** Yes / **Minimum characters:** 2 item / **Maximum characters:** 5 items / **Other requirement:** This is an array of either list pickers **or** panel templates. Only one interactive message type is accepted per carousel. Each element should include the top-level field **templateIdentifier**. Minimum 2 templates and maximum 5 templates in the array.  For the best customer experience, we recommend that each template has consistent use of images/number of elements. 
+  - **Field:** omitTitleFromCarouselResponse / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** **Boolean** - Optionally respond with "{{SelectionText}}" instead of the default "{{PickerTitle}}: {{SelectionText}}".
+  - **Field:** carouselIsVertical / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** **Boolean** - Optionally render `Carousel` elements with vertical scroll.
+
+
 
 ## Apple form template
+<a name="apple-form-template"></a>
 
-###### Note
+**Note**  
+ This template is applicable only for Apple Messages for Business contact flows. 
 
-This template is applicable only for Apple Messages for Business contact flows.
+A business can send a form interactive message to their end customers through a single message, containing multiple pages of requested inputs. When the message is received on an end-customer's Apple device, they can open the form and navigate through the pages, providing a response for each page, before submitting all responses at the end of the form.
 
-A business can send a form interactive message to their end customers through a single
-message, containing multiple pages of requested inputs. When the message is received on
-an end-customer's Apple device, they can open the form and navigate through the pages,
-providing a response for each page, before submitting all responses at the end of the
-form.
+For example, businesses can use Apple forms for various purposes, including triaging flows, customer surveys, and account creation / sign-ups.
 
-For example, businesses can use Apple forms for various purposes, including triaging
-flows, customer surveys, and account creation / sign-ups.
+**Warning**  
+Interactive message content and end customer responses are stored in contact record transcript and are viewable by other chat participants and contact analysts with access to transcripts. To prevent PII from appearing in your contact record transcript **after the contact has ended**, you will want to use the [Set recording and analytics behavior block](set-recording-behavior.md) in your step-by-step guide flow, [enable conversational analytics](sensitive-data-redaction.md), and enable the redaction of sensitive date. For full details on how to enable PII redaction, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction).
 
-###### Warning
+ The types of pages supported are:
++ **ListPicker**: a list of options that the user must select from with image support.
++ **WheelPicker**: similar to ListPicker but selection is made through scrollable wheel of options.
++ **DatePicker**: a calendar view where user can pick a date.
++ **Input**: a text field that the user must fill in.
 
-Interactive message content and end customer responses are stored in contact
-record transcript and are viewable by other chat participants and contact analysts
-with access to transcripts. To prevent PII from appearing in your contact record
-transcript **after the contact has ended**, you will
-want to use the [Set recording and analytics
-behavior block](set-recording-behavior.md "set-recording-behavior.md") in your step-by-step guide flow, [enable conversational analytics](sensitive-data-redaction.md "sensitive-data-redaction.md"), and enable
-the redaction of sensitive date. For full details on how to enable PII redaction,
-see [Enable redaction of sensitive
-data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
+The following code is an example of an Apple forms template you can use in your Lambda.
 
-The types of pages supported are:
+**Note**  
+ **Bold text** is a mandatory parameter. 
+ In some cases, if the parent element exists in the request and it isn't mandatory/bold, but the fields in it are, then the fields are mandatory. 
 
-- **ListPicker**: a list of options that the user
-  must select from with image support.
-- **WheelPicker**: similar to ListPicker but
-  selection is made through scrollable wheel of options.
-- **DatePicker**: a calendar view where user can
-  pick a date.
-- **Input**: a text field that the user must fill
-  in.
-
-The following code is an example of an Apple forms template you can use in your
-Lambda.
-
-###### Note
-
-- **Bold text** is a mandatory parameter.
-- In some cases, if the parent element exists in the request and it isn't
-  mandatory/bold, but the fields in it are, then the fields are mandatory.
-
-Simple survey form example:
+ Simple survey form example: 
 
 ```
 {
@@ -691,152 +764,165 @@ Simple survey form example:
     }
   }
 }
-
 ```
 
 ### Apple form limits
+<a name="apple-forms-limits"></a>
 
 #### InteractiveMessage
+<a name="apple-forms-limits-interactivemessage"></a>
 
-| Field            | Type                   | Required | Description / Notes                                                                                                                                          |
-| ---------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **version**      | string                 | Yes      | Version number. Allowed value: "1.0"                                                                                                                         |
-| **templateType** | TemplateType           | Yes      | Interactive message template type. Allowed values:<br>["ListPicker", "TimePicker",<br>"Panel", "QuickReply", "Carousel",<br>"ViewResource", "**AppleForm**"] |
-| **data**         | InteractiveMessageData | Yes      | Interactive message data                                                                                                                                     |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| version  | string  | Yes  | Version number. Allowed value: "1.0"  | 
+| templateType  | TemplateType  | Yes  | Interactive message template type. Allowed values: ["ListPicker", "TimePicker", "Panel", "QuickReply", "Carousel", "ViewResource", "AppleForm"]  | 
+| data  | InteractiveMessageData  | Yes  | Interactive message data  | 
 
 #### InteractiveMessageData
+<a name="apple-forms-limits-interactivemessagedata"></a>
 
-| Field            | Type                      | Required | Description / Notes                                                                |
-| ---------------- | ------------------------- | -------- | ---------------------------------------------------------------------------------- |
-| **content**      | InteractiveMessageContent | Yes      | Main interactive message content                                                   |
-| **replyMessage** | ReplyMessage              | No       | Message display configuration for after response to<br>interactive message is sent |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| content  | InteractiveMessageContent  | Yes  | Main interactive message content  | 
+| replyMessage  | ReplyMessage  | No  | Message display configuration for after response to interactive message is sent  | 
 
 #### AppleFormContent
+<a name="apple-forms-limits-appleformcontent"></a>
 
-| Field           | Type                | Required | Description / Notes                                                                                                         |
-| --------------- | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **title**       | String              | Yes      | Top-level title of the form. Displayed in Apple receive<br>message bubble and transcript rendering                          |
-| **subtitle**    | String              | No       | Used as subtitle in ReceivedMessage                                                                                         |
-| **imageType**   | String              | No       | Valid values: "URL" Used for image in<br>ReceivedMessage                                                                    |
-| **imageData**   | String              | No       | S3 image url Used for image in ReceivedMessage                                                                              |
-| **pages**       | AppleFormPage[]     | Yes      | List of form pages                                                                                                          |
-| **showSummary** | Boolean             | No       | Whether to display a summary page of responses to review<br>before submission Default: False (no confirmation/summary page) |
-| **splashPage**  | AppleFormSplashPage | No       | Initial splash page to display before actual pages Default:<br>No splash page                                               |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| title  | String  | Yes  | Top-level title of the form. Displayed in Apple receive message bubble and transcript rendering  | 
+| subtitle  | String  | No  | Used as subtitle in ReceivedMessage  | 
+| imageType  | String  | No  | Valid values: "URL" Used for image in ReceivedMessage  | 
+| imageData  | String  | No  | S3 image url Used for image in ReceivedMessage  | 
+| pages  | AppleFormPage[]  | Yes  | List of form pages  | 
+| showSummary  | Boolean  | No  | Whether to display a summary page of responses to review before submission Default: False (no confirmation/summary page)  | 
+| splashPage  | AppleFormSplashPage  | No  | Initial splash page to display before actual pages Default: No splash page  | 
 
 #### AppleFormSplashPage
+<a name="apple-forms-limits-appleformsplashpage"></a>
 
-| Field           | Type      | Required | Description / Notes                                                                                  |
-| --------------- | --------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| **title**       | String    | Yes      | Title of splash page                                                                                 |
-| **subtitle**    | String    | No       | Subtitle / body of splash page                                                                       |
-| **imageType**   | ImageType | No       | Present when displaying image within splash page Allowed<br>value: "URL" Default: No image displayed |
-| **imageData**   | String    | No       | For imageType="URL", this is the URL value Default:<br>No image displayed                            |
-| **buttonTitle** | String    | Yes      | Text of Continue button. Required by Apple, default text with<br>localization not supported          |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| title  | String  | Yes  | Title of splash page  | 
+| subtitle  | String  | No  | Subtitle / body of splash page  | 
+| imageType  | ImageType  | No  | Present when displaying image within splash page Allowed value: "URL" Default: No image displayed  | 
+| imageData  | String  | No  | For imageType="URL", this is the URL value Default: No image displayed  | 
+| buttonTitle  | String  | Yes  | Text of Continue button. Required by Apple, default text with localization not supported  | 
 
 #### AppleFormPage
+<a name="apple-forms-limits-appleformpage"></a>
++  Base model for form pages. Specific page types extend from this model 
 
-- Base model for form pages. Specific page types extend from this model
 
-| Field        | Type          | Required | Description / Notes                                                                            |
-| ------------ | ------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| **pageType** | ApplePageType | Yes      | Enum for page type. Allowed values: ["Input",<br>"DatePicker", "WheelPicker",<br>"ListPicker"] |
-| **title**    | String        | Yes      | Page title                                                                                     |
-| **subtitle** | String        | Yes      | Page subtitle. Used in confirmation page                                                       |
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  | Enum for page type. Allowed values: ["Input", "DatePicker", "WheelPicker", "ListPicker"]  | 
+| title  | String  | Yes  | Page title  | 
+| subtitle  | String  | Yes  | Page subtitle. Used in confirmation page  | 
 
 #### AppleFormDatePickerPage
+<a name="apple-forms-limits-appleformdatapickerpage"></a>
 
-**AppleFormDatePickerPage**extends [AppleFormPage](#apple-forms-limits-appleformpage "#apple-forms-limits-appleformpage")
+ **AppleFormDatePickerPage **extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
-| Field          | Type          | Required | Description / Notes                                                                                             |
-| -------------- | ------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| **pageType**   | ApplePageType | Yes      | Value: "DatePicker"                                                                                             |
-| **labelText**  | String        | No       | Text displayed next to the date input. See example<br>screenshots in Appendix                                   |
-| **helperText** | String        | No       | Helper text displayed under the date input. See example<br>screenshots in Appendix Default: No helper text      |
-| **dateFormat** | String        | No       | ISO 8601 date format. Default: MM/dd/yyyy                                                                       |
-| **startDate**  | String        | No       | Initial / default selected date in valid date format Default:<br>Current date for end user when message is sent |
-| **minDate**    | String        | No       | Min date allowed to be selected in valid date format Default:<br>No min                                         |
-| **maxDate**    | String        | No       | Max date allowed to be selected in valid date format Default:<br>Current date for end user when message is sent |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  | Value: "DatePicker"  | 
+| labelText  | String  | No  | Text displayed next to the date input. See example screenshots in Appendix  | 
+| helperText  | String  | No  | Helper text displayed under the date input. See example screenshots in Appendix Default: No helper text  | 
+| dateFormat  | String  | No  | ISO 8601 date format. Default: MM/dd/yyyy  | 
+| startDate  | String  | No  | Initial / default selected date in valid date format Default: Current date for end user when message is sent  | 
+| minDate  | String  | No  | Min date allowed to be selected in valid date format Default: No min  | 
+| maxDate  | String  | No  | Max date allowed to be selected in valid date format Default: Current date for end user when message is sent  | 
 
 #### AppleFormListPickerPage
+<a name="apple-forms-limits-appleformlistpickerpage"></a>
 
-**AppleFormListPickerPage** extends [AppleFormPage](#apple-forms-limits-appleformpage "#apple-forms-limits-appleformpage")
+ **AppleFormListPickerPage** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
-| Field           | Type                          | Required | Description / Notes                                                   |
-| --------------- | ----------------------------- | -------- | --------------------------------------------------------------------- |
-| **pageType**    | ApplePageType                 | Yes      | Value: "ListPicker"                                                   |
-| **multiSelect** | Boolean                       | No       | Enables selecting multiple items Default: false (single<br>selection) |
-| **items**       | AppleFormListPickerPageItem[] | Yes      | List of list page items                                               |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  | Value: "ListPicker"  | 
+| multiSelect  | Boolean  | No  | Enables selecting multiple items Default: false (single selection)  | 
+| items  | AppleFormListPickerPageItem[]  | Yes  | List of list page items  | 
 
 #### AppleFormListPickerPageItem
+<a name="apple-forms-limits-appleformlistpickerpageitem"></a>
 
-**AppleFormListPickerPageItem** extends [AppleFormPage](#apple-forms-limits-appleformpage "#apple-forms-limits-appleformpage")
+ **AppleFormListPickerPageItem** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
-| Field         | Type      | Required | Description / Notes                                                                           |
-| ------------- | --------- | -------- | --------------------------------------------------------------------------------------------- |
-| **title**     | String    | Yes      | Display text of item                                                                          |
-| **imageType** | ImageType | No       | Present when displaying image within item Allowed value:<br>"URL" Default: No image displayed |
-| **imageData** | String    | No       | For imageType="URL", this is the URL value Default:<br>No image displayed                     |
 
-###### Note
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| title  | String  | Yes  | Display text of item  | 
+| imageType  | ImageType  | No  | Present when displaying image within item Allowed value: "URL" Default: No image displayed  | 
+| imageData  | String  | No  | For imageType="URL", this is the URL value Default: No image displayed  | 
 
-Similar image model to existing interactive message models (ListPicker),
-except `imageDescription` is not included, which is used for
-image alt text in chat widget / web chats and ignored for Apple interactive
-messages.
+**Note**  
+Similar image model to existing interactive message models (ListPicker), except `imageDescription` is not included, which is used for image alt text in chat widget / web chats and ignored for Apple interactive messages.
 
 #### AppleFormWheelPickerPage
+<a name="apple-forms-limits-appleformwheelpickerpage"></a>
 
-**AppleFormWheelPickerPage** extends [AppleFormPage](#apple-forms-limits-appleformpage "#apple-forms-limits-appleformpage")
+ **AppleFormWheelPickerPage** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
-| Field         | Type                           | Required | Description / Notes                                                      |
-| ------------- | ------------------------------ | -------- | ------------------------------------------------------------------------ |
-| **pageType**  | ApplePageType                  | Yes      | Value: "WheelPicker"                                                     |
-| **items**     | AppleFormWheelPickerPageItem[] | Yes      | List of wheel picker items                                               |
-| **labelText** | String                         | No       | Text displayed next to the input. See example screenshots in<br>Appendix |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  | Value: "WheelPicker"  | 
+| items  | AppleFormWheelPickerPageItem[]  | Yes  | List of wheel picker items  | 
+| labelText  | String  | No  | Text displayed next to the input. See example screenshots in Appendix  | 
 
 #### AppleFormWheelPickerPageItem
+<a name="apple-forms-limits-appleformwheelpickerpageitem"></a>
 
-**AppleFormWheelPickerPageItem** extends [AppleFormPage](#apple-forms-limits-appleformpage "#apple-forms-limits-appleformpage")
+ **AppleFormWheelPickerPageItem** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
-| Field     | Type   | Required | Description / Notes         |
-| --------- | ------ | -------- | --------------------------- |
-| **title** | String | Yes      | Display text of picker item |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| title  | String  | Yes  | Display text of picker item  | 
 
 #### AppleFormInputPage
+<a name="apple-forms-limits-appleforminputpage"></a>
 
-**AppleFormInputPage** extends [AppleFormPage](#apple-forms-limits-appleformpage "#apple-forms-limits-appleformpage")
+ **AppleFormInputPage** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
-| Field               | Type          | Required | Description / Notes                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **pageType**        | ApplePageType | Yes      | Value: "Input"                                                                                                                                                                                                                                                                                                                                                                     |
-| **labelText**       | String        | No       | Text displayed next to the input box. See example screenshots<br>in Appendix                                                                                                                                                                                                                                                                                                       |
-| **helperText**      | String        | No       | Additional text displayed under input box Default: No helper<br>text                                                                                                                                                                                                                                                                                                               |
-| **placeholderText** | String        | No       | Placeholder text to display initially when there's no input<br>Default: "(Optional)" or "(Required)"<br>placeholder text                                                                                                                                                                                                                                                           |
-| **prefixText**      | String        | No       | Prefix text to display next to input. Ex: '$' when input is<br>monetary value Default: No prefix text                                                                                                                                                                                                                                                                              |
-| **required**        | Boolean       | No       | Whether end user is required to provide input Default: false                                                                                                                                                                                                                                                                                                                       |
-| **multiLine**       | Boolean       | No       | Whether multi-line input can be provided Default: false<br>(single line)                                                                                                                                                                                                                                                                                                           |
-| **maxCharCount**    | Number        | No       | Max char count of input. Enforced on Apple client Default: No<br>limit                                                                                                                                                                                                                                                                                                             |
-| **regex**           | String        | No       | Regex string to place constraints on input provided Default:<br>No regex constraints                                                                                                                                                                                                                                                                                               |
-| **keyboardType**    | String        | No       | Determines what type of keyboard is displayed when end user<br>is providing input Allowed values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message "https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message"). Some of the allowed values: numberPad,<br>phonePad, emailAddress |
-| **textContentType** | String        | No       | Helps with auto-fill suggestions on Apple device.  Allowed<br>values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message "https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message"). Some of the allowed values: telephoneNumber,<br>fullStreetAddress, familyName                |
+
+| Field  | Type  | Required  | Description / Notes  | 
+| --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  | Value: "Input"  | 
+| labelText  | String  | No  | Text displayed next to the input box. See example screenshots in Appendix  | 
+| helperText  | String  | No  | Additional text displayed under input box Default: No helper text  | 
+| placeholderText  | String  | No  | Placeholder text to display initially when there's no input Default: "(Optional)" or "(Required)" placeholder text  | 
+| prefixText  | String  | No  | Prefix text to display next to input. Ex: '$' when input is monetary value Default: No prefix text  | 
+| required  | Boolean  | No  | Whether end user is required to provide input Default: false  | 
+| multiLine  | Boolean  | No  | Whether multi-line input can be provided Default: false (single line)  | 
+| maxCharCount  | Number  | No  | Max char count of input. Enforced on Apple client Default: No limit  | 
+| regex  | String  | No  | Regex string to place constraints on input provided Default: No regex constraints  | 
+| keyboardType  | String  | No  | Determines what type of keyboard is displayed when end user is providing input Allowed values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message). Some of the allowed values: numberPad, phonePad, emailAddress  | 
+| textContentType  | String  | No  | Helps with auto-fill suggestions on Apple device.  Allowed values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message). Some of the allowed values: telephoneNumber, fullStreetAddress, familyName  | 
 
 ## Apple Pay template
+<a name="apple-pay-template"></a>
 
-###### Note
+**Note**  
+This template is applicable only for Apple Messages for Business contact flows.
 
-This template is applicable only for Apple Messages for Business contact
-flows.
+ Use the Apple Pay template to provide an easy and secure way for customers to buy goods and services through Apple Messages for Business with Apple Pay.
 
-Use the Apple Pay template to provide an easy and secure way for customers to buy
-goods and services through Apple Messages for Business with Apple Pay.
+ The following code is the Apple Pay template that you can use in your Lambda:
 
-The following code is the Apple Pay template that you can use in your Lambda:
-
-###### Note
-
-- **Bold text** is a mandatory parameter.
-- In some cases, if the parent element exists in the request and it isn't
-  mandatory/bold, but the fields in it are, then the fields are mandatory.
+**Note**  
+ **Bold text** is a mandatory parameter. 
+ In some cases, if the parent element exists in the request and it isn't mandatory/bold, but the fields in it are, then the fields are mandatory. 
 
 ```
 {
@@ -952,76 +1038,75 @@ The following code is the Apple Pay template that you can use in your Lambda:
     }
   }
 }
-
 ```
 
 ### Apple Pay limits
+<a name="apple-pay-limits"></a>
 
-| Parent field        | Field                             | Required | Minimum characters | Maximum characters | Other requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------- | --------------------------------- | -------- | ------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                     | **templateType**                  | Yes      |                    |                    | Valid template type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                     | **data**                          | Yes      |                    |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                     | **version**                       | Yes      |                    |                    | Must be "1.0"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **data**            | **content**                       | Yes      |                    |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **content**         | **title**                         | Yes      | 1                  | 512                | The title of the received message bubble                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                     | **subtitle**                      | No       | 0                  | 512                | Subtitle to be displayed under title of the received message<br>bubble                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|                     | **imageData**                     | No       | 0                  | 200                | Must be a valid publicly accessible URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                     | **imageType**                     | No       | 0                  | 50                 | Must be "URL"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                     | **payment**                       | Yes      |                    |                    | A dictionary containing fields giving the specifics of an Apple<br>Pay request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                     | **requestIdentifier**             | No       |                    |                    | String, An identifier for the ApplePay request. If not specified,<br>an UUID will be generated and used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **payment**         | **endpoints**                     | Yes      |                    |                    | A dictionary containing the endpoints for payment processing,<br>contact updates, and order tracking.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                     | **merchantSession**               | Yes      |                    |                    | A dictionary containing the payment session provided by Apple Pay<br>after requesting a new payment session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                     | **paymentRequest**                | Yes      |                    |                    | A dictionary with information about the payment request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **endpoints**       | **paymentGatewayUrl**             | Yes      |                    |                    | String. Called by Apple Pay to process the payment through the<br>payment provider. The URL should match the URL in the<br>initiativeContext field of the merchant session                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|                     | **fallbackUrl**                   | No       |                    |                    | A URL that opens in a web browser so the customer can complete<br>the purchase if their device is unable to make payments using Apple<br>Pay. If specified, fallbackUrl need to match paymentGatewayUrl.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                     | **orderTrackingUrl**              | No       |                    |                    | Called by Messages for Business after completing the order;<br>provides you with an opportunity to update the order information in<br>your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|                     | **paymentMethodUpdateUrl**        | No       |                    |                    | Called by Apple Pay when the customer changes the payment method.<br>If you don’t implement this endpoint and you include this key in the<br>dictionary, the customer sees an error message.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                     | **shippingContactUpdateUrl**      | No       |                    |                    | Called by Apple Pay when the customer changes their shipping<br>address information. If you don’t implement this endpoint and you<br>include this key in the dictionary, the customer sees an error<br>message                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                     | **shippingMethodUpdateUrl**       | No       |                    |                    | Called by Apple Pay when the customer changes the shipping<br>method. If you don’t implement this endpoint and you include this<br>key in the dictionary, the customer sees an error message.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **merchantSession** | **displayName**                   | Yes      | 1                  | 64                 | String. The canonical name for your store, suitable for display.<br>Do not localize the name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                     | **initiative**                    | Yes      |                    |                    | String. Must be “messaging”                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|                     | **initiativeContext**             | Yes      |                    |                    | String. Pass your payment gateway URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|                     | **merchantIdentifier**            | Yes      |                    |                    | String. A unique identifier that represents a merchant for Apple<br>Pay.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                     | **merchantSessionIdentifier**     | Yes      |                    |                    | String. A unique identifier that represents a merchant's session<br>for Apple Pay.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|                     | **epochTimestamp**                | Yes      |                    |                    | String.The time representation in number of seconds that have<br>elapsed since 00:00:00 UTC, Thursday, January 1, 1970.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                     | **expiresAt**                     | Yes      |                    |                    | String. The expiration time representation in number of seconds<br>that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                     | **nonce**                         | No       |                    |                    | Binary. A single-use string that checks the integrity of the<br>interaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                     | **signature**                     | No       |                    |                    | Binary. A hash of the public key used to sign the interactions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                     | **signedFields**                  | No       |                    |                    | List of strings contains the signed properties.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **paymentRequest**  | **applePay**                      | Yes      |                    |                    | A dictionary that describes the Apple Pay configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                     | **countryCode**                   | Yes      |                    |                    | String. The merchant’s two-letter ISO 3166 country code.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                     | **currencyCode**                  | Yes      |                    |                    | String. The three-letter ISO 4217 currency code for the payment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                     | **lineItems**                     | No       |                    |                    | An array of line items explaining payments and additional<br>charges. Line items are not required. However, the array cannot be<br>empty if the lineItems key is present.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|                     | **total**                         | Yes      |                    |                    | A dictionary containing the total. The total amount must be<br>greater than zero to pass validation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|                     | **requiredBillingContactFields**  | No       |                    |                    | The list of the customer's required billing information needed to<br>process the transaction. For the list of possible strings, see<br>[requiredBillingContactFields](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216120-requiredbillingcontactfields "https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216120-requiredbillingcontactfields"). Require only the contact<br>fields needed to process the payment. Requesting unnecessary fields<br>adds complexity to the transaction, which can increase the chances<br>of the customer canceling the payment request. |
-|                     | **requiredShippingContactFields** | No       |                    |                    | The list of shipping or contact information required from the<br>customer to fulfill the order. For example, if you need the<br>customer's email or phone number, then include this key. For the<br>list of possible strings, see [requiredShippingContactFields](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216121-requiredshippingcontactfields "https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216121-requiredshippingcontactfields").                                                                                                                           |
-|                     | **shippingMethods**               | No       |                    |                    | An array that lists the available shipping methods. The Apple Pay<br>payment sheet displays the first shipping method from the array as<br>the default shipping method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                     | **supportedCountries**            | No       |                    |                    | An array of countries to support. List each country with their<br>ISO 3166 country code.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **applePay**        | **merchantIdentifier**            | Yes      |                    |                    | A unique identifier that represents a merchant for Apple Pay.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                     | **merchantCapabilities**          | Yes      |                    |                    | An array of payment capabilities supported by the merchant. The<br>array must include supports3DS, and can optionally include<br>supportsCredit, supportsDebit, and supportsEMV.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                     | **supportedNetworks**             | Yes      |                    |                    | An array of payment networks supported by the merchant. The array<br>must include one or more of the following values: amex, discover,<br>jcb, masterCard, privateLabel, or visa                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **lineItem**        | **amount**                        | Yes      |                    |                    | The monetary amount of the line item.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                     | **label**                         | Yes      |                    |                    | A short, localized description of the line item.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                     | **type**                          | No       |                    |                    | A value that indicates whether the line item is final or pending.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **total**           | **amount**                        | Yes      |                    |                    | The total amount of the payment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                     | **label**                         | Yes      |                    |                    | A short, localized description of the payment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                     | **type**                          | No       |                    |                    | A value that indicates whether the payment is final or pending.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **shippingMethods** | **amount**                        | Yes      |                    |                    | String. The non-negative cost associated with this shipping<br>method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|                     | **detail**                        | Yes      |                    |                    | String. Additional description of the shipping method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|                     | **label**                         | Yes      |                    |                    | String. A short description of the shipping method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                     | **identifier**                    | Yes      |                    |                    | String. A client-defined value used to identify this shipping<br>method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+| Parent field  | Field  | Required  | Minimum characters  | Maximum characters  | Other requirement  | 
+| --- | --- | --- | --- | --- | --- | 
+|  | templateType  | Yes  |  |  | Valid template type  | 
+|  | data  | Yes  |  |  |  | 
+|  | version  | Yes  |  |  | Must be "1.0"  | 
+| data  | content  | Yes  |  |  |  | 
+| content  | title  | Yes  | 1  | 512  | The title of the received message bubble  | 
+|  | subtitle  | No  | 0  | 512  | Subtitle to be displayed under title of the received message bubble  | 
+|  | imageData  | No  | 0  | 200  | Must be a valid publicly accessible URL  | 
+|  | imageType  | No  | 0  | 50  | Must be "URL"  | 
+|  | payment  | Yes  |  |  | A dictionary containing fields giving the specifics of an Apple Pay request.  | 
+|  | requestIdentifier  | No  |  |  | String, An identifier for the ApplePay request. If not specified, an UUID will be generated and used.  | 
+| payment  | endpoints  | Yes  |  |  | A dictionary containing the endpoints for payment processing, contact updates, and order tracking.  | 
+|  | merchantSession  | Yes  |  |  | A dictionary containing the payment session provided by Apple Pay after requesting a new payment session.  | 
+|  | paymentRequest  | Yes  |  |  | A dictionary with information about the payment request  | 
+| endpoints  | paymentGatewayUrl  | Yes  |  |  | String. Called by Apple Pay to process the payment through the payment provider. The URL should match the URL in the initiativeContext field of the merchant session  | 
+|  | fallbackUrl  | No  |  |  | A URL that opens in a web browser so the customer can complete the purchase if their device is unable to make payments using Apple Pay. If specified, fallbackUrl need to match paymentGatewayUrl.  | 
+|  | orderTrackingUrl  | No  |  |  | Called by Messages for Business after completing the order; provides you with an opportunity to update the order information in your system.  | 
+|  | paymentMethodUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes the payment method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message.  | 
+|  | shippingContactUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes their shipping address information. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message  | 
+|  | shippingMethodUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes the shipping method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message.  | 
+| merchantSession  | displayName  | Yes  | 1  | 64  | String. The canonical name for your store, suitable for display. Do not localize the name.  | 
+|  | initiative  | Yes  |  |  | String. Must be “messaging”  | 
+|  | initiativeContext  | Yes  |  |  | String. Pass your payment gateway URL.  | 
+|  | merchantIdentifier  | Yes  |  |  | String. A unique identifier that represents a merchant for Apple Pay.  | 
+|  | merchantSessionIdentifier  | Yes  |  |  | String. A unique identifier that represents a merchant's session for Apple Pay.  | 
+|  | epochTimestamp  | Yes  |  |  | String.The time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970.  | 
+|  | expiresAt  | Yes  |  |  | String. The expiration time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970.  | 
+|  | nonce  | No  |  |  | Binary. A single-use string that checks the integrity of the interaction.  | 
+|  | signature  | No  |  |  | Binary. A hash of the public key used to sign the interactions.  | 
+|  | signedFields  | No  |  |  | List of strings contains the signed properties.  | 
+| paymentRequest  | applePay  | Yes  |  |  | A dictionary that describes the Apple Pay configuration.  | 
+|  | countryCode  | Yes  |  |  | String. The merchant’s two-letter ISO 3166 country code.  | 
+|  | currencyCode  | Yes  |  |  | String. The three-letter ISO 4217 currency code for the payment.  | 
+|  | lineItems  | No  |  |  | An array of line items explaining payments and additional charges. Line items are not required. However, the array cannot be empty if the lineItems key is present.  | 
+|  | total  | Yes  |  |  | A dictionary containing the total. The total amount must be greater than zero to pass validation.  | 
+|  | requiredBillingContactFields  | No  |  |  | The list of the customer's required billing information needed to process the transaction. For the list of possible strings, see [requiredBillingContactFields](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216120-requiredbillingcontactfields). Require only the contact fields needed to process the payment. Requesting unnecessary fields adds complexity to the transaction, which can increase the chances of the customer canceling the payment request.  | 
+|  | requiredShippingContactFields  | No  |  |  | The list of shipping or contact information required from the customer to fulfill the order. For example, if you need the customer's email or phone number, then include this key. For the list of possible strings, see [requiredShippingContactFields](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216121-requiredshippingcontactfields).  | 
+|  | shippingMethods  | No  |  |  | An array that lists the available shipping methods. The Apple Pay payment sheet displays the first shipping method from the array as the default shipping method.  | 
+|  | supportedCountries  | No  |  |  | An array of countries to support. List each country with their ISO 3166 country code.  | 
+| applePay  | merchantIdentifier  | Yes  |  |  | A unique identifier that represents a merchant for Apple Pay.  | 
+|  | merchantCapabilities  | Yes  |  |  | An array of payment capabilities supported by the merchant. The array must include supports3DS, and can optionally include supportsCredit, supportsDebit, and supportsEMV.  | 
+|  | supportedNetworks  | Yes  |  |  | An array of payment networks supported by the merchant. The array must include one or more of the following values: amex, discover, jcb, masterCard, privateLabel, or visa  | 
+| lineItem  | amount  | Yes  |  |  | The monetary amount of the line item.  | 
+|  | label  | Yes  |  |  | A short, localized description of the line item.  | 
+|  | type  | No  |  |  | A value that indicates whether the line item is final or pending.  | 
+| total  | amount  | Yes  |  |  | The total amount of the payment.  | 
+|  | label  | Yes  |  |  | A short, localized description of the payment.  | 
+|  | type  | No  |  |  | A value that indicates whether the payment is final or pending.  | 
+| shippingMethods  | amount  | Yes  |  |  | String. The non-negative cost associated with this shipping method.  | 
+|  | detail  | Yes  |  |  | String. Additional description of the shipping method.  | 
+|  | label  | Yes  |  |  | String. A short description of the shipping method.  | 
+|  | identifier  | Yes  |  |  | String. A client-defined value used to identify this shipping method.  | 
 
 ## iMessage App template
+<a name="imessage-app-template"></a>
 
-###### Note
+**Note**  
+This template is applicable only for Apple Messages for Business contact flows. 
 
-This template is applicable only for Apple Messages for Business contact flows.
+ Use the iMessage Apps template to present the customer with your custom built iMessage App. 
 
-Use the iMessage Apps template to present the customer with your custom built
-iMessage App.
-
-The following code is an example iMessage App template that you can use in your
-Lambda function. 
+ The following code is an example iMessage App template that you can use in your Lambda function.  
 
 ```
 {
@@ -1048,37 +1133,36 @@ Lambda function. 
 ```
 
 ### iMessage App limits
+<a name="imessage-apps-limits"></a>
 
-| **Parent Field** | **Field**         | **Required** | **Type**                  | **Other Notes**                                                                                                     |
-| ---------------- | ----------------- | ------------ | ------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-|                  | **templateType**  | Yes          | TemplateType              | Valid template type, "AppleCustomInteractiveMessage"                                                                |
-|                  | **data**          | Yes          | InteractiveMessageData    | Contains content and receivedMessage dictionaries                                                                   |
-|                  | **version**       | Yes          | string                    | Must be "1.0"                                                                                                       |
-| **data**         | **content**       | Yes          | InteractiveMessageContent | Interactive Content of the iMessage App                                                                             |
-|                  | **replyMessage**  | Yes          | ReplyMessage              | Message display configuration for after response to interactive<br>message is sent                                  |
-| **content**      | **appIconUrl**    | Yes          | string                    | AWS S3 URL                                                                                                          |
-|                  | **appId**         | Yes          | string                    | Business IMessage App Id                                                                                            |
-|                  | **appName**       | Yes          | string                    | Business IMessage App name                                                                                          |
-|                  | **bid**           | Yes          | string                    | Business IMessage App Bid. Pattern:<br>com.apple.messages.MSMessageExtensionBalloonPlugin:{team-id}:{ext-bundle-id} |
-|                  | **dataUrl**       | Yes          | string                    | Data that is passed into the iMessage App                                                                           |
-|                  | **useLiveLayout** | No           | boolean                   | Default True                                                                                                        |
-|                  | **title**         | Yes          | string                    | title of the Imessage App bubble                                                                                    |
-|                  | **subtitle**      | No           | string                    | subtitle of the Imessage App bubble                                                                                 |
-| **replyMessage** | **title**         | No           | string                    |                                                                                                                     |
-|                  | **subtitle**      | No           | string                    |                                                                                                                     |
-|                  | **imageType**     | No           | string                    | Must be a valid publicly accessible URL                                                                             |
-|                  | **imageData**     | No           | string                    | Cannot exist without an image                                                                                       |
+
+|  **Parent Field**  |  **Field**  |  **Required**  |  **Type**  |  **Other Notes**  | 
+| --- | --- | --- | --- | --- | 
+|  |  templateType  | Yes  | TemplateType  | Valid template type, "AppleCustomInteractiveMessage"  | 
+|  |  data  | Yes  | InteractiveMessageData  | Contains content and receivedMessage dictionaries  | 
+|  |  version  | Yes  | string  | Must be "1.0"  | 
+|  data  |  content  | Yes  | InteractiveMessageContent  | Interactive Content of the iMessage App  | 
+|  |  replyMessage  | Yes  | ReplyMessage  | Message display configuration for after response to interactive message is sent  | 
+|  content  |  appIconUrl  | Yes  | string  | AWS S3 URL  | 
+|  |  appId  | Yes  | string  | Business IMessage App Id  | 
+|  |  appName  | Yes  | string  | Business IMessage App name  | 
+|  |  bid  | Yes  | string  | Business IMessage App Bid. Pattern:  com.apple.messages.MSMessageExtensionBalloonPlugin:{team-id}:{ext-bundle-id}  | 
+|  |  dataUrl  | Yes  | string  | Data that is passed into the iMessage App  | 
+|  |  useLiveLayout  | No  | boolean  | Default True  | 
+|  |  title  | Yes  | string  | title of the Imessage App bubble  | 
+|  |  subtitle  | No  | string  | subtitle of the Imessage App bubble  | 
+|  replyMessage  |  title  | No  | string  |  | 
+|  |  subtitle  | No  | string  |  | 
+|  |  imageType  | No  | string  | Must be a valid publicly accessible URL  | 
+|  |  imageData  | No  | string  | Cannot exist without an image  | 
 
 ## WhatsApp list
+<a name="whatsapp-list"></a>
 
-###### Note
+**Note**  
+You only use this template for WhatsApp messaging flows. For more information about integrating WhatsApp with Connect Customer, see [Set up WhatsApp Business messaging](whatsapp-integration.md), earlier in this guide.
 
-You only use this template for WhatsApp messaging flows. For more information
-about integrating WhatsApp with Connect Customer, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md"),
-earlier in this guide.
-
-You use the WhatsApp list template in WhatsApp chats to provide customers with a list
-of options.
+You use the WhatsApp list template in WhatsApp chats to provide customers with a list of options.
 
 The following example shows a list of options for a banking service.
 
@@ -1126,44 +1210,45 @@ The following example shows a list of options for a banking service.
 }
 ```
 
-The following image shows a typical screen before and after a customer opens a
-list.
+The following image shows a typical screen before and after a customer opens a list.
 
-![Image showing a list of options.](images/whatsapp-options-results.png)
+![Image showing a list of options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-options-results.png)
+
 
 ### WhatsApp options limits
+<a name="whatsapp-options-limits"></a>
 
-| Parent field | Field            | Required | Minimum length | Maximum length | Other Requirement                   |
-| ------------ | ---------------- | -------- | -------------- | -------------- | ----------------------------------- |
-|              | **templateType** | Yes      |                |                | Must be "WhatsAppInteractiveList"   |
-|              | **data**         | Yes      |                |                |                                     |
-|              | **version**      | Yes      |                |                | Must be "1.0"                       |
-| **data**     | **content**      | Yes      |                |                |                                     |
-| **content**  | **title**        | Yes      |                |                |                                     |
-|              | **header**       | No       |                |                |                                     |
-|              | **body**         | Yes      |                |                |                                     |
-|              | **footer**       | No       |                |                |                                     |
-|              | **action**       | Yes      |                |                |                                     |
-| **header**   | **type**         | Yes      |                |                | Must be "text"                      |
-|              | **text**         | Yes      | 1              | 60             |                                     |
-| **body**     | **text**         | Yes      | 1              | 4096           |                                     |
-| footer       | **text**         | Yes      | 1              | 60             |                                     |
-| **action**   | **sections**     | Yes      | 1              | 10             |                                     |
-|              | **button**       | Yes      | 1              | 20             |                                     |
-| **section**  | **title**        | Yes      | 1              | 24             |                                     |
-|              | **rows**         | Yes      | 1              | 10             | Maximum 10 rows across all sections |
-| **row**      | **id**           | Yes      | 1              | 200            | Must be unique across rows          |
-|              | **title**        | Yes      | 1              | 24             |                                     |
-|              | **description**  | No       | 1              | 72             |                                     |
+
+| Parent field | Field | Required | Minimum length  | Maximum length  | Other Requirement | 
+| --- | --- | --- | --- | --- | --- | 
+|  | templateType | Yes |  |  | Must be "WhatsAppInteractiveList" | 
+|  | data | Yes |  |  |  | 
+|  | version | Yes |  |  | Must be "1.0" | 
+| data | content | Yes |  |  |  | 
+| content | title | Yes |  |  |  | 
+|  | header | No |  |  |  | 
+|  | body | Yes  |  |  |  | 
+|  | footer | No |  |  |  | 
+|  | action | Yes |  |  |  | 
+| header  |  type  | Yes  |  |  |  Must be "text"  | 
+|  |  text  | Yes  | 1  |  60  |  | 
+| body |  text  | Yes  | 1 |  4096  |  | 
+|  footer  |  text  | Yes  | 1 |  60  |  | 
+|  action  |  sections  | Yes  | 1 |  10  |  | 
+|  |  button  | Yes  | 1 |  20  |  | 
+|  section  |  title  | Yes  | 1 |  24  |  | 
+|  |  rows  | Yes  | 1 |  10  |  Maximum 10 rows across all sections  | 
+|  row  |  id  | Yes | 1 | 200 | Must be unique across rows | 
+|  |  title  | Yes  | 1 | 24 |  | 
+|  | description  | No  | 1 |  72  |  | 
 
 ## WhatsApp reply button
+<a name="whatsapp-reply-button"></a>
 
-###### Note
-
+**Note**  
 You only use this template for WhatsApp messaging flows.
 
-You can use the WhatsApp reply button template to present an in-line list of options
-for customers.
+You can use the WhatsApp reply button template to present an in-line list of options for customers.
 
 ```
 {
@@ -1200,140 +1285,130 @@ for customers.
 
 The following image shows a typical user experience.
 
-![Reply in a chat session.](images/whatsapp-reply-template.png)
+![Reply in a chat session.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-reply-template.png)
+
 
 ### WhatsApp reply button limits
+<a name="whatsapp-reply-limits"></a>
 
 The WhatsApp reply template has the following limits.
 
-| Parent Field | Field            | Required | Minimum length | Maximum length | Other Requirement                                              |
-| ------------ | ---------------- | -------- | -------------- | -------------- | -------------------------------------------------------------- |
-|              | **templateType** | Yes      |                |                | Must be "WhatsAppInteractiveReplyButton"                       |
-|              | **data**         | Yes      |                |                |                                                                |
-|              | **version**      | Yes      |                |                | Must be "1.0"                                                  |
-| **data**     | **content**      | Yes      |                |                |                                                                |
-| **content**  | **title**        | Yes      |                |                |                                                                |
-|              | **header**       | No       |                |                |                                                                |
-|              | **body**         | Yes      |                |                |                                                                |
-|              | **footer**       | No       |                |                |                                                                |
-|              | **action**       | Yes      |                |                |                                                                |
-| **header**   | **type**         | Yes      |                |                | Valid values: "text", "document",<br>"image", "video"          |
-|              | **text**         | No       | 1              | 60             |                                                                |
-|              | **image**        | No       |                |                |                                                                |
-|              | **video**        | No       |                |                |                                                                |
-|              | **document**     | No       |                |                |                                                                |
-| **image**    | **link**         | Yes      |                |                | Must be publicly accessible media URL starting with https/http |
-| **video**    | **link**         | Yes      |                |                | Must be publicly accessible media URL starting with https/http |
-| **document** | **link**         | Yes      |                |                | Must be publicly accessible media URL starting with https/http |
-| **body**     | **text**         | Yes      | 1              | 1024           |                                                                |
-| **footer**   | **text**         | Yes      | 1              | 60             |                                                                |
-| **action**   | **buttons**      | Yes      | 1              | 3              |                                                                |
-| **button**   | **type**         | Yes      |                |                | Must be "reply"                                                |
-|              | **reply.id**     | Yes      | 1              | 256            | Must be unique across buttons                                  |
-|              | **reply.title**  | Yes      | 1              | 20             |                                                                |
+
+| Parent Field | Field | Required | Minimum length | Maximum length  | Other Requirement | 
+| --- | --- | --- | --- | --- | --- | 
+|  | templateType  | Yes |  |  | Must be "WhatsAppInteractiveReplyButton"  | 
+|  | data  | Yes |  |  |  | 
+|  | version  | Yes |  |  | Must be "1.0"  | 
+|  data  | content | Yes |  |  |  | 
+|  content  | title  | Yes |  |  |  | 
+|  | header  | No |  |  |  | 
+|  | body | Yes |  |  |  | 
+|  | footer  | No |  |  |  | 
+|  | action  | Yes |  |  |  | 
+| header  | type  | Yes |  |  | Valid values: "text", "document", "image", "video"  | 
+|  | text  | No | 1 | 60  |  | 
+|  | image  | No |  |  |  | 
+|  | video  | No |  |  |  | 
+|  | document  | No |  |  |  | 
+| image  | link  | Yes |  |  | Must be publicly accessible media URL starting with https/http  | 
+| video  | link  | Yes |  |  | Must be publicly accessible media URL starting with https/http  | 
+| document  | link  | Yes |  |  | Must be publicly accessible media URL starting with https/http  | 
+| body  | text  | Yes | 1 | 1024  |  | 
+| footer  | text  | Yes | 1 | 60  |  | 
+| action  | buttons  | Yes | 1 | 3  |  | 
+| button  | type  | Yes |  |  | Must be "reply"  | 
+|  | reply.id | Yes | 1 | 256  | Must be unique across buttons  | 
+|  | reply.title  | Yes | 1 | 20  |  | 
 
 ## Rich formatting in titles and subtitles
+<a name="rich-link-formatting"></a>
 
-You can add rich formatting to the titles and subtitles of your chat messages. For
-example, you can add links, italics, bold, numbered lists, and bulleted lists. You use
-[markdown](https://commonmark.org/help/ "https://commonmark.org/help/") to format your text.
+You can add rich formatting to the titles and subtitles of your chat messages. For example, you can add links, italics, bold, numbered lists, and bulleted lists. You use [markdown](https://commonmark.org/help/) to format your text. 
 
-The following image of a chat box shows an example list picker with rich formatting in
-the title and subtitle.
+The following image of a chat box shows an example list picker with rich formatting in the title and subtitle.
++ The title **How can we help? aws.amazon.com** is bold and contains a link.
++ The subtitle contains italics and bold text, a bulleted list, and a numbered list. It also shows a plain link, text link, and sample code.
++ The bottom of the chat box shows three list picker elements.
 
-- The title **How can we help? aws.amazon.com** is bold and
-  contains a link.
-- The subtitle contains italics and bold text, a bulleted list, and a numbered
-  list. It also shows a plain link, text link, and sample code.
-- The bottom of the chat box shows three list picker elements.
+![A chat box, a title with a link, a subtitle with lists and links.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rich-link-formatting-example1a.png)
 
-![A chat box, a title with a link, a subtitle with lists and links.](images/rich-link-formatting-example1a.png)
 
 ### How to format text with markdown
+<a name="markdown-formatting-text"></a>
 
-You can write title and subtitle strings in a multi-line format, or in a single
-line with `\r\n` line break characters.
+You can write title and subtitle strings in a multi-line format, or in a single line with ``\r\n`` line break characters.
++ **Multi-line format**: The following code sample shows how to author lists in markdown in a multi-line format.
 
-- **Multi-line format**: The following code
-  sample shows how to author lists in markdown in a multi-line format.
+  ```
+  const MultiLinePickerSubtitle = `This is some *emphasized text* and some **strongly emphasized text**
+  
+  This is a bulleted list (multiline):
+  * item 1
+  * item 2
+  * item 3
+  
+  This is a numbered list:
+  1. item 1
+  2. item 2
+  3. item 3
+  
+  Questions? Visit https://plainlink.com/faq
+  
+  [This is a link](https://aws.amazon.com)
+  
+  This is \`\`
+  `
+  
+  const PickerTemplate = {
+      templateType: "ListPicker|Panel",
+      version: "1.0",
+      data: {
+          content: {
+              title: "How can we help?",
+              subtitle: MultiLinePickerSubtitle,
+              elements: [ /* ... */ ]
+          }
+      }
+  }
+  ```
++ **Single line format**: The following example shows how to author a subtitle in a single line by using ``\r\n`` line break characters. 
 
-```
-const MultiLinePickerSubtitle = `This is some *emphasized text* and some **strongly emphasized text**
-
-This is a bulleted list (multiline):
-* item 1
-* item 2
-* item 3
-
-This is a numbered list:
-1. item 1
-2. item 2
-3. item 3
-
-Questions? Visit https://plainlink.com/faq
-
-[This is a link](https://aws.amazon.com)
-
-This is \`\`
-`
-
-const PickerTemplate = {
-    templateType: "ListPicker|Panel",
-    version: "1.0",
-    data: {
-        content: {
-            title: "How can we help?",
-            subtitle: MultiLinePickerSubtitle,
-            elements: [ /* ... */ ]
-        }
-    }
-}
-```
-
-- **Single line format**: The following example
-  shows how to author a subtitle in a single line by using `\r\n`
-  line break characters.
-
-```
-const SingleLinePickerSubtitle = "This is some *emphasized text* and some **strongly emphasized text**\r\nThis is a bulleted list:\n* item 1\n* item 2\n* item 3\n\nThis is a numbered list:\n1. item 1\n2. item 2\n3. item 3\n\nQuestions? Visit https://plainlink.com/faq\r\n[This is a link](https://aws.amazon.com)\r\nThis is `<code/>`";
-
-const PickerTemplate = {
-    templateType: "ListPicker|Panel",
-    version: "1.0",
-    data: {
-        content: {
-            title: "How can we help?",
-            subtitle: SingleLinePickerSubtitle,
-            elements: [ /* ... */ ]
-        }
-    }
-}
-```
+  ```
+  const SingleLinePickerSubtitle = "This is some *emphasized text* and some **strongly emphasized text**\r\nThis is a bulleted list:\n* item 1\n* item 2\n* item 3\n\nThis is a numbered list:\n1. item 1\n2. item 2\n3. item 3\n\nQuestions? Visit https://plainlink.com/faq\r\n[This is a link](https://aws.amazon.com)\r\nThis is `<code/>`";
+  
+  const PickerTemplate = {
+      templateType: "ListPicker|Panel",
+      version: "1.0",
+      data: {
+          content: {
+              title: "How can we help?",
+              subtitle: SingleLinePickerSubtitle,
+              elements: [ /* ... */ ]
+          }
+      }
+  }
+  ```
 
 The following example shows how format italics and bold text with markdown:
 
-`This is some *emphasized text* and some **strongly emphasized
- text**`
+`This is some *emphasized text* and some **strongly emphasized text**`
 
 The following example shows how to format text as code with markdown:
 
 `This is `<code />``
 
 ### How to format links with markdown
+<a name="markdown-formatting-links"></a>
 
 To create a link, use the following syntax:
 
-`[aws](https://aws.amazon.com)`
+ `[aws](https://aws.amazon.com)`
 
 The following examples show two ways you can add links with markdown:
 
-`Questions? Visit https://plainlink.com/faq`
+`Questions? Visit https://plainlink.com/faq `
 
 `[This is a link](https://aws.amazon.com)`
 
-###### Note
-
-For list pickers, the `targetForLinks` field can be added as a
-child field to `content` if you want to have granular control over
-where links are opened. The communications widget will open links in a new
-browser tab by default. For more information, see [List picker template](#list-picker "#list-picker").
+**Note**  
+For list pickers, the `targetForLinks` field can be added as a child field to `content` if you want to have granular control over where links are opened. The communications widget will open links in a new browser tab by default. For more information, see [List picker template](#list-picker).

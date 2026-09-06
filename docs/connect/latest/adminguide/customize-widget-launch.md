@@ -1,26 +1,20 @@
+
+
 # Customize widget launch behavior and button icon for your website hosted in Connect Customer
+<a name="customize-widget-launch"></a>
 
-To further customize how your website renders and launches the hosted widget icon, you
-can configure the launch behavior and hide the default icon. For example, you can
-programmatically launch the widget from a **Chat with us** button
-element that is rendered on your website.
+To further customize how your website renders and launches the hosted widget icon, you can configure the launch behavior and hide the default icon. For example, you can programmatically launch the widget from a **Chat with us** button element that is rendered on your website.
 
-###### Contents
-
-- [How to configure custom launch
-  behavior for the widget](#config-widget-launch "#config-widget-launch")
-- [Supported options and
-  constraints](#launch-options-constraints "#launch-options-constraints")
-- [Configure widget launch for custom use
-  cases](#launch-usage "#launch-usage")
-- [Enable chat session
-  persistence across tabs](#chat-persistence-across-tabs "#chat-persistence-across-tabs")
+**Topics**
++ [How to configure custom launch behavior for the widget](#config-widget-launch)
++ [Supported options and constraints](#launch-options-constraints)
++ [Configure widget launch for custom use cases](#launch-usage)
++ [Enable chat session persistence across tabs](#chat-persistence-across-tabs)
 
 ## How to configure custom launch behavior for the widget
+<a name="config-widget-launch"></a>
 
-To pass custom launch behavior, use the following example code block and embed it
-in your widget. All of the fields shown in the following example are optional and
-any combination can be used.
+To pass custom launch behavior, use the following example code block and embed it in your widget. All of the fields shown in the following example are optional and any combination can be used.
 
 ```
 amazon_connect('customLaunchBehavior', {
@@ -40,26 +34,24 @@ amazon_connect('customLaunchBehavior', {
 ```
 
 ## Supported options and constraints
+<a name="launch-options-constraints"></a>
 
-The following table lists the supported custom launch behavior options. Fields are
-optional and any combination can be used.
+The following table lists the supported custom launch behavior options. Fields are optional and any combination can be used.
 
-| Option name                   | Type     | Description                                                                                                  | Default value |
-| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
-| `skipIconButtonAndAutoLaunch` | Boolean  | A flag to enable/disable the automatic launch of the widget<br>without the user clicking on the page load.   | undefined     |
-| `alwaysHideWidgetButton`      | Boolean  | A flag to enable/disable the widget icon button from rendering<br>(unless there is an ongoing chat session). | undefined     |
-| `programmaticLaunch`          | Function |                                                                                                              | undefined     |
+
+| Option name | Type | Description | Default value | 
+| --- | --- | --- | --- | 
+| `skipIconButtonAndAutoLaunch` | Boolean  | A flag to enable/disable the automatic launch of the widget without the user clicking on the page load. | undefined | 
+| `alwaysHideWidgetButton` | Boolean  | A flag to enable/disable the widget icon button from rendering (unless there is an ongoing chat session). | undefined | 
+| `programmaticLaunch` | Function  |  | undefined | 
 
 ## Configure widget launch for custom use cases
+<a name="launch-usage"></a>
 
 ### Custom widget launch button
+<a name="custom-launch-button"></a>
 
-The following example shows changes you would need to make in the widget to
-configure programmatic launch to open only when the user chooses a custom button
-element rendered anywhere on your website. For example, they might choose a button
-named **Contact Us** or **Chat With Us**.
-Optionally, you can hide the default Connect Customer widget icon until the widget has been
-opened.
+The following example shows changes you would need to make in the widget to configure programmatic launch to open only when the user chooses a custom button element rendered anywhere on your website. For example, they might choose a button named **Contact Us** or **Chat With Us**. Optionally, you can hide the default Connect Customer widget icon until the widget has been opened.
 
 ```
 <button id="launch-widget-btn">Chat With Us</button>
@@ -95,11 +87,9 @@ opened.
 ```
 
 ### Hyperlink support
+<a name="hyperlink-support"></a>
 
-The following example shows changes you would need to make in the widget
-configure `auto-launch`, which opens the widget without waiting for
-the user to choose. You can deploy to a page that hosted by your website to
-create a shareable hyperlink.
+The following example shows changes you would need to make in the widget configure `auto-launch`, which opens the widget without waiting for the user to choose. You can deploy to a page that hosted by your website to create a shareable hyperlink.
 
 ```
 https://example.com/contact-us?autoLaunchMyWidget=true
@@ -124,16 +114,11 @@ https://example.com/contact-us?autoLaunchMyWidget=true
 ```
 
 ### Load widget assets when button is clicked
+<a name="load-assets"></a>
 
-The following example shows changes you would need to make in the widget to
-make your website page load faster by fetching the widget's static assets when a
-user clicks the **Chat With Us** button. Typically, only small
-percentage of customers visiting a **Contact Us** page open the
-Connect Customer widget. The widget could be adding latency on page load by fetching files
-from CDN, even though customers never open the widget.
+The following example shows changes you would need to make in the widget to make your website page load faster by fetching the widget's static assets when a user clicks the **Chat With Us** button. Typically, only small percentage of customers visiting a **Contact Us** page open the Connect Customer widget. The widget could be adding latency on page load by fetching files from CDN, even though customers never open the widget.
 
-An alternative solution is to run the snippet code asynchronously (or never)
-on button click.
+An alternative solution is to run the snippet code asynchronously (or never) on button click. 
 
 ```
 <button id="launch-widget-btn">Chat With Us</button>
@@ -160,9 +145,9 @@ buttonElem.addEventListener('click', function() {
 ```
 
 ### Launch a new chat in a browser window
+<a name="new-chat-browser-window"></a>
 
-The following example shows changes you would need to make in the widget to
-launch a new browser window and auto-launch chat in a full screen.
+The following example shows changes you would need to make in the widget to launch a new browser window and auto-launch chat in a full screen.
 
 ```
 <button id="openChatWindowButton">Launch a Chat</button>
@@ -191,49 +176,37 @@ launch a new browser window and auto-launch chat in a full screen.
 ```
 
 ## Enable chat session persistence across tabs
+<a name="chat-persistence-across-tabs"></a>
 
-By default if a chat is opened in one tab and then the user opens a new tab and
-starts another chat, a new chat will start instead of connecting to the existing
-chat. You can enable chat session persistence across tabs if you want the user to
-connect to the existing chat that was started in the initial tab.
+By default if a chat is opened in one tab and then the user opens a new tab and starts another chat, a new chat will start instead of connecting to the existing chat. You can enable chat session persistence across tabs if you want the user to connect to the existing chat that was started in the initial tab. 
 
-The chat session is stored in session storage on the browser in the variable
-`persistedChatSession`. You need to copy this value into the session
-storage of the new tab when the widget is first initialized. Following are
-instructions.
+The chat session is stored in session storage on the browser in the variable `persistedChatSession`. You need to copy this value into the session storage of the new tab when the widget is first initialized. Following are instructions.
 
-To connect to the same chat session when user navigates to different subdomains,
-you can set the domain property of the cookie. For example, you own two subdomains:
-`domain1.example.com` and `domain2.example.com`. You can
-add the property `domain=.example.com` so that the cookie can be accessed
-from all subdomains.
+To connect to the same chat session when user navigates to different subdomains, you can set the domain property of the cookie. For example, you own two subdomains: `domain1.example.com` and `domain2.example.com`. You can add the property `domain=.example.com` so that the cookie can be accessed from all subdomains.
 
-1. Copy the following code next to the other amazon\_connect functions in the
-   hosted widget snippet. This uses the `registerCallback` event
-   handlers to store the `persistedChatSession` as a cookie so it
-   can be accessed in the new tab. It also cleans up the cookie when the chat
-   ends.
+1. Copy the following code next to the other amazon\_connect functions in the hosted widget snippet. This uses the `registerCallback` event handlers to store the `persistedChatSession` as a cookie so it can be accessed in the new tab. It also cleans up the cookie when the chat ends.
 
-```
-amazon_connect('registerCallback', {
-'CONNECTION_ESTABLISHED': (eventName, { chatDetails, data }) => {
- document.cookie = `activeChat=${sessionStorage.getItem("persistedChatSession")}; SameSite=None; Secure`;
-},
-'CHAT_ENDED': () => {
-  document.cookie = "activeChat=; SameSite=None; Secure";
-}
-});
-```
+   
 
-2. Retrieve the cookie value if it exists and set the session storage value
-   in the new tab.
+   ```
+   amazon_connect('registerCallback', {
+   'CONNECTION_ESTABLISHED': (eventName, { chatDetails, data }) => {
+    document.cookie = `activeChat=${sessionStorage.getItem("persistedChatSession")}; SameSite=None; Secure`;
+   }, 
+   'CHAT_ENDED': () => {
+     document.cookie = "activeChat=; SameSite=None; Secure";
+   }
+   });
+   ```
 
-```
-const cookie = document.cookie.split('; ').find(c => c.startsWith('activeChat='));
-if (cookie) {
-  const activeChatValue = cookie.split('=')[1];
-  sessionStorage.setItem('persistedChatSession', activeChatValue);
-}
+1. Retrieve the cookie value if it exists and set the session storage value in the new tab.
 
-//Your hosted widget snippet should be on this page
-```
+   ```
+   const cookie = document.cookie.split('; ').find(c => c.startsWith('activeChat='));
+   if (cookie) {
+     const activeChatValue = cookie.split('=')[1];
+     sessionStorage.setItem('persistedChatSession', activeChatValue);
+   }
+   
+   //Your hosted widget snippet should be on this page
+   ```

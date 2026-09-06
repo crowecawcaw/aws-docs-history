@@ -1,13 +1,14 @@
+
+
 # Manage Apple Messages for Business chats in your Connect Customer instance
+<a name="manage-customer-chats"></a>
 
-When you integrate Apple Messages for Business with your Connect Customer instance, messages from Apple Messages for Business behave exactly
-like any other chat messages arriving to your contact center.
+When you integrate Apple Messages for Business with your Connect Customer instance, messages from Apple Messages for Business behave exactly like any other chat messages arriving to your contact center.
 
-###### Note
-
-The Connect Customer Chat service quota limits apply to Apple Messages for Business. To learn more, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+**Note**  
+The Connect Customer Chat service quota limits apply to Apple Messages for Business. To learn more, see [Connect Customer service quotas](amazon-connect-service-limits.md). 
 
 ## Set up automatic replies
+<a name="auto-respond-chats"></a>
 
-You can use Amazon Lex to set up automatic replies to chat. For a tutorial that
-introduces you to setting up Amazon Lex and Connect Customer, see [Add an Amazon Lex bot to Connect Customer](amazon-lex.md "amazon-lex.md").
+You can use Amazon Lex to set up automatic replies to chat. For a tutorial that introduces you to setting up Amazon Lex and Connect Customer, see [Add an Amazon Lex bot to Connect Customer](amazon-lex.md).

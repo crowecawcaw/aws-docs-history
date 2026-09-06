@@ -1,141 +1,99 @@
+
+
 # Enable customers to resume chat conversations in Connect Customer
+<a name="chat-persistence"></a>
 
-Customers often start a chat, then leave the conversation and return later to continue
-chatting. This might happen many times over the course of several days, months, or even years.
-To support long running chats like these, you enable persistent chat.
+Customers often start a chat, then leave the conversation and return later to continue chatting. This might happen many times over the course of several days, months, or even years. To support long running chats like these, you enable persistent chat. 
 
-With persistent chat, customers can resume previous conversations with the context,
-metadata, and transcripts carried forward. They don't need to repeat themselves when they
-return to a chat, and agents have access to the entire conversation history.
+With persistent chat, customers can resume previous conversations with the context, metadata, and transcripts carried forward. They don't need to repeat themselves when they return to a chat, and agents have access to the entire conversation history. 
 
 ## Chat rehydration
+<a name="rehydration"></a>
 
-Persistent chat is achieved through a process called chat rehydration. This process
-enables chat transcripts to be retrieved from previous chat contacts and displayed. It
-allows customers and agents to easily continue conversations from where they left
-off.
+Persistent chat is achieved through a process called chat rehydration. This process enables chat transcripts to be retrieved from previous chat contacts and displayed. It allows customers and agents to easily continue conversations from where they left off.
 
-###### Important
-
-Only chat sessions that have ended are allowed to rehydrate onto a new chat
-session, as transcript generation occurs asynchronously.
-
-Users should wait 30-60
-seconds before attempting to rehydrate from a previously ended chat.
+**Important**  
+Only chat sessions that have ended are allowed to rehydrate onto a new chat session, as transcript generation occurs asynchronously.   
+Users should wait 30-60 seconds before attempting to rehydrate from a previously ended chat.
 
 Connect Customer supports two types of rehydration:
++ `ENTIRE_PAST_SESSION`: Starts a new chat session and rehydrates all chat segments from past chat sessions.
++ `FROM_SEGMENT`: Starts a new session and rehydrates from the specified past chat segment.
 
-- `ENTIRE_PAST_SESSION`: Starts a new chat session and rehydrates all
-  chat segments from past chat sessions.
-- `FROM_SEGMENT`: Starts a new session and rehydrates from the
-  specified past chat segment.
-
-For example use cases that show these different rehydration modes, see [Example use cases](#persistentchatscenario "#persistentchatscenario").
+For example use cases that show these different rehydration modes, see [Example use cases](#persistentchatscenario).
 
 ## RelatedContactId
+<a name="relatedcontactid"></a>
 
-A new contact can have an association with an existing contact through the
-`RelatedContactId`. This new contact contains a copy of the [contact properties](connect-attrib-list.md "connect-attrib-list.md") from the related
-contact.
+A new contact can have an association with an existing contact through the `RelatedContactId`. This new contact contains a copy of the [contact properties](connect-attrib-list.md) from the related contact.
 
-For more information about how the `RelatedContactId` is modeled in contact
-records, see [Data model for Connect Customer contact records](ctr-data-model.md "ctr-data-model.md").
+For more information about how the `RelatedContactId` is modeled in contact records, see [Data model for Connect Customer contact records](ctr-data-model.md).
 
-For persistent chat, the `RelatedContactId` depicts the
-`contactId` used to source chat rehydration.
+For persistent chat, the `RelatedContactId` depicts the `contactId` used to source chat rehydration.
 
 ## How to enable persistent chat
+<a name="enable-persistent-chat"></a>
 
 There are two ways you can enable persistent chat:
++ Specify a previous contact ID when creating a new chat. For instructions, see [Enable persistent chat when creating a new chat contact](#enable-persistent-chat-creating-new-chat-contact).
++ Add the [Create persistent contact association](create-persistent-contact-association-block.md) block to a flow. For instructions, see [Enable persistent chat in a flow](#enable-persistent-chat-within-contact-flow).
 
-- Specify a previous contact ID when creating a new chat. For instructions, see
-  [Enable persistent chat when creating a new chat contact](#enable-persistent-chat-creating-new-chat-contact "#enable-persistent-chat-creating-new-chat-contact").
-- Add the [Create
-  persistent contact association](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md") block to a flow. For instructions, see
-  [Enable persistent chat in a flow](#enable-persistent-chat-within-contact-flow "#enable-persistent-chat-within-contact-flow").
+**Note**  
+You can choose either method to persist chats but not both. That is, you can only enable persistence of a `SourceContactID` on a new chat once.
 
-###### Note
+To deliver persistent chat experiences, you need to provide a previous contact ID when starting a new chat or when using the [Create persistent contact association](create-persistent-contact-association-block.md) flow block. This is not automatically done for you. We recommend that you create a repository for storing contact record data. The repository enables retrieval of this data for each of your customers. 
 
-You can choose either method to persist chats but not both. That is, you can only
-enable persistence of a `SourceContactID` on a new chat once.
+ There are two ways you can create entries in a repository: 
++ Use [chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html) to create an entry when a chat has ended.
++ Inspect [contact events](https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html#contact-events-data-model) and use [AWS Lambda function](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html) for creating entries into your repository. 
 
-To deliver persistent chat experiences, you need to provide a previous contact ID when
-starting a new chat or when using the [Create persistent contact
-association](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md") flow block. This is not automatically done for you. We recommend
-that you create a repository for storing contact record data. The repository enables
-retrieval of this data for each of your customers.
+After a repository is set up, you can retrieve the previous contact ID for the customer and provide it when starting a new chat or within the [Create persistent contact association](create-persistent-contact-association-block.md) flow block.
 
-There are two ways you can create entries in a repository:
-
-- Use [chat message
-  streaming](chat-message-streaming.md "chat-message-streaming.md") to create an entry when a chat has ended.
-- Inspect [contact events](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model") and use [AWS Lambda
-  function](connect-lambda-functions.md "connect-lambda-functions.md") for creating entries into your repository.
-
-After a repository is set up, you can retrieve the previous contact ID for the
-customer and provide it when starting a new chat or within the [Create persistent contact
-association](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md") flow block.
-
-In addition, ensure past chat transcripts can be retrieved from your instance's Amazon S3
-bucket. The following two things prevent Connect Customer from retrieving transcripts and don't
-allow chats to persist:
-
-- You use multiple chat transcript buckets.
-- You change the chat transcript file name that is generated by Connect Customer.
+In addition, ensure past chat transcripts can be retrieved from your instance's Amazon S3 bucket. The following two things prevent Connect Customer from retrieving transcripts and don't allow chats to persist:
++ You use multiple chat transcript buckets.
++ You change the chat transcript file name that is generated by Connect Customer.
 
 ### Enable persistent chat when creating a new chat contact
+<a name="enable-persistent-chat-creating-new-chat-contact"></a>
 
-To set up persistent chat experiences when creating a new chat contact, provide
-the previous `contactId` in the `SourceContactId` parameter of
-the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API. This enables the chat transcripts of previous
-contacts to be rehydrated. The transcripts are shown in the chat to both the
-customer and agent. For an example, see [Example use cases](#persistentchatscenario "#persistentchatscenario").
+To set up persistent chat experiences when creating a new chat contact, provide the previous `contactId` in the `SourceContactId` parameter of the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API. This enables the chat transcripts of previous contacts to be rehydrated. The transcripts are shown in the chat to both the customer and agent. For an example, see [Example use cases](#persistentchatscenario).
 
 ### Enable persistent chat in a flow
+<a name="enable-persistent-chat-within-contact-flow"></a>
 
 To set up persistent chat experiences in a flow:
 
-1. After a chat contact has been created, add the [Create persistent
-   contact association](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md") block to your flow.
-2. Use a user-defined attribute to specify a source contact ID.
+1. After a chat contact has been created, add the [Create persistent contact association](create-persistent-contact-association-block.md) block to your flow.
 
-Alternatively, you can use the [CreatePersistentContactAssociation](../APIReference/API_CreatePersistentContactAssociation.md "../APIReference/API_CreatePersistentContactAssociation.md") API to provide a source contact ID
-to make the current chat persistent.
+1. Use a user-defined attribute to specify a source contact ID.
 
-Rehydration is started after the chat has started, when using the flow block or
-API. A rehydrated event is emitted to notify you when rehydration has
-completed.
+Alternatively, you can use the [CreatePersistentContactAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePersistentContactAssociation.html) API to provide a source contact ID to make the current chat persistent.
+
+Rehydration is started after the chat has started, when using the flow block or API. A rehydrated event is emitted to notify you when rehydration has completed.
 
 ## Example use cases
+<a name="persistentchatscenario"></a>
 
 For example, a customer starts a chat session:
 
-1. Agent a1 accepts the chat, and the conversation starts between the customer
-   and agent a1. This is the first contact created in the current chat session. For
-   example, the `contactId`
-   **C1** might be
-   11111111-aaaa-bbbb-1111-1111111111111.
-2. Agent a1 then transfers the chat to Agent a2. This creates another contact.
-   For example, `contactId`
-   **C2** might be
-   2222222-aaaa-bbbb-2222-222222222222222.
-3. Agent a2 ends the chat.
-4. The customer is forwarded to the disconnect flow for a post-chat survey that
-   creates another contact. For example, `contactId`
-   **C3** might be
-   33333333-aaaa-bbbb-3333-3333333333333.
-5. The post-chat survey is displayed, and the chat session ends.
-6. Later, the customer returns and wants to resume their past chat
-   session.
+1. Agent a1 accepts the chat, and the conversation starts between the customer and agent a1. This is the first contact created in the current chat session. For example, the `contactId` **C1** might be 11111111-aaaa-bbbb-1111-1111111111111. 
 
-At this point, there are potentially two different use cases for the customer.
-Following are the persistent chat use cases the customer can have, and how you configure
-Connect Customer to provide them.
+1. Agent a1 then transfers the chat to Agent a2. This creates another contact. For example, `contactId` **C2** might be 2222222-aaaa-bbbb-2222-222222222222222. 
+
+1. Agent a2 ends the chat.
+
+1. The customer is forwarded to the disconnect flow for a post-chat survey that creates another contact. For example, `contactId` **C3** might be 33333333-aaaa-bbbb-3333-3333333333333.
+
+1. The post-chat survey is displayed, and the chat session ends. 
+
+1. Later, the customer returns and wants to resume their past chat session.
+
+At this point, there are potentially two different use cases for the customer. Following are the persistent chat use cases the customer can have, and how you configure Connect Customer to provide them.
 
 ### Use case 1
+<a name="persistentchatscenario-usecase1"></a>
 
-The customer wants to continue their past chat session but they want to hide the
-post-chat survey. You use the following configuration to provide this experience.
+The customer wants to continue their past chat session but they want to hide the post-chat survey. You use the following configuration to provide this experience. 
 
 **Request**:
 
@@ -143,61 +101,45 @@ post-chat survey. You use the following configuration to provide this experience
 PUT /contact/chat HTTP/1.1
 Content-type: application/json
 {
-   "Attributes": {
-      "string" : "string"
+   "Attributes": { 
+      "string" : "string" 
    },
    "ContactFlowId": "string",
-   "InitialMessage": {
+   "InitialMessage": { 
       "Content": "string",
       "ContentType": "string"
    },
    "InstanceId": "string",
    ... // other chat fields
-
-   // NEW Attribute for persistent chat
+     
+   // NEW Attribute for persistent chat 
    "PersistentChat" : {
-       "SourceContactId":"2222222-aaaa-bbbb-2222-222222222222222"
+       "SourceContactId":"2222222-aaaa-bbbb-2222-222222222222222" 
        "RehydrationType":"FROM_SEGMENT"
    }
 }
 ```
 
 #### Configuration
-
-- SourceContactId = 2222222-aaaa-bbbb-2222-222222222222222 (the
-  contactId for C2)
-- RehydrationType = "`FROM_SEGMENT`"
+<a name="usecase1-configuration"></a>
++ SourceContactId = 2222222-aaaa-bbbb-2222-222222222222222 (the contactId for C2)
++ RehydrationType = "`FROM_SEGMENT`"
 
 #### Expected behavior
+<a name="usecase1-behavior"></a>
++ This configuration starts a persistent chat session from the specified past ended contact C2 (for example, 2222222-aaaa-bbbb-2222-222222222222222). 
 
-- This configuration starts a persistent chat session from the specified
-  past ended contact C2 (for example,
-  2222222-aaaa-bbbb-2222-222222222222222).
-
-Transcripts of past chat sessions C2
-(2222222-aaaa-bbbb-2222-222222222222222) and C1
-(11111111-aaaa-bbbb-1111-1111111111111) are accessible in the current
-persistent chat session. Note that chat segment C3
-(33333333-aaaa-bbbb-3333-3333333333333) is dropped from the persistent
-chat session.
-
-- In this case, the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") response returns C2
-  (2222222-aaaa-bbbb-2222-222222222222222) as
-  "ContinuedFromContactId".
-- The `RelatedContactId` for this persistent chat session is
-  2222222-aaaa-bbbb-2222-222222222222222 (C2).
+  Transcripts of past chat sessions C2 (2222222-aaaa-bbbb-2222-222222222222222) and C1 (11111111-aaaa-bbbb-1111-1111111111111) are accessible in the current persistent chat session. Note that chat segment C3 (33333333-aaaa-bbbb-3333-3333333333333) is dropped from the persistent chat session.
++ In this case, the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) response returns C2 (2222222-aaaa-bbbb-2222-222222222222222) as "ContinuedFromContactId".
++ The `RelatedContactId` for this persistent chat session is 2222222-aaaa-bbbb-2222-222222222222222 (C2).
 
 ### Use case 2
+<a name="persistentchatscenario-usecase2"></a>
 
-The customer wants to continue the past chat session and see the transcript of the
-entire past engagement (and they don’t want to hide the post-chat survey). You use
-the following configuration to provide this experience.
+The customer wants to continue the past chat session and see the transcript of the entire past engagement (and they don’t want to hide the post-chat survey). You use the following configuration to provide this experience. 
 
-###### Note
-
-For the `ENTIRE_PAST_SESSION` rehydration type, specify the first
-contact (initial `contactId`) of the past chat session as the
-`SourceContactId` attribute.
+**Note**  
+ For the `ENTIRE_PAST_SESSION` rehydration type, specify the first contact (initial `contactId`) of the past chat session as the `SourceContactId` attribute.
 
 **Request**:
 
@@ -205,72 +147,49 @@ contact (initial `contactId`) of the past chat session as the
 PUT /contact/chat HTTP/1.1
 Content-type: application/json
 {
-   "Attributes": {
-      "string" : "string"
+   "Attributes": { 
+      "string" : "string" 
    },
    "ContactFlowId": "string",
-   "InitialMessage": {
+   "InitialMessage": { 
       "Content": "string",
       "ContentType": "string"
    },
    "InstanceId": "string",
    ... // other chat fields
-
-   // NEW Attribute for persistent chat
+     
+   // NEW Attribute for persistent chat 
    "PersistentChat":{
         "SourceContactId":"11111111-aaaa-bbbb-1111-1111111111111" // (first contactId C1)
         "RehydrationType":"ENTIRE_PAST_SESSION"
    }
 }
-
 ```
 
 #### Configuration
-
-- SourceContactId = `11111111-aaaa-bbbb-1111-1111111111111`
-  (C1)
-- RehydrationType = "E`NTIRE_PAST_SESSION`"
+<a name="usecase2-configuration"></a>
++ SourceContactId = `11111111-aaaa-bbbb-1111-1111111111111` (C1)
++ RehydrationType = "E`NTIRE_PAST_SESSION`"
 
 #### Expected behavior
+<a name="usecase2-behavior"></a>
++ This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.
++ In this case, the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) response returns 33333333-aaaa-bbbb-3333-3333333333333 (C3) as "ContinuedFromContactId".
++ The `RelatedContactId` for this persistent chat session is 33333333-aaaa-bbbb-3333-3333333333333 (C3)
 
-- This starts a persistent chat session from the most recently ended
-  chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are
-  accessible in the current persistent chat session.
-- In this case, the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") response returns
-  33333333-aaaa-bbbb-3333-3333333333333 (C3) as
-  "ContinuedFromContactId".
-- The `RelatedContactId` for this persistent chat session is
-  33333333-aaaa-bbbb-3333-3333333333333 (C3)
-
-###### Note
-
-Chat linkages are cumulative. After chat sessions are linked, they carry
-over.
-
-For example, if a contact (`contactId` C2) that belongs to a past
-chat session was linked to a contact (`contactId` C1) from a
-different past chat session, then a new persistent chat session created by
-linking C2 results in implicit linkage of C1 as well. The new persistent chat
-session will have the following linkage: C3 → C2 → C1
-
-The past contactId, which the persistent chat session is continued from, is
-exposed in the `ContinuedFromContactId` field in the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API response. It's also in the
-RelatedContactId field in the [contact record](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord") for the
-contact
+**Note**  
+Chat linkages are cumulative. After chat sessions are linked, they carry over.  
+For example, if a contact (`contactId` C2) that belongs to a past chat session was linked to a contact (`contactId` C1) from a different past chat session, then a new persistent chat session created by linking C2 results in implicit linkage of C1 as well. The new persistent chat session will have the following linkage: C3 → C2 → C1  
+The past contactId, which the persistent chat session is continued from, is exposed in the `ContinuedFromContactId` field in the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API response. It's also in the RelatedContactId field in the [contact record](ctr-data-model.md#ctr-ContactTraceRecord) for the contact
 
 ## How to access past chat contact transcript for a persistent chat
+<a name="access-past-chat-transcript"></a>
 
-Accessing the past chat transcript for persistent chat uses the existing
-`NextToken` pagination model. The initial call to [GetTranscript](../../../connect-participant/latest/APIReference/API_GetTranscript.md "../../../connect-participant/latest/APIReference/API_GetTranscript.md") on a newly started persistent chat session contains a
-`NextToken` in the response, if past chat messages exist.
-`NextToken` must be used to access the past chat transcript along with
-setting the `ScanDirection` to `BACKWARD` on the subsequent [GetTranscript](../../../connect-participant/latest/APIReference/API_GetTranscript.md "../../../connect-participant/latest/APIReference/API_GetTranscript.md") call to fetch past chat messages.
+Accessing the past chat transcript for persistent chat uses the existing `NextToken` pagination model. The initial call to [GetTranscript](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_GetTranscript.html) on a newly started persistent chat session contains a `NextToken` in the response, if past chat messages exist. `NextToken` must be used to access the past chat transcript along with setting the `ScanDirection` to `BACKWARD` on the subsequent [GetTranscript](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_GetTranscript.html) call to fetch past chat messages. 
 
-If there are multiple past chat messages, [GetTranscript](../../../connect-participant/latest/APIReference/API_GetTranscript.md "../../../connect-participant/latest/APIReference/API_GetTranscript.md") returns a new `NextToken` and the same process can
-be repeated to fetch more past chat transcripts.
+If there are multiple past chat messages, [GetTranscript](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_GetTranscript.html) returns a new `NextToken` and the same process can be repeated to fetch more past chat transcripts.
 
 ## Not supported: using `StartPosition` and `contactId` filters for persistent chat
+<a name="startposition"></a>
 
-Connect Customer does not support using `StartPosition` and
-`contactId` filters on the [GetTranscript](../../../connect-participant/latest/APIReference/API_GetTranscript.md "../../../connect-participant/latest/APIReference/API_GetTranscript.md") call for transcript item attributes that are from the past
-chat.
+Connect Customer does not support using `StartPosition` and `contactId` filters on the [GetTranscript](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_GetTranscript.html) call for transcript item attributes that are from the past chat. 

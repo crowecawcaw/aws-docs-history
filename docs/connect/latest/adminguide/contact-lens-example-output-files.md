@@ -1,42 +1,37 @@
-# Example conversational analytics output files for a call
 
-The following sections provide examples of the output that results when
-conversational analytics detects issues, matches categories,
-indicates loudness, redacts sensitive data, and skipped analysis.
+
+# Example conversational analytics output files for a call
+<a name="contact-lens-example-output-files"></a>
+
+The following sections provide examples of the output that results when conversational analytics detects issues, matches categories, indicates loudness, redacts sensitive data, and skipped analysis.
 
 Expand each section to learn more.
 
-The following example shows the schema for a call that conversational analytics has analyzed. The example shows loudness, issue
-detection, call drivers, and the information that will be redacted.
+## Example original file for a call analyzed by conversational analytics
+<a name="example-original-output-file"></a>
+
+The following example shows the schema for a call that conversational analytics has analyzed. The example shows loudness, issue detection, call drivers, and the information that will be redacted.
 
 Note the following about the analyzed file:
-
-- It doesn't indicate which sensitive data were redacted. All data
-  are referred to as PII (personally identifiable information).
-- Each turn includes a `Redaction` section only if it
-  includes PII.
-- If a `Redaction` section exists, it includes the offset
-  in milliseconds. In a .wav file, the redacted portion will be
-  silence. If desired, you can use the offset to replace the silence
-  with something else, such as a beep.
-- If two or more PII redactions exist in a turn, the first offset
-  applies to the first PII, the second offset applies to the second
-  PII, and so on.
++ It doesn't indicate which sensitive data were redacted. All data are referred to as PII (personally identifiable information).
++ Each turn includes a `Redaction` section only if it includes PII.
++ If a `Redaction` section exists, it includes the offset in milliseconds. In a .wav file, the redacted portion will be silence. If desired, you can use the offset to replace the silence with something else, such as a beep. 
++ If two or more PII redactions exist in a turn, the first offset applies to the first PII, the second offset applies to the second PII, and so on.
 
 ```
 {
-  "Version": "1.1.0",
+  "Version": "1.1.0",    
   "AccountId": "your AWS account ID",
   "Channel": "VOICE",
   "ContentMetadata": {
-      "Output": "Raw"
+      "Output": "Raw" 
   },
   "JobStatus": "COMPLETED",
   "JobDetails": {
     "SkippedAnalysis": [
         {
             "Feature": "CATEGORIZATION",
-            "ReasonCode": "QUOTA_EXCEEDED",
+            "ReasonCode": "QUOTA_EXCEEDED", 
             "SkippedEntities": [
                 {
                     "CategoryName": "PotentialFraud"
@@ -50,7 +45,7 @@ Note the following about the analyzed file:
         },
         {
             "Feature": "CATEGORIZATION",
-            "ReasonCode": "FAILED_SAFETY_GUIDELINES",
+            "ReasonCode": "FAILED_SAFETY_GUIDELINES", 
             "SkippedEntities": [
                 {
                     "CategoryName": "ManagerEscalation"
@@ -66,7 +61,7 @@ Note the following about the analyzed file:
           "ParticipantId": "CUSTOMER",
           "ParticipantRole": "CUSTOMER"
       },
-
+      
       {
           "ParticipantId": "AGENT",
           "ParticipantRole": "AGENT"
@@ -193,9 +188,9 @@ Note the following about the analyzed file:
       }
   },
   "CustomModels": [
-      {    // set via https://docs.aws.amazon.com/connect/latest/adminguide/add-custom-vocabulary.html
+      {    // set via https://docs.aws.amazon.com/connect/latest/adminguide/add-custom-vocabulary.html             
            "Type": "TRANSCRIPTION_VOCABULARY",
-           "Name": "ProductNames",
+           "Name": "ProductNames",  
            "Id": "4e14b0db-f00a-451a-8847-f6dbf76ae415" // optional field
       }
   ],
@@ -382,27 +377,21 @@ Note the following about the analyzed file:
               73.29
           ]
       }
-  ]
+  ]    
   }
 }
 ```
 
-This section shows an example redacted file for a call after it's been
-analyzed by conversational analytics. It's a twin of the
-original analyzed file. The only difference is that sensitive data are
-redacted. In this example, three entities were selected for redaction:
-"`CREDIT_DEBIT_NUMBER`", "`NAME`",
-"`USERNAME`".
+## Example redacted file for a call analyzed by conversational analytics
+<a name="example-redacted-file"></a>
 
-In this example, `RedactionMaskMode` is set to PII. When an
-entity is redacted, conversational analytics replaces it with `[PII]`.
-If it were set to `ENTITY_TYPE`, conversational analytics would
-replace the data with the name of the entity, for example,
-`[CREDIT_DEBIT_NUMBER]`.
+This section shows an example redacted file for a call after it's been analyzed by conversational analytics. It's a twin of the original analyzed file. The only difference is that sensitive data are redacted. In this example, three entities were selected for redaction: "`CREDIT_DEBIT_NUMBER`", "`NAME`", "`USERNAME`".
+
+In this example, `RedactionMaskMode` is set to PII. When an entity is redacted, conversational analytics replaces it with `[PII]`. If it were set to `ENTITY_TYPE`, conversational analytics would replace the data with the name of the entity, for example, `[CREDIT_DEBIT_NUMBER]`.
 
 ```
 {
-  "Version": "1.1.0",
+  "Version": "1.1.0", 
   "AccountId": "your AWS account ID",
   "ContentMetadata": {
       "Output": "Redacted",
@@ -420,7 +409,7 @@ replace the data with the name of the entity, for example,
     "SkippedAnalysis": [
         {
             "Feature": "CATEGORIZATION",
-            "ReasonCode": "QUOTA_EXCEEDED",
+            "ReasonCode": "QUOTA_EXCEEDED", 
             "SkippedEntities": [
                 {
                     "CategoryName": "PotentialFraud"
@@ -434,7 +423,7 @@ replace the data with the name of the entity, for example,
         },
         {
             "Feature": "CATEGORIZATION",
-            "ReasonCode": "FAILED_SAFETY_GUIDELINES",
+            "ReasonCode": "FAILED_SAFETY_GUIDELINES", 
             "SkippedEntities": [
                 {
                     "CategoryName": "ManagerEscalation"
@@ -450,7 +439,7 @@ replace the data with the name of the entity, for example,
           "ParticipantId": "CUSTOMER",
           "ParticipantRole": "CUSTOMER"
       },
-
+      
       {
           "ParticipantId": "AGENT",
           "ParticipantRole": "AGENT"
@@ -468,7 +457,7 @@ replace the data with the name of the entity, for example,
               ]
           }
       }
-  },
+  }, 
   "ConversationCharacteristics": {
        "ContactSummary": {
              "PostContactSummary": {
@@ -549,7 +538,7 @@ replace the data with the name of the entity, for example,
         },
         "TotalCount": 2,
         "TotalTimeMillis": 7580
-      },
+      },  
       "NonTalkTime": {
           "TotalTimeMillis": 0,
           "Instances": []
@@ -579,10 +568,10 @@ replace the data with the name of the entity, for example,
   "CustomModels": [
       {   // set via https://docs.aws.amazon.com/connect/latest/adminguide/add-custom-vocabulary.html
            "Type": "TRANSCRIPTION_VOCABULARY",
-           "Name": " LNK POPProductNames",
+           "Name": " LNK POPProductNames",  
            "Id": "4e14b0db-f00a-451a-8847-f6dbf76ae415" // optional field
       }
-  ],
+  ],  
   "Transcript": [
       {
           "BeginOffsetMillis": 0,
@@ -597,7 +586,7 @@ replace the data with the name of the entity, for example,
       },
       {
           "BeginOffsetMillis": 160,
-          "Content": "Just hello. My name is [PII] and help.",
+          "Content": "Just hello. My name is [PII] and help.",  
           "EndOffsetMillis": 4640,
           "Id": "the ID of the turn",
           "ParticipantId": "CUSTOMER",
@@ -766,6 +755,6 @@ replace the data with the name of the entity, for example,
               73.29
           ]
       }
-  ]
+  ]    
 }
 ```

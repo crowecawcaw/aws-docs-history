@@ -1,8 +1,9 @@
+
+
 # Object type mapping for the standard loyalty transaction
+<a name="object-type-mapping-standard-loyalty-transaction"></a>
 
-The topics in this section provide the standard loyalty transaction
-definition.
+The topics in this section provide the standard loyalty transaction definition.
 
-###### Contents
-
-- [Customer Profiles standard loyalty transaction object fields](standard-loyalty-transaction-object-fields.md "standard-loyalty-transaction-object-fields.md")
+**Topics**
++ [Customer Profiles standard loyalty transaction object fields](standard-loyalty-transaction-object-fields.md)

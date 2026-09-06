@@ -1,74 +1,48 @@
+
+
 # When a rule or category fails to be evaluated by Connect Customer conversational analytics
+<a name="failed-categories"></a>
 
-When Connect Customer conversational analytics evaluates a rule or category during a
-post-contact analysis for a voice or chat contact, it is possible that the rule
-or category fails to evaluate.
+When Connect Customer conversational analytics evaluates a rule or category during a post-contact analysis for a voice or chat contact, it is possible that the rule or category fails to evaluate. 
 
-Following are the possible category outcomes when a rule or category is
-evaluated during contact analysis:
+Following are the possible category outcomes when a rule or category is evaluated during contact analysis:
 
-1. **Successfully matched and applied to the
-   contact**. When categories are displayed on the
-   **Contact details** page, it indicates they were
-   successfully matched and applied to the contact.
-2. **Successfully evaluated but they don't apply
-   to the contact**. When categories are absent from the
-   **Contact details** page, it indicates they don't
-   apply to the contact but were successfully evaluated by
-   conversational analytics rules.
-3. **The contact analysis was completed but a
-   specific category was not evaluated**. When a category
-   fails to be evaluated, it doesn't mean the category doesn't apply to the
-   contact (based on its criteria), but rather that conversational analytics
-   completed the contact analysis without evaluating this specific
-   category.
-   The following image shows that failed categories are denoted with their dashed
-   borders, transparent backgrounds, error icons, and failed prefixes. When you
-   pause on a failed category, details about why the category failed to evaluate
-   are displayed.
+1. **Successfully matched and applied to the contact**. When categories are displayed on the **Contact details** page, it indicates they were successfully matched and applied to the contact.
 
-![The failed categories on the Contact details page.](images/failed-categories1.png)
-These failed categories only exist from rules with the semantic match
-condition. The two possible reasons are:
+1. **Successfully evaluated but they don't apply to the contact**. When categories are absent from the **Contact details** page, it indicates they don't apply to the contact but were successfully evaluated by conversational analytics rules.
 
-1. **Quota exceeded**: Your generative AI actions
-   limit was exceeded for that time span. You can request a quota increase
-   through AWS Support.
-2. **Failed safety guidelines**: Category
-   processing failed because it did not satisfy security and quality
-   guardrails.
-   We recommend adding more conditions to your semantic match rules to narrow
-   down the number of contacts it might apply to. This will help avoid quota exceeded
-   failures.
+1. **The contact analysis was completed but a specific category was not evaluated**. When a category fails to be evaluated, it doesn't mean the category doesn't apply to the contact (based on its criteria), but rather that conversational analytics completed the contact analysis without evaluating this specific category. 
+
+The following image shows that failed categories are denoted with their dashed borders, transparent backgrounds, error icons, and failed prefixes. When you pause on a failed category, details about why the category failed to evaluate are displayed.
+
+![The failed categories on the Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/failed-categories1.png)
+
+
+These failed categories only exist from rules with the semantic match condition. The two possible reasons are:
+
+1. **Quota exceeded**: Your generative AI actions limit was exceeded for that time span. You can request a quota increase through AWS Support.
+
+1. **Failed safety guidelines**: Category processing failed because it did not satisfy security and quality guardrails.
+
+We recommend adding more conditions to your semantic match rules to narrow down the number of contacts it might apply to. This will help avoid quota exceeded failures.
 
 ## Conversational analytics post-contact analysis output customer S3 file
+<a name="failed-categories-output-file"></a>
 
-Failed categories appear in the analysis file under JobDetails > Skipped
-Analysis.
+Failed categories appear in the analysis file under JobDetails > Skipped Analysis.
 
-The `SkippedAnalysis` section shows contact analysis that was
-marked as 'Skipped', even though the analysis was completed for that
-contact. It contains the properties "Feature" and "ReasonCode".
-`POST_CONTACT_SUMMARY` is one of the existing
-features.
+The `SkippedAnalysis` section shows contact analysis that was marked as 'Skipped', even though the analysis was completed for that contact. It contains the properties "Feature" and "ReasonCode". `POST_CONTACT_SUMMARY` is one of the existing features.
 
-`CATEGORIZATION` is added as a new feature to skipped analysis.
-There is one unique categorization element in the
-`SkippedAnalysis` array for each unique
-`ReasonCode` that resulted in failed categorization. A new
-`SkippedEntities` property is introduced for each unique
-element, containing a list of all category names (and their associated rule
-IDs) that failed due to the associated reason code.
+`CATEGORIZATION` is added as a new feature to skipped analysis. There is one unique categorization element in the `SkippedAnalysis` array for each unique `ReasonCode` that resulted in failed categorization. A new `SkippedEntities` property is introduced for each unique element, containing a list of all category names (and their associated rule IDs) that failed due to the associated reason code.
 
-Following is an example of failed categories within
-`JobDetails`:
+Following is an example of failed categories within `JobDetails`:
 
 ```
 "JobDetails": {
     "SkippedAnalysis": [
         {
             "Feature": "CATEGORIZATION",
-            "ReasonCode": "QUOTA_EXCEEDED",
+            "ReasonCode": "QUOTA_EXCEEDED", 
             "SkippedEntities": [
                 {
                     "CategoryName": "PotentialFraud"
@@ -82,7 +56,7 @@ Following is an example of failed categories within
         },
         {
             "Feature": "CATEGORIZATION",
-            "ReasonCode": "FAILED_SAFETY_GUIDELINES",
+            "ReasonCode": "FAILED_SAFETY_GUIDELINES", 
             "SkippedEntities": [
                 {
                     "CategoryName": "ManagerEscalation"
@@ -98,4 +72,4 @@ Following is an example of failed categories within
 },
 ```
 
-For more information, see [Example conversational analytics output files for a call](contact-lens-example-output-files.md "contact-lens-example-output-files.md").
+For more information, see [Example conversational analytics output files for a call](contact-lens-example-output-files.md).

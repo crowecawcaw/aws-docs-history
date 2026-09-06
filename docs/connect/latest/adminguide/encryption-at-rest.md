@@ -1,247 +1,158 @@
+
+
 # Encryption at rest in Connect Customer
+<a name="encryption-at-rest"></a>
 
-Contact data classified as PII, or data that represents customer content being stored
-by Connect Customer, is encrypted at rest (that is, before it is put, stored, or saved to a disk)
-using AWS KMS encryption keys owned by AWS. For information
-about AWS KMS keys, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the
-_AWS Key Management Service Developer Guide_. Contact data in non-temporary storage is
-encrypted such that data encryption keys generated from the KMS keys are not shared
-across Amazon Connect instances.
+Contact data classified as PII, or data that represents customer content being stored by Connect Customer, is encrypted at rest (that is, before it is put, stored, or saved to a disk) using AWS KMS encryption keys owned by AWS. For information about AWS KMS keys, see [What is AWS Key Management Service?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the *AWS Key Management Service Developer Guide*. Contact data in non-temporary storage is encrypted such that data encryption keys generated from the KMS keys are not shared across Amazon Connect instances.
 
-Amazon S3 server-side encryption is used to encrypt conversation recordings (voice and
-chat). Call recordings, screen recordings, and transcripts are stored in two
-phases:
+Amazon S3 server-side encryption is used to encrypt conversation recordings (voice and chat). Call recordings, screen recordings, and transcripts are stored in two phases:
++ Recordings intermediately held within Connect Customer during and after the contact, but before delivery.
++ Recordings delivered to your Amazon S3 bucket.
 
-- Recordings intermediately held within Connect Customer during and after the contact, but
-  before delivery.
-- Recordings delivered to your Amazon S3 bucket.
-  The recordings and chat transcripts that are stored in your Amazon S3 bucket are secured
-  using a KMS key that was configured when your instance was created.
+The recordings and chat transcripts that are stored in your Amazon S3 bucket are secured using a KMS key that was configured when your instance was created. 
 
-For more information about key management in Connect Customer, see [Key management in Connect Customer](key-management.md "key-management.md").
+For more information about key management in Connect Customer, see [Key management in Connect Customer](key-management.md).
 
-###### Contents
-
-- [Agentic CX designer](#encryption-at-rest-acxd "#encryption-at-rest-acxd")
-- [Amazon AppIntegrations](#encryption-at-rest-appintegrations "#encryption-at-rest-appintegrations")
-- [Connect Customer Cases](#encryption-at-rest-cases "#encryption-at-rest-cases")
-- [Connect Customer Customer Profiles](#encryption-at-rest-customer-profiles "#encryption-at-rest-customer-profiles")
-- [Connect Customer agent assist](#encryption-at-rest-wisdom "#encryption-at-rest-wisdom")
-- [Connect Customer Voice ID encryption at rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
-- [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications "#encryption-at-rest-outboundcommunications")
-- [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest- "#forecasts-encryption-at-rest-")
+**Topics**
++ [Agentic CX designer](#encryption-at-rest-acxd)
++ [Amazon AppIntegrations](#encryption-at-rest-appintegrations)
++ [Connect Customer Cases](#encryption-at-rest-cases)
++ [Connect Customer Customer Profiles](#encryption-at-rest-customer-profiles)
++ [Connect Customer agent assist](#encryption-at-rest-wisdom)
++ [Connect Customer Voice ID encryption at rest](#encryption-at-rest-voiceid)
++ [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications)
++ [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest-)
 
 ## Agentic CX designer encryption at rest
+<a name="encryption-at-rest-acxd"></a>
 
-When you create applications, conversation flows, and other resources in Agentic
-CX designer, all data are encrypted at rest using AWS owned key encryption keys
-stored in AWS Key Management Service.
+When you create applications, conversation flows, and other resources in Agentic CX designer, all data are encrypted at rest using AWS owned key encryption keys stored in AWS Key Management Service.
 
 ## Amazon AppIntegrations data encryption at rest
+<a name="encryption-at-rest-appintegrations"></a>
 
-When you create a DataIntegration encrypted with a customer managed key, Amazon AppIntegrations creates
-a grant on your behalf by sending a `CreateGrant` request to AWS KMS.
-Grants in AWS KMS are used to give Amazon AppIntegrations access to a KMS key in your account.
+When you create a DataIntegration encrypted with a customer managed key, Amazon AppIntegrations creates a grant on your behalf by sending a `CreateGrant` request to AWS KMS. Grants in AWS KMS are used to give Amazon AppIntegrations access to a KMS key in your account. 
 
-You can revoke access to the grant, or remove the access that Amazon AppIntegrations has to
-the customer managed key at any time. If you do, Amazon AppIntegrations can not access any of the data
-encrypted by the customer managed key, which affects operations that are dependent on that
-data.
+You can revoke access to the grant, or remove the access that Amazon AppIntegrations has to the customer managed key at any time. If you do, Amazon AppIntegrations can not access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data. 
 
-External application data that Amazon AppIntegrations processes is encrypted at rest in an S3
-bucket using the customer managed key that you provided during configuration. Integration
-configuration data is encrypted at rest using a key that is time-limited and
-specific to the user account.
+External application data that Amazon AppIntegrations processes is encrypted at rest in an S3 bucket using the customer managed key that you provided during configuration. Integration configuration data is encrypted at rest using a key that is time-limited and specific to the user account.
 
-Amazon AppIntegrations requires the grant to use the customer managed key for the following internal
-operations:
-
-- Send `GenerateDataKeyRequest` to AWS KMS to generate data keys
-  encrypted by your customer managed key.
-- Send `Decrypt` requests to AWS KMS to decrypt encrypted data keys
-  so that they can be used to encrypt your data.
+Amazon AppIntegrations requires the grant to use the customer managed key for the following internal operations:
++ Send `GenerateDataKeyRequest` to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send `Decrypt` requests to AWS KMS to decrypt encrypted data keys so that they can be used to encrypt your data.
 
 ## Connect Customer Cases encryption at rest
+<a name="encryption-at-rest-cases"></a>
 
-All customer provided data in case fields, case comments, descriptions of the
-fields and templates stored by Connect Customer Cases is encrypted at rest using encryption
-keys stored in AWS Key Management Service (AWS KMS).
+All customer provided data in case fields, case comments, descriptions of the fields and templates stored by Connect Customer Cases is encrypted at rest using encryption keys stored in AWS Key Management Service (AWS KMS). 
 
-Connect Customer Cases service owns, manages, monitors, and rotates the encryption keys
-(that is, AWS owned keys) to meet the high security standards. Payload of the case
-event streams is temporarily (typically for a few seconds) stored in Amazon EventBridge before
-it is made available through the default-bus in customers account. EventBridge also
-encrypts the entire payload at rest using AWS owned keys.
+ Connect Customer Cases service owns, manages, monitors, and rotates the encryption keys (that is, AWS owned keys) to meet the high security standards. Payload of the case event streams is temporarily (typically for a few seconds) stored in Amazon EventBridge before it is made available through the default-bus in customers account. EventBridge also encrypts the entire payload at rest using AWS owned keys.
 
 ## Connect Customer Customer Profiles encryption at rest
+<a name="encryption-at-rest-customer-profiles"></a>
 
-All user data stored in Connect Customer Customer Profiles is encrypted at rest. Connect Customer
-Customer Profiles encryption at rest provides enhanced security by encrypting all
-your data at rest using encryption keys stored in AWS Key Management Service (AWS KMS). This
-functionality helps reduce the operational burden and complexity involved in
-protecting sensitive data. With encryption at rest, you can build security-sensitive
-applications that meet strict encryption compliance and regulatory
-requirements.
+All user data stored in Connect Customer Customer Profiles is encrypted at rest. Connect Customer Customer Profiles encryption at rest provides enhanced security by encrypting all your data at rest using encryption keys stored in AWS Key Management Service (AWS KMS). This functionality helps reduce the operational burden and complexity involved in protecting sensitive data. With encryption at rest, you can build security-sensitive applications that meet strict encryption compliance and regulatory requirements.
 
-Organizational policies, industry or government regulations, and compliance
-requirements often require the use of encryption at rest to increase the data
-security of your applications. Customer Profiles integrated with AWS KMS to enable its
-encryption at rest strategy. For more information, see [AWS Key Management Service Concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the
-AWS Key Management Service Developer Guide.
+Organizational policies, industry or government regulations, and compliance requirements often require the use of encryption at rest to increase the data security of your applications. Customer Profiles integrated with AWS KMS to enable its encryption at rest strategy. For more information, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the AWS Key Management Service Developer Guide. 
 
-When creating a new domain, you must provide a [KMS key](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys") that the service
-will use to encrypt your data in transit and at rest. The customer managed key is created,
-owned, and managed by you. You have full control over the customer managed key (AWS KMS charges
-apply).
+When creating a new domain, you must provide a [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) that the service will use to encrypt your data in transit and at rest. The customer managed key is created, owned, and managed by you. You have full control over the customer managed key (AWS KMS charges apply).
 
-You can specify an encryption key when you create a new domain or profile object
-type or switch the encryption keys on an existing resources by using the AWS
-Command Line Interface (AWS CLI), or the Connect Customer Customer Profiles Encryption API. When
-you choose a customer managed key, Connect Customer Customer Profiles creates a grant to the customer managed key
-that grants it access to the customer managed key.
+You can specify an encryption key when you create a new domain or profile object type or switch the encryption keys on an existing resources by using the AWS Command Line Interface (AWS CLI), or the Connect Customer Customer Profiles Encryption API. When you choose a customer managed key, Connect Customer Customer Profiles creates a grant to the customer managed key that grants it access to the customer managed key.
 
-AWS KMS charges apply for a customer managed key. For more information about pricing, see
-[AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+AWS KMS charges apply for a customer managed key. For more information about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/). 
 
 ## Connect Customer agent assist encryption at rest
+<a name="encryption-at-rest-wisdom"></a>
 
-All user data stored in Connect Customer agent assist is encrypted at rest using encryption keys
-stored in AWS Key Management Service. If you optionally provide a customer managed key, agent assist uses it to
-encrypt knowledge content stored at rest outside of agent assist search indices.
-agent assist uses dedicated search indices per customer and they are encrypted at rest
-by using AWS owned keys stored in AWS Key Management Service. Additionally, you can use CloudTrail to
-audit any data access using the agent assist APIs.
+All user data stored in Connect Customer agent assist is encrypted at rest using encryption keys stored in AWS Key Management Service. If you optionally provide a customer managed key, agent assist uses it to encrypt knowledge content stored at rest outside of agent assist search indices. agent assist uses dedicated search indices per customer and they are encrypted at rest by using AWS owned keys stored in AWS Key Management Service. Additionally, you can use CloudTrail to audit any data access using the agent assist APIs.
 
-AWS KMS charges apply when using a key that you provide. For more information about
-pricing, see [AWS KMS
-pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+AWS KMS charges apply when using a key that you provide. For more information about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/).
 
 ## Connect Customer Voice ID encryption at rest
+<a name="encryption-at-rest-voiceid"></a>
 
-Connect Customer Voice ID stores customer voiceprints which cannot be reverse-engineered to
-obtain the enrolled customer's speech or identify a customer. All user data stored
-in Connect Customer Voice ID is encrypted at rest. When creating a new Voice ID domain, you
-must provide a customer managed key that the service uses to encrypt your data at rest. The
-customer managed key is created, owned, and managed by you. You have full control over the
-key.
+Connect Customer Voice ID stores customer voiceprints which cannot be reverse-engineered to obtain the enrolled customer's speech or identify a customer. All user data stored in Connect Customer Voice ID is encrypted at rest. When creating a new Voice ID domain, you must provide a customer managed key that the service uses to encrypt your data at rest. The customer managed key is created, owned, and managed by you. You have full control over the key.
 
-You can update the KMS key in the Voice ID domain by using the
-`update-domain` command in AWS Command Line Interface (AWS CLI),
-or the [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md")
-Voice ID API.
+You can update the KMS key in the Voice ID domain by using the `update-domain` command in AWS Command Line Interface (AWS CLI), or the [UpdateDomain](https://docs.aws.amazon.com/voiceid/latest/APIReference/API_UpdateDomain.html) Voice ID API. 
 
-When you change the KMS key, an asynchronous process will be triggered to
-re-encrypt the old data with the new KMS key. After this process completes, all of
-your domain's data will be encrypted under the new KMS key, and you can safely
-retire the old key. For more information, see [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md").
+When you change the KMS key, an asynchronous process will be triggered to re-encrypt the old data with the new KMS key. After this process completes, all of your domain's data will be encrypted under the new KMS key, and you can safely retire the old key. For more information, see [UpdateDomain](https://docs.aws.amazon.com/voiceid/latest/APIReference/API_UpdateDomain.html).
 
-Voice ID creates a grant to the customer managed key that grants it access to the key. For
-more information, see [How Connect Customer Voice ID uses grants in AWS KMS](#voiceid-uses-grants "#voiceid-uses-grants").
+Voice ID creates a grant to the customer managed key that grants it access to the key. For more information, see [How Connect Customer Voice ID uses grants in AWS KMS](#voiceid-uses-grants). 
 
 Following is a list of data that is encrypted at rest using the customer managed key:
++ **Voiceprints**: The voiceprints generated while enrolling the speakers and registering fraudsters into the system.
++ **Speaker and fraudster audio**: The audio data used for enrolling the speakers and registering the fraudsters.
++ **CustomerSpeakerId**: The customer-provided SpeakerId while enrolling the customer into Voice ID. 
++ **Customer-provided metadata**: These include free-form strings such as `Domain` `Description`, `Domain Name`, `Job Name`, and more.
 
-- **Voiceprints**: The voiceprints generated
-  while enrolling the speakers and registering fraudsters into the
-  system.
-- **Speaker and fraudster audio**: The audio
-  data used for enrolling the speakers and registering the fraudsters.
-- **CustomerSpeakerId**: The customer-provided
-  SpeakerId while enrolling the customer into Voice ID.
-- **Customer-provided metadata**: These include
-  free-form strings such as `Domain`
-  `Description`, `Domain Name`, `Job Name`,
-  and more.
-
-AWS KMS charges apply for a customer managed key. For more information about pricing, see
-[AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+AWS KMS charges apply for a customer managed key. For more information about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/). 
 
 ### How Connect Customer Voice ID uses grants in AWS KMS
+<a name="voiceid-uses-grants"></a>
 
-Connect Customer Voice ID requires a grant to use your customer managed key. When you create a
-domain, Voice ID creates a grant on your behalf by sending a see [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. The grant is required to use your
-customer managed key for the following internal operations:
+Connect Customer Voice ID requires a grant to use your customer managed key. When you create a domain, Voice ID creates a grant on your behalf by sending a see [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) request to AWS KMS. The grant is required to use your customer managed key for the following internal operations:
++ Send [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) requests to AWS KMS to verify that the symmetric customer managed key ID provided is valid. 
++ Send [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) requests to KMS key to create data keys with which to encrypt objects.
++ Send [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data. 
++ Send [ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html) requests to AWS KMS when the key is updated to re-encrypt a limited set of data using the new key.
++ Store files in S3 using the AWS KMS key to encrypt the data.
 
-- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") requests to AWS KMS to verify that the symmetric
-  customer managed key ID provided is valid.
-- Send [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") requests to KMS key to create data keys
-  with which to encrypt objects.
-- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md")
-  requests to AWS KMS to decrypt the encrypted data keys so that they can be
-  used to encrypt your data.
-- Send [ReEncrypt](../../../kms/latest/APIReference/API_ReEncrypt.md "../../../kms/latest/APIReference/API_ReEncrypt.md")
-  requests to AWS KMS when the key is updated to re-encrypt a limited set of
-  data using the new key.
-- Store files in S3 using the AWS KMS key to encrypt the data.
-
-You can revoke access to the grant, or remove the service's access to the
-customer managed key at any time. If you do, Voice ID won't be able to access any of the
-data encrypted by the customer managed key, which affects all the operations that are
-dependent on that data, leading to `AccessDeniedException` errors and
-failures in the asynchronous workflows.
+You can revoke access to the grant, or remove the service's access to the customer managed key at any time. If you do, Voice ID won't be able to access any of the data encrypted by the customer managed key, which affects all the operations that are dependent on that data, leading to `AccessDeniedException` errors and failures in the asynchronous workflows.
 
 ### Customer managed key policy for Voice ID
+<a name="encryption-at-rest-cmkpolicy-voiceid"></a>
 
-Key policies control access to your customer managed key. Every customer managed key must have
-exactly one key policy, which contains statements that determine who can use the
-key and how they can use it. When you create your customer managed key, you can specify a
-key policy. For more information, see [Managing access to KMS keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the
-_AWS Key Management Service Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS Key Management Service Developer Guide*.
 
-Following is an example key policy which gives a user the permissions they
-need to call all Voice ID APIs using the customer managed key:
+Following is an example key policy which gives a user the permissions they need to call all Voice ID APIs using the customer managed key:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Allow key access to Amazon Connect VoiceID.",
- "Effect": "Allow",
- "Principal": {
- "AWS": "`your_user_or_role_ARN`"
- },
- "Action": [
- "kms:CreateGrant",
- "kms:Decrypt",
- "kms:DescribeKey"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "kms:ViaService": [
- "voiceid.`us-east-1`.amazonaws.com"
- ]
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "Allow key access to Amazon Connect VoiceID.",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "{{your_user_or_role_ARN}}"
+            },
+            "Action": [
+                "kms:CreateGrant",
+                "kms:Decrypt",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "kms:ViaService": [
+                        "voiceid.{{us-east-1}}.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
 
-For information about specifying permissions in a policy, see [Specifying
-KMS keys in IAM policy statements](../../../kms/latest/developerguide/cmks-in-iam-policies.md "../../../kms/latest/developerguide/cmks-in-iam-policies.md") in the AWS Key Management Service Developer Guide.
+------
 
-For information about troubleshooting key access, see [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the AWS Key Management Service Developer Guide.
+For information about specifying permissions in a policy, see [Specifying KMS keys in IAM policy statements](https://docs.aws.amazon.com/kms/latest/developerguide/cmks-in-iam-policies.html) in the AWS Key Management Service Developer Guide. 
+
+For information about troubleshooting key access, see [Troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html) in the AWS Key Management Service Developer Guide. 
 
 ### Voice ID encryption context
+<a name="voiceid-encryption-context"></a>
 
-An [encryption
-context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain
-additional contextual information about the data. AWS KMS uses the encryption
-context as [additional
-authenticated data](../../../encryption-sdk/latest/developer-guide/concepts.md "../../../encryption-sdk/latest/developer-guide/concepts.md") to support [authenticated encryption](../../../encryption-sdk/latest/developer-guide/concepts.md#digital-sigs "../../../encryption-sdk/latest/developer-guide/concepts.md#digital-sigs").
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as [ additional authenticated data](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html) to support [authenticated encryption](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html#digital-sigs). 
 
-When you include an encryption context in a request to encrypt data, AWS KMS
-binds the encryption context to the encrypted data. To decrypt data, you include
-the same encryption context in the request.
+When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. 
 
-Voice ID uses the same encryption context in all AWS KMS cryptographic
-operations, where the key is `aws:voiceid:domain:arn` and the value
-is the resource Amazon Resource Name (ARN) [Amazon Resource Name
-(ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
+Voice ID uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:voiceid:domain:arn` and the value is the resource Amazon Resource Name (ARN) [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 
 ```
 "encryptionContext": {
@@ -249,25 +160,16 @@ is the resource Amazon Resource Name (ARN) [Amazon Resource Name
 }
 ```
 
-You can also use the encryption context in audit records and logs to identify
-how the customer managed key is being used. The encryption context also appears in logs
-generated by CloudTrail or Amazon CloudWatch Logs.
+You can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in logs generated by CloudTrail or Amazon CloudWatch Logs.
 
 #### Using encryption context to control access to your customer managed key
+<a name="encryption-context-customer-managed-key"></a>
 
-You can use the encryption context in key policies and IAM policies as
-conditions to control access to your symmetric customer managed key. You can also use
-encryption context constraints in a grant.
+You can use the encryption context in key policies and IAM policies as conditions to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant.
 
-Connect Customer Voice ID uses an encryption context constraint in grants to control
-access to the customer managed key in your account or Region. The grant constraint
-requires that the operations that the grant allows use the specified
-encryption context.
+Connect Customer Voice ID uses an encryption context constraint in grants to control access to the customer managed key in your account or Region. The grant constraint requires that the operations that the grant allows use the specified encryption context.
 
-The following are example key policy statements to grant access to a
-customer managed key for a specific encryption context. The condition in this policy
-statement requires that the grants have an encryption context constraint
-that specifies the encryption context.
+The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context.
 
 ```
 {
@@ -296,13 +198,14 @@ that specifies the encryption context.
 ```
 
 ### Monitoring your encryption keys for Voice ID
+<a name="monitoring-encryption-keys"></a>
 
-When you use an AWS KMS customer managed key with Voice ID, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that Voice ID sends to AWS KMS.
+When you use an AWS KMS customer managed key with Voice ID, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that Voice ID sends to AWS KMS. 
 
-The following examples is a sample AWS CloudTrail event for `CreateGrant`
-operation called by Voice ID to access data encrypted by your customer managed key:
+The following examples is a sample AWS CloudTrail event for `CreateGrant` operation called by Voice ID to access data encrypted by your customer managed key: 
 
-CreateGrant
+------
+#### [ CreateGrant ]
 
 ```
 {
@@ -312,7 +215,7 @@ CreateGrant
         "principalId": "AROA5STZEFPSZEOW7NP3X:SampleUser1",
         "arn": "arn:aws:sts::111122223333:assumed-role/SampleRole/SampleUser",
         "accountId": "111122223333",
-        "accessKeyId": "AAAAAAA1111111EXAMPLE",
+        "accessKeyId": "AAAAAAA1111111EXAMPLE",  
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
@@ -376,7 +279,8 @@ CreateGrant
 }
 ```
 
-DescribeKey
+------
+#### [ DescribeKey ]
 
 ```
 {
@@ -410,7 +314,8 @@ DescribeKey
 }
 ```
 
-Decrypt
+------
+#### [ Decrypt ]
 
 ```
 {
@@ -450,7 +355,8 @@ Decrypt
     }
 ```
 
-GenerateDataKeyWithoutPlaintext
+------
+#### [ GenerateDataKeyWithoutPlaintext ]
 
 ```
 {
@@ -489,7 +395,8 @@ GenerateDataKeyWithoutPlaintext
 }
 ```
 
-ReEncrypt
+------
+#### [ ReEncrypt ]
 
 ```
 {
@@ -541,128 +448,97 @@ ReEncrypt
 }
 ```
 
+------
+
 ## Outbound campaigns encryption at rest
+<a name="encryption-at-rest-outboundcommunications"></a>
 
-Outbound campaigns stores customer phone numbers and relevant attributes. This
-information is always encrypted at rest, using either a customer managed key or an
-AWS owned key. The data is separated by the Connect Customer instance ID and is
-encrypted by instance specific keys.
+ Outbound campaigns stores customer phone numbers and relevant attributes. This information is always encrypted at rest, using either a customer managed key or an AWS owned key. The data is separated by the Connect Customer instance ID and is encrypted by instance specific keys. 
 
-You can provide your own customer managed key when onboarding to
-Outbound campaigns.
+ You can provide your own customer managed key when onboarding to Outbound campaigns.
 
-The service uses your customer-managed key to encrypt sensitive data at rest.
-This key is created, owned, and fully managed by you, giving you complete control
-over its usage and security.
+ The service uses your customer-managed key to encrypt sensitive data at rest. This key is created, owned, and fully managed by you, giving you complete control over its usage and security.
 
-If you do not provide your own customer managed key, then Outbound campaigns encrypts
-sensitive data at rest using an AWS owned key specific to your Connect Customer
-instance. You can't view, manage, use, or audit AWS owned keys. However, you don't
-have to take any action or change any programs to protect the keys that encrypt your
-data. For more information, see [AWS owned
-keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
+ If you do not provide your own customer managed key, then Outbound campaigns encrypts sensitive data at rest using an AWS owned key specific to your Connect Customer instance. You can't view, manage, use, or audit AWS owned keys. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*. 
 
-AWS KMS charges apply for a customer managed key. For more information about
-pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+ AWS KMS charges apply for a customer managed key. For more information about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/). 
 
 ### How outbound campaigns uses grants in AWS KMS
+<a name="how-outbound-campaigns-uses-grants-in-aws-kms"></a>
 
-Outbound campaigns requires a grant to use your customer managed key. When
-you onboard to outbound campaigns using the AWS console or the
-`StartInstanceOnboardingJob` API, Outbound campaigns creates a grant
-on your behalf by sending a `CreateGrant` request to AWS KMS. Grants in
-AWS KMS are used to give the Connect Customer Outbound campaigns service-linked role
-access to a KMS key in your account.
+ Outbound campaigns requires a grant to use your customer managed key. When you onboard to outbound campaigns using the AWS console or the `StartInstanceOnboardingJob` API, Outbound campaigns creates a grant on your behalf by sending a `CreateGrant` request to AWS KMS. Grants in AWS KMS are used to give the Connect Customer Outbound campaigns service-linked role access to a KMS key in your account. 
 
-Outbound campaigns requires the grant to use the customer managed key for the
-following internal operations:
+ Outbound campaigns requires the grant to use the customer managed key for the following internal operations: 
++  Send [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) requests to AWS KMS to verify that the symmetric customer managed key ID provided is valid. 
++  Send a `GenerateDataKeyWithoutPlainText` request to AWS KMS to generate data keys encrypted by your customer managed key. 
++  Send `Decrypt` requests to AWS KMS to decrypt encrypted data keys so that they can be used to encrypt your data. 
 
-- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") requests to AWS KMS to verify that the symmetric
-  customer managed key ID provided is valid.
-- Send a `GenerateDataKeyWithoutPlainText` request to AWS KMS
-  to generate data keys encrypted by your customer managed key.
-- Send `Decrypt` requests to AWS KMS to decrypt encrypted data
-  keys so that they can be used to encrypt your data.
-
-You can revoke access to the grant, or remove the access that outbound
-campaigns has to the customer managed key at any time. If you do, outbound
-campaigns can not access any of the data encrypted by the customer managed key,
-which affects operations that are dependent on that data.
+ You can revoke access to the grant, or remove the access that outbound campaigns has to the customer managed key at any time. If you do, outbound campaigns can not access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data. 
 
 ### Customer managed key policy for outbound campaigns
+<a name="customer-managed-key-policy-for-outbound-campaigns"></a>
 
-Key policies control access to your customer managed key. Every customer
-managed key must have exactly one key policy, which contains statements that
-determine who can use the key and how they can use it. When you create your
-customer managed key, you can specify a key policy. For more information, see
-[Managing access to KMS keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service Developer
-Guide_.
+ Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS Key Management Service Developer Guide*. 
 
-Following is an example key policy which gives a user the permissions they
-need to call outbound campaigns [StartInstanceOnboardingJob](../APIReference/API_connect-outbound-campaigns_StartInstanceOnboardingJob.md "../APIReference/API_connect-outbound-campaigns_StartInstanceOnboardingJob.md"), [PutDialRequestBatch](../APIReference/API_connect-outbound-campaigns_PutDialRequestBatch.md "../APIReference/API_connect-outbound-campaigns_PutDialRequestBatch.md") and [PutOutboundRequestBatch](../APIReference/API_connect-outbound-campaigns_PutOutboundRequestBatch.md "../APIReference/API_connect-outbound-campaigns_PutOutboundRequestBatch.md") API using the customer managed key:
+ Following is an example key policy which gives a user the permissions they need to call outbound campaigns [StartInstanceOnboardingJob](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_StartInstanceOnboardingJob.html), [PutDialRequestBatch](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_PutDialRequestBatch.html) and [PutOutboundRequestBatch](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_PutOutboundRequestBatch.html) API using the customer managed key: 
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Allow key access to Amazon Connect outbound campaigns.",
- "Effect": "Allow",
- "Principal": {
- "AWS": "`your_user_or_role_ARN`"
- },
- "Action": [
- "kms:Decrypt",
- "kms:CreateGrant"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "kms:ViaService": "connect-campaigns.`us-east-1`.amazonaws.com",
- "kms:EncryptionContext:aws:accountId": "`111122223333`",
- "kms:EncryptionContext:aws:connect:instanceId": "`InstanceID`"
- }
- }
- },
- {
- "Sid": "Allow direct access to key metadata to the account",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:root"
- },
- "Action": [
- "kms:Describe*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Sid": "Allow key access to Amazon Connect outbound campaigns.",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "{{your_user_or_role_ARN}}"
+      },
+      "Action": [
+        "kms:Decrypt",
+        "kms:CreateGrant"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "connect-campaigns.{{us-east-1}}.amazonaws.com",
+          "kms:EncryptionContext:aws:accountId": "{{111122223333}}",
+          "kms:EncryptionContext:aws:connect:instanceId": "{{InstanceID}}"
+        }
+      }
+    },
+    {
+      "Sid": "Allow direct access to key metadata to the account",
+      "Effect": "Allow",
+      "Principal": {
+         "AWS": "arn:aws:iam::{{111122223333}}:root"
+      },
+      "Action": [
+        "kms:Describe*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
 ```
 
-For information about specifying permissions in a policy, see [Specifying KMS
-keys in IAM policy statements](../../../kms/latest/developerguide/cmks-in-iam-policies.md "../../../kms/latest/developerguide/cmks-in-iam-policies.md") in the AWS Key Management Service Developer Guide.
+------
 
-For information about troubleshooting key access, see [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the AWS Key Management Service Developer Guide.
+ For information about specifying permissions in a policy, see [Specifying KMS keys in IAM policy statements](https://docs.aws.amazon.com/kms/latest/developerguide/cmks-in-iam-policies.html) in the AWS Key Management Service Developer Guide. 
+
+ For information about troubleshooting key access, see [Troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html) in the AWS Key Management Service Developer Guide. 
 
 ### Outbound campaigns encryption context
+<a name="outbound-campaigns-encryption-context"></a>
 
-An [encryption
-context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain
-additional contextual information about the data. AWS KMS uses the encryption
-context as [additional
-authenticated data](../../../encryption-sdk/latest/developer-guide/concepts.md "../../../encryption-sdk/latest/developer-guide/concepts.md") to support [authenticated encryption](../../../encryption-sdk/latest/developer-guide/concepts.md#digital-sigs "../../../encryption-sdk/latest/developer-guide/concepts.md#digital-sigs").
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as [ additional authenticated data](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html) to support [authenticated encryption](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html#digital-sigs). 
 
-When you include an encryption context in a request to encrypt data, AWS KMS
-binds the encryption context to the encrypted data. To decrypt data, you include
-the same encryption context in the request.
+ When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. 
 
-Outbound campaigns uses the same encryption context in all AWS KMS
-cryptographic operations, where the key are aws:accountId and
-aws:connect:instanceId and the value is the aws account id and Connect instance
-id.
+ Outbound campaigns uses the same encryption context in all AWS KMS cryptographic operations, where the key are aws:accountId and aws:connect:instanceId and the value is the aws account id and Connect instance id. 
 
 ```
 "encryptionContext": {
@@ -671,25 +547,16 @@ id.
 }
 ```
 
-You can also use the encryption context in audit records and logs to identify
-how the customer managed key is being used. The encryption context also appears
-in logs generated by CloudTrail or Amazon CloudWatch Logs.
+ You can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in logs generated by CloudTrail or Amazon CloudWatch Logs. 
 
 #### Using encryption context to control access to your customer managed key
+<a name="using-encryption-context-to-control-access-to-your-customer-managed-key"></a>
 
-You can use the encryption context in key policies and IAM policies as
-conditions to control access to your symmetric customer managed key. You can
-also use encryption context constraints in a grant.
+ You can use the encryption context in key policies and IAM policies as conditions to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant. 
 
-Outbound campaigns uses an encryption context constraint in grants to
-control access to the customer managed key in your account or region. The
-grant constraint requires that the operations that the grant allows use the
-specified encryption context.
+ Outbound campaigns uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context. 
 
-The following are example key policy statements to grant access to a
-customer managed key for a specific encryption context. The condition in
-this policy statement requires that the grants have an encryption context
-constraint that specifies the encryption context.
+ The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context. 
 
 ```
 {
@@ -719,17 +586,14 @@ constraint that specifies the encryption context.
 ```
 
 ### Monitoring your encryption keys for Outbound campaigns
+<a name="monitoring-your-encryption-keys-for-outbound-campaigns"></a>
 
-When you use an AWS KMS customer managed key with your outbound campaigns
-resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track
-requests that Amazon Location sends to AWS KMS.
+ When you use an AWS KMS customer managed key with your outbound campaigns resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that Amazon Location sends to AWS KMS. 
 
-The following examples are AWS CloudTrail events for CreateGrant,
-GenerateDataKeyWithoutPlainText, DescribeKey, and Decrypt to monitor KMS
-operations called by Amazon Location to access data encrypted by your customer
-managed key:
+ The following examples are AWS CloudTrail events for CreateGrant, GenerateDataKeyWithoutPlainText, DescribeKey, and Decrypt to monitor KMS operations called by Amazon Location to access data encrypted by your customer managed key: 
 
-CreateGrant
+------
+#### [ CreateGrant ]
 
 ```
 {
@@ -801,10 +665,10 @@ CreateGrant
   "eventCategory": "Management",
   "sessionCredentialFromConsole": "true"
 }
-
 ```
 
-GenerateDataKeyWithoutPlainText
+------
+#### [ GenerateDataKeyWithoutPlainText ]
 
 ```
 {
@@ -860,11 +724,10 @@ GenerateDataKeyWithoutPlainText
   "recipientAccountId": "111122223333",
   "eventCategory": "Management"
 }
-
-
 ```
 
-DescribeKey
+------
+#### [ DescribeKey ]
 
 ```
 {
@@ -918,11 +781,10 @@ DescribeKey
   "recipientAccountId": "111122223333",
   "eventCategory": "Management"
 }
-
-
 ```
 
-Decrypt
+------
+#### [ Decrypt ]
 
 ```
 {
@@ -979,11 +841,11 @@ Decrypt
   "eventCategory": "Management",
   "sessionCredentialFromConsole": "true"
 }
-
-
 ```
 
-## Forecasts, capacity plans, and schedules
+------
 
-When you create forecasts, capacity plans, and schedules, all data are encrypted
-at rest using AWS owned key encryption keys stored in AWS Key Management Service.
+## Forecasts, capacity plans, and schedules
+<a name="forecasts-encryption-at-rest-"></a>
+
+When you create forecasts, capacity plans, and schedules, all data are encrypted at rest using AWS owned key encryption keys stored in AWS Key Management Service.

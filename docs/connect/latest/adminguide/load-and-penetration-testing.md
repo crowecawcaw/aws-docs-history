@@ -1,92 +1,60 @@
+
+
 # Load and penetration / security testing policies for Connect Customer
+<a name="load-and-penetration-testing"></a>
 
-Connect Customer regularly performs rigorous testing to ensure our service delivers the security,
-reliability, and availability required to support world-class contact centers of all
-sizes.
+Connect Customer regularly performs rigorous testing to ensure our service delivers the security, reliability, and availability required to support world-class contact centers of all sizes. 
 
-Connect Customer has developed policies and requirements governing your the ability to conduct
-your own security assessments (such as penetration tests) and load testing to validate
-your environments and make sure they are production-ready. This topic explains the policies
-and requirements.
+Connect Customer has developed policies and requirements governing your the ability to conduct your own security assessments (such as penetration tests) and load testing to validate your environments and make sure they are production-ready. This topic explains the policies and requirements.
 
 ## Security and penetration testing
+<a name="securityandpenetrationtesting"></a>
 
-Due to the inherent risk of damage from security testing, Connect Customer does not support
-any customer security or penetration tests, as explained on this AWS Cloud
-Security page: [Penetration Testing](https://aws.amazon.com/security/penetration-testing "https://aws.amazon.com/security/penetration-testing"). It is not listed as a permitted service under
-**Customer Service Policy for Penetration Testing**.
+Due to the inherent risk of damage from security testing, Connect Customer does not support any customer security or penetration tests, as explained on this AWS Cloud Security page: [Penetration Testing](https://aws.amazon.com/security/penetration-testing). It is not listed as a permitted service under **Customer Service Policy for Penetration Testing**.
 
-Connect Customer has a rigorous security and penetration test routine. If you have
-requirements related to security, ask your AWS account team (Technical Account
-Manager or Solution Architect) for assistance.
+Connect Customer has a rigorous security and penetration test routine. If you have requirements related to security, ask your AWS account team (Technical Account Manager or Solution Architect) for assistance.
 
 ## Load testing
+<a name="loadtesting"></a>
 
-Connect Customer considers load tests as any tests that:
+Connect Customer considers load tests as any tests that: 
++ Target specific endpoints
++ Generate synthetic traffic targeted at concentrated sources
++ Maintain a higher than normal sustained volume of traffic
++ Can accidentally exceed expected limits
 
-- Target specific endpoints
-- Generate synthetic traffic targeted at concentrated sources
-- Maintain a higher than normal sustained volume of traffic
-- Can accidentally exceed expected limits
-
-These differences present potential risks for unintended impact to external
-endpoints, other customers, or AWS services. You are required to follow our load
-test policy for any plans that meet this criteria.
+These differences present potential risks for unintended impact to external endpoints, other customers, or AWS services. You are required to follow our load test policy for any plans that meet this criteria.
 
 Our load test policy requires that customers:
++ Only test out of hours: from 6PM-6AM in the local timezone of the AWS Region being tested.
++ Identify an emergency contact who is reachable during the load test.
++ Provide a document and detailed view of the planned load test.
 
-- Only test out of hours: from 6PM-6AM in the local timezone of the AWS
-  Region being tested.
-- Identify an emergency contact who is reachable during the load
-  test.
-- Provide a document and detailed view of the planned load test.
+**Important**  
+**You must receive approval from AWS for your load test a minimum of two weeks in advance of the test date.**
 
-###### Important
+**To submit a request for a load test**
 
-**You must receive approval from AWS for your load test
-a minimum of two weeks in advance of the test date.**
+1. Send email to **amazon-connect-load-test-requests@amazon.com** **and copy your AWS account team (Technical Account Manager or Solution Architect).**
 
-###### To submit a request for a load test
+1. Upon receipt, the Connect Customer team will provide you with the Load Test Request intake form.
 
-1. Send email to **amazon-connect-load-test-requests@amazon.com**
-   **and copy your AWS account team (Technical Account Manager or
-   Solution Architect).**
-2. Upon receipt, the Connect Customer team will provide you with the Load Test Request
-   intake form.
-
-The Connect Customer load test team responds to emails within 48 working hours. If
-you do not receive a response within that time, please follow up.
+   The Connect Customer load test team responds to emails within 48 working hours. If you do not receive a response within that time, please follow up.
 
 The Connect Customer team will review your request. We will:
++ Determine whether there are any risks.
++ Validate whether there are any considerations with the load test having the ability to be detected or reported as being abusive.
++ Given where the test is designed, determine whether it might be unintentionally abusive or impactful to other entities.
++ Determine whether you have mitigations applied to your instances, which can impact your tests as well as your production workloads.
 
-- Determine whether there are any risks.
-- Validate whether there are any considerations with the load test having
-  the ability to be detected or reported as being abusive.
-- Given where the test is designed, determine whether it might be
-  unintentionally abusive or impactful to other entities.
-- Determine whether you have mitigations applied to your instances, which
-  can impact your tests as well as your production workloads.
+If we determine there is not likely to be an impact, we will provide a **written approval** to proceed. 
 
-If we determine there is not likely to be an impact, we will provide a **written approval** to proceed.
+For tests that might have impact, we will ask you to take additional steps, such as:
++ Running the instance generating traffic from a separate AWS account or Region.
++ Adjusting the tests to minimize risk, or working with AWS closely to understand the scenarios and processes.
 
-For tests that might have impact, we will ask you to take additional steps, such
-as:
-
-- Running the instance generating traffic from a separate AWS account or
-  Region.
-- Adjusting the tests to minimize risk, or working with AWS closely to
-  understand the scenarios and processes.
-
-###### Important
-
-Even with approval from AWS, you are responsible for:
-
-- Any damages to AWS, other AWS customers, or external entities that
-  are caused by your testing activities.
-- Compliance with applicable laws in jurisdictions in which you operate,
-  including laws and regulations governing cybersecurity or misuse of IT
-  systems.
-  Any load test run without approval from AWS will result in mitigation
-  actions being taken against the AWS account up to and including suspension of
-  service. Unauthorized testing might also be considered a violation of law and
-  subject to criminal prosecution.
+**Important**  
+Even with approval from AWS, you are responsible for:  
+Any damages to AWS, other AWS customers, or external entities that are caused by your testing activities.
+Compliance with applicable laws in jurisdictions in which you operate, including laws and regulations governing cybersecurity or misuse of IT systems.
+Any load test run without approval from AWS will result in mitigation actions being taken against the AWS account up to and including suspension of service. Unauthorized testing might also be considered a violation of law and subject to criminal prosecution.

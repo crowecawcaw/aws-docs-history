@@ -1,56 +1,49 @@
+
+
 # Manage access to Resource link tables
+<a name="manage-access-to-resource-link-tables"></a>
 
-In a cross-account access scenario in Lake Formation, to grant Select
-permission to a user, the user has to have Describe permission on the resource link
-since resource links are required for integrated AWS services like Amazon Athena and
-Amazon Redshift, and Select permission on the shared table to have read access to the
-underlying resource link data. Therefore, it is a two-step grant process.
+ In a cross-account access scenario in Lake Formation, to grant Select permission to a user, the user has to have Describe permission on the resource link since resource links are required for integrated AWS services like Amazon Athena and Amazon Redshift, and Select permission on the shared table to have read access to the underlying resource link data. Therefore, it is a two-step grant process. 
 
-To grant resource link access to a QuickSight user, complete the following
-steps:
+ To grant resource link access to a QuickSight user, complete the following steps: 
 
-###### Note
+**Note**  
+You must repeat this process for each table individually. You cannot grant permissions to all tables in a database at once.
 
-You must repeat this process for each table individually. You cannot grant
-permissions to all tables in a database at once.
+1.  Log into the consumer account as the data lake administrator and go to the Lake Formation Console. 
 
-1. Log into the consumer account as the data lake administrator and go to the
-   Lake Formation Console.
-2. On the left navigation pane, go to Tables and select the resource link of the
-   shared table created in the previous section.
-3. Choose **Actions** and select **Grant**.
+1.  On the left navigation pane, go to Tables and select the resource link of the shared table created in the previous section. 
 
-![AWS Lake Formation tables.](images/manage-access-to-resource-link-tables-1.png) 4. In the grant data permissions menu, in the Principals section, choose SAML
-users and groups and enter the ARN of the QuickSight user. 5. In the Table permissions section choose Describe as a table permission. 6. Choose **Grant**.
+1.  Choose **Actions** and select **Grant**.   
+![AWS Lake Formation tables.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manage-access-to-resource-link-tables-1.png)
 
-![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-2.png)
-Now, the QuickSight user can see that the table exists within Quicksight's dataset
-console.
+1.  In the grant data permissions menu, in the Principals section, choose SAML users and groups and enter the ARN of the QuickSight user. 
 
-However, if the QuickSight user tries to preview or visualize the data at this stage,
-an exception will be raised since the user does not have access to the underlying data.
+1.  In the Table permissions section choose Describe as a table permission. 
 
-Now, we will grant the user read access to the data in the resource link's target,
-which is the table shared by Connect Customer. To do that, complete the following steps:
+1.  Choose **Grant**.   
+![AWS Lake Formation tables - grant.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manage-access-to-resource-link-tables-2.png)
 
-1. Log into the consumer account as the data lake administrator and go to the
-   Lake Formation Console.
-2. On the left navigation pane, go to **Tables** and select the
-   resource link of the shared table created in the previous section.
-3. Choose **Actions** and select **Grant on
-   Target**.
+ Now, the QuickSight user can see that the table exists within Quicksight's dataset console. 
 
-![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-3.png) 4. In the grant data permissions menu, in the **Principals**
-section, choose SAML users and groups and enter the ARN of the QuickSight user. 5. In the Table permissions section choose Select as a table
-permission. 6. Choose **Grant**.
+ However, if the QuickSight user tries to preview or visualize the data at this stage, an exception will be raised since the user does not have access to the underlying data. 
 
-![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-4.png)
+ Now, we will grant the user read access to the data in the resource link's target, which is the table shared by Connect Customer. To do that, complete the following steps: 
 
-###### Grant access per table
+1.  Log into the consumer account as the data lake administrator and go to the Lake Formation Console. 
 
-You must grant access for each table individually. You cannot grant access to all
-tables in a database at once.
+1.  On the left navigation pane, go to **Tables** and select the resource link of the shared table created in the previous section. 
 
-The database value shown in the **Grant on target** step might
-not match your expected database name. Use the value shown in the interface.
-Changing it to a different value causes the permission grant to fail.
+1.  Choose **Actions** and select **Grant on Target**.   
+![AWS Lake Formation tables - grant.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manage-access-to-resource-link-tables-3.png)
+
+1.  In the grant data permissions menu, in the **Principals** section, choose SAML users and groups and enter the ARN of the QuickSight user. 
+
+1.  In the ****Table permissions section choose Select as a table permission. 
+
+1.  Choose **Grant**.   
+![AWS Lake Formation tables - grant.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manage-access-to-resource-link-tables-4.png)
+
+**Grant access per table**  
+You must grant access for each table individually. You cannot grant access to all tables in a database at once.  
+The database value shown in the **Grant on target** step might not match your expected database name. Use the value shown in the interface. Changing it to a different value causes the permission grant to fail.

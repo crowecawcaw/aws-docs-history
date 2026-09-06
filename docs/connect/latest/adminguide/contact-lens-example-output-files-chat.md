@@ -1,156 +1,92 @@
+
+
 # Example conversational analytics output files for a chat analyzed by conversational analytics
+<a name="contact-lens-example-output-files-chat"></a>
 
-This section shows an example schema for a chat conversation that has been
-analyzed by conversational analytics. The example shows inferred
-sentiment, matched categories, contact summary, and response time.
+This section shows an example schema for a chat conversation that has been analyzed by conversational analytics. The example shows inferred sentiment, matched categories, contact summary, and response time.
 
-The original, analyzed file contains the full chat transcript. The same content
-that is present in the chat **Transcript** field on the
-**Contact details** page is present in `Transcript`
-field in the original conversational analytics analysis file. In addition, the analyzed
-file might contain more fields, such as a `Redaction` section to indicate
-that there is redacted data in the redacted analysis file.
+The original, analyzed file contains the full chat transcript. The same content that is present in the chat **Transcript** field on the **Contact details** page is present in `Transcript` field in the original conversational analytics analysis file. In addition, the analyzed file might contain more fields, such as a `Redaction` section to indicate that there is redacted data in the redacted analysis file.
 
-###### Note
-
-Some `ConversationCharacteristics` include
-`DetailsByParticipantRole` maps, with participant roles as keys.
-However, not all roles from the `Participants` list (such as
-`CUSTOMER` or `AGENT`) are guaranteed to have
-corresponding keys in the `DetailsByParticipantRole` objects. The
-presence of a key for a participant depends on whether there was eligible data
-for conversational analytics analysis.
+**Note**  
+ Some `ConversationCharacteristics` include `DetailsByParticipantRole` maps, with participant roles as keys. However, not all roles from the `Participants` list (such as `CUSTOMER` or `AGENT`) are guaranteed to have corresponding keys in the `DetailsByParticipantRole` objects. The presence of a key for a participant depends on whether there was eligible data for conversational analytics analysis.
 
 ## Categories
+<a name="chat-categories"></a>
 
-`PointsOfInterest` differs between post-chat and post-call
-categories:
+`PointsOfInterest` differs between post-chat and post-call categories:
++ Post-call `PointsOfInterest` has milliseconds offset. 
++ Post-chat `PointsOfInterest` has an array of `TranscriptItems`; each item has an `id` and `CharacterOffset`.
 
-- Post-call `PointsOfInterest` has milliseconds offset.
-- Post-chat `PointsOfInterest` has an array of
-  `TranscriptItems`; each item has an `id` and
-  `CharacterOffset`.
+There is an array of `PointsOfInterest`. Each array has an array of `TranscriptItems`: each `PointOfInterest` is for a Category match, but each match can span across multiple transcript items.
 
-There is an array of `PointsOfInterest`. Each array has an array of
-`TranscriptItems`: each `PointOfInterest` is for a
-Category match, but each match can span across multiple transcript items.
+For both calls and chats, the `PointsOfInterest` array can be empty. This means that the category is matched for the whole contact. For example, if you create a rule to match the category when `Hello` is not mentioned in the contact, there would be no portion of the transcript to pinpoint for this condition.
 
-For both calls and chats, the `PointsOfInterest` array can be
-empty. This means that the category is matched for the whole contact. For
-example, if you create a rule to match the category when `Hello` is
-not mentioned in the contact, there would be no portion of the transcript to
-pinpoint for this condition.
-
-###### Note
-
-Currently, category is inferred for `text/plain`,
-`text/markdown` chat messages only.
+**Note**  
+Currently, category is inferred for `text/plain`, `text/markdown` chat messages only.
 
 ## Key highlights
+<a name="chat-contactsummary"></a>
 
-**Key highlights** are located in the
-`ConversationCharacteristics.ContactSummary.SummaryItemsDetected`
-array. No more than one item can be in that array, emphasizing that only one set
-of `Issue`, `Outcome`, and `Action` item can be
-found.
+**Key highlights** are located in the `ConversationCharacteristics.ContactSummary.SummaryItemsDetected` array. No more than one item can be in that array, emphasizing that only one set of `Issue`, `Outcome`, and `Action` item can be found. 
 
-Each object in the array has following fields: `IssuesDetected`,
-`OutcomesDetected`, `ActionItemsDetected`.
+Each object in the array has following fields: `IssuesDetected`, `OutcomesDetected`, `ActionItemsDetected`.
 
-Each of the fields has an array of `TranscriptItems` that has
-`Id` and `CharacterOffsets`. They describe
-`TranscriptItems` and specific parts that were identified to
-contain that contact summary: issue, outcome, or action item.
+Each of the fields has an array of `TranscriptItems` that has `Id` and `CharacterOffsets`. They describe `TranscriptItems` and specific parts that were identified to contain that contact summary: issue, outcome, or action item.
 
-###### Note
-
-Currently, key highlights are inferred for `text/plain` chat
-messages only.
+**Note**  
+Currently, key highlights are inferred for `text/plain` chat messages only.
 
 ## Sentiment
+<a name="chat-sentiment"></a>
 
 ### Overall sentiment
+<a name="chat-overallsentiment"></a>
 
-The `DetailsByParticipantRole` field sentiment score for
-contact participants is similar to the conversational analytics for speech
-analytics file.
+The `DetailsByParticipantRole` field sentiment score for contact participants is similar to the conversational analytics for speech analytics file.
 
-`DetailsByInteraction` field has `CUSTOMER`
-sentiment score for parts of chat interaction `WithAgent` and
-`WithoutAgent`. If there were no customer messages in those
-parts of interaction, the respective field will be absent.
+`DetailsByInteraction` field has `CUSTOMER` sentiment score for parts of chat interaction `WithAgent` and `WithoutAgent`. If there were no customer messages in those parts of interaction, the respective field will be absent.
 
-###### Note
-
-Currently, sentiment is inferred for `text/plain`,
-`text/markdown` chat messages only.
+**Note**  
+Currently, sentiment is inferred for `text/plain`, `text/markdown` chat messages only.
 
 ### Sentiment shift
+<a name="chat-sentimentshift"></a>
 
-The `DetailsByParticipantRole` field contains an object that
-describes the sentiment shift for contact participants (that is,
-`AGENT`, `CUSTOMER`): `BeginScore` and
-`EndScore`.
+The `DetailsByParticipantRole` field contains an object that describes the sentiment shift for contact participants (that is, `AGENT`, `CUSTOMER`): `BeginScore` and `EndScore`. 
 
-The `DetailsByInteraction` field has `CUSTOMER`
-sentiment shift for parts of the chat interaction `WithAgent` and
-`WithoutAgent`. If there were no customer messages in those
-parts of the interaction, the respective field will be absent.
+The `DetailsByInteraction` field has `CUSTOMER` sentiment shift for parts of the chat interaction `WithAgent` and `WithoutAgent`. If there were no customer messages in those parts of the interaction, the respective field will be absent.
 
-Sentiment shift provides information about how the participant's sentiment
-changed throughout the chat interaction.
+Sentiment shift provides information about how the participant's sentiment changed throughout the chat interaction.
 
 ## Response time
+<a name="chat-responsetime"></a>
 
-`AgentGreetingTimeMillis` measures the time between when the
-`AGENT` joined the chat and the moment when they ended their
-first message to customer.
+`AgentGreetingTimeMillis` measures the time between when the `AGENT` joined the chat and the moment when they ended their first message to customer.
 
-`DetailsByParticipantRole` has following characteristics for each
-of participant:
+`DetailsByParticipantRole` has following characteristics for each of participant:
++ `Average`: What is average response time for a participant.
++ `Maximum`: What is the longest response time for a participant. If there are multiple transcript items with the same maximum response time, which ones are they.
 
-- `Average`: What is average response time for a
-  participant.
-- `Maximum`: What is the longest response time for a
-  participant. If there are multiple transcript items with the same
-  maximum response time, which ones are they.
+To calculate the `Average` and `Maximum` response times for a given participant, they need to respond to a message from another participant (`AGENT` needs to respond to the `CUSTOMER`, or vice versa). 
 
-To calculate the `Average` and `Maximum` response times
-for a given participant, they need to respond to a message from another
-participant (`AGENT` needs to respond to the `CUSTOMER`,
-or vice versa).
+For example, if there was only one message from `CUSTOMER` and then only one message from `AGENT` before the chat ended, conversational analytics will calculate a response time for the `AGENT`, but not for the `CUSTOMER`. 
 
-For example, if there was only one message from `CUSTOMER` and then
-only one message from `AGENT` before the chat ended,
-conversational analytics will calculate a response time for the
-`AGENT`, but not for the `CUSTOMER`.
-
-###### Note
-
-Currently, response time is inferred for `text/plain`,
-`text/markdown` chat messages only.
+**Note**  
+Currently, response time is inferred for ` text/plain`, `text/markdown` chat messages only.
 
 ## Redaction
+<a name="chat-redaction"></a>
 
 Note the following about the original analysis file for chats:
++ Transcript item includes a `Redaction` section only if it there is data to be redacted. The section contains character offsets for the data that is redacted in the redacted analysis file. 
++ If two or more pieces of a message are redacted, the first offset applies to the first redacted piece, the second offset applies to the second redacted piece, and so on.
 
-- Transcript item includes a `Redaction` section only if it
-  there is data to be redacted. The section contains character offsets for
-  the data that is redacted in the redacted analysis file.
-- If two or more pieces of a message are redacted, the first offset
-  applies to the first redacted piece, the second offset applies to the
-  second redacted piece, and so on.
+`DisplayNames` for `AGENT` and `CUSTOMER` are redacted because they contain PII. This applies to `AttachmentName`, too.
 
-`DisplayNames` for `AGENT` and `CUSTOMER` are
-redacted because they contain PII. This applies to `AttachmentName`,
-too.
-
-`CharacterOffsets` take into consideration redaction changes of the
-`Content` length in the redacted analysis file.
-`CharacterOffsets` describe redacted content, not original
-content.
+`CharacterOffsets` take into consideration redaction changes of the `Content` length in the redacted analysis file. `CharacterOffsets` describe redacted content, not original content.
 
 ## Example original chat file
+<a name="chat-exampleoriginalfile"></a>
 
 ```
 {
@@ -219,7 +155,7 @@ content.
                     ]
                 }
             ],
-
+            
         "ResponseTime": {
             "AgentGreetingTimeMillis": 2511,
             "DetailsByParticipantRole": {
@@ -566,7 +502,7 @@ content.
     },
     "CustomerMetadata": {
         "ContactId": "b49644f6-672f-445c-b209-f76b36482830",
-        "InputS3Uri": "`path to the json file in s3`",
+        "InputS3Uri": "{{path to the json file in s3}}",
         "InstanceId": "f23fc323-3d6d-48aa-95dc-EXAMPLE012"
     },
     "JobStatus": "COMPLETED",
@@ -831,7 +767,7 @@ content.
             "ParticipantId": "f36a545d-67b2-4fd4-89fb-896136b609a7",
             "ParticipantRole": "AGENT",
             "Type": "MESSAGE"
-        },
+        },        
         {
             "AbsoluteTime": "2022-10-27T03:33:38.961Z",
             "Content": "I apologize for the experience you had Mr. Doe, its very uncommon that our customer will have this issue. We will look into this and get this sorted out for you right away.",
@@ -1007,6 +943,7 @@ content.
 ```
 
 ## Example redacted chat file
+<a name="chat-exampleredactedfile"></a>
 
 ```
 {
@@ -1086,7 +1023,7 @@ content.
                     }
             ],
         },
-
+        
         "ResponseTime": {
             "AgentGreetingTimeMillis": 2511,
             "DetailsByParticipantRole": {
@@ -1429,7 +1366,7 @@ content.
     },
     "CustomerMetadata": {
         "ContactId": "b49644f6-672f-445c-b209-f76b36482830",
-        "InputS3Uri": "`path to the json file in s3`",
+        "InputS3Uri": "{{path to the json file in s3}}",
         "InstanceId": "f23fc323-3d6d-48aa-EXAMPLE012"
     },
     "JobStatus": "COMPLETED",
@@ -1684,7 +1621,7 @@ content.
                 ]
             },
             "Type": "MESSAGE"
-        },
+        },        
         {
             "AbsoluteTime": "2022-10-27T03:33:33.852Z",
             "Content": "It's just too bad. I thought this was going to be the best gift idea. How can you guys be sending out defective seeds? Isn't that your whole business?",

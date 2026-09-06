@@ -1,13 +1,14 @@
-# Sample conversational analytics streams to analyze chats in conversational analytics
 
-This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED,
-and FAILED events that occur during a chat contact.
+
+# Sample conversational analytics streams to analyze chats in conversational analytics
+<a name="chat-sample-real-time-contact-analysis-segment-stream"></a>
+
+This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and FAILED events that occur during a chat contact. 
 
 ## Sample STARTED event
-
-- EventType: STARTED
-- Published at the beginning of the conversational analytics
-  session.
+<a name="chat-sample-started-event"></a>
++ EventType: STARTED
++ Published at the beginning of the conversational analytics session.
 
 ```
 {
@@ -33,15 +34,9 @@ and FAILED events that occur during a chat contact.
 ```
 
 ## Sample SEGMENTS event
-
-- EventType: [SEGMENTS](chat-real-time-contact-analysis-segment-streams-data-model.md#chat-segment-streams-data-model-segments-event "chat-real-time-contact-analysis-segment-streams-data-model.md#chat-segment-streams-data-model-segments-event")
-- Published during a conversational analytics session. This event
-  contains a list of [RealtimeContactAnalysisSegment](../APIReference/API_RealtimeContactAnalysisSegment.md "../APIReference/API_RealtimeContactAnalysisSegment.md") objects with analyzed
-  information. The list of segments might include
-  `"Transcript"`, `"Categories"`,
-  `"Issue"`, `"Event"`,
-  `"Attachment"`, or "PostContactSummary"
-  segments.
+<a name="chat-sample-segments-event"></a>
++ EventType: [SEGMENTS](chat-real-time-contact-analysis-segment-streams-data-model.md#chat-segment-streams-data-model-segments-event) 
++ Published during a conversational analytics session. This event contains a list of [RealtimeContactAnalysisSegment](https://docs.aws.amazon.com/connect/latest/APIReference/API_RealtimeContactAnalysisSegment.html) objects with analyzed information. The list of segments might include `"Transcript"`, `"Categories"`, `"Issue"`, `"Event"`, `"Attachment"`, or "PostContactSummary" segments.
 
 ```
 {
@@ -144,10 +139,9 @@ and FAILED events that occur during a chat contact.
 ```
 
 ## Sample COMPLETED event
-
-- EventType: COMPLETED
-- Published at the end of the conversational analytics session if
-  the analysis completed successfully.
+<a name="chat-sample-completed-event"></a>
++ EventType: COMPLETED
++ Published at the end of the conversational analytics session if the analysis completed successfully.
 
 ```
 {
@@ -171,10 +165,9 @@ and FAILED events that occur during a chat contact.
 ```
 
 ## Sample FAILED event
-
-- EventType: FAILED
-- Published at the end of the conversational analytics session if
-  the analysis failed.
+<a name="chat-sample-failed-event"></a>
++ EventType: FAILED
++ Published at the end of the conversational analytics session if the analysis failed.
 
 ```
 {

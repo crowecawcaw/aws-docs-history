@@ -1,9 +1,11 @@
+
+
 # Associate a contact with a case in Connect Customer
+<a name="associatecontactandcase"></a>
 
-You can associate the contact to an existing case, such that the contact will
-appear on the activity feed of the case with indicator
-**Ongoing**.
+You can associate the contact to an existing case, such that the contact will appear on the activity feed of the case with indicator **Ongoing**.
 
-![An ongoing contact displaying in the activity feed for a case.](images/cases-agent-application-associate.png)
+![An ongoing contact displaying in the activity feed for a case.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-associate.png)
 
-![The activity feed, ongoing status.](images/cases-agent-application-associate2.png)
+
+![The activity feed, ongoing status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-associate2.png)

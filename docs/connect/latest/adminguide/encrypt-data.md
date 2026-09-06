@@ -1,37 +1,32 @@
+
+
 # Encrypt sensitive customer input in Connect Customer
+<a name="encrypt-data"></a>
 
-You can encrypt sensitive data that is collected by flows. To do this, you need to
-use public-key cryptography.
+You can encrypt sensitive data that is collected by flows. To do this, you need to use public-key cryptography. 
 
-When configuring Connect Customer, you first provide the public key. This is the key
-used when encrypting data. Later, you provide the X.509 certificate, which includes a signature that proves you
-possess the private key.
+When configuring Connect Customer, you first provide the public key. This is the key used when encrypting data. Later, you provide the X.509 certificate, which includes a signature that proves you possess the private key. 
 
-In a flow that collects data, you provide an X.509 certificate to encrypt data
-that's captured using the **Stored customer input** system attribute. You
-must upload the key in `.pem` format to use this feature. The encryption key is
-used to verify the signature of the certificate used within the flow.
+In a flow that collects data, you provide an X.509 certificate to encrypt data that's captured using the **Stored customer input** system attribute. You must upload the key in `.pem` format to use this feature. The encryption key is used to verify the signature of the certificate used within the flow. 
 
-###### Note
-
+**Note**  
 You can have up to two encryption keys active at one time to help rotation.
 
-To decrypt the data in the **Stored customer input** attribute, use the
-AWS Encryption SDK. For more information, see the [AWS Encryption SDK Developer Guide](../../../encryption-sdk/latest/developer-guide.md "../../../encryption-sdk/latest/developer-guide.md").
+To decrypt the data in the **Stored customer input** attribute, use the AWS Encryption SDK. For more information, see the [AWS Encryption SDK Developer Guide](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/).
 
 ## How to decrypt data encrypted by Connect Customer
+<a name="sample-decryption"></a>
 
-The following code sample shows how to decrypt data using the AWS Encryption SDK.
+The following code sample shows how to decrypt data using the AWS Encryption SDK. 
 
 ```
-
 package com.amazonaws;
-
+ 
 import com.amazonaws.encryptionsdk.AwsCrypto;
 import com.amazonaws.encryptionsdk.CryptoResult;
 import com.amazonaws.encryptionsdk.jce.JceMasterKey;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-
+ 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -42,16 +37,16 @@ import java.security.Security;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
-
+ 
 public class AmazonConnectDecryptionSample {
-
+ 
     // The Provider 'AmazonConnect' is used during encryption, this must be used during decryption for key
     // to be found
     private static final String PROVIDER = "AmazonConnect";
-
+ 
     // The wrapping algorithm used during encryption
     private static final String WRAPPING_ALGORITHM = "RSA/ECB/OAEPWithSHA-512AndMGF1Padding";
-
+ 
     /**
      * This sample show how to decrypt data encrypted by Amazon Connect.
      * To use, provide the following command line arguments: [path-to-private-key] [key-id] [cyphertext]
@@ -64,21 +59,21 @@ public class AmazonConnectDecryptionSample {
         String privateKeyFile = args[0]; // path to PEM encoded private key to use for decryption
         String keyId = args[1]; // this is the id used for key in your flow
         String cypherText = args[2]; // the result from flow
-
+ 
         Security.addProvider(new BouncyCastleProvider());
-
+ 
         // read the private key from file
         String privateKeyPem = new String(Files.readAllBytes(Paths.get(privateKeyFile)), Charset.forName("UTF-8"));
         RSAPrivateKey privateKey =  getPrivateKey(privateKeyPem);
-
+ 
         AwsCrypto awsCrypto = new AwsCrypto();
         JceMasterKey decMasterKey =
                 JceMasterKey.getInstance(null,privateKey, PROVIDER, keyId, WRAPPING_ALGORITHM);
         CryptoResult<String, JceMasterKey> result = awsCrypto.decryptString(decMasterKey, cypherText);
-
+ 
         System.out.println("Decrypted: " + result.getResult());
     }
-
+ 
     public static RSAPrivateKey getPrivateKey(String privateKeyPem) throws IOException, GeneralSecurityException {
         String privateKeyBase64 = privateKeyPem
                 .replace("-----BEGIN RSA PRIVATE KEY-----\n", "")
@@ -91,6 +86,4 @@ public class AmazonConnectDecryptionSample {
         return privKey;
     }
 }
-
-
 ```

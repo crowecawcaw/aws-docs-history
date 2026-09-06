@@ -1,29 +1,22 @@
-# Example conversational analytics output files for an email analyzed by conversational analytics
 
-This section shows an example schema for an email contact that has been
-analyzed by conversational analytics. The example shows
-matched categories and a contact chain summary.
+
+# Example conversational analytics output files for an email analyzed by conversational analytics
+<a name="contact-lens-example-output-files-email"></a>
+
+This section shows an example schema for an email contact that has been analyzed by conversational analytics. The example shows matched categories and a contact chain summary.
 
 Note the following about email analytics output files:
-
-- The `Channel` field is set to `EMAIL`.
-- The `Version` field uses the `EMAIL` prefix
-  (for example, `EMAIL-2026-01-01`).
-- Email output files do not include sentiment scores, sentiment shift,
-  loudness, or non-talk time data.
-- The `Categories` section includes an
-  `EventSource` field set to
-  `OnEmailAnalysisAvailable`.
-- Contact summaries use `ContactChainSummary` instead of
-  `PostContactSummary`, because email analytics summarizes
-  the full email thread (contact chain).
-- The `CustomerMetadata.InputFiles` section references the
-  email message and plain text files stored in Amazon S3.
++ The `Channel` field is set to `EMAIL`.
++ The `Version` field uses the `EMAIL` prefix (for example, `EMAIL-2026-01-01`).
++ Email output files do not include sentiment scores, sentiment shift, loudness, or non-talk time data.
++ The `Categories` section includes an `EventSource` field set to `OnEmailAnalysisAvailable`.
++ Contact summaries use `ContactChainSummary` instead of `PostContactSummary`, because email analytics summarizes the full email thread (contact chain).
++ The `CustomerMetadata.InputFiles` section references the email message and plain text files stored in Amazon S3.
 
 ## Example email analytics output file
+<a name="email-exampleoriginalfile"></a>
 
-The following example shows the output for an email contact with
-categorization, redaction, and contact chain summary enabled.
+The following example shows the output for an email contact with categorization, redaction, and contact chain summary enabled.
 
 ```
 {

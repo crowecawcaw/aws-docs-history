@@ -1,22 +1,20 @@
+
+
 # View an evaluation form audit trail in Connect Customer
+<a name="evaluationform-audit-trail"></a>
 
-1. Select the evaluation form that you want to research.
+1. Select the evaluation form that you want to research.  
+![The evaluation forms page, a box to the left of an evaluation form.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-select.png)
 
-![The evaluation forms page, a box to the left of an evaluation form.](images/evaluationforms-select.png) 2. At the bottom of the page, under **Example Evaluation**, use
-the dropdown menu to view previous versions, who accessed them, and when. The
-following image shows an example audit trail.
+1. At the bottom of the page, under **Example Evaluation**, use the dropdown menu to view previous versions, who accessed them, and when. The following image shows an example audit trail.   
+![An example audit trail for an evaluation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-version.png)
 
-![An example audit trail for an evaluation.](images/evaluationforms-version.png) 3. Optionally, choose one of the forms to open it.
+1. Optionally, choose one of the forms to open it.
 
 ## What do Active, Draft, and Locked mean?
+<a name="evaluationform-active-draft-locked"></a>
 
 A form is in one of the following states:
-
-- **Active**. A published version of the form that is
-  available to evaluators.
-- **Draft**. An inactive, locked version of the form. A
-  draft is unlocked only when you are working on it.
-- **Locked**. An evaluation form is locked when you
-  activate or publish it. Even after you deactivate the form, it stays locked,
-  and becomes a historical version of the form. However, you can activate the
-  historical version to save it as a new version.
++ **Active**. A published version of the form that is available to evaluators.
++ **Draft**. An inactive, locked version of the form. A draft is unlocked only when you are working on it.
++ **Locked**. An evaluation form is locked when you activate or publish it. Even after you deactivate the form, it stays locked, and becomes a historical version of the form. However, you can activate the historical version to save it as a new version. 

@@ -1,120 +1,125 @@
-# Flow block in Connect Customer: Return (from module)
 
-This topic defines the flow block for resuming a task contact from a paused
-state.
+
+# Flow block in Connect Customer: Return (from module)
+<a name="return-module"></a>
+
+This topic defines the flow block for resuming a task contact from a paused state.
 
 ## Description
-
-- Use the **Return** block to mark the terminal action or
-  terminal step of a [flow module](contact-flow-modules.md "contact-flow-modules.md").
-- Use this block to exit the flow module after it has run successfully. Then
-  continue running the flow in which the module is referenced.
+<a name="return-module-description"></a>
++ Use the **Return** block to mark the terminal action or terminal step of a [flow module](contact-flow-modules.md). 
++ Use this block to exit the flow module after it has run successfully. Then continue running the flow in which the module is referenced.
 
 ## Supported types of flows
+<a name="return-module-types"></a>
 
-This block is only available in [flow
-modules](contact-flow-modules.md "contact-flow-modules.md"). It is not available in any other type of flow.
+This block is only available in [flow modules](contact-flow-modules.md). It is not available in any other type of flow.
 
-| Flow type                               | Supported? |
-| --------------------------------------- | ---------- |
-| Inbound Flow (contactFlow)              | No         |
-| Customer Queue Flow (customerQueue)     | No         |
-| Customer Hold Flow (customerHold)       | No         |
-| Customer Whisper Flow (customerWhisper) | No         |
-| Outbound Whisper Flow (outboundWhisper) | No         |
-| Agent Hold Flow (agentHold)             | No         |
-| Agent Whisper Flow (agentWhisper)       | No         |
-| Transfer To Agent Flow (agentTransfer)  | No         |
-| Transfer To Queue Flow (queueTransfer)  | No         |
+
+| Flow type | Supported? | 
+| --- | --- | 
+| Inbound Flow (contactFlow) | No | 
+| Customer Queue Flow (customerQueue) | No | 
+| Customer Hold Flow (customerHold) | No | 
+| Customer Whisper Flow (customerWhisper) | No | 
+| Outbound Whisper Flow (outboundWhisper)  | No | 
+| Agent Hold Flow (agentHold) | No | 
+| Agent Whisper Flow (agentWhisper) | No | 
+| Transfer To Agent Flow (agentTransfer) | No | 
+| Transfer To Queue Flow (queueTransfer) | No | 
 
 ## Supported types of contacts
+<a name="return-module-channels"></a>
 
-The following table lists how this block routes a contact who is using the
-specified channel.
+The following table lists how this block routes a contact who is using the specified channel. 
 
-| Contact type | Supported? |
-| ------------ | ---------- |
-| Voice        | Yes        |
-| Chat         | Yes        |
-| Task         | Yes        |
-| Email        | Yes        |
+
+| Contact type | Supported? | 
+| --- | --- | 
+| Voice | Yes | 
+| Chat | Yes | 
+| Task | Yes | 
+| Email | Yes | 
 
 ## Flow block configuration
+<a name="return-configuration"></a>
 
-###### To use a Return block
+**To use a Return block**
 
-1. In the Connect Customer admin website choose **Routing**,
-   **Flows**.
-2. On the **Flows** page, choose the
-   **Modules** tab, as shown in the following
-   image:
+1. In the Connect Customer admin website choose **Routing**, **Flows**.
 
-![The Flows page, the Modules tab.](images/return-block-flow-module.png) 3. Choose **Create flow module** or choose the module you
-want to edit. 4. Select the **Return** block from the block dock and drag
-it onto the flow canvas.
+1. On the **Flows** page, choose the **Modules** tab, as shown in the following image:  
+![The Flows page, the Modules tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-flow-module.png)
+
+1. Choose **Create flow module** or choose the module you want to edit.
+
+1. Select the **Return** block from the block dock and drag it onto the flow canvas.
 
 ### Return block in the Connect Customer admin website (for Tag action)
+<a name="return-userinterface"></a>
 
-The following image shows what a **Return** block looks like
-on the flow editor canvas.
+The following image shows what a **Return** block looks like on the flow editor canvas.
 
-![The properties page of the resume contact block.](images/return-block-configured.png)
+![The properties page of the resume contact block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-configured.png)
+
 
 ### Return block in the Flow language
+<a name="return-flowlanguage"></a>
 
-The **Return** flow block in the flow editor is stored as an
-`EndFlowModuleExecution` flow action in the Connect Customer Flow
-Language.
+The **Return** flow block in the flow editor is stored as an `EndFlowModuleExecution` flow action in the Connect Customer Flow Language.
 
-For more information, see EndFlowModuleExecution in the _Connect Customer API
-Reference_.
+For more information, see EndFlowModuleExecution in the *Connect Customer API Reference*.
 
 ### How to configure Return block properties
+<a name="return-properties"></a>
 
-The following image shows the **Properties** pane of the
-**Return** block.
+The following image shows the **Properties** pane of the **Return** block.
 
-![The properties pane of the Return block.](images/return-block-properties.png)
+![The properties pane of the Return block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-properties.png)
 
-1. You don't need to configure this block because it is a terminal block
-   for a flow module.
-2. Choose **Save** and publish when you are
-   ready!
 
-The following code shows how this same configuration is represented as an
-EndFlowModuleExecution action in the Connect Customer Flow Language.
+1. You don't need to configure this block because it is a terminal block for a flow module.
+
+1. Choose **Save** and publish when you are ready\!
+
+The following code shows how this same configuration is represented as an EndFlowModuleExecution action in the Connect Customer Flow Language.
 
 ```
 {
       "Parameters": {},
-      "Identifier": "`the identifier of the Return block`",
+      "Identifier": "{{the identifier of the Return block}}",
       "Type": "EndFlowModuleExecution",
       "Transitions": {}
     },
 ```
 
 #### Explanation of flow block outcomes
+<a name="return-outtcomes"></a>
 
 None. No conditions are supported.
 
 ## Data generated by the block
+<a name="return-datagenerated"></a>
 
 No data is generated by this block.
 
 ### How to use this data in different parts of a flow
+<a name="return-datagenerated"></a>
 
 No data is generated by this block that can be used in the flow.
 
 ### Fragmented action representation, if any
+<a name="return-fragmented"></a>
 
 This block does not support fragmented action.
 
 ## Known error scenarios
+<a name="return-errorscenarios"></a>
 
-Because this is a terminal block there are no error scenarios that the flow might
-encounter when this block is run.
+Because this is a terminal block there are no error scenarios that the flow might encounter when this block is run.
 
 ## What this block looks like in a flow log
+<a name="return-flowlogs"></a>
 
 ```
 {

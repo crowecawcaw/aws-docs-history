@@ -1,1231 +1,776 @@
+
+
 # Connect Customer contact events
+<a name="contact-events"></a>
 
-With Connect Customer, you can subscribe to a near real-time stream of contact (voice calls, chat,
-task, and email) events (for example, call is queued) in your Connect Customer contact center.
+With Connect Customer, you can subscribe to a near real-time stream of contact (voice calls, chat, task, and email) events (for example, call is queued) in your Connect Customer contact center.
 
-You can use contact events to create analytics dashboards to monitor and track contact
-activity, integrate into workforce management (WFM) solutions to better understand contact
-center performance, or to integrate applications that react to events (for example, call
-disconnected) in real-time.
+You can use contact events to create analytics dashboards to monitor and track contact activity, integrate into workforce management (WFM) solutions to better understand contact center performance, or to integrate applications that react to events (for example, call disconnected) in real-time.
 
-###### Note
+**Note**  
+As we add new features and event types, we update the contact events data model with new fields. All data model changes maintain backward compatibility.  
+When developing applications, design them to handle new fields and event types gracefully. Your applications should:  
+Ignore newly added fields they weren't designed to process.
+Continue functioning when new event types are introduced.
+This approach helps ensure your applications remain stable as the service evolves.
 
-As we add new features and event types, we update the contact events data model with
-new fields. All data model changes maintain backward compatibility.
-
-When developing applications, design them to handle new fields and event types
-gracefully. Your applications should:
-
-- Ignore newly added fields they weren't designed to process.
-- Continue functioning when new event types are introduced.
-  This approach helps ensure your applications remain stable as the service
-  evolves.
-
-###### Contents
-
-- [Contact events data model](#contact-events-data-model "#contact-events-data-model")
-- [Contact timestamps](#contact-timestamps "#contact-timestamps")
-- [Subscribe to Connect Customer contact events](#subscribe-contact-events "#subscribe-contact-events")
-- [Sample to stop streaming an event type](#stop-streaming-event "#stop-streaming-event")
-- [Sample contact event for when a voice call is connected to an agent](#sample-contact-event "#sample-contact-event")
-- [Sample contact event for a cross-region routed contact](#sample-contact-event-cross-region "#sample-contact-event-cross-region")
-- [Sample contact event for when a voice call is disconnected](#sample-contact-event-call-disconnected "#sample-contact-event-call-disconnected")
-- [Sample event for when contact properties are updated](#sample-updated-event "#sample-updated-event")
-- [Sample contact event for when a voice call is connected to an agent using routing criteria](#sample-routing-criteria-event-connected "#sample-routing-criteria-event-connected")
-- [Sample event for when routing step expires on a contact](#sample-routing-step-expires "#sample-routing-step-expires")
-- [Sample contact event for when a voice call is connected to an agent provided by the customer using routing criteria](#sample-contact-event-voice-call-routing-criteria "#sample-contact-event-voice-call-routing-criteria")
+**Topics**
++ [Contact events data model](#contact-events-data-model)
++ [Contact timestamps](#contact-timestamps)
++ [Subscribe to Connect Customer contact events](#subscribe-contact-events)
++ [Sample to stop streaming an event type](#stop-streaming-event)
++ [Sample contact event for when a voice call is connected to an agent](#sample-contact-event)
++ [Sample contact event for a cross-region routed contact](#sample-contact-event-cross-region)
++ [Sample contact event for when a voice call is disconnected](#sample-contact-event-call-disconnected)
++ [Sample event for when contact properties are updated](#sample-updated-event)
++ [Sample contact event for when a voice call is connected to an agent using routing criteria](#sample-routing-criteria-event-connected)
++ [Sample event for when routing step expires on a contact](#sample-routing-step-expires)
++ [Sample contact event for when a voice call is connected to an agent provided by the customer using routing criteria](#sample-contact-event-voice-call-routing-criteria)
 
 ## Contact events data model
+<a name="contact-events-data-model"></a>
 
-Contact events are generated in JSON. For each event type, a JSON blob is sent to the
-target of your choice, as configured in the rule. The following contact events are
-available:
+Contact events are generated in JSON. For each event type, a JSON blob is sent to the target of your choice, as configured in the rule. The following contact events are available: 
++ AMD\_DISABLED - Answering machine detection is disabled.
++ INITIATED - A voice call, chat, task, or email is initiated or transferred. 
++ CONNECTED\_TO\_SYSTEM - The contact has established media (for example, it was answered by a person or by voicemail). This event is generated for any of the [AnsweringMachineDetectionStatus](#AnsweringMachineDetectionStatus) codes.
+**Note**  
+This event is generated for outbound calls (including [Connect Customer outbound campaigns](how-to-create-campaigns.md)) tasks, and chats.
++ CONTACT\_DATA\_UPDATED - One or more of the following contact properties were updated on a voice call, chat, task, or email: scheduled timestamp (task only), accepted by agent timestamp (outbound campaign voice contact in preview dialing mode only), user-defined attributes and tags, routing criteria is updated or step is expired, and if conversational analytics is enabled for a given contact.
++ QUEUED - A voice call, chat, task, or email is queued to be assigned to an agent.
++ CONNECTED\_TO\_AGENT - A voice call, chat, task, or email is connected to an agent.
++ COMPLETED - The COMPLETED event indicates when a contact has fully ended, including After Contact Work (ACW) if applicable.
+  + For contacts with ACW:
 
-- AMD\_DISABLED - Answering machine detection is disabled.
-- INITIATED - A voice call, chat, task, or email is initiated or transferred.
-- CONNECTED\_TO\_SYSTEM - The contact has established media (for example, it was
-  answered by a person or by voicemail). This event is generated for any of the
-  [AnsweringMachineDetectionStatus](#AnsweringMachineDetectionStatus "#AnsweringMachineDetectionStatus")
-  codes.
+    When an agent completes ACW for a voice call, chat, task, or email, the following fields are populated:
+    + AgentInfo.afterContactWorkStartTimestamp
+    + agentInfo.afterContactWorkEndTimestamp
+    + agentInfo.afterContactWorkDuration
+  + For contacts without ACW:
 
-###### Note
+    These fields are not populated when:
+    + No agent was present on the contact.
+    + The agent did not enter ACW.
 
-This event is generated for outbound calls (including [Connect Customer outbound campaigns](how-to-create-campaigns.md "how-to-create-campaigns.md"))
-tasks, and chats.
+    In these cases, the COMPLETED event is published immediately after the DISCONNECT event with the same data.
+**Note**  
+For chat contacts, if an agent switches their status to offline without properly clearing the contact in Contact Control Panel (CCP), the following issues might occur:  
+The COMPLETED event might not be delivered.
+The AfterContactWorkEndTimestamp might show discrepancies.
++ DISCONNECTED - A voice call, chat, task, or email is disconnected. For outbound calls, the dial attempt is not successful, the attempt is connected but the call is not picked up, or the attempt results in a [SIT tone](https://en.wikipedia.org/wiki/Special_information_tone). 
 
-- CONTACT\_DATA\_UPDATED - One or more of the following contact properties were
-  updated on a voice call, chat, task, or email: scheduled timestamp (task only),
-  accepted by agent timestamp (outbound campaign voice contact in preview dialing
-  mode only), user-defined attributes and tags, routing criteria is updated or
-  step is expired, and if conversational analytics is enabled for a given
-  contact.
-- QUEUED - A voice call, chat, task, or email is queued to be assigned to an
-  agent.
-- CONNECTED\_TO\_AGENT - A voice call, chat, task, or email is connected to an
-  agent.
-- COMPLETED - The COMPLETED event indicates when a contact has fully ended,
-  including After Contact Work (ACW) if applicable.
+  A disconnect event is when:
+  + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
+  + A chat, or task is disconnected.
+  + A task is disconnected as a result of a flow action.
+  + A task expires. The task is automatically disconnected when it completes its expiry timer. The default is 7 days and task expiry is configurable up to 90 days. 
++ PAUSED - An active task contact was paused.
++ RESUMED - A paused task contact was resumed.
++ WEBRTC\_API - The contact used the communication widget to make an in-app voice/video call to an agent.
 
-  - For contacts with ACW:
-
-  When an agent completes ACW for a voice call, chat, task, or email, the
-  following fields are populated:
-
-        - AgentInfo.afterContactWorkStartTimestamp
-        - agentInfo.afterContactWorkEndTimestamp
-        - agentInfo.afterContactWorkDuration
-  - For contacts without ACW:
-
-  These fields are not populated when:
-
-        - No agent was present on the contact.
-        - The agent did not enter ACW.
-
-  In these cases, the COMPLETED event is published immediately after the
-  DISCONNECT event with the same data.
-
-###### Note
-
-For chat contacts, if an agent switches their status to offline without
-properly clearing the contact in Contact Control Panel (CCP), the following
-issues might occur:
-
-    + The COMPLETED event might not be delivered.
-    + The AfterContactWorkEndTimestamp might show discrepancies.
-
-- DISCONNECTED - A voice call, chat, task, or email is disconnected. For outbound
-  calls, the dial attempt is not successful, the attempt is connected but the call
-  is not picked up, or the attempt results in a [SIT
-  tone](https://en.wikipedia.org/wiki/Special_information_tone "https://en.wikipedia.org/wiki/Special_information_tone").
-
-A disconnect event is when:
-
-    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
-    + A chat, or task is disconnected.
-    + A task is disconnected as a result of a flow action.
-    + A task expires. The task is automatically disconnected when it completes its expiry timer.
-     The default is 7 days and task expiry is configurable up to 90 days.
-
-- PAUSED - An active task contact was paused.
-- RESUMED - A paused task contact was resumed.
-- WEBRTC\_API - The contact used the communication widget to make an in-app
-  voice/video call to an agent.
-
-###### Event objects
-
-- [AgentInfo](#AgentInfo "#AgentInfo")
-- [AttributeCondition](#AttributeCondition "#AttributeCondition")
-- [Campaign](#Campaign-ces "#Campaign-ces")
-- [Contact event](#ContactEvent "#ContactEvent")
-- [CustomerVoiceActivity](#CustomerVoiceActivity "#CustomerVoiceActivity")
-- [Expiry](#Expiry "#Expiry")
-- [Expression](#Expression "#Expression")
-- [GlobalResiliencyMetadata](#GlobalResiliencyMetadata "#GlobalResiliencyMetadata")
-- [QueueInfo](#QueueInfo "#QueueInfo")
-- [RoutingCriteria](#RoutingCriteria "#RoutingCriteria")
-- [Steps](#Steps "#Steps")
-- [SystemEndpoint](#SystemEndpoint "#SystemEndpoint")
-- [Endpoint](#Endpoint "#Endpoint")
-- [Recordings](#Recordings "#Recordings")
-- [RecordingsInfo](#RecordingsInfo "#RecordingsInfo")
-- [ContactDetails](#ContactDetails "#ContactDetails")
-- [ContactEvaluations](#ContactEvaluations "#ContactEvaluations")
-- [ContactEvaluation](#ContactEvaluation "#ContactEvaluation")
-- [StateTransitions](#StateTransitions "#StateTransitions")
-- [StateTransition](#StateTransition "#StateTransition")
-- [OutboundStrategy](#OutboundStrategy "#OutboundStrategy")
+**Topics**
++ [AgentInfo](#AgentInfo)
++ [AttributeCondition](#AttributeCondition)
++ [Campaign](#Campaign-ces)
++ [Contact event](#ContactEvent)
++ [CustomerVoiceActivity](#CustomerVoiceActivity)
++ [Expiry](#Expiry)
++ [Expression](#Expression)
++ [GlobalResiliencyMetadata](#GlobalResiliencyMetadata)
++ [QueueInfo](#QueueInfo)
++ [RoutingCriteria](#RoutingCriteria)
++ [Steps](#Steps)
++ [SystemEndpoint](#SystemEndpoint)
++ [Endpoint](#Endpoint)
++ [Recordings](#Recordings)
++ [RecordingsInfo](#RecordingsInfo)
++ [ContactDetails](#ContactDetails)
++ [ContactEvaluations](#ContactEvaluations)
++ [ContactEvaluation](#ContactEvaluation)
++ [StateTransitions](#StateTransitions)
++ [StateTransition](#StateTransition)
++ [OutboundStrategy](#OutboundStrategy)
 
 ### AgentInfo
+<a name="AgentInfo"></a>
 
 The `AgentInfo` object includes the following properties:
 
-**AgentArn**
-
-The Amazon Resource Name (ARN) for the agent account.
-
+**AgentArn**  
+The Amazon Resource Name (ARN) for the agent account.  
 Type: ARN
 
-**AgentInitiatedHoldDuration**
-
-The total hold duration in seconds initiated by the agent.
-
+**AgentInitiatedHoldDuration**  
+The total hold duration in seconds initiated by the agent.  
 Type: Integer
 
-**AfterContactWorkStartTimestamp**
-
-The date and time when the agent started doing After Contact Work for
-the contact, in UTC time.
-
+**AfterContactWorkStartTimestamp**  
+The date and time when the agent started doing After Contact Work for the contact, in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**AfterContactWorkEndTimestamp**
-
-The date and time when the agent ended After Contact Work for the
-contact, in UTC time. In cases when agent finishes doing
-AfterContactWork for chat contacts and switches their activity status to
-offline or equivalent without clearing the contact in CCP, discrepancies
-might be noticed for `AfterContactWorkEndTimestamp`.
-
+**AfterContactWorkEndTimestamp**  
+The date and time when the agent ended After Contact Work for the contact, in UTC time. In cases when agent finishes doing AfterContactWork for chat contacts and switches their activity status to offline or equivalent without clearing the contact in CCP, discrepancies might be noticed for `AfterContactWorkEndTimestamp`.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**AfterContactWorkDuration**
-
-The difference in time, in whole seconds, between
-`AfterContactWorkStartTimestamp` and
-`AfterContactWorkEndTimestamp`.
-
+**AfterContactWorkDuration**  
+The difference in time, in whole seconds, between `AfterContactWorkStartTimestamp` and `AfterContactWorkEndTimestamp`.  
 Type: Integer
 
-**AcceptedByAgentTimestamp**
-
-The date and time the outbound campaigns voice contact in preview
-dialing mode was accepted by the agent, in UTC time.
-
+**AcceptedByAgentTimestamp**  
+The date and time the outbound campaigns voice contact in preview dialing mode was accepted by the agent, in UTC time.  
 Type: String (yyyy-mm-ddThh:mm:ssZ)
 
-**PreviewEndTimestamp**
-
-The date and time the agent finished previewing outbound campaigns
-voice contact in preview dialing mode, in UTC time.
-
+**PreviewEndTimestamp**  
+The date and time the agent finished previewing outbound campaigns voice contact in preview dialing mode, in UTC time.  
 Type: String (yyyy-mm-ddThh:mm:ssZ)
 
-**HierarchyGroups**
-
-The agent hierarchy group for the agent.
-
+**HierarchyGroups**  
+The agent hierarchy group for the agent.  
 Type: ARN
 
-**ActiveRegion**
-
-The AWS Region where the agent handled the
-contact.
-
-###### Note
-
-For Connect Customer Global Resiliency enabled instances, this value may
-differ from the Region in the `agentArn`, as the agent
-ARN reflects the Region of the event stream, not necessarily the
-Region where the agent was operating. When unified routing is enabled
-for Connect Customer Global Resiliency, Contact Event Stream events are
-replicated and published from both linked Regions.
-
+**ActiveRegion**  
+The AWS Region where the agent handled the contact.  
+For Connect Customer Global Resiliency enabled instances, this value may differ from the Region in the `agentArn`, as the agent ARN reflects the Region of the event stream, not necessarily the Region where the agent was operating. When unified routing is enabled for Connect Customer Global Resiliency, Contact Event Stream events are replicated and published from both linked Regions.
 Type: String
 
 ### AttributeCondition
+<a name="AttributeCondition"></a>
 
 An object to specify the predefined attribute condition.
 
-**Name**
-
-The name of predefined attribute.
-
-Type: String
-
+**Name**  
+The name of predefined attribute.  
+Type: String  
 Length: 1-64
 
-**Value**
-
-The value of predefined attribute.
-
-Type: String
-
+**Value**  
+The value of predefined attribute.  
+Type: String  
 Length: 1-64
 
-**ComparisonOperator**
-
-The comparison operator of the condition.
-
-Type: String
-
+**ComparisonOperator**  
+The comparison operator of the condition.  
+Type: String  
 Valid values: NumberGreaterOrEqualTo, Match, Range
 
-**ProficiencyLevel**
-
-The proficiency level of the condition.
-
-Type: Float
-
+**ProficiencyLevel**  
+The proficiency level of the condition.  
+Type: Float  
 Valid values: 1.0, 2.0, 3.0, 4.0 and 5.0
 
-**Range**
-
-An Object to define the minimum and maximum proficiency levels.
-
+**Range**  
+An Object to define the minimum and maximum proficiency levels.  
 Type: Range object
 
-**MatchCriteria**
-
-An object to define AgentsCriteria.
-
+**MatchCriteria**  
+An object to define AgentsCriteria.  
 Type: MatchCriteria object
 
-**AgentsCriteria**
-
-An Object to define agentIds.
-
+**AgentsCriteria**  
+An Object to define agentIds.  
 Type: AgentsCriteria object
 
-**AgentIds**
-
-An object to specify a list of agents, by Agent ID.
-
-Type: Array of strings
-
+**AgentIds**  
+An object to specify a list of agents, by Agent ID.  
+Type: Array of strings  
 Length Constraints: Maximum length of 256
 
 ### Campaign
+<a name="Campaign-ces"></a>
 
 Information associated with a campaign.
 
-Type: [Campaign](../APIReference/API_Campaign.md "../APIReference/API_Campaign.md")
-object
+Type: [Campaign](https://docs.aws.amazon.com/connect/latest/APIReference/API_Campaign.html) object
 
 ### Contact event
+<a name="ContactEvent"></a>
 
 The `Contact` object includes the following properties:
 
-**ContactId**
-
-The identifier for the contact.
-
-Type: String
-
+**ContactId**  
+The identifier for the contact.  
+Type: String  
 Length: 1-256
 
-**InitialContactId**
-
-The identifier of the initial contact.
-
-Type: String
-
+**InitialContactId**  
+The identifier of the initial contact.  
+Type: String  
 Length: 1-256
 
-**RelatedContactId**
-
-The contactId that is [related](../../../connect-participant/latest/APIReference/API_Item.md "../../../connect-participant/latest/APIReference/API_Item.md") to this contact.
-
-Type: String
-
+**RelatedContactId**  
+The contactId that is [related](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_Item.html) to this contact.  
+Type: String  
 Length: Minimum of 1. Maximum of 256.
 
-**PreviousContactId**
-
-The original identifier of the contact that was transferred.
-
-Type: String
-
+**PreviousContactId**  
+The original identifier of the contact that was transferred.  
+Type: String  
 Length: 1-256
 
-**Channel**
+**Channel**  
+The type of channel.  
+Type: `VOICE`, `CHAT`, `TASK`, or `EMAIL`
 
-The type of channel.
-
-Type: `VOICE`, `CHAT`, `TASK`, or
-`EMAIL`
-
-**InstanceArn**
-
-Amazon Resource Name (ARN) for the Connect Customer instance in which the agent's
-user account is created.
-
+**InstanceArn**  
+Amazon Resource Name (ARN) for the Connect Customer instance in which the agent's user account is created.  
 Type: ARN
 
-**InitiationMethod**
+**InitiationMethod**  
+Indicates how the contact was initiated.  
+Valid values:  
++ INBOUND: The customer initiated voice (phone) or email contact with your contact center.
++ OUTBOUND: Represents an agent-initiated outbound voice call or email from the Contact Control Panel (CCP). 
++ TRANSFER: The contact was transferred by an agent to another agent or to a queue, using quick connects in the CCP. This results in a new contact record being created.
++ CALLBACK: The customer was contacted as part of a callback flow. For more information about the InitiationMethod in this scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md). 
++ API: The contact was initiated with Connect Customer by API. This could be an outbound contact you created and queued to an agent, using the [StartOutboundVoiceContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundVoiceContact.html) API, or it could be a live chat that was initiated by the customer with your contact center, where you called the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API, or it could be a tasks initiated by the customer by calling the [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html) API, or it could be an email initiated by the customer by calling the [StartEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html) API. 
++ QUEUE\_TRANSFER: While the contact is one queue, and was then transferred into another queue using a flow block.
++ EXTERNAL\_OUTBOUND: An agent initiated voice (phone) contact with an external participant to your contact center using either quick connect in the CCP or a flow block. 
++ MONITOR: A supervisor initiated monitor on an agent. The supervisor can silently monitor the agent and customer, or barge the conversation.
++ DISCONNECT: When a [Set disconnect flow](set-disconnect-flow.md) block is triggered, it specifies which flow to run after a disconnect event. 
 
-Indicates how the contact was initiated.
+  A disconnect event is when:
+  + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
+  + A chat, or task is disconnected.
+  + A task is disconnected as a result of a flow action.
+  + A task expires. The task is automatically disconnected when it completes its expiry timer. The default is 7 days and task expiry is configurable up to 90 days. 
 
-Valid values:
+  When the disconnect event occurs, the corresponding content flow runs. If a new contact is created while running a disconnect flow, then the initiation method for that new contact is DISCONNECT.
++ AGENT\_REPLY: Represents an agent reply email contact corresponding to the inbound email contact accepted by an agent.
++ FLOW: Represents an automated (flow-initiated) email contact.
++ CAMPAIGN\_PREVIEW: The contact was initiated by an outbound campaign using preview dialing mode. The agent previews customer information before the call is placed.
 
-- INBOUND: The customer initiated voice (phone) or email contact with
-  your contact center.
-- OUTBOUND: Represents an agent-initiated outbound voice call
-  or email from the Contact Control Panel (CCP).
-- TRANSFER: The contact was transferred by an agent to another
-  agent or to a queue, using quick connects in the CCP. This
-  results in a new contact record being created.
-- CALLBACK: The customer was contacted as part of a callback
-  flow. For more information about the InitiationMethod in this
-  scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
-- API: The contact was initiated with Connect Customer by API. This could
-  be an outbound contact you created and queued to an agent, using
-  the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
-  live chat that was initiated by the customer with your contact
-  center, where you called the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, or it could be a tasks
-  initiated by the customer by calling the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API, or it could be an email
-  initiated by the customer by calling the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API.
-- QUEUE\_TRANSFER: While the contact is one queue, and was then
-  transferred into another queue using a flow block.
-- EXTERNAL\_OUTBOUND: An agent initiated voice (phone) contact
-  with an external participant to your contact center using either
-  quick connect in the CCP or a flow block.
-- MONITOR: A supervisor initiated monitor on an agent. The
-  supervisor can silently monitor the agent and customer, or barge
-  the conversation.
-- DISCONNECT: When a [Set disconnect flow](set-disconnect-flow.md "set-disconnect-flow.md") block is
-  triggered, it specifies which flow to run after a disconnect
-  event.
+**DisconnectReason code**  
+Indicates how the contact was terminated. This is available for the contacts of outbound campaigns in which the media connection failed.  
+Valid values:  
++ OUTBOUND\_DESTINATION\_ENDPOINT\_ERROR: Current configurations do not allow this destination to be dialed (for example, calling an endpoint destination from an ineligible instance).
++ OUTBOUND\_RESOURCE\_ERROR: Instance has insufficient permissions to make outbound calls or necessary resources were not found.
++ OUTBOUND\_ATTEMPT\_FAILED: There was an unknown error, invalid parameter, or insufficient permissions to call the API.
++ OUTBUND\_PREVIEW\_DISCARDED: No contact made; recipient removed from list; no further attempts will be made.
++ EXPIRED: Not enough agents available, or not enough telecom capacity for such calls. 
++ DISCARDED: Represents that an agent discarded an email contact.
 
-A disconnect event is when:
+**AnsweringMachineDetectionStatus**  
+Indicates how an [outbound campaign](how-to-create-campaigns.md) call is actually disposed if the contact is connected to Connect Customer.  
+Type: String  
+Valid values:  
++ `HUMAN_ANSWERED`: The number dialed was answered by a person.
++ `VOICEMAIL_BEEP`: The number dialed was answered by voicemail with a beep.
++ `VOICEMAIL_NO_BEEP`: The number dialed was answered by a voicemail with no beep.
++ `AMD_UNANSWERED`: The number dialed kept ringing, but the call was not picked up.
++ `AMD_UNRESOLVED`: The number dialed was connected but the answering machine detection could not determine whether the call was picked up by a person or voicemail.
++ `AMD_UNRESOLVED_SILENCE`: The number dialed was connected but the answering machine detection observed silence.
++ `AMD_NOT_APPLICABLE`: The call disconnected before ringing, and there was no media to detect.
++ `SIT_TONE_BUSY`: The number dialed was busy.
++ `SIT_TONE_INVALID_NUMBER`: The number dialed was not a valid number.
++ `SIT_TONE_DETECTED`: A special information tone (SIT) was detected.
++ `FAX_MACHINE_DETECTED`: A fax machine was detected.
++ `AMD_ERROR`: The number dialed was connected, but there was an error in answering machine detection.
 
-    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
-    + A chat, or task is disconnected.
-    + A task is disconnected as a result of a flow action.
-    + A task expires. The task is automatically disconnected when it completes its expiry timer.
-     The default is 7 days and task expiry is configurable up to 90 days.
+**EventType**  
+The type of event published.  
+Type: String  
+Valid values: INITIATED, CONNECTED\_TO\_SYSTEM, CONTACT\_DATA\_UPDATED, QUEUED, CONNECTED\_TO\_AGENT, DISCONNECTED, PAUSED, RESUMED, COMPLETED
 
-When the disconnect event occurs, the corresponding content
-flow runs. If a new contact is created while running a
-disconnect flow, then the initiation method for that new contact
-is DISCONNECT.
+**UpdatedProperties**  
+The type of property updated.  
+Type: String  
+Valid values: ScheduledTimestamp, UserDefinedAttributes, ContactLens.ConversationalAnalytics.Configuration, Segment Attributes, Tags, GlobalResiliencyMetadata
 
-- AGENT\_REPLY: Represents an agent reply email contact
-  corresponding to the inbound email contact accepted by an
-  agent.
-- FLOW: Represents an automated (flow-initiated) email
-  contact.
-- CAMPAIGN\_PREVIEW: The contact was initiated by an outbound
-  campaign using preview dialing mode. The agent previews customer
-  information before the call is placed.
+**AgentInfo**  
+The agent the contact was assigned to.  
+Type: `AgentInfo` object 
 
-**DisconnectReason code**
+**QueueInfo**  
+The queue the contact was placed in.  
+Type: `QueueInfo` object 
 
-Indicates how the contact was terminated. This is available for the
-contacts of outbound campaigns in which the media connection
-failed.
+**ContactLens**  
+Conversational analytics information if conversational analytics is enabled on the flow.  
+Type: For more information about the `ContactLens` object, see [ContactLens](ctr-data-model.md#ctr-ContactLens). 
 
-Valid values:
+**SegmentAttributes**  
+A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes and can be accessed in flows. Attribute keys can include only alphanumeric, -, and \_ characters.  
+This field can be used to show channel subtype. For example, `connect:Guide` or `connect:SMS`.  
+Type: SegmentAttributes   
+Members: SegmentAttributeName, SegmentAttributeValue
 
-- OUTBOUND\_DESTINATION\_ENDPOINT\_ERROR: Current configurations do
-  not allow this destination to be dialed (for example, calling an
-  endpoint destination from an ineligible instance).
-- OUTBOUND\_RESOURCE\_ERROR: Instance has insufficient permissions
-  to make outbound calls or necessary resources were not
-  found.
-- OUTBOUND\_ATTEMPT\_FAILED: There was an unknown error, invalid
-  parameter, or insufficient permissions to call the API.
-- OUTBUND\_PREVIEW\_DISCARDED: No contact made; recipient removed
-  from list; no further attempts will be made.
-- EXPIRED: Not enough agents available, or not enough telecom
-  capacity for such calls.
-- DISCARDED: Represents that an agent discarded an email
-  contact.
-
-**AnsweringMachineDetectionStatus**
-
-Indicates how an [outbound
-campaign](how-to-create-campaigns.md "how-to-create-campaigns.md") call is actually disposed if the contact is
-connected to Connect Customer.
-
-Type: String
-
-Valid values:
-
-- `HUMAN_ANSWERED`: The number dialed was answered by
-  a person.
-- `VOICEMAIL_BEEP`: The number dialed was answered by
-  voicemail with a beep.
-- `VOICEMAIL_NO_BEEP`: The number dialed was answered
-  by a voicemail with no beep.
-- `AMD_UNANSWERED`: The number dialed kept ringing,
-  but the call was not picked up.
-- `AMD_UNRESOLVED`: The number dialed was connected
-  but the answering machine detection could not determine whether
-  the call was picked up by a person or voicemail.
-- `AMD_UNRESOLVED_SILENCE`: The number dialed was
-  connected but the answering machine detection observed
-  silence.
-- `AMD_NOT_APPLICABLE`: The call disconnected before
-  ringing, and there was no media to detect.
-- `SIT_TONE_BUSY`: The number dialed was busy.
-- `SIT_TONE_INVALID_NUMBER`: The number dialed was
-  not a valid number.
-- `SIT_TONE_DETECTED`: A special information tone
-  (SIT) was detected.
-- `FAX_MACHINE_DETECTED`: A fax machine was
-  detected.
-- `AMD_ERROR`: The number dialed was connected, but
-  there was an error in answering machine detection.
-
-**EventType**
-
-The type of event published.
-
-Type: String
-
-Valid values: INITIATED, CONNECTED\_TO\_SYSTEM, CONTACT\_DATA\_UPDATED,
-QUEUED, CONNECTED\_TO\_AGENT, DISCONNECTED, PAUSED, RESUMED,
-COMPLETED
-
-**UpdatedProperties**
-
-The type of property updated.
-
-Type: String
-
-Valid values: ScheduledTimestamp, UserDefinedAttributes,
-ContactLens.ConversationalAnalytics.Configuration, Segment Attributes,
-Tags, GlobalResiliencyMetadata
-
-**AgentInfo**
-
-The agent the contact was assigned to.
-
-Type: `AgentInfo` object
-
-**QueueInfo**
-
-The queue the contact was placed in.
-
-Type: `QueueInfo` object
-
-**ContactLens**
-
-Conversational analytics information if conversational analytics is enabled on
-the flow.
-
-Type: For more information about the `ContactLens` object,
-see [ContactLens](ctr-data-model.md#ctr-ContactLens "ctr-data-model.md#ctr-ContactLens").
-
-**SegmentAttributes**
-
-A set of system defined key-value pairs stored on individual contact
-segments using an attribute map. The attributes are standard Connect Customer attributes and can be accessed in flows. Attribute keys
-can include only alphanumeric, -, and \_ characters.
-
-This field can be used to show channel subtype. For example,
-`connect:Guide` or `connect:SMS`.
-
-Type: SegmentAttributes
-
-Members: SegmentAttributeName,
-SegmentAttributeValue
-
-**Tags**
-
-[Tags](granular-billing.md "granular-billing.md") associated with the
-contact. This contains both AWS generated and user-defined tags.
-
+**Tags**  
+[Tags](granular-billing.md) associated with the contact. This contains both AWS generated and user-defined tags.   
 Type: String to string map
 
-**CustomerId**
+**CustomerId**  
+The customer's identification number. For example, the CustomerId might be a customer number from your CRM. You can create a Lambda function to pull the unique customer ID of the caller from your CRM system. If you enable Connect Customer Voice ID capability, this attribute is populated with the CustomerSpeakerId of the caller.  
+Type: String 
 
-The customer's identification number. For example, the CustomerId might
-be a customer number from your CRM. You can create a Lambda function to
-pull the unique customer ID of the caller from your CRM system. If you
-enable Connect Customer Voice ID capability, this attribute is populated with the
-CustomerSpeakerId of the caller.
+**ChatMetrics**  
+Information about how agent, bot and customer interact in a chat contact.     
+**ChatContactMetrics**  
+Information about the overall participant interactions at the contact level.  
+Type: [ChatContactMetrics](#chat-contact-metrics) object  
+**CustomerMetrics**  
+Information about customer interactions in a contact.  
+Type: [ParticipantMetrics](#participantmetrics) object  
+**AgentMetrics**  
+Information about agent interactions in a contact.  
+Type: [ParticipantMetrics](#participantmetrics) object
 
-Type: String
-
-**ChatMetrics**
-
-Information about how agent, bot and customer interact in a chat
-contact.
-
-**ChatContactMetrics**
-
-Information about the overall participant interactions at
-the contact level.
-
-Type: [ChatContactMetrics](#chat-contact-metrics "#chat-contact-metrics") object
-
-**CustomerMetrics**
-
-Information about customer interactions in a
-contact.
-
-Type: [ParticipantMetrics](#participantmetrics "#participantmetrics") object
-
-**AgentMetrics**
-
-Information about agent interactions in a contact.
-
-Type: [ParticipantMetrics](#participantmetrics "#participantmetrics") object
-
-**GlobalResiliencyMetadata**
-
-Information about the global resiliency configuration for the contact,
-including traffic distribution details.
-
-Type: [GlobalResiliencyMetadata](#GlobalResiliencyMetadata "#GlobalResiliencyMetadata") object
+**GlobalResiliencyMetadata**  
+Information about the global resiliency configuration for the contact, including traffic distribution details.  
+Type: [GlobalResiliencyMetadata](#GlobalResiliencyMetadata) object
 
 ### CustomerVoiceActivity
+<a name="CustomerVoiceActivity"></a>
 
-The `CustomerVoiceActivity` object includes the following
-properties:
+The `CustomerVoiceActivity` object includes the following properties:
 
-**GreetingStartTimestamp**
-
-The date and time that measures the beginning of the customer greeting
-from an outbound voice call, in UTC time.
-
+**GreetingStartTimestamp**  
+The date and time that measures the beginning of the customer greeting from an outbound voice call, in UTC time.   
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**GreetingEndTimestamp**
-
-The date and time that measures the end of the customer greeting from
-an outbound voice call, in UTC time.
-
+**GreetingEndTimestamp**  
+The date and time that measures the end of the customer greeting from an outbound voice call, in UTC time.   
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
 ### Expiry
+<a name="Expiry"></a>
 
 An object to specify the expiration of a routing step.
 
-**DurationInSeconds**
-
-The number of seconds to wait before expiring the routing step.
-
-Type: Integer
-
+**DurationInSeconds**  
+The number of seconds to wait before expiring the routing step.  
+Type: Integer  
 Min value: 1
 
-**ExpiryTimestamp**
-
-The timestamp indicating when the routing step expires.
-
+**ExpiryTimestamp**  
+The timestamp indicating when the routing step expires.  
 Type: String (yyyy-mm-ddThh:mm:ssZ)
 
 ### Expression
+<a name="Expression"></a>
 
 A tagged union to specify expression for a routing step.
 
-**AndExpression**
-
-List of routing expressions which will be AND-ed together.
-
-Type: Expression
-
+**AndExpression**  
+List of routing expressions which will be AND-ed together.  
+Type: Expression  
 Min value: 0
 
-**OrExpression**
-
-List of routing expressions which will be OR-ed together.
-
+**OrExpression**  
+List of routing expressions which will be OR-ed together.  
 Type: Expression
 
-**AttributeCondition**
-
-An object to specify the predefined attribute condition.
-
+**AttributeCondition**  
+An object to specify the predefined attribute condition.  
 Type: AttributeCondition
 
-**NotAttributeCondition**
-
-An object to specify the predefined attribute condition to exclude
-agents with certain proficiencies.
-
+**NotAttributeCondition**  
+An object to specify the predefined attribute condition to exclude agents with certain proficiencies.  
 Type: AttributeCondition
 
 ### GlobalResiliencyMetadata
+<a name="GlobalResiliencyMetadata"></a>
 
-Information about the global resiliency configuration for the contact, including
-traffic distribution details.
+Information about the global resiliency configuration for the contact, including traffic distribution details.
 
-**ActiveRegion**
-
-The current AWS Region in which the contact is active. This indicates
-where the contact is being processed in real-time.
-
-Type: String
-
+**ActiveRegion**  
+The current AWS Region in which the contact is active. This indicates where the contact is being processed in real-time.  
+Type: String  
 Length Constraints: Minimum length of 0. Maximum length of 1024.
 
-**OriginRegion**
-
-The AWS Region where the contact was originally created and initiated.
-This might differ from the `ActiveRegion` if the contact has
-been transferred across Regions.
-
-Type: String
-
+**OriginRegion**  
+The AWS Region where the contact was originally created and initiated. This might differ from the `ActiveRegion` if the contact has been transferred across Regions.  
+Type: String  
 Length Constraints: Minimum length of 0. Maximum length of 1024.
 
-**TrafficDistributionGroupId**
-
-The identifier of the traffic distribution group.
-
-Type: String
-
+**TrafficDistributionGroupId**  
+The identifier of the traffic distribution group.  
+Type: String  
 Pattern: `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
 
 ### QueueInfo
+<a name="QueueInfo"></a>
 
 The `QueueInfo` object includes the following properties:
 
-**QueueArn**
-
-The Amazon Resource Name (ARN) for the queue.
-
+**QueueArn**  
+The Amazon Resource Name (ARN) for the queue.  
 Type: String
 
-**QueueType**
-
-The type of queue.
-
+**QueueType**  
+The type of queue.  
 Type: String
 
 ### RoutingCriteria
+<a name="RoutingCriteria"></a>
 
-List of routing criteria. Each time the routing criteria is updated on a contact,
-it will be added to this list.
+List of routing criteria. Each time the routing criteria is updated on a contact, it will be added to this list.
 
-**ActivationTimestamp**
-
-The timestamp indicating when the routing criteria is set to active. A
-routing criteria is activated when contact is transferred to a
-queue.
-
-ActivationTimestamp will be set on routing criteria for contacts in
-agent queue even though Routing criteria is never activated for contacts
-in agent queue.
-
+**ActivationTimestamp**  
+The timestamp indicating when the routing criteria is set to active. A routing criteria is activated when contact is transferred to a queue.  
+ActivationTimestamp will be set on routing criteria for contacts in agent queue even though Routing criteria is never activated for contacts in agent queue.  
 Type: String (yyyy-mm-ddThh:mm:ssZ)
 
-**Index**
-
-Information about the index of the routing criteria.
-
-Type: Integer
-
+**Index**  
+Information about the index of the routing criteria.  
+Type: Integer  
 Min value: 0
 
-**Steps**
-
-List of routing steps.
-
-Type: List of Step objects
-
+**Steps**  
+List of routing steps.  
+Type: List of Step objects  
 Length: 1-5
 
 ### Steps
+<a name="Steps"></a>
 
-When Amazon Connect does not find an available agent meeting the requirements in a
-step for a given step duration, the routing criteria will move on to the next step
-sequentially until a join is completed with an agent. When all steps are exhausted,
-the contact will be offered to any agent in the queue.
+When Amazon Connect does not find an available agent meeting the requirements in a step for a given step duration, the routing criteria will move on to the next step sequentially until a join is completed with an agent. When all steps are exhausted, the contact will be offered to any agent in the queue. 
 
-**Status**
+**Status**  
+Represents status of the Routing step.  
+Type: String  
+Valid Values: EXPIRED, ACTIVE, JOINED, INACTIVE, DEACTIVATED, INTERRUPTED
 
-Represents status of the Routing step.
-
-Type: String
-
-Valid Values: EXPIRED, ACTIVE, JOINED, INACTIVE, DEACTIVATED,
-INTERRUPTED
-
-**Expression**
-
-An object to specify the expression of a routing step..
-
+**Expression**  
+An object to specify the expression of a routing step..  
 Type: Expression
 
-**Expiry**
-
-An object to specify the expiration of a routing step.
-
+**Expiry**  
+An object to specify the expiration of a routing step.  
 Type: Expiry
 
 ### SystemEndpoint
+<a name="SystemEndpoint"></a>
 
-The system endpoint. For example, for INBOUND, this is the phone number that the
-customer dialed or the email address where the customer reached out. For OUTBOUND
-and EXTERNAL\_OUTBOUND, this is the outbound caller ID number assigned to the
-outbound queue that is used to dial the customer or the outbound email address
-that is assigned to the outbound queue that is used to reach out to the
-customer.
+The system endpoint. For example, for INBOUND, this is the phone number that the customer dialed or the email address where the customer reached out. For OUTBOUND and EXTERNAL\_OUTBOUND, this is the outbound caller ID number assigned to the outbound queue that is used to dial the customer or the outbound email address that is assigned to the outbound queue that is used to reach out to the customer.
 
-###### Note
+**Note**  
+This field is currently not populated for contacts with initiation method of CALLBACK, MONITOR, QUEUE\_TRANSFER contacts.
 
-This field is currently not populated for contacts with initiation method of
-CALLBACK, MONITOR, QUEUE\_TRANSFER contacts.
-
-**Type**
-
+**Type**  
 Endpoint
 
 ### Endpoint
+<a name="Endpoint"></a>
 
-Information about an endpoint. In Amazon Connect, an endpoint is the destination
-for a contact, such as a customer phone number, or a phone number for your contact
-center.
+Information about an endpoint. In Amazon Connect, an endpoint is the destination for a contact, such as a customer phone number, or a phone number for your contact center.
 
-**Address**
-
-The value for the type of endpoint. For TELEPHONE\_NUMBER, the value is
-a phone number in E.164 format.
-
-Type: String
-
+**Address**  
+The value for the type of endpoint. For TELEPHONE\_NUMBER, the value is a phone number in E.164 format.  
+Type: String  
 Length: 1-256
 
-**Type**
+**Type**  
+The endpoint type. Currently, an endpoint can only be a telephone number.  
+Valid Values: TELEPHONE\_NUMBER \| VOIP \| CONTACT\_FLOW \| CONNECT\_PHONENUMBER\_ARN \| EMAIL\_ADDRESS
 
-The endpoint type. Currently, an endpoint can only be a telephone
-number.
-
-Valid Values: TELEPHONE\_NUMBER | VOIP | CONTACT\_FLOW |
-CONNECT\_PHONENUMBER\_ARN | EMAIL\_ADDRESS
-
-**DisplayName**
-
-Display name of the endpoint.
-
-Type: String
-
+**DisplayName**  
+Display name of the endpoint.  
+Type: String  
 Length: 0-256
 
 ### Recordings
+<a name="Recordings"></a>
 
 If recording was enabled, this is information about the recordings.
 
-**Type**
-
+**Type**  
 Array of RecordingsInfo
 
 ### RecordingsInfo
+<a name="RecordingsInfo"></a>
 
 Information about a voice recording, chat transcript, or screen recording.
 
-**DeletionReason**
-
-If the recording/transcript was deleted, this is the reason entered
-for the deletion.
-
+**DeletionReason**  
+If the recording/transcript was deleted, this is the reason entered for the deletion.  
 Type: String
 
-**FragmentStartNumber**
-
-The number that identifies the Kinesis Video Streams fragment where
-the customer audio stream started.
-
+**FragmentStartNumber**  
+The number that identifies the Kinesis Video Streams fragment where the customer audio stream started.  
 Type: String
 
-**FragmentStopNumber**
-
-The number that identifies the Kinesis Video Streams fragment where
-the customer audio stream stopped.
-
+**FragmentStopNumber**  
+The number that identifies the Kinesis Video Streams fragment where the customer audio stream stopped.  
 Type: String
 
-**Location**
-
-The location, in Amazon S3, for the recording/transcript.
-
-Type: String
-
+**Location**  
+The location, in Amazon S3, for the recording/transcript.  
+Type: String  
 Length: 0-256
 
-**MediaStreamType**
-
-Information about the media stream used during the
-conversation.
-
-Type: String
-
+**MediaStreamType**  
+Information about the media stream used during the conversation.  
+Type: String  
 Valid Values: AUDIO, VIDEO, CHAT
 
-**ParticipantType**
-
-Information about the conversation participant: whether they are an
-agent or contact. Following are the participant types:
-
-- All
-- Manager
-- Agent
-- Customer
-- Thirdparty
-- Supervisor
-
+**ParticipantType**  
+Information about the conversation participant: whether they are an agent or contact. Following are the participant types:  
++ All
++ Manager
++ Agent
++ Customer
++ Thirdparty
++ Supervisor
 Type: String
 
-**StartTimestamp**
-
-When the conversation of the last leg of the recording started in UTC
-time.
-
+**StartTimestamp**  
+When the conversation of the last leg of the recording started in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**Status**
+**Status**  
+The status of the recording/transcript.  
+Valid Values: AVAILABLE \| DELETED \| NULL
 
-The status of the recording/transcript.
-
-Valid Values: AVAILABLE | DELETED | NULL
-
-**StopTimestamp**
-
-When the conversation of the last leg of recording stopped in UTC
-time.
-
+**StopTimestamp**  
+When the conversation of the last leg of recording stopped in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**StorageType**
-
-Where the recording/transcript is stored.
-
-Type: String
-
-Valid Values: Amazon S3 | KINESIS\_VIDEO\_STREAM
+**StorageType**  
+Where the recording/transcript is stored.  
+Type: String  
+Valid Values: Amazon S3 \| KINESIS\_VIDEO\_STREAM
 
 ### ContactDetails
+<a name="ContactDetails"></a>
 
-Is a Map of string key, value pairs that contains user-defined attributes which
-are lightly typed within the contact. This object is used only for task
-contacts.
+Is a Map of string key, value pairs that contains user-defined attributes which are lightly typed within the contact. This object is used only for task contacts.
 
-**Key**
-
-Type: String
-
+**Key**  
+Type: String  
 Length: 1-128
 
-**Value**
-
-Type: String
-
+**Value**  
+Type: String  
 Length: 0-1024
 
 ### ContactEvaluations
+<a name="ContactEvaluations"></a>
 
-Information about the contact evaluations where key is the FormId - a unique
-identifier for the form.
+Information about the contact evaluations where key is the FormId - a unique identifier for the form.
 
-**Type**
-
+**Type**  
 Map of String, ContactEvaluation
 
 ### ContactEvaluation
+<a name="ContactEvaluation"></a>
 
-**EvaluationArn**
-
-The Amazon Resource Name for the evaluation form. It is always
-present.
-
+**EvaluationArn**  
+The Amazon Resource Name for the evaluation form. It is always present.  
 Type: String
 
-**Status**
-
-The status of the evaluation.
-
-Type: String
-
+**Status**  
+The status of the evaluation.  
+Type: String  
 Valid Values: COMPLETE, IN\_PROGRESS, DELETED
 
-**StartTimestamp**
-
-The date and time when the evaluation was started, in UTC time.
-
+**StartTimestamp**  
+The date and time when the evaluation was started, in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**EndTimestamp**
-
-The date and time when the evaluation was submitted, in UTC
-time.
-
+**EndTimestamp**  
+The date and time when the evaluation was submitted, in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**DeleteTimestamp**
-
-The date and time when the evaluation was deleted, in UTC time.
-
+**DeleteTimestamp**  
+The date and time when the evaluation was deleted, in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**ExportLocation**
-
-The path where evaluation was exported.
-
-Type: String
-
+**ExportLocation**  
+The path where evaluation was exported.  
+Type: String  
 Length: 0-256
 
 ### StateTransitions
+<a name="StateTransitions"></a>
 
 List of StateTransition for a supervisor.
 
-**Type**
-
+**Type**  
 StateTransition
 
 ### StateTransition
+<a name="StateTransition"></a>
 
 Information about the state transition of a supervisor.
 
-**StateStartTimestamp**
-
-The date and time when the state started in UTC time.
-
+**StateStartTimestamp**  
+The date and time when the state started in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**StateEndTimestamp**
-
-The date and time when the state ended in UTC time.
-
+**StateEndTimestamp**  
+The date and time when the state ended in UTC time.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**State**
-
-Valid Values: SILENT\_MONITOR | BARGE
+**State**  
+Valid Values: SILENT\_MONITOR \| BARGE
 
 ### OutboundStrategy
+<a name="OutboundStrategy"></a>
 
 Information about the outbound strategy.
 
-Type: [OutboundStrategy](../APIReference/API_OutboundStrategy.md "../APIReference/API_OutboundStrategy.md") object
+Type: [OutboundStrategy](https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundStrategy.html) object
 
 ## Contact timestamps
+<a name="contact-timestamps"></a>
 
-**InitiationTimestamp**
+**InitiationTimestamp**  
+The date and time this contact was initiated, in UTC time. In the case that a voice contact was initiated as part of an outbound campaign, the `InitiationTimestamp` will show when the contact is initiated for the Initiated event, and will be updated to when the call is started in subsequent events.  
+Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') 
 
-The date and time this contact was initiated, in UTC time. In the case
-that a voice contact was initiated as part of an outbound campaign, the
-`InitiationTimestamp` will show when the contact is initiated
-for the Initiated event, and will be updated to when the call is started in
-subsequent events.
+**ConnectedToSystemTimestamp**  
+The date and time the customer endpoint connected to Connect Customer, in UTC time. For INBOUND, this matches InitiationTimestamp. For OUTBOUND, CALLBACK, and API, this is when the customer endpoint answers.
 
+**EnqueueTimestamp**  
+The date and time the contact was added to the queue, in UTC time.  
+Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') 
+
+**ConnectedToAgentTimestamp**  
+The date and time the contact was connected to the agent, in UTC time.  
+Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') 
+
+**DisconnectTimestamp**  
+The date and time that the customer endpoint disconnected from the current contact, in UTC time. In transfer scenarios, the DisconnectTimestamp of the previous contact indicates the date and time when that contact ended.  
+Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') 
+
+**ScheduledTimestamp**  
+The date and time when this contact was scheduled to trigger the flow to run, in UTC time. This is supported only for the task channel.  
+Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') 
+
+**RingStartTimestamp**  
+The date and time that ringing started for a campaign call, in UTC time. Connect Customer populates this field only for outbound campaign calls.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**ConnectedToSystemTimestamp**
-
-The date and time the customer endpoint connected to Connect Customer, in UTC time.
-For INBOUND, this matches InitiationTimestamp. For OUTBOUND, CALLBACK, and
-API, this is when the customer endpoint answers.
-
-**EnqueueTimestamp**
-
-The date and time the contact was added to the queue, in UTC time.
-
+**GreetingStartTimestamp**  
+The date and time that measures the beginning of the customer greeting from an outbound voice call, in UTC time.   
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**ConnectedToAgentTimestamp**
-
-The date and time the contact was connected to the agent, in UTC
-time.
-
-Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-
-**DisconnectTimestamp**
-
-The date and time that the customer endpoint disconnected from the current
-contact, in UTC time. In transfer scenarios, the DisconnectTimestamp of the
-previous contact indicates the date and time when that
-contact ended.
-
-Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-
-**ScheduledTimestamp**
-
-The date and time when this contact was scheduled to trigger the flow to
-run, in UTC time. This is supported only for the task channel.
-
-Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-
-**RingStartTimestamp**
-
-The date and time that ringing started for a campaign call, in UTC time.
-Connect Customer populates this field only for outbound campaign calls.
-
-Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-
-**GreetingStartTimestamp**
-
-The date and time that measures the beginning of the customer greeting
-from an outbound voice call, in UTC time.
-
-Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-
-**GreetingEndTimestamp**
-
-The date and time that measures the end of the customer greeting from an
-outbound voice call, in UTC time.
-
+**GreetingEndTimestamp**  
+The date and time that measures the end of the customer greeting from an outbound voice call, in UTC time.   
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
 ### ChatContactMetrics
+<a name="chat-contact-metrics"></a>
 
-Information about the overall participant interactions at the contact
-level.
+Information about the overall participant interactions at the contact level.
 
-**MultiParty**
-
-A Boolean flag indicating whether multiparty chat or supervisor barge
-were enabled on this contact.
-
+**MultiParty**  
+A Boolean flag indicating whether multiparty chat or supervisor barge were enabled on this contact.  
 Type: Boolean
 
-**TotalMessages**
-
-The number of chat messages on the contact.
-
-Type: Integer
-
+**TotalMessages**  
+The number of chat messages on the contact.  
+Type: Integer  
 Min value: 0
 
-**TotalBotMessages**
-
-The total number of bot and automated messages on a chat
-contact.
-
-Type: Integer
-
+**TotalBotMessages**  
+The total number of bot and automated messages on a chat contact.  
+Type: Integer  
 Min value: 0
 
-**TotalBotMessageLengthInChars**
-
-The total number of characters from bot and automated messages on a
-chat contact.
-
-Type: Integer
-
+**TotalBotMessageLengthInChars**  
+The total number of characters from bot and automated messages on a chat contact.  
+Type: Integer  
 Min value: 0
 
-**ConversationCloseTimeInMillis**
-
-The time it took for a contact to end after the last customer
-message.
-
-Type: Long
-
+**ConversationCloseTimeInMillis**  
+The time it took for a contact to end after the last customer message.  
+Type: Long  
 Min value: 0
 
-**ConversationTurnCount**
-
-The number of conversation turns in a chat contact, which represents
-the back-and-forth exchanges between customer and other
-participants
-
-Type: Integer
-
+**ConversationTurnCount**  
+The number of conversation turns in a chat contact, which represents the back-and-forth exchanges between customer and other participants  
+Type: Integer  
 Min value: 0
 
-**AgentFirstResponseTimestamp**
-
-The agent first response timestamp for a chat contact.
-
+**AgentFirstResponseTimestamp**  
+The agent first response timestamp for a chat contact.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-**AgentFirstResponseTimeInMillis**
-
-The time for an agent to respond after obtaining a chat
-contact.
-
-Type: Long
-
+**AgentFirstResponseTimeInMillis**  
+The time for an agent to respond after obtaining a chat contact.  
+Type: Long  
 Min value: 0
 
 ### ParticipantMetrics
+<a name="participantmetrics"></a>
 
 Information about a participant's interactions in a contact.
 
-**ParticipantId**
-
-The Participant's id.
-
-Type: String
-
+**ParticipantId**  
+The Participant's id.  
+Type: String  
 Length: 1-256
 
-**ParticipantType**
-
-Information about the conversation participant. Following are the
-participant types: [Agent, Customer, Supervisor].
-
+**ParticipantType**  
+Information about the conversation participant. Following are the participant types: [Agent, Customer, Supervisor].  
 Type: String
 
-**ConversationAbandon**
-
-A Boolean flag indicating whether the chat conversation was abandoned
-by an Participant.
-
+**ConversationAbandon**  
+A Boolean flag indicating whether the chat conversation was abandoned by an Participant.  
 Type: Boolean
 
-**MessagesSent**
-
-Number of chat messages sent by Participant.
-
-Type: Integer
-
+**MessagesSent**  
+Number of chat messages sent by Participant.  
+Type: Integer  
 Min value: 0
 
-**NumResponses**
-
-Number of chat messages sent by Participant.
-
-Type: Integer
-
+**NumResponses**  
+Number of chat messages sent by Participant.  
+Type: Integer  
 Min value: 0
 
-**MessageLengthInChars**
-
-Number of chat characters sent by Participant.
-
-Type: Integer
-
+**MessageLengthInChars**  
+Number of chat characters sent by Participant.  
+Type: Integer  
 Min value: 0
 
-**TotalResponseTimeInMillis**
-
-Total chat response time by Participant.
-
-Type: Long
-
+**TotalResponseTimeInMillis**  
+Total chat response time by Participant.  
+Type: Long  
 Min value: 0
 
-**MaxResponseTimeInMillis**
-
-Maximum chat response time by Participant.
-
-Type: Long
-
+**MaxResponseTimeInMillis**  
+Maximum chat response time by Participant.  
+Type: Long  
 Min value: 0
 
-**LastMessageTimestamp**
-
-Timestamp of last chat message by Participant.
-
+**LastMessageTimestamp**  
+Timestamp of last chat message by Participant.  
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
 ## Subscribe to Connect Customer contact events
+<a name="subscribe-contact-events"></a>
 
-Connect Customer contact events are published using [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"), and can be enabled in a couple of steps for your Connect Customer instance
-in the Amazon EventBridge console by creating a new rule. Although events are not ordered, they
-have a timestamp which you can use to consume the data.
+Connect Customer contact events are published using [Amazon EventBridge](https://aws.amazon.com/eventbridge/), and can be enabled in a couple of steps for your Connect Customer instance in the Amazon EventBridge console by creating a new rule. Although events are not ordered, they have a timestamp which you can use to consume the data.
 
-Events are emitted on a
-[best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")
-basis.
+Events are emitted on a [best effort](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) basis.
 
 To subscribe to Connect Customer contact events:
 
 1. In the Amazon EventBridge console, choose **Create rule**.
-2. On the **Default rule detail** page, assign a name to the
-   rule, choose **Rule with an event pattern**, and then choose
-   **Next**, as shown in the following image.
 
-![The define rule detail page in the EventBridge console.](images/eventbridge-createrule.png) 3. On the **Build event pattern** page, under **Event
-source**, verify that **AWS events or EventBridge
-partner events** is selected. 4. Under **Sample event type**, choose **AWS events**, and then choose **Connect Customer Contact Event** from the dropdown box, as shown
-in the following image.
+1. On the **Default rule detail** page, assign a name to the rule, choose **Rule with an event pattern**, and then choose **Next**, as shown in the following image.  
+![The define rule detail page in the EventBridge console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-createrule.png)
 
-![The sample event section, sample event type is AWS events.](images/eventbridge-sampleevents.png) 5. For Creation method choose Use pattern form. In the **Event
-pattern** section, choose **AWS
-services**, **Connect Customer**,
-**Connect Customer Contact Event**, and then choose
-**Next**, as shown in the following image.
+1. On the **Build event pattern** page, under **Event source**, verify that **AWS events or EventBridge partner events** is selected.
 
-![The Creation method and event pattern sections of the default rule detail page.](images/eventbridge-creationmethod.png) 6. On the Select target(s) page, you can then select a target of your choice,
-which includes a Lambda function, SQS queue, or SNS topic. For information about
-configuring targets, [Amazon EventBridge
-targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md"). 7. Optionally configure tags. On the **Review and create** page,
-choose **Create rule**.
+1. Under **Sample event type**, choose **AWS events**, and then choose ** Connect Customer Contact Event** from the dropdown box, as shown in the following image.  
+![The sample event section, sample event type is AWS events.](http://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-sampleevents.png)
 
-For more information about configuring rules, see [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the
-_Amazon EventBridge User Guide_.
+1. For Creation method choose Use pattern form. In the **Event pattern** section, choose **AWS services**, **Connect Customer**, **Connect Customer Contact Event**, and then choose **Next**, as shown in the following image.  
+![The Creation method and event pattern sections of the default rule detail page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-creationmethod.png)
+
+1. On the Select target(s) page, you can then select a target of your choice, which includes a Lambda function, SQS queue, or SNS topic. For information about configuring targets, [Amazon EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html).
+
+1. Optionally configure tags. On the **Review and create** page, choose **Create rule**.
+
+ For more information about configuring rules, see [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) in the *Amazon EventBridge User Guide*. 
 
 ## Sample to stop streaming an event type
+<a name="stop-streaming-event"></a>
 
-The following sample shows how to stop streaming a `CONTACT_DATA_UPDATED`
-event from Connect Customer to EventBridge.
+The following sample shows how to stop streaming a `CONTACT_DATA_UPDATED` event from Connect Customer to EventBridge.
 
 ```
 {
@@ -1248,6 +793,7 @@ event from Connect Customer to EventBridge.
 ```
 
 ## Sample contact event for when a voice call is connected to an agent
+<a name="sample-contact-event"></a>
 
 ```
 {
@@ -1257,7 +803,7 @@ event from Connect Customer to EventBridge.
     "source": "aws.connect",
     "account": "111122223333",
     "time": "2021-08-04T17:43:48Z",
-    "region": "`your-region`",
+    "region": "{{your-region}}",
     "resources": [
         "arn:aws:...",
         "contactArn",
@@ -1267,55 +813,48 @@ event from Connect Customer to EventBridge.
         "initiationTimestamp":"2021-08-04T17:17:53.000Z",
         "contactId":"11111111-1111-1111-1111-111111111111",
         "channel":"VOICE",
-        "instanceArn":"arn:aws::connect:`your-region`:123456789012:instance/12345678-1234-1234-1234-123456789012",
+        "instanceArn":"arn:aws::connect:{{your-region}}:123456789012:instance/12345678-1234-1234-1234-123456789012",
         "initiationMethod":"INBOUND",
         "eventType":"CONNECTED_TO_AGENT",
         "agentInfo":{
-          "agentArn":"arn:aws::connect:`your-region`:123456789012:instance/12345678-1234-1234-1234-123456789012/agent/12345678-1234-1234-1234-123456789012",
+          "agentArn":"arn:aws::connect:{{your-region}}:123456789012:instance/12345678-1234-1234-1234-123456789012/agent/12345678-1234-1234-1234-123456789012",
           "connectedToAgentTimestamp":"2021-08-04T17:29:09.000Z",
-          "hierarchyGroups": {
+          "hierarchyGroups": { 
                          "level1": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a"
+                            "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a"
                         },
                         "level2": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b"
+                            "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b"
                         },
                         "level3": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c"
+                            "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c"
                         },
                         "level4": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d"
+                            "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d"
                         },
                         "level5": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e"
+                            "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e"
                         }
-                 }
+                 } 
             }
-        },
-         "queueInfo": {
+        },   
+         "queueInfo": {  
             "queueType":"type",
-            "queueArn":"arn:aws::connect:`your-region`:123456789012:instance/12345678-1234-1234-1234-123456789012/queue/12345678-1234-1234-1234-123456789012",
+            "queueArn":"arn:aws::connect:{{your-region}}:123456789012:instance/12345678-1234-1234-1234-123456789012/queue/12345678-1234-1234-1234-123456789012",
             "enqueueTimestamp":"2021-08-04T17:29:04.000Z"
           },
          "tags": {
             "aws:connect:instanceId":"12345678-1234-1234-1234-123456789012",
             "aws:connect:systemEndpoint":"+11234567890"
-         }
+         } 
     }
 }
 ```
 
 ## Sample contact event for a cross-region routed contact
+<a name="sample-contact-event-cross-region"></a>
 
-Connect Customer Global Resiliency supports routing contacts to agents across linked ACGR Region
-pairs (for more details, see [Global
-routing across ACGR Regions](global-routing-across-acgr-regions.md "global-routing-across-acgr-regions.md")). The following shows a `COMPLETED`
-event for a contact that originated in us-east-1 and was handled by an agent in
-us-west-2. This event was delivered through the us-west-2 stream. Note that
-`agentInfo.activeRegion` (us-west-2) differs from
-`globalResiliencyMetadata.originRegion` (us-east-1), and the top-level
-`region` field shows which regional stream delivered this copy of the
-event.
+Connect Customer Global Resiliency supports routing contacts to agents across linked ACGR Region pairs (for more details, see [Global routing across ACGR Regions](global-routing-across-acgr-regions.md)). The following shows a `COMPLETED` event for a contact that originated in us-east-1 and was handled by an agent in us-west-2. This event was delivered through the us-west-2 stream. Note that `agentInfo.activeRegion` (us-west-2) differs from `globalResiliencyMetadata.originRegion` (us-east-1), and the top-level `region` field shows which regional stream delivered this copy of the event.
 
 ```
 {
@@ -1364,25 +903,23 @@ event.
 ```
 
 ## Sample contact event for when a voice call is disconnected
+<a name="sample-contact-event-call-disconnected"></a>
 
-The following sample event shows a contact that has a user-defined tag with
-**Dept** as the key. Note that `queueInfo` is not
-included in events received by EventBridge when `initiationMethod` is
-`OUTBOUND`.
+The following sample event shows a contact that has a user-defined tag with **Dept** as the key. Note that `queueInfo` is not included in events received by EventBridge when `initiationMethod` is `OUTBOUND`.
 
 ```
 {
     "version": "0",
-    "id": "`the event ID`",
+    "id": "{{the event ID}}",
     "detail-type": "Connect Customer Contact Event",
     "source": "aws.connect",
     "account": "111122223333",
     "time": "2021-08-04T17:43:48Z",
-    "region": "`your-region`",
+    "region": "{{your-region}}",
     "resources": [
-        "arn:aws:...",
-        "`contactArn`",
-        "`instanceArn`"
+        "arn:aws:...", 
+        "{{contactArn}}", 
+        "{{instanceArn}}"
     ],
     "detail": {
         "eventType": "DISCONNECTED",
@@ -1390,7 +927,7 @@ included in events received by EventBridge when `initiationMethod` is
         "initialContactId": "11111111-2222-3333-4444-555555555555",
         "previousContactId": "11111111-2222-3333-4444-555555555555",
         "channel": "Voice",
-        "instanceArn": "arn:aws::connect:`your-region`:123456789012:instance/12345678-1234-1234-1234-123456789012",
+        "instanceArn": "arn:aws::connect:{{your-region}}:123456789012:instance/12345678-1234-1234-1234-123456789012",
         "initiationMethod": "OUTBOUND",
         "initiationTimestamp":"2021-08-04T17:17:53.000Z",
         "connectedToSystemTimestamp":"2021-08-04T17:17:55.000Z",
@@ -1398,25 +935,25 @@ included in events received by EventBridge when `initiationMethod` is
         "agentInfo": {
             "agentArn": "arn",
             "connectedToAgentTimestamp":"2021-08-04T17:29:09.000Z",
-            "hierarchyGroups": {
+            "hierarchyGroups": { 
                  "level1": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a"
+                    "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a"
                 },
                 "level2": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b"
+                    "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b"
                 },
                 "level3": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c"
+                    "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c"
                 },
                 "level4": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d"
+                    "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d"
                 },
                 "level5": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e"
+                    "arn": "arn:aws:connect:{{your-region}}:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e"
                 }
-            }
+            } 
         },
-
+           
         "CustomerVoiceActivity": {
            "greetingStartTimestamp":"2021-08-04T17:29:20.000Z",
            "greetingEndTimestamp":"2021-08-04T17:29:22.000Z"
@@ -1431,6 +968,7 @@ included in events received by EventBridge when `initiationMethod` is
 ```
 
 ## Sample event for when contact properties are updated
+<a name="sample-updated-event"></a>
 
 ```
 {
@@ -1438,40 +976,40 @@ included in events received by EventBridge when `initiationMethod` is
     "id": "the event ID",
     "detail-type": "Amazon Connect Contact Event",
     "source": "aws.connect",
-    "account": "`the account ID`",
+    "account": "{{the account ID}}",
     "time": "2021-08-04T17:43:48Z",
     "region": "your-region",
     "resources": [
-        "arn:aws:...",
-        "contactArn",
+        "arn:aws:...", 
+        "contactArn", 
         "instanceArn"
     ],
 "detail": {
     "eventType": "CONTACT_DATA_UPDATED",
-    "contactId": "`the contact ID`",
+    "contactId": "{{the contact ID}}",
     "channel": "CHAT",
-    "instanceArn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`",
+    "instanceArn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}",
     "initiationMethod": "API",
     "queueInfo": {
-        "queueArn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`/queue/`the queue ID`",
+        "queueArn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}/queue/{{the queue ID}}",
         "enqueueTimestamp": "2023-10-24T02:39:15.240Z",
         "queueType": "STANDARD"
     },
     "agentInfo": {
-        "agentArn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`/agent/`the agent ID`",
+        "agentArn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}/agent/{{the agent ID}}",
         "connectedToAgentTimestamp": "1970-01-01T00:00:00.001Z",
         "hierarchyGroups": {
             "level1": {
-                "arn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`/agent-group/`the agent group ID`"
+                "arn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}/agent-group/{{the agent group ID}}"
             },
             "level2": {
-                "arn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`/agent-group/`the agent group ID`"
+                "arn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}/agent-group/{{the agent group ID}}"
             },
             "level3": {
-                "arn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`/agent-group/`the agent group ID`"
+                "arn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}/agent-group/{{the agent group ID}}"
             },
             "level4": {
-                "arn": "arn:aws:connect:us-west-2:`the account ID`:instance/`the instance ID`/agent-group/`the agent group ID`"
+                "arn": "arn:aws:connect:us-west-2:{{the account ID}}:instance/{{the instance ID}}/agent-group/{{the agent group ID}}"
             }
         }
     },
@@ -1479,7 +1017,7 @@ included in events received by EventBridge when `initiationMethod` is
     "initiationTimestamp": "2023-10-24T02:39:15.154Z",
     "connectedToSystemTimestamp": "1970-01-01T00:00:00.001Z",
     "tags": {
-        "aws:connect:instanceId": "`the instance ID`"
+        "aws:connect:instanceId": "{{the instance ID}}"
        },
     "contactLens": {
         "conversationalAnalytics": {
@@ -1503,6 +1041,7 @@ included in events received by EventBridge when `initiationMethod` is
 ```
 
 ## Sample contact event for when a voice call is connected to an agent using routing criteria
+<a name="sample-routing-criteria-event-connected"></a>
 
 ```
 {
@@ -1575,10 +1114,10 @@ included in events received by EventBridge when `initiationMethod` is
         }]
     }
 }
-
 ```
 
 ## Sample event for when routing step expires on a contact
+<a name="sample-routing-step-expires"></a>
 
 ```
 {
@@ -1590,8 +1129,8 @@ included in events received by EventBridge when `initiationMethod` is
     "time": "2021-08-04T17:43:48Z",
     "region": "your-region",
     "resources": [
-        "arn:aws:...",
-        "contactArn",
+        "arn:aws:...", 
+        "contactArn", 
         "instanceArn"
     ],
     "detail": {
@@ -1657,10 +1196,10 @@ included in events received by EventBridge when `initiationMethod` is
         }
     }
 }
-
 ```
 
 ## Sample contact event for when a voice call is connected to an agent provided by the customer using routing criteria
+<a name="sample-contact-event-voice-call-routing-criteria"></a>
 
 ```
 {
@@ -1670,7 +1209,7 @@ included in events received by EventBridge when `initiationMethod` is
     "source": "aws.connect",
     "account": "111122223333",
     "time": "2021-08-04T17:43:48Z",
-    "region": "`your-region`",
+    "region": "{{your-region}}",
     "resources": [
         "arn:aws:...",
         "contactArn",
@@ -1717,6 +1256,4 @@ included in events received by EventBridge when `initiationMethod` is
         }]
     }
 }
-
-
 ```

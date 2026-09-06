@@ -1,129 +1,102 @@
+
+
 # The task channel in Connect Customer
+<a name="tasks"></a>
 
-With Connect Customer Tasks, you can prioritize, assign, track, and even automate tasks across
-the disparate tools agents use to support customers. For example, using Tasks you
-can:
+With Connect Customer Tasks, you can prioritize, assign, track, and even automate tasks across the disparate tools agents use to support customers. For example, using Tasks you can:
++ Follow-up on customer issues recorded in a customer relationship management (CRM) solution such as Salesforce.
++ Follow-up with a customer through a call.
++ Complete actions in a business-specific system, such as processing a customer claim in an insurance application.
 
-- Follow-up on customer issues recorded in a customer relationship management
-  (CRM) solution such as Salesforce.
-- Follow-up with a customer through a call.
-- Complete actions in a business-specific system, such as processing a customer
-  claim in an insurance application.
-  Currently, Connect Customer Tasks can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center "https://aws.amazon.com/compliance/gdpr-center") and is approved for SOC, PCI, HITRUST,
-  ISO, and HIPAA.
+Currently, Connect Customer Tasks can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center) and is approved for SOC, PCI, HITRUST, ISO, and HIPAA.
 
 ## What is a task?
+<a name="what-is-a-task"></a>
 
-In a business a _task_ is a unit of work that an agent must
-complete. This includes work that might have originated in external applications. In
-Connect Customer this unit of work is a contact. It's routed, prioritized, assigned, and
-tracked just like a voice or chat contact. Everything that is applicable to a voice
-or chat contact is also applicable to a task contact.
+In a business a *task* is a unit of work that an agent must complete. This includes work that might have originated in external applications. In Connect Customer this unit of work is a contact. It's routed, prioritized, assigned, and tracked just like a voice or chat contact. Everything that is applicable to a voice or chat contact is also applicable to a task contact.
 
-Agents handle tasks in their Contact Control Panel (CCP), again just like any
-other contact. When assigned a task, agents see a notification with the description
-of the task, information associated with the tasks, and links to any applications
-that they might need to complete the task. The following image shows what an agent's
-CCP might look like when they manage tasks.
+Agents handle tasks in their Contact Control Panel (CCP), again just like any other contact. When assigned a task, agents see a notification with the description of the task, information associated with the tasks, and links to any applications that they might need to complete the task. The following image shows what an agent's CCP might look like when they manage tasks.
 
-![A task in the Contact Control Panel.](images/tasks-introduction.png)
+![A task in the Contact Control Panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-introduction.png)
+
 
 ## How to create tasks
+<a name="concepts-set-up-tasks"></a>
 
-Connect Customer provides different ways for you to create tasks:
+Connect Customer provides different ways for you to create tasks: 
 
-1. You can use pre-built connectors with CRM applications (for example,
-   Salesforce and Zendesk) to automatically create tasks based on a set of
-   pre-defined conditions, without any custom development.
+1. You can use pre-built connectors with CRM applications (for example, Salesforce and Zendesk) to automatically create tasks based on a set of pre-defined conditions, without any custom development. 
 
-For example, you can configure a rule in Connect Customer to automatically create a
-task when a new case is created in Salesforce.
+   For example, you can configure a rule in Connect Customer to automatically create a task when a new case is created in Salesforce. 
 
-For more information, see [Set up application integration to create tasks in Connect Customer](integrate-external-apps-tasks.md "integrate-external-apps-tasks.md") and [Create rules that generate tasks for third-party integrations in Connect Customer](add-rules-task-creation.md "add-rules-task-creation.md"). 2. You can integrate with your homegrown or business-specific applications to
-create tasks using Connect Customer APIs.
+   For more information, see [Set up application integration to create tasks in Connect Customer](integrate-external-apps-tasks.md) and [Create rules that generate tasks for third-party integrations in Connect Customer](add-rules-task-creation.md).
 
-For more information, see the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md")
-API. 3. You can add a [Create task](create-task-block.md "create-task-block.md") block to your flows. This
-block helps you create and orchestrate tasks directly from flows based
-on customer input
-(DTMF
-input), and contact and tasks information. 4. You can enable your agents to create tasks from the Contact Control Panel
-(CCP) without you doing any development work.
+1. You can integrate with your homegrown or business-specific applications to create tasks using Connect Customer APIs.
 
-For example, agents can create tasks to ensure follow up work is not
-forgotten, such as calling a customer back to provide a status update on
-their issue.
+   For more information, see the [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html) API.
 
-For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md").
+1. You can add a [Create task](create-task-block.md) block to your flows. This block helps you create and orchestrate tasks directly from flows based on customer input (DTMF input), and contact and tasks information.
 
-For more information on getting started with tasks, see [Set up tasks in Connect Customer](concepts-getting-started-tasks.md "concepts-getting-started-tasks.md").
+1. You can enable your agents to create tasks from the Contact Control Panel (CCP) without you doing any development work.
 
-###### Important
+   For example, agents can create tasks to ensure follow up work is not forgotten, such as calling a customer back to provide a status update on their issue. 
 
-The [Default customer
-queue](default-customer-queue.md "default-customer-queue.md") flow does not support tasks.
-It will fail if you use it out-of-the-box without any changes. The
-**Default customer queue flow** flow contains a [Loop prompts](loop-prompts.md "loop-prompts.md") block, and that
-block doesn't support tasks.
+   For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md).
 
-We recommend you create a new flow, and use it to check the channel and route
-tasks to the desired queue. For instructions, see [How to send tasks to a
-queue](#example-enqueue-task "#example-enqueue-task").
-Or, update the **Loop prompts** block in the default flow so
-the **Error** branch doesn't terminate; instead perform another
-action on the contact.
+For more information on getting started with tasks, see [Set up tasks in Connect Customer](concepts-getting-started-tasks.md).
+
+**Important**  
+The [Default customer queue](default-customer-queue.md) flow does not support tasks. It will fail if you use it out-of-the-box without any changes. The **Default customer queue flow** flow contains a [Loop prompts](loop-prompts.md) block, and that block doesn't support tasks.   
+We recommend you create a new flow, and use it to check the channel and route tasks to the desired queue. For instructions, see [How to send tasks to a queue](#example-enqueue-task). Or, update the **Loop prompts** block in the default flow so the **Error** branch doesn't terminate; instead perform another action on the contact. 
 
 ## Supported flow types
+<a name="concepts-tasks-supported-contact-flow-types"></a>
 
 You can use tasks in the following flow types:
-
-- Inbound flow
-- Customer queue flow
-- Agent whisper flow
-- Transfer to queue flow
-- Transfer to agent flow
++ Inbound flow
++ Customer queue flow
++ Agent whisper flow
++ Transfer to queue flow
++ Transfer to agent flow
 
 ## Supported contact blocks
+<a name="concepts-tasks-supported-contact-blocks"></a>
 
 You can use tasks in the following flow blocks:
-
-- Change routing priority/age
-- Check contact attributes
-- Check hours of operation
-- Check queue status
-- Check staffing
-- Create task
-- Disconnect / hang up
-- Distribute by percentage
-- End flow / resume
-- Get queue metrics
-- Invoke AWS Lambda function
-- Loop
-- Set contact attributes
-- Set customer queue flow
-- Set disconnect flow
-- Set working queue
-- Transfer to flow
-- Transfer to queue
-- Wait
++ Change routing priority/age
++ Check contact attributes
++ Check hours of operation
++ Check queue status
++ Check staffing
++ Create task
++ Disconnect / hang up
++ Distribute by percentage
++ End flow / resume
++ Get queue metrics
++ Invoke AWS Lambda function
++ Loop
++ Set contact attributes
++ Set customer queue flow
++ Set disconnect flow
++ Set working queue
++ Transfer to flow
++ Transfer to queue
++ Wait
 
 ## Linked tasks
+<a name="linked-tasks"></a>
 
-When using tasks with the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API, a new contact can be associated with an existing
-contact through `PreviousContactID` or `RelatedContactId`.
-This new contact contains a copy of the [contact
-attributes](connect-attrib-list.md "connect-attrib-list.md") from the linked contact.
+When using tasks with the [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html) API, a new contact can be associated with an existing contact through `PreviousContactID` or `RelatedContactId`. This new contact contains a copy of the [contact attributes](connect-attrib-list.md) from the linked contact.
 
-The following code shows request syntax that includes
-`PreviousContactID` and `RelatedContactId`.
+The following code shows request syntax that includes `PreviousContactID` and `RelatedContactId`.
 
 ```
 PUT /contact/task HTTP/1.1
 Content-type: application/json
 
 {
-   "Attributes": {
-      "string" : "string"
+   "Attributes": { 
+      "string" : "string" 
    },
    "ClientToken": "string",
    "ContactFlowId": "string",
@@ -132,8 +105,8 @@ Content-type: application/json
    "Name": "string",
    "PreviousContactId": "string",
    "QuickConnectId": "string",
-   "References": {
-      "string" : {
+   "References": { 
+      "string" : { 
          "Type": "string",
          "Value": "string"
       }
@@ -144,197 +117,145 @@ Content-type: application/json
 }
 ```
 
-When you use `PreviousContactID` or `RelatedContactID` to
-create tasks, note the following:
+When you use `PreviousContactID` or `RelatedContactID` to create tasks, note the following:
++ `PreviousContactID` - When contacts are linked using the `PreviousContactID`, updates that are made to contact attributes at any time in the chain will percolate through the entire chain.
++ `RelatedContactID` - When contacts are linked using the `RelatedContactID`, updates that are made to contact attributes will percolate only to the contactID that is referenced in the [UpdateContactAttributes](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactAttributes.html) API. 
 
-- `PreviousContactID` - When contacts are linked using the
-  `PreviousContactID`, updates that are made to contact
-  attributes at any time in the chain will percolate through the entire
-  chain.
-- `RelatedContactID` - When contacts are linked using the
-  `RelatedContactID`, updates that are made to contact
-  attributes will percolate only to the contactID that is referenced in the
-  [UpdateContactAttributes](../APIReference/API_UpdateContactAttributes.md "../APIReference/API_UpdateContactAttributes.md") API.
+**Note**  
+You can specify only `PreviousContactID` or `RelatedContactID` in a request body, but not both. If you do specify both, Connect Customer returns an `InvalidRequestException` error with a 400 status code.
 
-###### Note
-
-You can specify only `PreviousContactID` or
-`RelatedContactID` in a request body, but not both. If you do
-specify both, Connect Customer returns an `InvalidRequestException` error with a
-400 status code.
-
-For information about how `PreviousContactID` and
-`RelatedContactId` are modeled in contact records, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord") in the
-contact records data model.
+For information about how `PreviousContactID` and `RelatedContactId` are modeled in contact records, see [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord) in the contact records data model.
 
 ## Agents can link tasks to outbound contacts
+<a name="agents-can-link-tasks"></a>
 
-While agents are **actively working on a task**, the
-**Number pad** appears on the Contact Control Panel (CCP). If
-they make an outbound call using the Number pad, the call is automatically linked to
-the task. Connect Customer links the task and outbound call by using the
-`relatedContactID` parameter.
+While agents are **actively working on a task**, the **Number pad** appears on the Contact Control Panel (CCP). If they make an outbound call using the Number pad, the call is automatically linked to the task. Connect Customer links the task and outbound call by using the `relatedContactID` parameter. 
 
-The following image of the CCP shows the **Number pad** is
-available while the agent works on a task.
+The following image of the CCP shows the **Number pad** is available while the agent works on a task.
 
-![The number pad on the CCP.](images/tasks-linked-outboundcall.png)
+![The number pad on the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-linked-outboundcall.png)
+
 
 ## Link task to contact by using the Create task block
+<a name="link-contacts-using-create-task-block"></a>
 
-With the Create task block, you can automatically link the task to the current
-contact.
+With the Create task block, you can automatically link the task to the current contact. 
 
-The following image of the Properties page of the **Create task**
-block shows the **Link to contact** option.
+The following image of the Properties page of the **Create task** block shows the **Link to contact** option.
 
-![The link to contact option on the Create task block properties page.](images/create-task-properties-manually.png)
+![The link to contact option on the Create task block properties page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-manually.png)
+
 
 ## Track who created a task
+<a name="createdby-tasks"></a>
 
-Agents who create tasks through CCP automatically have their agent resource ARN
-added onto the contact record as a
-[segment attribute](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")
-called `CreatedByUser`. This attribute
-helps you track the originating agent for a task. However, you can't
-access `CreatedByUser` by using the Connect Customer admin website; instead use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API.
+Agents who create tasks through CCP automatically have their agent resource ARN added onto the contact record as a [segment attribute](connect-attrib-list.md#attribs-segment-attributes) called `CreatedByUser`. This attribute helps you track the originating agent for a task. However, you can't access `CreatedByUser` by using the Connect Customer admin website; instead use the [DescribeContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html) API. 
 
-The `CreatedByUser` segment attribute is available to you on the [Create task](create-task-block.md "create-task-block.md") block. You can set the segment
-attribute of **Created By User**, which represents the ARN of the
-user who created the task. The following image shows a section of the
-**Create task** properties page where this attribute is
-available.
+The `CreatedByUser` segment attribute is available to you on the [Create task](create-task-block.md) block. You can set the segment attribute of **Created By User**, which represents the ARN of the user who created the task. The following image shows a section of the **Create task** properties page where this attribute is available.
 
-![The Create task properties page, the Create By User attribute.](images/contact-expiry.png)
+![The Create task properties page, the Create By User attribute.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-expiry.png)
 
-You can also set this value
-manually for tasks that are created through the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API.
+
+ You can also set this value manually for tasks that are created through the [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html) API.
 
 ## Agents can assign tasks to themselves
+<a name="agents-self-assign-tasks"></a>
 
-When contact center supervisors create task templates, they can configure them to
-allow agents to self-assign tasks. Agents assign tasks to themselves by using the
-CCP.
+When contact center supervisors create task templates, they can configure them to allow agents to self-assign tasks. Agents assign tasks to themselves by using the CCP. 
 
-Developers can specify the `assignmentType` on the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API with the value `SELF` and specify a
-valid `CreatedByUser` and a valid `TaskTemplateID`.
+Developers can specify the `assignmentType` on the [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html) API with the value `SELF` and specify a valid `CreatedByUser` and a valid `TaskTemplateID`.
 
 ## Using IAM? Add Task permissions
+<a name="iam-tasks"></a>
 
-If your organization is using custom [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") policies to manage access to the Connect Customer console, make sure users
-have the appropriate permissions to set up applications for task creation. For a
-list of required permissions, see [Tasks page](security-iam-amazon-connect-permissions.md#tasks-page "security-iam-amazon-connect-permissions.md#tasks-page").
+If your organization is using custom [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) policies to manage access to the Connect Customer console, make sure users have the appropriate permissions to set up applications for task creation. For a list of required permissions, see [Tasks page](security-iam-amazon-connect-permissions.md#tasks-page).
 
-###### Note
-
-If your instance was created before October 2018, for information about how to
-configure your service-linked roles (SLR), see [For instances created before October 2018](connect-slr.md#migrate-slr "connect-slr.md#migrate-slr").
+**Note**  
+If your instance was created before October 2018, for information about how to configure your service-linked roles (SLR), see [For instances created before October 2018](connect-slr.md#migrate-slr).
 
 ## Track tasks in real-time and historical metrics reports
+<a name="tracking-tasks"></a>
 
-You can track the status of all tasks in real-time and historical metrics reports,
-just like you track contacts in other channels. For example, you can track:
-
-- How long agents spent working on each task ([Agent contact time](metrics-definitions.md#agent-contact-time "metrics-definitions.md#agent-contact-time")).
-- The total time from when a task was created to when it was completed.
-  ([Contact handle time](metrics-definitions.md#contact-handle-time "metrics-definitions.md#contact-handle-time")).
+You can track the status of all tasks in real-time and historical metrics reports, just like you track contacts in other channels. For example, you can track:
++ How long agents spent working on each task ([Agent contact time](metrics-definitions.md#agent-contact-time)).
++ The total time from when a task was created to when it was completed. ([Contact handle time](metrics-definitions.md#contact-handle-time)).
 
 ### Metrics
-
-- [Average active time](metrics-definitions.md#average-active-time "metrics-definitions.md#average-active-time")
-- [Average agent pause time](metrics-definitions.md#average-agent-pause-time "metrics-definitions.md#average-agent-pause-time")
+<a name="tracking-only-tasks"></a>
++ [Average active time](metrics-definitions.md#average-active-time)
++ [Average agent pause time](metrics-definitions.md#average-agent-pause-time) 
 
 ### Contact metrics
+<a name="contact-data-tasks"></a>
 
-The following data is captured in the contact data model.
+The following data is captured in the contact data model. 
 
 ### Metrics that don't apply to tasks and have a value of 0 on the report
-
-- [Average agent interaction time](metrics-definitions.md#average-agent-interaction-time "metrics-definitions.md#average-agent-interaction-time")
-- [Average customer hold time](metrics-definitions.md#average-customer-hold-time "metrics-definitions.md#average-customer-hold-time")
-- [Agent interaction and hold time](metrics-definitions.md#agent-interaction-and-hold-time "metrics-definitions.md#agent-interaction-and-hold-time") -
-  historical
-- [Agent interaction time](metrics-definitions.md#agent-interaction-time "metrics-definitions.md#agent-interaction-time") - historical
-- [Average agent interaction time](metrics-definitions.md#average-agent-interaction-time "metrics-definitions.md#average-agent-interaction-time")
-- [Average customer hold time](metrics-definitions.md#average-customer-hold-time "metrics-definitions.md#average-customer-hold-time")
+<a name="tracking-null-tasks"></a>
++ [Average agent interaction time](metrics-definitions.md#average-agent-interaction-time)
++ [Average customer hold time](metrics-definitions.md#average-customer-hold-time)
++ [Agent interaction and hold time](metrics-definitions.md#agent-interaction-and-hold-time) - historical
++ [Agent interaction time](metrics-definitions.md#agent-interaction-time) - historical
++ [Average agent interaction time](metrics-definitions.md#average-agent-interaction-time)
++ [Average customer hold time](metrics-definitions.md#average-customer-hold-time)
 
 ### Manage tasks to custom service levels (SL)
+<a name="tasks-custom-sl"></a>
 
-While voice and chats might have short service level times based on seconds or
-minutes, you might have some tasks with service levels that are hours or days. You
-can create custom service level durations that are appropriate to each of your
-channels. For more information, see [custom
-service levels](metrics-definitions.md#custom-service-levels "metrics-definitions.md#custom-service-levels").
+While voice and chats might have short service level times based on seconds or minutes, you might have some tasks with service levels that are hours or days. You can create custom service level durations that are appropriate to each of your channels. For more information, see [custom service levels](metrics-definitions.md#custom-service-levels). 
 
 ## When do tasks end?
+<a name="when-do-tasks-end"></a>
 
-The default total duration of a task can be up to 7 days. When you [create a task template](task-templates.md "task-templates.md"), you can extend the
-duration of the task up to 90 days.
+The default total duration of a task can be up to 7 days. When you [create a task template](task-templates.md), you can extend the duration of the task up to 90 days. 
 
 A task ends when one of the following happens:
++ An agent completes the task.
++ A flow runs a [Disconnect / hang up](disconnect-hang-up.md) block, which ends the task.
++ A task reaches the default 7 day limit.
++ It reaches the **Expiry Duration In Minutes**, if this option is configured on the task template.
++ You end the task using the [StopContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContact.html) API.
 
-- An agent completes the task.
-- A flow runs a [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md") block, which ends the
-  task.
-- A task reaches the default 7 day limit.
-- It reaches the **Expiry Duration In Minutes**, if this
-  option is configured on the task template.
-- You end the task using the [StopContact](../APIReference/API_StopContact.md "../APIReference/API_StopContact.md") API.
-
-You can also use the **Contact Expiry** setting on the [Create task](create-task-block.md "create-task-block.md") block.
+You can also use the **Contact Expiry** setting on the [Create task](create-task-block.md) block. 
 
 ## How to send tasks to a queue
+<a name="example-enqueue-task"></a>
 
-Since the [Default customer
-queue](default-customer-queue.md "default-customer-queue.md") flow is only for voice contacts,
-we recommend you create a new flow to send tasks (and other non-voice channels) to a
-queue.
+Since the [Default customer queue](default-customer-queue.md) flow is only for voice contacts, we recommend you create a new flow to send tasks (and other non-voice channels) to a queue.
 
-Let's say you want an overall wait time of 10 minutes for a task, but want to
-check every minute to see if there are still agents who are working on the queue and
-could at some point pick up the task. For this use case you would do the
-following:
+Let's say you want an overall wait time of 10 minutes for a task, but want to check every minute to see if there are still agents who are working on the queue and could at some point pick up the task. For this use case you would do the following:
 
-1. Add a [Loop](loop.md "loop.md") block to your
-   flow. Set **Number of loops** to 10.
-2. For the **Looping** branch, a use [Check staffing](check-staffing.md "check-staffing.md") block to
-   check agent availability for the queue.
-3. If agents are available, transfer the contact to the queue by using a
-   [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block.
-4. Set the **Complete** branch to route the contact to a
-   [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md") block. This will be triggered
-   if there are no agents during the 10 minute loop.
+1. Add a [Loop](loop.md) block to your flow. Set **Number of loops** to 10.
+
+1. For the **Looping** branch, a use [Check staffing](check-staffing.md) block to check agent availability for the queue. 
+
+1. If agents are available, transfer the contact to the queue by using a [Transfer to queue](transfer-to-queue.md) block.
+
+1. Set the **Complete** branch to route the contact to a [Disconnect / hang up](disconnect-hang-up.md) block. This will be triggered if there are no agents during the 10 minute loop.
 
 ## Search and review completed tasks
+<a name="task-ctr-fields"></a>
 
-Use the [Contact search](contact-search.md "contact-search.md") page to search for
-and review completed tasks.
+Use the [Contact search](contact-search.md) page to search for and review completed tasks. 
 
-The following image is an example of what the **Contact Summary**
-and **References** look like in a contact record for a task.
+The following image is an example of what the **Contact Summary** and **References** look like in a contact record for a task.
 
-![A contact record page for a task.](images/tasks-sample-ctr.png)
+![A contact record page for a task.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-sample-ctr.png)
 
-The following data is appended to the contact record but not stored with it. The
-data is included in an export.
 
-- Flow ID
-- Potential attributes:
+The following data is appended to the contact record but not stored with it. The data is included in an export. 
++ Flow ID
++ Potential attributes:
+  + [ContactDetails](ctr-data-model.md#ctr-contact-details)
+    + Name: the name of the task
+    + Description: the description of the task
+  + [References](ctr-data-model.md#ctr-contact-references): any links to forms or other sites
 
-  - [ContactDetails](ctr-data-model.md#ctr-contact-details "ctr-data-model.md#ctr-contact-details")
-
-    - Name: the name of the task
-    - Description: the description of the task
-
-  - [References](ctr-data-model.md#ctr-contact-references "ctr-data-model.md#ctr-contact-references"): any links to forms or
-    other sites
-
-When task is scheduled for a future date and time, **Contact
-Summary** also displays **Scheduled time**.
+When task is scheduled for a future date and time, **Contact Summary** also displays **Scheduled time**.
 
 ## More information
-
-- [Connect Customer feature specifications](feature-limits.md "feature-limits.md")
-- [Accept a task assigned in the Contact Control Panel (CCP)](accept-task.md "accept-task.md")
-- [Create a new task in the Contact Control Panel (CCP)](create-task.md "create-task.md")
-- [Transfer a task to another agent or queue in the Connect Customer Contact Control Panel (CCP)](transfer-task.md "transfer-task.md")
+<a name="tasks-more-information"></a>
++ [Connect Customer feature specifications](feature-limits.md)
++ [Accept a task assigned in the Contact Control Panel (CCP)](accept-task.md)
++ [Create a new task in the Contact Control Panel (CCP)](create-task.md)
++ [Transfer a task to another agent or queue in the Connect Customer Contact Control Panel (CCP)](transfer-task.md)

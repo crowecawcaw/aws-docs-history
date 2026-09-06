@@ -1,53 +1,41 @@
+
+
 # Real-time Schedule Adherence in Connect Customer
+<a name="definition-real-time-schedule-adherence"></a>
 
-###### Note
+**Note**  
+The real-time adherence data might take up to 4 minutes to refresh. It captures the complete duration of adherence or non-adherence.
 
-The real-time adherence data might take up to 4 minutes to refresh. It captures
-the complete duration of adherence or non-adherence.
+You can access real-time agent adherence metrics in the following areas on the Connect Customer admin website: 
++ **Agent schedule adherence** table
 
-You can access real-time agent adherence metrics in the following areas on the
-Connect Customer admin website:
+  Select this table from the Real-time metrics page or from within an existing report. This table has the same functionality as an existing agents table, but with the additional metrics listed below.
 
-- **Agent schedule adherence** table
+  By default, this table filters to show non-adherent agents. To view all agents or agents who are not currently scheduled, adjust the filters in the table settings.
++ [Current agent adherence](queue-performance-dashboard.md#current-agent-adherence-dashboard) widget on the **Queue and agent performance** dashboard. 
 
-Select this table from the Real-time metrics page or from within an
-existing report. This table has the same functionality as an existing
-agents table, but with the additional metrics listed below.
+   This widget provides detailed agent adherence information that you can filter and sort. It also provides conditional formatting to help you proactively manage and optimize workforce performance.
 
-By default, this table filters to show non-adherent agents. To
-view all agents or agents who are not currently scheduled, adjust the
-filters in the table settings.
+The list of agents displayed on the Queue and agent performance dashboard refreshes as new agents come online. To refresh the list of agents on the Real-time metrics page, refresh the page.
 
-- [Current agent adherence](queue-performance-dashboard.md#current-agent-adherence-dashboard "queue-performance-dashboard.md#current-agent-adherence-dashboard") widget on the
-  **Queue and agent performance** dashboard.
-
-This widget provides detailed agent adherence information that you can
-filter and sort. It also provides conditional formatting to help you
-proactively manage and optimize workforce performance.
-The list of agents displayed on the Queue and agent performance dashboard
-refreshes as new agents come online. To refresh the list of agents on the
-Real-time metrics page, refresh the page.
-
-Following is a list of the real-time agent adherence metrics.
+Following is a list of the real-time agent adherence metrics. 
 
 ## Real-Time agent adherence status
+<a name="real-time-agent-adherence-status"></a>
 
-This metric indicates whether an agent is adherent or non-adherent in near
-real-time. For a definition of schedule adherence, see [Schedule Adherence](schedule-adherence.md "schedule-adherence.md").
+This metric indicates whether an agent is adherent or non-adherent in near real-time. For a definition of schedule adherence, see [Schedule Adherence](schedule-adherence.md).
 
 ## Scheduled status
+<a name="scheduled-status"></a>
 
-This metric indicates name of the activity from the published schedule for an
-agent. If an agent is not scheduled, **Scheduled status** is
-blank.
+This metric indicates name of the activity from the published schedule for an agent. If an agent is not scheduled, **Scheduled status** is blank.
 
 ## Agent adherence duration
+<a name="agent-adherence-duration"></a>
 
-This metric measures the amount of time an agent is adherent or non-adherent.
-When an agent changes between non-adherent or adherent, this metric resets
-because it represents the current amount of time.
+This metric measures the amount of time an agent is adherent or non-adherent. When an agent changes between non-adherent or adherent, this metric resets because it represents the current amount of time.
 
 ## Agent adherence percentage
+<a name="agent-adherence-percentage"></a>
 
-This metric measures the percentage of time an agent is adherent to their
-schedule. For a definition of adherence, see [Adherence](scheduling-metrics.md#adherence-hmetric "scheduling-metrics.md#adherence-hmetric").
+This metric measures the percentage of time an agent is adherent to their schedule. For a definition of adherence, see [Adherence](scheduling-metrics.md#adherence-hmetric).

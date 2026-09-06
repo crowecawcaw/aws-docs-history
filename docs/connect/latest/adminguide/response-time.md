@@ -1,34 +1,24 @@
-# Investigate response time during chats in conversational analytics
 
-Use the response time metric to understand the responsiveness of the agent or
-customer during a chat contact.
+
+# Investigate response time during chats in conversational analytics
+<a name="response-time"></a>
+
+Use the response time metric to understand the responsiveness of the agent or customer during a chat contact.
 
 Conversational analytics calculates the following metrics:
++ **Agent greeting time**. This is the first response time for the agent, which is how fast the agent engaged with the customer after the agent joined the chat. A long first response time might explain, for example, if a customer has a negative sentiment in the beginning of conversation.
++ **Avg agent response time** and **Avg customer response time**. The agent response time helps you check an agent's performance against your organization's base line.
++ **Max agent response time** and **Max customer response time**.
 
-- **Agent greeting time**. This is the first response time
-  for the agent, which is how fast the agent engaged with the customer after
-  the agent joined the chat. A long first response time might explain, for
-  example, if a customer has a negative sentiment in the beginning of
-  conversation.
-- **Avg agent response time** and **Avg customer
-  response time**. The agent response time helps you check an
-  agent's performance against your organization's base line.
-- **Max agent response time** and **Max customer
-  response time**.
+  The customer's max response time might explain an agent's response time. For example, if a customer didn't reply for five minutes and then sent a message, it's possible the agent took longer than usual to respond because they were handling other chats at the same time. 
 
-The customer's max response time might explain an agent's response time. For
-example, if a customer didn't reply for five minutes and then sent a
-message, it's possible the agent took longer than usual to respond because
-they were handling other chats at the same time.
-We recommend examining the response time metrics in conjunction with the
-interactions graph that shows gaps in conversation and participant sentiment.
+We recommend examining the response time metrics in conjunction with the interactions graph that shows gaps in conversation and participant sentiment.
 
-You can click or tap the longest response time value on the graph to be directed
-to the associated message in the transcript.
+You can click or tap the longest response time value on the graph to be directed to the associated message in the transcript. 
 
-The following image of the **Contact details page** shows metrics
-for chat conversations. Note that **Agent greeting time** = after
-the agent joined the chat, how long until they sent the first response.
+The following image of the **Contact details page** shows metrics for chat conversations. Note that **Agent greeting time** = after the agent joined the chat, how long until they sent the first response. 
 
-![The contact details page, chat metrics.](images/contactlens-contactdetails-chat1b.png)
-For more information, see [Search by response time for chat conversations](search-conversations.md#response-time-search "search-conversations.md#response-time-search").
+![The contact details page, chat metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat1b.png)
+
+
+For more information, see [Search by response time for chat conversations](search-conversations.md#response-time-search).

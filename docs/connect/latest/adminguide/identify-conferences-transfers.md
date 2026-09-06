@@ -1,92 +1,61 @@
+
+
 # Identify conferences and transfers by using Connect Customer contact records
+<a name="identify-conferences-transfers"></a>
 
-Contact records capture the events associated with a contact in your contact center. For
-every new contact, Connect Customer creates a contact record and assigns a unique Contact ID to the
-contact.
+Contact records capture the events associated with a contact in your contact center. For every new contact, Connect Customer creates a contact record and assigns a unique Contact ID to the contact. 
 
-Each time an agent consults with another agent (internal to Connect Customer or external, by using a
-toll free or direct inward dial number), Connect Customer creates a consult leg contact record and
-issues a new Contact ID for this leg.
+Each time an agent consults with another agent (internal to Connect Customer or external, by using a toll free or direct inward dial number), Connect Customer creates a consult leg contact record and issues a new Contact ID for this leg. 
 
-The main contact record and any subsequent consult leg contact record can be linked
-together by several Contact ID fields, for example, Initial Contact ID, Next Contact ID and
-Previous Contact ID.
+The main contact record and any subsequent consult leg contact record can be linked together by several Contact ID fields, for example, Initial Contact ID, Next Contact ID and Previous Contact ID. 
 
-This topic explains how you can use these fields to differentiate conferences and
-transfers in contact records. It also provides a logic to establish the type of consultative
-operation: Consult call, Conference, or Transfer.
+This topic explains how you can use these fields to differentiate conferences and transfers in contact records. It also provides a logic to establish the type of consultative operation: Consult call, Conference, or Transfer.
 
-###### Contents
-
-- [Terminology](#consultative-terms "#consultative-terms")
-- [Contact records for
-  consultative calls](#ctr-structure-consultative-calls "#ctr-structure-consultative-calls")
-- [How to identify consultative
-  calls](#logic-consultative-calls "#logic-consultative-calls")
-- [Code
-  snippets](#codesnippets-consultative-calls "#codesnippets-consultative-calls")
+**Topics**
++ [Terminology](#consultative-terms)
++ [Contact records for consultative calls](#ctr-structure-consultative-calls)
++ [How to identify consultative calls](#logic-consultative-calls)
++ [Code snippets](#codesnippets-consultative-calls)
 
 ## Terminology
+<a name="consultative-terms"></a>
 
 The following terminology is used in this topic:
 
-**Consultative call**
-
-A call involving three participants:
+**Consultative call**  
+A call involving three participants:  
 
 1. The initiator, for example, a customer
-2. The recipient, for example, an agent
-3. A consulted participant, for example, a supervisor or an external
-   third-party translator
 
-A consultative call can end up being a consult call, a transfer call, or a
-conference call.
+1. The recipient, for example, an agent
 
-**Consult call**
+1. A consulted participant, for example, a supervisor or an external third-party translator
+A consultative call can end up being a consult call, a transfer call, or a conference call.
 
-A call in which the recipient agent consults with another participant (for
-example, an agent in the same Connect Customer instance or an external entity), while
-the initiator is placed on hold.
+**Consult call**  
+A call in which the recipient agent consults with another participant (for example, an agent in the same Connect Customer instance or an external entity), while the initiator is placed on hold.   
+After a call is disconnected, Connect Customer places the agent in an After Call Work (ACW) state. The contact record is updated with the timestamp when this state was entered. In the case of consult calls, the consulted participant disconnects earlier than the customer.   
+The contact record records the timestamp when the agent was placed in ACW state under `AfterContactWorkStartTimestamp`. 
 
-After a call is disconnected, Connect Customer places the agent in an After Call Work
-(ACW) state. The contact record is updated with the timestamp when this
-state was entered. In the case of consult calls, the consulted participant
-disconnects earlier than the customer.
+**Transfer call**  
+The recipient transfers the initiator to the consulted participant. In this case, the recipient agent enters ACW earlier than the consulted agent. 
 
-The contact record records the timestamp when the agent was placed in ACW
-state under `AfterContactWorkStartTimestamp`.
+**Conferenced call**  
+The recipient conferences the initiator to the consulted participant (three-way call).   
+Connect Customer allows more than three participants to be conferenced together. For internal calls, the consulted participant enters ACW earlier than the recipient in both Consult and Conference situations. The difference, however, is that in a conference situation, the consulted participant also gets to speak with the customer, while in a consult case, the customer is placed on hold by the recipient. 
 
-**Transfer call**
-
-The recipient transfers the initiator to the consulted participant. In
-this case, the recipient agent enters ACW earlier than the consulted agent.
-
-**Conferenced call**
-
-The recipient conferences the initiator to the consulted participant
-(three-way call).
-
-Connect Customer allows more than three participants to be conferenced together. For
-internal calls, the consulted participant enters ACW earlier than the
-recipient in both Consult and Conference situations. The difference,
-however, is that in a conference situation, the consulted participant also
-gets to speak with the customer, while in a consult case, the customer is
-placed on hold by the recipient.
-
-The following sections explain how you can identify each of these types of calls in a
-contact record.
+The following sections explain how you can identify each of these types of calls in a contact record.
 
 ## Contact records for consultative calls
+<a name="ctr-structure-consultative-calls"></a>
 
-Let's say customer calls Agent1. The agent doesn't transfer or consult with others.
-When call is disconnected, the contact record looks like the following sample (only the
-relevant fields are shown):
+Let's say customer calls Agent1. The agent doesn't transfer or consult with others. When call is disconnected, the contact record looks like the following sample (only the relevant fields are shown):
 
 ```
 {
-    "AWSAccountId": "`account-id`",
+    "AWSAccountId": "{{account-id}}",
     "Agent": {
-        "ARN": "`agent-arn`",
+        "ARN": "{{agent-arn}}",
         "AfterContactWorkStartTimestamp": "2024-08-02T17:50:53Z",
         .
         .
@@ -103,197 +72,127 @@ relevant fields are shown):
 }
 ```
 
-If Agent1 were to initiate a consultative call with another agent (Agent2), it be a
-Consult, a Transfer, or a Conference.
+If Agent1 were to initiate a consultative call with another agent (Agent2), it be a Consult, a Transfer, or a Conference. 
 
-The following sample contact record shows how this would look for the initiating
-agent (Agent1) and the recipient agent (Agent2):
+ The following sample contact record shows how this would look for the initiating agent (Agent1) and the recipient agent (Agent2):
++ Initiating agent (Agent1)
 
-- Initiating agent (Agent1)
+  ```
+  {
+      "Agent": {
+          "ARN": "{{agent-arn}}"
+          "AfterContactWorkStartTimestamp": "2024-08-02T17:50:53Z",
+          .
+          .
+          "Username": "Agent1"
+      },
+      "ContactId": "497f04ca-6de1-408f-9b8a-ec57bcc99b31",
+      "InitialContactId": null,
+      "NextContactId": "6aa058d3-e771-4544-8e93-f5ce9c9003b3",
+      .
+      .
+  }
+  ```
++ Recipient agent (Agent2)
 
-```
-{
-    "Agent": {
-        "ARN": "`agent-arn`"
-        "AfterContactWorkStartTimestamp": "2024-08-02T17:50:53Z",
-        .
-        .
-        "Username": "Agent1"
-    },
-    "ContactId": "497f04ca-6de1-408f-9b8a-ec57bcc99b31",
-    "InitialContactId": null,
-    "NextContactId": "6aa058d3-e771-4544-8e93-f5ce9c9003b3",
-    .
-    .
-}
-```
+  ```
+  {
+      "Agent": {
+          "ARN": "{{agent-arn}}",
+          "AfterContactWorkStartTimestamp": "2024-08-02T17:51:07Z",
+          .
+          .
+          "Username": "Agent2"
+      },
+      "ContactId": "6aa058d3-e771-4544-8e93-f5ce9c9003b3",
+      "InitialContactId": "497f04ca-6de1-408f-9b8a-ec57bcc99b31",
+      "NextContactId": null,
+      "PreviousContactId": "497f04ca-6de1-408f-9b8a-ec57bcc99b31",
+      .
+      .
+  }
+  ```
 
-- Recipient agent (Agent2)
+  The relationship between the two parts of the contact record is shown in the following diagram:  
+![The relationship between Agent 1 and Agent 2 during a consultative call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call.png)
 
-```
-{
-    "Agent": {
-        "ARN": "`agent-arn`",
-        "AfterContactWorkStartTimestamp": "2024-08-02T17:51:07Z",
-        .
-        .
-        "Username": "Agent2"
-    },
-    "ContactId": "6aa058d3-e771-4544-8e93-f5ce9c9003b3",
-    "InitialContactId": "497f04ca-6de1-408f-9b8a-ec57bcc99b31",
-    "NextContactId": null,
-    "PreviousContactId": "497f04ca-6de1-408f-9b8a-ec57bcc99b31",
-    .
-    .
-}
-```
+  Where Agent1 (A1) and Agent2 (A2) are linked by:
+  + N = Next Contact ID. This field appears in the contact record for the initial leg. This is the Contact ID of the last agent that this agent consulted with (in this case, the last agent is A2).
+  + P = Previous Contact ID. This field appears in the contact record for the consult leg. This is the Contact ID of the leg that called this leg. In this case, that is A1.
 
-The relationship between the two parts of the contact record is shown in the
-following diagram:
+  Not shown in the diagram are:
+  + Initial Contact ID: This is the Contact ID of the first interaction between the Agent1 (A1) and the customer (C).
+  + Contact ID: This is the unique identifier of a given interaction. 
 
-![The relationship between Agent 1 and Agent 2 during a consultative call.](images/consultative-call.png)
+  Contact ID, Initial Contact ID, and Previous Contact ID are system attributes. For descriptions of each one, see [System attributes](connect-attrib-list.md#attribs-system-table).
 
-Where Agent1 (A1) and Agent2 (A2) are linked by:
-
-    + N = Next Contact ID. This field appears in the contact record for the
-     initial leg. This is the Contact ID of the last agent that this agent
-     consulted with (in this case, the last agent is A2).
-    + P = Previous Contact ID. This field appears in the contact record for
-     the consult leg. This is the Contact ID of the leg that called this leg.
-     In this case, that is A1.
-
-Not shown in the diagram are:
-
-    + Initial Contact ID: This is the Contact ID of the first interaction
-     between the Agent1 (A1) and the customer (C).
-    + Contact ID: This is the unique identifier of a given interaction.
-
-Contact ID, Initial Contact ID, and Previous Contact ID are system attributes.
-For descriptions of each one, see [System attributes](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table").
-
-This model can be extended to a consult call that involves multiple agents. Following
-are example use cases for how it can be extended.
-
-- **Use case 1**: Agent1 invites Agent2, Agent2
-  invites Agent3, and Agent3 invites Agent4. The Previous Contact ID is always the
-  previous agent. The following diagram illustrates this use case.
-
-![A1 invites A2, A2 invites A3, A3 invites A4, the Previous Contact ID is always the previous agent.](images/consultative-call-example1.png)
-
-- **Use case 2**: Agent1 invites Agent2, Agent1
-  invites Agent3, and Agent1 invites Agent4. The Previous Contact ID is always
-  Agent1. The following diagram illustrates this use case.
-
-![A1 invites Agent2, A1 invites A3 and A1 invites A4, the Previous Contact ID is always A1.](images/consultative-call-example2.png)
-
-- **Use case 3**: Agent1 invites Agent2, Agent2
-  invites Agent4 and Agent5, Agent1 invites Agent3. The Previous Contact ID for
-  Agents2 and 3 is Agent1. For Agents4 and 5 the Previous Contact ID is Agent2.
-  The following diagram illustrates this use case.
-
-![A1 invites A2, A2 invites A4 and A5, A1 invites A3.](images/consultative-call-example3.png)
+This model can be extended to a consult call that involves multiple agents. Following are example use cases for how it can be extended.
++ **Use case 1**: Agent1 invites Agent2, Agent2 invites Agent3, and Agent3 invites Agent4. The Previous Contact ID is always the previous agent. The following diagram illustrates this use case.  
+![A1 invites A2, A2 invites A3, A3 invites A4, the Previous Contact ID is always the previous agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example1.png)
++ **Use case 2**: Agent1 invites Agent2, Agent1 invites Agent3, and Agent1 invites Agent4. The Previous Contact ID is always Agent1. The following diagram illustrates this use case.  
+![A1 invites Agent2, A1 invites A3 and A1 invites A4, the Previous Contact ID is always A1.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example2.png)
++ **Use case 3**: Agent1 invites Agent2, Agent2 invites Agent4 and Agent5, Agent1 invites Agent3. The Previous Contact ID for Agents2 and 3 is Agent1. For Agents4 and 5 the Previous Contact ID is Agent2. The following diagram illustrates this use case.  
+![A1 invites A2, A2 invites A4 and A5, A1 invites A3.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example3.png)
 
 ## How to identify consultative calls
+<a name="logic-consultative-calls"></a>
 
-1. [Step 1: Group all the legs associated with the main contact](#step1-consultative-calls "#step1-consultative-calls")
-2. [Step 2: Identify relation between each pair by using their Contact ID fields](#step2-consultative-calls "#step2-consultative-calls") (Previous Contact ID, Next
-   Contact ID, Initial Contact ID and Contact ID). Examine additional fields in the
-   contact record to identify the type of consultative operation: Consult /
-   Transfer or Conference.
+1. [Step 1: Group all the legs associated with the main contact](#step1-consultative-calls)
+
+1. [Step 2: Identify relation between each pair by using their Contact ID fields](#step2-consultative-calls) (Previous Contact ID, Next Contact ID, Initial Contact ID and Contact ID). Examine additional fields in the contact record to identify the type of consultative operation: Consult / Transfer or Conference.
 
 ### Step 1: Group all the legs associated with the main contact
+<a name="step1-consultative-calls"></a>
 
-This step helps you group all the calls that were initiated by a given initiator /
-caller. The fields of interest are Contact ID, Previous Contact ID, Next Contact ID,
-Initial Contact ID, and Contact ID. This also helps you understand the number of
-legs it took to resolve the call. The workflow for this is as follows:
+This step helps you group all the calls that were initiated by a given initiator / caller. The fields of interest are Contact ID, Previous Contact ID, Next Contact ID, Initial Contact ID, and Contact ID. This also helps you understand the number of legs it took to resolve the call. The workflow for this is as follows:
 
-1. Establish the initiator: This is the contact record where the
-   `InitialContactId` field is `NULL`. Additionally,
-   `PreviousContactId` is also `NULL` for this
-   record.
-2. Every contact record where the `InitialContactId` field equals
-   the `ContactId` of the initiator contact record is related to
-   this contact record.
+1. Establish the initiator: This is the contact record where the `InitialContactId` field is `NULL`. Additionally, `PreviousContactId` is also `NULL` for this record.
+
+1. Every contact record where the `InitialContactId` field equals the `ContactId` of the initiator contact record is related to this contact record.
 
 ### Step 2: Identify relation between each pair by using their Contact ID fields
+<a name="step2-consultative-calls"></a>
 
-You can use following logic to identify consults versus transfers versus
-conferences. The logic uses timestamp fields noted in the contact record. All
-relevant fields have been marked as `code`.
+You can use following logic to identify consults versus transfers versus conferences. The logic uses timestamp fields noted in the contact record. All relevant fields have been marked as `code`.
 
 #### Consult calls
+<a name="consult-c"></a>
 
-Initiator consults with another party - within the same Connect Customer instance
-(Internal) or external to that instance (External), using a DID or toll-free
-number.
-
-- Internal consults characteristics:
-
-  - The consulted agent enters ACW before the initiator
-    agent
-  - The consulted agent never speaks with the customer, this is
-    because the customer has been placed on hold by the initiator.
-    Therefore the field `AgentInteractionDuration` for
-    the consulted agent is ZERO.
-
-- External consult characteristic:
-
-  - The initiator's Customer Hold Duration is higher than the
-    external party's Interaction Duration
-    (`ExternalThirdPartyInteractionDuration`).
+Initiator consults with another party - within the same Connect Customer instance (Internal) or external to that instance (External), using a DID or toll-free number. 
++ Internal consults characteristics:
+  + The consulted agent enters ACW before the initiator agent
+  + The consulted agent never speaks with the customer, this is because the customer has been placed on hold by the initiator. Therefore the field `AgentInteractionDuration` for the consulted agent is ZERO.
++ External consult characteristic:
+  + The initiator's Customer Hold Duration is higher than the external party's Interaction Duration (`ExternalThirdPartyInteractionDuration`).
 
 #### Conference calls
+<a name="conference-c"></a>
 
-Initiator conferences with another participant within the same Connect Customer instance
-(Internal) or external to that instance (External), using a DID or toll-free
-number.
-
-- Internal consults characteristics:
-
-  - The consulted agent enters ACW before the initiator
-    agent.
-  - The consulted agent speaks with the customer:
-    `AgentInteractionDuration` is non ZERO.
-
-- External consult characteristics:
-
-  - The initiator's Customer Hold Duration is lesser than the
-    external party's Interaction Duration
-    (`ExternalThirdPartyInteractionDuration`) . This
-    means the customer was briefly placed on hold, and then all
-    participants were engaged in the call.
+Initiator conferences with another participant within the same Connect Customer instance (Internal) or external to that instance (External), using a DID or toll-free number. 
++ Internal consults characteristics:
+  + The consulted agent enters ACW before the initiator agent.
+  + The consulted agent speaks with the customer: `AgentInteractionDuration` is non ZERO.
++ External consult characteristics:
+  + The initiator's Customer Hold Duration is lesser than the external party's Interaction Duration (`ExternalThirdPartyInteractionDuration`) . This means the customer was briefly placed on hold, and then all participants were engaged in the call.
 
 #### Transfer calls
+<a name="transfer-c"></a>
 
-Initiator consults with another party - within the same Connect Customer instance
-(Internal) or external to that instance (External), using a DID or toll-free
-number.
-
-- Internal consults characteristics:
-
-  - The consulted agent enters ACW after the initiator
-    agent.
-  - The field `TransferCompletedTimestamp` is non ZERO
-    for the initiator agent.
-
-- External consult characteristics:
-
-  - The initiator enters ACW
-    (`AfterContactWorkStartTimestamp`) before the
-    external leg is disconnected
-    (`DisconnectTimestamp`).
-  - The field `TransferCompletedTimestamp` is non ZERO
-    for the initiator agent.
+Initiator consults with another party - within the same Connect Customer instance (Internal) or external to that instance (External), using a DID or toll-free number. 
++ Internal consults characteristics: 
+  + The consulted agent enters ACW after the initiator agent.
+  + The field `TransferCompletedTimestamp` is non ZERO for the initiator agent.
++ External consult characteristics:
+  + The initiator enters ACW (`AfterContactWorkStartTimestamp`) before the external leg is disconnected (`DisconnectTimestamp`).
+  + The field `TransferCompletedTimestamp` is non ZERO for the initiator agent.
 
 ## Code snippets
+<a name="codesnippets-consultative-calls"></a>
 
-The following example code snippets—in SQL, Java script, and Python—demonstrate how to
-identify conference, transfer and consultative calls by using the logic described in the previous section.
-These snippets are provided as an example, and not
-intended for production.
+ The following example code snippets—in SQL, Java script, and Python—demonstrate how to identify conference, transfer and consultative calls by using the logic described in the previous section. These snippets are provided as an example, and not intended for production. 
 
 ### SQL code
+<a name="sql-consultative-calls"></a>
 
 ```
 -- Conference transfer query DO NOT EDIT --
@@ -318,11 +217,11 @@ SELECT current_cr.contact_id,
             AND current_cr.agent_interaction_duration_ms > 2000 THEN 'CONFERENCE'
         WHEN current_cr.agent_username is NULL
             AND current_cr.initiation_method = 'EXTERNAL_OUTBOUND'
-            AND previous_cr.agent_after_contact_work_start_timestamp > current_cr.disconnect_timestamp
+            AND previous_cr.agent_after_contact_work_start_timestamp > current_cr.disconnect_timestamp 
             AND previous_cr.agent_customer_hold_duration_ms > current_cr.external_third_party_interaction_duration_ms THEN 'EXTERNAL_CONSULT'
         WHEN current_cr.agent_username is NULL
             AND current_cr.initiation_method = 'EXTERNAL_OUTBOUND'
-            AND previous_cr.agent_after_contact_work_start_timestamp > current_cr.disconnect_timestamp
+            AND previous_cr.agent_after_contact_work_start_timestamp > current_cr.disconnect_timestamp 
             AND previous_cr.agent_customer_hold_duration_ms < current_cr.external_third_party_interaction_duration_ms THEN 'EXTERNAL_CONFERENCE'
         WHEN current_cr.agent_username is NULL
             AND current_cr.initiation_method = 'EXTERNAL_OUTBOUND'
@@ -336,11 +235,10 @@ WHERE (
         or current_cr.contact_id = 'SAME CONTACT ID AS ABOVE'
     )
 order by current_cr.agent_connected_to_agent_timestamp asc
-
-
 ```
 
 ### Python code
+<a name="python-consultative-calls"></a>
 
 ```
 """Module Compare CTR's and establish relation"""
@@ -390,7 +288,7 @@ def process_ctr_records(ctr_array):
         if relation is not None:
             output_list.append(relation)
     return output_list
-
+           
 def establish_parent(a_ctr):
     """ Establish the first record - the one that doesn't have a Previous Contact ID"""
     if a_ctr.get('Agent', None) is not None:
@@ -401,7 +299,7 @@ def establish_parent(a_ctr):
                 ,'Type': TYPE_INITIAL
                 ,'Contact State': CONTACT_STATE_START
             }
-
+   
 def establish_relation(parent, child):
     """ Establish Conf / Transfer / Consult relation between two Agents"""
     if is_external_call(child):
@@ -425,9 +323,9 @@ def establish_external_relation(parent, child):
          ((child_disconnect_ts - transfer_completed_ts).total_seconds() > 0): # ACW started after transfer was completed
         ret['Type'] = TYPE_TRANSFER
     return ret
-
+    
 def establish_internal_relation(parent, child):
-    """ Establish Conf / Transfer / Consult relation between two Agents - Internal call"""
+    """ Establish Conf / Transfer / Consult relation between two Agents - Internal call"""        
     ret = {
         'Parties': parent['Agent']['Username'] + ' <-> ' + child['Agent']['Username']
         ,'Contact State': parent.get('Contact State', CONTACT_STATE_INT)
@@ -437,7 +335,7 @@ def establish_internal_relation(parent, child):
 
     parent_acw_start_ts = parser.parse(parent['Agent']['AfterContactWorkStartTimestamp'])
     child_acw_start_ts  = parser.parse(child['Agent']['AfterContactWorkStartTimestamp'])
-
+ 
     if (parent_acw_start_ts - child_acw_start_ts).total_seconds() > 0: # Parent ended after child: Consult or conference
         ret['Type'] = TYPE_CONSULT if child['Agent']['AgentInteractionDuration'] < INTERACTION_DURN_THRESHOLD else TYPE_CONFERENCE
     elif ((transfer_completed_ts := parser.parse(parent.get('TransferCompletedTimestamp', None))) is not None) and \
@@ -453,7 +351,7 @@ def is_external_call(a_record):
     return False
 
 def get_parent_node(ctr_array, child_cid, child_prev_cid):
-    """ Get the parent node when we have a Previous Contact ID"""
+    """ Get the parent node when we have a Previous Contact ID"""    
     for i, a_record in enumerate(ctr_array):
         if (parent_cid := a_record.get('ContactId', None)) is not None:
             if compare_strings(parent_cid, child_prev_cid):
@@ -466,8 +364,8 @@ def get_parent_node(ctr_array, child_cid, child_prev_cid):
                     return a_record |  {'Contact State': CONTACT_STATE_INT}
 
 def compare_strings(s1, s2):
-    """ Compare two Contact IDs"""
-    if s1 is None or s2 is None : return False
+    """ Compare two Contact IDs"""    
+    if s1 is None or s2 is None : return False 
     return re.search(re.compile(s2), s1)
 
 def read_all_ctr_records(a_cid):
@@ -479,7 +377,7 @@ def read_all_ctr_records(a_cid):
                 a_ctr = json.load(json_file)
             except ValueError:
                 print('Error in parsing JSON. File name:[', file_name, ']')
-
+            
             if a_ctr is not None:
                 c_id = a_ctr['ContactId']
                 init_cid = a_ctr.get('InitialContactId', None)
@@ -487,7 +385,7 @@ def read_all_ctr_records(a_cid):
                     ctr_array.append(a_ctr)
                 elif compare_strings(a_cid, init_cid):
                     ctr_array.append(a_ctr)
-
+            
     return ctr_array
 
 def main():
@@ -509,6 +407,7 @@ if __name__ == "__main__":
 ```
 
 ### JS code
+<a name="js-consultative-calls"></a>
 
 ```
 // Has a dependency on the following Node.js modules: - date-fns, fs, path
