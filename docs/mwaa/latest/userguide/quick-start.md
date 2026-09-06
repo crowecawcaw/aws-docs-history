@@ -18,7 +18,7 @@ Use this tutorial to upload a DAG to Amazon S3, run the DAG in Apache Airflow, a
 
 ###### Note
 
-The CloudFormation template on this page creates an Amazon Managed Workflows for Apache Airflow environment for the latest version of Apache Airflow available in CloudFormation. The latest available version is Apache Airflow v3.2.1.
+The CloudFormation template on this page creates an Amazon Managed Workflows for Apache Airflow environment for the latest version of Apache Airflow available in CloudFormation. The latest available version is Apache Airflow v3.3.1.
 
 The CloudFormation template creates the following:
 

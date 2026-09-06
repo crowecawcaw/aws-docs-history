@@ -45,7 +45,7 @@ To use this code example with Apache Airflow v2, no additional dependencies are 
 
 The following examples show how to clean the metadata database on your Amazon MWAA environment.
 
-Apache Airflow v3.0.6 to 3.2.1
+Apache Airflow v3.0.6 to 3.3.1
 
 ###### Important considerations
 

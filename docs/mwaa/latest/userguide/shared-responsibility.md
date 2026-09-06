@@ -1,5 +1,9 @@
 # AWS shared responsibility model for Amazon MWAA
 
+This guidance applies to Amazon MWAA Provisioned environments. In a Provisioned environment,
+you select the environment class and configure the worker and web server scaling
+limits.
+
 Security and compliance is a shared responsibility between AWS and you. The [shared
 responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 describes this as security _of_ the cloud and security
@@ -157,8 +161,10 @@ reports **are your responsibility**.
 - **Environment updates** – Initiating an
   environment update is your action. Updates trigger container restarts and can affect
   running workflows. You are responsible for choosing when to update and for assessing the
-  effect on in-progress tasks. We recommend updating during a maintenance window when no
-  critical DAGs are running.
+  effect on in-progress tasks. We recommend updating during a time window that you choose,
+  when no critical DAGs are running. To update without pausing and unpausing your DAGs,
+  consider graceful updates, which let workers finish in-progress tasks before they shut
+  down. Conditions and limits apply; for more information, see [Update an Amazon MWAA environment](update-environment.md "update-environment.md").
 - **First-level triage** – Using available metrics
   and logs to diagnose issues before you engage AWS Support. The level of detail that
   AWS Support can use to help you depends on the logging level that you enabled for your
