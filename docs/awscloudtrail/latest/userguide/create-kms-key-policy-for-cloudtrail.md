@@ -83,8 +83,9 @@ you should have write access to the KMS key. The KMS key policy must
 have access to CloudTrail, and the KMS key should be manageable by users who run
 operations (such as queries) on the event data store. 3. Enable CloudTrail to describe KMS key properties. For more information, see [Enable CloudTrail to describe KMS key properties](#create-kms-key-policy-for-cloudtrail-describe "#create-kms-key-policy-for-cloudtrail-describe").
 
-The `aws:SourceArn` and `aws:SourceAccount` condition keys
-are not supported in KMS key policies for event data stores.
+CloudTrail Lake supports the `aws:SourceAccount` and
+`aws:SourceArn` condition keys in KMS key policies for event data
+stores.
 
 ###### Important
 
@@ -152,8 +153,7 @@ policies associated with those IAM users.
 
 As a security best practice, add an `aws:SourceArn` condition key to the
 KMS key policy. The IAM global condition key `aws:SourceArn` helps ensure
-that CloudTrail uses the KMS key only for the specified trails. This condition isn't
-supported in KMS key policies for event data stores.
+that CloudTrail uses the KMS key only for the specified trails.
 
 KMS key policy statement:
 
@@ -185,10 +185,11 @@ in the AWS Key Management Service Developer Guide.
 
 ## Granting encrypt permissions for event data stores
 
-A policy for a KMS key used to encrypt a CloudTrail Lake event data store
-cannot use the condition keys `aws:SourceArn` or
-`aws:SourceAccount`. The following is an example of a KMS key policy
-for an event data store.
+CloudTrail Lake supports the
+`aws:SourceAccount` and `aws:SourceArn` condition keys in
+KMS key policies for event data stores. Add these conditions after you create
+the event data store. The following example allows one event data store to use the
+KMS key.
 
 ```
 {
@@ -201,9 +202,19 @@ for an event data store.
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ],
-      "Resource": "*"
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "`account-id`",
+          "aws:SourceArn": "arn:aws:cloudtrail:`region`:`account-id`:eventdatastore/`event-data-store-id`"
+        }
+      }
 }
 ```
+
+For a same-account, same-Region query that joins multiple
+event data stores, set `aws:SourceArn` to an array of every participating event
+data store ARN on each KMS key used by the query.
 
 ## Granting decrypt permissions for trails
 
@@ -429,7 +440,7 @@ stores, run queries, or get query results.
 
 ```
 {
-      "Sid": "EnableUserKeyPermissionsEds"
+      "Sid": "EnableUserKeyPermissionsEds",
       "Effect": "Allow",
       "Principal": {
           "AWS": "arn:aws:iam::`account-id`:user/`username`"

@@ -208,6 +208,8 @@ For information about how to log data events using the console, see
 - [Example 1: Filtering on the eventName field](#filtering-data-events-eventname "#filtering-data-events-eventname")
 - [Example 2: Filtering on the resources.ARN and userIdentity.arn fields](#filtering-data-events-useridentityarn "#filtering-data-events-useridentityarn")
 - [Example 3: Filtering on the resources.type and eventName fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event](#filtering-data-events-deleteobjects "#filtering-data-events-deleteobjects")
+- [Example 4: Filtering on the eventSource field to exclude Amazon S3 lifecycle data events](#filtering-data-events-eventsource-s3lifecycle "#filtering-data-events-eventsource-s3lifecycle")
+- [Example 5: Filtering on the eventSource field to exclude Amazon S3 authentication failure data events](#filtering-data-events-eventsource-s3auth "#filtering-data-events-eventsource-s3auth")
 
 ### Example 1: Filtering on the `eventName` field
 
@@ -349,3 +351,69 @@ aws cloudtrail put-event-selectors \
 ] (edited)
 
 ```
+
+### Example 4: Filtering on the `eventSource` field to exclude Amazon S3 lifecycle data events
+
+The following example shows how to log all Amazon S3 data events but exclude Amazon S3
+lifecycle operations. These operations include object expirations, delete marker
+creation, storage class transitions, and multipart upload aborts. Amazon S3 lifecycle events use the
+`s3lifecycle.amazonaws.com` event source. By filtering on the
+`s3lifecycle.amazonaws.com` event source using the `NotEquals`
+operator, you can exclude these service-initiated events while continuing to log
+all user-initiated Amazon S3 data events.
+
+```
+aws cloudtrail put-event-selectors \
+--trail-name `trailName` \
+--advanced-event-selectors \
+'[
+  {
+    "Name": "Log S3 data events but exclude lifecycle operations",
+    "FieldSelectors": [
+      { "Field": "eventCategory", "Equals": ["Data"] },
+      { "Field": "resources.type", "Equals": ["AWS::S3::Object"] },
+      { "Field": "eventSource", "NotEquals": ["s3lifecycle.amazonaws.com"] }
+    ]
+  }
+]'
+
+```
+
+### Example 5: Filtering on the `eventSource` field to exclude Amazon S3 authentication failure data events
+
+The following example shows how to log all Amazon S3 data events but exclude Amazon S3
+authentication failure events, such as
+`AuthenticateSignatureDoesNotMatch`,
+`AuthenticateInvalidAccessKeyId`, and
+`AuthenticateExpiredToken`. Amazon S3 authentication failure events use
+the `s3-authn-errors.amazonaws.com` event source. By filtering on the
+`s3-authn-errors.amazonaws.com` event source using the
+`NotEquals` operator, you can exclude these events while continuing to
+log all successful Amazon S3 data events.
+
+```
+aws cloudtrail put-event-selectors \
+--trail-name `trailName` \
+--advanced-event-selectors \
+'[
+  {
+    "Name": "Log S3 data events but exclude authentication failure events",
+    "FieldSelectors": [
+      { "Field": "eventCategory", "Equals": ["Data"] },
+      { "Field": "resources.type", "Equals": ["AWS::S3::Object"] },
+      { "Field": "eventSource", "NotEquals": ["s3-authn-errors.amazonaws.com"] }
+    ]
+  }
+]'
+
+```
+
+This advanced event selector filters out all events where the
+`eventSource` is `s3-authn-errors.amazonaws.com`. Authentication
+failure events follow the naming pattern `Authenticate` followed by
+error code (for example, `AuthenticateSignatureDoesNotMatch`,
+`AuthenticateInvalidAccessKeyId`,
+`AuthenticateExpiredToken`,
+`AuthenticateInvalidToken`). Excluding these events can help reduce
+costs if you do not need to audit failed authentication attempts against your
+Amazon S3 resources.

@@ -15,7 +15,8 @@ User Notifications supports aggregation, which can reduce the number of notifica
 The Region recorded in a `ConsoleLogin` event varies based on the user type and whether you
 use a global or regional endpoint to sign in.
 
-- If you sign in as the root user, CloudTrail records the event in us-east-1.
+- If you sign in as the root user, CloudTrail records the event in one of the following
+  Regions: us-east-1, us-east-2, or us-west-2.
 - If you sign in with an IAM user and use the global endpoint, CloudTrail records
   the Region of the `ConsoleLogin` event as follows:
 
@@ -278,7 +279,7 @@ that the IAM user enabled multiple MFA device types.
 
 The following examples show event records for several `root` user sign-in
 scenarios. When you sign-in using the root user, CloudTrail records the `ConsoleLogin`
-event in us-east-1.
+event in one of the following Regions: us-east-1, us-east-2, or us-west-2.
 
 ###### Topics
 
