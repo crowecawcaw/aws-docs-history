@@ -1,16 +1,17 @@
-Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
+
+
+Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Attribute Rules
+<a name="schemas_attributerules"></a>
 
-Rules describe permissible values of an attribute type and constrain the values that are
-allowed for any particular attribute. You must specify rules as part of an attribute
-definition when you create a facet. Cloud Directory supports the following rule types:
+Rules describe permissible values of an attribute type and constrain the values that are allowed for any particular attribute. You must specify rules as part of an attribute definition when you create a facet. Cloud Directory supports the following rule types:
++  String length
++  Binary length
++  String from set
++  Number comparison
 
-- String length
-- Binary length
-- String from set
-- Number comparison
-  **String length**
+**String length **
 
 Constrains the length of a string attribute value.
 
@@ -28,19 +29,18 @@ Allowed rule parameter values: number
 
 **String from set**
 
-Constrains the value of a string attribute to the allowed set of specified strings.
+Constrains the value of a string attribute to the allowed set of specified strings. 
 
 Allowed rule parameter keys: allowedValues
 
 Allowed rule parameter values: Set of strings with each string to be UTF-8 encoded
 
-Allowed values are comma delimited and can be wrapped in quotes. This is useful when
-allowed values include comma’s. For example:
+Allowed values are comma delimited and can be wrapped in quotes. This is useful when allowed values include comma’s. For example:
++ One,two,three = matches One two or three
++ “with,comma”,”withoutcomma” = matches “with,comma” or “withoutcomma”
++ with”quote,withoutquote matches ‘with”quote’ or ‘withoutquote’
 
-- One,two,three = matches One two or three
-- “with,comma”,”withoutcomma” = matches “with,comma” or “withoutcomma”
-- with”quote,withoutquote matches ‘with”quote’ or ‘withoutquote’
-  **Number comparison**
+**Number comparison**
 
 Constraints the numeric value allowed for a number attribute.
 

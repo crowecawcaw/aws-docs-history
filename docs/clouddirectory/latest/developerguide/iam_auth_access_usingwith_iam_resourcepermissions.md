@@ -1,87 +1,82 @@
-Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
+
+
+Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions Reference
+<a name="iam_auth_access_usingwith_iam_resourcepermissions"></a>
 
-When you are setting up [Access Control](iam_auth_access.md#iam_auth_access_accesscontrol "iam_auth_access.md#iam_auth_access_accesscontrol") and writing permissions policies that you
-can attach to an IAM identity (identity-based policies), you can use the following table as
-a reference. The table lists
-each Amazon Cloud Directory API operation, the corresponding actions for which you can grant permissions to
-perform the action, the AWS resource for which you can grant the permissions.
+When you are setting up [Access Control](iam_auth_access.md#iam_auth_access_accesscontrol) and writing permissions policies that you can attach to an IAM identity (identity-based policies), you can use the following table as a reference. The table lists each Amazon Cloud Directory API operation, the corresponding actions for which you can grant permissions to perform the action, the AWS resource for which you can grant the permissions. You specify the actions in the policy's `Action` field and the resource value in the policy's `Resource` field. 
 
-You specify the actions in the policy's `Action` field and the resource value in
-the policy's `Resource` field.
+You can use AWS-wide condition keys in your Amazon Cloud Directory policies to express conditions. For a complete list of AWS-wide keys, see [Available Global Condition Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys) in the *IAM User Guide*. 
 
-You can use AWS-wide condition keys in your Amazon Cloud Directory policies to express
-conditions. For a complete list of AWS-wide keys, see [Available Global Condition Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#AvailableKeys") in
-the _IAM User Guide_.
+**Note**  
+To specify an action, use the `clouddirectory:` prefix followed by the API operation name (for example, `clouddirectory:CreateDirectory`).
 
-###### Note
 
-To specify an action, use the `clouddirectory:` prefix followed by the API
-operation name (for example, `clouddirectory:CreateDirectory`).
+**Amazon Cloud Directory API and Required Permissions for Actions**  
 
-Amazon Cloud Directory API and Required Permissions for Actions| Amazon Cloud Directory API Operations | Required Permissions (API Actions) | Resources |
-| --- | --- | --- |
-| [AddFacetToObject](../APIReference/API_AddFacetToObject.md "../APIReference/API_AddFacetToObject.md") | `clouddirectory:AddFacetToObject` | \* |
-| [ApplySchema](../APIReference/API_ApplySchema.md "../APIReference/API_ApplySchema.md") | `clouddirectory:ApplySchema` | \* |
-| [AttachObject](../APIReference/API_AttachObject.md "../APIReference/API_AttachObject.md") | `clouddirectory:AttachObject` | \* |
-| [AttachPolicy](../APIReference/API_AttachPolicy.md "../APIReference/API_AttachPolicy.md") | `clouddirectory:AttachPolicy` | \* |
-| [AttachToIndex](../APIReference/API_AttachToIndex.md "../APIReference/API_AttachToIndex.md") | `clouddirectory:AttachToIndex` | \* |
-| [AttachTypedLink](../APIReference/API_AttachTypedLink.md "../APIReference/API_AttachTypedLink.md") | `clouddirectory:AttachTypedLink` | \* |
-| [BatchRead](../APIReference/API_BatchRead.md "../APIReference/API_BatchRead.md") | `clouddirectory:BatchRead` | \* |
-| [BatchWrite](../APIReference/API_BatchWrite.md "../APIReference/API_BatchWrite.md") | `clouddirectory:BatchWrite` | \* |
-| [CreateDirectory](../APIReference/API_CreateDirectory.md "../APIReference/API_CreateDirectory.md") | `clouddirectory:CreateDirectory` | \* |
-| [CreateFacet](../APIReference/API_CreateFacet.md "../APIReference/API_CreateFacet.md") | `clouddirectory:CreateFacet` | \* |
-| [CreateIndex](../APIReference/API_CreateIndex.md "../APIReference/API_CreateIndex.md") | `clouddirectory:CreateIndex` | \* |
-| [CreateObject](../APIReference/API_CreateObject.md "../APIReference/API_CreateObject.md") | `clouddirectory:CreateObject` | \* |
-| [CreateSchema](../APIReference/API_CreateSchema.md "../APIReference/API_CreateSchema.md") | `clouddirectory:CreateSchema` | \* |
-| [CreateTypedLinkFacet](../APIReference/API_CreateTypedLinkFacet.md "../APIReference/API_CreateTypedLinkFacet.md") | `clouddirectory:CreateTypedLinkFacet` | \* |
-| [DeleteDirectory](../APIReference/API_DeleteDirectory.md "../APIReference/API_DeleteDirectory.md") | `clouddirectory:DeleteDirectory` | \* |
-| [DeleteFacet](../APIReference/API_DeleteFacet.md "../APIReference/API_DeleteFacet.md") | `clouddirectory:DeleteFacet` | \* |
-| [DeleteObject](../APIReference/API_DeleteObject.md "../APIReference/API_DeleteObject.md") | `clouddirectory:DeleteObject` | \* |
-| [DeleteSchema](../APIReference/API_DeleteSchema.md "../APIReference/API_DeleteSchema.md") | `clouddirectory:DeleteSchema` | \* |
-| [DeleteTypedLinkFacet](../APIReference/API_DeleteTypedLinkFacet.md "../APIReference/API_DeleteTypedLinkFacet.md") | `clouddirectory:DeleteTypedLinkFacet` | \* |
-| [DetachFromIndex](../APIReference/API_DetachFromIndex.md "../APIReference/API_DetachFromIndex.md") | `clouddirectory:DetachFromIndex` | \* |
-| [DetachObject](../APIReference/API_DetachObject.md "../APIReference/API_DetachObject.md") | `clouddirectory:DetachObject` | \* |
-| [DetachPolicy](../APIReference/API_DetachPolicy.md "../APIReference/API_DetachPolicy.md") | `clouddirectory:DetachPolicy` | \* |
-| [DetachedTypedLink](../APIReference/API_DetachTypedLink.md "../APIReference/API_DetachTypedLink.md") | `clouddirectory:DetachTypedLink` | \* |
-| [DisableDirectory](../APIReference/API_DisableDirectory.md "../APIReference/API_DisableDirectory.md") | `clouddirectory:DisableDirectory` | \* |
-| [EnableDirectory](../APIReference/API_EnableDirectory.md "../APIReference/API_EnableDirectory.md") | `clouddirectory:EnableDirectory` | \* |
-| [GetAppliedSchemaVersion](../APIReference/API_GetAppliedSchemaVersion.md "../APIReference/API_GetAppliedSchemaVersion.md") | `clouddirectory:GetAppliedSchemaVersion` | \* |
-| [GetDirectory](../APIReference/API_GetDirectory.md "../APIReference/API_GetDirectory.md") | `clouddirectory:GetDirectory` | \* |
-| [GetFacet](../APIReference/API_GetFacet.md "../APIReference/API_GetFacet.md") | `clouddirectory:GetFacet` | \* |
-| [GetObjectAttributes](../APIReference/API_GetObjectAttributes.md "../APIReference/API_GetObjectAttributes.md") | `clouddirectory:GetObjectAttributes` | \* |
-| [GetObjectInformation](../APIReference/API_GetObjectInformation.md "../APIReference/API_GetObjectInformation.md") | `clouddirectory:GetObjectInformation` | \* |
-| [GetSchemaAsJson](../APIReference/API_GetSchemaAsJson.md "../APIReference/API_GetSchemaAsJson.md") | `clouddirectory:GetSchemaAsJson` | \* |
-| [GetTypedLinkFacetInformation](../APIReference/API_GetTypedLinkFacetInformation.md "../APIReference/API_GetTypedLinkFacetInformation.md") | `clouddirectory:GetTypedLinkFacetInformation` | \* |
-| [ListAppliedSchemaArns](../APIReference/API_ListAppliedSchemaArns.md "../APIReference/API_ListAppliedSchemaArns.md") | `clouddirectory:ListAppliedSchemaArns` | \* |
-| [ListAttachedIndices](../APIReference/API_ListAttachedIndices.md "../APIReference/API_ListAttachedIndices.md") | `clouddirectory:ListAttachedIndices` | \* |
-| [ListDevelopmentSchemaArns](../APIReference/API_ListDevelopmentSchemaArns.md "../APIReference/API_ListDevelopmentSchemaArns.md") | `clouddirectory:ListDevelopmentSchemaArns` | \* |
-| [ListDirectories](../APIReference/API_ListDirectories.md "../APIReference/API_ListDirectories.md") | `clouddirectory:ListDirectories` | \* |
-| [ListFacetAttributes](../APIReference/API_ListFacetAttributes.md "../APIReference/API_ListFacetAttributes.md") | `clouddirectory:ListFacetAttributes` | \* |
-| [ListFacetNames](../APIReference/API_ListFacetNames.md "../APIReference/API_ListFacetNames.md") | `clouddirectory:ListFacetNames` | \* |
-| [ListIncomingTypedLinks](../APIReference/API_ListIncomingTypedLinks.md "../APIReference/API_ListIncomingTypedLinks.md") | `clouddirectory:ListIncomingTypedLinks` | \* |
-| [ListIndex](../APIReference/API_ListIndex.md "../APIReference/API_ListIndex.md") | `clouddirectory:ListIndex` | \* |
-| [ListObjectAttributes](../APIReference/API_ListObjectAttributes.md "../APIReference/API_ListObjectAttributes.md") | `clouddirectory:ListObjectAttributes` | \* |
-| [ListObjectChildren](../APIReference/API_ListObjectChildren.md "../APIReference/API_ListObjectChildren.md") | `clouddirectory:ListObjectChildren` | \* |
-| [ListObjectParentPaths](../APIReference/API_ListObjectParentPaths.md "../APIReference/API_ListObjectParentPaths.md") | `clouddirectory:ListObjectParentPaths` | \* |
-| [ListObjectParents](../APIReference/API_ListObjectParents.md "../APIReference/API_ListObjectParents.md") | `clouddirectory:ListObjectParents` | \* |
-| [ListObjectPolicies](../APIReference/API_ListObjectPolicies.md "../APIReference/API_ListObjectPolicies.md") | `clouddirectory:ListObjectPolicies` | \* |
-| [ListOutgoingTypedLinks](../APIReference/API_ListOutgoingTypedLinks.md "../APIReference/API_ListOutgoingTypedLinks.md") | `clouddirectory:ListOutgoingTypedLinks` | \* |
-| [ListPolicyAttachments](../APIReference/API_ListPolicyAttachments.md "../APIReference/API_ListPolicyAttachments.md") | `clouddirectory:ListPolicyAttachments` | \* |
-| [ListPublishedSchemaArns](../APIReference/API_ListPublishedSchemaArns.md "../APIReference/API_ListPublishedSchemaArns.md") | `clouddirectory:ListPublishedSchemaArns` | \* |
-| [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") | `clouddirectory:ListTagsForResource` | \* |
-| [ListTypedLinkFacetAttributes](../APIReference/API_ListTypedLinkFacetAttributes.md "../APIReference/API_ListTypedLinkFacetAttributes.md") | `clouddirectory:ListTypedLinkFacetAttributes` | \* |
-| [ListTypedLinkFacetNames](../APIReference/API_ListTypedLinkFacetNames.md "../APIReference/API_ListTypedLinkFacetNames.md") | `clouddirectory:ListTypedLinkFacetNames` | \* |
-| [LookupPolicy](../APIReference/API_LookupPolicy.md "../APIReference/API_LookupPolicy.md") | `clouddirectory:LookupPolicy` | \* |
-| [PublishSchema](../APIReference/API_PublishSchema.md "../APIReference/API_PublishSchema.md") | `clouddirectory:PublishSchema` | \* |
-| [PutSchemaFromJson](../APIReference/API_PutSchemaFromJson.md "../APIReference/API_PutSchemaFromJson.md") | `clouddirectory:PutSchemaFromJson` | \* |
-| [RemoveFacetFromObject](../APIReference/API_RemoveFacetFromObject.md "../APIReference/API_RemoveFacetFromObject.md") | `clouddirectory:RemoveFacetFromObject` | \* |
-| [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") | `clouddirectory:TagResource` | \* |
-| [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") | `clouddirectory:UntagResource` | \* |
-| [UpdateFacet](../APIReference/API_UpdateFacet.md "../APIReference/API_UpdateFacet.md") | `clouddirectory:UpdateFacet` | \* |
-| [UpdateObjectAttributes](../APIReference/API_UpdateObjectAttributes.md "../APIReference/API_UpdateObjectAttributes.md") | `clouddirectory:UpdateObjectAttributes` | \* |
-| [UpdateSchema](../APIReference/API_UpdateSchema.md "../APIReference/API_UpdateSchema.md") | `clouddirectory:UpdateSchema` | \* |
-| [UpdateTypedLinkFacet](../APIReference/API_UpdateTypedLinkFacet.md "../APIReference/API_UpdateTypedLinkFacet.md") | `clouddirectory:UpdateTypedLinkFacet` | \* |
-| [UpgradeAppliedSchema](../APIReference/API_UpgradeAppliedSchema.md "../APIReference/API_UpgradeAppliedSchema.md") | `clouddirectory:UpgradeAppliedSchema` | \* |
-| [UpgradePublishedSchema](../APIReference/API_UpgradePublishedSchema.md "../APIReference/API_UpgradePublishedSchema.md") | `clouddirectory:UpgradePublishedSchema` | \* |
+| Amazon Cloud Directory API Operations | Required Permissions (API Actions) | Resources | 
+| --- | --- | --- | 
+| [AddFacetToObject](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_AddFacetToObject.html) | `clouddirectory:AddFacetToObject` | \* | 
+| [ApplySchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ApplySchema.html) | clouddirectory:ApplySchema | \* | 
+| [AttachObject](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_AttachObject.html)  | clouddirectory:AttachObject | \* | 
+|  [AttachPolicy](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_AttachPolicy.html)  | `clouddirectory:AttachPolicy` | \* | 
+|  [AttachToIndex](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_AttachToIndex.html)  | `clouddirectory:AttachToIndex` | \* | 
+|  [AttachTypedLink](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_AttachTypedLink.html)  | `clouddirectory:AttachTypedLink` | \* | 
+|  [BatchRead](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_BatchRead.html)  | `clouddirectory:BatchRead` | \* | 
+|  [BatchWrite](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_BatchWrite.html)  | `clouddirectory:BatchWrite` | \* | 
+|  [CreateDirectory](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_CreateDirectory.html)  | `clouddirectory:CreateDirectory` | \* | 
+|  [CreateFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_CreateFacet.html)  | `clouddirectory:CreateFacet` | \* | 
+|  [CreateIndex](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_CreateIndex.html)  | `clouddirectory:CreateIndex` | \* | 
+|  [CreateObject](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_CreateObject.html)  | `clouddirectory:CreateObject` | \* | 
+|  [CreateSchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_CreateSchema.html)  | `clouddirectory:CreateSchema` | \* | 
+|  [CreateTypedLinkFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_CreateTypedLinkFacet.html)  | `clouddirectory:CreateTypedLinkFacet` | \* | 
+|  [DeleteDirectory](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DeleteDirectory.html)  | `clouddirectory:DeleteDirectory` | \* | 
+|  [DeleteFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DeleteFacet.html)  | `clouddirectory:DeleteFacet` | \* | 
+|  [DeleteObject](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DeleteObject.html)  | `clouddirectory:DeleteObject` | \* | 
+|  [DeleteSchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DeleteSchema.html)  | `clouddirectory:DeleteSchema` | \* | 
+|  [DeleteTypedLinkFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DeleteTypedLinkFacet.html)  | `clouddirectory:DeleteTypedLinkFacet` | \* | 
+|  [DetachFromIndex](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DetachFromIndex.html)  | `clouddirectory:DetachFromIndex` | \* | 
+|  [DetachObject](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DetachObject.html)  | `clouddirectory:DetachObject` | \* | 
+|  [DetachPolicy](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DetachPolicy.html)  | `clouddirectory:DetachPolicy` | \* | 
+|  [DetachedTypedLink](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DetachTypedLink.html)  | `clouddirectory:DetachTypedLink` | \* | 
+|  [DisableDirectory](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_DisableDirectory.html)  | `clouddirectory:DisableDirectory` | \* | 
+|  [EnableDirectory](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_EnableDirectory.html)  | `clouddirectory:EnableDirectory` | \* | 
+|  [GetAppliedSchemaVersion](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetAppliedSchemaVersion.html)  | `clouddirectory:GetAppliedSchemaVersion` | \* | 
+|  [GetDirectory](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetDirectory.html)  | `clouddirectory:GetDirectory` | \* | 
+|  [GetFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetFacet.html)  | `clouddirectory:GetFacet` | \* | 
+|  [GetObjectAttributes](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetObjectAttributes.html)  | `clouddirectory:GetObjectAttributes` | \* | 
+|  [GetObjectInformation](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetObjectInformation.html)  | `clouddirectory:GetObjectInformation` | \* | 
+|  [GetSchemaAsJson](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetSchemaAsJson.html)  | `clouddirectory:GetSchemaAsJson` | \* | 
+|  [GetTypedLinkFacetInformation](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_GetTypedLinkFacetInformation.html)  | `clouddirectory:GetTypedLinkFacetInformation` | \* | 
+|  [ListAppliedSchemaArns](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListAppliedSchemaArns.html)  | `clouddirectory:ListAppliedSchemaArns` | \* | 
+| [ListAttachedIndices](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListAttachedIndices.html) | `clouddirectory:ListAttachedIndices` | \* | 
+| [ListDevelopmentSchemaArns](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListDevelopmentSchemaArns.html) | `clouddirectory:ListDevelopmentSchemaArns` | \* | 
+| [ListDirectories](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListDirectories.html) | `clouddirectory:ListDirectories` | \* | 
+|  [ListFacetAttributes](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListFacetAttributes.html)  | `clouddirectory:ListFacetAttributes` | \* | 
+| [ListFacetNames](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListFacetNames.html) | `clouddirectory:ListFacetNames` | \* | 
+|  [ListIncomingTypedLinks](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListIncomingTypedLinks.html)  | `clouddirectory:ListIncomingTypedLinks` | \* | 
+| [ListIndex](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListIndex.html) | `clouddirectory:ListIndex` | \* | 
+|  [ListObjectAttributes](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListObjectAttributes.html)  | `clouddirectory:ListObjectAttributes` | \* | 
+| [ListObjectChildren](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListObjectChildren.html) | `clouddirectory:ListObjectChildren` | \* | 
+|  [ListObjectParentPaths](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListObjectParentPaths.html)  | `clouddirectory:ListObjectParentPaths` | \* | 
+|  [ListObjectParents](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListObjectParents.html)  | `clouddirectory:ListObjectParents` | \* | 
+|  [ListObjectPolicies](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListObjectPolicies.html)  | `clouddirectory:ListObjectPolicies` | \* | 
+|  [ListOutgoingTypedLinks](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListOutgoingTypedLinks.html)  | `clouddirectory:ListOutgoingTypedLinks` | \* | 
+|  [ListPolicyAttachments](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListPolicyAttachments.html)  | `clouddirectory:ListPolicyAttachments` | \* | 
+|  [ListPublishedSchemaArns](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListPublishedSchemaArns.html)  | `clouddirectory:ListPublishedSchemaArns` | \* | 
+|  [ListTagsForResource](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListTagsForResource.html)  | `clouddirectory:ListTagsForResource` | \* | 
+|  [ListTypedLinkFacetAttributes](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListTypedLinkFacetAttributes.html)  | `clouddirectory:ListTypedLinkFacetAttributes` | \* | 
+|  [ListTypedLinkFacetNames](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListTypedLinkFacetNames.html)  | `clouddirectory:ListTypedLinkFacetNames` | \* | 
+|  [LookupPolicy](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_LookupPolicy.html)  | `clouddirectory:LookupPolicy` | \* | 
+|  [PublishSchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_PublishSchema.html)  | `clouddirectory:PublishSchema` | \* | 
+|  [PutSchemaFromJson](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_PutSchemaFromJson.html)  | `clouddirectory:PutSchemaFromJson` | \* | 
+|  [RemoveFacetFromObject](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_RemoveFacetFromObject.html)  | `clouddirectory:RemoveFacetFromObject` | \* | 
+|  [TagResource](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_TagResource.html)  | `clouddirectory:TagResource` | \* | 
+|  [UntagResource](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UntagResource.html)  | `clouddirectory:UntagResource` | \* | 
+|  [UpdateFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UpdateFacet.html)  | `clouddirectory:UpdateFacet` | \* | 
+|  [UpdateObjectAttributes](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UpdateObjectAttributes.html)  | `clouddirectory:UpdateObjectAttributes` | \* | 
+|  [UpdateSchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UpdateSchema.html)  | `clouddirectory:UpdateSchema` | \* | 
+|  [UpdateTypedLinkFacet](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UpdateTypedLinkFacet.html)  | `clouddirectory:UpdateTypedLinkFacet` | \* | 
+|  [UpgradeAppliedSchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UpgradeAppliedSchema.html)  | `clouddirectory:UpgradeAppliedSchema` | \* | 
+|  [UpgradePublishedSchema](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_UpgradePublishedSchema.html)  | `clouddirectory:UpgradePublishedSchema` | \* | 

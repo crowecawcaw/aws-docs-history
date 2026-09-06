@@ -1,14 +1,22 @@
-Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
+
+
+Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Update Your Schema
+<a name="how_to_manage_schema_update"></a>
 
 Use the following procedure to update a schema in Cloud Directory.
 
-###### To update a schema
+**To update a schema**
 
-1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, under **Cloud Directory**, select **Schemas**.
-2. Select the option in the table next to the schema name you want to update.
-3. Choose **Actions**.
-4. Choose **Update**
-5. In the **Update schema** dialog, optionally modify the **Schema name**, or select **Choose file** to apply or remove facets and attributes.
-6. Choose **Update**.
+1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/) navigation pane, under **Cloud Directory**, select **Schemas**.
+
+1. Select the option in the table next to the schema name you want to update.
+
+1. Choose **Actions**.
+
+1. Choose **Update**
+
+1. In the **Update schema** dialog, optionally modify the **Schema name**, or select **Choose file** to apply or remove facets and attributes.
+
+1. Choose **Update**.
