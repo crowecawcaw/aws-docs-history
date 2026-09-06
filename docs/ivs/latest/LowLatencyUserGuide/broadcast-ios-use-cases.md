@@ -59,7 +59,7 @@ let broadcastSession = try IVSBroadcastSession(
 
 Here we iterate through input devices that the SDK has detected. The SDK will only
 return built-in devices on iOS. Even if Bluetooth audio devices are connected, they
-will appear as a built-in device. For more information, see [Known Issues & Workarounds in the IVS iOS Broadcast SDK | Low-Latency Streaming](broadcast-ios-issues.md "broadcast-ios-issues.md").
+will appear as a built-in device.
 
 Once we find a device that we want to use, we call `attachDevice` to
 attach it:

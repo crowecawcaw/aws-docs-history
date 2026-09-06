@@ -175,8 +175,7 @@ encoding behaviors:
   performance for the broadcasting application. For tabs/programs that cannot
   be closed, ensure they are not using unnecessary amounts of computing
   resources.
-- Ensure that the device’s upload speed exceeds 200 Kbps. (This is noted in
-  one of the [Known Issues](broadcast-web.md#broadcast-web-known-issues "broadcast-web.md#broadcast-web-known-issues") for the Web Broadcast SDK.) To evaluate the upload
+- Ensure that the device's upload speed exceeds 200 Kbps. To evaluate the upload
   speed, open the Task Manager of the broadcasting device to analyze the
   network available when streaming. If the upload speed/bitrate is lower than
   expected or desired, evaluate other tabs/processes that may be consuming

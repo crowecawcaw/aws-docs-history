@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## September 3, 2026
+
+### IVS Player SDK: Web 1.56.0
+
+| Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Web player 1.56.0](player-web.md "player-web.md") &<br>[Video.js integration](player-videojs.md "player-videojs.md")<br>& [JW player<br>integration](player-jwplayer.md "player-jwplayer.md") | **NPM Package:**<br>[https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player "https://www.npmjs.com/package/amazon-ivs-player")<br>**Script asset:_<br>• [https://player.live-video.net/1.56.0/amazon-ivs-player.min.js](https://player.live-video.net/1.56.0/amazon-ivs-player.min.js "https://player.live-video.net/1.56.0/amazon-ivs-player.min.js")<br>**Video.js tech asset:_<br>• [https://player.live-video.net/1.56.0/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.56.0/amazon-ivs-videojs-tech.min.js "https://player.live-video.net/1.56.0/amazon-ivs-videojs-tech.min.js")<br>**Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/")<br>• Added beta support for Text Track APIs and WebVTT.<br>• Bug fixes and stability improvements. |
+
+## September 3, 2026
+
+### IVS Player SDK: Android 1.56.0, iOS 1.56.0
+
+| Platform                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Android player 1.56.0](player-android.md "player-android.md") | **Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.56.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.56.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.56.0/android/")<br>• Added beta support for Text Track APIs and WebVTT.<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                              |
+| [iOS player 1.56.0](player-ios.md "player-ios.md")             | **Download:_<br>• [https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip")<br>**Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.56.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.56.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.56.0/ios/")<br>• Added beta support for Text Track APIs and WebVTT.<br>• Bug fixes and stability improvements. |
+
+#### Mobile SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.574 MB        | 4.049 MB          |
+| armeabi-v7a  | 1.399 MB        | 2.879 MB          |
+| x86\_64      | 1.575 MB        | 4.124 MB          |
+| x86          | 1.640 MB        | 4.136 MB          |
+
+#### Mobile SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 0.829 MB        | 1.789 MB          |
+
 ## August 27, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.46.0, iOS 1.46.0 (Low-Latency Streaming)

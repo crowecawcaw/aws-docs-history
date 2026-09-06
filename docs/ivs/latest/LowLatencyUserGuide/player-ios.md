@@ -3,11 +3,11 @@
 The Amazon Interactive Video Service (IVS) iOS player provides the interfaces required to
 use the Amazon IVS player on iOS.
 
-**Latest version of iOS player:** 1.55.0 ([Release Notes](release-notes.md#aug06-26-player-mobile-ll "release-notes.md#aug06-26-player-mobile-ll"))
+**Latest version of iOS player:** 1.56.0 ([Release Notes](release-notes.md#sep03-26-player-mobile-ll "release-notes.md#sep03-26-player-mobile-ll"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS iOS player, see the reference documentation at
-[https://aws.github.io/amazon-ivs-player-docs/1.55.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.55.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.55.0/ios/").
+[https://aws.github.io/amazon-ivs-player-docs/1.56.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.56.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.56.0/ios/").
 
 **Sample code:** See the iOS sample repository on GitHub:
 [https://github.com/aws-samples/amazon-ivs-player-ios-sample](https://github.com/aws-samples/amazon-ivs-player-ios-sample "https://github.com/aws-samples/amazon-ivs-player-ios-sample").
