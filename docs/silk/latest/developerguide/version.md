@@ -1,22 +1,21 @@
+
+
 # Determining the Amazon Silk build version
+<a name="version"></a>
 
-Each version of Amazon Silk includes a build version and a browser version. In some
-troubleshooting scenarios, you may need to know both the browser and build versions for a
-given Amazon Silk client. You can find these values from the Amazon Silk user agent string.
+Each version of Amazon Silk includes a build version and a browser version. In some troubleshooting scenarios, you may need to know both the browser and build versions for a given Amazon Silk client. You can find these values from the Amazon Silk user agent string.
 
-From the Silk browser, tap the menu icon. If you see this menu, you have the latest
-version of Silk. Use the following procedure to locate the build version and browser version.
-If your menu looks different, you may have an older version of Silk.
+From the Silk browser, tap the menu icon. If you see this menu, you have the latest version of Silk. Use the following procedure to locate the build version and browser version. If your menu looks different, you may have an older version of Silk.
 
-![Silk browser menu showing options such as Enter Private Browsing, Bookmarks, and Settings.](images/Silk_shared-menu.png)
+![Silk browser menu showing options such as Enter Private Browsing, Bookmarks, and Settings.](http://docs.aws.amazon.com/silk/latest/developerguide/images/Silk_shared-menu.png)
+
 
 1. From the Silk menu, tap **Settings**, and then tap **About Silk**.
-2. Locate the application number, which should look something like this:
-   `44.1.54.2403.63.10`.
 
-In this example, the first set of numbers, `44.1.54`, is the browser
-version.
+1. Locate the application number, which should look something like this: `44.1.54.2403.63.10`.
 
-The second set of numbers, `2403.63.10`, is the build version.
+   In this example, the first set of numbers, `44.1.54`, is the browser version.
 
-![About Silk screen showing Application version 44.1.54.2403.63.10.](images/silk-shared-version.png)
+   The second set of numbers, `2403.63.10`, is the build version.
+
+![About Silk screen showing Application version 44.1.54.2403.63.10.](http://docs.aws.amazon.com/silk/latest/developerguide/images/silk-shared-version.png)

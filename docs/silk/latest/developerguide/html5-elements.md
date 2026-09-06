@@ -1,30 +1,28 @@
+
+
 # HTML5 elements and attributes support in Amazon Silk
+<a name="html5-elements"></a>
 
-Amazon Silk supports many of the HTML5 elements and attributes. Though not intended to be
-comprehensive, the list below describes supported elements and attributes and notes
-Amazon Silk-specific implementation details, if applicable.
+Amazon Silk supports many of the HTML5 elements and attributes. Though not intended to be comprehensive, the list below describes supported elements and attributes and notes Amazon Silk-specific implementation details, if applicable.
 
-###### Topics
-
-- [Audio Element](#audio-element "#audio-element")
-- [Canvas Element](#canvas-element "#canvas-element")
-- [contenteditable Attribute](#contenteditable-attribute "#contenteditable-attribute")
-- [Input Types](#input-types "#input-types")
-- [Keygen Element](#keygen-element "#keygen-element")
-- [Meter Element](#meter-element "#meter-element")
-- [Output Element](#output-element "#output-element")
-- [Progress Element](#progress-element "#progress-element")
-- [SVG Element](#svg "#svg")
-- [Video Element](#video-element "#video-element")
+**Topics**
++ [Audio Element](#audio-element)
++ [Canvas Element](#canvas-element)
++ [contenteditable Attribute](#contenteditable-attribute)
++ [Input Types](#input-types)
++ [Keygen Element](#keygen-element)
++ [Meter Element](#meter-element)
++ [Output Element](#output-element)
++ [Progress Element](#progress-element)
++ [SVG Element](#svg)
++ [Video Element](#video-element)
 
 ## Audio Element
+<a name="audio-element"></a>
 
-The `<audio>` element makes it possible to embed audio files directly
-in a web page without using plug-ins. By nesting `<source>` elements within
-an `<audio>` element, you can reference multiple file types.
+The `<audio>` element makes it possible to embed audio files directly in a web page without using plug-ins. By nesting `<source>` elements within an `<audio>` element, you can reference multiple file types.
 
 ```
-
 <h1>HTML5 Audio Element</h1>
 <audio controls>
   <source src="Media/audio_sample.ogg" type="audio/ogg">
@@ -35,40 +33,31 @@ an `<audio>` element, you can reference multiple file types.
 
 The sample code above produces the player control shown below:
 
-![HTML5 audio player control with play button, progress bar, and time display showing 00:00.](images/audio_element.png)
+![HTML5 audio player control with play button, progress bar, and time display showing 00:00.](http://docs.aws.amazon.com/silk/latest/developerguide/images/audio_element.png)
 
-For more information, see the [W3C
-audio element wiki](http://www.w3.org/wiki/HTML/Elements/audio "http://www.w3.org/wiki/HTML/Elements/audio").
+
+For more information, see the [W3C audio element wiki](http://www.w3.org/wiki/HTML/Elements/audio).
 
 ## Canvas Element
+<a name="canvas-element"></a>
 
-You can use the `<canvas>` element to draw two-dimensional graphics on
-a web page. Use the `<canvas>` element to create a container for a graphic,
-and then render the graphic itself on the fly using JavaScript.
+You can use the `<canvas>` element to draw two-dimensional graphics on a web page. Use the `<canvas>` element to create a container for a graphic, and then render the graphic itself on the fly using JavaScript.
 
-For more information, see the [HTML Canvas 2D
-Context specification](http://www.w3.org/TR/2dcontext/ "http://www.w3.org/TR/2dcontext/").
+For more information, see the [HTML Canvas 2D Context specification](http://www.w3.org/TR/2dcontext/).
 
 ## contenteditable Attribute
+<a name="contenteditable-attribute"></a>
 
-Setting the `contendeditable` attribute to "true" makes a text element on your
-web page available for the user to edit. You can also use the `localStorage` object
-to save the user's changes, effectively turning your web page into a text editor.
+Setting the `contendeditable` attribute to "true" makes a text element on your web page available for the user to edit. You can also use the `localStorage` object to save the user's changes, effectively turning your web page into a text editor. 
 
-For more information, see [Mozilla
-Developer Network: Content Editable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable").
+For more information, see [Mozilla Developer Network: Content Editable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable).
 
 ## Input Types
+<a name="input-types"></a>
 
-In HTML5, you can use input types to make forms more responsive to mobile clients. By
-specifying in your markup the type of input required, you can trigger the mobile device to
-display an appropriate virtual keyboard. Amazon Silk supports this functionality. For example, if
-you set the `type` attribute to `"email"`, Amazon Silk displays a virtual
-keyboard featuring the **@** and **.com** keys, which make
-the keyboard more user-friendly for typing an email address.
+In HTML5, you can use input types to make forms more responsive to mobile clients. By specifying in your markup the type of input required, you can trigger the mobile device to display an appropriate virtual keyboard. Amazon Silk supports this functionality. For example, if you set the `type` attribute to `"email"`, Amazon Silk displays a virtual keyboard featuring the **@** and **.com** keys, which make the keyboard more user-friendly for typing an email address.
 
 ```
-
 <form>
   Email: <input type="email" name="email"><br>
   <input type="submit" value="Sign Up">
@@ -77,49 +66,40 @@ the keyboard more user-friendly for typing an email address.
 
 The Silk virtual keyboard is shown below:
 
-![Virtual keyboard with email input field, at symbol and .com keys highlighted, and Go button.](images/silk-virtual-keyboard.png)
+![Virtual keyboard with email input field, at symbol and .com keys highlighted, and Go button.](http://docs.aws.amazon.com/silk/latest/developerguide/images/silk-virtual-keyboard.png)
 
-For more information, see [Making Forms Fabulous with
-HTML5](http://www.html5rocks.com/en/tutorials/forms/html5forms/ "http://www.html5rocks.com/en/tutorials/forms/html5forms/").
+
+For more information, see [Making Forms Fabulous with HTML5](http://www.html5rocks.com/en/tutorials/forms/html5forms/).
 
 ## Keygen Element
+<a name="keygen-element"></a>
 
-The `<keygen>` element specifies a form field for securely
-authenticating users. When the form containing the `<keygen>` element is
-submitted, a public/private key pair is generated. The key pair can be used as part of a
-certificate authentication system.
+The `<keygen>` element specifies a form field for securely authenticating users. When the form containing the `<keygen>` element is submitted, a public/private key pair is generated. The key pair can be used as part of a certificate authentication system. 
 
-For more information about the `<keygen>` element, see [HTML/Elements/keygen](http://www.w3.org/wiki/HTML/Elements/keygen "http://www.w3.org/wiki/HTML/Elements/keygen") and [Mozilla Developer
-Network: <keygen>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen").
+For more information about the `<keygen>` element, see [HTML/Elements/keygen](http://www.w3.org/wiki/HTML/Elements/keygen) and [Mozilla Developer Network: <keygen>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen).
 
 ## Meter Element
+<a name="meter-element"></a>
 
-You can use the `<meter>` element to measure data within a given range.
-It specifies a fractional value or gauge. For example, you could use the
-`<meter>` element to gauge hard disk usage.
+You can use the `<meter>` element to measure data within a given range. It specifies a fractional value or gauge. For example, you could use the `<meter>` element to gauge hard disk usage.
 
 ```
-
 <p>Hard Disk Usage: <meter min="0" value="239" max="296">239 GB used out of 296 GB total</meter></p>
 ```
 
 The sample code above produces the gauge below:
 
-![Gauge showing hard disk usage with a partially filled green progress bar.](images/meter_element.png)
+![Gauge showing hard disk usage with a partially filled green progress bar.](http://docs.aws.amazon.com/silk/latest/developerguide/images/meter_element.png)
 
-For more information, see [HTML/Elements/meter](http://www.w3.org/wiki/HTML/Elements/meter "http://www.w3.org/wiki/HTML/Elements/meter").
+
+For more information, see [HTML/Elements/meter](http://www.w3.org/wiki/HTML/Elements/meter).
 
 ## Output Element
+<a name="output-element"></a>
 
-The `<output>` element represents the result of a calculation. Although
-the `<output>` element is associated with a form, it doesn't have to be a
-child of the form. You can collect input for a calculation in a form, and then use the
-`<output>` element to display the results of the calculation elsewhere in
-the document. In the following example, the `<output>` element displays the
-sum of the values entered into the two input fields:
+The `<output>` element represents the result of a calculation. Although the `<output>` element is associated with a form, it doesn't have to be a child of the form. You can collect input for a calculation in a form, and then use the `<output>` element to display the results of the calculation elsewhere in the document. In the following example, the `<output>` element displays the sum of the values entered into the two input fields:
 
 ```
-
 <form oninput="pets.value=parseInt(dogs.value)+parseInt(cats.value)">
   No. of dogs
   <input type="number" id="dogs" value="0"><br>
@@ -130,41 +110,36 @@ sum of the values entered into the two input fields:
 </form>
 ```
 
-Here's how the markup looks in Silk, after a user enters values in the input
-fields:
+Here's how the markup looks in Silk, after a user enters values in the input fields:
 
-![Form showing 3 dogs, 2 cats, and total of 5 pets with input fields and values.](images/output_element.png)
+![Form showing 3 dogs, 2 cats, and total of 5 pets with input fields and values.](http://docs.aws.amazon.com/silk/latest/developerguide/images/output_element.png)
 
-Note that the `oninput` event is not supported by Silk Gen 1. For more on the
-`<output>` element, see [HTML/Elements/output](http://www.w3.org/wiki/HTML/Elements/output "http://www.w3.org/wiki/HTML/Elements/output").
+
+Note that the `oninput` event is not supported by Silk Gen 1. For more on the `<output>` element, see [HTML/Elements/output](http://www.w3.org/wiki/HTML/Elements/output).
 
 ## Progress Element
+<a name="progress-element"></a>
 
-The `<progress>` element represents progress toward completion of some
-task, like a file download.
-
-You can use the `<progress>` tag together with
-JavaScript to create a progress display.
+The `<progress>` element represents progress toward completion of some task, like a file download. You can use the `<progress>` tag together with JavaScript to create a progress display.
 
 ```
-
 <div>File downloading: <progress value="70" max="100">70%</progress></p></div>
 <div>Silk supports the HTML5 progress element.</div>
 ```
 
 The sample code above produces the progress display shown below:
 
-![Progress bar showing File downloading with partial completion.](images/progress_element.png)
+![Progress bar showing File downloading with partial completion.](http://docs.aws.amazon.com/silk/latest/developerguide/images/progress_element.png)
 
-For more information, see [HTML/Elements/progress](http://www.w3.org/wiki/HTML/Elements/progress "http://www.w3.org/wiki/HTML/Elements/progress").
+
+For more information, see [HTML/Elements/progress](http://www.w3.org/wiki/HTML/Elements/progress).
 
 ## SVG Element
+<a name="svg"></a>
 
-Scalable Vector Graphics (SVG) is an XML-based format for describing two-dimensional web
-graphics. Amazon Silk supports SVG both inline via the `<svg>` tag and
-externally using the `<img>`, `<object>`, and
-`<embed>` tags. The example below creates an SVG rendering of a rectangle
-with a horizontal linear gradient. The image shows the result rendered by Silk.
+Scalable Vector Graphics (SVG) is an XML-based format for describing two-dimensional web graphics. Amazon Silk supports SVG both inline via the `<svg>` tag and externally using the `<img>`, `<object>`, and `<embed>` tags. The example below creates an SVG rendering of a rectangle with a horizontal linear gradient. The image shows the result rendered by Silk.
+
+ 
 
 ```
 <html>
@@ -180,22 +155,19 @@ with a horizontal linear gradient. The image shows the result rendered by Silk.
     </svg>
   </body>
 </html>
-
 ```
 
-![Gradient transition from white on the left to blue on the right.](images/svg-rect2.png)
+![Gradient transition from white on the left to blue on the right.](http://docs.aws.amazon.com/silk/latest/developerguide/images/svg-rect2.png)
 
-To learn more about SVG, visit the [W3C SVG
-Working Group](http://www.w3.org/Graphics/SVG/ "http://www.w3.org/Graphics/SVG/").
+
+To learn more about SVG, visit the [W3C SVG Working Group](http://www.w3.org/Graphics/SVG/).
 
 ## Video Element
+<a name="video-element"></a>
 
-The `<video>` element makes it possible to embed video files directly in
-a web page without using plug-ins. By nesting `<source>` tags within a
-`<video>` element, you can reference multiple file types.
+The `<video>` element makes it possible to embed video files directly in a web page without using plug-ins. By nesting `<source>` tags within a `<video>` element, you can reference multiple file types.
 
 ```
-
 <h1>HTML5 Video Element</h1>
 <video width="320" height="240" controls>
   <source src="Media/video_sample.mp4" type="video/mp4">
@@ -207,7 +179,7 @@ a web page without using plug-ins. By nesting `<source>` tags within a
 
 The sample code above produces the player control shown below:
 
-![Video player control with play button centered on gray background.](images/video_element.png)
+![Video player control with play button centered on gray background.](http://docs.aws.amazon.com/silk/latest/developerguide/images/video_element.png)
 
-For more information, see the [W3C
-video element wiki](http://www.w3.org/wiki/HTML/Elements/video "http://www.w3.org/wiki/HTML/Elements/video").
+
+For more information, see the [W3C video element wiki](http://www.w3.org/wiki/HTML/Elements/video).
