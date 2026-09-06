@@ -1,21 +1,24 @@
+
+
 # Amazon Polly in AWS GovCloud (US)
+<a name="govcloud-polly"></a>
 
 Amazon Polly is a Text-to-Speech (TTS) cloud service that converts text into lifelike speech. You can use Amazon Polly to develop applications that increase engagement and accessibility. Amazon Polly supports multiple languages and includes a variety of lifelike voices, so you can build speech-enabled applications that work in multiple locations and use the ideal voice for your customers.
 
-Amazon Polly is currently available in AWS GovCloud (US-West).
+ Amazon Polly is currently available in AWS GovCloud (US-West).
 
 ## How Amazon Polly differs
+<a name="how_shared_pollong_differs"></a>
 
 The following differences apply to Amazon Polly:
-
-- In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
++ In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
 
 ## Documentation
-
-- [Amazon Polly documentation](../../../documentation/polly.md "../../../documentation/polly.md")
+<a name="govcloud-pol-docs"></a>
++  [Amazon Polly documentation](https://docs.aws.amazon.com/documentation/polly/) 
 
 ## Export-controlled content
+<a name="govcloud-polly-itar"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-
-- This service can generate metadata from customer-defined configurations. AWS suggests customers do not enter export-controlled information in console fields, descriptions, resource names, and tagging information.
++ This service can generate metadata from customer-defined configurations. AWS suggests customers do not enter export-controlled information in console fields, descriptions, resource names, and tagging information.

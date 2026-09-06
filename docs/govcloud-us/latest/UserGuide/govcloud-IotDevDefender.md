@@ -1,32 +1,35 @@
+
+
 # AWS IoT Device Defender in AWS GovCloud (US)
+<a name="govcloud-IotDevDefender"></a>
 
 AWS IoT Device Defender is a fully managed service that helps you secure your fleet of IoT devices. You can use AWS IoT Device Defender to audit your IoT resources like policies, certificates, IAM roles and Amazon Cognito IDs against security best practices, monitor connected devices to detect abnormal behavior, and mitigate security risks. By using AWS IoT Device Defender, you can enforce consistent security policies across your AWS IoT device fleet and respond quickly when devices are compromised.
 
 ## Region availability
+<a name="_region_availability"></a>
 
 This service is available in the following AWS GovCloud (US) Regions:
-
-- AWS GovCloud (US-West)
-- AWS GovCloud (US-East)
++  AWS GovCloud (US-West) 
++  AWS GovCloud (US-East) 
 
 ## How AWS IoT Device Defender differs
+<a name="govcloud-iotdd-diffs"></a>
 
 The following differences apply to AWS IoT Device Defender:
-
-- Amazon Cognito related checks in Device Defender Audit are not available.
-- Role alias related and key quality related checks in Device Defender Audit are not available.
-- AWS IoT Device Defender ML Detect feature is not available.
++  Amazon Cognito related checks in Device Defender Audit are not available.
++ Role alias related and key quality related checks in Device Defender Audit are not available.
++  AWS IoT Device Defender ML Detect feature is not available.
 
 ## Documentation
-
-- [AWS IoT Device Defender documentation](../../../iot/latest/developerguide/device-defender.md "../../../iot/latest/developerguide/device-defender.md")
+<a name="govcloud-iotdd-docs"></a>
++  [AWS IoT Device Defender documentation](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html) 
 
 ## Export-controlled content
+<a name="govcloud-iotdevman-itar"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-
-- Security Profile Name
-- Behavior Name
-- Audit Schedule Name
-- Mitigation Action Name
-- Audit Mitigation Action Task Id
++ Security Profile Name
++ Behavior Name
++ Audit Schedule Name
++ Mitigation Action Name
++ Audit Mitigation Action Task Id

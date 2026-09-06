@@ -1,36 +1,36 @@
+
+
 # AWS Key Management Service in AWS GovCloud (US)
+<a name="govcloud-kms"></a>
 
 AWS Key Management Service (KMS) is an encryption and key management service scaled for the cloud. KMS keys and functionality are used by other AWS services, and you can use them to protect data in your own applications that use AWS.
 
 ## Region availability
+<a name="region-availability"></a>
 
-AWS Key Management Service (KMS) is available in the following AWS GovCloud (US) Regions:
-
-- AWS GovCloud (US-East)
-- AWS GovCloud (US-West)
+ AWS Key Management Service (KMS) is available in the following AWS GovCloud (US) Regions:
++  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Key Management Service (KMS) differs
-
-- External key store proxies in the AWS GovCloud (US) Region must support HTTP/1.1 or later and TLS 1.2 or later with at least one of these cipher suites: TLS\_AES\_256\_GCM\_SHA384 (TLS 1.3), TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (TLS 1.2), TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 (TLS 1.2). The AWS GovCloud (US) Region does not support the TLS\_CHACHA20\_POLY1305\_SHA256 cipher suite. For more information, see the open-source [external key store proxy API specification](https://github.com/aws/aws-kms-xksproxy-api-spec/ "https://github.com/aws/aws-kms-xksproxy-api-spec/") that AWS KMS publishes.
+<a name="feature-diffs"></a>
++ External key store proxies in the AWS GovCloud (US) Region must support HTTP/1.1 or later and TLS 1.2 or later with at least one of these cipher suites: TLS\_AES\_256\_GCM\_SHA384 (TLS 1.3), TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (TLS 1.2), TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 (TLS 1.2). The AWS GovCloud (US) Region does not support the TLS\_CHACHA20\_POLY1305\_SHA256 cipher suite. For more information, see the open-source [external key store proxy API specification](https://github.com/aws/aws-kms-xksproxy-api-spec/) that AWS KMS publishes.
 
 ## Documentation
-
-- [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md")
+<a name="documentation"></a>
++  [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/) 
 
 ## Export-controlled content
+<a name="itar-boundary"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-
-- AWS KMS metadata is not permitted to contain export-controlled data. Do not enter export-controlled data in the following fields:
-
-  - Alias
-  - Descriptions
-  - Key policy documents, including key administrators and key users
-  - Resource tags: Key
-  - Resource tags: Value
-
-- The [Encryption Context](../../../kms/latest/developerguide/encrypt-context.md "../../../kms/latest/developerguide/encrypt-context.md") is outside the Export-Controlled Content.
-- AWS KMS generated metadata will not contain export-controlled data:
-
-  - Key ID
-  - Key ARN
++  AWS KMS metadata is not permitted to contain export-controlled data. Do not enter export-controlled data in the following fields:
+  + Alias
+  + Descriptions
+  + Key policy documents, including key administrators and key users
+  + Resource tags: Key
+  + Resource tags: Value
++ The [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html) is outside the Export-Controlled Content.
++  AWS KMS generated metadata will not contain export-controlled data:
+  + Key ID
+  + Key ARN

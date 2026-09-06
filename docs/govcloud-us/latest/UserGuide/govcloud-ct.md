@@ -1,97 +1,94 @@
+
+
 # AWS CloudTrail in AWS GovCloud (US)
+<a name="govcloud-ct"></a>
 
 With AWS CloudTrail, you can monitor your AWS deployments in the cloud by getting a history of AWS API calls for your account, including API calls made via the AWS Management Console, the AWS SDKs, the command line tools, and higher-level AWS services. You can also identify which users and accounts called AWS APIs for services that support CloudTrail, the source IP address the calls were made from, and when the calls occurred. You can integrate CloudTrail into applications using the API, automate trail creation for your organization, check the status of your trails, and control how administrators turn CloudTrail logging on and off.
 
 ## Region availability
+<a name="_region_availability"></a>
 
 This service is available in the following AWS GovCloud (US) Regions:
-
-- AWS GovCloud (US-West)
-- AWS GovCloud (US-East)
++  AWS GovCloud (US-West) 
++  AWS GovCloud (US-East) 
 
 ## How AWS CloudTrail differs
+<a name="govcloud-ct-diffs"></a>
 
 The following differences apply to AWS CloudTrail:
++ As of November 22, 2021, AWS CloudTrail changed how trails capture global service events. Now, events created by CloudFront, IAM, and AWS STS are recorded in the AWS Region in which they were created, the AWS GovCloud (US-West) Region, us-gov-west-1. This makes CloudTrail's treatment of these services consistent with that of other AWS global services.
 
-- As of November 22, 2021, AWS CloudTrail changed how trails capture global service events. Now, events created by CloudFront, IAM, and AWS STS are recorded in the AWS Region in which they were created, the AWS GovCloud (US-West) Region, us-gov-west-1. This makes CloudTrail's treatment of these services consistent with that of other AWS global services.
+  To continue receiving global service events outside of AWS GovCloud (US-West), be sure to convert *single-Region trails* using global service events outside of AWS GovCloud (US-West) into *multi-Region trails*. For more information about using the CLI to update or create trails for global service events, see [Using update-trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.html).
 
-To continue receiving global service events outside of AWS GovCloud (US-West), be sure to convert _single-Region trails_ using global service events outside of AWS GovCloud (US-West) into _multi-Region trails_. For more information about using the CLI to update or create trails for global service events, see [Using update-trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md").
-
-In contrast, the **Event history** in the CloudTrail console and the **aws cloudtrail lookup-events** command will show these events in the Region where they occurred.
-
-- For all AWS GovCloud (US) accounts created after 12/15/2014, AWS CloudTrail event log delivery to Amazon S3 is enabled automatically. However, you must set up Amazon SNS notifications. You can turn off logging through the AWS CloudTrail console for the AWS GovCloud (US) Region.
-- If you are using Direct Connect, you must enable CloudTrail in your standard AWS account (not your AWS GovCloud (US) account) and enable logging.
-- The Amazon S3 and Amazon SNS policy statements must refer to the ARN for AWS GovCloud (US) Regions. For more information, see [Amazon Resource Names (ARNs) in GovCloud (US) Regions](using-govcloud-arns.md "using-govcloud-arns.md").
-- The following CloudTrail Lake features are currently not available in the AWS GovCloud (US) Regions:
-
-  - CloudTrail Lake integrations
-  - CloudTrail Lake query generation
-  - CloudTrail Lake query results summarization
-  - CloudTrail Lake event data stores for AWS Config configuration items, AWS Audit Manager evidence, and events outside of AWS.
-  - The **Activity summary** widget on the Highlights dashboard.
-
-- CloudTrail network activity events are only available for AWS KMS, Amazon S3, AWS CloudTrail, and AWS Secrets Manager. You can also log network activity events in Amazon CloudWatch that are sent through the monitoring VPC interface endpoint. For more information, see [Using CloudWatch](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-and-interface-VPC.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-and-interface-VPC.md").
-- CloudTrail enriched events are currently not supported.
-- To enable CloudTrail to write log files to your bucket in AWS GovCloud (US) Regions, you can use the following policy.
-
-###### Warning
-
+  In contrast, the **Event history** in the CloudTrail console and the ** aws cloudtrail lookup-events ** command will show these events in the Region where they occurred.
++ For all AWS GovCloud (US) accounts created after 12/15/2014, AWS CloudTrail event log delivery to Amazon S3 is enabled automatically. However, you must set up Amazon SNS notifications. You can turn off logging through the AWS CloudTrail console for the AWS GovCloud (US) Region.
++ If you are using Direct Connect, you must enable CloudTrail in your standard AWS account (not your AWS GovCloud (US) account) and enable logging.
++ The Amazon S3 and Amazon SNS policy statements must refer to the ARN for AWS GovCloud (US) Regions. For more information, see [Amazon Resource Names (ARNs) in GovCloud (US) Regions](using-govcloud-arns.md).
++ The following CloudTrail Lake features are currently not available in the AWS GovCloud (US) Regions:
+  +  CloudTrail Lake integrations
+  +  CloudTrail Lake query generation
+  +  CloudTrail Lake query results summarization
+  +  CloudTrail Lake event data stores for AWS Config configuration items, AWS Audit Manager evidence, and events outside of AWS.
+  + The **Activity summary** widget on the Highlights dashboard.
++  CloudTrail network activity events are only available for AWS KMS, Amazon S3, AWS CloudTrail, and AWS Secrets Manager. You can also log network activity events in Amazon CloudWatch that are sent through the monitoring VPC interface endpoint. For more information, see [Using CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-and-interface-VPC.html).
++  CloudTrail enriched events are currently not supported.
++ To enable CloudTrail to write log files to your bucket in AWS GovCloud (US) Regions, you can use the following policy.
+**Warning**  
 If the bucket already has one or more policies attached, add the statements for CloudTrail access to that policy or policies. We recommend that you evaluate the resulting set of permissions to be sure they are appropriate for the users who will be accessing the bucket.
 
-```
-{
-    "Version":"2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AWSCloudTrailAclCheck20131101",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "cloudtrail.amazonaws.com"
-            },
-            "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws-us-gov:s3:::amzn-s3-demo-logging-bucket",
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceArn": "arn:aws-us-gov:cloudtrail:region:myAccountID:trail/trailName"
-                }
-            }
-        },
-        {
-            "Sid": "AWSCloudTrailWrite20131101",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "cloudtrail.amazonaws.com"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws-us-gov:s3:::amzn-s3-demo-logging-bucket/[optional] prefix/AWSLogs/myAccountID/*",
-            "Condition": {
-                "StringEquals": {
-                    "s3:x-amz-acl": "bucket-owner-full-control",
-                    "aws:SourceArn": "arn:aws-us-gov:cloudtrail:region:myAccountID:trail/trailName"
-                }
-            }
-        }
-    ]
-}
-```
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [
+          {
+              "Sid": "AWSCloudTrailAclCheck20131101",
+              "Effect": "Allow",
+              "Principal": {
+                  "Service": "cloudtrail.amazonaws.com"
+              },
+              "Action": "s3:GetBucketAcl",
+              "Resource": "arn:aws-us-gov:s3:::amzn-s3-demo-logging-bucket",
+              "Condition": {
+                  "StringEquals": {
+                      "aws:SourceArn": "arn:aws-us-gov:cloudtrail:region:myAccountID:trail/trailName"
+                  }
+              }
+          },
+          {
+              "Sid": "AWSCloudTrailWrite20131101",
+              "Effect": "Allow",
+              "Principal": {
+                  "Service": "cloudtrail.amazonaws.com"
+              },
+              "Action": "s3:PutObject",
+              "Resource": "arn:aws-us-gov:s3:::amzn-s3-demo-logging-bucket/[optional] prefix/AWSLogs/myAccountID/*",
+              "Condition": {
+                  "StringEquals": {
+                      "s3:x-amz-acl": "bucket-owner-full-control",
+                      "aws:SourceArn": "arn:aws-us-gov:cloudtrail:region:myAccountID:trail/trailName"
+                  }
+              }
+          }
+      ]
+  }
+  ```
 
-For more information, see [Amazon S3 bucket policy](../../../awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.md") and [Amazon SNS topic policy for CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-permissions-for-sns-notifications.md "../../../awscloudtrail/latest/userguide/cloudtrail-permissions-for-sns-notifications.md").
-
-###### Note
-
+  For more information, see [Amazon S3 bucket policy](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html) and [Amazon SNS topic policy for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-permissions-for-sns-notifications.html).
+**Note**  
 This note applies to bucket policies that use a CloudTrail account ID as the Principal. In AWS GovCloud (US) Regions, do not add CloudTrail account IDs of non-isolated Regions to your policy templates, or an "Invalid principal in policy" error will occur. Similarly, if you are in a non-isolated Region, do not add the CloudTrail account ID for AWS GovCloud (US) to your policy templates.
 
 ## Documentation
-
-- [AWS CloudTrail documentation](../../../documentation/cloudtrail.md "../../../documentation/cloudtrail.md")
+<a name="govcloud-ct-docs"></a>
++  [AWS CloudTrail documentation](https://docs.aws.amazon.com/documentation/cloudtrail/) 
 
 ## Services supported within CloudTrail
+<a name="services-supported-in-cloudtrail"></a>
 
-CloudTrail supports logging for the services supported in the AWS GovCloud (US) Regions that are integrated with CloudTrail. You can find the specifics for each supported service in that service’s guide. For more information, see [AWS service topics for CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-list "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-list") in the _AWS CloudTrail User Guide_.
+ CloudTrail supports logging for the services supported in the AWS GovCloud (US) Regions that are integrated with CloudTrail. You can find the specifics for each supported service in that service’s guide. For more information, see [AWS service topics for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-list) in the *AWS CloudTrail User Guide*.
 
 ## Export-controlled content
+<a name="ct-gov"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-
-- CloudTrail logs do not contain export-controlled data.
-- CloudTrail configuration data may not contain export-controlled data.
++  CloudTrail logs do not contain export-controlled data.
++  CloudTrail configuration data may not contain export-controlled data.

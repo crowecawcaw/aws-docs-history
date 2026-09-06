@@ -1,39 +1,40 @@
+
+
 # AWS CloudFormation in AWS GovCloud (US)
+<a name="govcloud-cfn"></a>
 
 AWS CloudFormation enables you to create and provision AWS infrastructure deployments predictably and repeatedly. It helps you leverage AWS products such as Amazon EC2, Amazon Elastic Block Store, Amazon SNS, Elastic Load Balancing, and Auto Scaling to build highly reliable, highly scalable, cost-effective applications in the cloud without worrying about creating and configuring the underlying AWS infrastructure. AWS CloudFormation enables you to use a template file to create and delete a collection of resources together as a single unit (a stack).
 
 ## Region availability
+<a name="_region_availability"></a>
 
 This service is available in the following AWS GovCloud (US) Regions:
-
-- AWS GovCloud (US-West)
-- AWS GovCloud (US-East)
++  AWS GovCloud (US-West) 
++  AWS GovCloud (US-East) 
 
 ## How AWS CloudFormation differs
+<a name="govcloud-cfn-diffs"></a>
 
 The following differences apply to AWS CloudFormation:
++ KmsKeyID property is not available.
++  CloudFormation doesn’t support the following resources:
+  +  `AWS::IAM::GroupPolicy` 
+  +  `AWS::IAM::RolePolicy` 
+  +  `AWS::IAM::UserPolicy` 
+  +  `AWS::Organizations::Account` 
+  +  `AWS::RolesAnywhere::TrustAnchor` 
 
-- KmsKeyID property is not available.
-- CloudFormation doesn’t support the following resources:
-
-  - `AWS::IAM::GroupPolicy`
-  - `AWS::IAM::RolePolicy`
-  - `AWS::IAM::UserPolicy`
-  - `AWS::Organizations::Account`
-  - `AWS::RolesAnywhere::TrustAnchor`
-
-###### Note
-
-ResourceTypes for CloudFormation can vary per Region. Ensure the ResourceTypes needed are available in AWS GovCloud (US-West) and AWS GovCloud (US-East) which can be found here within the [Resource Specification table](../../../AWSCloudFormation/latest/UserGuide/cfn-resource-specification.md "../../../AWSCloudFormation/latest/UserGuide/cfn-resource-specification.md").
+**Note**  
+ResourceTypes for CloudFormation can vary per Region. Ensure the ResourceTypes needed are available in AWS GovCloud (US-West) and AWS GovCloud (US-East) which can be found here within the [Resource Specification table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html).
 
 ## Documentation
+<a name="govcloud-cfn-docs"></a>
 
 The following documentation is based on the public AWS documentation. As you read this documentation, you should consider how CloudFormation differs for AWS GovCloud (US) Regions, as described in this topic. Also, some features and new functionality described in this documentation might not be available in the current release of AWS GovCloud (US) Regions. There are other differences, such as links, endpoints, and screenshots.
-
-- [CloudFormation Documentation](../../../cloudformation.md "../../../cloudformation.md")
++  [CloudFormation Documentation](https://docs.aws.amazon.com/cloudformation/) 
 
 ## Export-controlled content
+<a name="govcloud-cfn-itar"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-
-- No export-controlled data may be entered, stored, or processed by CloudFormation. For example, CloudFormation metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your CloudFormation templates.
++ No export-controlled data may be entered, stored, or processed by CloudFormation. For example, CloudFormation metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your CloudFormation templates.
