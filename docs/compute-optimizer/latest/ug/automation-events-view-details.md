@@ -1,18 +1,22 @@
+
+
 # View automation events
+<a name="automation-events-view-details"></a>
 
 This **Automation events** page displays automation events initiated by Compute Optimizer. Review details such as event type, description, status, and estimated savings.
 
-###### To view automation event details
+**To view automation event details**
 
-1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/ "https://console.aws.amazon.com/compute-optimizer/").
-2. In the navigation pane, choose **Automation rules** under the
-   **Automation** section.
-3. You can perform the following actions on the **Automation events** page:
+1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/).
 
-View total estimated monthly savings and count summary by event status.
+1. In the navigation pane, choose **Automation rules** under the **Automation** section.
 
-- View monthly summary of automation events by status.
+1. You can perform the following actions on the **Automation events **page:
 
-- (Optional) Filter by date range, account ID (management account only), event status, event type, AWS Region, or Resource type.
+   View total estimated monthly savings and count summary by event status.
 
-- Review history of automation events, including details on event status, estimated savings, created time, and completed time.
+   - View monthly summary of automation events by status.
+
+   - (Optional) Filter by date range, account ID (management account only), event status, event type, AWS Region, or Resource type.
+
+   - Review history of automation events, including details on event status, estimated savings, created time, and completed time.

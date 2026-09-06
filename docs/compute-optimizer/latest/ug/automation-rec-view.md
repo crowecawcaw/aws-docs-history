@@ -1,23 +1,27 @@
+
+
 # Viewing recommended actions
+<a name="automation-rec-view"></a>
 
 The Recommended actions page displays a summary of your recommended actions and a table with details for individual actions. Recommended actions help you optimize your resources for performance and cost savings.
 
-###### Note
+**Note**  
+Your organization’s management account and delegated administrator can view recommended actions for member accounts with Automation enabled and configured to allow centralized optimization. For more information, see [Enabling Automation for your organization](automation-org.md).
 
-Your organization’s management account and delegated administrator can view recommended actions for member accounts with Automation enabled and configured to allow centralized optimization. For more information, see [Enabling Automation for your organization](automation-org.md "automation-org.md").
+**To access recommended actions**
 
-###### To access recommended actions
+1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/).
 
-1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/ "https://console.aws.amazon.com/compute-optimizer/").
-2. In the navigation pane, choose **Recommended actions** under the **Automation** section.
-3. You can perform the following actions on the **Recommended actions** page:
+1. In the navigation pane, choose **Recommended actions** under the **Automation ** section.
 
-- View recommended actions.
+1. You can perform the following actions on the **Recommended actions** page:
 
-- Filter recommended actions by one or more properties such as AWS Region or Resource Tag key-values.
+   - View recommended actions.
 
-- Select the recommended actions that you want to apply.
+   - Filter recommended actions by one or more properties such as AWS Region or Resource Tag key-values.
 
-- View a summary of the estimated monthly savings for your selected recommended actions and the total opportunity available based on your filters.
+   - Select the recommended actions that you want to apply.
 
-- Create automation rule from your selected filters. This pre-fills the rule creation form with your selected filters in the recommended actions table.
+   - View a summary of the estimated monthly savings for your selected recommended actions and the total opportunity available based on your filters.
+
+   - Create automation rule from your selected filters. This pre-fills the rule creation form with your selected filters in the recommended actions table.
