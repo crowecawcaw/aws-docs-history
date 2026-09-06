@@ -1,4 +1,7 @@
+
+
 # Alarm optimization and monitoring adjustments
+<a name="idr-gs-alarm-optimization"></a>
 
 To ensure optimal incident detection accuracy, our Incident Management Engineers continuously evaluate alarm performance against your critical workloads. We provide recommended alarm configuration changes, which you are required to make, and proactively collaborate with you and your Technical Account Managers (TAMs) to refine these settings.
 

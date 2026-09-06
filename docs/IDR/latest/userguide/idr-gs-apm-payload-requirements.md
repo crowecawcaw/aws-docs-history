@@ -1,4 +1,7 @@
+
+
 # Payload Requirements For Ingesting APM Alerts with EventBridge
+<a name="idr-gs-apm-payload-requirements"></a>
 
 **Where does Incident Detection and Response ingest APM alerts from?**
 
@@ -9,12 +12,12 @@ AWS Incident Detection and Response installs a managed rule on the event bus tha
 The following minimum JSON key:value pairs are required in event bus events ingested by AWS Incident Detection and Response:
 
 ```
-{
-    "detail-type": "ams.monitoring/generic-apm",
-    "source": "GenericAPMEvent"
-    "detail": {
-        "incident-detection-response-identifier": "Your alarm name from your APM",
-    }
+{  
+    "detail-type": "ams.monitoring/generic-apm",  
+    "source": "GenericAPMEvent"  
+    "detail": {  
+        "incident-detection-response-identifier": "Your alarm name from your APM",  
+    }  
 }
 ```
 
@@ -23,61 +26,61 @@ The following examples show an event from a partner event bus before and after i
 **Before transformation:**
 
 ```
-{
-    "version": "0",
-    "id": "a6150a80-601d-be41-1a1f-2c5527a99199",
-    "detail-type": "Datadog Alert Notification",
-    "source": "aws.partner/datadog.com/Datadog-aaa111bbbc",
-    "account": "123456789012",
-    "time": "2023-10-25T14:42:25Z",
-    "region": "us-east-1",
-    "resources": [],
-    "detail": {
-        "alert_type": "error",
-        "event_type": "query_alert_monitor",
-        "meta": {
-            "monitor": {
-                "id": 222222,
-                "org_id": 3333333333,
-                "type": "query alert",
-                "name": "UnHealthyHostCount",
-                "message": "@awseventbridge-Datadog-aaa111bbbc",
-                "query": "max(last_5m):avg:aws.applicationelb.un_healthy_host_count{aws_account:123456789012} <= 1",
-                "created_at": 1686884769000,
-                "modified": 1698244915000,
-                "options": {
-                    "thresholds": {
-                        "critical": 1.0
-                    }
-                },
-            },
-            "result": {
-                "result_id": 7281010972796602670,
-                "result_ts": 1698244878,
-                "evaluation_ts": 1698244868,
-                "scheduled_ts": 1698244938,
-                "metadata": {
-                    "monitor_id": 222222,
-                    "metric": "aws.applicationelb.un_healthy_host_count"
-                }
-            },
-            "transition": {
-                "trans_name": "Triggered",
-                "trans_type": "alert"
-            },
-            "states": {
-                "source_state": "OK",
-                "dest_state": "Alert"
-            },
-            "duration": 0
-        },
-        "priority": "normal",
-        "source_type_name": "Monitor Alert",
-        "tags": [
-            "aws_account:123456789012",
-            "monitor"
-        ]
-    }
+{  
+    "version": "0",  
+    "id": "a6150a80-601d-be41-1a1f-2c5527a99199",  
+    "detail-type": "Datadog Alert Notification",  
+    "source": "aws.partner/datadog.com/Datadog-aaa111bbbc",  
+    "account": "123456789012",  
+    "time": "2023-10-25T14:42:25Z",  
+    "region": "us-east-1",  
+    "resources": [],  
+    "detail": {  
+        "alert_type": "error",  
+        "event_type": "query_alert_monitor",  
+        "meta": {  
+            "monitor": {  
+                "id": 222222,  
+                "org_id": 3333333333,  
+                "type": "query alert",  
+                "name": "UnHealthyHostCount",  
+                "message": "@awseventbridge-Datadog-aaa111bbbc",  
+                "query": "max(last_5m):avg:aws.applicationelb.un_healthy_host_count{aws_account:123456789012} <= 1",  
+                "created_at": 1686884769000,  
+                "modified": 1698244915000,  
+                "options": {  
+                    "thresholds": {  
+                        "critical": 1.0  
+                    }  
+                },  
+            },  
+            "result": {  
+                "result_id": 7281010972796602670,  
+                "result_ts": 1698244878,  
+                "evaluation_ts": 1698244868,  
+                "scheduled_ts": 1698244938,  
+                "metadata": {  
+                    "monitor_id": 222222,  
+                    "metric": "aws.applicationelb.un_healthy_host_count"  
+                }  
+            },  
+            "transition": {  
+                "trans_name": "Triggered",  
+                "trans_type": "alert"  
+            },  
+            "states": {  
+                "source_state": "OK",  
+                "dest_state": "Alert"  
+            },  
+            "duration": 0  
+        },  
+        "priority": "normal",  
+        "source_type_name": "Monitor Alert",  
+        "tags": [  
+            "aws_account:123456789012",  
+            "monitor"  
+        ]  
+    }  
 }
 ```
 
@@ -88,62 +91,62 @@ An Lambda Function transforms the above event and puts it in to the target custo
 **After transformation:**
 
 ```
-{
-    "version": "0",
-    "id": "7f5e0fc1-e917-2b5d-a299-50f4735f1283",
-    "detail-type": "ams.monitoring/generic-apm",
-    "source": "GenericAPMEvent",
-    "account": "123456789012",
-    "time": "2023-10-25T14:42:25Z",
-    "region": "us-east-1",
-    "resources": [],
-    "detail": {
-        "incident-detection-response-identifier": "UnHealthyHostCount",
-        "alert_type": "error",
-        "event_type": "query_alert_monitor",
-        "meta": {
-            "monitor": {
-                "id": 222222,
-                "org_id": 3333333333,
-                "type": "query alert",
-                "name": "UnHealthyHostCount",
-                "message": "@awseventbridge-Datadog-aaa111bbbc",
-                "query": "max(last_5m):avg:aws.applicationelb.un_healthy_host_count{aws_account:123456789012} <= 1",
-                "created_at": 1686884769000,
-                "modified": 1698244915000,
-                "options": {
-                    "thresholds": {
-                        "critical": 1.0
-                    }
-                },
-            },
-            "result": {
-                "result_id": 7281010972796602670,
-                "result_ts": 1698244878,
-                "evaluation_ts": 1698244868,
-                "scheduled_ts": 1698244938,
-                "metadata": {
-                    "monitor_id": 222222,
-                    "metric": "aws.applicationelb.un_healthy_host_count"
-                }
-            },
-            "transition": {
-                "trans_name": "Triggered",
-                "trans_type": "alert"
-            },
-            "states": {
-                "source_state": "OK",
-                "dest_state": "Alert"
-            },
-            "duration": 0
-        },
-        "priority": "normal",
-        "source_type_name": "Monitor Alert",
-        "tags": [
-            "aws_account:123456789012",
-            "monitor"
-        ]
-    }
+{  
+    "version": "0",  
+    "id": "7f5e0fc1-e917-2b5d-a299-50f4735f1283",  
+    "detail-type": "ams.monitoring/generic-apm",  
+    "source": "GenericAPMEvent",  
+    "account": "123456789012",  
+    "time": "2023-10-25T14:42:25Z",  
+    "region": "us-east-1",  
+    "resources": [],  
+    "detail": {  
+        "incident-detection-response-identifier": "UnHealthyHostCount",  
+        "alert_type": "error",  
+        "event_type": "query_alert_monitor",  
+        "meta": {  
+            "monitor": {  
+                "id": 222222,  
+                "org_id": 3333333333,  
+                "type": "query alert",  
+                "name": "UnHealthyHostCount",  
+                "message": "@awseventbridge-Datadog-aaa111bbbc",  
+                "query": "max(last_5m):avg:aws.applicationelb.un_healthy_host_count{aws_account:123456789012} <= 1",  
+                "created_at": 1686884769000,  
+                "modified": 1698244915000,  
+                "options": {  
+                    "thresholds": {  
+                        "critical": 1.0  
+                    }  
+                },  
+            },  
+            "result": {  
+                "result_id": 7281010972796602670,  
+                "result_ts": 1698244878,  
+                "evaluation_ts": 1698244868,  
+                "scheduled_ts": 1698244938,  
+                "metadata": {  
+                    "monitor_id": 222222,  
+                    "metric": "aws.applicationelb.un_healthy_host_count"  
+                }  
+            },  
+            "transition": {  
+                "trans_name": "Triggered",  
+                "trans_type": "alert"  
+            },  
+            "states": {  
+                "source_state": "OK",  
+                "dest_state": "Alert"  
+            },  
+            "duration": 0  
+        },  
+        "priority": "normal",  
+        "source_type_name": "Monitor Alert",  
+        "tags": [  
+            "aws_account:123456789012",  
+            "monitor"  
+        ]  
+    }  
 }
 ```
 
