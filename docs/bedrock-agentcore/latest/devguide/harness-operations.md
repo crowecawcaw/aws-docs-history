@@ -6,28 +6,9 @@ This page covers monitoring your harness, controlling execution costs, and manag
 
 Every harness invocation automatically generates traces, logs, and metrics through [AgentCore Observability](observability.md "observability.md") in CloudWatch. Model calls, tool invocations, memory operations, shell commands: each step appears with timing and payload details. No extra configuration. Traces are available from the first invocation.
 
-###### Example
-
-AWS CLI/boto3
 Traces, logs, and metrics flow to CloudWatch through the harness execution role. View them in the [AgentCore Observability dashboard](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents "https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents"), or query programmatically through the CloudWatch Logs and X-Ray APIs.
 
 Before you see traces, [enable Transaction Search in CloudWatch](../../../AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.md") (one-time per account). See [AgentCore Observability getting started](observability-get-started.md "observability-get-started.md") for setup details.
-
-AgentCore CLI
-
-```
-# Stream logs
-agentcore logs --harness research-agent
-
-# Filter
-agentcore logs --harness research-agent --since 1h --level error
-
-# List recent traces
-agentcore traces list --harness research-agent
-
-# Get a specific trace
-agentcore traces get <trace-id> --harness research-agent
-```
 
 Learn more: [Observability overview](observability.md "observability.md") · [metrics](observability-runtime-metrics.md "observability-runtime-metrics.md") · [telemetry](observability-telemetry.md "observability-telemetry.md")
 
@@ -74,7 +55,7 @@ Don’t estimate CPU cost from wall-clock invocation or session duration alone. 
 ### Measure and attribute usage
 
 - Read `metadata` events in the invocation stream for model token usage.
-- Use AgentCore Observability traces and `agentcore logs --harness <name>` to identify model calls, tool calls, memory operations, and their duration. Observability explains activity but is not a billing report.
+- Use [AgentCore Observability](observability.md "observability.md") traces, CloudWatch Logs, and X-Ray APIs to identify model calls, tool calls, memory operations, and their duration. Observability explains activity but is not a billing report.
 - Use AWS Cost Explorer or the AWS Cost and Usage Report for billed usage. Activate your harness tags as cost allocation tags to filter supported charges.
 
 Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Memory created for the harness. Tag separately created resources, such as Gateway, EFS, S3, or a bring-your-own Memory resource, independently.

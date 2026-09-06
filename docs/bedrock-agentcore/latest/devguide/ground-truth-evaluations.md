@@ -132,24 +132,25 @@ AgentCore CLI
 1. ```
 # Expected response matched against the last trace
 agentcore run eval \
-  --agent AGENT_NAME \
+  --runtime AGENT_NAME \
   --session-id SESSION_ID \
-  --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness" \
+  --evaluator Builtin.Correctness \
   --expected-response "The weather is sunny"
 
 # Target a specific trace
 agentcore run eval \
-  --agent AGENT_NAME \
+  --runtime AGENT_NAME \
   --session-id SESSION_ID \
-  --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness" \
+  --evaluator Builtin.Correctness \
   --trace-id TRACE_ID_1 \
   --expected-response "15 + 27 = 42"
 
 # ARN mode — evaluate an agent outside the CLI project
 agentcore run eval \
   --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
+  --region <region-code> \
   --session-id SESSION_ID \
-  --evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness" \
+  --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
   --expected-response "The weather is sunny"
 ````
 
@@ -197,29 +198,32 @@ expected_response=(TRACE_ID_1, "15 + 27 = 42"),
 ````
 
 
-Starter Toolkit CLI
+AgentCore CLI
 
 1. ```
 # Expected response matched against the last trace
-agentcore eval run \
-  --agent-id AGENT_ID \
+agentcore run eval \
+  --runtime-arn AGENT_RUNTIME_ARN \
+  --region REGION \
   --session-id SESSION_ID \
-  --evaluator "Builtin.Correctness" \
+  --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
   --expected-response "The weather is sunny"
 
 # Target a specific trace
-agentcore eval run \
-  --agent-id AGENT_ID \
+agentcore run eval \
+  --runtime-arn AGENT_RUNTIME_ARN \
+  --region REGION \
   --session-id SESSION_ID \
   --trace-id TRACE_ID_1 \
-  --evaluator "Builtin.Correctness" \
+  --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
   --expected-response "15 + 27 = 42"
 
 # Save results to a file
-agentcore eval run \
-  --agent-id AGENT_ID \
+agentcore run eval \
+  --runtime-arn AGENT_RUNTIME_ARN \
+  --region REGION \
   --session-id SESSION_ID \
-  --evaluator "Builtin.Correctness" \
+  --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
   --expected-response "The weather is sunny" \
   --output results.json
 ````
@@ -313,9 +317,9 @@ AgentCore CLI
    ```
 
 agentcore run eval \
---agent AGENT_NAME \
+--runtime AGENT_NAME \
 --session-id SESSION_ID \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
+--evaluator Builtin.GoalSuccessRate \
 --assertion "Agent used the calculator tool to compute the result" \
 --assertion "Agent returned the correct numerical answer of 42" \
 --assertion "Agent used the weather tool when asked about weather"
@@ -324,8 +328,9 @@ agentcore run eval \
 
 agentcore run eval \
 --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
+--region <region-code> \
 --session-id SESSION_ID \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
+--evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate \
 --assertion "Agent used the calculator tool to compute the result" \
 --assertion "Agent returned the correct numerical answer of 42"
 
@@ -356,16 +361,17 @@ for r in results.get_successful_results():
     print(f"Score: {r.value:.2f}, Label: {r.label}")
 ````
 
-Starter Toolkit CLI
+AgentCore CLI
 
 1. ```
 
    ```
 
-agentcore eval run \
---agent-id AGENT_ID \
+agentcore run eval \
+--runtime-arn AGENT_RUNTIME_ARN \
+--region REGION \
 --session-id SESSION_ID \
---evaluator "Builtin.GoalSuccessRate" \
+--evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate \
 --assertion "Agent used the calculator tool to compute the result" \
 --assertion "Agent returned the correct numerical answer of 42" \
 --assertion "Agent used the weather tool when asked about weather"
@@ -455,19 +461,18 @@ AgentCore CLI
 ```
 
 agentcore run eval \
---agent AGENT_NAME \
+--runtime AGENT_NAME \
 --session-id SESSION_ID \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryInOrderMatch" \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryAnyOrderMatch" \
+--evaluator Builtin.TrajectoryExactOrderMatch Builtin.TrajectoryInOrderMatch Builtin.TrajectoryAnyOrderMatch \
 --expected-trajectory "calculator,weather"
 
 # ARN mode — evaluate an agent outside the CLI project
 
 agentcore run eval \
 --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
+--region <region-code> \
 --session-id SESSION_ID \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
+--evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch \
 --expected-trajectory "calculator,weather"
 
 ````
@@ -497,17 +502,16 @@ for r in results.get_successful_results():
     print(f"{r.evaluator_name}: {r.value:.2f} ({r.label})")
 ````
 
-Starter Toolkit CLI
+AgentCore CLI
 
 1. Tool names are passed as a comma-separated list:
 
 ```
-agentcore eval run \
-  --agent-id AGENT_ID \
+agentcore run eval \
+  --runtime-arn AGENT_RUNTIME_ARN \
+  --region REGION \
   --session-id SESSION_ID \
-  --evaluator "Builtin.TrajectoryExactOrderMatch" \
-  --evaluator "Builtin.TrajectoryInOrderMatch" \
-  --evaluator "Builtin.TrajectoryAnyOrderMatch" \
+  --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryInOrderMatch arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryAnyOrderMatch \
   --expected-trajectory "calculator,weather"
 ```
 
@@ -600,11 +604,9 @@ AgentCore CLI
    ```
 
 agentcore run eval \
---agent AGENT_NAME \
+--runtime AGENT_NAME \
 --session-id SESSION_ID \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness" \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate" \
---evaluator-arn "arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch" \
+--evaluator Builtin.Correctness Builtin.GoalSuccessRate Builtin.TrajectoryExactOrderMatch \
 --assertion "Agent used the calculator tool for math" \
 --assertion "Agent used the weather tool when asked about weather" \
 --expected-trajectory "calculator,weather" \

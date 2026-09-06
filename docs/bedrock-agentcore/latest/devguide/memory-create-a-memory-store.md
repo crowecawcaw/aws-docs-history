@@ -24,8 +24,8 @@ AgentCore CLI
 1. The AgentCore CLI memory commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first:
 
 ```
-agentcore create --name my-agent --no-agent
-cd my-agent
+agentcore create --project-name MemoryProject --no-agent
+cd MemoryProject
 ```
 
 **Create** a basic memory (short-term only):

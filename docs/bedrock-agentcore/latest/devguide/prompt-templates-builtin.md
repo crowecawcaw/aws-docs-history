@@ -36,7 +36,6 @@ Details on the placeholder values used by our current evaluators:
 - [Goal success rate with ground truth (Session-level evaluator)](#goal-success-rate-ground-truth "#goal-success-rate-ground-truth")
 - [Coherence (Trace-level evaluator)](#coherence "#coherence")
 - [Conciseness (Trace-level evaluator)](#conciseness "#conciseness")
-- [Context relevance (Trace-level evaluator)](#context-relevance "#context-relevance")
 - [Correctness (Trace-level evaluator)](#correctness "#correctness")
 - [Correctness with ground truth (Trace-level evaluator)](#correctness-ground-truth "#correctness-ground-truth")
 - [Faithfulness (Trace-level evaluator)](#faithfulness "#faithfulness")
@@ -197,45 +196,6 @@ the object {{"foo": ["bar", "baz"]}} is a well-formatted instance of the schema.
 Here is the output JSON schema:
 
 {{"properties": {{"reasoning": {{"description": "step by step reasoning to derive the final answer, using no more than 250 words", "title": "Reasoning", "type": "string"}}, "score": {{"description": "answer should be one of 'Not Concise' or 'Partially Concise' or 'Perfectly Concise'", "enum": ["Not Concise", "Partially Concise", "Perfectly Concise"], "title": "Score", "type": "string"}}}}, "required": ["reasoning", "score"]}}
-
-Do not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).
-````
-
-The Context relevance evaluator assesses whether the provided context contains the necessary information to adequately answer a given question. This trace-level evaluator evaluates the quality and relevance of contextual information used by the agent.
-
-```
-You are a helpful agent that can evaluate data quality according to the given rubrics.
-
-Your current task is to evaluate about relevance of the provided context. To be specific, you are given a question and a passage. The passage is supposed to provide context needed to answer the question. Your task is to evaluate the quality of the passage as to whether the passage contains information necessary to provide an adequate answer to the question.
-
-When evaluating the quality of the passage, the focus is on the relationship between the question and the passage - whether the passage provides information necessary to contribute to correctly and completely answering the question.
-
-Please rate the relevance quality of the passage based on the following scale:
-- Not Relevant: The passage is clearly irrelevant to the question.
-- Partially Relevant: The passage is neither clearly irrelevant nor clearly relevant to the question.
-- Perfectly Relevant: The passage is clearly relevant to the question.
-
-**IMPORTANT**: The tool output ALWAYS takes priority over your own knowledge.
-
-## User Query
-{context}
-
-
-## Retrieved Passages
-{retrieved_passages}
-
-
-The output should be a well-formatted JSON instance that conforms to the JSON schema below.
-
-As an example, for the schema {{"properties": {{"foo": {{"title": "Foo", "description": "a list of strings", "type": "array", "items": {{"type": "string"}}}}}}, "required": ["foo"]}}
-the object {{"foo": ["bar", "baz"]}} is a well-formatted instance of the schema. The object {{"properties": {{"foo": ["bar", "baz"]}}}} is not well-formatted.
-
-Here is the output JSON schema:
-```
-
-{{"properties": {{"reasoning": {{"description": "step by step reasoning to derive the final answer, using no more than 250 words", "title": "Reasoning", "type": "string"}}, "score": {{"description": "answer should be one of 'Not Relevant', 'Partially Relevant', 'Perfectly Relevant'", "enum": ["Not Relevant", "Partially Relevant", "Perfectly Relevant"], "title": "Score", "type": "string"}}}}, "required": ["reasoning", "score"]}}
-
-````
 
 Do not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).
 ````

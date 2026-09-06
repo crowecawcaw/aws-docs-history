@@ -152,27 +152,22 @@ Before you begin, make sure you have:
 
 ## Step 1: Create your agent project
 
-Use the `agentcore create` command to set up a skeleton agent project with the framework of your choice:
+Use the `agentcore create` command to set up an empty project. You add the JWT-authorized agent after you create the Cognito resources in Step 2.
 
 ```
-agentcore create
+agentcore create --project-name OAuthAgentProject --no-agent
+cd OAuthAgentProject
 ```
-
-The command will prompt you to:
-
-- Choose a framework (choose Strands Agents for this tutorial)
-- Provide a project name
-- Configure additional options
 
 This generates:
 
-- Agent code with your selected framework
 - `agentcore/agentcore.json` configuration file
-- `requirements.txt` with necessary dependencies
+- `agentcore/aws-targets.json` deployment target file
+- `agentcore/cdk/` infrastructure project
 
 ###### Note
 
-The generated agent code will serve as the foundation for implementing OAuth authentication in the following steps.
+Keep this terminal in `OAuthAgentProject` for the remaining AgentCore CLI commands.
 
 ## Step 2: Set up AWS Cognito user pool and add a user
 
@@ -239,9 +234,9 @@ Open a terminal window and set the following environment variables:
 
 
     ```
-    export REGION=us-east-1 // set your desired Region
-    export USERNAME=USER NAME
-    export PASSWORD=PASSWORD
+    export REGION=us-east-1 # Set your desired Region
+    export USERNAME="user-name"
+    export PASSWORD="password"
     ```
 
     In the terminal window, run the script:
@@ -262,7 +257,7 @@ You can front your AgentCore Runtime with an AgentCore Gateway so that the gatew
 
 If you want to front this runtime, [create the gateway](gateway-create.md "gateway-create.md") now, before you deploy the runtime in the next step. After you deploy, you’ll [add the runtime as a gateway target](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
 
-To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. You configure this in the next step, as part of the authorizer, using `allowedWorkloadConfiguration` (see [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload")).
+To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. Use `allowedWorkloadConfiguration` as described in [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload"). The AgentCore CLI does not configure this field. Use the AgentCore control-plane API.
 
 ## Step 4: Deploy your agent
 
@@ -317,7 +312,7 @@ You provide the allowed workloads using either of the following fields. You can 
 - **hostingEnvironments** – A list of hosting environments whose workloads are allowed to invoke the target. Each entry is an object with an `arn`. At launch, the only supported hosting environment is AgentCore Gateway, so each `arn` must be an AgentCore Gateway ARN.
 - **workloadIdentities** – A list of workload identity names that are allowed to invoke the target. A workload identity name is **not** an ARN. It is the final segment of the gateway’s workload identity ARN, which you can find in the `workloadIdentityDetails` field of the `GetGateway` response. For example, if `workloadIdentityDetails.workloadIdentityArn` is `arn:aws:bedrock-agentcore:us-east-1:111122223333:workload-identity-directory/default/workload-identity/my-gateway-workload-identity`, then the workload identity name is `my-gateway-workload-identity`.
 
-The following example creates an agent runtime that restricts invocation to a specific AgentCore Gateway by its ARN. Specifying `hostingEnvironments` alone is the simplest way to allow a gateway:
+The following authorizer configuration restricts invocation to a specific AgentCore Gateway by its ARN. Specifying `hostingEnvironments` alone is the simplest way to allow a gateway:
 
 ```
 {
@@ -366,23 +361,28 @@ AgentCore CLI
 
 **To configure and deploy your agent**
 
-1. Create your agent project with the AgentCore CLI:
+1. Add the agent to the project that you created in Step 1. The command configures the Cognito discovery URL, client ID, and the `Authorization` request header allowlist:
 
 ```
-agentcore create
+agentcore add agent \
+  --name OAuthAgent \
+  --language Python \
+  --framework Strands \
+  --model-provider Bedrock \
+  --memory none \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
+  --allowed-clients "$CLIENT_ID" \
+  --request-header-allowlist Authorization
 ```
 
-When prompted, choose your framework (choose Strands Agents for this tutorial). 2. Deploy your agent:
+2. Deploy your agent:
 
 ```
 agentcore deploy
 ```
 
 3. Note the agent runtime ARN from the output. You’ll need this in the next step.
-
-###### Tip
-
-You can also run the `agentcore create` command without flags for a fully interactive experience that guides you through project setup.
 
 Python
 
@@ -421,6 +421,11 @@ lifecycleConfiguration={
 
 ```
 
+
+
+###### Note
+
+The AgentCore CLI example configures JWT authorization, but it does not configure `allowedWorkloadConfiguration`. If you front the runtime with a gateway, use the AgentCore control-plane API to add that field.
 
 
 ## Step 5: Use bearer token to invoke your agent
@@ -699,17 +704,19 @@ Optionally, you can pass an Authorization header to an AgentCore Runtime to extr
 
 In this step you make changes to your agent code so that you can decode and extract claims from a JWT token using PyJWT library.
 
-**requirements.txt**
+**Python dependencies**
 
-Add PyJWT dependency to the `requirements.txt` file in your generated project.
+Add PyJWT to the generated agent’s `pyproject.toml`:
 
 ```
-PyJWT
+cd app/OAuthAgent
+uv add PyJWT
+cd ../..
 ```
 
 **Update your agent code**
 
-Modify the main agent file in your generated project (typically `src/main.py` or similar, depending on your framework choice) as shown in the following code. You can skip validating the token signature here since it has already been validated by AgentCore Runtime when the inbound authorization was done.
+Modify `app/OAuthAgent/main.py` as shown in the following code. You can skip validating the token signature here because AgentCore Runtime has already validated the token during inbound authorization.
 
 ```
 import jwt
@@ -734,20 +741,13 @@ def invoke(payload, context):
     .....
 ```
 
-### Step 7.2: Create the agent with request header allowlist
+### Step 7.2: Deploy the updated agent
 
-Use the AgentCore CLI to configure the agent with request header allowlist. Navigate to your generated project directory and run:
+The `agentcore add agent` command in Step 4 already configured the `Authorization` request header allowlist. Deploy the code update:
 
 ```
-agentcore create --name HelloAgent --framework Strands --model-provider Bedrock --memory none
-
-# Now deploy the agent runtime
 agentcore deploy
 ```
-
-###### Note
-
-The AgentCore CLI creates the project structure and configuration files. Adjust the agent configuration in `agentcore/agentcore.json` as needed for your framework choice.
 
 ### Step 7.3: Invoke your agent
 

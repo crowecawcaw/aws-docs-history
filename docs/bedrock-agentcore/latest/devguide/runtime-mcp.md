@@ -176,10 +176,23 @@ Starting **October 7, 2025** , Amazon Bedrock AgentCore uses a Service-Linked Ro
 After setting up authentication, scaffold a new project with MCP protocol:
 
 ```
-agentcore create --protocol MCP
+agentcore create --project-name MCPServerProject --no-agent
+cd MCPServerProject
+agentcore add agent \
+  --name MCPServer \
+  --language Python \
+  --protocol MCP \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
+  --allowed-clients "$CLIENT_ID" \
+  --request-header-allowlist Authorization
+cp ../my_mcp_server.py app/MCPServer/main.py
+cd app/MCPServer
+uv add mcp
+cd ../..
 ```
 
-Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project’s agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
+The CLI creates a CUSTOM\_JWT runtime configuration and scaffolds the project structure. The commands copy your server over the generated `app/MCPServer/main.py` entrypoint and add its dependency to `pyproject.toml`.
 
 ### Deploy to AWS
 
@@ -288,10 +301,23 @@ For more information, see [Auth0 Dynamic Client Registration documentation](http
 After setting up authentication, scaffold a new project with MCP protocol:
 
 ```
-agentcore create --protocol MCP
+agentcore create --project-name MCPServerProject --no-agent
+cd MCPServerProject
+agentcore add agent \
+  --name MCPServer \
+  --language Python \
+  --protocol MCP \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url "<AUTH0_DISCOVERY_URL>" \
+  --allowed-clients "<AUTH0_CLIENT_ID>" \
+  --request-header-allowlist Authorization
+cp ../my_mcp_server.py app/MCPServer/main.py
+cd app/MCPServer
+uv add mcp
+cd ../..
 ```
 
-Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project’s agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
+Replace the Auth0 placeholders with values from your Auth0 application. The CLI creates a CUSTOM\_JWT runtime configuration and scaffolds the project structure. The commands copy your server over the generated `app/MCPServer/main.py` entrypoint and add its dependency to `pyproject.toml`.
 
 ### Step 6: Deploy to AWS
 
@@ -891,9 +917,9 @@ Open a terminal window and set the following environment variables:
 - `PASSWORD` – the password for the new user
 
 ```
-export REGION=us-east-1 // set your desired Region
-export USERNAME=USER NAME
-export PASSWORD=PASSWORD
+export REGION=us-east-1 # Set your desired Region
+export USERNAME="user-name"
+export PASSWORD="password"
 ```
 
 Run the script using the command `source setup_cognito.sh`.

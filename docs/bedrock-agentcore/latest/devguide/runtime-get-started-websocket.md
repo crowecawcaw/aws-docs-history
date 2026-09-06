@@ -58,6 +58,7 @@ Before you start, make sure you have:
 
 - **AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
 - **Python 3.10+** installed
+- **Node.js 20+** installed
 - **AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For more information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
 
 ### Step 1: Set up project and install dependencies
@@ -187,15 +188,29 @@ npm install -g @aws/agentcore
 Verify installation:
 
 ```
-agentcore --help
+agentcore --version
 ```
+
+For available commands and options, see [AgentCore CLI reference](agentcore-cli-reference.md "agentcore-cli-reference.md").
 
 #### Create project and deploy to AWS
 
 Create a new project for your bidirectional streaming agent:
 
 ```
-agentcore create
+cd ..
+agentcore create --project-name WebSocketProject --no-agent
+cd WebSocketProject
+agentcore add agent \
+  --name WebSocketAgent \
+  --type byo \
+  --language Python \
+  --framework Strands \
+  --model-provider Bedrock \
+  --memory none \
+  --protocol HTTP \
+  --code-location ../agentcore-runtime-quickstart-websocket \
+  --entrypoint websocket_echo_agent.py
 ```
 
 Deploy your agent:
@@ -204,9 +219,7 @@ Deploy your agent:
 agentcore deploy
 ```
 
-###### Note
-
-Run these commands from your project directory ( `agentcore-runtime-quickstart-websocket` ) where your agent files are located.
+The AgentCore project references the existing `agentcore-runtime-quickstart-websocket` source directory.
 
 After deployment, you’ll receive an agent runtime ARN that looks like:
 

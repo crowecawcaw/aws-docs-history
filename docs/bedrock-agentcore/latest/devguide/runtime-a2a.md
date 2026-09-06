@@ -66,7 +66,7 @@ In this tutorial you create, test, and deploy an A2A server.
 ### Prerequisites
 
 - Python 3.10 or higher installed and basic understanding of Python
-- Node.js 18 or higher installed (required for the AgentCore CLI)
+- Node.js 20 or higher installed (required for the AgentCore CLI)
 - The AgentCore CLI installed: `npm install -g @aws/agentcore`
 - An AWS account with appropriate permissions and local credentials configured
 - Understanding of the A2A protocol and agent-to-agent communication concepts
@@ -77,10 +77,18 @@ This example uses Strands Agents, but the AgentCore CLI also supports A2A projec
 
 #### Scaffold the project
 
-Run the following command and select _Strands_ as your framework when prompted:
+Run the following command:
 
 ```
-agentcore create --protocol A2A
+agentcore create \
+  --project-name A2AProject \
+  --name A2AAgent \
+  --language Python \
+  --framework Strands \
+  --model-provider Bedrock \
+  --memory none \
+  --protocol A2A
+cd A2AProject
 ```
 
 The CLI scaffolds a complete project with all required dependencies and configuration. The generated `main.py` contains your A2A server:

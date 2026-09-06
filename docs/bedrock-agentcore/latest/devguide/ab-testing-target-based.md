@@ -20,7 +20,7 @@ For a detailed comparison of A/B test patterns, see [Choosing a pattern](ab-test
 Create the project with the AgentCore CLI:
 
 ```
-agentcore create --name ABTestTargetBased --no-agent
+agentcore create --project-name ABTestTargetBased --no-agent
 cd ABTestTargetBased
 ```
 
@@ -38,7 +38,7 @@ agentcore add agent \
   --build CodeZip
 ```
 
-Project structure:
+Abbreviated project structure:
 
 ```
 ABTestTargetBased/

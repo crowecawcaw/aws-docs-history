@@ -44,3 +44,7 @@ AWS Agent Registry can synchronize record metadata from external sources, keepin
 ## CloudTrail integration
 
 AWS Agent Registry control plane API calls are logged in AWS CloudTrail, providing a complete audit trail of who did what and when. Control plane operations are logged as management events by default.
+
+## Organization-wide auto-detection
+
+If you use AWS Organizations, AWS Agent Registry can automatically discover and catalog supported resources across your member accounts, giving you a single, organization-wide catalog with no per-account setup. To enable auto-detection, you enable it on a registry from a delegated administrator account (recommended, following least-privilege best practices). AWS Agent Registry then creates a record for each discovered resource (currently Amazon Bedrock AgentCore Runtimes and Gateways). The catalog stays in sync as resources are created, updated, or deleted and as accounts join or leave the organization. Auto-detected records are clearly marked and linked back to the source resource they were detected from, and you can enrich them with your own descriptions and metadata. Detection is fully managed — there is nothing to install or configure in individual member accounts. For more information, see [Using AWS Agent Registry with AWS Organizations](registry-organizations.md "registry-organizations.md").

@@ -1,21 +1,35 @@
 # Set up LangGraph telemetry for AgentCore Evaluations
 
-This page explains how to instrument a [LangGraph](https://langchain-ai.github.io/langgraph/ "https://langchain-ai.github.io/langgraph/") agent, how spans are identified, and how evaluation fields are extracted. It closes with [best practices](#langgraph-best-practices "#langgraph-best-practices") for structuring a LangGraph agent so that it can be evaluated reliably.
+This page explains how to instrument a [LangGraph](https://langchain-ai.github.io/langgraph/ "https://langchain-ai.github.io/langgraph/") agent, how spans are identified, and how evaluation fields are extracted. AgentCore Evaluations supports LangGraph agents built in Python and TypeScript; this page covers each language separately, in [Python agent support](#langgraph-python "#langgraph-python") and [TypeScript agent support](#langgraph-typescript "#langgraph-typescript"). It closes with [best practices](#langgraph-best-practices "#langgraph-best-practices") for structuring a LangGraph agent so that it can be evaluated reliably.
 
 **Topics**
 
-- [Instrument your agent](#langgraph-instrument "#langgraph-instrument")
-- [How spans are identified](#langgraph-span-identification "#langgraph-span-identification")
-- [How evaluation fields are extracted](#langgraph-extraction "#langgraph-extraction")
+- [Python agent support](#langgraph-python "#langgraph-python")
 
-  - [From event records](#langgraph-extraction-event-records "#langgraph-extraction-event-records")
-  - [From span attributes](#langgraph-extraction-attributes "#langgraph-extraction-attributes")
+  - [Instrument your agent](#langgraph-instrument "#langgraph-instrument")
+  - [How spans are identified](#langgraph-span-identification "#langgraph-span-identification")
+  - [How evaluation fields are extracted](#langgraph-extraction "#langgraph-extraction")
 
-- [Example spans in split telemetry](#langgraph-examples-split "#langgraph-examples-split")
-- [Example spans in unified telemetry](#langgraph-examples-unified "#langgraph-examples-unified")
+    - [From event records](#langgraph-extraction-event-records "#langgraph-extraction-event-records")
+    - [From span attributes](#langgraph-extraction-attributes "#langgraph-extraction-attributes")
+
+  - [Example spans in split telemetry](#langgraph-examples-split "#langgraph-examples-split")
+  - [Example spans in unified telemetry](#langgraph-examples-unified "#langgraph-examples-unified")
+
+- [TypeScript agent support](#langgraph-typescript "#langgraph-typescript")
+
+  - [Instrument your agent](#langgraph-typescript-instrument "#langgraph-typescript-instrument")
+  - [How spans are identified](#langgraph-typescript-span-identification "#langgraph-typescript-span-identification")
+  - [How evaluation fields are extracted](#langgraph-typescript-extraction "#langgraph-typescript-extraction")
+  - [Example spans from a TypeScript agent](#langgraph-examples-typescript "#langgraph-examples-typescript")
+
 - [Best practices for LangGraph agents](#langgraph-best-practices "#langgraph-best-practices")
 
-## Instrument your agent
+## Python agent support
+
+A Python LangGraph agent emits spans under the scope name `opentelemetry.instrumentation.langchain` (OpenTelemetry) or `openinference.instrumentation.langchain` (OpenInference).
+
+### Instrument your agent
 
 You can instrument a LangGraph agent with either of two instrumentation libraries: **OpenTelemetry** (`opentelemetry-instrumentation-langchain`) or **OpenInference** (`openinference-instrumentation-langchain`). Amazon Bedrock AgentCore Evaluations supports both libraries. The libraries emit different scope names and use different span attributes. The evaluation service extracts the same values from each.
 
@@ -67,7 +81,7 @@ dependencies = [
 
 Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
-## How spans are identified
+### How spans are identified
 
 The attribute used to classify spans differs between the two instrumentation libraries.
 
@@ -91,7 +105,7 @@ The OpenInference instrumentation library classifies spans using the `openinfere
 | Execute tool | `openinference.span.kind` = `TOOL`             |
 | Inference    | `openinference.span.kind` = `LLM`              |
 
-## How evaluation fields are extracted
+### How evaluation fields are extracted
 
 For the invoke agent span, the input and output do not contain a clean per-message list. Instead, the content is the **serialized LangChain graph state**: a JSON string that wraps the full state. The exact shape of this serialized state differs between the two instrumentation libraries. In both cases, the service parses it to find the user prompt (the human message) and the agent response (the AI message).
 
@@ -99,7 +113,7 @@ LangGraph also serializes message roles in more than one form. A role can appear
 
 The location of this content depends on how telemetry was collected. The identifying attribute (`traceloop.span.kind` or `openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 
-### From event records
+#### From event records
 
 With split telemetry, the service reads content from the event record correlated to each span:
 
@@ -108,7 +122,7 @@ With split telemetry, the service reads content from the event record correlated
 
 For more information, see [Example spans in split telemetry](#langgraph-examples-split "#langgraph-examples-split").
 
-### From span attributes
+#### From span attributes
 
 With unified telemetry, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
 
@@ -124,15 +138,15 @@ With unified telemetry, the same content stays on the span as attributes. The at
 
 For more information, see [Example spans in unified telemetry](#langgraph-examples-unified "#langgraph-examples-unified").
 
-## Example spans in split telemetry
+### Example spans in split telemetry
 
-With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a LangGraph travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Python LangGraph travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
 
 ###### Note
 
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-### OpenTelemetry
+#### OpenTelemetry
 
 ###### Example
 
@@ -258,7 +272,7 @@ The correlated event record carries the tool input (arguments) and output (resul
 }
 ```
 
-### OpenInference
+#### OpenInference
 
 With the OpenInference library, the span type is carried in the `openinference.span.kind` attribute, and the agent input and output are serialized in the correlated event record.
 
@@ -385,15 +399,15 @@ The correlated event record carries the tool input (arguments) and output (resul
 }
 ```
 
-## Example spans in unified telemetry
+### Example spans in unified telemetry
 
-With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from a LangGraph travel-planning agent. The same agent is shown under each instrumentation library.
+With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from a Python LangGraph travel-planning agent. The same agent is shown under each instrumentation library.
 
 ###### Note
 
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-### OpenTelemetry
+#### OpenTelemetry
 
 ###### Example
 
@@ -452,7 +466,7 @@ The `gen_ai.tool.call.arguments` attribute holds the tool arguments, and the `ge
 }
 ```
 
-### OpenInference
+#### OpenInference
 
 ###### Example
 
@@ -501,6 +515,317 @@ The `input.value` attribute holds the tool arguments, and the `output.value` att
     "input.value": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
     "output.value": "{\"type\": \"tool\", \"data\": {\"content\": \"{\\\"origin\\\": \\\"SEA\\\", \\\"destination\\\": \\\"NYC\\\", \\\"flights\\\": [ ... ]}\", \"name\": \"search_flights\"}}",
     "session.id": "sea-nyc-trip-2-turns-oi-0-1-66"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+## TypeScript agent support
+
+A TypeScript LangGraph agent emits the same span types as a Python agent, so the evaluation service reads it the same way. There are three TypeScript instrumentation libraries, each with its own scope name and span-classification convention.
+
+### Instrument your agent
+
+Add the instrumentation library for the path you want to your TypeScript dependencies. The following examples pin a minimum version; use the latest available version unless you have a reason to pin.
+
+###### Example
+
+ADOT (OpenTelemetry)
+For TypeScript agents on ADOT, add the AWS Distro Node autoinstrumentation package (`@aws/aws-distro-opentelemetry-node-autoinstrumentation`) to your dependencies. It includes the built-in LangChain instrumentation, which activates at startup and emits the scope name `@aws/aws-distro-opentelemetry-instrumentation-langchain`.
+
+`package.json`:
+
+```
+{
+  "dependencies": {
+    "@aws/aws-distro-opentelemetry-node-autoinstrumentation": "^0.12.0"
+  }
+}
+```
+
+Traceloop (OpenTelemetry)
+Add the Traceloop LangChain instrumentation (`@traceloop/instrumentation-langchain`) to your dependencies. The scope name emitted is `@traceloop/instrumentation-langchain`.
+
+`package.json`:
+
+```
+{
+  "dependencies": {
+    "@traceloop/instrumentation-langchain": "^0.27.0"
+  }
+}
+```
+
+OpenInference
+Add `@arizeai/openinference-instrumentation-langchain` to your dependencies. The scope name emitted is `@arizeai/openinference-instrumentation-langchain`.
+
+`package.json`:
+
+```
+{
+  "dependencies": {
+    "@arizeai/openinference-instrumentation-langchain": "^4.0.14"
+  }
+}
+```
+
+###### Note
+
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
+
+### How spans are identified
+
+Span identification depends on the instrumentation library:
+
+- **ADOT (OpenTelemetry)**: the AWS Distro Node autoinstrumentation package (`@aws/aws-distro-opentelemetry-node-autoinstrumentation`), which emits the scope name `@aws/aws-distro-opentelemetry-instrumentation-langchain`, sets `gen_ai.operation.name` (`invoke_agent`, `execute_tool`, `chat`), the same as the other ADOT-native frameworks.
+- **Traceloop (OpenTelemetry)**: the OpenTelemetry JS library from Traceloop (`@traceloop/instrumentation-langchain`) sets `traceloop.span.kind` (`workflow` for the invoke agent span, `task` for the tool span), matching the Python OpenTelemetry library. See [How spans are identified](#langgraph-span-identification "#langgraph-span-identification") under [Python agent support](#langgraph-python "#langgraph-python").
+- **OpenInference**: the OpenInference JS library (`@arizeai/openinference-instrumentation-langchain`) sets `openinference.span.kind` (`CHAIN` or `AGENT`, `TOOL`, `LLM`), the same as the Python OpenInference library.
+
+### How evaluation fields are extracted
+
+Field extraction depends on the instrumentation library:
+
+- **ADOT (OpenTelemetry)**: the invoke agent span is a structural container, and the conversation content lives on the inference (`chat`) span, in the parts-format `gen_ai.input.messages` and `gen_ai.output.messages` attributes.
+- **Traceloop (OpenTelemetry)**: with the OpenTelemetry JS library from Traceloop, the conversation is in the `traceloop.entity.input` and `traceloop.entity.output` attributes, as serialized LangChain state. This matches the Python OpenTelemetry library; see [How evaluation fields are extracted](#langgraph-extraction "#langgraph-extraction") under [Python agent support](#langgraph-python "#langgraph-python").
+- **OpenInference**: with the OpenInference JS library, the conversation is in the `input.value` and `output.value` attributes, and inference messages also appear on the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes. This matches the Python OpenInference library.
+
+### Example spans from a TypeScript agent
+
+The following examples are from a TypeScript LangGraph travel-planning agent deployed on Amazon Bedrock AgentCore Runtime with unified telemetry. The same agent is shown under each of the three TypeScript instrumentation libraries.
+
+###### Note
+
+These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
+
+#### OpenTelemetry (ADOT native)
+
+With the ADOT-native library (from the AWS Distro Node autoinstrumentation package `@aws/aws-distro-opentelemetry-node-autoinstrumentation`, emitting the scope name `@aws/aws-distro-opentelemetry-instrumentation-langchain`), the invoke agent span is a structural container and the conversation content lives on the inference (`chat`) span, in the parts-format `gen_ai.input.messages` and `gen_ai.output.messages` attributes.
+
+###### Example
+
+Invoke agent span
+The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span. The span carries the agent name and model but no conversation content.
+
+```
+{
+  "traceId": "6a6bd0a1c8d91ed1e70a3906b551618",
+  "spanId": "ba1833fa7f097041",
+  "name": "invoke_agent LangGraph",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@aws/aws-distro-opentelemetry-instrumentation-langchain",
+    "version": "0.12.0"
+  },
+  "attributes": {
+    "gen_ai.operation.name": "invoke_agent",
+    "gen_ai.agent.name": "LangGraph",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4o-mini",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Execute tool span
+The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.call.arguments` and `gen_ai.tool.call.result` attributes hold the tool arguments and result.
+
+```
+{
+  "traceId": "6a6bd0a25c52f3d86a35038f35f5ba30",
+  "spanId": "5b332f3cd15ace04",
+  "name": "execute_tool search_flights",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@aws/aws-distro-opentelemetry-instrumentation-langchain",
+    "version": "0.12.0"
+  },
+  "attributes": {
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.tool.name": "search_flights",
+    "gen_ai.tool.type": "function",
+    "gen_ai.tool.call.arguments": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
+    "gen_ai.tool.call.result": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"flights\": [ ... ]}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Inference span
+The `gen_ai.operation.name` attribute (`chat`) identifies this as an inference span. The `gen_ai.input.messages` and `gen_ai.output.messages` attributes hold the conversation in the parts-format, and `gen_ai.system_instructions` holds the system prompt.
+
+```
+{
+  "traceId": "6a6bd0a1c8d91ed1e70a3906b551618",
+  "spanId": "7c1f9a2b4d6e8a03",
+  "name": "chat gpt-4o-mini",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@aws/aws-distro-opentelemetry-instrumentation-langchain",
+    "version": "0.12.0"
+  },
+  "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4o-mini",
+    "gen_ai.input.messages": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Hey, how can you help me\"}]}]",
+    "gen_ai.output.messages": "[{\"role\": \"assistant\", \"parts\": [{\"type\": \"text\", \"content\": \"I can assist you with planning your trip ...\"}]}]",
+    "gen_ai.system_instructions": "[{\"type\": \"text\", \"content\": \"You are a travel planning assistant ...\"}]",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+#### OpenTelemetry (Traceloop)
+
+With the OpenTelemetry JS library from Traceloop (`@traceloop/instrumentation-langchain`), the span type is carried in the `traceloop.span.kind` attribute (`workflow` for the invoke agent span, `task` for the tool span), and `gen_ai.operation.name` = `workflow` on the invoke agent span. The conversation is in the `traceloop.entity.input` and `traceloop.entity.output` attributes, as serialized LangChain state.
+
+###### Example
+
+Invoke agent span
+The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke agent span. The `traceloop.entity.input` and `traceloop.entity.output` attributes hold the serialized LangChain state, from which the user prompt (human message) and agent response (AI message) are parsed.
+
+```
+{
+  "traceId": "6a6bd0b1c8d91ed1e70a3906b551618",
+  "spanId": "ba1833fa7f097041",
+  "name": "workflow RunnableSequence",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@traceloop/instrumentation-langchain",
+    "version": "0.27.0"
+  },
+  "attributes": {
+    "traceloop.span.kind": "workflow",
+    "gen_ai.operation.name": "workflow",
+    "gen_ai.provider.name": "langchain",
+    "traceloop.workflow.name": "RunnableSequence",
+    "traceloop.entity.input": "{\"messages\": [{\"lc\": 1, \"type\": \"constructor\", \"id\": [\"langchain_core\", \"messages\", \"HumanMessage\"], \"kwargs\": {\"content\": \"Hey, how can you help me\"}}]}",
+    "traceloop.entity.output": "{\"messages\": [{\"lc\": 1, \"type\": \"constructor\", \"id\": [\"langchain_core\", \"messages\", \"AIMessage\"], \"kwargs\": {\"content\": \"I can assist you with planning your trip ...\"}}]}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Execute tool span
+The `traceloop.span.kind` attribute (`task`) identifies this as an execute tool span. The `traceloop.entity.input` and `traceloop.entity.output` attributes hold the tool arguments and result.
+
+```
+{
+  "traceId": "6a6bd0b25c52f3d86a35038f35f5ba30",
+  "spanId": "5b332f3cd15ace04",
+  "name": "task search_flights",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@traceloop/instrumentation-langchain",
+    "version": "0.27.0"
+  },
+  "attributes": {
+    "traceloop.span.kind": "task",
+    "traceloop.entity.name": "search_flights",
+    "traceloop.entity.input": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
+    "traceloop.entity.output": "{\"output\": {\"lc\": 1, \"type\": \"constructor\", \"id\": [\"langchain_core\", \"messages\", \"ToolMessage\"], \"kwargs\": {\"status\": \"success\", \"content\": \"{\\\"origin\\\": \\\"SEA\\\", \\\"destination\\\": \\\"NYC\\\", \\\"flights\\\": [ ... ]}\"}}}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+#### OpenInference
+
+With the OpenInference JS library (`@arizeai/openinference-instrumentation-langchain`), the span type is carried in the `openinference.span.kind` attribute. The conversation content is in the `input.value` and `output.value` attributes, and inference messages also appear on the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes.
+
+###### Example
+
+Invoke agent span
+The `openinference.span.kind` attribute (`CHAIN`) identifies this as an invoke agent span. The `input.value` and `output.value` attributes hold the serialized LangChain state.
+
+```
+{
+  "traceId": "6a6bd0c1c8d91ed1e70a3906b551618",
+  "spanId": "0a7990d804132a9b",
+  "name": "LangGraph",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@arizeai/openinference-instrumentation-langchain",
+    "version": "4.0.14"
+  },
+  "attributes": {
+    "openinference.span.kind": "CHAIN",
+    "input.value": "{\"messages\": [{\"lc\": 1, \"type\": \"constructor\", \"id\": [\"langchain_core\", \"messages\", \"HumanMessage\"], \"kwargs\": {\"content\": \"Hey, how can you help me\"}}]}",
+    "output.value": "{\"messages\": [{\"lc\": 1, \"type\": \"constructor\", \"id\": [\"langchain_core\", \"messages\", \"AIMessage\"], \"kwargs\": {\"content\": \"I can assist you with planning your trip ...\"}}]}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Execute tool span
+The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The `input.value` and `output.value` attributes hold the tool arguments and result (serialized as a LangChain `ToolMessage`).
+
+```
+{
+  "traceId": "6a6bd0c25c52f3d86a35038f35f5ba30",
+  "spanId": "ab105c12cc40048f",
+  "name": "search_flights",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@arizeai/openinference-instrumentation-langchain",
+    "version": "4.0.14"
+  },
+  "attributes": {
+    "openinference.span.kind": "TOOL",
+    "tool.name": "search_flights",
+    "input.value": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
+    "output.value": "{\"output\": {\"lc\": 1, \"type\": \"constructor\", \"id\": [\"langchain_core\", \"messages\", \"ToolMessage\"], \"kwargs\": {\"status\": \"success\", \"content\": \"{\\\"origin\\\": \\\"SEA\\\", \\\"destination\\\": \\\"NYC\\\", \\\"flights\\\": [ ... ]}\"}}}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Inference span
+The `openinference.span.kind` attribute (`LLM`) identifies this as an inference span. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the agent response.
+
+```
+{
+  "traceId": "6a6bd0c1c8d91ed1e70a3906b551618",
+  "spanId": "1221a062c7f90a8e",
+  "name": "ChatOpenAI",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@arizeai/openinference-instrumentation-langchain",
+    "version": "4.0.14"
+  },
+  "attributes": {
+    "openinference.span.kind": "LLM",
+    "llm.model_name": "gpt-4o-mini",
+    "llm.input_messages.0.message.role": "system",
+    "llm.input_messages.0.message.content": "You are a travel planning assistant ...",
+    "llm.input_messages.1.message.role": "user",
+    "llm.input_messages.1.message.content": "Hey, how can you help me",
+    "llm.output_messages.0.message.role": "assistant",
+    "llm.output_messages.0.message.content": "I can assist you with planning your trip ...",
+    "session.id": "sea-nyc-trip-2-turns"
   },
   "status": {
     "code": "OK"

@@ -50,5 +50,5 @@ AgentCore offers flexible, consumption-based pricing with no upfront commitments
 
 If you are a first-time user of Amazon Bedrock AgentCore, we recommend that you begin by reading the following sections:
 
-- [Get started with Amazon Bedrock AgentCore](agentcore-get-started-cli.md "agentcore-get-started-cli.md")
+- [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md")
 - [Understand the available interfaces for using Amazon Bedrock AgentCore](develop-agents.md "develop-agents.md")

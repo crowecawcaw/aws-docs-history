@@ -19,9 +19,10 @@ Before starting, make sure you have the following:
 
 - **AWS Account** with credentials configured. To configure credentials, you can install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
 - **Node.js 20+** installed
-- Your AWS account and Region **bootstrapped for AWS CDK**. Replace `<ACCOUNT_ID>` with your 12-digit AWS account ID and `<REGION>` with the AWS Region identifier (for example, `us-east-1`), then run: `npx cdk bootstrap aws://<ACCOUNT_ID>/<REGION>`
 - **IAM permissions** for creating roles, Lambda functions, policy engines, and using Amazon Bedrock AgentCore
 - **A Lambda function** that processes refund requests. You can use an existing function or create one for this tutorial. Note the function ARN for use in Step 2.
+
+The AgentCore CLI checks the CDK bootstrap stack during deployment. If bootstrap is required, interactive deployment asks for confirmation. Use `agentcore deploy --yes` to authorize it automatically.
 
 ## Step 1: Setup and install
 
@@ -41,12 +42,13 @@ AgentCore CLI
 
    ```
 
-agentcore create --name PolicyDemo --defaults
+agentcore create --name PolicyDemo --language Python --framework Strands \
+--model-provider Bedrock --memory none
 cd PolicyDemo
 
 ````
 
-The `--defaults` flag creates a project with a default Python Strands agent. The **cd** command moves into the project directory where subsequent commands must be run.
+These options create a Python Strands agent that uses Amazon Bedrock and no memory. The `cd` command moves into the project directory where subsequent commands must be run.
 
 
 Interactive

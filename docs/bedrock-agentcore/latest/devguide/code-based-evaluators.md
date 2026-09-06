@@ -134,11 +134,12 @@ AgentCore CLI
 
    ```
 
-agentcore eval evaluator create \
+agentcore add evaluator \
 --name "MyCodeEvaluator" \
 --level TRACE \
+--type code-based \
 --lambda-arn "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function" \
---lambda-timeout 120
+--timeout 120
 
 ````
 

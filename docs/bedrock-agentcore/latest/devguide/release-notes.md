@@ -2,7 +2,51 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
+## September 2026
+
+### Evaluations: TypeScript agent framework support
+
+Amazon Bedrock AgentCore Evaluations now evaluates agents built with the TypeScript versions of supported frameworks, alongside the Python versions. Supported TypeScript frameworks are Strands Agents, LangGraph, OpenAI Agents, and the Vercel AI SDK (a TypeScript-only framework).
+
+For more information, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
+
+### Consent Portal for AgentCore Identity
+
+Amazon Bedrock AgentCore Identity now offers a Consent Portal, a hosted portal that lets your end users grant consent for an agent to access resources on their behalf. You direct users to the portal’s `portalUrl`, where they review and approve the requested access before the agent proceeds.
+
+A Consent Portal requires an Amazon Bedrock AgentCore Gateway configured with JWT inbound authentication as its source, and an identity provider whose permitted scopes include `openid`. You create and manage portals with the create, get, list, update, and delete consent-portal operations.
+
+See [Consent Portal](identity-consent-portal.md "identity-consent-portal.md").
+
 ## August 2026
+
+### AWS Agent Registry is now generally available, with auto-detection and customer managed key encryption
+
+AWS Agent Registry is now generally available. This launch introduces two new features:
+
+- **Auto-detection with AWS Organizations** — Automatically discover and catalog AgentCore Runtimes and Gateways across your organization’s member accounts into a single registry, with no per-account setup. The catalog stays in sync as resources are created, updated, or deleted and as accounts join or leave the organization. For more information, see [Using AWS Agent Registry with AWS Organizations](registry-organizations.md "registry-organizations.md").
+- **Customer managed key encryption** — Encrypt registry data at rest with a customer managed key from AWS KMS that you own and control. Specify the key at registry creation time. For more information, see [Data encryption in AWS Agent Registry](registry-data-encryption.md "registry-data-encryption.md").
+
+### Memory: Ingest content directly into long-term memory
+
+AgentCore Memory now supports direct ingestion into long-term memory via IngestData API. See [Ingest content into long-term memory](long-term-ingest-data.md "long-term-ingest-data.md").
+
+### Memory: Flexible Namespaces
+
+AgentCore Memory now supports flexible namespace variables. See [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md").
+
+### AWS Agent Registry: AWS PrivateLink support
+
+AWS Agent Registry now supports AWS PrivateLink for private connectivity from your VPC to the service. You can access the registry over an interface VPC endpoint without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+
+AWS Agent Registry exposes two AWS PrivateLink endpoints:
+
+- Control plane — `com.amazonaws.region.agent-registry-control` — for registry and record management.
+- Data plane — `com.amazonaws.region.agent-registry` — for record discovery and the registry MCP endpoint.
+
+Endpoint policies match callers by IAM principal. For registries that use SigV4 authorization, you can scope policies to specific IAM principals. For registries that use JWT authorization, set `Principal` to `*` so bearer-token requests can reach the service.
+
+For more information, see [VPC and AWS PrivateLink with AWS Agent Registry](registry-privatelink.md "registry-privatelink.md").
 
 ### AWS Agent Registry: Cross-account sharing with AWS RAM
 
@@ -316,7 +360,7 @@ Your coding agent can now spin up an AgentCore agent, cloud browser, run code in
 
 ### AgentCore CLI: Agent Inspector
 
-Developers running `agentcore dev` now get a browser-based UI for chatting with agents, inspecting token usage and tool calls, viewing execution traces on a timeline, and browsing deployed AgentCore Memory — all locally before pushing to the cloud. See [documentation](agentcore-get-started-cli.md "agentcore-get-started-cli.md").
+Developers running `agentcore dev` now get a browser-based UI for chatting with agents, inspecting token usage and tool calls, viewing execution traces on a timeline, and browsing deployed AgentCore Memory — all locally before pushing to the cloud. See [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
 
 ### Observability: UI Enhancements for Trace and Trajectory
 
@@ -336,7 +380,7 @@ AgentCore launched cross-account observability. Customers can monitor logs, metr
 
 ### AgentCore CLI: Resource Import and Bash Commands
 
-CLI now supports importing existing AgentCore resources (evaluator and online evaluation config) from your account, executing bash commands within the agent’s Runtime or locally within its container, BYO Dockerfile for Runtime, and Memory streaming. See [documentation](agentcore-get-started-cli.md "agentcore-get-started-cli.md").
+CLI now supports importing existing AgentCore resources (evaluator and online evaluation config) from your account, executing bash commands within the agent’s Runtime or locally within its container, BYO Dockerfile for Runtime, and Memory streaming. See [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
 
 ### Browser: OS-Level Interaction Capabilities
 
@@ -374,7 +418,7 @@ Support deployed for `bedrock-agentcore:RuntimeAuthorizerType` (mandate specific
 
 ### AgentCore CLI is now Generally Available
 
-AgentCore CLI reached GA (v0.4.0), providing a comprehensive command-line tool for building and deploying AI agents in minutes. Streamlines the full lifecycle — scaffolding projects with multiple frameworks (Strands, LangChain, Google ADK, OpenAI Agents), local development with hot reload, adding capabilities like memory and credentials, and deploying to production with full infrastructure management. See [documentation](agentcore-get-started-cli.md "agentcore-get-started-cli.md").
+AgentCore CLI reached GA (v0.4.0), providing a comprehensive command-line tool for building and deploying AI agents in minutes. Streamlines the full lifecycle — scaffolding projects with multiple frameworks (Strands, LangChain, Google ADK, OpenAI Agents), local development with hot reload, adding capabilities like memory and credentials, and deploying to production with full infrastructure management. See [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
 
 ### Browser and Code Interpreter: Chrome Policies and Custom Root CA Support
 
@@ -430,7 +474,7 @@ AgentCore Runtime now supports [Python 3.14 for Direct Code Deploy](runtime-get-
 
 ### AgentCore CLI: Additional Features
 
-AgentCore CLI integrates with AgentCore Gateway and introduces logs/traces commands. New and updated commands: `agentcore add` (incorporate Gateways and Gateway Targets into your project), `agentcore logs` (view logs for deployed agents), `agentcore traces` (view traces for deployed agents). Individual memory resources can now be deployed independently. See [documentation](agentcore-get-started-cli.md "agentcore-get-started-cli.md").
+AgentCore CLI integrates with AgentCore Gateway and introduces logs/traces commands. New and updated commands: `agentcore add` (incorporate Gateways and Gateway Targets into your project), `agentcore logs` (view logs for deployed agents), `agentcore traces` (view traces for deployed agents). Individual memory resources can now be deployed independently. See [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
 
 ### Latency Improvements in Runtime
 

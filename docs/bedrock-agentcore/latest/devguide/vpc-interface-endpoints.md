@@ -46,7 +46,7 @@ Create an interface endpoint for AgentCore using the following service name form
 - For AgentCore Gateway: `com.amazonaws.region.bedrock-agentcore.gateway`
 - For control plane operations (Runtime and Memory management): `com.amazonaws.region.bedrock-agentcore-control`
 
-If you enable private DNS for the interface endpoint, you can make API requests to AgentCore using its default Regional DNS name. For example, `bedrock-agentcore.us-east-1.amazonaws.com`.
+If you enable private DNS for the interface endpoint, you can make API requests to AgentCore using its default Regional DNS name. For example, `bedrock-agentcore.us-east-1.amazonaws.com`. For Gateway specifically, it will look like: `*.gateway.bedrock-agentcore.us-east-1.amazonaws.com`.
 
 ## Create an endpoint policy for your interface endpoint
 
@@ -79,12 +79,12 @@ Runtime
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:user/USERNAME"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:user/USERNAME"
          },
          "Action": [
             "bedrock-agentcore:InvokeAgentRuntime"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/RUNTIME_ID"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/RUNTIME_ID"
       }
    ]
 }
@@ -100,12 +100,12 @@ The `InvokeAgentRuntime` API supports two modes of VPC endpoint authorization. T
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:InvokeAgentRuntime"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/customAgent1"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/customAgent1"
       },
       {
          "Effect": "Allow",
@@ -113,7 +113,7 @@ The `InvokeAgentRuntime` API supports two modes of VPC endpoint authorization. T
          "Action": [
             "bedrock-agentcore:InvokeAgentRuntime"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/customAgent2"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/customAgent2"
       }
    ]
 }
@@ -208,12 +208,12 @@ Code Interpreter Tool
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:InvokeCodeInterpreter"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:code-interpreter/CODE_INTERPRETER_ID"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:code-interpreter/CODE_INTERPRETER_ID"
       }
    ]
 }
@@ -231,7 +231,7 @@ The following endpoint policy allows specific IAM principals to access us-east-1
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:CreateEvent",
@@ -248,7 +248,7 @@ The following endpoint policy allows specific IAM principals to access us-east-1
             "bedrock-agentcore:BatchDeleteMemoryRecords",
             "bedrock-agentcore:BatchUpdateMemoryRecords"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/MEMORY_ID"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/MEMORY_ID"
       }
    ]
 }
@@ -264,7 +264,7 @@ The following endpoint policy allows specific IAM principals access to all memor
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:CreateEvent",
@@ -281,7 +281,7 @@ The following endpoint policy allows specific IAM principals access to all memor
             "bedrock-agentcore:BatchDeleteMemoryRecords",
             "bedrock-agentcore:BatchUpdateMemoryRecords"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/*"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/*"
       }
    ]
 }
@@ -297,12 +297,12 @@ The following endpoint policy grants permission for a specific IAM principal to 
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:CreateEvent"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/MEMORY_ID"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/MEMORY_ID"
       }
    ]
 }
@@ -318,12 +318,12 @@ Browser Tool
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:ConnectBrowserAutomationStream"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:browser/BROWSER_ID"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:browser/BROWSER_ID"
       }
    ]
 }
@@ -340,9 +340,9 @@ Gateway
          "Effect": "Allow",
          "Principal": "*",
          "Action": [
-            "bedrock:InvokeGateway"
+            "bedrock-agentcore:InvokeGateway"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1::gateway/my-gateway"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:gateway/my-gateway"
       }
    ]
 }

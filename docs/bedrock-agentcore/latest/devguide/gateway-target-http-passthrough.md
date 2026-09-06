@@ -126,7 +126,7 @@ agentcore add gateway-target \
 agentcore deploy
 ```
 
-Route to an external API using an API key credential:
+Route to an external API and pass the caller’s JWT:
 
 ```
 agentcore add gateway-target \
@@ -134,9 +134,7 @@ agentcore add gateway-target \
   --type passthrough \
   --passthrough-endpoint https://api.example.com \
   --passthrough-protocol CUSTOM \
-  --outbound-auth api-key \
-  --credential-name my-api-key \
-  --credential-parameter-name x-api-key \
+  --outbound-auth jwt-passthrough \
   --gateway MyGateway
 agentcore deploy
 ```

@@ -54,9 +54,13 @@ evaluates the condition on each request. For example, the following policy permi
 matching approval occurred within the previous hour:
 
 ```
-permit ( principal, action == AgentCore::Action::"SellShares", resource )
+permit (
+    principal,
+    action == AgentCore::Action::"TradingTarget___SellShares",
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway"
+)
 when temporal {
-    formerly within 1h AgentCore::Action::"ApproveSale"::response{
+    formerly within 1h AgentCore::Action::"TradingTarget___ApproveSale"::response{
         eventResource:   resource,
         input.stock:     context.input.stock,
         input.shares:    context.input.shares,

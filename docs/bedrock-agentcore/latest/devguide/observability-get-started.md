@@ -87,7 +87,16 @@ Create a new project using the AgentCore CLI. This sets up your project folder, 
 
 ```
 npm install -g @aws/agentcore
-agentcore create --name StrandsClaudeGettingStarted
+agentcore create \
+  --project-name StrandsObservability \
+  --name StrandsClaudeGettingStarted \
+  --language Python \
+  --framework Strands \
+  --model-provider Bedrock \
+  --memory none
+cd StrandsObservability/app/StrandsClaudeGettingStarted
+uv add strands-agents-tools
+cd ../..
 ```
 
 In the project’s agent directory, replace the default agent code with your own agent logic. The following is an example using the Strands Agents SDK:
@@ -133,7 +142,6 @@ if __name__ == "__main__":
 Deploy the agent to AgentCore Runtime. The AgentCore CLI handles packaging, deployment, and automatic OTEL instrumentation:
 
 ```
-cd StrandsClaudeGettingStarted
 agentcore deploy
 ```
 

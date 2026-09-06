@@ -35,7 +35,7 @@ Agents created after June 5, 2026 support interactive shells (terminals) automat
 
 ## Using the AgentCore CLI
 
-For installation and setup instructions, see [Get started with AgentCore Runtime using the CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
+For installation and setup instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
 
 The CLI provides a built-in terminal experience with `agentcore exec`.
 

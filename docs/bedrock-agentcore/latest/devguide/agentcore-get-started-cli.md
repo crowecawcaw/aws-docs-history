@@ -20,7 +20,9 @@ To get started with AWS, you need an AWS account. For information about creating
 - **npm.** Included with Node.js.
 - **An AWS account with credentials configured.** Configure via AWS CLI, environment variables, or an AWS profile. See [Configuring the AWS CLI](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md").
 - **Python 3.10 or later** (for agent code). Check with `python3 --version`.
-- **IAM permissions.** Your identity needs permissions to make AgentCore API calls and to assume the CDK bootstrap roles used during deployment. See [AgentCore CLI IAM Permissions](security-iam.md "security-iam.md").
+- **IAM permissions.** Your identity needs permissions to make AgentCore API calls and to assume the CDK bootstrap roles used during deployment. See [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
+- **Model access.** Amazon Bedrock enables access to foundation models by default. Available models include Amazon Nova, Anthropic Claude, Meta Llama, and Mistral AI models. To use non-foundation models, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
+- **Docker.** Required only if you choose the `Container` build type. The default `CodeZip` build type does not require Docker.
 
 ## Step 1: Install the AgentCore CLI
 
@@ -33,6 +35,10 @@ Verify:
 ```
 agentcore --version
 ```
+
+###### Note
+
+If this reports an error instead of a version number, an older Python `agentcore` command is shadowing the npm one on your `PATH`. This happens if you previously installed the `bedrock-agentcore-starter-toolkit` pip package, and is most common on Windows. Run `pip uninstall bedrock-agentcore-starter-toolkit`, then open a new terminal and try again.
 
 To update later, rerun the install command or `agentcore update`. Source and issues: [agentcore-cli on GitHub](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli").
 
@@ -59,51 +65,79 @@ You can also pass flags directly to create a code-based agent:
 
 ```
 agentcore create \
+  --project-name MyProject \
   --name MyAgent \
+  --language Python \
   --framework Strands \
   --model-provider Bedrock \
   --memory none \
   --build CodeZip
 ```
 
+For all available commands and options, see [AgentCore CLI reference](agentcore-cli-reference.md "agentcore-cli-reference.md").
+
+### Build types
+
+- `CodeZip` (default) packages your code in a zip file and uploads it to Amazon S3. This build type does not require Docker.
+- `Container` builds and deploys a container image. This build type requires a running Docker daemon.
+
 ### Project structure
 
-`agentcore create` generates:
+`agentcore create` generates shared project configuration and a different application structure for code-based agents and harnesses:
+
+###### Example
+
+Code-based agent
 
 ```
-MyAgent/
+MyProject/
+├── AGENTS.md
+├── README.md
 ├── agentcore/
-│   ├── agentcore.json      # Project and resource configuration
-│   ├── aws-targets.json    # Deployment target (account and region)
-│   └── cdk/                # CDK infrastructure (auto-managed)
+│   ├── agentcore.json
+│   ├── aws-targets.json
+│   └── cdk/
 └── app/
-    └── MyAgent/            # Your agent code
-        ├── main.py         # Agent entrypoint
-        ├── pyproject.toml  # Python dependencies
-        └── ...
+    └── MyAgent/
+        ├── main.py
+        ├── pyproject.toml
+        ├── README.md
+        ├── model/
+        ├── mcp_client/
+        └── skills/
+```
+
+Harness
+
+```
+MyHarnessProject/
+├── AGENTS.md
+├── README.md
+├── agentcore/
+│   ├── agentcore.json
+│   ├── aws-targets.json
+│   └── cdk/
+└── app/
+    └── MyHarness/
+        ├── harness.json
+        └── system-prompt.md
 ```
 
 Key files:
 
-- `agentcore/agentcore.json` - the main config. Defines your agents, memory stores, gateways, credentials, and other resources. Managed by `agentcore add` and `agentcore remove`.
-- `app/` - your agent code. Each agent gets its own subdirectory with an entrypoint and a `pyproject.toml`.
-- `agentcore/aws-targets.json` - the AWS account and region for deployment.
+- `agentcore/agentcore.json` - The main configuration file. It defines your agents, harnesses, memory stores, gateways, credentials, and other resources. The `agentcore add` and `agentcore remove` commands manage this file.
+- `agentcore/aws-targets.json` - The AWS accounts and Regions for deployment.
+- `agentcore/.env.local` - Local secrets, such as API keys for model providers.
+- `app/` - The application directory. A code-based agent contains an entrypoint and dependencies. A harness contains `harness.json` and `system-prompt.md`.
 
 ## Step 3: Test locally
 
 ```
-cd MyAgent
+cd MyProject
 agentcore dev
 ```
 
 `agentcore dev` creates a Python virtual environment, installs dependencies, starts a local server with hot reload, and opens the **agent inspector** in your browser so you can chat with the agent, inspect traces, and browse project resources. Code changes are picked up automatically.
-
-Useful flags:
-
-- `--no-browser` - use the terminal-based TUI instead of the browser inspector.
-- `--no-traces` - disable writing traces to `agentcore/.cli/traces`.
-- `--logs` - tail server logs in non-interactive mode.
-- `--port <N>` - pin the dev port (default 8080 for HTTP, 8000 for MCP, 9000 for A2A; auto-increments if busy).
 
 ## Step 4: Deploy your agent
 
@@ -193,6 +227,30 @@ agentcore traces list
 # Get a specific trace
 agentcore traces get <trace-id>
 ```
+
+## Troubleshoot
+
+**Permission denied errors**
+
+Verify your credentials with `aws sts get-caller-identity`. Make sure that your identity has the permissions in [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
+
+**Model access denied**
+
+Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
+
+**Deployment errors**
+
+Run `agentcore deploy --verbose` to show resource-level deployment events. The CLI checks the AWS CDK bootstrap status. If bootstrap is required, interactive deployment asks for confirmation. `agentcore deploy --yes` approves the bootstrap operation without a prompt.
+
+**Port already in use**
+
+Run `agentcore dev --port 3000` to use a different local port.
+
+**Configuration validation errors**
+
+Run `agentcore validate` to check the project configuration.
+
+For more information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md").
 
 ## Clean up
 

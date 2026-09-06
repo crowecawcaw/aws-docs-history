@@ -134,11 +134,16 @@ The `--type` flag uses underscore-separated names (for example, `agentcore_brows
 agentcore add tool --harness my-agent --type remote_mcp \
   --name exa --url https://mcp.exa.ai/mcp
 
-# Add a remote MCP server with an API key from AgentCore Identity Token Vault.
-# Use ${arn:...} syntax in header values to reference a credential provider.
-agentcore add tool --harness my-agent --type remote_mcp \
-  --name exa-secure --url https://mcp.exa.ai/mcp \
-  --header 'x-api-key=${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}'
+# Create a harness with a remote MCP server and request headers.
+# Use ${arn:...} syntax to reference a credential provider.
+agentcore add harness \
+  --name secure_agent \
+  --model-provider bedrock \
+  --model-id us.anthropic.claude-sonnet-4-5-20250514-v1:0 \
+  --tools remote_mcp \
+  --mcp-name exa-secure \
+  --mcp-url https://mcp.exa.ai/mcp \
+  --mcp-headers '{"x-api-key":"${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}"}'
 
 # Add Browser
 agentcore add tool --harness my-agent --type agentcore_browser --name browser
@@ -166,7 +171,7 @@ Deploy to apply.
 Override tools on a single invocation:
 
 ```
-agentcore invoke --harness research-agent --tools agentcore-browser "Find the latest news on AI agents"
+agentcore invoke --harness research-agent --tools agentcore_browser "Find the latest news on AI agents"
 ```
 
 Interactive

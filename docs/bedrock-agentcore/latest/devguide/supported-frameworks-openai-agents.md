@@ -1,20 +1,33 @@
 # OpenAI Agents
 
-This page explains how to instrument an [OpenAI Agents](https://openai.github.io/openai-agents-python/ "https://openai.github.io/openai-agents-python/") agent, how spans are identified, and how evaluation fields are extracted.
+This page explains how to instrument an [OpenAI Agents](https://openai.github.io/openai-agents-python/ "https://openai.github.io/openai-agents-python/") agent, how spans are identified, and how evaluation fields are extracted. AgentCore Evaluations supports OpenAI Agents built in Python and TypeScript; this page covers each language separately, in [Python agent support](#openai-agents-python "#openai-agents-python") and [TypeScript agent support](#openai-agents-typescript "#openai-agents-typescript").
 
 **Topics**
 
-- [Instrument your agent](#openai-agents-instrument "#openai-agents-instrument")
-- [How spans are identified](#openai-agents-span-identification "#openai-agents-span-identification")
-- [How evaluation fields are extracted](#openai-agents-extraction "#openai-agents-extraction")
+- [Python agent support](#openai-agents-python "#openai-agents-python")
 
-  - [From event records](#openai-agents-extraction-event-records "#openai-agents-extraction-event-records")
-  - [From span attributes](#openai-agents-extraction-attributes "#openai-agents-extraction-attributes")
+  - [Instrument your agent](#openai-agents-instrument "#openai-agents-instrument")
+  - [How spans are identified](#openai-agents-span-identification "#openai-agents-span-identification")
+  - [How evaluation fields are extracted](#openai-agents-extraction "#openai-agents-extraction")
 
-- [Example spans in split telemetry](#openai-agents-examples-split "#openai-agents-examples-split")
-- [Example spans in unified telemetry](#openai-agents-examples-unified "#openai-agents-examples-unified")
+    - [From event records](#openai-agents-extraction-event-records "#openai-agents-extraction-event-records")
+    - [From span attributes](#openai-agents-extraction-attributes "#openai-agents-extraction-attributes")
 
-## Instrument your agent
+  - [Example spans in split telemetry](#openai-agents-examples-split "#openai-agents-examples-split")
+  - [Example spans in unified telemetry](#openai-agents-examples-unified "#openai-agents-examples-unified")
+
+- [TypeScript agent support](#openai-agents-typescript "#openai-agents-typescript")
+
+  - [Instrument your agent](#openai-agents-typescript-instrument "#openai-agents-typescript-instrument")
+  - [How spans are identified](#openai-agents-typescript-span-identification "#openai-agents-typescript-span-identification")
+  - [How evaluation fields are extracted](#openai-agents-typescript-extraction "#openai-agents-typescript-extraction")
+  - [Example spans from a TypeScript agent](#openai-agents-examples-typescript "#openai-agents-examples-typescript")
+
+## Python agent support
+
+A Python OpenAI Agents agent emits spans under the scope name `opentelemetry.instrumentation.openai_agents` (OpenTelemetry) or `openinference.instrumentation.openai_agents` (OpenInference).
+
+### Instrument your agent
 
 You can instrument an OpenAI Agents agent with either of two instrumentation libraries: **OpenTelemetry** (`opentelemetry-instrumentation-openai-agents`) or **OpenInference** (`openinference-instrumentation-openai-agents`). Amazon Bedrock AgentCore Evaluations supports both libraries. The libraries emit different scope names and use different span attributes. The evaluation service extracts the same values from each.
 
@@ -68,7 +81,7 @@ dependencies = [
 
 Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
-## How spans are identified
+### How spans are identified
 
 The attribute used to classify spans differs between the two instrumentation libraries.
 
@@ -100,13 +113,13 @@ The OpenInference instrumentation library classifies spans using the `openinfere
 
 With the OpenInference library, the `AGENT` and `CHAIN` spans are empty structural containers: they carry no conversation content. The user prompt and agent response are reconstructed from the inference (`LLM`) spans in the same trace.
 
-## How evaluation fields are extracted
+### How evaluation fields are extracted
 
 OpenAI Agents serializes messages in a parts-based format, in which each message carries a `parts` array of typed content blocks (for example, `[{"role": "user", "parts": [{"type": "text", "content": "…​"}]}]`). With the OpenTelemetry library, AgentCore Evaluations parses the text out of these parts. With the OpenInference library, the model output is the full OpenAI Response object, and AgentCore Evaluations reads the response text from `output[].content[].text`.
 
 The location of this content depends on how telemetry was collected. The identifying attribute (`gen_ai.operation.name` or `openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 
-### From event records
+#### From event records
 
 With split telemetry, AgentCore Evaluations reads conversation content from the event record correlated to each span. The location of tool inputs and outputs differs between the two libraries:
 
@@ -122,7 +135,7 @@ With split telemetry, AgentCore Evaluations reads conversation content from the 
 
 For more information, see [Example spans in split telemetry](#openai-agents-examples-split "#openai-agents-examples-split").
 
-### From span attributes
+#### From span attributes
 
 With unified telemetry, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
 
@@ -138,15 +151,15 @@ With unified telemetry, the same content stays on the span as attributes. The at
 
 For more information, see [Example spans in unified telemetry](#openai-agents-examples-unified "#openai-agents-examples-unified").
 
-## Example spans in split telemetry
+### Example spans in split telemetry
 
-With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from an OpenAI Agents travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Python OpenAI Agents travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
 
 ###### Note
 
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-### OpenTelemetry
+#### OpenTelemetry
 
 ###### Example
 
@@ -291,7 +304,7 @@ The `gen_ai.operation.name` attribute (`chat`) identifies this as an inference s
 }
 ```
 
-### OpenInference
+#### OpenInference
 
 With the OpenInference library, the invoke agent (`AGENT`) span is an empty container. AgentCore Evaluations reconstructs the user prompt and agent response from the inference (`LLM`) span, whose content lives in a correlated event record.
 
@@ -425,15 +438,15 @@ The `openinference.span.kind` attribute (`LLM`) identifies this as an inference 
 }
 ```
 
-## Example spans in unified telemetry
+### Example spans in unified telemetry
 
-With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from an OpenAI Agents travel-planning agent. The same agent is shown under each instrumentation library.
+With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from a Python OpenAI Agents travel-planning agent. The same agent is shown under each instrumentation library.
 
 ###### Note
 
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-### OpenTelemetry
+#### OpenTelemetry
 
 ###### Example
 
@@ -519,7 +532,7 @@ The `gen_ai.operation.name` attribute (`chat`) identifies this as an inference s
 }
 ```
 
-### OpenInference
+#### OpenInference
 
 ###### Example
 
@@ -572,6 +585,240 @@ The message content is inline on the indexed attributes. The `llm.input_messages
     "llm.output_messages.0.message.role": "assistant",
     "llm.output_messages.0.message.contents.0.message_content.text": "I can assist you with planning your trips ...",
     "session.id": "sea-nyc-trip-2-turns-oi"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+## TypeScript agent support
+
+A TypeScript OpenAI Agents agent emits the same span types, identifying attributes, and content layout as a Python agent, so the evaluation service reads it the same way. There are two TypeScript instrumentation libraries, each with its own scope name.
+
+### Instrument your agent
+
+Add the instrumentation library for the convention you want to your TypeScript dependencies. Use the latest available version unless you have a reason to pin.
+
+###### Example
+
+ADOT (OpenTelemetry)
+For TypeScript agents on ADOT, add the AWS Distro Node autoinstrumentation package (`@aws/aws-distro-opentelemetry-node-autoinstrumentation`) to your dependencies. It includes the built-in OpenAI Agents instrumentation, which activates at startup and emits the scope name `@aws/aws-distro-opentelemetry-instrumentation-openai-agents`.
+
+`package.json`:
+
+```
+{
+  "dependencies": {
+    "@aws/aws-distro-opentelemetry-node-autoinstrumentation": "^0.12.0"
+  }
+}
+```
+
+OpenInference
+Add `@arizeai/openinference-instrumentation-openai-agents` to your dependencies. The scope name emitted is `@arizeai/openinference-instrumentation-openai-agents`.
+
+`package.json`:
+
+```
+{
+  "dependencies": {
+    "@arizeai/openinference-instrumentation-openai-agents": "^0.2.2"
+  }
+}
+```
+
+###### Note
+
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
+
+### How spans are identified
+
+Span identification is the same as for a Python agent. The ADOT-native OpenTelemetry library (from the AWS Distro Node autoinstrumentation package `@aws/aws-distro-opentelemetry-node-autoinstrumentation`, emitting the scope name `@aws/aws-distro-opentelemetry-instrumentation-openai-agents`) sets `gen_ai.operation.name`, and the OpenInference JS library (`@arizeai/openinference-instrumentation-openai-agents`) sets `openinference.span.kind`. For the values, see [How spans are identified](#openai-agents-span-identification "#openai-agents-span-identification") under [Python agent support](#openai-agents-python "#openai-agents-python").
+
+### How evaluation fields are extracted
+
+Field extraction reads the same attributes as for a Python agent. Note that with the ADOT-native TypeScript library, the invoke agent span is a structural container: the user prompt and agent response are reconstructed from the inference (`chat`) span rather than the invoke agent span, unlike the Python OpenTelemetry library, which keeps them on the invoke agent span. For where each field is read from, see [How evaluation fields are extracted](#openai-agents-extraction "#openai-agents-extraction") under [Python agent support](#openai-agents-python "#openai-agents-python").
+
+### Example spans from a TypeScript agent
+
+The following examples are from a TypeScript OpenAI Agents travel-planning agent deployed on Amazon Bedrock AgentCore Runtime with unified telemetry. The same agent is shown under each instrumentation library.
+
+###### Note
+
+These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
+
+#### OpenTelemetry
+
+With the ADOT-native library (from the AWS Distro Node autoinstrumentation package `@aws/aws-distro-opentelemetry-node-autoinstrumentation`, emitting the scope name `@aws/aws-distro-opentelemetry-instrumentation-openai-agents`), the invoke agent span is a structural container and the conversation content lives on the inference (`chat`) span, in the parts-format `gen_ai.input.messages` and `gen_ai.output.messages` attributes. AgentCore Evaluations reconstructs the user prompt and agent response from the inference span.
+
+###### Example
+
+Invoke agent span
+The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span. The span carries the agent name and tool list but no conversation content.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "9a1c7dce81b692cd",
+  "name": "invoke_agent openaiAdotTS",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@aws/aws-distro-opentelemetry-instrumentation-openai-agents",
+    "version": "0.12.0"
+  },
+  "attributes": {
+    "gen_ai.operation.name": "invoke_agent",
+    "gen_ai.agent.name": "openaiAdotTS",
+    "gen_ai.provider.name": "openai",
+    "open_ai.agent.tools": "[\"search_flights\", \"book_flight\", \"search_hotels\", \"book_hotel\", \"search_activities\", \"book_activity\"]",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Execute tool span
+The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.call.arguments` and `gen_ai.tool.call.result` attributes hold the tool arguments and result.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "3cbc4ea5f73fef81",
+  "name": "execute_tool search_flights",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@aws/aws-distro-opentelemetry-instrumentation-openai-agents",
+    "version": "0.12.0"
+  },
+  "attributes": {
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.tool.name": "search_flights",
+    "gen_ai.tool.type": "function",
+    "gen_ai.tool.call.arguments": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
+    "gen_ai.tool.call.result": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"flights\": [ ... ]}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Inference span
+The `gen_ai.operation.name` attribute (`chat`) identifies this as an inference span. The `gen_ai.input.messages` and `gen_ai.output.messages` attributes hold the conversation in the parts-format, `gen_ai.system_instructions` holds the system prompt, and `gen_ai.tool.definitions` lists the tools available to the agent.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "7c1f9a2b4d6e8a03",
+  "name": "chat gpt-4o-mini-2024-07-18",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@aws/aws-distro-opentelemetry-instrumentation-openai-agents",
+    "version": "0.12.0"
+  },
+  "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.response.model": "gpt-4o-mini-2024-07-18",
+    "gen_ai.input.messages": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Hey, how can you help me\"}]}]",
+    "gen_ai.output.messages": "[{\"role\": \"assistant\", \"parts\": [{\"type\": \"text\", \"content\": \"I can assist you with planning your trips ...\"}]}]",
+    "gen_ai.system_instructions": "[{\"type\": \"text\", \"content\": \"You are a travel planning assistant ...\"}]",
+    "gen_ai.tool.definitions": "[{\"type\": \"function\", \"name\": \"search_flights\", \"description\": \"Search for available flights between cities.\", ...}]",
+    "gen_ai.usage.input_tokens": 422,
+    "gen_ai.usage.output_tokens": 82,
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+#### OpenInference
+
+With the OpenInference JS library, the invoke agent (`AGENT`) and turn (`CHAIN`) spans are empty containers. AgentCore Evaluations reconstructs the user prompt and agent response from the inference (`LLM`) span, whose messages are on the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes.
+
+###### Example
+
+Invoke agent span
+The `openinference.span.kind` attribute (`AGENT`) identifies this as an invoke agent span. The span carries no conversation content.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "9a1c7dce81b692cd",
+  "name": "openaiAgentsOInf",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@arizeai/openinference-instrumentation-openai-agents",
+    "version": "0.2.2"
+  },
+  "attributes": {
+    "openinference.span.kind": "AGENT",
+    "graph.node.id": "openaiAgentsOInf",
+    "llm.system": "openai",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Execute tool span
+The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The `input.value` and `output.value` attributes hold the tool arguments and result.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "b4e78cb0a06a6fe2",
+  "name": "search_flights",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@arizeai/openinference-instrumentation-openai-agents",
+    "version": "0.2.2"
+  },
+  "attributes": {
+    "openinference.span.kind": "TOOL",
+    "tool.name": "search_flights",
+    "input.value": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
+    "output.value": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"flights\": [ ... ]}",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "status": {
+    "code": "OK"
+  }
+}
+```
+
+Inference span
+The `openinference.span.kind` attribute (`LLM`) identifies this as an inference span. The `llm.input_messages.*` attributes hold the system prompt and user prompt, the `llm.output_messages.*` attributes hold the agent response, and the `llm.tools.*.tool.json_schema` attributes hold the tool definitions. AgentCore Evaluations reconstructs the user prompt and agent response from this span and backfills the empty invoke agent (`AGENT`) span.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "1221a062c7f90a8e",
+  "name": "response",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "@arizeai/openinference-instrumentation-openai-agents",
+    "version": "0.2.2"
+  },
+  "attributes": {
+    "openinference.span.kind": "LLM",
+    "llm.model_name": "gpt-4o-mini-2024-07-18",
+    "llm.input_messages.0.message.role": "system",
+    "llm.input_messages.0.message.content": "You are a travel planning assistant ...",
+    "llm.input_messages.1.message.role": "user",
+    "llm.input_messages.1.message.content": "Hey, how can you help me",
+    "llm.output_messages.0.message.role": "assistant",
+    "llm.output_messages.0.message.contents.0.message_content.text": "I can assist you with travel planning by ...",
+    "llm.tools.0.tool.json_schema": "{\"type\": \"function\", \"function\": {\"name\": \"search_flights\", ...}}",
+    "session.id": "sea-nyc-trip-2-turns"
   },
   "status": {
     "code": "OK"

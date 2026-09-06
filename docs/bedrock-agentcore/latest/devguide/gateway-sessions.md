@@ -94,7 +94,7 @@ The session timeout is calculated from the first `initialize` request. After the
 - **Default timeout**: 3600 seconds (1 hour)
 - **Configurable range**: 900 seconds (15 minutes) to 28800 seconds (8 hours)
 
-If an MCP server target’s session expires before the gateway session timeout, the gateway transparently re-initializes with the target and updates the stored target session ID. The gateway session remains active.
+If an MCP server target’s session expires or is lost before the gateway session times out (for example, if the target restarts), subsequent tool calls to that target return a client error (4xx), such as `session not found`. To recover, re-initialize your MCP connection to the gateway by sending a new `initialize` request to start a fresh gateway session. This establishes a new target session, and subsequent tool calls use the updated target session ID.
 
 ## Error handling
 

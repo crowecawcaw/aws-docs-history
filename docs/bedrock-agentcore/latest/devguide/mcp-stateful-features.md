@@ -485,13 +485,32 @@ python test_client.py
 npm install -g @aws/agentcore
 ```
 
-2. Create a project for deployment:
+2. Set up an Amazon Cognito user pool as described in [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a "runtime-mcp.md#runtime-mcp-appendix-a"). Source the setup script so that `REGION`, `POOL_ID`, `CLIENT_ID`, and `BEARER_TOKEN` are available in your shell.
+3. Create a project for deployment:
 
 ```
-agentcore create --name TravelAgentDemo --protocol MCP
+agentcore create --project-name TravelAgentDemo --no-agent
+cd TravelAgentDemo
+agentcore add agent \
+  --name TravelAgent \
+  --language Python \
+  --protocol MCP \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
+  --allowed-clients "$CLIENT_ID" \
+  --request-header-allowlist Authorization
 ```
 
-3. Deploy the agent:
+4. Replace the generated server with the server from this tutorial, and add its dependencies:
+
+```
+cp ../travel_server.py app/TravelAgent/main.py
+cd app/TravelAgent
+uv add "fastmcp>=2.10.0" mcp
+cd ../..
+```
+
+5. Deploy the agent:
 
 ```
 agentcore deploy

@@ -35,7 +35,7 @@ Configuration is managed through JSON files in the `agentcore/` directory of you
 
 Under the hood, the AgentCore CLI uses AWS CDK constructs from the `@aws/agentcore-cdk` package to provision and manage AWS resources.
 
-For step-by-step instructions, see [Get started with Amazon Bedrock AgentCore](agentcore-get-started-cli.md "agentcore-get-started-cli.md").
+For step-by-step instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md").
 
 ## AgentCore Python SDK
 

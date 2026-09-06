@@ -20,7 +20,8 @@ AWS Agent Registry namespace
 6. (Optional) Expand **Discovery Authorization** to configure how consumers authorize when discovering records in the registry — searching, browsing the approved-record catalog, batch-getting approved records, and invoking the registry’s MCP endpoint (Inbound Authorization). Choose **AWS IAM** to use standard AWS credentials, or **JSON Web tokens (JWT)** to use your corporate identity provider credentials. If you choose JWT, you can either quick create with Cognito, or bring your own IdP by providing the discovery URL, audience, scope, custom claims and clients.
 7. Under **Record approval**, choose whether to enable **Auto-approval**. When auto-approval is off, a curator must review and approve each record before it becomes searchable.
 8. (Optional) Expand **Tags** to add tags to the registry. Tags are key-value pairs that help you categorize, search, and manage your registries. Each tag consists of a required key and an optional value.
-9. Choose **Create registry**.
+9. (Optional) Expand **KMS key** to configure encryption at rest with a customer managed key. By default, your registry is encrypted with an AWS owned key. To use your own key, select **Customize encryption settings (advanced)** and enter the ARN of your KMS key, or choose **Create an AWS KMS key** to create a new key. The KMS key cannot be changed after the registry is created. For more information, see [Data protection in AWS Agent Registry](registry-data-protection.md "registry-data-protection.md").
+10. Choose **Create registry**.
 
 Amazon Bedrock AgentCore namespace (to be deprecated)
 
@@ -31,7 +32,8 @@ Amazon Bedrock AgentCore namespace (to be deprecated)
 5. (Optional) Expand **Additional details** and enter a **Description** (1–4,096 characters).
 6. (Optional) Expand **Search API Authorization** to configure how consumers authorize when searching the registry (Inbound Authorization). Choose **AWS IAM** to use standard AWS credentials, or **JSON Web tokens (JWT)** to use your corporate identity provider credentials. If you choose JWT, you can either quick create with Cognito, or bring your own IdP by providing the discovery URL, audience, scope, custom claims and clients.
 7. Under **Record approval**, choose whether to enable **Auto-approval**. When auto-approval is off, a curator must review and approve each record before it becomes searchable.
-8. Choose **Create registry**.
+8. (Optional) Expand **KMS key** to configure encryption at rest with a customer managed key. By default, your registry is encrypted with an AWS owned key. To use your own key, select **Customize encryption settings (advanced)** and enter the ARN of your KMS key, or choose **Create an AWS KMS key** to create a new key. The KMS key cannot be changed after the registry is created. For more information, see [Data protection in AWS Agent Registry](registry-data-protection.md "registry-data-protection.md").
+9. Choose **Create registry**.
 
 The registry status starts as **Creating** and transitions to **Ready** when provisioning completes.
 
@@ -85,6 +87,34 @@ aws bedrock-agentcore-control create-registry \
   --authorizer-configuration '{"customJWTAuthorizer": {"discoveryUrl": "https://cognito-idp.us-east-1.amazonaws.com/<poolId>/.well-known/openid-configuration", "allowedClients": ["<appClientId>"]}}' \
   --region us-east-1
 ```
+
+#### Registry with a customer managed key
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control create-registry \
+  --name "MyEncryptedRegistry" \
+  --description "Registry with customer managed encryption" \
+  --encryption-configuration '{"kmsKeyArn":"arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"}' \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+```
+aws bedrock-agentcore-control create-registry \
+  --name "MyEncryptedRegistry" \
+  --description "Registry with customer managed encryption" \
+  --encryption-configuration '{"kmsKeyArn":"arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"}' \
+  --region us-east-1
+```
+
+###### Note
+
+You can only set the `--encryption-configuration` parameter during registry creation. You cannot change the KMS key after the registry is created. If you omit this parameter, the registry uses an AWS owned key by default.
 
 ### AWS SDK
 
@@ -161,6 +191,44 @@ response = client.create_registry(
             'discoveryUrl': 'https://cognito-idp.us-east-1.amazonaws.com/<poolId>/.well-known/openid-configuration',
             'allowedClients': ['<appClientId>']
         }
+    }
+)
+print(response['registryArn'])
+```
+
+#### Registry with a customer managed key
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.create_registry(
+    name='MyEncryptedRegistry',
+    description='Registry with customer managed encryption',
+    encryptionConfiguration={
+        'kmsKeyArn': 'arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222'
+    }
+)
+print(response['registryArn'])
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+```
+import boto3
+
+client = boto3.client('bedrock-agentcore-control')
+
+response = client.create_registry(
+    name='MyEncryptedRegistry',
+    description='Registry with customer managed encryption',
+    encryptionConfiguration={
+        'kmsKeyArn': 'arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222'
     }
 )
 print(response['registryArn'])

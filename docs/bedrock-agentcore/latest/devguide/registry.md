@@ -1,4 +1,4 @@
-# AWS Agent Registry: Discover and manage agents, tools, and resources (Preview)
+# AWS Agent Registry: Discover and manage agents, tools, and resources
 
 ###### Topics
 
@@ -17,9 +17,12 @@
 - [Curating the registry](registry-curating.md "registry-curating.md")
 - [Discovering the registry](registry-searching.md "registry-searching.md")
 - [Notifications (Amazon EventBridge)](registry-eventbridge.md "registry-eventbridge.md")
+- [Using AWS Agent Registry with AWS Organizations](registry-organizations.md "registry-organizations.md")
 - [Sharing a registry across accounts with AWS RAM](registry-cross-account-sharing.md "registry-cross-account-sharing.md")
 - [Log Registry API calls with AWS CloudTrail](registry-cloudtrail.md "registry-cloudtrail.md")
+- [VPC and AWS PrivateLink with AWS Agent Registry](registry-privatelink.md "registry-privatelink.md")
 - [IAM Permissions](registry-iam-permissions.md "registry-iam-permissions.md")
+- [Data protection in AWS Agent Registry](registry-data-protection.md "registry-data-protection.md")
 - [Using service-linked roles for AWS Agent Registry](using-service-linked-role-agent-registry.md "using-service-linked-role-agent-registry.md")
 - [Troubleshooting](registry-troubleshooting.md "registry-troubleshooting.md")
 - [Comprehensive registry migration guide](registry-faq.md "registry-faq.md")

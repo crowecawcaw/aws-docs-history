@@ -11,7 +11,7 @@ Before you begin, ensure you have:
 - **AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
 - [**Node.js**](https://nodejs.org/ "https://nodejs.org/") and **npm** installed. We recommend installing the same major version you plan to deploy on AgentCore Runtime (for example, Node.js 22 for the `NODE_22` runtime). For supported versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md "runtime-code-deploy-supported-runtimes.md").
 - **AWS Permissions** : To create and deploy an agent, you must have appropriate permissions. For more information, see [AgentCore Runtime permissions](runtime-permissions.md "runtime-permissions.md").
-- **Model access** : Anthropic Claude Sonnet 4.0 [enabled](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md") in the Amazon Bedrock console. For information about using a different model with the Strands Agents see the _Model Providers_ section in the [Strands Agents SDK](https://strandsagents.com/latest/documentation/docs/ "https://strandsagents.com/latest/documentation/docs/") documentation.
+- **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
 
 ## Step 1: Set up project and install dependencies
 
@@ -146,7 +146,7 @@ server.listen(PORT, "0.0.0.0", () => {
 
 ## Step 3: Test locally
 
-Make sure port 8080 is free before starting. See _Port 8080 in use (local only)_ in [Common issues and solutions](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues").
+Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues") if the port is already in use.
 
 Open a terminal window and start your agent:
 
@@ -291,7 +291,7 @@ To enable OTEL auto-instrumentation, include `node_modules/@aws/aws-distro-opent
 entryPoint: ["opentelemetry-instrument", "dist/app.js"],
 ```
 
-To invoke an agent on Amazon Bedrock AgentCore runtime programmatically, refer: [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically "runtime-get-started-cli.md#invoke-programmatically")
+To invoke an agent on Amazon Bedrock AgentCore Runtime programmatically, see [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically "runtime-get-started-cli.md#invoke-programmatically").
 
 ## Step 6: Stop session, update, or cleanup
 

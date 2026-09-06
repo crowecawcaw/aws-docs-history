@@ -191,7 +191,7 @@ The `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role trusts
 
 The role permissions policy allows AgentCore to complete the following actions on the specified resources:
 
-You can view the complete policy at [BedrockAgentCoreGatewayNetworkServiceRolePolicy](../../../aws-managed-policy/latest/reference/BedrockAgentCoreGatewayNetworkServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreGatewayNetworkServiceRolePolicy.md").
+You can view the complete policy at [AWSBedrockAgentCoreGatewayNetworkServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSBedrockAgentCoreGatewayNetworkServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSBedrockAgentCoreGatewayNetworkServiceRolePolicy.md").
 
 ```
 {

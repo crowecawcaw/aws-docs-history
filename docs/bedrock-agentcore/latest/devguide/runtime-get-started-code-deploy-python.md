@@ -10,64 +10,46 @@ Before you begin, ensure you have:
 - [Uv](https://docs.astral.sh/uv/getting-started/installation/ "https://docs.astral.sh/uv/getting-started/installation/")
   **installed** and [Python 3.10+](https://docs.astral.sh/uv/guides/install-python/ "https://docs.astral.sh/uv/guides/install-python/") installed
 - **AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For more information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
-- **Model access** : Anthropic Claude Sonnet 4.0 [enabled](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md") in the Amazon Bedrock console. For information about using a different model with the Strands Agents see the _Model Providers_ section in the [Strands Agents SDK](https://strandsagents.com/latest/documentation/docs/ "https://strandsagents.com/latest/documentation/docs/") documentation.
+- **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
 
-## Step 1: Set up project and install dependencies
+## Step 1: Install the AgentCore CLI
 
-Initialize your project with the following commands:
-
-```
-uv init agentcore_runtime_direct_deploy --python 3.13
-cd agentcore_runtime_direct_deploy
-```
-
-Add core packages:
-
-```
-uv add bedrock-agentcore strands-agents
-```
-
-Install the AgentCore CLI (required for the steps that follow):
+Install the AgentCore CLI:
 
 ```
 npm install -g @aws/agentcore
 ```
 
-Package descriptions:
-
-- **bedrock-agentcore** - The Amazon Bedrock AgentCore SDK for building AI agents
-- **strands-agents** - The [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") SDK
-- **@aws/agentcore** - The AgentCore CLI
-
-Optionally, run `uv add aws-opentelemetry-distro` to enable [Amazon Bedrock AgentCore observability traces](../../../xray/latest/devguide/xray-services-adot.md "../../../xray/latest/devguide/xray-services-adot.md").
-
-Uv will automatically create a `pyproject.toml` file with dependencies, `uv.lock` file with dependency closure and `.venv` directory.
-
 ## Step 2: Create your agent project
 
-Use the `agentcore create` command to set up a skeleton agent project with the framework of your choice:
+Create one AgentCore project for the tutorial:
 
 ```
-agentcore create
+agentcore create \
+  --project-name DirectDeployProject \
+  --name DirectDeployAgent \
+  --language Python \
+  --framework Strands \
+  --model-provider Bedrock \
+  --memory none \
+  --build CodeZip
+cd DirectDeployProject
 ```
-
-The command will prompt you to:
-
-- Choose a framework (choose Strands Agents for this tutorial)
-- Provide a project name
-- Choose a template (basic or production)
-- Choose model provider and other options
 
 This command generates:
 
 - Agent code with your selected framework
 - A `pyproject.toml` file with necessary dependencies
 - An `agentcore/agentcore.json` configuration file
-- Infrastructure as Code (IaC) files if production template is selected
+- An `agentcore/cdk/` infrastructure project
+
+The generated `pyproject.toml` includes the AgentCore and Strands dependencies. Uv creates the virtual environment and lock file during project creation.
+
+Optionally, run `cd app/DirectDeployAgent && uv add aws-opentelemetry-distro && cd ../..` to enable [Amazon Bedrock AgentCore observability traces](../../../xray/latest/devguide/xray-services-adot.md "../../../xray/latest/devguide/xray-services-adot.md").
 
 ## Step 3: Test locally
 
-Make sure port 8080 is free before starting. See _Port 8080 in use (local only)_ in [Common issues and solutions](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues").
+Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues") if the port is already in use.
 
 Open a terminal window and start your agent with the following command:
 
@@ -97,7 +79,7 @@ Deploy your agent using one of the following methods:
 
 AgentCore CLI
 
-1. The following steps will be required to deploy an agent to AgentCore Runtime. For more information, see [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md") . If Uv is available, the AgentCore CLI will recommend direct code deployment. Otherwise it will default to container deployment type.
+1. The following steps deploy the CodeZip project created in Step 2. For more information, see [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md"). Uv is required to create and package the Python project.
 
 Once you have your agent set up using `agentcore create` , use the `deploy` command to create a zip deployment package, upload it to the specified bucket, and deploy the agent.
 

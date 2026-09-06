@@ -52,7 +52,7 @@ Which log group holds the spans depends on where you host the agent:
 - **On Amazon Bedrock AgentCore Runtime**: the agent’s log group, `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`. AgentCore sets this up for you.
 - **Hosted outside AgentCore Runtime**: the log group that you name in the `OTEL_EXPORTER_OTLP_TRACES_HEADERS` environment variable.
 
-Keeping spans and logs in one place helps beyond evaluation. You can look at traces and logs together, you can write AWS Identity and Access Management (IAM) policies and set up customer managed key (CMK) encryption for a single agent, and you can export everything an agent produces by subscribing to one log group.
+Keeping spans and logs in one place helps beyond evaluation. You can look at traces and logs together, you can write AWS Identity and Access Management (IAM) policies and set up customer managed key encryption for a single agent, and you can export everything an agent produces by subscribing to one log group.
 
 ### Split telemetry
 

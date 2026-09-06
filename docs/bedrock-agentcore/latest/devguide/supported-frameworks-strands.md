@@ -4,17 +4,31 @@ This page explains how to instrument a [Strands Agents](https://strandsagents.co
 
 **Topics**
 
-- [Instrument your agent](#strands-instrument "#strands-instrument")
-- [How spans are identified](#strands-span-identification "#strands-span-identification")
-- [How evaluation fields are extracted](#strands-extraction "#strands-extraction")
+- [Python agent support](#strands-python "#strands-python")
 
-  - [From event records](#strands-extraction-event-records "#strands-extraction-event-records")
-  - [From inline span events](#strands-extraction-inline-events "#strands-extraction-inline-events")
+  - [Instrument your agent](#strands-instrument "#strands-instrument")
+  - [How spans are identified](#strands-span-identification "#strands-span-identification")
+  - [How evaluation fields are extracted](#strands-extraction "#strands-extraction")
 
-- [Example spans in split telemetry](#strands-examples-split "#strands-examples-split")
-- [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified")
+    - [From event records](#strands-extraction-event-records "#strands-extraction-event-records")
+    - [From inline span events](#strands-extraction-inline-events "#strands-extraction-inline-events")
 
-## Instrument your agent
+  - [Example spans in split telemetry](#strands-examples-split "#strands-examples-split")
+  - [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified")
+
+- [TypeScript agent support](#strands-typescript "#strands-typescript")
+
+  - [Instrument your agent](#strands-typescript-instrument "#strands-typescript-instrument")
+  - [How spans are identified](#strands-typescript-span-identification "#strands-typescript-span-identification")
+  - [How evaluation fields are extracted](#strands-typescript-extraction "#strands-typescript-extraction")
+  - [Example spans from a TypeScript agent](#strands-examples-typescript "#strands-examples-typescript")
+    AgentCore Evaluations supports Strands agents built with the Python SDK and the TypeScript SDK. The two produce the same span types, identifying attributes, and content layout, under different scope names, so the evaluation service reads them the same way. This page covers each language separately: for Python, see [Python agent support](#strands-python "#strands-python"); for TypeScript, see [TypeScript agent support](#strands-typescript "#strands-typescript").
+
+## Python agent support
+
+A Python Strands agent produces spans under the scope name `strands.telemetry.tracer`.
+
+### Instrument your agent
 
 The Strands Agents SDK includes built-in telemetry and requires no additional instrumentation library. It produces spans and event records under the scope name `strands.telemetry.tracer`. When deployed on Amazon Bedrock AgentCore Runtime with the AWS Distro for OpenTelemetry (ADOT), the Runtime injects the `session.id` attribute and exports spans and event records automatically.
 
@@ -22,7 +36,7 @@ The Strands Agents SDK includes built-in telemetry and requires no additional in
 
 Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
-## How spans are identified
+### How spans are identified
 
 Strands sets the `gen_ai.operation.name` attribute on each span. The evaluation service uses this attribute to classify spans:
 
@@ -32,11 +46,11 @@ Strands sets the `gen_ai.operation.name` attribute on each span. The evaluation 
 | Execute tool | `gen_ai.operation.name` = `execute_tool` | `execute_tool search_flights` |
 | Inference    | `gen_ai.operation.name` = `chat`         | `chat`                        |
 
-## How evaluation fields are extracted
+### How evaluation fields are extracted
 
 Where the conversation content sits depends on the telemetry delivery mode. With split telemetry, the content is in a separate event record. With unified telemetry, the content stays on the span, as events attached to it. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md"). The identifying attribute (`gen_ai.operation.name`) is on the span in both modes.
 
-### From event records
+#### From event records
 
 With split telemetry, the service reads content from the event record correlated to each span:
 
@@ -46,7 +60,7 @@ With split telemetry, the service reads content from the event record correlated
 
 For more information, see [Example spans in split telemetry](#strands-examples-split "#strands-examples-split").
 
-### From inline span events
+#### From inline span events
 
 With unified telemetry, the same content is carried in inline span events instead of a separate event record:
 
@@ -56,9 +70,9 @@ With unified telemetry, the same content is carried in inline span events instea
 
 For more information, see [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified").
 
-## Example spans in split telemetry
+### Example spans in split telemetry
 
-With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Python Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
 
 ###### Note
 
@@ -201,9 +215,9 @@ The correlated event record carries the tool input (arguments) and output (resul
 }
 ```
 
-## Example spans in unified telemetry
+### Example spans in unified telemetry
 
-With unified telemetry, the same content is carried in inline span events on the span, with no separate event record. The following examples are from a Strands travel-planning agent.
+With unified telemetry, the same content is carried in inline span events on the span, with no separate event record. The following examples are from a Python Strands travel-planning agent.
 
 ###### Note
 
@@ -279,6 +293,117 @@ The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice
       "attributes": {
         "message": "[{\"text\": \"{\\\"origin\\\": \\\"SEA\\\", \\\"destination\\\": \\\"NYC\\\", \\\"flights\\\": [ ... ]}\"}]",
         "id": "tooluse_JuGterOaZfQV2c55Rp3S7C"
+      }
+    }
+  ]
+}
+```
+
+## TypeScript agent support
+
+A TypeScript Strands agent produces spans under the scope name `strands-agents`. It emits the same span types and content layout as a Python agent, so the evaluation service reads it the same way.
+
+### Instrument your agent
+
+The TypeScript Strands Agents SDK (`@strands-agents/sdk`
+`>= 1.5.0`) includes built-in telemetry and requires no additional instrumentation library. When deployed on Amazon Bedrock AgentCore Runtime with the AWS Distro for OpenTelemetry (ADOT), the Runtime injects the `session.id` attribute and exports spans and event records automatically. The TypeScript SDK produces spans under the scope name `strands-agents`.
+
+###### Note
+
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
+
+### How spans are identified
+
+Span identification is the same as for a Python agent. The `gen_ai.operation.name` attribute classifies each span. For the values and example span names, see [How spans are identified](#strands-span-identification "#strands-span-identification") under [Python support](#strands-python "#strands-python").
+
+### How evaluation fields are extracted
+
+Field extraction is the same as for a Python agent. The conversation content is carried in inline span events (`gen_ai.user.message`, `gen_ai.choice`, and `gen_ai.tool.message`). For where each field is read from, see [From inline span events](#strands-extraction-inline-events "#strands-extraction-inline-events") under [Python support](#strands-python "#strands-python").
+
+### Example spans from a TypeScript agent
+
+The following examples are from a TypeScript Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
+
+###### Note
+
+These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
+
+###### Example
+
+Invoke agent span
+The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span, and `gen_ai.agent.tools` lists the tools available to the agent. The `gen_ai.user.message` event holds the user prompt, and the `gen_ai.choice` event holds the agent response.
+
+```
+{
+  "traceId": "6a6bc695459e41aa14a172bb41d3246d",
+  "spanId": "c2c44e69bdab6ef1",
+  "parentSpanId": "f18d96d107e793ba",
+  "name": "invoke_agent Strands Agent",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "strands-agents",
+    "version": ""
+  },
+  "attributes": {
+    "gen_ai.operation.name": "invoke_agent",
+    "gen_ai.agent.name": "Strands Agent",
+    "gen_ai.system": "strands-agents",
+    "gen_ai.request.model": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "gen_ai.agent.tools": "[\"search_flights\", \"book_flight\", \"search_hotels\", \"book_hotel\", \"search_activities\", \"book_activity\"]",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "events": [
+    {
+      "name": "gen_ai.user.message",
+      "attributes": {
+        "content": "[{\"text\": \"Hey, how can you help me\"}]"
+      }
+    },
+    {
+      "name": "gen_ai.choice",
+      "attributes": {
+        "message": "Hello! I'm your travel planning assistant, and I can help you with the following: ..."
+      }
+    }
+  ]
+}
+```
+
+Execute tool span
+The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice` event holds the tool result.
+
+```
+{
+  "traceId": "6a6bc69e6eaa1e994481bef349f4c72e",
+  "spanId": "4227ac5525f22dd2",
+  "parentSpanId": "8a989e0dbb9dc22f",
+  "name": "execute_tool search_flights",
+  "kind": "INTERNAL",
+  "scope": {
+    "name": "strands-agents",
+    "version": ""
+  },
+  "attributes": {
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.tool.name": "search_flights",
+    "gen_ai.tool.call.id": "tooluse_AoP0OTnq2YcOZDvY7ldSUQ",
+    "gen_ai.tool.status": "success",
+    "session.id": "sea-nyc-trip-2-turns"
+  },
+  "events": [
+    {
+      "name": "gen_ai.tool.message",
+      "attributes": {
+        "content": "{\"origin\": \"SEA\", \"destination\": \"NYC\", \"date\": \"2025-03-15\"}",
+        "role": "tool",
+        "id": "tooluse_AoP0OTnq2YcOZDvY7ldSUQ"
+      }
+    },
+    {
+      "name": "gen_ai.choice",
+      "attributes": {
+        "message": "[{\"text\": \"{\\\"origin\\\": \\\"SEA\\\", \\\"destination\\\": \\\"NYC\\\", \\\"flights\\\": [ ... ]}\"}]",
+        "id": "tooluse_AoP0OTnq2YcOZDvY7ldSUQ"
       }
     }
   ]

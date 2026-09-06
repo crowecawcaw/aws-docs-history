@@ -40,15 +40,16 @@ AgentCore CLI
 Set defaults when you create or update the harness:
 
 ```
-# Create a project if one does not already exist.
-agentcore create
+# Create an empty project if one does not already exist
+agentcore create --project-name ResearchAgentProject --no-agent
+cd ResearchAgentProject
 
 # Add a harness to the project
 agentcore add harness \
   --name research-agent \
-  --model-id us.anthropic.claude-sonnet-4-6-20250514-v1:0 \
+  --model-id us.anthropic.claude-sonnet-4-6 \
   --system-prompt "You are a research assistant." \
-  --tools agentcore-browser
+  --tools agentcore_browser
 
 agentcore deploy
 ```
@@ -63,7 +64,7 @@ agentcore invoke --harness research-agent \
 
 # Swap tools for one call
 agentcore invoke --harness research-agent \
-  --tools agentcore-browser,code-interpreter \
+  --tools agentcore_browser,agentcore_code_interpreter \
   "Plot the citation counts as a bar chart"
 ```
 
@@ -155,7 +156,18 @@ agentcore add credential --type api-key --name my-openai-key --api-key $OPENAI_A
 agentcore deploy
 ```
 
-Invoke with Bedrock Mantle (Responses format, no API key needed):
+From the AgentCore project directory that you created earlier, add a second harness that uses the Responses format. Then deploy the project:
+
+```
+agentcore add harness \
+  --name my-agent \
+  --model-provider bedrock \
+  --model-id us.anthropic.claude-sonnet-4-5-20250514-v1:0 \
+  --api-format responses
+agentcore deploy
+```
+
+Invoke with Bedrock Mantle:
 
 ```
 SESSION_ID="$(uuidgen)"
@@ -163,7 +175,6 @@ SESSION_ID="$(uuidgen)"
 # Turn 1: Bedrock Mantle (Responses format)
 agentcore invoke --harness my-agent \
   --model-id us.anthropic.claude-sonnet-4-5-20250514-v1:0 \
-  --api-format responses \
   --session-id "$SESSION_ID" \
   "Analyze this codebase and identify performance bottlenecks."
 ```

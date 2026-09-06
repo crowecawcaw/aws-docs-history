@@ -1,6 +1,6 @@
 # Memory
 
-The harness automatically persists conversation state in [AgentCore Memory](memory.md "memory.md"). On every invocation, the conversation is saved, scoped by session ID (and additionally by actor ID, if provided). On subsequent invocations with the same session ID, the agent’s history is loaded from Memory before it reasons - it remembers what happened in previous turns, even after the underlying microVM session has expired. You do not need to pass previous messages yourself; just send the new message.
+When memory is enabled, the harness persists conversation state in [AgentCore Memory](memory.md "memory.md"). On subsequent invocations with the same session ID, the agent loads the stored history before it reasons.
 
 ## How memory works
 
@@ -8,9 +8,9 @@ The harness automatically persists conversation state in [AgentCore Memory](memo
 - **Long-term memory** extracts durable knowledge via configurable strategies ([semantic](semantic-memory-strategy.md "semantic-memory-strategy.md"), [summarization](summary-strategy.md "summary-strategy.md"), [user preference](user-preference-memory-strategy.md "user-preference-memory-strategy.md"), [episodic](episodic-memory-strategy.md "episodic-memory-strategy.md"), or [custom](memory-custom-strategy.md "memory-custom-strategy.md")) and makes them retrievable via semantic search in later sessions.
 - **Actor ID** identifies the entity interacting with the agent (a user, another agent, or a system). Memory events are scoped by actorId + sessionId, so each actor has isolated memory. Long-term retrieval uses actorId as a template variable in namespace paths (e.g. `/summary/{actorId}/{sessionId}/`), mapping to the configured memory strategies.
 
-## Managed memory (default)
+## Managed memory
 
-By default, the harness provisions an [AgentCore Memory](memory.md "memory.md") instance automatically with sensible defaults (semantic + summarization strategies, 30-day event expiry). You don’t need to create or configure anything - memory just works.
+When you create a harness directly with the service API and omit the memory configuration, the service provisions managed memory. The AgentCore CLI uses a different default: new CLI harnesses have memory disabled unless you select managed memory or an existing memory resource.
 
 ###### Memory charges
 
@@ -38,17 +38,23 @@ aws bedrock-agentcore-control update-harness \
 ```
 
 AgentCore CLI
-Memory is enabled by default when you create a harness:
+Create an empty project, then add a harness with managed memory:
 
 ```
-agentcore create --name myagent
+agentcore create --project-name MyHarnessProject --no-agent
+cd MyHarnessProject
+agentcore add harness \
+  --name myagent \
+  --memory-mode managed \
+  --memory-strategies SEMANTIC,SUMMARIZATION \
+  --memory-event-expiry-days 30
 agentcore deploy
 ```
 
-To skip managed memory:
+Memory is disabled by default. To create the harness without memory, run the following command instead of the preceding `agentcore add harness` command:
 
 ```
-agentcore create --name myagent --no-harness-memory
+agentcore add harness --name myagent --no-memory
 ```
 
 Interactive
@@ -108,7 +114,10 @@ aws bedrock-agentcore-control update-harness \
 AgentCore CLI
 
 ```
-agentcore create --name myagent --memory-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123"
+agentcore create --project-name MyHarnessProject --no-agent
+cd MyHarnessProject
+agentcore add harness --name myagent \
+  --memory-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123"
 agentcore deploy
 ```
 

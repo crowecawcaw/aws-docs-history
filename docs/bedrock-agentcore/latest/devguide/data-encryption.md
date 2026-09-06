@@ -2,7 +2,7 @@
 
 ## Encryption at rest
 
-Amazon Bedrock AgentCore stores data at rest using Amazon DynamoDB and Amazon Simple Storage Service (Amazon S3). The data at rest is encrypted using AWS encryption solutions by default. AgentCore encrypts your data using AWS owned encryption keys from AWS Key Management Service. You don’t have to take any action to protect the AWS managed keys that encrypt your data. For more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws-owned-cmk "kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
+Amazon Bedrock AgentCore stores data at rest using Amazon DynamoDB and Amazon Simple Storage Service (Amazon S3). The data at rest is encrypted using AWS encryption solutions by default. AgentCore encrypts your data using AWS owned encryption keys from AWS Key Management Service. You don’t have to take any action to protect the AWS managed keys that encrypt your data. For more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
 
 **Key considerations**
 

@@ -15,7 +15,7 @@ This walkthrough uses a customer support agent as an example. The agent handles 
 Create the project with the AgentCore CLI:
 
 ```
-agentcore create --name ABTestConfigBased --no-agent
+agentcore create --project-name ABTestConfigBased --no-agent
 cd ABTestConfigBased
 ```
 
@@ -33,13 +33,13 @@ agentcore add agent \
   --build CodeZip
 ```
 
-Project structure:
+Abbreviated project structure:
 
 ```
 ABTestConfigBased/
 ├── agentcore/
 │   ├── agentcore.json      # Project and resource configuration
-│   ├── aws-targets.json    # Deployment target (account and region)
+│   ├── aws-targets.json    # Populated with a deployment target during deploy
 │   └── cdk/                # CDK infrastructure (auto-managed)
 └── app/
     └── csAgent/
