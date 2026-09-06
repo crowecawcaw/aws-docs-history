@@ -1,205 +1,225 @@
-# CircleCI connector for Amazon AppFlow
 
-CircleCI is a continuous integration and continuous delivery platform. If you're a
-CircleCI user, your account contains data about your projects, pipelines, workflows, and
-more. You can use Amazon AppFlow to transfer data from
-CircleCI to certain AWS services or other supported applications.
+
+# CircleCI connector for Amazon AppFlow
+<a name="connectors-circleci"></a>
+
+CircleCI is a continuous integration and continuous delivery platform. If you're a CircleCI user, your account contains data about your projects, pipelines, workflows, and more. You can use Amazon AppFlow to transfer data from CircleCI to certain AWS services or other supported applications.
 
 ## Amazon AppFlow support for CircleCI
+<a name="circleci-support"></a>
 
 Amazon AppFlow supports CircleCI as follows.
 
-**Supported as a data source?**
+**Supported as a data source?**  
 Yes. You can use Amazon AppFlow to transfer data from CircleCI.
 
-**Supported as a data destination?**
+**Supported as a data destination?**  
 No. You can't use Amazon AppFlow to transfer data to CircleCI.
 
 ## Before you begin
+<a name="circleci-prereqs"></a>
 
-To use Amazon AppFlow to transfer data from CircleCI to supported destinations, you must meet these
-requirements:
+To use Amazon AppFlow to transfer data from CircleCI to supported destinations, you must meet these requirements:
++ You have an account with CircleCI that contains the data that you want to transfer. For more information about the CircleCI data objects that Amazon AppFlow supports, see [Supported objects](#circleci-objects).
++ In the user settings for your account, you've created a personal API token. For the steps to do this, see [Creating a personal API token](https://circleci.com/docs/managing-api-tokens/?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--uscan-en-dsa-maxConv-auth-nb&utm_term=g_-_c__dsa_&utm_content=&gclid=Cj0KCQiA4OybBhCzARIsAIcfn9lS-1gBgq0NRzEsA_b20-dhUG8aEHQqIu9wdXFEhSfg0kHsXEhufi8aAtPGEALw_wcB#creating-a-personal-api-token) in the CircleCI Docs site.
 
-- You have an account with CircleCI that contains the data that you want to transfer. For more
-  information about the CircleCI data objects that Amazon AppFlow supports, see [Supported objects](#circleci-objects "#circleci-objects").
-- In the user settings for your account, you've created a personal API token. For the steps
-  to do this, see [Creating a personal API token](https://circleci.com/docs/managing-api-tokens/?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--uscan-en-dsa-maxConv-auth-nb&utm_term=g_-_c__dsa_&utm_content=&gclid=Cj0KCQiA4OybBhCzARIsAIcfn9lS-1gBgq0NRzEsA_b20-dhUG8aEHQqIu9wdXFEhSfg0kHsXEhufi8aAtPGEALw_wcB#creating-a-personal-api-token "https://circleci.com/docs/managing-api-tokens/?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--uscan-en-dsa-maxConv-auth-nb&utm_term=g_-_c__dsa_&utm_content=&gclid=Cj0KCQiA4OybBhCzARIsAIcfn9lS-1gBgq0NRzEsA_b20-dhUG8aEHQqIu9wdXFEhSfg0kHsXEhufi8aAtPGEALw_wcB#creating-a-personal-api-token") in the CircleCI Docs site.
-
-You provide the personal API token to Amazon AppFlow in the settings for your CircleCI
-connection.
+You provide the personal API token to Amazon AppFlow in the settings for your CircleCI connection.
 
 ## Connecting Amazon AppFlow to your CircleCI account
+<a name="circleci-connecting"></a>
 
-To connect Amazon AppFlow to your CircleCI account, provide your personal API token so
-that Amazon AppFlow can access your data. If you haven't yet configured your CircleCI account
-for Amazon AppFlow integration, see [Before you begin](#circleci-prereqs "#circleci-prereqs").
+To connect Amazon AppFlow to your CircleCI account, provide your personal API token so that Amazon AppFlow can access your data. If you haven't yet configured your CircleCI account for Amazon AppFlow integration, see [Before you begin](#circleci-prereqs).
 
-###### To connect to CircleCI
+**To connect to CircleCI**
 
-1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2. In the navigation pane on the left, choose **Connections**.
-3. On the **Manage connections** page, for **Connectors**,
-   choose **CircleCI**.
-4. Choose **Create connection**.
-5. In the **Connect to CircleCI** window, for **CircleCI
-   Token**, enter the personal API token from the user settings of your
-   CircleCI account
-6. Optionally, under **Data encryption**, choose **Customize
-   encryption settings (advanced)** if you want to encrypt your data with a customer
-   managed key in the AWS Key Management Service (AWS KMS).
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/).
 
-By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
-for you. Choose this option if you want to encrypt your data with your own KMS key instead.
+1. In the navigation pane on the left, choose **Connections**.
 
-Amazon AppFlow always encrypts your data during transit and at rest. For more information, see
-[Data protection in Amazon AppFlow](data-protection.md "data-protection.md").
+1. On the **Manage connections** page, for **Connectors**, choose **CircleCI**.
 
-If you want to use a KMS key from the current AWS account, select this key under
-**Choose an AWS KMS key**. If you want to use a KMS key from a different
-AWS account, enter the Amazon Resource Name (ARN) for that key. 7. For **Connection name**, enter a name for your connection. 8. Choose **Connect**.
+1. Choose **Create connection**.
 
-On the **Manage connections** page, your new connection appears in the
-**Connections** table. When you create a flow
-that uses CircleCI as the data source, you can select this connection.
+1. In the **Connect to CircleCI** window, for **CircleCI Token**, enter the personal API token from the user settings of your CircleCI account
+
+1. Optionally, under **Data encryption**, choose **Customize encryption settings (advanced)** if you want to encrypt your data with a customer managed key in the AWS Key Management Service (AWS KMS).
+
+   By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages for you. Choose this option if you want to encrypt your data with your own KMS key instead.
+
+   Amazon AppFlow always encrypts your data during transit and at rest. For more information, see [Data protection in Amazon AppFlow](data-protection.md).
+
+   If you want to use a KMS key from the current AWS account, select this key under **Choose an AWS KMS key**. If you want to use a KMS key from a different AWS account, enter the Amazon Resource Name (ARN) for that key.
+
+1. For **Connection name**, enter a name for your connection.
+
+1. Choose **Connect**.
+
+On the **Manage connections** page, your new connection appears in the **Connections** table. When you create a flow that uses CircleCI as the data source, you can select this connection.
 
 ## Transferring data from CircleCI with a flow
+<a name="circleci-transfer-data"></a>
 
-To transfer data from CircleCI, create an Amazon AppFlow flow, and choose CircleCI as the data
-source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
 
-When you configure the flow, choose the data object that you want to transfer. For the objects
-that Amazon AppFlow supports for CircleCI, see [Supported objects](#circleci-objects "#circleci-objects").
 
-Also, choose the destination where you want to transfer the data object that you selected.
-For more information about how to configure your destination, see [Supported destinations](#circleci-destinations "#circleci-destinations").
+To transfer data from CircleCI, create an Amazon AppFlow flow, and choose CircleCI as the data source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md).
+
+When you configure the flow, choose the data object that you want to transfer. For the objects that Amazon AppFlow supports for CircleCI, see [Supported objects](#circleci-objects).
+
+Also, choose the destination where you want to transfer the data object that you selected. For more information about how to configure your destination, see [Supported destinations](#circleci-destinations).
 
 ## Supported destinations
+<a name="circleci-destinations"></a>
 
-When you create a flow that uses CircleCI as the data source, you can set the destination to any of the following connectors:
-
-- [Amazon Lookout for Metrics](lookout.md "lookout.md")
-- [Amazon Redshift](redshift.md "redshift.md")
-- [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md "connectors-amazon-rds-postgres-sql.md")
-- [Amazon S3](s3.md "s3.md")
-- [HubSpot](connectors-hubspot.md "connectors-hubspot.md")
-- [Marketo](marketo.md "marketo.md")
-- [Salesforce](salesforce.md "salesforce.md")
-- [SAP OData](sapodata.md "sapodata.md")
-- [Snowflake](snowflake.md "snowflake.md")
-- [Upsolver](upsolver.md "upsolver.md")
-- [Zendesk](zendesk.md "zendesk.md")
-- [Zoho CRM](connectors-zoho-crm.md "connectors-zoho-crm.md")
+When you create a flow that uses CircleCI as the data source, you can set the destination to any of the following connectors: 
++ [Amazon Lookout for Metrics](lookout.md)
++ [Amazon Redshift](redshift.md)
++ [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md)
++ [Amazon S3](s3.md)
++ [HubSpot](connectors-hubspot.md)
++ [Marketo](marketo.md)
++ [Salesforce](salesforce.md)
++ [SAP OData](sapodata.md)
++ [Snowflake](snowflake.md)
++ [Upsolver](upsolver.md)
++ [Zendesk](zendesk.md)
++ [Zoho CRM](connectors-zoho-crm.md)
 
 ## Supported objects
+<a name="circleci-objects"></a>
 
-When you create a flow that uses CircleCI as the data source, you can transfer any of the
-following data objects to supported destinations:
+When you create a flow that uses CircleCI as the data source, you can transfer any of the following data objects to supported destinations:
 
-| **Object**                   | **Field**          | **Data type**      | **Supported filters** |
-| ---------------------------- | ------------------ | ------------------ | --------------------- |
-| Context                      | Created At         | String             |                       |
-| ID                           | String             |                    |
-| Name                         | String             |                    |
-| Owner Type                   | String             | EQUAL\_TO          |
-| Organization Summary Metric  | All Projects       | List               |                       |
-| Org Data                     | Struct             |                    |
-| Org Project Data             | List               |                    |
-| Project Names                | String             | EQUAL\_TO          |
-| Reporting Window             | String             | EQUAL\_TO          |
-| Pipeline                     | Branch             | String             | EQUAL\_TO             |
-| Created At                   | String             |                    |
-| Errors                       | List               |                    |
-| ID                           | String             |                    |
-| Number                       | Integer            |                    |
-| Project Slug                 | String             |                    |
-| State                        | String             |                    |
-| Trigger                      | Struct             |                    |
-| Trigger Parameters           | Struct             |                    |
-| Updated At                   | String             |                    |
-| VCS                          | Struct             |                    |
-| Pipeline Workflow            | Canceled By        | String             |                       |
-| Created At                   | String             |                    |
-| Errored By                   | String             |                    |
-| ID                           | String             |                    |
-| Name                         | String             |                    |
-| Pipeline ID                  | String             |                    |
-| Pipeline Number              | Integer            |                    |
-| Project Slug                 | String             |                    |
-| Started By                   | String             |                    |
-| Status                       | String             |                    |
-| Stopped At                   | String             |                    |
-| Tag                          | String             |                    |
-| Project Branch               | Branches           | List               |                       |
-| Org ID                       | String             |                    |
-| Project ID                   | String             |                    |
-| Workflow Name                | String             | EQUAL\_TO          |
-| Project Flaky Test           | Classname          | String             |                       |
-| File                         | String             |                    |
-| Job Name                     | String             |                    |
-| Job Number                   | Integer            |                    |
-| Pipeline Number              | Integer            |                    |
-| Source                       | String             |                    |
-| Test Name                    | String             |                    |
-| Time Wasted                  | Integer            |                    |
-| Times Flaked                 | Integer            |                    |
-| Workflow Created At          | String             |                    |
-| Workflow ID                  | String             |                    |
-| Workflow Name                | String             |                    |
-| Project Summary Metric       | All Branches       | List               |                       |
-| All Workflows                | List               |                    |
-| Branches                     | String             | EQUAL\_TO          |
-| Organization ID              | String             |                    |
-| Project Data                 | Struct             |                    |
-| Project ID                   | String             |                    |
-| Project Workflow Branch Data | List               |                    |
-| Project Workflow Data        | List               |                    |
-| Reporting Window             | String             | EQUAL\_TO          |
-| Workflow Names               | String             | EQUAL\_TO          |
-| Schedule                     | Actor              | Struct             |                       |
-| Created At                   | String             |                    |
-| Description                  | String             |                    |
-| ID                           | String             |                    |
-| Name                         | String             |                    |
-| Parameters                   | Struct             |                    |
-| Project Slug                 | String             |                    |
-| Timetable                    | Struct             |                    |
-| Updated At                   | String             |                    |
-| Workflow Job Timeseries      | Branch             | String             | EQUAL\_TO             |
-| Granularity                  | String             | EQUAL\_TO          |
-| Max Ended At                 | String             |                    |
-| Metrics                      | Struct             |                    |
-| Min Started At               | String             |                    |
-| Name                         | String             |                    |
-| Start End Date               | DateTime           | EQUAL\_TO, BETWEEN |
-| Timestamp                    | String             |                    |
-| Workflow Metric and Trend    | All Branches       | Boolean            | EQUAL\_TO             |
-| Branches                     | String             | EQUAL\_TO          |
-| Metrics                      | Struct             |                    |
-| Trends                       | Struct             |                    |
-| Workflow Names               | List               |                    |
-| Workflow Recent Run          | All Branches       | Boolean            | EQUAL\_TO             |
-| Branch                       | String             | EQUAL\_TO          |
-| Created At                   | String             |                    |
-| Credits Used                 | Integer            |                    |
-| Duration                     | Integer            |                    |
-| ID                           | String             |                    |
-| Is Approval                  | Boolean            |                    |
-| Start End Date               | DateTime           | EQUAL\_TO, BETWEEN |
-| Status                       | String             |                    |
-| Stopped At                   | String             |                    |
-| Workflow Summary Metric      | All Branches       | Boolean            | EQUAL\_TO             |
-| Branch                       | String             | EQUAL\_TO          |
-| Metrics                      | Struct             |                    |
-| Name                         | String             |                    |
-| Project ID                   | String             |                    |
-| Reporting Window             | String             | EQUAL\_TO          |
-| Window End                   | String             |                    |
-| Window Start                 | String             |                    |
-| Workflow Test Metric         | Average Test Count | Integer            |                       |
-| Branch                       | String             | EQUAL\_TO          |
-| Most Failed Tests            | List               |                    |
-| Most Failed Tests Extra      | Integer            |                    |
-| Slowest Tests                | List               |                    |
-| Slowest Tests Extra          | Integer            |                    |
-| Test Runs                    | List               |                    |
-| Total Test Runs              | Integer            |                    |
+
+
+- ** Context**
+  - **** Field**:** Created At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Owner Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+
+- ** Organization Summary Metric**
+  - **** Field**:** All Projects / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Org Data / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Org Project Data / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Project Names / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Reporting Window / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+
+- ** Pipeline**
+  - **** Field**:** Branch / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Created At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Errors / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Number / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Project Slug / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** State / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Trigger / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Trigger Parameters / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Updated At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** VCS / **** Data type**:** Struct / **** Supported filters**:** 
+
+- ** Pipeline Workflow**
+  - **** Field**:** Canceled By / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Created At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Errored By / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Pipeline ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Pipeline Number / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Project Slug / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Started By / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Status / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Stopped At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Tag / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Project Branch**
+  - **** Field**:** Branches / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Org ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Project ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Workflow Name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+
+- ** Project Flaky Test**
+  - **** Field**:** Classname / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** File / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Job Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Job Number / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Pipeline Number / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Source / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Test Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Time Wasted / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Times Flaked / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Workflow Created At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Workflow ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Workflow Name / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Project Summary Metric**
+  - **** Field**:** All Branches / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** All Workflows / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Branches / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Organization ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Project Data / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Project ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Project Workflow Branch Data / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Project Workflow Data / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Reporting Window / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Workflow Names / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+
+- ** Schedule**
+  - **** Field**:** Actor / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Created At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Parameters / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Project Slug / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Timetable / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Updated At / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Workflow Job Timeseries**
+  - **** Field**:** Branch / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Granularity / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Max Ended At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Metrics / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Min Started At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Start End Date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, BETWEEN
+  - **** Field**:** Timestamp / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Workflow Metric and Trend**
+  - **** Field**:** All Branches / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Branches / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Metrics / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Trends / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Workflow Names / **** Data type**:** List / **** Supported filters**:** 
+
+- ** Workflow Recent Run**
+  - **** Field**:** All Branches / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Branch / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Created At / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Credits Used / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Duration / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Is Approval / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Start End Date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, BETWEEN
+  - **** Field**:** Status / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Stopped At / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Workflow Summary Metric**
+  - **** Field**:** All Branches / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Branch / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Metrics / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Project ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Reporting Window / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Window End / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Window Start / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Workflow Test Metric**
+  - **** Field**:** Average Test Count / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Branch / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Most Failed Tests / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Most Failed Tests Extra / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Slowest Tests / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Slowest Tests Extra / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Test Runs / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Total Test Runs / **** Data type**:** Integer / **** Supported filters**:** 
+

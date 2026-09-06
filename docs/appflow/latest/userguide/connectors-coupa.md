@@ -1,732 +1,740 @@
-# Coupa connector for Amazon AppFlow
 
-Coupa is a business spend software as a service (SaaS) solution. If you’re a
-Coupa user, your account contains data on procurements, invoicing, expenses,
-payments, and more. You can use Amazon AppFlow to transfer data between Coupa and certain
-AWS services or other supported applications.
+
+# Coupa connector for Amazon AppFlow
+<a name="connectors-coupa"></a>
+
+Coupa is a business spend software as a service (SaaS) solution. If you’re a Coupa user, your account contains data on procurements, invoicing, expenses, payments, and more. You can use Amazon AppFlow to transfer data between Coupa and certain AWS services or other supported applications.
 
 ## Amazon AppFlow support for Coupa
+<a name="coupa-support"></a>
 
 Amazon AppFlow supports Coupa as follows.
 
-**Supported as a data source?**
-
+**Supported as a data source?**  
 Yes. You can use Amazon AppFlow to transfer data from Coupa.
 
-**Supported as a data destination?**
-
+**Supported as a data destination?**  
 No. You can't use Amazon AppFlow to transfer data to Coupa.
 
 ## Before you begin
+<a name="coupa-prereqs"></a>
 
-To use Amazon AppFlow to transfer data from Coupa to supported destinations, you must meet these
-requirements:
+To use Amazon AppFlow to transfer data from Coupa to supported destinations, you must meet these requirements:
++ You have an account with Coupa that contains the data that you want to transfer. For more information about the Coupa data objects that Amazon AppFlow supports, see [Supported objects](#coupa-objects).
++ In your Amazon AppFlow account, you've created an OAuth2/OIDC client app for Amazon AppFlow. The app provides the client credentials that Amazon AppFlow uses to access your data securely when it makes authenticated calls to your account. 
 
-- You have an account with Coupa that contains the data that you want to transfer. For more
-  information about the Coupa data objects that Amazon AppFlow supports, see [Supported objects](#coupa-objects "#coupa-objects").
-- In your Amazon AppFlow account, you've created an OAuth2/OIDC client app for Amazon AppFlow. The app
-  provides the client credentials that Amazon AppFlow uses to access your data securely when it makes
-  authenticated calls to your account.
+  For information about how to create an OAuth2 client app, see [OAuth 2.0 Getting Started with Coupa API ](https://compass.coupa.com/en-us/products/core-platform/integration-playbooks-and-resources/integration-knowledge-articles/oauth-2.0-getting-started-with-coupa-api) in the *Coupa Compass*.
++ You've given your app a Grant type of Client Credentials. 
++ You've chosen the following scopes to be included in the API: 
+  + `core.accounting.read`
+  + `core.approval.read`
+  + `core.common.read`
+  + `core.easyform_response.read`
+  + `core.expense.read`
+  + `core.integration.read`
+  + `core.inventory.adjustment.read`
+  + `core.inventory.asn.read`
+  + `core.inventory.balance.read`
+  + `core.inventory.consumption.read`
+  + `core.inventory.cycle_counts.read`
+  + `core.inventory.receiving.read`
+  + `core.inventory.return_to_supplier.read`
+  + `core.inventory.transfer. read`
+  + `core.invoice.read`
+  + `core.item.read`
+  + `core.legal_entity.read`
+  + `core.pay.charges.read`
+  + `core.pay.payment_accounts.read`
+  + `core.pay.payments.read`
+  + `core.pay.virtual_cards.read`
+  + `core.payables.allocations.read`
+  + `core.payables.expense.read`
+  + `core.payables.external.read"`
+  + `core.payables.invoice.read`
+  + `core.payables.order.read`
+  + `core.project.read`
+  + `core.purchase_order. read`
+  + `core.requisition.read`
+  + `core.sourcing.pending_supplier.read`
+  + `core.sourcing.read`
+  + `core.sourcing.response.read`
+  + `core.supplier.read`
+  + `core.supplier_information_sites.read`
+  + `core.supplier_information_tax registrations.read`
+  + `core.supplier_sharing_settings.read`
+  + `core.supplier_sites.read`
+  + `core.uom.read`
+  + `core.user.read`
+  + `core.user_group.read`
+  + `email login offline_access openid profile`
+  + `travel_booking.common.read`
+  + `travel_booking.team.read`
+  + `travel_booking.trip.read`
+  + `travel_booking.user.read`
+  + `treasury.cash_management.read`
 
-For information about how to create an OAuth2 client app, see [OAuth 2.0 Getting Started with Coupa API](https://compass.coupa.com/en-us/products/core-platform/integration-playbooks-and-resources/integration-knowledge-articles/oauth-2.0-getting-started-with-coupa-api "https://compass.coupa.com/en-us/products/core-platform/integration-playbooks-and-resources/integration-knowledge-articles/oauth-2.0-getting-started-with-coupa-api") in the _Coupa
-Compass_.
-
-- You've given your app a Grant type of Client Credentials.
-- You've chosen the following scopes to be included in the API:
-
-  - `core.accounting.read`
-  - `core.approval.read`
-  - `core.common.read`
-  - `core.easyform_response.read`
-  - `core.expense.read`
-  - `core.integration.read`
-  - `core.inventory.adjustment.read`
-  - `core.inventory.asn.read`
-  - `core.inventory.balance.read`
-  - `core.inventory.consumption.read`
-  - `core.inventory.cycle_counts.read`
-  - `core.inventory.receiving.read`
-  - `core.inventory.return_to_supplier.read`
-  - `core.inventory.transfer. read`
-  - `core.invoice.read`
-  - `core.item.read`
-  - `core.legal_entity.read`
-  - `core.pay.charges.read`
-  - `core.pay.payment_accounts.read`
-  - `core.pay.payments.read`
-  - `core.pay.virtual_cards.read`
-  - `core.payables.allocations.read`
-  - `core.payables.expense.read`
-  - `core.payables.external.read"`
-  - `core.payables.invoice.read`
-  - `core.payables.order.read`
-  - `core.project.read`
-  - `core.purchase_order. read`
-  - `core.requisition.read`
-  - `core.sourcing.pending_supplier.read`
-  - `core.sourcing.read`
-  - `core.sourcing.response.read`
-  - `core.supplier.read`
-  - `core.supplier_information_sites.read`
-  - `core.supplier_information_tax registrations.read`
-  - `core.supplier_sharing_settings.read`
-  - `core.supplier_sites.read`
-  - `core.uom.read`
-  - `core.user.read`
-  - `core.user_group.read`
-  - `email login offline_access openid profile`
-  - `travel_booking.common.read`
-  - `travel_booking.team.read`
-  - `travel_booking.trip.read`
-  - `travel_booking.user.read`
-  - `treasury.cash_management.read`
-
-Note the client ID, client secret, and instance URL for your Coupa
-project.
+Note the client ID, client secret, and instance URL for your Coupa project.
 
 ## Connecting Amazon AppFlow to your Coupa account
+<a name="coupa-connecting"></a>
 
-To connect Amazon AppFlow to your Coupa account,
-provide details from your Coupa project so that Amazon AppFlow can access your data. If you
-haven't yet configured your Coupa project for Amazon AppFlow integration, see [Before you begin](#coupa-prereqs "#coupa-prereqs").
+To connect Amazon AppFlow to your Coupa account, provide details from your Coupa project so that Amazon AppFlow can access your data. If you haven't yet configured your Coupa project for Amazon AppFlow integration, see [Before you begin](#coupa-prereqs).
 
-###### To connect to Coupa
+**To connect to Coupa**
 
-1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2. In the navigation pane on the left, choose **Connections**.
-3. On the **Manage connections** page, for **Connectors**,
-   choose **Coupa**.
-4. Choose **Create connection**.
-5. In the **Connect to Coupa** window, enter the following
-   information:
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/).
 
-   - **Connection name** — A name for the connection.
-   - **Authorization tokens URL** — From the dropdown menu, choose one of the following options: For partner and demo instances, choose https://\{company\_name}.coupacloud.com.oauth2/token. For customer instances, choose https://\{company\_name}.coupahost.com.oauth2/token.
-   - **Custom authorization tokens URL** — The same company name used in the authorization tokens URL.
-   - **Client ID** — The client ID in your Coupa
-     project.
-   - **Client secret** — The client secret in your Coupa
-     project.
-   - **Instance URL** — The instance URL of your Coupa project. For example,
-     https://{company\_name}.coupacloud.com (for partner and demo instances), or
-     https://{company\_name}.coupahost.com (for customer instances).
+1. In the navigation pane on the left, choose **Connections**.
 
-6. Optionally, under **Data encryption**, choose **Customize
-   encryption settings (advanced)** if you want to encrypt your data with a customer
-   managed key in the AWS Key Management Service (AWS KMS).
+1. On the **Manage connections** page, for **Connectors**, choose **Coupa**.
 
-By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
-for you. Choose this option if you want to encrypt your data with your own KMS key instead.
+1. Choose **Create connection**.
 
-Amazon AppFlow always encrypts your data during transit and at rest. For more information, see
-[Data protection in Amazon AppFlow](data-protection.md "data-protection.md").
+1. In the **Connect to Coupa** window, enter the following information:
+   + **Connection name** — A name for the connection.
+   + **Authorization tokens URL** — From the dropdown menu, choose one of the following options: For partner and demo instances, choose https://\\{company\_name}.coupacloud.com.oauth2/token. For customer instances, choose https://\\{company\_name}.coupahost.com.oauth2/token. 
+   + **Custom authorization tokens URL** — The same company name used in the authorization tokens URL.
+   + **Client ID** — The client ID in your Coupa project.
+   + **Client secret** — The client secret in your Coupa project. 
+   + **Instance URL** — The instance URL of your Coupa project. For example, https://{company\_name}.coupacloud.com (for partner and demo instances), or https://{company\_name}.coupahost.com (for customer instances).
 
-If you want to use a KMS key from the current AWS account, select this key under
-**Choose an AWS KMS key**. If you want to use a KMS key from a different
-AWS account, enter the Amazon Resource Name (ARN) for that key. 7. For **Connection name**, enter a name for your connection. 8. Choose **Connect**. 9. In the window that appears, sign in to your Coupa account, and grant access
-to Amazon AppFlow.
+1. Optionally, under **Data encryption**, choose **Customize encryption settings (advanced)** if you want to encrypt your data with a customer managed key in the AWS Key Management Service (AWS KMS).
 
-On the **Manage connections** page, your new connection appears in the
-**Connections** table. When you create a flow
-that uses Coupa as the data source, you can select this connection.
+   By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages for you. Choose this option if you want to encrypt your data with your own KMS key instead.
+
+   Amazon AppFlow always encrypts your data during transit and at rest. For more information, see [Data protection in Amazon AppFlow](data-protection.md).
+
+   If you want to use a KMS key from the current AWS account, select this key under **Choose an AWS KMS key**. If you want to use a KMS key from a different AWS account, enter the Amazon Resource Name (ARN) for that key.
+
+1. For **Connection name**, enter a name for your connection.
+
+1. Choose **Connect**.
+
+1. In the window that appears, sign in to your Coupa account, and grant access to Amazon AppFlow.
+
+On the **Manage connections** page, your new connection appears in the **Connections** table. When you create a flow that uses Coupa as the data source, you can select this connection.
 
 ## Transferring data from Coupa with a flow
+<a name="coupa-transfer-data"></a>
 
-To transfer data from Coupa, create an Amazon AppFlow flow, and choose Coupa as the data
-source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
+To transfer data from Coupa, create an Amazon AppFlow flow, and choose Coupa as the data source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md).
 
-When you configure the flow, choose the data object that you want to transfer. For the objects
-that Amazon AppFlow supports for Coupa, see [Supported objects](#coupa-objects "#coupa-objects").
+When you configure the flow, choose the data object that you want to transfer. For the objects that Amazon AppFlow supports for Coupa, see [Supported objects](#coupa-objects).
 
-Also, choose the destination where you want to transfer the data object that you selected.
-For more information about how to configure your destination, see [Supported destinations](#coupa-destinations "#coupa-destinations").
+Also, choose the destination where you want to transfer the data object that you selected. For more information about how to configure your destination, see [Supported destinations](#coupa-destinations).
 
 ## Supported destinations
+<a name="coupa-destinations"></a>
 
-When you create a flow that uses Coupa as the data source, you can set the destination to any of the following connectors:
-
-- [Amazon Lookout for Metrics](lookout.md "lookout.md")
-- [Amazon Redshift](redshift.md "redshift.md")
-- [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md "connectors-amazon-rds-postgres-sql.md")
-- [Amazon S3](s3.md "s3.md")
-- [HubSpot](connectors-hubspot.md "connectors-hubspot.md")
-- [Marketo](marketo.md "marketo.md")
-- [Salesforce](salesforce.md "salesforce.md")
-- [SAP OData](sapodata.md "sapodata.md")
-- [Snowflake](snowflake.md "snowflake.md")
-- [Upsolver](upsolver.md "upsolver.md")
-- [Zendesk](zendesk.md "zendesk.md")
-- [Zoho CRM](connectors-zoho-crm.md "connectors-zoho-crm.md")
+When you create a flow that uses Coupa as the data source, you can set the destination to any of the following connectors: 
++ [Amazon Lookout for Metrics](lookout.md)
++ [Amazon Redshift](redshift.md)
++ [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md)
++ [Amazon S3](s3.md)
++ [HubSpot](connectors-hubspot.md)
++ [Marketo](marketo.md)
++ [Salesforce](salesforce.md)
++ [SAP OData](sapodata.md)
++ [Snowflake](snowflake.md)
++ [Upsolver](upsolver.md)
++ [Zendesk](zendesk.md)
++ [Zoho CRM](connectors-zoho-crm.md)
 
 ## Supported objects
+<a name="coupa-objects"></a>
 
-When you create a flow that uses Coupa as the data source, you can transfer any of the
-following data objects to supported destinations:
+When you create a flow that uses Coupa as the data source, you can transfer any of the following data objects to supported destinations:
 
-| **Object**                                         | **Field**       | **Data type**                                                                                                           | **Supported filters**                                                                                                  |
-| -------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Approval                                           |                 |                                                                                                                         |                                                                                                                        |
-| Charge                                             | account-type-id | Integer                                                                                                                 | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO          |
-| accounting-currency                                | Struct          |                                                                                                                         |
-| accounting-total                                   | BigDecimal      |                                                                                                                         |
-| card-provider-account                              | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| charge-allocations                                 | List            |                                                                                                                         |
-| charge-date                                        | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| charge-tax-lines                                   | List            |                                                                                                                         |
-| coupa-pay-id                                       | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| coupa-pay-statement-id                             | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| document-id                                        | Integer         |                                                                                                                         |
-| document-type                                      | String          |                                                                                                                         |
-| expense-holding-account                            | Struct          |                                                                                                                         |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| external-ref-id                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| holding-account                                    | Struct          |                                                                                                                         |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| issuer-bank                                        | Struct          |                                                                                                                         |
-| issuer-reconciliation-id                           | String          |                                                                                                                         |
-| last-exported-at                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| mcc                                                | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| merchant-currency                                  | Struct          |                                                                                                                         |
-| merchant-reference                                 | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| merchant-total                                     | BigDecimal      |                                                                                                                         |
-| order-header-currency                              | String          |                                                                                                                         |
-| order-header-id                                    | Integer         |                                                                                                                         |
-| order-header-number                                | String          |                                                                                                                         |
-| order-header-total                                 | String          |                                                                                                                         |
-| payment-partner                                    | Struct          |                                                                                                                         |
-| posting-date                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| statement                                          | Struct          |                                                                                                                         |
-| statement-id                                       | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| statement-name                                     | String          |                                                                                                                         |
-| supplier                                           | Struct          |                                                                                                                         |
-| supplier-id                                        | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| supplier-name                                      | String          |                                                                                                                         |
-| tax-currency                                       | Struct          |                                                                                                                         |
-| tax-total                                          | BigDecimal      |                                                                                                                         |
-| total                                              | BigDecimal      |                                                                                                                         |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| virtual-card                                       | Struct          |                                                                                                                         |
-| virtual-card-id                                    | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| Expense Report                                     | approvals       | List                                                                                                                    |                                                                                                                        |
-| art-der-ausgabe                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| audit-score                                        | Integer         |                                                                                                                         |
-| auditor-note                                       | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| comments                                           | List            |                                                                                                                         |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| end-date                                           | DateTime        | EQUAL\_TO, BETWEEN, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| events                                             | List            |                                                                                                                         |
-| expense-lines                                      | List            |                                                                                                                         |
-| expense-policy-violations                          | List            |                                                                                                                         |
-| expense-report-preapprovals                        | List            |                                                                                                                         |
-| expensed-by                                        | Struct          |                                                                                                                         |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| external-src-name                                  | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| external-src-ref                                   | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| is-trip                                            | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| last-exported-at                                   | DateTime        | EQUAL\_TO, BETWEEN, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| paid                                               | Boolean         |                                                                                                                         |
-| past-due                                           | Boolean         |                                                                                                                         |
-| payment                                            | Struct          |                                                                                                                         |
-| payment-channel                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| reconciliation-lines                               | List            |                                                                                                                         |
-| reimbursable-total-amount                          | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| reimbursable-total-currency                        | Struct          |                                                                                                                         |
-| reject-reason                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| report-due-date                                    | DateTime        |                                                                                                                         |
-| report-warnings                                    | List            |                                                                                                                         |
-| start-date                                         | DateTime        | EQUAL\_TO, BETWEEN, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| status                                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| submitted-at                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| submitted-by                                       | Struct          |                                                                                                                         |
-| title                                              | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| total                                              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| travel-trip                                        | Struct          |                                                                                                                         |
-| type-de-note-de-frais                              | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| type-of-expense                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| Invoice                                            | abandon-reason  | Struct                                                                                                                  |                                                                                                                        |
-| account-type                                       | Struct          |                                                                                                                         |
-| advance-payment-received-amount                    | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| amount-due                                         | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| amount-due-less-discount                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| amount-of-advance-payment                          | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| approvals                                          | List            |                                                                                                                         |
-| archive-entity-id                                  | Integer         |                                                                                                                         |
-| attachments                                        | List            |                                                                                                                         |
-| bill-to-address                                    | Struct          |                                                                                                                         |
-| buyer-tax-registration                             | Struct          |                                                                                                                         |
-| canceled                                           | Boolean         |                                                                                                                         |
-| cash-accounting-scheme-reference                   | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| cash-register-operator                             | String          |                                                                                                                         |
-| channel                                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| clearance-document                                 | String          |                                                                                                                         |
-| comments                                           | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| compliant                                          | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| confirmation                                       | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| content-validation                                 | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| contract                                           | Struct          |                                                                                                                         |
-| correct-value-of-supply                            | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| coupa-accelerate-status                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| credit-note-differences-with-original-invoice      | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| credit-reason                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| currency                                           | Struct          |                                                                                                                         |
-| currency-id                                        | Integer         |                                                                                                                         |
-| current-integration-history-records                | List            |                                                                                                                         |
-| custom-fields                                      | Struct          |                                                                                                                         |
-| customer-accounting-tax                            | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| customer-accounting-tax-less-discount              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| customs-declaration-date                           | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| customs-declaration-number                         | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| customs-office                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| date-of-discovery-of-facts-decisive-for-correction | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| date-received                                      | DateTime        |                                                                                                                         |
-| delivery-date                                      | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| delivery-number                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| destination-country                                | Struct          |                                                                                                                         |
-| discount-amount                                    | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| discount-due-date                                  | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| discount-percent                                   | Float           | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| dispute-method                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| dispute-reasons                                    | List            |                                                                                                                         |
-| document-type                                      | String          |                                                                                                                         |
-| early-payment-provisions                           | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| endorsement-on-invoices                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| exchange-rate                                      | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| failed-tolerances                                  | List            |                                                                                                                         |
-| folio-number                                       | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| form-of-payment                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| freight-type                                       | String          |                                                                                                                         |
-| gross-total                                        | BigDecimal      |                                                                                                                         |
-| gross-total-less-discount                          | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| handling-amount                                    | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| image-scan                                         | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| image-scan-content-type                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| image-scan-file-name                               | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| image-scan-file-size                               | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| image-scan-url                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| inbound-invoice                                    | Struct          |                                                                                                                         |
-| inbox-name                                         | String          |                                                                                                                         |
-| internal-note                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| invoice-charges                                    | List            |                                                                                                                         |
-| invoice-date                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| invoice-from-address                               | Struct          |                                                                                                                         |
-| invoice-issuance-time                              | String          |                                                                                                                         |
-| invoice-lines                                      | List            |                                                                                                                         |
-| invoice-number                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| invoice-payment-receipts                           | List            |                                                                                                                         |
-| invoice-reference-number                           | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| is-credit-note                                     | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| issuance-place                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| last-exported-at                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| late-payment-penalties                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| legal-destination-country                          | Struct          |                                                                                                                         |
-| line-count                                         | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| line-level-taxation                                | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| lock-version-key                                   | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| margin-scheme                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| means-of-payment                                   | String          |                                                                                                                         |
-| misc-amount                                        | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| municipal-tax-number                               | String          |                                                                                                                         |
-| national-enrollment-of-conveyor                    | String          |                                                                                                                         |
-| nature-of-operation                                | String          |                                                                                                                         |
-| net-due-date                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| net-total-less-discount                            | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| new-means-of-transport                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| origin-country                                     | Struct          |                                                                                                                         |
-| origin-currency-gross                              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| origin-currency-net                                | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| original-invoice-date                              | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| original-invoice-number                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| original-value-of-supply                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| paid                                               | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| pay-invoice                                        | Struct          |                                                                                                                         |
-| payment-agreement-notes                            | List            |                                                                                                                         |
-| payment-channel                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| payment-date                                       | DateTime        |                                                                                                                         |
-| payment-method                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| payment-notes                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| payment-order-number                               | String          |                                                                                                                         |
-| payment-order-reference                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| payment-term                                       | Struct          |                                                                                                                         |
-| payments                                           | List            |                                                                                                                         |
-| place-of-issuance                                  | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| place-of-supply                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| pre-payment-date                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| protocol-number                                    | String          |                                                                                                                         |
-| reconciliation-lines                               | List            |                                                                                                                         |
-| remit-to-address                                   | Struct          |                                                                                                                         |
-| requested-by                                       | Struct          |                                                                                                                         |
-| requester-email                                    | String          |                                                                                                                         |
-| requester-lookup-name                              | String          |                                                                                                                         |
-| requester-name                                     | String          |                                                                                                                         |
-| resolution-number                                  | String          |                                                                                                                         |
-| reverse-charge-reference                           | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| security-code-of-issuer                            | String          |                                                                                                                         |
-| self-billing-reference                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| sender-email                                       | String          |                                                                                                                         |
-| serial-code-of-fiscal-invoice                      | String          |                                                                                                                         |
-| series                                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| ship-from-address                                  | Struct          |                                                                                                                         |
-| ship-to-address                                    | Struct          |                                                                                                                         |
-| shipping-amount                                    | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| shipping-term                                      | Struct          |                                                                                                                         |
-| show-tax-information                               | Boolean         |                                                                                                                         |
-| signed-qr-code                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| spend-load-id                                      | String          |                                                                                                                         |
-| split-payment-mechanism                            | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| state-tax-number                                   | String          |                                                                                                                         |
-| state-tax-number-for-substitute-taxpayer           | String          |                                                                                                                         |
-| status                                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier                                           | Struct          |                                                                                                                         |
-| supplier-created                                   | Boolean         |                                                                                                                         |
-| supplier-invoice-issuer-name                       | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier-invoice-reviewer-name                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier-note                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier-payment-collector-name                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier-remit-to                                  | Struct          |                                                                                                                         |
-| supplier-tax-registration                          | Struct          |                                                                                                                         |
-| supplier-total                                     | BigDecimal      |                                                                                                                         |
-| taggings                                           | List            |                                                                                                                         |
-| tags                                               | List            |                                                                                                                         |
-| tax-amount                                         | BigDecimal      |                                                                                                                         |
-| tax-amount-engine                                  | BigDecimal      |                                                                                                                         |
-| tax-code                                           | Struct          |                                                                                                                         |
-| tax-code-engine                                    | String          |                                                                                                                         |
-| tax-due-to-supplier                                | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| tax-lines                                          | List            |                                                                                                                         |
-| tax-rate                                           | Float           |                                                                                                                         |
-| tax-rate-engine                                    | String          |                                                                                                                         |
-| taxes-in-origin-country-currency                   | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| tcs-tax-lines                                      | List            |                                                                                                                         |
-| tolerance-failures                                 | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| total-taxes-less-discount                          | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| total-with-taxes                                   | BigDecimal      |                                                                                                                         |
-| transaction-notification-date                      | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| transaction-uuid                                   | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| type-of-document                                   | String          |                                                                                                                         |
-| type-of-operation                                  | String          |                                                                                                                         |
-| type-of-receipt                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| type-of-relationship                               | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| unique-identification-code-of-cash-receipt         | String          |                                                                                                                         |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| use-of-invoice                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| vehicle-license-plate                              | String          |                                                                                                                         |
-| verification-code                                  | String          |                                                                                                                         |
-| volume-amount                                      | String          |                                                                                                                         |
-| volume-brand                                       | String          |                                                                                                                         |
-| volume-gross-weight                                | String          |                                                                                                                         |
-| volume-liquid-weight                               | String          |                                                                                                                         |
-| volume-numbering                                   | String          |                                                                                                                         |
-| volume-type                                        | String          |                                                                                                                         |
-| withholding-tax-lines                              | List            |                                                                                                                         |
-| withholding-tax-override                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| Payment                                            | created-at      | DateTime                                                                                                                | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, BETWEEN |
-| created-by                                         | Struct          |                                                                                                                         |
-| description                                        | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| digital-check                                      | String          |                                                                                                                         |
-| error-text                                         | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| estimated-pay-from-total                           | BigDecimal      |                                                                                                                         |
-| exchange-rate                                      | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| external-ref-id                                    | Integer         |                                                                                                                         |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| last-exported-at                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, BETWEEN  |
-| line-num                                           | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| pay-from-account                                   | List            |                                                                                                                         |
-| pay-from-currency                                  | Struct          |                                                                                                                         |
-| pay-from-external-gl-account                       | List            |                                                                                                                         |
-| pay-from-total                                     | BigDecimal      |                                                                                                                         |
-| pay-to-account                                     | List            |                                                                                                                         |
-| pay-to-currency                                    | Struct          |                                                                                                                         |
-| pay-to-external-gl-account                         | List            |                                                                                                                         |
-| pay-to-total                                       | BigDecimal      |                                                                                                                         |
-| payee                                              | Struct          |                                                                                                                         |
-| payment-batch                                      | Struct          |                                                                                                                         |
-| payment-batch-id                                   | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| payment-details                                    | List            |                                                                                                                         |
-| payment-identifier                                 | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| released-at                                        | String          |                                                                                                                         |
-| reporting-currency                                 | Struct          |                                                                                                                         |
-| reporting-pay-from-total                           | BigDecimal      |                                                                                                                         |
-| reporting-pay-to-total                             | BigDecimal      |                                                                                                                         |
-| source-name                                        | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| source-reference                                   | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| status                                             | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| type                                               | String          | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, BETWEEN  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| Purchase Order                                     | acknowledged-at | DateTime                                                                                                                | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| acknowledged-flag                                  | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| attachments                                        | List            |                                                                                                                         |
-| change-type                                        | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| classification                                     | String          |                                                                                                                         |
-| confirm-by-hrs                                     | Integer         |                                                                                                                         |
-| coupa-accelerate-status                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| current-integration-history-records                | List            |                                                                                                                         |
-| custom-fields                                      | Struct          |                                                                                                                         |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| hide-price                                         | Boolean         |                                                                                                                         |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| internal-revision                                  | Integer         |                                                                                                                         |
-| invoice-stop                                       | Boolean         |                                                                                                                         |
-| last-exported-at                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| milestones                                         | List            |                                                                                                                         |
-| order-confirmation-level                           | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| payment-method                                     | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| payment-term                                       | Struct          |                                                                                                                         |
-| pcard                                              | Struct          |                                                                                                                         |
-| po-number                                          | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| price-hidden                                       | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| reason-insight-events                              | List            |                                                                                                                         |
-| recurring-rules                                    | List            |                                                                                                                         |
-| requester                                          | Struct          |                                                                                                                         |
-| ship-to-address                                    | Struct          |                                                                                                                         |
-| ship-to-attention                                  | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| ship-to-user                                       | Struct          |                                                                                                                         |
-| shipping-term                                      | Struct          |                                                                                                                         |
-| spend-load-id                                      | String          |                                                                                                                         |
-| status                                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier                                           | Struct          |                                                                                                                         |
-| supplier-site                                      | Struct          |                                                                                                                         |
-| transmission-emails                                | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| transmission-method-override                       | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| transmission-status                                | String          |                                                                                                                         |
-| type                                               | String          |                                                                                                                         |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| user-group-members                                 | List            |                                                                                                                         |
-| user-members                                       | List            |                                                                                                                         |
-| version                                            | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| Purchase Order Line                                | account         | Struct                                                                                                                  |                                                                                                                        |
-| account-allocations                                | List            |                                                                                                                         |
-| accounting-total                                   | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| accounting-total-currency                          | Struct          |                                                                                                                         |
-| amount-components                                  | List            |                                                                                                                         |
-| asset-tags                                         | List            |                                                                                                                         |
-| attachments                                        | List            |                                                                                                                         |
-| bulk-price                                         | Struct          |                                                                                                                         |
-| commodity                                          | Struct          |                                                                                                                         |
-| contract                                           | Struct          |                                                                                                                         |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| custom-fields                                      | Struct          |                                                                                                                         |
-| department                                         | Struct          |                                                                                                                         |
-| description                                        | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| easy-form-response-id                              | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| external-reference-number                          | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| external-reference-type                            | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| extra-line-attribute                               | Struct          |                                                                                                                         |
-| form-response                                      | List            |                                                                                                                         |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| invoice-stop                                       | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| invoiced                                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| item                                               | Struct          |                                                                                                                         |
-| line-num                                           | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| line-owner                                         | Struct          |                                                                                                                         |
-| manufacturer-name                                  | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| manufacturer-part-number                           | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| match-type                                         | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| milestones                                         | List            |                                                                                                                         |
-| minimum-order-quantity                             | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| need-by-date                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| order-header-id                                    | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| order-header-number                                | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| order-increment                                    | Struct          |                                                                                                                         |
-| order-line-tax-detail                              | Struct          |                                                                                                                         |
-| period                                             | Struct          |                                                                                                                         |
-| price                                              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| quantity                                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| receipt-approval-required                          | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| receipt-required                                   | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| received                                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| receiving-warehouse                                | Struct          |                                                                                                                         |
-| recurring-rules                                    | List            |                                                                                                                         |
-| reporting-total                                    | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| requester                                          | Struct          |                                                                                                                         |
-| requisition-line-id                                | Integer         |                                                                                                                         |
-| rfq-easy-form-response-id                          | Integer         |                                                                                                                         |
-| rfq-form-response                                  | List            |                                                                                                                         |
-| savings-pct                                        | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| service-type                                       | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| source-part-num                                    | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| spend-load-id                                      | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| status                                             | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| sub-line-num                                       | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| supp-aux-part-num                                  | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier                                           | Struct          |                                                                                                                         |
-| supplier-order-number                              | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| supplier-site-id                                   | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| third\_party\_supplier                             | Struct          |                                                                                                                         |
-| total                                              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| type                                               | String          | EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| uom                                                | Struct          |                                                                                                                         |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| version                                            | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| Receipt                                            | account         | Struct                                                                                                                  |                                                                                                                        |
-| account-allocations                                | List            |                                                                                                                         |
-| adjustment-code                                    | Struct          |                                                                                                                         |
-| asn-header                                         | Struct          |                                                                                                                         |
-| asn-line                                           | Struct          |                                                                                                                         |
-| asset-tags                                         | List            |                                                                                                                         |
-| attachments                                        | List            |                                                                                                                         |
-| barcode                                            | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| comments                                           | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| current-integration-history-records                | List            |                                                                                                                         |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| from-warehouse                                     | Struct          |                                                                                                                         |
-| from-warehouse-location                            | Struct          |                                                                                                                         |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| inspection-code                                    | Struct          |                                                                                                                         |
-| inventory-transaction-lots                         | List            |                                                                                                                         |
-| inventory-transaction-valuations                   | List            |                                                                                                                         |
-| item                                               | Struct          |                                                                                                                         |
-| last-exported-at                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| match-reference                                    | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| order-line                                         | Struct          |                                                                                                                         |
-| original-transaction                               | Struct          |                                                                                                                         |
-| original-transaction-id                            | Integer         |                                                                                                                         |
-| price                                              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| quantity                                           | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| reason-insight                                     | Struct          |                                                                                                                         |
-| receipt                                            | Struct          |                                                                                                                         |
-| receipts-batch-id                                  | Integer         |                                                                                                                         |
-| received-weight                                    | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| receiving-form-response                            | Struct          |                                                                                                                         |
-| rfid-tag                                           | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| soft-close-for-receiving                           | Boolean         |                                                                                                                         |
-| spend-load-id                                      | String          |                                                                                                                         |
-| status                                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| to-warehouse                                       | Struct          |                                                                                                                         |
-| to-warehouse-location                              | Struct          |                                                                                                                         |
-| total                                              | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| transaction-date                                   | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| type                                               | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| uom                                                | Struct          |                                                                                                                         |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| voided-value                                       | BigDecimal      | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| Requisition                                        | approvals       | List                                                                                                                    |                                                                                                                        |
-| approver                                           | Struct          |                                                                                                                         |
-| attachments                                        | List            |                                                                                                                         |
-| buyer-note                                         | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| created-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| current-approval                                   | Struct          |                                                                                                                         |
-| custom-fields                                      | Struct          |                                                                                                                         |
-| department                                         | Struct          |                                                                                                                         |
-| exported                                           | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| external-po-reference                              | String          |                                                                                                                         |
-| hide-price                                         | Struct          |                                                                                                                         |
-| id                                                 | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| justification                                      | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| line-count                                         | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| milestones                                         | List            |                                                                                                                         |
-| mobile-currency                                    | Struct          |                                                                                                                         |
-| mobile-total                                       | BigDecimal      |                                                                                                                         |
-| need-by-date                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| pcard                                              | Struct          |                                                                                                                         |
-| price-hidden                                       | Boolean         | EQUAL\_TO, NOT\_EQUAL\_TO                                                                                               |
-| receiving-warehouse-id                             | Integer         |                                                                                                                         |
-| recurring-rules                                    | List            |                                                                                                                         |
-| reject-reason-comment                              | String          |                                                                                                                         |
-| req-title                                          | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| requested-by                                       | Struct          |                                                                                                                         |
-| requester                                          | Struct          |                                                                                                                         |
-| ship-to-address                                    | Struct          |                                                                                                                         |
-| ship-to-attention                                  | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| spend-load-id                                      | String          |                                                                                                                         |
-| status                                             | String          | EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO |
-| submitted-at                                       | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| taggings                                           | List            |                                                                                                                         |
-| tags                                               | List            |                                                                                                                         |
-| total                                              | BigDecimal      |                                                                                                                         |
-| updated-at                                         | DateTime        | EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO  |
-| updated-by                                         | Struct          |                                                                                                                         |
-| user-group-members                                 | List            |                                                                                                                         |
-| user-members                                       | List            |                                                                                                                         |
-| Requisition Line                                   | account         | Struct                                                                                                                  |                                                                                                                        |
-| account-allocations                                | List            |                                                                                                                         |
-| alternate-status                                   | String          |                                                                                                                         |
-| asset-tags                                         | List            |                                                                                                                         |
-| attachments                                        | List            |                                                                                                                         |
-| commodity                                          | Struct          |                                                                                                                         |
-| confirm-by-hrs                                     | BigDecimal      |                                                                                                                         |
-| contract                                           | Struct          |                                                                                                                         |
-| created-at                                         | DateTime        |                                                                                                                         |
-| created-by                                         | Struct          |                                                                                                                         |
-| currency                                           | Struct          |                                                                                                                         |
-| description                                        | String          |                                                                                                                         |
-| easy-form-response-id                              | Integer         |                                                                                                                         |
-| extra-line-attribute                               | Struct          |                                                                                                                         |
-| form-response                                      | List            |                                                                                                                         |
-| id                                                 | Integer         |                                                                                                                         |
-| image-url                                          | String          |                                                                                                                         |
-| item                                               | Struct          |                                                                                                                         |
-| line-num                                           | Integer         |                                                                                                                         |
-| line-owner                                         | Struct          |                                                                                                                         |
-| line-type                                          | String          |                                                                                                                         |
-| manufacturer-name                                  | String          |                                                                                                                         |
-| manufacturer-part-number                           | String          |                                                                                                                         |
-| milestones                                         | List            |                                                                                                                         |
-| minimum-order-quantity                             | BigDecimal      |                                                                                                                         |
-| need-by-date                                       | DateTime        |                                                                                                                         |
-| order-confirmation-level                           | String          |                                                                                                                         |
-| order-increment                                    | String          |                                                                                                                         |
-| order-line-id                                      | Integer         |                                                                                                                         |
-| order-pad-line                                     | Struct          |                                                                                                                         |
-| payment-term                                       | Struct          |                                                                                                                         |
-| period                                             | Struct          |                                                                                                                         |
-| punchout-site                                      | Struct          |                                                                                                                         |
-| quantity                                           | BigDecimal      |                                                                                                                         |
-| realtime-extension                                 | Struct          |                                                                                                                         |
-| receipt-required                                   | Boolean         |                                                                                                                         |
-| recurring-rules                                    | List            |                                                                                                                         |
-| requisition-line-tax-detail                        | Struct          |                                                                                                                         |
-| requisition\_id                                    | Integer         | EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO           |
-| service-type                                       | String          |                                                                                                                         |
-| shipping-term                                      | Struct          |                                                                                                                         |
-| source                                             | String          |                                                                                                                         |
-| source-details                                     | String          |                                                                                                                         |
-| source-part-num                                    | String          |                                                                                                                         |
-| source-type                                        | String          |                                                                                                                         |
-| spend-load-id                                      | String          |                                                                                                                         |
-| status                                             | String          |                                                                                                                         |
-| sub-line-num                                       | Integer         |                                                                                                                         |
-| supp-aux-part-num                                  | String          |                                                                                                                         |
-| supplier                                           | Struct          |                                                                                                                         |
-| supplier-site                                      | Struct          |                                                                                                                         |
-| supplier-site-id                                   | Integer         |                                                                                                                         |
-| taggings                                           | List            |                                                                                                                         |
-| tags                                               | List            |                                                                                                                         |
-| total                                              | BigDecimal      |                                                                                                                         |
-| transmission-emails                                | String          |                                                                                                                         |
-| transmission-method-override                       | String          |                                                                                                                         |
-| unit-price                                         | BigDecimal      |                                                                                                                         |
-| unit-price-in-usd                                  | BigDecimal      |                                                                                                                         |
-| unspsc-code                                        | String          |                                                                                                                         |
-| uom                                                | Struct          |                                                                                                                         |
-| updated-at                                         | DateTime        |                                                                                                                         |
-| updated-by                                         | Struct          |                                                                                                                         |
-| Supplier Information                               |                 |                                                                                                                         |                                                                                                                        |
+
+
+- ** Approval**
+  - **** Field**:** 
+  - **** Data type**:** 
+  - **** Supported filters**:** 
+
+- ** Charge**
+  - **** Field**:** account-type-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** accounting-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** accounting-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** card-provider-account / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** charge-allocations / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** charge-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** charge-tax-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** coupa-pay-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** coupa-pay-statement-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** document-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** document-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** expense-holding-account / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** external-ref-id / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** holding-account / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** issuer-bank / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** issuer-reconciliation-id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** last-exported-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** mcc / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** merchant-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** merchant-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** merchant-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** order-header-currency / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** order-header-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** order-header-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** order-header-total / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** payment-partner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** posting-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** statement / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** statement-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** statement-name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** supplier / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier-name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** tax-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** tax-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** virtual-card / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** virtual-card-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+
+- ** Expense Report**
+  - **** Field**:** approvals / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** art-der-ausgabe / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** audit-score / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** auditor-note / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** comments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** end-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, BETWEEN, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** events / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** expense-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** expense-policy-violations / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** expense-report-preapprovals / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** expensed-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** external-src-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** external-src-ref / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** is-trip / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** last-exported-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, BETWEEN, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** paid / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** past-due / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** payment / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** payment-channel / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** reconciliation-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** reimbursable-total-amount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** reimbursable-total-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** reject-reason / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** report-due-date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** report-warnings / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** start-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, BETWEEN, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** submitted-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** submitted-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** title / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** total / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** travel-trip / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** type-de-note-de-frais / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** type-of-expense / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+
+- ** Invoice**
+  - **** Field**:** abandon-reason / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** account-type / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** advance-payment-received-amount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** amount-due / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** amount-due-less-discount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** amount-of-advance-payment / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** approvals / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** archive-entity-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** attachments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** bill-to-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** buyer-tax-registration / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** canceled / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** cash-accounting-scheme-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** cash-register-operator / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** channel / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** clearance-document / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** comments / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** compliant / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** confirmation / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** content-validation / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** contract / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** correct-value-of-supply / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** coupa-accelerate-status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** credit-note-differences-with-original-invoice / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** credit-reason / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** current-integration-history-records / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** custom-fields / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** customer-accounting-tax / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** customer-accounting-tax-less-discount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** customs-declaration-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** customs-declaration-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** customs-office / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** date-of-discovery-of-facts-decisive-for-correction / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** date-received / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** delivery-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** delivery-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** destination-country / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** discount-amount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** discount-due-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** discount-percent / **** Data type**:** Float / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** dispute-method / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** dispute-reasons / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** document-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** early-payment-provisions / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** endorsement-on-invoices / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** exchange-rate / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** failed-tolerances / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** folio-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** form-of-payment / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** freight-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** gross-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** gross-total-less-discount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** handling-amount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** image-scan / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** image-scan-content-type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** image-scan-file-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** image-scan-file-size / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** image-scan-url / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** inbound-invoice / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** inbox-name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** internal-note / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** invoice-charges / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** invoice-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** invoice-from-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** invoice-issuance-time / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** invoice-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** invoice-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** invoice-payment-receipts / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** invoice-reference-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** is-credit-note / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** issuance-place / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** last-exported-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** late-payment-penalties / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** legal-destination-country / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** line-count / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** line-level-taxation / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** lock-version-key / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** margin-scheme / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** means-of-payment / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** misc-amount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** municipal-tax-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** national-enrollment-of-conveyor / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** nature-of-operation / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** net-due-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** net-total-less-discount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** new-means-of-transport / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** origin-country / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** origin-currency-gross / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** origin-currency-net / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** original-invoice-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** original-invoice-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** original-value-of-supply / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** paid / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** pay-invoice / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** payment-agreement-notes / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** payment-channel / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** payment-method / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-notes / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-order-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** payment-order-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-term / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** payments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** place-of-issuance / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** place-of-supply / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** pre-payment-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** protocol-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** reconciliation-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** remit-to-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** requested-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** requester-email / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** requester-lookup-name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** requester-name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** resolution-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** reverse-charge-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** security-code-of-issuer / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** self-billing-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** sender-email / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** serial-code-of-fiscal-invoice / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** series / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** ship-from-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** ship-to-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** shipping-amount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** shipping-term / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** show-tax-information / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** signed-qr-code / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** spend-load-id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** split-payment-mechanism / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** state-tax-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** state-tax-number-for-substitute-taxpayer / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-created / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** supplier-invoice-issuer-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier-invoice-reviewer-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier-note / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier-payment-collector-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier-remit-to / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-tax-registration / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** taggings / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** tax-amount / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** tax-amount-engine / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** tax-code / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** tax-code-engine / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** tax-due-to-supplier / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** tax-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** tax-rate / **** Data type**:** Float / **** Supported filters**:** 
+  - **** Field**:** tax-rate-engine / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** taxes-in-origin-country-currency / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** tcs-tax-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** tolerance-failures / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** total-taxes-less-discount / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** total-with-taxes / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** transaction-notification-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** transaction-uuid / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** type-of-document / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** type-of-operation / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** type-of-receipt / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** type-of-relationship / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** unique-identification-code-of-cash-receipt / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** use-of-invoice / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** vehicle-license-plate / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** verification-code / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** volume-amount / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** volume-brand / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** volume-gross-weight / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** volume-liquid-weight / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** volume-numbering / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** volume-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** withholding-tax-lines / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** withholding-tax-override / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+
+- ** Payment**
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, BETWEEN
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** description / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** digital-check / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** error-text / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** estimated-pay-from-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** exchange-rate / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** external-ref-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** last-exported-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, BETWEEN
+  - **** Field**:** line-num / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** pay-from-account / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** pay-from-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** pay-from-external-gl-account / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** pay-from-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** pay-to-account / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** pay-to-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** pay-to-external-gl-account / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** pay-to-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** payee / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** payment-batch / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** payment-batch-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-details / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** payment-identifier / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** released-at / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** reporting-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** reporting-pay-from-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** reporting-pay-to-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** source-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** source-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, CONTAINS
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO, BETWEEN
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+
+- ** Purchase Order**
+  - **** Field**:** acknowledged-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** acknowledged-flag / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** attachments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** change-type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** classification / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** confirm-by-hrs / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** coupa-accelerate-status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** current-integration-history-records / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** custom-fields / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** hide-price / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** internal-revision / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** invoice-stop / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** last-exported-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** milestones / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** order-confirmation-level / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-method / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** payment-term / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** pcard / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** po-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** price-hidden / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** reason-insight-events / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** recurring-rules / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** requester / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** ship-to-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** ship-to-attention / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** ship-to-user / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** shipping-term / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** spend-load-id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-site / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** transmission-emails / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** transmission-method-override / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** transmission-status / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** user-group-members / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** user-members / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** version / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+
+- ** Purchase Order Line**
+  - **** Field**:** account / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** account-allocations / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** accounting-total / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** accounting-total-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** amount-components / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** asset-tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** attachments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** bulk-price / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** commodity / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** contract / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** custom-fields / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** department / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** description / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** easy-form-response-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** external-reference-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** external-reference-type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** extra-line-attribute / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** form-response / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** invoice-stop / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** invoiced / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** item / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** line-num / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** line-owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** manufacturer-name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** manufacturer-part-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** match-type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** milestones / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** minimum-order-quantity / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** need-by-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** order-header-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** order-header-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** order-increment / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** order-line-tax-detail / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** period / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** price / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** quantity / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** receipt-approval-required / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** receipt-required / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** received / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** receiving-warehouse / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** recurring-rules / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** reporting-total / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** requester / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** requisition-line-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** rfq-easy-form-response-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** rfq-form-response / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** savings-pct / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** service-type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** source-part-num / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** spend-load-id / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** sub-line-num / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supp-aux-part-num / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-order-number / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** supplier-site-id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** third\_party\_supplier / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** total / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, CONTAINS, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** uom / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** version / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+
+- ** Receipt**
+  - **** Field**:** account / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** account-allocations / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** adjustment-code / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** asn-header / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** asn-line / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** asset-tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** attachments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** barcode / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** comments / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** current-integration-history-records / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** from-warehouse / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** from-warehouse-location / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** inspection-code / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** inventory-transaction-lots / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** inventory-transaction-valuations / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** item / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** last-exported-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** match-reference / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** order-line / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** original-transaction / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** original-transaction-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** price / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** quantity / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** reason-insight / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** receipt / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** receipts-batch-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** received-weight / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** receiving-form-response / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** rfid-tag / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** soft-close-for-receiving / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** spend-load-id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** to-warehouse / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** to-warehouse-location / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** total / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** transaction-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** uom / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** voided-value / **** Data type**:** BigDecimal / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+
+- ** Requisition**
+  - **** Field**:** approvals / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** approver / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** attachments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** buyer-note / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** current-approval / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** custom-fields / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** department / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** exported / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** external-po-reference / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** hide-price / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** justification / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** line-count / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** milestones / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** mobile-currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** mobile-total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** need-by-date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** pcard / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** price-hidden / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO
+  - **** Field**:** receiving-warehouse-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** recurring-rules / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** reject-reason-comment / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** req-title / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** requested-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** requester / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** ship-to-address / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** ship-to-attention / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** spend-load-id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO, CONTAINS, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** submitted-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** taggings / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, BETWEEN, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** user-group-members / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** user-members / **** Data type**:** List / **** Supported filters**:** 
+
+- ** Requisition Line**
+  - **** Field**:** account / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** account-allocations / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** alternate-status / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** asset-tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** attachments / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** commodity / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** confirm-by-hrs / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** contract / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** created-at / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** created-by / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** currency / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** easy-form-response-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** extra-line-attribute / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** form-response / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** image-url / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** item / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** line-num / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** line-owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** line-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** manufacturer-name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** manufacturer-part-number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** milestones / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** minimum-order-quantity / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** need-by-date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** order-confirmation-level / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** order-increment / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** order-line-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** order-pad-line / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** payment-term / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** period / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** punchout-site / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** quantity / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** realtime-extension / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** receipt-required / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** recurring-rules / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** requisition-line-tax-detail / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** requisition\_id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO, NOT\_EQUAL\_TO, LESS\_THAN, GREATER\_THAN, LESS\_THAN\_OR\_EQUAL\_TO, GREATER\_THAN\_OR\_EQUAL\_TO
+  - **** Field**:** service-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** shipping-term / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** source / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** source-details / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** source-part-num / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** source-type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** spend-load-id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** status / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** sub-line-num / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** supp-aux-part-num / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** supplier / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-site / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** supplier-site-id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** taggings / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** total / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** transmission-emails / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** transmission-method-override / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** unit-price / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** unit-price-in-usd / **** Data type**:** BigDecimal / **** Supported filters**:** 
+  - **** Field**:** unspsc-code / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** uom / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** updated-at / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** updated-by / **** Data type**:** Struct / **** Supported filters**:** 
+
+- ** Supplier Information**
+  - **** Field**:** 
+  - **** Data type**:** 
+  - **** Supported filters**:** 
+

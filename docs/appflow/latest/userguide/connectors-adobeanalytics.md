@@ -1,383 +1,400 @@
+
+
 # Adobe Analytics connector for Amazon AppFlow
+<a name="connectors-adobeanalytics"></a>
 
 Adobe Analytics is a business analysis software as a service (SaaS) solution. If you’re an Adobe Analytics user, your account contains business data, analytics, and more. You can use Amazon AppFlow to transfer data from Adobe Analytics to certain AWS services or other supported applications.
 
 ## Amazon AppFlow support for Adobe Analytics
+<a name="adobeanalytics-support"></a>
 
 Amazon AppFlow supports Adobe Analytics as follows.
 
-**Supported as a data source?**
-
+**Supported as a data source?**  
 Yes. You can use Amazon AppFlow to transfer data from Adobe Analytics.
 
-**Supported as a data destination?**
-
+**Supported as a data destination?**  
 No. You can't use Amazon AppFlow to transfer data to Adobe Analytics.
 
 ## Before you begin
+<a name="adobeanalytics-prereqs"></a>
 
-To use Amazon AppFlow to transfer data from Adobe Analytics to supported destinations, you must meet these
-requirements:
+To use Amazon AppFlow to transfer data from Adobe Analytics to supported destinations, you must meet these requirements:
++ You have an account with Adobe Analytics that contains the data that you want to transfer. For more information about the Adobe Analytics data objects that Amazon AppFlow supports, see [Supported objects](#adobeanalytics-objects).
++ In your Adobe Analytics account, you've created an app for Amazon AppFlow. The app provides the client credentials that Amazon AppFlow uses to access your data securely when it makes authenticated calls to your account. For information about how to create an app, see [Add a new app](https://experienceleague.adobe.com/docs/mobile-services/using/manage-apps-ug/t-new-app.html?lang=en) in the Adobe Analytics documentation.
++ You've configured the app with a redirect URL for Amazon AppFlow.
 
-- You have an account with Adobe Analytics that contains the data that you want to transfer. For more
-  information about the Adobe Analytics data objects that Amazon AppFlow supports, see [Supported objects](#adobeanalytics-objects "#adobeanalytics-objects").
-- In your Adobe Analytics account, you've created an app for Amazon AppFlow. The app provides the
-  client credentials that Amazon AppFlow uses to access your data securely when it makes authenticated
-  calls to your account. For information about how to create an app, see [Add a new app](https://experienceleague.adobe.com/docs/mobile-services/using/manage-apps-ug/t-new-app.html?lang=en "https://experienceleague.adobe.com/docs/mobile-services/using/manage-apps-ug/t-new-app.html?lang=en") in the Adobe Analytics documentation.
-- You've configured the app with a redirect URL for Amazon AppFlow.
+  Redirect URLs have the following format:
 
-Redirect URLs have the following format:
+  ```
+  https://{{region}}.console.aws.amazon.com/appflow/oauth
+  ```
 
-```
-https://`region`.console.aws.amazon.com/appflow/oauth
-```
+  In this URL, *region* is the code for the AWS Region where you use Amazon AppFlow to transfer data from Adobe Analytics. For example, the code for the US East (N. Virginia) Region is `us-east-1`. For that Region, the URL is the following:
 
-In this URL, _region_ is the code for the AWS Region
-where you use Amazon AppFlow to transfer data from Adobe Analytics. For example, the code for the US East (N. Virginia)
-Region is `us-east-1`. For that Region, the URL is the following:
+  ```
+  https://us-east-1.console.aws.amazon.com/appflow/oauth
+  ```
 
-```
-https://us-east-1.console.aws.amazon.com/appflow/oauth
-```
+  For the AWS Regions that Amazon AppFlow supports, and their codes, see [Amazon AppFlow endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/appflow.html) in the *AWS General Reference.*
 
-For the AWS Regions that Amazon AppFlow supports, and their codes, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md")
-in the _AWS General Reference._
-
-Note the client ID and client secret from your app settings. You provide these values to
-Amazon AppFlow when you create your connection.
+Note the client ID and client secret from your app settings. You provide these values to Amazon AppFlow when you create your connection.
 
 ### Connecting Amazon AppFlow to your Adobe Analytics account
+<a name="adobeanalytics-connecting"></a>
 
-To connect Amazon AppFlow to your Adobe Analytics account, provide the client credentials from
-your Adobe Analytics app so that Amazon AppFlow can access your data. If you haven't yet configured
-your Adobe Analytics account for Amazon AppFlow integration, see [Before you begin](#adobeanalytics-prereqs "#adobeanalytics-prereqs").
+To connect Amazon AppFlow to your Adobe Analytics account, provide the client credentials from your Adobe Analytics app so that Amazon AppFlow can access your data. If you haven't yet configured your Adobe Analytics account for Amazon AppFlow integration, see [Before you begin](#adobeanalytics-prereqs).
 
-###### To connect to Adobe Analytics
+**To connect to Adobe Analytics**
 
-1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
-2. In the navigation pane on the left, choose **Connections**.
-3. On the **Manage connections** page, for **Connectors**,
-   choose **Adobe Analytics**.
-4. Choose **Create connection**.
-5. In the **Connect to Adobe Analytics** window, enter the following
-   information:
+1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/).
 
-   - **Connection name** — A name for the connection.
-   - **Client ID** — The client ID in your Adobe Analytics
-     app.
-   - **Client secret** — The client secret in your
-     Adobe Analytics app.
-   - **X-API-KEY** — Re-enter the client ID in this field.
+1. In the navigation pane on the left, choose **Connections**.
 
-6. Optionally, under **Data encryption**, choose **Customize
-   encryption settings (advanced)** if you want to encrypt your data with a customer
-   managed key in the AWS Key Management Service (AWS KMS).
+1. On the **Manage connections** page, for **Connectors**, choose **Adobe Analytics**.
 
-By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages
-for you. Choose this option if you want to encrypt your data with your own KMS key instead.
+1. Choose **Create connection**.
 
-Amazon AppFlow always encrypts your data during transit and at rest. For more information, see
-[Data protection in Amazon AppFlow](data-protection.md "data-protection.md").
+1. In the **Connect to Adobe Analytics** window, enter the following information:
+   + **Connection name** — A name for the connection.
+   + **Client ID** — The client ID in your Adobe Analytics app.
+   + **Client secret** — The client secret in your Adobe Analytics app. 
+   + **X-API-KEY** — Re-enter the client ID in this field.
 
-If you want to use a KMS key from the current AWS account, select this key under
-**Choose an AWS KMS key**. If you want to use a KMS key from a different
-AWS account, enter the Amazon Resource Name (ARN) for that key. 7. Choose **Connect**. 8. In the window that appears, sign in to your Adobe Analytics account, and grant access
-to Amazon AppFlow.
+1. Optionally, under **Data encryption**, choose **Customize encryption settings (advanced)** if you want to encrypt your data with a customer managed key in the AWS Key Management Service (AWS KMS).
 
-On the **Manage connections** page, your new connection appears in the
-**Connections** table. When you create a flow
-that uses Adobe Analytics as the data source, you can select this connection.
+   By default, Amazon AppFlow encrypts your data with a KMS key that AWS creates, uses, and manages for you. Choose this option if you want to encrypt your data with your own KMS key instead.
+
+   Amazon AppFlow always encrypts your data during transit and at rest. For more information, see [Data protection in Amazon AppFlow](data-protection.md).
+
+   If you want to use a KMS key from the current AWS account, select this key under **Choose an AWS KMS key**. If you want to use a KMS key from a different AWS account, enter the Amazon Resource Name (ARN) for that key.
+
+1. Choose **Connect**.
+
+1. In the window that appears, sign in to your Adobe Analytics account, and grant access to Amazon AppFlow.
+
+On the **Manage connections** page, your new connection appears in the **Connections** table. When you create a flow that uses Adobe Analytics as the data source, you can select this connection.
 
 ### Transferring data from Adobe Analytics with a flow
+<a name="adobeanalytics-transfer-data"></a>
 
-To transfer data from Adobe Analytics, create an Amazon AppFlow flow, and choose Adobe Analytics as the data
-source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
+To transfer data from Adobe Analytics, create an Amazon AppFlow flow, and choose Adobe Analytics as the data source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md).
 
-When you configure the flow, choose the data object that you want to transfer. For the objects
-that Amazon AppFlow supports for Adobe Analytics, see [Supported objects](#adobeanalytics-objects "#adobeanalytics-objects").
+When you configure the flow, choose the data object that you want to transfer. For the objects that Amazon AppFlow supports for Adobe Analytics, see [Supported objects](#adobeanalytics-objects).
 
-Also, choose the destination where you want to transfer the data object that you selected.
-For more information about how to configure your destination, see [Supported destinations](#adobeanalytics-destinations "#adobeanalytics-destinations").
+Also, choose the destination where you want to transfer the data object that you selected. For more information about how to configure your destination, see [Supported destinations](#adobeanalytics-destinations).
 
 ### Supported destinations
+<a name="adobeanalytics-destinations"></a>
 
-When you create a flow that uses Adobe Analytics as the data source, you can set the destination to any of the following connectors:
-
-- [Amazon Lookout for Metrics](lookout.md "lookout.md")
-- [Amazon Redshift](redshift.md "redshift.md")
-- [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md "connectors-amazon-rds-postgres-sql.md")
-- [Amazon S3](s3.md "s3.md")
-- [HubSpot](connectors-hubspot.md "connectors-hubspot.md")
-- [Marketo](marketo.md "marketo.md")
-- [Salesforce](salesforce.md "salesforce.md")
-- [SAP OData](sapodata.md "sapodata.md")
-- [Snowflake](snowflake.md "snowflake.md")
-- [Upsolver](upsolver.md "upsolver.md")
-- [Zendesk](zendesk.md "zendesk.md")
-- [Zoho CRM](connectors-zoho-crm.md "connectors-zoho-crm.md")
+When you create a flow that uses Adobe Analytics as the data source, you can set the destination to any of the following connectors: 
++ [Amazon Lookout for Metrics](lookout.md)
++ [Amazon Redshift](redshift.md)
++ [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md)
++ [Amazon S3](s3.md)
++ [HubSpot](connectors-hubspot.md)
++ [Marketo](marketo.md)
++ [Salesforce](salesforce.md)
++ [SAP OData](sapodata.md)
++ [Snowflake](snowflake.md)
++ [Upsolver](upsolver.md)
++ [Zendesk](zendesk.md)
++ [Zoho CRM](connectors-zoho-crm.md)
 
 ### Supported objects
+<a name="adobeanalytics-objects"></a>
 
-When you create a flow that uses Adobe Analytics as the data source, you can transfer any of the
-following data objects to supported destinations:
+When you create a flow that uses Adobe Analytics as the data source, you can transfer any of the following data objects to supported destinations:
 
-| **Object**                         | **Field**                | **Data type** | **Supported filters** |
-| ---------------------------------- | ------------------------ | ------------- | --------------------- |
-| Annotation                         | Apply To All Reports     | Boolean       |                       |
-| Approved                           | Boolean                  |               |
-| Color                              | String                   |               |
-| Company Id                         | Integer                  |               |
-| Created Date                       | DateTime                 |               |
-| Date Range                         | String                   |               |
-| Description                        | String                   |               |
-| Favorite                           | Boolean                  |               |
-| Filter By Date Range               | String                   | EQUAL\_TO     |
-| Filter By Ids                      | String                   | EQUAL\_TO     |
-| Filter By Modified After           | DateTime                 | EQUAL\_TO     |
-| Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL\_TO     |
-| Locale                             | String                   | EQUAL\_TO     |
-| Modified By Id                     | String                   |               |
-| Modified Date                      | DateTime                 |               |
-| Name                               | String                   |               |
-| Owner                              | Struct                   |               |
-| Owner FullName                     | String                   |               |
-| Report Suite Name                  | String                   |               |
-| Rsid                               | String                   |               |
-| Scope                              | Struct                   |               |
-| Shares                             | List                     |               |
-| Sort Property                      | String                   | EQUAL\_TO     |
-| System User Owned                  | Boolean                  |               |
-| Tags                               | List                     |               |
-| Usage Summary                      | Struct                   |               |
-| Usage Summary With Relevancy Score | String                   |               |
-| Calculated Metric                  | Approved                 | Boolean       | EQUAL\_TO             |
-| Categories                         | List                     |               |
-| Compatibility                      | Struct                   |               |
-| Created                            | DateTime                 |               |
-| Definition                         | Struct                   |               |
-| Description                        | String                   |               |
-| Favorite                           | Boolean                  | EQUAL\_TO     |
-| Filter By Ids                      | String                   | EQUAL\_TO     |
-| Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL\_TO     |
-| Locale                             | String                   | EQUAL\_TO     |
-| Modified                           | DateTime                 |               |
-| Name                               | String                   | EQUAL\_TO     |
-| Owner                              | Struct                   |               |
-| Owner Full Name                    | String                   |               |
-| Owner Id                           | Integer                  | EQUAL\_TO     |
-| Polarity                           | String                   |               |
-| Precision                          | Integer                  |               |
-| Report Suite Name                  | String                   |               |
-| Rsid                               | String                   |               |
-| Rsids                              | String                   | EQUAL\_TO     |
-| Site Title                         | String                   |               |
-| Sort Direction                     | String                   | EQUAL\_TO     |
-| Sort Property                      | String                   | EQUAL\_TO     |
-| Tag Names                          | String                   | EQUAL\_TO     |
-| Tags                               | List                     |               |
-| To Be Used In Rs Id                | String                   | EQUAL\_TO     |
-| Type                               | String                   |               |
-| Calculated Metric Function         | Category                 | String        |                       |
-| Definition                         | Struct                   |               |
-| Description                        | String                   |               |
-| Example                            | String                   |               |
-| Example Key                        | String                   |               |
-| Id                                 | String                   |               |
-| Locale                             | String                   | EQUAL\_TO     |
-| Name                               | String                   |               |
-| Namespace                          | String                   |               |
-| Persistable                        | Boolean                  |               |
-| Component Metadata Share           | Access Level             | String        |                       |
-| Component Id                       | String                   |               |
-| Component Type                     | String                   |               |
-| Ims Org Id                         | String                   |               |
-| Include Type                       | String                   | EQUAL\_TO     |
-| Share From Ims Id                  | String                   |               |
-| Share Id                           | String                   |               |
-| Share To Id                        | Integer                  |               |
-| Share To Ims Id                    | String                   |               |
-| Share To Login                     | String                   |               |
-| Share To Type                      | String                   |               |
-| shareToDisplayName                 | String                   |               |
-| user Id                            | Integer                  | EQUAL\_TO     |
-| Component Metadata Tag             | Components               | List          |                       |
-| Description                        | String                   |               |
-| Id                                 | String                   |               |
-| Name                               | String                   |               |
-| Date Range                         | Alternate Variable Names | Struct        |                       |
-| Approved                           | Boolean                  |               |
-| Company ID                         | Integer                  |               |
-| Create Date                        | DateTime                 |               |
-| Curated Item                       | Boolean                  |               |
-| Curated RSID                       | String                   | EQUAL\_TO     |
-| Definition                         | String                   |               |
-| Description                        | String                   |               |
-| Disabled Date                      | DateTime                 |               |
-| Favorite                           | Boolean                  |               |
-| Filter By IDs                      | String                   | EQUAL\_TO     |
-| Filter By Modified After           | DateTime                 | EQUAL\_TO     |
-| ID                                 | String                   |               |
-| IMS Org ID                         | String                   |               |
-| Include Type                       | String                   | EQUAL\_TO     |
-| Locale                             | String                   | EQUAL\_TO     |
-| Modified                           | DateTime                 |               |
-| Name                               | String                   |               |
-| New Definition                     | Boolean                  | EQUAL\_TO     |
-| Owner                              | Struct                   |               |
-| Owner Full Name                    | String                   |               |
-| Shares                             | List                     |               |
-| Shares Full Name                   | String                   |               |
-| System User Owned                  | Boolean                  |               |
-| Tags                               | List                     |               |
-| Template                           | Boolean                  |               |
-| Usage Summary                      | Struct                   |               |
-| Usage Summary With Relevancy Score | String                   |               |
-| Dimension                          | Allowed For Reporting    | Boolean       |                       |
-| Categories                         | List                     |               |
-| Category                           | String                   |               |
-| Classifiable                       | Boolean                  | EQUAL\_TO     |
-| Description                        | String                   |               |
-| Extra Title Info                   | String                   |               |
-| Filter Reportable                  | Boolean                  | EQUAL\_TO     |
-| ID                                 | String                   |               |
-| Locale                             | String                   | EQUAL\_TO     |
-| Multi Valued                       | Boolean                  |               |
-| Name                               | String                   |               |
-| None Settings                      | Struct                   |               |
-| Parent                             | String                   |               |
-| Pathable                           | Boolean                  |               |
-| Reportable                         | List                     |               |
-| Segmentable                        | Boolean                  | EQUAL\_TO     |
-| Standard Component                 | Boolean                  |               |
-| Support                            | List                     |               |
-| Supports Data Governance           | Boolean                  |               |
-| Tags                               | List                     |               |
-| Title                              | String                   |               |
-| Type                               | String                   |               |
-| Discovery                          | Companies                | List          |                       |
-| IMS Org Id                         | String                   |               |
-| Metric                             | Allocation               | Boolean       |                       |
-| Allowed For Reporting              | Boolean                  |               |
-| Categories                         | List                     |               |
-| Category                           | String                   |               |
-| Description                        | String                   |               |
-| Extra Title Info                   | String                   |               |
-| Help Link                          | String                   |               |
-| Id                                 | String                   |               |
-| Locale                             | String                   | EQUAL\_TO     |
-| Name                               | String                   |               |
-| Polarity                           | String                   |               |
-| Precision                          | Integer                  |               |
-| Segmentable                        | Boolean                  | EQUAL\_TO     |
-| Standard Component                 | Boolean                  |               |
-| Support                            | List                     |               |
-| Supports Data Governance           | Boolean                  |               |
-| Tags                               | List                     |               |
-| Title                              | String                   |               |
-| Type                               | String                   |               |
-| calculated                         | Boolean                  |               |
-| Project                            | Access Level             | String        |                       |
-| Approved                           | Boolean                  |               |
-| Company Template                   | Boolean                  |               |
-| Complexity                         | Struct                   |               |
-| Created                            | DateTime                 |               |
-| Definition                         | Struct                   |               |
-| Description                        | String                   |               |
-| External References                | Struct                   |               |
-| Favorite                           | Boolean                  |               |
-| Filter By IDs                      | String                   | EQUAL\_TO     |
-| Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL\_TO     |
-| Locale                             | String                   | EQUAL\_TO     |
-| Migrated IDs                       | List                     |               |
-| Modified                           | DateTime                 |               |
-| Name                               | String                   |               |
-| Owner                              | Struct                   |               |
-| Owner ID                           | String                   | EQUAL\_TO     |
-| Report Suite Name                  | String                   |               |
-| Rsid                               | String                   |               |
-| Shares                             | List                     |               |
-| Site Title                         | String                   |               |
-| Tags                               | List                     |               |
-| Template                           | Boolean                  |               |
-| Type                               | String                   |               |
-| Usage Summary                      | Struct                   |               |
-| versionNotes                       | String                   |               |
-| Report Suite                       | Calendar Type            | Struct        |                       |
-| Collection Item Type               | String                   |               |
-| Currency                           | String                   |               |
-| Id                                 | String                   |               |
-| Name                               | String                   |               |
-| RS Id Contains                     | String                   | EQUAL\_TO     |
-| RS Ids                             | String                   |               |
-| Rsid                               | String                   |               |
-| Timezone Zone Info                 | String                   |               |
-| Report Top Item                    | Date Range               | String        | EQUAL\_TO             |
-| End Date                           | DateTime                 | EQUAL\_TO     |
-| Item Id                            | String                   |               |
-| Locale                             | String                   |               |
-| Lookup None Values                 | Boolean                  | EQUAL\_TO     |
-| Search And                         | String                   | EQUAL\_TO     |
-| Search Not                         | String                   | EQUAL\_TO     |
-| Search Or                          | String                   | EQUAL\_TO     |
-| Search Phrase                      | String                   | EQUAL\_TO     |
-| Start Date                         | DateTime                 | EQUAL\_TO     |
-| Value                              | String                   |               |
-| search-clause                      | String                   |               |
-| Segment                            | Categories               | List          |                       |
-| Created                            | DateTime                 |               |
-| Definition                         | Struct                   |               |
-| Definition Last Modified           | DateTime                 |               |
-| Description                        | String                   |               |
-| Filter By Published Segments       | String                   | EQUAL\_TO     |
-| Id                                 | String                   |               |
-| Include Type                       | String                   | EQUAL\_TO     |
-| Locale                             | String                   | EQUAL\_TO     |
-| Modified                           | DateTime                 |               |
-| Modified By ID                     | String                   |               |
-| Name                               | String                   | EQUAL\_TO     |
-| Owner                              | Struct                   |               |
-| Owner Full Name                    | String                   |               |
-| Publishing Status                  | Struct                   |               |
-| RSIDs                              | String                   | EQUAL\_TO     |
-| Report Suite Name                  | String                   |               |
-| Rsid                               | String                   | EQUAL\_TO     |
-| Segment Filter                     | String                   | EQUAL\_TO     |
-| Site Title                         | String                   |               |
-| Sort Direction                     | String                   | EQUAL\_TO     |
-| Sort Property                      | String                   | EQUAL\_TO     |
-| Tag Names                          | String                   | EQUAL\_TO     |
-| Tags                               | List                     |               |
-| compatibility                      | Struct                   |               |
-| Timezone                           | Current Timezone Offset  | Float         |                       |
-| Name                               | String                   |               |
-| Timezone Id                        | Integer                  |               |
-| Timezone Zoneinfo                  | String                   |               |
-| Usage Log                          | Date Created             | DateTime      |                       |
-| End Date                           | DateTime                 | EQUAL\_TO     |
-| Event                              | String                   | EQUAL\_TO     |
-| Event Description                  | String                   |               |
-| Event Type                         | String                   | EQUAL\_TO     |
-| IP                                 | String                   | EQUAL\_TO     |
-| IP Address                         | String                   |               |
-| Login                              | String                   | EQUAL\_TO     |
-| Rsid                               | String                   | EQUAL\_TO     |
-| Start Date                         | DateTime                 | EQUAL\_TO     |
-| User                               | Admin                    | Boolean       |                       |
-| Change Password                    | Boolean                  |               |
-| Company ID                         | Integer                  |               |
-| Disabled                           | Boolean                  |               |
-| Email                              | String                   |               |
-| First Name                         | String                   |               |
-| Full Name                          | String                   |               |
-| IMS User ID                        | String                   |               |
-| Last Access                        | DateTime                 |               |
-| Last Name                          | String                   |               |
-| Login                              | String                   |               |
-| Login ID                           | Integer                  |               |
-| Phone Number                       | String                   |               |
-| Title                              | String                   |               |
-| createDate                         | DateTime                 |               |
-| tempLoginEnd                       | DateTime                 |               |
+
+
+- ** Annotation**
+  - **** Field**:** Apply To All Reports / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Approved / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Color / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Company Id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Created Date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Date Range / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Favorite / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Filter By Date Range / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Filter By Ids / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Filter By Modified After / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Include Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Modified By Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Modified Date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Owner FullName / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Report Suite Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Rsid / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Scope / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Shares / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Sort Property / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** System User Owned / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Usage Summary / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Usage Summary With Relevancy Score / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Calculated Metric**
+  - **** Field**:** Approved / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Categories / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Compatibility / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Created / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Definition / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Favorite / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Filter By Ids / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Include Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Modified / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Owner Full Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Owner Id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Polarity / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Precision / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Report Suite Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Rsid / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Rsids / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Site Title / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Sort Direction / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Sort Property / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Tag Names / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** To Be Used In Rs Id / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Type / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Calculated Metric Function**
+  - **** Field**:** Category / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Definition / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Example / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Example Key / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Namespace / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Persistable / **** Data type**:** Boolean / **** Supported filters**:** 
+
+- ** Component Metadata Share**
+  - **** Field**:** Access Level / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Component Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Component Type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Ims Org Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Include Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Share From Ims Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Share Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Share To Id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Share To Ims Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Share To Login / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Share To Type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** shareToDisplayName / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** user Id / **** Data type**:** Integer / **** Supported filters**:** EQUAL\_TO
+
+- ** Component Metadata Tag**
+  - **** Field**:** Components / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Date Range**
+  - **** Field**:** Alternate Variable Names / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Approved / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Company ID / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Create Date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Curated Item / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Curated RSID / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Definition / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Disabled Date / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Favorite / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Filter By IDs / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Filter By Modified After / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** IMS Org ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Include Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Modified / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** New Definition / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Owner Full Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Shares / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Shares Full Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** System User Owned / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Template / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Usage Summary / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Usage Summary With Relevancy Score / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Dimension**
+  - **** Field**:** Allowed For Reporting / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Categories / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Category / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Classifiable / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Extra Title Info / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Filter Reportable / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Multi Valued / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** None Settings / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Parent / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Pathable / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Reportable / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Segmentable / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Standard Component / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Support / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Supports Data Governance / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Title / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Type / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Discovery**
+  - **** Field**:** Companies / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** IMS Org Id / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Metric**
+  - **** Field**:** Allocation / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Allowed For Reporting / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Categories / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Category / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Extra Title Info / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Help Link / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Polarity / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Precision / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Segmentable / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Standard Component / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Support / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Supports Data Governance / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Title / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** calculated / **** Data type**:** Boolean / **** Supported filters**:** 
+
+- ** Project**
+  - **** Field**:** Access Level / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Approved / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Company Template / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Complexity / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Created / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Definition / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** External References / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Favorite / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Filter By IDs / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Include Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Migrated IDs / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Modified / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Owner ID / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Report Suite Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Rsid / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Shares / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Site Title / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Template / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Usage Summary / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** versionNotes / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Report Suite**
+  - **** Field**:** Calendar Type / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Collection Item Type / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Currency / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** RS Id Contains / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** RS Ids / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Rsid / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Timezone Zone Info / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Report Top Item**
+  - **** Field**:** Date Range / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** End Date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Item Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Lookup None Values / **** Data type**:** Boolean / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Search And / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Search Not / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Search Or / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Search Phrase / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Start Date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Value / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** search-clause / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Segment**
+  - **** Field**:** Categories / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** Created / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Definition / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Definition Last Modified / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Filter By Published Segments / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Id / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Include Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Locale / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Modified / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Modified By ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Owner / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** Owner Full Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Publishing Status / **** Data type**:** Struct / **** Supported filters**:** 
+  - **** Field**:** RSIDs / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Report Suite Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Rsid / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Segment Filter / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Site Title / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Sort Direction / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Sort Property / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Tag Names / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Tags / **** Data type**:** List / **** Supported filters**:** 
+  - **** Field**:** compatibility / **** Data type**:** Struct / **** Supported filters**:** 
+
+- ** Timezone**
+  - **** Field**:** Current Timezone Offset / **** Data type**:** Float / **** Supported filters**:** 
+  - **** Field**:** Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Timezone Id / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Timezone Zoneinfo / **** Data type**:** String / **** Supported filters**:** 
+
+- ** Usage Log**
+  - **** Field**:** Date Created / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** End Date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Event / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Event Description / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Event Type / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** IP / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** IP Address / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Login / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Rsid / **** Data type**:** String / **** Supported filters**:** EQUAL\_TO
+  - **** Field**:** Start Date / **** Data type**:** DateTime / **** Supported filters**:** EQUAL\_TO
+
+- ** User**
+  - **** Field**:** Admin / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Change Password / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Company ID / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Disabled / **** Data type**:** Boolean / **** Supported filters**:** 
+  - **** Field**:** Email / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** First Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Full Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** IMS User ID / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Last Access / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** Last Name / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Login / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Login ID / **** Data type**:** Integer / **** Supported filters**:** 
+  - **** Field**:** Phone Number / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** Title / **** Data type**:** String / **** Supported filters**:** 
+  - **** Field**:** createDate / **** Data type**:** DateTime / **** Supported filters**:** 
+  - **** Field**:** tempLoginEnd / **** Data type**:** DateTime / **** Supported filters**:** 
+

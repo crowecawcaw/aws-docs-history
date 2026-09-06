@@ -1,13 +1,11 @@
+
+
 # Create a flow using CloudFormation resources
+<a name="create-flow-cfn"></a>
 
-You may also use CloudFormation to create a connector profile and configure a flow using the
-`AWS::AppFlow::ConnectorProfile` and `AWS::AppFlow::Flow` resources. The
-following example creates a new Amazon AppFlow connection to Salesforce. Note that this leverages a
-Salesforce Connected App, which itself requires several steps to configure across AWS and
-Salesforce. See [Salesforce global connected app](salesforce.md#salesforce-global-connected-app "salesforce.md#salesforce-global-connected-app") for details.
+You may also use CloudFormation to create a connector profile and configure a flow using the `AWS::AppFlow::ConnectorProfile` and `AWS::AppFlow::Flow` resources. The following example creates a new Amazon AppFlow connection to Salesforce. Note that this leverages a Salesforce Connected App, which itself requires several steps to configure across AWS and Salesforce. See [Salesforce global connected app](https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-global-connected-app) for details.
 
-Declare the `AWS::AppFlow::ConnectorProfile` entity in your CloudFormation template
-with the following JSON syntax:
+Declare the `AWS::AppFlow::ConnectorProfile` entity in your CloudFormation template with the following JSON syntax:
 
 ```
 {
@@ -38,12 +36,10 @@ with the following JSON syntax:
             }
           }
         }
-      }
+      }    
     }
   }
 }
-
-
 ```
 
 Following is an example of YAML syntax:
@@ -53,7 +49,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   MySalesforceConnection:
     Type: AWS::AppFlow::ConnectorProfile
-    Properties:
+    Properties: 
       ConnectorProfileName: MySalesforceConnection
       ConnectorType: Salesforce
       ConnectionMode: Public
@@ -70,7 +66,6 @@ Resources:
               AuthCode: <auth-code-value>
               RedirectUri: https://login.salesforce.com/
             ClientCredentialsArn: <secret-arn-value>
-
 ```
 
 The following examples creates a new Amazon AppFlow connection to ServiceNow.
@@ -78,7 +73,7 @@ The following examples creates a new Amazon AppFlow connection to ServiceNow.
 Create ServiceNow connection - JSON
 
 ```
-
+ 
 {
   "AWSTemplateFormatVersion":"2010-09-09",
   "Resources": {
@@ -91,7 +86,7 @@ Create ServiceNow connection - JSON
         "ConnectorProfileConfig": {
           "ConnectorProfileProperties": {
             "ServiceNow": {
-              "InstanceUrl": "https://<instance-name>.service-now.com",
+              "InstanceUrl": "https://<instance-name>.service-now.com", 
             }
           },
           "ConnectorProfileCredentials": {
@@ -101,25 +96,22 @@ Create ServiceNow connection - JSON
             }
           }
         }
-      }
+      }    
     }
   }
 }
-
 ```
 
-The following is an example of YAML syntax that creates a new Amazon AppFlow connection to
-ServiceNow.
+The following is an example of YAML syntax that creates a new Amazon AppFlow connection to ServiceNow.
 
 Create ServiceNow connection - YAML:
 
 ```
-
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   MyServiceNowConnection:
     Type: AWS::AppFlow::ConnectorProfile
-    Properties:
+    Properties: 
       ConnectorProfileName: MyServiceNowConnection
       ConnectorType: Servicenow
       ConnectionMode: Public
@@ -131,13 +123,9 @@ Resources:
           ServiceNow:
             Username: <username-value>
             Password: <password-value>
-
-
 ```
 
-The following implements a flow from Salesforce to S3 using a previously created Salesforce
-connection and S3 bucket, delivering the data in CSV format with all Salesforce source fields
-mapped directly.
+The following implements a flow from Salesforce to S3 using a previously created Salesforce connection and S3 bucket, delivering the data in CSV format with all Salesforce source fields mapped directly.
 
 Create Salesforce to S3 flow - JSON:
 
@@ -191,9 +179,7 @@ Create Salesforce to S3 flow - JSON:
 }
 ```
 
-The following implements a flow from Salesforce to S3 using a previously created Salesforce
-connection and S3 bucket, delivering the data in CSV format with all Salesforce source fields
-mapped directly.
+The following implements a flow from Salesforce to S3 using a previously created Salesforce connection and S3 bucket, delivering the data in CSV format with all Salesforce source fields mapped directly.
 
 Create Salesforce to S3 flow - YAML:
 
@@ -229,6 +215,4 @@ Resources:
             Salesforce: NO_OP
 ```
 
-Refer to the [AWS
-CloudFormation User Guide Amazon AppFlow chapter](../../../AWSCloudFormation/latest/UserGuide/AWS_AppFlow.md "../../../AWSCloudFormation/latest/UserGuide/AWS_AppFlow.md") for details about the complete set of
-resource options for all sources and destinations.
+Refer to the [ AWS CloudFormation User Guide Amazon AppFlow chapter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppFlow.html) for details about the complete set of resource options for all sources and destinations.

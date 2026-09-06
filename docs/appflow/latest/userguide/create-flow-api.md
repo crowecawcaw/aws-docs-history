@@ -1,17 +1,11 @@
+
+
 # Create a flow using the Amazon AppFlow APIs
+<a name="create-flow-api"></a>
 
-You may also use the APIs to create a connector profile and configure a flow using the
-`CreateConnectorProfile` and `CreateFlow` APIs. Due to the varying methods
-of authentication across each target application, the specific information provided for connection
-creation will vary. Two examples are provided below as a comparison — Salesforce and
-ServiceNow.
+You may also use the APIs to create a connector profile and configure a flow using the `CreateConnectorProfile` and `CreateFlow` APIs. Due to the varying methods of authentication across each target application, the specific information provided for connection creation will vary. Two examples are provided below as a comparison — Salesforce and ServiceNow.
 
-Program the `CreateConnectorProfile` API to create a connector profile associated
-with your AWS account. There is a soft quota of 100 connector profiles per AWS account. If you
-need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow
-team through the Amazon AppFlow support channel. The following examples creates a new Amazon AppFlow
-connection to Salesforce. Note that this leverages a Salesforce Connected App, which itself
-requires several steps to configure across AWS and Salesforce. See [Salesforce global connected app](salesforce.md#salesforce-global-connected-app "salesforce.md#salesforce-global-connected-app") for details.
+Program the `CreateConnectorProfile` API to create a connector profile associated with your AWS account. There is a soft quota of 100 connector profiles per AWS account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. The following examples creates a new Amazon AppFlow connection to Salesforce. Note that this leverages a Salesforce Connected App, which itself requires several steps to configure across AWS and Salesforce. See [Salesforce global connected app](https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-global-connected-app) for details.
 
 Create Salesforce connection:
 
@@ -24,14 +18,14 @@ Content-type: application/json
     "connectorType": "Salesforce",
     "connectionMode": "Public",
     "connectorProfileConfig": {
-        "connectorProfileProperties": {
-            "Salesforce": {
+        "connectorProfileProperties": { 
+            "Salesforce": { 
                 "instanceUrl": "https://<instance-name>.my.salesforce.com",
                 "isSandboxEnvironment": false
             }
         },
-        "connectorProfileCredentials": {
-            "Salesforce": {
+        "connectorProfileCredentials": { 
+            "Salesforce": { 
                 "accessToken": "<access-token-value>",
                 "refreshToken": "<refresh-token-value>",
                 "oAuthRequest": {
@@ -43,12 +37,9 @@ Content-type: application/json
         }
     }
 }
-
-
 ```
 
-The following examples creates a new Amazon AppFlow connection to ServiceNow. Note that, unlike
-Salesforce, there is no pre-requisite configuration for either AWS or ServiceNow.
+The following examples creates a new Amazon AppFlow connection to ServiceNow. Note that, unlike Salesforce, there is no pre-requisite configuration for either AWS or ServiceNow.
 
 Create ServiceNow connection
 
@@ -61,13 +52,13 @@ Content-type: application/json
     "connectorType": "Servicenow",
     "connectionMode": "Public",
     "connectorProfileConfig": {
-        "connectorProfileProperties": {
-            "ServiceNow": {
+        "connectorProfileProperties": { 
+            "ServiceNow": { 
                 "instanceUrl": "https://<instance-name>.service-now.com",
                 "isSandboxEnvironment": false
             }
         },
-        "connectorProfileCredentials": {
+        "connectorProfileCredentials": { 
             "ServiceNow": {
                 "username": "<username-value>",
                 "password": "<password-value>"
@@ -77,9 +68,7 @@ Content-type: application/json
 }
 ```
 
-The following implements a flow from Salesforce to S3 using a previously created Salesforce
-connection and S3 bucket, delivering the data in CSV format with all Salesforce source fields
-mapped directly.
+The following implements a flow from Salesforce to S3 using a previously created Salesforce connection and S3 bucket, delivering the data in CSV format with all Salesforce source fields mapped directly.
 
 Create Salesforce to S3 flow
 
@@ -120,11 +109,9 @@ Content-type: application/json
         }
     ]
 }
-
 ```
 
-The following starts the flow `MySalesforceToS3Flow` which was created in the
-previous step.
+The following starts the flow `MySalesforceToS3Flow` which was created in the previous step.
 
 Start a flow:
 
@@ -135,8 +122,6 @@ Content-type: application/json
 {
    "flowName": "MySalesforceToS3Flow"
 }
-
-
 ```
 
-Refer to the [Amazon AppFlow API Reference](../../1.0/APIReference/API_CreateConnectorProfile.md "../../1.0/APIReference/API_CreateConnectorProfile.md") for details about the complete set of Amazon AppFlow APIs.
+Refer to the [ Amazon AppFlow API Reference](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) for details about the complete set of Amazon AppFlow APIs.
