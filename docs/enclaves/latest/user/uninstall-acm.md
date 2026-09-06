@@ -1,31 +1,32 @@
+
+
 # Uninstall ACM for Nitro Enclaves
+<a name="uninstall-acm"></a>
 
-If you no longer want to use [AWS Certificate Manager for Nitro Enclaves](nitro-enclave-refapp.md "nitro-enclave-refapp.md"), use the following
-procedure to uninstall it.
+If you no longer want to use [AWS Certificate Manager for Nitro Enclaves](nitro-enclave-refapp.md), use the following procedure to uninstall it.
 
-###### To uninstall ACM for Nitro Enclaves
+**To uninstall ACM for Nitro Enclaves**
 
 1. Stop the web server.
+   + **NGINX**
 
-   - **NGINX**
+     ```
+     $ sudo systemctl stop nginx
+     ```
+   + **Apache**
+
+     ```
+     $ sudo systemctl stop httpd
+     ```
+
+1. Stop the ACM for Nitro Enclaves service.
 
    ```
-   `$` sudo systemctl stop nginx
-   ```
-   - **Apache**
-
-   ```
-   `$` sudo systemctl stop httpd
+   $ sudo systemctl stop nitro-enclaves-acm.service
    ```
 
-2. Stop the ACM for Nitro Enclaves service.
+1. Uninstall ACM for Nitro Enclaves.
 
-```
-`$` sudo systemctl stop nitro-enclaves-acm.service
-```
-
-3. Uninstall ACM for Nitro Enclaves.
-
-```
-`$` sudo yum remove aws-nitro-enclaves-acm
-```
+   ```
+   $ sudo yum remove aws-nitro-enclaves-acm
+   ```

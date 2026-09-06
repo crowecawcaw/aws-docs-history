@@ -1,45 +1,42 @@
-# nitro-cli describe-eif
 
-Describes the specified enclave image file (`.eif`). The output is a
-static description of the enclave image file that includes the enclave image file
-version, build measurements, signing certificate information, the result of the CRC
-and signature check, and the metadata added at build time.
+
+# nitro-cli describe-eif
+<a name="cmd-nitro-describe-eif"></a>
+
+Describes the specified enclave image file (`.eif`). The output is a static description of the enclave image file that includes the enclave image file version, build measurements, signing certificate information, the result of the CRC and signature check, and the metadata added at build time.
 
 ## Syntax
+<a name="cmd-nitro-describe-eif-syntax"></a>
 
 ```
-nitro-cli describe-eif
-    --eif-path `path_to_enclave_image_file`
+nitro-cli describe-eif 
+    --eif-path {{path_to_enclave_image_file}}
 ```
 
 ## Options
+<a name="cmd-nitro-describe-eif-options"></a>
 
-**`--eif-path`**
-
-The path to the enclave image file.
-
-Type: String
-
+**`--eif-path`**  
+The path to the enclave image file.  
+Type: String  
 Required: Yes
 
 ## Output
+<a name="cmd-nitro-describe-eif-output"></a>
 
-**`Measurements`**
-
-The cryptographic measurements (SHA384 hashes) that are unique to
-the enclave image file.
-
+**`Measurements`**  
+The cryptographic measurements (SHA384 hashes) that are unique to the enclave image file.  
 Type: String
 
 ## Example
+<a name="cmd-nitro-describe-eif-example"></a>
 
-The following example describes an enclave image file named
-`sample.eif`.
+The following example describes an enclave image file named `sample.eif`.
 
 **Command**
 
 ```
-nitro-cli describe-eif --eif-path `image.eif`
+nitro-cli describe-eif --eif-path {{image.eif}}
 ```
 
 **Output**

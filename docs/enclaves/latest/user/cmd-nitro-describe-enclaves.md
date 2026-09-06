@@ -1,86 +1,65 @@
+
+
 # nitro-cli describe-enclaves
+<a name="cmd-nitro-describe-enclaves"></a>
 
 Describes an enclave.
 
 ## Syntax
+<a name="cmd-nitro-describe-enclaves-syntax"></a>
 
 ```
 nitro-cli describe-enclaves
 ```
 
 ## Options
+<a name="cmd-nitro-describe-enclaves-options"></a>
 
 This command has no options.
 
 ## Output
+<a name="cmd-nitro-describe-enclaves-output"></a>
 
-**`EnclaveName`**
-
-The unique name of the enclave.
-
+**`EnclaveName`**  
+The unique name of the enclave.  
 Type: String
 
-**`EnclaveID`**
-
-The unique ID of the enclave.
-
+**`EnclaveID`**  
+The unique ID of the enclave.  
 Type: String
 
-**`ProcessID`**
-
-[Linux parent instances only] The process identifier (PID) of the
-process holding the enclave's resources.
-
+**`ProcessID`**  
+[Linux parent instances only] The process identifier (PID) of the process holding the enclave's resources.  
 Type: String
 
-**`EnclaveCID`**
-
-The unique context ID (CID) of the enclave. The CID is the socket
-address used by the _vsock_ socket.
-
+**`EnclaveCID`**  
+The unique context ID (CID) of the enclave. The CID is the socket address used by the *vsock* socket.  
 Type: Integer
 
-**`NumberOfCPUs`**
-
-The number of vCPUs allocated to the enclave from the parent
-instance.
-
+**`NumberOfCPUs`**  
+The number of vCPUs allocated to the enclave from the parent instance.  
 Type: Integer
 
-**`CPUIDs`**
-
-[Linux parent instances only] The IDs of the vCPUs allocated to
-the enclave from the parent instance.
-
+**`CPUIDs`**  
+[Linux parent instances only] The IDs of the vCPUs allocated to the enclave from the parent instance.  
 Type: Integer
 
-**`MemoryMiB`**
-
-The amount of memory (in MiB) allocated to the enclave from the
-parent instance.
-
+**`MemoryMiB`**  
+The amount of memory (in MiB) allocated to the enclave from the parent instance.  
 Type: Integer
 
-**`State`**
-
-The current status of the enclave.
-
-Possible values: `running` |
-`terminating`
-
+**`State`**  
+The current status of the enclave.  
+Possible values: `running` \| `terminating`  
 Type: String
 
-**`Flags`**
-
-Indicates if the enclave is in debug mode. `None`
-indicates that debug mode is disabled. `Debug` indicates
-that debug mode is enabled.
-
-Possible values: `None` | `Debug`
-
+**`Flags`**  
+Indicates if the enclave is in debug mode. `None` indicates that debug mode is disabled. `Debug` indicates that debug mode is enabled.  
+Possible values: `None` \| `Debug`  
 Type: String
 
 ## Example
+<a name="cmd-nitro-describe-enclave-example"></a>
 
 The following example describes an enclave.
 

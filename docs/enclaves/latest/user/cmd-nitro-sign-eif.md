@@ -1,24 +1,18 @@
+
+
 # nitro-cli sign-eif
+<a name="cmd-nitro-sign-eif"></a>
 
-Signs an existing enclave image file (`.eif`). You must specify a
-private key and a signing certificate. For the private key, you can use a KMS key
-ARN or a local private key file.
+Signs an existing enclave image file (`.eif`). You must specify a private key and a signing certificate. For the private key, you can use a KMS key ARN or a local private key file.
 
-The signature is added to the enclave image file (`.eif`). The
-signature is updated if it already exists in the enclave image file.
+The signature is added to the enclave image file (`.eif`). The signature is updated if it already exists in the enclave image file.
 
-The command returns a set of measurements (SHA384 hashes) that are unique to the
-enclave image file. These measurements are provided in the form of platform
-configuration registers (PCRs). The PCRs are used during the enclave's attestation
-process. For more information, see [Nitro Enclaves concepts](nitro-enclave-concepts.md "nitro-enclave-concepts.md").
+The command returns a set of measurements (SHA384 hashes) that are unique to the enclave image file. These measurements are provided in the form of platform configuration registers (PCRs). The PCRs are used during the enclave's attestation process. For more information, see [Nitro Enclaves concepts](nitro-enclave-concepts.md).
 
-For example, when using Nitro Enclaves with AWS Key Management Service (AWS KMS), you can specify these
-PCRs in condition keys for customer managed keys policies. When an application in the enclave
-performs an AWS KMS operation, AWS KMS compares the PCRs in the enclave's signed
-attestation document with the PCRs specified in the condition keys of the KMS key
-policy before allowing the operation.
+For example, when using Nitro Enclaves with AWS Key Management Service (AWS KMS), you can specify these PCRs in condition keys for customer managed keys policies. When an application in the enclave performs an AWS KMS operation, AWS KMS compares the PCRs in the enclave's signed attestation document with the PCRs specified in the condition keys of the KMS key policy before allowing the operation.
 
 ## Syntax
+<a name="cmd-nitro-sign-eif-syntax"></a>
 
 ```
 nitro-cli sign-eif
@@ -28,62 +22,42 @@ nitro-cli sign-eif
 ```
 
 ## Options
+<a name="cmd-nitro-sign-eif-options"></a>
 
-**`--eif-path`**
-
-The path to the enclave image file.
-
-Type: String
-
+**`--eif-path`**  
+The path to the enclave image file.  
+Type: String  
 Required: Yes
 
-**`--private-key`**
-
-The private key to use to sign the enclave image file. This can be
-a KMS key ARN, or a path to a local private key file. Only ECDSA
-keys are supported for signing.
-
-Type: String
-
+**`--private-key`**  
+The private key to use to sign the enclave image file. This can be a KMS key ARN, or a path to a local private key file. Only ECDSA keys are supported for signing.  
+Type: String  
 Required: Yes
 
-**`--signing-certificate`**
-
-The signing key to use to sign the enclave image file.
-
-Type: String
-
+**`--signing-certificate`**  
+The signing key to use to sign the enclave image file.  
+Type: String  
 Required: Yes
 
-###### Important
-
-Ensure that the specified certificate is valid. If you start an enclave
-with an invalid certificate, then the `nitro-cli run-enclave`
-command fails with errors `E36`, `E39`, and
-`E11`. For more information, see [Nitro Enclaves CLI error
-codes](cli-errors.md "cli-errors.md").
+**Important**  
+Ensure that the specified certificate is valid. If you start an enclave with an invalid certificate, then the `nitro-cli run-enclave` command fails with errors `E36`, `E39`, and `E11`. For more information, see [Nitro Enclaves CLI error codes](https://docs.aws.amazon.com/enclaves/latest/user/cli-errors.html).
 
 ## Output
+<a name="cmd-nitro-sign-eif-output"></a>
 
-**`Measurements`**
-
-The cryptographic measurements (SHA384 hashes) that are unique to
-the enclave image file. The command output includes an additional
-PCR, `PCR8` that can be used in condition keys for KMS
-key policies. For more information, see [Where
-to get an enclave's measurements](set-up-attestation.md#where "set-up-attestation.md#where").
-
+**`Measurements`**  
+The cryptographic measurements (SHA384 hashes) that are unique to the enclave image file. The command output includes an additional PCR, `PCR8` that can be used in condition keys for KMS key policies. For more information, see [Where to get an enclave's measurements](https://docs.aws.amazon.com/enclaves/latest/user/set-up-attestation.html#where).  
 Type: String
 
 ## Example
+<a name="cmd-nitro-sign-eif-example"></a>
 
-The following example signs the enclave image file `sample.eif`
-with the given KMS key.
+The following example signs the enclave image file `sample.eif` with the given KMS key.
 
 **Command**
 
 ```
-nitro-cli sign-eif --eif-path `sample.eif` --private-key arn:aws:kms:eu-west-1:`123456789321:key/abcdef12-3456-789a-bcde-111122223333` --signing-certificate certificate.pem
+nitro-cli sign-eif --eif-path {{sample.eif}} --private-key arn:aws:kms:eu-west-1:{{123456789321:key/abcdef12-3456-789a-bcde-111122223333}} --signing-certificate certificate.pem
 ```
 
 **Output**
