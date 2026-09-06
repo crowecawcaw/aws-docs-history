@@ -1,23 +1,21 @@
+
+
 # Example events for IAM Identity Center sign-in scenarios
+<a name="sign-in-events-examples"></a>
 
-The following examples illustrate the typical CloudTrail event sequences
-generated during various AWS sign-in scenarios. These examples serve as reference
-patterns to help you interpret authentication logs,
-identify security issues, and verify that your authentication policies are
-functioning correctly.
+The following examples illustrate the typical CloudTrail event sequences generated during various AWS sign-in scenarios. These examples serve as reference patterns to help you interpret authentication logs, identify security issues, and verify that your authentication policies are functioning correctly.
 
-###### Topics
-
-- [Successful sign-in when authenticating with password only](#sign-in-events-examples-1 "#sign-in-events-examples-1")
-- [Successful sign-in when authenticating with an external identity provider](#sign-in-events-examples-2 "#sign-in-events-examples-2")
-- [Successful sign-in when authenticating with a password and a time-based one-time password (TOTP) authenticator app](#sign-in-events-examples-3 "#sign-in-events-examples-3")
-- [Successful sign-in when authenticating with a password and forced MFA registration is required](#sign-in-events-examples-4 "#sign-in-events-examples-4")
-- [Failed sign-in due to incorrect password authentication](#sign-in-events-examples-5 "#sign-in-events-examples-5")
+**Topics**
++ [Successful sign-in when authenticating with password only](#sign-in-events-examples-1)
++ [Successful sign-in when authenticating with an external identity provider](#sign-in-events-examples-2)
++ [Successful sign-in when authenticating with a password and a time-based one-time password (TOTP) authenticator app](#sign-in-events-examples-3)
++ [Successful sign-in when authenticating with a password and forced MFA registration is required](#sign-in-events-examples-4)
++ [Failed sign-in due to incorrect password authentication](#sign-in-events-examples-5)
 
 ## Successful sign-in when authenticating with password only
+<a name="sign-in-events-examples-1"></a>
 
-The following sequence of events captures an example of a successful password only
-sign-in.
+The following sequence of events captures an example of a successful password only sign-in.
 
 **CredentialChallenge (Password)**
 
@@ -60,8 +58,7 @@ sign-in.
 }
 ```
 
-**Successful CredentialVerification
-(Password)**
+**Successful CredentialVerification (Password)**
 
 ```
 {
@@ -73,7 +70,7 @@ sign-in.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -102,8 +99,7 @@ sign-in.
 }
 ```
 
-**Successful UserAuthentication (Password
-Only)**
+**Successful UserAuthentication (Password Only)**
 
 ```
 {
@@ -115,7 +111,7 @@ Only)**
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -146,12 +142,11 @@ Only)**
 ```
 
 ## Successful sign-in when authenticating with an external identity provider
+<a name="sign-in-events-examples-2"></a>
 
-The following sequence of events captures an example of a successful sign-in when
-authenticated through the SAML protocol using an external identity provider.
+The following sequence of events captures an example of a successful sign-in when authenticated through the SAML protocol using an external identity provider. 
 
-**Successful UserAuthentication (External Identity
-Provider)**
+**Successful UserAuthentication (External Identity Provider)**
 
 ```
 {
@@ -163,7 +158,7 @@ Provider)**
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -195,10 +190,9 @@ Provider)**
 ```
 
 ## Successful sign-in when authenticating with a password and a time-based one-time password (TOTP) authenticator app
+<a name="sign-in-events-examples-3"></a>
 
-The following sequence of events captures an example where multi-factor
-authentication was required during sign-in and the user successfully signed in using a
-password and a TOTP authenticator app.
+The following sequence of events captures an example where multi-factor authentication was required during sign-in and the user successfully signed in using a password and a TOTP authenticator app.
 
 **CredentialChallenge (Password)**
 
@@ -212,7 +206,7 @@ password and a TOTP authenticator app.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -242,8 +236,7 @@ password and a TOTP authenticator app.
 }
 ```
 
-**Successful CredentialVerification
-(Password)**
+**Successful CredentialVerification (Password)**
 
 ```
 {
@@ -255,7 +248,7 @@ password and a TOTP authenticator app.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -296,7 +289,7 @@ password and a TOTP authenticator app.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -337,7 +330,7 @@ password and a TOTP authenticator app.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -366,8 +359,7 @@ password and a TOTP authenticator app.
 }
 ```
 
-**Successful UserAuthentication (Password +
-TOTP)**
+**Successful UserAuthentication (Password \+ TOTP)**
 
 ```
 {
@@ -379,7 +371,7 @@ TOTP)**
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -410,10 +402,9 @@ TOTP)**
 ```
 
 ## Successful sign-in when authenticating with a password and forced MFA registration is required
+<a name="sign-in-events-examples-4"></a>
 
-The following sequence of events demonstrates a successful password authentication where
-the user was required to register and successfully complete multi-factor
-authentication (MFA) before finalizing their sign-in process.
+The following sequence of events demonstrates a successful password authentication where the user was required to register and successfully complete multi-factor authentication (MFA) before finalizing their sign-in process.
 
 **CredentialChallenge (Password)**
 
@@ -427,7 +418,7 @@ authentication (MFA) before finalizing their sign-in process.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -457,8 +448,7 @@ authentication (MFA) before finalizing their sign-in process.
 }
 ```
 
-**Successful CredentialVerification
-(Password)**
+**Successful CredentialVerification (Password)**
 
 ```
 {
@@ -470,7 +460,7 @@ authentication (MFA) before finalizing their sign-in process.
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -499,8 +489,7 @@ authentication (MFA) before finalizing their sign-in process.
 }
 ```
 
-**Successful UserAuthentication (Password + MFA Registration
-Required)**
+**Successful UserAuthentication (Password \+ MFA Registration Required)**
 
 ```
 {
@@ -512,7 +501,7 @@ Required)**
       "accessKeyId":"",
       "onBehalfOf": {
          "userId": "94d00cd8-e9e6-4810-b177-b08e84725435",
-         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+         "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890" 
       },
       "credentialId" : "8f761cae-883d-4a3d-af67-3abf46488f71"
    },
@@ -544,10 +533,9 @@ Required)**
 ```
 
 ## Failed sign-in due to incorrect password authentication
+<a name="sign-in-events-examples-5"></a>
 
-The following sequence of events demonstrates an authentication attempt where the
-user successfully entered their username but failed the password verification
-step, resulting in an unsuccessful sign-in.
+The following sequence of events demonstrates an authentication attempt where the user successfully entered their username but failed the password verification step, resulting in an unsuccessful sign-in. 
 
 **CredentialChallenge (Password)**
 

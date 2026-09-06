@@ -1,15 +1,11 @@
+
+
 # Understanding CloudTrail events for IAM Identity Center
+<a name="understanding-sso-entries"></a>
 
-A trail is a configuration that enables delivery of events to an Amazon S3 bucket that you
-specify. An event represents a single request from any source and includes information
-about the requested action, the date and time of the action, request parameters, and so
-on. CloudTrail events aren't an ordered stack trace of the public API calls, so they do not
-appear in any specific order. Learn about the [contents of a CloudTrail record](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _CloudTrail User
-Guide_.
+A trail is a configuration that enables delivery of events to an Amazon S3 bucket that you specify. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail events aren't an ordered stack trace of the public API calls, so they do not appear in any specific order. Learn about the [contents of a CloudTrail record](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *CloudTrail User Guide*.
 
-This example demonstrates a CloudTrail log entry capturing a
-`DescribePermissionsPolicies` action performed by an IAM user (samadams) interacting
-with IAM Identity Center:
+This example demonstrates a CloudTrail log entry capturing a `DescribePermissionsPolicies` action performed by an IAM user (samadams) interacting with IAM Identity Center:
 
 ```
 {
@@ -47,8 +43,7 @@ with IAM Identity Center:
 }
 ```
 
-This example demonstrates a CloudTrail log entry capturing a `ListApplications`
-action performed by an IAM Identity Center user within the AWS access portal:
+This example demonstrates a CloudTrail log entry capturing a `ListApplications` action performed by an IAM Identity Center user within the AWS access portal:
 
 ```
 {
@@ -81,8 +76,7 @@ action performed by an IAM Identity Center user within the AWS access portal:
 }
 ```
 
-This example demonstrates a CloudTrail log entry capturing a `CreateToken` action
-performed by an IAM Identity Center user authenticating with the IAM Identity Center OIDC service:
+This example demonstrates a CloudTrail log entry capturing a `CreateToken` action performed by an IAM Identity Center user authenticating with the IAM Identity Center OIDC service:
 
 ```
 {
@@ -127,5 +121,4 @@ performed by an IAM Identity Center user authenticating with the IAM Identity Ce
       "eventType": "AwsApiCall",
       "recipientAccountId": "111122223333"
 }
-
 ```

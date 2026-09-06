@@ -1,117 +1,68 @@
+
+
 # What is IAM Identity Center?
+<a name="what-is"></a>
 
-AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed
-applications such as Kiro and Amazon Quick, and other AWS resources. You can connect your
-existing identity provider and synchronize users and groups from your directory, or create and
-manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the
-following:
+AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed applications such as Kiro and Amazon Quick, and other AWS resources. You can connect your existing identity provider and synchronize users and groups from your directory, or create and manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the following:
++ User access to applications
++ User access to AWS accounts
 
-- User access to applications
-- User access to AWS accounts
-  **Already using IAM for access to AWS accounts?**
+**Already using IAM for access to AWS accounts?**
 
-You don’t need to make any changes to your current AWS account workflows to use IAM Identity Center for access to AWS managed applications. If you’re using [federation with IAM](../../../IAM/latest/UserGuide/id_roles_providers.md#id_roles_providers_iam "../../../IAM/latest/UserGuide/id_roles_providers.md#id_roles_providers_iam") for AWS account access, your users can continue to access
-AWS accounts in the same way they always have, and you can continue to use your existing workflows to manage that access.
+You don’t need to make any changes to your current AWS account workflows to use IAM Identity Center for access to AWS managed applications. If you’re using [federation with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html#id_roles_providers_iam) for AWS account access, your users can continue to access AWS accounts in the same way they always have, and you can continue to use your existing workflows to manage that access.
 
 ## Why use IAM Identity Center?
+<a name="features"></a>
 
-IAM Identity Center streamlines and simplifies workforce user access to applications or AWS accounts,
-or both, through the following key capabilities.
+IAM Identity Center streamlines and simplifies workforce user access to applications or AWS accounts, or both, through the following key capabilities.
 
-**Integration with AWS managed
-applications**
+**Integration with AWS managed applications**  
+[AWS managed applications](awsapps.md) such as Kiro and Amazon Redshift integrate with IAM Identity Center. IAM Identity Center provides AWS managed applications with a common view of users and groups.
 
-[AWS managed applications](awsapps.md "awsapps.md") such as Kiro and
-Amazon Redshift integrate with IAM Identity Center. IAM Identity Center provides AWS managed applications
-with a common view of users and groups.
+**Trusted identity propagation across applications **  
+With trusted identity propagation, AWS managed applications such as Amazon Quick can securely share a user’s identity with other AWS managed applications such as Amazon Redshift and authorize access to AWS resources based on the user’s identity. You can more easily audit user activity because CloudTrail events are logged based on the user and the actions the user initiated. This makes it easier to understand who accessed what. For information about supported use cases, including end-to-end configuration guidance, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md).
 
-**Trusted
-identity propagation across applications**
+**One point of federation to simplify user access to AWS**  
+By providing one point of federation, IAM Identity Center reduces the administrative effort required to use multiple AWS managed applications and AWS accounts. With IAM Identity Center, you only federate once, and you have only one certificate to manage when using a [`SAML 2.0`](https://wiki.oasis-open.org/security) identity provider. IAM Identity Center provides AWS managed applications with a common view of users and groups for trusted identity propagation use cases, or when users share access to AWS resources with other people.  
+For information about how to configure commonly used identity providers to work with IAM Identity Center, see [IAM Identity Center identity source tutorials](tutorials.md). If you don’t have an existing identity provider, you can [create and manage users directly in IAM Identity Center](quick-start-default-idc.md).
 
-With trusted identity propagation, AWS managed applications such as Amazon Quick can
-securely share a user’s identity with other AWS managed applications such as
-Amazon Redshift and authorize access to AWS resources based on the user’s
-identity. You can more easily audit user activity because CloudTrail events are logged based
-on the user and the actions the user initiated. This makes it easier to understand who
-accessed what. For information about supported use cases, including end-to-end
-configuration guidance, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md").
+**Ability to manage workforce access to multiple AWS accounts**  
+IAM Identity Center gives you options to manage centrally your workforce access to AWS accounts:  
++ Your teams can create their IAM roles in AWS accounts and centrally manage role assignments to IAM Identity Center users and groups using the IAM [account access manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/account-access-manager.html) feature. See [Why use account access manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/account-access-manager.html#why-use-account-access-manager) in the *IAM User Guide* for more information.
++ You can also use IAM Identity Center permission sets to centrally create permissions for common job functions such as admin, provision them across AWS accounts, and assign them to users and groups. This optional feature is available only for organization instances of IAM Identity Center.
 
-**One point of federation to simplify user access to
-AWS**
+**Two instance types**  
+IAM Identity Center supports two types of instances: *organization instances* and *account instances*. An organization instance is the best practice. It's the only instance that enables you to manage access to AWS accounts and it is recommended for all production use of applications. An organization instance is deployed in the AWS Organizations management account and gives you a single point from which to manage user access across AWS.   
+Account instances are bound to the AWS account in which they are enabled. Use account instances of IAM Identity Center only to support isolated deployments of select AWS managed applications. For more information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md).
 
-By providing one point of federation, IAM Identity Center reduces the administrative effort
-required to use multiple AWS managed applications and AWS accounts. With IAM Identity Center, you
-only federate once, and you have only one certificate to manage when using a [`SAML 2.0`](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security") identity
-provider. IAM Identity Center provides AWS managed applications with a common view of users and
-groups for trusted identity propagation use cases, or when users share access to AWS
-resources with other people.
+**User-friendly web portal access for your users**  
+The AWS access portal is a user-friendly web portal that provides your users with seamless access to all their assigned applications, AWS accounts, or both.
 
-For information about how to configure commonly used identity providers to work with
-IAM Identity Center, see [IAM Identity Center identity source tutorials](tutorials.md "tutorials.md"). If you don’t have an
-existing identity provider, you can [create and
-manage users directly in IAM Identity Center](quick-start-default-idc.md "quick-start-default-idc.md").
-
-**Ability to manage workforce access to multiple AWS accounts**
-
-IAM Identity Center gives you options to manage centrally your workforce access to
-AWS accounts:
-
-- Your teams can create their IAM roles in AWS accounts and centrally manage
-  role assignments to IAM Identity Center users and groups using the IAM [account access
-  manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md") feature. See [Why use account access manager](../../../IAM/latest/UserGuide/account-access-manager.md#why-use-account-access-manager "../../../IAM/latest/UserGuide/account-access-manager.md#why-use-account-access-manager") in the _IAM User
-  Guide_ for more information.
-- You can also use IAM Identity Center permission sets to centrally create permissions for common
-  job functions such as admin, provision them across AWS accounts, and assign them to
-  users and groups. This optional feature is available only for organization instances
-  of IAM Identity Center.
-
-**Two instance types**
-
-IAM Identity Center supports two types of instances: _organization
-instances_ and _account instances_. An
-organization instance is the best practice. It's the only instance that enables you to
-manage access to AWS accounts and it is recommended for all production use of
-applications. An organization instance is deployed in the AWS Organizations management account and
-gives you a single point from which to manage user access across AWS.
-
-Account instances are bound to the AWS account in which they are enabled. Use
-account instances of IAM Identity Center only to support isolated deployments of select AWS managed
-applications. For more information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
-
-**User-friendly web portal access for your users**
-
-The AWS access portal is a user-friendly web portal that provides your users with seamless
-access to all their assigned applications, AWS accounts, or both.
-
-**Multi-Region access to AWS accounts and applications**
-
-When you replicate your IAM Identity Center instance to additional Regions, your workforce can access their assigned AWS accounts and applications through all enabled Regions,
-and they can deploy AWS managed applications in each enabled Region.
+**Multi-Region access to AWS accounts and applications**  
+When you replicate your IAM Identity Center instance to additional Regions, your workforce can access their assigned AWS accounts and applications through all enabled Regions, and they can deploy AWS managed applications in each enabled Region.
 
 ## IAM Identity Center rename
+<a name="renamed"></a>
 
 On July 26, 2022, AWS Single Sign-On was renamed to AWS IAM Identity Center.
 
 ### Legacy namespaces remain the same
+<a name="legacy-namespaces"></a>
 
-The `sso` and `identitystore` API namespaces along with the
-following related namespaces **remain unchanged** for backward
-compatibility purposes.
 
-- CLI commands
 
-  - [`aws configure sso`](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md")
-  - [`identitystore`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/index.html")
-  - [`sso`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/index.html")
-  - [`sso-admin`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso-admin/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso-admin/index.html")
-  - [`sso-oidc`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso-oidc/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso-oidc/index.html")
+The `sso` and `identitystore` API namespaces along with the following related namespaces **remain unchanged** for backward compatibility purposes.
 
-- [Managed
-  policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md") containing `AWSSSO` and `AWSIdentitySync`
-  prefixes
-- [Service
-  endpoints](../../../general/latest/gr/sso.md#sso_region "../../../general/latest/gr/sso.md#sso_region") containing `sso` and `identitystore`
-- [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md "../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md") resources containing `AWS::SSO` prefixes
-- [Service-linked role](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions") containing `AWSServiceRoleForSSO`
-- Console URLs containing `sso` and `singlesignon`
-- Documentation URLs containing `singlesignon`
+
++ CLI commands
+  + [`aws configure sso`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
+  + [`identitystore`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/index.html)
+  + [`sso`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/index.html)
+  + [`sso-admin`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso-admin/index.html)
+  + [`sso-oidc`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso-oidc/index.html)
++ [Managed policies](https://docs.aws.amazon.com/singlesignon/latest/userguide/security-iam-awsmanpol.html) containing `AWSSSO` and `AWSIdentitySync` prefixes
++ [Service endpoints](https://docs.aws.amazon.com/general/latest/gr/sso.html#sso_region) containing `sso` and `identitystore`
++ [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSO.html) resources containing `AWS::SSO` prefixes
++ [Service-linked role](https://docs.aws.amazon.com/singlesignon/latest/userguide/using-service-linked-roles.html#slr-permissions) containing `AWSServiceRoleForSSO`
++ Console URLs containing `sso` and `singlesignon`
++ Documentation URLs containing `singlesignon`

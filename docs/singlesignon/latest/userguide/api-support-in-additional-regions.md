@@ -1,9 +1,13 @@
-# IAM Identity Center service APIs supported in additional AWS Regions
 
-| API                                                                                                        | Functionality in additional Regions                                                                                                                                                                                                 |
-| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Identity<br>Center API](../APIReference/Welcome.md "../APIReference/Welcome.md")                          | Supported:<br>• Application management read/write operations<br>• Instance read operations<br>Not supported:<br>• Any write operations other than<br>application related<br>• Permission set and account assignment read operations |
-| [Identity<br>Store API](../IdentityStoreAPIReference/welcome.md "../IdentityStoreAPIReference/welcome.md") | Read operations                                                                                                                                                                                                                     |
-| [OIDC<br>API](../OIDCAPIReference/Welcome.md "../OIDCAPIReference/Welcome.md")                             | All operations are supported                                                                                                                                                                                                        |
-| [Access<br>Portal API](../PortalAPIReference/Welcome.md "../PortalAPIReference/Welcome.md")                | All operations are supported                                                                                                                                                                                                        |
-| [SCIM<br>API](../developerguide/what-is-scim.md "../developerguide/what-is-scim.md")                       | No operation is supported                                                                                                                                                                                                           |
+
+# IAM Identity Center service APIs supported in additional AWS Regions
+<a name="api-support-in-additional-regions"></a>
+
+
+| API | Functionality in additional Regions | 
+| --- | --- | 
+|  [Identity Center API](https://docs.aws.amazon.com/singlesignon/latest/APIReference/Welcome.html)  |  +  Application management read/write operations <br />+  Instance read operations  +  Any write operations other than application related <br />+  Permission set and account assignment read operations   | 
+|  [Identity Store API](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html)  | Read operations | 
+|  [OIDC API](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html)  | All operations are supported | 
+|  [Access Portal API](https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/Welcome.html)  | All operations are supported | 
+|  [SCIM API](https://docs.aws.amazon.com/singlesignon/latest/developerguide/what-is-scim.html)  | No operation is supported | 
