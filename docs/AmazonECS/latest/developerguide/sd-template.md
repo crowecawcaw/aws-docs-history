@@ -1,4 +1,7 @@
+
+
 # Service definition template
+<a name="sd-template"></a>
 
 The following shows the JSON representation of an Amazon ECS service definition.
 
@@ -6,144 +9,144 @@ EC2
 
 ```
 {
-    "cluster": "",
-    "serviceName": "",
-    "taskDefinition": "",
+    "cluster": "", 
+    "serviceName": "", 
+    "taskDefinition": "", 
     "loadBalancers": [
         {
-            "targetGroupArn": "",
-            "loadBalancerName": "",
-            "containerName": "",
+            "targetGroupArn": "", 
+            "loadBalancerName": "", 
+            "containerName": "", 
             "containerPort": 0
         }
-    ],
+    ], 
     "serviceRegistries": [
         {
-            "registryArn": "",
-            "port": 0,
-            "containerName": "",
+            "registryArn": "", 
+            "port": 0, 
+            "containerName": "", 
             "containerPort": 0
         }
-    ],
-    "desiredCount": 0,
-    "clientToken": "",
-    "launchType": "EC2",
+    ], 
+    "desiredCount": 0, 
+    "clientToken": "", 
+    "launchType": "EC2", 
     "capacityProviderStrategy": [
         {
-            "capacityProvider": "",
-            "weight": 0,
+            "capacityProvider": "", 
+            "weight": 0, 
             "base": 0
         }
-    ],
-    "platformVersion": "",
-    "role": "",
+    ], 
+    "platformVersion": "", 
+    "role": "", 
     "deploymentConfiguration": {
         "deploymentCircuitBreaker": {
-            "enable": true,
+            "enable": true, 
             "rollback": true
-        },
-        "maximumPercent": 0,
-        "minimumHealthyPercent": 0,
+        }, 
+        "maximumPercent": 0, 
+        "minimumHealthyPercent": 0, 
         "alarms": {
             "alarmNames": [
                 ""
-            ],
-            "enable": true,
+            ], 
+            "enable": true, 
             "rollback": true
         }
-    },
+    }, 
     "placementConstraints": [
         {
-            "type": "distinctInstance",
+            "type": "distinctInstance", 
             "expression": ""
         }
-    ],
+    ], 
     "placementStrategy": [
         {
-            "type": "binpack",
+            "type": "binpack", 
             "field": ""
         }
-    ],
+    ], 
     "networkConfiguration": {
         "awsvpcConfiguration": {
             "subnets": [
                 ""
-            ],
+            ], 
             "securityGroups": [
                 ""
-            ],
+            ], 
             "assignPublicIp": "DISABLED"
         }
-    },
-    "healthCheckGracePeriodSeconds": 0,
-    "schedulingStrategy": "REPLICA",
+    }, 
+    "healthCheckGracePeriodSeconds": 0, 
+    "schedulingStrategy": "REPLICA", 
     "deploymentController": {
         "type": "EXTERNAL"
-    },
+    }, 
     "tags": [
         {
-            "key": "",
+            "key": "", 
             "value": ""
         }
-    ],
-    "enableECSManagedTags": true,
-    "propagateTags": "TASK_DEFINITION",
-    "enableExecuteCommand": true,
+    ], 
+    "enableECSManagedTags": true, 
+    "propagateTags": "TASK_DEFINITION", 
+    "enableExecuteCommand": true, 
     "availabilityZoneRebalancing": "ENABLED",
     "serviceConnectConfiguration": {
-        "enabled": true,
-        "namespace": "",
+        "enabled": true, 
+        "namespace": "", 
         "services": [
             {
-                "portName": "",
-                "discoveryName": "",
+                "portName": "", 
+                "discoveryName": "", 
                 "clientAliases": [
                     {
-                        "port": 0,
+                        "port": 0, 
                         "dnsName": ""
                     }
-                ],
+                ], 
                 "ingressPortOverride": 0
             }
-        ],
+        ], 
         "logConfiguration": {
-            "logDriver": "journald",
+            "logDriver": "journald", 
             "options": {
                 "KeyName": ""
-            },
+            }, 
             "secretOptions": [
                 {
-                    "name": "",
+                    "name": "", 
                     "valueFrom": ""
                 }
             ]
         }
-    },
+    }, 
     "volumeConfigurations": [
         {
-            "name": "",
+            "name": "", 
             "managedEBSVolume": {
-                "encrypted": true,
-                "kmsKeyId": "",
-                "volumeType": "",
-                "sizeInGiB": 0,
-                "snapshotId": "",
+                "encrypted": true, 
+                "kmsKeyId": "", 
+                "volumeType": "", 
+                "sizeInGiB": 0, 
+                "snapshotId": "", 
                 "volumeInitializationRate": 0,
-                "iops": 0,
-                "throughput": 0,
+                "iops": 0, 
+                "throughput": 0, 
                 "tagSpecifications": [
                     {
-                        "resourceType": "volume",
+                        "resourceType": "volume", 
                         "tags": [
                             {
-                                "key": "",
+                                "key": "", 
                                 "value": ""
                             }
-                        ],
+                        ], 
                         "propagateTags": "NONE"
                     }
-                ],
-                "roleArn": "",
+                ], 
+                "roleArn": "", 
                 "filesystemType": ""
             }
         }
@@ -155,139 +158,139 @@ Fargate
 
 ```
 {
-    "cluster": "",
-    "serviceName": "",
-    "taskDefinition": "",
+    "cluster": "", 
+    "serviceName": "", 
+    "taskDefinition": "", 
     "loadBalancers": [
         {
-            "targetGroupArn": "",
-            "loadBalancerName": "",
-            "containerName": "",
+            "targetGroupArn": "", 
+            "loadBalancerName": "", 
+            "containerName": "", 
             "containerPort": 0
         }
-    ],
+    ], 
     "serviceRegistries": [
         {
-            "registryArn": "",
-            "port": 0,
-            "containerName": "",
+            "registryArn": "", 
+            "port": 0, 
+            "containerName": "", 
             "containerPort": 0
         }
-    ],
-    "desiredCount": 0,
-    "clientToken": "",
-    "launchType": "FARGATE",
+    ], 
+    "desiredCount": 0, 
+    "clientToken": "", 
+    "launchType": "FARGATE", 
     "capacityProviderStrategy": [
         {
-            "capacityProvider": "",
-            "weight": 0,
+            "capacityProvider": "", 
+            "weight": 0, 
             "base": 0
         }
-    ],
-    "platformVersion": "",
+    ], 
+    "platformVersion": "", 
     "platformFamily": "",
-    "role": "",
+    "role": "", 
     "deploymentConfiguration": {
         "deploymentCircuitBreaker": {
-            "enable": true,
+            "enable": true, 
             "rollback": true
-        },
-        "maximumPercent": 0,
-        "minimumHealthyPercent": 0,
+        }, 
+        "maximumPercent": 0, 
+        "minimumHealthyPercent": 0, 
         "alarms": {
             "alarmNames": [
                 ""
-            ],
-            "enable": true,
+            ], 
+            "enable": true, 
             "rollback": true
         }
-    },
+    }, 
     "placementStrategy": [
         {
-            "type": "binpack",
+            "type": "binpack", 
             "field": ""
         }
-    ],
+    ], 
     "networkConfiguration": {
         "awsvpcConfiguration": {
             "subnets": [
                 ""
-            ],
+            ], 
             "securityGroups": [
                 ""
-            ],
+            ], 
             "assignPublicIp": "DISABLED"
         }
-    },
-    "healthCheckGracePeriodSeconds": 0,
-    "schedulingStrategy": "REPLICA",
+    }, 
+    "healthCheckGracePeriodSeconds": 0, 
+    "schedulingStrategy": "REPLICA", 
     "deploymentController": {
         "type": "EXTERNAL"
-    },
+    }, 
     "tags": [
         {
-            "key": "",
+            "key": "", 
             "value": ""
         }
-    ],
-    "enableECSManagedTags": true,
-    "propagateTags": "TASK_DEFINITION",
-    "enableExecuteCommand": true,
+    ], 
+    "enableECSManagedTags": true, 
+    "propagateTags": "TASK_DEFINITION", 
+    "enableExecuteCommand": true, 
     "availabilityZoneRebalancing": "ENABLED",
     "serviceConnectConfiguration": {
-        "enabled": true,
-        "namespace": "",
+        "enabled": true, 
+        "namespace": "", 
         "services": [
             {
-                "portName": "",
-                "discoveryName": "",
+                "portName": "", 
+                "discoveryName": "", 
                 "clientAliases": [
                     {
-                        "port": 0,
+                        "port": 0, 
                         "dnsName": ""
                     }
-                ],
-                "ingressPortOverride": 0
+                ], 
+                "ingressPortOverride": 0   
             }
-        ],
+        ], 
         "logConfiguration": {
-            "logDriver": "journald",
+            "logDriver": "journald", 
             "options": {
                 "KeyName": ""
-            },
+            }, 
             "secretOptions": [
                 {
-                    "name": "",
+                    "name": "", 
                     "valueFrom": ""
                 }
             ]
         }
-    },
+    }, 
     "volumeConfigurations": [
         {
-            "name": "",
+            "name": "", 
             "managedEBSVolume": {
-                "encrypted": true,
-                "kmsKeyId": "",
-                "volumeType": "",
-                "sizeInGiB": 0,
-                "snapshotId": "",
-                "volumeInitializationRate": 0,
-                "iops": 0,
-                "throughput": 0,
+                "encrypted": true, 
+                "kmsKeyId": "", 
+                "volumeType": "", 
+                "sizeInGiB": 0, 
+                "snapshotId": "", 
+                "volumeInitializationRate": 0, 
+                "iops": 0, 
+                "throughput": 0, 
                 "tagSpecifications": [
                     {
-                        "resourceType": "volume",
+                        "resourceType": "volume", 
                         "tags": [
                             {
-                                "key": "",
+                                "key": "", 
                                 "value": ""
                             }
-                        ],
+                        ], 
                         "propagateTags": "NONE"
                     }
-                ],
-                "roleArn": "",
+                ], 
+                "roleArn": "", 
                 "filesystemType": ""
             }
         }
@@ -295,9 +298,8 @@ Fargate
 }
 ```
 
-You can create this service definition template using the following AWS CLI
-command.
+You can create this service definition template using the following AWS CLI command.
 
 ```
-`aws ecs create-service --generate-cli-skeleton`
+aws ecs create-service --generate-cli-skeleton
 ```

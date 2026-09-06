@@ -1,13 +1,14 @@
-# Amazon ECS task metadata v4 examples
 
-The following examples show example outputs from each of the task metadata
-endpoints.
+
+# Amazon ECS task metadata v4 examples
+<a name="task-metadata-endpoint-v4-examples"></a>
+
+The following examples show example outputs from each of the task metadata endpoints.
 
 ## Example container metadata response
+<a name="task-metadata-endpoint-v4-example-container-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are
-returned only metadata about the container itself. The following is an example
-output from a task that runs as part of a service (MyService).
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned only metadata about the container itself. The following is an example output from a task that runs as part of a service (MyService).
 
 ```
 {
@@ -57,11 +58,9 @@ output from a task that runs as part of a service (MyService).
 ```
 
 ## Example task metadata response
+<a name="task-metadata-endpoint-v4-example-task-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you
-are returned metadata about the task the container is part of in addition to the
-metadata for each container within the task. The following is an example
-output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are returned metadata about the task the container is part of in addition to the metadata for each container within the task. The following is an example output.
 
 ```
 {
@@ -163,10 +162,9 @@ output.
 ```
 
 ## Example task with tags metadata response
+<a name="task-metadata-endpoint-v4-example-taskwithtags-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags`
-endpoint you are returned metadata about the task, including the task and container
-instance tags. The following is an example output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags` endpoint you are returned metadata about the task, including the task and container instance tags. The following is an example output.
 
 ```
 {
@@ -182,10 +180,10 @@ instance tags. The following is an example output.
     "AvailabilityZone": "us-west-2d",
     "VPCID": "vpc-1234567890abcdef0",
     "TaskTags": {
-        "`tag-use`": "`task-metadata-endpoint-test`"
+        "{{tag-use}}": "{{task-metadata-endpoint-test}}"
     },
     "ContainerInstanceTags":{
-        "`tag_key`":"`tag_value`"
+        "{{tag_key}}":"{{tag_value}}"
     },
     "LaunchType": "EC2",
     "Containers": [
@@ -274,13 +272,9 @@ instance tags. The following is an example output.
 ```
 
 ## Example task with tags with an error metadata response
+<a name="task-metadata-endpoint-v4-example-taskwithtags-error-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags`
-endpoint you are returned metadata about the task, including the task and container
-instance tags. If there is an error retrieving the tagging data, the error is
-returned in the response. The following is an example output for when the IAM role
-associated with the container instance doesn't have the
-`ecs:ListTagsForResource` permission allowed.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags` endpoint you are returned metadata about the task, including the task and container instance tags. If there is an error retrieving the tagging data, the error is returned in the response. The following is an example output for when the IAM role associated with the container instance doesn't have the `ecs:ListTagsForResource` permission allowed.
 
 ```
 {
@@ -400,16 +394,11 @@ associated with the container instance doesn't have the
 ```
 
 ## Example container stats response
+<a name="task-metadata-endpoint-v4-example-stats-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/stats` endpoint you
-are returned network metrics for the container. For Amazon ECS tasks that use the
-`awsvpc` or `bridge` network modes hosted on Amazon EC2
-instances running at least version `1.43.0` of the container agent, there
-will be additional network rate stats included in the response. For all other tasks,
-the response will only include the cumulative network stats.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/stats` endpoint you are returned network metrics for the container. For Amazon ECS tasks that use the `awsvpc` or `bridge` network modes hosted on Amazon EC2 instances running at least version `1.43.0` of the container agent, there will be additional network rate stats included in the response. For all other tasks, the response will only include the cumulative network stats.
 
-The following is an example output from an Amazon ECS task on Amazon EC2 that uses the
-`bridge` network mode.
+The following is an example output from an Amazon ECS task on Amazon EC2 that uses the `bridge` network mode.
 
 ```
 {
@@ -420,33 +409,33 @@ The following is an example output from an Amazon ECS task on Amazon EC2 that us
     },
     "blkio_stats": {
         "io_service_bytes_recursive": [
-
+            
         ],
         "io_serviced_recursive": [
-
+            
         ],
         "io_queue_recursive": [
-
+            
         ],
         "io_service_time_recursive": [
-
+            
         ],
         "io_wait_time_recursive": [
-
+            
         ],
         "io_merged_recursive": [
-
+            
         ],
         "io_time_recursive": [
-
+            
         ],
         "sectors_recursive": [
-
+            
         ]
     },
     "num_procs": 0,
     "storage_stats": {
-
+        
     },
     "cpu_stats": {
         "cpu_usage": {
@@ -545,10 +534,9 @@ The following is an example output from an Amazon ECS task on Amazon EC2 that us
 ```
 
 ## Example task stats response
+<a name="task-metadata-endpoint-v4-example-task-stats-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats`
-endpoint you are returned network metrics about the task the container is part of.
-The following is an example output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats` endpoint you are returned network metrics about the task the container is part of. The following is an example output.
 
 ```
 {
@@ -560,33 +548,33 @@ The following is an example output.
         },
         "blkio_stats": {
             "io_service_bytes_recursive": [
-
+                
             ],
             "io_serviced_recursive": [
-
+                
             ],
             "io_queue_recursive": [
-
+                
             ],
             "io_service_time_recursive": [
-
+                
             ],
             "io_wait_time_recursive": [
-
+                
             ],
             "io_merged_recursive": [
-
+                
             ],
             "io_time_recursive": [
-
+                
             ],
             "sectors_recursive": [
-
+                
             ]
         },
         "num_procs": 0,
         "storage_stats": {
-
+            
         },
         "cpu_stats": {
             "cpu_usage": {
@@ -690,33 +678,33 @@ The following is an example output.
         },
         "blkio_stats": {
             "io_service_bytes_recursive": [
-
+                
             ],
             "io_serviced_recursive": [
-
+                
             ],
             "io_queue_recursive": [
-
+                
             ],
             "io_service_time_recursive": [
-
+                
             ],
             "io_wait_time_recursive": [
-
+                
             ],
             "io_merged_recursive": [
-
+                
             ],
             "io_time_recursive": [
-
+                
             ],
             "sectors_recursive": [
-
+                
             ]
         },
         "num_procs": 0,
         "storage_stats": {
-
+            
         },
         "cpu_stats": {
             "cpu_usage": {

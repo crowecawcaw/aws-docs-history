@@ -1,37 +1,27 @@
-# Viewing Amazon ECS metrics
 
-After you have resources running in your cluster, you can view the metrics on the
-Amazon ECS and CloudWatch consoles. The Amazon ECS console provides a 24-hour maximum, minimum, and
-average view of your cluster and service metrics. The
-CloudWatch console provides a fine-grained and customizable display of your resources, as well
-as the number of running tasks in a service.
+
+# Viewing Amazon ECS metrics
+<a name="viewing_cloudwatch_metrics"></a>
+
+After you have resources running in your cluster, you can view the metrics on the Amazon ECS and CloudWatch consoles. The Amazon ECS console provides a 24-hour maximum, minimum, and average view of your cluster and service metrics. The CloudWatch console provides a fine-grained and customizable display of your resources, as well as the number of running tasks in a service.
 
 ## Amazon ECS console
+<a name="viewing_service_metrics"></a>
 
-Amazon ECS service CPU and memory utilization metrics are available on the Amazon ECS
-console. The view provided for service metrics shows the average, minimum, and
-maximum values for the previous 24-hour period, with data points available in
-5-minute intervals. For more information, see [Amazon ECS service utilization metrics](service_utilization.md "service_utilization.md").
+Amazon ECS service CPU and memory utilization metrics are available on the Amazon ECS console. The view provided for service metrics shows the average, minimum, and maximum values for the previous 24-hour period, with data points available in 5-minute intervals. For more information, see [Amazon ECS service utilization metrics](service_utilization.md).
 
-1. Open the console at
-   [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
-2. Select the cluster that you want to view metrics for.
-3. Determine the metrics to view.
+1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2).
 
-| To view metrics from | Steps                                                                                                                                                                                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clusters             | On the cluster details page, choose the<br>*_Metrics_<br>• tab. There is also a<br>link provided to the CloudWatch console to view your CloudWatch<br>Container Insights metrics if you have those turned<br>on. |
-| Services             | On the cluster details page, on the<br>*_Services_<br>• tab, select the<br>service. The metrics are then available on the<br>**Health and metrics**<br>tab.                                                      |
+1. Select the cluster that you want to view metrics for.
+
+1. Determine the metrics to view.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/viewing_cloudwatch_metrics.html)
 
 ## CloudWatch console
+<a name="viewing_metrics_console"></a>
 
-For Fargate, Amazon ECS service metrics can also be viewed on the
-CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and you
-can tailor the views to suit your needs. You can view the service utilization and
-service RUNNING task count.
+For Fargate, Amazon ECS service metrics can also be viewed on the CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and you can tailor the views to suit your needs. You can view the service utilization and service RUNNING task count.
 
-For EC2 capacity providers, Amazon ECS cluster and service metrics can also be viewed on
-the CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and
-you can tailor the views to suit your needs.
+For EC2 capacity providers, Amazon ECS cluster and service metrics can also be viewed on the CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and you can tailor the views to suit your needs. 
 
-For information about how to view the metrics, see [View available metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") the _Amazon CloudWatch User Guide_.
+For information about how to view the metrics, see [View available metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html) the *Amazon CloudWatch User Guide*.

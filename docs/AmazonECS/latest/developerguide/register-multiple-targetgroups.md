@@ -1,77 +1,61 @@
+
+
 # Registering multiple target groups with an Amazon ECS service
+<a name="register-multiple-targetgroups"></a>
 
-Your Amazon ECS service can serve traffic from multiple load balancers and expose multiple
-load balanced ports when you specify multiple target groups in a service
-definition.
+Your Amazon ECS service can serve traffic from multiple load balancers and expose multiple load balanced ports when you specify multiple target groups in a service definition.
 
-To create a service specifying multiple target groups, you must create the service
-using the Amazon ECS API, SDK, AWS CLI, or an CloudFormation template. After the service is created, you
-can view the service and the target groups registered to it with the AWS Management Console. You must
-use `UpdateService` to modify the load balancer configuration of an
-existing service.
+To create a service specifying multiple target groups, you must create the service using the Amazon ECS API, SDK, AWS CLI, or an CloudFormation template. After the service is created, you can view the service and the target groups registered to it with the AWS Management Console. You must use `[UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html)` to modify the load balancer configuration of an existing service.
 
-Multiple target groups can be specified in a service definition using the following
-format. For the full syntax of a service definition, see [Service definition template](sd-template.md "sd-template.md").
+Multiple target groups can be specified in a service definition using the following format. For the full syntax of a service definition, see [Service definition template](sd-template.md).
 
 ```
 "loadBalancers":[
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_1/1234567890123456`",
-      "containerName":"`container_name`",
-      "containerPort":`container_port`
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_1/1234567890123456}}",
+      "containerName":"{{container_name}}",
+      "containerPort":{{container_port}}
    },
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_2/6543210987654321`",
-      "containerName":"`container_name`",
-      "containerPort":`container_port`
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_2/6543210987654321}}",
+      "containerName":"{{container_name}}",
+      "containerPort":{{container_port}}
    }
 ]
 ```
 
 ## Considerations
+<a name="multiple-targetgroups-considerations"></a>
 
-The following should be considered when you specify multiple target groups in a
-service definition.
-
-- For services that use an Application Load Balancer or Network Load
-  Balancer, you cannot attach more than five target groups to a
-  service.
-- Specifying multiple target groups in a service definition is only
-  supported under the following conditions:
-
-  - The service must use either an Application Load Balancer or Network Load Balancer.
-  - The service must use the (`ECS`) deployment controller type. This can be either the Amazon ECS native/blue green deployment, or the rolling update deployment.
-
-- Specifying multiple target groups is supported for services containing
-  tasks using both the Fargate and EC2 launch
-  types.
-- When creating a service that specifies multiple target groups, the Amazon ECS
-  service-linked role must be created. The role is created by omitting the
-  `role` parameter in API requests, or the `Role`
-  property in CloudFormation. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+The following should be considered when you specify multiple target groups in a service definition.
++ For services that use an Application Load Balancer or Network Load Balancer, you cannot attach more than five target groups to a service.
++ Specifying multiple target groups in a service definition is only supported under the following conditions:
+  + The service must use either an Application Load Balancer or Network Load Balancer.
+  + The service must use the (`ECS`) deployment controller type. This can be either the Amazon ECS native/blue green deployment, or the rolling update deployment.
++ Specifying multiple target groups is supported for services containing tasks using both the Fargate and EC2 launch types.
++ When creating a service that specifies multiple target groups, the Amazon ECS service-linked role must be created. The role is created by omitting the `role` parameter in API requests, or the `Role` property in CloudFormation. For more information, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md).
 
 ## Example service definitions
+<a name="multiple-targetgroups-examples"></a>
 
-Following are a few example use cases for specifying multiple target groups in a
-service definition. For the full syntax of a service definition, see [Service definition template](sd-template.md "sd-template.md").
+Following are a few example use cases for specifying multiple target groups in a service definition. For the full syntax of a service definition, see [Service definition template](sd-template.md).
 
 ### Having separate load balancers for internal and external traffic
+<a name="multiple-targetgroups-example1"></a>
 
-In the following use case, a service uses two separate load balancers, one for
-internal traffic and a second for internet-facing traffic, for the same
-container and port.
+In the following use case, a service uses two separate load balancers, one for internal traffic and a second for internet-facing traffic, for the same container and port.
 
 ```
 "loadBalancers":[
    //Internal ELB
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_1/1234567890123456`",
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_1/1234567890123456}}",
       "containerName":"nginx",
       "containerPort":8080
    },
    //Internet-facing ELB
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_2/6543210987654321`",
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_2/6543210987654321}}",
       "containerName":"nginx",
       "containerPort":8080
    }
@@ -79,21 +63,19 @@ container and port.
 ```
 
 ### Exposing multiple ports from the same container
+<a name="multiple-targetgroups-example1"></a>
 
-In the following use case, a service uses one load balancer but exposes
-multiple ports from the same container. For example, a Jenkins container might
-expose port 8080 for the Jenkins web interface and port 50000 for the
-API.
+In the following use case, a service uses one load balancer but exposes multiple ports from the same container. For example, a Jenkins container might expose port 8080 for the Jenkins web interface and port 50000 for the API.
 
 ```
 "loadBalancers":[
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_1/1234567890123456`",
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_1/1234567890123456}}",
       "containerName":"jenkins",
       "containerPort":8080
    },
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_2/6543210987654321`",
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_2/6543210987654321}}",
       "containerName":"jenkins",
       "containerPort":50000
    }
@@ -101,19 +83,19 @@ API.
 ```
 
 ### Exposing ports from multiple containers
+<a name="multiple-targetgroups-example3"></a>
 
-In the following use case, a service uses one load balancer and two target
-groups to expose ports from separate containers.
+In the following use case, a service uses one load balancer and two target groups to expose ports from separate containers.
 
 ```
 "loadBalancers":[
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_1/1234567890123456`",
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_1/1234567890123456}}",
       "containerName":"webserver",
       "containerPort":80
    },
-   {
-      "targetGroupArn":"arn:aws:elasticloadbalancing:`region`:`123456789012`:targetgroup/`target_group_name_2/6543210987654321`",
+   {  
+      "targetGroupArn":"arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:targetgroup/{{target_group_name_2/6543210987654321}}",
       "containerName":"database",
       "containerPort":3306
    }

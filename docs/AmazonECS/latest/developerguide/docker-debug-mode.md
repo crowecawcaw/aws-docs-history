@@ -1,60 +1,52 @@
+
+
 # Configuring verbose output from the Docker daemon in Amazon ECS
+<a name="docker-debug-mode"></a>
 
-If you're having trouble with Docker containers or images, you can turn on debug mode on
-your Docker daemon. Using debugging provides more verbose output from the daemon, You can
-use this to retrive error messages that are sent from container registries, such as
-Amazon ECR.
+If you're having trouble with Docker containers or images, you can turn on debug mode on your Docker daemon. Using debugging provides more verbose output from the daemon, You can use this to retrive error messages that are sent from container registries, such as Amazon ECR.
 
-###### Important
+**Important**  
+This procedure is written for the Amazon ECS-optimized Amazon Linux AMI. For other operating systems, see [Enable debugging](https://docs.docker.com/engine/admin/#enable-debugging) and [Control and configure Docker with systemd]() in the Docker documentation.
 
-This procedure is written for the Amazon ECS-optimized Amazon Linux AMI. For other operating systems, see
-[Enable
-debugging](https://docs.docker.com/engine/admin/#enable-debugging "https://docs.docker.com/engine/admin/#enable-debugging") and Control and configure Docker
-with systemd in the Docker documentation.
-
-###### To use Docker daemon debug mode on the Amazon ECS-optimized Amazon Linux AMI
+**To use Docker daemon debug mode on the Amazon ECS-optimized Amazon Linux AMI**
 
 1. Connect to your container instance.
-2. Open the Docker options file with a text editor, such as
-   **vi**. For the Amazon ECS-optimized Amazon Linux AMI, the Docker options file is at
-   `/etc/sysconfig/docker`.
-3. Find the Docker options statement and add the `-D` option to the
-   string, inside the quotes.
 
-###### Note
+1. Open the Docker options file with a text editor, such as **vi**. For the Amazon ECS-optimized Amazon Linux AMI, the Docker options file is at `/etc/sysconfig/docker`.
 
-If the Docker options statement begins with a `#`, remove that
-character to uncomment the statement and enable the options.
+1. Find the Docker options statement and add the `-D` option to the string, inside the quotes.
+**Note**  
+If the Docker options statement begins with a `#`, remove that character to uncomment the statement and enable the options.
 
-For the Amazon ECS-optimized Amazon Linux AMI, the Docker options statement is called `OPTIONS`.
-For example:
+   For the Amazon ECS-optimized Amazon Linux AMI, the Docker options statement is called `OPTIONS`. For example:
 
-```
-# Additional startup options for the Docker daemon, for example:
-# OPTIONS="--ip-forward=true --iptables=true"
-# By default we limit the number of open files per container
-OPTIONS="`-D` --default-ulimit nofile=1024:4096"
-```
+   ```
+   # Additional startup options for the Docker daemon, for example:
+   # OPTIONS="--ip-forward=true --iptables=true"
+   # By default we limit the number of open files per container
+   OPTIONS="{{-D}} --default-ulimit nofile=1024:4096"
+   ```
 
-4. Save the file and exit your text editor.
-5. Restart the Docker daemon.
+1. Save the file and exit your text editor.
 
-```
-`sudo service docker restart`
-```
+1. Restart the Docker daemon.
 
-The output is as follows:
+   ```
+   sudo service docker restart
+   ```
 
-```
-Stopping docker:                                          [  OK  ]
-Starting docker:	.                                  [  OK  ]
-```
+   The output is as follows:
 
-6. Restart the Amazon ECS agent.
+   ```
+   Stopping docker:                                          [  OK  ]
+   Starting docker:	.                                  [  OK  ]
+   ```
 
-```
-`sudo service ecs restart`
-```
+1. Restart the Amazon ECS agent.
+
+   ```
+   sudo service ecs restart
+   ```
 
 Your Docker logs should now show more verbose output.
 

@@ -1,50 +1,36 @@
+
+
 # Monitor Amazon ECS container instance health
+<a name="container-instance-health"></a>
 
-Amazon ECS provides container instance health monitoring. You can quickly determine whether
-Amazon ECS has detected any problems that might prevent your container instances from running
-containers. Amazon ECS performs automated checks on every running container instance with agent
-version `1.57.0` or later to identify issues. For more information on verifying
-the agent version an a container instance, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
+Amazon ECS provides container instance health monitoring. You can quickly determine whether Amazon ECS has detected any problems that might prevent your container instances from running containers. Amazon ECS performs automated checks on every running container instance with agent version `1.57.0` or later to identify issues. For more information on verifying the agent version an a container instance, see [Updating the Amazon ECS container agent](ecs-agent-update.md).
 
-You must be using AWS CLI version `1.22.3` or later or AWS CLI version
-`2.3.6` or later. For information about how to update the AWS CLI, see [Installing
-or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide Version 2_.
+You must be using AWS CLI version `1.22.3` or later or AWS CLI version `2.3.6` or later. For information about how to update the AWS CLI, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide Version 2*.
 
-To view the container instance health, run `describe-container-instances` with
-the `CONTAINER_INSTANCE_HEALTH` option.
+To view the container instance health, run `describe-container-instances` with the `CONTAINER_INSTANCE_HEALTH` option. 
 
-The `overallStatus` is determined by the individual health check statuses in the `details` array.
-The most severe status takes precedence in the following order: `IMPAIRED`, `INSUFFICIENT_DATA`,
-`INITIALIZING`, and `OK`.
+The `overallStatus` is determined by the individual health check statuses in the `details` array. The most severe status takes precedence in the following order: `IMPAIRED`, `INSUFFICIENT_DATA`, `INITIALIZING`, and `OK`.
 
 The following are the valid values for `overallStatus`:
++ `OK` – All health checks are passing.
++ `IMPAIRED` – One or more health checks have failed.
++ `INSUFFICIENT_DATA` – Data for one or more health checks is unavailable.
++ `INITIALIZING` – One or more health checks are being initialized.
 
-- `OK` – All health checks are passing.
-- `IMPAIRED` – One or more health checks have failed.
-- `INSUFFICIENT_DATA` – Data for one or more health checks is unavailable.
-- `INITIALIZING` – One or more health checks are being initialized.
-  The health check `type` values include:
+The health check `type` values include:
++ `CONTAINER_RUNTIME` – Monitors the health of the container runtime (for example, the Docker daemon). Available on EC2 launch type.
++ `ACCELERATED_COMPUTE` – Monitors the health of accelerated compute devices such as GPUs. When a GPU is impaired, the `statusReason` contains the NVIDIA Xid error code in the format `XID_<number>`. Available on Amazon ECS Managed Instances launch type.
++ `DAEMON` – Monitors the health of required daemon tasks on the container instance. Available on Amazon ECS Managed Instances launch type.
++ `AGENT_CONNECTIVITY` – Monitors the connectivity between the Amazon ECS container agent and the Amazon ECS control plane. Available on Amazon ECS Managed Instances, AWS Fargate, and Amazon EC2 launch types.
 
-- `CONTAINER_RUNTIME` – Monitors the health of the container runtime
-  (for example, the Docker daemon). Available on EC2 launch type.
-- `ACCELERATED_COMPUTE` – Monitors the health of accelerated compute
-  devices such as GPUs. When a GPU is impaired, the `statusReason`
-  contains the NVIDIA Xid error code in the format `XID_<number>`.
-  Available on Amazon ECS Managed Instances launch type.
-- `DAEMON` – Monitors the health of required daemon tasks on the
-  container instance. Available on Amazon ECS Managed Instances launch type.
-- `AGENT_CONNECTIVITY` – Monitors the connectivity between the Amazon ECS
-  container agent and the Amazon ECS control plane. Available on Amazon ECS Managed Instances,
-  AWS Fargate, and Amazon EC2 launch types.
-  You can also monitor health status changes through events. For more information,
-  see [Amazon ECS container instance health change events](ecs_container_instance_health_events.md "ecs_container_instance_health_events.md").
+You can also monitor health status changes through events. For more information, see [Amazon ECS container instance health change events](ecs_container_instance_health_events.md).
 
 The following is an example of how to run `describe-container-instances`.
 
 ```
 aws ecs describe-container-instances \
-     --cluster `cluster_name` \
-     --container-instances `47279cd2cadb41cbaef2dcEXAMPLE` \
+     --cluster {{cluster_name}} \
+     --container-instances {{47279cd2cadb41cbaef2dcEXAMPLE}} \
      --include CONTAINER_INSTANCE_HEALTH
 ```
 
@@ -63,12 +49,10 @@ The following is an example of the health status object in the output.
 ```
 
 ## Container instance-health issues
+<a name="container-instance-health-action"></a>
 
-When the `overallStatus` any status other than `OK`, try the
-following:
-
-- Wait, and then run `describe-container-instances`
-- View your container instance health in the EC2 console or by using the
-  CLI.
-- Review the CloudWatch metrics. For more information, see [Monitor Amazon ECS using CloudWatch](cloudwatch-metrics.md "cloudwatch-metrics.md")
-- Check the AWS Health Dashboard to see if there are any issues with the service.
+When the `overallStatus` any status other than `OK`, try the following:
++ Wait, and then run `describe-container-instances`
++ View your container instance health in the EC2 console or by using the CLI.
++ Review the CloudWatch metrics. For more information, see [Monitor Amazon ECS using CloudWatch](cloudwatch-metrics.md)
++ Check the AWS Health Dashboard to see if there are any issues with the service.

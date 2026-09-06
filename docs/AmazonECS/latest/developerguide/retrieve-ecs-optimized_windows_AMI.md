@@ -1,85 +1,68 @@
+
+
 # Retrieving Amazon ECS-optimized Windows AMI metadata
+<a name="retrieve-ecs-optimized_windows_AMI"></a>
 
-The AMI ID, image name, operating system, container agent version, and runtime
-version for each variant of the Amazon ECS-optimized AMIs can be programmatically retrieved by
-querying the Systems Manager Parameter Store API. For more information about the Systems Manager Parameter
-Store API, see [GetParameters](../../../systems-manager/latest/APIReference/API_GetParameters.md "../../../systems-manager/latest/APIReference/API_GetParameters.md")
-and [GetParametersByPath](../../../systems-manager/latest/APIReference/API_GetParametersByPath.md "../../../systems-manager/latest/APIReference/API_GetParametersByPath.md").
+The AMI ID, image name, operating system, container agent version, and runtime version for each variant of the Amazon ECS-optimized AMIs can be programmatically retrieved by querying the Systems Manager Parameter Store API. For more information about the Systems Manager Parameter Store API, see [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html).
 
-###### Note
-
-Your administrative user must have the following IAM permissions to retrieve the
-Amazon ECS-optimized AMI metadata. These permissions have been added to the
-`AmazonECS_FullAccess` IAM policy.
-
-- ssm:GetParameters
-- ssm:GetParameter
-- ssm:GetParametersByPath
+**Note**  
+Your administrative user must have the following IAM permissions to retrieve the Amazon ECS-optimized AMI metadata. These permissions have been added to the `AmazonECS_FullAccess` IAM policy.  
+ssm:GetParameters
+ssm:GetParameter
+ssm:GetParametersByPath
 
 ## Systems Manager Parameter Store parameter format
+<a name="ecs-optimized-ami-parameter-format"></a>
 
-###### Note
+**Note**  
+The following Systems Manager Parameter Store API parameters are deprecated and should not be used to retrieve the latest Windows AMIs:  
+`/aws/service/ecs/optimized-ami/windows_server/2016/english/full/recommended/image_id `
+`/aws/service/ecs/optimized-ami/windows_server/2019/english/full/recommended/image_id`
 
-The following Systems Manager Parameter Store API parameters are deprecated and should
-not be used to retrieve the latest Windows AMIs:
+The following is the format of the parameter name for each Amazon ECS-optimized AMI variant.
++ Windows Server 2025 Full AMI metadata:
 
-- `/aws/service/ecs/optimized-ami/windows_server/2016/english/full/recommended/image_id`
-- `/aws/service/ecs/optimized-ami/windows_server/2019/english/full/recommended/image_id`
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2025-English-Full-ECS_Optimized
+  ```
++ Windows Server 2025 Core AMI metadata:
 
-The following is the format of the parameter name for each Amazon ECS-optimized AMI
-variant.
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2025-English-Core-ECS_Optimized
+  ```
++ Windows Server 2022 Full AMI metadata:
 
-- Windows Server 2025 Full AMI metadata:
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-ECS_Optimized
+  ```
++ Windows Server 2022 Core AMI metadata:
 
-```
-/aws/service/ami-windows-latest/Windows_Server-2025-English-Full-ECS_Optimized
-```
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2022-English-Core-ECS_Optimized
+  ```
++ Windows Server 2019 Full AMI metadata:
 
-- Windows Server 2025 Core AMI metadata:
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized
+  ```
++ Windows Server 2019 Core AMI metadata:
 
-```
-/aws/service/ami-windows-latest/Windows_Server-2025-English-Core-ECS_Optimized
-```
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2019-English-Core-ECS_Optimized
+  ```
++ Windows Server 2016 Full AMI metadata:
 
-- Windows Server 2022 Full AMI metadata:
+  ```
+  /aws/service/ami-windows-latest/Windows_Server-2016-English-Full-ECS_Optimized
+  ```
 
-```
-/aws/service/ami-windows-latest/Windows_Server-2022-English-Full-ECS_Optimized
-```
-
-- Windows Server 2022 Core AMI metadata:
-
-```
-/aws/service/ami-windows-latest/Windows_Server-2022-English-Core-ECS_Optimized
-```
-
-- Windows Server 2019 Full AMI metadata:
-
-```
-/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized
-```
-
-- Windows Server 2019 Core AMI metadata:
-
-```
-/aws/service/ami-windows-latest/Windows_Server-2019-English-Core-ECS_Optimized
-```
-
-- Windows Server 2016 Full AMI metadata:
-
-```
-/aws/service/ami-windows-latest/Windows_Server-2016-English-Full-ECS_Optimized
-```
-
-The following parameter name format retrieves the metadata of the latest stable
-Windows Server 2019 Full AMI
+The following parameter name format retrieves the metadata of the latest stable Windows Server 2019 Full AMI
 
 ```
 aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized
 ```
 
-The following is an example of the JSON object that is returned for the parameter
-value.
+The following is an example of the JSON object that is returned for the parameter value.
 
 ```
 {
@@ -98,86 +81,68 @@ value.
 }
 ```
 
-Each of the fields in the preceding output are available to be queried as
-sub-parameters. Construct the parameter path for a sub-parameter by appending the
-sub-parameter name to the path for the selected AMI. The following sub-parameters
-are available:
-
-- `schema_version`
-- `image_id`
-- `image_name`
-- `os`
-- `ecs_agent_version`
-- `ecs_runtime_version`
+Each of the fields in the preceding output are available to be queried as sub-parameters. Construct the parameter path for a sub-parameter by appending the sub-parameter name to the path for the selected AMI. The following sub-parameters are available:
++ `schema_version`
++ `image_id`
++ `image_name`
++ `os`
++ `ecs_agent_version`
++ `ecs_runtime_version`
 
 ## Examples
+<a name="ecs-optimized-ami-windows-parameter-examples"></a>
 
-The following examples show ways in which you can retrieve the metadata for each
-Amazon ECS-optimized AMI variant.
+The following examples show ways in which you can retrieve the metadata for each Amazon ECS-optimized AMI variant.
 
 ### Retrieving the metadata of the latest stable Amazon ECS-optimized AMI
+<a name="ecs-optimized-ami-windows-parameter-examples-1"></a>
 
-You can retrieve the latest stable Amazon ECS-optimized AMI using the AWS CLI with the
-following AWS CLI commands.
+You can retrieve the latest stable Amazon ECS-optimized AMI using the AWS CLI with the following AWS CLI commands.
++ **For the Amazon ECS-optimized Windows Server 2025 Full AMI:**
 
-- **For the
-  Amazon ECS-optimized Windows Server 2025 Full AMI:**
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2025-English-Full-ECS_Optimized --region {{us-east-1}}
+  ```
++ **For the Amazon ECS-optimized Windows Server 2025 Core AMI:**
 
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2025-English-Full-ECS_Optimized --region `us-east-1``
-```
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2025-English-Core-ECS_Optimized --region {{us-east-1}}
+  ```
++ **For the Amazon ECS-optimized Windows Server 2022 Full AMI:**
 
-- **For the
-  Amazon ECS-optimized Windows Server 2025 Core AMI:**
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-ECS_Optimized --region {{us-east-1}}
+  ```
++ **For the Amazon ECS-optimized Windows Server 2022 Core AMI:**
 
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2025-English-Core-ECS_Optimized --region `us-east-1``
-```
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2022-English-Core-ECS_Optimized --region {{us-east-1}}
+  ```
++ **For the Amazon ECS-optimized Windows Server 2019 Full AMI:**
 
-- **For the
-  Amazon ECS-optimized Windows Server 2022 Full AMI:**
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized --region {{us-east-1}}
+  ```
++ **For the Amazon ECS-optimized Windows Server 2019 Core AMI:**
 
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-ECS_Optimized --region `us-east-1``
-```
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2019-English-Core-ECS_Optimized --region {{us-east-1}}
+  ```
++ **For the Amazon ECS-optimized Windows Server 2016 Full AMI:**
 
-- **For the
-  Amazon ECS-optimized Windows Server 2022 Core AMI:**
-
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2022-English-Core-ECS_Optimized --region `us-east-1``
-```
-
-- **For the
-  Amazon ECS-optimized Windows Server 2019 Full AMI:**
-
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized --region `us-east-1``
-```
-
-- **For the
-  Amazon ECS-optimized Windows Server 2019 Core AMI:**
-
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2019-English-Core-ECS_Optimized --region `us-east-1``
-```
-
-- **For the
-  Amazon ECS-optimized Windows Server 2016 Full AMI:**
-
-```
-`aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Full-ECS_Optimized --region `us-east-1``
-```
+  ```
+  aws ssm get-parameters --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Full-ECS_Optimized --region {{us-east-1}}
+  ```
 
 ### Using the latest recommended Amazon ECS-optimized AMI in an CloudFormation template
+<a name="ecs-optimized-ami-windows-parameter-examples-5"></a>
 
-You can reference the latest recommended Amazon ECS-optimized AMI in an CloudFormation
-template by referencing the Systems Manager parameter store name.
+You can reference the latest recommended Amazon ECS-optimized AMI in an CloudFormation template by referencing the Systems Manager parameter store name.
 
 ```
 Parameters:
   LatestECSOptimizedAMI:
     Description: AMI ID
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
-    Default: `/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized/image_id`
+    Default: {{/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-ECS_Optimized/image_id}}
 ```

@@ -1,127 +1,77 @@
+
+
 # Amazon ECS container metadata file format
+<a name="metadata-file-format"></a>
 
 The following information is stored in the container metadata JSON file.
 
-`Cluster`
-
+`Cluster`  
 The name of the cluster that the container's task is running on.
 
-`ContainerInstanceARN`
-
+`ContainerInstanceARN`  
 The full Amazon Resource Name (ARN) of the host container instance.
 
-`TaskARN`
-
+`TaskARN`  
 The full Amazon Resource Name (ARN) of the task that the container belongs to.
 
-`TaskDefinitionFamily`
-
+`TaskDefinitionFamily`  
 The name of the task definition family the container is using.
 
-`TaskDefinitionRevision`
-
+`TaskDefinitionRevision`  
 The task definition revision the container is using.
 
-`ContainerID`
+`ContainerID`  
+The Docker container ID (and not the Amazon ECS container ID) for the container.
 
-The Docker container ID (and not the Amazon ECS container ID) for the
-container.
+`ContainerName`  
+The container name from the Amazon ECS task definition for the container.
 
-`ContainerName`
+`DockerContainerName`  
+The container name that the Docker daemon uses for the container (for example, the name that shows up in **docker ps** command output).
 
-The container name from the Amazon ECS task definition for the
-container.
-
-`DockerContainerName`
-
-The container name that the Docker daemon uses for the container (for
-example, the name that shows up in **docker ps** command
-output).
-
-`ImageID`
-
+`ImageID`  
 The SHA digest for the Docker image used to start the container.
 
-`ImageName`
+`ImageName`  
+The image name and tag for the Docker image used to start the container.
 
-The image name and tag for the Docker image used to start the
-container.
-
-`PortMappings`
-
-Any port mappings associated with the container.
-
-`ContainerPort`
-
-The port on the container that is exposed.
-
-`HostPort`
-
-The port on the host container instance that is
-exposed.
-
-`BindIp`
-
-The bind IP address that is assigned to the container by
-Docker. This IP address is only applied with the
-`bridge` network mode, and it is only accessible
-from the container instance.
-
-`Protocol`
-
+`PortMappings`  
+Any port mappings associated with the container.    
+`ContainerPort`  
+The port on the container that is exposed.  
+`HostPort`  
+The port on the host container instance that is exposed.  
+`BindIp`  
+The bind IP address that is assigned to the container by Docker. This IP address is only applied with the `bridge` network mode, and it is only accessible from the container instance.  
+`Protocol`  
 The network protocol used for the port mapping.
 
-`Networks`
-
-The network mode and IP address for the container.
-
-`NetworkMode`
-
-The network mode for the task to which the container
-belongs.
-
-`IPv4Addresses`
-
-The IP addresses associated with the container.
-
-###### Important
-
-If your task is using the `awsvpc` network
-mode, the IP address of the container will not be returned.
-In this case, you can retrieve the IP address by reading the
-/etc/hosts file with the following command:
+`Networks`  
+The network mode and IP address for the container.    
+`NetworkMode`  
+The network mode for the task to which the container belongs.  
+`IPv4Addresses`  
+The IP addresses associated with the container.  
+If your task is using the `awsvpc` network mode, the IP address of the container will not be returned. In this case, you can retrieve the IP address by reading the /etc/hosts file with the following command:  
 
 ```
-`tail -1 /etc/hosts | awk '{print $1}'`
+tail -1 /etc/hosts | awk '{print $1}'
 ```
 
-`MetadataFileStatus`
+`MetadataFileStatus`  
+The status of the metadata file. When the status is `READY`, the metadata file is current and complete. If the file is not ready yet (for example, the moment the task is started), a truncated version of the file format is available. To avoid a likely race condition where the container has started, but the metadata has not yet been written, you can parse the metadata file and wait for this parameter to be set to `READY` before depending on the metadata. This is usually available in less than 1 second from when the container starts.
 
-The status of the metadata file. When the status is `READY`,
-the metadata file is current and complete. If the file is not ready yet (for
-example, the moment the task is started), a truncated version of the file
-format is available. To avoid a likely race condition where the container
-has started, but the metadata has not yet been written, you can parse the
-metadata file and wait for this parameter to be set to `READY`
-before depending on the metadata. This is usually available in less than 1
-second from when the container starts.
-
-`AvailabilityZone`
-
+`AvailabilityZone`  
 The Availability Zone the host container instance resides in.
 
-`HostPrivateIPv4Address`
-
+`HostPrivateIPv4Address`  
 The private IP address for the task the container belongs to.
 
-`HostPublicIPv4Address`
-
+`HostPublicIPv4Address`  
 The public IP address for the task the container belongs to.
 
-###### Example Amazon ECS container metadata file (`READY`)
-
-The following example shows a container metadata file in the `READY`
-status.
+**Example Amazon ECS container metadata file (`READY`)**  
+The following example shows a container metadata file in the `READY` status.  
 
 ```
 {
@@ -189,12 +139,8 @@ status.
 }
 ```
 
-###### Example Incomplete Amazon ECS container metadata file (not yet `READY`)
-
-The following example shows a container metadata file that has not yet reached the
-`READY` status. The information in the file is limited to a few
-parameters that are known from the task definition. The container metadata file
-should be ready within 1 second after the container starts.
+**Example Incomplete Amazon ECS container metadata file (not yet `READY`)**  
+The following example shows a container metadata file that has not yet reached the `READY` status. The information in the file is limited to a few parameters that are known from the task definition. The container metadata file should be ready within 1 second after the container starts.  
 
 ```
 {

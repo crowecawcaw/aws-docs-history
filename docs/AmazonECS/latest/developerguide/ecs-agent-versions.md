@@ -1,111 +1,76 @@
+
+
 # Amazon ECS EC2 Container Instances
+<a name="ecs-agent-versions"></a>
 
-The Amazon ECS agent is a process that runs on every container instance that is registered with
-your cluster. It facilitates the communication between your container instances and Amazon ECS.
+The Amazon ECS agent is a process that runs on every container instance that is registered with your cluster. It facilitates the communication between your container instances and Amazon ECS.
 
-###### Note
+**Note**  
+On Linux container instances, the agent container mounts top-level directories such as `/lib`, `/lib64`, and `/proc`. This is necessary for ECS features and functionalities such as Amazon EBS volumes, `awsvpc` network mode, Amazon ECS Service Connect, and FireLens for Amazon ECS.
 
-On Linux container instances, the agent container mounts top-level directories such as
-`/lib`, `/lib64`, and `/proc`. This is necessary
-for ECS features and functionalities such as Amazon EBS volumes, `awsvpc` network
-mode, Amazon ECS Service Connect, and FireLens for Amazon ECS.
+Each Amazon ECS container agent version supports a different feature set and provides bug fixes from previous versions. When possible, we always recommend using the latest version of the Amazon ECS container agent. To update your container agent to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md).
 
-Each Amazon ECS container agent version supports a different feature set and provides bug fixes
-from previous versions. When possible, we always recommend using the latest version of the
-Amazon ECS container agent. To update your container agent to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
+The Amazon ECS container agent contains the `amazon-ecs-pause` image.Amazon ECS uses this image for tasks that use `awsvpc` network mode.
 
-The Amazon ECS container agent contains the `amazon-ecs-pause` image.Amazon ECS uses this
-image for tasks that use `awsvpc` network mode.
+To see which features and enhancements are included with each agent release, see [https://github.com/aws/amazon-ecs-agent/releases](https://github.com/aws/amazon-ecs-agent/releases).
 
-To see which features and enhancements are included with each agent release, see [https://github.com/aws/amazon-ecs-agent/releases](https://github.com/aws/amazon-ecs-agent/releases "https://github.com/aws/amazon-ecs-agent/releases").
-
-###### Important
-
-The minimum Docker version for reliable metrics is Docker version `v20.10.13` and
-newer, which is included in Amazon ECS-optimized AMI `20220607` and newer.
-
-Amazon ECS agent versions `1.20.0` and newer have deprecated support for
-Docker versions older than `18.01.0`.
+**Important**  
+The minimum Docker version for reliable metrics is Docker version `v20.10.13` and newer, which is included in Amazon ECS-optimized AMI `20220607` and newer.  
+Amazon ECS agent versions `1.20.0` and newer have deprecated support for Docker versions older than `18.01.0`.
 
 ## Lifecycle
+<a name="container-lifecycle"></a>
 
-When the Amazon ECS container agent registers an Amazon EC2 instance to your cluster, the Amazon EC2
-instance reports its status as `ACTIVE` and its agent connection status as
-`TRUE`. This container instance can accept run task requests.
+When the Amazon ECS container agent registers an Amazon EC2 instance to your cluster, the Amazon EC2 instance reports its status as `ACTIVE` and its agent connection status as `TRUE`. This container instance can accept run task requests.
 
-If you stop (not terminate) a container instance, the status remains
-`ACTIVE`, but the agent connection status transitions to
-`FALSE` within a few minutes. Any tasks that were running on the
-container instance stop. If you start the container instance again, the container agent
-reconnects with the Amazon ECS service, and you are able to run tasks on the instance
-again.
+If you stop (not terminate) a container instance, the status remains `ACTIVE`, but the agent connection status transitions to `FALSE` within a few minutes. Any tasks that were running on the container instance stop. If you start the container instance again, the container agent reconnects with the Amazon ECS service, and you are able to run tasks on the instance again.
 
-If you change the status of a container instance to `DRAINING`, new tasks
-are not placed on the container instance. Any service tasks running on the container
-instance are removed, if possible, so that you can perform system updates. For more
-information, see [Draining Amazon ECS container instances](container-instance-draining.md "container-instance-draining.md").
+If you change the status of a container instance to `DRAINING`, new tasks are not placed on the container instance. Any service tasks running on the container instance are removed, if possible, so that you can perform system updates. For more information, see [Draining Amazon ECS container instances](container-instance-draining.md).
 
-If you deregister or terminate a container instance, the container instance status
-changes to `INACTIVE` immediately, and the container instance is no longer
-reported when you list your container instances. However, you can still describe the
-container instance for one hour following termination. After one hour, the instance
-description is no longer available.
+If you deregister or terminate a container instance, the container instance status changes to `INACTIVE` immediately, and the container instance is no longer reported when you list your container instances. However, you can still describe the container instance for one hour following termination. After one hour, the instance description is no longer available.
 
-You can drain the instances manually, or build an Auto Scaling group lifecycle hook to
-set the instance status to `DRAINING`. See [Amazon EC2 Auto Scaling lifecycle
-hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") for more information about Auto Scaling lifecycle hooks.
+You can drain the instances manually, or build an Auto Scaling group lifecycle hook to set the instance status to `DRAINING`. See [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html) for more information about Auto Scaling lifecycle hooks.
 
 ## Docker Support
+<a name="docker-support"></a>
 
 Amazon ECS supports the last two major versions of Docker published on Amazon Linux. Currently, this includes Docker 20.10.x and Docker 25.x.
 
-The minimum required Docker version for Amazon ECS can be found in the [Amazon ECS Agent specification file](https://github.com/aws/amazon-ecs-agent/blob/dev/packaging/amazon-linux-ami-integrated/ecs-agent.spec#L53 "https://github.com/aws/amazon-ecs-agent/blob/dev/packaging/amazon-linux-ami-integrated/ecs-agent.spec#L53") on GitHub.
+The minimum required Docker version for Amazon ECS can be found in the [Amazon ECS Agent specification file](https://github.com/aws/amazon-ecs-agent/blob/dev/packaging/amazon-linux-ami-integrated/ecs-agent.spec#L53) on GitHub.
 
 When using the Amazon ECS-optimized AMI, Docker is pre-installed and configured to work with the Amazon ECS container agent. The AMI includes a Docker version that is tested and supported by Amazon ECS.
 
-###### Note
-
+**Note**  
 While Amazon ECS supports multiple Docker versions, we recommend using the Docker version that comes with the Amazon ECS-optimized AMI for the best compatibility and support.
 
 ## Amazon ECS-optimized AMI
+<a name="ecs-optimized-ami"></a>
 
-For more information about the Amazon ECS-optimized AMI, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
+For more information about the Amazon ECS-optimized AMI, see [Amazon ECS-optimized Linux AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
 
 ## Additional information
+<a name="additional-information"></a>
 
 The following pages provide additional information about the changes:
-
-- [Amazon ECS Agent changelog](https://github.com/aws/amazon-ecs-agent/blob/master/CHANGELOG.md "https://github.com/aws/amazon-ecs-agent/blob/master/CHANGELOG.md") on GitHub
-- [Amazon Linux 2 release
-  notes](../../../AL2/latest/relnotes/relnotes-al2.md "../../../AL2/latest/relnotes/relnotes-al2.md").
-- [Docker Engine
-  release notes](https://docs.docker.com/engine/release-notes/27/ "https://docs.docker.com/engine/release-notes/27/") in the Docker documentation
-- [NVIDIA Driver
-  Documentation](https://docs.nvidia.com/datacenter/tesla/index.html "https://docs.nvidia.com/datacenter/tesla/index.html") in the NVIDIA documentation
++ [Amazon ECS Agent changelog](https://github.com/aws/amazon-ecs-agent/blob/master/CHANGELOG.md) on GitHub
++ [Amazon Linux 2 release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html).
++ [Docker Engine release notes](https://docs.docker.com/engine/release-notes/27/) in the Docker documentation
++ [NVIDIA Driver Documentation](https://docs.nvidia.com/datacenter/tesla/index.html) in the NVIDIA documentation
 
 ## Amazon ECS container agent log configuration parameters
+<a name="agent-logs"></a>
 
 The Amazon ECS container agent stores logs on your container instances.
 
-For container agent version 1.36.0 and later, by default the logs are located at
-`/var/log/ecs/ecs-agent.log` on Linux instances and at
-`C:\ProgramData\Amazon\ECS\log\ecs-agent.log` on Windows
-instances.
+For container agent version 1.36.0 and later, by default the logs are located at `/var/log/ecs/ecs-agent.log` on Linux instances and at `C:\ProgramData\Amazon\ECS\log\ecs-agent.log` on Windows instances.
 
-For container agent version 1.35.0 and earlier, by default the logs are located at
-`/var/log/ecs/ecs-agent.log.`timestamp``
- on Linux instances and at
- `C:\ProgramData\Amazon\ECS\log\ecs-agent.log.`timestamp``
-on Windows instances.
+For container agent version 1.35.0 and earlier, by default the logs are located at `/var/log/ecs/ecs-agent.log.{{timestamp}}` on Linux instances and at `C:\ProgramData\Amazon\ECS\log\ecs-agent.log.{{timestamp}}` on Windows instances.
 
-By default, the agent logs are rotated hourly with a maximum of 24 logs being
-stored.
+By default, the agent logs are rotated hourly with a maximum of 24 logs being stored.
 
-The following are the container agent configuration variables that can be used to
-change the default agent logging behavior. For detailed information about all available configuration parameters, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md") or the [Amazon ECS Agent README](https://github.com/aws/amazon-ecs-agent/blob/master/README.md "https://github.com/aws/amazon-ecs-agent/blob/master/README.md") on GitHub.
+The following are the container agent configuration variables that can be used to change the default agent logging behavior. For detailed information about all available configuration parameters, see [Amazon ECS container agent configuration](ecs-agent-config.md) or the [Amazon ECS Agent README](https://github.com/aws/amazon-ecs-agent/blob/master/README.md) on GitHub.
 
-For container agent version 1.36.0 and later, the following is an example log file
-when the `logfmt` format is used.
+For container agent version 1.36.0 and later, the following is an example log file when the `logfmt` format is used.
 
 ```
 level=info time=2019-12-12T23:43:29Z msg="Loading configuration" module=agent.go

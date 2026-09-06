@@ -1,37 +1,29 @@
+
+
 # Best practices for IAM roles in Amazon ECS
+<a name="security-iam-roles"></a>
 
-The roles Amazon ECS requires depend on the task definition launch type and the features that
-you use. We recommend that you create separate roles in the table instead of sharing
-roles.
+The roles Amazon ECS requires depend on the task definition launch type and the features that you use. We recommend that you create separate roles in the table instead of sharing roles.
 
-| Role                           | Definition                                                                                 | When required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | More information                                                                              |
-| ------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Task execution role            | This role allows Amazon ECS to use other AWS services on your behalf.                      | Your task is hosted on AWS Fargate<br>or on external instances and:<br>• pulls a container image from an Amazon ECR private<br>repository.<br>• pulls a container image from an Amazon ECR private<br>repository in a different account from the account that<br>runs the task.<br>• sends container logs to CloudWatch Logs using the<br>`awslogs` log driver.<br>Your task is hosted on either AWS Fargate or Amazon EC2 instances<br>and:<br>• uses private registry authentication.<br>• uses Runtime Monitoring.<br>• the task definition references sensitive data using<br>Secrets Manager secrets or AWS Systems Manager Parameter Store<br>parameters. | [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md") |
-| Task role                      | This role allows your application code (on the container) to use other AWS services.       | Your application accesses other AWS services, such as Amazon S3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md")                             |
-| Container instance role        | This role allows your EC2 instances or external instances to register<br>with the cluster. | Your task is hosted on Amazon EC2 instances or an external instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md")         |
-| Amazon ECS Anywhere role       | This role allows your external instances to access AWS APIs.                               | Your task is hosted on external instances.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [Amazon ECS Anywhere IAM role](iam-role-ecsanywhere.md "iam-role-ecsanywhere.md")             |
-| Amazon ECS CodeDeploy role     | This role allows CodeDeploy to make updates to your services.                              | You use the CodeDeploy blue/green deployment type to deploy services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [Amazon ECS CodeDeploy IAM Role](codedeploy_IAM_role.md "codedeploy_IAM_role.md")             |
-| Amazon ECS EventBridge role    | This role allows EventBridge to make updates to your services.                             | You use the EventBridge rules and targets to schedule your tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [Amazon ECS EventBridge IAM Role](CWE_IAM_role.md "CWE_IAM_role.md")                          |
-| Amazon ECS infrastructure role | This role allows Amazon ECS to manage infrastructure resources in your<br>clusters.        | • You want to attach Amazon EBS volumes to your Fargate or EC2 launch<br>type Amazon ECS tasks. The infrastructure role allows Amazon ECS to manage Amazon EBS volumes for<br>your tasks.<br>• You want to use Transport Layer Security (TLS) to encrypt traffic between your<br>Amazon ECS Service Connect services.<br>• You want to create VPC Lattice target groups.                                                                                                                                                                                                                                                                                        | [Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md "infrastructure_IAM_role.md") |
+
+| Role | Definition | When required | More information | 
+| --- | --- | --- | --- | 
+| Task execution role | This role allows Amazon ECS to use other AWS services on your behalf. | Your task is hosted on AWS Fargate or on external instances and:+  pulls a container image from an Amazon ECR private repository. <br />+  pulls a container image from an Amazon ECR private repository in a different account from the account that runs the task. <br />+  sends container logs to CloudWatch Logs using the `awslogs` log driver.  <br />Your task is hosted on either AWS Fargate or Amazon EC2 instances and:+  uses private registry authentication.  <br />+  uses Runtime Monitoring. <br />+  the task definition references sensitive data using Secrets Manager secrets or AWS Systems Manager Parameter Store parameters.  | [Amazon ECS task execution IAM role](task_execution_IAM_role.md) | 
+| Task role | This role allows your application code (on the container) to use other AWS services. | Your application accesses other AWS services, such as Amazon S3. | [Amazon ECS task IAM role](task-iam-roles.md) | 
+| Container instance role | This role allows your EC2 instances or external instances to register with the cluster. | Your task is hosted on Amazon EC2 instances or an external instance. | [Amazon ECS container instance IAM role](instance_IAM_role.md) | 
+| Amazon ECS Anywhere role | This role allows your external instances to access AWS APIs. | Your task is hosted on external instances. | [Amazon ECS Anywhere IAM role](iam-role-ecsanywhere.md) | 
+| Amazon ECS CodeDeploy role | This role allows CodeDeploy to make updates to your services. | You use the CodeDeploy blue/green deployment type to deploy services. | [Amazon ECS CodeDeploy IAM Role](codedeploy_IAM_role.md) | 
+| Amazon ECS EventBridge role | This role allows EventBridge to make updates to your services. | You use the EventBridge rules and targets to schedule your tasks. | [Amazon ECS EventBridge IAM Role](CWE_IAM_role.md) | 
+| Amazon ECS infrastructure role | This role allows Amazon ECS to manage infrastructure resources in your clusters.  |  +  You want to attach Amazon EBS volumes to your Fargate or EC2 launch type Amazon ECS tasks. The infrastructure role allows Amazon ECS to manage Amazon EBS volumes for your tasks. <br />+  You want to use Transport Layer Security (TLS) to encrypt traffic between your Amazon ECS Service Connect services. <br />+  You want to create VPC Lattice target groups.  | [Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md) | 
 
 ## Task role
+<a name="security-iam-task-role"></a>
 
-We recommend that you assign a task role. Its role can be distinguished from
-the role of the Amazon EC2 instance that it's running on. Assigning each task a role
-aligns with the principle of least privileged access and allows for greater granular
-control over actions and resources.
+We recommend that you assign a task role. Its role can be distinguished from the role of the Amazon EC2 instance that it's running on. Assigning each task a role aligns with the principle of least privileged access and allows for greater granular control over actions and resources.
 
-When you add a task role to a task definition, the Amazon ECS container agent automatically
-creates a token with a unique credential ID (for example,
-`12345678-90ab-cdef-1234-567890abcdef`) for the task. This token and the role
-credentials are then added to the agent's internal cache. The agent populates the
-environment variable `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` in the
-container with the URI of the credential ID (for example,
-`/v2/credentials/12345678-90ab-cdef-1234-567890abcdef`).
+When you add a task role to a task definition, the Amazon ECS container agent automatically creates a token with a unique credential ID (for example, `12345678-90ab-cdef-1234-567890abcdef`) for the task. This token and the role credentials are then added to the agent's internal cache. The agent populates the environment variable `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` in the container with the URI of the credential ID (for example, `/v2/credentials/12345678-90ab-cdef-1234-567890abcdef`).
 
-You can manually retrieve the temporary role credentials from inside a container by
-appending the environment variable to the IP address of the Amazon ECS container agent and
-running the `curl` command on the resulting string.
+You can manually retrieve the temporary role credentials from inside a container by appending the environment variable to the IP address of the Amazon ECS container agent and running the `curl` command on the resulting string.
 
 ```
 curl 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
@@ -47,223 +39,117 @@ The expected output is as follows:
 	"Token": "IQoJb3JpZ2luX2VjEEM/Example==",
 	"Expiration": "2021-01-16T00:51:53Z"
 }
-
 ```
 
-Newer versions of the AWS SDKs automatically fetch these credentials from the
-`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment variable when making
-AWS API calls. For information about how to renew credentials, see [Renewing AWS credentials](https://repost.aws/questions/QUgcf1EIOPS7GZNboeAiyO9Q/renewing-aws-credentials "https://repost.aws/questions/QUgcf1EIOPS7GZNboeAiyO9Q/renewing-aws-credentials") on rePost.
+Newer versions of the AWS SDKs automatically fetch these credentials from the `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment variable when making AWS API calls. For information about how to renew credentials, see [Renewing AWS credentials](https://repost.aws/questions/QUgcf1EIOPS7GZNboeAiyO9Q/renewing-aws-credentials) on rePost.
 
-The output includes an access key-pair consisting of a secret access key ID and a
-secret key which your application uses to access AWS resources. It also includes a
-token that AWS uses to verify that the credentials are valid. By default, credentials
-assigned to tasks using task roles are valid for six hours. After that, they are
-automatically rotated by the Amazon ECS container agent.
+The output includes an access key-pair consisting of a secret access key ID and a secret key which your application uses to access AWS resources. It also includes a token that AWS uses to verify that the credentials are valid. By default, credentials assigned to tasks using task roles are valid for six hours. After that, they are automatically rotated by the Amazon ECS container agent.
 
 ## Task execution role
+<a name="security-iam-roles-task-execution"></a>
 
-The task execution role is used to grant the Amazon ECS container agent permission to
-call specific AWS API actions on your behalf. For example, when you use
-AWS Fargate, Fargate needs an IAM role that allows it to pull images from
-Amazon ECR and write logs to CloudWatch Logs. An IAM role is also required when a task references
-a secret that's stored in AWS Secrets Manager, such as an image pull secret.
+The task execution role is used to grant the Amazon ECS container agent permission to call specific AWS API actions on your behalf. For example, when you use AWS Fargate, Fargate needs an IAM role that allows it to pull images from Amazon ECR and write logs to CloudWatch Logs. An IAM role is also required when a task references a secret that's stored in AWS Secrets Manager, such as an image pull secret.
 
-###### Note
+**Note**  
+If you're pulling images as an authenticated user, you're less likely to be impacted by the changes that occurred to [Docker Hub's pull rate limits](https://www.docker.com/pricing/resource-consumption-updates). For more information see, [Private registry authentication for container instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth-container-instances.html).  
+By using Amazon ECR and Amazon ECR Public, you can avoid the limits imposed by Docker. If you pull images from Amazon ECR, this also helps shorten network pull times and reduces data transfer changes when traffic leaves your VPC.
 
-If you're pulling images as an authenticated user, you're less likely to be
-impacted by the changes that occurred to [Docker
-Hub's pull rate limits](https://www.docker.com/pricing/resource-consumption-updates "https://www.docker.com/pricing/resource-consumption-updates"). For more information see, [Private registry authentication for container instances](private-auth-container-instances.md "private-auth-container-instances.md").
-
-By using Amazon ECR and Amazon ECR Public, you can avoid the limits imposed by Docker.
-If you pull images from Amazon ECR, this also helps shorten network pull times and
-reduces data transfer changes when traffic leaves your VPC.
-
-###### Important
-
-When you use Fargate, you must authenticate to a private image registry
-using `repositoryCredentials`. It's not possible to set the Amazon ECS
-container agent environment variables `ECS_ENGINE_AUTH_TYPE` or
-`ECS_ENGINE_AUTH_DATA` or modify the `ecs.config` file
-for tasks hosted on Fargate. For more information, see [Private registry authentication for tasks](private-auth.md "private-auth.md").
+**Important**  
+When you use Fargate, you must authenticate to a private image registry using `repositoryCredentials`. It's not possible to set the Amazon ECS container agent environment variables `ECS_ENGINE_AUTH_TYPE` or `ECS_ENGINE_AUTH_DATA` or modify the `ecs.config` file for tasks hosted on Fargate. For more information, see [Private registry authentication for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth.html).
 
 ## Container instance role
+<a name="security-iam-roles-ec2-container-instance"></a>
 
-The `AmazonEC2ContainerServiceforEC2Role` managed IAM policy includes the
-following permissions. Following the standard security advice of granting least
-privilege, the `AmazonEC2ContainerServiceforEC2Role` managed policy can be
-used as a guide. If you don't need any of the permissions that are granted in the
-managed policy for your use case, create a custom policy and add only the permissions
-that you need.
+The `AmazonEC2ContainerServiceforEC2Role` managed IAM policy includes the following permissions. Following the standard security advice of granting least privilege, the `AmazonEC2ContainerServiceforEC2Role` managed policy can be used as a guide. If you don't need any of the permissions that are granted in the managed policy for your use case, create a custom policy and add only the permissions that you need.
++ `ec2:DescribeTags` – (Optional) Allows a principal to describe the tags that are associated with an Amazon EC2 instance. This permission is used by the Amazon ECS container agent to support resource tag propagation. For more information, see [How resources are tagged](ecs-using-tags.md#tag-resources).
++ `ecs:CreateCluster` – (Optional) Allows a principal to create an Amazon ECS cluster. This permission is used by the Amazon ECS container agent to create a `default` cluster, if one doesn't already exist.
++ `ecs:DeregisterContainerInstance` – (Optional) Allows a principal to deregister an Amazon ECS container instance from a cluster. The Amazon ECS container agent doesn't call this API operation, but this permission remains to help ensure backwards compatibility.
++ `ecs:DiscoverPollEndpoint` – (Required) This action returns endpoints that the Amazon ECS container agent uses to poll for updates.
++ `ecs:Poll` – (Required) Allows the Amazon ECS container agent to communicate with the Amazon ECS control plane to report task state changes.
++ `ecs:RegisterContainerInstance` – (Required) Allows a principal to register a container instance with a cluster. This permission is used by the Amazon ECS container agent to register the Amazon EC2 instance with a cluster and to support resource tag propagation.
++ `ecs:StartTelemetrySession` – (Optional) Allows the Amazon ECS container agent to communicate with the Amazon ECS control plane to report health information and metrics for each container and task.
 
-- `ec2:DescribeTags` – (Optional) Allows a principal to
-  describe the tags that are associated with an Amazon EC2 instance. This permission is
-  used by the Amazon ECS container agent to support resource tag propagation. For more
-  information, see [How resources are tagged](ecs-using-tags.md#tag-resources "ecs-using-tags.md#tag-resources").
-- `ecs:CreateCluster` – (Optional) Allows a principal to
-  create an Amazon ECS cluster. This permission is used by the Amazon ECS container agent to
-  create a `default` cluster, if one doesn't already exist.
-- `ecs:DeregisterContainerInstance` – (Optional) Allows a
-  principal to deregister an Amazon ECS container instance from a cluster. The Amazon ECS
-  container agent doesn't call this API operation, but this permission
-  remains to help ensure backwards compatibility.
-- `ecs:DiscoverPollEndpoint` – (Required) This action returns
-  endpoints that the Amazon ECS container agent uses to poll for updates.
-- `ecs:Poll` – (Required) Allows the Amazon ECS container agent to
-  communicate with the Amazon ECS control plane to report task state changes.
-- `ecs:RegisterContainerInstance` – (Required) Allows a
-  principal to register a container instance with a cluster. This permission is
-  used by the Amazon ECS container agent to register the Amazon EC2 instance with a cluster
-  and to support resource tag propagation.
-- `ecs:StartTelemetrySession` – (Optional) Allows the Amazon ECS
-  container agent to communicate with the Amazon ECS control plane to report health
-  information and metrics for each container and task.
-
-Although this permission is not required, we recommend that you add it to
-allowthe container instance metrics to start scale actions and also receive
-reports related to health check commands.
-
-- `ecs:TagResource` – (Optional) Allows the Amazon ECS container
-  agent to tag cluster on creation and to tag container instances when they are
-  registered to a cluster.
-- `ecs:UpdateContainerInstancesState` – Allows a principal to
-  modify the status of an Amazon ECS container instance. This permission is used by the
-  Amazon ECS container agent for Spot Instance draining.
-- `ecs:Submit*` – (Required) This includes the
-  `SubmitAttachmentStateChanges`,
-  `SubmitContainerStateChange`, and
-  `SubmitTaskStateChange` API actions. They're used by the Amazon ECS
-  container agent to report state changes for each resource to the Amazon ECS control
-  plane. The `SubmitContainerStateChange` permission is no longer used
-  by the Amazon ECS container agent but remains to help ensure backwards
-  compatibility.
-- `ecr:GetAuthorizationToken` – (Optional) Allows a principal
-  to retrieve an authorization token. The authorization token represents your
-  IAM authentication credentials and can be used to access any Amazon ECR registry
-  that the IAM principal has access to. The authorization token received is
-  valid for 12 hours.
-- `ecr:BatchCheckLayerAvailability` – (Optional) When a
-  container image is pushed to an Amazon ECR private repository, each image layer is
-  checked to verify if it's already pushed. If it is, then the image layer is
-  skipped.
-- `ecr:GetDownloadUrlForLayer` – (Optional) When a container
-  image is pulled from an Amazon ECR private repository, this API is called once for
-  each image layer that's not already cached.
-- `ecr:BatchGetImage` – (Optional) When a container image is
-  pulled from an Amazon ECR private repository, this API is called once to retrieve the
-  image manifest.
-- `logs:CreateLogStream` – (Optional) Allows a principal to
-  create a CloudWatch Logs log stream for a specified log group.
-- `logs:PutLogEvents` – (Optional) Allows a principal to
-  upload a batch of log events to a specified log stream.
+  Although this permission is not required, we recommend that you add it to allowthe container instance metrics to start scale actions and also receive reports related to health check commands.
++ `ecs:TagResource` – (Optional) Allows the Amazon ECS container agent to tag cluster on creation and to tag container instances when they are registered to a cluster.
++ `ecs:UpdateContainerInstancesState` – Allows a principal to modify the status of an Amazon ECS container instance. This permission is used by the Amazon ECS container agent for Spot Instance draining. 
++ `ecs:Submit*` – (Required) This includes the `SubmitAttachmentStateChanges`, `SubmitContainerStateChange`, and `SubmitTaskStateChange` API actions. They're used by the Amazon ECS container agent to report state changes for each resource to the Amazon ECS control plane. The `SubmitContainerStateChange` permission is no longer used by the Amazon ECS container agent but remains to help ensure backwards compatibility.
++ `ecr:GetAuthorizationToken` – (Optional) Allows a principal to retrieve an authorization token. The authorization token represents your IAM authentication credentials and can be used to access any Amazon ECR registry that the IAM principal has access to. The authorization token received is valid for 12 hours.
++ `ecr:BatchCheckLayerAvailability` – (Optional) When a container image is pushed to an Amazon ECR private repository, each image layer is checked to verify if it's already pushed. If it is, then the image layer is skipped.
++ `ecr:GetDownloadUrlForLayer` – (Optional) When a container image is pulled from an Amazon ECR private repository, this API is called once for each image layer that's not already cached.
++ `ecr:BatchGetImage` – (Optional) When a container image is pulled from an Amazon ECR private repository, this API is called once to retrieve the image manifest.
++ `logs:CreateLogStream` – (Optional) Allows a principal to create a CloudWatch Logs log stream for a specified log group.
++ `logs:PutLogEvents` – (Optional) Allows a principal to upload a batch of log events to a specified log stream.
 
 ## Service-linked roles
+<a name="security-iam-roles-service-linked"></a>
 
-You can use the service-linked role for Amazon ECS to grant the Amazon ECS service
-permission to call other service APIs on your behalf. Amazon ECS needs the permissions to
-create and delete network interfaces, register, and de-register targets with a
-target group. It also needs the necessary permissions to create and delete scaling
-policies. These permissions are granted through the service-linked role. This role
-is created on your behalf the first time that you use the service.
+You can use the service-linked role for Amazon ECS to grant the Amazon ECS service permission to call other service APIs on your behalf. Amazon ECS needs the permissions to create and delete network interfaces, register, and de-register targets with a target group. It also needs the necessary permissions to create and delete scaling policies. These permissions are granted through the service-linked role. This role is created on your behalf the first time that you use the service.
 
-###### Note
-
-If you inadvertently delete the service-linked role, you can recreate it. For
-instructions, see [Create the service-linked role](using-service-linked-roles.md#create-service-linked-role "using-service-linked-roles.md#create-service-linked-role").
+**Note**  
+If you inadvertently delete the service-linked role, you can recreate it. For instructions, see [Create the service-linked role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html#create-service-linked-role).
 
 ## Roles recommendations
+<a name="security-iam-roles-recommendations"></a>
 
-We recommend that you do the following when setting up your task IAM roles and
-policies.
+We recommend that you do the following when setting up your task IAM roles and policies.
 
 ### Block access to Amazon EC2 metadata
+<a name="security-iam-roles-recommendations-ec2-metadata"></a>
 
-When you run your tasks on Amazon EC2 instances, we strongly recommend that you
-block container access to the Amazon EC2 Instance Metadata Service (IMDS) to prevent
-your containers from accessing sensitive instance-level data, including the
-instance profile credentials of the instance. If your applications have to call
-an AWS API action, use IAM roles for tasks instead.
+When you run your tasks on Amazon EC2 instances, we strongly recommend that you block container access to the Amazon EC2 Instance Metadata Service (IMDS) to prevent your containers from accessing sensitive instance-level data, including the instance profile credentials of the instance. If your applications have to call an AWS API action, use IAM roles for tasks instead.
 
-To prevent tasks running in **bridge** mode from
-accessing Amazon EC2 metadata, run the following command or update the instance's
-user data. For more instruction on updating the user data of an instance, see
-this [AWS Support Article](https://aws.amazon.com/premiumsupport/knowledge-center/ecs-container-ec2-metadata/ "https://aws.amazon.com/premiumsupport/knowledge-center/ecs-container-ec2-metadata/"). For more information about the task
-definition bridge mode, see [task definition network mode](task_definition_parameters.md#network_mode "task_definition_parameters.md#network_mode").
+To prevent tasks running in **bridge** mode from accessing Amazon EC2 metadata, run the following command or update the instance's user data. For more instruction on updating the user data of an instance, see this [AWS Support Article](https://aws.amazon.com/premiumsupport/knowledge-center/ecs-container-ec2-metadata/). For more information about the task definition bridge mode, see [task definition network mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#network_mode).
 
 ```
 sudo yum install -y iptables-services; sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
 ```
 
-For this change to persist after a reboot, run the following command that's
-specific for your Amazon Machine Image (AMI):
+For this change to persist after a reboot, run the following command that's specific for your Amazon Machine Image (AMI):
++ Amazon Linux 2
 
-- Amazon Linux 2
+  ```
+  sudo iptables-save | sudo tee /etc/sysconfig/iptables && sudo systemctl enable --now iptables
+  ```
++ Amazon Linux
 
-```
-sudo iptables-save | sudo tee /etc/sysconfig/iptables && sudo systemctl enable --now iptables
-```
+  ```
+  sudo service iptables save
+  ```
 
-- Amazon Linux
+For tasks that use `awsvpc` network mode, set the environment variable `ECS_AWSVPC_BLOCK_IMDS` to `true` in the `/etc/ecs/ecs.config` file.
 
-```
-sudo service iptables save
-```
-
-For tasks that use `awsvpc` network mode, set the environment
-variable `ECS_AWSVPC_BLOCK_IMDS` to `true` in the
-`/etc/ecs/ecs.config` file.
-
-You should set the `ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST` variable
-to `false` in the `ecs-agent config` file to prevent the containers
-that are running within the `host` network from accessing the Amazon EC2
-metadata.
+You should set the `ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST` variable to `false` in the `ecs-agent config` file to prevent the containers that are running within the `host` network from accessing the Amazon EC2 metadata.
 
 ### Use the `awsvpc` network mode
+<a name="security-iam-roles-recommendations-awsvpc-networking-mode"></a>
 
-Use the network `awsvpc` network mode to restrict the flow of
-traffic between different tasks or between your tasks and other services that
-run within your Amazon VPC. This adds an additional layer of security. The
-`awsvpc` network mode provides task-level network isolation for
-tasks that run on Amazon EC2. It is the default mode on AWS Fargate. it's the only
-network mode that you can use to assign a security group to tasks.
+Use the network `awsvpc` network mode to restrict the flow of traffic between different tasks or between your tasks and other services that run within your Amazon VPC. This adds an additional layer of security. The `awsvpc` network mode provides task-level network isolation for tasks that run on Amazon EC2. It is the default mode on AWS Fargate. it's the only network mode that you can use to assign a security group to tasks. 
 
 ### Use last accessed information to refine roles
+<a name="security-iam-roles-recommendations-iam-access-advisor-refine-roles"></a>
 
-We recommend that you remove any actions that were never used or haven't been
-used for some time. This prevents unwanted access from happening. To do this,
-review last accessed information provided by IAM, and then remove actions
-that were never used or haven't been used recently. You can do this by following
-the following steps.
+We recommend that you remove any actions that were never used or haven't been used for some time. This prevents unwanted access from happening. To do this, review last accessed information provided by IAM, and then remove actions that were never used or haven't been used recently. You can do this by following the following steps.
 
-Run the following command to generate a report showing the last access
-information for the referenced policy:
+Run the following command to generate a report showing the last access information for the referenced policy:
 
 ```
 aws iam generate-service-last-accessed-details --arn arn:aws:iam::123456789012:policy/ExamplePolicy1
 ```
 
-use the `JobId` that was in the output to run the following
-command. After you do this, you can view the results of the report.
+use the `JobId` that was in the output to run the following command. After you do this, you can view the results of the report.
 
 ```
 aws iam get-service-last-accessed-details --job-id 98a765b4-3cde-2101-2345-example678f9
 ```
 
-For more information, see [Refine permissions in AWS using last accessed information](../../../IAM/latest/UserGuide/access_policies_last-accessed.md "../../../IAM/latest/UserGuide/access_policies_last-accessed.md").
+For more information, see [Refine permissions in AWS using last accessed information](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed.html).
 
 ### Monitor AWS CloudTrail for suspicious activity
+<a name="security-iam-roles-recommendations-cloudtrail-monitoring"></a>
 
-You can monitor AWS CloudTrail for any suspicious activity. Most AWS API calls are
-logged to AWS CloudTrail as events. They are analyzed by AWS CloudTrail Insights, and you're
-alerted of any suspicious behavior that's associated with `write` API
-calls. This might include a spike in call volume. These alerts include such
-information as the time the unusual activity occurred and the top identity
-ARN that contributed to the APIs.
+You can monitor AWS CloudTrail for any suspicious activity. Most AWS API calls are logged to AWS CloudTrail as events. They are analyzed by AWS CloudTrail Insights, and you're alerted of any suspicious behavior that's associated with `write` API calls. This might include a spike in call volume. These alerts include such information as the time the unusual activity occurred and the top identity ARN that contributed to the APIs. 
 
-You can identify actions that are performed by tasks with an IAM role in
-AWS CloudTrail by looking at the event's `userIdentity` property. In the
-following example, the `arn` includes of the name of the assumed
-role, `s3-write-go-bucket-role`, followed by the name of the task,
-`7e9894e088ad416eb5cab92afExample`.
+You can identify actions that are performed by tasks with an IAM role in AWS CloudTrail by looking at the event's `userIdentity` property. In the following example, the `arn` includes of the name of the assumed role, `s3-write-go-bucket-role`, followed by the name of the task, `7e9894e088ad416eb5cab92afExample`.
 
 ```
 "userIdentity": {
@@ -274,11 +160,5 @@ role, `s3-write-go-bucket-role`, followed by the name of the task,
 }
 ```
 
-###### Note
-
-When tasks that assume a role are run on Amazon EC2 container instances, a
-request is logged by Amazon ECS container agent to the audit log of the agent
-that's located at an address in the
-`/var/log/ecs/audit.log.YYYY-MM-DD-HH` format. For more
-information, see [Task
-IAM Roles Log](logs.md#task_iam_roles-logs "logs.md#task_iam_roles-logs") and [Logging Insights Events for Trails](../../../awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.md").
+**Note**  
+When tasks that assume a role are run on Amazon EC2 container instances, a request is logged by Amazon ECS container agent to the audit log of the agent that's located at an address in the `/var/log/ecs/audit.log.YYYY-MM-DD-HH` format. For more information, see [Task IAM Roles Log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/logs.html#task_iam_roles-logs) and [Logging Insights Events for Trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html).

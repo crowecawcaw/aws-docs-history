@@ -1,19 +1,19 @@
-# Migrating an CloudFormation CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template
 
-Migrate a CloudFormation template that uses CodeDeploy blue/green deployments for Amazon ECS
-services to one that uses the native Amazon ECS blue/green deployment strategy. The migration
-follows the "Reuse the same Elastic Load Balancing resources used for CodeDeploy" approach. For more information,
-see [Migrate CodeDeploy blue/green deployments to Amazon ECS blue/green deployments](migrate-codedeploy-to-ecs-bluegreen.md "migrate-codedeploy-to-ecs-bluegreen.md").
+
+# Migrating an CloudFormation CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template
+<a name="migrate-codedeploy-to-ecs-bluegreen-cloudformation-template"></a>
+
+Migrate a CloudFormation template that uses CodeDeploy blue/green deployments for Amazon ECS services to one that uses the native Amazon ECS blue/green deployment strategy. The migration follows the "Reuse the same Elastic Load Balancing resources used for CodeDeploy" approach. For more information, see [Migrate CodeDeploy blue/green deployments to Amazon ECS blue/green deployments](migrate-codedeploy-to-ecs-bluegreen.md).
 
 ## Source template
+<a name="source-template"></a>
 
-This template uses the `AWS::CodeDeployBlueGreen` transform and
-`AWS::CodeDeploy::BlueGreen` hook to implement blue/green deployments for
-an Amazon ECS service.
+This template uses the `AWS::CodeDeployBlueGreen` transform and `AWS::CodeDeploy::BlueGreen` hook to implement blue/green deployments for an Amazon ECS service.
 
-This is the complete CloudFormation template using CodeDeploy blue/green deployment. For
-more information, see [Blue/green deployment template example](../../../AWSCloudFormation/latest/UserGuide/blue-green-template-example.md#blue-green-template-example.json "../../../AWSCloudFormation/latest/UserGuide/blue-green-template-example.md#blue-green-template-example.json") in the _AWS CloudFormation
-User Guide_:
+### Source
+<a name="code-deploy-source"></a>
+
+This is the complete CloudFormation template using CodeDeploy blue/green deployment. For more information, see [Blue/green deployment template example](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green-template-example.html#blue-green-template-example.json) in the* AWS CloudFormation User Guide*:
 
 ```
 {
@@ -229,7 +229,7 @@ User Guide_:
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Sid": "",
@@ -333,22 +333,21 @@ User Guide_:
 ```
 
 ## Migration steps
+<a name="migration-steps"></a>
 
 ### Remove CodeDeploy-specific resources
+<a name="remove-codedeploy-resources"></a>
 
 You no longer need the following properties:
-
-- The `AWS::CodeDeployBlueGreen` transform
-- The `CodeDeployBlueGreenHook` hook
-- The `GreenTaskDefinition` and `GreenTaskSet`
-  resources (these will be managed by Amazon ECS)
-- The `PrimaryTaskSet` resource (Amazon ECS will manage task sets
-  internally)
++ The `AWS::CodeDeployBlueGreen` transform
++ The `CodeDeployBlueGreenHook` hook
++ The `GreenTaskDefinition` and `GreenTaskSet` resources (these will be managed by Amazon ECS)
++ The `PrimaryTaskSet` resource (Amazon ECS will manage task sets internally)
 
 ### Reconfigure the load balancer listener
+<a name="reconfigure-load-balancer"></a>
 
-Modify the `ALBListenerProdTraffic` resource to use a forward action
-with two target groups:
+Modify the `ALBListenerProdTraffic` resource to use a forward action with two target groups:
 
 ```
 {
@@ -373,72 +372,76 @@ with two target groups:
 ```
 
 ### Update the deployment properties
+<a name="update-ecs-service"></a>
 
 Update and add the following:
++ Change the `DeploymentController` property from `EXTERNAL` to `ECS`.
++ Add the `Strategy` property and set it to BLUE\_GREEN.
++ Add the `BakeTimeInMinutes` property.
 
-- Change the `DeploymentController` property from
-  `EXTERNAL` to `ECS`.
-- Add the `Strategy` property and set it to BLUE\_GREEN.
-- Add the `BakeTimeInMinutes` property.
-
-```
-{
-  "DeploymentConfiguration": {
-    "MaximumPercent": 200,
-    "MinimumHealthyPercent": 100,
-    "DeploymentCircuitBreaker": {
-      "Enable": true,
-      "Rollback": true
-    },
-    "BakeTimeInMinutes": 5,
-    "Strategy": "BLUE_GREEN"
-  }
-}
-```
-
-- Add the load balancer configuration to the service:
-
-```
-{
-  "LoadBalancers": [
-    {
-      "ContainerName": "DemoApp",
-      "ContainerPort": 80,
-      "TargetGroupArn": {"Ref": "ALBTargetGroupBlue"},
-      "AdvancedConfiguration": {
-        "AlternateTargetGroupArn": {"Ref": "ALBTargetGroupGreen"},
-        "ProductionListenerRule": {"Ref": "ALBListenerProdRule"},
-        "RoleArn": {"Fn::GetAtt": ["ECSInfrastructureRoleForLoadBalancers", "Arn"]}
-      }
+  ```
+  {
+    "DeploymentConfiguration": {
+      "MaximumPercent": 200,
+      "MinimumHealthyPercent": 100,
+      "DeploymentCircuitBreaker": {
+        "Enable": true,
+        "Rollback": true
+      },
+      "BakeTimeInMinutes": 5,
+      "Strategy": "BLUE_GREEN"
     }
-  ]
-}
-```
+  }
+  ```
++ Add the load balancer configuration to the service:
 
-- Add the task definition reference to the service:
+  ```
+  {
+    "LoadBalancers": [
+      {
+        "ContainerName": "DemoApp",
+        "ContainerPort": 80,
+        "TargetGroupArn": {"Ref": "ALBTargetGroupBlue"},
+        "AdvancedConfiguration": {
+          "AlternateTargetGroupArn": {"Ref": "ALBTargetGroupGreen"},
+          "ProductionListenerRule": {"Ref": "ALBListenerProdRule"},
+          "RoleArn": {"Fn::GetAtt": ["ECSInfrastructureRoleForLoadBalancers", "Arn"]}
+        }
+      }
+    ]
+  }
+  ```
++ Add the task definition reference to the service:
 
-```
-{
-  "TaskDefinition": {"Ref": "BlueTaskDefinition"}
-}
-```
+  ```
+  {
+    "TaskDefinition": {"Ref": "BlueTaskDefinition"}
+  }
+  ```
 
 ### Create the AmazonECSInfrastructureRolePolicyForLoadBalancers role
+<a name="create-ecs-service-role"></a>
 
-Add a new IAM role that allows Amazon ECS to manage load balancer resources. For more information, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md")
+Add a new IAM role that allows Amazon ECS to manage load balancer resources. For more information, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md)
 
 ## Testing recommendations
+<a name="testing-recommendations"></a>
 
 1. Deploy the migrated template to a non-production environment.
-2. Verify that the service deploys correctly with the initial
-   configuration.
-3. Test a deployment by updating the task definition and observing the blue/green
-   deployment process.
-4. Verify that traffic shifts correctly between the blue and green
-   deployments.
-5. Test rollback functionality by forcing a deployment failure.
+
+1. Verify that the service deploys correctly with the initial configuration.
+
+1. Test a deployment by updating the task definition and observing the blue/green deployment process.
+
+1. Verify that traffic shifts correctly between the blue and green deployments.
+
+1. Test rollback functionality by forcing a deployment failure.
 
 ## Template after migration
+<a name="migrated-template"></a>
+
+### Final template
+<a name="ecs-bluegreen-template"></a>
 
 This is the complete CloudFormation template using an Amazon ECS blue/green deployment:
 
@@ -619,7 +622,7 @@ This is the complete CloudFormation template using an Amazon ECS blue/green depl
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Sid": "",
@@ -640,7 +643,7 @@ This is the complete CloudFormation template using an Amazon ECS blue/green depl
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Sid": "AllowAccessToECSForInfrastructureManagement",

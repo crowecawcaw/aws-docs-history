@@ -1,13 +1,14 @@
-# Amazon ECS task metadata v3 examples
 
-The following examples show sample outputs from the task metadata
-endpoints.
+
+# Amazon ECS task metadata v3 examples
+<a name="task-metadata-endpoint-v3-examples"></a>
+
+The following examples show sample outputs from the task metadata endpoints.
 
 ## Example Container Metadata Response
+<a name="task-metadata-endpoint-v3-example-container-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI}` endpoint you
-are returned only metadata about the container itself. The following is an
-example output.
+When querying the `${ECS_CONTAINER_METADATA_URI}` endpoint you are returned only metadata about the container itself. The following is an example output.
 
 ```
 {
@@ -44,17 +45,16 @@ example output.
 ```
 
 ## Example task metadata response
+<a name="task-metadata-endpoint-v3-example-task-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI}/task` endpoint
-you are returned metadata about the task the container is part of. The
-following is an example output.
+When querying the `${ECS_CONTAINER_METADATA_URI}/task` endpoint you are returned metadata about the task the container is part of. The following is an example output.
 
 The following JSON response is for a single-container task.
 
 ```
 {
   "Cluster": "default",
-  "TaskARN": "arn:aws:ecs:us-east-2:`012345678910`:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",
+  "TaskARN": "arn:aws:ecs:us-east-2:{{012345678910}}:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",
   "Family": "nginx",
   "Revision": "5",
   "DesiredStatus": "RUNNING",
@@ -69,7 +69,7 @@ The following JSON response is for a single-container task.
       "Labels": {
         "com.amazonaws.ecs.cluster": "default",
         "com.amazonaws.ecs.container-name": "~internal~ecs~pause",
-        "com.amazonaws.ecs.task-arn": "arn:aws:ecs:us-east-2:`012345678910`:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",
+        "com.amazonaws.ecs.task-arn": "arn:aws:ecs:us-east-2:{{012345678910}}:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",
         "com.amazonaws.ecs.task-definition-family": "nginx",
         "com.amazonaws.ecs.task-definition-version": "5"
       },
@@ -100,7 +100,7 @@ The following JSON response is for a single-container task.
       "Labels": {
         "com.amazonaws.ecs.cluster": "default",
         "com.amazonaws.ecs.container-name": "nginx-curl",
-        "com.amazonaws.ecs.task-arn": "arn:aws:ecs:us-east-2:`012345678910`:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",
+        "com.amazonaws.ecs.task-arn": "arn:aws:ecs:us-east-2:{{012345678910}}:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",
         "com.amazonaws.ecs.task-definition-family": "nginx",
         "com.amazonaws.ecs.task-definition-version": "5"
       },

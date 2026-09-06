@@ -1,9 +1,9 @@
-# Specify an FSx for Windows File Server file system in an Amazon ECS task definition
 
-To use FSx for Windows File Server file system volumes for your containers, specify the volume and
-mount point configurations in your task definition. The following task definition JSON
-snippet shows the syntax for the `volumes` and `mountPoints`
-objects for a container.
+
+# Specify an FSx for Windows File Server file system in an Amazon ECS task definition
+<a name="specify-wfsx-config"></a>
+
+To use FSx for Windows File Server file system volumes for your containers, specify the volume and mount point configurations in your task definition. The following task definition JSON snippet shows the syntax for the `volumes` and `mountPoints` objects for a container.
 
 ```
 {
@@ -73,83 +73,46 @@ objects for a container.
 }
 ```
 
-`FSxWindowsFileServerVolumeConfiguration`
-
-Type: Object
-
-Required: No
-
-This parameter is specified when you're using [FSx for Windows File Server](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md") file
-system for task storage.
-
-`fileSystemId`
-
-Type: String
-
-Required: Yes
-
-The FSx for Windows File Server file system ID to use.
-
-`rootDirectory`
-
-Type: String
-
-Required: Yes
-
-The directory within the FSx for Windows File Server file system to mount as
-the root directory inside the host.
-
-`authorizationConfig`
-
-`credentialsParameter`
-
-Type: String
-
-Required: Yes
-
-The authorization credential options:
-
-- Amazon Resource Name (ARN) of an [Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") secret.
-- Amazon Resource Name (ARN) of an [Systems Manager](../../../systems-manager/latest/userguide/integration-ps-secretsmanager.md "../../../systems-manager/latest/userguide/integration-ps-secretsmanager.md") parameter.
-
-`domain`
-
-Type: String
-
-Required: Yes
-
-A fully qualified domain name that's hosted by an
-[AWS Directory Service for Microsoft Active Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") (AWS Managed Microsoft AD)
-directory or a self-hosted EC2 Active
-Directory.
+`FSxWindowsFileServerVolumeConfiguration`  
+Type: Object  
+Required: No  
+This parameter is specified when you're using [FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.    
+`fileSystemId`  
+Type: String  
+Required: Yes  
+The FSx for Windows File Server file system ID to use.  
+`rootDirectory`  
+Type: String  
+Required: Yes  
+The directory within the FSx for Windows File Server file system to mount as the root directory inside the host.  
+`authorizationConfig`    
+`credentialsParameter`  
+Type: String  
+Required: Yes  
+The authorization credential options:  
++ Amazon Resource Name (ARN) of an [Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) secret.
++ Amazon Resource Name (ARN) of an [Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/integration-ps-secretsmanager.html) parameter.  
+`domain`  
+Type: String  
+Required: Yes  
+A fully qualified domain name that's hosted by an [AWS Directory Service for Microsoft Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) (AWS Managed Microsoft AD) directory or a self-hosted EC2 Active Directory.
 
 ## Methods for storing FSx for Windows File Server volume credentials
+<a name="creds"></a>
 
-There are two different methods of storing credentials for use with the
-credentials parameter.
+There are two different methods of storing credentials for use with the credentials parameter.
++ **AWS Secrets Manager secret**
 
-- AWS Secrets Manager secret
+  This credential can be created in the AWS Secrets Manager console by using the *Other type of secret* category. You add a row for each key/value pair, username/admin and password/{{password}}.
++ **Systems Manager parameter**
 
-This credential can be created in the AWS Secrets Manager console by using the
-_Other type of secret_ category. You add a row for
-each key/value pair, username/admin and
-password/`password`.
+  This credential can be created in the Systems Manager parameter console by entering text in the form that's in the following example code snippet.
 
-- Systems Manager parameter
+  ```
+  {
+    "username": "admin",
+    "password": {{"password"}}
+  }
+  ```
 
-This credential can be created in the Systems Manager parameter console by entering
-text in the form that's in the following example code snippet.
-
-```
-{
-  "username": "admin",
-  "password": `"password"`
-}
-```
-
-The `credentialsParameter` in the task definition
-`FSxWindowsFileServerVolumeConfiguration` parameter holds either the
-secret ARN or the Systems Manager parameter ARN. For more information, see [What is
-AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _Secrets Manager User Guide_ and
-[Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") from the _Systems Manager User
-Guide_.
+The `credentialsParameter` in the task definition `FSxWindowsFileServerVolumeConfiguration` parameter holds either the secret ARN or the Systems Manager parameter ARN. For more information, see [What is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *Secrets Manager User Guide* and [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) from the *Systems Manager User Guide*.

@@ -1,29 +1,29 @@
+
+
 # Create your first Express Mode service using the AWS CLI
+<a name="express-service-getting-started"></a>
 
 This tutorial shows you how to create an Express Mode service application using the AWS AWS CLI. You'll deploy a simple web application that demonstrates the core capabilities of Express Mode service.
 
 ## Prerequisites
+<a name="express-service-prerequisites"></a>
 
 Before you begin, ensure you have:
-
-- An AWS account with appropriate permissions
-- The AWS AWS CLI installed and configured
-- A container image stored in Amazon ECR or a private registry
-- A default VPC with public subnets in the AWS Region where you create the service. By default, Express Mode service creates an internet-facing load
-  balancer in your account's default VPC and public subnets. If your account does not have a default VPC, create one before you begin, or specify your own
-  subnets when you create the service. For more information, see [Default VPCs](../../../vpc/latest/userguide/default-vpc.md "../../../vpc/latest/userguide/default-vpc.md")
-  in the _Amazon VPC User Guide_.
++ An AWS account with appropriate permissions
++ The AWS AWS CLI installed and configured
++ A container image stored in Amazon ECR or a private registry
++ A default VPC with public subnets in the AWS Region where you create the service. By default, Express Mode service creates an internet-facing load balancer in your account's default VPC and public subnets. If your account does not have a default VPC, create one before you begin, or specify your own subnets when you create the service. For more information, see [Default VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html) in the *Amazon VPC User Guide*.
 
 ## Step 1: Create IAM Roles
+<a name="express-service-create-execution-role"></a>
 
-An Express Mode service requires two IAM roles. The Task Execution Role allows Amazon ECS to pull container images and write logs on your behalf.
-Create a task execution role and infrastructure role with the following policies:
+An Express Mode service requires two IAM roles. The Task Execution Role allows Amazon ECS to pull container images and write logs on your behalf. Create a task execution role and infrastructure role with the following policies:
 
 ```
 #Create the roles with ECS trust policies
 aws iam create-role --role-name ecsTaskExecutionRole \
     --assume-role-policy-document '{
-        "Version": "2012-10-17",
+        "Version": "2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -37,7 +37,7 @@ aws iam create-role --role-name ecsTaskExecutionRole \
 
 aws iam create-role --role-name ecsInfrastructureRoleForExpressServices \
     --assume-role-policy-document '{
-        "Version": "2012-10-17",
+        "Version": "2012-10-17",		 	 	 
         "Statement": [
             {
                 "Sid": "AllowAccessInfrastructureForECSExpressServices",
@@ -59,16 +59,13 @@ aws iam attach-role-policy --role-name ecsInfrastructureRoleForExpressServices \
     --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRoleforExpressGatewayServices
 ```
 
-For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").
+For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md).
 
-###### Note
-
-IAM roles are eventually consistent, so a newly created role might not be usable immediately. If your first
-`create-express-gateway-service` call fails with `Unable to assume the service linked role` (or a similar
-assume-role error) right after you create these roles, wait a short time (about a minute) for the roles to propagate, and then
-retry the command.
+**Note**  
+IAM roles are eventually consistent, so a newly created role might not be usable immediately. If your first `create-express-gateway-service` call fails with `Unable to assume the service linked role` (or a similar assume-role error) right after you create these roles, wait a short time (about a minute) for the roles to propagate, and then retry the command.
 
 ## Step 2: Create your first Express Mode service application
+<a name="express-service-create-basic"></a>
 
 Create an Express Mode service application with the minimum required parameters:
 
@@ -78,20 +75,17 @@ aws ecs create-express-gateway-service \
     --execution-role-arn arn:aws:iam::123456789012:role/ecsTaskExecutionRole \
     --infrastructure-role-arn arn:aws:iam::123456789012:role/ecsInfrastructureRoleForExpressServices \
     --monitor-resources
-
 ```
 
 This command creates an Express Mode service application with:
++ A unique service name generated from the image name
++ 1 vCPU and 2 GB memory
++ Port 80 for HTTPS traffic
++ Auto scaling based on CPU utilization
++ An internet-facing Application Load Balancer in the default VPC and public subnets
++ A URL unique to this service in the format `servicename.ecs.region.on.aws`
 
-- A unique service name generated from the image name
-- 1 vCPU and 2 GB memory
-- Port 80 for HTTPS traffic
-- Auto scaling based on CPU utilization
-- An internet-facing Application Load Balancer in the default VPC and public subnets
-- A URL unique to this service in the format `servicename.ecs.region.on.aws`
-
-The command continuously monitors resources as they are being provisioned and returns status. Once the service deployment is complete, the
-Application URL is ready to receive traffic. When you interrupt the monitoring, the information about the created service is returned, including the service ARN and URL:
+The command continuously monitors resources as they are being provisioned and returns status. Once the service deployment is complete, the Application URL is ready to receive traffic. When you interrupt the monitoring, the information about the created service is returned, including the service ARN and URL:
 
 ```
 {
@@ -106,10 +100,10 @@ Application URL is ready to receive traffic. When you interrupt the monitoring, 
         "createdAt": "UNIXTIMESTAMP"
     }
 }
-
 ```
 
 ## Step 3: Create an Express Mode service application with custom settings
+<a name="express-service-create-custom"></a>
 
 You can customize your Express Mode service application by specifying additional parameters:
 
@@ -124,23 +118,20 @@ aws ecs create-express-gateway-service \
     --health-check-path "/health" \
     --scaling-target '{"minTaskCount":3,"maxTaskCount":100}' \
     --monitor-resources
-
 ```
 
 This creates an application with:
-
-- A custom name "my-web-app"
-- 2 vCPU and 4 GB memory
-- Port 8080 for application traffic
-- Custom health check endpoint
-- Environment variables
-- Minimum 3 tasks, maximum 100 tasks for auto scaling
++ A custom name "my-web-app"
++ 2 vCPU and 4 GB memory
++ Port 8080 for application traffic
++ Custom health check endpoint
++ Environment variables
++ Minimum 3 tasks, maximum 100 tasks for auto scaling
 
 ### Create an Express Mode service with your own task definition
+<a name="express-service-create-byotd"></a>
 
-You can also create an Express Mode service with your own task definition. With your own task definition,
-you have full control over task-level configuration. Express Mode continues to manage infrastructure,
-including load balancing, auto scaling, and canary deployments.
+You can also create an Express Mode service with your own task definition. With your own task definition, you have full control over task-level configuration. Express Mode continues to manage infrastructure, including load balancing, auto scaling, and canary deployments.
 
 The following AWS Command Line Interface (AWS AWS CLI) command creates an Express Mode service with a custom task definition:
 
@@ -150,40 +141,33 @@ aws ecs create-express-gateway-service \
     --task-definition-arn arn:aws:ecs:us-west-2:123456789012:task-definition/my-td:3 \
     --health-check-path "/health" \
     --monitor-resources
-
 ```
 
 Your task definition must meet the following requirements:
++ A container named `Main`
++ The `Main` container must have a single TCP port mapping with a container port and port name
++ The task definition must have `FARGATE` in its compatibilities
 
-- A container named `Main`
-- The `Main` container must have a single TCP port mapping with a container port and port name
-- The task definition must have `FARGATE` in its compatibilities
-
-###### Note
-
-The `taskDefinitionArn` parameter cannot be specified with `primaryContainer`,
-`executionRoleArn`, `taskRoleArn`, `cpu`, or
-`memory` in the same API call. Express Mode derives these values from the provided task definition.
+**Note**  
+The `taskDefinitionArn` parameter cannot be specified with `primaryContainer`, `executionRoleArn`, `taskRoleArn`, `cpu`, or `memory` in the same API call. Express Mode derives these values from the provided task definition.
 
 ## Step 4: Monitor your deployment
+<a name="express-service-monitor-deployment"></a>
 
-The `--monitor-resources` flag works on any Create, Update or Delete call to your Express Mode services. But in addition, you can monitor
-the resources in a service at any time, separate from a mutating action. Deployment time can vary depending on the resources that need to be provisioned.
-Once the status changes to `ACTIVE`, your application is ready to receive traffic.
+The `--monitor-resources` flag works on any Create, Update or Delete call to your Express Mode services. But in addition, you can monitor the resources in a service at any time, separate from a mutating action. Deployment time can vary depending on the resources that need to be provisioned. Once the status changes to `ACTIVE`, your application is ready to receive traffic.
 
 ```
 aws ecs monitor-express-gateway-service --service-arn arn:aws:ecs:region:123456789012:service/default/app-23d97h88
-
 ```
 
 You can also find current configuration and status of your Express Mode service application:
 
 ```
 aws ecs describe-express-gateway-service --service-arn arn:aws:ecs:region:123456789012:service/default/app-23d97h88
-
 ```
 
 ## Step 5: Access your application
+<a name="express-service-access-application"></a>
 
 Access the Express Mode service application using the provided URL when it becomes active. The URL format is:
 
@@ -198,9 +182,8 @@ https://app-23d97h88.ecs.us-west-2.on.aws/
 ```
 
 Your application is now running with:
-
-- Automatic SSL/TLS termination
-- Load balancing across multiple Availability Zones
-- Auto scaling based on CPU utilization
-- CloudWatch logging and monitoring
-- 5XX Rollback Alarms and Canary Deployments for future updates
++ Automatic SSL/TLS termination
++ Load balancing across multiple Availability Zones
++ Auto scaling based on CPU utilization
++ CloudWatch logging and monitoring
++ 5XX Rollback Alarms and Canary Deployments for future updates 

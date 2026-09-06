@@ -1,9 +1,9 @@
-# Amazon ECS service deployment hook state change events
 
-Amazon ECS sends hook state change events with the detail type
-**ECS Hook State Change**. These events are emitted when a
-deployment lifecycle hook changes status. The following is an event pattern that
-is used to create an EventBridge rule for Amazon ECS hook state change events.
+
+# Amazon ECS service deployment hook state change events
+<a name="ecs_hook_state_change_events"></a>
+
+Amazon ECS sends hook state change events with the detail type **ECS Hook State Change**. These events are emitted when a deployment lifecycle hook changes status. The following is an event pattern that is used to create an EventBridge rule for Amazon ECS hook state change events.
 
 ```
 {
@@ -18,36 +18,23 @@ is used to create an EventBridge rule for Amazon ECS hook state change events.
 
 The following are the hook state change events.
 
-`HOOK_IN_PROGRESS`
-
+`HOOK_IN_PROGRESS`  
 A hook is in progress.
 
-`HOOK_AWAITING_ACTION`
+`HOOK_AWAITING_ACTION`  
+A pause hook has started and requires action to complete. Call `ContinueServiceDeployment` to continue or roll back the deployment.
 
-A pause hook has started and requires action to complete. Call
-`ContinueServiceDeployment` to continue or roll back the
-deployment.
+`HOOK_SUCCEEDED`  
+The hook completed successfully. For pause hooks, this means `ContinueServiceDeployment` was called with the `CONTINUE` action.
 
-`HOOK_SUCCEEDED`
+`HOOK_FAILED`  
+The hook failed. For pause hooks, this means `ContinueServiceDeployment` was called with the `ROLLBACK` action.
 
-The hook completed successfully. For pause hooks, this means
-`ContinueServiceDeployment` was called with the
-`CONTINUE` action.
-
-`HOOK_FAILED`
-
-The hook failed. For pause hooks, this means
-`ContinueServiceDeployment` was called with the
-`ROLLBACK` action.
-
-`HOOK_TIMED_OUT`
-
+`HOOK_TIMED_OUT`  
 A hook timed out without completing.
 
-###### Example hook awaiting action event
-
-The following shows an example event when a pause hook starts and is
-awaiting action.
+**Example hook awaiting action event**  
+The following shows an example event when a pause hook starts and is awaiting action.  
 
 ```
 {

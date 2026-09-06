@@ -1,16 +1,16 @@
+
+
 # Amazon ECS task metadata v4 examples for tasks on Fargate
+<a name="task-metadata-endpoint-v4-fargate-examples"></a>
 
-The following examples show sample outputs from the task metadata endpoints for Amazon ECS
-tasks run on AWS Fargate.
+The following examples show sample outputs from the task metadata endpoints for Amazon ECS tasks run on AWS Fargate.
 
-From the container, you can use curl followed by the task meta data endpoint to query
-the endpoint for example `curl ${ECS_CONTAINER_METADATA_URI_V4}/task`.
+From the container, you can use curl followed by the task meta data endpoint to query the endpoint for example `curl ${ECS_CONTAINER_METADATA_URI_V4}/task`.
 
 ## Example container metadata response
+<a name="task-metadata-endpoint-v4-fargate-example-container-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are
-returned only metadata about the container itself. The following is an example
-output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned only metadata about the container itself. The following is an example output.
 
 ```
 {
@@ -67,10 +67,9 @@ output.
 ```
 
 ## Amazon ECS task metadata v4 examples for tasks on Fargate
+<a name="task-metadata-endpoint-v4-fargate-example-task-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you
-are returned metadata about the task the container is part of. The following is an
-example output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are returned metadata about the task the container is part of. The following is an example output.
 
 ```
 {
@@ -82,7 +81,7 @@ example output.
   "KnownStatus": "RUNNING",
   "Limits": {
     "CPU": 0.25,
-    "Memory": 512
+    "Memory": 512 
   },
   "PullStartedAt": "2023-07-21T15:45:33.532811081Z",
   "PullStoppedAt": "2023-07-21T15:45:38.541068435Z",
@@ -165,19 +164,17 @@ example output.
     "ReferenceTimestamp": "2023-07-21T16:09:17Z",
     "ClockSynchronizationStatus": "SYNCHRONIZED"
   },
-  "EphemeralStorageMetrics": {
-    "Utilized": 261,
-    "Reserved": 20496
+  "EphemeralStorageMetrics": { 
+    "Utilized": 261, 
+    "Reserved": 20496 
   }
 }
-
 ```
 
 ## Example task stats response
+<a name="task-metadata-endpoint-v4-fargate-example-task-stats-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats`
-endpoint you are returned network metrics about the task the container is part of.
-The following is an example output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats` endpoint you are returned network metrics about the task the container is part of. The following is an example output.
 
 ```
 {

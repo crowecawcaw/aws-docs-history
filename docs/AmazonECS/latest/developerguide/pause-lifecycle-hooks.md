@@ -1,28 +1,24 @@
-# Pause hooks for Amazon ECS service deployments
 
-Pause hooks pause an Amazon ECS service deployment at a specific lifecycle stage and wait for
-you to call `ContinueServiceDeployment` before the deployment proceeds. Use pause
-hooks when you need manual approval or external validation before a deployment continues.
+
+# Pause hooks for Amazon ECS service deployments
+<a name="pause-lifecycle-hooks"></a>
+
+Pause hooks pause an Amazon ECS service deployment at a specific lifecycle stage and wait for you to call `ContinueServiceDeployment` before the deployment proceeds. Use pause hooks when you need manual approval or external validation before a deployment continues.
 
 ## How pause hooks work
+<a name="pause-hooks-how-they-work"></a>
 
-When a deployment reaches a lifecycle stage that has a pause hook configured, the
-following occurs:
+When a deployment reaches a lifecycle stage that has a pause hook configured, the following occurs:
 
 1. Amazon ECS generates a unique `hookId` for the pause hook.
-2. Amazon ECS emits an EventBridge event with the detail-type `ECS Hook State Change`
-   and the event name `HOOK_AWAITING_ACTION`.
-3. The deployment remains paused until you call
-   `ContinueServiceDeployment` with the `hookId` and an action of
-   `CONTINUE` or `ROLLBACK`, or until the configured timeout is
-   reached.
 
-You can retrieve the `hookId` by calling
-`DescribeServiceDeployments`. The response includes a
-`lifecycleHookDetails` array with the hook status:
+1. Amazon ECS emits an EventBridge event with the detail-type `ECS Hook State Change` and the event name `HOOK_AWAITING_ACTION`.
+
+1. The deployment remains paused until you call `ContinueServiceDeployment` with the `hookId` and an action of `CONTINUE` or `ROLLBACK`, or until the configured timeout is reached.
+
+You can retrieve the `hookId` by calling `DescribeServiceDeployments`. The response includes a `lifecycleHookDetails` array with the hook status:
 
 ```
-
 {
     "serviceDeployments": [
         {
@@ -38,16 +34,14 @@ You can retrieve the `hookId` by calling
         }
     ]
 }
-
 ```
 
 ## Configuring pause hooks
+<a name="pause-hooks-configuring"></a>
 
-The following example shows a pause hook configuration in a service definition that
-pauses the deployment after the test traffic shift completes:
+The following example shows a pause hook configuration in a service definition that pauses the deployment after the test traffic shift completes:
 
 ```
-
 {
     "deploymentConfiguration": {
         "strategy": "BLUE_GREEN",
@@ -65,108 +59,89 @@ pauses the deployment after the test traffic shift completes:
         ]
     }
 }
-
 ```
 
 ### Configuration fields
+<a name="pause-hooks-configuration-fields"></a>
 
-| Field                                   | Description                                                                              | Valid values                                                                                                                                                 | Required |
-| --------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `targetType`                            | The type of hook. Must be `PAUSE` for pause hooks.                                       | `PAUSE`                                                                                                                                                      | Yes      |
-| `lifecycleStages`                       | The lifecycle stages at which the deployment pauses.                                     | `RECONCILE_SERVICE`, `PRE_SCALE_UP`,<br>`POST_SCALE_UP`,<br>`POST_TEST_TRAFFIC_SHIFT`,<br>`PRE_PRODUCTION_TRAFFIC_SHIFT`,<br>`POST_PRODUCTION_TRAFFIC_SHIFT` | Yes      |
-| `timeoutConfiguration.timeoutInMinutes` | How long to wait before taking the timeout action. Default: 1,440 minutes<br>(24 hours). | 1<br>• 20,160 (14 days)                                                                                                                                      | No       |
-| `timeoutConfiguration.action`           | The action to take if the timeout expires.                                               | `ROLLBACK` (default), `CONTINUE`                                                                                                                             | No       |
+
+| Field | Description | Valid values | Required | 
+| --- | --- | --- | --- | 
+| targetType | The type of hook. Must be PAUSE for pause hooks. | PAUSE | Yes | 
+| lifecycleStages | The lifecycle stages at which the deployment pauses. | RECONCILE\_SERVICE, PRE\_SCALE\_UP, POST\_SCALE\_UP, POST\_TEST\_TRAFFIC\_SHIFT, PRE\_PRODUCTION\_TRAFFIC\_SHIFT, POST\_PRODUCTION\_TRAFFIC\_SHIFT | Yes | 
+| timeoutConfiguration.timeoutInMinutes | How long to wait before taking the timeout action. Default: 1,440 minutes (24 hours). | 1 - 20,160 (14 days) | No | 
+| timeoutConfiguration.action | The action to take if the timeout expires. | ROLLBACK (default), CONTINUE | No | 
 
 ## Constraints
-
-- You can configure a maximum of 10 pause hooks and 10 Lambda hooks per service.
-- Pause hooks do not use `hookTargetArn` or `roleArn`. These
-  fields are only for Lambda hooks.
-- Pause hooks cannot be configured at the `TEST_TRAFFIC_SHIFT` or
-  `PRODUCTION_TRAFFIC_SHIFT` stages.
+<a name="pause-hooks-constraints"></a>
++ You can configure a maximum of 10 pause hooks and 10 Lambda hooks per service.
++ Pause hooks do not use `hookTargetArn` or `roleArn`. These fields are only for Lambda hooks.
++ Pause hooks cannot be configured at the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` stages.
 
 ## Continuing a paused deployment
+<a name="pause-hooks-continuing"></a>
 
-When a deployment is paused (the pause hook status is `AWAITING_ACTION`), call `ContinueServiceDeployment` with the
-`hookId` and the action you want to take.
+When a deployment is paused (the pause hook status is `AWAITING_ACTION`), call `ContinueServiceDeployment` with the `hookId` and the action you want to take.
 
 To continue the deployment:
 
 ```
-
 aws ecs continue-service-deployment \
     --hook-id ecs-pause-e7tK9G_WRJqNF_EOMjztDXfKenlJuEUVjsNStf4WLKw \
     --action CONTINUE
-
 ```
 
 To roll back the deployment:
 
 ```
-
 aws ecs continue-service-deployment \
     --hook-id ecs-pause-e7tK9G_WRJqNF_EOMjztDXfKenlJuEUVjsNStf4WLKw \
     --action ROLLBACK
-
 ```
 
-For more information, see [Continuing service deployments](continue-service-deployment.md "continue-service-deployment.md").
+For more information, see [Continuing service deployments](continue-service-deployment.md).
 
 ## Multiple hooks at the same stage
+<a name="pause-hooks-multiple-at-same-stage"></a>
 
-When multiple hooks are configured at the same lifecycle stage, the deployment stays
-paused until all hooks at that stage are continued. If any hook triggers a rollback, the
-entire deployment rolls back regardless of the status of other hooks at that stage.
+When multiple hooks are configured at the same lifecycle stage, the deployment stays paused until all hooks at that stage are continued. If any hook triggers a rollback, the entire deployment rolls back regardless of the status of other hooks at that stage.
 
-This behavior applies when both Lambda hooks and pause hooks are configured at the same
-lifecycle stage. The deployment proceeds only when all hooks at that stage have completed
-successfully or been continued.
+This behavior applies when both Lambda hooks and pause hooks are configured at the same lifecycle stage. The deployment proceeds only when all hooks at that stage have completed successfully or been continued.
 
 All hooks configured at the same lifecycle stage run in parallel.
 
 ## Timeout behavior
+<a name="pause-hooks-timeout"></a>
 
-If you do not call `ContinueServiceDeployment` before the timeout expires,
-Amazon ECS takes the configured timeout action:
+If you do not call `ContinueServiceDeployment` before the timeout expires, Amazon ECS takes the configured timeout action:
++ `ROLLBACK` (default) - Amazon ECS rolls back the deployment to the previous service revision.
++ `CONTINUE` - Amazon ECS continues the deployment to the next lifecycle stage.
 
-- `ROLLBACK` (default) - Amazon ECS rolls back the deployment to the previous
-  service revision.
-- `CONTINUE` - Amazon ECS continues the deployment to the next lifecycle
-  stage.
-
-Check the `expiresAt` field in the `lifecycleHookDetails` array of the `DescribeServiceDeployments`
-response to see when the timeout expires.
+Check the `expiresAt` field in the `lifecycleHookDetails` array of the `DescribeServiceDeployments` response to see when the timeout expires.
 
 ## Pause hooks with linear and canary deployments
+<a name="pause-hooks-linear-canary"></a>
 
-For linear and canary deployments, pause hooks configured at
-`PRE_PRODUCTION_TRAFFIC_SHIFT` are invoked at each traffic shift step. Each
-invocation generates a unique `hookId`, and you must call
-`ContinueServiceDeployment` for each one.
+For linear and canary deployments, pause hooks configured at `PRE_PRODUCTION_TRAFFIC_SHIFT` are invoked at each traffic shift step. Each invocation generates a unique `hookId`, and you must call `ContinueServiceDeployment` for each one.
 
-For example, a linear deployment with 5 traffic shift steps and a pause hook at
-`PRE_PRODUCTION_TRAFFIC_SHIFT` pauses 5 times - once before each step. Each
-pause requires a separate call to `ContinueServiceDeployment` with the
-corresponding `hookId`.
+For example, a linear deployment with 5 traffic shift steps and a pause hook at `PRE_PRODUCTION_TRAFFIC_SHIFT` pauses 5 times - once before each step. Each pause requires a separate call to `ContinueServiceDeployment` with the corresponding `hookId`.
 
 ## EventBridge events
+<a name="pause-hooks-eventbridge"></a>
 
-Amazon ECS emits EventBridge events with the detail-type `ECS Hook State Change` as
-pause hooks progress through their lifecycle. The following table describes the event
-names:
+Amazon ECS emits EventBridge events with the detail-type `ECS Hook State Change` as pause hooks progress through their lifecycle. The following table describes the event names:
 
-| Event name             | Description                                                                                  |
-| ---------------------- | -------------------------------------------------------------------------------------------- |
-| `HOOK_AWAITING_ACTION` | The hook is waiting for you to call<br>`ContinueServiceDeployment`.                          |
-| `HOOK_SUCCEEDED`       | The hook completed successfully (you called<br>`ContinueServiceDeployment` with `CONTINUE`). |
-| `HOOK_FAILED`          | The hook failed (you called `ContinueServiceDeployment` with<br>`ROLLBACK`).                 |
-| `HOOK_TIMED_OUT`       | The hook timed out before `ContinueServiceDeployment` was<br>called.                         |
 
-The following example shows an EventBridge event emitted when a pause hook is awaiting
-action:
+| Event name | Description | 
+| --- | --- | 
+| HOOK\_AWAITING\_ACTION | The hook is waiting for you to call ContinueServiceDeployment. | 
+| HOOK\_SUCCEEDED | The hook completed successfully (you called ContinueServiceDeployment with CONTINUE). | 
+| HOOK\_FAILED | The hook failed (you called ContinueServiceDeployment with ROLLBACK). | 
+| HOOK\_TIMED\_OUT | The hook timed out before ContinueServiceDeployment was called. | 
+
+The following example shows an EventBridge event emitted when a pause hook is awaiting action:
 
 ```
-
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -188,5 +163,4 @@ action:
         "updatedAt": "2024-01-15T10:00:00Z"
     }
 }
-
 ```

@@ -1,81 +1,40 @@
+
+
 # Amazon ECS task state change events
+<a name="ecs_task_events"></a>
 
 The following scenarios cause task state change events:
 
-You call the `StartTask`, `RunTask`, or
-`StopTask` API operations, either directly or with the
-AWS Management Console, AWS CLI, or SDKs.
+You call the `StartTask`, `RunTask`, or `StopTask` API operations, either directly or with the AWS Management Console, AWS CLI, or SDKs.  
+Starting or stopping tasks creates new task resources or modifies the state of existing task resources.
 
-Starting or stopping tasks creates new task resources or modifies the
-state of existing task resources.
+The Amazon ECS service scheduler starts or stops a task.  
+Starting or stopping tasks creates new task resources or modifies the state of existing task resources.
 
-The Amazon ECS service scheduler starts or stops a task.
+The Amazon ECS container agent calls the `SubmitTaskStateChange` API operation.  
+For EC2, the Amazon ECS container agent monitors the state of your tasks on your container instances. The Amazon ECS container agent reports any state changes. State changes might include changes from `PENDING` to `RUNNING` or from `RUNNING` to `STOPPED`.
 
-Starting or stopping tasks creates new task resources or modifies the
-state of existing task resources.
+You force deregistration of the underlying container instance with the `DeregisterContainerInstance` API operation and the `force` flag, either directly or with the AWS Management Console or SDKs.  
+Deregistering a container instance changes the status of the container instance and the connection status of the Amazon ECS container agent. If tasks are running on the container instance, the `force` flag must be set to allow deregistration. This stops all tasks on the instance.
 
-The Amazon ECS container agent calls the `SubmitTaskStateChange` API
-operation.
+The underlying container instance is stopped or terminated.  
+When you stop or terminate a container instance, the tasks that are running on it are transitioned to the `STOPPED` status.
 
-For EC2, the Amazon ECS container agent monitors the
-state of your tasks on your container instances. The Amazon ECS container
-agent reports any state changes. State changes might include changes
-from `PENDING` to `RUNNING` or from
-`RUNNING` to `STOPPED`.
+A container in the task changes state.  
+The Amazon ECS container agent monitors the state of containers within tasks. For example, if a container that is running within a task stops, this container state change generates an event.
 
-You force deregistration of the underlying container instance with the
-`DeregisterContainerInstance` API operation and the
-`force` flag, either directly or with the AWS Management Console or
-SDKs.
+A task using the Fargate Spot capacity provider receives a termination notice.  
+When a task is using the `FARGATE_SPOT` capacity provider and is stopped due to a Spot interruption, a task state change event is generated.
 
-Deregistering a container instance changes the status of the container
-instance and the connection status of the Amazon ECS container agent. If
-tasks are running on the container instance, the `force` flag
-must be set to allow deregistration. This stops all tasks on the
-instance.
-
-The underlying container instance is stopped or terminated.
-
-When you stop or terminate a container instance, the tasks that are
-running on it are transitioned to the `STOPPED`
-status.
-
-A container in the task changes state.
-
-The Amazon ECS container agent monitors the state of containers within
-tasks. For example, if a container that is running within a task stops,
-this container state change generates an event.
-
-A task using the Fargate Spot capacity provider receives a termination
-notice.
-
-When a task is using the `FARGATE_SPOT` capacity provider
-and is stopped due to a Spot interruption, a task state change event is
-generated.
-
-###### Example Task state change event
-
-Task state change events are delivered in the following format. Note the
-following about the fields:
-
-- The health status of the event is not available in the task state
-  change event. If you need the task health status, you can run [describe-tasks](../APIReference/API_DescribeTasks.md "../APIReference/API_DescribeTasks.md").
-- When your containers use an image hosted with Amazon ECR, the
-  `imageDigest` field is returned.
-- The values for the `createdAt`,
-  `connectivityAt`, `pullStartedAt`,
-  `startedAt`, `pullStoppedAt`, and
-  `updatedAt` fields are ISO string timestamps.
-- The `detail-type` value is "ECS Task State Change".
-- When the event is generated for a stopped task, the
-  `stoppedReason` and `stopCode` fields
-  provide additional information about why the task stopped (for example,
-  "User initiated").
-  For more information about EventBridge parameters, see [AWS service event metadata](../../../eventbridge/latest/ref/events-structure.md "../../../eventbridge/latest/ref/events-structure.md") in the
-  _Amazon EventBridge Events Reference_.
-
-For information about how to configure an Amazon EventBridge event rule that only captures task events
-where the task has stopped running because one of its essential containers has terminated, see [Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped events](ecs_cwet2.md "ecs_cwet2.md")
+**Example Task state change event**  
+Task state change events are delivered in the following format. Note the following about the fields:  
++ The health status of the event is not available in the task state change event. If you need the task health status, you can run [describe-tasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html).
++ When your containers use an image hosted with Amazon ECR, the `imageDigest` field is returned.
++ The values for the `createdAt`, `connectivityAt`, `pullStartedAt`, `startedAt`, `pullStoppedAt`, and `updatedAt` fields are ISO string timestamps.
++ The `detail-type` value is "ECS Task State Change".
++ When the event is generated for a stopped task, the `stoppedReason` and `stopCode` fields provide additional information about why the task stopped (for example, "User initiated").
+For more information about EventBridge parameters, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Amazon EventBridge Events Reference*.  
+For information about how to configure an Amazon EventBridge event rule that only captures task events where the task has stopped running because one of its essential containers has terminated, see [Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped events](ecs_cwet2.md)  
 
 ```
 {
@@ -239,9 +198,8 @@ where the task has stopped running because one of its essential containers has t
 }
 ```
 
-###### Example
-
-The following is an example of a task state change event for EC2.
+**Example**  
+The following is an example of a task state change event for EC2.  
 
 ```
 {
@@ -359,5 +317,4 @@ The following is an example of a task state change event for EC2.
         "version": 4
     }
 }
-
 ```

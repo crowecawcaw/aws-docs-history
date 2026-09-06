@@ -1,10 +1,12 @@
+
+
 # Example Neuron task definitions
+<a name="ecs-inference-task-def"></a>
 
 ## Managed device allocation example
+<a name="ecs-inference-task-def-managed"></a>
 
-The following example shows a task definition that requests
-all Neuron devices on the instance using the `resourceRequirements`
-parameter. This approach is only available on Managed Instances.
+The following example shows a task definition that requests all Neuron devices on the instance using the `resourceRequirements` parameter. This approach is only available on Managed Instances.
 
 ```
 {
@@ -13,14 +15,14 @@ parameter. This approach is only available on Managed Instances.
     "networkMode": "awsvpc",
     "cpu": "8192",
     "memory": "16384",
-    "executionRoleArn": "`${YOUR_EXECUTION_ROLE}`",
+    "executionRoleArn": "{{${YOUR_EXECUTION_ROLE}}}",
     "containerDefinitions": [
         {
             "name": "neuron-inference",
             "image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04",
             "essential": true,
             "command": [
-                "--model", "`${YOUR_HUGGING_FACE_MODEL_ID}`",
+                "--model", "{{${YOUR_HUGGING_FACE_MODEL_ID}}}",
                 "--port", "8080",
                 "--tensor-parallel-size", "2",
                 "--allow-non-cached-model"
@@ -42,16 +44,12 @@ parameter. This approach is only available on Managed Instances.
 }
 ```
 
-In this example, the container image includes a vLLM inference server optimized
-for AWS Neuron. The image's entrypoint downloads a model from HuggingFace,
-compiles it for Neuron, and starts an OpenAI-compatible API server on port 8080. Replace `${YOUR_HUGGING_FACE_MODEL_ID}` with
-your HuggingFace model ID.
+In this example, the container image includes a vLLM inference server optimized for AWS Neuron. The image's entrypoint downloads a model from HuggingFace, compiles it for Neuron, and starts an OpenAI-compatible API server on port 8080. Replace `{{${YOUR_HUGGING_FACE_MODEL_ID}}}` with your HuggingFace model ID.
 
 ## Manual device specification example
+<a name="ecs-inference-task-def-ec2"></a>
 
-The following example shows a Linux task definition for `inf1.xlarge`
-using the EC2 launch type with `linuxParameters.devices` to specify
-Neuron device paths.
+The following example shows a Linux task definition for `inf1.xlarge` using the EC2 launch type with `linuxParameters.devices` to specify Neuron device paths.
 
 ```
 {
@@ -64,10 +62,10 @@ Neuron device paths.
         },
         {
             "type": "memberOf",
-            "expression": "attribute:ecs.instance-type == `inf1.xlarge`"
+            "expression": "attribute:ecs.instance-type == {{inf1.xlarge}}"
         }
     ],
-    "executionRoleArn": "`${YOUR_EXECUTION_ROLE}`",
+    "executionRoleArn": "{{${YOUR_EXECUTION_ROLE}}}",
     "containerDefinitions": [
         {
             "entryPoint": [
@@ -75,7 +73,7 @@ Neuron device paths.
                 "--port=8500",
                 "--rest_api_port=9000",
                 "--model_name=resnet50_neuron",
-                "--model_base_path=s3://`amzn-s3-demo-bucket/resnet50_neuron/`"
+                "--model_base_path=s3://{{amzn-s3-demo-bucket/resnet50_neuron/}}"
             ],
             "portMappings": [
                 {
@@ -113,7 +111,7 @@ Neuron device paths.
             },
             "cpu": 0,
             "memoryReservation": 1000,
-            "image": "`763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference-neuron:1.15.4-neuron-py37-ubuntu18.04`",
+            "image": "{{763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference-neuron:1.15.4-neuron-py37-ubuntu18.04}}",
             "essential": true,
             "name": "resnet50"
         }

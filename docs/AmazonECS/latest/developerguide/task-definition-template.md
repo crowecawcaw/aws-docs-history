@@ -1,9 +1,9 @@
-# Amazon ECS task definition template
 
-An empty task definition template is shown as follows. You can use this template to
-create your task definition, which can then be pasted into the console JSON input area
-or saved to a file and used with the AWS CLI `--cli-input-json` option. For
-more information, see [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md").
+
+# Amazon ECS task definition template
+<a name="task-definition-template"></a>
+
+An empty task definition template is shown as follows. You can use this template to create your task definition, which can then be pasted into the console JSON input area or saved to a file and used with the AWS CLI `--cli-input-json` option. For more information, see [Amazon ECS task definition parameters for Fargate](task_definition_parameters.md).
 
 **EC2 template**
 
@@ -247,22 +247,17 @@ more information, see [Amazon ECS task definition parameters for Fargate](task_d
     "operatingSystemFamily": "WINDOWS_SERVER_20H2_CORE"
   }
 }
-
 ```
 
 **Fargate template**
 
-###### Important
-
-For Fargate, you must include the `operatingSystemFamily` parameter with one of the
-following values:
-
-- `LINUX`
-
-- `WINDOWS_SERVER_2019_FULL`
-- `WINDOWS_SERVER_2019_CORE`
-- `WINDOWS_SERVER_2022_FULL`
-- `WINDOWS_SERVER_2022_CORE`
+**Important**  
+ For Fargate, you must include the `operatingSystemFamily` parameter with one of the following values:  
+`LINUX`
+`WINDOWS_SERVER_2019_FULL`
+`WINDOWS_SERVER_2019_CORE`
+`WINDOWS_SERVER_2022_FULL`
+`WINDOWS_SERVER_2022_CORE`
 
 ```
 {
@@ -469,9 +464,8 @@ following values:
 }
 ```
 
-You can generate this task definition template using the following AWS CLI
-command.
+You can generate this task definition template using the following AWS CLI command.
 
 ```
-`aws ecs register-task-definition --generate-cli-skeleton`
+aws ecs register-task-definition --generate-cli-skeleton
 ```

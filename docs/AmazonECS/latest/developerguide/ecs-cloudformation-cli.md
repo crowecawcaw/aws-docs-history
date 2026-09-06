@@ -1,20 +1,19 @@
-# Creating Amazon ECS resources using AWS CLI commands for CloudFormation
 
-Another way to use Amazon ECS with CloudFormation is through the AWS CLI. You can use commands to
-create your CloudFormation stacks for Amazon ECS components like task definitions, clusters, and
-services and deploy them. The following tutorial shows how you can use the AWS CLI to
-create Amazon ECS resources using an CloudFormation template.
+
+# Creating Amazon ECS resources using AWS CLI commands for CloudFormation
+<a name="ecs-cloudformation-cli"></a>
+
+Another way to use Amazon ECS with CloudFormation is through the AWS CLI. You can use commands to create your CloudFormation stacks for Amazon ECS components like task definitions, clusters, and services and deploy them. The following tutorial shows how you can use the AWS CLI to create Amazon ECS resources using an CloudFormation template.
 
 ## Prerequisites
-
-- The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
-- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM
-  policy example.
+<a name="ecs-cloudformation-cli-prerequisite"></a>
++ The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md) have been completed.
++ Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess) IAM policy example.
 
 ## Step 1: Create a stack
+<a name="ecs-cloudformation-cli-create"></a>
 
-To create a stack using the AWS CLI saved in a file called
-`ecs-tutorial-template.yaml`, run the following command.
+To create a stack using the AWS CLI saved in a file called `ecs-tutorial-template.yaml`, run the following command.
 
 ```
 cat << 'EOF' > ecs-tutorial-template.yaml
@@ -34,42 +33,42 @@ Parameters:
     Type: String
     Default: '10.0.1.0/24'
     Description: CIDR block for public subnet 1
-
+  
   PublicSubnet2Cidr:
     Type: String
     Default: '10.0.2.0/24'
     Description: CIDR block for public subnet 2
-
+  
   PrivateSubnet1Cidr:
     Type: String
     Default: '10.0.3.0/24'
     Description: CIDR block for private subnet 1
-
+  
   PrivateSubnet2Cidr:
     Type: String
     Default: '10.0.4.0/24'
     Description: CIDR block for private subnet 2
-
+  
   ServiceName:
     Type: String
     Default: 'tutorial-app'
     Description: Name of the ECS service
-
+  
   ContainerPort:
     Type: Number
     Default: 80
     Description: Port on which the container listens
-
+  
   DesiredCount:
     Type: Number
     Default: 2
     Description: Desired number of tasks
-
+  
   MinCapacity:
     Type: Number
     Default: 1
     Description: Minimum number of tasks for auto scaling
-
+  
   MaxCapacity:
     Type: Number
     Default: 10
@@ -364,7 +363,7 @@ Resources:
     Properties:
       RoleName: !Sub '${AWS::StackName}-task-execution-role'
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -381,7 +380,7 @@ Resources:
     Properties:
       RoleName: !Sub '${AWS::StackName}-task-role'
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -448,7 +447,7 @@ Resources:
       PlatformVersion: LATEST
       NetworkConfiguration:
         AwsvpcConfiguration:
-          AssignPublicIp: DISABLED
+          AssignPublicIp: DISABLED 
           SecurityGroups:
             - !Ref ECSSecurityGroup
           Subnets:
@@ -533,137 +532,112 @@ Outputs:
 EOF
 ```
 
-The template used in this tutorial creates an Amazon ECS service with two tasks that
-run on Fargate. The tasks each run a sample Amazon ECS application. The template also
-creates an Application Load Balancer that distributes application traffic and an Application Auto Scaling policy that
-scales the application based on CPU utilization. The template also creates the
-networking resources necessary to deploy the application, the logging resources for
-container logs, and an Amazon ECS task execution IAM role. For more information about
-the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md"). For more information about auto
-scaling, see [Automatically scale your Amazon ECS service](service-auto-scaling.md "service-auto-scaling.md").
+ The template used in this tutorial creates an Amazon ECS service with two tasks that run on Fargate. The tasks each run a sample Amazon ECS application. The template also creates an Application Load Balancer that distributes application traffic and an Application Auto Scaling policy that scales the application based on CPU utilization. The template also creates the networking resources necessary to deploy the application, the logging resources for container logs, and an Amazon ECS task execution IAM role. For more information about the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md). For more information about auto scaling, see [Automatically scale your Amazon ECS service](service-auto-scaling.md).
 
-After creating a template file, use the following command to create a stack. The
-`--capabilities` flag is required to create an Amazon ECS task execution
-role as specified in the template. You can also specify the
-`--parameters` flag to customize the template parameters.
+After creating a template file, use the following command to create a stack. The `--capabilities` flag is required to create an Amazon ECS task execution role as specified in the template. You can also specify the `--parameters` flag to customize the template parameters.
 
 ```
-`aws cloudformation create-stack \
- --stack-name `ecs-tutorial-stack` \
- --template-body file://`ecs-tutorial-template.yaml` \
- --region `aws-region` \
- --capabilities CAPABILITY_NAMED_IAM`
+aws cloudformation create-stack \
+      --stack-name {{ecs-tutorial-stack}} \
+      --template-body file://{{ecs-tutorial-template.yaml}} \
+      --region {{aws-region}} \
+      --capabilities CAPABILITY_NAMED_IAM
 ```
 
-After running the `create-stack` command, you can use
-`describe-stacks` to check the status of stack creation.
+After running the `create-stack` command, you can use `describe-stacks` to check the status of stack creation.
 
 ```
-`aws cloudformation describe-stacks \
- --stack-name `ecs-tutorial-stack` \
- --region `aws-region``
+aws cloudformation describe-stacks \
+      --stack-name {{ecs-tutorial-stack}} \
+      --region {{aws-region}}
 ```
 
 ## Step 2: Verify Amazon ECS resource creation
+<a name="ecs-cloudformation-cli-verify"></a>
 
 To ensure that Amazon ECS resources are created correctly, follow these steps.
 
-1. Run the following command to list all task definitions in an
-   AWS Region.
+1. Run the following command to list all task definitions in an AWS Region.
 
-```
-`aws ecs list-task-definitions`
-```
+   ```
+   aws ecs list-task-definitions
+   ```
 
-The command returns a list of task definition Amazon Resource Name (ARN)s. The ARN of the
-task definition that you created using the template will be displayed in the
-following format.
+   The command returns a list of task definition Amazon Resource Name (ARN)s. The ARN of the task definition that you created using the template will be displayed in the following format.
 
-```
-{
-    "taskDefinitionArns": [
-     .....
-        "arn:aws:ecs:`aws-region`:`111122223333`:task-definition/ecs-tutorial-stack-task:1",
-     .....
-    ]
-}
-```
-
-2. Run the following command to list all clusters in an AWS Region.
-
-```
-`aws ecs list-clusters`
-```
-
-The command returns a list of cluster ARNs. The ARN of the cluster
-that you created using the template will be displayed in the following
-format.
-
-```
-{
-    "clusterArns": [
+   ```
+   {
+       "taskDefinitionArns": [
         .....
-        "arn:aws:ecs:`aws-region`:`111122223333`:cluster/ecs-tutorial-stack-cluster",
-        .....
-    ]
-}
+           "arn:aws:ecs:{{aws-region}}:{{111122223333}}:task-definition/ecs-tutorial-stack-task:1",
+        .....   
+       ]
+   }
+   ```
+
+1. Run the following command to list all clusters in an AWS Region.
+
+   ```
+   aws ecs list-clusters
+   ```
+
+   The command returns a list of cluster ARNs. The ARN of the cluster that you created using the template will be displayed in the following format.
+
+   ```
+   {
+       "clusterArns": [
+           .....
+           "arn:aws:ecs:{{aws-region}}:{{111122223333}}:cluster/ecs-tutorial-stack-cluster",
+           .....
+       ]
+   }
+   ```
+
+1. Run the following command to list all services in the cluster `ecs-tutorial-stack-cluster`.
+
+   ```
+   aws ecs list-services \
+         --cluster {{ecs-tutorial-stack-cluster}}
+   ```
+
+   The command returns a list of service ARNs. The ARN of the service that you created using the template will be displayed in the following format.
+
+   ```
+   {
+       "serviceArns": [
+           "arn:aws:ecs:{{aws-region}}:{{111122223333}}:service/ecs-tutorial-stack-cluster/ecs-tutorial-stack-service"
+       ]
+   }
+   ```
+
+You can also obtain the DNS name of the Application Load Balancer that was created and use it to verify the creation of resources. To obtain the DNS name, run the following command:
+
+ Run the following command to retrieve outputs of the created stack. 
+
 ```
-
-3. Run the following command to list all services in the cluster
-   `ecs-tutorial-stack-cluster`.
-
-```
-`aws ecs list-services \
- --cluster `ecs-tutorial-stack-cluster``
-```
-
-The command returns a list of service ARNs. The ARN of the service
-that you created using the template will be displayed in the following
-format.
-
-```
-{
-    "serviceArns": [
-        "arn:aws:ecs:`aws-region`:`111122223333`:service/ecs-tutorial-stack-cluster/ecs-tutorial-stack-service"
-    ]
-}
-```
-
-You can also obtain the DNS name of the Application Load Balancer that was created and use it to
-verify the creation of resources. To obtain the DNS name, run the following
-command:
-
-Run the following command to retrieve outputs of the created stack.
-
-```
-`aws cloudformation describe-stacks \
- --stack-name `ecs-tutorial-stack` \
- --region `aws-region` \
- --query 'Stacks[0].Outputs[?OutputKey==`LoadBalancerURL`].OutputValue' \
- --output text`
+aws cloudformation describe-stacks \
+  --stack-name {{ecs-tutorial-stack}} \
+  --region {{aws-region}} \
+  --query 'Stacks[0].Outputs[?OutputKey==`LoadBalancerURL`].OutputValue' \
+  --output  text
 ```
 
 Output:
 
 ```
-http://ecs-tutorial-stack-alb-`0123456789`.`aws-region`.elb.amazonaws.com
+http://ecs-tutorial-stack-alb-{{0123456789}}.{{aws-region}}.elb.amazonaws.com
 ```
 
-Paste the DNS name into a browser to view a webpage that displays a sample Amazon ECS
-application.
+Paste the DNS name into a browser to view a webpage that displays a sample Amazon ECS application.
 
 ## Step 3: Clean up
+<a name="ecs-cloudformation-cli-cleanup"></a>
 
 To clean up the resources you created, run the following command.
 
 ```
-`aws cloudformation delete-stack \
- --stack-name `ecs-stack``
+aws cloudformation delete-stack \
+      --stack-name {{ecs-stack}}
 ```
 
-The `delete-stack` command initiates deletion of the CloudFormation stack that
-was created in this tutorial, deleting all the resources in the stack. To verify
-deletion, you can repeat the procedure in [Step 2: Verify Amazon ECS resource creation](#ecs-cloudformation-cli-verify "#ecs-cloudformation-cli-verify"). The list of ARNs in the outputs
-will no longer include a task definition called `ecs-tutorial-stack-task`
-or a cluster called `ecs-tutorial-stack-cluster`. The
-`list-services` call will fail.
+The `delete-stack` command initiates deletion of the CloudFormation stack that was created in this tutorial, deleting all the resources in the stack. To verify deletion, you can repeat the procedure in [Step 2: Verify Amazon ECS resource creation](#ecs-cloudformation-cli-verify). The list of ARNs in the outputs will no longer include a task definition called `ecs-tutorial-stack-task` or a cluster called `ecs-tutorial-stack-cluster`. The `list-services` call will fail.

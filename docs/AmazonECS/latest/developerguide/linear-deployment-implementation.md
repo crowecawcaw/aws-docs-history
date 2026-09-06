@@ -1,57 +1,40 @@
+
+
 # Required resources for Amazon ECS linear deployments
+<a name="linear-deployment-implementation"></a>
 
-To use a linear deployment with managed traffic shifting, your service must use
-one of the following features:
+To use a linear deployment with managed traffic shifting, your service must use one of the following features:
++ Elastic Load Balancing
++ Service Connect
 
-- Elastic Load Balancing
-- Service Connect
-  The following list provides a high-level overview of what you need to configure for
-  Amazon ECS linear deployments:
-
-- Your service uses an Application Load Balancer, Network Load Balancer, or Service Connect. Configure the appropriate
-  resources.
-
-  - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
-  - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
-  - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
-
-- Set the service deployment controller to `ECS`.
-- Configure the deployment strategy as `linear` in your service
-  definition.
-- Optionally, configure additional parameters such as:
-
-  - Bake time for the new deployment
-  - The percentage of traffic to shift in each increment.
-  - The duration in minutes to wait between each traffic shift increment.
-  - CloudWatch alarms for automatic rollback
-  - Deployment lifecycle hooks (Lambda functions or pause hooks that run at
-    specified deployment stages)
+The following list provides a high-level overview of what you need to configure for Amazon ECS linear deployments:
++ Your service uses an Application Load Balancer, Network Load Balancer, or Service Connect. Configure the appropriate resources.
+  + Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md).
+  + Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md).
+  + Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md).
++ Set the service deployment controller to `ECS`.
++ Configure the deployment strategy as `linear` in your service definition.
++ Optionally, configure additional parameters such as:
+  + Bake time for the new deployment
+  + The percentage of traffic to shift in each increment.
+  + The duration in minutes to wait between each traffic shift increment. 
+  + CloudWatch alarms for automatic rollback
+  + Deployment lifecycle hooks (Lambda functions or pause hooks that run at specified deployment stages)
 
 ## Best practices
+<a name="linear-deployment-best-practices"></a>
 
 Follow these best practices for successful Amazon ECS linear deployments:
-
-- **Ensure your application can handle both service
-  revisions running simultaneously.**
-- **Plan for sufficient cluster capacity to handle both
-  service revisions during deployment.**
-- **Test your rollback procedures before implementing them
-  in production.**
-- Configure appropriate health checks that accurately reflect your application's health.
-- Set a bake time that allows sufficient testing of the new service
-  revision.
-- Implement CloudWatch alarms to automatically detect issues and trigger rollbacks.
-- Choose step percentages and bake times that balance deployment speed with
-  validation needs.
-- Use smaller step percentages (5-10%) for critical applications to minimize
-  risk exposure.
-- Set longer step bake times for applications that need time to warm up or
-  stabilize.
-- Implement CloudWatch alarms to automatically detect issues and trigger rollbacks at
-  any traffic increment.
-- Monitor application metrics closely during each traffic shift to detect
-  performance degradation early.
-- Ensure your application can handle both service revisions running
-  simultaneously.
-- Test your rollback procedures at different traffic percentages before
-  implementing them in production.
++ **Ensure your application can handle both service revisions running simultaneously.**
++ **Plan for sufficient cluster capacity to handle both service revisions during deployment.**
++ **Test your rollback procedures before implementing them in production.**
++ Configure appropriate health checks that accurately reflect your application's health.
++ Set a bake time that allows sufficient testing of the new service revision.
++ Implement CloudWatch alarms to automatically detect issues and trigger rollbacks.
++ Choose step percentages and bake times that balance deployment speed with validation needs.
++ Use smaller step percentages (5-10%) for critical applications to minimize risk exposure.
++ Set longer step bake times for applications that need time to warm up or stabilize.
++ Implement CloudWatch alarms to automatically detect issues and trigger rollbacks at any traffic increment.
++ Monitor application metrics closely during each traffic shift to detect performance degradation early.
++ Ensure your application can handle both service revisions running simultaneously.
++ Test your rollback procedures at different traffic percentages before implementing them in production.

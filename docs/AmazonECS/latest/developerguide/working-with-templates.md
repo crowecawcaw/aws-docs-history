@@ -1,40 +1,33 @@
+
+
 # CloudFormation example templates for Amazon ECS
+<a name="working-with-templates"></a>
 
-You can create Amazon ECS clusters, task definitions, and services
-using CloudFormation. The following topics include templates that demonstrate
-how to create resources with different configurations. You can create these resources
-with these templates by using the CloudFormation console or the AWS CLI.
+You can create Amazon ECS clusters, task definitions, and services using CloudFormation. The following topics include templates that demonstrate how to create resources with different configurations. You can create these resources with these templates by using the CloudFormation console or the AWS CLI.
 
-CloudFormation templates are text files in the JSON or YAML format that describe the resources
-that you want to provision in your CloudFormation stacks. If you're unfamiliar with either the
-JSON or YAML format, or both, you can use AWS Infrastructure Composer to get started using CloudFormation
-templates. For more information, see [Create templates visually with Infrastructure Composer](../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md "../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md") in the
-_AWS CloudFormation User Guide_.
+ CloudFormation templates are text files in the JSON or YAML format that describe the resources that you want to provision in your CloudFormation stacks. If you're unfamiliar with either the JSON or YAML format, or both, you can use AWS Infrastructure Composer to get started using CloudFormation templates. For more information, see [Create templates visually with Infrastructure Composer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.html) in the *AWS CloudFormation User Guide*.
 
-The following topics list example templates for Amazon ECS task definitions, clusters, and
-services.
+The following topics list example templates for Amazon ECS task definitions, clusters, and services.
 
-###### Topics
-
-- [Task definitions](#cfn-task-definition "#cfn-task-definition")
-- [Capacity providers](#create-capacity-providers "#create-capacity-providers")
-- [Clusters](#create-clusters "#create-clusters")
-- [Services](#create-service "#create-service")
-- [IAM roles for Amazon ECS](#ecs-cloudformation-iam-roles "#ecs-cloudformation-iam-roles")
+**Topics**
++ [Task definitions](#cfn-task-definition)
++ [Capacity providers](#create-capacity-providers)
++ [Clusters](#create-clusters)
++ [Services](#create-service)
++ [IAM roles for Amazon ECS](#ecs-cloudformation-iam-roles)
 
 ## Task definitions
+<a name="cfn-task-definition"></a>
 
-A task definition is a blueprint for your application that describes the
-parameters and one or more containers that form your application. The following are
-example CloudFormation templates for Amazon ECS task definitions. For more information about Amazon ECS
-task definitions, see [Amazon ECS task definitions](task_definitions.md "task_definitions.md").
+A task definition is a blueprint for your application that describes the parameters and one or more containers that form your application. The following are example CloudFormation templates for Amazon ECS task definitions. For more information about Amazon ECS task definitions, see [Amazon ECS task definitions](task_definitions.md).
 
 ### Fargate Linux task definition
+<a name="cfn-task-definition-fargate-linux"></a>
 
-You can use the following template to create a sample Fargate Linux
-task.
+You can use the following template to create a sample Fargate Linux task.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -160,7 +153,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -198,17 +192,17 @@ Parameters:
     Description: The port number on the host
   ExecutionRoleArn:
     Type: String
-    Default: 'arn:aws:iam::`111122223333`:role/ecsTaskExecutionRole'
+    Default: 'arn:aws:iam::{{111122223333}}:role/ecsTaskExecutionRole'
     Description: The ARN of the task execution role
   LogGroup:
     Type: String
     Default: '/ecs/fargate-task-definition'
-    Description: The CloudWatch log group for container logs
+    Description: The CloudWatch log group for container logs 
   NetworkMode:
     Type: String
     Default: 'awsvpc'
     Description: The Docker networking mode to use
-    AllowedValues: ['awsvpc', 'bridge', 'host', 'none']
+    AllowedValues: ['awsvpc', 'bridge', 'host', 'none'] 
   OperatingSystemFamily:
     Type: String
     Default: 'LINUX'
@@ -226,7 +220,7 @@ Resources:
               #333;} </style> </head><body> <div
               style=color:white;text-align:center> <h1>Amazon ECS Sample
               App</h1> <h2>Congratulations!</h2> <p>Your application is now
-              running on a container in Amazon ECS.</p> </div></body></html>' >
+              running on a container in Amazon ECS.</p> </div></body></html>' > 
               /usr/local/apache2/htdocs/index.html && httpd-foreground"
           EntryPoint:
             - sh
@@ -262,13 +256,15 @@ Outputs:
     Value: !Ref ECSTaskDefinition
 ```
 
+------
+
 ### Amazon EFS task definition
+<a name="cfn-task-definition-efs"></a>
 
-You can use the following template to create a task that uses an Amazon EFS file
-system that you created. For more information about using Amazon EFS volumes with
-Amazon ECS, see [Use Amazon EFS volumes with Amazon ECS](efs-volumes.md "efs-volumes.md").
+You can use the following template to create a task that uses an Amazon EFS file system that you created. For more information about using Amazon EFS volumes with Amazon ECS, see [Use Amazon EFS volumes with Amazon ECS](efs-volumes.md).
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -426,7 +422,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -545,21 +542,20 @@ Outputs:
     Value: !Ref ECSTaskDefinition
 ```
 
-## Capacity providers
+------
 
-Capacity providers are associated with an Amazon ECS cluster and are used to manage
-compute capacity for your workloads.
+## Capacity providers
+<a name="create-capacity-providers"></a>
+
+Capacity providers are associated with an Amazon ECS cluster and are used to manage compute capacity for your workloads.
 
 ### Create a capacity provider for Amazon ECS Managed Instances
+<a name="create-managed-instances-capacity-provider"></a>
 
-By default, Amazon ECS provides a capacity provider that
-automatically selects the most cost-optimized general-purpose instace types.
-However, you can create custom capacity providers to specify instance
-requirements such as instance types, CPU manufacturers, accelerator types, and
-other requirements. You can use the following template to create a capacity provider for
-Amazon ECS Managed Instances that satisfies the specied memory and CPU requirements.
+ By default, Amazon ECS provides a capacity provider that automatically selects the most cost-optimized general-purpose instace types. However, you can create custom capacity providers to specify instance requirements such as instance types, CPU manufacturers, accelerator types, and other requirements. You can use the following template to create a capacity provider for Amazon ECS Managed Instances that satisfies the specied memory and CPU requirements.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -600,7 +596,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -628,18 +625,20 @@ Resources:
             Max: 8192
 ```
 
-## Clusters
+------
 
-An Amazon ECS cluster is a logical grouping of tasks or services. You can use the
-following templates to create clusters with different configurations. For more
-information about Amazon ECS clusters, see [Amazon ECS clusters](clusters.md "clusters.md").
+## Clusters
+<a name="create-clusters"></a>
+
+An Amazon ECS cluster is a logical grouping of tasks or services. You can use the following templates to create clusters with different configurations. For more information about Amazon ECS clusters, see [Amazon ECS clusters](clusters.md).
 
 ### Create an empty cluster with default settings
+<a name="create-empty-cluster"></a>
 
-You can use the following template to create an empty cluster with default
-settings.
+You can use the following template to create an empty cluster with default settings.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -655,7 +654,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -666,15 +666,15 @@ Resources:
       ClusterName: MyEmptyCluster
 ```
 
+------
+
 ### Create an empty cluster with managed storage encryption and enhanced Container Insights
+<a name="create-cluster-enhanced-encrypted"></a>
 
-You can use the following template to create a cluster with cluster-level
-managed storage and enhanced Container Insights enabled. Cluster-level encryption applies to
-Amazon ECS managed data volumes such as Amazon EBS volumes. For more information about
-Amazon EBS encryption, see [Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md"). For more information about using
-Container Insights with enchanced observability, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md "cloudwatch-container-insights.md").
+You can use the following template to create a cluster with cluster-level managed storage and enhanced Container Insights enabled. Cluster-level encryption applies to Amazon ECS managed data volumes such as Amazon EBS volumes. For more information about Amazon EBS encryption, see [Encrypt data stored in Amazon EBS volumes attached to Amazon ECS tasks](ebs-kms-encryption.md). For more information about using Container Insights with enchanced observability, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](cloudwatch-container-insights.md).
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -701,7 +701,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -718,17 +719,18 @@ Resources:
           KmsKeyId: a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
 ```
 
+------
+
 ### Create a cluster with the AL2023 Amazon ECS-Optimized-AMI
+<a name="create-cluster-al2023"></a>
 
-You can use the following template to create a cluster that uses a capacity
-provider that launches AL2023 instances on Amazon EC2.
+You can use the following template to create a cluster that uses a capacity provider that launches AL2023 instances on Amazon EC2.
 
-###### Important
+**Important**  
+For the latest AMI IDs, see [Amazon ECS-optimized AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 
-For the latest AMI IDs, see [Amazon ECS-optimized
-AMI](ecs-optimized_AMI.md "ecs-optimized_AMI.md") in the _Amazon Elastic Container Service Developer Guide_.
-
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1003,7 +1005,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -1172,27 +1175,20 @@ Outputs:
     Value: CapacityProvider
 ```
 
-## Services
+------
 
-You can use an Amazon ECS service to run and maintain a specified number of instances
-of a task definition simultaneously in an Amazon ECS cluster. If one of your tasks fails
-or stops, the Amazon ECS service scheduler launches another instance of your task
-definition to replace it. This helps maintain your desired number of tasks in the
-service. The following templates can be used to deploy services. For more
-information about Amazon ECS services, see [Amazon ECS services](ecs_services.md "ecs_services.md").
+## Services
+<a name="create-service"></a>
+
+You can use an Amazon ECS service to run and maintain a specified number of instances of a task definition simultaneously in an Amazon ECS cluster. If one of your tasks fails or stops, the Amazon ECS service scheduler launches another instance of your task definition to replace it. This helps maintain your desired number of tasks in the service. The following templates can be used to deploy services. For more information about Amazon ECS services, see [Amazon ECS services](ecs_services.md).
 
 ### Deploy a load balanced web application
+<a name="simple-service"></a>
 
-The following template creates an Amazon ECS service with two tasks that run on
-Fargate. The tasks each have an NGINX container. The template also creates an
-Application Load Balancer that distributes application traffic and an Application Auto Scaling policy that scales
-the application based on CPU utilization. The template also creates the
-networking resources necessary to deploy the application, the logging resources
-for container logs, and an Amazon ECS task execution IAM role. For more information
-about the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md"). For more information about auto
-scaling, see [Automatically scale your Amazon ECS service](service-auto-scaling.md "service-auto-scaling.md").
+ The following template creates an Amazon ECS service with two tasks that run on Fargate. The tasks each have an NGINX container. The template also creates an Application Load Balancer that distributes application traffic and an Application Auto Scaling policy that scales the application based on CPU utilization. The template also creates the networking resources necessary to deploy the application, the logging resources for container logs, and an Amazon ECS task execution IAM role. For more information about the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md). For more information about auto scaling, see [Automatically scale your Amazon ECS service](service-auto-scaling.md).
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1811,7 +1807,7 @@ JSON
                     "Fn::Sub": "${AWS::StackName}-task-execution-role"
                 },
                 "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -1842,7 +1838,7 @@ JSON
                     "Fn::Sub": "${AWS::StackName}-task-role"
                 },
                 "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -2129,7 +2125,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -2149,42 +2146,42 @@ Parameters:
     Type: String
     Default: '10.0.1.0/24'
     Description: CIDR block for public subnet 1
-
+  
   PublicSubnet2Cidr:
     Type: String
     Default: '10.0.2.0/24'
     Description: CIDR block for public subnet 2
-
+  
   PrivateSubnet1Cidr:
     Type: String
     Default: '10.0.3.0/24'
     Description: CIDR block for private subnet 1
-
+  
   PrivateSubnet2Cidr:
     Type: String
     Default: '10.0.4.0/24'
     Description: CIDR block for private subnet 2
-
+  
   ServiceName:
     Type: String
     Default: 'tutorial-app'
     Description: Name of the ECS service
-
+  
   ContainerPort:
     Type: Number
     Default: 80
     Description: Port on which the container listens
-
+  
   DesiredCount:
     Type: Number
     Default: 2
     Description: Desired number of tasks
-
+  
   MinCapacity:
     Type: Number
     Default: 1
     Description: Minimum number of tasks for auto scaling
-
+  
   MaxCapacity:
     Type: Number
     Default: 10
@@ -2479,7 +2476,7 @@ Resources:
     Properties:
       RoleName: !Sub '${AWS::StackName}-task-execution-role'
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -2496,7 +2493,7 @@ Resources:
     Properties:
       RoleName: !Sub '${AWS::StackName}-task-role'
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -2563,7 +2560,7 @@ Resources:
       PlatformVersion: LATEST
       NetworkConfiguration:
         AwsvpcConfiguration:
-          AssignPublicIp: DISABLED
+          AssignPublicIp: DISABLED  
           SecurityGroups:
             - !Ref ECSSecurityGroup
           Subnets:
@@ -2647,14 +2644,15 @@ Outputs:
       Name: !Sub '${AWS::StackName}-Private-Subnet-2'
 ```
 
+------
+
 ### Deploy a service with ECS Exec enabled
+<a name="service-ecs-exec"></a>
 
-You can use the following template to deploy a service with ECS Exec enabled.
-The service runs in a cluster with a KMS key for encrypting ECS Exec sessions
-and a log configuration for redirecting execute command session logs to an Amazon S3
-bucket. For more information, see [Monitor Amazon ECS containers with ECS Exec](ecs-exec.md "ecs-exec.md").
+You can use the following template to deploy a service with ECS Exec enabled. The service runs in a cluster with a KMS key for encrypting ECS Exec sessions and a log configuration for redirecting execute command session logs to an Amazon S3 bucket. For more information, see [Monitor Amazon ECS containers with ECS Exec](ecs-exec.md).
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2719,12 +2717,12 @@ JSON
         "TaskExecutionRoleArn": {
             "Type": "String",
             "Description": "ARN of an existing IAM role for ECS task execution",
-            "Default": "arn:aws:iam::`111122223333`:role/ecsTaskExecutionRole"
+            "Default": "arn:aws:iam::{{111122223333}}:role/ecsTaskExecutionRole"
         },
         "TaskRoleArn": {
             "Type": "String",
             "Description": "ARN of an existing IAM role for ECS tasks",
-            "Default": "arn:aws:iam::`111122223333`:role/execTaskRole"
+            "Default": "arn:aws:iam::{{111122223333}}:role/execTaskRole"
         }
     },
     "Resources": {
@@ -2866,7 +2864,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -2919,11 +2918,11 @@ Parameters:
   TaskExecutionRoleArn:
     Type: String
     Description: ARN of an existing IAM role for ECS task execution
-    Default: 'arn:aws:iam::`111122223333`:role/ecsTaskExecutionRole'
+    Default: 'arn:aws:iam::{{111122223333}}:role/ecsTaskExecutionRole'
   TaskRoleArn:
     Type: String
     Description: ARN of an existing IAM role for ECS tasks
-    Default: 'arn:aws:iam::`111122223333`:role/execTaskRole'
+    Default: 'arn:aws:iam::{{111122223333}}:role/execTaskRole'
 Resources:
   ECSCluster:
     Type: AWS::ECS::Cluster
@@ -2949,7 +2948,7 @@ Resources:
               #333;} </style> </head><body> <div
               style=color:white;text-align:center> <h1>Amazon ECS Sample
               App</h1> <h2>Congratulations!</h2> <p>Your application is now
-              running on a container in Amazon ECS.</p> </div></body></html>' >
+              running on a container in Amazon ECS.</p> </div></body></html>' > 
               /usr/local/apache2/htdocs/index.html && httpd-foreground"
           EntryPoint:
             - sh
@@ -3027,23 +3026,22 @@ Outputs:
     Value: !Ref AWS::AccountId
 ```
 
+------
+
 ### Deploy service that uses Amazon VPC Lattice
+<a name="service-vpc-lattice"></a>
 
-You can use the following template to get started with creating an Amazon ECS
-service with VPC Lattice. You may need to complete the following additional steps
-to set up VPC Lattice:
+You can use the following template to get started with creating an Amazon ECS service with VPC Lattice. You may need to complete the following additional steps to set up VPC Lattice: 
++ Update your security group's inbound rules for VPC Lattice to allow the inbound rule `vpc-lattice` prefix and to allow traffic on port 80.
++ Associate VPC for the service to a VPC Lattice service network.
++ Configure a private or public hosted zone with Amazon Route 53.
++ Configure listeners and listener rules in a VPC Lattice service.
++ Verify health check configurations of the target group.
 
-- Update your security group's inbound rules for VPC Lattice to allow the
-  inbound rule `vpc-lattice` prefix and to allow traffic on
-  port 80.
-- Associate VPC for the service to a VPC Lattice service network.
-- Configure a private or public hosted zone with Amazon Route 53.
-- Configure listeners and listener rules in a VPC Lattice service.
-- Verify health check configurations of the target group.
+For more information about using VPC Lattice with Amazon ECS, see [Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS services](ecs-vpc-lattice.md).
 
-For more information about using VPC Lattice with Amazon ECS, see [Use Amazon VPC Lattice to connect, observe, and secure your Amazon ECS services](ecs-vpc-lattice.md "ecs-vpc-lattice.md").
-
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -3122,7 +3120,7 @@ JSON
 			"Type": "AWS::IAM::Role",
 			"Properties": {
 				"AssumeRolePolicyDocument": {
-					"Version": "2012-10-17",
+					"Version": "2012-10-17",		 	 	 
 					"Statement": [
 						{
 							"Effect": "Allow",
@@ -3309,7 +3307,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -3373,7 +3372,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -3403,7 +3402,7 @@ Resources:
               #333;} </style> </head><body> <div
               style=color:white;text-align:center> <h1>Amazon ECS Sample
               App</h1> <h2>Congratulations!</h2> <p>Your application is now
-              running on a container in Amazon ECS.</p> </div></body></html>' >
+              running on a container in Amazon ECS.</p> </div></body></html>' > 
               /usr/local/apache2/htdocs/index.html && httpd-foreground"
           EntryPoint:
             - sh
@@ -3505,14 +3504,15 @@ Outputs:
     Value: !Ref VpcLatticeTaskDefinition
 ```
 
+------
+
 ### Deploy service with a volume configuration
+<a name="deploy-service-volume-configuration"></a>
 
-The following template includes a volume configuration in the service
-definition. Amazon ECS supports configuring the following data volumes by using a
-volume configuration at launch: Amazon EBS volumes. For more information about Amazon EBS
-volumes, see [Use Amazon EBS volumes with Amazon ECS](ebs-volumes.md "ebs-volumes.md").
+The following template includes a volume configuration in the service definition. Amazon ECS supports configuring the following data volumes by using a volume configuration at launch: Amazon EBS volumes. For more information about Amazon EBS volumes, see [Use Amazon EBS volumes with Amazon ECS](ebs-volumes.md).
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -3608,7 +3608,7 @@ JSON
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Effect": "Allow",
@@ -3740,7 +3740,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -3750,61 +3751,61 @@ Parameters:
     Type: String
     Default: volume-config-cluster
     Description: Name of the ECS cluster
-
+  
   SecurityGroupIDs:
     Type: List<AWS::EC2::SecurityGroup::Id>
     Description: Security Group IDs for the ECS Service
-
+  
   SubnetIDs:
     Type: List<AWS::EC2::Subnet::Id>
     Description: Subnet IDs for the ECS Service
-
+  
   InfrastructureRoleArn:
     Type: String
     Description: ARN of the IAM role that ECS will use to manage EBS volumes
-
+  
   ContainerImage:
     Type: String
     Default: public.ecr.aws/nginx/nginx:latest
     Description: Container image to use for the task
-
+  
   TaskCpu:
     Type: String
     Default: "2048"
     Description: CPU units for the task
-
+  
   TaskMemory:
     Type: String
     Default: "4096"
     Description: Memory (in MiB) for the task
-
+  
   VolumeSize:
     Type: String
     Default: "10"
     Description: Size of the EBS volume in GiB
-
+  
   VolumeType:
     Type: String
     Default: gp3
     AllowedValues: [gp2, gp3, io1, io2, st1, sc1, standard]
     Description: EBS volume type
-
+  
   VolumeIops:
     Type: String
     Default: "3000"
     Description: IOPS for the EBS volume (required for io1, io2, and gp3)
-
+  
   VolumeThroughput:
     Type: String
     Default: "125"
     Description: Throughput for the EBS volume (only for gp3)
-
+  
   FilesystemType:
     Type: String
     Default: xfs
     AllowedValues: [xfs, ext4]
     Description: Filesystem type for the EBS volume
-
+  
   EnableContainerInsights:
     Type: String
     Default: 'enhanced'
@@ -3829,7 +3830,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -3921,13 +3922,15 @@ Outputs:
     Value: !Ref EBSTaskDefinition
 ```
 
+------
+
 ### Deploy service with capacity providers
+<a name="deploy-service"></a>
 
-The following template defines a service that uses the capacity provider to
-request AL2023 capacity to run on. Containers will be launched onto the
-AL2023 instances as they come online.
+The following template defines a service that uses the capacity provider to request AL2023 capacity to run on. Containers will be launched onto the AL2023 instances as they come online.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -4233,7 +4236,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -4407,21 +4411,22 @@ Resources:
     Type: 'AWS::Logs::LogGroup'
 ```
 
-## IAM roles for Amazon ECS
+------
 
-You can use CloudFormation templates to create IAM roles for use with Amazon ECS. For more
-information about IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](security-ecs-iam-role-overview.md "security-ecs-iam-role-overview.md").
+## IAM roles for Amazon ECS
+<a name="ecs-cloudformation-iam-roles"></a>
+
+You can use CloudFormation templates to create IAM roles for use with Amazon ECS. For more information about IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](security-ecs-iam-role-overview.md).
 
 ### Amazon ECS task execution role
+<a name="ecs-cloudformation-iam-roles-task-execution"></a>
 
-The task execution role grants the Amazon ECS container and Fargate agents
-permission to make AWS API calls on your behalf. The role is required
-depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").
+The task execution role grants the Amazon ECS container and Fargate agents permission to make AWS API calls on your behalf. The role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md).
 
-The following template can be used to create a simple task execution role that
-uses the `AmazonECSTaskExecutionRolePolicy` managed policy.
+The following template can be used to create a simple task execution role that uses the `AmazonECSTaskExecutionRolePolicy` managed policy.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -4488,7 +4493,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -4516,10 +4522,12 @@ Outputs:
     Description: ARN of the ECS Task Execution Role
     Value: !GetAtt ECSTaskExecutionRole.Arn
     Export:
-      Name: !Sub "${AWS::StackName}-ECSTaskExecutionRoleARN"
+      Name: !Sub "${AWS::StackName}-ECSTaskExecutionRoleARN" 
   ECSTaskExecutionRoleName:
     Description: Name of the ECS Task Execution Role
     Value: !Ref ECSTaskExecutionRole
     Export:
       Name: !Sub "${AWS::StackName}-ECSTaskExecutionRoleName"
 ```
+
+------

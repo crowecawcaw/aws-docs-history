@@ -1,11 +1,9 @@
-# Amazon ECS service action events
 
-Amazon ECS sends service action events with the detail type **ECS Service
-Action**. Unlike the container instance and task state change events,
-the service action events do not include a version number in the
-`details` response field. The following is an event pattern that is
-used to create an EventBridge rule for Amazon ECS service action events. For more information,
-see [Getting started with EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the _Amazon EventBridge User Guide_.
+
+# Amazon ECS service action events
+<a name="ecs_service_events"></a>
+
+Amazon ECS sends service action events with the detail type **ECS Service Action**. Unlike the container instance and task state change events, the service action events do not include a version number in the `details` response field. The following is an event pattern that is used to create an EventBridge rule for Amazon ECS service action events. For more information, see [Getting started with EventBridge ](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -18,126 +16,72 @@ see [Getting started with EventBridge](../../../eventbridge/latest/userguide/eb-
 }
 ```
 
-Amazon ECS sends events with `INFO`, `WARN`, and
-`ERROR` event types. The following are the service action
-events.
+Amazon ECS sends events with `INFO`, `WARN`, and `ERROR` event types. The following are the service action events.
 
 ## Service action events with `INFO` event type
+<a name="ecs_service_events_info_type"></a>
 
-`SERVICE_STEADY_STATE`
+`SERVICE_STEADY_STATE`  
+The service is healthy and at the desired number of tasks, thus reaching a steady state. The service scheduler reports the status periodically, so you might receive this message multiple times.
 
-The service is healthy and at the desired number of tasks, thus
-reaching a steady state. The service scheduler reports the status
-periodically, so you might receive this message multiple
-times.
+`TASKSET_STEADY_STATE`  
+The task set is healthy and at the desired number of tasks, thus reaching a steady state.
 
-`TASKSET_STEADY_STATE`
+`CAPACITY_PROVIDER_STEADY_STATE`  
+A capacity provider associated with a service reaches a steady state.
 
-The task set is healthy and at the desired number of tasks, thus
-reaching a steady state.
+`SERVICE_DESIRED_COUNT_UPDATED`  
+When the service scheduler updates the computed desired count for a service or task set. This event is not sent when the desired count is manually updated by a user.
 
-`CAPACITY_PROVIDER_STEADY_STATE`
-
-A capacity provider associated with a service reaches a steady
-state.
-
-`SERVICE_DESIRED_COUNT_UPDATED`
-
-When the service scheduler updates the computed desired count for
-a service or task set. This event is not sent when the desired count
-is manually updated by a user.
-
-`TASKS_STOPPED`
-
+`TASKS_STOPPED`  
 The service has stopped the running task.
 
-`SERVICE_DEPLOYMENT_IN_PROGRESS`
-
+`SERVICE_DEPLOYMENT_IN_PROGRESS`  
 A service deployment is in progress. The service deployment can be either a rollback, or a new service revision.
 
-`SERVICE_DEPLOYMENT_COMPLETED`
-
-A service deployment is in the steady state and is complete. The
-service deployment can be either a rollback, or to deploy an updated
-service revision.
+`SERVICE_DEPLOYMENT_COMPLETED`  
+A service deployment is in the steady state and is complete. The service deployment can be either a rollback, or to deploy an updated service revision.
 
 ## Service action events with `WARN` event type
+<a name="ecs_service_events_warn_type"></a>
 
-`SERVICE_TASK_START_IMPAIRED`
+`SERVICE_TASK_START_IMPAIRED`  
+The service is unable to consistently start tasks successfully.
 
-The service is unable to consistently start tasks
-successfully.
+`SERVICE_DISCOVERY_INSTANCE_UNHEALTHY`  
+A service using service discovery contains an unhealthy task. The service scheduler detects that a task within a service registry is unhealthy.
 
-`SERVICE_DISCOVERY_INSTANCE_UNHEALTHY`
-
-A service using service discovery contains an unhealthy task. The
-service scheduler detects that a task within a service registry is
-unhealthy.
-
-`VPC_LATTICE_TARGET_UNHEALTHY`
-
-The service using VPC Lattice has detected one of the targets for the
-VPC Lattice is unhealthy.
+`VPC_LATTICE_TARGET_UNHEALTHY`  
+The service using VPC Lattice has detected one of the targets for the VPC Lattice is unhealthy.
 
 ## Service action events with `ERROR` event type
+<a name="ecs_service_events_error_type"></a>
 
-`SERVICE_DAEMON_PLACEMENT_CONSTRAINT_VIOLATED`
+`SERVICE_DAEMON_PLACEMENT_CONSTRAINT_VIOLATED`  
+A task in a service using the `DAEMON` service scheduler strategy no longer meets the placement constraint strategy for the service.
 
-A task in a service using the `DAEMON` service
-scheduler strategy no longer meets the placement constraint strategy
-for the service.
+`ECS_OPERATION_THROTTLED`  
+The service scheduler has been throttled due to the Amazon ECS API throttle limits.
 
-`ECS_OPERATION_THROTTLED`
+`SERVICE_DISCOVERY_OPERATION_THROTTLED`  
+The service scheduler has been throttled due to the AWS Cloud Map API throttle limits. This can occur on services configured to use service discovery.
 
-The service scheduler has been throttled due to the Amazon ECS API
-throttle limits.
+`SERVICE_TASK_PLACEMENT_FAILURE`  
+The service scheduler is unable to place a task. The cause will be described in the `reason` field.  
+A common cause for this service event being generated is because of a lack of resources in the cluster to place the task. For example, not enough CPU or memory capacity on the available container instances or no container instances being available. Another common cause is when the Amazon ECS container agent is disconnected on the container instance, causing the scheduler to be unable to place the task.
 
-`SERVICE_DISCOVERY_OPERATION_THROTTLED`
+`SERVICE_TASK_CONFIGURATION_FAILURE`  
+The service scheduler is unable to place a task due to a configuration error. The cause will be described in the `reason` field.  
+A common cause of this service event being generated is because tags were being applied to the service but the user or role had not opted in to the new Amazon Resource Name (ARN) format in the Region. For more information, see [Amazon Resource Names (ARNs) and IDs](ecs-account-settings.md#ecs-resource-ids). Another common cause is that Amazon ECS was unable to assume the task IAM role provided.
 
-The service scheduler has been throttled due to the AWS Cloud Map API
-throttle limits. This can occur on services configured to use
-service discovery.
-
-`SERVICE_TASK_PLACEMENT_FAILURE`
-
-The service scheduler is unable to place a task. The cause will be
-described in the `reason` field.
-
-A common cause for this service event being generated is because
-of a lack of resources in the cluster to place the task. For
-example, not enough CPU or memory capacity on the available
-container instances or no container instances being available.
-Another common cause is when the Amazon ECS container agent is
-disconnected on the container instance, causing the scheduler to be
-unable to place the task.
-
-`SERVICE_TASK_CONFIGURATION_FAILURE`
-
-The service scheduler is unable to place a task due to a
-configuration error. The cause will be described in the
-`reason` field.
-
-A common cause of this service event being generated is because
-tags were being applied to the service but the user or role had not
-opted in to the new Amazon Resource Name (ARN) format in the Region.
-For more information, see [Amazon Resource Names (ARNs) and IDs](ecs-account-settings.md#ecs-resource-ids "ecs-account-settings.md#ecs-resource-ids"). Another common cause is that
-Amazon ECS was unable to assume the task IAM role provided.
-
-`SERVICE_HEALTH_UNKNOWN`
-
+`SERVICE_HEALTH_UNKNOWN`  
 The service was unable to describe the health data for tasks.
 
-`SERVICE_DEPLOYMENT_FAILED`
+`SERVICE_DEPLOYMENT_FAILED`  
+A service deployment did not reach the steady. This happens when a CloudWatch is triggered or the circuit breaker detects a service deployment failure.
 
-A service deployment did not reach the steady. This happens when a
-CloudWatch is triggered or the circuit breaker detects a service
-deployment failure.
-
-###### Example Service steady state event
-
-Service steady state events are delivered in the following format. For more
-information about EventBridge parameters, see [Events in EventBridge](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the
-_Amazon EventBridge User Guide_.
+**Example Service steady state event**  
+Service steady state events are delivered in the following format. For more information about EventBridge parameters, see [Events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
 
 ```
 {
@@ -160,10 +104,8 @@ _Amazon EventBridge User Guide_.
 }
 ```
 
-###### Example Capacity provider steady state event
-
-Capacity provider steady state events are delivered in the following
-format.
+**Example Capacity provider steady state event**  
+Capacity provider steady state events are delivered in the following format.  
 
 ```
 {
@@ -189,10 +131,8 @@ format.
 }
 ```
 
-###### Example Service task start impaired event
-
-Service task start impaired events are delivered in the following
-format.
+**Example Service task start impaired event**  
+Service task start impaired events are delivered in the following format.  
 
 ```
 {
@@ -215,15 +155,9 @@ format.
 }
 ```
 
-###### Example Service task placement failure event
-
-Service task placement failure events are delivered in the following format.
-For more information, see [Events in EventBridge](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the
-_Amazon EventBridge User Guide_.
-
-In the following example, the task was attempting to use the
-`FARGATE_SPOT` capacity provider but the service scheduler was
-unable to acquire any Fargate Spot capacity.
+**Example Service task placement failure event**  
+Service task placement failure events are delivered in the following format. For more information, see [Events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
+In the following example, the task was attempting to use the `FARGATE_SPOT` capacity provider but the service scheduler was unable to acquire any Fargate Spot capacity.  
 
 ```
 {
@@ -249,11 +183,7 @@ unable to acquire any Fargate Spot capacity.
     }
 }
 ```
-
-In the following example for EC2, the task was attempted to
-launch on the Container Instance `2dd1b186f39845a584488d2ef155c131`
-but the service scheduler was unable to place the task because of insufficient
-CPU.
+In the following example for EC2, the task was attempted to launch on the Container Instance `2dd1b186f39845a584488d2ef155c131` but the service scheduler was unable to place the task because of insufficient CPU.  
 
 ```
 {

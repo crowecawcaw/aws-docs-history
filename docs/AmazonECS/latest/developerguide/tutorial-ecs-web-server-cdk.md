@@ -1,50 +1,37 @@
+
+
 # Creating Amazon ECS resources using the AWS CDK
+<a name="tutorial-ecs-web-server-cdk"></a>
 
-The AWS Cloud Development Kit (AWS CDK) is an Infrastructure-as-Code (IAC) framework that you can use to define
-AWS cloud infrastructure by using a programming language of your choosing. To define your
-own cloud infrastructure, you first write an app (in one of the CDK's supported
-languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template
-and deploy your resources to your AWS account. Follow the steps in this topic to deploy a
-containerized web server with Amazon Elastic Container Service (Amazon ECS) and the AWS CDK on Fargate.
+The AWS Cloud Development Kit (AWS CDK) is an Infrastructure-as-Code (IAC) framework that you can use to define AWS cloud infrastructure by using a programming language of your choosing. To define your own cloud infrastructure, you first write an app (in one of the CDK's supported languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template and deploy your resources to your AWS account. Follow the steps in this topic to deploy a containerized web server with Amazon Elastic Container Service (Amazon ECS) and the AWS CDK on Fargate. 
 
-The AWS Construct Library, included with the CDK, provides modules that you can
-use to model the resources that AWS services provide. For popular services, the library
-provides curated constructs with smart defaults and best practices. One of these modules,
-specifically `aws-ecs-patterns`, provides high-level abstractions that you can
-use to define your containerized service and all the necessary supporting resources in a few
-lines of code.
+The AWS Construct Library, included with the CDK, provides modules that you can use to model the resources that AWS services provide. For popular services, the library provides curated constructs with smart defaults and best practices. One of these modules, specifically `[aws-ecs-patterns](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.html)`, provides high-level abstractions that you can use to define your containerized service and all the necessary supporting resources in a few lines of code.
 
-This topic uses the [`ApplicationLoadBalancedFargateService`](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.md") construct. This
-construct deploys an Amazon ECS service on Fargate behind an application load balancer. The
-`aws-ecs-patterns` module also includes constructs that use a network
-load balancer and run on Amazon EC2.
+This topic uses the [`ApplicationLoadBalancedFargateService`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.html) construct. This construct deploys an Amazon ECS service on Fargate behind an application load balancer. The `aws-ecs-patterns` module also includes constructs that use a network load balancer and run on Amazon EC2.
 
-Before starting this task, set up your AWS CDK development environment, and install the
-AWS CDK by running the following command. For instructions on how to set up your AWS CDK
-development environment, see [Getting Started
-With the AWS CDK - Prerequisites](../../../cdk/v2/guide/getting_started.md#getting_started_prerequisites "../../../cdk/v2/guide/getting_started.md#getting_started_prerequisites").
+Before starting this task, set up your AWS CDK development environment, and install the AWS CDK by running the following command. For instructions on how to set up your AWS CDK development environment, see [Getting Started With the AWS CDK - Prerequisites](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_prerequisites).
 
 ```
 npm install -g aws-cdk
 ```
 
-###### Note
+**Note**  
+These instructions assume you are using AWS CDK v2. 
 
-These instructions assume you are using AWS CDK v2.
-
-###### Topics
-
-- [Step 1: Set up your AWS CDK project](#ecs-web-server-cdk-step-1 "#ecs-web-server-cdk-step-1")
-- [Step 2: Use the AWS CDK to define a containerized web server on Fargate](#ecs-web-server-cdk-step-2 "#ecs-web-server-cdk-step-2")
-- [Step 3: Test the web server](#ecs-web-server-cdk-step-3 "#ecs-web-server-cdk-step-3")
-- [Step 4: Clean up](#ecs-web-server-cdk-step-4 "#ecs-web-server-cdk-step-4")
-- [Next steps](#ecs-web-server-cdk-next-steps "#ecs-web-server-cdk-next-steps")
+**Topics**
++ [Step 1: Set up your AWS CDK project](#ecs-web-server-cdk-step-1)
++ [Step 2: Use the AWS CDK to define a containerized web server on Fargate](#ecs-web-server-cdk-step-2)
++ [Step 3: Test the web server](#ecs-web-server-cdk-step-3)
++ [Step 4: Clean up](#ecs-web-server-cdk-step-4)
++ [Next steps](#ecs-web-server-cdk-next-steps)
 
 ## Step 1: Set up your AWS CDK project
+<a name="ecs-web-server-cdk-step-1"></a>
 
 Create a directory for your new AWS CDK app and initialize the project.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 mkdir hello-ecs
@@ -52,7 +39,8 @@ cd hello-ecs
 cdk init --language typescript
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 mkdir hello-ecs
@@ -60,7 +48,8 @@ cd hello-ecs
 cdk init --language javascript
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 mkdir hello-ecs
@@ -68,15 +57,15 @@ cd hello-ecs
 cdk init --language python
 ```
 
-After the project is started, activate the project's virtual environment
-and install the AWS CDK's baseline dependencies.
+After the project is started, activate the project's virtual environment and install the AWS CDK's baseline dependencies.
 
 ```
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 mkdir hello-ecs
@@ -84,12 +73,10 @@ cd hello-ecs
 cdk init --language java
 ```
 
-Import this Maven project to your Java IDE. For example, in Eclipse, use
-**File** > **Import** >
-**Maven** > **Existing Maven
-Projects**.
+Import this Maven project to your Java IDE. For example, in Eclipse, use **File** > **Import** > **Maven** > **Existing Maven Projects**.
 
-C#
+------
+#### [ C\# ]
 
 ```
 mkdir hello-ecs
@@ -97,7 +84,8 @@ cd hello-ecs
 cdk init --language csharp
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 mkdir hello-ecs
@@ -105,87 +93,79 @@ cd hello-ecs
 cdk init --language go
 ```
 
-###### Note
+------
 
-The AWS CDK application template uses the name of the project directory to generate
-names for source files and classes. In this example, the directory is named
-`hello-ecs`. If you use a different project directory name,
-your app won't match these instructions.
+**Note**  
+The AWS CDK application template uses the name of the project directory to generate names for source files and classes. In this example, the directory is named `hello-ecs`. If you use a different project directory name, your app won't match these instructions.
 
-AWS CDK v2 includes stable constructs for all AWS services in a single package that's
-called `aws-cdk-lib`. This package is installed as a dependency when you
-initialize the project. When working with certain programming languages, the package is
-installed when you build the project for the first time. This topic covers how to use an
-Amazon ECS Patterns construct, which provides high-level abstractions for working with Amazon ECS.
-This module relies on Amazon ECS constructs and other constructs to provision the resources
-that your Amazon ECS application needs.
+AWS CDK v2 includes stable constructs for all AWS services in a single package that's called `aws-cdk-lib`. This package is installed as a dependency when you initialize the project. When working with certain programming languages, the package is installed when you build the project for the first time. This topic covers how to use an Amazon ECS Patterns construct, which provides high-level abstractions for working with Amazon ECS. This module relies on Amazon ECS constructs and other constructs to provision the resources that your Amazon ECS application needs.
 
-The names that you use to import these libraries into your CDK application
-might differ slightly depending on which programming language you use. For reference,
-the following are the names that are used in each supported CDK programming
-language.
+The names that you use to import these libraries into your CDK application might differ slightly depending on which programming language you use. For reference, the following are the names that are used in each supported CDK programming language.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 aws-cdk-lib/aws-ecs
 aws-cdk-lib/aws-ecs-patterns
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 aws-cdk-lib/aws-ecs
 aws-cdk-lib/aws-ecs-patterns
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 aws_cdk.aws_ecs
 aws_cdk.aws_ecs_patterns
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 software.amazon.awscdk.services.ecs
 software.amazon.awscdk.services.ecs.patterns
 ```
 
-C#
+------
+#### [ C\# ]
 
 ```
 Amazon.CDK.AWS.ECS
 Amazon.CDK.AWS.ECS.Patterns
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 github.com/aws/aws-cdk-go/awscdk/v2/awsecs
 github.com/aws/aws-cdk-go/awscdk/v2/awsecspatterns
 ```
 
+------
+
 ## Step 2: Use the AWS CDK to define a containerized web server on Fargate
+<a name="ecs-web-server-cdk-step-2"></a>
 
-Use the container image [`amazon-ecs-sample`](https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample "https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample"). This image contains a PHP web
-app that runs on nginx.
+Use the container image [`amazon-ecs-sample`](https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample). This image contains a PHP web app that runs on nginx.
 
-In the AWS CDK project that you created, edit the file that contains the stack
-definition to resemble one of the following examples.
+In the AWS CDK project that you created, edit the file that contains the stack definition to resemble one of the following examples.
 
-###### Note
+**Note**  
+A stack is a unit of deployment. All resources must be in a stack, and all the resources that are in a stack are deployed at the same time. If a resource fails to deploy, any other resources that were already deployed are rolled back. An AWS CDK app can contain multiple stacks, and resources in one stack can refer to resources in another stack.
 
-A stack is a unit of deployment. All resources must be in a stack, and all the
-resources that are in a stack are deployed at the same time. If a resource fails to
-deploy, any other resources that were already deployed are rolled back. An AWS CDK app
-can contain multiple stacks, and resources in one stack can refer to resources in
-another stack.
+------
+#### [ TypeScript ]
 
-TypeScript
-Update `lib/hello-ecs-stack.ts` so that it resembles
-the following.
+Update `lib/hello-ecs-stack.ts` so that it resembles the following.
 
 ```
 import * as cdk from 'aws-cdk-lib';
@@ -207,9 +187,10 @@ export class HelloEcsStack extends cdk.Stack {
 }
 ```
 
-JavaScript
-Update `lib/hello-ecs-stack.js` so that it resembles
-the following.
+------
+#### [ JavaScript ]
+
+Update `lib/hello-ecs-stack.js` so that it resembles the following.
 
 ```
 const cdk = require('aws-cdk-lib');
@@ -233,9 +214,10 @@ class HelloEcsStack extends cdk.Stack {
 module.exports = { HelloEcsStack }
 ```
 
-Python
-Update `hello-ecs/hello_ecs_stack.py` so that it
-resembles the following.
+------
+#### [ Python ]
+
+Update `hello-ecs/hello_ecs_stack.py` so that it resembles the following.
 
 ```
 import aws_cdk as cdk
@@ -256,9 +238,10 @@ class HelloEcsStack(cdk.Stack):
         )
 ```
 
-Java
-Update `src/main/java/com.myorg/HelloEcsStack.java` so
-that it resembles the following.
+------
+#### [ Java ]
+
+Update `src/main/java/com.myorg/HelloEcsStack.java` so that it resembles the following.
 
 ```
 package com.myorg;
@@ -284,14 +267,15 @@ public class HelloEcsStack extends Stack {
         			.image(ContainerImage.fromRegistry("amazon/amazon-ecs-sample"))
         			.build())
         	.publicLoadBalancer(true)
-        	.build();
+        	.build();        
     }
 }
 ```
 
-C#
-Update `src/HelloEcs/HelloEcsStack.cs` so that it
-resembles the following.
+------
+#### [ C\# ]
+
+Update `src/HelloEcs/HelloEcsStack.cs` so that it resembles the following.
 
 ```
 using Amazon.CDK;
@@ -318,9 +302,10 @@ namespace HelloEcs
 }
 ```
 
-Go
-Update `hello-ecs.go` so that it
-resembles the following.
+------
+#### [ Go ]
+
+Update `hello-ecs.go` so that it resembles the following.
 
 ```
 package main
@@ -403,37 +388,27 @@ func env() *awscdk.Environment {
 	//  Region:  jsii.String(os.Getenv("CDK_DEFAULT_REGION")),
 	// }
 }
-
 ```
+
+------
 
 The preceding short snippet includes the following:
++ The service's logical name: `MyWebServer`.
++ The container image that was obtained from the Amazon ECR Public Gallery: `amazon/amazon-ecs-sample`.
++ Other relevant information, such as the fact that the load balancer has a public address and is accessible from the Internet.
 
-- The service's logical name: `MyWebServer`.
-- The container image that was obtained from the Amazon ECR Public Gallery:
-  `amazon/amazon-ecs-sample`.
-- Other relevant information, such as the fact that the load balancer has a
-  public address and is accessible from the Internet.
+ The AWS CDK will create all the resources that are required to deploy the web server including the following resources. These resources were omitted in this example.
++ Amazon ECS cluster 
++ Amazon VPC and Amazon EC2 instances 
++  Auto Scaling group
++  Application Load Balancer 
++  IAM roles and policies 
 
-The AWS CDK will create all the resources that are required to deploy the web server
-including the following resources. These resources were omitted in this example.
+ Some automatically provisioned resources are shared by all Amazon ECS services defined in the stack.
 
-- Amazon ECS cluster
-- Amazon VPC and Amazon EC2 instances
-- Auto Scaling group
-- Application Load Balancer
-- IAM roles and policies
-
-Some automatically provisioned resources are shared by all Amazon ECS services defined in
-the stack.
-
-Save the source file, then run the `cdk synth` command in your
-application's main directory. The AWS CDK runs the app and synthesizes an CloudFormation template
-from it, and then displays the template. The template is an approximately 600-line YAML
-file. The beginning of the file is shown here. Your template might differ from this
-example.
+Save the source file, then run the `cdk synth` command in your application's main directory. The AWS CDK runs the app and synthesizes an CloudFormation template from it, and then displays the template. The template is an approximately 600-line YAML file. The beginning of the file is shown here. Your template might differ from this example.
 
 ```
-
 Resources:
   MyWebServerLB3B5FD3AB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -472,13 +447,9 @@ Resources:
 # and so on for another few hundred lines
 ```
 
-To deploy the service in your AWS account, run the `cdk deploy` command
-in your application's main directory. You're asked to approve the IAM policies that
-the AWS CDK generated.
+To deploy the service in your AWS account, run the `cdk deploy` command in your application's main directory. You're asked to approve the IAM policies that the AWS CDK generated.
 
-The deployment takes several minutes during which the AWS CDK creates several resources.
-The last few lines of the output from the deployment include the load balancer's public
-hostname and your new web server's URL. They are as follows.
+The deployment takes several minutes during which the AWS CDK creates several resources. The last few lines of the output from the deployment include the load balancer's public hostname and your new web server's URL. They are as follows.
 
 ```
 Outputs:
@@ -487,49 +458,57 @@ HelloEcsStack.MyWebServerServiceURLYYYYYYYY = http://Hello-MyWeb-ZZZZZZZZZZZZZ-Z
 ```
 
 ## Step 3: Test the web server
+<a name="ecs-web-server-cdk-step-3"></a>
 
-Copy the URL from the deployment output and paste it into your web browser. The
-following welcome message from the web server is displayed.
+Copy the URL from the deployment output and paste it into your web browser. The following welcome message from the web server is displayed.
 
-![Screenshot of the Amazon ECS sample application. The output indicates " Amazon ECS".](images/simple-php-app-congrats.png)
+![Screenshot of the Amazon ECS sample application. The output indicates " Amazon ECS".](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/simple-php-app-congrats.png)
+
 
 ## Step 4: Clean up
+<a name="ecs-web-server-cdk-step-4"></a>
 
-After you're finished with the web server, end the service using the CDK by
-running the `cdk destroy` command in your application's main directory. Doing
-this prevents you from incurring any unintended charges in the future.
+After you're finished with the web server, end the service using the CDK by running the `cdk destroy` command in your application's main directory. Doing this prevents you from incurring any unintended charges in the future.
 
 ## Next steps
+<a name="ecs-web-server-cdk-next-steps"></a>
 
-To learn more about how to develop AWS infrastructure using the AWS CDK, see the
-[AWS CDK Developer
-Guide](../../../cdk/v2/guide.md "../../../cdk/v2/guide.md").
+To learn more about how to develop AWS infrastructure using the AWS CDK, see the [AWS CDK Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/).
 
-For information about writing AWS CDK apps in your language of choice, see the
-following:
+For information about writing AWS CDK apps in your language of choice, see the following:
 
-TypeScript
-[Working with the AWS CDK
-in TypeScript](../../../cdk/v2/guide/work-with-cdk-typescript.md "../../../cdk/v2/guide/work-with-cdk-typescript.md")
+------
+#### [ TypeScript ]
 
-JavaScript
-[Working with the AWS CDK
-in JavaScript](../../../cdk/v2/guide/work-with-cdk-javascript.md "../../../cdk/v2/guide/work-with-cdk-javascript.md")
+[Working with the AWS CDK in TypeScript](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-typescript.html)
 
-Python
-[Working with the AWS CDK in Python](../../../cdk/v2/guide/work-with-cdk-python.md "../../../cdk/v2/guide/work-with-cdk-python.md")
+------
+#### [ JavaScript ]
 
-Java
-[Working with the AWS CDK in Java](../../../cdk/v2/guide/work-with-cdk-java.md "../../../cdk/v2/guide/work-with-cdk-java.md")
+[Working with the AWS CDK in JavaScript](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-javascript.html)
 
-C#
-[Working with the AWS CDK in C#](../../../cdk/v2/guide/work-with-cdk-csharp.md "../../../cdk/v2/guide/work-with-cdk-csharp.md")
+------
+#### [ Python ]
 
-Go
-[Working with the AWS CDK in Go](../../../cdk/v2/guide/work-with-cdk-go.md "../../../cdk/v2/guide/work-with-cdk-go.md")
+[Working with the AWS CDK in Python](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html)
 
-For more information about the AWS Construct Library modules used in this topic, see
-the following AWS CDK API Reference overviews.
+------
+#### [ Java ]
 
-- [aws-ecs](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs-readme.md")
-- [aws-ecs-patterns](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.md")
+[Working with the AWS CDK in Java](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-java.html)
+
+------
+#### [ C\# ]
+
+[Working with the AWS CDK in C\#](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-csharp.html)
+
+------
+#### [ Go ]
+
+[Working with the AWS CDK in Go](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-go.html)
+
+------
+
+For more information about the AWS Construct Library modules used in this topic, see the following AWS CDK API Reference overviews.
++ [aws-ecs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs-readme.html)
++  [aws-ecs-patterns](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.html)

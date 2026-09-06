@@ -1,16 +1,16 @@
+
+
 # Amazon ECS task metadata v4 examples for tasks on Amazon ECS Managed Instances
+<a name="task-metadata-endpoint-v4-managed-instances-examples"></a>
 
-The following examples show sample outputs from the task metadata endpoints for Amazon ECS
-tasks run on Amazon ECS Managed Instances.
+The following examples show sample outputs from the task metadata endpoints for Amazon ECS tasks run on Amazon ECS Managed Instances.
 
-From the container, you can use curl followed by the task meta data endpoint to query
-the endpoint for example `curl ${ECS_CONTAINER_METADATA_URI_V4}/task`.
+From the container, you can use curl followed by the task meta data endpoint to query the endpoint for example `curl ${ECS_CONTAINER_METADATA_URI_V4}/task`.
 
 ## Example container metadata response
+<a name="task-metadata-endpoint-v4-managed-instances-example-container-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are
-returned only metadata about the container itself. The following is an example
-output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned only metadata about the container itself. The following is an example output.
 
 ```
 {
@@ -56,10 +56,9 @@ output.
 ```
 
 ## Amazon ECS task metadata v4 examples for tasks on Amazon ECS Managed Instances
+<a name="task-metadata-endpoint-v4-managed-instances-example-task-metadata-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you
-are returned metadata about the task the container is part of. The following is an
-example output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are returned metadata about the task the container is part of. The following is an example output.
 
 ```
 {
@@ -127,10 +126,9 @@ example output.
 ```
 
 ## Example task stats response
+<a name="task-metadata-endpoint-v4-managed-instances-example-task-stats-response"></a>
 
-When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats`
-endpoint you are returned network metrics about the task the container is part of.
-The following is an example output.
+When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats` endpoint you are returned network metrics about the task the container is part of. The following is an example output.
 
 ```
 {

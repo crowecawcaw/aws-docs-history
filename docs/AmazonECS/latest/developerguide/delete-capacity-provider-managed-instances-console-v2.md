@@ -1,27 +1,20 @@
+
+
 # Deleting an Amazon ECS Managed Instances capacity provider
+<a name="delete-capacity-provider-managed-instances-console-v2"></a>
 
-If you are finished using an Amazon ECS Managed Instances capacity provider, you can delete it. After the
-group is deleted, the Amazon ECS Managed Instances capacity provider transitions to the
-`INACTIVE` state. Capacity providers with an `INACTIVE` status may
-remain discoverable in your account for a period of time. However, this behavior is subject
-to change in the future, so you should not rely on `INACTIVE` capacity providers
-persisting. Before the Amazon ECS Managed Instances capacity provider is deleted, the capacity provider must
-be removed from the capacity provider strategy from all services. You can use the
-`UpdateService` API or the update service workflow in the Amazon ECS console to
-remove a capacity provider from a service's capacity provider strategy. Use the **Force new
-deployment** option to ensure that any tasks using the Amazon ECS Managed Instances capacity provided by the
-capacity provider are transitioned to use the capacity from the remaining capacity
-providers.
+If you are finished using an Amazon ECS Managed Instances capacity provider, you can delete it. After the group is deleted, the Amazon ECS Managed Instances capacity provider transitions to the `INACTIVE` state. Capacity providers with an `INACTIVE` status may remain discoverable in your account for a period of time. However, this behavior is subject to change in the future, so you should not rely on `INACTIVE` capacity providers persisting. Before the Amazon ECS Managed Instances capacity provider is deleted, the capacity provider must be removed from the capacity provider strategy from all services. You can use the `UpdateService` API or the update service workflow in the Amazon ECS console to remove a capacity provider from a service's capacity provider strategy. Use the **Force new deployment** option to ensure that any tasks using the Amazon ECS Managed Instances capacity provided by the capacity provider are transitioned to use the capacity from the remaining capacity providers.
 
-###### To delete a capacity provider for the cluster (Amazon ECS console)
+**To delete a capacity provider for the cluster (Amazon ECS console)**
 
-1. Open the console at
-   [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
-2. In the navigation pane, choose **Clusters**.
-3. On the **Clusters** page, choose the cluster.
-4. On the **Cluster : `name`** page, choose
-   **Infrastructure**, the Amazon ECS Managed Instances capacity provider, and then choose
-   **Delete**.
-5. In the confirmation box, enter **delete `Amazon ECS Managed Instances capacity provider
- name`**
-6. Choose **Delete**.
+1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2).
+
+1. In the navigation pane, choose **Clusters**.
+
+1. On the **Clusters** page, choose the cluster.
+
+1. On the **Cluster : {{name}}** page, choose **Infrastructure**, the Amazon ECS Managed Instances capacity provider, and then choose **Delete**.
+
+1. In the confirmation box, enter **delete {{Amazon ECS Managed Instances capacity provider name}}**
+
+1. Choose **Delete**.

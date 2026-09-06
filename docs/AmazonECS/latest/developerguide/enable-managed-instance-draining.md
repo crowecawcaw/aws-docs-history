@@ -1,21 +1,17 @@
+
+
 # Configuring Amazon ECS capacity providers to safely shut down instances
+<a name="enable-managed-instance-draining"></a>
 
-You can turn on managed instance draining when you create or update your Auto Scaling group capacity providers
-using the Amazon ECS console and AWS CLI.
+You can turn on managed instance draining when you create or update your Auto Scaling group capacity providers using the Amazon ECS console and AWS CLI.
 
-###### Note
-
+**Note**  
 Managed instance draining is on by default when you create a capacity provider.
 
-The following are examples using the AWS CLI for creating a capacity provider with managed instance
-draining enabled and enabling managed instance draining for a cluster's existing capacity
-provider.
+The following are examples using the AWS CLI for creating a capacity provider with managed instance draining enabled and enabling managed instance draining for a cluster's existing capacity provider.
 
-###### Create a capacity provider with managed instance draining enabled
-
-To create a capacity provider with managed instance draining enabled, use the
-`create-capacity-provider` command. Set the `managedDraining` parameter
-to `ENABLED`.
+**Create a capacity provider with managed instance draining enabled**  
+To create a capacity provider with managed instance draining enabled, use the `create-capacity-provider` command. Set the `managedDraining` parameter to `ENABLED`.
 
 ```
 aws ecs create-capacity-provider \
@@ -50,18 +46,14 @@ Response:
                 "maximumScalingStepSize": 1
             },
             "managedTerminationProtection": "ENABLED"
-            "managedDraining": "**ENABLED**"
+            "managedDraining": "ENABLED"
         }
     }
 }
 ```
 
-###### Enable managed instance draining for a cluster's existing capacity provider
-
-Enable managed instance draining for a cluster's existing capacity provider uses the
-`update-capacity-provider` command. You see that `managedDraining`
-currently says `DISABLED` and `updateStatus` says
-`UPDATE_IN_PROGRESS`.
+**Enable managed instance draining for a cluster's existing capacity provider**  
+Enable managed instance draining for a cluster's existing capacity provider uses the `update-capacity-provider` command. You see that `managedDraining` currently says `DISABLED` and `updateStatus` says `UPDATE_IN_PROGRESS`.
 
 ```
 aws ecs update-capacity-provider \
@@ -89,18 +81,18 @@ Response:
                 "instanceWarmupPeriod": 300
             },
             "managedTerminationProtection": "DISABLED",
-            "managedDraining": "**DISABLED**" // before update
+            "managedDraining": "DISABLED" // before update
         },
-        "updateStatus": "**UPDATE\_IN\_PROGRESS**", // in progress and need describe again to find out the result
+        "updateStatus": "UPDATE_IN_PROGRESS", // in progress and need describe again to find out the result
         "tags": [
         ]
     }
 }
 ```
 
-Use the `describe-clusters` command and include `ATTACHMENTS`. The
-`status` of the managed instance draining attachment is `PRECREATED`, and the
-overall `attachmentsStatus` is `UPDATING`.
+
+
+Use the `describe-clusters` command and include `ATTACHMENTS`. The `status` of the managed instance draining attachment is `PRECREATED`, and the overall `attachmentsStatus` is `UPDATING`.
 
 ```
 aws ecs describe-clusters --clusters cluster-name --include ATTACHMENTS
@@ -123,7 +115,7 @@ Response:
                 {
                     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
                     "type": "managed_draining",
-                    "status": "**PRECREATED**",
+                    "status": "PRECREATED",
                     "details": [
                         {
                             "name": "capacityProviderName",
@@ -139,15 +131,14 @@ Response:
                 ...
 
             ],
-            "attachmentsStatus": "**UPDATING**"
+            "attachmentsStatus": "UPDATING"
         }
     ],
     "failures": []
 }
 ```
 
-When the update is finished, use `describe-capacity-providers`, and you see
-`managedDraining` is now `ENABLED`.
+When the update is finished, use `describe-capacity-providers`, and you see `managedDraining` is now `ENABLED`.
 
 ```
 aws ecs describe-capacity-providers --capacity-providers cp-draining
@@ -172,7 +163,7 @@ Response:
                     "instanceWarmupPeriod": 300
                 },
                 "managedTerminationProtection": "DISABLED",
-                "managedDraining": "**ENABLED**" // successfully update
+                "managedDraining": "ENABLED" // successfully update
             },
             "updateStatus": "UPDATE_COMPLETE",
             "tags": []

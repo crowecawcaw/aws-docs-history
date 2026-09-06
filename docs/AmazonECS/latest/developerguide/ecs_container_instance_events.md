@@ -1,79 +1,37 @@
+
+
 # Amazon ECS container instance state change events
+<a name="ecs_container_instance_events"></a>
 
 The following scenarios cause container instance state change events:
 
-You call the `StartTask`, `RunTask`, or
-`StopTask` API operations, either directly or with the
-AWS Management Console or SDKs.
+You call the `StartTask`, `RunTask`, or `StopTask` API operations, either directly or with the AWS Management Console or SDKs.  
+Placing or stopping tasks on a container instance modifies the available resources on the container instance, such as CPU, memory, and available ports.
 
-Placing or stopping tasks on a container instance modifies the
-available resources on the container instance, such as CPU, memory, and
-available ports.
+The Amazon ECS service scheduler starts or stops a task.  
+Placing or stopping tasks on a container instance modifies the available resources on the container instance, such as CPU, memory, and available ports.
 
-The Amazon ECS service scheduler starts or stops a task.
+The Amazon ECS container agent calls the `SubmitTaskStateChange` API operation with a `STOPPED` status for a task with a desired status of `RUNNING`.  
+The Amazon ECS container agent monitors the state of tasks on your container instances, and it reports any state changes. If a task that is supposed to be `RUNNING` is transitioned to `STOPPED`, the agent releases the resources that were allocated to the stopped task, such as CPU, memory, and available ports.
 
-Placing or stopping tasks on a container instance modifies the
-available resources on the container instance, such as CPU, memory, and
-available ports.
+You deregister the container instance with the `DeregisterContainerInstance` API operation, either directly or with the AWS Management Console or SDKs.  
+Deregistering a container instance changes the status of the container instance and the connection status of the Amazon ECS container agent.
 
-The Amazon ECS container agent calls the `SubmitTaskStateChange` API
-operation with a `STOPPED` status for a task with a desired
-status of `RUNNING`.
+A task was stopped when an EC2 instance was stopped.   
+When you stop a container instance, the tasks that are running on it are transitioned to the `STOPPED` status.
 
-The Amazon ECS container agent monitors the state of tasks on your
-container instances, and it reports any state changes. If a task that is
-supposed to be `RUNNING` is transitioned to
-`STOPPED`, the agent releases the resources that were
-allocated to the stopped task, such as CPU, memory, and available
-ports.
+The Amazon ECS container agent registers a container instance for the first time.   
+The first time the Amazon ECS container agent registers a container instance (at launch or when first run manually), this creates a state change event for the instance.
 
-You deregister the container instance with the
-`DeregisterContainerInstance` API operation, either directly
-or with the AWS Management Console or SDKs.
+The Amazon ECS container agent connects or disconnects from Amazon ECS.  
+When the Amazon ECS container agent connects or disconnects from the Amazon ECS backend, it changes the `agentConnected` status of the container instance.  
+The Amazon ECS container agent disconnects and reconnects several times per hour as a part of its normal operation, so agent connection events should be expected. These events are not an indication that there is an issue with the container agent or your container instance.
 
-Deregistering a container instance changes the status of the container
-instance and the connection status of the Amazon ECS container agent.
+You upgrade the Amazon ECS container agent on an instance.  
+The container instance detail contains an object for the container agent version. If you upgrade the agent, this version information changes and generates an event.
 
-A task was stopped when an EC2 instance was stopped.
-
-When you stop a container instance, the tasks that are running on it
-are transitioned to the `STOPPED` status.
-
-The Amazon ECS container agent registers a container instance for the first
-time.
-
-The first time the Amazon ECS container agent registers a container
-instance (at launch or when first run manually), this creates a state
-change event for the instance.
-
-The Amazon ECS container agent connects or disconnects from Amazon ECS.
-
-When the Amazon ECS container agent connects or disconnects from the Amazon ECS
-backend, it changes the `agentConnected` status of the
-container instance.
-
-###### Note
-
-The Amazon ECS container agent disconnects and reconnects several times
-per hour as a part of its normal operation, so agent connection
-events should be expected. These events are not an indication that
-there is an issue with the container agent or your container
-instance.
-
-You upgrade the Amazon ECS container agent on an instance.
-
-The container instance detail contains an object for the container
-agent version. If you upgrade the agent, this version information
-changes and generates an event.
-
-###### Example Container instance state change event
-
-Container instance state change events are delivered in the following format.
-The `detail` section resembles the [ContainerInstance](../APIReference/API_ContainerInstance.md "../APIReference/API_ContainerInstance.md")
-object that is returned from a [DescribeContainerInstances](../APIReference/API_DescribeContainerInstances.md "../APIReference/API_DescribeContainerInstances.md") API operation in the
-_Amazon Elastic Container Service API Reference_. For more information about EventBridge
-parameters, see [AWS service event metadata](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the
-_Amazon EventBridge User Guide_.
+**Example Container instance state change event**  
+Container instance state change events are delivered in the following format. The `detail` section resembles the [ContainerInstance](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerInstance.html) object that is returned from a [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) API operation in the *Amazon Elastic Container Service API Reference*. For more information about EventBridge parameters, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.  
 
 ```
 {

@@ -1,40 +1,43 @@
+
+
 # Troubleshooting Amazon ECS Managed Instances
+<a name="troubleshooting-managed-instances-complete"></a>
 
 Use the following procedures to troubleshoot Amazon ECS Managed Instances, including common issues, diagnostic techniques, and resolution steps.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Before troubleshooting Amazon ECS Managed Instances, ensure that you have the following requirements in place.
++ The AWS CLI is installed and configured with appropriate permissions
 
-- The AWS CLI is installed and configured with appropriate permissions
-
-For more information, see [Installing or
-updating to the latest version of the AWS Command Line Interface](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
-
-- Access to a cluster with Amazon ECS Managed Instances capacity provider. For more information, see [Creating a cluster for Amazon ECS Managed Instances](create-cluster-managed-instances.md "create-cluster-managed-instances.md").
+  For more information, see [Installing or updating to the latest version of the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.
++ Access to a cluster with Amazon ECS Managed Instances capacity provider. For more information, see [Creating a cluster for Amazon ECS Managed Instances](create-cluster-managed-instances.md).
 
 ## Common troubleshooting scenarios
+<a name="common-troubleshooting-scenarios"></a>
 
 ### Viewing Amazon ECS Managed Instances container agent logs
+<a name="viewing-container-agent-logs"></a>
 
 You can view these Amazon ECS log files in Amazon ECS Managed Instances by connecting to a privileged container running in the instance.
 
 #### Diagnostic steps
+<a name="diagnostic-steps-logs"></a>
 
 **Deploy a debug container with privileges and Linux capabilities as an Amazon ECS task:**
 
 Set the following environment variables.
 
-Replace the `user-input` with your values.
+Replace the {{user-input}} with your values.
 
 ```
-export ECS_CLUSTER_NAME="`your-cluster-name`"
-export AWS_REGION="`your-region`"
-export ACCOUNT_ID="`your-account-id`"
+export ECS_CLUSTER_NAME="{{your-cluster-name}}"
+export AWS_REGION="{{your-region}}"
+export ACCOUNT_ID="{{your-account-id}}"
 ```
 
-Create a task definition using a CLI JSON file called
-`node-debugger.json`.
+Create a task definition using a CLI JSON file called `node-debugger.json`.
 
 ```
 cat << EOF > node-debugger.json
@@ -152,37 +155,38 @@ nsenter -t 1 -m -p cat /var/log/ecs/metrics.log | tail -20
 ```
 
 ### Task placement issues
+<a name="task-placement-issues"></a>
 
 The following are symptoms of task placement issues:
-
-- Tasks stuck in PENDING state
-- Tasks failing to start on Amazon ECS Managed Instances
-- Insufficient resources errors
++ Tasks stuck in PENDING state
++ Tasks failing to start on Amazon ECS Managed Instances
++ Insufficient resources errors
 
 #### Diagnostic steps
+<a name="task-placement-diagnostic"></a>
 
 Run the following commands to diagnose task placement issues and gather information about cluster capacity, container instances, and system services:
 
 ```
 # Check cluster capacity
-aws ecs describe-clusters --clusters `cluster-name` --include STATISTICS
+aws ecs describe-clusters --clusters {{cluster-name}} --include STATISTICS
 
 # Check cluster capacity providers
-aws ecs describe-clusters --clusters `cluster-name` --include STATISTICS --query 'clusters[].capacityProviders'
+aws ecs describe-clusters --clusters {{cluster-name}} --include STATISTICS --query 'clusters[].capacityProviders'
 
 # List container instances
-aws ecs list-container-instances --cluster `cluster-name`
+aws ecs list-container-instances --cluster {{cluster-name}}
 
 # Check container instance details
-aws ecs describe-container-instances --cluster `cluster-name` --container-instances `container-instance-arn`
+aws ecs describe-container-instances --cluster {{cluster-name}} --container-instances {{container-instance-arn}}
 
 # Check container instance remaining resources CPU/Mem
-aws ecs describe-container-instances --cluster $ECS_CLUSTER_NAME --container-instances `container-instance-arn` --query 'containerInstances[].remainingResources'
+aws ecs describe-container-instances --cluster $ECS_CLUSTER_NAME --container-instances {{container-instance-arn}} --query 'containerInstances[].remainingResources'
 
 # Check container instance Security Group
-aws ecs describe-container-instances --cluster $ECS_CLUSTER_NAME --container-instances `container-instance-arn` --query 'containerInstances[].ec2InstanceId' --output text
-aws ec2 describe-instances --instance-ids `instance-id` --query 'Reservations[0].Instances[0].SecurityGroups'
-aws ec2 describe-security-groups --group-ids security-`group-id`
+aws ecs describe-container-instances --cluster $ECS_CLUSTER_NAME --container-instances {{container-instance-arn}} --query 'containerInstances[].ec2InstanceId' --output text
+aws ec2 describe-instances --instance-ids {{instance-id}} --query 'Reservations[0].Instances[0].SecurityGroups'
+aws ec2 describe-security-groups --group-ids security-{{group-id}}
 ```
 
 **System service monitoring:**
@@ -196,29 +200,29 @@ nsenter -t 1 -m -p systemctl status ecs
 ```
 
 #### Resolution
+<a name="task-placement-resolution"></a>
 
 To resolve task placement issues, follow these steps to ensure proper configuration and capacity:
-
-- Verify task resource requirements vs available capacity
-- Check placement constraints and strategies
-- Ensure Amazon ECS Managed Instances capacity provider is configured
-- Ensure that the task and container instance security group have an outbound rule that allow traffic for the Amazon ECS agent management endpoints
++ Verify task resource requirements vs available capacity
++ Check placement constraints and strategies
++ Ensure Amazon ECS Managed Instances capacity provider is configured
++ Ensure that the task and container instance security group have an outbound rule that allow traffic for the Amazon ECS agent management endpoints
 
 ### Networking issues
+<a name="networking-issues"></a>
 
 The following are synptoms of networking issues:
-
-- Tasks unable to reach external services
-- DNS resolution problems
++ Tasks unable to reach external services
++ DNS resolution problems
 
 #### Diagnostic steps
+<a name="networking-diagnostic"></a>
 
 **Network connectivity tests:**
 
 From the debug container, run the following commands:
 
-###### Note
-
+**Note**  
 Confirm the security group attached to your capacity provider or Amazon ECS task is permitting the traffic.
 
 ```
@@ -233,14 +237,15 @@ curl -I https://amazon.com
 ```
 
 ### Resource constraints
+<a name="resource-constraints"></a>
 
 The following are synptoms of networking issues:
-
-- Tasks killed due to memory limits
-- CPU throttling
-- Disk space issues
++ Tasks killed due to memory limits
++ CPU throttling
++ Disk space issues
 
 #### Diagnostic steps
+<a name="resource-constraints-diagnostic"></a>
 
 Run commands to monitory the resources and container limits.
 
@@ -265,25 +270,25 @@ nsenter -t 1 -m -p dmesg | grep -i "killed process"
 ```
 
 ### Container instance agent disconnect issue
+<a name="container-instance-agent-disconnect"></a>
 
 The following are symptoms of container instance agent disconnect issues:
-
-- Container instances showing as disconnected in the Amazon ECS console
-- Tasks failing to be placed on specific instances
-- Agent registration failures in logs
++ Container instances showing as disconnected in the Amazon ECS console
++ Tasks failing to be placed on specific instances
++ Agent registration failures in logs
 
 #### Diagnostic steps
+<a name="agent-disconnect-diagnostic"></a>
 
-If there is an existing privilege task running on the host that ECS Exec can
-access, run the following commands to diagnose agent connectivity issues:
+ If there is an existing privilege task running on the host that ECS Exec can access, run the following commands to diagnose agent connectivity issues:
 
 ```
-# check service status
-nsenter -t 1 -m -p systemctl status ecs
-nsenter -t 1 -m -p systemctl status containerd
+# check service status 
+nsenter -t 1 -m -p systemctl status ecs 
+nsenter -t 1 -m -p systemctl status containerd 
 
-# restart stopped services
-nsenter -t 1 -m -p systemctl restart ecs
+# restart stopped services 
+nsenter -t 1 -m -p systemctl restart ecs 
 nsenter -t 1 -m -p systemctl restart containerd
 ```
 
@@ -301,18 +306,20 @@ aws ecs deregister-container-instance \
 ```
 
 #### Resolution
+<a name="agent-disconnect-resolution"></a>
 
 To resolve agent disconnect issues, follow these steps:
-
-- Verify IAM role permissions for the container instance
-- Check security group rules allow outbound HTTPS traffic to ECS endpoints
-- Ensure network connectivity to AWS services
-- Restart the ECS agent service if necessary: `nsenter -t 1 -m -p systemctl restart ecs`
-- Verify the ECS\_CLUSTER configuration in /etc/ecs/ecs.config matches your cluster name
++ Verify IAM role permissions for the container instance
++ Check security group rules allow outbound HTTPS traffic to ECS endpoints
++ Ensure network connectivity to AWS services
++ Restart the ECS agent service if necessary: `nsenter -t 1 -m -p systemctl restart ecs`
++ Verify the ECS\_CLUSTER configuration in /etc/ecs/ecs.config matches your cluster name
 
 ## Log Analysis in Amazon ECS Managed Instances
+<a name="log-analysis"></a>
 
 ### System logs
+<a name="system-logs"></a>
 
 Use the following commands to examine system logs and identify potential issues with the managed instance:
 
@@ -328,16 +335,18 @@ nsenter -t 1 -m -p journalctl --no-pager | grep -i "no space\|disk full\|enospc"
 ```
 
 ## Use the EC2 AWS CLI to get the console output from a Amazon ECS Managed Instance
+<a name="console-output"></a>
 
 Use the Amazon EC2 instance ID to retrieve the console output.
 
-Replace the `user-input` with your values.
+Replace the {{user-input}} with your values.
 
 ```
-aws ec2 get-console-output --instance-id `instance-id` --latest --output text
+aws ec2 get-console-output --instance-id {{instance-id}} --latest --output text
 ```
 
 ## Cleanup
+<a name="cleanup"></a>
 
 Run the following to stop the deug task and deregister the task definition.
 
@@ -350,10 +359,10 @@ aws ecs deregister-task-definition --task-definition node-debugger
 ```
 
 ## Additional resources
+<a name="additional-resources"></a>
 
 For more information about troubleshooting Amazon ECS Managed Instances, see the following resources:
-
-- [Troubleshooting Amazon ECS Amazon ECS Managed Instances errors](managed-instances-errors.md "managed-instances-errors.md")
-- [Amazon ECS troubleshooting](troubleshooting.md "troubleshooting.md")
-- [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md")
-- [Monitor Amazon ECS containers with ECS Exec](ecs-exec.md "ecs-exec.md")
++ [Troubleshooting Amazon ECS Amazon ECS Managed Instances errors](managed-instances-errors.md)
++ [Amazon ECS troubleshooting](troubleshooting.md)
++ [Amazon ECS container agent configuration](ecs-agent-config.md)
++ [Monitor Amazon ECS containers with ECS Exec](ecs-exec.md)

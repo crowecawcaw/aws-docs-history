@@ -1,24 +1,19 @@
+
+
 # Docker diagnostics in Amazon ECS
+<a name="docker-diags"></a>
 
-Docker provides several diagnostic tools that help you troubleshoot problems with your
-containers and tasks. For more information about all of the available Docker command
-line utilities, see the [Docker CLI reference](https://docs.docker.com/reference/cli/docker/ "https://docs.docker.com/reference/cli/docker/") in the Docker documentation. You can access the Docker command
-line utilities by connecting to a container instance using SSH.
+Docker provides several diagnostic tools that help you troubleshoot problems with your containers and tasks. For more information about all of the available Docker command line utilities, see the [Docker CLI reference](https://docs.docker.com/reference/cli/docker/) in the Docker documentation. You can access the Docker command line utilities by connecting to a container instance using SSH.
 
-The exit codes that Docker containers report can also provide some diagnostic
-information (for example, exit code 137 means that the container received a
-`SIGKILL` signal). For more information, see [Exit Status](https://docs.docker.com/reference/cli/docker/container/run/#exit-status "https://docs.docker.com/reference/cli/docker/container/run/#exit-status") in the Docker
-documentation.
+The exit codes that Docker containers report can also provide some diagnostic information (for example, exit code 137 means that the container received a `SIGKILL` signal). For more information, see [Exit Status](https://docs.docker.com/reference/cli/docker/container/run/#exit-status) in the Docker documentation.
 
 ## List Docker containers in Amazon ECS
+<a name="docker-ps"></a>
 
-You can use the **docker ps** command on your container instance to
-list the running containers. In the following example, only the Amazon ECS container
-agent is running. For more information, see [docker
-ps](https://docs.docker.com/reference/cli/docker/#ps "https://docs.docker.com/reference/cli/docker/#ps") in the Docker documentation.
+You can use the **docker ps** command on your container instance to list the running containers. In the following example, only the Amazon ECS container agent is running. For more information, see [docker ps](https://docs.docker.com/reference/cli/docker/#ps) in the Docker documentation.
 
 ```
-`docker ps`
+docker ps
 ```
 
 Output:
@@ -28,14 +23,10 @@ CONTAINER ID        IMAGE                            COMMAND             CREATED
 cee0d6986de0        amazon/amazon-ecs-agent:latest   "/agent"            22 hours ago        Up 22 hours         127.0.0.1:51678->51678/tcp   ecs-agent
 ```
 
-You can use the **docker ps -a** command to see all containers
-(even stopped or killed containers). This is helpful for listing containers that are
-unexpectedly stopping. In the following example, container `f7f1f8a7a245`
-exited 9 seconds ago, so it doesn't show up in a **docker ps** output
-without the `-a` flag.
+You can use the **docker ps -a** command to see all containers (even stopped or killed containers). This is helpful for listing containers that are unexpectedly stopping. In the following example, container `f7f1f8a7a245` exited 9 seconds ago, so it doesn't show up in a **docker ps** output without the `-a` flag.
 
 ```
-`docker ps -a`
+docker ps -a
 ```
 
 Output:
@@ -50,22 +41,15 @@ cee0d6986de0        amazon/amazon-ecs-agent:latest              "/agent"        
 ```
 
 ## View Docker Logs in Amazon ECS
+<a name="docker-logs"></a>
 
-You can view the `STDOUT` and `STDERR` streams for a
-container with the **docker logs** command. In this example, the logs
-are displayed for the `dc7240fe892a` container and piped
-through the **head** command for brevity. For more information, go to
-[docker logs](https://docs.docker.com/reference/cli/docker/#logs "https://docs.docker.com/reference/cli/docker/#logs") in the Docker documentation.
+You can view the `STDOUT` and `STDERR` streams for a container with the **docker logs** command. In this example, the logs are displayed for the {{dc7240fe892a}} container and piped through the **head** command for brevity. For more information, go to [docker logs](https://docs.docker.com/reference/cli/docker/#logs) in the Docker documentation.
 
-###### Note
-
-Docker logs are only available on the container instance if you are using the
-default `json` log driver. If you have configured your tasks to use
-the `awslogs` log driver, then your container logs are available in
-CloudWatch Logs. For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
+**Note**  
+Docker logs are only available on the container instance if you are using the default `json` log driver. If you have configured your tasks to use the `awslogs` log driver, then your container logs are available in CloudWatch Logs. For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md).
 
 ```
-`docker logs `dc7240fe892a` | head`
+docker logs {{dc7240fe892a}} | head
 ```
 
 Output:
@@ -89,15 +73,12 @@ time="2015-04-23T20:11:20Z" level="fatal" msg="write /dev/stdout: broken pipe"
 ```
 
 ## Inspect Docker Containers in Amazon ECS
+<a name="docker-inspect"></a>
 
-If you have the Docker ID of a container, you can inspect it with the
-**docker inspect** command. Inspecting containers provides the
-most detailed view of the environment in which a container was launched. For more
-information, see [docker
-inspect](https://docs.docker.com/reference/cli/docker/#inspect "https://docs.docker.com/reference/cli/docker/#inspect") in the Docker documentation.
+If you have the Docker ID of a container, you can inspect it with the **docker inspect** command. Inspecting containers provides the most detailed view of the environment in which a container was launched. For more information, see [docker inspect](https://docs.docker.com/reference/cli/docker/#inspect) in the Docker documentation.
 
 ```
-`docker inspect `dc7240fe892a``
+docker inspect {{dc7240fe892a}}
 ```
 
 Output:

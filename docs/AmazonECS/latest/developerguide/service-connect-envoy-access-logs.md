@@ -1,18 +1,11 @@
+
+
 # Amazon ECS Service Connect access logs
+<a name="service-connect-envoy-access-logs"></a>
 
-Amazon ECS Service Connect supports access logs to provide detailed telemetry about
-individual requests processed by the Service Connect proxy. Access logs complement existing
-application logs by capturing per-request traffic metadata such as HTTP methods, paths,
-response codes, flags, and timing information. This enables deeper observability into
-request-level traffic patterns and service interactions for effective troubleshooting and
-monitoring.
+Amazon ECS Service Connect supports access logs to provide detailed telemetry about individual requests processed by the Service Connect proxy. Access logs complement existing application logs by capturing per-request traffic metadata such as HTTP methods, paths, response codes, flags, and timing information. This enables deeper observability into request-level traffic patterns and service interactions for effective troubleshooting and monitoring.
 
-To enable access logs, specify both the `logConfiguration` and
-`accessLogConfiguration` objects in the
-`serviceConnectConfiguration` object. You can configure the format of the
-logs and whether the logs should include query parameters in the
-`accessLogConfiguration`. The logs are delivered to the destination log group
-by the log driver specificied in the `logConfiguration`.
+To enable access logs, specify both the `logConfiguration` and `accessLogConfiguration` objects in the `serviceConnectConfiguration` object. You can configure the format of the logs and whether the logs should include query parameters in the `accessLogConfiguration`. The logs are delivered to the destination log group by the log driver specificied in the `logConfiguration`.
 
 ```
 {
@@ -32,34 +25,33 @@ by the log driver specificied in the `logConfiguration`.
         },
          "accessLogConfiguration": {
             "format": "TEXT",
-            "includeQueryParameters": "ENABLED"
+            "includeQueryParameters": "ENABLED" 
         }
     }
 }
 ```
 
 ## Considerations
+<a name="service-connect-envoy-access-logs-considerations"></a>
 
 Consider the following when you enable access to access logs
-
-- Access logs and application logs are both written to `/dev/stdout`. To separate access logs from application logs, we recommend using the
-  `awsfirelens` log driver with a custom Fluent Bit
-  or Fluentd configuration.
-- We recommend using the `awslogs` log driver to send
-  application and access logs to the same CloudWatch destination.
-- access logs are supported on Fargate services that use platform
-  version `1.4.0` and higher.
-- Query parameters such as request ids and tokens are excluded from access logs by default. To include query parameters in access logs, set `includeQueryParameters` to `"ENABLED"`.
++ Access logs and application logs are both written to `/dev/stdout`. To separate access logs from application logs, we recommend using the `awsfirelens` log driver with a custom Fluent Bit or Fluentd configuration.
++  We recommend using the `awslogs` log driver to send application and access logs to the same CloudWatch destination.
++ access logs are supported on Fargate services that use platform version `1.4.0` and higher.
++ Query parameters such as request ids and tokens are excluded from access logs by default. To include query parameters in access logs, set `includeQueryParameters` to `"ENABLED"`.
 
 ## Access log formats
+<a name="service-connect-envoy-access-logs-formats"></a>
 
 access logs can be formatted in either JSON format dictionaries or Text format strings, with differences in supported command operators for different types of access logs.
 
 ### HTTP access logs
+<a name="service-connect-envoy-access-logs-formats-http"></a>
 
 The following command operators are included by default for HTTP logs:
 
-Text
+------
+#### [ Text ]
 
 ```
 [%START_TIME%] "%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%"
@@ -68,7 +60,8 @@ Text
 "%REQ(X-REQUEST-ID)%" "%REQ(:AUTHORITY)%" "%UPSTREAM_HOST%"\n
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -89,11 +82,15 @@ JSON
 }
 ```
 
+------
+
 ### HTTP2 access logs
+<a name="service-connect-envoy-access-logs-formats-http2"></a>
 
 In addition to the command operators included for HTTP logs, HTTP2 logs include the `%STREAM_ID%` operator by default.
 
-Text
+------
+#### [ Text ]
 
 ```
 [%START_TIME%] "%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%"
@@ -102,7 +99,8 @@ Text
 "%REQ(X-REQUEST-ID)%" "%REQ(:AUTHORITY)%" "%UPSTREAM_HOST%" "%STREAM_ID%"\n
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -124,11 +122,15 @@ JSON
 }
 ```
 
+------
+
 ### gRPC access logs
+<a name="service-connect-envoy-access-logs-formats-grpc"></a>
 
 In addition to the command operators included for HTTP logs, gRPC access logs include the `%STREAM_ID%` and `%GRPC_STATUS()%`operator by default.
 
-Text
+------
+#### [ Text ]
 
 ```
 [%START_TIME%] "%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%"
@@ -137,7 +139,8 @@ Text
 "%REQ(X-REQUEST-ID)%" "%REQ(:AUTHORITY)%" "%UPSTREAM_HOST%" "%STREAM_ID%"\n
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -160,19 +163,24 @@ JSON
 }
 ```
 
+------
+
 ### TCP access logs
+<a name="service-connect-envoy-access-logs-formats-tcp"></a>
 
 The following command operators are included by default in TCP access logs:
 
-Text
+------
+#### [ Text ]
 
 ```
-[%START_TIME%] %DOWNSTREAM_REMOTE_ADDRESS% %DOWNSTREAM_REMOTE_PORT%
-%BYTES_RECEIVED% %BYTES_SENT% %DURATION%
+[%START_TIME%] %DOWNSTREAM_REMOTE_ADDRESS% %DOWNSTREAM_REMOTE_PORT% 
+%BYTES_RECEIVED% %BYTES_SENT% %DURATION%  
 %CONNECTION_TERMINATION_DETAILS% %CONNECTION_ID%\n
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -187,4 +195,6 @@ JSON
 }
 ```
 
-For more information about these command operators, see [Command Operators](https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#command-operators "https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#command-operators") in the Envoy documentation.
+------
+
+For more information about these command operators, see [Command Operators](https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#command-operators) in the Envoy documentation.

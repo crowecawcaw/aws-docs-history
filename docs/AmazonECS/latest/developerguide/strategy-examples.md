@@ -1,18 +1,21 @@
+
+
 # Example Amazon ECS task placement strategies
+<a name="strategy-examples"></a>
 
-You can specify task placement strategies with the following actions: [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md"), [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md"), and [RunTask](../APIReference/API_RunTask.md "../APIReference/API_RunTask.md").
+You can specify task placement strategies with the following actions: [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html), [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html), and [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html).
 
-###### Examples
-
-- [Distribute tasks evenly across Availability Zones](#even-az "#even-az")
-- [Distribute tasks evenly across all instances](#even-instance "#even-instance")
-- [Bin pack tasks based on memory](#binpack "#binpack")
-- [Place tasks randomly](#random "#random")
-- [Distribute tasks evenly across Availability Zones and then distributes tasks evenly across the instances within each Availability Zone](#az-instance "#az-instance")
-- [Distribute tasks evenly across Availability Zones and then bin pack tasks based on memory within each Availability Zone](#az-memory "#az-memory")
-- [Distribute tasks evenly across instances and then bin pack tasks based on memory](#instance-memory "#instance-memory")
+**Topics**
++ [Distribute tasks evenly across Availability Zones](#even-az)
++ [Distribute tasks evenly across all instances](#even-instance)
++ [Bin pack tasks based on memory](#binpack)
++ [Place tasks randomly](#random)
++ [Distribute tasks evenly across Availability Zones and then distributes tasks evenly across the instances within each Availability Zone](#az-instance)
++ [Distribute tasks evenly across Availability Zones and then bin pack tasks based on memory within each Availability Zone](#az-memory)
++ [Distribute tasks evenly across instances and then bin pack tasks based on memory](#instance-memory)
 
 ## Distribute tasks evenly across Availability Zones
+<a name="even-az"></a>
 
 The following strategy distributes tasks evenly across Availability Zones.
 
@@ -26,6 +29,7 @@ The following strategy distributes tasks evenly across Availability Zones.
 ```
 
 ## Distribute tasks evenly across all instances
+<a name="even-instance"></a>
 
 The following strategy distributes tasks evenly across all instances.
 
@@ -39,6 +43,7 @@ The following strategy distributes tasks evenly across all instances.
 ```
 
 ## Bin pack tasks based on memory
+<a name="binpack"></a>
 
 The following strategy bin packs tasks based on memory.
 
@@ -52,6 +57,7 @@ The following strategy bin packs tasks based on memory.
 ```
 
 ## Place tasks randomly
+<a name="random"></a>
 
 The following strategy places tasks randomly.
 
@@ -64,9 +70,9 @@ The following strategy places tasks randomly.
 ```
 
 ## Distribute tasks evenly across Availability Zones and then distributes tasks evenly across the instances within each Availability Zone
+<a name="az-instance"></a>
 
-The following strategy distributes tasks evenly across Availability Zones and then
-distributes tasks evenly across the instances within each Availability Zone.
+The following strategy distributes tasks evenly across Availability Zones and then distributes tasks evenly across the instances within each Availability Zone.
 
 ```
 "placementStrategy": [
@@ -82,9 +88,9 @@ distributes tasks evenly across the instances within each Availability Zone.
 ```
 
 ## Distribute tasks evenly across Availability Zones and then bin pack tasks based on memory within each Availability Zone
+<a name="az-memory"></a>
 
-The following strategy distributes tasks evenly across Availability Zones and then
-bin packs tasks based on memory within each Availability Zone.
+The following strategy distributes tasks evenly across Availability Zones and then bin packs tasks based on memory within each Availability Zone.
 
 ```
 "placementStrategy": [
@@ -100,9 +106,9 @@ bin packs tasks based on memory within each Availability Zone.
 ```
 
 ## Distribute tasks evenly across instances and then bin pack tasks based on memory
+<a name="instance-memory"></a>
 
-The following strategy distributes tasks evenly across evenly across all instances
-and then bin packs tasks based on memory within each instance.
+The following strategy distributes tasks evenly across evenly across all instances and then bin packs tasks based on memory within each instance. 
 
 ```
 "placementStrategy": [

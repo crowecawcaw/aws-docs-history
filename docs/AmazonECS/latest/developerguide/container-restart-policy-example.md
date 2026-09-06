@@ -1,14 +1,11 @@
+
+
 # Specifying a container restart policy in an Amazon ECS task definition
+<a name="container-restart-policy-example"></a>
 
-To specify a restart policy for a container in a task definition, within the container
-definition, specify the `restartPolicy` object. For more information about
-the `restartPolicy` object, see [Restart policy](task_definition_parameters.md#container_definition_restart_policy "task_definition_parameters.md#container_definition_restart_policy").
+To specify a restart policy for a container in a task definition, within the container definition, specify the `restartPolicy` object. For more information about the `restartPolicy` object, see [Restart policy](task_definition_parameters.md#container_definition_restart_policy).
 
-The following is a task definition using the Linux containers on Fargate that sets up a web server. The container definition includes the
-`restartPolicy` object, with `enabled` set to true to enable a
-restart policy for the container. The container must run for 180 seconds before it can
-be restarted and will not be restarted if it exits with the exit code `0`,
-which indicates success.
+The following is a task definition using the Linux containers on Fargate that sets up a web server. The container definition includes the `restartPolicy` object, with `enabled` set to true to enable a restart policy for the container. The container must run for 180 seconds before it can be restarted and will not be restarted if it exits with the exit code `0`, which indicates success.
 
 ```
 {
@@ -36,15 +33,15 @@ which indicates success.
           "protocol": "tcp"
         }
       ],
-      **"restartPolicy": {
- "enabled": true,
- "ignoredExitCodes": `[0]`,
- "restartAttemptPeriod": `180`
- }**
+      "restartPolicy": {
+        "enabled": true,
+        "ignoredExitCodes": {{[0]}},
+        "restartAttemptPeriod": {{180}}
+      }
     }
   ],
   "cpu": "256",
-  "executionRoleArn": "arn:aws:iam::`012345678910`:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::{{012345678910}}:role/ecsTaskExecutionRole",
   "family": "fargate-task-definition",
   "memory": "512",
   "networkMode": "awsvpc",
@@ -53,9 +50,6 @@ which indicates success.
   },
   "requiresCompatibilities": ["FARGATE"]
 }
-
 ```
 
-After you have registered a task definition with the `restartPolicy` object
-in a container definition, you can run a task or create a service with that task
-definition. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md") and [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md").
+After you have registered a task definition with the `restartPolicy` object in a container definition, you can run a task or create a service with that task definition. For more information, see [Running an application as an Amazon ECS task](standalone-task-create.md) and [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md).

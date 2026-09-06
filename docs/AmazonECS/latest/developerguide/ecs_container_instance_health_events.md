@@ -1,55 +1,44 @@
+
+
 # Amazon ECS container instance health change events
+<a name="ecs_container_instance_health_events"></a>
 
 The following scenarios cause container instance health change events.
 
-**The Amazon ECS container agent detects a change in container runtime
-health.**
+**The Amazon ECS container agent detects a change in container runtime health.**
 
-The container agent periodically evaluates the health of the container runtime (for
-example, the Docker daemon) on the container instance. If the runtime becomes unresponsive
-or recovers, the agent reports the change and an event is generated.
+The container agent periodically evaluates the health of the container runtime (for example, the Docker daemon) on the container instance. If the runtime becomes unresponsive or recovers, the agent reports the change and an event is generated.
 
 Availability: EC2 launch type.
 
-**The Amazon ECS container agent detects a change in accelerated compute
-device health.**
+**The Amazon ECS container agent detects a change in accelerated compute device health.**
 
-On instances with accelerated compute devices such as GPUs, the container agent monitors
-device health. If a device becomes impaired or recovers, an event is generated.
+On instances with accelerated compute devices such as GPUs, the container agent monitors device health. If a device becomes impaired or recovers, an event is generated.
 
 Availability: Amazon ECS Managed Instances launch type.
 
-**The Amazon ECS container agent detects a change in daemon
-health.**
+**The Amazon ECS container agent detects a change in daemon health.**
 
-The container agent monitors required daemon tasks on the container instance. If a
-daemon task fails, an event is generated.
+The container agent monitors required daemon tasks on the container instance. If a daemon task fails, an event is generated.
 
 Availability: Amazon ECS Managed Instances launch type.
 
-**The Amazon ECS container agent loses connectivity to the Amazon ECS control
-plane.**
+**The Amazon ECS container agent loses connectivity to the Amazon ECS control plane.**
 
-Amazon ECS continuously monitors the connectivity between the container agent and the Amazon ECS
-control plane. When a container instance remains disconnected beyond a threshold, Amazon ECS
-marks the instance as impaired.
+Amazon ECS continuously monitors the connectivity between the container agent and the Amazon ECS control plane. When a container instance remains disconnected beyond a threshold, Amazon ECS marks the instance as impaired.
 
 Availability: Amazon ECS Managed Instances, AWS Fargate, and Amazon EC2 launch types.
 
-**The overall health status of the container instance
-changes.**
+**The overall health status of the container instance changes.**
 
-Amazon ECS computes an overall health status from the individual health check results. When the
-overall status transitions, an event is generated.
+Amazon ECS computes an overall health status from the individual health check results. When the overall status transitions, an event is generated.
 
 Availability: Amazon ECS Managed Instances and EC2 launch type.
 
 ## Example container instance health change event
+<a name="ecs_container_instance_health_events_example"></a>
 
-Container instance health change events are delivered in the following format. For
-more information about parameters, see [AWS service event
-metadata](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _User
-Guide_.
+Container instance health change events are delivered in the following format. For more information about parameters, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the * User Guide*.
 
 **Sample container runtime health event**
 
