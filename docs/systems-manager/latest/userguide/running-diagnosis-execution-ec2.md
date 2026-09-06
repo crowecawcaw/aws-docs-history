@@ -11,6 +11,23 @@ types:
   with the Systems Manager service in the cloud. Remediation operations might be
   available for these issues. For more information about the network
   configuration issues, see [Categories of diagnosable unmanaged EC2 instance issues](diagnosing-ec2-category-types.md "diagnosing-ec2-category-types.md").
+- **IAM roles and permissions** – Issues related to
+  missing or misconfigured IAM instance profiles and permissions required for
+  EC2 instances to communicate with Systems Manager.
+- **SSM Agent version** – Issues related to outdated
+  or incompatible versions of SSM Agent installed on EC2 instances.
+- **Instance status check** – Issues related to
+  failing system or instance status checks that prevent SSM Agent from
+  establishing communication with Systems Manager.
+- **Operating system configuration** – Issues related
+  to OS-level problems that prevent SSM Agent from running or communicating with
+  Systems Manager.
+- **Systems Manager service configuration** – Issues
+  related to Default Host Management Configuration (DHMC) not being properly
+  configured in the account and Region.
+- **Hybrid activation issues** – Issues related to
+  hybrid-activated nodes experiencing registration or connectivity problems with
+  Systems Manager.
 - **Unidentified issues** – A list of findings for
   cases where the diagnostic operation was unable to determine why EC2
   instances are not able to communicate with the Systems Manager service in the
@@ -38,6 +55,14 @@ progress** or **View executions** to
 monitor the current state of the execution. For more information, see
 [Viewing execution progress and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md"). 5. After the diagnosis completes, do the following:
 
+    * For any issues reported in the **IAM roles and
+     permissions**, **SSM Agent version**,
+     **Instance status check**, **Operating
+     system configuration**, **Systems Manager
+     service configuration**, or **Hybrid activation
+     issues** sections, choose the **Learn
+     more** link for information about resolving the
+     problem.
     * For any issues reported in the **Unidentified
      issues** section, choose the **Learn
      more** link for information about resolving the

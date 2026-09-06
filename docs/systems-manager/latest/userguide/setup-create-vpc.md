@@ -62,6 +62,7 @@ and network access control lists. For more information, see the [Amazon VPC User
 - [VPC endpoint restrictions and limitations](#vpc-requirements-and-limitations "#vpc-requirements-and-limitations")
 - [Creating VPC endpoints for Systems Manager](#create-vpc-endpoints "#create-vpc-endpoints")
 - [Create an interface VPC endpoint policy](#create-vpc-interface-endpoint-policies "#create-vpc-interface-endpoint-policies")
+- [VPC endpoint policy considerations for hybrid nodes](#vpc-endpoint-policies-hybrid-nodes "#vpc-endpoint-policies-hybrid-nodes")
 
 ## VPC endpoint restrictions and limitations
 
@@ -192,3 +193,27 @@ specify:
 For more information, see [Control access to
 services with VPC endpoints](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
 _Amazon VPC User Guide_.
+
+## VPC endpoint policy considerations for hybrid nodes
+
+Hybrid nodes don't natively belong to an AWS account – they are
+registered to one. Because of this, the
+`ssm:RegisterManagedInstance`,
+`ssm:RequestManagedInstanceRoleToken`, and
+`ssm:UpdateManagedInstancePublicKey` APIs don't use AWS Signature
+Version 4 (SigV4) when authenticating hybrid nodes. As a result, policy
+evaluation can't access an AWS principal identity or global context keys
+such as `aws:PrincipalOrgId`, `aws:PrincipalAccount`,
+and `aws:SourceAccount`. VPC endpoint policy restrictions that rely on
+these global keys or on AWS principal identity might block access to these three
+APIs.
+
+To address this, you can use two condition keys that AWS Systems Manager provides.
+These keys work consistently across both Amazon EC2 and hybrid scenarios:
+
+- `ssm:NodeAccountId` – Resolves to the account in which
+  an Amazon EC2 instance exists, or the account to which a hybrid node is
+  registered.
+- `ssm:NodeOrgId` – Resolves to the organization that
+  owns the Amazon EC2 instance's account, or the organization of the account
+  to which a hybrid node is registered.
