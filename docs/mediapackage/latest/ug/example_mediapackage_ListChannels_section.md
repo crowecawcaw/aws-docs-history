@@ -1,21 +1,21 @@
+
+
 # Use `ListChannels` with an AWS SDK or CLI
+<a name="example_mediapackage_ListChannels_section"></a>
 
 The following code examples show how to use `ListChannels`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list all channels**
-
-The following `list-channels` command lists all of the channels that are configured on the current AWS account.
-
-```
-`aws mediapackage list-channels`
+**AWS CLI**  
+**To list all channels**  
+The following `list-channels` command lists all of the channels that are configured on the current AWS account.  
 
 ```
-
-Output:
+aws mediapackage list-channels
+```
+Output:  
 
 ```
 {
@@ -44,24 +44,15 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing Channel Details](https://docs.aws.amazon.com/mediapackage/latest/ug/channels-view.html) in the *AWS Elemental MediaPackage User Guide*.  
++  For API details, see [ListChannels](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediapackage/list-channels.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Viewing Channel Details](channels-view.md "channels-view.md") in the _AWS Elemental MediaPackage User Guide_.
+------
+#### [ Rust ]
 
-- For API details, see
-  [ListChannels](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediapackage/list-channels.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediapackage/list-channels.html")
-  in _AWS CLI Command Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples").
-
-List channel ARNs and descriptions.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples). 
+List channel ARNs and descriptions.  
 
 ```
 async fn show_channels(client: &Client) -> Result<(), Error> {
@@ -80,14 +71,9 @@ async fn show_channels(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListChannels](https://docs.rs/aws-sdk-mediapackage/latest/aws_sdk_mediapackage/client/struct.Client.html#method.list_channels) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListChannels](https://docs.rs/aws-sdk-mediapackage/latest/aws_sdk_mediapackage/client/struct.Client.html#method.list_channels "https://docs.rs/aws-sdk-mediapackage/latest/aws_sdk_mediapackage/client/struct.Client.html#method.list_channels")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

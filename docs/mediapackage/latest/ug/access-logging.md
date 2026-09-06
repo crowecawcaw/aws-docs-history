@@ -1,105 +1,118 @@
+
+
 # Access logging
+<a name="access-logging"></a>
 
-MediaPackage provides access logs that capture detailed information about requests sent to your MediaPackage channel or packaging group. MediaPackage generates _ingress access logs_ for requests sent to the channel's input endpoints, and _egress access logs_ for requests sent to your channel's endpoints or packaging group's assets. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze service performance and troubleshoot issues. They can also help you learn about your customer base and understand your MediaPackage bill.
+MediaPackage provides access logs that capture detailed information about requests sent to your MediaPackage channel or packaging group. MediaPackage generates *ingress access logs* for requests sent to the channel's input endpoints, and *egress access logs* for requests sent to your channel's endpoints or packaging group's assets. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze service performance and troubleshoot issues. They can also help you learn about your customer base and understand your MediaPackage bill.
 
-Access logging is an optional feature of MediaPackage that's disabled by default. After you enable access logging, MediaPackage captures the logs and saves them to the CloudWatch log group that you specify when you create or manage access logging. Typical CloudWatch Logs charges apply.
+ Access logging is an optional feature of MediaPackage that's disabled by default. After you enable access logging, MediaPackage captures the logs and saves them to the CloudWatch log group that you specify when you create or manage access logging. Typical CloudWatch Logs charges apply. 
 
-###### Topics
-
-- [Permissions to publish access logs to CloudWatch](#permissions "#permissions")
-- [Enable access logging](#enable-access-logging "#enable-access-logging")
-- [Disable access logging](#disable-access-logging "#disable-access-logging")
-- [Access log format](#access-log-format "#access-log-format")
-- [Read the access logs](#read-access-logs "#read-access-logs")
+**Topics**
++ [Permissions to publish access logs to CloudWatch](#permissions)
++ [Enable access logging](#enable-access-logging)
++ [Disable access logging](#disable-access-logging)
++ [Access log format](#access-log-format)
++ [Read the access logs](#read-access-logs)
 
 ## Permissions to publish access logs to CloudWatch
+<a name="permissions"></a>
 
-When you enable access logging, MediaPackage creates an IAM service-linked role, `AWSServiceRoleForMediaPackage`, in your AWS account. This role allows MediaPackage to publish access logs to CloudWatch. For information about how MediaPackage uses service-linked roles, see [Using Service-Linked Roles for MediaPackage](using-service-linked-roles.md "using-service-linked-roles.md").
+When you enable access logging, MediaPackage creates an IAM service-linked role, `AWSServiceRoleForMediaPackage`, in your AWS account. This role allows MediaPackage to publish access logs to CloudWatch. For information about how MediaPackage uses service-linked roles, see [Using Service-Linked Roles for MediaPackage](using-service-linked-roles.md).
 
 ## Enable access logging
+<a name="enable-access-logging"></a>
 
 You can enable access logs using the AWS Management Console or the AWS CLI.
 
-###### To enable access logs for an existing channel using the console
+**To enable access logs for an existing channel using the console**
 
-1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2. Select your channel.
-3. In the **Configure Access Logs** section, do the following:
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/).
+
+1. Select your channel.
+
+1. In the **Configure Access Logs** section, do the following:
 
    1. Choose **Enable ingress access logs** or **Enable egress access logs**, or both.
-   2. You can specify a custom CloudWatch **Log group name**. If left blank, the default group is used.
 
-###### To enable access logs for an existing packaging group using the console
+   1. You can specify a custom CloudWatch **Log group name**. If left blank, the default group is used.
 
-1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2. Select **Packaging groups** from the navigation section.
-3. Choose your packaging group.
+**To enable access logs for an existing packaging group using the console**
+
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/).
+
+1. Select **Packaging groups** from the navigation section.
+
+1. Choose your packaging group.
 
    1. Select **Edit** in the navigation bar.
-   2. In the **Access logging** section, select **Enable egress access logs**.
-   3. You can specify a custom CloudWatch **Log group name**. If left blank, the default group is used.
 
-4. Choose **Save changes**.
+   1. In the **Access logging** section, select **Enable egress access logs**.
 
-###### To enable access logs for a channel using the AWS CLI
+   1. You can specify a custom CloudWatch **Log group name**. If left blank, the default group is used.
 
-Use the [configure-logs](../../../cli/latest/reference/mediapackage/configure-logs.md "../../../cli/latest/reference/mediapackage/configure-logs.md") command with the `--ingress-access-logs` parameter, `--egress-access-logs` parameter, or both, to enable access logging. You can include a CloudWatch log group name for the `--ingress-access-logs` and `--egress-access-logs` parameters. If you don't specify a log group name, then the MediaPackage default log group is used. For ingress logs, the default log group is `/aws/MediaPackage/IngressAccessLogs`, and for egress logs the default log group is `/aws/MediaPackage/EgressAccessLogs`.
+1. Choose **Save changes**.
+
+**To enable access logs for a channel using the AWS CLI**  
+Use the [configure-logs](https://docs.aws.amazon.com/cli/latest/reference/mediapackage/configure-logs.html) command with the `--ingress-access-logs` parameter, `--egress-access-logs` parameter, or both, to enable access logging. You can include a CloudWatch log group name for the `--ingress-access-logs` and `--egress-access-logs` parameters. If you don't specify a log group name, then the MediaPackage default log group is used. For ingress logs, the default log group is `/aws/MediaPackage/IngressAccessLogs`, and for egress logs the default log group is `/aws/MediaPackage/EgressAccessLogs`.
 
 Use the following command to enable both ingress and access logs using the default log groups:
 
 ```
-`aws mediapackage configure-logs --id `channel-name` --ingress-access-logs {} --egress-access-logs {}`
+aws mediapackage configure-logs --id {{channel-name}} --ingress-access-logs {} --egress-access-logs {}
 ```
 
 This command has no return value.
 
-###### To enable access logs for a packaging group using the AWS CLI
-
-Use the [configure-logs](../../../cli/latest/reference/mediapackage-vod/configure-logs.md "../../../cli/latest/reference/mediapackage-vod/configure-logs.md") command with the `--egress-access-logs` parameter to enable access logging. You can include a CloudWatch log group name for the `--egress-access-logs` parameter. If you don't specify a log group name, then the MediaPackage default log group is used. For ingress logs, the default log group is `/aws/MediaPackage/IngressAccessLogs`, and for egress logs the default log group is `/aws/MediaPackage/EgressAccessLogs`.
+**To enable access logs for a packaging group using the AWS CLI**  
+Use the [configure-logs](https://docs.aws.amazon.com/cli/latest/reference/mediapackage-vod/configure-logs.html) command with the `--egress-access-logs` parameter to enable access logging. You can include a CloudWatch log group name for the `--egress-access-logs` parameter. If you don't specify a log group name, then the MediaPackage default log group is used. For ingress logs, the default log group is `/aws/MediaPackage/IngressAccessLogs`, and for egress logs the default log group is `/aws/MediaPackage/EgressAccessLogs`.
 
 Use the following command to enable egress access logs using the default log groups:
 
 ```
-`aws mediapackage configure-logs --id `package-name` --egress-access-logs {}`
+aws mediapackage configure-logs --id {{package-name}} --egress-access-logs {}
 ```
 
 This command has no return value.
 
 ## Disable access logging
+<a name="disable-access-logging"></a>
 
 You can disable access logs for your MediaPackage channel or packaging group at any time.
 
-###### To disable access logging using the console
+**To disable access logging using the console**
 
-1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/).
 
-Select your channel or package group. 2. Choose **Edit**. 3. In the **Access logging** section, deselect **Ingress access logging**, **Egress access logging**, or both. 4. Choose **Save changes**.
+   Select your channel or package group.
 
-###### To disable access logging for a channel using the AWS CLI
+1. Choose **Edit**.
 
+1. In the **Access logging** section, deselect **Ingress access logging**, **Egress access logging**, or both.
+
+1. Choose **Save changes**.
+
+**To disable access logging for a channel using the AWS CLI**  
 Use the `configure-logs` command to disable access logging. If one or more of the access log parameters aren't declared with the `configure-logs` command, then the corresponding access logs are disabled. For example, in the following command egress access logs are enabled for a channel, and ingress access logs are disabled:
 
 ```
-`aws mediapackage configure-logs --id `channel-name` --egress-access-logs {}`
+aws mediapackage configure-logs --id {{channel-name}} --egress-access-logs {}
 ```
 
 This command has no return value.
 
-###### To disable access logging for a packaging group using the AWS CLI
-
+**To disable access logging for a packaging group using the AWS CLI**  
 Use the `configure-logs` command to disable access logging. If one or more of the access log parameters aren't declared with the `configure-logs` command, then the corresponding access logs are disabled. For example, in the following command `configure-logs` doesn't include `--egress-access-logs` so egress logs are disabled:
 
 ```
-`aws mediapackage configure-logs --id `package-group-name``
+aws mediapackage configure-logs --id {{package-group-name}}
 ```
 
 This command has no return value.
 
 ## Access log format
+<a name="access-log-format"></a>
 
-The access log files consist of a sequence of JSON-formatted log records,
-where each log record represents one request. The order of the fields within the
-log can vary. The following is an example channel egress access log:
+The access log files consist of a sequence of JSON-formatted log records, where each log record represents one request. The order of the fields within the log can vary. The following is an example channel egress access log:
 
 ```
 {
@@ -125,137 +138,101 @@ log can vary. The following is an example channel egress access log:
 
 The following list describes the log record fields, in order:
 
-_timestamp_
+*timestamp*  
+The time of day when the request was received. The value is `ISO-8601` date time and is based on the system clock of the host that served the request.
 
-The time of day when the request was received. The value is
-`ISO-8601` date time and is based on the system clock of the
-host that served the request.
-
-_clientIp_
-
+*clientIp*  
 The IP address of the requesting client.
 
-_processingTime_
-
+*processingTime*  
 The number of seconds that MediaPackage spent processing your request. This value is measured from the time the last byte of your request was received until the time the first byte of the response was sent.
 
-_statusCode_
-
+*statusCode*  
 The numeric HTTP status code of the response.
 
-_receivedBytes_
+*receivedBytes*  
+The number of bytes in the request body that the MediaPackage server receives.
 
-The number of bytes in the request body that the MediaPackage
-server receives.
+*sentBytes*  
+The number of bytes in the response body that the MediaPackage server sends. This value often is the same as the value of the `Content-Length` header that's included with server responses.
 
-_sentBytes_
-
-The number of bytes in the response body that the MediaPackage server sends.
-This value often is the same as the value of the `Content-Length`
-header
-that's included with server responses.
-
-_method_
-
+*method*  
 The HTTP request method that was used for the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
 
-_request_
-
+*request*  
 The request URL.
 
-_protocol_
-
+*protocol*  
 The type of protocol used for the request, such as HTTP.
 
-_userAgent_
+*userAgent*  
+A user-agent string that identifies the client that originated the request, enclosed in double quotes. The string consists of one or more product identifiers, product/version. If the string is longer than 8 KB, it is truncated.
 
-A user-agent string that identifies the client that originated the request,
-enclosed in double quotes. The string consists of one or more product
-identifiers, product/version. If the string is longer than 8 KB, it is
-truncated.
+*account*  
+The AWS account ID of the account that was used to make the request.
 
-_account_
-
-The AWS account ID of the account that was used to make the
-request.
-
-_channelId_
-
+*channelId*  
 The ID of the channel that received the request.
 
-_channelArn_
-
+*channelArn*  
 The Amazon Resource Name (ARN) of the channel that received the request.
 
-_domainName_
+*domainName*  
+The server name indication domain provided by the client during the TLS handshake, enclosed in double quotes. This value is set to `-` if the client doesn't support SNI or the domain doesn't match a certificate and the default certificate is presented to the client.
 
-The server name indication domain provided by the client during the TLS
-handshake, enclosed in double quotes. This value is set to `-` if
-the client doesn't support SNI or the domain doesn't match a certificate and
-the default certificate is presented to the client.
-
-_requestId_
-
+*requestId*  
 A string that's generated by MediaPackage to uniquely identify each request.
 
-_endpointId_
-
+*endpointId*  
 The ID of the endpoint that received the request.
 
-_endpointArn_
-
+*endpointArn*  
 The Amazon Resource Name (ARN) of the endpoint that received the request.
 
 The order of the fields in the log can vary.
 
 ## Read the access logs
+<a name="read-access-logs"></a>
 
-MediaPackage writes the access logs to Amazon CloudWatch Logs. Typical CloudWatch Logs charges apply. Use
-CloudWatch Logs
-Insights to read the access logs. For information on how to use CloudWatch Logs Insights, see
-[Analyzing Log Data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in the _AWS
-CloudWatch Logs User Guide_.
+MediaPackage writes the access logs to Amazon CloudWatch Logs. Typical CloudWatch Logs charges apply. Use CloudWatch Logs Insights to read the access logs. For information on how to use CloudWatch Logs Insights, see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) in the *AWS CloudWatch Logs User Guide*.
 
-###### Note
-
-The access logs can take a few minutes to appear in CloudWatch. If you don't see the
-logs, wait a few minutes and try again.
+**Note**  
+The access logs can take a few minutes to appear in CloudWatch. If you don't see the logs, wait a few minutes and try again.
 
 ### Examples
+<a name="query-examples"></a>
 
-This section includes example queries that you can use to read MediaPackage
-debug log data.
+ This section includes example queries that you can use to read MediaPackage debug log data. 
 
-###### Example View the HTTP status code responses for a channel.
-
-Use this query to view the responses by HTTP status code for a channel. You can use this to view HTTP error code responses to help you to troubleshoot issues.
+**Example View the HTTP status code responses for a channel.**  
+ Use this query to view the responses by HTTP status code for a channel. You can use this to view HTTP error code responses to help you to troubleshoot issues.   
 
 ```
 fields @timestamp, @message
-| filter `channelId` like `'my-channel'`
+| filter {{channelId}} like {{'my-channel'}}
 | stats count() by statusCode
 ```
 
-###### Example Get the number of requests per endpoint on a channel.
+**Example Get the number of requests per endpoint on a channel.**  
 
 ```
 fields @timestamp, @message
-| filter `channelId` like `'my-channel'`
-| stats count() by `endpointId`
+| filter {{channelId}} like {{'my-channel'}}
+| stats count() by {{endpointId}}
 ```
 
-###### Example View status codes per asset.
+**Example View status codes per asset.**  
 
 ```
 fields @timestamp, @message
-| filter assetArnlike `'my-asset-id'`
+| filter assetArnlike {{'my-asset-id'}}
 | stats count() by statusCode
 ```
 
-###### Example Get the P99 response times for a packaging configuration over time
+**Example Get the P99 response times for a packaging configuration over time**  
 
 ```
 fields @timestamp, @message
-| filter packagingConfigArn like `'my-dash-config'`
+| filter packagingConfigArn like {{'my-dash-config'}}
 | stats pct(processingTime, 99) by bin(5m)
 ```

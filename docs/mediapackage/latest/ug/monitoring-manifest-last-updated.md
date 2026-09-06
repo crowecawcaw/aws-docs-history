@@ -1,40 +1,39 @@
-# Monitoring manifest update time
 
-AWS Elemental MediaPackage playback responses include the following custom headers that indicate
-when MediaPackage last modified the manifest in non-dynamic ad insertion workflows. These
-headers are helpful when troubleshooting issues related to stale manifests.
+
+# Monitoring manifest update time
+<a name="monitoring-manifest-last-updated"></a>
+
+AWS Elemental MediaPackage playback responses include the following custom headers that indicate when MediaPackage last modified the manifest in non-dynamic ad insertion workflows. These headers are helpful when troubleshooting issues related to stale manifests.
 
 ## X-MediaPackage-Manifest-Last-Sequence
+<a name="manifest-last-sequence"></a>
 
 This is the highest segment sequence number in the manifest.
++ For DASH, this is the highest segment number in the lowest rendition of the manifest.
++ For HLS and CMAF, this is the highest segment number in the media playlist.
++ For MSS, this is the highest segment number in the manifest.
 
-- For DASH, this is the highest segment number in the lowest rendition of the manifest.
-- For HLS and CMAF, this is the highest segment number in the media playlist.
-- For MSS, this is the highest segment number in the manifest.
-
-See the following section for [manifest examples](#manifest-examples "#manifest-examples").
+See the following section for [manifest examples](#manifest-examples).
 
 ## X-MediaPackage-Manifest-Last-Updated
+<a name="manifest-last-updated"></a>
 
 The epoch timestamp in milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
 
 ## Manifest examples
+<a name="manifest-examples"></a>
+
+
 
 ### DASH manifest examples
+<a name="dash-examples"></a>
 
-For both compact and full DASH manifests, MediaPackage determines the
-`X-MediaPackage-Manifest-Last-Sequence` value from the highest segment number in the lowest rendition of the manifest. The service calculates the
-`X-MediaPackage-Manifest-Last-Updated` value based on when it generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
+For both compact and full DASH manifests, MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment number in the lowest rendition of the manifest. The service calculates the `X-MediaPackage-Manifest-Last-Updated` value based on when it generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
 
-The following is an example of a compact DASH manifest that uses the number with
-duration template. MediaPackage determines the
-`X-MediaPackage-Manifest-Last-Sequence` value from the highest segment
-number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is
-`index_video_5_0_175232.mp4`, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `175232`. See [duration Attribute in the SegmentTemplate](segtemp-format-duration.md "segtemp-format-duration.md") for information about how MediaPackage
-calculates the sequence `$Number$` value. The value of
-`X-MediaPackage-Manifest-Last-Updated` is the epoch timestamp in
-milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
+#### Number with duration - compact manifest
+<a name="collapsible-section-1"></a>
+
+The following is an example of a compact DASH manifest that uses the number with duration template. MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is `index_video_5_0_175232.mp4`, so the value of `X-MediaPackage-Manifest-Last-Sequence` is `175232`. See [`duration` Attribute in the `SegmentTemplate`](segtemp-format-duration.md) for information about how MediaPackage calculates the sequence `$Number$` value. The value of `X-MediaPackage-Manifest-Last-Updated` is the epoch timestamp in milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -50,14 +49,10 @@ milliseconds when MediaPackage generates the segment referred to in `X-MediaPack
 </MPD>
 ```
 
-The following is an example of a compact DASH manifest that uses the number with
-timeline template. MediaPackage determines the
-`X-MediaPackage-Manifest-Last-Sequence` value from the highest segment
-number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is
-`index_video_1_0_7.mp4`, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `7`. The value of
-`X-MediaPackage-Manifest-Last-Updated` is the is the epoch timestamp in
-milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
+#### Number with timeline - compact manifest
+<a name="collapsible-section-2"></a>
+
+The following is an example of a compact DASH manifest that uses the number with timeline template. MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is `index_video_1_0_7.mp4`, so the value of `X-MediaPackage-Manifest-Last-Sequence` is `7`. The value of `X-MediaPackage-Manifest-Last-Updated` is the is the epoch timestamp in milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -91,18 +86,12 @@ milliseconds when MediaPackage generates the segment referred to in `X-MediaPack
     <SupplementalProperty schemeIdUri="urn:scte:dash:utc-time" value="2021-05-21T16:59:47.450Z"></SupplementalProperty>
   </Period>
 </MPD>
-
 ```
 
-The following is an example of a compact DASH manifest that uses the number with
-duration template. MediaPackage determines the
-`X-MediaPackage-Manifest-Last-Sequence` value from the highest segment
-number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is
-`index_video_1_0_1675200.mp4`, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `1675200`. See [media Attribute in SegmentTemplate](segtemp-format-media.md "segtemp-format-media.md") for information about how MediaPackage
-calculates the sequence number. The value of
-`X-MediaPackage-Manifest-Last-Updated` is the is the epoch timestamp in
-milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
+#### Number with timeline - compact manifest
+<a name="collapsible-section-2"></a>
+
+The following is an example of a compact DASH manifest that uses the number with duration template. MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is `index_video_1_0_1675200.mp4`, so the value of `X-MediaPackage-Manifest-Last-Sequence` is `1675200`. See [`media` Attribute in `SegmentTemplate`](segtemp-format-media.md) for information about how MediaPackage calculates the sequence number. The value of `X-MediaPackage-Manifest-Last-Updated` is the is the epoch timestamp in milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -136,17 +125,12 @@ milliseconds when MediaPackage generates the segment referred to in `X-MediaPack
     <SupplementalProperty schemeIdUri="urn:scte:dash:utc-time" value="2021-05-21T16:59:47.450Z"></SupplementalProperty>
   </Period>
 </MPD>
-
 ```
 
 ### HLS manifest
+<a name="hls-examples"></a>
 
-MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value
-from the last segment in the manifest. For example, in the following manifest
-`index_1_3.ts` is the highest segment sequence number, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `3`. The value of
-`X-MediaPackage-Manifest-Last-Updated` corresponds to the epoch timestamp in
-milliseconds when MediaPackage generates the last segment in the manifest.
+MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the last segment in the manifest. For example, in the following manifest `index_1_3.ts` is the highest segment sequence number, so the value of `X-MediaPackage-Manifest-Last-Sequence` is `3`. The value of `X-MediaPackage-Manifest-Last-Updated` corresponds to the epoch timestamp in milliseconds when MediaPackage generates the last segment in the manifest.
 
 ```
 #EXTM3U
@@ -162,19 +146,12 @@ index_1_2.ts?m=1583172400
 #EXTINF:7.500,
 index_1_3.ts?m=1583172400
 #EXT-X-ENDLIST
-
 ```
 
 ### CMAF manifest
+<a name="hls-example"></a>
 
-Similar to HLS, MediaPackage determines the
-`X-MediaPackage-Manifest-Last-Sequence` value from the last segment in the
-manifest. For example, in the following manifest
-`../cmafseg_video_1_10.mp4?m=1621616399` is the highest segment sequence
-number, so the value of `X-MediaPackage-Manifest-Last-Sequence` is
-`10`. The value of `X-MediaPackage-Manifest-Last-Updated`
-corresponds to the epoch timestamp in milliseconds when MediaPackage generates the last
-segment in the manifest.
+Similar to HLS, MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the last segment in the manifest. For example, in the following manifest `../cmafseg_video_1_10.mp4?m=1621616399` is the highest segment sequence number, so the value of `X-MediaPackage-Manifest-Last-Sequence` is `10`. The value of `X-MediaPackage-Manifest-Last-Updated` corresponds to the epoch timestamp in milliseconds when MediaPackage generates the last segment in the manifest.
 
 ```
 #EXTM3U
@@ -204,19 +181,12 @@ segment in the manifest.
 #EXTINF:0.542,
 ../cmafseg_video_1_10.mp4?m=1621616399
 #EXT-X-ENDLIST
-
-
 ```
 
 ### MSS manifest
+<a name="mss-examples"></a>
 
-MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value
-from the highest segment in the manifest, as indicated by `Fragments(a_2_0={start
- time})`. For example, in the following manifest
-`Fragments(a_2_0=380533333)` is the highest sequence number, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `380333333`. The value of
-`X-MediaPackage-Manifest-Last-Updated` corresponds to the epoch timestamp in
-milliseconds when MediaPackage generates the last segment in the manifest.
+MediaPackage determines the `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment in the manifest, as indicated by `Fragments(a_2_0={start time})`. For example, in the following manifest `Fragments(a_2_0=380533333)` is the highest sequence number, so the value of `X-MediaPackage-Manifest-Last-Sequence` is `380333333`. The value of `X-MediaPackage-Manifest-Last-Updated` corresponds to the epoch timestamp in milliseconds when MediaPackage generates the last segment in the manifest.
 
 ```
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" TimeScale="10000000" CanSeek="TRUE" CanPause="TRUE" IsLive="TRUE" LookAheadFragmentCount="2" DVRWindowLength="3000000000" Duration="0">

@@ -1,32 +1,24 @@
+
+
 # IPv6 support for AWS Elemental MediaPackage control plane
+<a name="mediapackage-ipv6-support"></a>
 
-AWS Elemental MediaPackage control plane APIs support dual-stack (IPv4 and IPv6) endpoints
-for both Live and VOD services. This enables you to make API requests using either
-IPv4 or IPv6 protocols for management operations such as creating channels, endpoints,
-packaging groups, packaging configurations, and assets.
+AWS Elemental MediaPackage control plane APIs support dual-stack (IPv4 and IPv6) endpoints for both Live and VOD services. This enables you to make API requests using either IPv4 or IPv6 protocols for management operations such as creating channels, endpoints, packaging groups, packaging configurations, and assets.
 
-###### Note
-
-IPv6 support applies to control plane operations only. Content ingest and
-delivery endpoints continue to use IPv4.
+**Note**  
+IPv6 support applies to control plane operations only. Content ingest and delivery endpoints continue to use IPv4.
 
 ## IPv6 endpoints
+<a name="mediapackage-ipv6-endpoints"></a>
 
 MediaPackage provides the following dual-stack endpoints:
++ **Live**: `mediapackage.{{region}}.api.aws`
++ **VOD**: `mediapackage-vod.{{region}}.api.aws`
 
-- **Live**:
-  `mediapackage.`region`.api.aws`
-- **VOD**:
-  `mediapackage-vod.`region`.api.aws`
-
-Your existing applications continue to work with the original IPv4-only endpoints
-(`mediapackage.`region`.amazonaws.com` and
-`mediapackage-vod.`region`.amazonaws.com`).
-For a complete list of available endpoints, see
-[MediaPackage endpoints and quotas](../../../general/latest/gr/mediapackage.md "../../../general/latest/gr/mediapackage.md")
-in the _AWS General Reference_.
+Your existing applications continue to work with the original IPv4-only endpoints (`mediapackage.{{region}}.amazonaws.com` and `mediapackage-vod.{{region}}.amazonaws.com`). For a complete list of available endpoints, see [MediaPackage endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/mediapackage.html) in the *AWS General Reference*.
 
 ## Using IPv6 endpoints
+<a name="mediapackage-ipv6-usage"></a>
 
 To use the IPv6 endpoints, specify the dual-stack endpoint URL when making API calls.
 

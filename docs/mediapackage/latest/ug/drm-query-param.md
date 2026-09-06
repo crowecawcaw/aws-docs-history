@@ -1,73 +1,63 @@
+
+
 # Removing tags from the parent manifest from AWS Elemental MediaPackage
+<a name="drm-query-param"></a>
 
-MediaPackage signals in the parent manifest the `#EXT-X-SESSION-KEY` tag for every
-track type on an HLS or CMAF endpoint. This tag enables playback devices to pre-fetch keys
-when a key is shared across multiple streams. There are times when you might not want this
-optional tag, such as when you’re using only a subset of the tracks and don’t want all of
-the keys referenced in the parent manifest. With SPEKE v2, you can append a query parameter
-to your manifest requests that will remove all `#EXT-X-SESSION-KEY` tags from the
-parent manifest. Because each child manifest has its own `#EXT-X-KEY` tag for
-obtaining a decryption key, the `#EXT-X-SESSION-KEY` is often superfluous.
+MediaPackage signals in the parent manifest the `#EXT-X-SESSION-KEY` tag for every track type on an HLS or CMAF endpoint. This tag enables playback devices to pre-fetch keys when a key is shared across multiple streams. There are times when you might not want this optional tag, such as when you’re using only a subset of the tracks and don’t want all of the keys referenced in the parent manifest. With SPEKE v2, you can append a query parameter to your manifest requests that will remove all `#EXT-X-SESSION-KEY `tags from the parent manifest. Because each child manifest has its own `#EXT-X-KEY` tag for obtaining a decryption key, the `#EXT-X-SESSION-KEY ` is often superfluous. 
 
-To remove the `#EXT-X-SESSION-KEY` tag from MediaPackage manifest responses, use the
-following query parameter: `aws.drmsettings=excludesessionkeys`
+To remove the `#EXT-X-SESSION-KEY` tag from MediaPackage manifest responses, use the following query parameter: `aws.drmsettings=excludesessionkeys`
 
-The following section provides more information about using query parameters.
+The following section provides more information about using query parameters. 
 
 ## Query syntax
+<a name="drm-params-syntax"></a>
 
-The base query parameter for removing `#EXT-X-SESSION-KEY` tags is
-`aws.drmsettings`, which is followed by optional parameter name and value
-pairs. To construct the query, append `?aws.drmsettings=` to the end of the
-MediaPackage endpoint URL, followed by the parameter name and value.
+The base query parameter for removing `#EXT-X-SESSION-KEY` tags is `aws.drmsettings`, which is followed by optional parameter name and value pairs. To construct the query, append `?aws.drmsettings=` to the end of the MediaPackage endpoint URL, followed by the parameter name and value.
 
 An Apple HLS filter query might look like this:
 
-`https://example-mediapackage-endpoint.mediapackage.us-west-2.amazonaws.com/out/v1/examplemediapackage/index.m3u8`?aws.drmsettings=excludesessionkeys``
+`https://example-mediapackage-endpoint.mediapackage.us-west-2.amazonaws.com/out/v1/examplemediapackage/index.m3u8{{?aws.drmsettings=excludesessionkeys}}`
 
 The query syntax is listed in the following table.
 
-###### Note
+**Note**  
+If you use Amazon CloudFront as your CDN, you might need to set additional configurations. For more information, see [Configure cache behavior for all endpoints](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/live-streaming.html#live-streaming-with-mediapackage-create-cache-behavior).
 
-If you use Amazon CloudFront as your CDN, you might need to set additional configurations.
-For more information, see [Configure cache behavior for all endpoints](../../../AmazonCloudFront/latest/DeveloperGuide/live-streaming.md#live-streaming-with-mediapackage-create-cache-behavior "../../../AmazonCloudFront/latest/DeveloperGuide/live-streaming.md#live-streaming-with-mediapackage-create-cache-behavior").
 
-| Query string component | Description                                                                                                                                                                                                                                  |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `?`                    | A restricted character that marks the beginning of a<br>query.                                                                                                                                                                               |
-| `aws.drmsettings=`     | The base query, which is followed by parameters constructed of<br>name and value pairs.                                                                                                                                                      |
-| `:`                    | Used to associate the parameter name with a value. For example,<br>``parameter_name`:`value``.                                                                                                                                               |
-| `;`                    | Separates parameters in a query that contains multiple<br>parameters. For example,<br>``parameter1_name:value`;`parameter2_name:minValue-maxValue``.<br>When used in a list of parameters for the same query, implies an<br>`AND` operation. |
+| Query string component | Description | 
+| --- | --- | 
+| ? | A restricted character that marks the beginning of a query. | 
+| aws.drmsettings= | The base query, which is followed by parameters constructed of name and value pairs. | 
+| : | Used to associate the parameter name with a value. For example, {{parameter\_name}}:{{value}}. | 
+| ; | Separates parameters in a query that contains multiple parameters. For example, {{parameter1\_name:value}};{{parameter2\_name:minValue-maxValue}}. When used in a list of parameters for the same query, implies an AND operation. | 
 
 ## Error conditions
+<a name="error-conditions-and-handling-drm"></a>
 
-Some playback devices will return errors if the manifest or segments include invalid
-or unknown query parameters. The following are query parameters that MediaPackage can
-process:
+Some playback devices will return errors if the manifest or segments include invalid or unknown query parameters. The following are query parameters that MediaPackage can process:
++ `m`
++ `start`
++ `end`
++ `aws.manifestfilter`
++ `aws.drmsettings`
 
-- `m`
-- `start`
-- `end`
-- `aws.manifestfilter`
-- `aws.drmsettings`
+If you have query parameters other than those listed, use a CDN such as Amazon CloudFront to remove the unnecessary parameters. For more information, see [Cache content based on query string parameters](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html) in the *Amazon CloudFront Developer Guide*.
 
-If you have query parameters other than those listed, use a CDN such as Amazon CloudFront to
-remove the unnecessary parameters. For more information, see [Cache
-content based on query string parameters](../../../AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.md "../../../AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.md") in the _Amazon CloudFront Developer Guide_.
+The following table contains additional common error conditions. 
 
-The following table contains additional common error conditions.
 
-| Error condition                                                                                                                         | Example                                                                                      | HTTP status code |
-| --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------- |
-| A list parameter is not found and is not part of a constrained<br>list                                                                  | `?aws.manifestfilter=audio_language:dahlia`                                                  | 200              |
-| Only subtitle streams are present in the stream                                                                                         | `?aws.manifestfilter=audio_sample_rate:0-1;video_bitrate=0-1`                                | 200              |
-| Duplicate filter parameter                                                                                                              | `?aws.manifestfilter=audio_sample_rate:0-48000;aws.manifestfilter=audio_sample_rate:0-48000` | 400              |
-| Invalid parameter                                                                                                                       | `?aws.manifestfilter=donut_type:rhododendron`                                                | 400              |
-| Invalid range parameter                                                                                                                 | `?aws.manifestfilter=audio_sample_rate:300-0`                                                | 400              |
-| Invalid range value (more than `INT_MAX`)                                                                                               | `?aws.manifestfilter=audio_sample_rate:0-2147483648`                                         | 400              |
-| Malformed query string                                                                                                                  | `?aws.manifestfilter=audio_sample_rate:is:0-44100`                                           | 400              |
-| Parameter string is greater than 1024 characters                                                                                        | `?aws.manifestfilter=audio_language:abcdef....`                                              | 400              |
-| Query parameters on an HLS or CMAF bitrate manifest                                                                                     | `index_1.m3u8?aws.manifestfilter=video_codec:h264`                                           | 400              |
-| Query parameters on a segment request                                                                                                   | `..._1.[ts                                                                                   | mp4              | vtt..]?aws.manifestfilter=video_codec:h264` | 400 |
-| Repeated query parameter                                                                                                                | `?aws.manifestfilter=audio_sample_rate:0-48000;aws.manifestfilter=video_bitrate:0-1`         | 400              |
-| Application of the filter results in an empty manifest (content has<br>no streams that meet the conditions defined in the query string) | `?aws.manifestfilter=audio_sample_rate:0-1;video_bitrate=0-1`                                | 400              |
+
+| Error condition | Example | HTTP status code | 
+| --- | --- | --- | 
+| A list parameter is not found and is not part of a constrained list | ?aws.manifestfilter=audio\_language:dahlia | 200 | 
+| Only subtitle streams are present in the stream | ?aws.manifestfilter=audio\_sample\_rate:0-1;video\_bitrate=0-1 | 200 | 
+| Duplicate filter parameter | ?aws.manifestfilter=audio\_sample\_rate:0-48000;aws.manifestfilter=audio\_sample\_rate:0-48000 | 400 | 
+| Invalid parameter | ?aws.manifestfilter=donut\_type:rhododendron | 400 | 
+| Invalid range parameter | ?aws.manifestfilter=audio\_sample\_rate:300-0 | 400 | 
+| Invalid range value (more than INT\_MAX) | ?aws.manifestfilter=audio\_sample\_rate:0-2147483648 | 400 | 
+| Malformed query string | ?aws.manifestfilter=audio\_sample\_rate:is:0-44100 | 400 | 
+| Parameter string is greater than 1024 characters | ?aws.manifestfilter=audio\_language:abcdef.... | 400 | 
+| Query parameters on an HLS or CMAF bitrate manifest | index\_1.m3u8?aws.manifestfilter=video\_codec:h264 | 400 | 
+| Query parameters on a segment request | ...\_1.[ts\|mp4\|vtt..]?aws.manifestfilter=video\_codec:h264 | 400 | 
+| Repeated query parameter | ?aws.manifestfilter=audio\_sample\_rate:0-48000;aws.manifestfilter=video\_bitrate:0-1 | 400 | 
+| Application of the filter results in an empty manifest (content has no streams that meet the conditions defined in the query string) | ?aws.manifestfilter=audio\_sample\_rate:0-1;video\_bitrate=0-1 | 400 | 

@@ -1,22 +1,22 @@
+
+
 # Use `ListOriginEndpoints` with an AWS SDK or CLI
+<a name="example_mediapackage_ListOriginEndpoints_section"></a>
 
 The following code examples show how to use `ListOriginEndpoints`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list all origin-endpoints on a channel**
-
-The following `list-origin-endpoints` command lists all of the origin endpoints that are configured on the channel named `test`.
-
-```
-`aws mediapackage list-origin-endpoints \
- --channel-id `test``
+**AWS CLI**  
+**To list all origin-endpoints on a channel**  
+The following `list-origin-endpoints` command lists all of the origin endpoints that are configured on the channel named `test`.  
 
 ```
-
-Output:
+aws mediapackage list-origin-endpoints \
+    --channel-id {{test}}
+```
+Output:  
 
 ```
 {
@@ -76,24 +76,15 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing all Endpoints Associated with a Channel](https://docs.aws.amazon.com/mediapackage/latest/ug/endpoints-view-all.html) in the *AWS Elemental MediaPackage User Guide*.  
++  For API details, see [ListOriginEndpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediapackage/list-origin-endpoints.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Viewing all Endpoints Associated with a Channel](endpoints-view-all.md "endpoints-view-all.md") in the _AWS Elemental MediaPackage User Guide_.
+------
+#### [ Rust ]
 
-- For API details, see
-  [ListOriginEndpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediapackage/list-origin-endpoints.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediapackage/list-origin-endpoints.html")
-  in _AWS CLI Command Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples").
-
-List your endpoint descriptions and URLs.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples). 
+List your endpoint descriptions and URLs.  
 
 ```
 async fn show_endpoints(client: &Client) -> Result<(), Error> {
@@ -111,14 +102,9 @@ async fn show_endpoints(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListOriginEndpoints](https://docs.rs/aws-sdk-mediapackage/latest/aws_sdk_mediapackage/client/struct.Client.html#method.list_origin_endpoints) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListOriginEndpoints](https://docs.rs/aws-sdk-mediapackage/latest/aws_sdk_mediapackage/client/struct.Client.html#method.list_origin_endpoints "https://docs.rs/aws-sdk-mediapackage/latest/aws_sdk_mediapackage/client/struct.Client.html#method.list_origin_endpoints")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
