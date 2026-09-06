@@ -1,25 +1,25 @@
+
+
 # ROSA classic account policies
+<a name="security-iam-rosa-classic-account-policies"></a>
 
-This section provides details about the account policies that are required for ROSA classic.
-These permissions are needed for ROSA classic to manage the AWS resources that clusters run on and enable Red Hat site reliability engineer support for clusters.
-You can assign a custom prefix to the policy names, but these policies should otherwise be named as defined on this page (for example, `ManagedOpenShift-Installer-Role-Policy`).
+This section provides details about the account policies that are required for ROSA classic. These permissions are needed for ROSA classic to manage the AWS resources that clusters run on and enable Red Hat site reliability engineer support for clusters. You can assign a custom prefix to the policy names, but these policies should otherwise be named as defined on this page (for example, `ManagedOpenShift-Installer-Role-Policy`).
 
-The account policies are specific to an OpenShift minor release version and are backward compatible.
-Before creating or upgrading a cluster, you should verify that the policy version and cluster version are the same by running `rosa list account-roles`.
-If the policy version is less than the cluster version, run `rosa upgrade account-roles` to upgrade the roles and attached policies.
-You can use the same account policies and roles for multiple clusters of the same minor release version.
+The account policies are specific to an OpenShift minor release version and are backward compatible. Before creating or upgrading a cluster, you should verify that the policy version and cluster version are the same by running `rosa list account-roles`. If the policy version is less than the cluster version, run `rosa upgrade account-roles` to upgrade the roles and attached policies. You can use the same account policies and roles for multiple clusters of the same minor release version.
 
 ## [Prefix]-Installer-Role-Policy
+<a name="security-iam-id-based-policy-examples-rosa-classic-installer-policy"></a>
 
-You can attach `[Prefix]-Installer-Role-Policy` to your IAM entities.
-Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-Installer-Role`.
-This policy grants required permissions that allow the ROSA installer to manage the AWS resources that are needed for cluster creation.
+You can attach `[Prefix]-Installer-Role-Policy` to your IAM entities. Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-Installer-Role`. This policy grants required permissions that allow the ROSA installer to manage the AWS resources that are needed for cluster creation.
+
+### Permissions policy
+<a name="installer-permissions-policy"></a>
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Action": [
@@ -231,16 +231,18 @@ Permissions defined in this policy document specify which actions are allowed or
 ```
 
 ## [Prefix]-ControlPlane-Role-Policy
+<a name="security-iam-id-based-policy-examples-rosa-classic-control-plane-policy"></a>
 
-You can attach `[Prefix]-ControlPlane-Role-Policy` to your IAM entities.
-Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-ControlPlane-Role`.
-This policy grants required permissions to ROSA classic to manage Amazon EC2 and Elastic Load Balancing resources that host the ROSA control plane, as well as read KMS keys.
+You can attach `[Prefix]-ControlPlane-Role-Policy` to your IAM entities. Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-ControlPlane-Role`. This policy grants required permissions to ROSA classic to manage Amazon EC2 and Elastic Load Balancing resources that host the ROSA control plane, as well as read KMS keys.
+
+### Permissions policy
+<a name="control-plane-permissions-policy"></a>
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Action": [
@@ -291,16 +293,18 @@ Permissions defined in this policy document specify which actions are allowed or
 ```
 
 ## [Prefix]-Worker-Role-Policy
+<a name="security-iam-id-based-policy-examples-rosa-classic-worker-policy"></a>
 
-You can attach `[Prefix]-Worker-Role-Policy` to your IAM entities.
-Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-Worker-Role`.
-This policy grants required permissions to ROSA classic to describe the EC2 instances running as worker nodes.
+You can attach `[Prefix]-Worker-Role-Policy` to your IAM entities. Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-Worker-Role`. This policy grants required permissions to ROSA classic to describe the EC2 instances running as worker nodes.
+
+### Permissions policy
+<a name="worker-permissions-policy"></a>
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Action": [
@@ -315,16 +319,18 @@ Permissions defined in this policy document specify which actions are allowed or
 ```
 
 ## [Prefix]-Support-Role-Policy
+<a name="security-iam-id-based-policy-examples-rosa-classic-support-policy"></a>
 
-You can attach `[Prefix]-Support-Role-Policy` to your IAM entities.
-Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-Support-Role`.
-This policy grants required permissions to Red Hat site reliability engineering to observe, diagnose, and support the AWS resources that ROSA classic clusters use, including the ability to change cluster node state.
+You can attach `[Prefix]-Support-Role-Policy` to your IAM entities. Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-Support-Role`. This policy grants required permissions to Red Hat site reliability engineering to observe, diagnose, and support the AWS resources that ROSA classic clusters use, including the ability to change cluster node state.
+
+### Permissions policy
+<a name="support-permissions-policy"></a>
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Action": [
