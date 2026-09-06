@@ -1,41 +1,29 @@
-On October 7, 2026, AWS will discontinue support for
-Amazon Lookout for Equipment. After October 7, 2026, you will no longer be
-able to access the Lookout for Equipment console or resources. For more
-information,
-[see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
+
+
+ On October 7, 2026, AWS will discontinue support for Amazon Lookout for Equipment. After October 7, 2026, you will no longer be able to access the Lookout for Equipment console or resources. For more information, [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/). 
 
 # Python SDK examples
+<a name="SDK-examples"></a>
 
 ## Creating a schema from multiple .csv files
+<a name="sdk-schema-multiple-files"></a>
 
-###### Note
-
+**Note**  
 If you use the console to ingest your data, Lookout for Equipment can detect your schema for you, according to the way you organize your files.
 
-If you've uploaded multiple .csv files, with each sensor having its own .csv file, you
-would use the following schema to create a dataset from those files.
+If you've uploaded multiple .csv files, with each sensor having its own .csv file, you would use the following schema to create a dataset from those files. 
 
-In the following schema, `Components` refers to a collection of identifiers
-for the .csv files of your sensors. The `ComponentName` is the portion of a
-prefix of an Amazon S3 object key that identifies a .csv file.
+In the following schema, `Components` refers to a collection of identifiers for the .csv files of your sensors. The `ComponentName` is the portion of a prefix of an Amazon S3 object key that identifies a .csv file.
 
-For example, `"ComponentName": "Sensor2"` could acccess
-`s3://amzn-s3-demo-bucket/`AssetName`/`Sensor2`/`Sensor2`.csv`.
+For example, `"ComponentName": "Sensor2"` could acccess `s3://amzn-s3-demo-bucket/{{AssetName}}/{{Sensor2}}/{{Sensor2}}.csv`.
 
-You define a `Columns` object for each `ComponentName` that you
-define in the schema. The Name fields in the `Columns` object must match the
-columns in your .csv files.
+You define a `Columns` object for each `ComponentName` that you define in the schema. The Name fields in the `Columns` object must match the columns in your .csv files.
 
-Within each `Columns` object, the `Name` fields that reference
-the columns containing the timestamp data must have the Type field specified as
-`DATETIME`. The Name fields that reference your sensor data must have a
-Type of `DOUBLE`.
+Within each `Columns` object, the `Name` fields that reference the columns containing the timestamp data must have the Type field specified as `DATETIME`. The Name fields that reference your sensor data must have a Type of `DOUBLE`.
 
-You can use the following example code with the AWS SDK for Python (Boto3) to create
-a dataset.
+You can use the following example code with the AWS SDK for Python (Boto3) to create a dataset.
 
 ```
-
 import boto3
 import json
 import pprint
@@ -43,7 +31,7 @@ from botocore.config import Config
 
 
 config = Config(
-    region_name = `Region`, #Choose a valid AWS Region
+    region_name = {{Region}}, #Choose a valid AWS Region
     signature_version = 'v4'
 )
 
@@ -105,34 +93,21 @@ dataset_schema = {
         }
     ]
 }
-
-
 ```
 
 ## Creating a schema from a single .csv file
+<a name="sdk-schema-single-file"></a>
 
-###### Note
-
+**Note**  
 If you use the console to ingest your data, Lookout for Equipment can detect your schema for you, according to the way you organize your files.
 
-If you've uploaded one .csv file containing all of the sensor data for the asset, you
-would use the schema in the code below to create a dataset from that file.
+If you've uploaded one .csv file containing all of the sensor data for the asset, you would use the schema in the code below to create a dataset from that file.
 
-The
-`ComponentName` is the portion of the prefix of the Amazon S3 object key that identifies the
-.csv file containing the sensor data for your asset. When you specify the value of
-`ComponentName` as A`ssetName`, you access
-`s3://amzn-s3-demo-bucket/`FacilityName`/`AssetName`/`AssetName`.csv`. You enter the columns of your
-dataset in the Columns object. The name of each column in your .csv file must match the Name
-in the schema. For the column containing the time stamp data, you must specify the value of
-`Type` as `DATETIME` in the schema. For the columns containing data from sensors, you must
-specify the value of `Type` as `DOUBLE`.
+The `ComponentName` is the portion of the prefix of the Amazon S3 object key that identifies the .csv file containing the sensor data for your asset. When you specify the value of `ComponentName` as A`ssetName`, you access `s3://amzn-s3-demo-bucket/{{FacilityName}}/{{AssetName}}/{{AssetName}}.csv`. You enter the columns of your dataset in the Columns object. The name of each column in your .csv file must match the Name in the schema. For the column containing the time stamp data, you must specify the value of `Type` as `DATETIME` in the schema. For the columns containing data from sensors, you must specify the value of `Type` as `DOUBLE`.
 
-You can use the following example code with the AWS SDK for Python (Boto3) to create
-a dataset.
+You can use the following example code with the AWS SDK for Python (Boto3) to create a dataset.
 
 ```
-
 import boto3
 import json
 import pprint
@@ -140,7 +115,7 @@ from botocore.config import Config
 
 
 config = Config(
-    region_name = `'Region'`, # Choose a valid AWS Region
+    region_name = {{'Region'}}, # Choose a valid AWS Region
     signature_version = 'v4'
 )
 
@@ -176,7 +151,7 @@ dataset_schema = {
   ]
 }
 
-dataset_name = `"dataset-name"`
+dataset_name = {{"dataset-name"}}
 data_schema = {
     'InlineDataSchema': json.dumps(dataset_schema),
 }
@@ -185,27 +160,24 @@ create_dataset_response = lookoutequipment.create_dataset(DatasetName=dataset_na
 
 pp = pprint.PrettyPrinter(depth=4)
 pp.pprint(create_dataset_response)
-
-
 ```
 
 ## Adding a dataset to your project
+<a name="ingest-sensor-py-sdk"></a>
 
-###### Note
-
-You can also add a dataset to your project [using the console](ingest-dataset.md "ingest-dataset.md").
+**Note**  
+You can also add a dataset to your project [using the console](ingest-dataset.md).
 
 Use the following AWS SDK for Python (Boto3) example code to tell Lookout for Equipment to ingest your dataset.
 
 ```
-
 import boto3
 import time
 from botocore.config import Config
 
 
 config = Config(
-region_name = `'Region'` #Choose a valid AWS Region
+region_name = {{'Region'}} #Choose a valid AWS Region
 	signature_version = 'v4'
 	)
 
@@ -247,25 +219,17 @@ region_name = `'Region'` #Choose a valid AWS Region
 	data_ingestion_status = describe_data_ingestion_job_response['Status']
 	print("Data Ingestion Status: " + data_ingestion_status)
 	print("\n=====End of Polling Data Ingestion Status=====")
-
-
 ```
 
 ## Viewing a model
+<a name="view-model-sdk"></a>
 
-###### Note
+**Note**  
+You can also view and evaluate a model [in the console](view-model.md).
 
-You can also view and evaluate a model [in the console](view-model.md "view-model.md").
-
-Use the following example AWS SDK for Python (Boto3) code to list the models that you've trained,
-to query a model's metadata, and to delete a model that you no longer want to use. If
-you've used label data when you created a dataset, you can also use this code to see how
-well the model performed. To run this code successfully, you must use the SDK for Python code
-in [Training your model](create-model.md "create-model.md") before you run the code
-shown here.
+Use the following example AWS SDK for Python (Boto3) code to list the models that you've trained, to query a model's metadata, and to delete a model that you no longer want to use. If you've used label data when you created a dataset, you can also use this code to see how well the model performed. To run this code successfully, you must use the SDK for Python code in [Training your model](create-model.md) before you run the code shown here.
 
 ```
-
 import boto3
 import json
 import pprint
@@ -273,7 +237,7 @@ import time
 from datetime import datetime
 from botocore.config import Config
 ​
-config = Config(region_name = `'Region'`)
+config = Config(region_name = {{'Region'}})
 ​
 lookoutequipment = boto3.client(service_name="lookoutequipment", config=config)
 ​
@@ -289,7 +253,7 @@ if MODEL_NAME_PREFIX is not None:
 if DATASET_NAME_FOR_LIST_MODELS is not None:
     list_models_request["DatasetNameBeginsWith"] = DATASET_NAME_PREFIX
 ​
-
+    
 pp = pprint.PrettyPrinter(depth=5)
 print("=====Model Summaries=====\n")
 has_more_records = True
@@ -334,7 +298,7 @@ else:
 ​
 # Delete a model
 MODEL_NAME_TO_DELETE = MODEL_NAME
-
+                
 model_name_to_delete = MODEL_NAME_TO_DELETE
 ​
 delete_model_response = lookoutequipment.delete_model(
@@ -345,24 +309,19 @@ print("=====DeleteModel Response=====\n")
 pp = pprint.PrettyPrinter(depth=5)
 pp.pprint(delete_model_response)
 print("\n=====End of DeleteModel Response=====\n")
-
 ```
 
 ## Managing your datasets
+<a name="manage-sdk"></a>
 
-###### Note
+**Note**  
+You can also manage your datasets [in the console](understanding-ingestion-validation.md).
 
-You can also manage your datasets [in the console](understanding-ingestion-validation.md "understanding-ingestion-validation.md").
+Use the following AWS SDK for Python (Boto3) example code to manage your datasets. It will show you how to list all your datasets, get information about a dataset, and delete a dataset. You must have the modules installed from code examples that showed you how to create a dataset to successfully use the following code.
 
-Use the following AWS SDK for Python (Boto3) example code to manage your datasets. It will show you
-how to list all your datasets, get information about a dataset, and delete a dataset.
-You must have the modules installed from code examples that showed you how to create a
-dataset to successfully use the following code.
-
-To run the following code, you must first run the example code in either [Creating a schema from a single .csv file](#sdk-schema-single-file "#sdk-schema-single-file") or [Creating a schema from multiple .csv files](#sdk-schema-multiple-files "#sdk-schema-multiple-files").
+To run the following code, you must first run the example code in either [Creating a schema from a single .csv file](#sdk-schema-single-file) or [Creating a schema from multiple .csv files](#sdk-schema-multiple-files).
 
 ```
-
 import boto3
 import json
 import pprint
@@ -370,13 +329,13 @@ from botocore.config import Config
 
 
 config = Config(
-    region_name = `'Region'` # Choose a valid AWS Region
+    region_name = {{'Region'}} # Choose a valid AWS Region
 )
 
 lookoutequipment = boto3.client(service_name="lookoutequipment", config=config)
 
-# Specify a value for the prefixes that your dataset uses to list the
-DATASET_NAME_PREFIX = `"dataset-name"`
+# Specify a value for the prefixes that your dataset uses to list the 
+DATASET_NAME_PREFIX = {{"dataset-name"}}
 kargs = {"MaxResults": 50}
 if DATASET_NAME_PREFIX is not None:
     kargs["DatasetNameBeginsWith"] = DATASET_NAME_PREFIX
@@ -423,20 +382,17 @@ print("=====Dataset Delete Response=====\n")
 pp = pprint.PrettyPrinter(depth=5)
 pp.pprint(delete_dataset_response)
 print("\n=====End of Response=====\n")
-
-
 ```
 
 ## Training a model
+<a name="create-model-sdk"></a>
 
-###### Note
-
-You can also train a model [with the console](create-model.md "create-model.md").
+**Note**  
+You can also train a model [with the console](create-model.md).
 
 The following example code uses the AWS SDK for Python (Boto3) to train a model.
 
 ```
-
 import boto3
 import json
 import pprint
@@ -445,7 +401,7 @@ from datetime import datetime
 from botocore.config import Config
 ​
 ​
-config = Config(region_name = `'Region'`)
+config = Config(region_name = {{'Region'}})
 ​
 lookoutequipment = boto3.client(service_name="lookoutequipment", config=config)
 ​
@@ -535,20 +491,17 @@ describe_model_response = lookoutequipment.describe_model(ModelName=model_name)
 model_status = describe_model_response['Status']
 print("Model Status: " + model_status)
 print("\n=====End of Polling Model Status=====")
-
 ```
 
 ## Schedule inference
+<a name="inference-sdk"></a>
 
-###### Note
+**Note**  
+You can also schedule inference [with the console](inference.md).
 
-You can also schedule inference [with the console](inference.md "inference.md").
-
-The following example code uses the AWS SDK for Python (Boto3) to schedule an inference for your
-asset.
+The following example code uses the AWS SDK for Python (Boto3) to schedule an inference for your asset.
 
 ```
-
 import boto3
 import json
 import pprint
@@ -556,7 +509,7 @@ import time
 from datetime import datetime
 from botocore.config import Config
 ​
-config = Config(region_name = `'Region'`)
+config = Config(region_name = {{'Region'}})
 ​
 lookoutequipment = boto3.client(service_name="lookoutequipment", config=config)
 ​
@@ -585,10 +538,10 @@ COMPONENT_TIMESTAMP_DELIMITER = None
 ​
 TIMESTAMP_FORMAT = None
 ​
-# Create an inference scheduler.
+# Create an inference scheduler. 
 scheduler_name = INFERENCE_SCHEDULER_NAME
 model_name = MODEL_NAME_FOR_CREATING_INFERENCE_SCHEDULER
-INFERENCE_DATA_SOURCE_BUCKET = 'data-source-bucket'
+INFERENCE_DATA_SOURCE_BUCKET = 'data-source-bucket' 
 ​
 INFERENCE_DATA_SOURCE_PREFIX = 'data-source-prefix'
 ​
@@ -598,7 +551,7 @@ INFERENCE_DATA_OUTPUT_PREFIX = 'data-output-prefix'
 ​
 ROLE_ARN_FOR_INFERENCE = ROLE_ARN
 ​
-DATA_UPLOAD_FREQUENCY = 'data-upload-frequency'
+DATA_UPLOAD_FREQUENCY = 'data-upload-frequency' 
 ​
 create_inference_scheduler_request = {
     'ModelName': model_name,
@@ -662,16 +615,14 @@ while scheduler_status == 'PENDING':
     scheduler_status = describe_scheduler_response['Status']
     print("Scheduler Status: " + scheduler_status)
 print("\n=====End of Polling Inference Scheduler Status=====")
-
 ```
 
 ## Schedule inference (AWS SDK for Python (Boto3))
+<a name="inference-sdk"></a>
 
-The following example code uses the AWS SDK for Python (Boto3) to schedule an inference for
-your asset.
+The following example code uses the AWS SDK for Python (Boto3) to schedule an inference for your asset.
 
 ```
-
 import boto3
 import json
 import pprint
@@ -679,7 +630,7 @@ import time
 from datetime import datetime
 from botocore.config import Config
 ​
-config = Config(region_name = `'Region'`)
+config = Config(region_name = {{'Region'}})
 ​
 lookoutequipment = boto3.client(service_name="lookoutequipment", config=config)
 ​
@@ -710,10 +661,10 @@ COMPONENT_TIMESTAMP_DELIMITER = None
 ​
 TIMESTAMP_FORMAT = None
 ​
-# Create an inference scheduler.
+# Create an inference scheduler. 
 scheduler_name = INFERENCE_SCHEDULER_NAME
 model_name = MODEL_NAME_FOR_CREATING_INFERENCE_SCHEDULER
-INFERENCE_DATA_SOURCE_BUCKET = 'data-source-bucket'
+INFERENCE_DATA_SOURCE_BUCKET = 'data-source-bucket' 
 ​
 INFERENCE_DATA_SOURCE_PREFIX = 'data-source-prefix'
 ​
@@ -723,7 +674,7 @@ INFERENCE_DATA_OUTPUT_PREFIX = 'data-output-prefix'
 ​
 ROLE_ARN_FOR_INFERENCE = ROLE_ARN
 ​
-DATA_UPLOAD_FREQUENCY = 'data-upload-frequency'
+DATA_UPLOAD_FREQUENCY = 'data-upload-frequency' 
 ​
 create_inference_scheduler_request = {
     'ModelName': model_name,
@@ -787,5 +738,4 @@ while scheduler_status == 'PENDING':
     scheduler_status = describe_scheduler_response['Status']
     print("Scheduler Status: " + scheduler_status)
 print("\n=====End of Polling Inference Scheduler Status=====")
-
 ```
