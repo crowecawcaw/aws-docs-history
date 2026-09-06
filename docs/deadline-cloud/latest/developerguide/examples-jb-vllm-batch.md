@@ -1,7 +1,7 @@
 # Run batch LLM inference with vLLM on Deadline Cloud
 
 The
-[vllm\_batch job bundle on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch")
+[vllm\_batch job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch") on the GitHub website
 runs high-throughput large language model (LLM) inference on a JSONL
 file of prompts using
 vLLM. The job fans out across a GPU fleet, every prompt gets an LLM

@@ -18,8 +18,8 @@ profile to queue `Q1` has the path mapping rules:
   `["FSCommon", "FS1"]`.
 
 You can confirm the path mapping rules available to jobs submitted with a particular
-storage profile by submitting a job that prints out [Open Job Description's path mapping rules file](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping"), and then reading the session log
-after the job has completed:
+storage profile by submitting a job that prints out the path mapping rules file, and then reading the session log
+after the job has completed. For more information about the file format, see [Path mapping](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping") on the GitHub website.
 
 ```
 # Change the value of FARM_ID to your farm's identifier
@@ -52,10 +52,10 @@ aws deadline create-job --farm-id $FARM_ID --queue-id $QUEUE1_ID \
   }'
 ```
 
-If you use the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") to
-submit jobs, its configuration `settings.storage_profile_id` setting sets the
-storage profile that jobs submitted with the CLI will have. To submit jobs with the
-`WSAll` storage profile, set:
+If you use the Deadline Cloud CLI to submit jobs, its configuration
+`settings.storage_profile_id` setting sets the storage profile that jobs
+submitted with the CLI will have. The CLI is available from [PyPI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") on the PyPI website. To submit jobs
+with the `WSAll` storage profile, set:
 
 ```
 deadline config set settings.storage_profile_id $WSALL_ID

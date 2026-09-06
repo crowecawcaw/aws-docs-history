@@ -1,13 +1,13 @@
 # Monitor a Deadline Cloud customer-managed fleet health check with CloudFormation
 
-The
-[cmf\_templates](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates")
-directory in the samples repository includes a
+The cmf\_templates directory includes a
 `deadline-fleet-health-check.yaml` CloudFormation template that sets up
 continuous health check monitoring for a single Deadline Cloud customer-managed
 fleet with auto scaling. The template creates a Lambda function, an
-EventBridge rule, and a CloudWatch alarm that you can configure with an
-SNS topic.
+EventBridge rule, and a CloudWatch alarm that you can configure with an SNS topic.
+For more information, see
+[cmf\_templates](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates")
+on the GitHub website.
 
 To deploy the template, you need:
 

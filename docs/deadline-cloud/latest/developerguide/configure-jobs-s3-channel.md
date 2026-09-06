@@ -1,13 +1,13 @@
 # Create a conda channel using S3
 
 If your jobs need to run applications not available on the
-[`deadline-cloud`](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment") or [`conda-forge`](https://conda-forge.org/ "https://conda-forge.org/") channels, you can
-host a custom conda channel to serve your own packages. When you create a
+[`deadline-cloud`](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment") channel or the [`conda-forge`](https://conda-forge.org/ "https://conda-forge.org/") channel on the
+conda-forge website, you can host a custom conda channel to serve your own
+packages. When you create a
 queue in the AWS Deadline Cloud (Deadline Cloud) console, the console adds a
-conda queue environment by default. To make your packages available to jobs, add
-the custom channel to the queue environment.
+conda queue environment by default. To make your packages available to jobs, add the custom channel to the queue environment.
 
-A conda channel is static hosted content that you can host in [a variety of ways](https://rattler-build.prefix.dev/latest/publish/ "https://rattler-build.prefix.dev/latest/publish/"), including on a filesystem or in an Amazon Simple Storage Service (Amazon S3) bucket. If
+A conda channel is static hosted content that you can host in [a variety of ways](https://rattler-build.prefix.dev/latest/publish/ "https://rattler-build.prefix.dev/latest/publish/") on the prefix.dev website, including on a filesystem or in an Amazon Simple Storage Service (Amazon S3) bucket. If
 your Deadline Cloud farm uses a shared filesystem for assets, you can use any path on it as a
 channel name. You can host the channel in an Amazon S3
 bucket for broader access using AWS Identity and Access Management (IAM) permissions.
@@ -111,4 +111,5 @@ is first in the channel list. If a specified package version is not found in the
 channel then subsequent channels will be checked in order for the package version.
 
 For customer-managed fleets, you can enable the use of conda packages by using one of
-the [conda queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md") in the Deadline Cloud samples GitHub repository.
+the conda queue environment samples in the Deadline Cloud samples repository. For more information,
+see the [conda queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md") on the GitHub website.

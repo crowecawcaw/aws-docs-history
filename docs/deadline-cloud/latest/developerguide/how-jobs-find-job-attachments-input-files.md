@@ -1,9 +1,10 @@
 # How jobs find job attachment input files
 
 For a job to use the files that Deadline Cloud uploads to Amazon S3 using job attachments, your job
-needs those files available through the file system on the worker hosts. When a [session](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions") for your job runs on a worker host, Deadline Cloud downloads the input files for
-the job into a temporary directory on the worker host's local drive and adds path mapping
-rules for each of the job's root paths to its file system location on the local drive.
+needs those files available through the file system on the worker hosts. When a session for your job runs on a worker host, Deadline Cloud downloads the input
+files for the job into a temporary directory on the worker host's local drive and
+adds path mapping rules for each of the job's root paths to its file system
+location on the local drive. For more information about sessions, see [How jobs are run](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions") on the GitHub website.
 
 For this example, start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any
 previously submitted jobs finish running, and then delete the job logs from the logs

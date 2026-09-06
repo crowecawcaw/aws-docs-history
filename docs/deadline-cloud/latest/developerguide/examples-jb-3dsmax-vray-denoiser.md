@@ -2,7 +2,7 @@
 
 The
 [3dsmax\_vray\_denoiser](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser")
-job bundle renders 3ds Max scenes with V-Ray and converts the output from
+job bundle on the GitHub website renders 3ds Max scenes with V-Ray and converts the output from
 V-Ray's native VRIMG format to EXR while preserving denoising data. The
 bundle includes the following features:
 
@@ -17,9 +17,9 @@ bundle includes the following features:
   To run this bundle, you need 3ds Max 2025 and V-Ray for 3ds Max 2025
   installed on Windows worker hosts. You can use the
   [3ds
-  Max host configuration scripts](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax") in the samples repository to install
-  3ds Max and V-Ray on a Windows service-managed fleet. For more information,
-  see [Install Autodesk 3ds Max on Deadline Cloud Windows workers](examples-host-config-3dsmax.md "examples-host-config-3dsmax.md").
+  Max host configuration scripts](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax") on the GitHub website to install 3ds
+  Max and V-Ray on a Windows service-managed fleet. For more information, see
+  [Install Autodesk 3ds Max on Deadline Cloud Windows workers](examples-host-config-3dsmax.md "examples-host-config-3dsmax.md").
 
 Before submitting the job, configure your scene to save raw VRIMG output
 to a local worker path (for example, `C:\Temp\output.vrimg`) and

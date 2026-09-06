@@ -2,7 +2,7 @@
 
 The
 [afterfx\_render\_one\_task](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/afterfx_render_one_task "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/afterfx_render_one_task")
-job bundle uses `aerender` to render an After Effects frame
+job bundle on the GitHub website uses `aerender` to render an After Effects frame
 range as a single task. The entire workload runs on one worker as one
 command. The bundle accepts the following job parameters:
 
@@ -19,9 +19,9 @@ command. The bundle accepts the following job parameters:
 To run this bundle, you need After Effects installed on Windows worker
 hosts. You can use the
 [After
-Effects host configuration script](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects") in the samples repository to
+Effects host configuration script](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects") on the GitHub website to
 install After Effects with Red Giant plugins on a Windows service-managed
 fleet. The
 [aftereffects-25.1
-conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-25.1 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-25.1") builds an After Effects conda package as an
-alternative.
+conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-25.1 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-25.1") on the GitHub website builds an After Effects conda
+package as an alternative.

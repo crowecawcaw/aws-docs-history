@@ -6,7 +6,7 @@ resources to help agents understand Deadline Cloud.
 
 An AI agent is a software tool that uses a large language model (LLM) to perform tasks
 autonomously. AI agents can read and write files, run commands, and iterate on solutions based
-on feedback. Examples include command-line tools like [Kiro](https://kiro.dev "https://kiro.dev")
+on feedback. Examples include command-line tools like [Kiro](https://kiro.dev "https://kiro.dev") on the Kiro website
 and IDE-integrated assistants.
 
 **Key points for working with AI agents**
@@ -38,7 +38,7 @@ Deadline Cloud.
   should avoid.
   **Resources for agent context**
 
-The following resources help AI agents understand Deadline Cloud concepts and produce accurate
+The following resources on the GitHub website help AI agents understand Deadline Cloud concepts and produce accurate
 output.
 
 - **Deadline Cloud Model Context Protocol (MCP) server** – For agents that support the
@@ -49,7 +49,7 @@ output.
   Documentation MCP server](https://github.com/awslabs/mcp/tree/main/src/aws-documentation-mcp-server "https://github.com/awslabs/mcp/tree/main/src/aws-documentation-mcp-server") to give the agent direct access to AWS documentation,
   including the Deadline Cloud User Guide and Developer Guide.
 - **Open Job Description specification** – The [Open Job Description
-  specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") on GitHub defines the schema for job templates. Reference this
+  specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") defines the schema for job templates. Reference the
   repository when agents need to understand the structure and syntax of job
   templates.
 - **deadline-cloud-samples** – The [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")

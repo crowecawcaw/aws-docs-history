@@ -8,8 +8,9 @@ use the fully managed Deadline Cloud platform while integrating with your existi
 
 ###### Tip
 
-For a reference CloudFormation template that sets up an Amazon FSx cluster and connects it to a service-managed fleet,
-see [smf\_vpc\_fsx](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx") in the Deadline Cloud samples repository on GitHub.
+For a reference CloudFormation template that sets up an Amazon FSx cluster and
+connects it to a service-managed fleet, see [smf\_vpc\_fsx](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx")
+in the Deadline Cloud samples repository on the GitHub website.
 
 ## How VPC resource endpoints work
 
@@ -91,6 +92,7 @@ If you encounter issues with VPC resource endpoints, check the following.
 - If you receive an error message such as "mount.nfs: access denied by server while mounting,"
   you might need to update the client configuration of your NFS volume.
 - Verify your resource configuration setup by testing from an Amazon EC2 instance or AWS CloudShell in your VPC.
-- Test your Deadline Cloud connection with simple CLI jobs. For more information, see [Deadline Cloud samples on GitHub](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
+- Test your Deadline Cloud connection with simple CLI jobs. For more
+  information, see [Deadline Cloud samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website.
 - Check the settings on the resource gateway's security group if you experience connection failures.
 - Enable VPC access logs to monitor connections.

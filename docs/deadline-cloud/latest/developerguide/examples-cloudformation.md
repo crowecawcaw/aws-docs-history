@@ -1,10 +1,11 @@
 # CloudFormation template examples for Deadline Cloud
 
-The
-[cloudformation](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation")
-directory in the deadline-cloud-samples repository contains CloudFormation templates
+The deadline-cloud-samples repository contains CloudFormation templates
 that deploy Deadline Cloud farms and supporting infrastructure. Use these templates
-as a starting point and adapt them to your environment.
+as a starting point and adapt them to your environment. For the templates,
+see the
+[cloudformation](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation")
+directory on the GitHub website.
 
 To compare CloudFormation with the AWS CDK and Terraform for managing Deadline Cloud
 infrastructure, see [Manage Deadline Cloud infrastructure as code](infrastructure-as-code.md "infrastructure-as-code.md").

@@ -4,7 +4,7 @@ This tutorial walks you through fine-tuning a Hugging Face causal
 language model with Low-Rank Adaptation (LoRA) or Quantized Low-Rank
 Adaptation (QLoRA) on a custom instruction dataset. You
 submit the
-[Hugging Face LoRA fine-tuning job bundle on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora")
+[Hugging Face LoRA fine-tuning job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora") on the GitHub website
 to a GPU fleet on your Deadline Cloud farm.
 
 LoRA trains a small adapter on top of a frozen base model instead
@@ -13,11 +13,13 @@ holding the base model in 4-bit quantized form, which roughly halves
 the GPU memory needed and lets larger models fit on smaller
 GPUs.
 
-The bundle uses
-[the Hugging Face transformers library](https://github.com/huggingface/transformers "https://github.com/huggingface/transformers"),
-[the PEFT parameter-efficient fine-tuning library](https://github.com/huggingface/peft "https://github.com/huggingface/peft"), and
-[the bitsandbytes quantization library](https://github.com/TimDettmers/bitsandbytes "https://github.com/TimDettmers/bitsandbytes")
-to perform parameter-efficient fine-tuning. The output is a small LoRA
+To perform parameter-efficient fine-tuning, the bundle uses the
+[Hugging Face transformers library](https://github.com/huggingface/transformers "https://github.com/huggingface/transformers"),
+the
+[PEFT parameter-efficient fine-tuning library](https://github.com/huggingface/peft "https://github.com/huggingface/peft"), and
+the
+[bitsandbytes quantization library](https://github.com/TimDettmers/bitsandbytes "https://github.com/TimDettmers/bitsandbytes")
+on the GitHub website. The output is a small LoRA
 adapter (approximately 50–200 MB). Load it on top of the base
 model to change how the model behaves. Use it to teach the model a
 writing style, a domain expertise, a specific output format, or some
@@ -53,9 +55,9 @@ To complete this tutorial, follow these steps:
 
 Before you begin, you need the following:
 
-- The
-  [Deadline Cloud CLI on GitHub](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud")
-  installed.
+- The Deadline Cloud CLI installed on your workstation. For installation
+  instructions, see the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud")
+  repository on the GitHub website.
 - A dataset in JSONL format, either in a local folder or
   uploaded to an Amazon S3 bucket the queue role can read.
 - (Optional) A Hugging Face token, only needed if you repoint
@@ -123,11 +125,11 @@ The bundle accepts data in two forms:
   `s3:GetObject` permission on the dataset.
 
 The dataset format is compatible with many public Hugging Face
-datasets, including
-[the tatsu-lab/alpaca dataset on Hugging Face](https://huggingface.co/datasets/tatsu-lab/alpaca "https://huggingface.co/datasets/tatsu-lab/alpaca")
+datasets. For example, see
+[the tatsu-lab/alpaca dataset](https://huggingface.co/datasets/tatsu-lab/alpaca "https://huggingface.co/datasets/tatsu-lab/alpaca")
 and
-[the databricks-dolly-15k dataset on Hugging Face](https://huggingface.co/datasets/databricks/databricks-dolly-15k "https://huggingface.co/datasets/databricks/databricks-dolly-15k"),
-which uses `instruction` + `response` fields
+[the databricks-dolly-15k dataset](https://huggingface.co/datasets/databricks/databricks-dolly-15k "https://huggingface.co/datasets/databricks/databricks-dolly-15k")
+on the Hugging Face website. The databricks-dolly-15k dataset uses `instruction` + `response` fields
 (set `ResponseColumn=response`).
 
 ## Grant the queue role access to your dataset bucket
@@ -217,7 +219,7 @@ deadline bundle submit /path/to/hf_finetune_lora \
 
 For the full list of parameters, including LoRA rank, learning
 rate, batch size, and sequence length, see
-[the key parameters table in the sample README on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora#key-parameters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora#key-parameters").
+[the key parameters table in the sample README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora#key-parameters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora#key-parameters") on the GitHub website.
 
 To wait for the job to complete, run the following command:
 
@@ -270,7 +272,7 @@ python3 inference/gradio_chat.py --adapter-path `/path/to/downloaded/my-adapter`
 
 For details on both tools and on loading the adapter
 programmatically with PEFT, see
-[the inference tools README on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora/inference "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora/inference").
+[the inference tools README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora/inference "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora/inference") on the GitHub website.
 
 ## Tips
 
@@ -325,9 +327,11 @@ aws iam delete-role-policy \
 
 ## Related resources
 
-The following resources provide additional information:
+The following resources cover the sample bundle, the libraries it uses,
+and the LoRA method itself, on the GitHub website, the Hugging Face website,
+and the arXiv website:
 
-- [Sample source code on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora")
+- [Sample source code](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora")
 - [Hugging Face PEFT documentation](https://huggingface.co/docs/peft "https://huggingface.co/docs/peft")
 - [QLoRA paper (Dettmers et al., 2023)](https://arxiv.org/abs/2305.14314 "https://arxiv.org/abs/2305.14314")
 - [LoRA paper (Hu et al., 2021)](https://arxiv.org/abs/2106.09685 "https://arxiv.org/abs/2106.09685")

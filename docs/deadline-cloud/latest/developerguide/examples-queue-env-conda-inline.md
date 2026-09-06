@@ -1,7 +1,7 @@
 # Inline conda queue environments for Deadline Cloud customer-managed fleets
 
-The samples repository includes the following inline conda queue
-environments that run conda directly instead of using the
+The samples repository on the GitHub website includes the following
+inline conda queue environments that run conda directly instead of using the
 `conda-queue-env-enter` command:
 
 [conda\_queue\_env\_inline.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline.yaml")
@@ -32,5 +32,5 @@ conda on the worker hosts (for example, in your AMI) and configure
 `conda activate` to work in non-interactive bash shells. The
 samples
 [README](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md")
-includes example setup scripts for Amazon Linux 2023, Ubuntu, and
-Windows.
+on the GitHub website includes example setup scripts for Amazon Linux 2023,
+Ubuntu, and Windows.

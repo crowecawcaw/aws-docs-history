@@ -1,13 +1,14 @@
 # Manage hybrid Wait and Save plus Spot fleet capacity with CloudFormation
 
-The
+The smf\_capacity\_manager CloudFormation template implements automated capacity
+management for hybrid fleet setups that combine Wait and Save and Spot
+fleets. The template uses Lambda and EventBridge Scheduler to dynamically balance
+fleet sizes while maintaining a constant total capacity. The capacity
+manager monitors the Wait and Save fleet's active worker count and
+automatically adjusts the Spot fleet's maximum worker count to cover any
+deficit. For the template source, see
 [smf\_capacity\_manager](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_capacity_manager "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_capacity_manager")
-CloudFormation template implements automated capacity management for hybrid fleet
-setups that combine Wait and Save and Spot fleets. The template uses
-Lambda and EventBridge Scheduler to dynamically balance fleet sizes while
-maintaining a constant total capacity. The capacity manager monitors the
-Wait and Save fleet's active worker count and automatically adjusts the
-Spot fleet's maximum worker count to cover any deficit.
+on the GitHub website.
 
 For example, with a target maximum worker count of 20 workers:
 

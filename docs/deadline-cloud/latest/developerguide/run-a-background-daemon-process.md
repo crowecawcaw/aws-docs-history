@@ -8,9 +8,9 @@ communication (IPC) to perform the renders.
 
 Many of the open source Deadline Cloud integrations use this pattern. The Open Job Description
 project provides an [adaptor
-runtime library](https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python "https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python") with reliable IPC patterns on all supported operating systems.
+runtime library](https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python "https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python") on the GitHub website with reliable IPC patterns on all supported operating systems.
 
-To demonstrate this pattern, there is a [self-contained sample job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") that uses Python and bash code to implement a
+To demonstrate this pattern, there is a [self-contained sample job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") on the GitHub website that uses Python and bash code to implement a
 background daemon and the IPC for tasks to communicate with it. The daemon is implemented in
 Python, and listens for a POSIX SIGUSR1 signal for when to process a task. The task details
 are passed to the daemon in a specific JSON file, and the results of running the task are
@@ -18,7 +18,7 @@ returned as another JSON file.
 
 ## Prerequisites
 
-Perform the following steps to run the [sample job bundle with a daemon process](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") from the Deadline Cloud samples github repository.
+Perform the following steps to run the [sample job bundle with a daemon process](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") from the Deadline Cloud samples repository on the GitHub website.
 
 1. If you do not have a Deadline Cloud farm with a queue and associated Linux fleet, follow the
    guided onboarding experience in the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home") to
@@ -27,7 +27,7 @@ Perform the following steps to run the [sample job bundle with a daemon process]
    steps in [Set
    up Deadline Cloud submitters](../userguide/submitter.md "../userguide/submitter.md") from the user guide.
 3. Use `git` to clone the [Deadline Cloud samples GitHub
-   repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
+   repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website.
 
 ```
 git clone https://github.com/aws-deadline/deadline-cloud-samples.git
@@ -65,7 +65,7 @@ the rest of the tasks that ran as part of the session, and the `Shut down
 1. In this section you use the Deadline Cloud monitor to compare the session actions with where
    they are defined in the job template. It continues from the previous section.
 
-Open the file [job\_env\_daemon\_process/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") in a text editor. Compare the session
+Open the file [job\_env\_daemon\_process/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") from the Deadline Cloud samples repository on the GitHub website in a text editor. Compare the session
 actions to where they are defined in the job template. 2. Select the `Launch DaemonProcess` session action in Deadline Cloud monitor. You
 will see log output as follows.
 

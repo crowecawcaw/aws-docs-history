@@ -2,13 +2,14 @@
 
 The
 [license\_limits](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits")
-sample shows how to combine the Deadline Cloud
+sample on the GitHub website shows how to combine the Deadline Cloud
 [Limits](../userguide/deadline-cloud-limits.md "../userguide/deadline-cloud-limits.md")
-feature with a
-[submission
-hook](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md") to enforce a fixed number of concurrent licenses (for example,
-V-Ray licenses) across all job submissions, without requiring artists to
-configure anything manually.
+feature with a submission hook to enforce a fixed number of concurrent
+licenses (for example, V-Ray licenses) across all job submissions, without
+requiring artists to configure anything manually. For more information
+about submission hooks, see
+[submission-hooks.md](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md")
+on the GitHub website.
 
 The Deadline Cloud Limits feature throttles task scheduling so that no more
 than N tasks requiring a license run concurrently. For the limit to take

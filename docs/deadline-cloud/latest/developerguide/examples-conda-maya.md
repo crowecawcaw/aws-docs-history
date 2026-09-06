@@ -27,9 +27,8 @@ provides the `kick` standalone renderer, which the
 
 V-Ray for Maya renderer plugin. The `maya-vray-7.2`
 recipes package V-Ray 7.20.02 (Update 2 DR2) and require the V-Ray
-for Maya archive from
-[Chaos](https://www.chaos.com/vray/maya "https://www.chaos.com/vray/maya")
-(account required).
+for Maya archive from [V-Ray for
+Maya](https://www.chaos.com/vray/maya "https://www.chaos.com/vray/maya") on the Chaos website (account required).
 
 [maya-redshift-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2025"),
 [maya-redshift-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2026")
@@ -54,12 +53,13 @@ Maya 2026 uses `Autodesk_Maya_2026_ML_Linux_64bit.tgz`. Refer
 to each recipe's README for the expected filename.
 
 The Maya Windows installer requires Administrator permissions that
-aren't available in most conda package build environments. The
-[maya-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025")
-recipe README includes step-by-step instructions for installing Maya on a
-fresh EC2 Windows Server instance and creating a redistributable archive
-that you can upload to your private Amazon S3 bucket and reuse for other Maya
-recipes.
+aren't available in most conda package build environments. For
+step-by-step instructions on installing Maya on a fresh EC2 Windows
+Server instance and creating a redistributable archive that you can
+upload to your private Amazon S3 bucket and reuse for other Maya recipes, see
+the
+[maya-2025
+recipe README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025") on the GitHub website.
 
 Submit the build:
 
@@ -69,4 +69,4 @@ Submit the build:
 
 For details on the Maya packaging approach, see the
 [maya-2026
-recipe README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026").
+recipe README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026") on the GitHub website.

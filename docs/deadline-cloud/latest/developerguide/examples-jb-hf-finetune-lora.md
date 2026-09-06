@@ -1,14 +1,14 @@
 # Fine-tune Hugging Face LLMs with LoRA on Deadline Cloud
 
 The
-[hf\_finetune\_lora job bundle on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora")
-fine-tunes a Hugging Face causal language model with Low-Rank
-Adaptation (LoRA) or Quantized Low-Rank Adaptation (QLoRA)
-on a custom instruction dataset, using the transformers, PEFT, and
-bitsandbytes libraries. The output is a small LoRA adapter
-(approximately 50–200 MB) that you load on top of the base model
-to teach it a writing style, a domain expertise, a specific output
-format, or some proprietary knowledge.
+[hf\_finetune\_lora
+job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/hf_finetune_lora") on the GitHub website fine-tunes a Hugging Face causal
+language model with Low-Rank Adaptation (LoRA) or Quantized Low-Rank
+Adaptation (QLoRA) on a custom instruction dataset, using the
+transformers, PEFT, and bitsandbytes libraries. The output is a small
+LoRA adapter (approximately 50 to 200 MB) that you load on top of the
+base model to teach it a writing style, a domain expertise, a specific
+output format, or some proprietary knowledge.
 
 To run this bundle, you need a Deadline Cloud farm with a GPU-enabled queue
 (Linux fleet, NVIDIA GPU with 16 GB or more of video RAM (VRAM)) and a dataset in

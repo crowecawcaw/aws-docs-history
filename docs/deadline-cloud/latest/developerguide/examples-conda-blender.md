@@ -1,8 +1,9 @@
 # Build a Blender conda package for Deadline Cloud
 
-The samples repository includes conda recipes for the following Blender
-versions and add-ons. Each recipe builds for Linux 64-bit and Windows
-64-bit, and downloads source archives from the Blender Foundation:
+The samples repository on the GitHub website includes conda recipes for the
+following Blender versions and add-ons. Each recipe builds for Linux
+64-bit and Windows 64-bit, and downloads source archives from the Blender
+Foundation:
 
 - [blender-4.2](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2")
 - [blender-4.3](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.3 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.3")
@@ -21,7 +22,7 @@ versions and add-ons. Each recipe builds for Linux 64-bit and Windows
 
 For details on the Blender packaging approach, see the
 [blender-4.5
-recipe README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5"). To install Blender add-ons,
+recipe README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5") on the GitHub website. To install Blender add-ons,
 place the `.py` or `.zip` file in a known location
 inside `$INSTALL_DIR` and modify the activate script to install
 the add-on with Blender's Python.

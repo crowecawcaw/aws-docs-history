@@ -2,9 +2,11 @@
 
 The following job bundles supplement the
 [Control the job environment with OpenJD queue environments](control-the-job-environment.md "control-the-job-environment.md") section in the developer guide.
-Each bundle demonstrates a different way to use
+Each demonstrates a different way to use
 [Open
-Job Description environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment"):
+Job Description environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") on the GitHub website. The following
+bundles are in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
+repository on the GitHub website:
 
 [job\_env\_vars](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars")
 

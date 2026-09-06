@@ -2,7 +2,7 @@
 
 The
 [ayon-launcher](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/ayon-launcher "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/ayon-launcher")
-rattler-build recipe packages the
+rattler-build recipe on the GitHub website packages the
 [AYON Launcher](https://github.com/ynput/ayon-launcher "https://github.com/ynput/ayon-launcher")
 as a conda package. The package provides the pipeline runtime needed for
 headless publishing on Deadline Cloud workers. It repackages the pre-built AYON

@@ -3,7 +3,7 @@
 A job bundle groups an Open Job Description template with the files and
 metadata that AWS Deadline Cloud needs to run a job. The
 [job\_bundles](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles")
-directory in the deadline-cloud-samples repository provides ready-to-submit
+directory in the deadline-cloud-samples repository on the GitHub website provides ready-to-submit
 bundles that you can use as starting points for your own work.
 
 The following sections describe each example. Submit any example with the

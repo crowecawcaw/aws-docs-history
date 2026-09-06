@@ -1,11 +1,11 @@
 # Run batch LLM inference with vLLM
 
 This tutorial walks you through running high-throughput large
-language model (LLM) inference on a JSONL file of prompts using
-[the vLLM inference engine on GitHub](https://github.com/vllm-project/vllm "https://github.com/vllm-project/vllm").
+language model (LLM) inference on a JSONL file of prompts using the [vLLM inference engine](https://github.com/vllm-project/vllm "https://github.com/vllm-project/vllm") on the
+GitHub website.
 You submit the
-[vLLM batch inference job bundle on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch")
-with a file where every line is one prompt, pick a model, and the job
+[vLLM batch inference job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch")
+on the GitHub website with a file where every line is one prompt, pick a model, and the job
 fans out across a GPU fleet. Every prompt gets an LLM response, and an
 aggregate step packages everything into a JSONL file plus a
 self-contained HTML viewer you can open in any browser.
@@ -46,7 +46,8 @@ To complete this tutorial, follow these steps:
 ## Set up your farm
 
 The fastest way to get a compatible farm is to deploy the
-[CUDA farm CloudFormation template on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm").
+[CUDA farm CloudFormation template](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm")
+on the GitHub website.
 After the stack reaches `CREATE_COMPLETE`, configure the
 Deadline Cloud CLI to use the new farm:
 
@@ -120,8 +121,9 @@ Rather than fixing the chunk size, you can also let Deadline Cloud auto-tune
 it: set `TargetRuntimeSeconds` to how long you want each
 chunk to take (default 120 seconds), and the scheduler grows or
 shrinks the chunk size on future tasks to hit the target. For the
-full parameter list, see
-[the parameters table in the sample README on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch#parameters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch#parameters").
+full parameter list, see the
+[parameters table in the sample README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch#parameters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch#parameters")
+on the GitHub website.
 
 ## Download and view the results
 
@@ -174,10 +176,10 @@ for this tutorial:
 
 ## Related resources
 
-The following resources provide additional information:
+The following resources provide additional information on the GitHub website:
 
-- [Sample source code on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch")
+- [Sample source code](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch")
 - [Generate images in batch with a diffusion model](tutorial-text-to-image-batch.md "tutorial-text-to-image-batch.md")
 - [Task chunking for job templates](build-job-bundle-chunking.md "build-job-bundle-chunking.md")
 - [Benchmark LLMs with vLLM and lm-evaluation-harness](tutorial-vllm-leaderboard.md "tutorial-vllm-leaderboard.md")
-- [Open Job Description environments specification on GitHub](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment")
+- [Open Job Description environments specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment")

@@ -2,17 +2,16 @@
 
 The
 [vray\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render")
-job bundle creates a V-Ray rendering job for Deadline Cloud.
+job bundle on the GitHub website creates a V-Ray rendering job for Deadline Cloud.
 
 To run this bundle, you need:
 
-- A V-Ray conda package hosted on a conda channel. Use the
+- A V-Ray conda package hosted on a conda channel. For the recipe, see
   [V-Ray
-  conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray") in the samples repository to build the package.
-- A sample `.vrscene` file and its dependencies. The
-  [Chaos
-  ENVISION documentation samples](https://docs.chaos.com/display/ENVISION/Sample+Scenes "https://docs.chaos.com/display/ENVISION/Sample+Scenes") include `.vrscene`
-  files in Sample Scene 01.
+  conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray") on the GitHub website.
+- A sample `.vrscene` file and its dependencies. For sample scenes, see
+  [Sample Scenes](https://docs.chaos.com/display/ENVISION/Sample+Scenes "https://docs.chaos.com/display/ENVISION/Sample+Scenes") on the Chaos website. Sample Scene 01 in the ENVISION documentation includes `.vrscene`
+  files.
   Submit the bundle with the GUI submitter:
 
 ```
@@ -28,6 +27,6 @@ deadline bundle submit vray_render \
     -p InputAssetDir="$SAMPLE_DIR"/Building.data
 ```
 
-For all customization options, see the Chaos
+For all customization options, see
 [V-Ray
-Standalone Command Line Options](https://docs.chaos.com/display/VNS/V-Ray+Standalone+Command+Line+Options "https://docs.chaos.com/display/VNS/V-Ray+Standalone+Command+Line+Options") documentation.
+Standalone Command Line Options](https://docs.chaos.com/display/VNS/V-Ray+Standalone+Command+Line+Options "https://docs.chaos.com/display/VNS/V-Ray+Standalone+Command+Line+Options") on the Chaos website.

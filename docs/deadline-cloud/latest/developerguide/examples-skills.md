@@ -3,7 +3,7 @@
 For background on working with AI agents, see
 [Using AI agents with Deadline Cloud](ai-agents.md "ai-agents.md"). The
 [skills](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/skills "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/skills")
-directory provides the following Deadline Cloud AI agent skills
+directory on the GitHub website provides the following Deadline Cloud AI agent skills
 (`SKILL.md` files) that you can load into an agent so it
 follows a known-good procedure:
 
@@ -15,9 +15,9 @@ follows a known-good procedure:
   locally with `openjd run --tasks`, and submitting to a
   farm.
 - [conda-builder](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/skills/conda-builder "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/skills/conda-builder")
-  — Walks the agent through creating or updating a
-  [rattler-build](https://prefix-dev.github.io/rattler-build/ "https://prefix-dev.github.io/rattler-build/")
-  conda recipe for a DCC, mimicking the structure of existing recipes
+  — Walks the agent through creating or updating a conda recipe that
+  uses [rattler-build](https://prefix-dev.github.io/rattler-build/ "https://prefix-dev.github.io/rattler-build/")
+  on the prefix.dev website for a DCC, mimicking the structure of existing recipes
   in the samples repository. Recipes build inside an Amazon Linux 2023
   (AL2023) Docker container to match the GLIBC version on
   service-managed fleet workers, and the agent indexes the result

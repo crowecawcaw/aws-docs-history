@@ -1,11 +1,12 @@
 # Run an autonomous driving simulation sweep with CARLA
 
-This tutorial walks you through running a
-[CARLA](https://carla.org/ "https://carla.org/") autonomous driving
-simulation parameter sweep with configurable multi-sensor capture. You
-build a Docker image, push it to Amazon Elastic Container Registry (Amazon ECR), and submit the
-[autonomous driving CARLA job bundle on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla")
-to a GPU fleet on your Deadline Cloud farm.
+This tutorial walks you through running a CARLA autonomous driving
+simulation parameter sweep with configurable multi-sensor capture. [CARLA](https://carla.org/ "https://carla.org/") on the CARLA website is an
+open-source simulator. You
+build a Docker image, push it to Amazon Elastic Container Registry (Amazon ECR),
+and submit the
+[autonomous driving CARLA job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla")
+on the GitHub website to a GPU fleet on your Deadline Cloud farm.
 
 The job runs a lane-change cut-in scenario where an NPC vehicle
 starts behind the ego vehicle, accelerates to position itself 20 meters
@@ -51,14 +52,15 @@ Before you begin, complete the following setup:
 1. [Create an AWS account](https://aws.amazon.com/resources/create-account/ "https://aws.amazon.com/resources/create-account/") if you do not already have one, ensuring
    it has access to GPU instances (`g6.4xlarge`
    recommended).
-2. Install
-   [Docker](https://docs.docker.com/get-docker/ "https://docs.docker.com/get-docker/")
-   locally for building the CARLA image.
+2. Install Docker locally for building the CARLA image. For installation
+   instructions, see [Get
+   Docker](https://docs.docker.com/get-docker/ "https://docs.docker.com/get-docker/") on the Docker website.
 3. Create an
    [Amazon ECR](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/") repository
    in your account to host the built image.
-4. Install the
-   [Deadline Cloud CLI](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") locally.
+4. Install the Deadline Cloud CLI locally. For installation instructions, see
+   the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud")
+   repository on the GitHub website.
 
 ## Set up your farm
 
@@ -97,14 +99,14 @@ like the following:
 **Fleet host configuration** –
 Your fleet workers need Docker and the NVIDIA Container Toolkit. Attach
 the
-[Docker and NVIDIA Container Toolkit host configuration script on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit")
-to your fleet. For more information, see
+[Docker and NVIDIA Container Toolkit host configuration script](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit") on the GitHub website to your fleet. For more information, see
 [Run Docker containers with NVIDIA GPUs on Deadline Cloud workers](examples-host-config-docker-nvidia.md "examples-host-config-docker-nvidia.md").
 
 ## Build and push the Docker image
 
 The job runs inside a Docker container based on the
-[carlasim/carla:0.9.16 base image on Docker Hub](https://hub.docker.com/r/carlasim/carla "https://hub.docker.com/r/carlasim/carla").
+[carlasim/carla:0.9.16 base image](https://hub.docker.com/r/carlasim/carla "https://hub.docker.com/r/carlasim/carla")
+on the Docker website.
 The base CARLA image includes the simulator but lacks the Python
 environment, scenario runner, and sensor capture scripts needed for
 this job. The custom image layers on Python 3.10,
@@ -272,8 +274,8 @@ for this tutorial:
 
 The following resources provide additional information:
 
-- [Sample source code on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla")
-- [CARLA simulator](https://carla.org/ "https://carla.org/")
-- [Docker and NVIDIA Container Toolkit host configuration script on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit")
+- [Sample source code](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/autonomous_driving_carla") on the GitHub website
+- [CARLA simulator](https://carla.org/ "https://carla.org/") on the CARLA website
+- [Docker and NVIDIA Container Toolkit host configuration script](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/docker_nvidia_container_toolkit") on the GitHub website
 - [Run Docker containers with NVIDIA GPUs on Deadline Cloud workers](examples-host-config-docker-nvidia.md "examples-host-config-docker-nvidia.md")
 - [Open Job Description (OpenJD) templates for Deadline Cloud](build-job-bundle.md "build-job-bundle.md")

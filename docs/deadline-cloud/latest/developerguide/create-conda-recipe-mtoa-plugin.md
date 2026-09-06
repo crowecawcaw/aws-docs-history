@@ -1,13 +1,13 @@
 # Create a conda build recipe for Autodesk Maya to Arnold (MtoA) plugin
 
 The Maya to Arnold (MtoA) plugin adds the Arnold
-renderer as an option within Maya. The [MtoA sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026") demonstrates how to package a plugin as a separate conda
+renderer as an option within Maya. The [MtoA sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026") on the GitHub website demonstrates how to package a plugin as a separate conda
 package that integrates with the host application package.
 
 ## Understanding the recipe
 
-The [recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-mtoa-2026/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-mtoa-2026/recipe/recipe.yaml") specifies a dependency on the `maya` package for both
-build and run requirements. This dependency uses a version constraint so that the plugin
+The [recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-mtoa-2026/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-mtoa-2026/recipe/recipe.yaml") on the GitHub website specifies a dependency on the `maya` package for both
+build and run requirements. The dependency uses a version constraint so that the plugin
 is only installed with a compatible Maya version.
 
 The recipe uses the same source archives as the Maya recipe. The build

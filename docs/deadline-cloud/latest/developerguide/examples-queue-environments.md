@@ -2,16 +2,15 @@
 
 The
 [queue\_environments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments")
-directory in the deadline-cloud-samples repository includes queue
-environments that you can attach to a Deadline Cloud queue. Conda and Rez queue
+directory on the GitHub website includes queue environments that you can attach to a Deadline Cloud queue. Conda and Rez queue
 environments provide software to jobs so that each job only needs a
 parameter value for `CondaPackages` or
 `RezPackages` to specify the list of packages to use.
 
 Queue environments follow the
 [Open
-Job Description environment template specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas"). To attach a
-queue environment to your queue, see [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md").
+Job Description environment template specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas") on the GitHub website. To
+attach a queue environment to your queue, see [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md").
 For background on environments and how they affect your jobs, see
 [Control the job environment with OpenJD queue environments](control-the-job-environment.md "control-the-job-environment.md").
 

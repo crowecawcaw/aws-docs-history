@@ -16,7 +16,7 @@ settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/lat
 Before you publish packages to Amazon S3, complete the following prerequisites:
 
 - **pixi and rattler-build** – Install pixi from
-  [pixi.sh](https://pixi.sh "https://pixi.sh"), then install
+  [pixi.sh](https://pixi.sh "https://pixi.sh") on the Pixi website, then install
   `rattler-build`.
 
 ```
@@ -25,7 +25,8 @@ pixi global install rattler-build
 
 - **git** – Required to clone the samples
   repository. On Windows, [git for
-  Windows](https://gitforwindows.org/ "https://gitforwindows.org/") also provides a `bash` shell, which some of the Windows sample recipes require.
+  Windows](https://gitforwindows.org/ "https://gitforwindows.org/") on the Git for Windows website also provides a
+  `bash` shell, which some of the Windows sample recipes require.
 - **Amazon S3 bucket** – An Amazon S3 bucket to use as the
   conda channel. You can use the job attachments bucket from your Deadline Cloud farm or create a
   separate bucket.
@@ -52,8 +53,8 @@ package to your Amazon S3 conda channel. If the channel does not exist in the bu
 sure that you have completed the [prerequisites](#publish-s3-prereqs "#publish-s3-prereqs").
 
 The following example publishes the Blender 4.5 sample recipe from the
-[Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
-repository on GitHub. You can substitute a different recipe from the samples
+[deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
+repository on the GitHub website. You can substitute a different recipe from the samples
 repository or use your own recipe.
 
 ###### Note
@@ -100,7 +101,7 @@ such as `--build-number=7`. If you omit the option, `rattler-build`
 uses the build number defined in the `recipe.yaml` file.
 
 If your package recipe depends on packages from a particular channel, such as
-[conda-forge](https://conda-forge.org/ "https://conda-forge.org/"), add `-c
+[conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the conda-forge website, add `-c
  conda-forge` to the command.
 
 You can also publish a package file that you already built, for example, a
@@ -188,11 +189,11 @@ pixi add blender=4.5
 pixi run blender --version
 ```
 
-The [`pixi
- run`](https://pixi.sh/latest/reference/cli/pixi/run/ "https://pixi.sh/latest/reference/cli/pixi/run/") command activates the conda environment for the project directory
+The `pixi run` command activates the conda environment for the project directory
 and runs the specified command within it. The environment persists in the project
 directory, so you can use the same `pixi run` command from other
-terminals.
+terminals. For more information, see the [`pixi run`
+command](https://pixi.sh/latest/reference/cli/pixi/run/ "https://pixi.sh/latest/reference/cli/pixi/run/") on the Pixi website.
 
 ## Removing packages from the channel
 
@@ -251,8 +252,8 @@ rattler-build debug shell
 ```
 
 From the debug shell, you can modify files, run individual build commands, and add
-dependencies to isolate the issue. For more information, see [Debugging builds](https://rattler-build.prefix.dev/latest/debugging_builds/ "https://rattler-build.prefix.dev/latest/debugging_builds/") in
-the rattler-build documentation.
+dependencies to isolate the issue. For more information, see [Debugging builds](https://rattler-build.prefix.dev/latest/debugging_builds/ "https://rattler-build.prefix.dev/latest/debugging_builds/") on
+the prefix.dev website.
 
 ## Building packages for other platforms
 
@@ -267,7 +268,7 @@ the following options:
 - Use a Deadline Cloud package building queue to automate builds on the target platform. See
   [Create a package building queue](automate-package-builds.md#s3-channel-create-queue "automate-package-builds.md#s3-channel-create-queue").
 - (Advanced) Use cross-compilation to build packages for a different platform from your
-  workstation. For more information, see [Cross-compilation](https://rattler-build.prefix.dev/latest/compilers/#cross-compilation "https://rattler-build.prefix.dev/latest/compilers/#cross-compilation") in the rattler-build documentation.
+  workstation. For more information, see [Cross-compilation](https://rattler-build.prefix.dev/latest/compilers/#cross-compilation "https://rattler-build.prefix.dev/latest/compilers/#cross-compilation") on the prefix.dev website.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ fleets](../userguide/manage-cmf.md "../userguide/manage-cmf.md") when a job's in
 as when your [job bundle](../userguide/submit-job-bundle.md "../userguide/submit-job-bundle.md") contains shell
 or Python scripts.
 
-When you submit a job bundle with either the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") or a Deadline Cloud submitter, job
+When you submit a job bundle with either the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") on the PyPI website or a Deadline Cloud submitter, job
 attachments use the job's storage profile and the queue's required file system locations to
 identify the input files that are not on a worker host and should be uploaded to Amazon S3 as part of
 job submission. These storage profiles also help Deadline Cloud identify the output files in worker host
@@ -22,7 +22,6 @@ configurations from [Sample project infrastructure](sample-project-infrastructur
 
 In the following examples, you use a sample job bundle as a starting point, then modify it
 to explore job attachment's functionality. Job bundles are the best way for your jobs to use job
-attachments. They combine an [Open Job
-Description](https://github.com/OpenJobDescription/openjd-specifications/wiki "https://github.com/OpenJobDescription/openjd-specifications/wiki") job template in a directory with additional files that list the files and
-directories required by jobs using the job bundle. For more information about job bundles, see
+attachments. They combine an Open Job Description job template in a directory with additional files that list the files and
+directories required by jobs using the job bundle. For more information about the [OpenJD specification](https://github.com/OpenJobDescription/openjd-specifications/wiki "https://github.com/OpenJobDescription/openjd-specifications/wiki") on the GitHub website, see the OpenJD wiki. For more information about job bundles, see
 [Open Job Description (OpenJD) templates for Deadline Cloud](build-job-bundle.md "build-job-bundle.md").

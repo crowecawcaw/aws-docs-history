@@ -1,10 +1,10 @@
 # Render KeyShot scenes on Deadline Cloud
 
-The
+The deadline-cloud-samples repository on the GitHub website includes the
 [keyshot\_standalone](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone")
-job bundle is a Windows KeyShot job bundle that renders a scene with each
-frame as a separate task. The bundle accepts the following job
-parameters:
+job bundle, a Windows KeyShot job bundle that
+renders a scene with each frame as a separate task. The bundle accepts the
+following job parameters:
 
 - `KeyShotFile`
 - `Frames`
@@ -27,5 +27,5 @@ The bundle expects one of the following:
   To run this bundle, your queue needs KeyShot available through a queue
   environment. The
   [keyshot-2025
-  conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025") in the samples repository builds a KeyShot conda
-  package you can publish to your queue's S3 conda channel.
+  conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025") on the GitHub website builds a KeyShot conda package
+  you can publish to your queue's S3 conda channel.

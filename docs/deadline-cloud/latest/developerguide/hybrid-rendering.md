@@ -160,4 +160,4 @@ management, licensing, asset access, and worker infrastructure, see [Deadline Cl
 
 For runnable examples, including a reference template that connects a shared file system to
 a service-managed fleet, see the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
-repository on GitHub.
+repository on the GitHub website.

@@ -2,9 +2,9 @@
 
 The
 [ffmpeg\_movie\_from\_job\_output](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_movie_from_job_output "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_movie_from_job_output")
-job bundle downloads the rendered output of another completed job in
+job bundle on the GitHub website downloads the rendered output of another completed job in
 the same queue and encodes the image sequence into an MP4 video using
-FFmpeg. Use it as a post-processing utility — for example, to
+FFmpeg. Use it as a post-processing utility, for example, to
 automatically assemble frames into a movie after a Blender or Maya
 render job completes.
 

@@ -2,8 +2,9 @@
 
 The
 [al2023-deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/containers/al2023-deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/containers/al2023-deadline")
-Dockerfile replicates the package set of the Deadline Cloud service-managed fleet
-(SMF) worker AMI on top of the base Amazon Linux 2023 image. Use the image to:
+Dockerfile on the GitHub website replicates the package set of the Deadline Cloud
+service-managed fleet (SMF) worker AMI on top of the base Amazon Linux 2023
+image. Use the image to:
 
 - Build and test conda packages with the same GLIBC version, system
   libraries, and runtime environment as real workers.

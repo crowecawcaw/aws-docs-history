@@ -2,7 +2,7 @@
 
 The
 [keyshot-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025")
-conda recipe builds a KeyShot 2025 conda package.
+conda recipe on the GitHub website builds a KeyShot 2025 conda package.
 
 Submit the build:
 

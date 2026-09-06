@@ -1,11 +1,12 @@
 # Train a robot manipulation policy with MuJoCo on Deadline Cloud
 
 The
-[mujoco\_sim\_to\_policy](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/mujoco_sim_to_policy "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/mujoco_sim_to_policy")
-job bundle trains and renders a learned robot-manipulation policy on Deadline Cloud
-using a [MuJoCo](https://mujoco.org/ "https://mujoco.org/") simulation of the
-Strands Robots so100 arm. The job runs three dependent steps on managed
-GPU workers:
+[mujoco\_sim\_to\_policy
+job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/mujoco_sim_to_policy "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/mujoco_sim_to_policy") on the GitHub website trains and renders a learned
+robot-manipulation policy on Deadline Cloud using a simulation of the Strands
+Robots so100 arm in [MuJoCo](https://mujoco.org/ "https://mujoco.org/") on the
+MuJoCo website. The job runs three
+dependent steps on managed GPU workers:
 
 1. **Datagen** — Scripted
    joint-space pick of a cube in MuJoCo, recorded as a LeRobot dataset.

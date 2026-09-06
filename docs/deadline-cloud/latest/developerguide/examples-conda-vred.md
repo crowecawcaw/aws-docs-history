@@ -1,6 +1,6 @@
 # Build an Autodesk VRED Core conda package for Deadline Cloud
 
-The samples repository includes the following VRED conda recipes:
+The samples repository on the GitHub website includes the following VRED conda recipes:
 
 - [vredcore-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2025")
 - [vredcore-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vredcore-2026")

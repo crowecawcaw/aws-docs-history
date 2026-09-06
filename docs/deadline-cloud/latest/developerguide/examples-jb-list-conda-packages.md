@@ -1,8 +1,8 @@
 # List available conda packages on Deadline Cloud
 
-The
+The deadline-cloud-samples repository on the GitHub website includes the
 [list\_available\_conda\_packages](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/list_available_conda_packages "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/list_available_conda_packages")
-job bundle lists all conda packages available in the
+job bundle, which lists all conda packages available in the
 `deadline-cloud` channel using
 `conda search -c deadline-cloud '*'` and prints the list to the
 job log.

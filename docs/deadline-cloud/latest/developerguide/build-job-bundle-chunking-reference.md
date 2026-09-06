@@ -43,7 +43,7 @@ The `CHUNK[INT]` type has the following constraints:
 
 For more information, see the following resources:
 
-- [RFC 0001: Task Chunking](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md") – The full specification of the extension in
-  the Open Job Description repository on GitHub.
+- [RFC 0001: Task Chunking](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md") on the GitHub website – The full
+  specification of the extension.
 - [Add task chunking to a job template](build-job-bundle-chunking-add.md "build-job-bundle-chunking-add.md") – Convert a job template to
   use chunking.

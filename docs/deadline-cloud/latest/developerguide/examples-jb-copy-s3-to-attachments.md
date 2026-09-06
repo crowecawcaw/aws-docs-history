@@ -2,7 +2,7 @@
 
 The
 [copy\_s3\_prefix\_to\_job\_attachments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/copy_s3_prefix_to_job_attachments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/copy_s3_prefix_to_job_attachments")
-job bundle pre-populates a queue's job attachments S3 bucket by copying
+job bundle on the GitHub website pre-populates a queue's job attachments S3 bucket by copying
 files from where they are already stored in Amazon S3. If you are adding a
 Deadline Cloud farm to a project that already has a large volume of data, or are
 submitting a job that depends on a lot of new data such as a fluid

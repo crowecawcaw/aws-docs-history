@@ -1,10 +1,10 @@
 # Deploy a starter Deadline Cloud farm with CloudFormation
 
-The
+The starter\_farm CloudFormation template deploys a Deadline Cloud farm that you can use to
+run jobs that render images, reconstruct 3D scenes, or transform data. For
+the template source, see
 [starter\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm")
-CloudFormation template deploys a Deadline Cloud farm that you can use to run jobs that
-render images, reconstruct 3D scenes, or transform data. The deployed farm
-includes:
+on the GitHub website. The deployed farm includes:
 
 - One or more
   [service-managed
@@ -25,7 +25,8 @@ From the CloudFormation console, choose _Create Stack_,
 upload
 `deadline-cloud-starter-farm-template.yaml`, enter a stack
 name and the Amazon S3 bucket name, and proceed through stack creation. To use
-the
-[conda-forge channel](https://conda-forge.org/ "https://conda-forge.org/"), set the
+conda-forge, set the
 `ProdCondaChannels` parameter to
-`deadline-cloud conda-forge`.
+`deadline-cloud conda-forge`. For more information, see
+[conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the
+conda-forge website.

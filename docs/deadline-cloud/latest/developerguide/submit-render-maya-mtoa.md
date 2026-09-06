@@ -2,7 +2,7 @@
 
 After you build the Maya, MtoA, and
 `maya-openjd` packages, you can test them with a render job. The Deadline Cloud
-samples repository contains a [turntable with Maya/Arnold](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold") job bundle that
+samples repository contains a [turntable with Maya/Arnold job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold") on the GitHub website that
 renders an animation using Maya and Arnold. The job
 bundle also uses FFmpeg to encode a video, which is available from the
 `conda-forge` channel.
@@ -10,7 +10,7 @@ bundle also uses FFmpeg to encode a video, which is available from the
 ## Testing locally
 
 You can run the job template on your workstation using the [Open Job Description
-CLI](https://github.com/OpenJobDescription/openjd-cli#readme "https://github.com/OpenJobDescription/openjd-cli#readme"). Install the CLI with `pip`.
+CLI](https://github.com/OpenJobDescription/openjd-cli#readme "https://github.com/OpenJobDescription/openjd-cli#readme") on the GitHub website. Install the CLI with `pip`.
 
 ```
 pip install openjd-cli

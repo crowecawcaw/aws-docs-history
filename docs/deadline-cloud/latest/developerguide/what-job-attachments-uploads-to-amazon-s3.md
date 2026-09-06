@@ -1,11 +1,12 @@
 # How Deadline Cloud uploads files to Amazon S3
 
 This example shows how Deadline Cloud uploads files from your workstation or worker host to Amazon S3
-so that they can be shared. It uses a sample job bundle from GitHub and the Deadline Cloud CLI to
+so that they can be shared. It uses a sample job bundle from the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
+on the GitHub website and the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") on the PyPI website to
 submit jobs.
 
-Start by cloning the [Deadline Cloud samples GitHub
-repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") into your [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") environment, then copy the
+Start by cloning the deadline-cloud-samples
+repository into your [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") environment, then copy the
 `job_attachments_devguide` job bundle into your home directory:
 
 ```
@@ -13,7 +14,7 @@ git clone https://github.com/aws-deadline/deadline-cloud-samples.git
 cp -r deadline-cloud-samples/job_bundles/job_attachments_devguide ~/
 ```
 
-Install the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") to submit
+Install the Deadline Cloud CLI to submit
 job bundles:
 
 ```
@@ -106,7 +107,7 @@ Two objects were uploaded to S3:
   contents of `script.sh`. The value
   `87cb19095dd5d78fcaf56384ef0e6241` in the object key is the hash of the
   file's contents, and the extension `xxh128` indicates that the hash value was
-  calculated as a 128 bit [xxhash](https://xxhash.com/ "https://xxhash.com/").
+  calculated as a 128 bit hash using the [xxHash algorithm](https://xxhash.com/ "https://xxhash.com/") on the xxHash website.
 - `DeadlineCloud/Manifests/<farm-id>/<queue-id>/Inputs/<guid>/a1d221c7fd97b08175b3872a37428e8c_input`
   – The manifest object for the job submission. The values
   `<farm-id>`, `<queue-id>`, and
@@ -141,7 +142,7 @@ the value in the object name
 `DeadlineCloud/Data/87cb19095dd5d78fcaf56384ef0e6241.xxh128`. It is used by
 Deadline Cloud to know which object to download for this file's contents.
 
-The full schema for this file is [available in GitHub](https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py "https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py").
+For the full schema for the manifest file, see the [deadline-cloud-job-attachments repository](https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py "https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py") on the GitHub website.
 
 When you use the [CreateJob operation](../APIReference/API_CreateJob.md "../APIReference/API_CreateJob.md")
 you can set the location of the manifest objects. You can use the [GetJob

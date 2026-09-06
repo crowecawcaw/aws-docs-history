@@ -2,9 +2,9 @@
 
 The
 [rez\_queue\_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml")
-queue environment provides the same functionality as the conda queue
-environments but for the
-[Rez](https://rez.readthedocs.io/ "https://rez.readthedocs.io/") package manager. The
+queue environment on the GitHub website provides the same functionality as the conda
+queue environments but for the [Rez](https://rez.readthedocs.io/ "https://rez.readthedocs.io/")
+package manager on the Rez website. The
 queue environment works in a farm with customer-managed fleets that have
 a shared file system for the Rez package repository.
 

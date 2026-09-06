@@ -1,15 +1,15 @@
 # Schedule standby workers for a Deadline Cloud fleet with CloudFormation
 
-The
-[fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling")
-CloudFormation template schedules
+The fleet\_standby\_scheduling CloudFormation template schedules
 [standby
 worker count](../userguide/auto-scaling-configuration.md "../userguide/auto-scaling-configuration.md") changes on a Deadline Cloud fleet based on a time schedule.
 Standby workers are a warm pool of idle workers that can start processing
 jobs immediately without waiting for new instances to launch. By scheduling
 standby workers during business hours and not during off-hours, you reduce
 job start latency when your team is active while avoiding the cost of idle
-workers overnight and on weekends.
+workers overnight and on weekends. For the template source, see
+[fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling")
+on the GitHub website.
 
 The template works with any existing Deadline Cloud fleet, including
 service-managed and customer-managed fleets. By default, it sets the

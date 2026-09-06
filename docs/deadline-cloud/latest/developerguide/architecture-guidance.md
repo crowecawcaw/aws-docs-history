@@ -30,7 +30,7 @@ With automated jobs, it is less common for Deadline Cloud integrated submitters 
 
 ## Job submission
 
-Jobs are submitted to Deadline Cloud using [OpenJobDescription](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") templates. OpenJobDescription is a flexible open specification for defining batch processing jobs that are portable between different scheduling system deployments. The Job definition file describes the parameters of the job, the steps of the job, how a step is parameterized based upon the job inputs, as well as the actual script that will run on a Worker to perform the processing. The idea of Workload Submission is how these job definitions are created, who creates them and how they are submitted.
+Jobs are submitted to Deadline Cloud using [OpenJobDescription](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") templates on the GitHub website. OpenJobDescription is a flexible open specification for defining batch processing jobs that are portable between different scheduling system deployments. The Job definition file describes the parameters of the job, the steps of the job, how a step is parameterized based upon the job inputs, as well as the actual script that will run on a Worker to perform the processing. The idea of Workload Submission is how these job definitions are created, who creates them and how they are submitted.
 
 ### Integrated submitter with DCC
 
@@ -42,13 +42,13 @@ Interactive workflows usually involve integrated submitters, but not always. For
 
 For custom applications and workflows, it is possible to fully control how these job definitions are created and submitted to Deadline Cloud. For example, an e-commerce site might ask sellers to upload 3D models of the object they are selling. After this upload, the e-commerce platform could dynamically generate a job definition to submit to Deadline Cloud to automatically generate a turntable animation on a common background using common lighting to match the other 3D objects available on the site. During development of the ecommerce platform, a software developer would create a job definition, embed it into the ecommerce platform with parameters eventually provided by the sellers, and code the platform to submit this job during the platforms product upload workflow.
 
-Deadline Cloud provides a number of sample job definitions in the [samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on github.
+Deadline Cloud provides a number of sample job definitions in the [samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website.
 
 ## Application management
 
 After a job is submitted to Deadline Cloud and assigned to a worker, the script from the job definition is executed on the worker. In most cases, this script will invoke an application to perform the actual processing, such as a renderer, composite, encode, filtering or any other of a number of compute-intensive tasks. Application management is the concept of ensuring the necessary version of the required software is available to the workers.
 
-You can manage applications using any package management system you like, but Deadline Cloud provides a number of a tools to easily enable the use of conda packages. [Conda](https://anaconda.org/anaconda/conda "https://anaconda.org/anaconda/conda") is an open-source, cross-platform, language agnostic package manager and environment management system.
+You can manage applications using any package management system you like, but Deadline Cloud provides a number of a tools to easily enable the use of conda packages. Conda is an open-source, cross-platform, language agnostic package manager and environment management system. For more information, see [conda](https://anaconda.org/anaconda/conda "https://anaconda.org/anaconda/conda") on the Anaconda website.
 
 ### Deadline Cloud-managed conda channel for service-managed fleets (SMF)
 
@@ -62,7 +62,7 @@ If you are not able to use the Deadline Cloud-managed conda channel, you must de
 
 For application management, the requirement from Deadline Cloud is that the application is available in the PATH when the job script is executed on the worker.
 
-If you already build and maintain Rez packages, you can use a queue environment to install the applications from Rez repositories. An example queue environment can be found on [AWS Deadline Cloud GitHub org](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml").
+If you already build and maintain Rez packages, you can use a queue environment to install the applications from Rez repositories. For an example queue environment, see the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml") on the GitHub website.
 
 If you already manage applications on a customer-managed fleets with long-lived workers or in system images, then no queue environment is required for application management. Ensure the application appears on the job user's path and submit the job.
 
@@ -97,7 +97,7 @@ The easiest to start with mechanism for asset access is Deadline Cloud job attac
 
 Job attachments is not the best tool for all situations. If your data is already on AWS, then job attachments add an additional copy of your data, including associated transfer time and storage costs. Job attachments require that the job can fully specify the data it requires at submission time, so that the data can be uploaded.
 
-To use job attachments, your Deadline Cloud queue must have an associated job attachments bucket and the queue role must be used to provide access to that bucket. By default, Deadline Cloud integrated submitters all support job attachments. If you are not using a Deadline Cloud integrated submitter, job attachments can be used with your custom software by integrating the [Deadline Cloud python library](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud").
+To use job attachments, your Deadline Cloud queue must have an associated job attachments bucket and the queue role must be used to provide access to that bucket. By default, Deadline Cloud integrated submitters all support job attachments. If you are not using a Deadline Cloud integrated submitter, job attachments can be used with your custom software by integrating the [Deadline Cloud python library](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") on the GitHub website.
 
 ### Custom storage access
 

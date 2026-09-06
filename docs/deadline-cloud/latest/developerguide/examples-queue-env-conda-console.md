@@ -1,7 +1,7 @@
 # Console-equivalent and improved-caching conda queue environments
 
-The samples repository includes the following conda queue environments
-that match the Deadline Cloud console onboarding flow:
+The samples repository on the GitHub website includes the following
+conda queue environments that match the Deadline Cloud console onboarding flow:
 
 [conda\_queue\_env\_from\_console.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_from_console.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_from_console.yaml")
 
@@ -11,8 +11,9 @@ onboarding flow adds. The
 `conda-queue-env-enter` and
 `conda-queue-env-exit` commands, which are provided on
 service-managed fleet workers and use
-[Rattler](https://github.com/conda/rattler "https://github.com/conda/rattler"). These
-commands typically run faster than equivalent operations with conda.
+[Rattler](https://github.com/conda/rattler "https://github.com/conda/rattler") on the GitHub
+website. These commands typically run faster than equivalent operations with
+conda.
 
 [conda\_queue\_env\_improved\_caching.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_improved_caching.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_improved_caching.yaml")
 

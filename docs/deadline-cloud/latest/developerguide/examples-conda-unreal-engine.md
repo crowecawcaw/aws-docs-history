@@ -2,7 +2,8 @@
 
 The
 [unreal-engine](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine")
-conda recipe builds an Epic Unreal Engine conda package.
+conda recipe on the GitHub website builds an Epic Unreal Engine conda
+package.
 
 Unlike other recipes in this repository, this one is designed to be
 built _locally_ on a machine where Unreal Engine is
@@ -18,7 +19,8 @@ To use the recipe:
    `recipe/recipe.yaml` for your version or custom source build
    location.
 2. Install
-   [rattler-build](https://rattler-build.prefix.dev/ "https://rattler-build.prefix.dev/") and
+   [rattler-build](https://rattler-build.prefix.dev/ "https://rattler-build.prefix.dev/")
+   on the prefix.dev website and
    enable Windows long path support.
 3. Build and publish the package to your conda channel:
 
@@ -30,6 +32,6 @@ The recipe README includes step-by-step instructions for adapting it to
 your Unreal Engine version, including custom source builds.
 
 The samples repository also includes
-[unreal-engine-openjd](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine-openjd"),
-which builds the Unreal Engine Open Job Description adaptor with rattler-build for
+[unreal-engine-openjd](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine-openjd")
+on the GitHub website, which builds the Unreal Engine Open Job Description adaptor with rattler-build for
 Windows and Python 3.13.

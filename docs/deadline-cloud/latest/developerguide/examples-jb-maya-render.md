@@ -1,17 +1,17 @@
 # Render Autodesk Maya scenes on Deadline Cloud
 
-The
+The deadline-cloud-samples repository on the GitHub website includes the
 [maya\_cli\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_cli_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_cli_render")
-job bundle renders a Maya software renderer scene with the Maya CLI
+job bundle, which renders a Maya software renderer scene with the Maya CLI
 `Render` command. It runs one task per frame using an Open Job
 Description parameter space and restricts execution to Linux workers through
 host requirements.
 
 The bundle includes a sample scene with falling gears that uses the
 Bullet physics plugin, along with instructions for creating similar scenes.
-The
+The same repository on the GitHub website includes the
 [maya\_arnold\_ass\_export\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_arnold_ass_export_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_arnold_ass_export_render")
-bundle is a related two-step pipeline: a single export task opens the Maya
+bundle, a related two-step pipeline: a single export task opens the Maya
 scene with `mayapy` and writes per-frame Arnold `.ass`
 files, then a render step distributes per-frame `kick` tasks
 across workers. Job attachments automatically synchronizes the exported
@@ -20,7 +20,7 @@ across workers. Job attachments automatically synchronizes the exported
 To run these bundles, your queue needs Maya available through a queue
 environment. The
 [maya
-conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026") in the samples repository build conda packages you can
+conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026") on the GitHub website build conda packages you can
 publish to your queue's S3 conda channel. The
 `maya-mtoa` recipes also provide the
 `kick` binary used by the export-and-render pipeline.

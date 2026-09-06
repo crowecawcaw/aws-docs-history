@@ -78,8 +78,8 @@ JSON
 ## Automate limits with submission hooks
 
 If you want to enforce limits across all job submissions without requiring artists to
-manually edit job templates, you can use a [pre-submission hook](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md") to automatically inject the host requirement into every job
-template at submission time.
+manually edit job templates, you can use a pre-submission hook to automatically inject the host requirement into every job
+template at submission time. For more information, see [Submission hooks](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md") on the GitHub website.
 
 A pre-submission hook is a script that runs before the job is submitted. The hook can
 modify the job bundle's `template.yaml` to add the
@@ -87,8 +87,8 @@ modify the job bundle's `template.yaml` to add the
 every job submitted through the Deadline Cloud CLI or DCC submitters declares its need for
 the limited resource.
 
-For a complete working example, see the [license limits submission hook sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits") in the Deadline Cloud samples
-repository.
+For a complete working example, see the [license limits submission hook sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits") in the Deadline Cloud samples repository on the
+GitHub website.
 
 ## End-to-end example: Enforce V-Ray license limits
 

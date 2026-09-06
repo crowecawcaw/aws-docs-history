@@ -51,7 +51,7 @@ END_FRAME="$(echo '{{Task.Param.Frame}}' | cut -d- -f2)"
 With `rangeConstraint: NONCONTIGUOUS`, the variable expands to an
 arbitrary range expression such as `1-3,5,7-20:2`. Transform the expression
 into the syntax that your application accepts. For a working transformation, see the
-[task chunking samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking") on GitHub. 4. Submit the job bundle with the Deadline Cloud CLI:
+[task chunking samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking") on the GitHub website. 4. Submit the job bundle with the Deadline Cloud CLI:
 
 ```
 deadline bundle submit `my-job-bundle`

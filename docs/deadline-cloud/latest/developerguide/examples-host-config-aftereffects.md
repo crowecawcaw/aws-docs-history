@@ -2,7 +2,7 @@
 
 The
 [aftereffects\_redgiant](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant")
-host configuration script installs Adobe After Effects 2025 with Red Giant
+host configuration script on the GitHub website installs Adobe After Effects 2025 with Red Giant
 and Universe plugins on Windows GPU service-managed fleet workers. The
 script fetches installers from Amazon S3 and runs each one in silent mode on
 each worker launch.
@@ -26,7 +26,7 @@ of reinstalling. If no persistent volume is attached, the script performs
 a normal install. No separate script or flag is required. Configure a
 persistent volume if your fleets scale up and down frequently. For more
 information about how the script uses persistent volumes, see [Persistent Volumes (Automatic)](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant#persistent-volumes-automatic "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant#persistent-volumes-automatic") in the
-`aftereffects_redgiant` README on GitHub. For more information
+`aftereffects_redgiant` README on the GitHub website. For more information
 about configuring persistent volumes on a fleet, see
 [Persistent storage for service-managed fleets](smf-persistent-storage-dev.md "smf-persistent-storage-dev.md").
 

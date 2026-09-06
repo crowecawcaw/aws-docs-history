@@ -40,10 +40,10 @@ We provide tools that enable you to work directly with any step of your pipeline
 
 ## Open Job Description
 
-Deadline Cloud uses the [Open
-Job Description (OpenJD) specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") to specify the details of a job. OpenJD was
-developed to define jobs that are portable between solutions. You use it to define a job that is
-a set of commands that run on worker hosts.
+Deadline Cloud uses the Open Job Description (OpenJD) specification to specify the details of a job.
+OpenJD was developed to define jobs that are portable between solutions. You use it to define a
+job that is a set of commands that run on worker hosts. For more information, see the [OpenJD specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications")
+on the GitHub website.
 
 You can create an OpenJD job template using a submitter that Deadline Cloud provides, or you can use
 any tool that you want to create the template. After creating the template, you send it to Deadline Cloud.

@@ -2,14 +2,15 @@
 
 The
 [vray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray")
-conda recipe builds a
+conda recipe on the GitHub website builds a V-Ray Standalone renderer conda package. For more information about V-Ray Standalone, see
 [V-Ray
-Standalone renderer](https://docs.chaos.com/display/VNS/V-Ray+Standalone+Home "https://docs.chaos.com/display/VNS/V-Ray+Standalone+Home") conda package.
+Standalone Home](https://docs.chaos.com/display/VNS/V-Ray+Standalone+Home "https://docs.chaos.com/display/VNS/V-Ray+Standalone+Home") on the Chaos website.
 
 To build the recipe, download the V-Ray Standalone archive
 (`vraystd_adv_71000_rhel8_clang-gcc-11.2` for x86 or
 `vraystd_adv_71000_rhel8_arm64_clang-gcc-11.2` for ARM) from
-[Chaos](https://download.chaos.com/?platform=47&product=47 "https://download.chaos.com/?platform=47&product=47").
+the [Chaos download page](https://download.chaos.com/?platform=47&product=47 "https://download.chaos.com/?platform=47&product=47")
+on the Chaos website.
 A Chaos account is required. Place the file in the
 `conda_recipes/archive_files` directory of your samples
 repository clone.

@@ -88,10 +88,10 @@ When your Windows worker host requires long path names (greater than 250
 characters), you must enable long path names as follows:
 
 1. Make sure that the long path registry key is enabled. For more
-   information, see [Registry setting to enable log paths](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry#registry-setting-to-enable-long-paths "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry#registry-setting-to-enable-long-paths") on the Microsoft
+   information, see [Registry setting to enable long paths](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry#registry-setting-to-enable-long-paths "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry#registry-setting-to-enable-long-paths") on the Microsoft
    website.
 2. Install the Windows SDK for Desktop C++ x86 Apps. For more
-   information, see [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/ "https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/") in the Windows Dev Center.
+   information, see [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/ "https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/") on the Microsoft website.
 3. Open the Python installation location in your environment where
    the worker agent is installed. The default is `C:\Program
  Files\Python311`. There is an executable file named
@@ -129,6 +129,11 @@ All rights reserved.
 The worker is now able to access long paths. To clean up, remove the
 `pythonservice.exe.manifest` file and uninstall the
 SDK.
+
+If jobs still fail with missing-file errors after you complete this
+procedure, the limit is being applied by the rendering application rather
+than by the worker agent. For more information, see [Why does my job fail on Windows when my file paths are long?](../userguide/troubleshooting.md#troubleshooting-windows-long-paths "../userguide/troubleshooting.md#troubleshooting-windows-long-paths")
+in the _AWS Deadline Cloud User Guide_.
 
 ## Configure the Deadline Cloud worker agent
 

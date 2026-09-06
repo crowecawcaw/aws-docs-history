@@ -1,8 +1,8 @@
 # Render a turntable video with Maya and Arnold on Deadline Cloud
 
 The
-[turntable\_with\_maya\_arnold](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold")
-job bundle takes an OBJ geometry file as input and outputs a turntable
+[turntable\_with\_maya\_arnold job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold")
+on the GitHub website takes an OBJ geometry file as input and outputs a turntable
 render video. A turntable render is a 360-degree rotation of a rendered
 3D model that allows inspection of the geometry without a 3D viewer.
 
@@ -35,4 +35,5 @@ following:
 If you accept all default settings, the job renders a turntable with
 placeholder geometry. You can also download an OBJ file such as
 [stanford-bunny.obj](https://github.com/alecjacobson/common-3d-test-models/blob/master/data/stanford-bunny.obj "https://github.com/alecjacobson/common-3d-test-models/blob/master/data/stanford-bunny.obj")
-and select it for the input geometry parameter.
+from the common-3d-test-models repository on the GitHub website, and select
+it for the input geometry parameter.

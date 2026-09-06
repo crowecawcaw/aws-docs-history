@@ -10,8 +10,7 @@ the OpenJD runtime with the command `echo "openjd_env: PATH=$PATH"`.
 
 ## Prerequisites
 
-Perform the following steps to run the [sample job bundle with environment variables](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") from the Deadline Cloud samples github
-repository.
+Perform the following steps to run the [sample job bundle with environment variables](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") from the Deadline Cloud samples repository on the GitHub website.
 
 1. If you do not have a Deadline Cloud farm with a queue and associated Linux fleet, follow the
    guided onboarding experience in the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home") to
@@ -20,7 +19,7 @@ repository.
    steps in [Set
    up Deadline Cloud submitters](../userguide/submitter.md "../userguide/submitter.md") from the user guide.
 3. Use `git` to clone the [Deadline Cloud samples GitHub
-   repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
+   repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website.
 
 ```
 git clone https://github.com/aws-deadline/deadline-cloud-samples.git
@@ -54,7 +53,7 @@ center of the window corresponds to the selected session action on the right.
 In this section you use the Deadline Cloud monitor to compare the session actions with where they
 are defined in the job template. It continues from the previous section.
 
-Open the file [job\_env\_with\_new\_command/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml") in a text editor. Compare the session
+Open the file [job\_env\_with\_new\_command/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml") from the Deadline Cloud samples repository on the GitHub website in a text editor. Compare the session
 actions to where they are defined in the job template.
 
 1. Select the **Launch RandomSleepCommand** session action in the

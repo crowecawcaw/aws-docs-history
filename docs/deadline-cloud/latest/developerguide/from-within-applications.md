@@ -39,8 +39,8 @@ using a familiar interface without needing exit the application or use command l
 tools.
 
 If your application has a scripting runtime that supports Python and pyside/pyqt, you can
-use the GUI components from the [Deadline Cloud client library](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") to create a UI. For an example, see [Deadline Cloud for Maya
-integration](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya") on GitHub.
+use the GUI components from the Deadline Cloud client library to create a UI. For more information about the client library, see the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") repository on the GitHub website.
+For an example integration, see the [deadline-cloud-for-maya](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya") repository on the GitHub website.
 
 The Deadline Cloud client library provides operations that do the following to help you provide a
 strong integrated user experience:

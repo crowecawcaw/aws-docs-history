@@ -2,7 +2,7 @@
 
 The
 [upload\_to\_job\_attachments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/utility_scripts/upload_to_job_attachments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/utility_scripts/upload_to_job_attachments")
-Python script uploads files and directories from your workstation to a
+Python script on the GitHub website uploads files and directories from your workstation to a
 Deadline Cloud job attachments Amazon S3 bucket in content-addressable storage format.
 After files are uploaded, jobs that reference them don't need to upload
 them again. The script is useful for pre-populating job attachments with

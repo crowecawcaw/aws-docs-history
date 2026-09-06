@@ -2,8 +2,9 @@
 
 Tile rendering divides each frame into evenly sized regions, renders
 each region as a separate task in parallel across workers, then assembles
-the regions into the final image. The samples repository includes several
-tile rendering job bundles for different DCC and renderer combinations.
+the regions into the final image. The samples repository on the GitHub
+website includes several tile rendering job bundles for different DCC and
+renderer combinations.
 
 [tile\_render\_with\_maya\_arnold](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_maya_arnold")
 
@@ -15,10 +16,11 @@ simple scene and default parameters to make it easy to try.
 [tile\_render\_with\_maya\_vray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_maya_vray "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_maya_vray")
 
 A tile rendering job that uses Maya and V-Ray to create EXRs as
-output, then uses
+output, then uses OpenImageIO to assemble them into a single image. The
+bundle relies on the V-Ray render handler in the Maya adaptor. For more
+information about OpenImageIO, see
 [OpenImageIO](https://github.com/AcademySoftwareFoundation/OpenImageIO "https://github.com/AcademySoftwareFoundation/OpenImageIO")
-to assemble them into a single image. The bundle relies on the V-Ray
-render handler in the Maya adaptor.
+on the GitHub website.
 
 [tile\_render\_with\_vray\_linux](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux")
 

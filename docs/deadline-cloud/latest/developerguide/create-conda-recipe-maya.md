@@ -14,12 +14,11 @@ details illustrate how each applies to Maya.
 
 - **Licensing** – Understand the licensing
   rights and restrictions of the application. You might need to configure a license
-  management system. Read the [Autodesk Subscription Benefits FAQ about Cloud Rights](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Subscription-Benefits-FAQ-Cloud-Rights.html "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Subscription-Benefits-FAQ-Cloud-Rights.html") to
+  management system. Read the [Autodesk Subscription Benefits FAQ about Cloud Rights](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Subscription-Benefits-FAQ-Cloud-Rights.html "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Subscription-Benefits-FAQ-Cloud-Rights.html") and [Thin Client Licensing for Maya and MotionBuilder](https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html "https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html") on the Autodesk website to
   understand the cloud rights for Maya. Autodesk
   products rely on a `ProductInformation.pit` file that typically requires
   administrator access to configure. Product features for thin clients provide a
-  relocatable alternative. See [Thin Client Licensing for Maya and MotionBuilder](https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html "https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html") for more
-  information.
+  relocatable alternative.
 - **System library dependencies** – Some
   applications depend on libraries not installed on service-managed fleet worker hosts.
   Maya depends on libraries including freetype and fontconfig. When
@@ -32,19 +31,18 @@ details illustrate how each applies to Maya.
   Some installers require administrator access. Service-managed fleets do not provide
   administrator access, so you need to install the application on a separate system
   and create an archive of the files for the package build. The Windows installer
-  for Maya requires this approach. The [README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md") in the maya-2025 recipe, the latest with a Windows build,
-  documents a repeatable procedure using a freshly
+  for Maya requires this approach. The [README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md") in the maya-2025 recipe on the GitHub website documents a repeatable procedure using a freshly
   launched Amazon Elastic Compute Cloud (Amazon EC2) instance.
 - **Plugin integration** – The sample
   Maya package defines `MAYA_NO_HOME=1` to isolate the
   application from user-level configuration, and adds module search paths to
   `MAYA_MODULE_PATH` so that plugin packages can place `.mod`
-  files within the virtual environment. See the [Maya 2026 sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages") for the full plugin integration
+  files within the virtual environment. See the [Maya 2026 sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages") on the GitHub website for the full plugin integration
   convention.
 
 ## Understanding the recipe
 
-The [recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/recipe.yaml") file defines the package metadata in [rattler-build template syntax](https://rattler-build.prefix.dev/latest/reference/recipe_file/#spec-reference "https://rattler-build.prefix.dev/latest/reference/recipe_file/#spec-reference"). Review the following sections of the
+The [recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/recipe.yaml") file on the GitHub website defines the package metadata in [rattler-build template syntax](https://rattler-build.prefix.dev/latest/reference/recipe_file/#spec-reference "https://rattler-build.prefix.dev/latest/reference/recipe_file/#spec-reference") on the prefix.dev website. Review the following sections of the
 file:
 
 - **source** – References the installer
@@ -62,7 +60,7 @@ file:
 - **about** – Metadata about the application
   for browsing or processing the contents of a conda channel.
 
-The build scripts ([build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh") for Linux, [build\_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/recipe/build_win.sh") in the maya-2025 recipe for Windows) include comments explaining each step. The
+The build scripts ([build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh") for Linux, [build\_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/recipe/build_win.sh") in the maya-2025 recipe for Windows) on the GitHub website include comments explaining each step. The
 scripts perform the following key tasks:
 
 - **Extract the installer** – Extracts the
@@ -85,10 +83,11 @@ scripts perform the following key tasks:
   setting `DT_RUNPATH` instead of `DT_RPATH`, which allows
   `LD_LIBRARY_PATH` to override the search path when needed for
   debugging.
-- **Configure thin client licensing** – The
-  script sets up [thin client licensing as documented by Autodesk](https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html "https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html") so that
-  the `ProductInformation.pit` file can be located within the conda
-  environment rather than requiring system-level administrator access.
+- **Configure thin client licensing** – The script sets up thin client licensing so that the
+  `ProductInformation.pit` file can be located within the conda
+  environment rather than requiring system-level administrator access. For more
+  information, see [Thin Client Licensing for Maya and MotionBuilder](https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html "https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/2zqRBCuGDrcPZDzULJQ27p.html") on the Autodesk
+  website.
 - **Set up activation scripts** – The scripts
   create activate and deactivate scripts that set environment variables including
   `MAYA_LOCATION`, `MAYA_VERSION`,
@@ -102,11 +101,11 @@ scripts perform the following key tasks:
 Before you build the Maya package, download the Maya
 installer from your Autodesk account. For Linux, place the archive
 directly into the `conda_recipes/archive_files` directory. For Windows,
-follow the procedure in the [maya-2025 README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md") to create the archive.
+follow the procedure in the [maya-2025 README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md") on the GitHub website to create the archive.
 
 Use `rattler-build publish` to build and publish the package. The
 Maya recipe requires `patchelf` as a build dependency on
-Linux, which is available from [conda-forge](https://conda-forge.org/ "https://conda-forge.org/"). Add `-c conda-forge` to make the dependency
+Linux, which is available from [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the conda-forge website. Add `-c conda-forge` to make the dependency
 available during the build. From the `conda_recipes` directory, run the
 following command.
 
@@ -128,6 +127,6 @@ For other publishing options:
 
 To render the turntable sample with Maya and
 Arnold, build both the [MtoA plugin](create-conda-recipe-mtoa-plugin.md "create-conda-recipe-mtoa-plugin.md") and [Maya adaptor](create-conda-recipe-maya-openjd.md "create-conda-recipe-maya-openjd.md") packages.
-After you publish all three packages, you can submit a test render job using the [turntable with Maya/Arnold](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold") job bundle from the
-Deadline Cloud samples repository. See [Test your packages
+After you publish all three packages, you can submit a test render job using the [turntable with Maya/Arnold job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold") from the
+Deadline Cloud samples repository on the GitHub website. See [Test your packages
 with a Maya render job](submit-render-maya-mtoa.md "submit-render-maya-mtoa.md").

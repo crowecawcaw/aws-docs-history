@@ -235,7 +235,7 @@ Linux (AppImage)
 To verify packages that use a Linux .AppImage binary, first complete steps
 1-3 in the Linux tab, then complete the following steps.
 
-1. From the AppImageUpdate [page](https://github.com/AppImageCommunity/AppImageUpdate/releases/tag/continuous "https://github.com/AppImageCommunity/AppImageUpdate/releases/tag/continuous") in GitHub, download the
+1. From the AppImageUpdate [releases page](https://github.com/AppImageCommunity/AppImageUpdate/releases/tag/continuous "https://github.com/AppImageCommunity/AppImageUpdate/releases/tag/continuous") on the GitHub website, download the
    **validate-x86\_64.AppImage** file.
 2. After downloading the file, to add execute permissions, run the following
    command.

@@ -6,7 +6,7 @@ lightweight adapter from a small image dataset. It then uses that adapter to gen
 images from text prompts, all orchestrated as Deadline Cloud jobs on a GPU fleet.
 
 The source code for this example is available in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/flux2_klein_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/flux2_klein_lora")
-repository on GitHub.
+repository on the GitHub website.
 
 The following video demonstrates the FLUX.2 Klein LoRA workflow on Deadline Cloud.
 
@@ -17,9 +17,10 @@ The following video demonstrates the FLUX.2 Klein LoRA workflow on Deadline Clou
 
 The example consists of two job bundles:
 
-1. **lora\_training** – Fine-tunes [FLUX.2
-   Klein](https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B") on your image dataset using [LoRA](https://huggingface.co/docs/peft/conceptual_guides/adapter#low-rank-adaptation-lora "https://huggingface.co/docs/peft/conceptual_guides/adapter#low-rank-adaptation-lora"),
-   producing a `.safetensors` adapter file.
+1. **lora\_training** – Fine-tunes the [FLUX.2
+   Klein model](https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B") on the Hugging Face website on your image dataset, producing a
+   `.safetensors` adapter file. For more information, see [LoRA](https://huggingface.co/docs/peft/conceptual_guides/adapter#low-rank-adaptation-lora "https://huggingface.co/docs/peft/conceptual_guides/adapter#low-rank-adaptation-lora")
+   on the Hugging Face website.
 2. **image\_generation** – Loads the base model
    with your trained adapter and generates images from text prompts. When generating
    multiple images, work is parallelized across workers.
@@ -28,8 +29,8 @@ LoRA is a parameter-efficient fine-tuning technique that trains a small adapter 
 of modifying the full model weights. This approach makes training fast (15–45
 minutes on a single GPU) and the resulting adapter portable and easy to version.
 
-The job bundles use the [diffusers](https://github.com/huggingface/diffusers "https://github.com/huggingface/diffusers") and [peft](https://github.com/huggingface/peft "https://github.com/huggingface/peft") libraries for training and
-inference.
+For training and inference, the job bundles use the [diffusers](https://github.com/huggingface/diffusers "https://github.com/huggingface/diffusers") and [peft](https://github.com/huggingface/peft "https://github.com/huggingface/peft") libraries on the GitHub
+website.
 
 To complete this example, follow these steps:
 
@@ -46,8 +47,9 @@ Before you begin, make sure that you have the following:
 - A Deadline Cloud farm with a GPU fleet (Linux, NVIDIA A10G GPU, 13 GB+ VRAM, 64 GiB+
   system memory recommended).
 - A queue associated with the GPU fleet.
-- The [Deadline Cloud
-  CLI](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") installed on your workstation.
+- The Deadline Cloud CLI installed on your workstation. For installation
+  instructions, see the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud")
+  repository on the GitHub website.
 - 20–50 training images of your subject (`.jpg`,
   `.png`, `.jpeg`, or `.webp`).
 
@@ -240,12 +242,12 @@ rm -rf /tmp/lora_output /tmp/generated_images
 The following resources provide additional information:
 
 - [Example
-  source code on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/flux2_klein_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/flux2_klein_lora")
+  source code](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/flux2_klein_lora "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/flux2_klein_lora") on the GitHub website
 - [FLUX.2
-  Klein on Hugging Face](https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B")
+  Klein](https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B") on the Hugging Face website
 - [Open Job Description
-  specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications")
+  specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") on the GitHub website
 - [Diffusers
-  documentation](https://huggingface.co/docs/diffusers "https://huggingface.co/docs/diffusers")
+  documentation](https://huggingface.co/docs/diffusers "https://huggingface.co/docs/diffusers") on the Hugging Face website
 - [Deadline Cloud
   Architecture Guidance](architecture-guidance.md "architecture-guidance.md")

@@ -1,9 +1,10 @@
 # Open Job Description (OpenJD) templates for Deadline Cloud
 
 A _job bundle_ is one of the tools you use to define jobs for AWS Deadline Cloud.
-They group an [Open
-Job Description (OpenJD)](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") template with additional information such as files
-and directories that your jobs use with job attachments. You use the Deadline Cloud command-line
+They group an Open Job Description (OpenJD) template with additional information
+such as files and directories that your jobs use with job attachments. For more
+information, see the [Open Job
+Description specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") on the GitHub website. You use the Deadline Cloud command-line
 interface (CLI) to use a job bundle to submit jobs for a queue to run.
 
 A job bundle is a directory structure that contains an OpenJD job template, other files that
@@ -22,8 +23,7 @@ You can also include the following files:
 
 Use a job bundle for custom job submissions with the Deadline Cloud CLI and a job attachment, or you
 can use an graphical submission interface. For example, the following is the Blender sample from
-GitHub. To run the sample using the following command in [the
-Blender sample directory](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles"):
+the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles") on the GitHub website. To run the sample, use the following command in the Blender sample directory:
 
 ```
 deadline bundle gui-submit blender_render

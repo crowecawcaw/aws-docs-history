@@ -16,7 +16,7 @@ Task chunking is an extension to Open Job Description (OpenJD) named
 parameter with type `CHUNK[INT]`. When the job runs, Deadline Cloud dispatches a range of
 values to each task instead of a single value, and the `{{Task.Param.Frame}}`
 variable in your script expands to a range expression such as `1-10`. Your script
-passes that range to the application. For the full specification, see [RFC 0001: Task Chunking](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md") on GitHub.
+passes that range to the application. For the full specification, see [RFC 0001: Task Chunking](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md") on the GitHub website.
 
 To use task chunking, you make two decisions:
 

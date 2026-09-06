@@ -2,7 +2,7 @@
 
 The
 [blender-aswf-ci-base](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/containers/blender/blender-aswf-ci-base "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/containers/blender/blender-aswf-ci-base")
-example builds a Docker image that packages Blender with the
+example on the GitHub website builds a Docker image that packages Blender with the
 [deadline-cloud-for-blender](https://github.com/aws-deadline/deadline-cloud-for-blender "https://github.com/aws-deadline/deadline-cloud-for-blender")
 adaptor and GPU support (CUDA/OptiX) for rendering on Deadline Cloud
 service-managed fleets. The base image is

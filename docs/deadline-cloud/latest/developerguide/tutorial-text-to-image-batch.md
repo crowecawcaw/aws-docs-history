@@ -3,11 +3,12 @@
 This tutorial walks you through running high-throughput batch image
 generation on a JSONL file of prompts using a diffusion model. You
 submit the
-[text-to-image batch job bundle on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch")
-to a GPU fleet on your Deadline Cloud farm. The default model is
-[FLUX.2 Klein 4B on Hugging Face](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B"),
-which is Apache 2.0 licensed, ungated, distilled to 4 steps, and needs
-about 13 GB of video RAM (VRAM).
+[text-to-image batch job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch")
+on the GitHub website to a GPU fleet on your Deadline Cloud farm. The default
+model is
+[FLUX.2 Klein 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B")
+on the Hugging Face website, which is Apache 2.0 licensed, ungated,
+distilled to 4 steps, and needs about 13 GB of video RAM (VRAM).
 
 Each selected line in the JSONL becomes a generation task. The
 scheduler distributes tasks across available GPU workers, and each
@@ -45,10 +46,11 @@ parameters. FLUX.2 Klein 4B fits comfortably on 16 GB and larger GPUs
 (for example, L4 or A10G) thanks to CPU offloading.
 
 The fastest way to get a compatible farm is to deploy the
-[CUDA farm CloudFormation template on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm"),
-which is the same template the vLLM batch inference bundle uses.
-After the stack reaches `CREATE_COMPLETE`, configure the
-Deadline Cloud CLI to use the new farm:
+[CUDA farm CloudFormation template](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm")
+on the GitHub website. The vLLM batch inference bundle uses the same
+template. After the stack reaches
+`CREATE_COMPLETE`, configure the Deadline Cloud CLI to use the new
+farm:
 
 ```
 deadline config set defaults.farm_id `FarmId-from-stack-outputs`
@@ -133,8 +135,9 @@ Deadline Cloud task chunking feature. For more information, see
 [Task chunking for job templates](build-job-bundle-chunking.md "build-job-bundle-chunking.md").
 The `ModelName` parameter accepts anything the diffusers
 library can load, including SDXL Turbo and Stable Diffusion 3.5. For
-the full parameter list and the settings for other models, see
-[the parameters table in the sample README on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch#parameters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch#parameters").
+the full parameter list and the settings for other models, see the
+[parameters table in the sample README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch#parameters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch#parameters")
+on the GitHub website.
 
 ## Download and browse the gallery
 
@@ -205,9 +208,10 @@ for this tutorial:
 
 ## Related resources
 
-The following resources provide additional information:
+The following resources provide additional information on the GitHub website and the Hugging Face
+website:
 
-- [Sample source code on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch")
+- [Sample source code](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch")
 - [Run batch LLM inference with vLLM](tutorial-vllm-batch.md "tutorial-vllm-batch.md")
 - [Task chunking for job templates](build-job-bundle-chunking.md "build-job-bundle-chunking.md")
 - [FLUX.2 Klein LoRA fine-tuning and image generation](flux2-klein-lora.md "flux2-klein-lora.md")

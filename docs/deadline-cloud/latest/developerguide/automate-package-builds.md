@@ -23,7 +23,7 @@ template.
 
 ###### To deploy the CloudFormation template
 
-1. Download the [deadline-cloud-starter-farm-template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/raw/mainline/cloudformation/farm_templates/starter_farm/deadline-cloud-starter-farm-template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/raw/mainline/cloudformation/farm_templates/starter_farm/deadline-cloud-starter-farm-template.yaml") template from the [Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm") repository on GitHub.
+1. Download the [deadline-cloud-starter-farm-template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/raw/mainline/cloudformation/farm_templates/starter_farm/deadline-cloud-starter-farm-template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/raw/mainline/cloudformation/farm_templates/starter_farm/deadline-cloud-starter-farm-template.yaml") template from the [Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm") directory on the GitHub website.
 2. From the [CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"),
    choose **Create Stack**, then **With new resources
    (standard)**.
@@ -34,8 +34,7 @@ template.
 5. Follow the CloudFormation console steps to complete stack creation.
 
 For more information about the template parameters and customization options, see
-the [starter farm README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm") in the Deadline Cloud samples repository on
-GitHub.
+the [starter farm README](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm") in the Deadline Cloud samples repository on the GitHub website.
 
 ## Create a package building queue from the console
 
@@ -107,16 +106,17 @@ packages and reindex the channel.
 After you create a package building queue and configure the queue permissions, you
 can submit jobs to build conda packages. The `submit-package-job` script in
 the [Deadline Cloud
-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme") repository on GitHub submits a build job for a conda
+samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme") on the GitHub website submits a build job for a conda
 recipe.
 
 You need the following:
 
-- The [Deadline Cloud
-  CLI](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") installed on your workstation.
+- The Deadline Cloud CLI installed on your workstation. For installation
+  instructions, see the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud")
+  repository on the GitHub website.
 - An active [AWS Deadline Cloud monitor (Deadline Cloud monitor)](../userguide/working-with-deadline-monitor.md "../userguide/working-with-deadline-monitor.md") login session.
-- A clone of the [Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
-  repository.
+- A clone of the [Deadline Cloud samples
+  repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website.
 
 ###### To submit a package build job
 

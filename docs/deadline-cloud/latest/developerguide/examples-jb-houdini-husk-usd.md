@@ -2,9 +2,9 @@
 
 The
 [houdini\_husk\_usd\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render")
-job bundle renders a USD scene using the Houdini
-[husk](https://www.sidefx.com/docs/houdini/ref/utils/husk.html "https://www.sidefx.com/docs/houdini/ref/utils/husk.html")
-CLI. By default, Husk renders with the Houdini Karma renderer, but Husk
+job bundle on the GitHub website renders a USD scene using the Houdini [husk CLI](https://www.sidefx.com/docs/houdini/ref/utils/husk.html "https://www.sidefx.com/docs/houdini/ref/utils/husk.html")
+on the SideFX website. By default, Husk renders with the Houdini Karma
+renderer, but Husk
 supports any Hydra-compatible USD render delegate. The bundle expands to a
 task per frame using the Frames job parameter and limits execution to Linux
 workers through host requirements.
@@ -33,7 +33,7 @@ the
 [houdini-redshift-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2025"),
 or
 [houdini-redshift-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026")
-conda recipes.
+conda recipes on the GitHub website.
 
 The bundle includes a `sample.usda` file with a cube and
 sphere that has no external dependencies and can be rendered without

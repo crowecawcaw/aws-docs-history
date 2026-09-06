@@ -2,10 +2,10 @@
 
 The
 [vtk-latest](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vtk-latest "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vtk-latest")
-job bundle runs VTK (Visualization Toolkit) Python scripts on Deadline Cloud. The
-bundle is generalizable for any VTK-based Python script that accepts
-command-line parameters for output path, width, and height, and saves
-visualization output to a specified location.
+job bundle on the GitHub website runs VTK (Visualization Toolkit) Python
+scripts on Deadline Cloud. The bundle is generalizable for any VTK-based Python
+script that accepts command-line parameters for output path, width, and
+height, and saves visualization output to a specified location.
 
 Your VTK script must accept the following command-line arguments:
 

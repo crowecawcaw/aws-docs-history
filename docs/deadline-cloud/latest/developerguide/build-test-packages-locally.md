@@ -10,17 +10,17 @@ directory, `rattler-build` creates and initializes the channel automatically if 
 directory does not exist.
 
 The following instructions use the Blender 4.5 sample recipe from the
-[Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
-repository on GitHub. You can substitute a different recipe from the samples
-repository or use your own recipe.
+[Deadline Cloud samples
+repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website. You can substitute a different recipe from the
+samples repository or use your own recipe.
 
 ## Prerequisites
 
 Before you begin, install the following tools on your workstation:
 
 - **pixi** – A package manager that you use to
-  install `rattler-build` and to test packages. Install pixi from
-  [pixi.sh](https://pixi.sh "https://pixi.sh").
+  install `rattler-build` and to test packages. For installation instructions,
+  see [pixi.sh](https://pixi.sh "https://pixi.sh") on the Pixi website.
 - **rattler-build** – The package build tool used
   by Deadline Cloud conda recipes. After you install pixi, run the following command to install
   `rattler-build`.
@@ -30,8 +30,10 @@ pixi global install rattler-build
 ```
 
 - **git** – Required to clone the samples
-  repository. On Windows, [git for
-  Windows](https://gitforwindows.org/ "https://gitforwindows.org/") also provides a `bash` shell, which some of the Windows sample recipes require.
+  repository. On Windows, [Git for
+  Windows](https://gitforwindows.org/ "https://gitforwindows.org/") on the Git for Windows website also provides a
+  `bash` shell, which some of the Windows sample recipes
+  require.
 
 ## Building and publishing a package to a local channel
 
@@ -86,8 +88,8 @@ The `rattler-build publish` command performs the following actions:
     * Indexes the channel so that package managers can find the package.
 
 If your package recipe depends on packages from a particular channel, such as
-[conda-forge](https://conda-forge.org/ "https://conda-forge.org/"), add `-c
- conda-forge` to the command.
+[conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the conda-forge website,
+add `-c conda-forge` to the command.
 
 ###### About build numbers
 
@@ -103,7 +105,7 @@ uses the build number defined in the `recipe.yaml` file.
 
 For more information about `rattler-build publish`, see the
 [rattler-build publish
-documentation](https://rattler-build.prefix.dev/latest/publish/ "https://rattler-build.prefix.dev/latest/publish/").
+documentation](https://rattler-build.prefix.dev/latest/publish/ "https://rattler-build.prefix.dev/latest/publish/") on the prefix.dev website.
 
 ## Debugging builds
 
@@ -116,8 +118,8 @@ rattler-build debug shell
 ```
 
 From the debug shell, you can modify files, run individual build commands, and add
-dependencies to isolate the issue. For more information, see [Debugging builds](https://rattler-build.prefix.dev/latest/debugging_builds/ "https://rattler-build.prefix.dev/latest/debugging_builds/") in
-the rattler-build documentation.
+dependencies to isolate the issue. For more information, see [Debugging builds](https://rattler-build.prefix.dev/latest/debugging_builds/ "https://rattler-build.prefix.dev/latest/debugging_builds/")
+on the prefix.dev website.
 
 ## Testing the package
 
@@ -158,11 +160,11 @@ pixi add blender=4.5
 pixi run blender --version
 ```
 
-The [`pixi
- run`](https://pixi.sh/latest/reference/cli/pixi/run/ "https://pixi.sh/latest/reference/cli/pixi/run/") command activates the conda environment for the project directory
-and runs the specified command within it. The environment persists in the project
-directory, so you can use the same `pixi run` command from other
-terminals.
+The `pixi run` command activates the conda environment for the
+project directory and runs the specified command within it. The environment persists in
+the project directory, so you can use the same `pixi run` command from other
+terminals. For more information, see the [`pixi run`
+command](https://pixi.sh/latest/reference/cli/pixi/run/ "https://pixi.sh/latest/reference/cli/pixi/run/") on the Pixi website.
 
 When you are satisfied with the package, you can publish the package to an Amazon S3 conda
 channel so that Deadline Cloud workers can install the package. See [Publish packages to an S3 conda

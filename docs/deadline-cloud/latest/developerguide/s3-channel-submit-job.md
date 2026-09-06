@@ -3,14 +3,14 @@
 After you build the Blender 4.5 package, you can test it with a
 render job. If you do not have a Blender scene, download the
 Blender 3.5 - Cozy Kitchen scene from the [Blender demo
-files](https://www.blender.org/download/demo-files "https://www.blender.org/download/demo-files") page. The Deadline Cloud samples repository contains a
+files page](https://www.blender.org/download/demo-files "https://www.blender.org/download/demo-files") on the Blender website. The Deadline Cloud samples repository contains a
 `blender_render` job bundle and a conda queue environment that you can use
 for both local and cloud testing.
 
 ## Testing locally
 
 You can run the job template on your workstation using the [Open Job Description
-CLI](https://github.com/OpenJobDescription/openjd-cli#readme "https://github.com/OpenJobDescription/openjd-cli#readme"). Install the CLI with `pip`.
+CLI](https://github.com/OpenJobDescription/openjd-cli#readme "https://github.com/OpenJobDescription/openjd-cli#readme") on the GitHub website. Install the CLI with `pip`.
 
 ```
 pip install openjd-cli

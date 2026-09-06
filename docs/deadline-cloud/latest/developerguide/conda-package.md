@@ -4,7 +4,7 @@ A conda package is a compressed archive of software written in any language. Con
 supports a variety of operating system and architecture combinations, so you can package
 full applications like Blender, Maya, and
 Nuke alongside libraries for Python and other languages. For more
-information about conda packages, see [Packages](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html") in the conda documentation.
+information about conda packages, see the [Packages](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html") documentation on the conda website.
 
 To use a conda package, you install it into a virtual environment. A conda virtual
 environment has a _prefix directory_ where packages
@@ -25,7 +25,8 @@ artifact directly to publish it.
 
 The [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") community maintains
 package recipes for a broad set of open source software, and hosts package artifacts in the
-`conda-forge` channel. You can configure your queue to include
+`conda-forge` channel on the conda-forge website. You can configure your
+queue to include
 `conda-forge` as a package source, and then build custom packages that depend on
 conda-forge packages to run. For Linux, conda-forge hosts a full compiler toolchain
 including CUDA support, with consistent compiling and linking options selected. You can use
@@ -49,7 +50,8 @@ When repackaging an application for conda, there are two goals:
 
 - Most files for the application should be separate from the primary conda virtual
   environment structure. Environments can then mix the application with packages from other
-  sources like [conda-forge](https://conda-forge.org/ "https://conda-forge.org/").
+  sources like [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the
+  conda-forge website.
 - When a conda virtual environment is activated, the application should be available
   from the PATH environment variable.
 
@@ -70,13 +72,13 @@ service-managed fleets. For example, the X11 window system is usually unnecessar
 non-interactive jobs, but some applications still require it to run without a graphical
 interface. You must provide those dependencies within the package you create. 4. If the application supports plugins, provide a clear convention that plugin packages
 should follow to integrate with the application in a virtual environment. For example,
-the [Maya 2026 sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages") documents this convention for
+the [Maya 2026 sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026#instructions-for-maya-plugin-packages") on the GitHub website documents conventions for
 Maya plugins. 5. Ensure you follow the copyright and license agreements for the applications you
 package. We recommend using a private Amazon S3 bucket for your conda channel to control
 distribution and limit package access to your farm.
 
 Sample recipes for the packages in the `deadline-cloud` channel are
-available in the [Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme") repository on GitHub.
+available in the [Deadline Cloud samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes#readme") on the GitHub website.
 
 ## Package a plugin
 
@@ -93,12 +95,11 @@ plugin package, follow these guidelines:
 Some Deadline Cloud application integrations use an _adaptor_ that extends the application
 interface to simplify [writing job templates](building-jobs.md "building-jobs.md"). An
 adaptor is a command-line interface with support for running a background daemon,
-reporting status, and applying path mapping.
-For more information, see the [Open Job Description Adaptor Runtime](https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python#readme "https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python#readme") on GitHub. For example,
+reporting status, and applying path mapping. For example, the
 [deadline-cloud-for-maya](https://github.com/aws-deadline/deadline-cloud-for-maya/ "https://github.com/aws-deadline/deadline-cloud-for-maya/")
-on GitHub includes an integrated job submission GUI and a
+repository on the GitHub website includes an integrated job submission GUI and a
 Maya adaptor that is available as the
-`maya-openjd` package on service-managed fleets.
+`maya-openjd` package on service-managed fleets. For more information about adaptors and the adaptor runtime, see the [Open Job Description Adaptor Runtime](https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python#readme "https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python#readme") on the GitHub website.
 
 Job submissions from Deadline Cloud submitter GUIs include a `CondaPackages`
 parameter value that specifies the conda packages to include in a virtual environment for
@@ -110,5 +111,6 @@ constraints to be compatible and adds all the dependency packages they need to r
 adaptor and plugin package specifies what it is compatible with, including which versions
 of Maya, which versions of Python, and other dependencies.
 
-To build your own adaptor packages using our samples such as the [maya-openjd recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd") on GitHub, you can build on the packages for
-Python and other dependencies provided by [conda-forge](https://conda-forge.org/ "https://conda-forge.org/"). You might need to build the [deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline") and [openjd-adaptor-runtime](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime") recipes first to satisfy dependencies.
+To build your own adaptor packages, you can use sample recipes such as the [maya-openjd recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd") on the GitHub website. Build on the packages for
+Python and other dependencies provided by [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the conda-forge website. You might need to build the [deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline") and [openjd-adaptor-runtime](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime") recipes on the GitHub website first to satisfy
+dependencies.

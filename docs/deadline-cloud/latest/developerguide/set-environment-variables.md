@@ -1,14 +1,14 @@
 # Set environment variables in a queue environment
 
 Many applications and frameworks use environment variables to control feature settings,
-logging levels, and display configuration. You can use [Open Job Description (OpenJD) environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") to set environment variables that every
-task command within their scope inherits.
+logging levels, and display configuration. You can use Open Job Description (OpenJD) environments to set environment variables that every
+task command within their scope inherits. For more information, see [Environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") on the GitHub website.
 
 ## Environment variable scope
 
 AWS Deadline Cloud applies environment variables from queue environments that you attach to a
 queue. Within a job template, you can also define environment variables at the job and step
-levels using [OpenJD environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment"). Variables defined at a narrower scope override variables
+levels using OpenJD environments. For more information, see [Environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") on the GitHub website. Variables defined at a narrower scope override variables
 with the same name from a broader scope.
 
 - **Queue environment** – A template that you
@@ -32,8 +32,8 @@ You can set environment variables in a queue environment using a
 
 The following queue environment template uses a `variables` map to set the
 `QT_QPA_PLATFORM` variable to `offscreen`, which allows applications
-that use the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework") to run
-on worker hosts without an interactive display.
+that use the Qt Framework to run on worker hosts without an interactive display. For more information, see the
+[Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework") on the Qt website.
 
 ```
 specificationVersion: 'environment-2023-09'
@@ -87,7 +87,7 @@ aws deadline create-queue-environment \
 ```
 
 For more complex examples, such as creating and activating conda virtual environments,
-see the [Deadline Cloud queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments") on GitHub.
+see the [Deadline Cloud queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments") on the GitHub website.
 
 ## Setting variables in a job template
 
@@ -96,8 +96,8 @@ or `stepEnvironments` entry. Each entry is a key-value pair where the key is the
 variable name and the value is the variable value.
 
 The following job template sets the `QT_QPA_PLATFORM` environment variable
-to `offscreen`, which allows applications that use the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework") to run on worker hosts
-without an interactive display.
+to `offscreen`, which allows applications that use the Qt Framework to run on worker hosts
+without an interactive display. For more information, see the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework") on the Qt website.
 
 ```
 specificationVersion: 'jobtemplate-2023-09'
@@ -153,7 +153,7 @@ steps:
 
 ## Try it: Running the environment variable sample
 
-The Deadline Cloud samples repository includes a [job bundle that demonstrates setting and viewing environment variables](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml"). The
+The Deadline Cloud samples repository includes a [job bundle that demonstrates setting and viewing environment variables](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") on the GitHub website. The
 sample job template defines variables at both the job and step levels, then runs a task
 that prints the merged result. Use the following procedure to run the sample and inspect
 the results.
@@ -167,7 +167,7 @@ the results.
    steps in [Set up Deadline Cloud
    submitters](../userguide/submitter.md "../userguide/submitter.md").
 3. Use `git` to clone the [Deadline Cloud samples GitHub
-   repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
+   repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") on the GitHub website.
 
 ```
 git clone https://github.com/aws-deadline/deadline-cloud-samples.git
@@ -189,7 +189,7 @@ deadline bundle submit job_env_vars
 
 ### Comparing session actions with their definitions
 
-The log view shows three session actions. Open the file [job\_env\_vars/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") in a text editor to compare each action with its
+The log view shows three session actions. Open the file [job\_env\_vars/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") on the GitHub website in a text editor to compare each action with its
 definition in the job template.
 
 1. Select the **Launch JobEnv** session action. The log output

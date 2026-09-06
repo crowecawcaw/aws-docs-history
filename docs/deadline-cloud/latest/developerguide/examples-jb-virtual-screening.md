@@ -1,8 +1,8 @@
 # Run virtual screening with AutoDock Vina on Deadline Cloud
 
 The
-[virtual\_screening\_vina](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/virtual_screening_vina "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/virtual_screening_vina")
-job bundle uses
+[virtual\_screening\_vina job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/virtual_screening_vina "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/virtual_screening_vina")
+on the GitHub website uses
 [AutoDock
 Vina](https://github.com/ccsb-scripps/AutoDock-Vina "https://github.com/ccsb-scripps/AutoDock-Vina") to screen large compound libraries against a protein target.
 The bundle splits a compound library into chunks and docks them in parallel
@@ -29,8 +29,8 @@ The pipeline runs four steps:
 
 Set `CompoundLibrary=chembl` (default) to automatically
 download and filter drug-like molecules from
-[ChEMBL](https://www.ebi.ac.uk/chembl/ "https://www.ebi.ac.uk/chembl/"), or provide
-your own SDF file.
+[ChEMBL](https://www.ebi.ac.uk/chembl/ "https://www.ebi.ac.uk/chembl/") on the EMBL-EBI
+website, or provide your own SDF file.
 
 From the `job_bundles` directory, submit the job:
 

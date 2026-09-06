@@ -42,7 +42,7 @@ Each element of the `parameterValues` list must be one of the following:
     file enables a job bundle to either act as a template if some parameters don't have values
     defined in this file, or as a specific job submission if all parameters have values.
 
-For example, the [blender\_render sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render") doesn't have a parameters file and its job template defines
+For example, the [blender\_render sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render") on the GitHub website doesn't have a parameters file and its job template defines
 parameters with no default values. This template must be used as a template to create jobs.
 After you create a job using this job bundle, Deadline Cloud writes a new job bundle to the job history
 directory.

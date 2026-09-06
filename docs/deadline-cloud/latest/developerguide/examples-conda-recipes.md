@@ -2,12 +2,12 @@
 
 The
 [conda\_recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes")
-directory in the deadline-cloud-samples repository contains sample tools
-for creating an Amazon S3 conda channel and building packages into it. The
-recipes use
-[rattler-build](https://prefix-dev.github.io/rattler-build/ "https://prefix-dev.github.io/rattler-build/")
-or, in some cases, the older
-[conda-build](https://docs.conda.io/projects/conda-build/ "https://docs.conda.io/projects/conda-build/").
+directory on the GitHub website contains sample tools for creating an Amazon S3
+conda channel and building packages into it. The recipes use
+[rattler-build](https://prefix-dev.github.io/rattler-build/ "https://prefix-dev.github.io/rattler-build/") on the
+prefix.dev website or, in some cases, the older
+[conda-build](https://docs.conda.io/projects/conda-build/ "https://docs.conda.io/projects/conda-build/") on the conda
+website.
 
 Each recipe directory includes a
 `deadline-cloud.yaml` metadata file that lists the conda
@@ -46,7 +46,7 @@ To submit a build for every platform listed in
 
 The
 [conda\_build\_linux\_package](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package")
-job bundle in the directory is the Open Job Description template that
+job bundle on the GitHub website is the Open Job Description template that
 `submit-package-job` submits. It runs `conda-build`
 or `rattler-build` on a worker, takes a recipe directory and
 optional source archives as input, and writes the built package to your
@@ -54,11 +54,11 @@ queue's conda channel.
 
 Source archives that recipes pull in by URL go in the
 [archive\_files](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files")
-directory. Recipes that require an installer or redistributable archive
+directory on the GitHub website. Recipes that require an installer or redistributable archive
 you have to download manually (such as Maya, Cinema 4D, or Nuke) read
 from this directory at build time.
 
-The repository also includes recipes that package the Deadline Cloud client
+The following recipes on the GitHub website package the Deadline Cloud client
 libraries themselves so that jobs can call Deadline Cloud APIs from inside a
 queue:
 

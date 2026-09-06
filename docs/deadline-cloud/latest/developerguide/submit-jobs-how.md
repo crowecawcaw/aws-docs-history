@@ -10,7 +10,7 @@ custom tools for your workloads.
 - From an application – for when the user's work is in an application, or when an
   application's context is important.
   The following examples use the `deadline` Python library and the
-  `deadline` command line tool. Both are available from [PyPi](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") and [hosted on GitHub](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud").
+  `deadline` command line tool. The library is available from [PyPI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") on the PyPI website. The source code is available from the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") repository on the GitHub website.
 
 ###### Topics
 

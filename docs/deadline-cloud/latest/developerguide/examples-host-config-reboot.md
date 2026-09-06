@@ -2,7 +2,7 @@
 
 The
 [worker\_reboot](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/worker_reboot "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/worker_reboot")
-sample includes Linux and Windows scripts that reboot a Deadline Cloud worker
+sample on the GitHub website includes Linux and Windows scripts that reboot a Deadline Cloud worker
 after host configuration completes. Worker reboots are commonly required
 after driver installations or domain joins.
 

@@ -10,18 +10,18 @@ session. For more information about adaptors, see [Adaptor packages](conda-packa
 
 ## Understanding the recipe
 
-The [maya-openjd sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd") builds the adaptor from the [deadline-cloud-for-maya](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya")
-source package published to PyPI. The [recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-openjd/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-openjd/recipe/recipe.yaml") installs the package using `pip` into the conda
-environment.
+The [maya-openjd sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd") on the GitHub website builds the adaptor from the [deadline-cloud-for-maya
+source package](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya") published to PyPI. The [recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-openjd/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-openjd/recipe/recipe.yaml") on the GitHub website installs the package using `pip`
+into the conda environment.
 
 The recipe depends on Python and two other packages from the Deadline Cloud samples
-repository that you need to build first:
+repository that you need to build first. These packages are available on the GitHub website:
 
 - [deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline") – The Deadline Cloud client library.
 - [openjd-adaptor-runtime](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime") – The Open Job Description adaptor
   runtime.
 
-Python and other dependencies are available from [conda-forge](https://conda-forge.org/ "https://conda-forge.org/"), so add `-c
+Python and other dependencies are available from [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") on the conda-forge website, so add `-c
  conda-forge` to the `rattler-build publish` command when you build
 the adaptor package.
 

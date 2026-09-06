@@ -50,7 +50,7 @@ storage in Deadline Cloud](../userguide/storage-shared.md "../userguide/storage-
 
 ###### Example- The asset reference file created by the Deadline Cloud GUI
 
-Use the following command to submit a job using the [blender\_render sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render").
+Use the following command to submit a job using the [blender\_render sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render") on the GitHub website:
 
 ```
 deadline bundle gui-submit blender_render/

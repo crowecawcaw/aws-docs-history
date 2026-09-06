@@ -1,12 +1,13 @@
 # Connect a Deadline Cloud fleet to FSx for OpenZFS through a VPC resource endpoint
 
-The
+The smf\_vpc\_fsx CloudFormation template deploys a Deadline Cloud service-managed fleet
+that connects to FSx for OpenZFS storage through a VPC resource endpoint.
+The FSx cluster runs in a VPC, and a VPC Lattice resource configuration
+establishes the connection between Deadline Cloud workers and the storage. The
+resource configuration is shared with the Deadline Cloud service through AWS RAM. For
+the template source, see
 [smf\_vpc\_fsx](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx")
-CloudFormation template deploys a Deadline Cloud service-managed fleet that connects to FSx
-for OpenZFS storage through a VPC resource endpoint. The FSx cluster runs
-in a VPC, and a VPC Lattice resource configuration establishes the
-connection between Deadline Cloud workers and the storage. The resource
-configuration is shared with the Deadline Cloud service through AWS RAM.
+on the GitHub website.
 
 Use this pattern when you need Deadline Cloud workers to access the
 following:
