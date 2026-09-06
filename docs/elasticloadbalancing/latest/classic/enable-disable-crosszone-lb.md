@@ -1,172 +1,154 @@
+
+
 # Configure cross-zone load balancing for your Classic Load Balancer
+<a name="enable-disable-crosszone-lb"></a>
 
-With _cross-zone load balancing_, each load balancer node for your
-Classic Load Balancer distributes requests evenly across the registered instances in all enabled
-Availability Zones. If cross-zone load balancing is disabled, each load balancer node
-distributes requests evenly across the registered instances in its Availability Zone
-only. For more information, see [Cross-zone load balancing](../userguide/how-elastic-load-balancing-works.md#cross-zone-load-balancing "../userguide/how-elastic-load-balancing-works.md#cross-zone-load-balancing") in the
-_Elastic Load Balancing User Guide_.
+With *cross-zone load balancing*, each load balancer node for your Classic Load Balancer distributes requests evenly across the registered instances in all enabled Availability Zones. If cross-zone load balancing is disabled, each load balancer node distributes requests evenly across the registered instances in its Availability Zone only. For more information, see [Cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#cross-zone-load-balancing) in the *Elastic Load Balancing User Guide*.
 
-Cross-zone load balancing reduces the need to maintain equivalent numbers of instances
-in each enabled Availability Zone, and improves your application's ability to handle the
-loss of one or more instances. However, we still recommend that you maintain
-approximately equivalent numbers of instances in each enabled Availability Zone for
-higher fault tolerance.
+Cross-zone load balancing reduces the need to maintain equivalent numbers of instances in each enabled Availability Zone, and improves your application's ability to handle the loss of one or more instances. However, we still recommend that you maintain approximately equivalent numbers of instances in each enabled Availability Zone for higher fault tolerance.
 
-For environments where clients cache DNS lookups, incoming requests might favor one of
-the Availability Zones. Using cross-zone load balancing, this imbalance in the request
-load is spread across all available instances in the Region, reducing the impact of
-misbehaving clients.
+For environments where clients cache DNS lookups, incoming requests might favor one of the Availability Zones. Using cross-zone load balancing, this imbalance in the request load is spread across all available instances in the Region, reducing the impact of misbehaving clients.
 
-When you create a Classic Load Balancer, the default for cross-zone load balancing depends on how you
-create the load balancer. With the API or CLI, cross-zone load balancing is disabled by
-default. With the AWS Management Console, the option to enable cross-zone load balancing is selected
-by default. After you create a Classic Load Balancer, you can enable or disable cross-zone load
-balancing at any time.
+When you create a Classic Load Balancer, the default for cross-zone load balancing depends on how you create the load balancer. With the API or CLI, cross-zone load balancing is disabled by default. With the AWS Management Console, the option to enable cross-zone load balancing is selected by default. After you create a Classic Load Balancer, you can enable or disable cross-zone load balancing at any time.
 
-###### Contents
-
-- [Enable cross-zone load balancing](#enable-cross-zone "#enable-cross-zone")
-- [Disable cross-zone load balancing](#disable-cross-zone "#disable-cross-zone")
+**Topics**
++ [Enable cross-zone load balancing](#enable-cross-zone)
++ [Disable cross-zone load balancing](#disable-cross-zone)
 
 ## Enable cross-zone load balancing
+<a name="enable-cross-zone"></a>
 
 You can enable cross-zone load balancing for your Classic Load Balancer at any time.
 
-###### To enable cross-zone load balancing using the console
+**To enable cross-zone load balancing using the console**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**, choose
-   **Load Balancers**.
-3. Choose the name of the load balancer to open its detail page.
-4. On the **Attributes** tab, choose **Edit**.
-5. On the **Edit load balancer attributes** page, in the
-   **Availability Zone routing configuration** section, enable
-   **Cross-zone load balancing**.
-6. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### To enable cross-zone load balancing using the AWS CLI
+1. On the navigation pane, under **Load Balancing**, choose **Load Balancers**.
 
-1. Use the following [modify-load-balancer-attributes](../../../cli/latest/reference/elb/modify-load-balancer-attributes.md "../../../cli/latest/reference/elb/modify-load-balancer-attributes.md") command to set the
-   `CrossZoneLoadBalancing` attribute of your load balancer to
-   `true`:
+1. Choose the name of the load balancer to open its detail page.
 
-```
-`aws elb modify-load-balancer-attributes --load-balancer-name `my-loadbalancer` --load-balancer-attributes "{\"CrossZoneLoadBalancing\":{\"Enabled\":true}}"`
-```
+1. On the **Attributes** tab, choose **Edit**.
 
-The following is an example response:
+1. On the **Edit load balancer attributes** page, in the **Availability Zone routing configuration** section, enable **Cross-zone load balancing**.
 
-```
-{
-   "LoadBalancerAttributes": {
-     "CrossZoneLoadBalancing": {
-         "Enabled": true
-       }
-   },
-   "LoadBalancerName": "my-loadbalancer"
- }
+1. Choose **Save changes**.
 
-```
+**To enable cross-zone load balancing using the AWS CLI**
 
-2. (Optional) Use the following [describe-load-balancer-attributes](../../../cli/latest/reference/elb/describe-load-balancer-attributes.md "../../../cli/latest/reference/elb/describe-load-balancer-attributes.md") command to verify that
-   cross-zone load balancing is enabled for your load balancer:
+1. Use the following [modify-load-balancer-attributes](https://docs.aws.amazon.com/cli/latest/reference/elb/modify-load-balancer-attributes.html) command to set the `CrossZoneLoadBalancing` attribute of your load balancer to `true`:
 
-```
-`aws elb describe-load-balancer-attributes --load-balancer-name `my-loadbalancer``
-```
+   ```
+   aws elb modify-load-balancer-attributes --load-balancer-name {{my-loadbalancer}} --load-balancer-attributes "{\"CrossZoneLoadBalancing\":{\"Enabled\":true}}"
+   ```
 
-The following is an example response:
+   The following is an example response:
 
-```
-{
-    "LoadBalancerAttributes": {
-        "ConnectionDraining": {
-            "Enabled": false,
-            "Timeout": 300
-        },
+   ```
+   {
+      "LoadBalancerAttributes": {
         "CrossZoneLoadBalancing": {
             "Enabled": true
-        },
-        "ConnectionSettings": {
-            "IdleTimeout": 60
-        },
-        "AccessLog": {
-            "Enabled": false
-        }
+          }
+      },
+      "LoadBalancerName": "my-loadbalancer"
     }
-}
-```
+   ```
+
+1. (Optional) Use the following [describe-load-balancer-attributes](https://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancer-attributes.html) command to verify that cross-zone load balancing is enabled for your load balancer:
+
+   ```
+   aws elb describe-load-balancer-attributes --load-balancer-name {{my-loadbalancer}}
+   ```
+
+   The following is an example response:
+
+   ```
+   {
+       "LoadBalancerAttributes": {
+           "ConnectionDraining": {
+               "Enabled": false, 
+               "Timeout": 300
+           }, 
+           "CrossZoneLoadBalancing": {
+               "Enabled": true
+           }, 
+           "ConnectionSettings": {
+               "IdleTimeout": 60
+           }, 
+           "AccessLog": {
+               "Enabled": false
+           }
+       }
+   }
+   ```
 
 ## Disable cross-zone load balancing
+<a name="disable-cross-zone"></a>
 
-You can disable the cross-zone load balancing option for your load balancer at any
-time.
+You can disable the cross-zone load balancing option for your load balancer at any time.
 
-###### To disable cross-zone load balancing using the console
+**To disable cross-zone load balancing using the console**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**, choose
-   **Load Balancers**.
-3. Choose the name of the load balancer to open its detail page.
-4. On the **Attributes** tab, choose **Edit**.
-5. On the **Edit load balancer attributes** page, in the
-   **Availability Zone routing configuration** section, disable
-   **Cross-zone load balancing**.
-6. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-To disable cross-zone load balancing, set the `CrossZoneLoadBalancing`
-attribute of your load balancer to `false`.
+1. On the navigation pane, under **Load Balancing**, choose **Load Balancers**.
 
-###### To disable cross-zone load balancing using the AWS CLI
+1. Choose the name of the load balancer to open its detail page.
 
-1. Use the following [modify-load-balancer-attributes](../../../cli/latest/reference/elb/modify-load-balancer-attributes.md "../../../cli/latest/reference/elb/modify-load-balancer-attributes.md") command:
+1. On the **Attributes** tab, choose **Edit**.
 
-```
-`aws elb modify-load-balancer-attributes --load-balancer-name `my-loadbalancer` --load-balancer-attributes "{\"CrossZoneLoadBalancing\":{\"Enabled\":false}}"`
-```
+1. On the **Edit load balancer attributes** page, in the **Availability Zone routing configuration** section, disable **Cross-zone load balancing**.
 
-The following is an example response:
+1. Choose **Save changes**.
 
-```
-{
-   "LoadBalancerAttributes": {
-     "CrossZoneLoadBalancing": {
-         "Enabled": false
-       }
-   },
-   "LoadBalancerName": "my-loadbalancer"
- }
-```
+To disable cross-zone load balancing, set the `CrossZoneLoadBalancing` attribute of your load balancer to `false`.
 
-2. (Optional) Use the following [describe-load-balancer-attributes](../../../cli/latest/reference/elb/describe-load-balancer-attributes.md "../../../cli/latest/reference/elb/describe-load-balancer-attributes.md") command to verify that
-   cross-zone load balancing is disabled for your load balancer:
+**To disable cross-zone load balancing using the AWS CLI**
 
-```
-`aws elb describe-load-balancer-attributes --load-balancer-name `my-loadbalancer``
-```
+1. Use the following [modify-load-balancer-attributes](https://docs.aws.amazon.com/cli/latest/reference/elb/modify-load-balancer-attributes.html) command:
 
-The following is an example response:
+   ```
+   aws elb modify-load-balancer-attributes --load-balancer-name {{my-loadbalancer}} --load-balancer-attributes "{\"CrossZoneLoadBalancing\":{\"Enabled\":false}}"
+   ```
 
-```
-{
-    "LoadBalancerAttributes": {
-        "ConnectionDraining": {
-            "Enabled": false,
-            "Timeout": 300
-        },
+   The following is an example response:
+
+   ```
+   {
+      "LoadBalancerAttributes": {
         "CrossZoneLoadBalancing": {
             "Enabled": false
-        },
-        "ConnectionSettings": {
-            "IdleTimeout": 60
-        },
-        "AccessLog": {
-            "Enabled": false
-        }
+          }
+      },
+      "LoadBalancerName": "my-loadbalancer"
     }
-}
+   ```
 
-```
+1. (Optional) Use the following [describe-load-balancer-attributes](https://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancer-attributes.html) command to verify that cross-zone load balancing is disabled for your load balancer:
+
+   ```
+   aws elb describe-load-balancer-attributes --load-balancer-name {{my-loadbalancer}}
+   ```
+
+   The following is an example response:
+
+   ```
+   {
+       "LoadBalancerAttributes": {
+           "ConnectionDraining": {
+               "Enabled": false, 
+               "Timeout": 300
+           }, 
+           "CrossZoneLoadBalancing": {
+               "Enabled": false
+           }, 
+           "ConnectionSettings": {
+               "IdleTimeout": 60
+           }, 
+           "AccessLog": {
+               "Enabled": false
+           }
+       }
+   }
+   ```
