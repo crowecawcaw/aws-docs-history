@@ -270,9 +270,9 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | i7ie.12xlarge 1 3   | 25.0 / 50.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 8                       | 50                         | ✓ Yes |
 | i7ie.18xlarge 1 3   | 37.5 / 75.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
 | i7ie.24xlarge 1 3   | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| i7ie.48xlarge 3     | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7ie.48xlarge 3     | 200 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 2             | 15                      | 50                         | ✓ Yes |
 | i7ie.metal-24xl 1 3 | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| i7ie.metal-48xl 3   | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7ie.metal-48xl 3   | 200 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 2             | 15                      | 50                         | ✓ Yes |
 | **I8g**             |
 | i8g.large 1 3       | 1.172 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
 | i8g.xlarge 1 3      | 2.344 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
@@ -294,9 +294,9 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | i8ge.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 30                         | ✓ Yes |
 | i8ge.18xlarge       | 112.5 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 50                         | ✓ Yes |
 | i8ge.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 50                         | ✓ Yes |
-| i8ge.48xlarge       | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 50                         | ✓ Yes |
+| i8ge.48xlarge       | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 50                         | ✓ Yes |
 | i8ge.metal-24xl 3   | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 16                      | 50                         | ✓ Yes |
-| i8ge.metal-48xl 3   | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 24                      | 50                         | ✓ Yes |
+| i8ge.metal-48xl 3   | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 2             | 24                      | 50                         | ✓ Yes |
 | **Im4gn**           |
 | im4gn.large 1 3     | 3.125 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
 | im4gn.xlarge 1 3    | 6.25 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
