@@ -1,48 +1,42 @@
+
+
 # Cross-region inference in AWS Database Migration Service
+<a name="CHAP_Security.DataProtection.CrossRegionInference"></a>
 
-Certain AWS Database Migration Service features use cross-region AI inference to automatically select the optimal AWS Region within your
-geography to process inference requests. This approach maximizes available compute resources and model availability, and
-is designed to provide a high-quality customer experience. With cross-region inference, you get:
+ Certain AWS Database Migration Service features use cross-region AI inference to automatically select the optimal AWS Region within your geography to process inference requests. This approach maximizes available compute resources and model availability, and is designed to provide a high-quality customer experience. With cross-region inference, you get: 
++ Access to the most advanced AI capabilities and features
++ Increased throughput and resilience during high demand periods
 
-- Access to the most advanced AI capabilities and features
-- Increased throughput and resilience during high demand periods
+ Cross-region AI inference requests are kept within the AWS Regions that are part of the same geography as your primary AWS Region. For example, a request made from a primary AWS Region in the US is kept within the AWS Regions in the US. Your data remains stored only in your primary AWS Region. All data is transmitted encrypted across Amazon's secure network. 
 
-Cross-region AI inference requests are kept within the AWS Regions that are part of the same geography as your primary
-AWS Region. For example, a request made from a primary AWS Region in the US is kept within the AWS Regions in the US.
-Your data remains stored only in your primary AWS Region. All data is transmitted encrypted across Amazon's secure network.
-
-###### Note
-
+**Note**  
 Amazon CloudWatch and AWS CloudTrail logs don't specify the AWS Region in which AI inference occurs.
 
 ## Cross-region inference in DMS Schema Conversion
+<a name="CHAP_Security.DataProtection.CrossRegionInference.SchemaConversion"></a>
 
-When you use Generative AI features in DMS Schema Conversion, anonymized code fragments and related schema metadata might be sent to
-other AWS Regions within the same geography for AI processing. Your production data remains in your primary AWS Region
-and is never accessed or transmitted.
+ When you use Generative AI features in DMS Schema Conversion, anonymized code fragments and related schema metadata might be sent to other AWS Regions within the same geography for AI processing. Your production data remains in your primary AWS Region and is never accessed or transmitted. 
 
-###### Important
+**Important**  
+ Cross-region inference is always enabled when you use Generative AI features in DMS Schema Conversion. To keep schema conversion processing resident in your primary AWS Region, use schema conversion with disabled Generative AI features. 
 
-Cross-region inference is always enabled when you use Generative AI features in DMS Schema Conversion. To keep schema conversion
-processing resident in your primary AWS Region, use schema conversion with disabled Generative AI features.
+ Generative AI features in DMS Schema Conversion are currently available in a limited number of regions. The following table describes what AWS Regions your requests may be routed to depending on your primary AWS Region. 
 
-Generative AI features in DMS Schema Conversion are currently available in a limited number of regions. The following table describes
-what AWS Regions your requests may be routed to depending on your primary AWS Region.
 
-| Primary AWS Region                     | Inference AWS Regions                                                                                                                                                                                                              |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)                                                                                                                                                     |
-| Asia Pacific (Osaka) (ap-northeast-3)  | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)                                                                                                                                                     |
-| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)<br>Asia Pacific (Melbourne) (ap-southeast-4)                                                                                                                                                |
-| Canada (Central) (ca-central-1)        | Canada (Central) (ca-central-1)<br>US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                 |
-| Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                   |
-| Europe (Zurich) (eu-central-2)         | Europe (Frankfurt) (eu-central-1)<br>Europe (Zurich) (eu-central-2)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3) |
-| Europe (Stockholm) (eu-north-1)        | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                   |
-| Europe (Milan) (eu-south-1)            | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                   |
-| Europe (Spain) (eu-south-2)            | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                   |
-| Europe (Ireland) (eu-west-1)           | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                   |
-| Europe (London) (eu-west-2)            | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2)<br>Europe (Paris) (eu-west-3)    |
-| Europe (Paris) (eu-west-3)             | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                   |
-| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                    |
-| US East (Ohio) (us-east-2)             | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                    |
-| US West (Oregon) (us-west-2)           | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                    |
+| Primary AWS Region | Inference AWS Regions | 
+| --- | --- | 
+| Asia Pacific (Tokyo) (ap-northeast-1) | Asia Pacific (Tokyo) (ap-northeast-1)<br />Asia Pacific (Osaka) (ap-northeast-3) | 
+| Asia Pacific (Osaka) (ap-northeast-3) | Asia Pacific (Tokyo) (ap-northeast-1)<br />Asia Pacific (Osaka) (ap-northeast-3) | 
+| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)<br />Asia Pacific (Melbourne) (ap-southeast-4) | 
+| Canada (Central) (ca-central-1) | Canada (Central) (ca-central-1)<br />US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
+| Europe (Frankfurt) (eu-central-1) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| Europe (Zurich) (eu-central-2) | Europe (Frankfurt) (eu-central-1)<br />Europe (Zurich) (eu-central-2)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| Europe (Stockholm) (eu-north-1) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| Europe (Milan) (eu-south-1) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| Europe (Spain) (eu-south-2) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| Europe (Ireland) (eu-west-1) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| Europe (London) (eu-west-2) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (London) (eu-west-2)<br />Europe (Paris) (eu-west-3) | 
+| Europe (Paris) (eu-west-3) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
+| US East (N. Virginia) (us-east-1) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
+| US East (Ohio) (us-east-2) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
+| US West (Oregon) (us-west-2) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 

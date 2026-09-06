@@ -1,298 +1,185 @@
+
+
 # Using Amazon S3 as a target for AWS Database Migration Service
+<a name="CHAP_Target.S3"></a>
 
-You can migrate data to Amazon S3 using AWS DMS from any of the supported database
-sources. When using Amazon S3 as a target in an AWS DMS task, both full load and change
-data capture (CDC) data is written to comma-separated value (.csv) format by default.
-For more compact storage and faster query options, you also have the option to have the
-data written to Apache Parquet (.parquet) format.
+You can migrate data to Amazon S3 using AWS DMS from any of the supported database sources. When using Amazon S3 as a target in an AWS DMS task, both full load and change data capture (CDC) data is written to comma-separated value (.csv) format by default. For more compact storage and faster query options, you also have the option to have the data written to Apache Parquet (.parquet) format. 
 
-AWS DMS names files created during a full load using an incremental hexadecimal
-counter—for example LOAD00001.csv, LOAD00002..., LOAD00009, LOAD0000A, and so on
-for .csv files. AWS DMS names CDC files using timestamps, for example
-20141029-1134010000.csv. For each source table that contains records, AWS DMS creates
-a folder under the specified target folder (if the source table is not empty). AWS DMS
-writes all full load and CDC files to the specified Amazon S3 bucket. You can control the size
-of the files that AWS DMS creates by using the [MaxFileSize](../APIReference/API_S3Settings.md#DMS-Type-S3Settings-MaxFileSize "../APIReference/API_S3Settings.md#DMS-Type-S3Settings-MaxFileSize")
-endpoint setting.
+AWS DMS names files created during a full load using an incremental hexadecimal counter—for example LOAD00001.csv, LOAD00002..., LOAD00009, LOAD0000A, and so on for .csv files. AWS DMS names CDC files using timestamps, for example 20141029-1134010000.csv. For each source table that contains records, AWS DMS creates a folder under the specified target folder (if the source table is not empty). AWS DMS writes all full load and CDC files to the specified Amazon S3 bucket. You can control the size of the files that AWS DMS creates by using the [MaxFileSize](https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-MaxFileSize) endpoint setting. 
 
-The parameter `bucketFolder` contains the location where the .csv or
-.parquet files are stored before being uploaded to the S3 bucket. With .csv files, table
-data is stored in the following format in the S3 bucket, shown with full-load
-files.
+The parameter `bucketFolder` contains the location where the .csv or .parquet files are stored before being uploaded to the S3 bucket. With .csv files, table data is stored in the following format in the S3 bucket, shown with full-load files.
 
 ```
-`database_schema_name`/`table_name`/LOAD00000001.csv
-`database_schema_name`/`table_name`/LOAD00000002.csv
+{{database_schema_name}}/{{table_name}}/LOAD00000001.csv
+{{database_schema_name}}/{{table_name}}/LOAD00000002.csv
 ...
-`database_schema_name`/`table_name`/LOAD00000009.csv
-`database_schema_name`/`table_name`/LOAD0000000A.csv
-`database_schema_name`/`table_name`/LOAD0000000B.csv
-...`database_schema_name`/`table_name`/LOAD0000000F.csv
-`database_schema_name`/`table_name`/LOAD00000010.csv
+{{database_schema_name}}/{{table_name}}/LOAD00000009.csv
+{{database_schema_name}}/{{table_name}}/LOAD0000000A.csv
+{{database_schema_name}}/{{table_name}}/LOAD0000000B.csv
+...{{database_schema_name}}/{{table_name}}/LOAD0000000F.csv
+{{database_schema_name}}/{{table_name}}/LOAD00000010.csv
 ...
 ```
 
-You can specify the column delimiter, row delimiter, and other parameters using the
-extra connection attributes. For more information on the extra connection attributes,
-see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring") at the end of this section.
+You can specify the column delimiter, row delimiter, and other parameters using the extra connection attributes. For more information on the extra connection attributes, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring) at the end of this section.
 
-To prevent spoofing, AWS DMS validates bucket ownership
-before performing operations. By default, when the `ExpectedBucketOwner` Amazon S3
-endpoint setting is not specified, AWS DMS uses the AWS account ID
-that owns the AWS DMS service role as the expected bucket owner.
+To prevent spoofing, AWS DMS validates bucket ownership before performing operations. By default, when the `ExpectedBucketOwner` Amazon S3 endpoint setting is not specified, AWS DMS uses the AWS account ID that owns the AWS DMS service role as the expected bucket owner.
 
-To migrate data to an S3 bucket owned by a different AWS account,
-you must explicitly specify the actual bucket owner in the
-`ExpectedBucketOwner` Amazon S3 endpoint setting, as shown following.
-Otherwise, the cross-account replication task will fail.
+To migrate data to an S3 bucket owned by a different AWS account, you must explicitly specify the actual bucket owner in the `ExpectedBucketOwner` Amazon S3 endpoint setting, as shown following. Otherwise, the cross-account replication task will fail.
 
 ```
---s3-settings '{"ExpectedBucketOwner": "*AWS\_Account\_ID*"}'
+--s3-settings '{"ExpectedBucketOwner": "AWS_Account_ID"}'
 ```
 
-When you use AWS DMS to replicate data changes using a CDC task, the first column of the
-.csv or .parquet output file indicates how the row data was changed as shown for the
-following .csv file.
+When you use AWS DMS to replicate data changes using a CDC task, the first column of the .csv or .parquet output file indicates how the row data was changed as shown for the following .csv file.
 
 ```
-
 I,101,Smith,Bob,4-Jun-14,New York
 U,101,Smith,Bob,8-Oct-15,Los Angeles
 U,101,Smith,Bob,13-Mar-17,Dallas
 D,101,Smith,Bob,13-Mar-17,Dallas
-
 ```
 
-For this example, suppose that there is an `EMPLOYEE` table in the source
-database. AWS DMS writes data to the .csv or .parquet file, in response to the following
-events:
+For this example, suppose that there is an `EMPLOYEE` table in the source database. AWS DMS writes data to the .csv or .parquet file, in response to the following events:
++ A new employee (Bob Smith, employee ID 101) is hired on 4-Jun-14 at the New York office. In the .csv or .parquet file, the `I` in the first column indicates that a new row was `INSERT`ed into the EMPLOYEE table at the source database.
++ On 8-Oct-15, Bob transfers to the Los Angeles office. In the .csv or .parquet file, the `U` indicates that the corresponding row in the EMPLOYEE table was `UPDATE`d to reflect Bob's new office location. The rest of the line reflects the row in the EMPLOYEE table as it appears after the `UPDATE`. 
++ On 13-Mar,17, Bob transfers again to the Dallas office. In the .csv or .parquet file, the `U` indicates that this row was `UPDATE`d again. The rest of the line reflects the row in the EMPLOYEE table as it appears after the `UPDATE`.
++ After some time working in Dallas, Bob leaves the company. In the .csv or .parquet file, the `D` indicates that the row was `DELETE`d in the source table. The rest of the line reflects how the row in the EMPLOYEE table appeared before it was deleted.
 
-- A new employee (Bob Smith, employee ID 101) is hired on 4-Jun-14 at the New
-  York office. In the .csv or .parquet file, the `I` in the first
-  column indicates that a new row was `INSERT`ed into the EMPLOYEE
-  table at the source database.
-- On 8-Oct-15, Bob transfers to the Los Angeles office. In the .csv or .parquet
-  file, the `U` indicates that the corresponding row in the EMPLOYEE
-  table was `UPDATE`d to reflect Bob's new office location. The rest of
-  the line reflects the row in the EMPLOYEE table as it appears after the
-  `UPDATE`.
-- On 13-Mar,17, Bob transfers again to the Dallas office. In the .csv or
-  .parquet file, the `U` indicates that this row was
-  `UPDATE`d again. The rest of the line reflects the row in the
-  EMPLOYEE table as it appears after the `UPDATE`.
-- After some time working in Dallas, Bob leaves the company. In the .csv or
-  .parquet file, the `D` indicates that the row was
-  `DELETE`d in the source table. The rest of the line reflects how the
-  row in the EMPLOYEE table appeared before it was deleted.
-  Note that by default for CDC, AWS DMS stores the row changes for each database table
-  without regard to transaction order. If you want to store the row changes in CDC files
-  according to transaction order, you need to use S3 endpoint settings to specify this and
-  the folder path where you want the CDC transaction files to be stored on the S3 target.
-  For more information, see [Capturing data changes (CDC) including transaction order on the S3 target](#CHAP_Target.S3.EndpointSettings.CdcPath "#CHAP_Target.S3.EndpointSettings.CdcPath").
+Note that by default for CDC, AWS DMS stores the row changes for each database table without regard to transaction order. If you want to store the row changes in CDC files according to transaction order, you need to use S3 endpoint settings to specify this and the folder path where you want the CDC transaction files to be stored on the S3 target. For more information, see [Capturing data changes (CDC) including transaction order on the S3 target](#CHAP_Target.S3.EndpointSettings.CdcPath).
 
-To control the frequency of writes to an Amazon S3 target during a data replication
-task, you can configure the `cdcMaxBatchInterval` and `cdcMinFileSize` extra connection
-attributes. This can result in better performance when analyzing the data without any
-additional overhead operations. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring")
+To control the frequency of writes to an Amazon S3 target during a data replication task, you can configure the `cdcMaxBatchInterval` and `cdcMinFileSize` extra connection attributes. This can result in better performance when analyzing the data without any additional overhead operations. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring) 
 
-###### Topics
-
-- [Prerequisites for using Amazon S3 as a target](#CHAP_Target.S3.Prerequisites "#CHAP_Target.S3.Prerequisites")
-- [Limitations to using Amazon S3 as a target](#CHAP_Target.S3.Limitations "#CHAP_Target.S3.Limitations")
-- [Security](#CHAP_Target.S3.Security "#CHAP_Target.S3.Security")
-- [Using Apache Parquet to store Amazon S3 objects](#CHAP_Target.S3.Parquet "#CHAP_Target.S3.Parquet")
-- [Amazon S3 object tagging](#CHAP_Target.S3.Tagging "#CHAP_Target.S3.Tagging")
-- [Creating AWS KMS keys to encrypt Amazon S3 target objects](#CHAP_Target.S3.KMSKeys "#CHAP_Target.S3.KMSKeys")
-- [Using date-based folder partitioning](#CHAP_Target.S3.DatePartitioning "#CHAP_Target.S3.DatePartitioning")
-- [Parallel load of partitioned sources when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.ParallelLoad "#CHAP_Target.S3.ParallelLoad")
-- [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring")
-- [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](#CHAP_Target.S3.GlueCatalog "#CHAP_Target.S3.GlueCatalog")
-- [Using data encryption, parquet files, and CDC on your Amazon S3 target](#CHAP_Target.S3.EndpointSettings "#CHAP_Target.S3.EndpointSettings")
-- [Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps "#CHAP_Target.S3.Configuring.InsertOps")
-- [Target data types for S3 Parquet](#CHAP_Target.S3.DataTypes "#CHAP_Target.S3.DataTypes")
+**Topics**
++ [Prerequisites for using Amazon S3 as a target](#CHAP_Target.S3.Prerequisites)
++ [Limitations to using Amazon S3 as a target](#CHAP_Target.S3.Limitations)
++ [Security](#CHAP_Target.S3.Security)
++ [Using Apache Parquet to store Amazon S3 objects](#CHAP_Target.S3.Parquet)
++ [Amazon S3 object tagging](#CHAP_Target.S3.Tagging)
++ [Creating AWS KMS keys to encrypt Amazon S3 target objects](#CHAP_Target.S3.KMSKeys)
++ [Using date-based folder partitioning](#CHAP_Target.S3.DatePartitioning)
++ [Parallel load of partitioned sources when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.ParallelLoad)
++ [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring)
++ [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](#CHAP_Target.S3.GlueCatalog)
++ [Using data encryption, parquet files, and CDC on your Amazon S3 target](#CHAP_Target.S3.EndpointSettings)
++ [Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps)
++ [Target data types for S3 Parquet](#CHAP_Target.S3.DataTypes)
 
 ## Prerequisites for using Amazon S3 as a target
+<a name="CHAP_Target.S3.Prerequisites"></a>
 
-Before using Amazon S3 as a target, check that the following are true:
+Before using Amazon S3 as a target, check that the following are true: 
++ The S3 bucket that you're using as a target is in the same AWS Region as the DMS replication instance you are using to migrate your data.
++ The AWS account that you use for the migration has an IAM role with write and delete access to the S3 bucket you are using as a target.
++ This role has tagging access so you can tag any S3 objects written to the target bucket.
++ The IAM role has DMS (dms.amazonaws.com) added as *trusted entity*. 
++ For AWS DMS version 3.4.7 and higher, DMS must access the source bucket through a VPC endpoint or a public route. For information about VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md).
 
-- The S3 bucket that you're using as a target is in the same AWS Region
-  as the DMS replication instance you are using to migrate your data.
-- The AWS account that you use for the migration has an IAM role with write
-  and delete access to the S3 bucket you are using as a target.
-- This role has tagging access so you can tag any S3 objects written to the
-  target bucket.
-- The IAM role has DMS (dms.amazonaws.com) added as _trusted entity_.
-- For AWS DMS version 3.4.7 and higher, DMS must access the source bucket through a VPC endpoint or a public
-  route. For information about VPC endpoints, see
-  [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
+To set up this account access, ensure that the IAM role used to create the target endpoint has the following set of permissions.
 
-To set up this account access, ensure that the IAM role used to create the target endpoint
-has the following set of permissions.
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:DeleteObject",
- "s3:PutObjectTagging"
- ],
- "Resource": [
- "arn:aws:s3:::buckettest2/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::buckettest2"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:PutObjectTagging"
+            ],
+            "Resource": [
+                "arn:aws:s3:::buckettest2/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::buckettest2"
+            ]
+        }
+    ]
+}
 ```
 
-For prerequisites for using validation with S3 as a target, see [S3 target validation prerequisites](CHAP_Validating_S3.md#CHAP_Validating_S3_prerequisites "CHAP_Validating_S3.md#CHAP_Validating_S3_prerequisites").
+------
+
+For prerequisites for using validation with S3 as a target, see [S3 target validation prerequisites](CHAP_Validating_S3.md#CHAP_Validating_S3_prerequisites).
 
 ## Limitations to using Amazon S3 as a target
+<a name="CHAP_Target.S3.Limitations"></a>
 
 The following limitations apply when using Amazon S3 as a target:
++ Don’t enable versioning for S3. If you need S3 versioning, use lifecycle policies to actively delete old versions. Otherwise, you might encounter endpoint test connection failures because of an S3 `list-object` call timeout. To create a lifecycle policy for an S3 bucket, see [ Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html). To delete a version of an S3 object, see [ Deleting object versions from a versioning-enabled bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/DeletingObjectVersions.html).
++ A VPC-enabled (gateway VPC) S3 bucket is supported in versions 3.4.7 and higher.
++ The following data definition language (DDL) commands are supported for change data capture (CDC): Truncate Table, Drop Table, Create Table, Rename Table, Add Column, Drop Column, Rename Column, and Change Column Data Type. Note that when a column is added, dropped, or renamed on the source database, no ALTER statement is recorded in the target S3 bucket, and AWS DMS does not alter previously created records to match the new structure. After the change, AWS DMS creates any new records using the new table structure.
+**Note**  
+A truncate DDL operation removes all files and corresponding table folders from an S3 bucket. You can use task settings to disable that behavior and configure the way DMS handles DDL behavior during change data capture (CDC). For more information, see [Task settings for change processing DDL handling](CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling.md).
++ Full LOB mode is not supported.
++ Changes to the source table structure during full load are not supported. Changes to data are supported during full load.
++ Multiple tasks that replicate data from the same source table to the same target S3 endpoint bucket result in those tasks writing to the same file. We recommend that you specify different target endpoints (buckets) if your data source is from the same table.
++ `BatchApply` is not supported for an S3 endpoint. Using Batch Apply (for example, the `BatchApplyEnabled` target metadata task setting) for an S3 target might result in loss of data.
++ You can't use `DatePartitionEnabled` or `addColumnName` together with `PreserveTransactions` or `CdcPath`.
++ AWS DMS doesn't support renaming multiple source tables to the same target folder using transformation rules.
++ If there is intensive writing to the source table during the full load phase, DMS may write duplicate records to the S3 bucket or cached changes.
++ If you configure the task with a `TargetTablePrepMode` of `DO_NOTHING`, DMS may write duplicate records to the S3 bucket if the task stops and resumes abruptly during the full load phase.
++ If you configure the target endpoint with a `PreserveTransactions` setting of `true`, reloading a table doesn't clear previously generated CDC files. For more information, see [Capturing data changes (CDC) including transaction order on the S3 target](#CHAP_Target.S3.EndpointSettings.CdcPath).
 
-- Don’t enable versioning for S3. If you need S3 versioning, use lifecycle policies to actively
-  delete old versions. Otherwise, you might encounter endpoint test connection failures because of
-  an S3 `list-object` call timeout. To create a lifecycle policy for an S3 bucket, see
-  [Managing your storage lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md").
-  To delete a version of an S3 object, see
-  [Deleting object versions from a versioning-enabled bucket](../../../AmazonS3/latest/dev/DeletingObjectVersions.md "../../../AmazonS3/latest/dev/DeletingObjectVersions.md").
-- A VPC-enabled (gateway VPC) S3 bucket is supported in versions 3.4.7 and higher.
-- The following data definition language (DDL) commands are supported for
-  change data capture (CDC): Truncate Table, Drop Table, Create Table, Rename
-  Table, Add Column, Drop Column, Rename Column, and Change Column Data Type. Note that
-  when a column is added, dropped, or renamed on the source database, no ALTER statement
-  is recorded in the target S3 bucket, and AWS DMS does not alter previously created records to match
-  the new structure. After the change, AWS DMS creates any new records using the new table structure.
-
-###### Note
-
-A truncate DDL operation removes all files and corresponding table folders from an S3 bucket.
-You can use task settings to disable that behavior and configure the way DMS handles
-DDL behavior during change data capture (CDC). For more information, see
-[Task settings for change processing DDL handling](CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling.md "CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling.md").
-
-- Full LOB mode is not supported.
-- Changes to the source table structure during full load are not supported.
-  Changes to data are supported during full load.
-- Multiple tasks that replicate data from the same source table to the same
-  target S3 endpoint bucket result in those tasks writing to the same file. We
-  recommend that you specify different target endpoints (buckets) if your data
-  source is from the same table.
-- `BatchApply` is
-  not supported for an S3 endpoint. Using Batch Apply (for example,
-  the `BatchApplyEnabled` target metadata task setting) for an S3 target might result in loss of data.
-- You can't use `DatePartitionEnabled` or `addColumnName` together with
-  `PreserveTransactions` or `CdcPath`.
-- AWS DMS doesn't support renaming multiple source tables to the same target folder using transformation rules.
-- If there is intensive writing to the source table during the full load phase, DMS may write duplicate
-  records to the S3 bucket or cached changes.
-- If you configure the task with a `TargetTablePrepMode` of `DO_NOTHING`, DMS
-  may write duplicate records to the S3 bucket if the task stops and resumes abruptly during the full load phase.
-- If you configure the target endpoint with a `PreserveTransactions` setting of `true`,
-  reloading a table doesn't clear previously generated CDC files. For more information, see [Capturing data changes (CDC) including transaction order on the S3 target](#CHAP_Target.S3.EndpointSettings.CdcPath "#CHAP_Target.S3.EndpointSettings.CdcPath").
-
-For limitations for using validation with S3 as a target, see [Limitations for using S3 target validation](CHAP_Validating_S3.md#CHAP_Validating_S3_limitations "CHAP_Validating_S3.md#CHAP_Validating_S3_limitations").
+For limitations for using validation with S3 as a target, see [Limitations for using S3 target validation](CHAP_Validating_S3.md#CHAP_Validating_S3_limitations).
 
 ## Security
+<a name="CHAP_Target.S3.Security"></a>
 
-To use Amazon S3 as a target, the account used for the migration must have write and
-delete access to the Amazon S3 bucket that is used as the target. Specify the Amazon
-Resource Name (ARN) of an IAM role that has the permissions required to access Amazon S3.
+To use Amazon S3 as a target, the account used for the migration must have write and delete access to the Amazon S3 bucket that is used as the target. Specify the Amazon Resource Name (ARN) of an IAM role that has the permissions required to access Amazon S3. 
 
-AWS DMS supports a set of predefined grants for Amazon S3, known as canned access control
-lists (ACLs). Each canned ACL has a set of grantees and permissions that you can use
-to set permissions for the Amazon S3 bucket. You can specify a canned ACL using the
-`cannedAclForObjects` on the connection string attribute for your S3
-target endpoint. For more information about using the extra connection attribute
-`cannedAclForObjects`, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring"). For more information about Amazon S3 canned ACLs, see [Canned ACL](../../../AmazonS3/latest/dev/acl-overview.md#canned-acl "../../../AmazonS3/latest/dev/acl-overview.md#canned-acl").
+AWS DMS supports a set of predefined grants for Amazon S3, known as canned access control lists (ACLs). Each canned ACL has a set of grantees and permissions that you can use to set permissions for the Amazon S3 bucket. You can specify a canned ACL using the `cannedAclForObjects` on the connection string attribute for your S3 target endpoint. For more information about using the extra connection attribute `cannedAclForObjects`, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring). For more information about Amazon S3 canned ACLs, see [Canned ACL](http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl).
 
-The IAM role that you use for the migration must be able to perform the
-`s3:PutObjectAcl` API operation.
+The IAM role that you use for the migration must be able to perform the `s3:PutObjectAcl` API operation.
 
 ## Using Apache Parquet to store Amazon S3 objects
+<a name="CHAP_Target.S3.Parquet"></a>
 
-The comma-separated value (.csv) format is the default storage format for Amazon S3
-target objects. For more compact storage and faster queries, you can instead use Apache
-Parquet (.parquet) as the storage format.
+The comma-separated value (.csv) format is the default storage format for Amazon S3 target objects. For more compact storage and faster queries, you can instead use Apache Parquet (.parquet) as the storage format.
 
-Apache Parquet is an open-source file storage format originally designed for
-Hadoop. For more information on Apache Parquet, see [https://parquet.apache.org/](https://parquet.apache.org/ "https://parquet.apache.org/").
+Apache Parquet is an open-source file storage format originally designed for Hadoop. For more information on Apache Parquet, see [https://parquet.apache.org/](https://parquet.apache.org/).
 
-To set .parquet as the storage format for your migrated S3 target objects, you can
-use the following mechanisms:
-
-- Endpoint settings that you provide as parameters of a JSON object when you
-  create the endpoint using the AWS CLI or the API for AWS DMS. For more
-  information, see [Using data encryption, parquet files, and CDC on your Amazon S3 target](#CHAP_Target.S3.EndpointSettings "#CHAP_Target.S3.EndpointSettings").
-- Extra connection attributes that you provide as a semicolon-separated list
-  when you create the endpoint. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring").
+To set .parquet as the storage format for your migrated S3 target objects, you can use the following mechanisms:
++ Endpoint settings that you provide as parameters of a JSON object when you create the endpoint using the AWS CLI or the API for AWS DMS. For more information, see [Using data encryption, parquet files, and CDC on your Amazon S3 target](#CHAP_Target.S3.EndpointSettings).
++ Extra connection attributes that you provide as a semicolon-separated list when you create the endpoint. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring).
 
 ## Amazon S3 object tagging
+<a name="CHAP_Target.S3.Tagging"></a>
 
-You can tag Amazon S3 objects that a replication instance creates by specifying
-appropriate JSON objects as part of task-table mapping rules. For more information
-about requirements and options for S3 object tagging, including valid tag names, see
-[Object tagging](../../../AmazonS3/latest/userguide/object-tagging.md "../../../AmazonS3/latest/userguide/object-tagging.md") in the
-_Amazon Simple Storage Service User Guide_. For more information about table mapping
-using JSON, see [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+You can tag Amazon S3 objects that a replication instance creates by specifying appropriate JSON objects as part of task-table mapping rules. For more information about requirements and options for S3 object tagging, including valid tag names, see [Object tagging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*. For more information about table mapping using JSON, see [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md).
 
-You tag S3 objects created for specified tables and schemas by using one or more
-JSON objects of the `selection` rule type. You then follow this
-`selection` object (or objects) by one or more JSON objects of the
-`post-processing` rule type with `add-tag` action. These
-post-processing rules identify the S3 objects that you want to tag and specify the
-names and values of the tags that you want to add to these S3 objects.
+You tag S3 objects created for specified tables and schemas by using one or more JSON objects of the `selection` rule type. You then follow this `selection` object (or objects) by one or more JSON objects of the `post-processing` rule type with `add-tag` action. These post-processing rules identify the S3 objects that you want to tag and specify the names and values of the tags that you want to add to these S3 objects.
 
-You can find the parameters to specify in JSON objects of the
-`post-processing` rule type in the following table.
+You can find the parameters to specify in JSON objects of the `post-processing` rule type in the following table.
 
-| Parameter        | Possible values                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rule-type`      | `post-processing`                                                                           | A value that applies post-processing actions to the generated<br>target objects. You can specify one or more post-processing<br>rules to tag selected S3 objects.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `rule-id`        | A numeric value.                                                                            | A unique numeric value to identify the<br>rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `rule-name`      | An alphanumeric value.                                                                      | A unique name to identify the rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `rule-action`    | `add-tag`                                                                                   | The post-processing action that you want to apply<br>to the S3 object. You can add one or more tags using a single JSON<br>post-processing object for the `add-tag` action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `object-locator` | `schema-name` – The name of the table<br>schema.<br>`table-name` – The name of the table.   | The name of each schema and table to which the rule applies.<br>You can use the "%" percent sign as a wildcard for all or part<br>of the value of each `object-locator` parameter.<br>Thus, you can match these items:<br>• A single table in a single schema<br>• A single table in some or all schemas<br>• Some or all tables in a single schema<br>• Some or all tables in some or all schemas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `tag-set`        | `key` – Any valid name for a single<br>tag.<br>`value` – Any valid JSON value for this tag. | The names and values for one or more tags that you want to set<br>on each created S3 object that matches the specified<br>`object-locator`. You can specify up to 10<br>key-value pairs in a single `tag-set` parameter<br>object. For more information on S3 object tagging, see [Object tagging](../../../AmazonS3/latest/userguide/object-tagging.md "../../../AmazonS3/latest/userguide/object-tagging.md")<br>in the _Amazon Simple Storage Service User Guide_.<br>You can also specify a dynamic value for all or part of the<br>value for both the `key` and `value`<br>parameters of a tag using<br>`${*dyn-value*}`. Here,<br>`${*dyn-value*}` can be<br>either `${schema-name}` or<br>`${table-name}`. Thus, you can insert the name of the<br>currently selected schema or table as the whole or any part of<br>the parameter value.<br>NoteImportantIf you insert a dynamic value for the `key`<br>parameter, you can generate tags with duplicate names<br>for an S3 object, depending on how you use it. In this<br>case, only one of the duplicate tag settings is added to<br>the object. |
 
-When you specify multiple `post-processing` rule types to tag a
-selection of S3 objects, each S3 object is tagged using only one
-`tag-set` object from one post-processing rule. The particular tag
-set used to tag a given S3 object is the one from the post-processing rule whose
-associated object locator best matches that S3 object.
+| Parameter | Possible values | Description | 
+| --- | --- | --- | 
+| rule-type | post-processing | A value that applies post-processing actions to the generated target objects. You can specify one or more post-processing rules to tag selected S3 objects. | 
+| rule-id | A numeric value. | A unique numeric value to identify the rule. | 
+| rule-name | An alphanumeric value. | A unique name to identify the rule. | 
+| rule-action | add-tag | The post-processing action that you want to apply to the S3 object. You can add one or more tags using a single JSON post-processing object for the add-tag action. | 
+| object-locator | `schema-name` – The name of the table schema.<br />`table-name` – The name of the table. | The name of each schema and table to which the rule applies. You can use the "%" percent sign as a wildcard for all or part of the value of each `object-locator` parameter. Thus, you can match these items:+  A single table in a single schema <br />+  A single table in some or all schemas <br />+  Some or all tables in a single schema <br />+  Some or all tables in some or all schemas  | 
+| tag-set | `key` – Any valid name for a single tag.<br />`value` – Any valid JSON value for this tag.  | The names and values for one or more tags that you want to set on each created S3 object that matches the specified `object-locator`. You can specify up to 10 key-value pairs in a single `tag-set` parameter object. For more information on S3 object tagging, see [Object tagging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.<br />You can also specify a dynamic value for all or part of the value for both the `key` and `value` parameters of a tag using `${dyn-value}`. Here, `${dyn-value}` can be either `${schema-name}` or `${table-name}`. Thus, you can insert the name of the currently selected schema or table as the whole or any part of the parameter value.  If you insert a dynamic value for the `key` parameter, you can generate tags with duplicate names for an S3 object, depending on how you use it. In this case, only one of the duplicate tag settings is added to the object.    | 
 
-For example, suppose that two post-processing rules identify the same S3 object.
-Suppose also that the object locator from one rule uses wildcards and the object
-locator from the other rule uses an exact match to identify the S3 object (without
-wildcards). In this case, the tag set associated with the post-processing rule with
-the exact match is used to tag the S3 object. If multiple post-processing rules
-match a given S3 object equally well, the tag set associated with the first such
-post-processing rule is used to tag the object.
+When you specify multiple `post-processing` rule types to tag a selection of S3 objects, each S3 object is tagged using only one `tag-set` object from one post-processing rule. The particular tag set used to tag a given S3 object is the one from the post-processing rule whose associated object locator best matches that S3 object. 
 
-###### Example Adding static tags to an S3 object created for a single table and schema
+For example, suppose that two post-processing rules identify the same S3 object. Suppose also that the object locator from one rule uses wildcards and the object locator from the other rule uses an exact match to identify the S3 object (without wildcards). In this case, the tag set associated with the post-processing rule with the exact match is used to tag the S3 object. If multiple post-processing rules match a given S3 object equally well, the tag set associated with the first such post-processing rule is used to tag the object.
 
-The following selection and post-processing rules add three tags
-(`tag_1`, `tag_2`, and `tag_3` with
-corresponding static values `value_1`, `value_2`, and
-`value_3`) to a created S3 object. This S3 object corresponds to
-a single table in the source named `STOCK` with a schema named
-`aat2`.
+**Example Adding static tags to an S3 object created for a single table and schema**  
+The following selection and post-processing rules add three tags (`tag_1`, `tag_2`, and `tag_3` with corresponding static values `value_1`, `value_2`, and `value_3`) to a created S3 object. This S3 object corresponds to a single table in the source named `STOCK` with a schema named `aat2`.  
 
 ```
 {
@@ -328,17 +215,15 @@ a single table in the source named `STOCK` with a schema named
               {
                 "key": "tag_3",
                 "value": "value_3"
-              }
+              }                                     
            ]
         }
     ]
 }
 ```
 
-###### Example Adding static and dynamic tags to S3 objects created for multiple tables and schemas
-
-The following example has one selection and two post-processing rules, where
-input from the source includes all tables and all of their schemas.
+**Example Adding static and dynamic tags to S3 objects created for multiple tables and schemas**  
+The following example has one selection and two post-processing rules, where input from the source includes all tables and all of their schemas.  
 
 ```
 {
@@ -363,7 +248,7 @@ input from the source includes all tables and all of their schemas.
                 "table-name": "%",
             },
             "tag-set": [
-              {
+              { 
                 "key": "dw-schema-name",
                 "value":"${schema-name}"
               },
@@ -395,28 +280,11 @@ input from the source includes all tables and all of their schemas.
     ]
 }
 ```
+The first post-processing rule adds two tags (`dw-schema-name` and `dw-schema-table`) with corresponding dynamic values (`${schema-name}` and `my_prefix_${table-name}`) to almost all S3 objects created in the target. The exception is the S3 object identified and tagged with the second post-processing rule. Thus, each target S3 object identified by the wildcard object locator is created with tags that identify the schema and table to which it corresponds in the source.  
+The second post-processing rule adds `tag_1` and `tag_2` with corresponding static values `value_1` and `value_2` to a created S3 object that is identified by an exact-match object locator. This created S3 object thus corresponds to the single table in the source named `ITEM` with a schema named `aat`. Because of the exact match, these tags replace any tags on this object added from the first post-processing rule, which matches S3 objects by wildcard only.
 
-The first post-processing rule adds two tags (`dw-schema-name` and
-`dw-schema-table`) with corresponding dynamic values
-(`${schema-name}` and `my_prefix_${table-name}`) to
-almost all S3 objects created in the target. The exception is the S3 object
-identified and tagged with the second post-processing rule. Thus, each target S3
-object identified by the wildcard object locator is created with tags that
-identify the schema and table to which it corresponds in the source.
-
-The second post-processing rule adds `tag_1` and `tag_2`
-with corresponding static values `value_1` and `value_2`
-to a created S3 object that is identified by an exact-match object locator. This
-created S3 object thus corresponds to the single table in the source named
-`ITEM` with a schema named `aat`. Because of the exact
-match, these tags replace any tags on this object added from the first
-post-processing rule, which matches S3 objects by wildcard only.
-
-###### Example Adding both dynamic tag names and values to S3 objects
-
-The following example has two selection rules and one post-processing rule.
-Here, input from the source includes just the `ITEM` table in either
-the `retail` or `wholesale` schema.
+**Example Adding both dynamic tag names and values to S3 objects**  
+The following example has two selection rules and one post-processing rule. Here, input from the source includes just the `ITEM` table in either the `retail` or `wholesale` schema.  
 
 ```
 {
@@ -451,7 +319,7 @@ the `retail` or `wholesale` schema.
                 "table-name": "ITEM",
             },
             "tag-set": [
-              {
+              { 
                 "key": "dw-schema-name",
                 "value":"${schema-name}"
               },
@@ -471,416 +339,293 @@ the `retail` or `wholesale` schema.
     ]
 }
 ```
-
-The tag set for the post-processing rule adds two tags
-(`dw-schema-name` and `dw-schema-table`) to all S3
-objects created for the `ITEM` table in the target. The first tag has
-the dynamic value `"${schema-name}"` and the second tag has a static
-value, `"my_prefix_ITEM"`. Thus, each target S3 object is created
-with tags that identify the schema and table to which it corresponds in the
-source.
-
-In addition, the tag set adds two additional tags with dynamic names
-(`${schema-name}_ITEM_tag_1` and
-`"${schema-name}_ITEM_tag_2"`). These have the corresponding
-static values `value_1` and `value_2`. Thus, these tags
-are each named for the current schema, `retail` or
-`wholesale`. You can't create a duplicate dynamic tag name
-in this object, because each object is created for a single unique schema name.
-The schema name is used to create an otherwise unique tag name.
+The tag set for the post-processing rule adds two tags (`dw-schema-name` and `dw-schema-table`) to all S3 objects created for the `ITEM` table in the target. The first tag has the dynamic value `"${schema-name}"` and the second tag has a static value, `"my_prefix_ITEM"`. Thus, each target S3 object is created with tags that identify the schema and table to which it corresponds in the source.   
+In addition, the tag set adds two additional tags with dynamic names (`${schema-name}_ITEM_tag_1` and `"${schema-name}_ITEM_tag_2"`). These have the corresponding static values `value_1` and `value_2`. Thus, these tags are each named for the current schema, `retail` or `wholesale`. You can't create a duplicate dynamic tag name in this object, because each object is created for a single unique schema name. The schema name is used to create an otherwise unique tag name.
 
 ## Creating AWS KMS keys to encrypt Amazon S3 target objects
+<a name="CHAP_Target.S3.KMSKeys"></a>
 
-You can create and use custom AWS KMS keys to encrypt your Amazon S3 target objects.
-After you create a KMS key, you can use it to encrypt objects using one of the
-following approaches when you create the S3 target endpoint:
+You can create and use custom AWS KMS keys to encrypt your Amazon S3 target objects. After you create a KMS key, you can use it to encrypt objects using one of the following approaches when you create the S3 target endpoint:
++ Use the following options for S3 target objects (with the default .csv file storage format) when you run the `create-endpoint` command using the AWS CLI.
 
-- Use the following options for S3 target objects (with the default .csv
-  file storage format) when you run the `create-endpoint` command
-  using the AWS CLI.
+  ```
+  --s3-settings '{"ServiceAccessRoleArn": "{{your-service-access-ARN}}", 
+  "CsvRowDelimiter": "\n", "CsvDelimiter": ",", "BucketFolder": "{{your-bucket-folder}}", 
+  "BucketName": "{{your-bucket-name}}", "EncryptionMode": "SSE_KMS", 
+  "ServerSideEncryptionKmsKeyId": "{{your-KMS-key-ARN}}"}'
+  ```
 
-```
---s3-settings '{"ServiceAccessRoleArn": "`your-service-access-ARN`",
-"CsvRowDelimiter": "\n", "CsvDelimiter": ",", "BucketFolder": "`your-bucket-folder`",
-"BucketName": "`your-bucket-name`", "EncryptionMode": "SSE_KMS",
-"ServerSideEncryptionKmsKeyId": "`your-KMS-key-ARN`"}'
-```
+  Here, your-`{{your-KMS-key-ARN}}` is the Amazon Resource Name (ARN) for your KMS key and it is required your IAM role has access permissions, see [Using data encryption, parquet files, and CDC on your Amazon S3 target](#CHAP_Target.S3.EndpointSettings).
++ Set the extra connection attribute `encryptionMode` to the value `SSE_KMS` and the extra connection attribute `serverSideEncryptionKmsKeyId` to the ARN for your KMS key. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring).
 
-Here, your-`your-KMS-key-ARN` is the
-Amazon Resource Name (ARN) for your KMS key and it is required your IAM role
-has access permissions, see [Using data encryption, parquet files, and CDC on your Amazon S3 target](#CHAP_Target.S3.EndpointSettings "#CHAP_Target.S3.EndpointSettings").
-
-- Set the extra connection attribute `encryptionMode` to the
-  value `SSE_KMS` and the extra connection attribute
-  `serverSideEncryptionKmsKeyId` to the ARN for your KMS key.
-  For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring").
-
-To encrypt Amazon S3 target objects using a KMS key, you need an IAM role that has
-permissions to access the Amazon S3 bucket. This IAM role is then accessed in a policy
-(a key policy) attached to the encryption key that you create. You can do this in
-your IAM console by creating the following:
-
-- A policy with permissions to access the Amazon S3 bucket.
-- An IAM role with this policy.
-- A KMS key encryption key with a key policy that references this
-  role.
+To encrypt Amazon S3 target objects using a KMS key, you need an IAM role that has permissions to access the Amazon S3 bucket. This IAM role is then accessed in a policy (a key policy) attached to the encryption key that you create. You can do this in your IAM console by creating the following:
++ A policy with permissions to access the Amazon S3 bucket.
++ An IAM role with this policy.
++ A KMS key encryption key with a key policy that references this role.
 
 The following procedures describe how to do this.
 
-###### To create an IAM policy with permissions to access the Amazon S3 bucket
+**To create an IAM policy with permissions to access the Amazon S3 bucket**
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Policies** in the
-   navigation pane. The **Policies** page opens.
-3. Choose **Create policy**. The **Create
-   policy** page opens.
-4. Choose **Service** and choose **S3**. A
-   list of action permissions appears.
-5. Choose **Expand all** to expand the list and choose the
-   following permissions at a minimum:
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-   - **ListBucket**
-   - **PutObject**
-   - **DeleteObject**
-     Choose any other permissions you need, and then choose **Collapse
-     all** to collapse the list.
+1. In the navigation pane, choose **Policies** in the navigation pane. The **Policies** page opens.
 
-6. Choose **Resources** to specify the resources that you
-   want to access. At a minimum, choose **All resources** to
-   provide general Amazon S3 resource access.
-7. Add any other conditions or permissions you need, then choose
-   **Review policy**. Check your results on the
-   **Review policy** page.
-8. If the settings are what you need, enter a name for the policy (for
-   example, `DMS-S3-endpoint-access`), and any description, then
-   choose **Create policy**. The **Policies**
-   page opens with a message indicating that your policy has been
-   created.
-9. Search for and choose the policy name in the **Policies** list. The
-   **Summary** page appears displaying JSON for the policy
-   similar to the following.
+1. Choose **Create policy**. The **Create policy** page opens.
 
-JSON
+1. Choose **Service** and choose **S3**. A list of action permissions appears.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:ListBucket",
- "s3:DeleteObject"
- ],
- "Resource": "*"
- }
- ]
-}`
+1. Choose **Expand all** to expand the list and choose the following permissions at a minimum:
+   + **ListBucket**
+   + **PutObject**
+   + **DeleteObject**
 
-```
+   Choose any other permissions you need, and then choose **Collapse all** to collapse the list.
 
-You have now created the new policy to access Amazon S3 resources for encryption with a
-specified name, for example `DMS-S3-endpoint-access`.
+1. Choose **Resources** to specify the resources that you want to access. At a minimum, choose **All resources** to provide general Amazon S3 resource access.
 
-###### To create an IAM role with this policy
+1. Add any other conditions or permissions you need, then choose **Review policy**. Check your results on the **Review policy** page.
 
-1. On your IAM console, choose **Roles** in the navigation
-   pane. The **Roles** detail page opens.
-2. Choose **Create role**. The **Create
-   role** page opens.
-3. With AWS service selected as the trusted entity, choose
-   **DMS** as the service to use the IAM role.
-4. Choose **Next: Permissions**. The **Attach
-   permissions policies** view appears in the **Create
-   role** page.
-5. Find and select the IAM policy for the IAM role that you created in the
-   previous procedure (`DMS-S3-endpoint-access`).
-6. Choose **Next: Tags**. The **Add tags**
-   view appears in the **Create role** page. Here, you can add
-   any tags you want.
-7. Choose **Next: Review**. The **Review**
-   view appears in the **Create role** page. Here, you can
-   verify the results.
-8. If the settings are what you need, enter a name for the role (required,
-   for example, `DMS-S3-endpoint-access-role`), and any additional
-   description, then choose **Create role**. The
-   **Roles** detail page opens with a message indicating
-   that your role has been created.
+1. If the settings are what you need, enter a name for the policy (for example, `DMS-S3-endpoint-access`), and any description, then choose **Create policy**. The **Policies** page opens with a message indicating that your policy has been created.
 
-You have now created the new role to access Amazon S3 resources for encryption with a
-specified name, for example, `DMS-S3-endpoint-access-role`.
+1. Search for and choose the policy name in the **Policies** list. The **Summary** page appears displaying JSON for the policy similar to the following.
 
-###### To create a KMS key encryption key with a key policy that references your IAM role
+------
+#### [ JSON ]
 
-###### Note
+****  
 
-For more information about how AWS DMS works with AWS KMS encryption keys, see
-[Setting an encryption key and specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "VisualEditor0",
+               "Effect": "Allow",
+               "Action": [
+                   "s3:PutObject",
+                   "s3:ListBucket",
+                   "s3:DeleteObject"
+               ],
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
 
-1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
-2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
-3. In the navigation pane, choose **Customer managed keys**.
-4. Choose **Create key**. The **Configure
-   key** page opens.
-5. For **Key type**, choose
-   **Symmetric**.
+------
 
-###### Note
+You have now created the new policy to access Amazon S3 resources for encryption with a specified name, for example `DMS-S3-endpoint-access`.
 
-When you create this key, you can only create a symmetric key, because
-all AWS services, such as Amazon S3, only work with symmetric encryption
-keys. 6. Choose **Advanced Options**. For **Key material
-origin**, make sure that **KMS** is chosen,
-then choose **Next**. The **Add labels**
-page opens. 7. For **Create alias and description**, enter an alias for
-the key (for example, `DMS-S3-endpoint-encryption-key`) and any
-additional description. 8. For **Tags**, add any tags that you want to help identify
-the key and track its usage, then choose **Next**. The
-**Define key administrative permissions** page opens
-showing a list of users and roles that you can choose from. 9. Add the users and roles that you want to manage the key. Make sure that
-these users and roles have the required permissions to manage the key. 10. For **Key deletion**, choose whether key
-administrators can delete the key, then choose **Next**.
-The **Define key usage permissions** page opens showing an
-additional list of users and roles that you can choose from. 11. For **This account**, choose the available users you want
-to perform cryptographic operations on Amazon S3 targets. Also choose the role
-that you previously created in **Roles** to enable access
-to encrypt Amazon S3 target objects, for example
-`DMS-S3-endpoint-access-role`). 12. If you want to add other accounts not listed to have this same access, for
-**Other AWS accounts**, choose **Add another
-AWS account**, then choose **Next**. The
-**Review and edit key policy** page opens, showing the
-JSON for the key policy that you can review and edit by typing into the
-existing JSON. Here, you can see where the key policy references the role
-and users (for example, `Admin` and `User1`) that you
-chose in the previous step. You can also see the different key actions
-permitted for the different principals (users and roles), as shown in the
-example following.
+**To create an IAM role with this policy**
 
-JSON
+1. On your IAM console, choose **Roles** in the navigation pane. The **Roles** detail page opens.
 
-```
-`{
- "Id": "key-consolepolicy-3",
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Enable IAM User Permissions",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::111122223333:root"
- ]
- },
- "Action": "kms:*",
- "Resource": "*"
- },
- {
- "Sid": "Allow access for Key Administrators",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::111122223333:role/Admin"
- ]
- },
- "Action": [
- "kms:Create*",
- "kms:Describe*",
- "kms:Enable*",
- "kms:List*",
- "kms:Put*",
- "kms:Update*",
- "kms:Revoke*",
- "kms:Disable*",
- "kms:Get*",
- "kms:Delete*",
- "kms:TagResource",
- "kms:UntagResource",
- "kms:ScheduleKeyDeletion",
- "kms:CancelKeyDeletion"
- ],
- "Resource": "*"
- },
- {
- "Sid": "Allow use of the key",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::111122223333:role/DMS-S3-endpoint-access-role",
- "arn:aws:iam::111122223333:role/Admin",
- "arn:aws:iam::111122223333:role/User1"
- ]
- },
- "Action": [
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*",
- "kms:DescribeKey"
- ],
- "Resource": "*"
- },
- {
- "Sid": "Allow attachment of persistent resources",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::111122223333:role/DMS-S3-endpoint-access-role",
- "arn:aws:iam::111122223333:role/Admin",
- "arn:aws:iam::111122223333:role/User1"
- ]
- },
- "Action": [
- "kms:CreateGrant",
- "kms:ListGrants",
- "kms:RevokeGrant"
- ],
- "Resource": "*",
- "Condition": {
- "Bool": {
- "kms:GrantIsForAWSResource": true
- }
- }
- }
- ]
-}`
+1. Choose **Create role**. The **Create role** page opens.
 
-```
+1. With AWS service selected as the trusted entity, choose **DMS** as the service to use the IAM role.
 
-13. Choose **Finish**. The **Encryption
-    keys** page opens with a message indicating that your
-    KMS key has been created.
+1. Choose **Next: Permissions**. The **Attach permissions policies** view appears in the **Create role** page.
 
-You have now created a new KMS key with a specified alias (for example,
-`DMS-S3-endpoint-encryption-key`). This key enables AWS DMS to
-encrypt Amazon S3 target objects.
+1. Find and select the IAM policy for the IAM role that you created in the previous procedure (`DMS-S3-endpoint-access`).
+
+1. Choose **Next: Tags**. The **Add tags** view appears in the **Create role** page. Here, you can add any tags you want.
+
+1. Choose **Next: Review**. The **Review** view appears in the **Create role** page. Here, you can verify the results.
+
+1. If the settings are what you need, enter a name for the role (required, for example, `DMS-S3-endpoint-access-role`), and any additional description, then choose **Create role**. The **Roles** detail page opens with a message indicating that your role has been created.
+
+You have now created the new role to access Amazon S3 resources for encryption with a specified name, for example, `DMS-S3-endpoint-access-role`.
+
+**To create a KMS key encryption key with a key policy that references your IAM role**
+**Note**  
+For more information about how AWS DMS works with AWS KMS encryption keys, see [Setting an encryption key and specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey).
+
+1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms).
+
+1. To change the AWS Region, use the Region selector in the upper-right corner of the page.
+
+1. In the navigation pane, choose **Customer managed keys**.
+
+1. Choose **Create key**. The **Configure key** page opens.
+
+1. For **Key type**, choose **Symmetric**.
+**Note**  
+When you create this key, you can only create a symmetric key, because all AWS services, such as Amazon S3, only work with symmetric encryption keys.
+
+1. Choose **Advanced Options**. For **Key material origin**, make sure that **KMS** is chosen, then choose **Next**. The **Add labels** page opens.
+
+1. For **Create alias and description**, enter an alias for the key (for example, `DMS-S3-endpoint-encryption-key`) and any additional description.
+
+1. For **Tags**, add any tags that you want to help identify the key and track its usage, then choose **Next**. The **Define key administrative permissions** page opens showing a list of users and roles that you can choose from.
+
+1. Add the users and roles that you want to manage the key. Make sure that these users and roles have the required permissions to manage the key. 
+
+1. For **Key deletion**, choose whether key administrators can delete the key, then choose **Next**. The **Define key usage permissions** page opens showing an additional list of users and roles that you can choose from.
+
+1. For **This account**, choose the available users you want to perform cryptographic operations on Amazon S3 targets. Also choose the role that you previously created in **Roles** to enable access to encrypt Amazon S3 target objects, for example `DMS-S3-endpoint-access-role`).
+
+1. If you want to add other accounts not listed to have this same access, for **Other AWS accounts**, choose **Add another AWS account**, then choose **Next**. The **Review and edit key policy** page opens, showing the JSON for the key policy that you can review and edit by typing into the existing JSON. Here, you can see where the key policy references the role and users (for example, `Admin` and `User1`) that you chose in the previous step. You can also see the different key actions permitted for the different principals (users and roles), as shown in the example following.
+
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+       "Id": "key-consolepolicy-3",
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "Enable IAM User Permissions",
+               "Effect": "Allow",
+               "Principal": {
+                   "AWS": [
+                       "arn:aws:iam::111122223333:root"
+                   ]
+               },
+               "Action": "kms:*",
+               "Resource": "*"
+           },
+           {
+               "Sid": "Allow access for Key Administrators",
+               "Effect": "Allow",
+               "Principal": {
+                   "AWS": [
+                       "arn:aws:iam::111122223333:role/Admin"
+                   ]
+               },
+               "Action": [
+                   "kms:Create*",
+                   "kms:Describe*",
+                   "kms:Enable*",
+                   "kms:List*",
+                   "kms:Put*",
+                   "kms:Update*",
+                   "kms:Revoke*",
+                   "kms:Disable*",
+                   "kms:Get*",
+                   "kms:Delete*",
+                   "kms:TagResource",
+                   "kms:UntagResource",
+                   "kms:ScheduleKeyDeletion",
+                   "kms:CancelKeyDeletion"
+               ],
+               "Resource": "*"
+           },
+           {
+               "Sid": "Allow use of the key",
+               "Effect": "Allow",
+               "Principal": {
+                   "AWS": [
+                       "arn:aws:iam::111122223333:role/DMS-S3-endpoint-access-role",
+                       "arn:aws:iam::111122223333:role/Admin",
+                       "arn:aws:iam::111122223333:role/User1"
+                   ]
+               },
+               "Action": [
+                   "kms:Encrypt",
+                   "kms:Decrypt",
+                   "kms:ReEncrypt*",
+                   "kms:GenerateDataKey*",
+                   "kms:DescribeKey"
+               ],
+               "Resource": "*"
+           },
+           {
+               "Sid": "Allow attachment of persistent resources",
+               "Effect": "Allow",
+               "Principal": {
+                   "AWS": [
+                       "arn:aws:iam::111122223333:role/DMS-S3-endpoint-access-role",
+                       "arn:aws:iam::111122223333:role/Admin",
+                       "arn:aws:iam::111122223333:role/User1"
+                   ]
+               },
+               "Action": [
+                   "kms:CreateGrant",
+                   "kms:ListGrants",
+                   "kms:RevokeGrant"
+               ],
+               "Resource": "*",
+               "Condition": {
+                   "Bool": {
+                       "kms:GrantIsForAWSResource": true
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+------
+
+1. Choose **Finish**. The **Encryption keys** page opens with a message indicating that your KMS key has been created.
+
+You have now created a new KMS key with a specified alias (for example, `DMS-S3-endpoint-encryption-key`). This key enables AWS DMS to encrypt Amazon S3 target objects.
 
 ## Using date-based folder partitioning
+<a name="CHAP_Target.S3.DatePartitioning"></a>
 
-AWS DMS supports S3 folder partitions based on a transaction commit date when you
-use Amazon S3 as your target endpoint. Using date-based folder partitioning, you can
-write data from a single source table to a time-hierarchy folder structure in an S3
-bucket. By partitioning folders when creating an S3 target endpoint, you can do the
-following:
+AWS DMS supports S3 folder partitions based on a transaction commit date when you use Amazon S3 as your target endpoint. Using date-based folder partitioning, you can write data from a single source table to a time-hierarchy folder structure in an S3 bucket. By partitioning folders when creating an S3 target endpoint, you can do the following:
++ Better manage your S3 objects
++ Limit the size of each S3 folder
++ Optimize data lake queries or other subsequent operations
 
-- Better manage your S3 objects
-- Limit the size of each S3 folder
-- Optimize data lake queries or other subsequent operations
+You can enable date-based folder partitioning when you create an S3 target endpoint. You can enable it when you either migrate existing data and replicate ongoing changes (full load \+ CDC), or replicate data changes only (CDC only). When you migrate existing data and replicate ongoing changes, only ongoing changes will be partitioned. Use the following target endpoint settings:
++ `DatePartitionEnabled` – Specifies partitioning based on dates. Set this Boolean option to `true` to partition S3 bucket folders based on transaction commit dates. 
 
-You can enable date-based folder partitioning when you create an S3 target
-endpoint. You can enable it when you either migrate existing data and replicate ongoing
-changes (full load + CDC), or replicate data changes only (CDC only). When you migrate
-existing data and replicate ongoing changes, only ongoing changes will be partitioned.
-Use the following target endpoint settings:
+  You can't use this setting with `PreserveTransactions` or `CdcPath`.
 
-- `DatePartitionEnabled` – Specifies partitioning based on
-  dates. Set this Boolean option to `true` to partition S3 bucket
-  folders based on transaction commit dates.
+  The default value is `false`. 
++ `DatePartitionSequence` – Identifies the sequence of the date format to use during folder partitioning. Set this ENUM option to `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, or `DDMMYYYY`. The default value is `YYYYMMDD`. Use this setting when `DatePartitionEnabled` is set to `true.`
++ `DatePartitionDelimiter` – Specifies a date separation delimiter to use during folder partitioning. Set this ENUM option to `SLASH`, `DASH`, `UNDERSCORE`, or `NONE`. The default value is `SLASH`. Use this setting when `DatePartitionEnabled` is set to `true`.
++ `DatePartitionTimezone` – When creating an S3 target endpoint, set `DatePartitionTimezone` to convert the current UTC time into a specified time zone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The time zone format is Area/Location. Use this parameter when `DatePartitionEnabled` is set to `true`, as shown in the following example:
 
-You can't use this setting with
-`PreserveTransactions` or `CdcPath`.
+  ```
+  s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH", "DatePartitionDelimiter": "SLASH", "DatePartitionTimezone":"Asia/Seoul", "BucketName": "dms-nattarat-test"}'
+  ```
 
-The default value is `false`.
-
-- `DatePartitionSequence` – Identifies the sequence of the
-  date format to use during folder partitioning. Set this ENUM option to
-  `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`,
-  `MMYYYYDD`, or `DDMMYYYY`. The default value is
-  `YYYYMMDD`. Use this setting when
-  `DatePartitionEnabled` is set to `true.`
-- `DatePartitionDelimiter` – Specifies a date separation
-  delimiter to use during folder partitioning. Set this ENUM option to
-  `SLASH`, `DASH`, `UNDERSCORE`, or
-  `NONE`. The default value is `SLASH`. Use this
-  setting when `DatePartitionEnabled` is set to
-  `true`.
-- `DatePartitionTimezone` – When creating an S3 target
-  endpoint, set `DatePartitionTimezone` to convert the current UTC time
-  into a specified time zone. The conversion occurs when a date partition folder
-  is created and a CDC filename is generated. The time zone format is
-  Area/Location. Use this parameter when `DatePartitionEnabled` is
-  set to `true`, as shown in the following example:
+The following example shows how to enable date-based folder partitioning, with default values for the data partition sequence and the delimiter. It uses the `--s3-settings '{{{json-settings}}}'` option of the AWS CLI.`create-endpoint` command. 
 
 ```
-s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH", "DatePartitionDelimiter": "SLASH", "DatePartitionTimezone":"Asia/Seoul", "BucketName": "dms-nattarat-test"}'
-```
-
-The following example shows how to enable date-based folder partitioning, with
-default values for the data partition sequence and the delimiter. It uses the
-`--s3-settings '{`json-settings`}'` option
-of the AWS CLI.`create-endpoint` command.
-
-```
-
    --s3-settings '{"DatePartitionEnabled": true,"DatePartitionSequence": "YYYYMMDD","DatePartitionDelimiter": "SLASH"}'
-
 ```
 
 ## Parallel load of partitioned sources when using Amazon S3 as a target for AWS DMS
+<a name="CHAP_Target.S3.ParallelLoad"></a>
 
-You can configure a parallel full load of partitioned data sources to Amazon S3
-targets. This approach improves the load times for migrating partitioned data from
-supported source database engines to the S3 target. To improve the load times of
-partitioned source data, you create S3 target subfolders mapped to the partitions of
-every table in the source database. These partition-bound subfolders allow AWS DMS to
-run parallel processes to populate each subfolder on the target.
+You can configure a parallel full load of partitioned data sources to Amazon S3 targets. This approach improves the load times for migrating partitioned data from supported source database engines to the S3 target. To improve the load times of partitioned source data, you create S3 target subfolders mapped to the partitions of every table in the source database. These partition-bound subfolders allow AWS DMS to run parallel processes to populate each subfolder on the target.
 
-To configure a parallel full load of an S3 target, S3 supports three `parallel-load` rule types
-for the `table-settings` rule of table mapping:
+To configure a parallel full load of an S3 target, S3 supports three `parallel-load` rule types for the `table-settings` rule of table mapping:
++ `partitions-auto`
++ `partitions-list`
++ `ranges`
 
-- `partitions-auto`
-- `partitions-list`
-- `ranges`
+For more information on these parallel-load rule types, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md).
 
-For more information on these parallel-load rule types, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md").
-
-For the `partitions-auto` and `partitions-list` rule types,
-AWS DMS uses each partition name from the source endpoint to identify the target
-subfolder structure, as follows.
+For the `partitions-auto` and `partitions-list` rule types, AWS DMS uses each partition name from the source endpoint to identify the target subfolder structure, as follows.
 
 ```
-`bucket_name`/`bucket_folder`/`database_schema_name`/`table_name`/`partition_name`/LOAD`seq_num`.csv
+{{bucket_name}}/{{bucket_folder}}/{{database_schema_name}}/{{table_name}}/{{partition_name}}/LOAD{{seq_num}}.csv
 ```
 
-Here, the subfolder path where data is migrated and stored on the S3 target
-includes an additional `partition_name`
-subfolder that corresponds to a source partition with the same name. This
-`partition_name` subfolder then stores
-one or more `LOAD`seq_num`.csv` files
-containing data migrated from the specified source partition. Here,
-`seq_num` is the sequence number
-postfix on the .csv file name, such as `00000001` in the .csv
-file with the name, `LOAD00000001.csv`.
+Here, the subfolder path where data is migrated and stored on the S3 target includes an additional `{{partition_name}}` subfolder that corresponds to a source partition with the same name. This `{{partition_name}}` subfolder then stores one or more `LOAD{{seq_num}}.csv` files containing data migrated from the specified source partition. Here, `{{seq_num}}` is the sequence number postfix on the .csv file name, such as `00000001` in the .csv file with the name, `LOAD00000001.csv`.
 
-However, some database engines, such as MongoDB and DocumentDB, don't have the
-concept of partitions. For these database engines, AWS DMS adds the running source
-segment index as a prefix to the target .csv file name, as follows.
+However, some database engines, such as MongoDB and DocumentDB, don't have the concept of partitions. For these database engines, AWS DMS adds the running source segment index as a prefix to the target .csv file name, as follows.
 
 ```
-.../`database_schema_name`/`table_name`/SEGMENT1_LOAD00000001.csv
-.../`database_schema_name`/`table_name`/SEGMENT1_LOAD00000002.csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT1_LOAD00000001.csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT1_LOAD00000002.csv
 ...
-.../`database_schema_name`/`table_name`/SEGMENT2_LOAD00000009.csv
-.../`database_schema_name`/`table_name`/SEGMENT3_LOAD0000000A.csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT2_LOAD00000009.csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT3_LOAD0000000A.csv
 ```
 
-Here, the files `SEGMENT1_LOAD00000001.csv` and
-`SEGMENT1_LOAD00000002.csv` are named with the same running
-source segment index prefix, `SEGMENT1`. They're named as so
-because the migrated source data for these two .csv files is associated with the
-same running source segment index. On the other hand, the migrated data stored in
-each of the target `SEGMENT2_LOAD00000009.csv` and
-`SEGMENT3_LOAD0000000A.csv` files is associated with
-different running source segment indexes. Each file has its file name prefixed with
-the name of its running segment index, `SEGMENT2` and
-`SEGMENT3`.
+Here, the files `SEGMENT1_LOAD00000001.csv` and `SEGMENT1_LOAD00000002.csv` are named with the same running source segment index prefix, `SEGMENT1`. They're named as so because the migrated source data for these two .csv files is associated with the same running source segment index. On the other hand, the migrated data stored in each of the target `SEGMENT2_LOAD00000009.csv` and `SEGMENT3_LOAD0000000A.csv` files is associated with different running source segment indexes. Each file has its file name prefixed with the name of its running segment index, `SEGMENT2` and `SEGMENT3`.
 
-For the `ranges` parallel-load type, you define the column names and
-column values using the `columns` and `boundaries`
-settings of the `table-settings` rules. With these rules, you can specify
-partitions corresponding to segment names, as follows.
+For the `ranges` parallel-load type, you define the column names and column values using the `columns` and `boundaries` settings of the `table-settings` rules. With these rules, you can specify partitions corresponding to segment names, as follows.
 
 ```
 "parallel-load": {
@@ -907,267 +652,209 @@ partitions corresponding to segment names, as follows.
 }
 ```
 
-Here, the `segment-names` setting defines names for three partitions to
-migrate data in parallel on the S3 target. The migrated data is parallel-loaded and
-stored in .csv files under the partition subfolders in order, as follows.
+Here, the `segment-names` setting defines names for three partitions to migrate data in parallel on the S3 target. The migrated data is parallel-loaded and stored in .csv files under the partition subfolders in order, as follows.
 
 ```
-.../`database_schema_name`/`table_name`/custom_segment1/LOAD[00000001...].csv
-.../`database_schema_name`/`table_name`/custom_segment2/LOAD[00000001...].csv
-.../`database_schema_name`/`table_name`/custom_segment3/LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/custom_segment1/LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/custom_segment2/LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/custom_segment3/LOAD[00000001...].csv
 ```
 
-Here, AWS DMS stores a series of .csv files in each of the three partition
-subfolders. The series of .csv files in each partition subfolder is named
-incrementally starting from `LOAD00000001.csv` until all the data
-is migrated.
+Here, AWS DMS stores a series of .csv files in each of the three partition subfolders. The series of .csv files in each partition subfolder is named incrementally starting from `LOAD00000001.csv` until all the data is migrated.
 
-In some cases, you might not explicitly name partition subfolders for a
-`ranges` parallel-load type using the `segment-names`
-setting. In these case, AWS DMS applies the default of creating each series of .csv
-files under its `table_name` subfolder. Here,
-AWS DMS prefixes the file names of each series of .csv files with the name of the
-running source segment index, as follows.
+In some cases, you might not explicitly name partition subfolders for a `ranges` parallel-load type using the `segment-names` setting. In these case, AWS DMS applies the default of creating each series of .csv files under its `{{table_name}}` subfolder. Here, AWS DMS prefixes the file names of each series of .csv files with the name of the running source segment index, as follows.
 
 ```
-.../`database_schema_name`/`table_name`/SEGMENT1_LOAD[00000001...].csv
-.../`database_schema_name`/`table_name`/SEGMENT2_LOAD[00000001...].csv
-.../`database_schema_name`/`table_name`/SEGMENT3_LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT1_LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT2_LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT3_LOAD[00000001...].csv
 ...
-.../`database_schema_name`/`table_name`/SEGMENT`Z`_LOAD[00000001...].csv
+.../{{database_schema_name}}/{{table_name}}/SEGMENT{{Z}}_LOAD[00000001...].csv
 ```
 
 ## Endpoint settings when using Amazon S3 as a target for AWS DMS
+<a name="CHAP_Target.S3.Configuring"></a>
 
-You can use endpoint settings to configure your Amazon S3 target database similar to using
-extra connection attributes. You specify the settings when you create the target
-endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
-[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
-`--s3-settings '{"`EndpointSetting"`:
- `"value"`, `...`}'` JSON syntax.
+You can use endpoint settings to configure your Amazon S3 target database similar to using extra connection attributes. You specify the settings when you create the target endpoint using the AWS DMS console, or by using the `create-endpoint` command in the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/dms/index.html), with the `--s3-settings '{"{{EndpointSetting"}}: {{"value"}}, {{...}}}'` JSON syntax.
 
-###### Note
-
-DMS writes changes to Parquet files based on the commit order from the source
-database, but when migrating multiple tables, the original transaction order is not
-preserved due to table-level partitioning. To maintain transaction sequence
-information, configure the `TimestampColumnName` endpoint setting to
-include the source commit timestamp for each row, which you can then use in
-downstream processing to reconstruct the original transaction sequence. Unlike CSV
-format, which offers the `PreserveTransactions` setting, Parquet files
-handle transactions differently due to their columnar storage structure, but this
-approach enables accurate tracking of source commit times, supports post-migration
-transaction order reconstruction, and allows efficient data processing while
-maintaining data consistency.
+**Note**  
+DMS writes changes to Parquet files based on the commit order from the source database, but when migrating multiple tables, the original transaction order is not preserved due to table-level partitioning. To maintain transaction sequence information, configure the `TimestampColumnName` endpoint setting to include the source commit timestamp for each row, which you can then use in downstream processing to reconstruct the original transaction sequence. Unlike CSV format, which offers the `PreserveTransactions` setting, Parquet files handle transactions differently due to their columnar storage structure, but this approach enables accurate tracking of source commit times, supports post-migration transaction order reconstruction, and allows efficient data processing while maintaining data consistency.
 
 The following table shows the endpoint settings that you can use with Amazon S3 as a target.
 
-| **Option**                             | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CsvNullValue`                         | An optional parameter that specifies how AWS DMS treats null<br>values. While handling the null value, you can use this parameter to<br>pass a user-defined string as null when writing to the target. For<br>example, when target columns are nullable, you can use this option<br>to differentiate between the empty string value and the null value.<br>Default value: `""`<br>Valid values: any valid string<br>Example: `--s3-settings '{"CsvNullValue":<br>"NULL"}'`<br>If the source database column value is null, in S3 CSV file, the<br>column value is `NULL` instead of "" string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `AddColumnName`                        | An optional parameter that when set to `true` or<br>`y` you can use to add column name information to<br>the .csv output file.<br>You can't use this parameter with<br>`PreserveTransactions` or `CdcPath`.<br>Default value: `false`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"AddColumnName": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `AddTrailingPaddingCharacter`          | Use the S3 target endpoint setting `AddTrailingPaddingCharacter` to add<br>padding on string data. The default value is `false`.<br>Type: Boolean<br>Example: `--s3-settings '{"AddTrailingPaddingCharacter": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `BucketFolder`                         | An optional parameter to set a folder name in the S3 bucket.<br>If provided, target objects are created as .csv or .parquet<br>files in the path<br>``BucketFolder`/`schema_name`/`table_name`/`.<br>If this parameter isn't specified, then the path used is<br>``schema_name`/`table_name`/`.<br>Example: `--s3-settings '{"BucketFolder": "testFolder"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `BucketName`                           | The name of the S3 bucket where S3 target objects are created<br>as .csv or .parquet files.<br>Example: `--s3-settings '{"BucketName": "buckettest"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `CannedAclForObjects`                  | A value that enables AWS DMS to specify a predefined (canned)<br>access control list for objects created in the S3 bucket as .csv<br>or .parquet files. For more information about Amazon S3 canned ACLs,<br>see [Canned ACL](../../../AmazonS3/latest/dev/acl-overview.md#canned-acl "../../../AmazonS3/latest/dev/acl-overview.md#canned-acl") in the _Amazon S3<br>Developer Guide._<br>Default value: NONE<br>Valid values for this attribute are: NONE; PRIVATE;<br>PUBLIC\_READ; PUBLIC\_READ\_WRITE; AUTHENTICATED\_READ;<br>AWS\_EXEC\_READ; BUCKET\_OWNER\_READ;<br>BUCKET\_OWNER\_FULL\_CONTROL.<br>Example: `--s3-settings '{"CannedAclForObjects": "PUBLIC_READ"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `CdcInsertsOnly`                       | An optional parameter during a change data capture (CDC) load<br>to write only INSERT operations to the comma-separated value<br>(.csv) or columnar storage (.parquet) output files. By default<br>(the `false` setting), the first field in a .csv or<br>.parquet record contains the letter I (INSERT), U (UPDATE), or D<br>(DELETE). This letter indicates whether the row was inserted,<br>updated, or deleted at the source database for a CDC load to the<br>target. If `cdcInsertsOnly` is set to<br>`true` or `y`, only INSERTs from the<br>source database are migrated to the .csv or .parquet<br>file.<br>For .csv format only, how these INSERTS are recorded depends<br>on the value of `IncludeOpForFullLoad`. If<br>`IncludeOpForFullLoad` is set to<br>`true`, the first field of every CDC record is<br>set to I to indicate the INSERT operation at the source. If<br>`IncludeOpForFullLoad` is set to<br>`false`, every CDC record is written without a<br>first field to indicate the INSERT operation at the source. For<br>more information about how these parameters work together, see<br>[Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps "#CHAP_Target.S3.Configuring.InsertOps").<br>Default value: `false`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"CdcInsertsOnly": true}'`                                                                         |
-| `CdcInsertsAndUpdates`                 | Enables a change data capture (CDC) load to write INSERT<br>and UPDATE operations to .csv or .parquet (columnar storage)<br>output files. The default setting is `false`, but when<br>`cdcInsertsAndUpdates` is set to `true`<br>or `y`, INSERTs and UPDATEs from the source database<br>are migrated to the .csv or .parquet file.<br>For .csv file format only, how these INSERTs and<br>UPDATEs are recorded depends on the value of the<br>`includeOpForFullLoad` parameter. If<br>`includeOpForFullLoad` is set to `true`, the<br>first field of every CDC record is set to either<br>`I` or `U` to indicate INSERT and UPDATE<br>operations at the source. But if `includeOpForFullLoad`<br>is set to `false`, CDC records are written<br>without an indication of INSERT or UPDATE operations<br>at the source.<br>For more information about how these parameters work together, see<br>[Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps "#CHAP_Target.S3.Configuring.InsertOps").<br>Note`CdcInsertsOnly` and `cdcInsertsAndUpdates`<br>can't both be set to true for the same endpoint. Set either<br>`cdcInsertsOnly` or `cdcInsertsAndUpdates` to<br>`true` for the same endpoint, but not both.<br>Default value: `false`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"CdcInsertsAndUpdates": true}'`                                                                    |
-| `CdcPath`                              | Specifies the folder path of CDC files. For an S3 source, this setting is required if a<br>task captures change data; otherwise, it's optional. If `CdcPath` is set, DMS reads<br>CDC files from this path and replicates the data changes to the target endpoint. For an<br>S3 target if you set `PreserveTransactions` to true, DMS verifies that you have set<br>this parameter to a folder path on your S3 target where DMS can save the<br>transaction order for the CDC load. DMS creates this CDC folder path in either<br>your S3 target working directory or the S3 target location specified by `BucketFolder`<br>and `BucketName`.<br>You can't use this parameter with `DatePartitionEnabled` or<br>`AddColumnName`.<br>Type: String<br>For example, if you specify `CdcPath` as `MyChangedData`, and you specify<br>`BucketName` as `MyTargetBucket` but do not specify `BucketFolder`, DMS<br>creates the following CDC folder path: `MyTargetBucket/MyChangedData`.<br>If you specify the same `CdcPath`, and you specify `BucketName` as `MyTargetBucket`<br>and `BucketFolder` as `MyTargetData`, DMS creates the following CDC folder path:<br>`MyTargetBucket/MyTargetData/MyChangedData`.<br>NoteThis setting is supported in AWS DMS versions 3.4.2 and higher.When capturing data changes in transaction order, DMS<br>always stores the row changes in .csv files regardless of the<br>value of the DataFormat S3 setting on the target. |
-| `CdcMaxBatchInterval`                  | Maximum interval length condition, defined in seconds, to output a file to Amazon S3.<br>Default Value: 60 seconds<br>When `CdcMaxBatchInterval` is specified and<br>`CdcMinFileSize` is specified, the file write is<br>triggered by whichever parameter condition is met first.<br>NoteStarting with AWS DMS version 3.5.3, when using PostgreSQL or Aurora PostgreSQL as the source<br>and Amazon S3 with Parquet as the target, the frequency of<br>`confirmed_flush_lsn` updates depends on the<br>amount of data the target endpoint is configured to retain in<br>memory. AWS DMS sends the `confirmed_flush_lsn` back to<br>the source only after the data in memory is written to Amazon S3. If<br>you configure the `CdcMaxBatchInterval` parameter to<br>a higher value, you may observe increased replication slot usage<br>on the source database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `CdcMinFileSize`                       | Minimum file size condition as defined in kilobytes to output a file to Amazon S3.<br>Default Value: 32000 KB<br>When `CdcMinFileSize` is specified and<br>`CdcMaxBatchInterval` is specified, the file write is<br>triggered by whichever parameter condition is met first.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `PreserveTransactions`                 | If set to `true`, DMS saves the transaction order for change data capture (CDC)<br>on the Amazon S3 target specified by `CdcPath`.<br>You can't use this parameter with `DatePartitionEnabled` or<br>`AddColumnName`.<br>Type: Boolean<br>When capturing data changes in transaction order, DMS always<br>stores the row changes in .csv files regardless of the value of the<br>DataFormat S3 setting on the target.<br>NoteThis setting is supported in AWS DMS versions 3.4.2 and higher.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `IncludeOpForFullLoad`                 | An optional parameter during a full load to write the INSERT<br>operations to the comma-separated value (.csv) output files<br>only.<br>For full load, records can only be inserted. By default (the<br>`false` setting), there is no information<br>recorded in these output files for a full load to indicate that<br>the rows were inserted at the source database. If<br>`IncludeOpForFullLoad` is set to<br>`true` or `y`, the INSERT is recorded<br>as an I annotation in the first field of the .csv file.<br>NoteThis parameter works together with<br>`CdcInsertsOnly` or<br>`CdcInsertsAndUpdates` for output to .csv<br>files only. For more information about how these parameters<br>work together, see [Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps "#CHAP_Target.S3.Configuring.InsertOps").<br>Default value: `false`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"IncludeOpForFullLoad": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `CompressionType`                      | An optional parameter when set to `GZIP` uses GZIP<br>to compress the target .csv files. When this parameter is set to the<br>default, it leaves the files uncompressed.<br>Default value: `NONE`<br>Valid values: `GZIP` or `NONE`<br>Example: `--s3-settings '{"CompressionType": "GZIP"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `CsvDelimiter`                         | The delimiter used to separate columns in .csv source files.<br>The default is a comma (,).<br>Example: `--s3-settings '{"CsvDelimiter": ","}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `CsvRowDelimiter`                      | The delimiter used to separate rows in the .csv source files.<br>The default is a newline (\n).<br>Example: `--s3-settings '{"CsvRowDelimiter": "\n"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `MaxFileSize`                          | A value that specifies the maximum size (in KB) of any .csv<br>file to be created while migrating to an S3 target during full<br>load.<br>Default value: 1,048,576 KB (1 GB)<br>Valid values: 1–1,048,576<br>Example: `--s3-settings '{"MaxFileSize": 512}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `Rfc4180`                              | An optional parameter used to set behavior to comply with RFC<br>for data migrated to Amazon S3 using .csv file format only. When this<br>value is set to `true` or `y` using Amazon<br>S3 as a target, if the data has quotation marks, commas, or newline<br>characters in it, AWS DMS encloses the entire column with an<br>additional pair of double quotation marks ("). Every quotation<br>mark within the data is repeated twice. This formatting complies<br>with RFC 4180.<br>Default value: `true`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"Rfc4180": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `EncryptionMode`                       | The server-side encryption mode that you want to encrypt your<br>.csv or .parquet object files copied to S3. The valid values are<br>`SSE_S3` (S3 server-side encryption) or<br>`SSE_KMS` (KMS key encryption). If you choose<br>`SSE_KMS`, set the<br>`ServerSideEncryptionKmsKeyId` parameter to the<br>Amazon Resource Name (ARN) for the KMS key to be used for<br>encryption.<br>NoteYou can also use the CLI `modify-endpoint`<br>command to change the value of the<br>`EncryptionMode` attribute for an existing<br>endpoint from `SSE_KMS` to `SSE_S3`.<br>But you can’t change the `EncryptionMode` value<br>from `SSE_S3` to `SSE_KMS`.<br>Default value: `SSE_S3`<br>Valid values: `SSE_S3` or<br>`SSE_KMS`<br>Example: `--s3-settings '{"EncryptionMode": SSE_S3}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `ServerSideEncryptionKmsKeyId`         | If you set `EncryptionMode` to<br>`SSE_KMS`, set this parameter to the Amazon Resource<br>Name (ARN) for the KMS key. You can find this ARN by selecting<br>the key alias in the list of AWS KMS keys created for your<br>account. When you create the key, you must associate specific<br>policies and roles associated with this KMS key. For more<br>information, see [Creating AWS KMS keys to encrypt Amazon S3 target objects](#CHAP_Target.S3.KMSKeys "#CHAP_Target.S3.KMSKeys").<br>Example: `--s3-settings '{"ServerSideEncryptionKmsKeyId":"arn:aws:kms:us-east-1:111122223333:key/11a1a1a1-aaaa-9999-abab-2bbbbbb222a2"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `DataFormat`                           | The output format for the files that AWS DMS uses to create S3<br>objects. For Amazon S3 targets, AWS DMS supports either .csv or<br>.parquet files. The .parquet files have a binary columnar<br>storage format with efficient compression options and faster<br>query performance. For more information about .parquet files,<br>see [https://parquet.apache.org/](https://parquet.apache.org/ "https://parquet.apache.org/").<br>Default value: `csv`<br>Valid values: `csv` or `parquet`<br>Example: `--s3-settings '{"DataFormat": "parquet"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `EncodingType`                         | The Parquet encoding type. The encoding type options include<br>the following:<br>• `rle-dictionary` – This dictionary<br>encoding uses a combination of bit-packing and<br>run-length encoding to more efficiently store repeating<br>values.<br>• `plain` – No encoding.<br>• `plain-dictionary` – This dictionary<br>encoding builds a dictionary of values encountered in a<br>given column. The dictionary is stored in a dictionary<br>page for each column chunk.<br>Default value: `rle-dictionary`<br>Valid values: `rle-dictionary`, `plain`,<br>or `plain-dictionary`<br>Example: `--s3-settings '{"EncodingType": "plain-dictionary"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `DictPageSizeLimit`                    | The maximum allowed size, in bytes, for a dictionary page in a<br>.parquet file. If a dictionary page exceeds this value, the page<br>uses plain encoding.<br>Default value: 1,024,000 (1 MB)<br>Valid values: Any valid integer value<br>Example: `--s3-settings '{"DictPageSizeLimit": 2,048,000}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `RowGroupLength`                       | The number of rows in one row group of a .parquet file.<br>Default value: 10,024 (10 KB)<br>Valid values: Any valid integer<br>Example: `--s3-settings '{"RowGroupLength": 20,048}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `DataPageSize`                         | The maximum allowed size, in bytes, for a data page in a<br>.parquet file.<br>Default value: 1,024,000 (1 MB)<br>Valid values: Any valid integer<br>Example: `--s3-settings '{"DataPageSize": 2,048,000}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `ParquetVersion`                       | The version of the .parquet file format.<br>Default value: `PARQUET_1_0`<br>Valid values: `PARQUET_1_0` or<br>`PARQUET_2_0`<br>Example: `--s3-settings '{"ParquetVersion": "PARQUET_2_0"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `EnableStatistics`                     | Set to `true` or `y` to enable<br>statistics about .parquet file pages and row groups.<br>Default value: `true`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"EnableStatistics": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `TimestampColumnName`                  | An optional parameter to include a timestamp column in the S3<br>target endpoint data.<br>AWS DMS includes an additional `STRING` column in the<br>.csv or .parquet object files of your migrated data when you set<br>`TimestampColumnName` to a non blank value.<br>For a full load, each row of this timestamp column contains a<br>timestamp for when the data was transferred from the source to<br>the target by DMS.<br>For a CDC load, each row of the timestamp column contains the<br>timestamp for the commit of that row in the source<br>database.<br>The string format for this timestamp column value is<br>`yyyy-MM-dd HH:mm:ss.SSSSSS`. By default, the<br>precision of this value is in microseconds. For a CDC load, the<br>rounding of the precision depends on the commit timestamp<br>supported by DMS for the source database.<br>When the `AddColumnName` parameter is set to<br>`true`, DMS also includes the name for the<br>timestamp column that you set as the non blank value of<br>`TimestampColumnName`.<br>Example: `--s3-settings '{"TimestampColumnName": "TIMESTAMP"}'`                                                                                                                                                                                                                                                                                                                                                     |
-| `UseTaskStartTimeForFullLoadTimestamp` | When set to `true`, this parameter uses the task start time as the timestamp column value<br>instead of the time data is written to target. For full load, when `UseTaskStartTimeForFullLoadTimestamp`<br>is set to `true`, each row of the timestamp column contains the task start time.<br>For CDC loads, each row of the timestamp column contains the transaction commit time.<br>When `UseTaskStartTimeForFullLoadTimestamp` is set to `false`, the<br>full load timestamp in the timestamp column increments with the time data arrives at the target.<br>Default value: `false`<br>Valid values: `true`, `false`<br>Example: `--s3-settings '{"UseTaskStartTimeForFullLoadTimestamp": true}'`<br>`UseTaskStartTimeForFullLoadTimestamp: true` helps<br>make the S3 target `TimestampColumnName` for a full<br>load sortable with `TimestampColumnName` for a CDC<br>load.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `ParquetTimestampInMillisecond`        | An optional parameter that specifies the precision of any<br>`TIMESTAMP` column values written to an S3 object<br>file in .parquet format.<br>When this attribute is set to `true` or<br>`y`, AWS DMS writes all `TIMESTAMP`<br>columns in a .parquet formatted file with millisecond precision.<br>Otherwise, DMS writes them with microsecond precision.<br>Currently, Amazon Athena and AWS Glue can handle only<br>millisecond precision for `TIMESTAMP` values. Set<br>this attribute to true for .parquet formatted S3 endpoint object<br>files only if you plan to query or process the data with Athena<br>or AWS Glue.<br>Note<br>• AWS DMS writes any `TIMESTAMP` column<br>values written to an S3 file in .csv format with<br>microsecond precision.<br>• The setting of this attribute has no effect on the<br>string format of the timestamp column value inserted<br>by setting the `TimestampColumnName`<br>attribute.<br>Default value: `false`<br>Valid values: `true`, `false`,<br>`y`, `n`<br>Example: `--s3-settings '{"ParquetTimestampInMillisecond": true}'`                                                                                                                                                                                                                                                                                                                                                                            |
-| `GlueCatalogGeneration`                | To generate an AWS Glue Data Catalog, set this endpoint setting to `true`.<br>Default value: `false`<br>Valid values: `true`, `false`,<br>Example: `--s3-settings '{"GlueCatalogGeneration": true}'`<br>**Note:*<br>• Don't use<br>`GlueCatalogGeneration` with<br>`PreserveTransactions` and<br>`CdcPath`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+| **Option** | **Description** | 
+| --- | --- | 
+| CsvNullValue | An optional parameter that specifies how AWS DMS treats null values. While handling the null value, you can use this parameter to pass a user-defined string as null when writing to the target. For example, when target columns are nullable, you can use this option to differentiate between the empty string value and the null value. <br />Default value: `""`<br />Valid values: any valid string<br />Example: `--s3-settings '{"CsvNullValue": "NULL"}'`<br />If the source database column value is null, in S3 CSV file, the column value is `NULL` instead of "" string. | 
+| AddColumnName | An optional parameter that when set to `true` or `y` you can use to add column name information to the .csv output file.<br />You can't use this parameter with `PreserveTransactions` or `CdcPath`.<br />Default value: `false`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"AddColumnName": true}'` | 
+| AddTrailingPaddingCharacter | Use the S3 target endpoint setting `AddTrailingPaddingCharacter` to add padding on string data. The default value is `false`.<br />Type: Boolean<br />Example: `--s3-settings '{"AddTrailingPaddingCharacter": true}'` | 
+| BucketFolder | An optional parameter to set a folder name in the S3 bucket. If provided, target objects are created as .csv or .parquet files in the path `{{BucketFolder}}/{{schema_name}}/{{table_name}}/`. If this parameter isn't specified, then the path used is `{{schema_name}}/{{table_name}}/`. <br />Example: `--s3-settings '{"BucketFolder": "testFolder"}'` | 
+| BucketName | The name of the S3 bucket where S3 target objects are created as .csv or .parquet files.<br />Example: `--s3-settings '{"BucketName": "buckettest"}'` | 
+| CannedAclForObjects | A value that enables AWS DMS to specify a predefined (canned) access control list for objects created in the S3 bucket as .csv or .parquet files. For more information about Amazon S3 canned ACLs, see [Canned ACL](http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 Developer Guide.*<br />Default value: NONE<br />Valid values for this attribute are: NONE; PRIVATE; PUBLIC\_READ; PUBLIC\_READ\_WRITE; AUTHENTICATED\_READ; AWS\_EXEC\_READ; BUCKET\_OWNER\_READ; BUCKET\_OWNER\_FULL\_CONTROL.<br />Example: `--s3-settings '{"CannedAclForObjects": "PUBLIC_READ"}'` | 
+| CdcInsertsOnly | An optional parameter during a change data capture (CDC) load to write only INSERT operations to the comma-separated value (.csv) or columnar storage (.parquet) output files. By default (the `false` setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). This letter indicates whether the row was inserted, updated, or deleted at the source database for a CDC load to the target. If `cdcInsertsOnly` is set to `true` or `y`, only INSERTs from the source database are migrated to the .csv or .parquet file.<br />For .csv format only, how these INSERTS are recorded depends on the value of `IncludeOpForFullLoad`. If `IncludeOpForFullLoad` is set to `true`, the first field of every CDC record is set to I to indicate the INSERT operation at the source. If `IncludeOpForFullLoad` is set to `false`, every CDC record is written without a first field to indicate the INSERT operation at the source. For more information about how these parameters work together, see [Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps).<br />Default value: `false`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"CdcInsertsOnly": true}'` | 
+| CdcInsertsAndUpdates | Enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files. The default setting is `false`, but when `cdcInsertsAndUpdates` is set to `true` or `y`, INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet file. <br />For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the value of the `includeOpForFullLoad` parameter. If `includeOpForFullLoad` is set to `true`, the first field of every CDC record is set to either `I` or `U` to indicate INSERT and UPDATE operations at the source. But if `includeOpForFullLoad` is set to `false`, CDC records are written without an indication of INSERT or UPDATE operations at the source. <br /> For more information about how these parameters work together, see [Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps). `CdcInsertsOnly` and `cdcInsertsAndUpdates` can't both be set to true for the same endpoint. Set either `cdcInsertsOnly` or `cdcInsertsAndUpdates` to `true` for the same endpoint, but not both.  <br />Default value: `false`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"CdcInsertsAndUpdates": true}'` | 
+| `CdcPath` | Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `CdcPath` is set, DMS reads CDC files from this path and replicates the data changes to the target endpoint. For an S3 target if you set `PreserveTransactions` to true, DMS verifies that you have set this parameter to a folder path on your S3 target where DMS can save the transaction order for the CDC load. DMS creates this CDC folder path in either your S3 target working directory or the S3 target location specified by `BucketFolder` and `BucketName`.<br />You can't use this parameter with `DatePartitionEnabled` or `AddColumnName`.<br />Type: String<br />For example, if you specify `CdcPath` as `MyChangedData`, and you specify `BucketName` as `MyTargetBucket` but do not specify `BucketFolder`, DMS creates the following CDC folder path: `MyTargetBucket/MyChangedData`. <br />If you specify the same `CdcPath`, and you specify `BucketName` as `MyTargetBucket` and `BucketFolder` as `MyTargetData`, DMS creates the following CDC folder path: `MyTargetBucket/MyTargetData/MyChangedData`.This setting is supported in AWS DMS versions 3.4.2 and higher. <br />When capturing data changes in transaction order, DMS always stores the row changes in .csv files regardless of the value of the DataFormat S3 setting on the target.  | 
+| `CdcMaxBatchInterval` | Maximum interval length condition, defined in seconds, to output a file to Amazon S3.<br />Default Value: 60 seconds<br />When `CdcMaxBatchInterval` is specified and `CdcMinFileSize` is specified, the file write is triggered by whichever parameter condition is met first.<br />Starting with AWS DMS version 3.5.3, when using PostgreSQL or Aurora PostgreSQL as the source and Amazon S3 with Parquet as the target, the frequency of `confirmed_flush_lsn` updates depends on the amount of data the target endpoint is configured to retain in memory. AWS DMS sends the `confirmed_flush_lsn` back to the source only after the data in memory is written to Amazon S3. If you configure the `CdcMaxBatchInterval` parameter to a higher value, you may observe increased replication slot usage on the source database.  | 
+| `CdcMinFileSize` | Minimum file size condition as defined in kilobytes to output a file to Amazon S3.<br />Default Value: 32000 KB<br />When `CdcMinFileSize` is specified and `CdcMaxBatchInterval` is specified, the file write is triggered by whichever parameter condition is met first. | 
+| `PreserveTransactions` | If set to `true`, DMS saves the transaction order for change data capture (CDC) on the Amazon S3 target specified by `CdcPath`.<br />You can't use this parameter with `DatePartitionEnabled` or `AddColumnName`.<br />Type: Boolean<br />When capturing data changes in transaction order, DMS always stores the row changes in .csv files regardless of the value of the DataFormat S3 setting on the target.This setting is supported in AWS DMS versions 3.4.2 and higher.  | 
+| IncludeOpForFullLoad | An optional parameter during a full load to write the INSERT operations to the comma-separated value (.csv) output files only.<br />For full load, records can only be inserted. By default (the `false` setting), there is no information recorded in these output files for a full load to indicate that the rows were inserted at the source database. If `IncludeOpForFullLoad` is set to `true` or `y`, the INSERT is recorded as an I annotation in the first field of the .csv file. This parameter works together with `CdcInsertsOnly` or `CdcInsertsAndUpdates` for output to .csv files only. For more information about how these parameters work together, see [Indicating source DB operations in migrated S3 data](#CHAP_Target.S3.Configuring.InsertOps). <br />Default value: `false`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"IncludeOpForFullLoad": true}'` | 
+| CompressionType | An optional parameter when set to `GZIP` uses GZIP to compress the target .csv files. When this parameter is set to the default, it leaves the files uncompressed.<br />Default value: `NONE`<br />Valid values: `GZIP` or `NONE`<br />Example: `--s3-settings '{"CompressionType": "GZIP"}'` | 
+| CsvDelimiter | The delimiter used to separate columns in .csv source files. The default is a comma (,).<br />Example: `--s3-settings '{"CsvDelimiter": ","}'` | 
+| CsvRowDelimiter | The delimiter used to separate rows in the .csv source files. The default is a newline (\\n).<br />Example: `--s3-settings '{"CsvRowDelimiter": "\n"}'` | 
+|  `MaxFileSize`  | A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load.<br />Default value: 1,048,576 KB (1 GB)<br />Valid values: 1–1,048,576<br />Example: `--s3-settings '{"MaxFileSize": 512}'` | 
+| Rfc4180 | An optional parameter used to set behavior to comply with RFC for data migrated to Amazon S3 using .csv file format only. When this value is set to `true` or `y` using Amazon S3 as a target, if the data has quotation marks, commas, or newline characters in it, AWS DMS encloses the entire column with an additional pair of double quotation marks ("). Every quotation mark within the data is repeated twice. This formatting complies with RFC 4180.<br />Default value: `true`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"Rfc4180": false}'` | 
+| EncryptionMode | The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. The valid values are `SSE_S3` (S3 server-side encryption) or `SSE_KMS` (KMS key encryption). If you choose `SSE_KMS`, set the `ServerSideEncryptionKmsKeyId` parameter to the Amazon Resource Name (ARN) for the KMS key to be used for encryption. You can also use the CLI `modify-endpoint` command to change the value of the `EncryptionMode` attribute for an existing endpoint from `SSE_KMS` to `SSE_S3`. But you can’t change the `EncryptionMode` value from `SSE_S3` to `SSE_KMS`. <br />Default value: `SSE_S3`<br />Valid values: `SSE_S3` or `SSE_KMS`<br />Example: `--s3-settings '{"EncryptionMode": SSE_S3}'` | 
+| ServerSideEncryptionKmsKeyId | If you set `EncryptionMode` to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the KMS key. You can find this ARN by selecting the key alias in the list of AWS KMS keys created for your account. When you create the key, you must associate specific policies and roles associated with this KMS key. For more information, see [Creating AWS KMS keys to encrypt Amazon S3 target objects](#CHAP_Target.S3.KMSKeys).<br />Example: `--s3-settings '{"ServerSideEncryptionKmsKeyId":"arn:aws:kms:us-east-1:111122223333:key/11a1a1a1-aaaa-9999-abab-2bbbbbb222a2"}'` | 
+| DataFormat | The output format for the files that AWS DMS uses to create S3 objects. For Amazon S3 targets, AWS DMS supports either .csv or .parquet files. The .parquet files have a binary columnar storage format with efficient compression options and faster query performance. For more information about .parquet files, see [https://parquet.apache.org/](https://parquet.apache.org/).<br />Default value: `csv`<br />Valid values: `csv` or `parquet`<br />Example: `--s3-settings '{"DataFormat": "parquet"}'` | 
+| EncodingType | The Parquet encoding type. The encoding type options include the following:+  `rle-dictionary` – This dictionary encoding uses a combination of bit-packing and run-length encoding to more efficiently store repeating values. <br />+  `plain` – No encoding.  <br />+  `plain-dictionary` – This dictionary encoding builds a dictionary of values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk. <br />Default value: `rle-dictionary`<br />Valid values: `rle-dictionary`, `plain`, or `plain-dictionary`<br />Example: `--s3-settings '{"EncodingType": "plain-dictionary"}'` | 
+| DictPageSizeLimit | The maximum allowed size, in bytes, for a dictionary page in a .parquet file. If a dictionary page exceeds this value, the page uses plain encoding.<br />Default value: 1,024,000 (1 MB)<br />Valid values: Any valid integer value<br />Example: `--s3-settings '{"DictPageSizeLimit": 2,048,000}'` | 
+| RowGroupLength | The number of rows in one row group of a .parquet file.<br />Default value: 10,024 (10 KB)<br />Valid values: Any valid integer<br />Example: `--s3-settings '{"RowGroupLength": 20,048}'` | 
+| DataPageSize | The maximum allowed size, in bytes, for a data page in a .parquet file.<br />Default value: 1,024,000 (1 MB)<br />Valid values: Any valid integer<br />Example: `--s3-settings '{"DataPageSize": 2,048,000}'` | 
+| ParquetVersion | The version of the .parquet file format.<br />Default value: `PARQUET_1_0`<br />Valid values: `PARQUET_1_0` or `PARQUET_2_0`<br />Example: `--s3-settings '{"ParquetVersion": "PARQUET_2_0"}'` | 
+| EnableStatistics | Set to `true` or `y` to enable statistics about .parquet file pages and row groups.<br />Default value: `true`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"EnableStatistics": false}'` | 
+| TimestampColumnName | An optional parameter to include a timestamp column in the S3 target endpoint data.<br />AWS DMS includes an additional `STRING` column in the .csv or .parquet object files of your migrated data when you set `TimestampColumnName` to a non blank value.<br />For a full load, each row of this timestamp column contains a timestamp for when the data was transferred from the source to the target by DMS. <br />For a CDC load, each row of the timestamp column contains the timestamp for the commit of that row in the source database.<br />The string format for this timestamp column value is `yyyy-MM-dd HH:mm:ss.SSSSSS`. By default, the precision of this value is in microseconds. For a CDC load, the rounding of the precision depends on the commit timestamp supported by DMS for the source database.<br />When the `AddColumnName` parameter is set to `true`, DMS also includes the name for the timestamp column that you set as the non blank value of `TimestampColumnName`.<br />Example: `--s3-settings '{"TimestampColumnName": "TIMESTAMP"}'` | 
+| UseTaskStartTimeForFullLoadTimestamp | When set to `true`, this parameter uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when `UseTaskStartTimeForFullLoadTimestamp` is set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.<br />When `UseTaskStartTimeForFullLoadTimestamp` is set to `false`, the full load timestamp in the timestamp column increments with the time data arrives at the target.<br />Default value: `false`<br />Valid values: `true`, `false`<br />Example: `--s3-settings '{"UseTaskStartTimeForFullLoadTimestamp": true}'`<br />`UseTaskStartTimeForFullLoadTimestamp: true` helps make the S3 target `TimestampColumnName` for a full load sortable with `TimestampColumnName` for a CDC load. | 
+| ParquetTimestampInMillisecond | An optional parameter that specifies the precision of any `TIMESTAMP` column values written to an S3 object file in .parquet format.<br />When this attribute is set to `true` or `y`, AWS DMS writes all `TIMESTAMP` columns in a .parquet formatted file with millisecond precision. Otherwise, DMS writes them with microsecond precision.<br />Currently, Amazon Athena and AWS Glue can handle only millisecond precision for `TIMESTAMP` values. Set this attribute to true for .parquet formatted S3 endpoint object files only if you plan to query or process the data with Athena or AWS Glue.   AWS DMS writes any `TIMESTAMP` column values written to an S3 file in .csv format with microsecond precision.   The setting of this attribute has no effect on the string format of the timestamp column value inserted by setting the `TimestampColumnName` attribute.   <br />Default value: `false`<br />Valid values: `true`, `false`, `y`, `n`<br />Example: `--s3-settings '{"ParquetTimestampInMillisecond": true}'` | 
+| GlueCatalogGeneration | To generate an AWS Glue Data Catalog, set this endpoint setting to `true`.<br />Default value: `false`<br />Valid values: `true`, `false`,<br />Example: `--s3-settings '{"GlueCatalogGeneration": true}'`<br />**Note: **Don't use `GlueCatalogGeneration` with `PreserveTransactions` and `CdcPath`. | 
 
 ## Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS
+<a name="CHAP_Target.S3.GlueCatalog"></a>
 
-AWS Glue is a service that provides simple ways to categorize data, and consists of a
-metadata repository known as AWS Glue Data Catalog. You can integrate AWS Glue Data Catalog with your Amazon S3
-target endpoint and query Amazon S3 data through other AWS services such as Amazon Athena.
-Amazon Redshift works with AWS Glue but AWS DMS doesn't support that as a pre-built option.
+AWS Glue is a service that provides simple ways to categorize data, and consists of a metadata repository known as AWS Glue Data Catalog. You can integrate AWS Glue Data Catalog with your Amazon S3 target endpoint and query Amazon S3 data through other AWS services such as Amazon Athena. Amazon Redshift works with AWS Glue but AWS DMS doesn't support that as a pre-built option. 
 
-To generate the data catalog, set the `GlueCatalogGeneration` endpoint
-setting to `true`, as shown in the following AWS CLI example.
+To generate the data catalog, set the `GlueCatalogGeneration` endpoint setting to `true`, as shown in the following AWS CLI example.
 
 ```
-aws dms create-endpoint --endpoint-identifier s3-target-endpoint
-            --engine-name s3 --endpoint-type target--s3-settings '{"ServiceAccessRoleArn":
-            "your-service-access-ARN", "BucketFolder": "your-bucket-folder", "BucketName":
+aws dms create-endpoint --endpoint-identifier s3-target-endpoint 
+            --engine-name s3 --endpoint-type target--s3-settings '{"ServiceAccessRoleArn": 
+            "your-service-access-ARN", "BucketFolder": "your-bucket-folder", "BucketName": 
             "your-bucket-name", "DataFormat": "parquet", "GlueCatalogGeneration": true}'
 ```
 
-For a Full load replication task that includes `csv` type data, set
-`IncludeOpForFullLoad` to `true`.
+For a Full load replication task that includes `csv` type data, set `IncludeOpForFullLoad` to `true`.
 
-Don't use `GlueCatalogGeneration` with
-`PreserveTransactions` and `CdcPath`. The AWS Glue crawler
-can't reconcile the different schemas of files stored under the specified
-`CdcPath`.
+Don't use `GlueCatalogGeneration` with `PreserveTransactions` and `CdcPath`. The AWS Glue crawler can't reconcile the different schemas of files stored under the specified `CdcPath`.
 
-For Amazon Athena to index your Amazon S3 data, and for you to query your data using standard
-SQL queries through Amazon Athena, the IAM role attached to the endpoint must have the following policy:
+For Amazon Athena to index your Amazon S3 data, and for you to query your data using standard SQL queries through Amazon Athena, the IAM role attached to the endpoint must have the following policy:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:GetBucketLocation",
- "s3:GetObject",
- "s3:ListBucket",
- "s3:ListBucketMultipartUploads",
- "s3:ListMultipartUploadParts",
- "s3:AbortMultipartUpload"
- ],
- "Resource": [
- "arn:aws:s3:::bucket123",
- "arn:aws:s3:::bucket123/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "glue:CreateDatabase",
- "glue:GetDatabase",
- "glue:CreateTable",
- "glue:DeleteTable",
- "glue:UpdateTable",
- "glue:GetTable",
- "glue:BatchCreatePartition",
- "glue:CreatePartition",
- "glue:UpdatePartition",
- "glue:GetPartition",
- "glue:GetPartitions",
- "glue:BatchGetPartition"
- ],
- "Resource": [
- "arn:aws:glue:*:111122223333:catalog",
- "arn:aws:glue:*:111122223333:database/*",
- "arn:aws:glue:*:111122223333:table/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "athena:StartQueryExecution",
- "athena:GetQueryExecution",
- "athena:CreateWorkGroup"
- ],
- "Resource": "arn:aws:athena:*:111122223333:workgroup/glue_catalog_generation_for_task_*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	  
+    "Statement": [ 
+        {
+            "Effect": "Allow", 
+            "Action": [
+                "s3:GetBucketLocation", 
+                "s3:GetObject",
+                "s3:ListBucket", 
+                "s3:ListBucketMultipartUploads", 
+                "s3:ListMultipartUploadParts", 
+                "s3:AbortMultipartUpload" 
+            ], 
+            "Resource": [
+                "arn:aws:s3:::bucket123", 
+                "arn:aws:s3:::bucket123/*" 
+            ]
+        },
+        {
+            "Effect": "Allow", 
+            "Action": [ 
+                "glue:CreateDatabase", 
+                "glue:GetDatabase", 
+                "glue:CreateTable", 
+                "glue:DeleteTable", 
+                "glue:UpdateTable", 
+                "glue:GetTable", 
+                "glue:BatchCreatePartition", 
+                "glue:CreatePartition", 
+                "glue:UpdatePartition", 
+                "glue:GetPartition", 
+                "glue:GetPartitions", 
+                "glue:BatchGetPartition"
+            ], 
+            "Resource": [
+                "arn:aws:glue:*:111122223333:catalog", 
+                "arn:aws:glue:*:111122223333:database/*", 
+                "arn:aws:glue:*:111122223333:table/*" 
+            ]
+        }, 
+        {
+            "Effect": "Allow",
+            "Action": [
+                "athena:StartQueryExecution",
+                "athena:GetQueryExecution", 
+                "athena:CreateWorkGroup"
+            ],
+            "Resource": "arn:aws:athena:*:111122223333:workgroup/glue_catalog_generation_for_task_*"
+        }
+    ]
+}
 ```
 
-###### References
+------
 
-- For more information about AWS Glue, see
-  [Concepts](../../../glue/latest/dg/components-key-concepts.md "../../../glue/latest/dg/components-key-concepts.md") in the _AWS Glue Developer Guide_
-  .
-- For more information about AWS Glue Data Catalog see
-  [Components](../../../glue/latest/dg/components-overview.md "../../../glue/latest/dg/components-overview.md") in the _AWS Glue Developer Guide_
-  .
+**References**
++ For more information about AWS Glue, see [Concepts](https://docs.aws.amazon.com/glue/latest/dg/components-key-concepts.html) in the *AWS Glue Developer Guide* .
++ For more information about AWS Glue Data Catalog see [Components](https://docs.aws.amazon.com/glue/latest/dg/components-overview.html) in the *AWS Glue Developer Guide* .
 
 ## Using data encryption, parquet files, and CDC on your Amazon S3 target
+<a name="CHAP_Target.S3.EndpointSettings"></a>
 
 You can use S3 target endpoint settings to configure the following:
-
-- A custom KMS key to encrypt your S3 target objects.
-- Parquet files as the storage format for S3 target objects.
-- Change data capture (CDC) including transaction order on the S3
-  target.
-- Integrate AWS Glue Data Catalog with your Amazon S3 target endpoint and query Amazon S3 data
-  through other services such as Amazon Athena.
++ A custom KMS key to encrypt your S3 target objects.
++ Parquet files as the storage format for S3 target objects.
++ Change data capture (CDC) including transaction order on the S3 target.
++ Integrate AWS Glue Data Catalog with your Amazon S3 target endpoint and query Amazon S3 data through other services such as Amazon Athena.
 
 ### AWS KMS key settings for data encryption
+<a name="CHAP_Target.S3.EndpointSettings.KMSkeys"></a>
 
-The following examples show configuring a custom KMS key to encrypt your S3
-target objects. To start, you might run the following
-`create-endpoint` CLI command.
+The following examples show configuring a custom KMS key to encrypt your S3 target objects. To start, you might run the following `create-endpoint` CLI command.
 
 ```
-aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s3 --endpoint-type target
---s3-settings '{"ServiceAccessRoleArn": "`your-service-access-ARN`", "CsvRowDelimiter": "\n",
-"CsvDelimiter": ",", "BucketFolder": "`your-bucket-folder`",
-"BucketName": "`your-bucket-name`",
-"EncryptionMode": "SSE_KMS",
+aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s3 --endpoint-type target 
+--s3-settings '{"ServiceAccessRoleArn": "{{your-service-access-ARN}}", "CsvRowDelimiter": "\n", 
+"CsvDelimiter": ",", "BucketFolder": "{{your-bucket-folder}}", 
+"BucketName": "{{your-bucket-name}}", 
+"EncryptionMode": "SSE_KMS", 
 "ServerSideEncryptionKmsKeyId": "arn:aws:kms:us-east-1:111122223333:key/72abb6fb-1e49-4ac1-9aed-c803dfcc0480"}'
 ```
 
-Here, the JSON object specified by `--s3-settings` option defines
-two parameters. One is an `EncryptionMode` parameter with the value
-`SSE_KMS`. The other is an
-`ServerSideEncryptionKmsKeyId` parameter with the value of
-`arn:aws:kms:us-east-1:111122223333:key/72abb6fb-1e49-4ac1-9aed-c803dfcc0480`.
-This value is an Amazon Resource Name (ARN) for your custom KMS key. For an S3
-target, you also specify additional settings. These identify the server access
-role, provide delimiters for the default CSV object storage format, and give the
-bucket location and name to store S3 target objects.
+Here, the JSON object specified by `--s3-settings` option defines two parameters. One is an `EncryptionMode` parameter with the value `SSE_KMS`. The other is an `ServerSideEncryptionKmsKeyId` parameter with the value of `arn:aws:kms:us-east-1:111122223333:key/72abb6fb-1e49-4ac1-9aed-c803dfcc0480`. This value is an Amazon Resource Name (ARN) for your custom KMS key. For an S3 target, you also specify additional settings. These identify the server access role, provide delimiters for the default CSV object storage format, and give the bucket location and name to store S3 target objects.
 
-By default, S3 data encryption occurs using S3 server-side encryption. For the
-previous example's S3 target, this is also equivalent to specifying its
-endpoint settings as in the following example.
+By default, S3 data encryption occurs using S3 server-side encryption. For the previous example's S3 target, this is also equivalent to specifying its endpoint settings as in the following example.
 
 ```
 aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s3 --endpoint-type target
---s3-settings '{"ServiceAccessRoleArn": "`your-service-access-ARN`", "CsvRowDelimiter": "\n",
-"CsvDelimiter": ",", "BucketFolder": "`your-bucket-folder`",
-"BucketName": "`your-bucket-name`",
+--s3-settings '{"ServiceAccessRoleArn": "{{your-service-access-ARN}}", "CsvRowDelimiter": "\n", 
+"CsvDelimiter": ",", "BucketFolder": "{{your-bucket-folder}}", 
+"BucketName": "{{your-bucket-name}}", 
 "EncryptionMode": "SSE_S3"}'
 ```
 
-For more information about working with S3 server-side encryption, see [Protecting data using server-side encryption](../../../AmazonS3/latest/dev/serv-side-encryption.md "../../../AmazonS3/latest/dev/serv-side-encryption.md").
+For more information about working with S3 server-side encryption, see [Protecting data using server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html).
 
-###### Note
-
-You can also use the CLI `modify-endpoint` command to change
-the value of the `EncryptionMode` parameter for an existing
-endpoint from `SSE_KMS` to `SSE_S3`. But you can’t
-change the `EncryptionMode` value from `SSE_S3` to
-`SSE_KMS`.
+**Note**  
+You can also use the CLI `modify-endpoint` command to change the value of the `EncryptionMode` parameter for an existing endpoint from `SSE_KMS` to `SSE_S3`. But you can’t change the `EncryptionMode` value from `SSE_S3` to `SSE_KMS`.
 
 ### Settings for using .parquet files to store S3 target objects
+<a name="CHAP_Target.S3.EndpointSettings.Parquet"></a>
 
-The default format for creating S3 target objects is .csv files. The following
-examples show some endpoint settings for specifying .parquet files as the format
-for creating S3 target objects. You can specify the .parquet files format with
-all the defaults, as in the following example.
+The default format for creating S3 target objects is .csv files. The following examples show some endpoint settings for specifying .parquet files as the format for creating S3 target objects. You can specify the .parquet files format with all the defaults, as in the following example.
 
 ```
-aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s3 --endpoint-type target
---s3-settings '{"ServiceAccessRoleArn": "`your-service-access-ARN`", "DataFormat": "parquet"}'
+aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s3 --endpoint-type target 
+--s3-settings '{"ServiceAccessRoleArn": "{{your-service-access-ARN}}", "DataFormat": "parquet"}'
 ```
 
-Here, the `DataFormat` parameter is set to `parquet` to
-enable the format with all the S3 defaults. These defaults include a dictionary
-encoding (`"EncodingType: "rle-dictionary"`) that uses a combination
-of bit-packing and run-length encoding to more efficiently store repeating
-values.
+Here, the `DataFormat` parameter is set to `parquet` to enable the format with all the S3 defaults. These defaults include a dictionary encoding (`"EncodingType: "rle-dictionary"`) that uses a combination of bit-packing and run-length encoding to more efficiently store repeating values.
 
-You can add additional settings for options other than the defaults as in the
-following example.
+You can add additional settings for options other than the defaults as in the following example.
 
 ```
 aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s3 --endpoint-type target
@@ -1176,54 +863,25 @@ aws dms create-endpoint --endpoint-identifier s3-target-endpoint --engine-name s
 "EnableStatistics": false }'
 ```
 
-Here, in addition to parameters for several standard S3 bucket options and the
-`DataFormat` parameter, the following additional .parquet file
-parameters are set:
-
-- `EncodingType` – Set to a dictionary encoding
-  (`plain-dictionary`) that stores values encountered in
-  each column in a per-column chunk of the dictionary page.
-- `DictPageSizeLimit` – Set to a maximum dictionary
-  page size of 3 MB.
-- `EnableStatistics` – Disables the default that
-  enables the collection of statistics about Parquet file pages and row
-  groups.
+Here, in addition to parameters for several standard S3 bucket options and the `DataFormat` parameter, the following additional .parquet file parameters are set:
++ `EncodingType` – Set to a dictionary encoding (`plain-dictionary`) that stores values encountered in each column in a per-column chunk of the dictionary page.
++ `DictPageSizeLimit` – Set to a maximum dictionary page size of 3 MB.
++ `EnableStatistics` – Disables the default that enables the collection of statistics about Parquet file pages and row groups.
 
 ### Capturing data changes (CDC) including transaction order on the S3 target
+<a name="CHAP_Target.S3.EndpointSettings.CdcPath"></a>
 
-By default when AWS DMS runs a CDC task, it stores all the row changes logged in
-your source database (or databases) in one or more files for each table. Each
-set of files containing changes for the same table reside in a single target
-directory associated with that table. AWS DMS creates as many target directories
-as database tables migrated to the Amazon S3 target endpoint. The files are stored on
-the S3 target in these directories without regard to transaction order. For more
-information on the file naming conventions, data contents, and format, see [Using Amazon S3 as a target for AWS Database Migration Service](CHAP_Target.S3.md "CHAP_Target.S3.md").
+By default when AWS DMS runs a CDC task, it stores all the row changes logged in your source database (or databases) in one or more files for each table. Each set of files containing changes for the same table reside in a single target directory associated with that table. AWS DMS creates as many target directories as database tables migrated to the Amazon S3 target endpoint. The files are stored on the S3 target in these directories without regard to transaction order. For more information on the file naming conventions, data contents, and format, see [Using Amazon S3 as a target for AWS Database Migration Service](#CHAP_Target.S3).
 
-To capture source database changes in a manner that also captures the
-transaction order, you can specify S3 endpoint settings that direct AWS DMS to store
-the row changes for _all_ database tables in one or more .csv
-files created depending on transaction size. These .csv _transaction
-files_ contain all row changes listed sequentially in transaction
-order for all tables involved in each transaction. These transaction files reside
-together in a single _transaction directory_ that you also
-specify on the S3 target. In each transaction file, the transaction operation and
-the identity of the database and source table for each row change is stored as part
-of the row data as follows.
+To capture source database changes in a manner that also captures the transaction order, you can specify S3 endpoint settings that direct AWS DMS to store the row changes for *all* database tables in one or more .csv files created depending on transaction size. These .csv *transaction files* contain all row changes listed sequentially in transaction order for all tables involved in each transaction. These transaction files reside together in a single *transaction directory* that you also specify on the S3 target. In each transaction file, the transaction operation and the identity of the database and source table for each row change is stored as part of the row data as follows. 
 
 ```
-`operation`,`table_name`,`database_schema_name`,`field_value`,...
+{{operation}},{{table_name}},{{database_schema_name}},{{field_value}},...
 ```
 
-Here, `operation` is the transaction
-operation on the changed row, `table_name`
-is the name of the database table where the row is changed,
-`database_schema_name` is the name
-of the database schema where the table resides, and
-`field_value` is the first of one
-or more field values that specify the data for the row.
+Here, `{{operation}}` is the transaction operation on the changed row, `{{table_name}}` is the name of the database table where the row is changed, `{{database_schema_name}}` is the name of the database schema where the table resides, and `{{field_value}}` is the first of one or more field values that specify the data for the row.
 
-The example following of a transaction file shows changed rows for one or more
-transactions that involve two tables.
+The example following of a transaction file shows changed rows for one or more transactions that involve two tables.
 
 ```
 I,Names_03cdcad11a,rdsTempsdb,13,Daniel
@@ -1234,147 +892,110 @@ I,Names_6d152ce62d,rdsTempsdb,24,Chris
 I,Names_03cdcad11a,rdsTempsdb,16,Mike
 ```
 
-Here, the transaction operation on each row is indicated by `I`
-(insert), `U` (update), or `D` (delete) in the first
-column. The table name is the second column value (for example,
-`Names_03cdcad11a`). The name of the database schema is the value
-of the third column (for example, `rdsTempsdb`). And the remaining
-columns are populated with your own row data (for example,
-`13,Daniel`).
+Here, the transaction operation on each row is indicated by `I` (insert), `U` (update), or `D` (delete) in the first column. The table name is the second column value (for example, `Names_03cdcad11a`). The name of the database schema is the value of the third column (for example, `rdsTempsdb`). And the remaining columns are populated with your own row data (for example, `13,Daniel`).
 
-In addition, AWS DMS names the transaction files it creates on the Amazon S3 target
-using a time stamp according to the following naming convention.
+In addition, AWS DMS names the transaction files it creates on the Amazon S3 target using a time stamp according to the following naming convention.
 
 ```
-CDC_TXN-`timestamp`.csv
+CDC_TXN-{{timestamp}}.csv
 ```
 
-Here, `timestamp` is the time when the
-transaction file was created, as in the following example.
+Here, `{{timestamp}}` is the time when the transaction file was created, as in the following example. 
 
 ```
 CDC_TXN-20201117153046033.csv
 ```
 
-This time stamp in the file name ensures that the transaction files are created
-and listed in transaction order when you list them in their transaction
-directory.
+This time stamp in the file name ensures that the transaction files are created and listed in transaction order when you list them in their transaction directory.
 
-###### Note
+**Note**  
+When capturing data changes in transaction order, AWS DMS always stores the row changes in .csv files regardless of the value of the `DataFormat` S3 setting on the target.
 
-When capturing data changes in transaction order, AWS DMS always stores the
-row changes in .csv files regardless of the value of the `DataFormat`
-S3 setting on the target.
+To control the frequency of writes to an Amazon S3 target during a data replication task, you can configure the `CdcMaxBatchInterval` and `CdcMinFileSize` settings. This can result in better performance when analyzing the data without any additional overhead operations. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring) 
 
-To control the frequency of writes to an Amazon S3 target during a data replication
-task, you can configure the `CdcMaxBatchInterval` and `CdcMinFileSize` settings.
-This can result in better performance when analyzing the data without any
-additional overhead operations. For more information, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](#CHAP_Target.S3.Configuring "#CHAP_Target.S3.Configuring")
+**To tell AWS DMS to store all row changes in transaction order**
 
-###### To tell AWS DMS to store all row changes in transaction order
+1. Set the `PreserveTransactions` S3 setting on the target to `true`.
 
-1. Set the `PreserveTransactions` S3 setting on the target to
-   `true`.
-2. Set the `CdcPath` S3 setting on the target to a relative
-   folder path where you want AWS DMS to store the .csv transaction
-   files.
+1. Set the `CdcPath` S3 setting on the target to a relative folder path where you want AWS DMS to store the .csv transaction files.
 
-AWS DMS creates this path either under the default S3 target bucket and
-working directory or under the bucket and bucket folder that you specify
-using the `BucketName` and `BucketFolder` S3
-settings on the target.
+   AWS DMS creates this path either under the default S3 target bucket and working directory or under the bucket and bucket folder that you specify using the `BucketName` and `BucketFolder` S3 settings on the target.
 
 ## Indicating source DB operations in migrated S3 data
+<a name="CHAP_Target.S3.Configuring.InsertOps"></a>
 
-When AWS DMS migrates records to an S3 target, it can create an additional field
-in each migrated record. This additional field indicates the operation applied
-to the record at the source database. How AWS DMS creates and sets this first field
-depends on the migration task type and settings of `includeOpForFullLoad`,
-`cdcInsertsOnly`, and `cdcInsertsAndUpdates`.
+When AWS DMS migrates records to an S3 target, it can create an additional field in each migrated record. This additional field indicates the operation applied to the record at the source database. How AWS DMS creates and sets this first field depends on the migration task type and settings of `includeOpForFullLoad`, `cdcInsertsOnly`, and `cdcInsertsAndUpdates`.
 
-For a full load when `includeOpForFullLoad` is `true`,
-AWS DMS always creates an additional first field in each .csv record. This field
-contains the letter I (INSERT) to indicate that the row was inserted at the source
-database. For a CDC load when `cdcInsertsOnly` is `false`
-(the default), AWS DMS also always creates an additional first field in each .csv
-or .parquet record. This field contains the letter I (INSERT), U (UPDATE),
-or D (DELETE) to indicate whether the row was inserted, updated, or deleted
-at the source database.
+For a full load when `includeOpForFullLoad` is `true`, AWS DMS always creates an additional first field in each .csv record. This field contains the letter I (INSERT) to indicate that the row was inserted at the source database. For a CDC load when `cdcInsertsOnly` is `false` (the default), AWS DMS also always creates an additional first field in each .csv or .parquet record. This field contains the letter I (INSERT), U (UPDATE), or D (DELETE) to indicate whether the row was inserted, updated, or deleted at the source database.
 
-In the following table, you can see how the settings of the
-`includeOpForFullLoad` and `cdcInsertsOnly` attributes
-work together to affect the setting of migrated records.
+In the following table, you can see how the settings of the `includeOpForFullLoad` and `cdcInsertsOnly` attributes work together to affect the setting of migrated records.
 
-| With these parameter<br>settings | DMS sets target records as follows<br>for .csv and .parquet output |
-| -------------------------------- | ------------------------------------------------------------------ |
-| includeOpForFullLoad             | cdcInsertsOnly                                                     | For full load                      | For CDC load                                       |
-| `true`                           | `true`                                                             | Added first field value set to `I` | Added first field value set to `I`                 |
-| `false`                          | `false`                                                            | No added field                     | Added first field value set to `I`,<br>`U`, or `D` |
-| `false`                          | `true`                                                             | No added field                     | No added field                                     |
-| `true`                           | `false`                                                            | Added first field value set to `I` | Added first field value set to `I`,<br>`U`, or `D` |
 
-When `includeOpForFullLoad` and `cdcInsertsOnly` are
-set to the same value, the target records are set according to the attribute
-that controls record settings for the current migration type. That attribute is
-`includeOpForFullLoad` for full load and
-`cdcInsertsOnly` for CDC load.
+<table>
+<thead>
+  <tr><th colspan="2">With these parameter settings</th><th colspan="2">DMS sets target records as follows for .csv and .parquet output </th></tr>
+  <tr><th>includeOpForFullLoad</th><th>cdcInsertsOnly</th><th>For full load</th><th>For CDC load</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>true</code></td><td><code>true</code></td><td>Added first field value set to <code>I</code></td><td>Added first field value set to <code>I</code></td></tr>
+  <tr><td><code>false</code></td><td><code>false</code></td><td>No added field</td><td>Added first field value set to <code>I</code>, <code>U</code>, or <code>D</code></td></tr>
+  <tr><td><code>false</code></td><td><code>true</code></td><td>No added field</td><td>No added field</td></tr>
+  <tr><td><code>true</code></td><td><code>false</code></td><td>Added first field value set to <code>I</code></td><td>Added first field value set to <code>I</code>, <code>U</code>, or <code>D</code></td></tr>
+</tbody>
+</table>
 
-When `includeOpForFullLoad` and `cdcInsertsOnly`
-are set to different values, AWS DMS makes the target record settings consistent
-for both CDC and full load. It does this by making the record settings for a CDC
-load conform to the record settings for any earlier full load specified by
-`includeOpForFullLoad`.
 
-In other words, suppose that a full load is set to add a first field to
-indicate an inserted record. In this case, a following CDC load is set to add a
-first field that indicates an inserted, updated, or deleted record as
-appropriate at the source. In contrast, suppose that a full load is set to
-_not_ add a first field to indicate an inserted record.
-In this case, a CDC load is also set to not add a first field to each record
-regardless of its corresponding record operation at the source.
+When `includeOpForFullLoad` and `cdcInsertsOnly` are set to the same value, the target records are set according to the attribute that controls record settings for the current migration type. That attribute is `includeOpForFullLoad` for full load and `cdcInsertsOnly` for CDC load.
 
-Similarly, how DMS creates and sets an additional first field depends on the
-settings of `includeOpForFullLoad` and
-`cdcInsertsAndUpdates`. In the following table, you can see how
-the settings of the `includeOpForFullLoad` and
-`cdcInsertsAndUpdates` attributes work together to affect the
-setting of migrated records in this format.
+When `includeOpForFullLoad` and `cdcInsertsOnly` are set to different values, AWS DMS makes the target record settings consistent for both CDC and full load. It does this by making the record settings for a CDC load conform to the record settings for any earlier full load specified by `includeOpForFullLoad`. 
 
-| With these parameter<br>settings | DMS sets target records as follows<br>for .csv output |
-| -------------------------------- | ----------------------------------------------------- |
-| includeOpForFullLoad             | cdcInsertsAndUpdates                                  | For full load                      | For CDC load                                       |
-| `true`                           | `true`                                                | Added first field value set to `I` | Added first field value set to `I` or `U`          |
-| `false`                          | `false`                                               | No added field                     | Added first field value set to `I`,<br>`U`, or `D` |
-| `false`                          | `true`                                                | No added field                     | Added first field value set to `I` or `U`          |
-| `true`                           | `false`                                               | Added first field value set to `I` | Added first field value set to `I`,<br>`U`, or `D` |
+In other words, suppose that a full load is set to add a first field to indicate an inserted record. In this case, a following CDC load is set to add a first field that indicates an inserted, updated, or deleted record as appropriate at the source. In contrast, suppose that a full load is set to *not* add a first field to indicate an inserted record. In this case, a CDC load is also set to not add a first field to each record regardless of its corresponding record operation at the source.
+
+Similarly, how DMS creates and sets an additional first field depends on the settings of `includeOpForFullLoad` and `cdcInsertsAndUpdates`. In the following table, you can see how the settings of the `includeOpForFullLoad` and `cdcInsertsAndUpdates` attributes work together to affect the setting of migrated records in this format. 
+
+
+<table>
+<thead>
+  <tr><th colspan="2">With these parameter settings</th><th colspan="2">DMS sets target records as follows for .csv output </th></tr>
+  <tr><th>includeOpForFullLoad</th><th>cdcInsertsAndUpdates</th><th>For full load</th><th>For CDC load</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>true</code></td><td><code>true</code></td><td>Added first field value set to <code>I</code></td><td>Added first field value set to <code>I</code> or <code>U</code></td></tr>
+  <tr><td><code>false</code></td><td><code>false</code></td><td>No added field</td><td>Added first field value set to <code>I</code>, <code>U</code>, or <code>D</code></td></tr>
+  <tr><td><code>false</code></td><td><code>true</code></td><td>No added field</td><td>Added first field value set to <code>I</code> or <code>U</code></td></tr>
+  <tr><td><code>true</code></td><td><code>false</code></td><td>Added first field value set to <code>I</code></td><td>Added first field value set to <code>I</code>, <code>U</code>, or <code>D</code></td></tr>
+</tbody>
+</table>
+
 
 ## Target data types for S3 Parquet
+<a name="CHAP_Target.S3.DataTypes"></a>
 
-The following table shows the Parquet target data types that are supported
-when using AWS DMS and the default mapping from AWS DMS data types.
+The following table shows the Parquet target data types that are supported when using AWS DMS and the default mapping from AWS DMS data types.
 
-For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.DataTypes.md "CHAP_Reference.DataTypes.md").
+For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.DataTypes.md).
 
-| AWS DMS data type | S3 parquet data type |
-| ----------------- | -------------------- |
-| `BYTES`           | `BINARY`             |
-| `DATE`            | `DATE32`             |
-| `TIME`            | `TIME32`             |
-| `DATETIME`        | `TIMESTAMP`          |
-| `INT1`            | `INT8`               |
-| `INT2`            | `INT16`              |
-| `INT4`            | `INT32`              |
-| `INT8`            | `INT64`              |
-| `NUMERIC`         | `DECIMAL`            |
-| `REAL4`           | `FLOAT`              |
-| `REAL8`           | `DOUBLE`             |
-| `STRING`          | `STRING`             |
-| `UINT1`           | `UINT8`              |
-| `UINT2`           | `UINT16`             |
-| `UINT4`           | `UINT32`             |
-| `UINT8`           | `UINT64`             |
-| `WSTRING`         | `STRING`             |
-| `BLOB`            | `BINARY`             |
-| `NCLOB`           | `STRING`             |
-| `CLOB`            | `STRING`             |
-| `BOOLEAN`         | `BOOL`               |
+
+|  AWS DMS data type  |  S3 parquet data type   | 
+| --- | --- | 
+| BYTES | BINARY | 
+| DATE | DATE32 | 
+| TIME | TIME32 | 
+| DATETIME | TIMESTAMP | 
+| INT1 | INT8 | 
+| INT2 | INT16 | 
+| INT4 | INT32 | 
+| INT8 | INT64 | 
+| NUMERIC | DECIMAL | 
+| REAL4 | FLOAT | 
+| REAL8 | DOUBLE | 
+| STRING | STRING | 
+| UINT1 | UINT8 | 
+| UINT2 | UINT16 | 
+| UINT4 | UINT32 | 
+| UINT8 | UINT64 | 
+| WSTRING | STRING | 
+| BLOB | BINARY | 
+| NCLOB | STRING | 
+| CLOB | STRING | 
+| BOOLEAN | BOOL | 

@@ -1,51 +1,47 @@
+
+
 # Table and collection settings rules and operations
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings"></a>
 
-Use table settings to specify any settings that you want to apply to a selected
-table or view for a specified operation. Table-settings rules are optional,
-depending on your endpoint and migration requirements.
+Use table settings to specify any settings that you want to apply to a selected table or view for a specified operation. Table-settings rules are optional, depending on your endpoint and migration requirements. 
 
-Instead of using tables and views, MongoDB and Amazon DocumentDB databases store data
-records as documents that are gathered together in _collections_. A single database for any MongoDB or Amazon DocumentDB endpoint
-is a specific set of collections identified by the database name.
+Instead of using tables and views, MongoDB and Amazon DocumentDB databases store data records as documents that are gathered together in *collections*. A single database for any MongoDB or Amazon DocumentDB endpoint is a specific set of collections identified by the database name. 
 
-When migrating from a MongoDB or Amazon DocumentDB source, you work with parallel load
-settings slightly differently. In this case, consider the autosegmentation or range
-segmentation type of parallel load settings for selected collections rather than
-tables and views.
+When migrating from a MongoDB or Amazon DocumentDB source, you work with parallel load settings slightly differently. In this case, consider the autosegmentation or range segmentation type of parallel load settings for selected collections rather than tables and views.
 
-###### Topics
+**Topics**
++ [Wildcards in table-settings are restricted](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Wildcards)
++ [Using parallel load for selected tables, views, and collections](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad)
++ [Specifying LOB settings for a selected table or view](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB)
++ [Table-settings examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Examples)
 
-- [Wildcards in table-settings are restricted](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Wildcards "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Wildcards")
-- [Using parallel load for selected tables, views, and collections](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad")
-- [Specifying LOB settings for a selected table or view](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB")
-- [Table-settings examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Examples "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Examples")
-  For table-mapping rules that use the table-settings rule type, you can apply
-  the following parameters.
+For table-mapping rules that use the table-settings rule type, you can apply the following parameters. 
 
-| Parameter                        | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `rule-type`                      | `table-settings`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | A value that applies the rule to a table, view, or collection<br>specified by the selection rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `rule-id`                        | A numeric value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | A unique numeric value to identify the<br>rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `rule-name`                      | An alphanumeric value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | A unique name to identify the rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `object-locator`                 | An object with the following parameters:<br>• `schema-name` – The name of the<br>schema. For MongoDB and Amazon DocumentDB endpoints, this is the<br>name of the database holding a set of<br>collections.<br>• `table-name` – The name of the table, view, or collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | The name of a specific schema and table or view or the name of<br>a specific database and collection (no wildcards).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `parallel-load`                  | An object with the following parameters:<br>• `type` – Specifies whether parallel<br>loading is turned on.<br>If it is, this parameter also specifies the mechanism<br>to identify the table or view partitions, subpartitions,<br>or other segments to load in parallel. Partitions are<br>segments that are already defined and identified by name<br>in the source table or view.<br>For MongoDB and Amazon DocumentDB endpoints, partitions are<br>segments. AWS DMS can calculate these automatically given<br>associated autosegmentation parameters. Or you can<br>specify these manually using range segmentation<br>parameters.<br>For Oracle endpoints only, subpartitions are an<br>additional level of segments that are already defined<br>and identified by name in the source table or view. You<br>can identify other segments in the<br>`table-settings` rule by specifying<br>boundaries in the range of values for one or more table<br>or view columns.<br>• `partitions` – When `type`<br>is `partitions-list`, this value specifies<br>all the partitions to load in parallel.<br>• `subpartitions` – For Oracle<br>endpoints only, when `type` is<br>`partitions-list` this value specifies<br>all the subpartitions to load in parallel.<br>• `columns` – When `type` is<br>`ranges`, this value specifies the names<br>of columns used to identify range-based segments to load<br>in parallel.<br>• `boundaries` – When `type`<br>is `ranges`, this value specifies the values<br>of the `columns` used to identify range-based<br>segments to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                            | A value that specifies a parallel load (multithreaded)<br>operation on the table or view identified by the<br>`object-locator` option. In this case, you can<br>load in parallel in any of these ways:<br>• By segments specified by all available partitions or<br>subpartitions.<br>• By selected partitions and subpartitions.<br>• By autosegmentation or range-based segments that you<br>specify.<br>For more information about parallel load, see [Using parallel load for selected tables, views, and collections](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad"). |
-| `type`                           | One of the following for<br>`parallel-load`:<br>• `partitions-auto` – All partitions of<br>the table or view are loaded in parallel. Every<br>partition is allocated to its own thread.<br>This is a required setting for MongoDB and Amazon DocumentDB<br>source endpoints to use the autosegmentation option of a<br>parallel full load.<br>• `subpartitions-auto` – (Oracle<br>endpoints only) All subpartitions of the table or view<br>are loaded in parallel. Every subpartition is allocated<br>to its own thread.<br>• `partitions-list` – All specified<br>partitions of the table or view are loaded in parallel.<br>For Oracle endpoints only, all specified subpartitions<br>of the table or view are loaded in parallel. Each<br>partition and subpartition that you specify is allocated<br>to its own thread. You specify the partitions and<br>subpartitions to load in parallel by partition names<br>(`partitions`) and subpartition names<br>(`subpartitions`).<br>• `ranges` – All range-specified<br>segments of the table, view, or collection are loaded in<br>parallel. Each table, view, or collection segment that<br>you identify is allocated to its own thread. You specify<br>these segments by column names (`columns`)<br>and column values (`boundaries`).<br>PostgreSQL endpoints support only this type of a<br>parallel load. MongoDB and Amazon DocumentDB as a source endpoints<br>support both this range segmentation type and the<br>autosegmentation type of a parallel full load<br>(`partitions-auto`).<br>• `none` – The table, view, or<br>collection is loaded in a single-threaded task (the<br>default), regardless of its partitions or subpartitions.<br>For more information, see [Creating a task](CHAP_Tasks.Creating.md "CHAP_Tasks.Creating.md").                                                                                                                                                                                             | The mechanism to identify the table, view, or<br>collection partitions, subpartitions, or segments to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `number-of-partitions`           | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint, this parameter specifies the total<br>number of partitions (segments) used for migration. The default is<br>16.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Specifies the exact number of partitions to load<br>in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `collection-count-from-metadata` | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint and this parameter is set to<br>`true`, AWS DMS uses an estimated collection count for<br>determining the number of partitions. If this parameter is set to<br>`false`, AWS DMS uses the actual collection count. The<br>default is `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Specifies whether to use an estimate collection<br>count or the actual collection count to calculate the number of<br>partitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `max-records-skip-per-page`      | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint, this is the number of records to skip<br>at once when determining the boundaries for each partition. AWS DMS<br>uses a paginated skip approach to determine the minimum boundary for<br>a partition. The default is 10,000.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Specifies the number of records to skip at once<br>when determining the boundaries for each partition. Setting a relatively<br>large value from the default might result in cursor timeouts and task<br>failures. Setting a relatively low value from the default results in<br>more operations per page and a slower full load.                                                                                                                                                                                                                                                                                                                                                                                         |
-| `batch-size`                     | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint, this integer value limits the number of<br>documents returned in one round-trip batch. If the batch size is<br>zero (0), the cursor uses the server-defined maximum batch size. The<br>default is 0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Specifies the maximum number of documents returned<br>in one batch. Each batch requires a round trip to the<br>server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `partitions`                     | When `type` is<br>`partitions-list`, this is an array of strings that<br>specify the names of partitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | The names of partitions to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `subpartitions`                  | (Oracle endpoints only) When `type` is<br>`partitions-list`, this is an array of strings that<br>specifies the names of subpartitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | The names of subpartitions to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `columns`                        | When `type` is `ranges`, an<br>array of strings set to the names of columns that identify<br>range-based table, view, or collection segments to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | The names of columns that identify range-based<br>table, view, or collection segments to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `boundaries`                     | When `type` is `ranges`, an<br>array of column-value arrays. Each column-value array contains<br>column values in the quantity and order specified by<br>`columns`. A column-value array specifies the upper<br>boundary of a table, view, or collection segment. Each additional<br>column-value array adds the upper boundary for one additional table,<br>view, or collection segment. All such range-based table, view, or<br>collection segments load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Column values that identify range-based table,<br>view, or collection partitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `lob-settings`                   | An object with the following parameters:<br>• `mode` – Specifies the migration<br>handling mode for LOBs.<br>• `bulk-max-size` – Specifies the<br>maximum size of LOBs, depending on the `mode`<br>setting.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | A value that specifies LOB handling for the table<br>or view identified by the `object-locator` option. The<br>specified LOB handling overrides any task LOB settings for this<br>table or view only. For more information about using the LOB<br>settings parameters, see [Specifying LOB settings for a selected table or view](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB").                                                                                                                                                                                                            |
-| `mode`                           | Specifies the migration handling for LOBs in the specified table or view using<br>the following values:<br>• `limited` – (Default) This value sets<br>migration to limited LOB mode, with all LOBs migrated<br>inline together with all other column data types in the<br>table or view. Use this value when replicating mostly<br>small LOBs (100 MB or less). Also, specify a<br>`bulk-max-size` value (zero is invalid).<br>All migrated LOBs greater than<br>`bulk-max-size` are truncated to the size<br>that you set.<br>• `unlimited` – This value sets<br>migration to full LOB mode. Use this value when all or<br>most of the LOBs that you want to replicate are larger<br>than 1 GB. If you specify a `bulk-max-size`<br>value of zero, all LOBs are migrated in<br>*standard<br>• full LOB mode. In this<br>form of `unlimited` mode, all LOBs are<br>migrated separately from other column data types using a<br>lookup from the source table or view. If you specify a<br>`bulk-max-size` value greater than zero,<br>all LOBs are migrated in<br>*combination<br>• full LOB mode. In<br>this form of `unlimited` mode, LOBs greater<br>than `bulk-max-size` are migrated using a<br>source table or view lookup, similar to standard full<br>LOB mode. Otherwise, LOBs up to and including this size<br>are migrated inline, similar to limited LOB mode. No LOB<br>is ever truncated in `unlimited` mode,<br>regardless of the form you use.<br>• `none` – All table or view LOBs are<br>migrated according to the task LOB settings.<br>For more information about the task LOB settings, see<br>[Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md").<br>For more information about how to migrate LOBs and how<br>to specify these task LOB settings, see [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md "CHAP_Tasks.LOBSupport.md"). | The mechanism used to migrate LOBs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `bulk-max-size`                  | The effect of this value depends on the<br>`mode`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | The maximum size of LOBs in kilobyte increments.<br>Specify this option only if you need to replicate small LOBs or if<br>the target endpoint doesn't support unlimited LOB size.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+| Parameter | Possible values | Description | 
+| --- | --- | --- | 
+| rule-type | table-settings  | A value that applies the rule to a table, view, or collection specified by the selection rule. | 
+| rule-id | A numeric value. | A unique numeric value to identify the rule. | 
+| rule-name | An alphanumeric value. | A unique name to identify the rule. | 
+| object-locator | An object with the following parameters:+  `schema-name` – The name of the schema. For MongoDB and Amazon DocumentDB endpoints, this is the name of the database holding a set of collections. <br />+  `table-name` – The name of the table, view, or collection.  | The name of a specific schema and table or view or the name of a specific database and collection (no wildcards). | 
+| parallel-load | An object with the following parameters:+  `type` – Specifies whether parallel loading is turned on.  <br />If it is, this parameter also specifies the mechanism to identify the table or view partitions, subpartitions, or other segments to load in parallel. Partitions are segments that are already defined and identified by name in the source table or view.  <br />For MongoDB and Amazon DocumentDB endpoints, partitions are segments. AWS DMS can calculate these automatically given associated autosegmentation parameters. Or you can specify these manually using range segmentation parameters.  <br />For Oracle endpoints only, subpartitions are an additional level of segments that are already defined and identified by name in the source table or view. You can identify other segments in the `table-settings` rule by specifying boundaries in the range of values for one or more table or view columns. <br />+  `partitions` – When `type` is `partitions-list`, this value specifies all the partitions to load in parallel. <br />+  `subpartitions` – For Oracle endpoints only, when `type` is `partitions-list` this value specifies all the subpartitions to load in parallel. <br />+  `columns` – When `type` is `ranges`, this value specifies the names of columns used to identify range-based segments to load in parallel. <br />+  `boundaries` – When `type` is `ranges`, this value specifies the values of the `columns` used to identify range-based segments to load in parallel.  | A value that specifies a parallel load (multithreaded) operation on the table or view identified by the `object-locator` option. In this case, you can load in parallel in any of these ways: +  By segments specified by all available partitions or subpartitions. <br />+  By selected partitions and subpartitions. <br />+  By autosegmentation or range-based segments that you specify. <br />For more information about parallel load, see [Using parallel load for selected tables, views, and collections](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad).  | 
+| type | One of the following for parallel-load:+  `partitions-auto` – All partitions of the table or view are loaded in parallel. Every partition is allocated to its own thread. <br />This is a required setting for MongoDB and Amazon DocumentDB source endpoints to use the autosegmentation option of a parallel full load. <br />+  `subpartitions-auto` – (Oracle endpoints only) All subpartitions of the table or view are loaded in parallel. Every subpartition is allocated to its own thread. <br />+  `partitions-list` – All specified partitions of the table or view are loaded in parallel. For Oracle endpoints only, all specified subpartitions of the table or view are loaded in parallel. Each partition and subpartition that you specify is allocated to its own thread. You specify the partitions and subpartitions to load in parallel by partition names (`partitions`) and subpartition names (`subpartitions`). <br />+  `ranges` – All range-specified segments of the table, view, or collection are loaded in parallel. Each table, view, or collection segment that you identify is allocated to its own thread. You specify these segments by column names (`columns`) and column values (`boundaries`). <br />PostgreSQL endpoints support only this type of a parallel load. MongoDB and Amazon DocumentDB as a source endpoints support both this range segmentation type and the autosegmentation type of a parallel full load (`partitions-auto`). <br />+  `none` – The table, view, or collection is loaded in a single-threaded task (the default), regardless of its partitions or subpartitions. For more information, see [Creating a task](CHAP_Tasks.Creating.md).  | The mechanism to identify the table, view, or collection partitions, subpartitions, or segments to load in parallel. | 
+| number-of-partitions | (Optional) When type is partitions-auto for specified collections of a MongoDB or Amazon DocumentDB endpoint, this parameter specifies the total number of partitions (segments) used for migration. The default is 16. | Specifies the exact number of partitions to load in parallel. | 
+|  collection-count-from-metadata | (Optional) When type is partitions-auto for specified collections of a MongoDB or Amazon DocumentDB endpoint and this parameter is set to true, AWS DMS uses an estimated collection count for determining the number of partitions. If this parameter is set to false, AWS DMS uses the actual collection count. The default is true. | Specifies whether to use an estimate collection count or the actual collection count to calculate the number of partitions to load in parallel. | 
+| max-records-skip-per-page | (Optional) When type is partitions-auto for specified collections of a MongoDB or Amazon DocumentDB endpoint, this is the number of records to skip at once when determining the boundaries for each partition. AWS DMS uses a paginated skip approach to determine the minimum boundary for a partition. The default is 10,000. | Specifies the number of records to skip at once when determining the boundaries for each partition. Setting a relatively large value from the default might result in cursor timeouts and task failures. Setting a relatively low value from the default results in more operations per page and a slower full load.  | 
+| batch-size | (Optional) When type is partitions-auto for specified collections of a MongoDB or Amazon DocumentDB endpoint, this integer value limits the number of documents returned in one round-trip batch. If the batch size is zero (0), the cursor uses the server-defined maximum batch size. The default is 0. | Specifies the maximum number of documents returned in one batch. Each batch requires a round trip to the server. | 
+| partitions | When type is partitions-list, this is an array of strings that specify the names of partitions to load in parallel. | The names of partitions to load in parallel. | 
+| subpartitions | (Oracle endpoints only) When type is partitions-list, this is an array of strings that specifies the names of subpartitions to load in parallel. | The names of subpartitions to load in parallel. | 
+| columns | When type is ranges, an array of strings set to the names of columns that identify range-based table, view, or collection segments to load in parallel. | The names of columns that identify range-based table, view, or collection segments to load in parallel. | 
+| boundaries | When type is ranges, an array of column-value arrays. Each column-value array contains column values in the quantity and order specified by columns. A column-value array specifies the upper boundary of a table, view, or collection segment. Each additional column-value array adds the upper boundary for one additional table, view, or collection segment. All such range-based table, view, or collection segments load in parallel. | Column values that identify range-based table, view, or collection partitions to load in parallel. | 
+| lob-settings | An object with the following parameters:+  `mode` – Specifies the migration handling mode for LOBs. <br />+  `bulk-max-size` – Specifies the maximum size of LOBs, depending on the `mode` setting.  | A value that specifies LOB handling for the table or view identified by the object-locator option. The specified LOB handling overrides any task LOB settings for this table or view only. For more information about using the LOB settings parameters, see [Specifying LOB settings for a selected table or view](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB). | 
+| mode | Specifies the migration handling for LOBs in the specified table or view using the following values:+  `limited` – (Default) This value sets migration to limited LOB mode, with all LOBs migrated inline together with all other column data types in the table or view. Use this value when replicating mostly small LOBs (100 MB or less). Also, specify a `bulk-max-size` value (zero is invalid). All migrated LOBs greater than `bulk-max-size` are truncated to the size that you set.  <br />+  `unlimited` – This value sets migration to full LOB mode. Use this value when all or most of the LOBs that you want to replicate are larger than 1 GB. If you specify a `bulk-max-size` value of zero, all LOBs are migrated in *standard* full LOB mode. In this form of `unlimited` mode, all LOBs are migrated separately from other column data types using a lookup from the source table or view. If you specify a `bulk-max-size` value greater than zero, all LOBs are migrated in *combination* full LOB mode. In this form of `unlimited` mode, LOBs greater than `bulk-max-size` are migrated using a source table or view lookup, similar to standard full LOB mode. Otherwise, LOBs up to and including this size are migrated inline, similar to limited LOB mode. No LOB is ever truncated in `unlimited` mode, regardless of the form you use. <br />+  `none` – All table or view LOBs are migrated according to the task LOB settings.  <br />For more information about the task LOB settings, see [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md).  <br />For more information about how to migrate LOBs and how to specify these task LOB settings, see [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md).   | The mechanism used to migrate LOBs. | 
+| bulk-max-size | The effect of this value depends on the mode. | The maximum size of LOBs in kilobyte increments. Specify this option only if you need to replicate small LOBs or if the target endpoint doesn't support unlimited LOB size. | 
 
 ## Wildcards in table-settings are restricted
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Wildcards"></a>
 
-Using the percent wildcard (`"%"`) in `"table-settings"`
-rules is not supported for source databases as shown following.
+Using the percent wildcard (`"%"`) in `"table-settings"` rules is not supported for source databases as shown following.
 
 ```
 {
@@ -53,7 +49,7 @@ rules is not supported for source databases as shown following.
     "rule-id": "8",
     "rule-name": "8",
     "object-locator": {
-        "schema-name": "ipipeline-prod",
+        "schema-name": "ipipeline-prod",            
         "table-name": "%"
     },
     "parallel-load": {
@@ -66,485 +62,215 @@ rules is not supported for source databases as shown following.
   }
 ```
 
-If you use `"%"` in the `"table-settings"` rules as
-shown, then AWS DMS returns the exception following.
+If you use `"%"` in the `"table-settings"` rules as shown, then AWS DMS returns the exception following.
 
 ```
-Error in mapping rules. Rule with ruleId = x failed validation. Exact
+Error in mapping rules. Rule with ruleId = x failed validation. Exact 
 schema and table name required when using table settings rule.
 ```
 
-In addition, AWS recommends that you don't load a great number of large
-collections using a single task with `parallel-load`. Note that AWS DMS
-limits resource contention as well as the number of segments loaded in parallel
-by the value of the `MaxFullLoadSubTasks` task settings parameter,
-with a maximum value of 49.
+In addition, AWS recommends that you don't load a great number of large collections using a single task with `parallel-load`. Note that AWS DMS limits resource contention as well as the number of segments loaded in parallel by the value of the `MaxFullLoadSubTasks` task settings parameter, with a maximum value of 49. 
 
-Instead, specify all collections for your source database for the largest
-collections by specifying each `"schema-name"` and
-`"table-name"` individually. Also, scale up your migration
-properly. For example, run multiple tasks across a sufficient number of
-replication instances to handle a great number of large collections in your
-database.
+Instead, specify all collections for your source database for the largest collections by specifying each `"schema-name"` and `"table-name"` individually. Also, scale up your migration properly. For example, run multiple tasks across a sufficient number of replication instances to handle a great number of large collections in your database.
 
 ## Using parallel load for selected tables, views, and collections
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad"></a>
 
-To speed up migration and make it more efficient, you can use parallel load
-for selected relational tables, views, and collections. In other words, you can
-migrate a single segmented table, view, or collection using several threads in
-parallel. To do this, AWS DMS splits a full-load task into threads, with each
-table segment allocated to its own thread.
+To speed up migration and make it more efficient, you can use parallel load for selected relational tables, views, and collections. In other words, you can migrate a single segmented table, view, or collection using several threads in parallel. To do this, AWS DMS splits a full-load task into threads, with each table segment allocated to its own thread. 
 
-Using this parallel-load process, you can first have multiple threads unload
-multiple tables, views, and collections in parallel from the source endpoint.
-You can then have multiple threads migrate and load the same tables, views, and
-collections in parallel to the target endpoint. For some database engines, you
-can segment the tables and views by existing partitions or subpartitions. For
-other database engines, you can have AWS DMS automatically segment collections
-according to specific parameters (autosegmentation). Otherwise, you can segment
-any table, view, or collection by ranges of column values that you
-specify.
+Using this parallel-load process, you can first have multiple threads unload multiple tables, views, and collections in parallel from the source endpoint. You can then have multiple threads migrate and load the same tables, views, and collections in parallel to the target endpoint. For some database engines, you can segment the tables and views by existing partitions or subpartitions. For other database engines, you can have AWS DMS automatically segment collections according to specific parameters (autosegmentation). Otherwise, you can segment any table, view, or collection by ranges of column values that you specify.
 
 Parallel load is supported for the following source endpoints:
++ Oracle
++ Microsoft SQL Server
++ MySQL
++ PostgreSQL
++ IBM Db2 LUW
++ SAP Adaptive Server Enterprise (ASE)
++ MongoDB (only supports the autosegmentation and range segmentation options of a parallel full load)
++ Amazon DocumentDB (only supports the autosegmentation and range segmentation options of a parallel full load)
 
-- Oracle
-- Microsoft SQL Server
-- MySQL
-- PostgreSQL
-- IBM Db2 LUW
-- SAP Adaptive Server Enterprise (ASE)
-- MongoDB (only supports the autosegmentation and range segmentation
-  options of a parallel full load)
-- Amazon DocumentDB (only supports the autosegmentation and range segmentation
-  options of a parallel full load)
+For MongoDB and Amazon DocumentDB endpoints, AWS DMS supports the following data types for columns that are partition keys for the range segmentation option of a parallel full load.
++ Double
++ String
++ ObjectId
++ 32 bit integer
++ 64 bit integer
 
-For MongoDB and Amazon DocumentDB endpoints, AWS DMS supports the following data types for
-columns that are partition keys for the range segmentation option of a parallel
-full load.
+Parallel load for use with table-setting rules are supported for the following target endpoints:
++ Oracle
++ Microsoft SQL Server
++ MySQL
++ PostgreSQL
++ Amazon S3
++ SAP Adaptive Server Enterprise (ASE)
++ Amazon Redshift
++ MongoDB (only supports the autosegmentation and range segmentation options of a parallel full load)
++ Amazon DocumentDB (only supports the autosegmentation and range segmentation options of a parallel full load)
++ Db2 LUW
 
-- Double
-- String
-- ObjectId
-- 32 bit integer
-- 64 bit integer
+To specify the maximum number of tables and views to load in parallel, use the `MaxFullLoadSubTasks` task setting.
 
-Parallel load for use with table-setting rules are supported for the following
-target endpoints:
+To specify the maximum number of threads per table or view for the supported targets of a parallel-load task, define more segments using column-value boundaries.
 
-- Oracle
-- Microsoft SQL Server
-- MySQL
-- PostgreSQL
-- Amazon S3
-- SAP Adaptive Server Enterprise (ASE)
-- Amazon Redshift
-- MongoDB (only supports the autosegmentation and range segmentation
-  options of a parallel full load)
-- Amazon DocumentDB (only supports the autosegmentation and range segmentation
-  options of a parallel full load)
-- Db2 LUW
+**Important**  
+`MaxFullLoadSubTasks` controls the number of tables or table segments to load in parallel. `ParallelLoadThreads` controls the number of threads that are used by a migration task to execute the loads in parallel. *These settings are multiplicative*. As such, the total number of threads that are used during a full load task is approximately the result of the value of `ParallelLoadThreads `multiplied by the value of `MaxFullLoadSubTasks` (`ParallelLoadThreads` **\*** `MaxFullLoadSubtasks)`.  
+If you create tasks with a high number of Full Load sub tasks and a high number of parallel load threads, your task can consume too much memory and fail.
 
-To specify the maximum number of tables and views to load in parallel, use the
-`MaxFullLoadSubTasks` task setting.
+To specify the maximum number of threads per table for Amazon DynamoDB, Amazon Kinesis Data Streams, Apache Kafka, or Amazon Elasticsearch Service targets, use the `ParallelLoadThreads` target metadata task setting.
 
-To specify the maximum number of threads per table or view for the supported targets
-of a parallel-load task, define more segments using column-value boundaries.
+To specify the buffer size for a parallel load task when `ParallelLoadThreads` is used, use the `ParallelLoadBufferSize` target metadata task setting.
 
-###### Important
+The availability and settings of `ParallelLoadThreads` and `ParallelLoadBufferSize` depend on the target endpoint. 
 
-`MaxFullLoadSubTasks` controls the number of tables or
-table segments to load in parallel. `ParallelLoadThreads`
-controls the number of threads that are used by a migration task to
-execute the loads in parallel. _These settings are
-multiplicative_. As such, the total number of threads that
-are used during a full load task is approximately the result of the
-value of `ParallelLoadThreads` multiplied by the value of
-`MaxFullLoadSubTasks` (`ParallelLoadThreads`
-**\***
-`MaxFullLoadSubtasks)`.
+For more information about the `ParallelLoadThreads` and `ParallelLoadBufferSize` settings, see [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md). For more information about the `MaxFullLoadSubTasks` setting, see [Full-load task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md). For information specific to target endpoints, see the related topics.
 
-If you create tasks with a high number of Full Load sub tasks and a high number of parallel
-load threads, your task can consume too much memory and fail.
+To use parallel load, create a table-mapping rule of type `table-settings` with the `parallel-load` option. Within the `table-settings` rule, you can specify the segmentation criteria for a single table, view, or collection that you want to load in parallel. To do so, set the `type` parameter of the `parallel-load` option to one of several options. 
 
-To specify the maximum number of threads per table for Amazon DynamoDB, Amazon Kinesis Data Streams, Apache Kafka,
-or Amazon Elasticsearch Service targets, use the `ParallelLoadThreads` target metadata task setting.
+How to do this depends on how you want to segment the table, view, or collection for parallel load:
++ By partitions (or segments) – Load all existing table or view partitions (or segments) using the `partitions-auto` type. Or load only selected partitions using the `partitions-list` type with a specified partitions array.
 
-To specify the buffer size for a parallel load task when `ParallelLoadThreads` is used,
-use the `ParallelLoadBufferSize` target metadata task setting.
+  For MongoDB and Amazon DocumentDB endpoints only, load all or specified collections by segments that AWS DMS automatically calculates also using the `partitions-auto` type and additional optional `table-settings` parameters.
++ (Oracle endpoints only) By subpartitions – Load all existing table or view subpartitions using the `subpartitions-auto` type. Or load only selected subpartitions using the `partitions-list` type with a specified `subpartitions` array.
++ By segments that you define – Load table, view, or collection segments that you define by using column-value boundaries. To do so, use the `ranges` type with specified `columns` and `boundaries` arrays.
+**Note**  
+PostgreSQL endpoints support only this type of a parallel load. MongoDB and Amazon DocumentDB as a source endpoints support both this range segmentation type and the autosegmentation type of a parallel full load (`partitions-auto`).
 
-The availability and settings of `ParallelLoadThreads` and `ParallelLoadBufferSize`
-depend on the target endpoint.
+To identify additional tables, views, or collections to load in parallel, specify additional `table-settings` objects with `parallel-load` options. 
 
-For more information about the `ParallelLoadThreads`
-and `ParallelLoadBufferSize` settings, see [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md").
-For more information about the `MaxFullLoadSubTasks` setting, see
-[Full-load task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md "CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md"). For
-information specific to target endpoints, see the related topics.
+In the following procedures, you can find out how to code JSON for each parallel-load type, from the simplest to the most complex.
 
-To use parallel load, create a table-mapping rule of type
-`table-settings` with the `parallel-load` option.
-Within the `table-settings` rule, you can specify the segmentation
-criteria for a single table, view, or collection that you want to load in
-parallel. To do so, set the `type` parameter of the
-`parallel-load` option to one of several options.
+**To specify all table, view, or collection partitions, or all table or view subpartitions**
++ Specify `parallel-load` with either the `partitions-auto` type or the `subpartitions-auto` type (but not both). 
 
-How to do this depends on how you want to segment the table, view, or
-collection for parallel load:
+  Every table, view, or collection partition (or segment) or subpartition is then automatically allocated to its own thread.
 
-- By partitions (or segments) – Load all existing table or view
-  partitions (or segments) using the `partitions-auto` type. Or
-  load only selected partitions using the `partitions-list`
-  type with a specified partitions array.
+  For some endpoints, parallel load includes partitions or subpartitions only if they are already defined for the table or view. For MongoDB and Amazon DocumentDB source endpoints, you can have AWS DMS automatically calculate the partitions (or segments) based on optional additional parameters. These include `number-of-partitions`, `collection-count-from-metadata`, `max-records-skip-per-page`, and `batch-size`.
 
-For MongoDB and Amazon DocumentDB endpoints only, load all or specified
-collections by segments that AWS DMS automatically calculates also using
-the `partitions-auto` type and additional optional
-`table-settings` parameters.
+**To specify selected table or view partitions, subpartitions, or both**
 
-- (Oracle endpoints only) By subpartitions – Load all existing
-  table or view subpartitions using the `subpartitions-auto`
-  type. Or load only selected subpartitions using the
-  `partitions-list` type with a specified
-  `subpartitions` array.
-- By segments that you define – Load table, view, or collection
-  segments that you define by using column-value boundaries. To do so, use
-  the `ranges` type with specified `columns` and
-  `boundaries` arrays.
+1. Specify `parallel-load` with the `partitions-list` type.
 
-###### Note
+1. (Optional) Include partitions by specifying an array of partition names as the value of `partitions`.
 
-PostgreSQL endpoints support only this type of a parallel load.
-MongoDB and Amazon DocumentDB as a source endpoints support both this range
-segmentation type and the autosegmentation type of a parallel full
-load (`partitions-auto`).
+   Each specified partition is then allocated to its own thread.
+**Important**  
+For Oracle endpoints, make sure partitions and subpartitions aren't overlapping when choosing them for parallel load. If you use overlapping partitions and subpartitions to load data in parallel, it duplicates entries, or it fails due to a primary key duplicate violation. 
 
-To identify additional tables, views, or collections to load in parallel,
-specify additional `table-settings` objects with
-`parallel-load` options.
+1. (Optional) , For Oracle endpoints only, include subpartitions by specifying an array of subpartition names as the value of `subpartitions`.
 
-In the following procedures, you can find out how to code JSON for each
-parallel-load type, from the simplest to the most complex.
+   Each specified subpartition is then allocated to its own thread.
+**Note**  
+Parallel load includes partitions or subpartitions only if they are already defined for the table or view.
 
-###### To specify all table, view, or collection partitions, or all table or view subpartitions
+You can specify table or view segments as ranges of column values. When you do so, be aware of these column characteristics:
++ Specifying indexed columns significantly improves performance.
++ You can specify up to 10 columns.
++ You can't use columns to define segment boundaries with the following AWS DMS data types: DOUBLE, FLOAT, BLOB, CLOB, and NCLOB
++ Records with null values aren't replicated.
 
-- Specify `parallel-load` with either the
-  `partitions-auto` type or the
-  `subpartitions-auto` type (but not both).
+**To specify table, view, or collection segments as ranges of column values**
 
-Every table, view, or collection partition (or segment) or
-subpartition is then automatically allocated to its own thread.
+1. Specify `parallel-load` with the `ranges` type.
 
-For some endpoints, parallel load includes partitions or subpartitions
-only if they are already defined for the table or view. For MongoDB and
-Amazon DocumentDB source endpoints, you can have AWS DMS automatically calculate the
-partitions (or segments) based on optional additional parameters. These
-include `number-of-partitions`,
-`collection-count-from-metadata`,
-`max-records-skip-per-page`, and
-`batch-size`.
+1. Define a boundary between table or view segments by specifying an array of column names as the value of `columns`. Do this for every column for which you want to define a boundary between table or view segments. 
 
-###### To specify selected table or view partitions, subpartitions, or both
+   The order of columns is significant. The first column is the most significant and the last column is least significant in defining each boundary, as described following.
 
-1. Specify `parallel-load` with the
-   `partitions-list` type.
-2. (Optional) Include partitions by specifying an array of partition
-   names as the value of `partitions`.
+1. Define the data ranges for all the table or view segments by specifying a boundary array as the value of `boundaries`. A *boundary array* is an array of column-value arrays. To do so, take the following steps:
 
-Each specified partition is then allocated to its own thread.
+   1. Specify each element of a column-value array as a value that corresponds to each column. A *column-value array* represents the upper boundary of each table or view segment that you want to define. Specify each column in the same order that you specified that column in the `columns` array.
 
-###### Important
+      Enter values for DATE columns in the format supported by the source.
 
-For Oracle endpoints, make sure partitions and subpartitions
-aren't overlapping when choosing them for parallel load. If you
-use overlapping partitions and subpartitions to load data in
-parallel, it duplicates entries, or it fails due to a primary key
-duplicate violation. 3. (Optional) , For Oracle endpoints only, include subpartitions by
-specifying an array of subpartition names as the value of
-`subpartitions`.
+   1. Specify each column-value array as the upper boundary, in order, of each segment from the bottom to the next-to-top segment of the table or view. If any rows exist above the top boundary that you specify, these rows complete the top segment of the table or view. Thus, the number of range-based segments is potentially one more than the number of segment boundaries in the boundary array. Each such range-based segment is allocated to its own thread.
 
-Each specified subpartition is then allocated to its own
-thread.
+      All of the non-null data is replicated, even if you don't define data ranges for all of the columns in the table or view.
 
-###### Note
+   For example, suppose that you define three column-value arrays for columns COL1, COL2, and COL3 as follows.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.html)
 
-Parallel load includes partitions or subpartitions only if they
-are already defined for the table or view.
+   You have defined three segment boundaries for a possible total of four segments.
 
-You can specify table or view segments as ranges of column values. When you do
-so, be aware of these column characteristics:
-
-- Specifying indexed columns significantly improves performance.
-- You can specify up to 10 columns.
-- You can't use columns to define segment boundaries with the
-  following AWS DMS data types: DOUBLE, FLOAT, BLOB, CLOB, and NCLOB
-- Records with null values aren't replicated.
-
-###### To specify table, view, or collection segments as ranges of column values
-
-1. Specify `parallel-load` with the `ranges`
-   type.
-2. Define a boundary between table or view segments by specifying an
-   array of column names as the value of `columns`. Do this for
-   every column for which you want to define a boundary between table or
-   view segments.
-
-The order of columns is significant. The first column is the most
-significant and the last column is least significant in defining each
-boundary, as described following. 3. Define the data ranges for all the table or view segments by
-specifying a boundary array as the value of `boundaries`. A
-_boundary array_ is an array of column-value
-arrays. To do so, take the following steps:
-
-    1. Specify each element of a column-value array as a value that
-     corresponds to each column. A *column-value
-     array* represents the upper boundary of each table
-     or view segment that you want to define. Specify each column in
-     the same order that you specified that column in the
-     `columns` array.
-
-
-    Enter values for DATE columns in the format supported by the
-     source.
-    2. Specify each column-value array as the upper boundary, in
-     order, of each segment from the bottom to the next-to-top
-     segment of the table or view. If any rows exist above the top
-     boundary that you specify, these rows complete the top segment
-     of the table or view. Thus, the number of range-based segments
-     is potentially one more than the number of segment boundaries in
-     the boundary array. Each such range-based segment is allocated
-     to its own thread.
-
-
-    All of the non-null data is replicated, even if you don't
-     define data ranges for all of the columns in the table or
-     view.For example, suppose that you define three column-value arrays for
-
-columns COL1, COL2, and COL3 as follows.
-
-| COL1 | COL2 | COL3 |
-| ---- | ---- | ---- |
-| 10   | 30   | 105  |
-| 20   | 20   | 120  |
-| 100  | 12   | 99   |
-
-You have defined three segment boundaries for a possible total of four
-segments.
-
-To identify the ranges of rows to replicate for each segment, the
-replication instance applies a search to these three columns for each of
-the four segments. The search is like the following:
-
-**Segment 1**
-
-Replicate all rows where the following is true: The first
-two-column values are less than or equal to their
-corresponding **Segment 1**
-upper boundary values. Also, the values of the third column
-are less than its **Segment 1**
-upper boundary value.
-
-**Segment 2**
-
-Replicate all rows (except **Segment
-1** rows) where the following is true: The
-first two-column values are less than or equal to their
-corresponding **Segment 2**
-upper boundary values. Also, the values of the third column
-are less than its **Segment 2**
-upper boundary value.
-
-**Segment 3**
-
-Replicate all rows (except **Segment
-2** rows) where the following is true: The
-first two-column values are less than or equal to their
-corresponding **Segment 3**
-upper boundary values. Also, the values of the third column
-are less than its **Segment 3**
-upper boundary value.
-
-**Segment 4**
-
+   To identify the ranges of rows to replicate for each segment, the replication instance applies a search to these three columns for each of the four segments. The search is like the following:  
+**Segment 1**  
+Replicate all rows where the following is true: The first two-column values are less than or equal to their corresponding **Segment 1** upper boundary values. Also, the values of the third column are less than its **Segment 1** upper boundary value.  
+**Segment 2**  
+Replicate all rows (except **Segment 1** rows) where the following is true: The first two-column values are less than or equal to their corresponding **Segment 2** upper boundary values. Also, the values of the third column are less than its **Segment 2** upper boundary value.  
+**Segment 3**  
+Replicate all rows (except **Segment 2** rows) where the following is true: The first two-column values are less than or equal to their corresponding **Segment 3** upper boundary values. Also, the values of the third column are less than its **Segment 3** upper boundary value.  
+**Segment 4**  
 Replicate all remaining rows (except the **Segment 1, 2, and 3** rows).
 
-In this case, the replication instance creates a
-`WHERE` clause to load each segment as
-follows:
-
-**Segment 1**
-
-`((COL1 < 10) OR ((COL1 = 10) AND (COL2 < 30))
- OR ((COL1 = 10) AND (COL2 = 30) AND (COL3 <
- 105)))`
-
-**Segment 2**
-
-`NOT ((COL1 < 10) OR ((COL1 = 10) AND (COL2 <
- 30)) OR ((COL1 = 10) AND (COL2 = 30) AND (COL3 <
- 105))) AND ((COL1 < 20) OR ((COL1 = 20) AND (COL2
- < 20)) OR ((COL1 = 20) AND (COL2 = 20) AND (COL3 <
- 120)))`
-
-**Segment 3**
-
-`NOT ((COL1 < 20) OR ((COL1 = 20) AND (COL2 <
- 20)) OR ((COL1 = 20) AND (COL2 = 20) AND (COL3 <
- 120))) AND ((COL1 < 100) OR ((COL1 = 100) AND (COL2
- < 12)) OR ((COL1 = 100) AND (COL2 = 12) AND (COL3
- < 99)))`
-
-**Segment 4**
-
-`NOT ((COL1 < 100) OR ((COL1 = 100) AND (COL2 <
- 12)) OR ((COL1 = 100) AND (COL2 = 12) AND (COL3 <
- 99)))`
+   In this case, the replication instance creates a `WHERE` clause to load each segment as follows:  
+**Segment 1**  
+`((COL1 < 10) OR ((COL1 = 10) AND (COL2 < 30)) OR ((COL1 = 10) AND (COL2 = 30) AND (COL3 < 105)))`  
+**Segment 2**  
+`NOT ((COL1 < 10) OR ((COL1 = 10) AND (COL2 < 30)) OR ((COL1 = 10) AND (COL2 = 30) AND (COL3 < 105))) AND ((COL1 < 20) OR ((COL1 = 20) AND (COL2 < 20)) OR ((COL1 = 20) AND (COL2 = 20) AND (COL3 < 120)))`  
+**Segment 3**  
+`NOT ((COL1 < 20) OR ((COL1 = 20) AND (COL2 < 20)) OR ((COL1 = 20) AND (COL2 = 20) AND (COL3 < 120))) AND ((COL1 < 100) OR ((COL1 = 100) AND (COL2 < 12)) OR ((COL1 = 100) AND (COL2 = 12) AND (COL3 < 99)))`  
+**Segment 4**  
+`NOT ((COL1 < 100) OR ((COL1 = 100) AND (COL2 < 12)) OR ((COL1 = 100) AND (COL2 = 12) AND (COL3 < 99)))`
 
 ## Specifying LOB settings for a selected table or view
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB"></a>
 
-You can set task LOB settings for one or more tables by creating a
-table-mapping rule of type `table-settings` with the
-`lob-settings` option for one or more `table-settings`
-objects.
+You can set task LOB settings for one or more tables by creating a table-mapping rule of type `table-settings` with the `lob-settings` option for one or more `table-settings` objects. 
 
-Specifying LOB settings for selected tables or views is supported for the
-following source endpoints:
+Specifying LOB settings for selected tables or views is supported for the following source endpoints:
++ Oracle
++ Microsoft SQL Server
++ MySQL
++ PostgreSQL
++ IBM Db2, depending on the `mode` and `bulk-max-size` settings, described following
++ SAP Adaptive Server Enterprise (ASE), depending on the `mode` and `bulk-max-size` settings, as described following
 
-- Oracle
-- Microsoft SQL Server
-- MySQL
-- PostgreSQL
-- IBM Db2, depending on the `mode` and
-  `bulk-max-size` settings, described following
-- SAP Adaptive Server Enterprise (ASE), depending on the
-  `mode` and `bulk-max-size` settings, as
-  described following
+Specifying LOB settings for selected tables or views is supported for the following target endpoints:
++ Oracle
++ Microsoft SQL Server
++ MySQL
++ PostgreSQL
++ SAP ASE, depending on the `mode` and `bulk-max-size` settings, as described following
 
-Specifying LOB settings for selected tables or views is supported for the
-following target endpoints:
+**Note**  
+You can use LOB data types only with tables and views that include a primary key.
 
-- Oracle
-- Microsoft SQL Server
-- MySQL
-- PostgreSQL
-- SAP ASE, depending on the `mode` and
-  `bulk-max-size` settings, as described following
+To use LOB settings for a selected table or view, you create a table-mapping rule of type `table-settings` with the `lob-settings` option. Doing this specifies LOB handling for the table or view identified by the `object-locator` option. Within the `table-settings` rule, you can specify a `lob-settings` object with the following parameters:
++ `mode` – Specifies the mechanism for handling LOB migration for the selected table or view as follows: 
+  + `limited` – The default limited LOB mode is the fastest and most efficient mode. Use this mode only if all of your LOBs are small (within 100 MB in size) or the target endpoint doesn't support an unlimited LOB size. Also if you use `limited`, all LOBs need to be within the size that you set for `bulk-max-size`. 
 
-###### Note
+    In this mode for a full load task, the replication instance migrates all LOBs inline together with other column data types as part of main table or view storage. However, the instance truncates any migrated LOB larger than your `bulk-max-size` value to the specified size. For a change data capture (CDC) load task, the instance migrates all LOBs using a source table lookup, as in standard full LOB mode (see the following).
+**Note**  
+You can migrate views for full-load tasks only.
+  + `unlimited` – The migration mechanism for full LOB mode depends on the value you set for `bulk-max-size` as follows:
+    + **Standard full LOB mode** – When you set `bulk-max-size` to zero, the replication instance migrates all LOBs using standard full LOB mode. This mode requires a lookup in the source table or view to migrate every LOB, regardless of size. This approach typically results in a much slower migration than for limited LOB mode. Use this mode only if all or most of your LOBs are large (1 GB or larger).
+    + **Combination full LOB mode** – When you set `bulk-max-size` to a nonzero value, this full LOB mode uses a combination of limited LOB mode and standard full LOB mode. That is for a full load task, if a LOB size is within your `bulk-max-size` value, the instance migrates the LOB inline as in limited LOB mode. If the LOB size is greater than this value, the instance migrates the LOB using a source table or view lookup as in standard full LOB mode. For a change data capture (CDC) load task, the instance migrates all LOBs using a source table lookup, as in standard full LOB mode (see the following). It does so regardless of LOB size.
+**Note**  
+You can migrate views for full-load tasks only.
 
-You can use LOB data types only with tables and views that include a
-primary key.
+      This mode results in a migration speed that is a compromise between the faster, limited LOB mode and the slower, standard full LOB mode. Use this mode only when you have a mix of small and large LOBs, and most of the LOBs are small.
 
-To use LOB settings for a selected table or view, you create a table-mapping
-rule of type `table-settings` with the `lob-settings`
-option. Doing this specifies LOB handling for the table or view identified by
-the `object-locator` option. Within the `table-settings`
-rule, you can specify a `lob-settings` object with the following
-parameters:
+      This combination full LOB mode is available only for the following endpoints:
+      + IBM Db2 as source 
+      + SAP ASE as source or target
 
-- `mode` – Specifies the mechanism for handling LOB
-  migration for the selected table or view as follows:
+    Regardless of the mechanism you specify for `unlimited` mode, the instance migrates all LOBs fully, without truncation.
+  + `none` – The replication instance migrates LOBs in the selected table or view using your task LOB settings. Use this option to help compare migration results with and without LOB settings for the selected table or view.
 
-  - `limited` – The default limited LOB mode is
-    the fastest and most efficient mode. Use this mode only if all
-    of your LOBs are small (within 100 MB in size) or the target
-    endpoint doesn't support an unlimited LOB size. Also if you
-    use `limited`, all LOBs need to be within the size
-    that you set for `bulk-max-size`.
+  If the specified table or view has LOBs included in the replication, you can set the `BatchApplyEnabled` task setting to `true` only when using `limited` LOB mode. 
 
-  In this mode for a full load task, the replication instance
-  migrates all LOBs inline together with other column data types
-  as part of main table or view storage. However, the instance
-  truncates any migrated LOB larger than your
-  `bulk-max-size` value to the specified size. For
-  a change data capture (CDC) load task, the instance migrates all
-  LOBs using a source table lookup, as in standard full LOB mode
-  (see the following).
+  In some cases, you might set `BatchApplyEnabled` to `true` and `BatchApplyPreserveTransaction` to `false`. In these cases, the instance sets `BatchApplyPreserveTransaction` to `true` if the table or view has LOBs and the source and target endpoints are Oracle.
++ `bulk-max-size` – Set this value to a zero or non-zero value in kilobytes, depending on the `mode` as described for the previous items. In `limited` mode, you must set a nonzero value for this parameter.
 
-  ###### Note
-
-  You can migrate views for full-load tasks only.
-  - `unlimited` – The migration mechanism for
-    full LOB mode depends on the value you set for
-    `bulk-max-size` as follows:
-
-    - **Standard full LOB
-      mode** – When you set
-      `bulk-max-size` to zero, the replication
-      instance migrates all LOBs using standard full LOB mode.
-      This mode requires a lookup in the source table or view
-      to migrate every LOB, regardless of size. This approach
-      typically results in a much slower migration than for
-      limited LOB mode. Use this mode only if all or most of
-      your LOBs are large (1 GB or larger).
-    - **Combination full LOB
-      mode** – When you set
-      `bulk-max-size` to a nonzero value, this
-      full LOB mode uses a combination of limited LOB mode and
-      standard full LOB mode. That is for a full load task, if
-      a LOB size is within your `bulk-max-size`
-      value, the instance migrates the LOB inline as in
-      limited LOB mode. If the LOB size is greater than this
-      value, the instance migrates the LOB using a source
-      table or view lookup as in standard full LOB mode. For a
-      change data capture (CDC) load task, the instance
-      migrates all LOBs using a source table lookup, as in
-      standard full LOB mode (see the following). It does so
-      regardless of LOB size.
-
-    ###### Note
-
-    You can migrate views for full-load tasks
-    only.
-
-    This mode results in a migration speed that is a
-    compromise between the faster, limited LOB mode and the
-    slower, standard full LOB mode. Use this mode only when
-    you have a mix of small and large LOBs, and most of the
-    LOBs are small.
-
-    This combination full LOB mode is available only for
-    the following endpoints:
-
-          * IBM Db2 as source
-          * SAP ASE as source or target
-
-  Regardless of the mechanism you specify for
-  `unlimited` mode, the instance migrates all LOBs
-  fully, without truncation.
-  - `none` – The replication instance migrates
-    LOBs in the selected table or view using your task LOB settings.
-    Use this option to help compare migration results with and
-    without LOB settings for the selected table or view.
-    If the specified table or view has LOBs included in the replication,
-    you can set the `BatchApplyEnabled` task setting to
-    `true` only when using `limited` LOB mode.
-
-In some cases, you might set `BatchApplyEnabled` to
-`true` and `BatchApplyPreserveTransaction` to
-`false`. In these cases, the instance sets
-`BatchApplyPreserveTransaction` to `true` if
-the table or view has LOBs and the source and target endpoints are
-Oracle.
-
-- `bulk-max-size` – Set this value to a zero or
-  non-zero value in kilobytes, depending on the `mode` as
-  described for the previous items. In `limited` mode, you must
-  set a nonzero value for this parameter.
-
-The instance converts LOBs to binary format. Therefore, to specify the
-largest LOB you need to replicate, multiply its size by three. For
-example, if your largest LOB is 2 MB, set `bulk-max-size` to
-6,000 (6 MB).
+  The instance converts LOBs to binary format. Therefore, to specify the largest LOB you need to replicate, multiply its size by three. For example, if your largest LOB is 2 MB, set `bulk-max-size` to 6,000 (6 MB).
 
 ## Table-settings examples
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Examples"></a>
 
-Following, you can find some examples that demonstrate the use of table
-settings.
+Following, you can find some examples that demonstrate the use of table settings.
 
-###### Example Load a table segmented by partitions
-
-The following example loads a `SALES` table in your source more
-efficiently by loading it in parallel based on all its partitions.
+**Example Load a table segmented by partitions**  
+The following example loads a `SALES` table in your source more efficiently by loading it in parallel based on all its partitions.  
 
 ```
 {
@@ -574,11 +300,8 @@ efficiently by loading it in parallel based on all its partitions.
 }
 ```
 
-###### Example Load a table segmented by subpartitions
-
-The following example loads a `SALES` table in your Oracle
-source more efficiently by loading it in parallel based on all its
-subpartitions.
+**Example Load a table segmented by subpartitions**  
+The following example loads a `SALES` table in your Oracle source more efficiently by loading it in parallel based on all its subpartitions.  
 
 ```
 {
@@ -608,13 +331,8 @@ subpartitions.
 }
 ```
 
-###### Example Load a table segmented by a list of partitions
-
-The following example loads a `SALES` table in your source
-by loading it in parallel by a particular list of partitions. Here, the
-specified partitions are named after values starting with portions of
-the alphabet, for example `ABCD`, `EFGH`, and so
-on.
+**Example Load a table segmented by a list of partitions**  
+The following example loads a `SALES` table in your source by loading it in parallel by a particular list of partitions. Here, the specified partitions are named after values starting with portions of the alphabet, for example `ABCD`, `EFGH`, and so on.   
 
 ```
 {
@@ -652,15 +370,8 @@ on.
 }
 ```
 
-###### Example Load an Oracle table segmented by a selected list of partitions and subpartitions
-
-The following example loads a `SALES` table in your Oracle
-source by loading it in parallel by a selected list of partitions and
-subpartitions. Here, the specified partitions are named after values
-starting with portions of the alphabet, for example `ABCD`,
-`EFGH`, and so on. The specified subpartitions are named
-after values starting with numerals, for example `01234` and
-`56789`.
+**Example Load an Oracle table segmented by a selected list of partitions and subpartitions**  
+The following example loads a `SALES` table in your Oracle source by loading it in parallel by a selected list of partitions and subpartitions. Here, the specified partitions are named after values starting with portions of the alphabet, for example `ABCD`, `EFGH`, and so on. The specified subpartitions are named after values starting with numerals, for example `01234` and `56789`.  
 
 ```
 {
@@ -702,11 +413,8 @@ after values starting with numerals, for example `01234` and
 }
 ```
 
-###### Example Load a table segmented by ranges of column values
-
-The following example loads a `SALES` table in your source
-by loading it in parallel by segments specified by ranges of the
-`SALES_NO` and `REGION` column values.
+**Example Load a table segmented by ranges of column values**  
+The following example loads a `SALES` table in your source by loading it in parallel by segments specified by ranges of the `SALES_NO` and `REGION` column values.  
 
 ```
 {
@@ -749,41 +457,17 @@ by loading it in parallel by segments specified by ranges of the
     ]
 }
 ```
+Here, two columns are specified for the segment ranges with the names, `SALES_NO` and `REGION`. Two boundaries are specified with two sets of column values (`["1000","NORTH"]` and `["3000","WEST"]`).  
+These two boundaries thus identify the following three table segments to load in parallel:    
+Segment 1  
+Rows with `SALES_NO` less than or equal to 1,000 and `REGION` less than "NORTH". In other words, sales numbers up to 1,000 in the EAST region.  
+Segment 2  
+Rows other than **Segment 1** with `SALES_NO` less than or equal to 3,000 and `REGION` less than "WEST". In other words, sales numbers over 1,000 up to 3,000 in the NORTH and SOUTH regions.  
+Segment 3  
+All remaining rows other than **Segment 1** and **Segment 2**. In other words, sales numbers over 3,000 in the "WEST" region.
 
-Here, two columns are specified for the segment ranges with the names,
-`SALES_NO` and `REGION`. Two boundaries are
-specified with two sets of column values (`["1000","NORTH"]`
-and `["3000","WEST"]`).
-
-These two boundaries thus identify the following three table
-segments to load in parallel:
-
-Segment 1
-
-Rows with `SALES_NO` less than or equal to
-1,000 and `REGION` less than "NORTH". In other
-words, sales numbers up to 1,000 in the EAST region.
-
-Segment 2
-
-Rows other than **Segment 1**
-with `SALES_NO` less than or equal to 3,000 and
-`REGION` less than "WEST". In other words,
-sales numbers over 1,000 up to 3,000 in the NORTH and SOUTH
-regions.
-
-Segment 3
-
-All remaining rows other than **Segment 1** and **Segment
-2**. In other words, sales numbers over 3,000
-in the "WEST" region.
-
-###### Example Load two tables: One segmented by ranges and another segmented by partitions
-
-The following example loads a `SALES` table in parallel by
-segment boundaries that you identify. It also loads an
-`ORDERS` table in parallel by all of its partitions, as
-with previous examples.
+**Example Load two tables: One segmented by ranges and another segmented by partitions**  
+The following example loads a `SALES` table in parallel by segment boundaries that you identify. It also loads an `ORDERS` table in parallel by all of its partitions, as with previous examples.  
 
 ```
 {
@@ -832,20 +516,15 @@ with previous examples.
                 "table-name": "ORDERS"
             },
             "parallel-load": {
-                "type": "partitions-auto"
+                "type": "partitions-auto" 
             }
         }
     ]
 }
 ```
 
-###### Example Load a table with LOBs using the task LOB settings
-
-The following example loads an `ITEMS` table in your
-source, including all LOBs, using its task LOB settings. The
-`bulk-max-size` setting of 100 MB is ignored and left
-only for a quick reset to `limited` or `unlimited`
-mode.
+**Example Load a table with LOBs using the task LOB settings**  
+The following example loads an `ITEMS` table in your source, including all LOBs, using its task LOB settings. The `bulk-max-size` setting of 100 MB is ignored and left only for a quick reset to `limited` or `unlimited` mode.  
 
 ```
 {
@@ -876,13 +555,8 @@ mode.
 }
 ```
 
-###### Example Load a table with LOBs using limited LOB mode
-
-The following example loads an `ITEMS` table including LOBs
-in your source using limited LOB mode (the default) with a maximum
-nontruncated size of 100 MB. Any LOBs that are larger than this size are
-truncated to 100 MB. All LOBs are loaded inline with all other column
-data types.
+**Example Load a table with LOBs using limited LOB mode**  
+The following example loads an `ITEMS` table including LOBs in your source using limited LOB mode (the default) with a maximum nontruncated size of 100 MB. Any LOBs that are larger than this size are truncated to 100 MB. All LOBs are loaded inline with all other column data types.  
 
 ```
 {
@@ -912,12 +586,8 @@ data types.
 }
 ```
 
-###### Example Load a table with LOBs using standard full LOB mode
-
-The following example loads an `ITEMS` table in your
-source, including all its LOBs without truncation, using standard full
-LOB mode. All LOBs, regardless of size, are loaded separately from other
-data types using a lookup for each LOB in the source table.
+**Example Load a table with LOBs using standard full LOB mode**  
+The following example loads an `ITEMS` table in your source, including all its LOBs without truncation, using standard full LOB mode. All LOBs, regardless of size, are loaded separately from other data types using a lookup for each LOB in the source table.  
 
 ```
 {
@@ -948,15 +618,8 @@ data types using a lookup for each LOB in the source table.
 }
 ```
 
-###### Example Load a table with LOBs using combination full LOB mode
-
-The following example loads an `ITEMS` table in your
-source, including all its LOBs without truncation, using combination
-full LOB mode. All LOBs within 100 MB in size are loaded inline along
-with other data types, as in limited LOB mode. All LOBs over 100 MB in
-size are loaded separately from other data types. This separate load
-uses a lookup for each such LOB in the source table, as in standard full
-LOB mode.
+**Example Load a table with LOBs using combination full LOB mode**  
+The following example loads an `ITEMS` table in your source, including all its LOBs without truncation, using combination full LOB mode. All LOBs within 100 MB in size are loaded inline along with other data types, as in limited LOB mode. All LOBs over 100 MB in size are loaded separately from other data types. This separate load uses a lookup for each such LOB in the source table, as in standard full LOB mode.  
 
 ```
 {

@@ -1,45 +1,50 @@
+
+
 # Creating instance profiles for AWS Database Migration Service
+<a name="instance-profiles"></a>
 
-You can create multiple instance profiles in the AWS DMS console. Make sure that you select
-an instance profile to use for each migration project that you create in AWS DMS.
+You can create multiple instance profiles in the AWS DMS console. Make sure that you select an instance profile to use for each migration project that you create in AWS DMS.
 
-###### To create an instance profile
+**To create an instance profile**
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. In the navigation pane, choose **Instance profiles**.
-3. Choose **Create instance profile**.
-4. On the **Create instance profile** page, enter a descriptive
-   value for **Name** for your instance profile.
-5. For **Network type**, choose **Dual-stack mode** to
-   create an instance profile that supports IPv4 and IPv6 addressing. Keep the default option
-   to create an instance profile that supports only IPv4 addressing.
-6. Next, choose **Virtual private cloud (VPC)** to run your instance of
-   the selected network type. Then choose a **Subnet group** and
-   **VPC security groups** for your instance profile.
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/).
 
-To connect to Amazon RDS databases, use the subnet configuration appropriate for
-your RDS setup, whether public or private. For connecting to on-premises
-databases, if you use a private subnet group, ensure that your network is
-configured to allow AWS DMS access to the source on-premises database through the
-NAT gateway's public IP address. For more information, see [Configure VPC, Amazon S3, and Secrets Manager](set-up.md#set-up-aws-resources "set-up.md#set-up-aws-resources"). 7. (Optional) If you create a migration project for DMS Schema Conversion, then for
-**Schema conversion settings - optional**, choose an Amazon S3 bucket
-to store information from your migration project. Then choose the AWS Identity and Access Management (IAM) role
-that provides access to this Amazon S3 bucket. For more information, see [Configure VPC, Amazon S3, and Secrets Manager](set-up.md#set-up-aws-resources "set-up.md#set-up-aws-resources"). 8. Choose **Create instance profile**.
+1. In the navigation pane, choose **Instance profiles**.
+
+1. Choose **Create instance profile**.
+
+1. On the **Create instance profile** page, enter a descriptive value for **Name** for your instance profile.
+
+1. For **Network type**, choose **Dual-stack mode** to create an instance profile that supports IPv4 and IPv6 addressing. Keep the default option to create an instance profile that supports only IPv4 addressing.
+
+1. Next, choose **Virtual private cloud (VPC)** to run your instance of the selected network type. Then choose a **Subnet group** and **VPC security groups** for your instance profile.
+
+   To connect to Amazon RDS databases, use the subnet configuration appropriate for your RDS setup, whether public or private. For connecting to on-premises databases, if you use a private subnet group, ensure that your network is configured to allow AWS DMS access to the source on-premises database through the NAT gateway's public IP address. For more information, see [Configure VPC, Amazon S3, and Secrets Manager](set-up.md#set-up-aws-resources).
+
+1. (Optional) If you create a migration project for DMS Schema Conversion, then for **Schema conversion settings - optional**, choose an Amazon S3 bucket to store information from your migration project. Then choose the AWS Identity and Access Management (IAM) role that provides access to this Amazon S3 bucket. For more information, see [Configure VPC, Amazon S3, and Secrets Manager](set-up.md#set-up-aws-resources).
+
+1. Choose **Create instance profile**.
+
 After you create your instance profile, you can modify or delete it.
 
-###### To modify an instance profile
+**To modify an instance profile**
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Instance profiles**. The **Instance profiles** page
-   opens.
-3. Choose your instance profile, and then choose **Modify**.
-4. Update the name of your instance profile, edit the VPC or Amazon S3 bucket settings.
-5. Choose **Save changes**.
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/).
 
-###### To delete an instance profile
+1. Choose **Instance profiles**. The **Instance profiles** page opens.
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Instance profiles**. The **Instance profiles** page
-   opens.
-3. Choose your instance profile, and then choose **Delete**.
-4. Choose **Delete** to confirm your choice.
+1. Choose your instance profile, and then choose **Modify**.
+
+1. Update the name of your instance profile, edit the VPC or Amazon S3 bucket settings.
+
+1. Choose **Save changes**.
+
+**To delete an instance profile**
+
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/).
+
+1. Choose **Instance profiles**. The **Instance profiles** page opens.
+
+1. Choose your instance profile, and then choose **Delete**.
+
+1. Choose **Delete** to confirm your choice.

@@ -1,22 +1,27 @@
+
+
 # Using an IBM Db2 for Linux, UNIX and Windows database as a source in DMS Schema Conversion
+<a name="sc-data-providers-db2luw"></a>
 
 You can use an IBM Db2 for Linux, UNIX and Windows databases as a migration source in DMS Schema Conversion.
 
-You can use DMS Schema Conversion to convert database code objects from Db2 for Linux, UNIX and Windows Database to the following targets:
+You can use DMS Schema Conversion to convert database code objects from Db2 for Linux, UNIX and Windows Database to the following targets: 
++ Aurora PostgreSQL
++ Amazon RDS for PostgreSQL
 
-- Aurora PostgreSQL
-- Amazon RDS for PostgreSQL
-  For information about the supported IBM Db2 for Linux, UNIX and Windows databases versions, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion")
+For information about the supported IBM Db2 for Linux, UNIX and Windows databases versions, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion)
 
 ## Prerequisites for IBM Db2 for Linux, UNIX and Windows as a source database
+<a name="sc-data-providers-db2luw-prereq"></a>
 
-You can use the following code example to check the version of your source IBM Db2 for Linux, UNIX and Windows database:
+You can use the following code example to check the version of your source IBM Db2 for Linux, UNIX and Windows database: 
 
 ```
 SELECT SERVICE_LEVEL FROM SYSIBMADM.ENV_INST_INFO;
 ```
 
 ## Privileges for IBM Db2 for Linux, UNIX and Windows as a source database
+<a name="sc-data-providers-db2luw-privileges"></a>
 
 The privileges needed to connect to a Db2 for Linux, UNIX and Windows database and read system catalogs and tables are as follows:
 

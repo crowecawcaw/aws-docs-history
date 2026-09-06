@@ -1,40 +1,22 @@
+
+
 # Refreshing your database schemas in DMS Schema Conversion
+<a name="schema-conversion-refresh"></a>
 
-After you create a migration project, DMS Schema Conversion stores the information about your
-source and target schemas in this project. DMS Schema Conversion uses _lazy
-loading_ to load metadata only as it is needed, such as when you choose a
-node in your database tree. You can use _eager loading_ to load the
-schema information faster. To do so, choose your schema, and then choose **Load
-metadata** from **Actions**.
+After you create a migration project, DMS Schema Conversion stores the information about your source and target schemas in this project. DMS Schema Conversion uses *lazy loading* to load metadata only as it is needed, such as when you choose a node in your database tree. You can use *eager loading* to load the schema information faster. To do so, choose your schema, and then choose **Load metadata** from **Actions**.
 
-After you automatically or manually load the object to your migration project,
-DMS Schema Conversion doesn't use lazy loading again. So when you change objects, such as tables and
-procedures in your database, make sure to refresh them in your migration project.
+After you automatically or manually load the object to your migration project, DMS Schema Conversion doesn't use lazy loading again. So when you change objects, such as tables and procedures in your database, make sure to refresh them in your migration project.
 
-To refresh schemas from the database, select the objects that you want to refresh, and
-choose **Refresh from database** from **Actions**. You
-can refresh database objects in your source and target database schemas:
+To refresh schemas from the database, select the objects that you want to refresh, and choose **Refresh from database** from **Actions**. You can refresh database objects in your source and target database schemas:
++  **Source** 
+  +  **Database connection** 
 
-- **Source**
+    If you update your source database schema, choose **Refresh from database** to replace the schema in your project with the latest schema from your source database.
+  +  **Virtual connection** 
 
-  - **Database connection**
+    If you update the DDL scripts in the S3 bucket for your source database, choose **Refresh from database** to update the schema in your project with the latest metadata from the DDL scripts in the S3 bucket.
+**Note**  
+For a virtual connection, **Refresh from database** is available only at the top level of the object tree. This action clears the object tree and reloads the metadata from the DDL scripts in the S3 bucket.
++  **Target** 
 
-  If you update your source database schema, choose **Refresh from database**
-  to replace the schema in your project with the latest schema from your source database.
-  - **Virtual connection**
-
-  If you update the DDL scripts in the S3 bucket for your source database, choose **Refresh from database** to update the schema in your project with the latest metadata from the DDL scripts in the S3 bucket.
-
-  ###### Note
-
-  For a virtual connection, **Refresh from database**
-  is available only at the top level of the object tree.
-  This action clears the object tree and reloads the metadata from the DDL scripts in the S3 bucket.
-
-- **Target**
-
-If you update the schema for your target database, DMS Schema Conversion replaces the schema
-in your project with the latest schema from your target database. DMS Schema Conversion replaces
-your converted code with the code from your target database. Make sure that you applied
-the converted code to your target database before you choose **Refresh from
-database**. Otherwise, convert your source database schema again.
+  If you update the schema for your target database, DMS Schema Conversion replaces the schema in your project with the latest schema from your target database. DMS Schema Conversion replaces your converted code with the code from your target database. Make sure that you applied the converted code to your target database before you choose **Refresh from database**. Otherwise, convert your source database schema again.

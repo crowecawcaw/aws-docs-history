@@ -1,22 +1,16 @@
+
+
 # Saving task settings
+<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.Saving"></a>
 
-You can save task settings as a JSON file in case you want to reuse the
-settings for another task. You can find tasks settings to copy to a JSON file
-under the **Overview details** section of a task.
+You can save task settings as a JSON file in case you want to reuse the settings for another task. You can find tasks settings to copy to a JSON file under the **Overview details** section of a task.
 
-###### Note
+**Note**  
+While reusing task settings for other tasks, remove any `CloudWatchLogGroup` and `CloudWatchLogStream` attributes. Otherwise, the following error is given: SYSTEM ERROR MESSAGE:Task Settings CloudWatchLogGroup or CloudWatchLogStream cannot be set on create.
 
-While reusing task settings for other tasks, remove any
-`CloudWatchLogGroup` and `CloudWatchLogStream`
-attributes. Otherwise, the following error is given: **`SYSTEM ERROR
- MESSAGE:Task Settings CloudWatchLogGroup or CloudWatchLogStream cannot
- be set on create.`**
-
-For example, the following JSON file contains settings saved for a
-task.
+For example, the following JSON file contains settings saved for a task.
 
 ```
-
 {
     "TargetMetadata": {
         "TargetSchema": "",
@@ -185,5 +179,4 @@ task.
     "BeforeImageSettings": null,
     "FailTaskWhenCleanTaskResourceFailed": false
 }
-
 ```

@@ -1,125 +1,94 @@
+
+
 # Using IBM Db2 for z/OS databases as a source for AWS DMS
+<a name="CHAP_Source.DB2zOS"></a>
 
-You can migrate data from an IBM for z/OS database to any supported target database using
-AWS Database Migration Service (AWS DMS).
+You can migrate data from an IBM for z/OS database to any supported target database using AWS Database Migration Service (AWS DMS). 
 
-For information about versions of Db2 for z/OS that AWS DMS supports as a source,
-see [Sources for AWS DMS](CHAP_Introduction.Sources.md "CHAP_Introduction.Sources.md").
+For information about versions of Db2 for z/OS that AWS DMS supports as a source, see [Sources for AWS DMS](CHAP_Introduction.Sources.md).
 
 ## Prerequisites when using Db2 for z/OS as a source for AWS DMS
+<a name="CHAP_Source.DB2zOS.Prerequisites"></a>
 
-To use an IBM Db2 for z/OS database as a source in AWS DMS, grant the following
-privileges to the Db2 for z/OS user specified in the source endpoint connection
-settings.
-
-```
-GRANT SELECT ON SYSIBM.SYSTABLES TO `Db2USER`;
-GRANT SELECT ON SYSIBM.SYSTABLESPACE TO `Db2USER`;
-GRANT SELECT ON SYSIBM.SYSTABLEPART TO `Db2USER`;
-GRANT SELECT ON SYSIBM.SYSCOLUMNS TO `Db2USER`;
-GRANT SELECT ON SYSIBM.SYSDATABASE TO `Db2USER`;
-GRANT SELECT ON SYSIBM.SYSDUMMY1 TO `Db2USER`
+To use an IBM Db2 for z/OS database as a source in AWS DMS, grant the following privileges to the Db2 for z/OS user specified in the source endpoint connection settings.
 
 ```
+GRANT SELECT ON SYSIBM.SYSTABLES TO {{Db2USER}};
+GRANT SELECT ON SYSIBM.SYSTABLESPACE TO {{Db2USER}};
+GRANT SELECT ON SYSIBM.SYSTABLEPART TO {{Db2USER}};                    
+GRANT SELECT ON SYSIBM.SYSCOLUMNS TO {{Db2USER}};
+GRANT SELECT ON SYSIBM.SYSDATABASE TO {{Db2USER}};
+GRANT SELECT ON SYSIBM.SYSDUMMY1 TO {{Db2USER}}
+```
 
-Also grant SELECT ON `user defined`
-source tables.
+Also grant SELECT ON `{{user defined}}` source tables.
 
-An AWS DMS IBM Db2 for z/OS source endpoint relies on the IBM Data Server
-Driver for ODBC to access data. The database server must have a valid
-IBM ODBC Connect license for DMS to connect to this endpoint.
+An AWS DMS IBM Db2 for z/OS source endpoint relies on the IBM Data Server Driver for ODBC to access data. The database server must have a valid IBM ODBC Connect license for DMS to connect to this endpoint.
 
 ## Limitations when using Db2 for z/OS as a source for AWS DMS
+<a name="CHAP_Source.DB2zOS.Limitations"></a>
 
-The following limitations apply when using an IBM Db2 for z/OS database as a source for
-AWS DMS:
-
-- Only Full Load replication tasks are supported. Change data capture (CDC)
-  isn't supported.
-- Parallel load isn't supported.
-- Data validation of views are not supported.
-- Schema, table, and columns names must be specified in UPPER case in table
-  mappings for Column/table level transformations and row level selection filters.
+The following limitations apply when using an IBM Db2 for z/OS database as a source for AWS DMS:
++ Only Full Load replication tasks are supported. Change data capture (CDC) isn't supported.
++ Parallel load isn't supported.
++ Data validation of views are not supported.
++ Schema, table, and columns names must be specified in UPPER case in table mappings for Column/table level transformations and row level selection filters.
 
 ## Source data types for IBM Db2 for z/OS
+<a name="CHAP_Source.DB2zOS.DataTypes"></a>
 
-Data migrations that use Db2 for z/OS as a source for AWS DMS support most Db2 for
-z/OS data types. The following table shows the Db2 for z/OS source data types that are
-supported when using AWS DMS, and the default mapping from AWS DMS data types.
+Data migrations that use Db2 for z/OS as a source for AWS DMS support most Db2 for z/OS data types. The following table shows the Db2 for z/OS source data types that are supported when using AWS DMS, and the default mapping from AWS DMS data types.
 
-For more information about Db2 for z/OS data types, see the
-[IBM Db2 for z/OS documentation](https://www.ibm.com/docs/en/db2-for-zos/12?topic=elements-data-types "https://www.ibm.com/docs/en/db2-for-zos/12?topic=elements-data-types").
+For more information about Db2 for z/OS data types, see the [IBM Db2 for z/OS documentation](https://www.ibm.com/docs/en/db2-for-zos/12?topic=elements-data-types).
 
-For information on how to view the data type that is mapped in the target, see the section for the
-target endpoint that you're using.
+For information on how to view the data type that is mapped in the target, see the section for the target endpoint that you're using.
 
-For additional information about AWS DMS data types, see
-[Data types for AWS Database Migration Service](CHAP_Reference.DataTypes.md "CHAP_Reference.DataTypes.md").
+For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.DataTypes.md).
 
-| Db2 for z/OS data types   | AWS DMS data types                                                                                                                             |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| INTEGER                   | INT4                                                                                                                                           |
-| SMALLINT                  | INT2                                                                                                                                           |
-| BIGINT                    | INT8                                                                                                                                           |
-| DECIMAL (p,s)             | NUMERIC (p,s)<br>If a decimal point is set to a comma (,) in the DB2 configuration, configure Replicate<br>to support the DB2 setting.         |
-| FLOAT                     | REAL8                                                                                                                                          |
-| DOUBLE                    | REAL8                                                                                                                                          |
-| REAL                      | REAL4                                                                                                                                          |
-| DECFLOAT (p)              | If precision is 16, then REAL8; if precision is 34, then<br>STRING                                                                             |
-| GRAPHIC (n)               | If n>=127 then WSTRING, for fixed-length graphic strings of double byte chars<br>with a length greater than 0 and less than or equal to<br>127 |
-| VARGRAPHIC (n)            | WSTRING, for varying-length graphic strings with a length<br>greater than 0 and less than or equal to16,352 double byte<br>chars               |
-| LONG VARGRAPHIC (n)       | CLOB, for varying-length graphic strings with a length greater<br>than 0 and less than or equal to16,352 double byte chars                     |
-| CHARACTER (n)             | STRING, for fixed-length strings of double byte chars with a<br>length greater than 0 and less than or equal to 255                            |
-| VARCHAR (n)               | STRING, for varying-length strings of double byte chars with a<br>length greater than 0 and less than or equal to 32,704                       |
-| LONG VARCHAR (n)          | CLOB, for varying-length strings of double byte chars with a<br>length greater than 0 and less than or equal to 32,704                         |
-| CHAR (n) FOR BIT DATA     | BYTES                                                                                                                                          |
-| VARCHAR (n) FOR BIT DATA  | BYTES                                                                                                                                          |
-| LONG VARCHAR FOR BIT DATA | BYTES                                                                                                                                          |
-| DATE                      | DATE                                                                                                                                           |
-| TIME                      | TIME                                                                                                                                           |
-| TIMESTAMP                 | DATETIME                                                                                                                                       |
-| BLOB (n)                  | BLOB<br>Maximum length is 2,147,483,647 bytes                                                                                                  |
-| CLOB (n)                  | CLOB<br>Maximum length is 2,147,483,647 bytes                                                                                                  |
-| DBCLOB (n)                | CLOB<br>Maximum length is 1,073,741,824 double byte chars                                                                                      |
-| XML                       | CLOB                                                                                                                                           |
-| BINARY                    | BYTES                                                                                                                                          |
-| VARBINARY                 | BYTES                                                                                                                                          |
-| ROWID                     | BYTES. For more information about working with ROWID, see<br>following.                                                                        |
-| TIMESTAMP WITH TIME ZONE  | Not supported.                                                                                                                                 |
 
-ROWID columns are migrated by default when the target table prep mode for the task
-is set to DROP\_AND\_CREATE (the default). Data validation ignores these columns because
-the rows are meaningless outside the specific database and table. To turn off migration
-of these columns, you can do one of the following preparatory steps:
+|  Db2 for z/OS data types  |  AWS DMS data types  | 
+| --- | --- | 
+| INTEGER | INT4 | 
+| SMALLINT | INT2 | 
+| BIGINT | INT8 | 
+| DECIMAL (p,s) | NUMERIC (p,s)<br />If a decimal point is set to a comma (,) in the DB2 configuration, configure Replicate to support the DB2 setting.  | 
+| FLOAT | REAL8 | 
+| DOUBLE | REAL8 | 
+| REAL | REAL4 | 
+| DECFLOAT (p) | If precision is 16, then REAL8; if precision is 34, then STRING | 
+| GRAPHIC (n) | If n>=127 then WSTRING, for fixed-length graphic strings of double byte chars with a length greater than 0 and less than or equal to 127 | 
+| VARGRAPHIC (n) | WSTRING, for varying-length graphic strings with a length greater than 0 and less than or equal to16,352 double byte chars | 
+| LONG VARGRAPHIC (n) | CLOB, for varying-length graphic strings with a length greater than 0 and less than or equal to16,352 double byte chars | 
+| CHARACTER (n) | STRING, for fixed-length strings of double byte chars with a length greater than 0 and less than or equal to 255 | 
+| VARCHAR (n) | STRING, for varying-length strings of double byte chars with a length greater than 0 and less than or equal to 32,704 | 
+| LONG VARCHAR (n) | CLOB, for varying-length strings of double byte chars with a length greater than 0 and less than or equal to 32,704 | 
+| CHAR (n) FOR BIT DATA | BYTES | 
+| VARCHAR (n) FOR BIT DATA | BYTES | 
+| LONG VARCHAR FOR BIT DATA | BYTES | 
+| DATE | DATE | 
+| TIME | TIME | 
+| TIMESTAMP | DATETIME | 
+| BLOB (n) | BLOB<br />Maximum length is 2,147,483,647 bytes | 
+| CLOB (n) | CLOB<br />Maximum length is 2,147,483,647 bytes | 
+| DBCLOB (n) | CLOB<br />Maximum length is 1,073,741,824 double byte chars | 
+| XML | CLOB | 
+| BINARY | BYTES | 
+| VARBINARY | BYTES | 
+| ROWID | BYTES. For more information about working with ROWID, see following.  | 
+| TIMESTAMP WITH TIME ZONE | Not supported. | 
 
-- Pre-create the target table without these columns. Then, set the target
-  table prep mode of the task to either DO\_NOTHING or TRUNCATE\_BEFORE\_LOAD. You
-  can use DMS Schema Conversion to pre-create the target table without the
-  columns.
-- Add a table mapping rule to a task that filters out these columns so
-  that they're ignored. For more information, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md").
+ROWID columns are migrated by default when the target table prep mode for the task is set to DROP\_AND\_CREATE (the default). Data validation ignores these columns because the rows are meaningless outside the specific database and table. To turn off migration of these columns, you can do one of the following preparatory steps: 
++ Pre-create the target table without these columns. Then, set the target table prep mode of the task to either DO\_NOTHING or TRUNCATE\_BEFORE\_LOAD. You can use DMS Schema Conversion to pre-create the target table without the columns.
++ Add a table mapping rule to a task that filters out these columns so that they're ignored. For more information, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md).
 
 ## EBCDIC collations in PostgreSQL for AWS Mainframe Modernization service
+<a name="CHAP_Source.DB2zOS.EBCDIC"></a>
 
-AWS Mainframe Modernization program helps you modernize your mainframe applications
-to AWS managed runtime environments. It provides tools and resources that help you
-plan and implement your migration and modernization projects. For more information about
-mainframe modernization and migration, see
-[Mainframe Modernization with AWS](https://aws.amazon.com/mainframe/ "https://aws.amazon.com/mainframe/").
+AWS Mainframe Modernization program helps you modernize your mainframe applications to AWS managed runtime environments. It provides tools and resources that help you plan and implement your migration and modernization projects. For more information about mainframe modernization and migration, see [Mainframe Modernization with AWS](https://aws.amazon.com/mainframe/).
 
-Some IBM Db2 for z/OS data sets are encoded in the Extended Binary Coded Decimal Interchange (EBCDIC) character set.
-This is a character set that was developed before ASCII (American Standard Code for Information Interchange)
-became commonly used. A _code page_ maps each character of text to the characters in a character set.
-A traditional code page contains the mapping information between a code point and a character ID.
-A _character ID_ is an 8-byte character data string. A _code point_ is an 8-bit
-binary number that represents a character. Code points are usually shown as hexadecimal representations of their
-binary values.
+Some IBM Db2 for z/OS data sets are encoded in the Extended Binary Coded Decimal Interchange (EBCDIC) character set. This is a character set that was developed before ASCII (American Standard Code for Information Interchange) became commonly used. A *code page* maps each character of text to the characters in a character set. A traditional code page contains the mapping information between a code point and a character ID. A *character ID *is an 8-byte character data string. A *code point* is an 8-bit binary number that represents a character. Code points are usually shown as hexadecimal representations of their binary values.
 
-If you currently use either the Micro Focus or BluAge component of the Mainframe Modernization
-service, you must tell AWS DMS to _shift_ (translate) certain code
-points. You can use AWS DMS task settings to perform the shifts. The following example
-shows how to use the AWS DMS `CharacterSetSettings` operation to map the shifts in
-a DMS task setting.
+If you currently use either the Micro Focus or BluAge component of the Mainframe Modernization service, you must tell AWS DMS to *shift* (translate) certain code points. You can use AWS DMS task settings to perform the shifts. The following example shows how to use the AWS DMS `CharacterSetSettings` operation to map the shifts in a DMS task setting.
 
 ```
 "CharacterSetSettings": {
@@ -136,18 +105,14 @@ a DMS task setting.
             }
         ]
     }
-
 ```
 
-Some EBCDIC collations already exist for PostgreSQL that understand the shifting
-that's needed. Several different code pages are supported. The sections following
-provide JSON samples of what you must shift for all the supported code pages. You can
-simply copy-and-past the necessary JSON that you need in your DMS task.
+Some EBCDIC collations already exist for PostgreSQL that understand the shifting that's needed. Several different code pages are supported. The sections following provide JSON samples of what you must shift for all the supported code pages. You can simply copy-and-past the necessary JSON that you need in your DMS task.
 
 ### Micro Focus specific EBCDIC collations
+<a name="CHAP_Source.DB2zOS.EBCDIC.MicroFocus"></a>
 
-For Micro Focus, shift a subset of characters as needed for the following
-collations.
+For Micro Focus, shift a subset of characters as needed for the following collations.
 
 ```
  da-DK-cp1142m-x-icu
@@ -159,14 +124,11 @@ collations.
  fr-FR-cp1147m-x-icu
  it-IT-cp1144m-x-icu
  nl-BE-cp1148m-x-icu
-
 ```
 
-###### Example Micro Focus data shifts per collation:
-
-**en\_us\_cp1140m**
-
-Code Shift:
+**Example Micro Focus data shifts per collation:**  
+**en\_us\_cp1140m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -177,10 +139,8 @@ Code Shift:
 00BE    0152
 00A8    0153
 00B4    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -191,12 +151,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1141m**
-
-Code Shift:
+**en\_us\_cp1141m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -207,10 +164,8 @@ Code Shift:
 00A8    0152
 00B4    0153
 00A6    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -221,12 +176,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1142m**
-
-Code Shift:
+**en\_us\_cp1142m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -237,10 +189,8 @@ Code Shift:
 00BE    0152
 00A8    0153
 00B4    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -251,12 +201,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1143m**
-
-Code Shift:
+**en\_us\_cp1143m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -267,10 +214,8 @@ Code Shift:
 00A8    0152
 00B4    0153
 00A6    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -281,12 +226,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1144m**
-
-Code Shift:
+**en\_us\_cp1144m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -297,10 +239,8 @@ Code Shift:
 00A8    0152
 00B4    0153
 00A6    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -311,12 +251,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1145m**
-
-Code Shift:
+**en\_us\_cp1145m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -327,10 +264,8 @@ Code Shift:
 00BD    0152
 00BE    0153
 00B4    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -341,12 +276,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1146m**
-
-Code Shift:
+**en\_us\_cp1146m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -357,10 +289,8 @@ Code Shift:
 00BE    0152
 00A8    0153
 00B4    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -371,12 +301,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1147m**
-
-Code Shift:
+**en\_us\_cp1147m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -387,10 +314,8 @@ Code Shift:
 00BE    0152
 00B4    0153
 00A6    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -401,12 +326,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
-
 ```
-
-**en\_us\_cp1148m**
-
-Code Shift:
+**en\_us\_cp1148m**  
+Code Shift:  
 
 ```
 0000    0180
@@ -417,10 +339,8 @@ Code Shift:
 00BE    0152
 00A8    0153
 00B4    0178
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
@@ -431,13 +351,12 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
 ,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
 ,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
-
 ```
 
 ### BluAge specific EBCDIC collations
+<a name="CHAP_Source.DB2zOS.EBCDIC.BluAge"></a>
 
-For BluAge, shift all of the following _low values_ and _high values_ as needed.
-These collations should only be used to support the Mainframe Migration BluAge service.
+For BluAge, shift all of the following *low values* and *high values* as needed. These collations should only be used to support the Mainframe Migration BluAge service.
 
 ```
 da-DK-cp1142b-x-icu
@@ -451,21 +370,18 @@ da-DK-cp1142b-x-icu
  es-ES-cp1145b-x-icu
  es-ES-cp284b-x-icu
  fi-FI-cp1143b-x-icu
- fi-FI-cp278b-x-icu
+ fi-FI-cp278b-x-icu 
  fr-FR-cp1147b-x-icu
  fr-FR-cp297b-x-icu
  it-IT-cp1144b-x-icu
  it-IT-cp280b-x-icu
  nl-BE-cp1148b-x-icu
  nl-BE-cp500b-x-icu
-
 ```
 
-###### Example BluAge Data Shifts:
-
-**da-DK-cp277b** and **da-DK-cp1142b**
-
-Code Shift:
+**Example BluAge Data Shifts:**  
+**da-DK-cp277b** and **da-DK-cp1142b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -533,10 +449,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -604,12 +518,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**de-DE-273b** and **de-DE-1141b**
-
-Code Shift:
+**de-DE-273b** and **de-DE-1141b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -677,10 +588,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -748,12 +657,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**en-GB-285b** and **en-GB-1146b**
-
-Code Shift:
+**en-GB-285b** and **en-GB-1146b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -821,10 +727,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
 {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -892,12 +796,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**en-us-037b** and **en-us-1140b**
-
-Code Shift:
+**en-us-037b** and **en-us-1140b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -965,10 +866,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
 {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -1036,12 +935,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**es-ES-284b** and **es-ES-1145b**
-
-Code Shift:
+**es-ES-284b** and **es-ES-1145b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -1109,10 +1005,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -1180,12 +1074,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**fi\_FI-278b** and **fi-FI-1143b**
-
-Code Shift:
+**fi\_FI-278b** and **fi-FI-1143b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -1253,10 +1144,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -1324,12 +1213,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**fr-FR-297b** and **fr-FR-1147b**
-
-Code Shift:
+**fr-FR-297b** and **fr-FR-1147b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -1397,10 +1283,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
 {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -1468,12 +1352,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**it-IT-280b** and **it-IT-1144b**
-
-Code Shift:
+**it-IT-280b** and **it-IT-1144b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -1541,10 +1422,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -1612,12 +1491,9 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```
-
-**nl-BE-500b** and **nl-BE-1148b**
-
-Code Shift:
+**nl-BE-500b** and **nl-BE-1148b**  
+Code Shift:  
 
 ```
 0180    0180
@@ -1685,10 +1561,8 @@ Code Shift:
 009E    01BE
 001A    01BF
 009F    027F
-
 ```
-
-Corresponding input mapping for an AWS DMS task:
+Corresponding input mapping for an AWS DMS task:  
 
 ```
  {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
@@ -1756,5 +1630,4 @@ Corresponding input mapping for an AWS DMS task:
 ,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
 ,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
 ,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
-
 ```

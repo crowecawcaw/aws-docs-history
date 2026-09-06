@@ -1,51 +1,50 @@
-# Specifying task settings for AWS Database Migration Service tasks
 
-Each task has settings that you can configure according to the needs of your
-database migration. You create these settings in a JSON file or, with some settings,
-you can specify the settings using the AWS DMS console. For information about how to use a task configuration file to set task settings, see [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+
+# Specifying task settings for AWS Database Migration Service tasks
+<a name="CHAP_Tasks.CustomizingTasks.TaskSettings"></a>
+
+Each task has settings that you can configure according to the needs of your database migration. You create these settings in a JSON file or, with some settings, you can specify the settings using the AWS DMS console. For information about how to use a task configuration file to set task settings, see [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example).
 
 There are several main types of task settings, as listed following.
 
-###### Topics
+**Topics**
++ [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example)
++ [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md)
++ [Full-load task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md)
++ [Time Travel task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md)
++ [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md)
++ [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md)
++ [Stream buffer task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.StreamBuffer.md)
++ [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md)
++ [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md)
++ [Data resync settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataResyncSettings.md)
++ [Task settings for change processing DDL handling](CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling.md)
++ [Character substitution task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.CharacterSubstitution.md)
++ [Before image task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.BeforeImage.md)
++ [Error handling task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ErrorHandling.md)
++ [Saving task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Saving.md)
 
-- [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "#CHAP_Tasks.CustomizingTasks.TaskSettings.Example")
-- [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md")
-- [Full-load task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md "CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md")
-- [Time Travel task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
-- [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md "CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md")
-- [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md")
-- [Stream buffer task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.StreamBuffer.md "CHAP_Tasks.CustomizingTasks.TaskSettings.StreamBuffer.md")
-- [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md")
-- [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md "CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md")
-- [Data resync settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataResyncSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.DataResyncSettings.md")
-- [Task settings for change processing DDL handling](CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling.md "CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling.md")
-- [Character substitution task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.CharacterSubstitution.md "CHAP_Tasks.CustomizingTasks.TaskSettings.CharacterSubstitution.md")
-- [Before image task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.BeforeImage.md "CHAP_Tasks.CustomizingTasks.TaskSettings.BeforeImage.md")
-- [Error handling task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ErrorHandling.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ErrorHandling.md")
-- [Saving task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Saving.md "CHAP_Tasks.CustomizingTasks.TaskSettings.Saving.md")
 
-| Task settings                                                                                                                                                                                                                                                                                                 | Relevant documentation                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Creating a task assessment report**<br>You can create a task assessment report that shows any<br>unsupported data types that could cause problems during<br>migration. You can run this report on your task before running<br>the task to find out potential issues.                                        | [Enabling and working with premigration assessments for a task](CHAP_Tasks.AssessmentReport.md "CHAP_Tasks.AssessmentReport.md")                                                                                                                                                                                                                                                                                                                           |
-| **Creating a task**<br>When you create a task, you specify the source, target, and<br>replication instance, along with any migration settings.                                                                                                                                                                | [Creating a task](CHAP_Tasks.Creating.md "CHAP_Tasks.Creating.md")                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Creating an ongoing replication task**<br>You can set up a task to provide continuous replication<br>between the source and target.                                                                                                                                                                         | [Creating tasks for ongoing replication using AWS DMS](CHAP_Task.CDC.md "CHAP_Task.CDC.md")                                                                                                                                                                                                                                                                                                                                                                |
-| **Applying task settings**<br>Each task has settings that you can configure according to the<br>needs of your database migration. You create these settings in a<br>JSON file or, with some settings, you can specify the settings<br>using the AWS DMS console.                                              | Specifying task settings for AWS Database Migration Service tasks                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Data validation**<br>Use data validation to have AWS DMS compare the data on your<br>target data store with the data from your source data<br>store.                                                                                                                                                        | [AWS DMS data validation](CHAP_Validating.md "CHAP_Validating.md")                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Modifying a task**<br>When a task is stopped, you can modify the settings for the<br>task.                                                                                                                                                                                                                  | [Modifying a task](CHAP_Tasks.Modifying.md "CHAP_Tasks.Modifying.md")                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Reloading tables during a task**<br>You can reload a table during a task if an error occurs during<br>the task.                                                                                                                                                                                             | [Reloading tables during a task](CHAP_Tasks.ReloadTables.md "CHAP_Tasks.ReloadTables.md")                                                                                                                                                                                                                                                                                                                                                                  |
-| **Using table mapping**<br>Table mapping uses several types of rules to specify task<br>settings for the data source, source schema, data, and any<br>transformations that should occur during the task.                                                                                                      | Selection Rules<br>[Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md")<br>Transformation Rules<br>[Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md") |
-| **Applying filters**<br>You can use source filters to limit the number and type of<br>records transferred from your source to your target. For<br>example, you can specify that only employees with a location of<br>headquarters are moved to the target database. You apply filters<br>on a column of data. | [Using source filters](CHAP_Tasks.CustomizingTasks.Filters.md "CHAP_Tasks.CustomizingTasks.Filters.md")                                                                                                                                                                                                                                                                                                                                                    |
-| **Monitoring a task**<br>There are several ways to get information on the performance<br>of a task and the tables used by the task.                                                                                                                                                                           | [Monitoring AWS DMS tasks](CHAP_Monitoring.md "CHAP_Monitoring.md")                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Managing task logs**<br>You can view and delete task logs using the AWS DMS API or<br>AWS CLI.                                                                                                                                                                                                              | [Viewing and managing AWS DMS task logs](CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs "CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs")                                                                                                                                                                                                                                                                                                                |
+| Task settings | Relevant documentation | 
+| --- | --- | 
+|  **Creating a task assessment report** <br />You can create a task assessment report that shows any unsupported data types that could cause problems during migration. You can run this report on your task before running the task to find out potential issues. | [Enabling and working with premigration assessments for a task](CHAP_Tasks.AssessmentReport.md) | 
+|  **Creating a task** <br />When you create a task, you specify the source, target, and replication instance, along with any migration settings. | [Creating a task](CHAP_Tasks.Creating.md) | 
+|  **Creating an ongoing replication task** <br />You can set up a task to provide continuous replication between the source and target.  | [Creating tasks for ongoing replication using AWS DMS](CHAP_Task.CDC.md) | 
+|  **Applying task settings** <br />Each task has settings that you can configure according to the needs of your database migration. You create these settings in a JSON file or, with some settings, you can specify the settings using the AWS DMS console. | [Specifying task settings for AWS Database Migration Service tasks](#CHAP_Tasks.CustomizingTasks.TaskSettings) | 
+|  **Data validation** <br />Use data validation to have AWS DMS compare the data on your target data store with the data from your source data store. | [AWS DMS data validation](CHAP_Validating.md) | 
+|  **Modifying a task** <br />When a task is stopped, you can modify the settings for the task. | [Modifying a task](CHAP_Tasks.Modifying.md) | 
+|  **Reloading tables during a task** <br />You can reload a table during a task if an error occurs during the task. | [Reloading tables during a task](CHAP_Tasks.ReloadTables.md) | 
+|  **Using table mapping** <br />Table mapping uses several types of rules to specify task settings for the data source, source schema, data, and any transformations that should occur during the task. | Selection Rules[Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md)<br />Transformation Rules[Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md) | 
+|  **Applying filters** <br />You can use source filters to limit the number and type of records transferred from your source to your target. For example, you can specify that only employees with a location of headquarters are moved to the target database. You apply filters on a column of data. | [Using source filters](CHAP_Tasks.CustomizingTasks.Filters.md) | 
+| Monitoring a taskThere are several ways to get information on the performance of a task and the tables used by the task. | [Monitoring AWS DMS tasks](CHAP_Monitoring.md) | 
+| Managing task logsYou can view and delete task logs using the AWS DMS API or AWS CLI.  | [Viewing and managing AWS DMS task logs](CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs) | 
 
 ## Task settings example
+<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.Example"></a>
 
-You can use either the AWS Management Console or the AWS CLI to create a replication task. If you
-use the AWS CLI, you set task settings by creating a JSON file, then specifying the
-file:// URI of the JSON file as the [ReplicationTaskSettings](../APIReference/API_CreateReplicationTask.md#DMS-CreateReplicationTask-request-ReplicationTaskSettings "../APIReference/API_CreateReplicationTask.md#DMS-CreateReplicationTask-request-ReplicationTaskSettings") parameter of the [CreateReplicationTask](../APIReference/API_CreateReplicationTask.md "../APIReference/API_CreateReplicationTask.md") operation.
+You can use either the AWS Management Console or the AWS CLI to create a replication task. If you use the AWS CLI, you set task settings by creating a JSON file, then specifying the file:// URI of the JSON file as the [ ReplicationTaskSettings](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html#DMS-CreateReplicationTask-request-ReplicationTaskSettings) parameter of the [CreateReplicationTask](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html) operation.
 
-The following example shows how to use the AWS CLI to call the
-`CreateReplicationTask` operation:
+The following example shows how to use the AWS CLI to call the `CreateReplicationTask` operation:
 
 ```
 aws dms create-replication-task \
@@ -56,17 +55,13 @@ aws dms create-replication-task \
 --migration-type cdc \
 --table-mappings file://tablemappings.json \
 --replication-task-settings file://settings.json
-
-
 ```
 
-The preceding example uses a table mapping file called `tablemappings.json`. For table
-mapping examples, see [Using table mapping to specify task settings](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+The preceding example uses a table mapping file called `tablemappings.json`. For table mapping examples, see [Using table mapping to specify task settings](CHAP_Tasks.CustomizingTasks.TableMapping.md).
 
-A task settings JSON file can look like the following.
+A task settings JSON file can look like the following. 
 
 ```
-
 {
   "TargetMetadata": {
     "TargetSchema": "",
@@ -82,7 +77,7 @@ A task settings JSON file can look like the following.
     "ParallelLoadQueuesPerThread": 1,
     "ParallelApplyThreads": 0,
     "ParallelApplyBufferSize": 100,
-    "ParallelApplyQueuesPerThread": 1,
+    "ParallelApplyQueuesPerThread": 1,    
     "BatchApplyEnabled": false,
     "TaskRecoveryTableEnabled": false
   },
@@ -125,17 +120,17 @@ A task settings JSON file can look like the following.
     "StreamBufferCount": 3,
     "StreamBufferSizeInMB": 8
   },
-  "ChangeProcessingTuning": {
-    "BatchApplyPreserveTransaction": true,
-    "BatchApplyTimeoutMin": 1,
-    "BatchApplyTimeoutMax": 30,
-    "BatchApplyMemoryLimit": 500,
-    "BatchSplitSize": 0,
-    "MinTransactionSize": 1000,
-    "CommitTimeout": 1,
-    "MemoryLimitTotal": 1024,
-    "MemoryKeepTime": 60,
-    "StatementCacheSize": 50
+  "ChangeProcessingTuning": { 
+    "BatchApplyPreserveTransaction": true, 
+    "BatchApplyTimeoutMin": 1, 
+    "BatchApplyTimeoutMax": 30, 
+    "BatchApplyMemoryLimit": 500, 
+    "BatchSplitSize": 0, 
+    "MinTransactionSize": 1000, 
+    "CommitTimeout": 1, 
+    "MemoryLimitTotal": 1024, 
+    "MemoryKeepTime": 60, 
+    "StatementCacheSize": 50 
   },
   "ChangeProcessingDdlHandlingPolicy": {
     "HandleSourceTableDropped": true,
@@ -164,7 +159,7 @@ A task settings JSON file can look like the following.
   },
   "BeforeImageSettings": {
     "EnableBeforeImage": false,
-    "FieldName": "",
+    "FieldName": "",  
     "ColumnFilter": "pk-only"
   },
   "ErrorBehavior": {
@@ -205,5 +200,4 @@ A task settings JSON file can look like the following.
     "ValidationQueryCdcDelaySeconds": 0
   }
 }
-
 ```

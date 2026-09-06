@@ -1,44 +1,44 @@
+
+
 # Viewing AWS DMS events
+<a name="CHAP_Monitoring.View.dms.events"></a>
 
 You can retrieve the following event information for your AWS DMS resources:
++ Resource name
++ Resource type
++ Date and time of the event
++ Message summary of the event
 
-- Resource name
-- Resource type
-- Date and time of the event
-- Message summary of the event
-  You can access events in the Events tab of the AWS Management Console, which shows
-  events from the past 7 days. You can also retrieve events by using the `describe-events` AWS CLI command, or the `DescribeEvents` DMS API operation. If you use the AWS CLI or
-  the DMS API to view events, you can retrieve events for up to the past 14 days.
+You can access events in the Events tab of the AWS Management Console, which shows events from the past 7 days. You can also retrieve events by using the `[describe-events](https://docs.aws.amazon.com/cli/latest/reference/dms/describe-events.html)` AWS CLI command, or the `[DescribeEvents](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEvents.html)` DMS API operation. If you use the AWS CLI or the DMS API to view events, you can retrieve events for up to the past 14 days.
 
-###### Note
+**Note**  
+If you need to store events for longer periods of time, you can send AWS DMS events to EventBridge and send the event details to another service for storing. For more information, see [Using Amazon EventBridge event rules for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_EventBridge.html#CHAP_EventBridge.Rule).  
+For descriptions of the AWS DMS events, see [AWS DMS event categories and event messages](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_EventBridge.html#EventBridge.Messages).
 
-If you need to store events for longer periods of time, you can send AWS DMS events
-to EventBridge and send the event details to another service for storing. For more
-information, see [Using Amazon EventBridge event rules for
-AWS DMS](CHAP_EventBridge.md#CHAP_EventBridge.Rule "CHAP_EventBridge.md#CHAP_EventBridge.Rule").
-
-For descriptions of the AWS DMS events, see [AWS DMS event categories and event messages](CHAP_EventBridge.md#EventBridge.Messages "CHAP_EventBridge.md#EventBridge.Messages").
+## DMS Console
+<a name="CHAP_Monitoring.View.dms.events.console"></a>
 
 To view all AWS DMS events for the past 7 days in the DMS Console:
 
-1. Sign in to the AWS Management Console and open the DMS console at
-   https://console.aws.amazon.com/dms/v2
-2. From the navigation page, select **Events**.
-3. Enter a search term to filter your results.
+1. Sign in to the AWS Management Console and open the DMS console at https://console.aws.amazon.com/dms/v2
 
-The following example shows a list of events filtered by the
-characters `replication-task`.
+1. From the navigation page, select **Events**.
 
-![View DMS events](images/AWS_dms_view_events.png)
-To view all events generated in the last hour, run `describe-events` AWS DMS CLI command with no
-parameters.
+1. Enter a search term to filter your results. 
+
+   The following example shows a list of events filtered by the characters **replication-task**.  
+![View DMS events](http://docs.aws.amazon.com/dms/latest/userguide/images/AWS_dms_view_events.png)
+
+## AWS CLI
+<a name="CHAP_Monitoring.View.dms.events.cli"></a>
+
+To view all events generated in the last hour, run `[describe-events](https://docs.aws.amazon.com/cli/latest/reference/dms/describe-events.html)` AWS DMS CLI command with no parameters.
 
 ```
 aws dms describe-events
 ```
 
-The following sample output shows that a replication task has been
-modified:
+The following sample output shows that a replication task has been modified:
 
 ```
 {
@@ -56,21 +56,17 @@ modified:
 }
 ```
 
-To view all AWS DMS events for the past 14 days (20160 minutes), run the
-`describe-events` AWS CLI command
-and set the `--duration` parameter to
-`20160`.
+To view all AWS DMS events for the past 14 days (20160 minutes), run the `[describe-events](https://docs.aws.amazon.com/cli/latest/reference/dms/describe-events.html)` AWS CLI command and set the `--duration` parameter to **20160**.
 
 ```
 aws dms describe-events --duration 20160
 ```
 
-The following example shows the events in the specified time range for the
-replication instance `dms-replication-instance`.
+The following example shows the events in the specified time range for the replication instance `dms-replication-instance`.
 
 ```
 aws dms describe-events \
-    --source-identifier dms-replication-instance \
+    --source-identifier dms-replication-instance \ 
     --source-type replication-instance \
     --start-time 2025-04-10T22:00Z \
     --end-time 2025-04-12T23:59Z
@@ -99,7 +95,7 @@ The following sample output shows the status of a replication instance:
 }
 ```
 
-You can view all AWS DMS instance events for the past 14 days by running the
-`DescribeEvents` DMS API operation and
-setting the `--duration` parameter to
-`20160`.
+## AWS DMS API
+<a name="CHAP_Monitoring.View.dms.events.api"></a>
+
+You can view all AWS DMS instance events for the past 14 days by running the `[DescribeEvents](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEvents.html)` DMS API operation and setting the `--duration` parameter to **20160**.

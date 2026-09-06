@@ -1,37 +1,29 @@
+
+
 # Using transformation rule expressions to define column content
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions"></a>
 
-To define content for new and existing columns, you can use an expression within a
-transformation rule. For example, using expressions you can add a column or
-replicate source table headers to a target. You can also use expressions to flag
-records on target tables as inserted, updated, or deleted at the source.
+To define content for new and existing columns, you can use an expression within a transformation rule. For example, using expressions you can add a column or replicate source table headers to a target. You can also use expressions to flag records on target tables as inserted, updated, or deleted at the source. 
 
-###### Topics
-
-- [Adding a column using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding")
-- [Flagging target records using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging")
-- [Replicating source table headers using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers")
-- [Using SQLite functions to build expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite")
-- [Adding metadata to a target table using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata")
+**Topics**
++ [Adding a column using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding)
++ [Flagging target records using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging)
++ [Replicating source table headers using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers)
++ [Using SQLite functions to build expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite)
++ [Adding metadata to a target table using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata)
 
 ## Adding a column using an expression
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding"></a>
 
-To add columns to tables using an expression in a transformation rule, use an
-`add-column` rule action and a `column` rule
-target.
+To add columns to tables using an expression in a transformation rule, use an `add-column` rule action and a `column` rule target.
 
-The following example adds a new column to the `ITEM` table. It
-sets the new column name to `FULL_NAME`, with a data type of
-`string`, 50 characters long. The expression concatenates the
-values of two existing columns, `FIRST_NAME` and
-`LAST_NAME`, to evaluate to `FULL_NAME`. The `schema-name`,
-`table-name`, and expression parameters refer to objects in the source database
-table. `Value` and the `data-type` block refer to objects in the target database table.
+The following example adds a new column to the `ITEM` table. It sets the new column name to `FULL_NAME`, with a data type of `string`, 50 characters long. The expression concatenates the values of two existing columns, `FIRST_NAME` and `LAST_NAME`, to evaluate to `FULL_NAME`. The `schema-name`, `table-name`, and expression parameters refer to objects in the source database table. `Value` and the `data-type` block refer to objects in the target database table.
 
 ```
 {
     "rules": [
         {
-            "rule-type": "selection",
+            "rule-type": "selection", 
             "rule-id": "1",
             "rule-name": "1",
             "object-locator": {
@@ -59,27 +51,17 @@ table. `Value` and the `data-type` block refer to objects in the target database
         }
     ]
 }
-
 ```
 
 ## Flagging target records using an expression
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging"></a>
 
-To flag records in target tables as inserted, updated, or deleted in the
-source table, use an expression in a transformation rule. The expression
-uses an `operation_indicator` function to flag records. Records
-deleted from the source aren't deleted from the target. Instead, the
-target record is flagged with a user-provided value to indicate that it was
-deleted from the source.
+To flag records in target tables as inserted, updated, or deleted in the source table, use an expression in a transformation rule. The expression uses an `operation_indicator` function to flag records. Records deleted from the source aren't deleted from the target. Instead, the target record is flagged with a user-provided value to indicate that it was deleted from the source.
 
-###### Note
+**Note**  
+The `operation_indicator` function works only on tables that have a primary key on both source and target database. 
 
-The `operation_indicator` function works only on tables
-that have a primary key on both source and target database.
-
-For example, the following transformation rule first adds a new
-`Operation` column to a target table. It then updates the
-column with the value `D` whenever a record is deleted from a
-source table.
+For example, the following transformation rule first adds a new `Operation` column to a target table. It then updates the column with the value `D` whenever a record is deleted from a source table.
 
 ```
 {
@@ -99,37 +81,29 @@ source table.
         "length": 50
       }
 }
-
 ```
 
-###### Note
-
-The operation\_indicator column is best suited for streaming targets (such as Amazon Kinesis and
-Apache Kafka) and object-based targets (such as Amazon S3) where primary key uniqueness is not enforced.
-For relational database targets (such as Oracle, SQL Server, PostgreSQL, or MySQL), use `operation_indicator` only when source
-records with the same primary key are never re-inserted after deletion.
+**Note**  
+ The operation\_indicator column is best suited for streaming targets (such as Amazon Kinesis and Apache Kafka) and object-based targets (such as Amazon S3) where primary key uniqueness is not enforced. For relational database targets (such as Oracle, SQL Server, PostgreSQL, or MySQL), use `operation_indicator` only when source records with the same primary key are never re-inserted after deletion. 
 
 ## Replicating source table headers using expressions
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers"></a>
 
-By default, headers for source tables aren't replicated to the target. To
-indicate which headers to replicate, use a transformation rule with an
-expression that includes the table column header.
+By default, headers for source tables aren't replicated to the target. To indicate which headers to replicate, use a transformation rule with an expression that includes the table column header. 
 
-You can use the following column headers in expressions.
+You can use the following column headers in expressions. 
 
-| Header                   | Value in ongoing replication                                                                                                                                                                                                     | Value in full load                                                     | Data type          |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------ |
-| AR\_H\_STREAM\_POSITION  | The stream position value from the source.<br>This value might be the system change number (SCN) or the<br>log sequence number (LSN), depending on the source<br>endpoint.                                                       | An empty string.                                                       | STRING             |
-| AR\_H\_TIMESTAMP         | A timestamp indicating the time of the<br>change.                                                                                                                                                                                | A timestamp indicating the current time data<br>arrives at the target. | DATETIME (scale=7) |
-| AR\_H\_COMMIT\_TIMESTAMP | A timestamp indicating the time of the<br>commit.                                                                                                                                                                                | A timestamp indicating the current<br>time.                            | DATETIME (scale=7) |
-| AR\_H\_OPERATION         | INSERT, UPDATE, or DELETE                                                                                                                                                                                                        | INSERT                                                                 | STRING             |
-| AR\_H\_USER              | The user name, ID, or any other information<br>that the source provides about the user that made the<br>change. This header is supported on the SQL Server and<br>Oracle (version 11.2.0.3 and higher) source endpoints<br>only. | An empty string.                                                       | STRING             |
-| AR\_H\_CHANGE\_SEQ       | A unique incrementing number from the source<br>database that consists of a timestamp and an auto incrementing number.<br>The value depends on the source database system.                                                       | An empty string.                                                       | STRING             |
 
-The following example adds a new column to the target by using the stream
-position value from the source. For SQL Server, the stream position value is
-the LSN for the source endpoint. For Oracle, the stream position value is
-the SCN for the source endpoint.
+| Header | Value in ongoing replication | Value in full load | Data type | 
+| --- | --- | --- | --- | 
+| AR\_H\_STREAM\_POSITION | The stream position value from the source. This value might be the system change number (SCN) or the log sequence number (LSN), depending on the source endpoint. | An empty string. | STRING | 
+| AR\_H\_TIMESTAMP | A timestamp indicating the time of the change. | A timestamp indicating the current time data arrives at the target. | DATETIME (scale=7) | 
+| AR\_H\_COMMIT\_TIMESTAMP | A timestamp indicating the time of the commit. | A timestamp indicating the current time. | DATETIME (scale=7) | 
+| AR\_H\_OPERATION | INSERT, UPDATE, or DELETE | INSERT | STRING | 
+| AR\_H\_USER | The user name, ID, or any other information that the source provides about the user that made the change. This header is supported on the SQL Server and Oracle (version 11.2.0.3 and higher) source endpoints only. | An empty string. | STRING | 
+| AR\_H\_CHANGE\_SEQ | A unique incrementing number from the source database that consists of a timestamp and an auto incrementing number. The value depends on the source database system. | An empty string. | STRING | 
+
+The following example adds a new column to the target by using the stream position value from the source. For SQL Server, the stream position value is the LSN for the source endpoint. For Oracle, the stream position value is the SCN for the source endpoint.
 
 ```
 {
@@ -149,13 +123,9 @@ the SCN for the source endpoint.
         "length": 50
       }
     }
-
 ```
 
-The following example adds a new column to the target that has a unique
-incrementing number from the source. This value represents a 35 digit unique
-number at task level. The first 16 digits are part of a timestamp, and the last
-19 digits are the record\_id number incremented by the DBMS.
+The following example adds a new column to the target that has a unique incrementing number from the source. This value represents a 35 digit unique number at task level. The first 16 digits are part of a timestamp, and the last 19 digits are the record\_id number incremented by the DBMS.
 
 ```
 {
@@ -175,123 +145,108 @@ number at task level. The first 16 digits are part of a timestamp, and the last
 "length": 50
 }
 }
-
 ```
 
 ## Using SQLite functions to build expressions
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite"></a>
 
-You use table settings to specify any settings that you want to apply to the
-selected table or view for a specified operation. Table-settings rules are
-optional.
+You use table settings to specify any settings that you want to apply to the selected table or view for a specified operation. Table-settings rules are optional. 
 
-###### Note
+**Note**  
+Instead of the concept of tables and views, MongoDB and DocumentDB databases store data records as documents that are gathered together in *collections*. So then, when migrating from a MongoDB or DocumentDB source, consider the range segmentation type of parallel load settings for selected *collections* rather than tables and views.
 
-Instead of the concept of tables and views, MongoDB and DocumentDB
-databases store data records as documents that are gathered together in
-_collections_. So then, when migrating
-from a MongoDB or DocumentDB source, consider the range segmentation type of
-parallel load settings for selected _collections_ rather than tables and views.
+**Topics**
++ [Using a CASE expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE)
++ [Examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex)
 
-###### Topics
+Following, you can find string functions that you can use to build transformation rule expressions.
 
-- [Using a CASE expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE")
-- [Examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex")
 
-Following, you can find string functions that you can use to build
-transformation rule expressions.
+| String functions | Description | 
+| --- | --- | 
+| `lower({{x}})` | The `lower({{x}})` function returns a copy of string {{`x`}} with all characters converted to lowercase. The default, built-in `lower` function works for ASCII characters only. | 
+| `upper({{x}})` | The `upper({{x}})` function returns a copy of string {{`x`}} with all characters converted to uppercase. The default, built-in `upper` function works for ASCII characters only. | 
+| `ltrim({{x}},{{y}})` | The `ltrim({{x}},{{y}})` function returns a string formed by removing all characters that appear in y from the left side of x. If there is no value for y, `ltrim(x)` removes spaces from the left side of x. | 
+| `replace({{x}}{{,y}},{{z}})` | The `replace({{x}}{{,y}},{{z}})` function returns a string formed by substituting string z for every occurrence of string y in string x. | 
+| `rtrim({{x}},{{y}})` | The `rtrim({{x}},{{y}})` function returns a string formed by removing all characters that appear in y from the right side of x. If there is no value for y, `rtrim(x)` removes spaces from the right side of x. | 
+| `substr({{x}},{{y}},{{z}})` | The `substr({{x}},{{y}},{{z}})` function returns a substring of the input string `{{x}}` that begins with the `{{y}}`th character, and which is {{`z`}} characters long. <br />If {{`z`}} is omitted, `substr({{x}},{{y}})` returns all characters through the end of string `{{x}}` beginning with the `{{y}}`th character. The leftmost character of `{{x}}` is number 1. If {{`y`}} is negative, the first character of the substring is found by counting from the right rather than the left. If {{`z`}} is negative, then the `abs(z)` characters preceding the `{{y}}`th character are returned. If `{{x}}` is a string, then the characters' indices refer to actual UTF-8 characters. If `{{x}}` is a BLOB, then the indices refer to bytes. | 
+| trim({{x}},{{y}}) | The `trim({{x}},{{y}})` function returns a string formed by removing all characters that appear in `{{y}}` from both sides of `{{x}}`. If there is no value for `{{y}}`, `trim({{x}})` removes spaces from both sides of `{{x}}`. | 
 
-| String functions       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `lower(`x`)`           | The<br>`lower(`x`)`<br>function returns a copy of string<br>`x` with all<br>characters converted to lowercase. The default, built-in<br>`lower` function works for ASCII characters<br>only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `upper(`x`)`           | The<br>`upper(`x`)`<br>function returns a copy of string<br>`x` with all<br>characters converted to uppercase. The default, built-in<br>`upper` function works for ASCII characters<br>only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `ltrim(`x`,`y`)`       | The<br>`ltrim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in y from the left side of x. If there is no<br>value for y, `ltrim(x)` removes spaces from the<br>left side of x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `replace(`x``,y`,`z`)` | The<br>`replace(`x``,y`,`z`)`<br>function returns a string formed by substituting string z<br>for every occurrence of string y in string x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `rtrim(`x`,`y`)`       | The<br>`rtrim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in y from the right side of x. If there is no<br>value for y, `rtrim(x)` removes spaces from the<br>right side of x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `substr(`x`,`y`,`z`)`  | The<br>`substr(`x`,`y`,`z`)`<br>function returns a substring of the input string<br>`x` that<br>begins with the `y`th<br>character, and which is<br>`z` characters<br>long.<br>If `z` is omitted,<br>`substr(`x`,`y`)`<br>returns all characters through the end of string<br>`x` beginning<br>with the `y`th<br>character. The leftmost character of<br>`x` is number<br>1. If `y` is negative,<br>the first character of the substring is found by counting<br>from the right rather than the left. If<br>`z` is<br>negative, then the `abs(z)` characters preceding<br>the `y`th character<br>are returned. If `x`<br>is a string, then the characters' indices refer to<br>actual UTF-8 characters. If<br>`x` is a BLOB,<br>then the indices refer to bytes. |
-| `trim(`x`,`y`)`        | The<br>`trim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in `y`<br>from both sides of<br>`x`. If there is no<br>value for `y`,<br>`trim(`x`)`<br>removes spaces from both sides of<br>`x`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+Following, you can find LOB functions that you can use to build transformation rule expressions.
 
-Following, you can find LOB functions that you can use to build transformation
-rule expressions.
 
-| LOB functions         | Description                                                                                                                                                    |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hex(x)`              | The `hex` function receives a BLOB as an<br>argument and returns an uppercase hexadecimal string version<br>of the BLOB content.                               |
-| `randomblob<br>(`N`)` | The `randomblob(`N`)`<br>function returns an<br>`N`-byte BLOB that<br>contains pseudorandom bytes. If `N`<br>is less than 1, a 1-byte random BLOB is returned. |
-| `zeroblob(N)`         | The `zeroblob(`N`)`<br>function returns a BLOB that consists of<br>`N` bytes of<br>0x00.                                                                       |
+| LOB functions | Description | 
+| --- | --- | 
+| `hex(x)` | The `hex` function receives a BLOB as an argument and returns an uppercase hexadecimal string version of the BLOB content. | 
+| `randomblob ({{N}})` | The `randomblob({{N}})` function returns an `{{N}}`-byte BLOB that contains pseudorandom bytes. If {{N}} is less than 1, a 1-byte random BLOB is returned.  | 
+| `zeroblob(N)` | The `zeroblob({{N}})` function returns a BLOB that consists of `{{N}}` bytes of 0x00. | 
 
-Following, you can find numeric functions that you can use to build
-transformation rule expressions.
+Following, you can find numeric functions that you can use to build transformation rule expressions.
 
-| Numeric functions     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `abs(`x`)`            | The `abs(`x`)`<br>function returns the absolute value of the numeric argument<br>`x`. The<br>`abs(`x`)`<br>function returns NULL if `x` is<br>NULL. The `abs(`x`)`<br>function returns 0.0 if<br>`x`<br>is a string or BLOB that can't be converted to a<br>numeric value.                                                                                                                                                                                                                                                                                                                                    |
-| `random()`            | The `random` function returns a pseudorandom<br>integer between -9,223,372,036,854,775,808 and<br>+9,223,372,036,854,775,807.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `round<br>(`x`,`y`)`  | The `round<br>(`x`,`y`)`<br>function returns a floating-point value<br>`x` rounded to<br>`y` digits to the right of the<br>decimal point. If there is no value for<br>`y`, it's assumed to be<br>0.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `max<br>(`x`,`y`...)` | The multiargument `max` function returns the<br>argument with the maximum value, or returns NULL if any<br>argument is NULL.<br>The `max` function searches its arguments from<br>left to right for an argument that defines a collating<br>function. If one is found, it uses that collating function<br>for all string comparisons. If none of the arguments to<br>`max` define a collating function, the<br>`BINARY` collating function is used. The<br>`max` function is a simple function when it<br>has two or more arguments, but it operates as an aggregate<br>function if it has a single argument. |
-| `min<br>(`x`,`y`...)` | The multiargument `min` function returns the<br>argument with the minimum value.<br>The `min` function searches its arguments from<br>left to right for an argument that defines a collating<br>function. If one is found, it uses that collating function<br>for all string comparisons. If none of the arguments to<br>`min` define a collating function, the<br>`BINARY` collating function is used. The<br>`min` function is a simple function when it<br>has two or more arguments, but it operates as an aggregate<br>function if it has a single argument.                                             |
 
-Following, you can find NULL check functions that you can use to build
-transformation rule expressions.
+| Numeric functions | Description | 
+| --- | --- | 
+| `abs({{x}})` | The `abs({{x}})` function returns the absolute value of the numeric argument `{{x}}`. The `abs({{x}})` function returns NULL if {{x}} is NULL. The `abs({{x}})` function returns 0.0 if {{{{x}}}} is a string or BLOB that can't be converted to a numeric value. | 
+| `random()` | The `random` function returns a pseudorandom integer between -9,223,372,036,854,775,808 and \+9,223,372,036,854,775,807. | 
+| `round ({{x}},{{y}})` | The `round ({{x}},{{y}})` function returns a floating-point value {{x}} rounded to {{y}} digits to the right of the decimal point. If there is no value for {{y}}, it's assumed to be 0. | 
+| `max ({{x}},{{y}}...)` | The multiargument `max` function returns the argument with the maximum value, or returns NULL if any argument is NULL. <br />The `max` function searches its arguments from left to right for an argument that defines a collating function. If one is found, it uses that collating function for all string comparisons. If none of the arguments to `max` define a collating function, the `BINARY` collating function is used. The `max` function is a simple function when it has two or more arguments, but it operates as an aggregate function if it has a single argument. | 
+| `min ({{x}},{{y}}...)` | The multiargument `min` function returns the argument with the minimum value. <br />The `min` function searches its arguments from left to right for an argument that defines a collating function. If one is found, it uses that collating function for all string comparisons. If none of the arguments to `min` define a collating function, the `BINARY` collating function is used. The `min` function is a simple function when it has two or more arguments, but it operates as an aggregate function if it has a single argument.  | 
 
-| NULL check functions    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `coalesce (`x`,`y`...)` | The `coalesce` function returns a copy of its<br>first non-NULL argument, but it returns NULL if all<br>arguments are NULL. The coalesce function has at least two<br>arguments.                                                                                                                                                                                                                                                                                                                              |
-| `ifnull(`x`,`y`)`       | The `ifnull` function returns a copy of its<br>first non-NULL argument, but it returns NULL if both<br>arguments are NULL. The `ifnull` function has<br>exactly two arguments. The `ifnull` function is<br>the same as `coalesce` with two arguments.                                                                                                                                                                                                                                                         |
-| `nullif(`x`,`y`)`       | The<br>`nullif(`x`,`y`)`<br>function returns a copy of its first argument if the<br>arguments are different, but it returns NULL if the<br>arguments are the same.<br>The<br>`nullif(`x`,`y`)`<br>function searches its arguments from left to right for an<br>argument that defines a collating function. If one is found,<br>it uses that collating function for all string comparisons.<br>If neither argument to nullif defines a collating function,<br>then the `BINARY` collating function is<br>used. |
+Following, you can find NULL check functions that you can use to build transformation rule expressions.
 
-Following, you can find date and time functions that you can use to build
-transformation rule expressions.
 
-| Date and time functions                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date(`timestring`,<br>`modifier`,<br>`modifier`...)`                  | The `date` function returns the<br>date in the format YYYY-MM-DD.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `time(`timestring`,<br>`modifier`,<br>`modifier`...)`                  | The `time` function returns the time in the<br>format HH:MM:SS.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `datetime(`timestring`,<br>`modifier`,<br>`modifier`...)`              | The `datetime` function returns the date and<br>time in the format YYYY-MM-DD HH:MM:SS.                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `julianday(`timestring`,<br>`modifier`,<br>`modifier`...)`             | The `julianday` function returns the number of<br>days since noon in Greenwich on November 24, 4714<br>B.C.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `strftime(`format`,<br>`timestring`,<br>`modifier`,<br>`modifier`...)` | The `strftime` function returns the date<br>according to the format string specified as the first<br>argument, using one of the following variables:<br>`%d`: day of month<br>`%H`: hour 00–24<br>`%f`: \*\<br>• fractional seconds SS.SSS<br>`%j`: day of year 001–366<br>`%J`: \*\<br>• Julian day number<br>`%m`: month 01–12<br>`%M`: minute 00–59<br>`%s`: seconds since 1970-01-01<br>`%S`: seconds 00–59<br>`%w`: day of week 0–6 sunday==0<br>`%W`: week of year 00–53<br>`%Y`: year 0000–9999<br>`%%`: % |
+| NULL check functions | Description | 
+| --- | --- | 
+| `coalesce ({{x}},{{y}}...)` | The `coalesce` function returns a copy of its first non-NULL argument, but it returns NULL if all arguments are NULL. The coalesce function has at least two arguments. | 
+| `ifnull({{x}},{{y}})` | The `ifnull` function returns a copy of its first non-NULL argument, but it returns NULL if both arguments are NULL. The `ifnull` function has exactly two arguments. The `ifnull` function is the same as `coalesce` with two arguments. | 
+| `nullif({{x}},{{y}})` | The `nullif({{x}},{{y}})` function returns a copy of its first argument if the arguments are different, but it returns NULL if the arguments are the same. <br />The `nullif({{x}},{{y}})` function searches its arguments from left to right for an argument that defines a collating function. If one is found, it uses that collating function for all string comparisons. If neither argument to nullif defines a collating function, then the `BINARY` collating function is used. | 
 
-Following, you can find a hash function that you can use to build
-transformation rule expressions.
+Following, you can find date and time functions that you can use to build transformation rule expressions.
 
-| Hash function      | Description                                                                                                                                                                                                                                                                                                         |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hash_sha256(`x`)` | The `hash` function generates a hash value for<br>an input column (using the SHA-256 algorithm) and returns<br>the hexadecimal value of the generated hash value.<br>To use the `hash` function in an expression,<br>add `hash_sha256(`x`)`<br>to the expression and replace<br>`x` with the<br>source column name. |
+
+| Date and time functions | Description | 
+| --- | --- | 
+| `date({{timestring}}, {{modifier}}, {{modifier}}...)` | The `date` function returns the date in the format YYYY-MM-DD. | 
+| `time({{timestring}}, {{modifier}}, {{modifier}}...)` | The `time` function returns the time in the format HH:MM:SS. | 
+| `datetime({{timestring}}, {{modifier}}, {{modifier}}...)` | The `datetime` function returns the date and time in the format YYYY-MM-DD HH:MM:SS. | 
+| `julianday({{timestring}}, {{modifier}}, {{modifier}}...)` | The `julianday` function returns the number of days since noon in Greenwich on November 24, 4714 B.C. | 
+| `strftime({{format}}, {{timestring}}, {{modifier}}, {{modifier}}...)` | The `strftime` function returns the date according to the format string specified as the first argument, using one of the following variables:<br />`%d`: day of month<br />`%H`: hour 00–24<br />`%f`: \*\* fractional seconds SS.SSS<br />`%j`: day of year 001–366<br />`%J`: \*\* Julian day number<br />`%m`: month 01–12<br />`%M`: minute 00–59<br />`%s`: seconds since 1970-01-01<br />`%S`: seconds 00–59<br />`%w`: day of week 0–6 sunday==0<br />`%W`: week of year 00–53<br />`%Y`: year 0000–9999<br />`%%`: % | 
+
+Following, you can find a hash function that you can use to build transformation rule expressions.
+
+
+| Hash function | Description | 
+| --- | --- | 
+| `hash_sha256({{x}})` | The `hash` function generates a hash value for an input column (using the SHA-256 algorithm) and returns the hexadecimal value of the generated hash value. <br />To use the `hash` function in an expression, add `hash_sha256({{x}})` to the expression and replace {{`x`}} with the source column name. | 
 
 ### Using a CASE expression
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE"></a>
 
-The SQLite `CASE` expression evaluates a list of conditions
-and returns an expression based on the result. Syntax is shown
-following.
+The SQLite `CASE` expression evaluates a list of conditions and returns an expression based on the result. Syntax is shown following.
 
 ```
     CASE case_expression
      WHEN when_expression_1 THEN result_1
      WHEN when_expression_2 THEN result_2
      ...
-     [ ELSE result_else ]
+     [ ELSE result_else ] 
     END
 
-# Or
+# Or 
 
      CASE
      WHEN case_expression THEN result_1
      WHEN case_expression THEN result_2
      ...
-     [ ELSE result_else ]
+     [ ELSE result_else ] 
     END
 ```
 
 ### Examples
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex"></a>
 
-###### Example of adding a new string column to the target table using a case condition
-
-The following example transformation rule adds a new string column,
-`emp_seniority`, to the target table,
-`employee`. It uses the SQLite `round`
-function on the salary column, with a case condition to check if the
-salary equals or exceeds 20,000. If it does, the column gets the value
-`SENIOR`, and anything else has the
-value `JUNIOR`.
+**Example of adding a new string column to the target table using a case condition**  
+The following example transformation rule adds a new string column, `emp_seniority`, to the target table, `employee`. It uses the SQLite `round` function on the salary column, with a case condition to check if the salary equals or exceeds 20,000. If it does, the column gets the value `SENIOR`, and anything else has the value `JUNIOR`.  
 
 ```
   {
@@ -314,36 +269,20 @@ value `JUNIOR`.
   }
 ```
 
-###### Example of adding a new string column to the target table using a SUBSTR function
-
-The following example transformation rule adds a new string column using
-SQLite operators or functions to define the data in a column. This approach
-involves using SQLite functions to transform the GUID data loaded from
-Oracle to UUID format before inserting it into the Postgresql target
-table.
-
-Following rule uses the SQLite substring (SUBSTR), hexadecimal function
-(HEX), and lowercase (LOWER) functions to break the GUID data into several
-groups separated by hyphens, specifically a group of 8 digits followed by
-three groups of 4 digits followed by a group of 12 digits, for a total of 32
-digits representing the 128 bits.
-
-Here is the sample source data and output on target post processing
-through transformation rule:
-
-###### Source Table (Oracle GUID format)
-
-T\_COL2
+**Example of adding a new string column to the target table using a SUBSTR function**  
+The following example transformation rule adds a new string column using SQLite operators or functions to define the data in a column. This approach involves using SQLite functions to transform the GUID data loaded from Oracle to UUID format before inserting it into the Postgresql target table.  
+Following rule uses the SQLite substring (SUBSTR), hexadecimal function (HEX), and lowercase (LOWER) functions to break the GUID data into several groups separated by hyphens, specifically a group of 8 digits followed by three groups of 4 digits followed by a group of 12 digits, for a total of 32 digits representing the 128 bits.  
+Here is the sample source data and output on target post processing through transformation rule:  
+**Source Table (Oracle GUID format)**    
+T\_COL2  
 
 ```
 06F6949D234911EE80670242AC120002
 1A2B3C4D5E6F11EE80670242AC120003
 F5E4D3C2B1A011EE80670242AC120004
 ```
-
-###### Target Table (PostgreSQL UUID format)
-
-T\_COL2\_TMP
+**Target Table (PostgreSQL UUID format)**    
+T\_COL2\_TMP  
 
 ```
 06f6949d-2349-11ee-8067-0242ac120002
@@ -371,12 +310,8 @@ f5e4d3c2-b1a0-11ee-8067-0242ac120004
 }
 ```
 
-###### Example of adding a new date column to the target table
-
-The following example adds a new date column, `createdate`, to
-the target table, `employee`. When you use the SQLite date
-function `datetime`, the date is added to the newly created table
-for each row inserted.
+**Example of adding a new date column to the target table**  
+The following example adds a new date column, `createdate`, to the target table, `employee`. When you use the SQLite date function `datetime`, the date is added to the newly created table for each row inserted.  
 
 ```
   {
@@ -398,12 +333,8 @@ for each row inserted.
   }
 ```
 
-###### Example of adding a new numeric column to the target table
-
-The following example adds a new numeric column,
-`rounded_emp_salary`, to the target table,
-`employee`. It uses the SQLite `round` function to
-add the rounded salary.
+**Example of adding a new numeric column to the target table**  
+The following example adds a new numeric column, `rounded_emp_salary`, to the target table, `employee`. It uses the SQLite `round` function to add the rounded salary.   
 
 ```
   {
@@ -424,14 +355,8 @@ add the rounded salary.
   }
 ```
 
-###### Example of adding a new string column to the target table using the hash function
-
-The following example adds a new string column,
-`hashed_emp_number`, to the target table,
-`employee`. The SQLite
-`hash_sha256(`x`)` function
-creates hashed values on the target for the source column,
-`emp_number`.
+**Example of adding a new string column to the target table using the hash function**  
+The following example adds a new string column, `hashed_emp_number`, to the target table, `employee`. The SQLite `hash_sha256({{x}})` function creates hashed values on the target for the source column, `emp_number`.  
 
 ```
   {
@@ -454,18 +379,16 @@ creates hashed values on the target for the source column,
 ```
 
 ## Adding metadata to a target table using expressions
+<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata"></a>
 
-You can add the metadata information to the target table by using the
-expressions following:
+You can add the metadata information to the target table by using the expressions following:
++ `$AR_M_SOURCE_SCHEMA` – The name of the source schema.
++ `$AR_M_SOURCE_TABLE_NAME` – The name of the source table.
++ `$AR_M_SOURCE_COLUMN_NAME` – The name of a column in the source table.
++ `$AR_M_SOURCE_COLUMN_DATATYPE` – The data type of a column in the source table.
 
-- `$AR_M_SOURCE_SCHEMA` – The name of the source schema.
-- `$AR_M_SOURCE_TABLE_NAME` – The name of the source table.
-- `$AR_M_SOURCE_COLUMN_NAME` – The name of a column in the source table.
-- `$AR_M_SOURCE_COLUMN_DATATYPE` – The data type of a column in the source table.
-
-###### Example of adding a column for a schema name using the schema name from the source
-
-The example following adds a new column named `schema_name` to the target by using the schema name from the source.
+**Example of adding a column for a schema name using the schema name from the source**  
+The example following adds a new column named `schema_name` to the target by using the schema name from the source.  
 
 ```
   {
@@ -480,8 +403,8 @@ The example following adds a new column named `schema_name` to the target by usi
       },
       "rule-action": "add-column",
       "value":"schema_name",
-      "expression": "$AR_M_SOURCE_SCHEMA",
-      "data-type": {
+      "expression": "$AR_M_SOURCE_SCHEMA", 
+      "data-type": { 
          "type": "string",
          "length": 50
       }

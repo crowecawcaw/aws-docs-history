@@ -1,174 +1,121 @@
+
+
 # Using Amazon Timestream as a target for AWS Database Migration Service
+<a name="CHAP_Target.Timestream"></a>
 
-You can use AWS Database Migration Service to migrate data from your source database to a Amazon Timestream
-target endpoint, with support for Full Load and CDC data migrations.
+You can use AWS Database Migration Service to migrate data from your source database to a Amazon Timestream target endpoint, with support for Full Load and CDC data migrations.
 
-Amazon Timestream is a fast, scalable, and serverless time series database service built for
-high-volume data ingestion. Time series data is a sequence of data points collected over a
-time interval, and is used for measuring events that change over time. It is used to collect,
-store, and analyze metrics from IoT applications, DevOps applications, and analytics applications.
-Once you have your data in Timestream, you can visualize and identify trends and
-patterns in your data in near real-time. For information about Amazon Timestream, see [What
-is Amazon Timestream?](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md") in the _Amazon Timestream Developer Guide_.
+Amazon Timestream is a fast, scalable, and serverless time series database service built for high-volume data ingestion. Time series data is a sequence of data points collected over a time interval, and is used for measuring events that change over time. It is used to collect, store, and analyze metrics from IoT applications, DevOps applications, and analytics applications. Once you have your data in Timestream, you can visualize and identify trends and patterns in your data in near real-time. For information about Amazon Timestream, see [What is Amazon Timestream?](https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html) in the *Amazon Timestream Developer Guide*.
 
-###### Topics
-
-- [Prerequisites for using Amazon Timestream as a target for AWS Database Migration Service](#CHAP_Target.Timestream.Prerequisites "#CHAP_Target.Timestream.Prerequisites")
-- [Multithreaded full load task settings](#CHAP_Target.Timestream.FLTaskSettings "#CHAP_Target.Timestream.FLTaskSettings")
-- [Multithreaded CDC load task settings](#CHAP_Target.Timestream.CDCTaskSettings "#CHAP_Target.Timestream.CDCTaskSettings")
-- [Endpoint settings when using Timestream as a target for AWS DMS](#CHAP_Target.Timestream.ConnectionAttrib "#CHAP_Target.Timestream.ConnectionAttrib")
-- [Creating and modifying an Amazon Timestream target endpoint](#CHAP_Target.Timestream.CreateModifyEndpoint "#CHAP_Target.Timestream.CreateModifyEndpoint")
-- [Using object mapping to migrate data to a Timestream topic](#CHAP_Target.Timestream.ObjectMapping "#CHAP_Target.Timestream.ObjectMapping")
-- [Limitations when using Amazon Timestream as a target for AWS Database Migration Service](#CHAP_Target.Timestream.Limitations "#CHAP_Target.Timestream.Limitations")
+**Topics**
++ [Prerequisites for using Amazon Timestream as a target for AWS Database Migration Service](#CHAP_Target.Timestream.Prerequisites)
++ [Multithreaded full load task settings](#CHAP_Target.Timestream.FLTaskSettings)
++ [Multithreaded CDC load task settings](#CHAP_Target.Timestream.CDCTaskSettings)
++ [Endpoint settings when using Timestream as a target for AWS DMS](#CHAP_Target.Timestream.ConnectionAttrib)
++ [Creating and modifying an Amazon Timestream target endpoint](#CHAP_Target.Timestream.CreateModifyEndpoint)
++ [Using object mapping to migrate data to a Timestream topic](#CHAP_Target.Timestream.ObjectMapping)
++ [Limitations when using Amazon Timestream as a target for AWS Database Migration Service](#CHAP_Target.Timestream.Limitations)
 
 ## Prerequisites for using Amazon Timestream as a target for AWS Database Migration Service
+<a name="CHAP_Target.Timestream.Prerequisites"></a>
 
-Before you set up Amazon Timestream as a target for AWS DMS, make sure that you create an IAM
-role. This role must allow AWS DMS to gain access to the data being migrated into
-Amazon Timestream. The minimum set of access permissions for the role that you use to migrate
-to Timestream is shown in the following IAM policy.
+Before you set up Amazon Timestream as a target for AWS DMS, make sure that you create an IAM role. This role must allow AWS DMS to gain access to the data being migrated into Amazon Timestream. The minimum set of access permissions for the role that you use to migrate to Timestream is shown in the following IAM policy.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowDescribeEndpoints",
- "Effect": "Allow",
- "Action": [
- "timestream:DescribeEndpoints"
- ],
- "Resource": "*"
- },
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "timestream:ListTables",
- "timestream:DescribeDatabase"
- ],
- "Resource": "arn:aws:timestream:us-east-1:123456789012:database/DATABASE_NAME"
- },
- {
- "Sid": "VisualEditor1",
- "Effect": "Allow",
- "Action": [
- "timestream:DeleteTable",
- "timestream:WriteRecords",
- "timestream:UpdateTable",
- "timestream:CreateTable"
- ],
- "Resource": "arn:aws:timestream:us-east-1:123456789012:database/DATABASE_NAME/table/TABLE_NAME"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Sid": "AllowDescribeEndpoints",
+      "Effect": "Allow",
+      "Action": [
+        "timestream:DescribeEndpoints"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "timestream:ListTables",
+        "timestream:DescribeDatabase"
+      ],
+      "Resource": "arn:aws:timestream:us-east-1:123456789012:database/DATABASE_NAME"
+    },
+    {
+      "Sid": "VisualEditor1",
+      "Effect": "Allow",
+      "Action": [
+        "timestream:DeleteTable",
+        "timestream:WriteRecords",
+        "timestream:UpdateTable",
+        "timestream:CreateTable"
+      ],
+      "Resource": "arn:aws:timestream:us-east-1:123456789012:database/DATABASE_NAME/table/TABLE_NAME"
+    }
+  ]
+}
+```
 
-If you intend to migrate all tables, use `*` for `TABLE_NAME` in the
-example above.
+------
+
+If you intend to migrate all tables, use `*` for {{TABLE\_NAME}} in the example above.
 
 Note the following about using Timestream as a target:
++ If you intend to ingest historical data with timestamps exceeding 1 year old, we recommend to use AWS DMS to write the data to Amazon S3 in a comma separated value (csv) format. Then, use Timestream’s batch load to ingest the data into Timestream. For more information, see [Using batch load in Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/batch-load.html) in the [Amazon Timestream developer guide](https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html).
++ For full-load data migrations of data less than 1 year old, we recommend setting the memory store retention period of the Timestream table greater than or equal to the oldest timestamp. Then, once migration completes, edit the table's memory store retention to the desired value. For example, to migrate data with the oldest timestamp being 2 months old, do the following:
+  + Set the Timestream target table's memory store retention to 2 months.
+  + Start the data migration using AWS DMS.
+  + Once the data migration completes, change the retention period of the target Timestream table to your desired value. 
 
-- If you intend to ingest historical data with timestamps exceeding 1 year old, we recommend to use
-  AWS DMS to write the data to Amazon S3 in a comma separated value (csv) format. Then, use Timestream’s batch
-  load to ingest the data into Timestream. For more information, see
-  [Using batch load in Timestream](../../../timestream/latest/developerguide/batch-load.md "../../../timestream/latest/developerguide/batch-load.md")
-  in the [Amazon Timestream developer guide](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md").
-- For full-load data migrations of data less than 1 year old, we recommend setting the memory store
-  retention period of the Timestream table greater than or equal to the oldest timestamp. Then, once migration completes,
-  edit the table's memory store retention to the desired value. For example, to migrate data with the oldest timestamp
-  being 2 months old, do the following:
-
-  - Set the Timestream target table's memory store retention to 2 months.
-  - Start the data migration using AWS DMS.
-  - Once the data migration completes, change the retention period of the target Timestream table to your desired value.
-
-We recommend estimating the memory store cost prior to the migration, using the information on the following pages:
-
-    + [Amazon Timestream pricing](https://aws.amazon.com/timestream/pricing "https://aws.amazon.com/timestream/pricing")
-    + [AWS pricing calculator](https://calculator.aws/#/addService "https://calculator.aws/#/addService")
-
-- For CDC data migrations, we recommend setting the memory store retention period of the target
-  table such that ingested data falls within the memory store retention bounds. For more information, see
-  [Writes Best Practices](../../../timestream/latest/developerguide/data-ingest.md "../../../timestream/latest/developerguide/data-ingest.md") in the [Amazon Timestream developer guide](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md").
+   We recommend estimating the memory store cost prior to the migration, using the information on the following pages:
+  + [Amazon Timestream pricing](https://aws.amazon.com/timestream/pricing)
+  + [AWS pricing calculator](https://calculator.aws/#/addService) 
++ For CDC data migrations, we recommend setting the memory store retention period of the target table such that ingested data falls within the memory store retention bounds. For more information, see [ Writes Best Practices ](https://docs.aws.amazon.com/timestream/latest/developerguide/data-ingest.html) in the [Amazon Timestream developer guide](https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html).
 
 ## Multithreaded full load task settings
+<a name="CHAP_Target.Timestream.FLTaskSettings"></a>
 
-To help increase the speed of data transfer, AWS DMS supports a multithreaded full
-load migration task to a Timestream target endpoint with these task settings:
-
-- `MaxFullLoadSubTasks` – Use this option to indicate the
-  maximum number of source tables to load in parallel. DMS loads each table into
-  its corresponding Amazon Timestream target table using a dedicated subtask. The default is 8;
-  the maximum value is 49.
-- `ParallelLoadThreads` – Use this option to specify the
-  number of threads that AWS DMS uses to load each table into its Amazon Timestream target table.
-  The maximum value for a Timestream target is 32. You can ask to have this maximum
-  limit increased.
-- `ParallelLoadBufferSize` – Use this option to specify the
-  maximum number of records to store in the buffer that the parallel load threads
-  use to load data to the Amazon Timestream target. The default value is 50. The maximum value
-  is 1,000. Use this setting with `ParallelLoadThreads`.
-  `ParallelLoadBufferSize` is valid only when there is more than
-  one thread.
-- `ParallelLoadQueuesPerThread` – Use this option to specify
-  the number of queues each concurrent thread accesses to take data records out of
-  queues and generate a batch load for the target. The default is 1. However, for
-  Amazon Timestream targets of various payload sizes, the valid range is 5–512 queues
-  per thread.
+To help increase the speed of data transfer, AWS DMS supports a multithreaded full load migration task to a Timestream target endpoint with these task settings:
++ `MaxFullLoadSubTasks` – Use this option to indicate the maximum number of source tables to load in parallel. DMS loads each table into its corresponding Amazon Timestream target table using a dedicated subtask. The default is 8; the maximum value is 49.
++ `ParallelLoadThreads` – Use this option to specify the number of threads that AWS DMS uses to load each table into its Amazon Timestream target table. The maximum value for a Timestream target is 32. You can ask to have this maximum limit increased.
++ `ParallelLoadBufferSize` – Use this option to specify the maximum number of records to store in the buffer that the parallel load threads use to load data to the Amazon Timestream target. The default value is 50. The maximum value is 1,000. Use this setting with `ParallelLoadThreads`. `ParallelLoadBufferSize` is valid only when there is more than one thread.
++ `ParallelLoadQueuesPerThread` – Use this option to specify the number of queues each concurrent thread accesses to take data records out of queues and generate a batch load for the target. The default is 1. However, for Amazon Timestream targets of various payload sizes, the valid range is 5–512 queues per thread.
 
 ## Multithreaded CDC load task settings
+<a name="CHAP_Target.Timestream.CDCTaskSettings"></a>
 
 To promote CDC performance, AWS DMS supports these task settings:
-
-- `ParallelApplyThreads` – Specifies the number of concurrent
-  threads that AWS DMS uses during a CDC load to push data records to a Timestream
-  target endpoint. The default value is 0 and the maximum value is
-
-32.
-
-- `ParallelApplyBufferSize` – Specifies the maximum number of
-  records to store in each buffer queue for concurrent threads to push to a Timestream
-  target endpoint during a CDC load. The default value is 100 and the maximum
-  value is 1,000. Use this option when `ParallelApplyThreads` specifies
-  more than one thread.
-- `ParallelApplyQueuesPerThread` – Specifies the number of
-  queues that each thread accesses to take data records out of queues and generate
-  a batch load for a Timestream endpoint during CDC. The default value is 1 and the maximum
-  value is 512.
++ `ParallelApplyThreads` – Specifies the number of concurrent threads that AWS DMS uses during a CDC load to push data records to a Timestream target endpoint. The default value is 0 and the maximum value is 32.
++ `ParallelApplyBufferSize` – Specifies the maximum number of records to store in each buffer queue for concurrent threads to push to a Timestream target endpoint during a CDC load. The default value is 100 and the maximum value is 1,000. Use this option when `ParallelApplyThreads` specifies more than one thread. 
++ `ParallelApplyQueuesPerThread` – Specifies the number of queues that each thread accesses to take data records out of queues and generate a batch load for a Timestream endpoint during CDC. The default value is 1 and the maximum value is 512.
 
 ## Endpoint settings when using Timestream as a target for AWS DMS
+<a name="CHAP_Target.Timestream.ConnectionAttrib"></a>
 
-You can use endpoint settings to configure your Timestream target database similar to using
-extra connection attributes. You specify the settings when you create the target
-endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
-[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
-`--timestream-settings '{"`EndpointSetting"`:
- `"value"`, `...`}'` JSON syntax.
+You can use endpoint settings to configure your Timestream target database similar to using extra connection attributes. You specify the settings when you create the target endpoint using the AWS DMS console, or by using the `create-endpoint` command in the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/dms/index.html), with the `--timestream-settings '{"{{EndpointSetting"}}: {{"value"}}, {{...}}}'` JSON syntax.
 
-The following table shows the endpoint settings that you can use with
-Timestream as a target.
+The following table shows the endpoint settings that you can use with Timestream as a target.
 
-| Name                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MemoryDuration`            | Set this attribute to specify the retention bound to store the data migrated in<br>Timestream's memory store. Time is measured in units<br>of hours. Timestream's memory store is optimized for high ingestion throughput and fast access.<br>Default value: 24 (hours)<br>Valid values: 1 to 8,736 (1 hour to 12 months measured in<br>hours)<br>Example: `--timestream-settings '{"MemoryDuration":<br>20}'`                                                                                                                                                                                                                                                                                                            |
-| `DatabaseName`              | Set this attribute to specify the target Timestream database name.<br>Type: string<br>Example: `--timestream-settings '{"DatabaseName":<br>"`db_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `TableName`                 | Set this attribute to specify the target Timestream table name.<br>Type: string<br>Example: `--timestream-settings '{"TableName":<br>"`table_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `MagneticDuration`          | Set this attribute to specify the magnetic duration applied to the Timestream<br>tables in days. This is the retention bound for the ingested data. Timestream deletes any timestamp<br>exceeding the retention bound. For more information, see [Storage](../../../timestream/latest/developerguide/storage.md "../../../timestream/latest/developerguide/storage.md") in the<br>[Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").<br>Example: `--timestream-settings '{"MagneticDuration":<br>"3"}'`                                                                                                                                    |
-| `CdcInsertsAndUpdates`      | Set this attribute to `true` to specify that AWS DMS only<br>applies inserts and updates, and not deletes. Timestream does not allow<br>deleting records, so if this value is `false`, AWS DMS nulls out<br>the corresponding record in the Timestream database rather than deleting it. For<br>more information, see [Limitations](#CHAP_Target.Timestream.Limitations "#CHAP_Target.Timestream.Limitations") following.<br>Default value: `false`<br>Example: `--timestream-settings '{"CdcInsertsAndUpdates": "true"}'`                                                                                                                                                                                                |
-| `EnableMagneticStoreWrites` | Set this attribute to `true` to enable magnetic store writes.<br>When this value is `false`, AWS DMS does not write records records with a<br>timestamp older than the memory store retention period of the target table, because Timestream does not<br>allow magnetic store writes by default. For more information, see [Writes Best Practices](../../../timestream/latest/developerguide/data-ingest.md "../../../timestream/latest/developerguide/data-ingest.md") in the<br>[Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").<br>Default value: `false`<br>Example: `--timestream-settings '{"EnableMagneticStoreWrites": "true"}'` |
+
+| Name | Description | 
+| --- | --- | 
+| `MemoryDuration` | Set this attribute to specify the retention bound to store the data migrated in Timestream's memory store. Time is measured in units of hours. Timestream's memory store is optimized for high ingestion throughput and fast access.<br />Default value: 24 (hours)<br />Valid values: 1 to 8,736 (1 hour to 12 months measured in hours)<br />Example: `--timestream-settings '{"MemoryDuration": 20}'` | 
+| `DatabaseName` | Set this attribute to specify the target Timestream database name.<br />Type: string<br />Example: `--timestream-settings '{"DatabaseName": "{{db_name}}"}'` | 
+| `TableName` | Set this attribute to specify the target Timestream table name.<br />Type: string<br />Example: `--timestream-settings '{"TableName": "{{table_name}}"}'` | 
+| `MagneticDuration` | Set this attribute to specify the magnetic duration applied to the Timestream tables in days. This is the retention bound for the ingested data. Timestream deletes any timestamp exceeding the retention bound. For more information, see [Storage](https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html) in the [Amazon Timestream Developer Guide](https://docs.aws.amazon.com/timestream/latest/developerguide/).<br />Example: `--timestream-settings '{"MagneticDuration": "3"}'` | 
+| `CdcInsertsAndUpdates` | Set this attribute to `true` to specify that AWS DMS only applies inserts and updates, and not deletes. Timestream does not allow deleting records, so if this value is `false`, AWS DMS nulls out the corresponding record in the Timestream database rather than deleting it. For more information, see [Limitations](#CHAP_Target.Timestream.Limitations) following.<br />Default value: `false`<br />Example: `--timestream-settings '{"CdcInsertsAndUpdates": "true"}'` | 
+| `EnableMagneticStoreWrites` | Set this attribute to `true` to enable magnetic store writes. When this value is `false`, AWS DMS does not write records records with a timestamp older than the memory store retention period of the target table, because Timestream does not allow magnetic store writes by default. For more information, see [Writes Best Practices](https://docs.aws.amazon.com/timestream/latest/developerguide/data-ingest.html) in the [Amazon Timestream Developer Guide](https://docs.aws.amazon.com/timestream/latest/developerguide/).<br />Default value: `false`<br />Example: `--timestream-settings '{"EnableMagneticStoreWrites": "true"}'` | 
 
 ## Creating and modifying an Amazon Timestream target endpoint
+<a name="CHAP_Target.Timestream.CreateModifyEndpoint"></a>
 
-Once you have created an IAM role and established the minimum set of access
-permissions, you can create a Amazon Timestream target endpoint using the AWS DMS console, or by
-using the `create-endpoint` command in the [AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"),
-with the `--timestream-settings '{"`EndpointSetting"`:
- `"value"`, `...`}'` JSON
-syntax.
+Once you have created an IAM role and established the minimum set of access permissions, you can create a Amazon Timestream target endpoint using the AWS DMS console, or by using the `create-endpoint` command in the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/dms/index.html), with the `--timestream-settings '{"{{EndpointSetting"}}: {{"value"}}, {{...}}}'` JSON syntax.
 
 The following examples show how to create and modify a Timestream target endpoint using the AWS CLI.
 
@@ -186,7 +133,6 @@ aws dms create-endpoint —endpoint-identifier timestream-target-demo
     "CdcInsertsAndUpdates": true,
     "EnableMagneticStoreWrites": true,
 }
-
 ```
 
 **Modify Timestream target endpoint command**
@@ -200,51 +146,41 @@ aws dms modify-endpoint —endpoint-identifier timestream-target-demo
     "MemoryDuration": 20,
     "MagneticDuration": 3,
 }
-
 ```
 
 ## Using object mapping to migrate data to a Timestream topic
+<a name="CHAP_Target.Timestream.ObjectMapping"></a>
 
-AWS DMS uses table-mapping rules to map data from the source to the target Timestream
-topic. To map data to a target topic, you use a type of table-mapping rule
-called object mapping. You use object mapping to define how data records in the
-source map to the data records published to a Timestream topic.
+AWS DMS uses table-mapping rules to map data from the source to the target Timestream topic. To map data to a target topic, you use a type of table-mapping rule called object mapping. You use object mapping to define how data records in the source map to the data records published to a Timestream topic. 
 
-Timestream topics don't have a preset structure other than having a partition
-key.
+Timestream topics don't have a preset structure other than having a partition key.
 
-###### Note
+**Note**  
+You don't have to use object mapping. You can use regular table mapping for various transformations. However, the partition key type will follow these default behaviors:   
+Primary Key is used as a partition key for Full Load.
+If no parallel-apply task settings are used, `schema.table` is used as a partition key for CDC.
+If parallel-apply task settings are used, Primary key is used as a partition key for CDC.
 
-You don't have to use object mapping. You can use regular table
-mapping for various transformations. However, the partition key type will follow
-these default behaviors:
-
-- Primary Key is used as a partition key for Full Load.
-- If no parallel-apply task settings are used,
-  `schema.table` is used as a partition key for CDC.
-- If parallel-apply task settings are used, Primary key is used as
-  a partition key for CDC.
-
-To create an object-mapping rule, specify `rule-type` as
-`object-mapping`. This rule specifies what type of object mapping you
-want to use. The structure for the rule is as follows.
+To create an object-mapping rule, specify `rule-type` as `object-mapping`. This rule specifies what type of object mapping you want to use. The structure for the rule is as follows.
 
 ```
 {
     "rules": [
         {
             "rule-type": "object-mapping",
-            "rule-id": "`id`",
-            "rule-name": "`name`",
-            "rule-action": "`valid object-mapping rule action`",
+            "rule-id": "{{id}}",
+            "rule-name": "{{name}}",
+            "rule-action": "{{valid object-mapping rule action}}",
             "object-locator": {
-                "schema-name": "`case-sensitive schema name`",
+                "schema-name": "{{case-sensitive schema name}}",
                 "table-name": ""
             }
         }
     ]
 }
 ```
+
+
 
 ```
 {
@@ -273,38 +209,20 @@ want to use. The structure for the rule is as follows.
         }
     ]
 }
-
-
 ```
 
-AWS DMS currently supports `map-record-to-record` and
-`map-record-to-document` as the only valid values for the
-`rule-action` parameter. The `map-record-to-record` and
-`map-record-to-document` values specify what AWS DMS does by default to
-records that aren't excluded as part of the `exclude-columns`
-attribute list. These values don't affect the attribute mappings in any way.
+AWS DMS currently supports `map-record-to-record` and `map-record-to-document` as the only valid values for the `rule-action` parameter. The `map-record-to-record` and `map-record-to-document` values specify what AWS DMS does by default to records that aren't excluded as part of the `exclude-columns` attribute list. These values don't affect the attribute mappings in any way. 
 
-Use `map-record-to-record` when migrating from a relational database to
-a Timestream topic. This rule type uses the
-`taskResourceId.schemaName.tableName` value from the relational
-database as the partition key in the Timestream topic and creates an attribute for each
-column in the source database. When using `map-record-to-record`, for any
-column in the source table not listed in the `exclude-columns` attribute
-list, AWS DMS creates a corresponding attribute in the target topic. This
-corresponding attribute is created regardless of whether that source column is used
-in an attribute mapping.
+Use `map-record-to-record` when migrating from a relational database to a Timestream topic. This rule type uses the `taskResourceId.schemaName.tableName` value from the relational database as the partition key in the Timestream topic and creates an attribute for each column in the source database. When using `map-record-to-record`, for any column in the source table not listed in the `exclude-columns` attribute list, AWS DMS creates a corresponding attribute in the target topic. This corresponding attribute is created regardless of whether that source column is used in an attribute mapping. 
 
-One way to understand `map-record-to-record` is to see it in action.
-For this example, assume that you are starting with a relational database table row
-with the following structure and data.
+One way to understand `map-record-to-record` is to see it in action. For this example, assume that you are starting with a relational database table row with the following structure and data.
 
-| FirstName | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateofBirth |
-| --------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
-| Randy     | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
 
-To migrate this information from a schema named `Test` to a Timestream
-topic, you create rules to map the data to the target topic. The following rule
-illustrates the mapping.
+| FirstName | LastName | StoreId | HomeAddress | HomePhone | WorkAddress | WorkPhone | DateofBirth | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Randy | Marsh | 5 | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog  | 9876543210 | 02/29/1988 | 
+
+To migrate this information from a schema named `Test` to a Timestream topic, you create rules to map the data to the target topic. The following rule illustrates the mapping. 
 
 ```
 {
@@ -333,12 +251,9 @@ illustrates the mapping.
 }
 ```
 
-Given a Timestream topic and a partition key (in this case,
-`taskResourceId.schemaName.tableName`), the following illustrates the
-resulting record format using our sample data in the Timestream target topic:
+Given a Timestream topic and a partition key (in this case, `taskResourceId.schemaName.tableName`), the following illustrates the resulting record format using our sample data in the Timestream target topic: 
 
 ```
-
   {
      "FirstName": "Randy",
      "LastName": "Marsh",
@@ -352,39 +267,20 @@ resulting record format using our sample data in the Timestream target topic:
 ```
 
 ## Limitations when using Amazon Timestream as a target for AWS Database Migration Service
+<a name="CHAP_Target.Timestream.Limitations"></a>
 
 The following limitations apply when using Amazon Timestream as a target:
-
-- **Dimensions and Timestamps:** Timestream uses
-  the dimensions and timestamps in the source data like a composite primary key, and also
-  does not allow you to upsert these values. This means that if you change the timestamp
-  or the dimensions for a record in the source database, the Timestream database will try to
-  create a new record. It is thus possible that if you change the dimension or timestamp of a record
-  such that they match those of another existing record,
-  then AWS DMS updates the values of the other record instead of creating a new record or updating
-  the previous corresponding record.
-- **DDL Commands:** The current release of AWS DMS only supports
-  `CREATE TABLE` and `DROP TABLE` DDL commands.
-- **Record Limitations:** Timestream has limitations for records such as record size
-  and measure size. For more information, see
-  [Quotas](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md") in the
-  [Amazon Timestream Developer Guide](../../../index.md "../../../index.md").
-- **Deleting Records and Null Values:** Timestream doesn't support deleting records.
-  To support migrating records deleted from the source, AWS DMS clears the corresponding fields in the records in the Timestream
-  target database. AWS DMS changes the values in the fields of the corresponding target record with **0** for
-  numeric fields, **null** for
-  text fields, and **false** for
-  boolean fields.
-- Timestream as a target doesn't support sources that aren't relational databases (RDBMS).
-- AWS DMS only supports Timestream as a target in the following regions:
-
-  - US East (N. Virginia)
-  - US East (Ohio)
-  - US West (Oregon)
-  - Europe (Ireland)
-  - Europe (Frankfurt)
-  - Asia Pacific (Sydney)
-  - Asia Pacific (Tokyo)
-
-- Timestream as a target doesn't support setting `TargetTablePrepMode` to `TRUNCATE_BEFORE_LOAD`.
-  We recommend using `DROP_AND_CREATE` for this setting.
++ **Dimensions and Timestamps:** Timestream uses the dimensions and timestamps in the source data like a composite primary key, and also does not allow you to upsert these values. This means that if you change the timestamp or the dimensions for a record in the source database, the Timestream database will try to create a new record. It is thus possible that if you change the dimension or timestamp of a record such that they match those of another existing record, then AWS DMS updates the values of the other record instead of creating a new record or updating the previous corresponding record.
++ **DDL Commands:** The current release of AWS DMS only supports `CREATE TABLE` and `DROP TABLE` DDL commands.
++ **Record Limitations:** Timestream has limitations for records such as record size and measure size. For more information, see [Quotas](https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html) in the [Amazon Timestream Developer Guide](https://docs.aws.amazon.com/).
++ **Deleting Records and Null Values: ** Timestream doesn't support deleting records. To support migrating records deleted from the source, AWS DMS clears the corresponding fields in the records in the Timestream target database. AWS DMS changes the values in the fields of the corresponding target record with **0** for numeric fields, **null** for text fields, and **false** for boolean fields.
++ Timestream as a target doesn't support sources that aren't relational databases (RDBMS).
++ AWS DMS only supports Timestream as a target in the following regions:
+  + US East (N. Virginia)
+  + US East (Ohio)
+  + US West (Oregon)
+  + Europe (Ireland)
+  + Europe (Frankfurt)
+  + Asia Pacific (Sydney)
+  + Asia Pacific (Tokyo)
++ Timestream as a target doesn't support setting `TargetTablePrepMode` to `TRUNCATE_BEFORE_LOAD`. We recommend using `DROP_AND_CREATE` for this setting.
