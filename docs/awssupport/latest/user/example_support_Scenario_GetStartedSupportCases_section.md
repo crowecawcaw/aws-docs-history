@@ -1,29 +1,25 @@
+
+
 # Learn the basics of Support with an AWS SDK
+<a name="example_support_Scenario_GetStartedSupportCases_section"></a>
 
 The following code examples show how to:
++ Get and display available services and severity levels for cases.
++ Create a support case using a selected service, category, and severity level.
++ Get and display a list of open cases for the current day.
++ Add an attachment set and a communication to the new case.
++ Describe the new attachment and communication for the case.
++ Resolve the case.
++ Get and display a list of resolved cases for the current day.
 
-- Get and display available services and severity levels for cases.
-- Create a support case using a selected service, category, and severity level.
-- Get and display a list of open cases for the current day.
-- Add an attachment set and a communication to the new case.
-- Describe the new attachment and communication for the case.
-- Resolve the case.
-- Get and display a list of resolved cases for the current day.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
 /// <summary>
 /// Hello AWS Support example.
 /// </summary>
@@ -396,14 +392,10 @@ public static class SupportCaseScenario
         Console.WriteLine(new string('-', 80));
     }
 }
-
+```
+Wrapper methods used by the scenario for Support actions.  
 
 ```
-
-Wrapper methods used by the scenario for Support actions.
-
-```
-
 /// <summary>
 /// Wrapper methods to use AWS Support for working with support cases.
 /// </summary>
@@ -659,33 +651,24 @@ public class SupportWrapper
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [AddAttachmentsToSet](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/AddAttachmentsToSet)
+  + [AddCommunicationToCase](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/AddCommunicationToCase)
+  + [CreateCase](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/CreateCase)
+  + [DescribeAttachment](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeAttachment)
+  + [DescribeCases](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeCases)
+  + [DescribeCommunications](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeCommunications)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeServices)
+  + [DescribeSeverityLevels](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeSeverityLevels)
+  + [ResolveCase](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/ResolveCase)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [AddAttachmentsToSet](../../../goto/DotNetSDKV3/support-2013-04-15/AddAttachmentsToSet.md "../../../goto/DotNetSDKV3/support-2013-04-15/AddAttachmentsToSet.md")
-  - [AddCommunicationToCase](../../../goto/DotNetSDKV3/support-2013-04-15/AddCommunicationToCase.md "../../../goto/DotNetSDKV3/support-2013-04-15/AddCommunicationToCase.md")
-  - [CreateCase](../../../goto/DotNetSDKV3/support-2013-04-15/CreateCase.md "../../../goto/DotNetSDKV3/support-2013-04-15/CreateCase.md")
-  - [DescribeAttachment](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeAttachment.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeAttachment.md")
-  - [DescribeCases](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeCases.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeCases.md")
-  - [DescribeCommunications](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeCommunications.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeCommunications.md")
-  - [DescribeServices](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeServices.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeServices.md")
-  - [DescribeSeverityLevels](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeSeverityLevels.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeSeverityLevels.md")
-  - [ResolveCase](../../../goto/DotNetSDKV3/support-2013-04-15/ResolveCase.md "../../../goto/DotNetSDKV3/support-2013-04-15/ResolveCase.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples").
-
-Run various Support operations.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
+Run various Support operations.  
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -1091,33 +1074,24 @@ public class SupportScenario {
         return null;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AddAttachmentsToSet](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/AddAttachmentsToSet)
+  + [AddCommunicationToCase](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/AddCommunicationToCase)
+  + [CreateCase](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/CreateCase)
+  + [DescribeAttachment](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeAttachment)
+  + [DescribeCases](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeCases)
+  + [DescribeCommunications](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeCommunications)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeServices)
+  + [DescribeSeverityLevels](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeSeverityLevels)
+  + [ResolveCase](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/ResolveCase)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [AddAttachmentsToSet](../../../goto/SdkForJavaV2/support-2013-04-15/AddAttachmentsToSet.md "../../../goto/SdkForJavaV2/support-2013-04-15/AddAttachmentsToSet.md")
-  - [AddCommunicationToCase](../../../goto/SdkForJavaV2/support-2013-04-15/AddCommunicationToCase.md "../../../goto/SdkForJavaV2/support-2013-04-15/AddCommunicationToCase.md")
-  - [CreateCase](../../../goto/SdkForJavaV2/support-2013-04-15/CreateCase.md "../../../goto/SdkForJavaV2/support-2013-04-15/CreateCase.md")
-  - [DescribeAttachment](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeAttachment.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeAttachment.md")
-  - [DescribeCases](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeCases.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeCases.md")
-  - [DescribeCommunications](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeCommunications.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeCommunications.md")
-  - [DescribeServices](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeServices.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeServices.md")
-  - [DescribeSeverityLevels](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeSeverityLevels.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeSeverityLevels.md")
-  - [ResolveCase](../../../goto/SdkForJavaV2/support-2013-04-15/ResolveCase.md "../../../goto/SdkForJavaV2/support-2013-04-15/ResolveCase.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples").
-
-Run an interactive scenario in the terminal.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
+Run an interactive scenario in the terminal.  
 
 ```
 import {
@@ -1441,34 +1415,25 @@ const main = async () => {
     console.error(err);
   }
 };
+```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [AddAttachmentsToSet](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/AddAttachmentsToSetCommand)
+  + [AddCommunicationToCase](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/AddCommunicationToCaseCommand)
+  + [CreateCase](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/CreateCaseCommand)
+  + [DescribeAttachment](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeAttachmentCommand)
+  + [DescribeCases](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCasesCommand)
+  + [DescribeCommunications](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand)
+  + [DescribeServices](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand)
+  + [DescribeSeverityLevels](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeSeverityLevelsCommand)
+  + [ResolveCase](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/ResolveCaseCommand)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
-
-  - [AddAttachmentsToSet](../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddAttachmentsToSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddAttachmentsToSetCommand.md")
-  - [AddCommunicationToCase](../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddCommunicationToCaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddCommunicationToCaseCommand.md")
-  - [CreateCase](../../../AWSJavaScriptSDK/v3/latest/client/support/command/CreateCaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/CreateCaseCommand.md")
-  - [DescribeAttachment](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeAttachmentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeAttachmentCommand.md")
-  - [DescribeCases](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCasesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCasesCommand.md")
-  - [DescribeCommunications](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand.md")
-  - [DescribeServices](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand.md")
-  - [DescribeSeverityLevels](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeSeverityLevelsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeSeverityLevelsCommand.md")
-  - [ResolveCase](../../../AWSJavaScriptSDK/v3/latest/client/support/command/ResolveCaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/ResolveCaseCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples").
-
-```
-
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -1496,7 +1461,7 @@ This Kotlin example performs the following tasks:
 suspend fun main(args: Array<String>) {
     val usage = """
     Usage:
-        <fileAttachment>
+        <fileAttachment> 
     Where:
          fileAttachment - The file can be a simple saved .txt file to use as an email attachment.
     """
@@ -1759,33 +1724,24 @@ suspend fun displayServices(): List<String> {
     catName.let { sevCatList.add(it) }
     return sevCatList
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [AddAttachmentsToSet](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [AddCommunicationToCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeAttachment](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeCases](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeCommunications](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeServices](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeSeverityLevels](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ResolveCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [AddAttachmentsToSet](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [AddCommunicationToCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeAttachment](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeCases](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeCommunications](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeServices](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeSeverityLevels](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ResolveCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class SupportCasesScenario:
@@ -2004,11 +1960,8 @@ if __name__ == "__main__":
         scenario.run_scenario()
     except Exception:
         logging.exception("Something went wrong with the demo.")
-
-
 ```
-
-Define a class that wraps support client actions.
+Define a class that wraps support client actions.  
 
 ```
 class SupportWrapper:
@@ -2317,25 +2270,18 @@ class SupportWrapper:
             if resolved:
                 cases = filter(lambda case: case["status"] == "resolved", cases)
             return cases
-
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AddAttachmentsToSet](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/AddAttachmentsToSet)
+  + [AddCommunicationToCase](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/AddCommunicationToCase)
+  + [CreateCase](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/CreateCase)
+  + [DescribeAttachment](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeAttachment)
+  + [DescribeCases](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeCases)
+  + [DescribeCommunications](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeCommunications)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeServices)
+  + [DescribeSeverityLevels](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeSeverityLevels)
+  + [ResolveCase](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/ResolveCase)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AddAttachmentsToSet](../../../goto/boto3/support-2013-04-15/AddAttachmentsToSet.md "../../../goto/boto3/support-2013-04-15/AddAttachmentsToSet.md")
-  - [AddCommunicationToCase](../../../goto/boto3/support-2013-04-15/AddCommunicationToCase.md "../../../goto/boto3/support-2013-04-15/AddCommunicationToCase.md")
-  - [CreateCase](../../../goto/boto3/support-2013-04-15/CreateCase.md "../../../goto/boto3/support-2013-04-15/CreateCase.md")
-  - [DescribeAttachment](../../../goto/boto3/support-2013-04-15/DescribeAttachment.md "../../../goto/boto3/support-2013-04-15/DescribeAttachment.md")
-  - [DescribeCases](../../../goto/boto3/support-2013-04-15/DescribeCases.md "../../../goto/boto3/support-2013-04-15/DescribeCases.md")
-  - [DescribeCommunications](../../../goto/boto3/support-2013-04-15/DescribeCommunications.md "../../../goto/boto3/support-2013-04-15/DescribeCommunications.md")
-  - [DescribeServices](../../../goto/boto3/support-2013-04-15/DescribeServices.md "../../../goto/boto3/support-2013-04-15/DescribeServices.md")
-  - [DescribeSeverityLevels](../../../goto/boto3/support-2013-04-15/DescribeSeverityLevels.md "../../../goto/boto3/support-2013-04-15/DescribeSeverityLevels.md")
-  - [ResolveCase](../../../goto/boto3/support-2013-04-15/ResolveCase.md "../../../goto/boto3/support-2013-04-15/ResolveCase.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Support with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

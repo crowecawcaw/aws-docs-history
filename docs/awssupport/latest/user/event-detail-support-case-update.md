@@ -1,9 +1,11 @@
+
+
 # Support Case Update event
+<a name="event-detail-support-case-update"></a>
 
 Below are the detail fields for the `Support Case Update` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for AWS Support events. For
-definitions of the other metadata fields that are included in all events, see [Event structure](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../eventbridge/latest/ref/overiew-event-structure.md") in the _Amazon EventBridge Events Reference_.
+The `source` and `detail-type` fields are included below because they contain specific values for AWS Support events. For definitions of the other metadata fields that are included in all events, see [Event structure ](https://docs.aws.amazon.com/eventbridge/latest/ref/overiew-event-structure.html) in the *Amazon EventBridge Events Reference*.
 
 ```
 {
@@ -12,62 +14,40 @@ definitions of the other metadata fields that are included in all events, see [E
   "source": "aws.support",
   . . .,
   "detail": {
-    "case-id" : "`string`",
-    "display-id" : "`string`",
-    "communication-id" : "`string`",
-    "event-name" : "`string`",
-    "origin" : "`string`"
+    "case-id" : "{{string}}",
+    "display-id" : "{{string}}",
+    "communication-id" : "{{string}}",
+    "event-name" : "{{string}}",
+    "origin" : "{{string}}"
   }
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="support-case-update-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Support Case Update`.
 
-`source`
+`source`  <a name="support-case-update-source"></a>
+Identifies the service that generated the event. For AWS Support events, this value is `aws.support`.
 
-Identifies the service that generated the event. For AWS Support events,
-this value is `aws.support`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`case-id`
-
-The support case ID.
-The case ID is an alphanumeric string in the following format: case-_12345678910-2013-c4c1d2bf33c5cf47_.
-
-`display-id`
-
-The identifier for the case on pages in the AWS Support Center.
-
-`communication-id`
-
-The communication ID.
-
-`event-name`
-
-_Valid values_: `CreateCase` | `AddCommunicationToCase` | `ResolveCase` | `ReopenCase`
-
-Specifies the type of support case event.
-
-`origin`
-
-_Valid values_: `AWS` | `CUSTOMER`
-
-Specifies whether you or an AWS Support agent added a case
-correspondence to a support case.
-
+`detail`  <a name="support-case-update-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`case-id`  <a name="support-case-update-case-id"></a>
+The support case ID. The case ID is an alphanumeric string in the following format: case-*12345678910-2013-c4c1d2bf33c5cf47*.  
+`display-id`  <a name="support-case-update-display-id"></a>
+The identifier for the case on pages in the AWS Support Center.  
+`communication-id`  <a name="support-case-update-communication-id"></a>
+The communication ID.  
+`event-name`  <a name="support-case-update-event-name"></a>
+*Valid values*: `CreateCase` \| `AddCommunicationToCase` \| `ResolveCase` \| `ReopenCase`  
+Specifies the type of support case event.  
+`origin`  <a name="support-case-update-origin"></a>
+*Valid values*: `AWS` \| `CUSTOMER`  
+Specifies whether you or an AWS Support agent added a case correspondence to a support case.  
 Currently, only events with an `event-name` of `AddCommunicationToCase` will contain have this value.
 
-###### Example Support Case Update event example: Support case created
+**Example Support Case Update event example: Support case created**  <a name="event-detail-support-case-update.example-1"></a>
 
 ```
 {
@@ -89,7 +69,7 @@ Currently, only events with an `event-name` of `AddCommunicationToCase` will con
 }
 ```
 
-###### Example Support Case Update event example: AWS Support replies to a support case
+**Example Support Case Update event example: AWS Support replies to a support case**  <a name="event-detail-support-case-update.example-2"></a>
 
 ```
 {
@@ -111,7 +91,7 @@ Currently, only events with an `event-name` of `AddCommunicationToCase` will con
 }
 ```
 
-###### Example Support Case Update event example: Support case resolved
+**Example Support Case Update event example: Support case resolved**  <a name="event-detail-support-case-update.example-3"></a>
 
 ```
 {
@@ -133,7 +113,7 @@ Currently, only events with an `event-name` of `AddCommunicationToCase` will con
 }
 ```
 
-###### Example Support Case Update event example: Support case reopened
+**Example Support Case Update event example: Support case reopened**  <a name="event-detail-support-case-update.example-4"></a>
 
 ```
 {

@@ -1,18 +1,19 @@
-# Monitoring AWS Support authorization with AWS CloudTrail
 
-AWS CloudTrail logs all AWS Support authorization API calls and support operations as management
-events. These events are logged by default without additional configuration.
+
+# Monitoring AWS Support authorization with AWS CloudTrail
+<a name="support-authorization-monitoring"></a>
+
+AWS CloudTrail logs all AWS Support authorization API calls and support operations as management events. These events are logged by default without additional configuration.
 
 ## AWS service events
+<a name="support-authorization-monitoring-service-events"></a>
 
-When AWS Support performs operations related to your support permits, AWS CloudTrail
-delivers the following events as `AwsServiceEvent` types. The event
-source for all events is `supportauthz.amazonaws.com`.
+When AWS Support performs operations related to your support permits, AWS CloudTrail delivers the following events as `AwsServiceEvent` types. The event source for all events is `supportauthz.amazonaws.com`.
 
 ### SupportPermitRequestCreated
+<a name="support-authorization-monitoring-request"></a>
 
-AWS CloudTrail logs this event when AWS Support requests access to your resources.
-It indicates that a support permit request was created.
+AWS CloudTrail logs this event when AWS Support requests access to your resources. It indicates that a support permit request was created.
 
 ```
 {
@@ -52,10 +53,9 @@ It indicates that a support permit request was created.
 ```
 
 ### RetrieveSupportPermit
+<a name="support-authorization-monitoring-get"></a>
 
-AWS CloudTrail logs this event when AWS Support retrieves a signed authorization to perform
-a support action. This indicates that your AWS KMS key was used to
-sign the authorization.
+AWS CloudTrail logs this event when AWS Support retrieves a signed authorization to perform a support action. This indicates that your AWS KMS key was used to sign the authorization.
 
 ```
 {
@@ -88,9 +88,9 @@ sign the authorization.
 ```
 
 ### StartSupportAction
+<a name="support-authorization-monitoring-execute"></a>
 
-AWS CloudTrail logs this event when AWS Support performs an authorized action on your
-resources.
+AWS CloudTrail logs this event when AWS Support performs an authorized action on your resources.
 
 ```
 {
@@ -129,18 +129,13 @@ resources.
 }
 ```
 
-###### Note
-
-A single signed authorization can result in multiple `StartSupportAction`
-events. Each event represents one action performed on one resource. For example, if
-AWS Support reads diagnostic data from a cluster multiple times during a support case,
-each access generates a separate `StartSupportAction` event referencing
-the same `customerPermitArn`.
+**Note**  
+A single signed authorization can result in multiple `StartSupportAction` events. Each event represents one action performed on one resource. For example, if AWS Support reads diagnostic data from a cluster multiple times during a support case, each access generates a separate `StartSupportAction` event referencing the same `customerPermitArn`.
 
 ### CancelSupportPermitRequest
+<a name="support-authorization-monitoring-cancel"></a>
 
-AWS CloudTrail logs this event when AWS Support cancels a support permit
-request.
+AWS CloudTrail logs this event when AWS Support cancels a support permit request.
 
 ```
 {
@@ -177,35 +172,25 @@ request.
 ```
 
 ## API events
+<a name="support-authorization-monitoring-customer-events"></a>
 
-AWS CloudTrail also generates standard management events for your own API calls to
-AWS Support authorization, including `CreateSupportPermit`,
-`DeleteSupportPermit`, `GetSupportPermit`,
-`ListSupportPermits`, `ListSupportPermitRequests`, and
-`RejectSupportPermitRequest`.
+AWS CloudTrail also generates standard management events for your own API calls to AWS Support authorization, including `CreateSupportPermit`, `DeleteSupportPermit`, `GetSupportPermit`, `ListSupportPermits`, `ListSupportPermitRequests`, and `RejectSupportPermitRequest`.
 
 ## Setting up alerts
+<a name="support-authorization-monitoring-alerts"></a>
 
-You can create Amazon CloudWatch alarms based on AWS CloudTrail events to alert you when
-AWS Support requests access or performs actions on your resources. To set up
-alerts:
+You can create Amazon CloudWatch alarms based on AWS CloudTrail events to alert you when AWS Support requests access or performs actions on your resources. To set up alerts:
 
-1. Create an AWS CloudTrail trail that delivers events to Amazon CloudWatch
-   Logs.
-2. Create a metric filter for the AWS CloudTrail log group that matches on
-   `eventSource` value `supportauthz.amazonaws.com` and
-   the desired `eventName` (for example,
-   `SupportPermitRequestCreated` or
-   `StartSupportAction`).
-3. Create a CloudWatch alarm on the metric filter to notify you
-   through Amazon SNS.
+1. Create an AWS CloudTrail trail that delivers events to Amazon CloudWatch Logs.
+
+1. Create a metric filter for the AWS CloudTrail log group that matches on `eventSource` value `supportauthz.amazonaws.com` and the desired `eventName` (for example, `SupportPermitRequestCreated` or `StartSupportAction`).
+
+1. Create a CloudWatch alarm on the metric filter to notify you through Amazon SNS.
 
 ## Amazon EventBridge events
+<a name="support-authorization-monitoring-eventbridge"></a>
 
-Events are sent to Amazon EventBridge when a support permit request
-is created. You can use these events to automate responses, such as automatically
-creating a support permit for low-risk actions or notifying your security team for
-review.
+Events are sent to Amazon EventBridge when a support permit request is created. You can use these events to automate responses, such as automatically creating a support permit for low-risk actions or notifying your security team for review.
 
 The following is an example event for a new support permit request:
 
@@ -228,8 +213,7 @@ The following is an example event for a new support permit request:
 }
 ```
 
-To create an Amazon EventBridge rule that matches support permit request events, use the
-following event pattern:
+To create an Amazon EventBridge rule that matches support permit request events, use the following event pattern:
 
 ```
 {
@@ -238,5 +222,4 @@ following event pattern:
 }
 ```
 
-You can route these events to targets such as Lambda functions, Amazon SNS topics,
-or Amazon SQS queues to build automated approval workflows.
+You can route these events to targets such as Lambda functions, Amazon SNS topics, or Amazon SQS queues to build automated approval workflows.

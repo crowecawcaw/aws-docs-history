@@ -1,25 +1,21 @@
+
+
 # Use `DescribeCommunications` with an AWS SDK or CLI
+<a name="example_support_DescribeCommunications_section"></a>
 
 The following code examples show how to use `DescribeCommunications`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md) 
++  [Getting started with technical support](example_support_GettingStarted_062_section.md) 
 
-- [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md "example_support_Scenario_GetStartedSupportCases_section.md")
-- [Getting started with technical support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
 ```
-
     /// <summary>
     /// Describe the communications for a case, optionally with a date filter.
     /// </summary>
@@ -44,32 +40,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return results;
     }
+```
++  For API details, see [DescribeCommunications](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeCommunications) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To describe the latest communication for a case**  
+The following `describe-communications` example returns the latest communication for the specified support case in your AWS account.  
 
 ```
-
-- For API details, see
-  [DescribeCommunications](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeCommunications.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeCommunications.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To describe the latest communication for a case**
-
-The following `describe-communications` example returns the latest communication for the specified support case in your AWS account.
-
+aws support describe-communications \
+    --case-id {{"case-12345678910-2013-c4c1d2bf33c5cf47"}} \
+    --after-time {{"2020-03-23T21:31:47.774Z"}} \
+    --max-item {{1}}
 ```
-`aws support describe-communications \
- --case-id `"case-12345678910-2013-c4c1d2bf33c5cf47"` \
- --after-time `"2020-03-23T21:31:47.774Z"` \
- --max-item `1``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -85,22 +72,14 @@ Output:
     "NextToken": "eyJuZXh0VG9rZW4iOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQEXAMPLE=="
 }
 ```
+For more information, see [Case management](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) in the *AWS Support User Guide*.  
++  For API details, see [DescribeCommunications](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-communications.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Case management](case-management.md "case-management.md") in the _AWS Support User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeCommunications](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-communications.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-communications.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
 ```
     public static String listCommunications(SupportClient supportClient, String caseId) {
@@ -130,23 +109,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return "";
     }
-
-
 ```
++  For API details, see [DescribeCommunications](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeCommunications) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeCommunications](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeCommunications.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeCommunications.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
 
 ```
 import { DescribeCommunicationsCommand } from "@aws-sdk/client-support";
@@ -172,23 +142,14 @@ export const main = async () => {
     console.error(err);
   }
 };
-
-
 ```
++  For API details, see [DescribeCommunications](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeCommunications](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
 ```
 suspend fun listCommunications(caseIdVal: String?): String? {
@@ -209,65 +170,43 @@ suspend fun listCommunications(caseIdVal: String?): String? {
     }
     return ""
 }
-
-
 ```
++  For API details, see [DescribeCommunications](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeCommunications](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns all communications for the specified case.**
+**Tools for PowerShell V4**  
+**Example 1: Returns all communications for the specified case.**  
 
 ```
 Get-ASACommunication -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47"
-
 ```
-
-**Example 2: Returns all communications since midnight UTC on January 1st 2012 for the specified case.**
+**Example 2: Returns all communications since midnight UTC on January 1st 2012 for the specified case.**  
 
 ```
 Get-ASACommunication -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -AfterTime "2012-01-10T00:00Z"
-
 ```
++  For API details, see [DescribeCommunications](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeCommunications](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns all communications for the specified case.**
+**Tools for PowerShell V5**  
+**Example 1: Returns all communications for the specified case.**  
 
 ```
 Get-ASACommunication -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47"
-
 ```
-
-**Example 2: Returns all communications since midnight UTC on January 1st 2012 for the specified case.**
+**Example 2: Returns all communications since midnight UTC on January 1st 2012 for the specified case.**  
 
 ```
 Get-ASACommunication -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -AfterTime "2012-01-10T00:00Z"
-
 ```
++  For API details, see [DescribeCommunications](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeCommunications](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
 ```
 class SupportWrapper:
@@ -316,15 +255,9 @@ class SupportWrapper:
                 raise
         else:
             return communications
-
-
-
 ```
++  For API details, see [DescribeCommunications](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeCommunications) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeCommunications](../../../goto/boto3/support-2013-04-15/DescribeCommunications.md "../../../goto/boto3/support-2013-04-15/DescribeCommunications.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Support with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

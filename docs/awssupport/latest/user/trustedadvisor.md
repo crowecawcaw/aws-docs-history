@@ -1,25 +1,21 @@
+
+
 # Using Trusted Advisor as a web service
+<a name="trustedadvisor"></a>
 
-The AWS Support service enables you to write applications that interact with [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/ "https://aws.amazon.com/premiumsupport/trustedadvisor/"). This topic shows you how to get a
-list of Trusted Advisor checks, refresh one of them, and then get the detailed results from the
-check. These tasks are demonstrated in Java. For information about support for other
-languages, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
+The AWS Support service enables you to write applications that interact with [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/). This topic shows you how to get a list of Trusted Advisor checks, refresh one of them, and then get the detailed results from the check. These tasks are demonstrated in Java. For information about support for other languages, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
 
-###### Topics
-
-- [Get the list of available Trusted Advisor checks](#Get_TA_Checks "#Get_TA_Checks")
-- [Refresh the list of available Trusted Advisor checks](#Request_TA_Data "#Request_TA_Data")
-- [Poll a Trusted Advisor check for status changes](#getcheckstatus "#getcheckstatus")
-- [Request a Trusted Advisor check result](#requestcheck "#requestcheck")
-- [Show details of a Trusted Advisor check](#printdetails "#printdetails")
+**Topics**
++ [Get the list of available Trusted Advisor checks](#Get_TA_Checks)
++ [Refresh the list of available Trusted Advisor checks](#Request_TA_Data)
++ [Poll a Trusted Advisor check for status changes](#getcheckstatus)
++ [Request a Trusted Advisor check result](#requestcheck)
++ [Show details of a Trusted Advisor check](#printdetails)
 
 ## Get the list of available Trusted Advisor checks
+<a name="Get_TA_Checks"></a>
 
-The following Java code snippet creates an instance of an Support client that you can
-use to call all Trusted Advisor API operations. Next, the code gets the list of Trusted Advisor checks
-and their corresponding `CheckId` values by calling the [DescribeTrustedAdvisorChecks](../APIReference/API_DescribeTrustedAdvisorChecks.md "../APIReference/API_DescribeTrustedAdvisorChecks.md") API operation. You can use this information to
-build user interfaces that enable users to select the check they want to run or
-refresh.
+The following Java code snippet creates an instance of an Support client that you can use to call all Trusted Advisor API operations. Next, the code gets the list of Trusted Advisor checks and their corresponding `CheckId` values by calling the [DescribeTrustedAdvisorChecks](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html) API operation. You can use this information to build user interfaces that enable users to select the check they want to run or refresh.
 
 ```
 private static AWSSupport createClient()
@@ -37,13 +33,12 @@ public static void getTAChecks() {
         System.out.println(description.getName());
     }
 }
-
 ```
 
 ## Refresh the list of available Trusted Advisor checks
+<a name="Request_TA_Data"></a>
 
-The following Java code snippet creates an instance of an Support client that you can
-use to refresh Trusted Advisor data.
+The following Java code snippet creates an instance of an Support client that you can use to refresh Trusted Advisor data.
 
 ```
 // Refresh a Trusted Advisor Check
@@ -59,33 +54,21 @@ public static void refreshTACheck(final String checkId) {
 ```
 
 ## Poll a Trusted Advisor check for status changes
+<a name="getcheckstatus"></a>
 
-After you submit the request to run a Trusted Advisor check to generate the latest status
-data, you use the [DescribeTrustedAdvisorCheckRefreshStatuses](../APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.md "../APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.md") API operation to request the
-progress of the check's run, and when new data is ready for the check.
+After you submit the request to run a Trusted Advisor check to generate the latest status data, you use the [DescribeTrustedAdvisorCheckRefreshStatuses](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html) API operation to request the progress of the check's run, and when new data is ready for the check. 
 
-The following Java code snippet gets the status of the check requested in the
-following section, using the value corresponding in the `CheckId` variable.
-In addition, the code demonstrates several other uses of the Trusted Advisor service:
+The following Java code snippet gets the status of the check requested in the following section, using the value corresponding in the `CheckId` variable. In addition, the code demonstrates several other uses of the Trusted Advisor service:
 
-1. You can call `getMillisUntilNextRefreshable` by traversing the
-   objects contained in the
-   `DescribeTrustedAdvisorCheckRefreshStatusesResult` instance. You
-   can use the value returned to test whether you want your code to proceed with
-   refreshing the check.
-2. If `timeUntilRefreshable` equals zero, you can request a refresh of
-   the check.
-3. Using the status returned, you can continue to poll for status changes; the
-   code snippet sets the polling interval to a recommended ten seconds. If the
-   status is either `enqueued` or `in_progress`, the loop
-   returns and requests another status. If the call returns
-   `successful`, the loop terminates.
-4. Finally, the code returns an instance of a
-   `DescribeTrustedAdvisorCheckResultResult` data type that you can
-   use to traverse the information produced by the check.
+1. You can call `getMillisUntilNextRefreshable` by traversing the objects contained in the `DescribeTrustedAdvisorCheckRefreshStatusesResult` instance. You can use the value returned to test whether you want your code to proceed with refreshing the check.
 
-**Note:** Use a single refresh request before polling for
-the status of the request.
+1. If `timeUntilRefreshable` equals zero, you can request a refresh of the check.
+
+1. Using the status returned, you can continue to poll for status changes; the code snippet sets the polling interval to a recommended ten seconds. If the status is either `enqueued` or `in_progress`, the loop returns and requests another status. If the call returns `successful`, the loop terminates.
+
+1. Finally, the code returns an instance of a `DescribeTrustedAdvisorCheckResultResult` data type that you can use to traverse the information produced by the check.
+
+**Note:** Use a single refresh request before polling for the status of the request.
 
 ```
 // Retrieves TA refresh statuses. Multiple checkId's can be submitted.
@@ -138,27 +121,14 @@ public static void pollForTACheckResultChanges(final String checkId) throws Inte
 ```
 
 ## Request a Trusted Advisor check result
+<a name="requestcheck"></a>
 
-After you select the check for the detailed results that you want, you submit a
-request by using the [DescribeTrustedAdvisorCheckResult](../APIReference/API_DescribeTrustedAdvisorCheckResult.md "../APIReference/API_DescribeTrustedAdvisorCheckResult.md") API operation.
+After you select the check for the detailed results that you want, you submit a request by using the [DescribeTrustedAdvisorCheckResult](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html) API operation.
 
-###### Tip
+**Tip**  
+The names and descriptions for Trusted Advisor checks are subject to change. We recommend that you specify the check ID in your code to uniquely identify a check. You can use the [DescribeTrustedAdvisorChecks](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html) API operation to get the check ID.
 
-The names and descriptions for Trusted Advisor checks are subject to change. We recommend
-that you specify the check ID in your code to uniquely identify a check. You can use
-the [DescribeTrustedAdvisorChecks](../APIReference/API_DescribeTrustedAdvisorChecks.md "../APIReference/API_DescribeTrustedAdvisorChecks.md") API operation to get the check ID.
-
-The following Java code snippet uses the
-`DescribeTrustedAdvisorChecksResult` instance referenced by the variable
-`result`, which was obtained in the preceding code snippet. Rather than
-defining a check interactively through a user interface, After you submit the request to
-run the snippet submits a request for the first check in the list to be run by
-specifying an index value of 0 in each `result.getChecks().get(0)` call.
-Next, the code defines an instance of
-`DescribeTrustedAdvisorCheckResultRequest`, which it passes to an
-instance of `DescribeTrustedAdvisorCheckResultResult` called
-`checkResult`. You can use the member structures of this data type to
-view the results of the check.
+The following Java code snippet uses the `DescribeTrustedAdvisorChecksResult` instance referenced by the variable `result`, which was obtained in the preceding code snippet. Rather than defining a check interactively through a user interface, After you submit the request to run the snippet submits a request for the first check in the list to be run by specifying an index value of 0 in each `result.getChecks().get(0)` call. Next, the code defines an instance of `DescribeTrustedAdvisorCheckResultRequest`, which it passes to an instance of `DescribeTrustedAdvisorCheckResultResult` called `checkResult`. You can use the member structures of this data type to view the results of the check.
 
 ```
 // Request a Trusted Advisor Check Result
@@ -172,14 +142,12 @@ public static TrustedAdvisorCheckResult getTACheckResult(final String checkId) {
 }
 ```
 
-**Note:** Requesting a Trusted Advisor Check Result doesn't
-generate updated results data.
+**Note:** Requesting a Trusted Advisor Check Result doesn't generate updated results data.
 
 ## Show details of a Trusted Advisor check
+<a name="printdetails"></a>
 
-The following Java code snippet iterates over the
-`DescribeTrustedAdvisorCheckResultResult` instance returned in the
-previous section to get a list of resources flagged by the Trusted Advisor check.
+The following Java code snippet iterates over the `DescribeTrustedAdvisorCheckResultResult` instance returned in the previous section to get a list of resources flagged by the Trusted Advisor check.
 
 ```
 // Show ResourceIds for flagged resources.

@@ -1,19 +1,17 @@
+
+
 # Hello Support
+<a name="example_support_Hello_section"></a>
 
 The following code examples show how to get started using Support.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
 ```
-
 using Amazon.AWSSupport;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,23 +36,14 @@ public static class HelloSupport
         Console.WriteLine($"\tHello AWS Support! There are {response.Services.Count} services available.");
     }
 }
-
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeServices) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeServices](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeServices.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeServices.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -131,25 +120,15 @@ public class HelloSupport {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeServices) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeServices](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeServices.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeServices.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples").
-
-Invoke `main()` to run the example.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
+Invoke `main()` to run the example.  
 
 ```
 import {
@@ -182,26 +161,16 @@ export const main = async () => {
     console.error("Failed to get service count: ", err.message);
   }
 };
+```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeServices](../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples").
-
-```
-
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -249,24 +218,14 @@ suspend fun displaySomeServices() {
         }
     }
 }
-
-
-
 ```
++  For API details, see [DescribeServices](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeServices](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
 ```
 import logging
@@ -307,14 +266,9 @@ def hello_support(support_client):
 
 if __name__ == "__main__":
     hello_support(boto3.client("support"))
-
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeServices) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeServices](../../../goto/boto3/support-2013-04-15/DescribeServices.md "../../../goto/boto3/support-2013-04-15/DescribeServices.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Support with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,22 +1,22 @@
+
+
 # Use `DescribeTrustedAdvisorChecks` with a CLI
+<a name="example_support_DescribeTrustedAdvisorChecks_section"></a>
 
 The following code examples show how to use `DescribeTrustedAdvisorChecks`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list the available AWS Trusted Advisor checks**
-
-The following `describe-trusted-advisor-checks` example lists the available Trusted Advisor checks in your AWS account. This information includes the check name, ID, description, category, and metadata. Note that the output is shortened for readability.
-
-```
-`aws support describe-trusted-advisor-checks \
- --language `"en"``
+**AWS CLI**  
+**To list the available AWS Trusted Advisor checks**  
+The following `describe-trusted-advisor-checks` example lists the available Trusted Advisor checks in your AWS account. This information includes the check name, ID, description, category, and metadata. Note that the output is shortened for readability.  
 
 ```
-
-Output:
+aws support describe-trusted-advisor-checks \
+    --language {{"en"}}
+```
+Output:  
 
 ```
 {
@@ -31,41 +31,28 @@ Output:
     ]
 }
 ```
+For more information, see [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html) in the *AWS Support User Guide*.  
++  For API details, see [DescribeTrustedAdvisorChecks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-trusted-advisor-checks.html) in *AWS CLI Command Reference*. 
 
-For more information, see [AWS Trusted Advisor](trusted-advisor.md "trusted-advisor.md") in the _AWS Support User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeTrustedAdvisorChecks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-trusted-advisor-checks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-trusted-advisor-checks.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the collection of Trusted Advisor checks. You must specify the Language parameter which can accept either "en" for English output or "ja" for Japanese output.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the collection of Trusted Advisor checks. You must specify the Language parameter which can accept either "en" for English output or "ja" for Japanese output.**  
 
 ```
 Get-ASATrustedAdvisorCheck -Language "en"
-
 ```
++  For API details, see [DescribeTrustedAdvisorChecks](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeTrustedAdvisorChecks](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the collection of Trusted Advisor checks. You must specify the Language parameter which can accept either "en" for English output or "ja" for Japanese output.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the collection of Trusted Advisor checks. You must specify the Language parameter which can accept either "en" for English output or "ja" for Japanese output.**  
 
 ```
 Get-ASATrustedAdvisorCheck -Language "en"
-
 ```
++  For API details, see [DescribeTrustedAdvisorChecks](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeTrustedAdvisorChecks](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Support with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

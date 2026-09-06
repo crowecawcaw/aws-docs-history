@@ -1,71 +1,43 @@
+
+
 # Logging AWS Support Plans API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail-support-plans"></a>
 
-AWS Support Plans is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service. CloudTrail captures API calls for AWS Support Plans as events. The
-calls captured include calls from the AWS Support Plans console and code calls to the AWS Support Plans
-API operations.
+AWS Support Plans is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for AWS Support Plans as events. The calls captured include calls from the AWS Support Plans console and code calls to the AWS Support Plans API operations.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service
-(Amazon S3) bucket, including events for AWS Support Plans. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console in **Event history**.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for AWS Support Plans. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**.
 
-Using the information collected by CloudTrail, you can determine the request that was made to
-AWS Support Plans, the IP address from which the request was made, who made the request, when it was
-made, and additional details.
+Using the information collected by CloudTrail, you can determine the request that was made to AWS Support Plans, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## AWS Support Plans information in CloudTrail
+<a name="aws-support-plans-info-in-cloudtrail-history"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported event
-activity occurs in AWS Support Plans, that activity is recorded in a CloudTrail event along with other
-AWS service events in **Event history**. You can view, search, and download
-recent events in your account. For more information, see [Viewing events with CloudTrail event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in AWS Support Plans, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your account. For more information, see [Viewing events with CloudTrail event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your account, including events for AWS Support Plans,
-create a _trail_. A trail enables CloudTrail to deliver log files to an Amazon S3
-bucket. By default, when you create a trail in the console, the trail applies to all
-AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the
-log files to the Amazon S3 bucket that you specify. Additionally, you can configure other
-AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more
-information, see the following:
+For an ongoing record of events in your account, including events for AWS Support Plans, create a *trail*. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for
-  creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS
-  notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving
-  CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail
-  log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All AWS Support Plans API operations are logged by CloudTrail. Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-All AWS Support Plans API operations are logged by CloudTrail. Every event or log entry contains
-information about who generated the request. The identity information helps you determine the
-following:
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or federated
-  user.
-- Whether the request was made by another AWS service.
-  For more information, see the [CloudTrail userIdentity
-  element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
-
-You can also aggregate AWS Support Plans log files from multiple AWS Regions and multiple
-accounts into a single Amazon S3 bucket.
+You can also aggregate AWS Support Plans log files from multiple AWS Regions and multiple accounts into a single Amazon S3 bucket.
 
 ## Understanding AWS Support Plans log file entries
+<a name="understanding-aws-support-plans-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source. It includes information about the requested operation, the date and
-time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack
-trace of the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source. It includes information about the requested operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-###### Example: Log entry for `GetSupportPlan`
-
-The following example shows a CloudTrail log entry for the `GetSupportPlan`
-operation.
+**Example : Log entry for `GetSupportPlan`**  
+The following example shows a CloudTrail log entry for the `GetSupportPlan` operation.  
 
 ```
 {
@@ -109,10 +81,8 @@ operation.
 }
 ```
 
-###### Example: Log entry for `GetSupportPlanUpdateStatus`
-
-The following example shows a CloudTrail log entry for the
-`GetSupportPlanUpdateStatus` operation.
+**Example : Log entry for `GetSupportPlanUpdateStatus`**  
+The following example shows a CloudTrail log entry for the `GetSupportPlanUpdateStatus` operation.  
 
 ```
 {
@@ -158,10 +128,8 @@ The following example shows a CloudTrail log entry for the
 }
 ```
 
-###### Example: Log entry for `StartSupportPlanUpdate`
-
-The following example shows a CloudTrail log entry for the `StartSupportPlanUpdate`
-operation.
+**Example : Log entry for `StartSupportPlanUpdate`**  
+The following example shows a CloudTrail log entry for the `StartSupportPlanUpdate` operation.  
 
 ```
 {
@@ -213,10 +181,8 @@ operation.
 }
 ```
 
-###### Example: Log entry for `CreateSupportPlanSchedule`
-
-The following example shows a CloudTrail log entry for the `CreateSupportPlanSchedule`
-operation.
+**Example : Log entry for `CreateSupportPlanSchedule`**  
+The following example shows a CloudTrail log entry for the `CreateSupportPlanSchedule` operation.  
 
 ```
 {
@@ -273,10 +239,10 @@ operation.
 }
 ```
 
-###### Example: Log entry for `ListSupportPlanModifiers`
 
-The following example shows a CloudTrail log entry for the
-`ListSupportPlanModifiers` operation.
+
+**Example : Log entry for `ListSupportPlanModifiers`**  
+The following example shows a CloudTrail log entry for the `ListSupportPlanModifiers` operation.  
 
 ```
 {
@@ -320,33 +286,19 @@ The following example shows a CloudTrail log entry for the
 ```
 
 ## Logging changes to your Support plan
+<a name="support-plan-cloudtrail-logging"></a>
 
-###### Important
+**Important**  
+As of August 3, 2022, the following operations are deprecated and won't appear in your new CloudTrail logs. For a list of supported operations, see [Understanding AWS Support Plans log file entries](#understanding-aws-support-plans-entries).
++ `DescribeSupportLevelSummary` – This action appears in your log when you open the [Support plans](https://console.aws.amazon.com/support/plans/home) page.
++ `UpdateProbationAutoCancellation` – After you sign up for Developer Support or Business Support and then try to cancel within 30 days, your plan will be automatically canceled at the end of that period. This action appears in your log when you choose **Opt-out of automatic cancellation** in the banner that appears on the [Support plans](https://console.aws.amazon.com/support/plans/home) page. You will resume your plan for Developer Support or Business Support. 
++ `UpdateSupportLevel` – This action appears in your log when you change your support plan.
 
-As of August 3, 2022, the following operations are deprecated and won't appear in your
-new CloudTrail logs. For a list of supported operations, see [Understanding AWS Support Plans log file entries](#understanding-aws-support-plans-entries "#understanding-aws-support-plans-entries").
+**Note**  
+The `eventSource` field has the `support-subscription.amazonaws.com` namespace for these actions.
 
-- `DescribeSupportLevelSummary` – This action appears in your log when
-  you open the [Support plans](https://console.aws.amazon.com/support/plans/home "https://console.aws.amazon.com/support/plans/home")
-  page.
-- `UpdateProbationAutoCancellation` – After you sign up for Developer
-  Support or Business Support and then try to cancel within 30 days, your plan will be
-  automatically canceled at the end of that period. This action appears in your log when you
-  choose **Opt-out of automatic cancellation** in the banner that appears
-  on the [Support plans](https://console.aws.amazon.com/support/plans/home "https://console.aws.amazon.com/support/plans/home") page. You will
-  resume your plan for Developer Support or Business Support.
-- `UpdateSupportLevel` – This action appears in your log when you
-  change your support plan.
-
-###### Note
-
-The `eventSource` field has the
-`support-subscription.amazonaws.com` namespace for these actions.
-
-###### Example: Log entry for DescribeSupportLevelSummary
-
-The following example shows a CloudTrail log entry for the
-`DescribeSupportLevelSummary` action.
+**Example : Log entry for DescribeSupportLevelSummary**  
+The following example shows a CloudTrail log entry for the `DescribeSupportLevelSummary` action.  
 
 ```
 {
@@ -386,10 +338,8 @@ The following example shows a CloudTrail log entry for the
 }
 ```
 
-###### Example: Log entry for UpdateProbationAutoCancellation
-
-The following example shows a CloudTrail log entry for the
-`UpdateProbationAutoCancellation` action.
+**Example : Log entry for UpdateProbationAutoCancellation**  
+The following example shows a CloudTrail log entry for the `UpdateProbationAutoCancellation` action.  
 
 ```
 {
@@ -420,10 +370,8 @@ The following example shows a CloudTrail log entry for the
 }
 ```
 
-###### Example: Log entry for UpdateSupportLevel
-
-The following example shows a CloudTrail log entry for the `UpdateSupportLevel`
-action to change to Developer Support.
+**Example : Log entry for UpdateSupportLevel**  
+The following example shows a CloudTrail log entry for the `UpdateSupportLevel` action to change to Developer Support.  
 
 ```
 {

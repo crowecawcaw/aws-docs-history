@@ -1,25 +1,21 @@
+
+
 # Use `DescribeServices` with an AWS SDK or CLI
+<a name="example_support_DescribeServices_section"></a>
 
 The following code examples show how to use `DescribeServices`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md) 
++  [Getting started with technical support](example_support_GettingStarted_062_section.md) 
 
-- [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md "example_support_Scenario_GetStartedSupportCases_section.md")
-- [Getting started with technical support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
 ```
-
     /// <summary>
     /// Get the descriptions of AWS services.
     /// </summary>
@@ -35,30 +31,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.Services;
     }
+```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/goto/DotNetSDKV3/support-2013-04-15/DescribeServices) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list AWS services and service categories**  
+The following `describe-services` example lists the available service categories for requesting general information.  
 
 ```
-
-- For API details, see
-  [DescribeServices](../../../goto/DotNetSDKV3/support-2013-04-15/DescribeServices.md "../../../goto/DotNetSDKV3/support-2013-04-15/DescribeServices.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list AWS services and service categories**
-
-The following `describe-services` example lists the available service categories for requesting general information.
-
+aws support describe-services \
+    --service-code-list {{"general-info"}}
 ```
-`aws support describe-services \
- --service-code-list `"general-info"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -104,22 +91,14 @@ Output:
     ]
 }
 ```
+For more information, see [Case management](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) in the *AWS Support User Guide*.  
++  For API details, see [DescribeServices](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-services.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Case management](case-management.md "case-management.md") in the _AWS Support User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeServices](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-services.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/support/describe-services.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
 ```
     // Return a List that contains a Service name and Category name.
@@ -166,23 +145,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return null;
     }
-
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/goto/SdkForJavaV2/support-2013-04-15/DescribeServices) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeServices](../../../goto/SdkForJavaV2/support-2013-04-15/DescribeServices.md "../../../goto/SdkForJavaV2/support-2013-04-15/DescribeServices.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
 ```
 // Return a List that contains a Service name and Category name.
@@ -226,93 +196,63 @@ suspend fun displayServices(): List<String> {
     catName.let { sevCatList.add(it) }
     return sevCatList
 }
-
-
 ```
++  For API details, see [DescribeServices](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeServices](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns all available service codes, names and categories.**
+**Tools for PowerShell V4**  
+**Example 1: Returns all available service codes, names and categories.**  
 
 ```
 Get-ASAService
-
 ```
-
-**Example 2: Returns the name and categories for the service with the specified code.**
+**Example 2: Returns the name and categories for the service with the specified code.**  
 
 ```
 Get-ASAService -ServiceCodeList "amazon-cloudfront"
-
 ```
-
-**Example 3: Returns the name and categories for the specified service codes.**
+**Example 3: Returns the name and categories for the specified service codes.**  
 
 ```
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch")
-
 ```
-
-**Example 4: Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.**
+**Example 4: Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.**  
 
 ```
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Language "ja"
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeServices](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns all available service codes, names and categories.**
+**Tools for PowerShell V5**  
+**Example 1: Returns all available service codes, names and categories.**  
 
 ```
 Get-ASAService
-
 ```
-
-**Example 2: Returns the name and categories for the service with the specified code.**
+**Example 2: Returns the name and categories for the service with the specified code.**  
 
 ```
 Get-ASAService -ServiceCodeList "amazon-cloudfront"
-
 ```
-
-**Example 3: Returns the name and categories for the specified service codes.**
+**Example 3: Returns the name and categories for the specified service codes.**  
 
 ```
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch")
-
 ```
-
-**Example 4: Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.**
+**Example 4: Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.**  
 
 ```
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Language "ja"
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeServices](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
 ```
 class SupportWrapper:
@@ -361,15 +301,9 @@ class SupportWrapper:
                 raise
         else:
             return services
-
-
-
 ```
++  For API details, see [DescribeServices](https://docs.aws.amazon.com/goto/boto3/support-2013-04-15/DescribeServices) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeServices](../../../goto/boto3/support-2013-04-15/DescribeServices.md "../../../goto/boto3/support-2013-04-15/DescribeServices.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Support with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,162 +1,128 @@
-# Manage access to AWS Support Center
 
-You must have permissions to access Support Center and to [create a support case](create-support-case-from-interaction.md "create-support-case-from-interaction.md").
+
+# Manage access to AWS Support Center
+<a name="accessing-support"></a>
+
+You must have permissions to access Support Center and to [create a support case](create-support-case-from-interaction.md).
 
 You can use one of the following options to access Support Center:
++ Use AWS Identity and Access Management (IAM). 
++ Use the email address and password associated with your AWS account. This identity is called the AWS account *root user* (not recommended).
 
-- Use AWS Identity and Access Management (IAM).
-- Use the email address and password associated with your AWS account. This
-  identity is called the AWS account _root user_ (not recommended).
-  If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can also use the [Support API](about-support-api.md "about-support-api.md") to access Support and Trusted Advisor operations
-  programmatically. For more information, see the [AWS Support API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+If you have a AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan, you can also use the [Support API](about-support-api.md) to access Support and Trusted Advisor operations programmatically. For more information, see the [AWS Support API Reference](https://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html).
 
-###### Note
 
-If you can't sign in to Support Center, you can use the [Contact Us](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") page instead. You can use this page to get help
-with billing and account issues.
 
-For information about the Support Center Console API operations and how to add them to your IAM policies, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md "support-console-access-control.md").
+**Note**  
+If you can't sign in to Support Center, you can use the [Contact Us](https://aws.amazon.com/contact-us/) page instead. You can use this page to get help with billing and account issues.
+
+For information about the Support Center Console API operations and how to add them to your IAM policies, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md).
 
 ## AWS account (not recommended)
+<a name="root-account"></a>
 
-You can sign in to the AWS Management Console and access the Support Center by using your AWS account
-email address and password. This identity is called the AWS account
-_root user_. However, we strongly recommend that you don't use the
-root user for your everyday tasks, even the administrative ones. Instead, we recommend that
-you use IAM, which lets you control who can perform certain tasks in your account.
+ You can sign in to the AWS Management Console and access the Support Center by using your AWS account email address and password. This identity is called the AWS account *root user*. However, we strongly recommend that you don't use the root user for your everyday tasks, even the administrative ones. Instead, we recommend that you use IAM, which lets you control who can perform certain tasks in your account. 
 
 ## AWS support actions
+<a name="w2ab1c27c26c25c19"></a>
 
-You can perform the following Support actions in the console. You can also specify
-these Support actions in an IAM policy to allow or deny specific actions.
+You can perform the following Support actions in the console. You can also specify these Support actions in an IAM policy to allow or deny specific actions. 
 
-###### Note
+**Note**  
+Denying any of the following actions in your IAM policies, might result in unintended behavior in Support Center when creating or interacting with a support case.
 
-Denying any of the following actions in your IAM policies, might result in unintended
-behavior in Support Center when creating or interacting with a support case.
 
-| Action                                       | Description                                                                                                                                                                                                                                                                                                |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AddAttachmentsToSet`                        | Grants permission to add one or more attachments to an attachment set.<br>An attachment set is a temporary container for attachments that you add to a case or case communication.<br>The set is available for 1 hour after it's created. The expiryTime returned in the response is when the set expires. |
-| `AddCommunicationToCase`                     | Grants permission to add additional customer communication to an Support case,<br>including a set of email addresses to copy on the communication.                                                                                                                                                         |
-| `CreateCase`                                 | Grants permission to create a case.                                                                                                                                                                                                                                                                        |
-| `DescribeAttachment`                         | Grants permission to retrieve an attachment on a case.                                                                                                                                                                                                                                                     |
-| `DescribeCaseAttributes`                     | Grants permission to allow secondary services to read<br>Support case attributes. **\*This is used internally by Support Center<br>to get attributes tagged on your case.**                                                                                                                                |
-| `DescribeCases`                              | Grants permission to return a list of Support cases that matches a case ID or case IDs.                                                                                                                                                                                                                    |
-| `DescribeCommunication`                      | Grants permission to get a single communication and attachments for a single AWS Support case.                                                                                                                                                                                                             |
-| `DescribeCommunications`                     | Grants permission to return communications and attachments for one or more Support cases.                                                                                                                                                                                                                  |
-| `DescribeCreateCaseOptions`                  | Grants permission to return a list of CreateCaseOption types along with the corresponding supported hours and language availability.                                                                                                                                                                       |
-| `DescribeIssueTypes`                         | Grants permission to return issue types for Support cases.<br>This is used internally by Support Center to get available issue types for your account.                                                                                                                                                     |
-| `DescribeServices`                           | Grants permission to return the current list of AWS services and a list of service categories for each service.<br>You then use service names and categories to create a case.<br>Each AWS service has its own set of categories.                                                                          |
-| `DescribeSeverityLevels`                     | Grants permission to return the list of severity levels that you can assign to a Support case.                                                                                                                                                                                                             |
-| `DescribeSupportedLanguages`                 | Grants permission to return a list of supported languages for a specified categoryCode, issueType and serviceCode.                                                                                                                                                                                         |
-| `DescribeSupportLevel`                       | Grants permission to return the support level for an AWS account identifier.<br>This is used internally by Support Center to identify your support level.                                                                                                                                                  |
-| `DescribeTrustedAdvisorCheckRefreshStatuses` | Grants permission to return the refresh status of the AWS Trusted Advisor checks that have the specified check IDs.                                                                                                                                                                                        |
-| `DescribeTrustedAdvisorCheckResult`          | Grants permission to return the results of the AWS Trusted Advisor check that has the specified check ID.                                                                                                                                                                                                  |
-| `DescribeTrustedAdvisorChecks`               | Grants permission to return information about all available AWS Trusted Advisor checks, including the name, ID, category, description, and metadata.                                                                                                                                                       |
-| `DescribeTrustedAdvisorCheckSummaries`       | Grants permission to return the results for the AWS Trusted Advisor check summaries for the check IDs that you specified.                                                                                                                                                                                  |
-| `GetInteraction`                             | Grants permission to retrieve details about a specific interaction by its unique identifier.<br>This is used internally by Support Center to retrieve personalized recommendations.                                                                                                                        |
-| `InitiateCallForCase`                        | Grants permission to initiate a call on Support Center.<br>This is used internally by Support Center to start a call on your behalf.                                                                                                                                                                       |
-| `ListInteractionEntries`                     | Grants permission to retrieve a list of entries within a specific interaction, including messages, status updates, or other relevant data points.<br>This is used internally by Support Center to track the detailed trail of an interaction.                                                              |
-| `ListInteractions`                           | Grants permission to retrieve a list of interactions, potentially with filters or pagination.<br>This is used internally by Support Center to manage and overview multiple interactions.                                                                                                                   |
-| `InitiateChatForCase`                        | Grants permission to initiate a chat on Support Center.<br>This is used internally by Support Center to start a chat on your behalf.                                                                                                                                                                       |
-| `PutCaseAttributes`                          | Grants permission to allow secondary services to attach attributes to Support cases.<br>This is used internally by Support Center to add operational tags to your Support cases.                                                                                                                           |
-| `RateCaseCommunication`                      | Grants permission to rate a Support case communication.                                                                                                                                                                                                                                                    |
-| `RefreshTrustedAdvisorCheck`                 | Grants permission to refresh the AWS Trusted Advisor check that you specify using the check ID.                                                                                                                                                                                                            |
-| `ResolveCase`                                | Grants permission to resolve a Support case.                                                                                                                                                                                                                                                               |
-| `ResolveInteraction`                         | Grants permission to mark an interaction as resolved using its unique identifier, indicating that the issue has been fully addressed and requires no further action.<br>Once resolved, the interaction's status is set to CLOSED and becomes accessible to all users within the same account.              |
-| `SearchForCases`                             | Grants permission to return a list of Support cases that matches the given inputs.<br>This is used internally by Support Center to find searched cases.                                                                                                                                                    |
-| `StartInteraction`                           | Grants permission to initiate a new interaction to receive personalized troubleshooting assistance for account and technical issues.<br>This is used internally by Support Center to initiate the troubleshooting process.                                                                                 |
-| `UpdateInteraction`                          | Grants permission to update a specific interaction by its unique identifier with another message.<br>This is used internally by Support Center to update the troubleshooting process.                                                                                                                      |
+| Action | Description | 
+| --- | --- | 
+| `AddAttachmentsToSet` | Grants permission to add one or more attachments to an attachment set. An attachment set is a temporary container for attachments that you add to a case or case communication. The set is available for 1 hour after it's created. The expiryTime returned in the response is when the set expires. | 
+| `AddCommunicationToCase` | Grants permission to add additional customer communication to an Support case, including a set of email addresses to copy on the communication. | 
+| `CreateCase` | Grants permission to create a case. | 
+| `DescribeAttachment` | Grants permission to retrieve an attachment on a case. | 
+| `DescribeCaseAttributes` | Grants permission to allow secondary services to read Support case attributes. **\*This is used internally by Support Center to get attributes tagged on your case.** | 
+| `DescribeCases` | Grants permission to return a list of Support cases that matches a case ID or case IDs. | 
+| `DescribeCommunication` | Grants permission to get a single communication and attachments for a single AWS Support case. | 
+| `DescribeCommunications` | Grants permission to return communications and attachments for one or more Support cases. | 
+| `DescribeCreateCaseOptions` | Grants permission to return a list of CreateCaseOption types along with the corresponding supported hours and language availability. | 
+| `DescribeIssueTypes` | Grants permission to return issue types for Support cases. This is used internally by Support Center to get available issue types for your account. | 
+| `DescribeServices` | Grants permission to return the current list of AWS services and a list of service categories for each service. You then use service names and categories to create a case. Each AWS service has its own set of categories. | 
+| `DescribeSeverityLevels` | Grants permission to return the list of severity levels that you can assign to a Support case. | 
+| `DescribeSupportedLanguages` | Grants permission to return a list of supported languages for a specified categoryCode, issueType and serviceCode. | 
+| `DescribeSupportLevel` | Grants permission to return the support level for an AWS account identifier. This is used internally by Support Center to identify your support level. | 
+| `DescribeTrustedAdvisorCheckRefreshStatuses` | Grants permission to return the refresh status of the AWS Trusted Advisor checks that have the specified check IDs. | 
+| `DescribeTrustedAdvisorCheckResult` | Grants permission to return the results of the AWS Trusted Advisor check that has the specified check ID. | 
+| `DescribeTrustedAdvisorChecks` | Grants permission to return information about all available AWS Trusted Advisor checks, including the name, ID, category, description, and metadata. | 
+| `DescribeTrustedAdvisorCheckSummaries` | Grants permission to return the results for the AWS Trusted Advisor check summaries for the check IDs that you specified. | 
+|  `GetInteraction`  | Grants permission to retrieve details about a specific interaction by its unique identifier. This is used internally by Support Center to retrieve personalized recommendations. | 
+| `InitiateCallForCase` | Grants permission to initiate a call on Support Center. This is used internally by Support Center to start a call on your behalf. | 
+|  `ListInteractionEntries`  | Grants permission to retrieve a list of entries within a specific interaction, including messages, status updates, or other relevant data points. This is used internally by Support Center to track the detailed trail of an interaction. | 
+|  `ListInteractions`  | Grants permission to retrieve a list of interactions, potentially with filters or pagination. This is used internally by Support Center to manage and overview multiple interactions. | 
+| `InitiateChatForCase` | Grants permission to initiate a chat on Support Center. This is used internally by Support Center to start a chat on your behalf. | 
+|  `PutCaseAttributes`  | Grants permission to allow secondary services to attach attributes to Support cases. This is used internally by Support Center to add operational tags to your Support cases. | 
+| `RateCaseCommunication` | Grants permission to rate a Support case communication. | 
+| `RefreshTrustedAdvisorCheck` | Grants permission to refresh the AWS Trusted Advisor check that you specify using the check ID. | 
+| `ResolveCase` | Grants permission to resolve a Support case. | 
+|  `ResolveInteraction`  | Grants permission to mark an interaction as resolved using its unique identifier, indicating that the issue has been fully addressed and requires no further action. Once resolved, the interaction's status is set to CLOSED and becomes accessible to all users within the same account. | 
+|  `SearchForCases`  | Grants permission to return a list of Support cases that matches the given inputs. This is used internally by Support Center to find searched cases. | 
+|  `StartInteraction`  | Grants permission to initiate a new interaction to receive personalized troubleshooting assistance for account and technical issues. This is used internally by Support Center to initiate the troubleshooting process. | 
+|  `UpdateInteraction`  | Grants permission to update a specific interaction by its unique identifier with another message. This is used internally by Support Center to update the troubleshooting process. | 
 
 ## IAM
+<a name="iam"></a>
 
-By default, IAM users can't access the Support Center. You can use IAM to create individual
-users or groups. Then, you attach IAM policies to these entities, so that they have
-permission to perform actions and access resources, such as to open Support Center cases and use
-the Support API.
+By default, IAM users can't access the Support Center. You can use IAM to create individual users or groups. Then, you attach IAM policies to these entities, so that they have permission to perform actions and access resources, such as to open Support Center cases and use the Support API.
 
-After you create IAM users, you can give those users individual passwords and an
-account-specific sign-in page. They can then sign in to your AWS account and work in
-the Support Center. IAM users who have AWS Support access can see all cases that are created for
-the account.
+After you create IAM users, you can give those users individual passwords and an account-specific sign-in page. They can then sign in to your AWS account and work in the Support Center. IAM users who have AWS Support access can see all cases that are created for the account. 
 
-For more information, see [Sign in
-to the AWS Management Console as an IAM user](../../../IAM/latest/UserGuide/WhatUsersNeedToKnow.md "../../../IAM/latest/UserGuide/WhatUsersNeedToKnow.md") in the
-_IAM User Guide_.
+For more information, see [Sign in to the AWS Management Console as an IAM user ](https://docs.aws.amazon.com/IAM/latest/UserGuide/WhatUsersNeedToKnow.html) in the *IAM User Guide*.
 
-The easiest way to grant permissions is to attach the AWS managed policy [AWSSupportAccess](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess "https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess") to the user, group, or role. AWS Support
-allows action-level permissions to control access to specific AWS Support operations.
-AWS Support doesn't provide resource-level access, so the `Resource` element is
-always set to `*`. You can't allow or deny access to specific support cases.
+The easiest way to grant permissions is to attach the AWS managed policy [AWSSupportAccess](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess) to the user, group, or role. AWS Support allows action-level permissions to control access to specific AWS Support operations. AWS Support doesn't provide resource-level access, so the `Resource` element is always set to `*`. You can't allow or deny access to specific support cases. 
 
-###### Example: Allow access to all Support actions
-
-The AWS managed policy [AWSSupportAccess](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess "https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess") grants an IAM user access to Support. An
-IAM user with this policy can access all AWS Support operations and
-resources.
-
-JSON
+**Example : Allow access to all Support actions**  
+The AWS managed policy [AWSSupportAccess](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess) grants an IAM user access to Support. An IAM user with this policy can access all AWS Support operations and resources.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": ["support:*"],
- "Resource": "*"
- }
- ]
-}`
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": ["support:*"],
+            "Resource": "*"
+        }
+    ]
+}
+```
+For more information about how to attach the `AWSSupportAccess` policy to your entities, see [Adding IAM identity permissions (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policies-console) in the *IAM User Guide*.
+
+**Example : Allow access to all actions except the ResolveCase action**  
+You can also create *customer managed policies* in IAM to specify what actions to allow or deny. The following policy statement allows an IAM user to perform all actions in Support except resolve a case.    
+****  
 
 ```
-
-For more information about how to attach the `AWSSupportAccess` policy
-to your entities, see [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the
-_IAM User Guide_.
-
-###### Example: Allow access to all actions except the ResolveCase action
-
-You can also create _customer managed policies_ in IAM to
-specify what actions to allow or deny. The following policy statement allows an
-IAM user to perform all actions in Support except resolve a case.
-
-JSON
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+   {
+      "Effect": "Allow",
+      "Action": "support:*",
+      "Resource": "*"
+   },
+   {
+       "Effect": "Deny",
+       "Action": "support:ResolveCase",
+       "Resource": "*"
+    }]
+}
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "support:*",
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": "support:ResolveCase",
- "Resource": "*"
- }]
-}`
+For more information about how to create a customer managed IAM policy, see [Creating IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*.
 
-```
+If the user or group already has a policy, you can add the AWS Support-specific policy statement to that policy. 
 
-For more information about how to create a customer managed IAM policy, see
-[Creating IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
-_IAM User Guide_.
-
-If the user or group already has a policy, you can add the AWS Support-specific policy
-statement to that policy.
-
-###### Important
-
-- If you can't view cases in the Support Center, make sure that you have the required
-  permissions. You might need to contact your IAM administrator. For more
-  information, see [Identity and access management for AWS Support](security-iam.md "security-iam.md").
+**Important**  
+If you can't view cases in the Support Center, make sure that you have the required permissions. You might need to contact your IAM administrator. For more information, see [Identity and access management for AWS Support](security-iam.md).
 
 ## Access to AWS Trusted Advisor
+<a name="access-to-trusted-advisor"></a>
 
-In the AWS Management Console, a separate `trustedadvisor` IAM namespace controls
-access to Trusted Advisor. In the Support API, the `support` IAM namespace controls
-access to Trusted Advisor. For more information, see [Manage access to AWS Trusted Advisor](security-trusted-advisor.md "security-trusted-advisor.md").
+In the AWS Management Console, a separate `trustedadvisor` IAM namespace controls access to Trusted Advisor. In the Support API, the `support` IAM namespace controls access to Trusted Advisor. For more information, see [Manage access to AWS Trusted Advisor](security-trusted-advisor.md).

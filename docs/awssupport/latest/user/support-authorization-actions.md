@@ -1,15 +1,14 @@
-# Discovering support actions
 
-Support actions are service-specific operations that AWS Support can perform on your
-resources. Each action has a descriptive name and description that explains what the
-operation does. Actions use a namespaced format that identifies the AWS service and
-the specific operation. Use the `ListActions` API to view the actions
-available for a service before you create a scoped support permit.
+
+# Discovering support actions
+<a name="support-authorization-actions"></a>
+
+Support actions are service-specific operations that AWS Support can perform on your resources. Each action has a descriptive name and description that explains what the operation does. Actions use a namespaced format that identifies the AWS service and the specific operation. Use the `ListActions` API to view the actions available for a service before you create a scoped support permit.
 
 ## Listing actions for a service
+<a name="support-authorization-actions-list"></a>
 
-Use `ListActions` to view the actions available for a specific
-service. The `service` parameter is required.
+Use `ListActions` to view the actions available for a specific service. The `service` parameter is required.
 
 ```
 aws supportauthz list-actions \
@@ -35,11 +34,10 @@ aws supportauthz list-actions \
 }
 ```
 
-The response includes up to 100 results per page. Use the
-`nextToken` value in subsequent requests to retrieve additional
-pages.
+The response includes up to 100 results per page. Use the `nextToken` value in subsequent requests to retrieve additional pages.
 
 ## Getting action details
+<a name="support-authorization-actions-get"></a>
 
 Use `GetAction` to retrieve details about a specific action.
 
@@ -59,11 +57,9 @@ aws supportauthz get-action \
 ```
 
 ## Using actions in support permits
+<a name="support-authorization-actions-in-permits"></a>
 
-After you identify the available actions, use specific action names in your support
-permit to apply least-privilege scoping. Specify individual actions in the
-`actions` list rather than using `allActions` when you want
-to limit what AWS Support can do on your resources.
+After you identify the available actions, use specific action names in your support permit to apply least-privilege scoping. Specify individual actions in the `actions` list rather than using `allActions` when you want to limit what AWS Support can do on your resources.
 
 **Create a support permit with specific actions**
 

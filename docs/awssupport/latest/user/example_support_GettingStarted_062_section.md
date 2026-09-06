@@ -1,20 +1,18 @@
+
+
 # Getting started with technical support
+<a name="example_support_GettingStarted_062_section"></a>
 
 The following code example shows how to:
++ Check available services and severity levels
++ Create a support case
++ Add communications to a case
 
-- Check available services and severity levels
-- Create a support case
-- Add communications to a case
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/062-aws-support-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/062-aws-support-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/062-aws-support-gs) repository. 
 
 ```
 #!/bin/bash
@@ -71,11 +69,11 @@ check_error() {
     local cmd_status="$2"
     local error_msg="$3"
     local is_fatal="${4:-true}"
-
+    
     if [[ $cmd_status -ne 0 || "$cmd_output" =~ [Ee][Rr][Rr][Oo][Rr] ]]; then
         echo "ERROR: $error_msg" | tee -a "$LOG_FILE"
         echo "Command returned status: $cmd_status" >> "$LOG_FILE"
-
+        
         # Check for subscription error
         if [[ "$cmd_output" =~ "SubscriptionRequiredException" ]]; then
             {
@@ -89,11 +87,11 @@ check_error() {
                 echo "if you had the appropriate support plan, but will not execute them."
                 echo "===================================================="
             } | tee -a "$LOG_FILE"
-
+            
             DEMO_MODE=true
             return 0
         fi
-
+        
         if [[ "$is_fatal" == "true" ]]; then
             cleanup_resources
             exit 1
@@ -111,7 +109,7 @@ cleanup_resources() {
 demo_cmd() {
     local cmd="$1"
     local description="$2"
-
+    
     {
         echo ""
         echo "DEMO: $description"
@@ -125,7 +123,7 @@ demo_cmd() {
 extract_json_value() {
     local json_output="$1"
     local key="$2"
-
+    
     echo "$json_output" | grep -o "\"$key\": \"[^\"]*\"" | head -1 | cut -d'"' -f4 || echo ""
 }
 
@@ -205,58 +203,58 @@ if [[ "$DEMO_MODE" == "true" ]]; then
         echo "if you had a Business, Enterprise On-Ramp, or Enterprise Support plan."
         echo ""
     } | tee -a "$LOG_FILE"
-
+    
     USER_EMAIL="example@example.com"
-
+    
     demo_cmd "aws support create-case" "Create a support case"
-
+    
     CASE_ID="case-12345678910-2013-c4c1d2bf33c5cf47"
     echo "Demo case ID: $CASE_ID" | tee -a "$LOG_FILE"
-
+    
     demo_cmd "aws support describe-cases" "List support cases"
     demo_cmd "aws support add-communication-to-case" "Add communication to case"
     demo_cmd "aws support describe-communications" "View case communications"
     demo_cmd "aws support resolve-case" "Resolve the support case"
-
+    
 else
     echo "Creating a test support case..." | tee -a "$LOG_FILE"
-
+    
     USER_EMAIL="example@example.com"
     CC_EMAIL_PARAM="--cc-email-addresses $USER_EMAIL"
-
+    
     # Create the case
     CASE_OUTPUT=$(log_cmd "aws support create-case --subject 'AWS CLI Tutorial Test Case' --service-code '$SERVICE_CODE' --category-code 'using-aws' --communication-body 'This is a test case created as part of an AWS CLI tutorial.' --severity-code '$SEVERITY_CODE' --language 'en' $CC_EMAIL_PARAM" 2>&1) || CASE_OUTPUT=""
-
+    
     check_error "$CASE_OUTPUT" $? "Failed to create support case"
-
+    
     # Extract the case ID safely
     CASE_ID=$(extract_json_value "$CASE_OUTPUT" "caseId") || CASE_ID=""
-
+    
     if [[ -n "$CASE_ID" ]]; then
         echo "Successfully created support case with ID: $CASE_ID" | tee -a "$LOG_FILE"
         CREATED_RESOURCES+=("Support Case: $CASE_ID")
-
+        
         # Step 4: List the case we just created
         echo "" | tee -a "$LOG_FILE"
         echo "Step 4: Listing the support case we just created..." | tee -a "$LOG_FILE"
         CASES_OUTPUT=$(log_cmd "aws support describe-cases --case-id-list '$CASE_ID' --include-resolved-cases false --language 'en'" 2>&1) || CASES_OUTPUT=""
-
+        
         check_error "$CASES_OUTPUT" $? "Failed to retrieve case details"
-
+        
         # Step 5: Add a communication to the case
         echo "" | tee -a "$LOG_FILE"
         echo "Step 5: Adding a communication to the support case..." | tee -a "$LOG_FILE"
         COMM_OUTPUT=$(log_cmd "aws support add-communication-to-case --case-id '$CASE_ID' --communication-body 'This is an additional communication for the test case.' $CC_EMAIL_PARAM" 2>&1) || COMM_OUTPUT=""
-
+        
         check_error "$COMM_OUTPUT" $? "Failed to add communication to case"
-
+        
         # Step 6: View communications for the case
         echo "" | tee -a "$LOG_FILE"
         echo "Step 6: Viewing communications for the support case..." | tee -a "$LOG_FILE"
         COMMS_OUTPUT=$(log_cmd "aws support describe-communications --case-id '$CASE_ID' --language 'en'" 2>&1) || COMMS_OUTPUT=""
-
+        
         check_error "$COMMS_OUTPUT" $? "Failed to retrieve case communications"
-
+        
         # Step 7: Resolve the case
         {
             echo ""
@@ -265,9 +263,9 @@ else
             echo "==================================================="
             echo "Resolving the support case..."
         } | tee -a "$LOG_FILE"
-
+        
         RESOLVE_OUTPUT=$(log_cmd "aws support resolve-case --case-id '$CASE_ID'" 2>&1) || RESOLVE_OUTPUT=""
-
+        
         check_error "$RESOLVE_OUTPUT" $? "Failed to resolve case"
         echo "Successfully resolved support case: $CASE_ID" | tee -a "$LOG_FILE"
     else
@@ -312,19 +310,16 @@ fi
 
 # Display log file path to user
 echo "Log file: $LOG_FILE"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddCommunicationToCase](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/AddCommunicationToCase)
+  + [CreateCase](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/CreateCase)
+  + [DescribeCases](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/DescribeCases)
+  + [DescribeCommunications](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/DescribeCommunications)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/DescribeServices)
+  + [DescribeSeverityLevels](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/DescribeSeverityLevels)
+  + [ResolveCase](https://docs.aws.amazon.com/goto/aws-cli/support-2013-04-15/ResolveCase)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddCommunicationToCase](../../../goto/aws-cli/support-2013-04-15/AddCommunicationToCase.md "../../../goto/aws-cli/support-2013-04-15/AddCommunicationToCase.md")
-  - [CreateCase](../../../goto/aws-cli/support-2013-04-15/CreateCase.md "../../../goto/aws-cli/support-2013-04-15/CreateCase.md")
-  - [DescribeCases](../../../goto/aws-cli/support-2013-04-15/DescribeCases.md "../../../goto/aws-cli/support-2013-04-15/DescribeCases.md")
-  - [DescribeCommunications](../../../goto/aws-cli/support-2013-04-15/DescribeCommunications.md "../../../goto/aws-cli/support-2013-04-15/DescribeCommunications.md")
-  - [DescribeServices](../../../goto/aws-cli/support-2013-04-15/DescribeServices.md "../../../goto/aws-cli/support-2013-04-15/DescribeServices.md")
-  - [DescribeSeverityLevels](../../../goto/aws-cli/support-2013-04-15/DescribeSeverityLevels.md "../../../goto/aws-cli/support-2013-04-15/DescribeSeverityLevels.md")
-  - [ResolveCase](../../../goto/aws-cli/support-2013-04-15/ResolveCase.md "../../../goto/aws-cli/support-2013-04-15/ResolveCase.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Support with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

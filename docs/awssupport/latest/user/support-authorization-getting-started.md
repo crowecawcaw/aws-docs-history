@@ -1,35 +1,35 @@
-# Getting started with AWS Support authorization
 
-This tutorial walks you through setting up AWS Support authorization and creating your first
-support permit. You complete the following steps:
+
+# Getting started with AWS Support authorization
+<a name="support-authorization-getting-started"></a>
+
+This tutorial walks you through setting up AWS Support authorization and creating your first support permit. You complete the following steps:
 
 This tutorial takes approximately 10 minutes to complete.
 
 1. Create an AWS KMS signing key
-2. Set up IAM permissions
-3. Create your first support permit
-4. Review support permit requests from AWS Support
+
+1. Set up IAM permissions
+
+1. Create your first support permit
+
+1. Review support permit requests from AWS Support
 
 ## Prerequisites
+<a name="support-authorization-getting-started-prereqs"></a>
 
 Before you begin, verify that you have the following:
-
-- An active AWS account
-- Permissions to create AWS KMS keys in your account
-- Permissions to create IAM policies and attach them to users or
-  roles
++ An active AWS account
++ Permissions to create AWS KMS keys in your account
++ Permissions to create IAM policies and attach them to users or roles
 
 ## Step 1: Create an AWS KMS signing key
+<a name="support-authorization-getting-started-step1"></a>
 
-AWS Support authorization requires a AWS KMS key with key spec
-`ECC_NIST_P384` and key usage `SIGN_VERIFY`. The key must be
-in the same Region as your support permit.
+AWS Support authorization requires a AWS KMS key with key spec `ECC_NIST_P384` and key usage `SIGN_VERIFY`. The key must be in the same Region as your support permit.
 
-###### Note
-
-If you already have a AWS KMS key with key spec `ECC_NIST_P384`
-and key usage `SIGN_VERIFY` in the same Region, you can skip
-this step and use that key.
+**Note**  
+If you already have a AWS KMS key with key spec `ECC_NIST_P384` and key usage `SIGN_VERIFY` in the same Region, you can skip this step and use that key.
 
 To create the key, run the following AWS CLI command:
 
@@ -42,14 +42,11 @@ aws kms create-key \
     --region us-east-1
 ```
 
-Note the key ARN from the output. You use this value when you create support
-permits.
+Note the key ARN from the output. You use this value when you create support permits.
 
-Include the required AWS Support authorization policy statements in the
-`create-key` call. For the required statements, see
-[Configuring AWS KMS keys for AWS Support authorization](support-authorization-kms.md "support-authorization-kms.md").
+Include the required AWS Support authorization policy statements in the `create-key` call. For the required statements, see [Configuring AWS KMS keys for AWS Support authorization](support-authorization-kms.md).
 
-###### Example output
+**Example output**  
 
 ```
 {
@@ -63,14 +60,11 @@ Include the required AWS Support authorization policy statements in the
 ```
 
 ## Step 2: Set up IAM permissions
+<a name="support-authorization-getting-started-step2"></a>
 
-Attach an IAM policy that grants permissions for AWS Support authorization API
-operations. The following example policy grants access to all AWS Support authorization
-actions.
+Attach an IAM policy that grants permissions for AWS Support authorization API operations. The following example policy grants access to all AWS Support authorization actions.
 
-The `supportauthz:RegisterKey` action lets you associate
-AWS KMS keys with support permits. This permission-only action must be present in
-your IAM policy for AWS Support authorization to function.
+The `supportauthz:RegisterKey` action lets you associate AWS KMS keys with support permits. This permission-only action must be present in your IAM policy for AWS Support authorization to function.
 
 ```
 {
@@ -128,65 +122,44 @@ your IAM policy for AWS Support authorization to function.
 }
 ```
 
-To attach this policy to an IAM user or role, see [Adding and
-removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
-_AWS Identity and Access Management User Guide_.
+To attach this policy to an IAM user or role, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *AWS Identity and Access Management User Guide*.
 
 ## Step 3: Create your first support permit
+<a name="support-authorization-getting-started-step3"></a>
 
-Create a support permit that authorizes AWS Support to access information about
-your services for specific resources.
+Create a support permit that authorizes AWS Support to access information about your services for specific resources.
 
-Console
+------
+#### [ Console ]
 
-1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
-2. In the navigation pane, choose
-   **Support authorization**.
-3. In the **Granted access** section, choose
-   **Preconfigure access**.
-4. For **Access type**, choose one of the
-   following:
+1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 
-   - **All supported resources in this
-     Region** – Applies broad access to
-     your entire account in the selected Region.
-   - **Choose resource ARN** –
-     Limits access to a specific resource that you
-     identify by ARN.
+1. In the navigation pane, choose **Support authorization**.
 
-5. (Optional) For **Details**, enter a
-   **Name** and
-   **Description** for the support
-   permit.
-6. For **Access duration**, choose one of the
-   following:
+1. In the **Granted access** section, choose **Preconfigure access**.
 
-   - **No expiration** – Access
-     remains active until you revoke it.
-   - **Custom duration** –
-     Set a specific time window during which the support
-     permit is valid.
+1. For **Access type**, choose one of the following:
+   + **All supported resources in this Region** – Applies broad access to your entire account in the selected Region.
+   + **Choose resource ARN** – Limits access to a specific resource that you identify by ARN.
 
-7. For **Actions**, choose the actions that
-   AWS Support is permitted to perform:
+1. (Optional) For **Details**, enter a **Name** and **Description** for the support permit.
 
-   - Select the **All actions** check
-     box to permit all available actions on the covered
-     resources. This removes the 10-action limit.
-   - To choose specific actions, clear the
-     **All actions** check box. Select a
-     service from the **Services** list,
-     and then select up to 10 individual actions from the
-     actions table.
+1. For **Access duration**, choose one of the following:
+   + **No expiration** – Access remains active until you revoke it.
+   + **Custom duration** – Set a specific time window during which the support permit is valid.
 
-8. For **Signing key**, choose an AWS KMS key
-   from the dropdown list. To create a new key, choose
-   **Create KMS signing key**.
-9. Choose **Submit**.
+1. For **Actions**, choose the actions that AWS Support is permitted to perform:
+   + Select the **All actions** check box to permit all available actions on the covered resources. This removes the 10-action limit.
+   + To choose specific actions, clear the **All actions** check box. Select a service from the **Services** list, and then select up to 10 individual actions from the actions table.
 
-AWS CLI
-Run the following command to create a time-bounded support permit for
-a specific resource:
+1. For **Signing key**, choose an AWS KMS key from the dropdown list. To create a new key, choose **Create KMS signing key**.
+
+1. Choose **Submit**.
+
+------
+#### [ AWS CLI ]
+
+Run the following command to create a time-bounded support permit for a specific resource:
 
 ```
 aws supportauthz create-support-permit \
@@ -202,39 +175,38 @@ aws supportauthz create-support-permit \
     }'
 ```
 
-This support permit authorizes AWS Support to perform all available
-actions on the specified Amazon Aurora cluster during June 2026.
+This support permit authorizes AWS Support to perform all available actions on the specified Amazon Aurora cluster during June 2026.
+
+------
 
 ## Step 4: Review support permit requests from AWS Support
+<a name="support-authorization-getting-started-step4"></a>
 
-When AWS Support needs access to information about your services and no matching
-support permit exists, AWS Support submits a support permit request. You can view
-pending requests and approve or reject them.
+When AWS Support needs access to information about your services and no matching support permit exists, AWS Support submits a support permit request. You can view pending requests and approve or reject them.
 
-Console
+------
+#### [ Console ]
 
-1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
-2. In the navigation pane, choose
-   **Support authorization**.
-3. In the **Pending access requests**
-   section, review the list of requests. Each request shows the
-   associated support case, service, Support Permit Request ARN,
-   status, and request access date.
-4. (Optional) To filter requests, use the
-   **Status** and
-   **Service** dropdown filters, or search by
-   resource in the search field.
-5. To approve or reject a request, choose
-   **Manage support access**.
+1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 
-AWS CLI
+1. In the navigation pane, choose **Support authorization**.
+
+1. In the **Pending access requests** section, review the list of requests. Each request shows the associated support case, service, Support Permit Request ARN, status, and request access date.
+
+1. (Optional) To filter requests, use the **Status** and **Service** dropdown filters, or search by resource in the search field.
+
+1. To approve or reject a request, choose **Manage support access**.
+
+------
+#### [ AWS CLI ]
+
 To list pending requests, run the following command:
 
 ```
 aws supportauthz list-support-permit-requests
 ```
 
-###### Example output
+**Example output**  
 
 ```
 {
@@ -251,8 +223,7 @@ aws supportauthz list-support-permit-requests
 }
 ```
 
-To approve this request, create a support permit that covers the
-requested scope:
+To approve this request, create a support permit that covers the requested scope:
 
 ```
 aws supportauthz create-support-permit \
@@ -268,31 +239,22 @@ aws supportauthz create-support-permit \
     }'
 ```
 
-To reject a request, run the following command. This notifies
-AWS Support that you don't want to accept the request. Rejecting a
-request doesn't prevent you from creating a support permit for the
-same actions and resources later.
+To reject a request, run the following command. This notifies AWS Support that you don't want to accept the request. Rejecting a request doesn't prevent you from creating a support permit for the same actions and resources later.
 
 ```
 aws supportauthz reject-support-permit-request \
     --request-arn "arn:aws:supportauthz:us-east-1:111122223333:supportpermitrequest/request-id"
 ```
 
-Review each request and decide whether to approve or reject it:
+------
 
-- **To approve**: Create a support
-  permit that covers the requested scope. Include the
-  `supportCaseDisplayId` parameter to automatically deactivate the
-  support permit when the case closes.
-- **To reject**: Call
-  `RejectSupportPermitRequest` to notify AWS Support that you
-  don't want to accept the request. Rejecting a request doesn't prevent
-  you from creating a support permit for the same actions and resources
-  later.
+Review each request and decide whether to approve or reject it:
++ **To approve**: Create a support permit that covers the requested scope. Include the `supportCaseDisplayId` parameter to automatically deactivate the support permit when the case closes.
++ **To reject**: Call `RejectSupportPermitRequest` to notify AWS Support that you don't want to accept the request. Rejecting a request doesn't prevent you from creating a support permit for the same actions and resources later.
 
 ## Next steps
+<a name="support-authorization-getting-started-next-steps"></a>
 
 After you complete this tutorial, see the following topics:
-
-- To learn more about scoping support permits, see [Managing support permits](support-authorization-permits.md "support-authorization-permits.md").
-- To monitor support actions on your resources, see [Monitoring AWS Support authorization with AWS CloudTrail](support-authorization-monitoring.md "support-authorization-monitoring.md").
++ To learn more about scoping support permits, see [Managing support permits](support-authorization-permits.md).
++ To monitor support actions on your resources, see [Monitoring AWS Support authorization with AWS CloudTrail](support-authorization-monitoring.md).
