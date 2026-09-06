@@ -24,8 +24,8 @@ The following examples show the BYOCA workflow for TR-34 key export and TR-34 ke
 There are three key differences from the standard TR-34 flow:
 
 1. You create the RSA key with [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md"). Before, `GetParametersForExport` or `GetParametersForImport` created it for you.
-2. The [GetCertificateSigningRequest](../DataAPIReference/API_GetCertificateSigningRequest.md "../DataAPIReference/API_GetCertificateSigningRequest.md") API creates a CSR. Your external CA can then sign it.
-3. The [ExportKey](../DataAPIReference/API_ExportKey.md "../DataAPIReference/API_ExportKey.md") and [ImportKey](../APIReference/API_ImportKey.md "../APIReference/API_ImportKey.md") APIs accept a certificate at call time. The token is now optional.
+2. The [GetCertificateSigningRequest](../APIReference/API_GetCertificateSigningRequest.md "../APIReference/API_GetCertificateSigningRequest.md") API creates a CSR. Your external CA can then sign it.
+3. The [ExportKey](../APIReference/API_ExportKey.md "../APIReference/API_ExportKey.md") and [ImportKey](../APIReference/API_ImportKey.md "../APIReference/API_ImportKey.md") APIs accept a certificate at call time. The token is now optional.
 
 ###### Important Considerations
 
@@ -83,13 +83,13 @@ Take note of the `KeyArn` as you'll need it in the next step.
 
 ### Step 2: Generate Certificate Signing Request
 
-Generate a Certificate Signing Request (CSR) to be signed by your external CA using the [GetCertificateSigningRequest](../DataAPIReference/API_GetCertificateSigningRequest.md "../DataAPIReference/API_GetCertificateSigningRequest.md") API. The output is a base64-encoded PEM file.
+Generate a Certificate Signing Request (CSR) to be signed by your external CA using the [GetCertificateSigningRequest](../APIReference/API_GetCertificateSigningRequest.md "../APIReference/API_GetCertificateSigningRequest.md") API. The output is a base64-encoded PEM file.
 If you base64 decode the contents and save them, you will have a valid CSR in PEM format.
 
 ###### Example Generate CSR
 
 ```
-`$` `aws payment-cryptography-data get-certificate-signing-request \
+`$` `aws payment-cryptography get-certificate-signing-request \
  --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/xgmq6fs6uow736uc \
  --signing-algorithm SHA512 \
  --certificate-subject '{
@@ -256,13 +256,13 @@ Take note of the CA's `KeyArn` for use in the export step.
 
 ### Step 6: Get KRD Encryption Certificate
 
-In this example, we're importing back into AWS Payment Cryptography, so we call the service to receive a KRD public key certificate using the [GetParametersForImport](../DataAPIReference/API_GetParametersForImport.md "../DataAPIReference/API_GetParametersForImport.md") API.
+In this example, we're importing back into AWS Payment Cryptography, so we call the service to receive a KRD public key certificate using the [GetParametersForImport](../APIReference/API_GetParametersForImport.md "../APIReference/API_GetParametersForImport.md") API.
 In a real scenario, this would be provided by the other system, like an HSM, an ATM, a payment terminal or payment terminal management system.
 
 ###### Example Get Parameters for Import
 
 ```
-`$` `aws payment-cryptography-data get-parameters-for-import \
+`$` `aws payment-cryptography get-parameters-for-import \
  --key-material-type "TR34_KEY_BLOCK" \
  --wrapping-key-algorithm RSA_2048`
 ```
@@ -279,13 +279,13 @@ In a real scenario, this would be provided by the other system, like an HSM, an 
 
 ### Step 7: Export Key with BYOCA
 
-Finally, export the key using TR-34 with your own CA-signed certificate using the [ExportKey](../DataAPIReference/API_ExportKey.md "../DataAPIReference/API_ExportKey.md") API.
+Finally, export the key using TR-34 with your own CA-signed certificate using the [ExportKey](../APIReference/API_ExportKey.md "../APIReference/API_ExportKey.md") API.
 Provide the signing certificate that was signed by your external CA.
 
 ###### Example TR-34 Export with BYOCA
 
 ```
-`$` `aws payment-cryptography-data export-key \
+`$` `aws payment-cryptography export-key \
  --export-key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/iox73p5f4c4yjiod \
  --key-material '{
  "Tr34KeyBlock": {
@@ -363,13 +363,13 @@ Note the `KeyArn` value. You need it in the next step.
 
 ### Step 2: Generate Certificate Signing Request
 
-Generate a Certificate Signing Request (CSR) for the KRD encryption key using the [GetCertificateSigningRequest](../DataAPIReference/API_GetCertificateSigningRequest.md "../DataAPIReference/API_GetCertificateSigningRequest.md") API. The output is a base64-encoded PEM file.
+Generate a Certificate Signing Request (CSR) for the KRD encryption key using the [GetCertificateSigningRequest](../APIReference/API_GetCertificateSigningRequest.md "../APIReference/API_GetCertificateSigningRequest.md") API. The output is a base64-encoded PEM file.
 If you base64 decode the contents and save them, you will have a valid CSR in PEM format.
 
 ###### Example Generate CSR for KRD Key
 
 ```
-`$` `aws payment-cryptography-data get-certificate-signing-request \
+`$` `aws payment-cryptography get-certificate-signing-request \
  --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/bm7t4qv8hzk24jce \
  --signing-algorithm SHA512 \
  --certificate-subject '{
@@ -542,13 +542,13 @@ a trusted sender. In production, this certificate typically comes from the sendi
 or a key management system—through its own certificate distribution process.
 
 In this example, you use AWS Payment Cryptography as both the sender and receiver to keep the steps short. Call
-[GetParametersForExport](../DataAPIReference/API_GetParametersForExport.md "../DataAPIReference/API_GetParametersForExport.md")
+[GetParametersForExport](../APIReference/API_GetParametersForExport.md "../APIReference/API_GetParametersForExport.md")
 to get the KDH signing certificate that would normally be provided by the sending system.
 
 ###### Example Get Parameters for Export
 
 ```
-`$` `aws payment-cryptography-data get-parameters-for-export \
+`$` `aws payment-cryptography get-parameters-for-export \
  --key-material-type "TR34_KEY_BLOCK" \
  --signing-key-algorithm RSA_2048`
 ```

@@ -9,10 +9,6 @@ Part 6 provides guidance on key management including host-to-host (node-to-node)
 relevant cryptographic requirements while other aspects are covered in other parts.
 All cryptography in this standard is currently based on TDES.
 
-###### Note
-
-AS2805 is currently available in the ap-southeast-2 Region. It will be rolled out to additional Regions in the near future.
-
 AS2805 has a number of differences compared to other implementations, which are summarized below.
 
 _Key Protection_
