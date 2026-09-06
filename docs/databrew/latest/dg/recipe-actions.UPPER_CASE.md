@@ -1,13 +1,15 @@
+
+
 # UPPER\_CASE
+<a name="recipe-actions.UPPER_CASE"></a>
 
-Changes each string in a column to uppercase, for example: THE QUICK BROWN FOX
-JUMPED OVER THE FENCE
+Changes each string in a column to uppercase, for example: THE QUICK BROWN FOX JUMPED OVER THE FENCE
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
 
-- `sourceColumn` – The name of an existing column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

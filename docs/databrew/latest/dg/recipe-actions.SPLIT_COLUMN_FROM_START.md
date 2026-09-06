@@ -1,15 +1,16 @@
+
+
 # SPLIT\_COLUMN\_FROM\_START
+<a name="recipe-actions.SPLIT_COLUMN_FROM_START"></a>
 
-Splits a column into two new columns, at an offset from the beginning of the
-string.
+Splits a column into two new columns, at an offset from the beginning of the string.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `position` – The character position, from the left end of the string, where the split is to occur.
 
-- `sourceColumn` – The name of an existing column.
-- `position` – The character position, from the left end of
-  the string, where the split is to occur.
-
-###### Example
+**Example**  
+  
 
 ```
 {

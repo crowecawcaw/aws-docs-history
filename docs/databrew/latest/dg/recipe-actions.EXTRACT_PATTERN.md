@@ -1,17 +1,17 @@
+
+
 # EXTRACT\_PATTERN
+<a name="recipe-actions.EXTRACT_PATTERN"></a>
 
-Creates a new column, based on a regular expression, from the values in an existing
-column.
+Creates a new column, based on a regular expression, from the values in an existing column. 
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `targetColumn` – The name of the new column to be created.
++ `pattern` – A regular expression that indicates which character or characters to extract and create the new column from.
 
-- `sourceColumn` – The name of an existing column.
-- `targetColumn` – The name of the new column to be
-  created.
-- `pattern` – A regular expression that indicates which
-  character or characters to extract and create the new column from.
-
-###### Example
+**Example**  
+  
 
 ```
 {

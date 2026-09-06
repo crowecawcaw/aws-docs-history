@@ -1,12 +1,15 @@
+
+
 # ADD\_SINGLE\_QUOTES
+<a name="recipe-actions.ADD_SINGLE_QUOTES"></a>
 
 Encloses the characters in a column with single quotation marks.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
 
-- `sourceColumn` – The name of an existing column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

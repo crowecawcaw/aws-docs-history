@@ -1,15 +1,16 @@
+
+
 # MODE
+<a name="recipe-actions.functions.MODE"></a>
 
-Returns the mode, the number that appears most often, from the selected source columns
-in a new column. Any non-number is ignored. For multiple modes, the mode is calculated
-with the modal function.
+Returns the mode, the number that appears most often, from the selected source columns in a new column. Any non-number is ignored. For multiple modes, the mode is calculated with the modal function.
 
-###### Parameters
+**Parameters**
++ `sourceColumns` – A JSON-encoded string representing a list of existing columns.
++ `targetColumn` – A name for the newly created column.
 
-- `sourceColumns` – A JSON-encoded string representing a list of existing columns.
-- `targetColumn` – A name for the newly created column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

@@ -1,21 +1,23 @@
+
+
 # BUCKETIZATION
+<a name="recipe-actions.BUCKETIZATION"></a>
 
-Bucketization (called Binning in the console) takes the items in a column of numeric values, groups them into bins defined by numeric
-ranges, and outputs a new column that displays the bin for each row. Bucketization can be done using splits or percentage. The first example below uses splits and the second example uses a percentage.
+Bucketization (called Binning in the console) takes the items in a column of numeric values, groups them into bins defined by numeric ranges, and outputs a new column that displays the bin for each row. Bucketization can be done using splits or percentage. The first example below uses splits and the second example uses a percentage.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
 
-- `sourceColumn` – The name of an existing column.
+  `targetColumn` – The name of the new column to be created.
 
-`targetColumn` – The name of the new column to be created.
+  `bucketNames` – List of bucket names.
 
-`bucketNames` – List of bucket names.
+  `splits` – List of bucket levels. Buckets are consecutive, and an upper bound for a bucket will be a lower bound for the next bucket.
 
-`splits` – List of bucket levels. Buckets are consecutive, and an upper bound for a bucket will be a lower bound for the next bucket.
+  `percentage` – Each bucket will be described as a percentage.
 
-`percentage` – Each bucket will be described as a percentage.
-
-###### Example using splits
+**Example using splits**  
+  
 
 ```
 {
@@ -31,7 +33,7 @@ ranges, and outputs a new column that displays the bin for each row. Bucketizati
 }
 ```
 
-###### Example using a percentage
+**Example using a percentage**  
 
 ```
 {

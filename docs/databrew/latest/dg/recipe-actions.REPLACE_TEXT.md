@@ -1,16 +1,17 @@
+
+
 # REPLACE\_TEXT
+<a name="recipe-actions.REPLACE_TEXT"></a>
 
 Replaces a specified sequence of characters with another.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `pattern` – Character or characters or a regular expression, indicating which characters should be replaced in the source column.
++ `value` – The replacement character or characters to be substituted.
 
-- `sourceColumn` – The name of an existing column.
-- `pattern` – Character or characters or a regular expression,
-  indicating which characters should be replaced in the source column.
-- `value` – The replacement character or characters to be
-  substituted.
-
-###### Examples
+**Examples**  
+  
 
 ```
 {

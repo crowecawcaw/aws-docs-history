@@ -1,30 +1,19 @@
+
+
 # ENCRYPT
+<a name="recipe-actions.ENCRYPT"></a>
 
-Encrypts values in the source columns with the
-[AWS Encryption SDK](../../../encryption-sdk/latest/developer-guide/introduction.md "../../../encryption-sdk/latest/developer-guide/introduction.md").
-The DECRYPT transform can be used to decrypt inside of DataBrew. You can also decrypt the data outside
-of DataBrew using the AWS Encryption SDK.
+Encrypts values in the source columns with the [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html). The DECRYPT transform can be used to decrypt inside of DataBrew. You can also decrypt the data outside of DataBrew using the AWS Encryption SDK.
 
-The ENCRYPT transform can encrypt up to 128 MiB per cell. It will attempt to preserve the format on
-decryption. To preserve the data type, the data type metadata must serialize to less than 1KB. Otherwise,
-you must set the `preserveDataType` parameter to false.
-The data type metadata will be stored in plaintext in the
-encryption context. For more information on the encryption context, see
-[Encryption
-context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") in the _AWS Key Management Service Developer Guide_.
+The ENCRYPT transform can encrypt up to 128 MiB per cell. It will attempt to preserve the format on decryption. To preserve the data type, the data type metadata must serialize to less than 1KB. Otherwise, you must set the `preserveDataType` parameter to false. The data type metadata will be stored in plaintext in the encryption context. For more information on the encryption context, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide*.
 
-###### Parameters
+**Parameters**
++ `sourceColumns` – An array of existing columns.
++ `kmsKeyArn` – The key ARN of the AWS Key Management Service key to use to encrypt the source columns. For more information on the key ARN, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide*.
++ `entityTypeFilter` – Optional array of [entity types](https://docs.aws.amazon.com/databrew/latest/APIReference/API_EntityDetectorConfiguration.html#databrew-Type-EntityDetectorConfiguration-EntityTypes). Can be used to encrypt only detected PII in free-text column.
++ `preserveDataType` – Optional boolean. Defaults to true. If false, the data type will not be stored.
 
-- `sourceColumns` – An array of existing columns.
-- `kmsKeyArn` – The key ARN of the AWS Key Management Service key to use to encrypt the
-  source columns. For more information on the key ARN, see
-  [Key ARN](../../../kms/latest/developerguide/concepts.md#key-id-key-ARN "../../../kms/latest/developerguide/concepts.md#key-id-key-ARN")
-  in the _AWS Key Management Service Developer Guide_.
-- `entityTypeFilter` – Optional array of [entity
-  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
-- `preserveDataType` – Optional boolean. Defaults to true. If false, the data type will not be stored.
-  In the following example, `entityTypeFilter` and `preserveDataType`
-  are optional.
+In the following example, `entityTypeFilter` and `preserveDataType` are optional.
 
 **Example**
 
@@ -37,28 +26,30 @@ context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../.
 }
 ```
 
-When working in the interactive experience, in addition to the project’s role,
-the console user must have permission to `kms:GenerateDataKey` on the provided
-AWS KMS key.
+When working in the interactive experience, in addition to the project’s role, the console user must have permission to `kms:GenerateDataKey` on the provided AWS KMS key.
 
 **Sample policy:**
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey"
- ],
- "Resource": [
- "arn:aws:kms:us-east-1:012345678901:key/kms-key-id"
- ]
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+        "Effect": "Allow",
+        "Action": [
+            "kms:GenerateDataKey"
+        ],
+        "Resource": [
+            "arn:aws:kms:us-east-1:012345678901:key/kms-key-id"
+        ]
+    }
+  ]
+}
 ```
+
+------

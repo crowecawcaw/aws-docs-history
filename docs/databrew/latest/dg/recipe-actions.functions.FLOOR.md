@@ -1,15 +1,17 @@
+
+
 # FLOOR
+<a name="recipe-actions.functions.FLOOR"></a>
 
-Returns the largest integral number greater than or equal to the input number in a
-new column.
+Returns the largest integral number greater than or equal to the input number in a new column.
 
-###### Parameters
+**Parameters**
++ `sourceColumn1` – The name of an existing column.
++ `value` – A numeric value.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn1` – The name of an existing column.
-- `value` – A numeric value.
-- `targetColumn` – The name of the new column to be created.
-
-###### Example
+**Example**  
+  
 
 ```
 {

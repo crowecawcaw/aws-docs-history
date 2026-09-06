@@ -1,15 +1,16 @@
+
+
 # TODAY
+<a name="recipe-actions.functions.TODAY"></a>
 
-Creates a new column containing the current date in the format
-`yyyy-mm-dd`.
+Creates a new column containing the current date in the format `yyyy-mm-dd`.
 
-###### Parameters
+**Parameters**
++ `timeZone` – The name of a time zone. If no time zone is specified, then the default is Universal Coordinated Time (UTC).
++ `targetColumn` – A name for the newly created column.
 
-- `timeZone` – The name of a time zone. If no time zone is specified,
-  then the default is Universal Coordinated Time (UTC).
-- `targetColumn` – A name for the newly created column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

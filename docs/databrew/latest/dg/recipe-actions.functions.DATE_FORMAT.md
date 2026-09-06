@@ -1,23 +1,20 @@
+
+
 # DATE\_FORMAT
+<a name="recipe-actions.functions.DATE_FORMAT"></a>
 
-Creates a new column containing a date, in a specific format, from a string that
-represents a date.
+Creates a new column containing a date, in a specific format, from a string that represents a date.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value` – A string to evaluate.
++ `dateTimeFormat` – Optional. A format string for the date, as it is to appear in the new column. If not specified, the default format is `yyyy-mm-dd HH:MM:SS`.
++ `targetColumn` – A name for the newly created column.
+**Note**  
+You can specify either `sourceColumn` or `value`, but not both.
 
-- `sourceColumn` – The name of an existing column.
-- `value` – A string to evaluate.
-- `dateTimeFormat` – Optional. A format string for the date,
-  as it is to appear in the new column. If not specified, the default format is
-  `yyyy-mm-dd HH:MM:SS`.
-- `targetColumn` – A name for the newly created column.
-
-###### Note
-
-You can specify either `sourceColumn` or `value`,
-but not both.
-
-###### Examples
+**Examples**  
+  
 
 ```
 {
@@ -31,6 +28,7 @@ but not both.
     }
 }
 ```
+  
 
 ```
 {

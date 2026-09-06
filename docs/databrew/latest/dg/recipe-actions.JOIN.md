@@ -1,25 +1,20 @@
+
+
 # JOIN
+<a name="recipe-actions.JOIN"></a>
 
 Performs a join operation on two datasets.
 
-###### Parameters
+**Parameters**
++ `joinKeys` — A JSON-encoded string representing a list of columns from each dataset to act as join keys.
++ `joinType` — The type of join to perform. Must be one of: `INNER_JOIN` \| `LEFT_JOIN `\| `RIGHT_JOIN` \| `OUTER_JOIN `\| `LEFT_EXCLUDING_JOIN` \| `RIGHT_EXCLUDING_JOIN` \| `OUTER_EXCLUDING_JOIN`
++ `leftColumns` — A JSON-encoded string representing a list of columns from the current active dataset.
++ `rightColumns` — A JSON-encoded string representing a list of columns from another (secondary) dataset to join to the current one.
++ `secondInputLocation` — An Amazon S3 URL that resolves to the data file for the secondary dataset.
++ `secondaryDatasetName` — The name of the secondary dataset.
 
-- `joinKeys` — A JSON-encoded string representing a list of columns from each dataset to
-  act as join keys.
-- `joinType` — The type of join to perform. Must be one of:
-  `INNER_JOIN` | `LEFT_JOIN` | `RIGHT_JOIN` |
-  `OUTER_JOIN` | `LEFT_EXCLUDING_JOIN` |
-  `RIGHT_EXCLUDING_JOIN` | `OUTER_EXCLUDING_JOIN`
-- `leftColumns` — A JSON-encoded string representing a list of columns from the current
-  active dataset.
-- `rightColumns` — A JSON-encoded string representing a list of columns from another
-  (secondary) dataset to join to the current one.
-- `secondInputLocation` — An Amazon S3 URL that resolves to the
-  data file for the secondary dataset.
-- `secondaryDatasetName` — The name of the secondary
-  dataset.
-
-###### Example
+**Example**  
+  
 
 ```
 {

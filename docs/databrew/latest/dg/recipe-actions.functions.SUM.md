@@ -1,15 +1,16 @@
+
+
 # SUM
+<a name="recipe-actions.functions.SUM"></a>
 
-Returns the sum of the values from the selected source columns in a new column. Any
-non-number is treated as 0.
+Returns the sum of the values from the selected source columns in a new column. Any non-number is treated as 0.
 
-###### Parameters
+**Parameters**
++ `sourceColumns` – A JSON-encoded string representing a list of existing columns.
++ `targetColumn` – A name for the newly created column.
 
-- `sourceColumns` – A JSON-encoded string representing a list of existing
-  columns.
-- `targetColumn` – A name for the newly created column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

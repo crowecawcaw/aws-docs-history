@@ -1,12 +1,15 @@
+
+
 # DELETE
+<a name="recipe-actions.DELETE"></a>
 
 Removes a column from the dataset.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
 
-- `sourceColumn` – The name of an existing column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

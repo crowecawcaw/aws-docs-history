@@ -1,17 +1,19 @@
+
+
 # SUBTRACT
+<a name="recipe-actions.functions.SUBTRACT"></a>
 
-Subtracts one number from another and returns the result in a new column.
+Subtracts one number from another and returns the result in a new column. 
 
-###### Parameters
+**Parameters**
++ `sourceColumn1` – The name of an existing column.
++ `value1` – A numeric value.
++ `sourceColumn2` – The name of an existing column.
++ `value2` – A numeric value. 
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn1` – The name of an existing column.
-- `value1` – A numeric value.
-- `sourceColumn2` – The name of an existing column.
-- `value2` – A numeric value.
-- `targetColumn` – The name of the new column to be
-  created.
-
-###### Example
+**Example**  
+  
 
 ```
 {

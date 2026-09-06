@@ -1,17 +1,18 @@
+
+
 # ADD
+<a name="recipe-actions.functions.ADD"></a>
 
-Sums the input column values in a new column, using (`sourceColumn1` +
-`sourceColumn2`) or (`sourceColumn1` +
-`value1`).
+ Sums the input column values in a new column, using (`sourceColumn1` \+ `sourceColumn2`) or (`sourceColumn1` \+ `value1`).
 
-###### Parameters
+**Parameters**
++ `sourceColumn1` – The name of an existing column.
++ `value1` – A numeric value.
++ `sourceColumn2` – The name of an existing column.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn1` – The name of an existing column.
-- `value1` – A numeric value.
-- `sourceColumn2` – The name of an existing column.
-- `targetColumn` – The name of the new column to be created.
-
-###### Example
+**Example**  
+  
 
 ```
 {

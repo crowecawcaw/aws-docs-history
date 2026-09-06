@@ -1,18 +1,19 @@
+
+
 # TO\_BOOLEAN\_COLUMN
+<a name="recipe-actions.TO_BOOLEAN_COLUMN"></a>
 
 Changes the data type of an existing column to BOOLEAN.
 
-###### Note
-
+**Note**  
 We recommend using CHANGE\_DATA\_TYPE recipe action rather than TO\_BOOLEAN\_COLUMN.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `columnDataType` – A value that must be `boolean`.
 
-- `sourceColumn` – The name of an existing column.
-- `columnDataType` – A value that must be
-  `boolean`.
-
-###### Example
+**Example**  
+  
 
 ```
 {

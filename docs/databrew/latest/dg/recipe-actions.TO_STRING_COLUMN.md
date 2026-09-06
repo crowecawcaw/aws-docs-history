@@ -1,18 +1,19 @@
+
+
 # TO\_STRING\_COLUMN
+<a name="recipe-actions.TO_STRING_COLUMN"></a>
 
 Changes the data type of an existing column to STRING.
 
-###### Note
-
+**Note**  
 We recommend using CHANGE\_DATA\_TYPE recipe action rather than TO\_STRING\_COLUMN.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `columnDataType` – A value that must be `string`.
 
-- `sourceColumn` – The name of an existing column.
-- `columnDataType` – A value that must be
-  `string`.
-
-###### Example
+**Example**  
+  
 
 ```
 {

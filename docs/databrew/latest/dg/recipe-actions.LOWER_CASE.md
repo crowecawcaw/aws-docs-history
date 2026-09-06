@@ -1,13 +1,15 @@
+
+
 # LOWER\_CASE
+<a name="recipe-actions.LOWER_CASE"></a>
 
-Changes each string in a column to lowercase, for example: the quick brown fox jumped
-over the fence
+Changes each string in a column to lowercase, for example: the quick brown fox jumped over the fence
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
 
-- `sourceColumn` – The name of an existing column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

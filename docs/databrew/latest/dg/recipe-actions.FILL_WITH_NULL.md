@@ -1,12 +1,15 @@
+
+
 # FILL\_WITH\_NULL
+<a name="recipe-actions.FILL_WITH_NULL"></a>
 
 Returns a column with data values replaced by null.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
 
-- `sourceColumn` – The name of an existing column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

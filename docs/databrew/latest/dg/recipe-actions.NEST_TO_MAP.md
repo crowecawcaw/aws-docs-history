@@ -1,19 +1,17 @@
+
+
 # NEST\_TO\_MAP
+<a name="recipe-actions.NEST_TO_MAP"></a>
 
-Converts user-selected columns into key-value pairs, each with a key representing the
-column name and a value representing the row value. The order of the selected column is
-not maintained while creating the resultant map. The different column data types are
-typecast to a common type that supports the data types of all columns.
+Converts user-selected columns into key-value pairs, each with a key representing the column name and a value representing the row value. The order of the selected column is not maintained while creating the resultant map. The different column data types are typecast to a common type that supports the data types of all columns.
 
-###### Parameters
+**Parameters**
++ `sourceColumns` — List of the source columns.
++ `targetColumn` — The name of the target column.
++ `removeSourceColumns` — Contains the value `true` or `false` to indicate whether or not the user wants to remove the selected source columns.
 
-- `sourceColumns` — List of the source columns.
-- `targetColumn` — The name of the target column.
-- `removeSourceColumns` — Contains the value
-  `true` or `false` to indicate whether or not the
-  user wants to remove the selected source columns.
-
-###### Example
+**Example**  
+  
 
 ```
 {

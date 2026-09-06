@@ -1,25 +1,22 @@
+
+
 # PROPER
+<a name="recipe-actions.functions.PROPER"></a>
 
-Converts all alphabetical characters from the strings in the source column or custom
-values to proper case, and returns the result in a new column.
+Converts all alphabetical characters from the strings in the source column or custom values to proper case, and returns the result in a new column. 
 
-In _proper case,_ also called capital case, the first
-letter of each word is capitalized and the rest of the word is transformed to lowercase.
-An example is: The Quick Brown Fox Jumped Over The Fence
+In *proper case,* also called capital case, the first letter of each word is capitalized and the rest of the word is transformed to lowercase. An example is: The Quick Brown Fox Jumped Over The Fence 
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value` – A character string to evaluate.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `value` – A character string to evaluate.
-- `targetColumn` – The name of the new column to be
-  created.
+**Note**  
+You can specify either `sourceColumn` or `value`, but not both.
 
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
-
-###### Examples
+**Examples**  
+  
 
 ```
 {
@@ -32,6 +29,7 @@ both.
     }
 }
 ```
+  
 
 ```
 {

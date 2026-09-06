@@ -1,14 +1,17 @@
+
+
 # REPLACE\_WITH\_RANDOM\_BETWEEN
+<a name="recipe-actions.REPLACE_WITH_RANDOM_BETWEEN"></a>
 
 Replaces values with a random number.
 
-###### Parameters
+**Parameters**
++ `lowerBound` – The lower bound of the random number range.
++ `sourceColumns` – A list of existing column names.
++ `upperBound` – The upper bound of the random number range.
 
-- `lowerBound` – The lower bound of the random number range.
-- `sourceColumns` – A list of existing column names.
-- `upperBound` – The upper bound of the random number range.
-
-###### Example
+**Example**  
+  
 
 ```
 {

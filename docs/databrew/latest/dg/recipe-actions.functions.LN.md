@@ -1,14 +1,16 @@
+
+
 # LN
+<a name="recipe-actions.functions.LN"></a>
 
 Returns the natural logarithm (Euler’s number) of a value in a new column.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `targetColumn` – The name of the new column to be
-  created.
-
-###### Example
+**Example**  
+  
 
 ```
 {

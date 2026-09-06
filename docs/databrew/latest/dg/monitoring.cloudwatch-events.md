@@ -1,24 +1,19 @@
+
+
 # Automating DataBrew with CloudWatch Events
+<a name="monitoring.cloudwatch-events"></a>
 
-Amazon CloudWatch Events enables you to automate your AWS services and respond automatically to system
-events such as application availability issues or resource changes. Events from AWS services are
-delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events are of
-interest to you, and what automated actions to take when an event matches a rule. The actions
-that can be automatically triggered include the following:
+Amazon CloudWatch Events enables you to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following:
++ Invoking the Amazon EC2 run command
++ Relaying the event to Amazon Kinesis Data Streams
++ Activating an AWS Step Functions state machine
++ Notifying an Amazon SNS topic or an Amazon SQS queue
 
-- Invoking the Amazon EC2 run command
-- Relaying the event to Amazon Kinesis Data Streams
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic or an Amazon SQS queue
-  DataBrew reports an event to CloudWatch Events whenever the state of a resource in your AWS account
-  changes. Events are emitted on a best effort basis.
+DataBrew reports an event to CloudWatch Events whenever the state of a resource in your AWS account changes. Events are emitted on a best effort basis.
 
-Following are examples of several events, showing various states of a DataBrew job:
-`SUCCEEDED`, `FAILED`, `TIMEOUT`, and
-`STOPPED`.
+Following are examples of several events, showing various states of a DataBrew job: `SUCCEEDED`, `FAILED`, `TIMEOUT`, and `STOPPED`.
 
 ```
-
 {
   "version": "0",
   "id": "abcdef00-1234-5678-9abc-def012345678",
@@ -90,7 +85,6 @@ Following are examples of several events, showing various states of a DataBrew j
     "message": "Job run stopped"
   }
 }
-
 ```
 
-For more information, see the [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md").
+For more information, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/).

@@ -1,19 +1,19 @@
+
+
 # CONVERT\_TIMEZONE
+<a name="recipe-actions.functions.CONVERT_TIMEZONE"></a>
 
-Converts a time value from the source column into a new column based on a
-specified timezone.
+Converts a time value from the source column into a new column based on a specified timezone.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column. The source column can be of type `string`, `date`, or `timestamp`.
++ `fromTimeZone` – Source value timezone. If nothing is specified, the default timezone is UTC.
++ `toTimeZone` – Timezone to be converted to. If nothing is specified, the default timezone is UTC.
++ `targetColumn` – A name for the newly-created column.
++ `dateTimeFormat` – Optional. A format string for the date. If the format isn't specified, the default format is used: `yyyy-mm-dd HH:MM:SS`.
 
-- `sourceColumn` – The name of an existing column. The source column can be of type `string`, `date`, or `timestamp`.
-- `fromTimeZone` – Source value timezone. If nothing is
-  specified, the default timezone is UTC.
-- `toTimeZone` – Timezone to be converted to. If nothing is specified, the default timezone is UTC.
-- `targetColumn` – A name for the newly-created
-  column.
-- `dateTimeFormat` – Optional. A format string for the date. If the format isn't specified, the default format is used: `yyyy-mm-dd HH:MM:SS`.
-
-###### Example
+**Example**  
+  
 
 ```
 {

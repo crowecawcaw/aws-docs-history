@@ -1,20 +1,20 @@
+
+
 # WEEK\_NUMBER
+<a name="recipe-actions.functions.WEEK_NUMBER"></a>
 
-Creates a new column containing the number of the week (from 1 to 52), from a string that represents
-a date.
+Creates a new column containing the number of the week (from 1 to 52), from a string that represents a date.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value` – A character string to evaluate.
++ `targetColumn` – A name for the newly created column.
 
-- `sourceColumn` – The name of an existing column.
-- `value` – A character string to evaluate.
-- `targetColumn` – A name for the newly created column.
+**Note**  
+You can specify either `sourceColumn` or `value`, but not both.
 
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
-
-###### Example
+**Example**  
+  
 
 ```
 {

@@ -1,22 +1,21 @@
+
+
 # REPEAT\_STRING
+<a name="recipe-actions.functions.REPEAT"></a>
 
-Repeats the strings in the source column or custom input value a specified number of
-times, and returns the result in a new column.
+Repeats the strings in the source column or custom input value a specified number of times, and returns the result in a new column.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value` – A character string to evaluate.
++ `count` – The number of times to repeat the string.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `value` – A character string to evaluate.
-- `count` – The number of times to repeat the string.
-- `targetColumn` – The name of the new column to be
-  created.
+**Note**  
+You can specify either `sourceColumn` or `value`, but not both.
 
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
-
-###### Examples
+**Examples**  
+  
 
 ```
 {
@@ -30,6 +29,7 @@ both.
     }
 }
 ```
+  
 
 ```
 {

@@ -1,15 +1,17 @@
+
+
 # CEILING
+<a name="recipe-actions.functions.CEILING"></a>
 
-Returns the smallest integer number greater than or equal to the input decimal
-numbers in a new column.
+Returns the smallest integer number greater than or equal to the input decimal numbers in a new column.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value1` – A numeric value.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `value1` – A numeric value.
-- `targetColumn` – The name of the new column to be created.
-
-###### Example
+**Example**  
+  
 
 ```
 {

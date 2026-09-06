@@ -1,14 +1,16 @@
+
+
 # DUPLICATE
+<a name="recipe-actions.DUPLICATE"></a>
 
-Creates a new column with the different name, but with all of the same data. Both the
-old and new columns are retained in the dataset.
+Creates a new column with the different name, but with all of the same data. Both the old and new columns are retained in the dataset.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `targetColumn` – A name for the duplicate column.
 
-- `sourceColumn` – The name of an existing column.
-- `targetColumn` – A name for the duplicate column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

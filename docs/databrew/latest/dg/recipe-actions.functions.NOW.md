@@ -1,15 +1,16 @@
+
+
 # NOW
+<a name="recipe-actions.functions.NOW"></a>
 
-Creates a new column containing the current date and time in the format
-`yyyy-mm-dd HH:MM:SS`.
+Creates a new column containing the current date and time in the format `yyyy-mm-dd HH:MM:SS`.
 
-###### Parameters
+**Parameters**
++ `timeZone` – The name of a time zone. If no time zone is specified, then the default is Universal Coordinated Time (UTC).
++ `targetColumn` – A name for the newly created column.
 
-- `timeZone` – The name of a time zone. If no time zone is
-  specified, then the default is Universal Coordinated Time (UTC).
-- `targetColumn` – A name for the newly created column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

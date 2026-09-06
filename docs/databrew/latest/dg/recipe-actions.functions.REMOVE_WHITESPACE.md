@@ -1,21 +1,20 @@
+
+
 # REMOVE\_WHITESPACE
+<a name="recipe-actions.functions.REMOVE_WHITESPACE"></a>
 
-Removes white space from the strings in the source column or custom strings, and
-returns the result in a new column.
+Removes white space from the strings in the source column or custom strings, and returns the result in a new column.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value` – A character string to evaluate.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `value` – A character string to evaluate.
-- `targetColumn` – The name of the new column to be
-  created.
+**Note**  
+You can specify either `sourceColumn` or `value`, but not both.
 
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
-
-###### Examples
+**Examples**  
+  
 
 ```
 {
@@ -28,6 +27,7 @@ both.
     }
 }
 ```
+  
 
 ```
 {

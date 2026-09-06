@@ -1,14 +1,16 @@
+
+
 # STANDARD\_DEVIATION
+<a name="recipe-actions.functions.STDDEV"></a>
 
-Returns the standard deviation from the selected source columns in a new column.
+ Returns the standard deviation from the selected source columns in a new column. 
 
-###### Parameters
+**Parameters**
++ `sourceColumns` – A JSON-encoded string representing a list of existing columns.
++ `targetColumn` – A name for the newly created column.
 
-- `sourceColumns` – A JSON-encoded string representing a list of existing
-  columns.
-- `targetColumn` – A name for the newly created column.
-
-###### Example
+**Example**  
+  
 
 ```
 {

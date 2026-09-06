@@ -1,21 +1,19 @@
+
+
 # SPLIT\_COLUMN\_BETWEEN\_DELIMITER
+<a name="recipe-actions.SPLIT_COLUMN_BETWEEN_DELIMITER"></a>
 
-Splits a column into three new columns, according to a beginning and ending
-delimiter.
+Splits a column into three new columns, according to a beginning and ending delimiter.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `patternOption1` – A JSON-encoded string representing one or more characters that indicate the first delimiter.
++ `patternOption2` – A JSON-encoded string representing one or more characters that indicate the second delimiter.
++ `pattern` – One or more characters to use as a separator, when splitting the data.
++ `includeInSplit` – If true, includes the pattern in the new column; otherwise, the pattern is discarded.
 
-- `sourceColumn` – The name of an existing column.
-- `patternOption1` – A JSON-encoded string representing one or more
-  characters that indicate the first delimiter.
-- `patternOption2` – A JSON-encoded string representing one or more
-  characters that indicate the second delimiter.
-- `pattern` – One or more characters to use as a separator,
-  when splitting the data.
-- `includeInSplit` – If true, includes the pattern in the new
-  column; otherwise, the pattern is discarded.
-
-###### Example
+**Example**  
+  
 
 ```
 {

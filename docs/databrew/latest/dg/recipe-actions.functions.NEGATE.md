@@ -1,14 +1,16 @@
+
+
 # NEGATE
+<a name="recipe-actions.functions.NEGATE"></a>
 
-Negates a value and returns the result in a new column.
+Negates a value and returns the result in a new column. 
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `targetColumn` – The name of the new column to be
-  created.
-
-###### Example
+**Example**  
+  
 
 ```
 {

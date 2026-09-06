@@ -1,20 +1,20 @@
+
+
 # CHAR
+<a name="recipe-actions.functions.CHAR"></a>
 
-Returns in a new column the Unicode character for each integer in the source column,
-or for a custom integer value.
+Returns in a new column the Unicode character for each integer in the source column, or for a custom integer value.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `value` – An integer that represents a Unicode value.
++ `targetColumn` – The name of the new column to be created.
 
-- `sourceColumn` – The name of an existing column.
-- `value` – An integer that represents a Unicode value.
-- `targetColumn` – The name of the new column to be created.
+**Note**  
+You can specify either `sourceColumn` or `value`, but not both.
 
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
-
-###### Examples
+**Examples**  
+  
 
 ```
 {
@@ -27,6 +27,7 @@ both.
     }
 }
 ```
+  
 
 ```
 {

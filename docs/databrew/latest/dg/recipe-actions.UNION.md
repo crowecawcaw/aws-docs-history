@@ -1,20 +1,18 @@
+
+
 # UNION
+<a name="recipe-actions.UNION"></a>
 
 Combines the rows from two or more datasets into a single result.
 
-###### Parameters
+**Parameters**
++ `datasetsColumns` — A JSON-encoded string representing a list of all the columns in the datasets.
++ `secondaryDatasetNames` — A JSON-encoded string representing a list of one or more secondary datasets.
++ `secondaryInputs` — A JSON-encoded string representing a list of Amazon S3 buckets and object key names that tell DataBrew where to find the secondary dataset(s).
++ `targetColumnNames` — A JSON-encoded string representing a list of column names for the results.
 
-- `datasetsColumns` — A JSON-encoded string representing a list
-  of all the columns in the datasets.
-- `secondaryDatasetNames` — A JSON-encoded string representing
-  a list of one or more secondary datasets.
-- `secondaryInputs` — A JSON-encoded string representing a list
-  of Amazon S3 buckets and object key names that tell DataBrew where to find the
-  secondary dataset(s).
-- `targetColumnNames` — A JSON-encoded string representing a
-  list of column names for the results.
-
-###### Example
+**Example**  
+  
 
 ```
 {

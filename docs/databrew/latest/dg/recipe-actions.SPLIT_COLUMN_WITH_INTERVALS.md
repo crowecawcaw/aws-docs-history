@@ -1,17 +1,17 @@
+
+
 # SPLIT\_COLUMN\_WITH\_INTERVALS
+<a name="recipe-actions.SPLIT_COLUMN_WITH_INTERVALS"></a>
 
-Splits a column at intervals of _n_ characters, where you specify
-_n_.
+Splits a column at intervals of *n* characters, where you specify *n*.
 
-###### Parameters
+**Parameters**
++ `sourceColumn` – The name of an existing column.
++ `startPosition` – The character position where the split is to begin.
++ `interval` – The number of characters to skip before the next split.
 
-- `sourceColumn` – The name of an existing column.
-- `startPosition` – The character position where the split is
-  to begin.
-- `interval` – The number of characters to skip before the next
-  split.
-
-###### Example
+**Example**  
+  
 
 ```
 {
