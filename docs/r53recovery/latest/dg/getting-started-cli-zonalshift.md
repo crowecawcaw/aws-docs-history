@@ -1,22 +1,18 @@
+
+
 # Examples of using the AWS CLI with zonal shift
+<a name="getting-started-cli-zonalshift"></a>
 
-This section provides application examples of using zonal shift, using the AWS Command Line Interface to work
-with the zonal shift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are
-intended to help you develop a basic understanding of how to work with zonal shift using
-the CLI.
+This section provides application examples of using zonal shift, using the AWS Command Line Interface to work with the zonal shift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic understanding of how to work with zonal shift using the CLI.
 
-Zonal shift in ARC enables you to temporarily move traffic for supported resources away
-from an Availability Zone so that your application can continue to operate normally with
-other Availabilty Zones in an AWS Region.
+Zonal shift in ARC enables you to temporarily move traffic for supported resources away from an Availability Zone so that your application can continue to operate normally with other Availabilty Zones in an AWS Region.
 
-All zonal shifts are temporary and must be set initially to expire within three days.
-However, you can update a zonal shift later to set a new expiration.
+All zonal shifts are temporary and must be set initially to expire within three days. However, you can update a zonal shift later to set a new expiration.
 
-For more information about using the AWS CLI, see the
-[AWS CLI Command Reference](../../../cli/latest/reference/arc-zonal-shift/index.md "../../../cli/latest/reference/arc-zonal-shift/index.md").
-For a list of zonal shift API actions and links to more information, see [Zonal shift API operations](actions.zonalshift.md "actions.zonalshift.md").
+For more information about using the AWS CLI, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/arc-zonal-shift/index.html). For a list of zonal shift API actions and links to more information, see [Zonal shift API operations](actions.zonalshift.md).
 
 ## Start zonal shift
+<a name="getting-started-cli-zonalshift.start-zonal-shift"></a>
 
 You can start a zonal shift with the CLI by using the `start-zonal-shift` command.
 
@@ -41,13 +37,13 @@ aws arc-zonal-shift start-zonal-shift \
 ```
 
 ## Get managed resource
+<a name="getting-started-cli-zonalshift.get-managed-resource"></a>
 
 You can get information about a managed resource with the CLI by using the `get-managed-resource` command.
 
 ```
 aws arc-zonal-shift get-managed-resource \
        --resource-identifier arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/Testing/5a19403ecd42dc05
-
 ```
 
 ```
@@ -77,11 +73,12 @@ aws arc-zonal-shift get-managed-resource \
 ```
 
 ## List managed resources
+<a name="getting-started-cli-zonalshift.list-managed-resource"></a>
 
 You can list the managed resources in your account with the CLI by using the `list-managed-resources` command.
 
 ```
-aws arc-zonal-shift list-managed-resources
+aws arc-zonal-shift list-managed-resources 
 ```
 
 ```
@@ -120,11 +117,12 @@ aws arc-zonal-shift list-managed-resources
 ```
 
 ## List zonal shifts
+<a name="getting-started-cli-zonalshift.list-zonal-shifts"></a>
 
 You can list the zonal shifts in your account with the CLI by using the `list-zonal-shifts` command.
 
 ```
-aws arc-zonal-shift list-zonal-shifts
+aws arc-zonal-shift list-zonal-shifts 
 ```
 
 ```
@@ -144,11 +142,12 @@ aws arc-zonal-shift list-zonal-shifts
 ```
 
 ## Update zonal shift
+<a name="getting-started-cli-zonalshift.update-zonal-shift"></a>
 
 You can update a zonal shift with the CLI by using the `update-zonal-shift` command.
 
 ```
-aws arc-zonal-shift update-zonal-shift \
+aws arc-zonal-shift update-zonal-shift \  
        --zonal-shift-id 9ac9ec1e-1df1-0755-3dc5-8cf573cd9c38 \
        --expires-in 1h \
        --comment "Still shifting traffic away from use1-az1"
@@ -167,6 +166,7 @@ aws arc-zonal-shift update-zonal-shift \
 ```
 
 ## Cancel zonal shift
+<a name="getting-started-cli-zonalshift.cancel-zonal-shift"></a>
 
 You can cancel a zonal shift with the CLI by using the `cancel-zonal-shift` command.
 

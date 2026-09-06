@@ -1,26 +1,32 @@
+
+
 # CloudWatch alarms for application health permissions
+<a name="security_iam_region_switch_cloudwatch"></a>
 
-The following is a sample policy to attach to access CloudWatch alarms for application health, which are used to help
-determine actual recovery time.
+ The following is a sample policy to attach to access CloudWatch alarms for application health, which are used to help determine actual recovery time. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloudwatch:DescribeAlarmHistory",
- "cloudwatch:DescribeAlarms"
- ],
- "Resource": [
- "arn:aws:cloudwatch:us-east-1:123456789012:alarm:app-health-primary",
- "arn:aws:cloudwatch:us-west-2:123456789012:alarm:app-health-secondary"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:DescribeAlarmHistory",
+        "cloudwatch:DescribeAlarms"
+      ],
+      "Resource": [
+        "arn:aws:cloudwatch:us-east-1:123456789012:alarm:app-health-primary",
+        "arn:aws:cloudwatch:us-west-2:123456789012:alarm:app-health-secondary"
+      ]
+    }
+  ]
+}
+```
+
+------

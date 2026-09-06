@@ -1,15 +1,14 @@
-# Set up routing control components
 
-Our first step is to create a cluster. An ARC cluster is a set of five endpoints, one
-in each of five different AWS Regions. The ARC infrastructure supports these
-endpoints to work in coordination so that they guarantee high availability and
-sequential consistency of failover operations.
+
+# Set up routing control components
+<a name="getting-started-cli-routing-config"></a>
+
+Our first step is to create a cluster. An ARC cluster is a set of five endpoints, one in each of five different AWS Regions. The ARC infrastructure supports these endpoints to work in coordination so that they guarantee high availability and sequential consistency of failover operations. 
 
 ## 1. Create a cluster
+<a name="getting-started-cli-routing.cluster"></a>
 
-1a. Create a cluster. The `network-type` is optional, and can either be
-`IPV4` or `DUALSTACK`. The default is
-`IPV4`.
+1a. Create a cluster. The `network-type` is optional, and can either be `IPV4` or `DUALSTACK`. The default is `IPV4`.
 
 ```
 aws route53-recovery-control-config create-cluster --cluster-name test --network-type DUALSTACK
@@ -25,9 +24,7 @@ aws route53-recovery-control-config create-cluster --cluster-name test --network
 }
 ```
 
-When you first create a ARC resource, it has a status of `PENDING` while
-the cluster is created. You can check in on its progress by calling
-`describe-cluster`.
+When you first create a ARC resource, it has a status of `PENDING` while the cluster is created. You can check in on its progress by calling `describe-cluster`. 
 
 1b. Describe a cluster.
 
@@ -46,8 +43,7 @@ aws route53-recovery-control-config --region us-west-2 \
 }
 ```
 
-When the status is DEPLOYED, ARC has successfully created the cluster with the set
-of endpoints for you to interact with. You can list all of your clusters by calling `list-clusters`.
+When the status is DEPLOYED, ARC has successfully created the cluster with the set of endpoints for you to interact with. You can list all of your clusters by calling `list-clusters`.
 
 1c. List your clusters.
 
@@ -84,15 +80,11 @@ aws route53-recovery-control-config update-cluster \
 ```
 
 ## 2. Create a control panel
+<a name="getting-started-cli-routing.panel"></a>
 
-A control panel is a logical grouping for organizing your ARC routing controls. When you create a
-cluster, ARC automatically provides a control panel for you called `DefaultControlPanel`. You can
-use this control panel right away.
+A control panel is a logical grouping for organizing your ARC routing controls. When you create a cluster, ARC automatically provides a control panel for you called `DefaultControlPanel`. You can use this control panel right away.
 
-A control panel can only exist in one cluster. If you want to move a control panel to another cluster,
-you must delete it and then create it in the second cluster. You can see all of the control panels in your
-account by calling `list-control-panels`. To see just the control panels in a specific cluster, add the
-`--cluster-arn` field.
+A control panel can only exist in one cluster. If you want to move a control panel to another cluster, you must delete it and then create it in the second cluster. You can see all of the control panels in your account by calling `list-control-panels`. To see just the control panels in a specific cluster, add the `--cluster-arn` field.
 
 2a. List control panels.
 
@@ -139,8 +131,7 @@ aws route53-recovery-control-config --region us-west-2 create-control-panel \
 }
 ```
 
-When you first create a ARC resource, it has a status of `PENDING` while it's being created. You can
-check on progress by calling `describe-control-panel`.
+When you first create a ARC resource, it has a status of `PENDING` while it's being created. You can check on progress by calling `describe-control-panel`.
 
 2c. Describe a control panel.
 
@@ -163,13 +154,11 @@ aws route53-recovery-control-config --region us-west-2 describe-control-panel \
 ```
 
 ## 3. Create a routing control
+<a name="getting-started-cli-routing.control"></a>
 
-Now that you've set up the cluster and looked at control panels, you can begin creating routing controls. When you create a routing control, you must
-at least specify the Amazon Resource Name (ARN) of the cluster that you want the routing control to be in. You can also specify the ARN of a control
-panel for the routing control. You'll also need to specify the cluster where the control panel is located.
+Now that you've set up the cluster and looked at control panels, you can begin creating routing controls. When you create a routing control, you must at least specify the Amazon Resource Name (ARN) of the cluster that you want the routing control to be in. You can also specify the ARN of a control panel for the routing control. You'll also need to specify the cluster where the control panel is located. 
 
-If you don't specify a control panel, your routing control is added to the automatically created
-control panel, `DefaultControlPanel`.
+If you don't specify a control panel, your routing control is added to the automatically created control panel, `DefaultControlPanel`.
 
 Create a routing control by calling `create-routing-control`.
 
@@ -192,8 +181,7 @@ aws route53-recovery-control-config --region us-west-2 create-routing-control \
 }
 ```
 
-Routing controls follow the same creation pattern as other ARC resources, so you can track their
-progress by calling a describe operation.
+Routing controls follow the same creation pattern as other ARC resources, so you can track their progress by calling a describe operation. 
 
 3b. Describe routing control.
 
@@ -241,39 +229,30 @@ aws route53-recovery-control-config --region us-west-2 list-routing-controls \
 }
 ```
 
-In the following example, where we work with routing control states, we assume that you have the two routing
-controls listed in this section (Rc1 and Rc2). In this example, each routing control represents an Availability
-Zone that your application is deployed in.
+In the following example, where we work with routing control states, we assume that you have the two routing controls listed in this section (Rc1 and Rc2). In this example, each routing control represents an Availability Zone that your application is deployed in. 
 
 ## 4. Create safety rules
+<a name="getting-started-cli-routing.safety"></a>
 
-When you work with several routing controls at the same time, you might decide that you want some safeguards
-in place when you enable and disable them, to avoid unintentional consequences, like turning both routing
-controls off and stopping all traffic flow. To create these safeguards, you create routing control safety rules.
+When you work with several routing controls at the same time, you might decide that you want some safeguards in place when you enable and disable them, to avoid unintentional consequences, like turning both routing controls off and stopping all traffic flow. To create these safeguards, you create routing control safety rules.
 
-There are two types of safety rules: assertion rules and gating rules. To learn more about safety
-rules, see [Creating safety rules for routing control](routing-control.safety-rules.md "routing-control.safety-rules.md").
+There are two types of safety rules: assertion rules and gating rules. To learn more about safety rules, see [Creating safety rules for routing control](routing-control.safety-rules.md).
 
-The following call provides an example of creating an assertion rule that makes sure that at least
-one of two routing controls is set to `On` at any given time. To create the rule, you run `create-safety-rule`
-with the `assertion-rule` parameter.
+The following call provides an example of creating an assertion rule that makes sure that at least one of two routing controls is set to `On` at any given time. To create the rule, you run `create-safety-rule` with the `assertion-rule` parameter.
 
-For detailed information about the assertion rule API operation, see
-[AssertionRule](../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-assertionrule "../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-assertionrule")
-in the Routing Control API Reference Guide for Amazon Application Recovery Controller.
+For detailed information about the assertion rule API operation, see [AssertionRule](https://docs.aws.amazon.com/recovery-cluster/latest/api/safetyrule.html#safetyrule-model-assertionrule) in the Routing Control API Reference Guide for Amazon Application Recovery Controller.
 
 4a. Create an assertion rule.
 
 ```
 aws route53-recovery-control-config --region us-west-2 create-safety-rule \
-        --assertion-rule '{"Name": "TestAssertionRule",
-        "ControlPanelArn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx",
-        "WaitPeriodMs": 5000,
+        --assertion-rule '{"Name": "TestAssertionRule", 
+        "ControlPanelArn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx", 
+        "WaitPeriodMs": 5000, 
         "AssertedControls":
-        ["arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def"
-        "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi"],
+        ["arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def" 
+        "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi"], 
         "RuleConfig": {"Threshold": 1, "Type": "ATLEAST", "Inverted": false}}'
-
 ```
 
 ```
@@ -282,7 +261,7 @@ aws route53-recovery-control-config --region us-west-2 create-safety-rule \
         "ASSERTION": {
             "Arn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/safetyrule/333333444444",
             "AssertedControls": [
-                "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def"
+                "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def" 
                 "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi"],
             "ControlPanelArn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx",
             "Name": "TestAssertionRule",
@@ -298,34 +277,26 @@ aws route53-recovery-control-config --region us-west-2 create-safety-rule \
 }
 ```
 
-The following call provides an example of creating a gating rule that provides an overall "on/off" or "gating" switch for a set of target routing
-controls in a control panel. This lets you disallow updating the target routing controls so that, for example, automation can't make unauthorized
-updates. In this example, the gating switch is a routing control specified by the `GatingControls` parameter and the two routing controls
-that are controlled or "gated" are specified by the `TargetControls` parameter.
+The following call provides an example of creating a gating rule that provides an overall "on/off" or "gating" switch for a set of target routing controls in a control panel. This lets you disallow updating the target routing controls so that, for example, automation can't make unauthorized updates. In this example, the gating switch is a routing control specified by the `GatingControls` parameter and the two routing controls that are controlled or "gated" are specified by the `TargetControls` parameter.
 
-###### Note
-
-Before you create the gating rule, you must create the gating routing control, which does
-not include DNS failover records, and the target routing controls, which you do configure with DNS failover records.
+**Note**  
+Before you create the gating rule, you must create the gating routing control, which does not include DNS failover records, and the target routing controls, which you do configure with DNS failover records.
 
 To create the rule, you run `create-safety-rule` with the `gating-rule` parameter.
 
-For detailed information about the assertion rule API operation, see
-[GatingRule](../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-gatingrule "../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-gatingrule")
-in the Routing Control API Reference Guide for Amazon Application Recovery Controller.
+For detailed information about the assertion rule API operation, see [GatingRule](https://docs.aws.amazon.com/recovery-cluster/latest/api/safetyrule.html#safetyrule-model-gatingrule) in the Routing Control API Reference Guide for Amazon Application Recovery Controller.
 
 4b. Create a gating rule.
 
 ```
 aws route53-recovery-control-config --region us-west-2 create-safety-rule \
-        --gating-rule '{"Name": "TestGatingRule",
-        "ControlPanelArn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx",
-        "WaitPeriodMs": 5000,
-        "GatingControls": ["arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def"]
-        "TargetControls": ["arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi",
-        "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/lmn789lmn789lmn"],
+        --gating-rule '{"Name": "TestGatingRule", 
+        "ControlPanelArn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx", 
+        "WaitPeriodMs": 5000, 
+        "GatingControls": ["arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def"] 
+        "TargetControls": ["arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi", 
+        "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/lmn789lmn789lmn"], 
         "RuleConfig": {"Threshold": 0, "Type": "OR", "Inverted": false}}'
-
 ```
 
 ```
@@ -337,7 +308,7 @@ aws route53-recovery-control-config --region us-west-2 create-safety-rule \
                 "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/def123def123def"
             ],
             "TargetControls": [
-                "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi"
+                "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/ghi456ghi456ghi" 
                 "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx/routingcontrol/lmn789lmn789lmn"
             ],
             "ControlPanelArn": "arn:aws:route53-recovery-control::888888888888:controlpanel/zzz123yyy456xxx789zzz123yyy456xxx",
@@ -354,33 +325,28 @@ aws route53-recovery-control-config --region us-west-2 create-safety-rule \
 }
 ```
 
-As with other routing control resources, you can describe, list, or delete safety rules after they
-propagate to the data plane.
+As with other routing control resources, you can describe, list, or delete safety rules after they propagate to the data plane.
 
-After you set up one or more safety rules, you can continue to interact with the cluster, to set, or retrieve state for routing controls. If a
-`set-routing-control-state` operation breaks a rule that you created, you’ll receive an exception similar to the following:
+After you set up one or more safety rules, you can continue to interact with the cluster, to set, or retrieve state for routing controls. If a `set-routing-control-state` operation breaks a rule that you created, you’ll receive an exception similar to the following:
 
-`Cannot modify control state for [0123456bbbbbbb0123456bbbbbb01234560123 abcdefg1234567] 
- due to failed rule evaluation 0123456bbbbbbb0123456bbbbbb0123456333333444444`
+`Cannot modify control state for [0123456bbbbbbb0123456bbbbbb01234560123 abcdefg1234567] due to failed rule evaluation 0123456bbbbbbb0123456bbbbbb0123456333333444444`
 
-The first identifier is the control panel ARN concatenated with the routing control ARN. The second
-identifier is the control panel ARN concatenated with the safety rule ARN.
+The first identifier is the control panel ARN concatenated with the routing control ARN. The second identifier is the control panel ARN concatenated with the safety rule ARN.
 
 ## 5. Create health checks
+<a name="getting-started-cli-routing.healthcheck"></a>
 
-To use routing controls to fail over traffic, you create health checks in Amazon Route 53, and then
-associate the health checks with your DNS records. To fail over traffic, a ARC routing control sets the
-health check to fail, so that Route 53 reroutes the traffic. (The health check doesn't valid the health of your application;
-it's simply used as a method for rerouting traffic.)
+To use routing controls to fail over traffic, you create health checks in Amazon Route 53, and then associate the health checks with your DNS records. To fail over traffic, a ARC routing control sets the health check to fail, so that Route 53 reroutes the traffic. (The health check doesn't valid the health of your application; it's simply used as a method for rerouting traffic.)
 
-As an example, let's say you have two cells (Regions or Availability Zones). You configure one as the primary cell
-for your application, and the other as the secondary, to fail over to.
+As an example, let's say you have two cells (Regions or Availability Zones). You configure one as the primary cell for your application, and the other as the secondary, to fail over to. 
 
 To set up health checks for failover, you can do the following, for example:
 
 1. Use the ARC CLI to create a routing control for each cell.
-2. Use the Route 53 CLI to create a ARC health check in Route 53 for each routing control.
-3. Use the Route 53 CLI to create two failover DNS records in Route 53, and associate a health check with each one.
+
+1. Use the Route 53 CLI to create a ARC health check in Route 53 for each routing control.
+
+1. Use the Route 53 CLI to create two failover DNS records in Route 53, and associate a health check with each one.
 
 5a. Create a routing control for each cell.
 
@@ -398,8 +364,7 @@ aws route53-recovery-control-config --region us-west-2 create-routing-control \
 
 5b. Create a health check for each routing control.
 
-###### Note
-
+**Note**  
 You create ARC health checks by using the Amazon Route 53 CLI.
 
 ```
@@ -423,7 +388,6 @@ aws route53 create-health-check --caller-reference RoutingControlCell1 \
         "HealthCheckVersion": 1
     }
 }
-
 ```
 
 ```
@@ -447,15 +411,11 @@ aws route53 create-health-check --caller-reference RoutingControlCell2 \
         "HealthCheckVersion": 1
     }
 }
-
 ```
 
 5c. Create two failover DNS records, and associate a health check with each one.
 
-You create failover DNS records in Route 53 using the Route 53 CLI. To create the records, follow the directions in the
-Amazon Route 53 AWS CLI Command Reference for the [change-resource-record-sets](../../../cli/latest/reference/route53/change-resource-record-sets.md "../../../cli/latest/reference/route53/change-resource-record-sets.md")
-command. In the records, specify the DNS value for each cell together with the corresponding `HealthCheckID` value
-that Route 53 created for the health check (see 6b).
+You create failover DNS records in Route 53 using the Route 53 CLI. To create the records, follow the directions in the Amazon Route 53 AWS CLI Command Reference for the [change-resource-record-sets](https://docs.aws.amazon.com/cli/latest/reference/route53/change-resource-record-sets.html) command. In the records, specify the DNS value for each cell together with the corresponding `HealthCheckID` value that Route 53 created for the health check (see 6b).
 
 For the primary cell:
 
@@ -473,7 +433,6 @@ For the primary cell:
     ],
     "HealthCheckId": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
-
 ```
 
 For the secondary cell:
@@ -492,8 +451,6 @@ For the secondary cell:
     ],
     "HealthCheckId": "yyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
 }
-
 ```
 
-Now, to fail over from your primary cell to your secondary cell, you can follow the CLI example in step 4b to update the state of
-`RoutingControlCell1` to `OFF` and `RoutingControlCell2` to `ON`.
+Now, to fail over from your primary cell to your secondary cell, you can follow the CLI example in step 4b to update the state of `RoutingControlCell1` to `OFF` and `RoutingControlCell2` to `ON`.

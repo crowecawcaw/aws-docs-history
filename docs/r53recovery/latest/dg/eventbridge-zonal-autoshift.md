@@ -1,146 +1,120 @@
+
+
 # Using zonal autoshift with Amazon EventBridge
+<a name="eventbridge-zonal-autoshift"></a>
 
-Using Amazon EventBridge, you can set up event-driven rules that monitor your zonal autoshift resources and initiate target actions that use other AWS services. For
-example, you can set a rule for sending out email notifications by signaling an Amazon SNS topic when a practice run starts for zonal autoshift.
+Using Amazon EventBridge, you can set up event-driven rules that monitor your zonal autoshift resources and initiate target actions that use other AWS services. For example, you can set a rule for sending out email notifications by signaling an Amazon SNS topic when a practice run starts for zonal autoshift.
 
-You can create rules in Amazon EventBridge to act on zonal autoshift. An event for zonal autoshift specifies
-status information about practice runs or autoshifts, for example, when a practice run is started. You can
-configure zonal autoshift to notify you about zonal autoshift events for resources that you enable for the
-service.
+You can create rules in Amazon EventBridge to act on zonal autoshift. An event for zonal autoshift specifies status information about practice runs or autoshifts, for example, when a practice run is started. You can configure zonal autoshift to notify you about zonal autoshift events for resources that you enable for the service.
 
-You can also choose, in addition to or instead of other notifications, to enable autoshift observer notification,
-which provides a notification event whenever AWS starts an autoshift for a potentially impaired Availability Zone. Autoshift observer
-notification is separate from notifications that you receive when the traffic for resources that you have enabled for zonal
-autoshift is shifted away from an Availability Zone. You don't need to configure any resources with zonal autoshift to
-enable autoshift observer notification. For more information, see [Enabling and working with zonal autoshift](arc-zonal-autoshift.start-cancel.md "arc-zonal-autoshift.start-cancel.md").
+You can also choose, in addition to or instead of other notifications, to enable autoshift observer notification, which provides a notification event whenever AWS starts an autoshift for a potentially impaired Availability Zone. Autoshift observer notification is separate from notifications that you receive when the traffic for resources that you have enabled for zonal autoshift is shifted away from an Availability Zone. You don't need to configure any resources with zonal autoshift to enable autoshift observer notification. For more information, see [Enabling and working with zonal autoshift](arc-zonal-autoshift.start-cancel.md). 
 
-To capture specific zonal autoshift events that you're interested in, define event-specific patterns that EventBridge can use to detect the events.
-Event patterns have the same structure as the events that they match. The pattern quotes the fields that you want to match and provides
-the values that you're looking for.
+To capture specific zonal autoshift events that you're interested in, define event-specific patterns that EventBridge can use to detect the events. Event patterns have the same structure as the events that they match. The pattern quotes the fields that you want to match and provides the values that you're looking for. 
 
-Events are emitted on a best effort basis. They're delivered from ARC to EventBridge in near real-time,
-under normal operational circumstances. However, situations can arise that might delay or prevent delivery of an event.
+Events are emitted on a best effort basis. They're delivered from ARC to EventBridge in near real-time, under normal operational circumstances. However, situations can arise that might delay or prevent delivery of an event.
 
-For information about how EventBridge rules work with event patterns, see [Events and Event Patterns in EventBridge](../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md "../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md").
+For information about how EventBridge rules work with event patterns, see [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html). 
 
 ## Monitor a zonal autoshift resource with EventBridge
+<a name="arc-eventbridge-tasks-zonal-autoshift"></a>
 
-With EventBridge, you can create rules that define actions to take when ARC emits
-events for its resources. For example, you can create
-a rule that sends an email message when a practice run starts for zonal autoshift.
+With EventBridge, you can create rules that define actions to take when ARC emits events for its resources. For example, you can create a rule that sends an email message when a practice run starts for zonal autoshift. 
 
-To type or copy and paste an event pattern into the EventBridge console, select to the option to use **Enter my own**
-option in the console. To help you determine event patterns that might be useful for you, this topic
-includes examples of both [zonal autoshift event-matching patterns](#ZAEventBridgePatterns "#ZAEventBridgePatterns") and
-[zonal autoshift events](#ZAEventBridgeEventSamples "#ZAEventBridgeEventSamples") that you can use.
+To type or copy and paste an event pattern into the EventBridge console, select to the option to use **Enter my own** option in the console. To help you determine event patterns that might be useful for you, this topic includes examples of both [zonal autoshift event-matching patterns ](#ZAEventBridgePatterns) and [zonal autoshift events](#ZAEventBridgeEventSamples) that you can use. 
 
-###### To create a rule for a resource event
+**To create a rule for a resource event**
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. Choose the AWS Region that you want to create the rule in, that is the Region that you're interested
-   in watching events for.
-3. Choose **Create rule**.
-4. Enter a **Name** for the rule, and, optionally, a description.
-5. For **Event bus**, leave the default value, **default**.
-6. Choose **Next**.
-7. For the **Build event pattern** step, for **Event source**, leave
-   the default value, **AWS events**.
-8. Under **Sample event**, choose **Enter my own**.
-9. For **Sample events**, type or copy and paste an event pattern.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
+
+1. Choose the AWS Region that you want to create the rule in, that is the Region that you're interested in watching events for.
+
+1. Choose **Create rule**.
+
+1. Enter a **Name** for the rule, and, optionally, a description.
+
+1. For **Event bus**, leave the default value, **default**.
+
+1. Choose **Next**.
+
+1. For the **Build event pattern** step, for **Event source**, leave the default value, **AWS events**.
+
+1. Under **Sample event**, choose **Enter my own**.
+
+1. For **Sample events**, type or copy and paste an event pattern.
 
 ## Example zonal autoshift event patterns
+<a name="arc-eventbridge-patterns-zonal-autoshift"></a>
 
-Event patterns have the same structure
-as the events that they match. The pattern quotes the fields that you want to match and provides the values that
-you're looking for.
+Event patterns have the same structure as the events that they match. The pattern quotes the fields that you want to match and provides the values that you're looking for.
 
-You can copy and paste event patterns from this section into EventBridge to create rules that you can use
-to monitor zonal autoshift actions and resources.
+You can copy and paste event patterns from this section into EventBridge to create rules that you can use to monitor zonal autoshift actions and resources.
 
-When you create event patterns for zonal autoshift events, you can specify any of the following
-for the `detail-type`:
+When you create event patterns for zonal autoshift events, you can specify any of the following for the `detail-type`:
++ `Autoshift In Progress`
++ `Autoshift Completed`
++ `Practice Run Started`
++ `Practice Run Succeeded`
++ `Practice Run Interrupted`
++ `Practice Run Failed`
++ `FIS Experiment Autoshift In Progress`
++ `FIS Experiment Autoshift Completed`
++ `FIS Experiment Autoshift Canceled`
++ `Manual Shift Started`
++ `Manual Shift Updated`
++ `Manual Shift Canceled`
 
-- `Autoshift In Progress`
-- `Autoshift Completed`
-- `Practice Run Started`
-- `Practice Run Succeeded`
-- `Practice Run Interrupted`
-- `Practice Run Failed`
-- `FIS Experiment Autoshift In Progress`
-- `FIS Experiment Autoshift Completed`
-- `FIS Experiment Autoshift Canceled`
-- `Manual Shift Started`
-- `Manual Shift Updated`
-- `Manual Shift Canceled`
+When a practice run is interrupted, for more information about what caused the interruption, see the `additionalFailureInfo` field.
 
-When a practice run is interrupted, for more information about what caused the interruption,
-see the `additionalFailureInfo` field.
+You can choose to monitor all AWS autoshifts by enabling *autoshift observer notifications*. After you enable autoshift observer notification, to receive the notifications, choose to be notified for the zonal autoshift detail type `Autoshift In Progress`. To see the steps for enabling autoshift observer notification, see [Enabling and working with zonal autoshift](arc-zonal-autoshift.start-cancel.md).
 
-You can choose to monitor all AWS autoshifts by enabling _autoshift observer
-notifications_. After you enable autoshift observer notification, to receive the
-notifications, choose to be notified for the zonal autoshift detail type `Autoshift In Progress`.
-To see the steps for enabling autoshift observer notification, see
-[Enabling and working with zonal autoshift](arc-zonal-autoshift.start-cancel.md "arc-zonal-autoshift.start-cancel.md").
+For examples, see the [Example zonal autoshift events](#ZAEventBridgeEventSamples) section.
++ *Select all events from zonal autoshift where an autoshift has started.*
 
-For examples, see the [Example zonal autoshift
-events](#ZAEventBridgeEventSamples "#ZAEventBridgeEventSamples") section.
+  Note the following:
+  + If you have autoshift observer notification enabled, ARC returns all autoshift events. 
+  + If you do not have autoshift observer notification enabled, ARC returns autoshift events only when a resource that you have configured for zonal autoshift is included in an autoshift.
 
-- _Select all events from zonal autoshift where an autoshift has started._
+  ```
+  {
+      "source": [
+          "aws.arc-zonal-shift"
+      ],
+      "detail-type": [
+          "Autoshift In Progress"
+      ]
+  }
+  ```
++ *Select all events from zonal autoshift where a practice run has started*.
 
-Note the following:
+  ```
+  {
+      "source": [
+          "aws.arc-zonal-shift"
+      ],
+      "detail-type": [
+          "Practice Run Started"
+      ]
+  }
+  ```
++ *Select all events from zonal autoshift where a practice run has failed*.
 
-    + If you have autoshift observer notification enabled, ARC returns all autoshift
-     events.
-    + If you do not have autoshift observer notification enabled, ARC returns
-     autoshift events only when a resource that you have configured for zonal autoshift is included in an
-     autoshift.
-
-```
-{
-    "source": [
-        "aws.arc-zonal-shift"
-    ],
-    "detail-type": [
-        "Autoshift In Progress"
-    ]
-}
-```
-
-- _Select all events from zonal autoshift where a practice run has started_.
-
-```
-{
-    "source": [
-        "aws.arc-zonal-shift"
-    ],
-    "detail-type": [
-        "Practice Run Started"
-    ]
-}
-```
-
-- _Select all events from zonal autoshift where a practice run has failed_.
-
-```
-{
-    "source": [
-        "aws.arc-zonal-shift"
-    ],
-    "detail-type": [
-        "Practice Run Failed"
-    ]
-}
-```
+  ```
+  {
+      "source": [
+          "aws.arc-zonal-shift"
+      ],
+      "detail-type": [
+          "Practice Run Failed"
+      ]
+  }
+  ```
 
 ## Example zonal autoshift events
+<a name="arc-eventbridge-examples-zonal-autoshift"></a>
 
-This section includes example events for _zonal
-autoshift_ actions.
+This section includes example events for *zonal autoshift* actions.
 
-The following is an example event for the `Autoshift In Progress` action, when
-
-1.  autoshift observer notification is _enabled_ and 2) you have not configured a
-    resource with zonal autoshift that is included in an autoshift:
+The following is an example event for the `Autoshift In Progress` action, when 1) autoshift observer notification is *enabled* and 2) you have not configured a resource with zonal autoshift that is included in an autoshift:
 
 ```
 {
@@ -157,18 +131,15 @@ The following is an example event for the `Autoshift In Progress` action, when
         "data": "",
         "metadata": {
             "awayFrom": "use1-az2",
-            "notes":"AWS has started an autoshift for an impaired Availability Zone. This notification
-            is separate from autoshift notifications for resources, if any, that you have configured for
+            "notes":"AWS has started an autoshift for an impaired Availability Zone. This notification 
+            is separate from autoshift notifications for resources, if any, that you have configured for 
             zonal autoshift. For details, see the Developer Guide."
         }
     }
 }
 ```
 
-The following is an example event for the `Autoshift In Progress` action, when
-
-1.  autoshift observer notification is _disabled_ and 2) you have configured a
-    resource with zonal autoshift that is included in an autoshift:
+The following is an example event for the `Autoshift In Progress` action, when 1) autoshift observer notification is *disabled* and 2) you have configured a resource with zonal autoshift that is included in an autoshift:
 
 ```
 {
@@ -244,8 +215,7 @@ The following is an example event for the `FIS Experiment Autoshift In Progress`
 }
 ```
 
-The following is an example event for the `Manual Shift Started` action.
-It is emitted when the `StartZonalShift` API is called on a resource:
+The following is an example event for the `Manual Shift Started` action. It is emitted when the `StartZonalShift` API is called on a resource:
 
 ```
 {
@@ -271,70 +241,61 @@ It is emitted when the `StartZonalShift` API is called on a resource:
 ```
 
 ## Specify a CloudWatch log group to use as a target
+<a name="arc-eventbridge-cw-loggroup"></a>
 
-When you create an EventBridge rule, you must specify the target
-where events that are matched to the rule are sent. For a list of available targets for EventBridge,
-see [Targets available in the EventBridge console](../../../eventbridge/latest/userguide/eb-targets.md#eb-console-targets "../../../eventbridge/latest/userguide/eb-targets.md#eb-console-targets").
-One of the targets that you can add to an EventBridge rule is an Amazon CloudWatch log group. This section describes
-the requirements for adding CloudWatch log groups as targets, and provides a procedure for adding a
-log group when you create a rule.
+When you create an EventBridge rule, you must specify the target where events that are matched to the rule are sent. For a list of available targets for EventBridge, see [Targets available in the EventBridge console](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html#eb-console-targets). One of the targets that you can add to an EventBridge rule is an Amazon CloudWatch log group. This section describes the requirements for adding CloudWatch log groups as targets, and provides a procedure for adding a log group when you create a rule.
 
 To add a CloudWatch log group as a target, you can do one of the following:
++ Create a new log group 
++ Choose an existing log group
 
-- Create a new log group
-- Choose an existing log group
+If you specify a new log group using the console when you create a rule, EventBridge automatically creates the log group for you. Make sure that the log group that you use as a target for the EventBridge rule starts with `/aws/events`. If you want to choose an existing log group, be aware that only log groups that start with `/aws/events` appear as options in the drop-down menu. For more information, see [Create a new log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#Create-Log-Group) in the *Amazon CloudWatch User Guide*.
 
-If you specify a new log group using the console when you create a rule, EventBridge automatically creates the
-log group for you. Make sure that the log group that you use as a target for the EventBridge rule starts with `/aws/events`.
-If you want to choose an existing log group, be aware that only log groups that
-start with `/aws/events` appear as options in the drop-down menu. For more information, see
-[Create a new log group](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#Create-Log-Group "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#Create-Log-Group")
-in the _Amazon CloudWatch User Guide_.
+If you create or use a CloudWatch log group to use as a target using CloudWatch operations outside of the console, make sure that you set permissions correctly. If you use the console to add a log group to an EventBridge rule, then the resource-based policy for the log group is updated automatically. But, if you use the AWS Command Line Interface or an AWS SDK to specify a log group, then you must update resource-based policy for the log group. The following example policy illustrates the permissions that you must define in a resource-based policy for the log group:
 
-If you create or use a CloudWatch log group to use as a target using CloudWatch operations outside of the
-console, make sure that you set permissions correctly. If you use the console to add a log group to an EventBridge
-rule, then the resource-based policy for the log group is updated automatically. But, if you use the
-AWS Command Line Interface or an AWS SDK to specify a log group, then you must update resource-based policy for the log group.
-The following example policy illustrates the permissions that you must define in a resource-based policy
-for the log group:
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
+{
+    "Version":"2012-10-17",		 	 	 
 
- "Statement": [
- {
- "Action": [
- "logs:CreateLogStream",
- "logs:PutLogEvents"
- ],
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "events.amazonaws.com",
- "delivery.logs.amazonaws.com"
- ]
- },
- "Resource": "arn:aws:logs:us-east-1:`222222222222`:log-group:/aws/events/*:*",
- "Sid": "TrustEventsToStoreLogEvent"
- }
- ]
-}`
-
+    "Statement": [
+        {
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "events.amazonaws.com",
+                    "delivery.logs.amazonaws.com"
+                ]
+            },
+            "Resource": "arn:aws:logs:us-east-1:{{222222222222}}:log-group:/aws/events/*:*",
+            "Sid": "TrustEventsToStoreLogEvent"
+        }
+    ]
+}
 ```
 
-You can't configure a resource-based policy for a log group by using the console. To add the required permissions
-to a resource-based policy, use the CloudWatch [PutResourcePolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md")
-API operation. Then, you can use the [describe-resource-policies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html") CLI command to check that your policy was applied correctly.
+------
 
-###### To create a rule for a resource event and specify a CloudWatch log group target
+You can't configure a resource-based policy for a log group by using the console. To add the required permissions to a resource-based policy, use the CloudWatch [PutResourcePolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.html) API operation. Then, you can use the [ describe-resource-policies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html) CLI command to check that your policy was applied correctly.
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. Choose the AWS Region that you want to create the rule in.
-3. Choose **Create rule** and then enter any information about that
-   rule, such as the event pattern or schedule details.
+**To create a rule for a resource event and specify a CloudWatch log group target**
 
-For more information about creating EventBridge rules for ARC, see the sections earlier in this topic. 4. On the **Select target** page, choose **CloudWatch** as your
-target. 5. Choose a CloudWatch log group from the drop-down menu.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
+
+1. Choose the AWS Region that you want to create the rule in.
+
+1. Choose **Create rule** and then enter any information about that rule, such as the event pattern or schedule details.
+
+   For more information about creating EventBridge rules for ARC, see the sections earlier in this topic.
+
+1. On the **Select target** page, choose **CloudWatch** as your target.
+
+1. Choose a CloudWatch log group from the drop-down menu.

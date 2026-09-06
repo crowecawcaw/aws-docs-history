@@ -1,6 +1,9 @@
-# Amazon RDS Switchover Read Replica execution block sample policy
 
-The following is a sample policy to attach if you add execution blocks to a Region switch plan for Amazon RDS Oracle read replica switchover.
+
+# Amazon RDS Switchover Read Replica execution block sample policy
+<a name="security_iam_region_switch_rds_switchover_read_replica"></a>
+
+ The following is a sample policy to attach if you add execution blocks to a Region switch plan for Amazon RDS Oracle read replica switchover. 
 
 ```
 {
@@ -15,15 +18,14 @@ The following is a sample policy to attach if you add execution blocks to a Regi
         "rds:ModifyDBInstance"
       ],
       "Resource": [
-        "arn:aws:rds:`region`:`account-id`:db:`instance-name`"
+        "arn:aws:rds:{{region}}:{{account-id}}:db:{{instance-name}}"
       ]
     }
   ]
 }
 ```
 
-If you configure an ungraceful behavior (`promoteReadReplica`), add the following
-action to the policy:
+If you configure an ungraceful behavior (`promoteReadReplica`), add the following action to the policy:
 
 ```
 {
@@ -39,7 +41,7 @@ action to the policy:
         "rds:ModifyDBInstance"
       ],
       "Resource": [
-        "arn:aws:rds:`region`:`account-id`:db:`instance-name`"
+        "arn:aws:rds:{{region}}:{{account-id}}:db:{{instance-name}}"
       ]
     }
   ]

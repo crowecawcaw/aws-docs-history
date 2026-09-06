@@ -1,203 +1,170 @@
+
+
 # Resource types and ARN formats in ARC
+<a name="recovery-readiness.resource-types-arns"></a>
 
-###### Note
+**Note**  
+The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html).
 
-The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+When you create a resource set in Amazon Application Recovery Controller (ARC), you specify the type of resource to include in the set and Amazon Resource Names (ARNs) for each of the resources to include. ARC expects a specific ARN format for each resource type. This section lists the resource types supported by ARC and the associated ARN formats for each one.
 
-When you create a resource set in Amazon Application Recovery Controller (ARC), you specify the type of resource to include in the set and Amazon
-Resource Names (ARNs) for each of the resources to include. ARC expects a specific ARN format for each resource type.
-This section lists the resource types supported by ARC and the associated ARN formats for each one.
+The specific format depends on the resource. When you provide an ARN, replace the {{italicized}} text with your resource-specific information. 
 
-The specific format depends on the resource. When you provide an ARN, replace the `italicized` text
-with your resource-specific information.
+**Note**  
+Be aware that the ARN format that ARC requires for resources might differ from the ARN format that a service itself requires for its resources. For example, the ARN formats that are described in the **Resource type** sections for each service in the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/reference.html) might not include the AWS account ID or other information that ARC needs to support features in the ARC service.
 
-###### Note
+**AWS::ApiGateway::Stage**  
+An Amazon API Gateway Version 1 stage.  
++ **ARN format: **`arn:{{partition}}:apigateway:{{region}}:{{account}}:/restapis/{{api-id}}/stages/{{stage-name}}`
 
-Be aware that the ARN format that ARC requires for resources might differ from the ARN format that a service itself requires for its resources. For
-example, the ARN formats that are described in the **Resource type** sections for each service in the [Service Authorization Reference](../../../service-authorization/latest/reference/reference.md "../../../service-authorization/latest/reference/reference.md") might not include the AWS account ID or other
-information that ARC needs to support features in the ARC service.
+  Example: `arn:aws:apigateway:us-east-1:111122223333:/restapis/123456789/stages/ExampleStage`
 
-**AWS::ApiGateway::Stage**
-An Amazon API Gateway Version 1 stage.
+  For more information, see [API Gateway Amazon Resource Name (ARN) reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/arn-format-reference.html).
 
-- **ARN format:** `arn:`partition`:apigateway:`region`:`account`:/restapis/`api-id`/stages/`stage-name``
+**AWS::ApiGatewayV2::Stage**  
+An Amazon API Gateway Version 2 stage.  
++ **ARN format: **`arn:{{partition}}:apigateway:{{region}}:{{account}}:/apis/{{api-id}}/stages/{{stage-name}}`
 
-Example: `arn:aws:apigateway:us-east-1:111122223333:/restapis/123456789/stages/ExampleStage`
+  Example: `arn:aws:apigateway:us-east-1:111122223333:/apis/123456789/stages/ExampleStage`
 
-For more information, see [API Gateway Amazon Resource Name (ARN) reference](../../../apigateway/latest/developerguide/arn-format-reference.md "../../../apigateway/latest/developerguide/arn-format-reference.md").
+  For more information, see [API Gateway Amazon Resource Name (ARN) reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/arn-format-reference.html).
 
-**AWS::ApiGatewayV2::Stage**
-An Amazon API Gateway Version 2 stage.
+**AWS::CloudWatch::Alarm**  
+An Amazon CloudWatch alarm.  
++ **ARN format: **`arn:{{partition}}:cloudwatch:{{region}}:{{account}}:alarm:{{alarm-name}}`
 
-- **ARN format:** `arn:`partition`:apigateway:`region`:`account`:/apis/`api-id`/stages/`stage-name``
+  Example: `arn:aws:cloudwatch:us-west-2:111122223333:alarm:test-alarm-1`
 
-Example: `arn:aws:apigateway:us-east-1:111122223333:/apis/123456789/stages/ExampleStage`
+  For more information, see [Resource types defined by Amazon CloudWatch](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies).
 
-For more information, see [API Gateway Amazon Resource Name (ARN) reference](../../../apigateway/latest/developerguide/arn-format-reference.md "../../../apigateway/latest/developerguide/arn-format-reference.md").
+**AWS::DynamoDB::Table**  
+An Amazon DynamoDB table.  
++ **ARN format: **`arn:{{partition}}:dynamodb:{{region}}:{{account}}:table/{{table-name}}`
 
-**AWS::CloudWatch::Alarm**
-An Amazon CloudWatch alarm.
+  Example: `arn:aws:dynamodb:us-west-2:111122223333:table/BigTable`
 
-- **ARN format:** `arn:`partition`:cloudwatch:`region`:`account`:alarm:`alarm-name``
+  For more information, see [DynamoDB resources and operations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-overview.html#access-control-resources).
 
-Example: `arn:aws:cloudwatch:us-west-2:111122223333:alarm:test-alarm-1`
+**AWS::EC2::CustomerGateway**  
+A customer gateway device.  
++ **ARN format: **`arn:{{partition}}:ec2:{{region}}:{{account}}:customer-gateway/{{CustomerGatewayId}}`
 
-For more information, see [Resource types defined by
-Amazon CloudWatch](../../../service-authorization/latest/reference/list_amazoncloudwatch.md#amazoncloudwatch-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazoncloudwatch.md#amazoncloudwatch-resources-for-iam-policies").
+  Example: `arn:aws:ec2:us-west-2:111122223333:customer-gateway/vcg-123456789`
 
-**AWS::DynamoDB::Table**
-An Amazon DynamoDB table.
+  For more information, see [Resource types defined by Amazon EC2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-resources-for-iam-policies).
 
-- **ARN format:** `arn:`partition`:dynamodb:`region`:`account`:table/`table-name``
+**AWS::EC2::Volume**  
+An Amazon EBS volume.  
++ **ARN format: **`arn:{{partition}}:ec2:{{region}}:{{account}}:volume/{{VolumeId}}`
 
-Example: `arn:aws:dynamodb:us-west-2:111122223333:table/BigTable`
+  Example: `arn:aws:ec2:us-west-2:111122223333:volume/volume-of-cylinder-is-pi`
 
-For more information, see [DynamoDB resources and operations](../../../amazondynamodb/latest/developerguide/access-control-overview.md#access-control-resources "../../../amazondynamodb/latest/developerguide/access-control-overview.md#access-control-resources").
+  For more information, see [API Gateway Amazon Resource Name (ARN) reference](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-resources-for-iam-policies).
 
-**AWS::EC2::CustomerGateway**
-A customer gateway device.
+**AWS::ElasticLoadBalancing::LoadBalancer**  
+A Classic Load Balancer.  
++ **ARN format: **`arn:{{partition}}:elasticloadbalancing:{{region}}:{{account}}:loadbalancer/{{LoadBalancerName}}`
 
-- **ARN format:** `arn:`partition`:ec2:`region`:`account`:customer-gateway/`CustomerGatewayId``
+  Example: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/123456789abcbdeCLB`
 
-Example: `arn:aws:ec2:us-west-2:111122223333:customer-gateway/vcg-123456789`
+  For more information, see [Elastic Load Balancing resources](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.html#elb-resources).
 
-For more information, see [Resource types
-defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies").
+**AWS::ElasticLoadBalancingV2::LoadBalancer**  
+A Network Load Balancer or an Application Load Balancer.  
++ **ARN format for Network Load Balancer: **`arn:{{partition}}:elasticloadbalancing:{{region}}:{{account}}:loadbalancer/net/{{LoadBalancerName}}`
 
-**AWS::EC2::Volume**
-An Amazon EBS volume.
+  Example for Network Load Balancer: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/net/sandbox-net/123456789acbdeNLB`
++ **ARN format for Application Load Balancer: **`arn:{{partition}}:elasticloadbalancing:{{region}}:{{account}}:loadbalancer/app/{{LoadBalancerName}}`
 
-- **ARN format:** `arn:`partition`:ec2:`region`:`account`:volume/`VolumeId``
+  Example for Application Load Balancer: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/app/sandbox-alb/123456789acbdeALB`
 
-Example: `arn:aws:ec2:us-west-2:111122223333:volume/volume-of-cylinder-is-pi`
+  For more information, see [Elastic Load Balancing resources](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.html#elb-resources).
 
-For more information, see [API Gateway Amazon Resource Name (ARN) reference](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies").
+**AWS::Lambda::Function**  
+An AWS Lambda function.  
++ **ARN format: **`arn:{{partition}}:lambda:{{region}}:{{account}}:function:{{FunctionName}}`
 
-**AWS::ElasticLoadBalancing::LoadBalancer**
-A Classic Load Balancer.
+  Example: `arn:aws:lambda:us-west-2:111122223333:function:my-function`
 
-- **ARN format:** `arn:`partition`:elasticloadbalancing:`region`:`account`:loadbalancer/`LoadBalancerName``
+  For more information, see [Resources and conditions for Lambda actions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html).
 
-Example: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/123456789abcbdeCLB`
+**AWS::MSK::Cluster**  
+An Amazon MSK cluster.  
++ **ARN format: **`arn:{{partition}}:kafka:{{region}}:{{account}}:cluster/{{ClusterName}}/{{UUID}}`
 
-For more information, see [Elastic Load Balancing resources](../../../elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.md#elb-resources "../../../elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.md#elb-resources").
+  Example: `arn:aws:kafka:us-east-1:111122223333:cluster/demo-cluster-1/123456-1111-2222-3333`
 
-**AWS::ElasticLoadBalancingV2::LoadBalancer**
-A Network Load Balancer or an Application Load Balancer.
+  For more information, see [Resource types defined by Amazon Managed Streaming for Apache Kafka](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html#amazonmanagedstreamingforapachekafka-resources-for-iam-policies).
 
-- **ARN format for Network Load Balancer:** `arn:`partition`:elasticloadbalancing:`region`:`account`:loadbalancer/net/`LoadBalancerName``
+**AWS::RDS::DBCluster**  
+An Aurora DB cluster.  
++ **ARN format: **`arn:{{partition}}:rds:{{region}}:{{account}}:cluster:{{DbClusterInstanceName}}`
 
-Example for Network Load Balancer: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/net/sandbox-net/123456789acbdeNLB`
+  Example: `arn:aws:rds:us-west-2:111122223333:cluster:database-1`
 
-- **ARN format for Application Load Balancer:** `arn:`partition`:elasticloadbalancing:`region`:`account`:loadbalancer/app/`LoadBalancerName``
+  For more information, see [Working with Amazon Resource Names (ARNs) in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html).
 
-Example for Application Load Balancer: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/app/sandbox-alb/123456789acbdeALB`
+**AWS::Route53::HealthCheck**  
+An Amazon Route 53 health check.  
++ **ARN format: **`arn:{{partition}}:route53:::healthcheck/{{Id}}`
 
-For more information, see [Elastic Load Balancing resources](../../../elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.md#elb-resources "../../../elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.md#elb-resources").
+  Example: `arn:aws:route53:::healthcheck/123456-1111-2222-3333`
 
-**AWS::Lambda::Function**
-An AWS Lambda function.
+**AWS::SQS::Queue**  
+An Amazon SQS queue.  
++ **ARN format: **`arn:{{partition}}:sqs:{{region}}:{{account}}:{{QueueName}}`
 
-- **ARN format:** `arn:`partition`:lambda:`region`:`account`:function:`FunctionName``
+  Example: `arn:aws:sqs:us-west-2:111122223333:StandardQueue`
 
-Example: `arn:aws:lambda:us-west-2:111122223333:function:my-function`
+  For more information, see [Amazon Simple Queue Service resource and operations](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html#sqs-resource-and-operations).
 
-For more information, see [Resources and conditions for Lambda actions](../../../lambda/latest/dg/lambda-api-permissions-ref.md "../../../lambda/latest/dg/lambda-api-permissions-ref.md").
+**AWS::SNS::Topic**  
+An Amazon SNS topic.  
++ **ARN format: **`arn:{{partition}}:sns:{{region}}:{{account}}:{{TopicName}}`
 
-**AWS::MSK::Cluster**
-An Amazon MSK cluster.
+  Example: `arn:aws:sns:us-west-2:111122223333:TopicName`
 
-- **ARN format:** `arn:`partition`:kafka:`region`:`account`:cluster/`ClusterName`/`UUID``
+  For more information, see [Amazon SNS resource ARN format](https://docs.aws.amazon.com/sns/latest/dg/sns-using-identity-based-policies.html#sns-arn-format).
 
-Example: `arn:aws:kafka:us-east-1:111122223333:cluster/demo-cluster-1/123456-1111-2222-3333`
+**AWS::SNS::Subscription**  
+An Amazon SNS subscription.  
++ **ARN format: **`arn:{{partition}}:sns:{{region}}:{{account}}:{{TopicName}}:{{SubscriptionId}}`
 
-For more information, see [Resource
-types defined by Amazon Managed Streaming for Apache Kafka](../../../service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.md#amazonmanagedstreamingforapachekafka-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.md#amazonmanagedstreamingforapachekafka-resources-for-iam-policies").
+  Example: `arn:aws:sns:us-west-2:111122223333:TopicName:123456789012345567890`
 
-**AWS::RDS::DBCluster**
-An Aurora DB cluster.
+**AWS::EC2::VPC**  
+A virtual private cloud (VPC).  
++ **ARN format: **`arn:{{partition}}:ec2:{{region}}:{{account}}:vpc/{{VpcId}}`
 
-- **ARN format:** `arn:`partition`:rds:`region`:`account`:cluster:`DbClusterInstanceName``
+  Example: `arn:aws:ec2:us-west-2:111122223333:vpc/vpc-123456789`
 
-Example: `arn:aws:rds:us-west-2:111122223333:cluster:database-1`
+  For more information, see [VPC Resources](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-resources-for-iam-policies).
 
-For more information, see [Working with Amazon Resource Names (ARNs) in Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_Tagging.ARN.md "../../../AmazonRDS/latest/UserGuide/USER_Tagging.ARN.md").
+**AWS::EC2::VPNConnection**  
+A virtual private network (VPN) connection.  
++ **ARN format: **`arn:{{partition}}:ec2:{{region}}:{{account}}:vpn-connection/{{VpnConnectionId}}`
 
-**AWS::Route53::HealthCheck**
-An Amazon Route 53 health check.
+  Example: `arn:aws:ec2:us-west-2:111122223333:vpn-connection/vpn-123456789`
 
-- **ARN format:** `arn:`partition`:route53:::healthcheck/`Id``
+  For more information, see [Resource types defined by Amazon EC2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-resources-for-iam-policies).
 
-Example: `arn:aws:route53:::healthcheck/123456-1111-2222-3333`
+**AWS::EC2::VPNGateway**  
+A virtual private network (VPN) gateway.  
++ **ARN format: **`arn:{{partition}}:ec2:{{region}}:{{account}}:vpn-gateway/{{VpnGatewayId}}`
 
-**AWS::SQS::Queue**
-An Amazon SQS queue.
+  Example: `arn:aws:ec2:us-west-2:111122223333:vpn-gateway/vgw-123456789acbdefgh`
 
-- **ARN format:** `arn:`partition`:sqs:`region`:`account`:`QueueName``
+  For more information, see [Resource types defined by Amazon EC2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-resources-for-iam-policies).
 
-Example: `arn:aws:sqs:us-west-2:111122223333:StandardQueue`
+**AWS::Route53RecoveryReadiness::DNSTargetResource**  
+A DNS target resource for readiness checks includes the DNS record type, domain name, Route 53 hosted zone ARN, and Network Load Balancer ARN or Route 53 record set ID.  
++ **ARN format for hosted zone: **`arn:{{partition}}:route53::{{account}}:hostedzone/{{Id}}`
 
-For more information, see [Amazon Simple Queue Service resource and operations](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.md#sqs-resource-and-operations "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.md#sqs-resource-and-operations").
+  Example for a hosted zone: `arn:aws:route53::111122223333:hostedzone/abcHostedZone`
 
-**AWS::SNS::Topic**
-An Amazon SNS topic.
+  NOTE: You must include the account ID in hosted zone ARNs, as specified here. The account ID is required so that ARC can poll the resource. The format is intentionally different from the ARN format that Amazon Route 53 requires, described in the Route 53 service [Resource types](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html#amazonroute53-resources-for-iam-policies) in the *Service Authorization Reference*. 
++ **ARN format for Network Load Balancer: **`arn:{{partition}}:elasticloadbalancing:{{region}}:{{account}}:loadbalancer/net/{{LoadBalancerName}}`
 
-- **ARN format:** `arn:`partition`:sns:`region`:`account`:`TopicName``
+  Example for Network Load Balancer: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/net/sandbox-net/123456789acbdefgh`
 
-Example: `arn:aws:sns:us-west-2:111122223333:TopicName`
-
-For more information, see [Amazon SNS resource ARN format](../../../sns/latest/dg/sns-using-identity-based-policies.md#sns-arn-format "../../../sns/latest/dg/sns-using-identity-based-policies.md#sns-arn-format").
-
-**AWS::SNS::Subscription**
-An Amazon SNS subscription.
-
-- **ARN format:** `arn:`partition`:sns:`region`:`account`:`TopicName`:`SubscriptionId``
-
-Example: `arn:aws:sns:us-west-2:111122223333:TopicName:123456789012345567890`
-
-**AWS::EC2::VPC**
-A virtual private cloud (VPC).
-
-- **ARN format:** `arn:`partition`:ec2:`region`:`account`:vpc/`VpcId``
-
-Example: `arn:aws:ec2:us-west-2:111122223333:vpc/vpc-123456789`
-
-For more information, see [VPC Resources](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies").
-
-**AWS::EC2::VPNConnection**
-A virtual private network (VPN) connection.
-
-- **ARN format:** `arn:`partition`:ec2:`region`:`account`:vpn-connection/`VpnConnectionId``
-
-Example: `arn:aws:ec2:us-west-2:111122223333:vpn-connection/vpn-123456789`
-
-For more information, see [Resource types
-defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies").
-
-**AWS::EC2::VPNGateway**
-A virtual private network (VPN) gateway.
-
-- **ARN format:** `arn:`partition`:ec2:`region`:`account`:vpn-gateway/`VpnGatewayId``
-
-Example: `arn:aws:ec2:us-west-2:111122223333:vpn-gateway/vgw-123456789acbdefgh`
-
-For more information, see [Resource types defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-resources-for-iam-policies").
-
-**AWS::Route53RecoveryReadiness::DNSTargetResource**
-A DNS target resource for readiness checks includes the DNS record type, domain name, Route 53 hosted zone ARN, and Network Load Balancer ARN or Route 53 record set ID.
-
-- **ARN format for hosted zone:** `arn:`partition`:route53::`account`:hostedzone/`Id``
-
-Example for a hosted zone: `arn:aws:route53::111122223333:hostedzone/abcHostedZone`
-
-NOTE: You must include the account ID in hosted zone ARNs, as specified here. The account ID is required so
-that ARC can poll the resource. The format is intentionally different from the ARN format
-that Amazon Route 53 requires, described in the Route 53 service [Resource types](../../../service-authorization/latest/reference/list_amazonroute53.md#amazonroute53-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonroute53.md#amazonroute53-resources-for-iam-policies")
-in the _Service Authorization Reference_.
-
-- **ARN format for Network Load Balancer:** `arn:`partition`:elasticloadbalancing:`region`:`account`:loadbalancer/net/`LoadBalancerName``
-
-Example for Network Load Balancer: `arn:aws:elasticloadbalancing:us-west-2:111122223333:loadbalancer/net/sandbox-net/123456789acbdefgh`
-
-For more information, see [Elastic Load Balancing resources](../../../elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.md#elb-resources "../../../elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.md#elb-resources").
+  For more information, see [Elastic Load Balancing resources](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.html#elb-resources).

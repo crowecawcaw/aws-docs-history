@@ -1,85 +1,56 @@
-# Amazon EC2 Auto Scaling group execution block
 
-The EC2 Auto Scaling group execution block allows you to scale EC2 instances as part of your multi-Region
-recovery process. You can define a percentage of capacity, relative to the Region you're leaving (source and destination).
+
+# Amazon EC2 Auto Scaling group execution block
+<a name="ec2-auto-scaling-block"></a>
+
+The EC2 Auto Scaling group execution block allows you to scale EC2 instances as part of your multi-Region recovery process. You can define a percentage of capacity, relative to the Region you're leaving (source and destination).
 
 ## Configuration
+<a name="ec2-auto-scaling-block-config"></a>
 
-When you configure the EC2 Auto Scaling group execution block, you enter the EC2 Auto Scaling
-ARNs for the specific Regions that are associated with your plan. You should
-enter EC2 Auto Scaling ARNs in each Region that you want to be scaled up during plan
-execution.
+When you configure the EC2 Auto Scaling group execution block, you enter the EC2 Auto Scaling ARNs for the specific Regions that are associated with your plan. You should enter EC2 Auto Scaling ARNs in each Region that you want to be scaled up during plan execution.
 
-###### Important
-
-Before you configure the execution block, make sure that the plan's execution role has the correct IAM policy in place.
-For more information, see [EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md "security_iam_region_switch_ec2_autoscaling.md").
+**Important**  
+Before you configure the execution block, make sure that the plan's execution role has the correct IAM policy in place. For more information, see [EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md).
 
 To configure a EC2 Auto Scaling group execution block, enter the following values:
 
-1. **Step name:** Enter a name.
-2. **Step description (optional):** Enter a description of the step.
-3. **EC2 Auto Scaling group ARN for _Region_:**
-   Enter the ARN for the EC2 Auto Scaling group in each Region for your plan.
-4. **Percentage to match the activated Region's capacity:**
-   Enter the desired percentage of the number of running instances in the Auto Scaling group
-   to match for the activated Region.
-5. **Capacity monitoring approach:** Select one of the following approaches for monitoring capacity for your EC2 Auto Scaling groups:
+1. **Step name: **Enter a name.
 
-   - **Max running capacity sampled over 24 hours**: Choose this option to use
-     the **Desired capacity** value specified in your EC2 Auto Scaling group configuration. This option does not create additional
-     costs, but is potentially less accurate than using the other option, CloudWatch metrics.
+1. **Step description (optional): **Enter a description of the step.
 
-   In the Region switch API, this option corresponds to specifying `sampledMaxInLast24Hours`.
+1. **EC2 Auto Scaling group ARN for *Region*: ** Enter the ARN for the EC2 Auto Scaling group in each Region for your plan.
 
-   For more information, see [Set scaling limits for your Auto Scaling group](../../../autoscaling/ec2/userguide/asg-capacity-limits.md "../../../autoscaling/ec2/userguide/asg-capacity-limits.md")
-   in the Amazon EC2 Auto Scaling User Guide.
-   - **Max running capacity sampled over 24 hours with CloudWatch**: Choose this option to use
-     metrics specified in Amazon CloudWatch for EC2 Auto Scaling. Using the option can be more accurate, but incurs the additional
-     costs of using CloudWatch metrics.
+1. **Percentage to match the activated Region's capacity: ** Enter the desired percentage of the number of running instances in the Auto Scaling group to match for the activated Region.
 
-   In the Region switch API, this option corresponds to specifying `autoscalingMaxInLast24Hours`.
+1. **Capacity monitoring approach: **Select one of the following approaches for monitoring capacity for your EC2 Auto Scaling groups:
+   + **Max running capacity sampled over 24 hours**: Choose this option to use the **Desired capacity** value specified in your EC2 Auto Scaling group configuration. This option does not create additional costs, but is potentially less accurate than using the other option, CloudWatch metrics.
 
-   To use this option, you must first enable group metrics for your Auto Scaling groups.
-   For more information, see [Enable Auto Scaling group metrics](../../../autoscaling/ec2/userguide/ec2-auto-scaling-metrics.md#as-enable-group-metrics "../../../autoscaling/ec2/userguide/ec2-auto-scaling-metrics.md#as-enable-group-metrics")
-   in the Amazon EC2 Auto Scaling User Guide.
+     In the Region switch API, this option corresponds to specifying `sampledMaxInLast24Hours`.
 
-6. **Timeout:** Enter a timeout value.
+     For more information, see [Set scaling limits for your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html) in the Amazon EC2 Auto Scaling User Guide.
+   + **Max running capacity sampled over 24 hours with CloudWatch**: Choose this option to use metrics specified in Amazon CloudWatch for EC2 Auto Scaling. Using the option can be more accurate, but incurs the additional costs of using CloudWatch metrics.
+
+     In the Region switch API, this option corresponds to specifying `autoscalingMaxInLast24Hours`.
+
+     To use this option, you must first enable group metrics for your Auto Scaling groups. For more information, see [Enable Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html#as-enable-group-metrics) in the Amazon EC2 Auto Scaling User Guide.
+
+1. **Timeout: **Enter a timeout value.
 
 Then, choose **Save step.**
 
 ## How it works
+<a name="ec2-auto-scaling-block-how"></a>
 
-After you configure an EC2 Auto Scaling execution block, Region switch confirms that there
-is only one source Auto Scaling group and one destination Auto Scaling group. If
-there are multiple Auto Scaling groups, the execution block fails during plan evaluation.
-The target capacity is defined as the number
-of instances have a state that is set to `InService`. For more information, see
-[EC2 Auto Scaling instance lifecycle](../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md").
+After you configure an EC2 Auto Scaling execution block, Region switch confirms that there is only one source Auto Scaling group and one destination Auto Scaling group. If there are multiple Auto Scaling groups, the execution block fails during plan evaluation. The target capacity is defined as the number of instances have a state that is set to `InService`. For more information, see [ EC2 Auto Scaling instance lifecycle](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html).
 
-Based on the value that you specify (when you configure the Auto Scaling execution block)
-for a matching percentage, Region switch calculates the new desired capacity for the destination Auto Scaling group.
-The new desired capacity is compared against the destination Auto Scaling group's desired
-capacity. The formula that Region switch uses to calculate desired capacity is the following:
-`ceil(percentToMatch * Source Auto Scaling group capacity)`, where ceil() is a
-function that rounds up any fractional result. If the current desired capacity of the destination
-Auto Scaling group is greater than or equal to the desired capacity of the new Auto Scaling group that Region switch
-calculates, the execution block proceeds. Note that Region switch does not scale down Auto Scaling group capacity.
+Based on the value that you specify (when you configure the Auto Scaling execution block) for a matching percentage, Region switch calculates the new desired capacity for the destination Auto Scaling group. The new desired capacity is compared against the destination Auto Scaling group's desired capacity. The formula that Region switch uses to calculate desired capacity is the following: `ceil(percentToMatch * Source Auto Scaling group capacity)`, where ceil() is a function that rounds up any fractional result. If the current desired capacity of the destination Auto Scaling group is greater than or equal to the desired capacity of the new Auto Scaling group that Region switch calculates, the execution block proceeds. Note that Region switch does not scale down Auto Scaling group capacity.
 
-When Region switch executes an Auto Scaling block, Region switch attempts to scale up the target Region Auto Scaling group capacity
-to match the desired capacity. Then, Region switch waits until the requested Auto Scaling group capacity is fulfilled
-in the target Region's Auto Scaling group before Region switch proceeds to the next step in the plan.
+When Region switch executes an Auto Scaling block, Region switch attempts to scale up the target Region Auto Scaling group capacity to match the desired capacity. Then, Region switch waits until the requested Auto Scaling group capacity is fulfilled in the target Region's Auto Scaling group before Region switch proceeds to the next step in the plan.
 
-###### Note
+**Note**  
+Executing this block modifies the minimum and desired capacity settings of your Auto Scaling groups, which may cause configuration drift if you manage these values through infrastructure-as-code tools or other automation. Ensure your configuration management processes account for these changes to prevent unintended rollbacks.
 
-Executing this block modifies the minimum and desired capacity settings of your Auto Scaling groups, which may cause
-configuration drift if you manage these values through infrastructure-as-code tools or other automation. Ensure your
-configuration management processes account for these changes to prevent unintended rollbacks.
+If you’re using an active/active approach, Region switch uses the other configured Region as the source. That is, if a Region is being deactivated, Region switch uses the other active Region as the source to match for the percent to scale.
 
-If you’re using an active/active approach, Region switch uses the other configured Region
-as the source. That is, if a Region is being deactivated, Region switch uses the other active Region
-as the source to match for the percent to scale.
-
-This block supports both graceful and ungraceful execution modes. You can configure ungraceful
-execution by specifying the minimum percentage of compute capacity to be matched in the target Region
-before Region switch proceeds to the next step in the plan.
+This block supports both graceful and ungraceful execution modes. You can configure ungraceful execution by specifying the minimum percentage of compute capacity to be matched in the target Region before Region switch proceeds to the next step in the plan.

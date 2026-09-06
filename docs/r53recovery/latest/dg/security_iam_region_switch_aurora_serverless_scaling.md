@@ -1,6 +1,9 @@
-# Aurora serverless scaling execution block sample policy
 
-The following is a sample policy to attach if you add execution blocks to a Region switch plan for Aurora Serverless cluster scaling.
+
+# Aurora serverless scaling execution block sample policy
+<a name="security_iam_region_switch_aurora_serverless_scaling"></a>
+
+ The following is a sample policy to attach if you add execution blocks to a Region switch plan for Aurora Serverless cluster scaling. 
 
 ```
 {
@@ -16,9 +19,9 @@ The following is a sample policy to attach if you add execution blocks to a Regi
         "rds:RebootDBInstance"
       ],
       "Resource": [
-        "arn:aws:rds:`region`:`account-id`:cluster:`cluster-name`",
-        "arn:aws:rds:`region`:`account-id`:db:`instance-name`",
-        "arn:aws:rds::`account-id`:global-cluster:`global-cluster-name`"
+        "arn:aws:rds:{{region}}:{{account-id}}:cluster:{{cluster-name}}",
+        "arn:aws:rds:{{region}}:{{account-id}}:db:{{instance-name}}",
+        "arn:aws:rds::{{account-id}}:global-cluster:{{global-cluster-name}}"
       ]
     },
     {
