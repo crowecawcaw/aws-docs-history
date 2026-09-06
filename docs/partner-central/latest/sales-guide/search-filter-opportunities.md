@@ -1,4 +1,7 @@
+
+
 # Search and filter opportunities
+<a name="search-filter-opportunities"></a>
 
 Use the search bar on the Leads and Opportunities tabs to find records in the current list.
 

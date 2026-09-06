@@ -1,21 +1,26 @@
+
+
 # Managing Opportunities
+<a name="opportunities"></a>
 
 Partners can create and share opportunities with AWS, or receive opportunities shared by AWS for co-selling. The topics below describe how to manage opportunities jointly with AWS through the sales lifecycle.
 
-Every opportunity is assigned a co-sell motion and an Opportunity Quality score that together determine how AWS engages on the deal. For details, see [Co-sell engagement](co-sell-engagement.md "co-sell-engagement.md").
+Every opportunity is assigned a co-sell motion and an Opportunity Quality score that together determine how AWS engages on the deal. For details, see [Co-sell engagement](co-sell-engagement.md).
 
 ## AWS sales stages
+<a name="aws-sales-stages"></a>
 
 Partners can share and receive opportunities to collaborate on with AWS. These opportunities progress through various stages of the sales cycle, which represents a specific phase in the sales process and indicates how close a deal is to closing. Opportunities move through the following stages:
 
-| **Stage**                | **Description**                                                                                                                                                                                                                        |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Prospect**             | Customer opportunity has been identified.                                                                                                                                                                                              |
-| **Qualified**            | You have engaged with the customer on the opportunity to discuss its viability and understand the requirements. The customer has agreed that the opportunity is real, of interest, and may help with key business and technical needs. |
-| **Technical validation** | The customer technically validates the solution using a combination of presentations, architecture design sessions with the system administrator (SA) and AWS Partner and other proof-of-concept activities.                           |
-| **Business validation**  | Business stakeholders have communicated their agreement on the financial viability of the solution.                                                                                                                                    |
-| **Committed**            | The customer has agreed to the solution and commits to moving with technology, architecture, and economics.                                                                                                                            |
-| **Launched**             | Billing for the solution has begun.                                                                                                                                                                                                    |
-| **Closed lost**          | The end customer selected another cloud provider or is not ready to move forward with the solution.                                                                                                                                    |
 
-###### Topics
+|  **Stage**   |  **Description**   | 
+| --- | --- | 
+| Prospect  | Customer opportunity has been identified. | 
+| Qualified  | You have engaged with the customer on the opportunity to discuss its viability and understand the requirements. The customer has agreed that the opportunity is real, of interest, and may help with key business and technical needs. | 
+| Technical validation  | The customer technically validates the solution using a combination of presentations, architecture design sessions with the system administrator (SA) and AWS Partner and other proof-of-concept activities. | 
+| Business validation  | Business stakeholders have communicated their agreement on the financial viability of the solution. | 
+| Committed  | The customer has agreed to the solution and commits to moving with technology, architecture, and economics. | 
+| Launched  | Billing for the solution has begun. | 
+| Closed lost  | The end customer selected another cloud provider or is not ready to move forward with the solution. | 
+
+**Topics**
