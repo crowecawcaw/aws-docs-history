@@ -1,26 +1,22 @@
+
+
 # Use `VerifyEmailIdentity` with an AWS SDK or CLI
+<a name="ses_example_ses_VerifyEmailIdentity_section"></a>
 
 The following code examples show how to use `VerifyEmailIdentity`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md) 
++  [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md) 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md "ses_example_ses_Scenario_ReplicateIdentities_section.md")
-- [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
 ```
-
     /// <summary>
     /// Starts verification of an email identity. This request sends an email
     /// from Amazon SES to the specified email address. To complete
@@ -48,24 +44,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return success;
     }
-
-
-
 ```
++  For API details, see [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/DotNetSDKV3/email-2010-12-01/VerifyEmailIdentity) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [VerifyEmailIdentity](../../../goto/DotNetSDKV3/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/DotNetSDKV3/email-2010-12-01/VerifyEmailIdentity.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
 ```
 //! Add an email address to the list of identities associated with this account and
@@ -99,49 +85,29 @@ bool AwsDoc::SES::verifyEmailIdentity(const Aws::String &emailAddress,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/SdkForCpp/email-2010-12-01/VerifyEmailIdentity) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To verify an email address with Amazon SES**  
+The following example uses the `verify-email-identity` command to verify an email address:  
 
 ```
-
-- For API details, see
-  [VerifyEmailIdentity](../../../goto/SdkForCpp/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/SdkForCpp/email-2010-12-01/VerifyEmailIdentity.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To verify an email address with Amazon SES**
-
-The following example uses the `verify-email-identity` command to verify an email address:
-
+aws ses verify-email-identity --email-address {{user@example.com}}
 ```
-`aws ses verify-email-identity --email-address `user@example.com``
+Before you can send an email using Amazon SES, you must verify the address or domain that you are sending the email from to prove that you own it. If you do not have production access yet, you also need to verify any email addresses that you send emails to except for email addresses provided by the Amazon SES mailbox simulator.  
+After verify-email-identity is called, the email address will receive a verification email. The user must click on the link in the email to complete the verification process.  
+For more information, see Verifying Email Addresses in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
++  For API details, see [VerifyEmailIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-email-identity.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-Before you can send an email using Amazon SES, you must verify the address or domain that you are sending the email
-from to prove that you own it. If you do not have production access yet, you also need to verify any email addresses
-that you send emails to except for email addresses provided by the Amazon SES mailbox simulator.
-
-After verify-email-identity is called, the email address will receive a verification email. The user must click on the link in
-the email to complete the verification process.
-
-For more information, see Verifying Email Addresses in Amazon SES in the _Amazon Simple Email Service Developer Guide_.
-
-- For API details, see
-  [VerifyEmailIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-email-identity.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-email-identity.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 // Import required AWS SDK clients and commands for Node.js
@@ -164,23 +130,14 @@ const run = async () => {
     return err;
   }
 };
-
-
 ```
++  For API details, see [VerifyEmailIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/VerifyEmailIdentityCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [VerifyEmailIdentity](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/VerifyEmailIdentityCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/VerifyEmailIdentityCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesIdentity:
@@ -207,27 +164,16 @@ class SesIdentity:
         except ClientError:
             logger.exception("Couldn't start verification of %s.", email_address)
             raise
+```
++  For API details, see [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyEmailIdentity) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
 ```
-
-- For API details, see
-  [VerifyEmailIdentity](../../../goto/boto3/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyEmailIdentity.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples").
-
-```
-
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Replace recipient@example.com with a "To" address.
@@ -249,23 +195,14 @@ begin
 rescue Aws::SES::Errors::ServiceError => e
   puts "Email not sent. Error message: #{e}"
 end
-
-
 ```
++  For API details, see [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/SdkForRubyV3/email-2010-12-01/VerifyEmailIdentity) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [VerifyEmailIdentity](../../../goto/SdkForRubyV3/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/SdkForRubyV3/email-2010-12-01/VerifyEmailIdentity.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -276,14 +213,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [VerifyEmailIdentity](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [VerifyEmailIdentity](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

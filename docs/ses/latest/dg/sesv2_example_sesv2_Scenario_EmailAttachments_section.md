@@ -1,24 +1,21 @@
+
+
 # Send emails with attachments using Amazon SES API v2
+<a name="sesv2_example_sesv2_Scenario_EmailAttachments_section"></a>
 
 The following code example shows how to send emails with attachments using Amazon SES API v2.
++ Create an email template for bulk sends.
++ Send a simple email with a file attachment.
++ Send a simple email with an inline image.
++ Send bulk templated emails with attachments.
++ Clean up resources.
 
-- Create an email template for bulk sends.
-- Send a simple email with a file attachment.
-- Send a simple email with an inline image.
-- Send bulk templated emails with attachments.
-- Clean up resources.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples").
-
-Run an interactive scenario demonstrating email attachments.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples). 
+Run an interactive scenario demonstrating email attachments.  
 
 ```
 class SESv2EmailAttachmentsScenario:
@@ -373,13 +370,8 @@ class SESv2EmailAttachmentsScenario:
 
         print("\nAll resources have been cleaned up.")
         print("-" * 88)
-
-
-
-
 ```
-
-Create an SESv2 wrapper class to manage operations.
+Create an SESv2 wrapper class to manage operations.  
 
 ```
 class SESv2Wrapper:
@@ -697,23 +689,16 @@ class SESv2Wrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateEmailIdentity](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/CreateEmailIdentity)
+  + [CreateEmailTemplate](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/CreateEmailTemplate)
+  + [DeleteEmailIdentity](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity)
+  + [DeleteEmailTemplate](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate)
+  + [GetEmailIdentity](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/GetEmailIdentity)
+  + [SendBulkEmail](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/SendBulkEmail)
+  + [SendEmail](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/SendEmail)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md")
-  - [CreateEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/CreateEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailTemplate.md")
-  - [DeleteEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md")
-  - [DeleteEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md")
-  - [GetEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/GetEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/GetEmailIdentity.md")
-  - [SendBulkEmail](../../../goto/boto3/sesv2-2019-09-27/SendBulkEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendBulkEmail.md")
-  - [SendEmail](../../../goto/boto3/sesv2-2019-09-27/SendEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,20 @@
+
+
 # Verify an email identity and send messages with Amazon SES using an AWS SDK
+<a name="ses_example_ses_Scenario_SendEmail_section"></a>
 
 The following code example shows how to:
++ Add and verify an email address with Amazon SES.
++ Send a standard email message.
++ Create a template and send a templated email message.
++ Send a message by using an Amazon SES SMTP server.
 
-- Add and verify an email address with Amazon SES.
-- Send a standard email message.
-- Create a template and send a templated email message.
-- Send a message by using an Amazon SES SMTP server.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
-
-Verify an email address with Amazon SES and send messages.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
+Verify an email address with Amazon SES and send messages.  
 
 ```
 def usage_demo():
@@ -114,13 +111,8 @@ This message is sent from the Amazon SES SMTP mail demo."""
             ses_identity.delete_identity(email)
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
-
-Create functions to wrap Amazon SES identity actions.
+Create functions to wrap Amazon SES identity actions.  
 
 ```
 class SesIdentity:
@@ -244,13 +236,8 @@ class SesIdentity:
             raise
         else:
             return identities
-
-
-
-
 ```
-
-Create functions to wrap Amazon SES template actions.
+Create functions to wrap Amazon SES template actions.  
 
 ```
 class SesTemplate:
@@ -380,13 +367,8 @@ class SesTemplate:
         except ClientError:
             logger.exception("Couldn't update template %s.", name)
             raise
-
-
-
-
 ```
-
-Create functions to wrap Amazon SES email actions.
+Create functions to wrap Amazon SES email actions.  
 
 ```
 class SesDestination:
@@ -509,27 +491,21 @@ class SesMailSender:
             raise
         else:
             return message_id
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateTemplate](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/CreateTemplate)
+  + [DeleteIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/DeleteIdentity)
+  + [DeleteTemplate](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/DeleteTemplate)
+  + [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/GetIdentityVerificationAttributes)
+  + [GetTemplate](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/GetTemplate)
+  + [ListIdentities](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/ListIdentities)
+  + [ListTemplates](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/ListTemplates)
+  + [SendEmail](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/SendEmail)
+  + [SendTemplatedEmail](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/SendTemplatedEmail)
+  + [UpdateTemplate](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/UpdateTemplate)
+  + [VerifyDomainIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyDomainIdentity)
+  + [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyEmailIdentity)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateTemplate](../../../goto/boto3/email-2010-12-01/CreateTemplate.md "../../../goto/boto3/email-2010-12-01/CreateTemplate.md")
-  - [DeleteIdentity](../../../goto/boto3/email-2010-12-01/DeleteIdentity.md "../../../goto/boto3/email-2010-12-01/DeleteIdentity.md")
-  - [DeleteTemplate](../../../goto/boto3/email-2010-12-01/DeleteTemplate.md "../../../goto/boto3/email-2010-12-01/DeleteTemplate.md")
-  - [GetIdentityVerificationAttributes](../../../goto/boto3/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/boto3/email-2010-12-01/GetIdentityVerificationAttributes.md")
-  - [GetTemplate](../../../goto/boto3/email-2010-12-01/GetTemplate.md "../../../goto/boto3/email-2010-12-01/GetTemplate.md")
-  - [ListIdentities](../../../goto/boto3/email-2010-12-01/ListIdentities.md "../../../goto/boto3/email-2010-12-01/ListIdentities.md")
-  - [ListTemplates](../../../goto/boto3/email-2010-12-01/ListTemplates.md "../../../goto/boto3/email-2010-12-01/ListTemplates.md")
-  - [SendEmail](../../../goto/boto3/email-2010-12-01/SendEmail.md "../../../goto/boto3/email-2010-12-01/SendEmail.md")
-  - [SendTemplatedEmail](../../../goto/boto3/email-2010-12-01/SendTemplatedEmail.md "../../../goto/boto3/email-2010-12-01/SendTemplatedEmail.md")
-  - [UpdateTemplate](../../../goto/boto3/email-2010-12-01/UpdateTemplate.md "../../../goto/boto3/email-2010-12-01/UpdateTemplate.md")
-  - [VerifyDomainIdentity](../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md")
-  - [VerifyEmailIdentity](../../../goto/boto3/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyEmailIdentity.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Copy Amazon SES email and domain identities from one AWS Region to another using an AWS SDK
+<a name="ses_example_ses_Scenario_ReplicateIdentities_section"></a>
 
 The following code example shows how to copy Amazon SES email and domain identities from one AWS Region to another. When domain identities are managed by Route 53, verification records are copied to the domain for the destination Region.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 import argparse
@@ -399,18 +398,14 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [ListIdentities](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/ListIdentities)
+  + [SetIdentityNotificationTopic](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/SetIdentityNotificationTopic)
+  + [VerifyDomainDkim](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyDomainDkim)
+  + [VerifyDomainIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyDomainIdentity)
+  + [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyEmailIdentity)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [ListIdentities](../../../goto/boto3/email-2010-12-01/ListIdentities.md "../../../goto/boto3/email-2010-12-01/ListIdentities.md")
-  - [SetIdentityNotificationTopic](../../../goto/boto3/email-2010-12-01/SetIdentityNotificationTopic.md "../../../goto/boto3/email-2010-12-01/SetIdentityNotificationTopic.md")
-  - [VerifyDomainDkim](../../../goto/boto3/email-2010-12-01/VerifyDomainDkim.md "../../../goto/boto3/email-2010-12-01/VerifyDomainDkim.md")
-  - [VerifyDomainIdentity](../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md")
-  - [VerifyEmailIdentity](../../../goto/boto3/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyEmailIdentity.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

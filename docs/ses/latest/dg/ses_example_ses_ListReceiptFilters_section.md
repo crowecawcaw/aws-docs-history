@@ -1,16 +1,15 @@
+
+
 # Use `ListReceiptFilters` with an AWS SDK
+<a name="ses_example_ses_ListReceiptFilters_section"></a>
 
 The following code examples show how to use `ListReceiptFilters`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
 ```
 //! List the receipt filters associated with this account.
@@ -41,23 +40,14 @@ AwsDoc::SES::listReceiptFilters(Aws::Vector<Aws::SES::Model::ReceiptFilter> &fil
 
     return outcome.IsSuccess();
 }
-
-
 ```
++  For API details, see [ListReceiptFilters](https://docs.aws.amazon.com/goto/SdkForCpp/email-2010-12-01/ListReceiptFilters) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [ListReceiptFilters](../../../goto/SdkForCpp/email-2010-12-01/ListReceiptFilters.md "../../../goto/SdkForCpp/email-2010-12-01/ListReceiptFilters.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { ListReceiptFiltersCommand } from "@aws-sdk/client-ses";
@@ -70,23 +60,14 @@ const run = async () => {
 
   return await sesClient.send(listReceiptFiltersCommand);
 };
-
-
 ```
++  For API details, see [ListReceiptFilters](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/ListReceiptFiltersCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListReceiptFilters](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/ListReceiptFiltersCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/ListReceiptFiltersCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesReceiptHandler:
@@ -116,24 +97,14 @@ class SesReceiptHandler:
             raise
         else:
             return filters
-
-
-
 ```
++  For API details, see [ListReceiptFilters](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/ListReceiptFilters) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListReceiptFilters](../../../goto/boto3/email-2010-12-01/ListReceiptFilters.md "../../../goto/boto3/email-2010-12-01/ListReceiptFilters.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -145,14 +116,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListReceiptFilters](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListReceiptFilters](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

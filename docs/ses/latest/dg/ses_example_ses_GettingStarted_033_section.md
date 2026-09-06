@@ -1,22 +1,20 @@
+
+
 # Setting up email sending services
+<a name="ses_example_ses_GettingStarted_033_section"></a>
 
 The following code example shows how to:
++ Verify an email address
++ Verify a domain (optional)
++ Check your sending limits
++ Send a test email
++ Clean up resources
 
-- Verify an email address
-- Verify a domain (optional)
-- Check your sending limits
-- Send a test email
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/033-ses-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/033-ses-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/033-ses-gs) repository. 
 
 ```
 #!/bin/bash
@@ -41,7 +39,7 @@ check_error() {
     local cmd_status="$2"
     local error_msg="$3"
     local ignore_error="${4:-false}"
-
+    
     if [[ $cmd_status -ne 0 || "$cmd_output" =~ [Ee][Rr][Rr][Oo][Rr] ]]; then
         echo "ERROR: $error_msg" | tee -a "$LOG_FILE"
         if [[ "$ignore_error" != "true" ]]; then
@@ -54,19 +52,19 @@ check_error() {
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..." | tee -a "$LOG_FILE"
-
+    
     # No physical resources to clean up for SES setup
     # Email identities can be deleted if needed
     if [[ -n "$EMAIL_ADDRESS" ]]; then
         echo "Deleting email identity: $EMAIL_ADDRESS" | tee -a "$LOG_FILE"
         log_cmd "aws ses delete-identity --identity \"$EMAIL_ADDRESS\""
     fi
-
+    
     if [[ -n "$RECIPIENT_EMAIL" && "$RECIPIENT_EMAIL" != "$EMAIL_ADDRESS" ]]; then
         echo "Deleting recipient email identity: $RECIPIENT_EMAIL" | tee -a "$LOG_FILE"
         log_cmd "aws ses delete-identity --identity \"$RECIPIENT_EMAIL\""
     fi
-
+    
     if [[ -n "$DOMAIN_NAME" ]]; then
         echo "Deleting domain identity: $DOMAIN_NAME" | tee -a "$LOG_FILE"
         log_cmd "aws ses delete-identity --identity \"$DOMAIN_NAME\""
@@ -130,17 +128,17 @@ if [[ "$VERIFY_DOMAIN" =~ ^[Yy] ]]; then
     echo "Please enter the domain name you want to verify:"
     DOMAIN_NAME="test-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1).example.com"
     echo "$DOMAIN_NAME"
-
+    
     # Verify domain identity
     echo "Verifying domain: $DOMAIN_NAME" | tee -a "$LOG_FILE"
     OUTPUT=$(log_cmd "aws ses verify-domain-identity --domain \"$DOMAIN_NAME\"")
     check_error "$OUTPUT" $? "Failed to verify domain identity"
-
+    
     # Extract verification token
     VERIFICATION_TOKEN=$(echo "$OUTPUT" | grep -o '"VerificationToken": "[^"]*' | cut -d'"' -f4)
-
+    
     CREATED_RESOURCES+=("Domain identity: $DOMAIN_NAME")
-
+    
     echo ""
     echo "============================================="
     echo "Domain Verification Instructions"
@@ -154,29 +152,29 @@ if [[ "$VERIFY_DOMAIN" =~ ^[Yy] ]]; then
     echo ""
     echo "After adding this DNS record, verification may take up to 72 hours."
     echo ""
-
+    
     # Set up DKIM for the domain
     echo "Setting up DKIM for domain: $DOMAIN_NAME" | tee -a "$LOG_FILE"
     OUTPUT=$(log_cmd "aws ses verify-domain-dkim --domain \"$DOMAIN_NAME\"")
     check_error "$OUTPUT" $? "Failed to set up DKIM"
-
+    
     # Extract DKIM tokens
     DKIM_TOKENS=$(echo "$OUTPUT" | grep -o '"DkimTokens": \[[^]]*\]' | sed 's/"DkimTokens": \[\|\]//g' | sed 's/,//g' | sed 's/"//g')
-
+    
     echo "============================================="
     echo "DKIM Configuration Instructions"
     echo "============================================="
     echo "To configure DKIM for your domain, add the following CNAME records"
     echo "to your domain's DNS settings:"
     echo ""
-
+    
     for token in $DKIM_TOKENS; do
         echo "Record Type: CNAME"
         echo "Record Name: ${token}._domainkey.$DOMAIN_NAME"
         echo "Record Value: ${token}.dkim.amazonses.com"
         echo ""
     done
-
+    
     echo "After adding these DNS records, DKIM verification may take up to 72 hours."
     echo ""
 fi
@@ -220,31 +218,31 @@ if [[ "$SEND_TEST" =~ ^[Yy] ]]; then
     echo "Enter your choice (1 or 2):"
     RECIPIENT_CHOICE="1"
     echo "$RECIPIENT_CHOICE"
-
+    
     if [[ "$RECIPIENT_CHOICE" == "1" ]]; then
         RECIPIENT_EMAIL="$EMAIL_ADDRESS"
     else
         echo "Please enter the recipient email address you want to verify:"
         RECIPIENT_EMAIL="user-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)@example.com"
         echo "$RECIPIENT_EMAIL"
-
+        
         # Verify recipient email identity if different from sender
         if [[ "$RECIPIENT_EMAIL" != "$EMAIL_ADDRESS" ]]; then
             echo "Verifying recipient email address: $RECIPIENT_EMAIL" | tee -a "$LOG_FILE"
             OUTPUT=$(log_cmd "aws ses verify-email-identity --email-address \"$RECIPIENT_EMAIL\"")
             check_error "$OUTPUT" $? "Failed to verify recipient email address"
-
+            
             CREATED_RESOURCES+=("Email identity: $RECIPIENT_EMAIL")
             echo "A verification email has been sent to $RECIPIENT_EMAIL."
             echo "Please check the inbox and click the verification link before continuing."
             echo ""
             echo "Press Enter after you've verified the recipient email address..."
             sleep 1
-
+            
             # Check recipient verification status
             OUTPUT=$(log_cmd "aws ses get-identity-verification-attributes --identities \"$RECIPIENT_EMAIL\"")
             check_error "$OUTPUT" $? "Failed to get recipient verification attributes"
-
+            
             # Check if the recipient email is verified
             RECIPIENT_VERIFICATION_STATUS=$(echo "$OUTPUT" | grep -o '"VerificationStatus": "[^"]*' | cut -d'"' -f4)
             if [[ "$RECIPIENT_VERIFICATION_STATUS" != "Success" ]]; then
@@ -253,16 +251,16 @@ if [[ "$SEND_TEST" =~ ^[Yy] ]]; then
             fi
         fi
     fi
-
+    
     echo "Sending test email from $EMAIL_ADDRESS to $RECIPIENT_EMAIL..." | tee -a "$LOG_FILE"
     OUTPUT=$(log_cmd "aws ses send-email \
         --from \"$EMAIL_ADDRESS\" \
         --destination \"ToAddresses=$RECIPIENT_EMAIL\" \
         --message \"Subject={Data=SES Test Email,Charset=UTF-8},Body={Text={Data=This is a test email sent from Amazon SES using the AWS CLI,Charset=UTF-8}}\"")
-
+    
     # Don't exit on send email error, just report it
     check_error "$OUTPUT" $? "Failed to send test email" "true"
-
+    
     # Check if the email was sent successfully
     if [[ "$OUTPUT" =~ "MessageId" ]]; then
         # Extract message ID
@@ -309,21 +307,17 @@ echo "Visit the SES console and navigate to 'Account dashboard' to request produ
 echo ""
 echo "Log file: $LOG_FILE"
 echo "============================================="
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [DeleteIdentity](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/DeleteIdentity)
+  + [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/GetIdentityVerificationAttributes)
+  + [GetSendQuota](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/GetSendQuota)
+  + [ListIdentities](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/ListIdentities)
+  + [SendEmail](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/SendEmail)
+  + [VerifyDomainDkim](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/VerifyDomainDkim)
+  + [VerifyDomainIdentity](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/VerifyDomainIdentity)
+  + [VerifyEmailIdentity](https://docs.aws.amazon.com/goto/aws-cli/email-2010-12-01/VerifyEmailIdentity)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [DeleteIdentity](../../../goto/aws-cli/email-2010-12-01/DeleteIdentity.md "../../../goto/aws-cli/email-2010-12-01/DeleteIdentity.md")
-  - [GetIdentityVerificationAttributes](../../../goto/aws-cli/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/aws-cli/email-2010-12-01/GetIdentityVerificationAttributes.md")
-  - [GetSendQuota](../../../goto/aws-cli/email-2010-12-01/GetSendQuota.md "../../../goto/aws-cli/email-2010-12-01/GetSendQuota.md")
-  - [ListIdentities](../../../goto/aws-cli/email-2010-12-01/ListIdentities.md "../../../goto/aws-cli/email-2010-12-01/ListIdentities.md")
-  - [SendEmail](../../../goto/aws-cli/email-2010-12-01/SendEmail.md "../../../goto/aws-cli/email-2010-12-01/SendEmail.md")
-  - [VerifyDomainDkim](../../../goto/aws-cli/email-2010-12-01/VerifyDomainDkim.md "../../../goto/aws-cli/email-2010-12-01/VerifyDomainDkim.md")
-  - [VerifyDomainIdentity](../../../goto/aws-cli/email-2010-12-01/VerifyDomainIdentity.md "../../../goto/aws-cli/email-2010-12-01/VerifyDomainIdentity.md")
-  - [VerifyEmailIdentity](../../../goto/aws-cli/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/aws-cli/email-2010-12-01/VerifyEmailIdentity.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

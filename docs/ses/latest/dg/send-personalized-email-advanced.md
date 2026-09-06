@@ -1,37 +1,27 @@
+
+
 # Advanced email personalization
+<a name="send-personalized-email-advanced"></a>
 
-If you're
-using a _stored template_, that is, you've created a [`Template`](../APIReference-V2/API_Template.md "../APIReference-V2/API_Template.md") resource in Amazon SES by
-using the `CreateEmailTemplate` operation with the SES v2 API, you can take
-advantage of the Handlebars system to create templates that include advanced features, such as
-nested attributes, array iteration, basic conditional statements, and the creation of inline
-partials. This section provides examples of these features.
+ If you're using a *stored template*, that is, you've created a [`Template`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_Template.html) resource in Amazon SES by using the `CreateEmailTemplate` operation with the SES v2 API, you can take advantage of the Handlebars system to create templates that include advanced features, such as nested attributes, array iteration, basic conditional statements, and the creation of inline partials. This section provides examples of these features.
 
-Handlebars includes additional features beyond those documented in this section. For more
-information, see [Built-In
-Helpers](https://handlebarsjs.com/guide/builtin-helpers.html "https://handlebarsjs.com/guide/builtin-helpers.html") at [handlebarsjs.com](http://handlebarsjs.com "http://handlebarsjs.com").
+Handlebars includes additional features beyond those documented in this section. For more information, see [Built-In Helpers](https://handlebarsjs.com/guide/builtin-helpers.html) at [handlebarsjs.com](http://handlebarsjs.com).
 
-###### Note
+**Note**  
+SES doesn't escape HTML content when rendering the HTML template for a message. This means if you're including user inputted data, such as from a contact form, you will need to escape it on the client side.
 
-SES doesn't escape HTML content when rendering the HTML template for a message. This means
-if you're including user inputted data, such as from a contact form, you will need to escape
-it on the client side.
-
-###### Topics
-
-- [Parsing nested attributes](#send-personalized-email-advanced-nested "#send-personalized-email-advanced-nested")
-- [Iterating through lists](#send-personalized-email-advanced-iterating "#send-personalized-email-advanced-iterating")
-- [Using basic conditional statements](#send-personalized-email-advanced-conditionals "#send-personalized-email-advanced-conditionals")
-- [Creating inline partials](#send-personalized-email-advanced-inline-partials "#send-personalized-email-advanced-inline-partials")
+**Topics**
++ [Parsing nested attributes](#send-personalized-email-advanced-nested)
++ [Iterating through lists](#send-personalized-email-advanced-iterating)
++ [Using basic conditional statements](#send-personalized-email-advanced-conditionals)
++ [Creating inline partials](#send-personalized-email-advanced-inline-partials)
 
 ## Parsing nested attributes
+<a name="send-personalized-email-advanced-nested"></a>
 
-Handlebars includes support for nested paths, which makes it easy to organize complex
-customer data, and then refer to that data in your email templates.
+Handlebars includes support for nested paths, which makes it easy to organize complex customer data, and then refer to that data in your email templates.
 
-For example, you can organize recipient data into several general categories. Within each
-of those categories, you can include detailed information. The following code example shows an
-example of this structure for a single recipient:
+For example, you can organize recipient data into several general categories. Within each of those categories, you can include detailed information. The following code example shows an example of this structure for a single recipient:
 
 ```
 {
@@ -59,21 +49,14 @@ example of this structure for a single recipient:
 }
 ```
 
-In your email templates, you can refer to nested attributes by providing the name of the
-parent attribute, followed by a period (.), followed by the name of the attribute for which
-you want to include the value. For example, if you use the data structure shown in the
-preceding example, and you want to include each recipient's first name in the email template,
-include the following text in your email template: `Hello
- {{contact.firstName}}!`
+In your email templates, you can refer to nested attributes by providing the name of the parent attribute, followed by a period (.), followed by the name of the attribute for which you want to include the value. For example, if you use the data structure shown in the preceding example, and you want to include each recipient's first name in the email template, include the following text in your email template: `Hello {{contact.firstName}}!`
 
-Handlebars can parse paths that are nested several levels deep, which means you have
-flexibility in how you structure your template data.
+Handlebars can parse paths that are nested several levels deep, which means you have flexibility in how you structure your template data.
 
 ## Iterating through lists
+<a name="send-personalized-email-advanced-iterating"></a>
 
-The `each` helper function iterates through items in an array. The following
-code is an example of an email template that uses the `each` helper function to
-create an itemized list of each recipient's interests.
+The `each` helper function iterates through items in an array. The following code is an example of an email template that uses the `each` helper function to create an itemized list of each recipient's interests.
 
 ```
 {
@@ -81,42 +64,32 @@ create an itemized list of each recipient's interests.
     "TemplateName": "Preferences",
     "SubjectPart": "Subscription Preferences for {{contact.firstName}} {{contact.lastName}}",
     "HtmlPart": "<h1>Your Preferences</h1>
-                 <p>You have indicated that you are interested in receiving
+                 <p>You have indicated that you are interested in receiving 
                    information about the following subjects:</p>
                  <ul>
                    {{#each subscription}}
                      <li>{{interest}}</li>
                    {{/each}}
                  </ul>
-                 <p>You can change these settings at any time by visiting
+                 <p>You can change these settings at any time by visiting 
                     the <a href=https://www.example.com/prefererences/i.aspx?id={{meta.userId}}>
                     Preference Center</a>.</p>",
-    "TextPart": "Your Preferences\n\nYou have indicated that you are interested in
+    "TextPart": "Your Preferences\n\nYou have indicated that you are interested in 
                  receiving information about the following subjects:\n
                  {{#each subscription}}
                    - {{interest}}\n
                  {{/each}}
-                 \nYou can change these settings at any time by
-                 visiting the Preference Center at
+                 \nYou can change these settings at any time by 
+                 visiting the Preference Center at 
                  https://www.example.com/prefererences/i.aspx?id={{meta.userId}}"
   }
 }
 ```
 
-###### Important
+**Important**  
+In the preceding code example, the values of the `HtmlPart` and `TextPart` attributes include line breaks to make the example easier to read. The JSON file for your template can't contain line breaks within these values. If you copied and pasted this example into your own JSON file, remove the line breaks and extra spaces from the `HtmlPart` and `TextPart` sections before proceeding.
 
-In the preceding code example, the values of the `HtmlPart` and
-`TextPart` attributes include line breaks to make the example easier to read.
-The JSON file for your template can't contain line breaks within these values. If you copied
-and pasted this example into your own JSON file, remove the line breaks and extra spaces
-from the `HtmlPart` and `TextPart` sections before proceeding.
-
-After you create the template, you can use the `SendEmail` or the
-`SendBulkEmail` operation to send email to recipients using this template. As
-long as each recipient has at least one value in the `Interests` object, they
-receive an email that includes an itemized list of their interests. The following example
-shows a JSON file that can be used to send email to multiple recipients using the preceding
-template:
+After you create the template, you can use the `SendEmail` or the `SendBulkEmail` operation to send email to recipients using this template. As long as each recipient has at least one value in the `Interests` object, they receive an email that includes an itemized list of their interests. The following example shows a JSON file that can be used to send email to multiple recipients using the preceding template:
 
 ```
 {
@@ -132,7 +105,7 @@ template:
       "ReplacementTemplateData":"{\"meta\":{\"userId\":\"51806220607\"},\"contact\":{\"firstName\":\"Anaya\",\"lastName\":\"Iyengar\"},\"subscription\":[{\"interest\":\"Sports\"},{\"interest\":\"Travel\"},{\"interest\":\"Cooking\"}]}"
       },
     {
-      "Destination":{
+      "Destination":{ 
         "ToAddresses":[
           "shirley.rodriguez@example.com"
         ]
@@ -144,22 +117,15 @@ template:
 }
 ```
 
-When you send an email to the recipients listed in the preceding example using the
-`SendBulkEmail` operation, they receive a message that resembles the example
-shown in the following image:
+When you send an email to the recipients listed in the preceding example using the `SendBulkEmail` operation, they receive a message that resembles the example shown in the following image:
 
-![Preferences notification listing Sports, Travel, and Cooking as selected interests.](images/send-personalized-email-advanced-condition-interest.png)
+![Preferences notification listing Sports, Travel, and Cooking as selected interests.](http://docs.aws.amazon.com/ses/latest/dg/images/send-personalized-email-advanced-condition-interest.png)
+
 
 ## Using basic conditional statements
+<a name="send-personalized-email-advanced-conditionals"></a>
 
-This section builds on the example described in the previous section. The example in the
-previous section uses the `each` helper to iterate through a list of interests.
-However, recipients for whom no interests are specified receive an email that contains an
-empty list. By using the `{{if}}` helper, you can format the email differently if a
-certain attribute is present in the template data. The following code uses the
-`{{if}}` helper to display the bulleted list from the preceding section if the
-`Subscription` array contains any values. If the array is empty, a different
-block of text is displayed.
+This section builds on the example described in the previous section. The example in the previous section uses the `each` helper to iterate through a list of interests. However, recipients for whom no interests are specified receive an email that contains an empty list. By using the `{{if}}` helper, you can format the email differently if a certain attribute is present in the template data. The following code uses the `{{if}}` helper to display the bulleted list from the preceding section if the `Subscription` array contains any values. If the array is empty, a different block of text is displayed.
 
 ```
 {
@@ -169,48 +135,42 @@ block of text is displayed.
     "HtmlPart": "<h1>Your Preferences</h1>
                  <p>Dear {{contact.firstName}},</p>
                  {{#if subscription}}
-                   <p>You have indicated that you are interested in receiving
+                   <p>You have indicated that you are interested in receiving 
                      information about the following subjects:</p>
                      <ul>
                      {{#each subscription}}
                        <li>{{interest}}</li>
                      {{/each}}
                      </ul>
-                     <p>You can change these settings at any time by visiting
+                     <p>You can change these settings at any time by visiting 
                        the <a href=https://www.example.com/prefererences/i.aspx?id={{meta.userId}}>
                        Preference Center</a>.</p>
                  {{else}}
-                   <p>Please update your subscription preferences by visiting
+                   <p>Please update your subscription preferences by visiting 
                      the <a href=https://www.example.com/prefererences/i.aspx?id={{meta.userId}}>
                      Preference Center</a>.
                  {{/if}}",
     "TextPart": "Your Preferences\n\nDear {{contact.firstName}},\n\n
                  {{#if subscription}}
-                   You have indicated that you are interested in receiving
+                   You have indicated that you are interested in receiving 
                    information about the following subjects:\n
                    {{#each subscription}}
                      - {{interest}}\n
                    {{/each}}
-                   \nYou can change these settings at any time by visiting the
+                   \nYou can change these settings at any time by visiting the 
                    Preference Center at https://www.example.com/prefererences/i.aspx?id={{meta.userId}}.
                  {{else}}
-                   Please update your subscription preferences by visiting the
+                   Please update your subscription preferences by visiting the 
                    Preference Center at https://www.example.com/prefererences/i.aspx?id={{meta.userId}}.
                  {{/if}}"
   }
 }
 ```
 
-###### Important
+**Important**  
+In the preceding code example, the values of the `HtmlPart` and `TextPart` attributes include line breaks to make the example easier to read. The JSON file for your template can't contain line breaks within these values. If you copied and pasted this example into your own JSON file, remove the line breaks and extra spaces from the `HtmlPart` and `TextPart` sections before proceeding.
 
-In the preceding code example, the values of the `HtmlPart` and
-`TextPart` attributes include line breaks to make the example easier to read.
-The JSON file for your template can't contain line breaks within these values. If you copied
-and pasted this example into your own JSON file, remove the line breaks and extra spaces
-from the `HtmlPart` and `TextPart` sections before proceeding.
-
-The following example shows a JSON file that can be used to send email to multiple
-recipients using the preceding template:
+The following example shows a JSON file that can be used to send email to multiple recipients using the preceding template:
 
 ```
 {
@@ -226,7 +186,7 @@ recipients using the preceding template:
       "ReplacementTemplateData":"{\"meta\":{\"userId\":\"51806220607\"},\"contact\":{\"firstName\":\"Anaya\",\"lastName\":\"Iyengar\"},\"subscription\":[{\"interest\":\"Sports\"},{\"interest\":\"Cooking\"}]}"
       },
     {
-      "Destination":{
+      "Destination":{ 
         "ToAddresses":[
           "shirley.rodriguez@example.com"
         ]
@@ -238,40 +198,26 @@ recipients using the preceding template:
 }
 ```
 
-In this example, the recipient whose template data included a list of interests receives
-the same email as the example shown in the previous section. The recipient whose template data
-did not include any interests, however, receives an email that resembles the example shown in
-the following image:
+In this example, the recipient whose template data included a list of interests receives the same email as the example shown in the previous section. The recipient whose template data did not include any interests, however, receives an email that resembles the example shown in the following image:
 
-![Email message with header "Your Preferences" and text about updating subscription preferences.](images/send-personalized-email-advanced-condition-nointerest.png)
+![Email message with header "Your Preferences" and text about updating subscription preferences.](http://docs.aws.amazon.com/ses/latest/dg/images/send-personalized-email-advanced-condition-nointerest.png)
+
 
 ## Creating inline partials
+<a name="send-personalized-email-advanced-inline-partials"></a>
 
-You can use inline partials to simplify templates that include repeated strings. For
-example, you could create an inline partial that includes the recipient's first name, and, if
-it's available, their last name by adding the following code to the beginning of your
-template:
+You can use inline partials to simplify templates that include repeated strings. For example, you could create an inline partial that includes the recipient's first name, and, if it's available, their last name by adding the following code to the beginning of your template:
 
 ```
 {{#* inline \"fullName\"}}{{firstName}}{{#if lastName}} {{lastName}}{{/if}}{{/inline}}\n
 ```
 
-###### Note
+**Note**  
+The newline character (`\n`) is required to separate the `{{inline}}` block from the content in your template. The newline isn't rendered in the final output.
 
-The newline character (`\n`) is required to separate the
-`{{inline}}` block from the content in your template. The newline isn't
-rendered in the final output.
+After you create the `fullName` partial, you can include it anywhere in your template by preceding the name of the partial with a greater-than (>) sign followed by a space, as in the following example: `{{> fullName}}`. Inline partials are not transferred between parts of the email. For example, if you want to use the same inline partial in both the HTML and the text version of the email, you must define it in both the `HtmlPart` and the `TextPart` sections.
 
-After you create the `fullName` partial, you can include it anywhere in your
-template by preceding the name of the partial with a greater-than (>) sign followed by a
-space, as in the following example: `{{> fullName}}`. Inline partials are not
-transferred between parts of the email. For example, if you want to use the same inline
-partial in both the HTML and the text version of the email, you must define it in both the
-`HtmlPart` and the `TextPart` sections.
-
-You can also use inline partials when iterating through arrays. You can use the following
-code to create a template that uses the `fullName` inline partial. In this example,
-the inline partial applies to both the recipient's name and to an array of other names:
+You can also use inline partials when iterating through arrays. You can use the following code to create a template that uses the `fullName` inline partial. In this example, the inline partial applies to both the recipient's name and to an array of other names:
 
 ```
 {
@@ -290,7 +236,7 @@ the inline partial applies to both the recipient's name and to an array of other
     "TextPart": "{{#* inline \"fullName\"}}
                    {{firstName}}{{#if lastName}} {{lastName}}{{/if}}
                  {{/inline~}}\n
-                 Hello {{> fullName}}! You have listed the following people
+                 Hello {{> fullName}}! You have listed the following people 
                  as your friends:\n
                  {{#each friends}}
                    - {{> fullName}}\n
@@ -299,10 +245,5 @@ the inline partial applies to both the recipient's name and to an array of other
 }
 ```
 
-###### Important
-
-In the preceding code example, the values of the `HtmlPart` and
-`TextPart` attributes include line breaks to make the example easier to read.
-The JSON file for your template can't contain line breaks within these values. If you copied
-and pasted this example into your own JSON file, remove the line breaks and extra spaces
-from these sections.
+**Important**  
+In the preceding code example, the values of the `HtmlPart` and `TextPart` attributes include line breaks to make the example easier to read. The JSON file for your template can't contain line breaks within these values. If you copied and pasted this example into your own JSON file, remove the line breaks and extra spaces from these sections.

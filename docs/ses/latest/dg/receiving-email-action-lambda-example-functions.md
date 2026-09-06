@@ -1,50 +1,54 @@
+
+
 # Lambda function examples
+<a name="receiving-email-action-lambda-example-functions"></a>
 
 This topic contains examples of Lambda functions that control mail flow.
 
 ## Example 1: Drop spam
+<a name="receiving-email-action-lambda-example-functions-1"></a>
 
 This example stops processing messages that have at least one spam indicator.
 
 ```
 export const handler = async (event, context, callback) => {
     console.log('Spam filter');
-
+    
     const sesNotification = event.Records[0].ses;
     console.log("SES Notification:\n", JSON.stringify(sesNotification, null, 2));
-
+    
     // Check if any spam check failed
     if (sesNotification.receipt.spfVerdict.status === 'FAIL'
             || sesNotification.receipt.dkimVerdict.status === 'FAIL'
             || sesNotification.receipt.spamVerdict.status === 'FAIL'
             || sesNotification.receipt.virusVerdict.status === 'FAIL') {
-
+                
         console.log('Dropping spam');
 
         // Stop processing rule set, dropping message
         callback(null, {'disposition':'STOP_RULE_SET'});
     } else {
-        callback(null, {'disposition':'CONTINUE'});
+        callback(null, {'disposition':'CONTINUE'});   
     }
 };
 ```
 
 ## Example 2: Continue if a particular header is found
+<a name="receiving-email-action-lambda-example-functions-2"></a>
 
-This example continues processing the current rule only if the email contains a
-specific header value.
+This example continues processing the current rule only if the email contains a specific header value.
 
 ```
 export const handler = async (event, context, callback) => {
     console.log('Header matcher');
-
+ 
     const sesNotification = event.Records[0].ses;
     console.log("SES Notification:\n", JSON.stringify(sesNotification, null, 2));
-
+    
     // Iterate over the headers
     for (let index in sesNotification.mail.headers) {
         const header = sesNotification.mail.headers[index];
-
+        
         // Examine the header values
         if (header.name === 'X-Header' && header.value === 'X-Value') {
             console.log('Found header with value.');
@@ -52,42 +56,39 @@ export const handler = async (event, context, callback) => {
             return;
         }
     }
-
+    
     // Stop processing the rule if the header value wasn't found
     callback(null, {'disposition':'STOP_RULE'});
 };
 ```
 
 ## Example 3: Retrieve email from Amazon S3
+<a name="receiving-email-action-lambda-example-functions-3"></a>
 
 This example gets the raw email from Amazon S3 and processes it.
 
-###### Note
-
-- You must first write the email to Amazon S3 using an S3 Action.
-- Ensure that the Lambda function has IAM permissions to fetch objects from
-  the S3 bucket—refer to this [AWS
-  re:Post article](https://repost.aws/knowledge-center/lambda-execution-role-s3-bucket "https://repost.aws/knowledge-center/lambda-execution-role-s3-bucket") for more information.
-- It's possible that the default Lambda execution timeouts are too short for
-  your workflow, consider increasing them.
+**Note**  
+You must first write the email to Amazon S3 using an S3 Action.
+Ensure that the Lambda function has IAM permissions to fetch objects from the S3 bucket—refer to this [AWS re:Post article](https://repost.aws/knowledge-center/lambda-execution-role-s3-bucket) for more information.
+It's possible that the default Lambda execution timeouts are too short for your workflow, consider increasing them. 
 
 ```
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; 
 const bucketName = '<Your Bucket Name>';
 
 export const handler = async (event, context, callback) => {
     const client = new S3Client();
     console.log('Process email');
-
+  
     var sesNotification = event.Records[0].ses;
     console.log("SES Notification:\n", JSON.stringify(sesNotification, null, 2));
     console.log("MessageId: " + sesNotification.mail.messageId)
-
+  
     const getObjectCommand = new GetObjectCommand({
         Bucket: bucketName,
         Key: sesNotification.mail.messageId
     });
-
+  
     try {
         const response = await client.send(getObjectCommand);
         const receivedMail = await response.Body.transformToString();
@@ -102,17 +103,13 @@ export const handler = async (event, context, callback) => {
 ```
 
 ## Example 4: Bounce messages that fail DMARC authentication
+<a name="receiving-email-action-lambda-example-functions-4"></a>
 
-This examples sends a bounce message if an incoming email fails DMARC
-authentication.
+This examples sends a bounce message if an incoming email fails DMARC authentication.
 
-###### Note
-
-- When using this example, set the value of the `emailDomain`
-  environment variable to your email receiving domain.
-- Ensure that the Lambda function has the `ses:SendBounce`
-  permissions for the SES identity that is sending the bounce
-  messages.
+**Note**  
+When using this example, set the value of the `emailDomain` environment variable to your email receiving domain.
+Ensure that the Lambda function has the `ses:SendBounce` permissions for the SES identity that is sending the bounce messages.
 
 ```
 import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses";
@@ -131,7 +128,7 @@ export const handler = async (event, context, callback) => {
 
     // If DMARC verdict is FAIL and the sending domain's policy is REJECT
     // (p=reject), bounce the email.
-    if (receipt.dmarcVerdict.status === 'FAIL'
+    if (receipt.dmarcVerdict.status === 'FAIL' 
         && receipt.dmarcPolicy.status === 'REJECT') {
         // The values that make up the body of the bounce message.
         const sendBounceParams = {
@@ -153,10 +150,10 @@ export const handler = async (event, context, callback) => {
 
         console.log('Bouncing message with parameters:');
         console.log(JSON.stringify(sendBounceParams, null, 2));
-
+        
         const sendBounceCommand = new SendBounceCommand(sendBounceParams);
-
-        // Try to send the bounce.
+        
+        // Try to send the bounce. 
         try {
           const response = await sesClient.send(sendBounceCommand);
           console.log(response);
@@ -169,7 +166,7 @@ export const handler = async (event, context, callback) => {
           // Perform any additional error handling here
           callback(e)
         }
-
+        
     // If the DMARC verdict is anything else (PASS, QUARANTINE or GRAY), accept
     // the message and process remaining receipt rules in the rule set.
     } else {

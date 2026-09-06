@@ -1,16 +1,15 @@
+
+
 # Use `DeleteReceiptFilter` with an AWS SDK
+<a name="ses_example_ses_DeleteReceiptFilter_section"></a>
 
 The following code examples show how to use `DeleteReceiptFilter`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
 ```
 //! Delete an Amazon Simple Email Service (Amazon SES) receipt filter.
@@ -41,23 +40,14 @@ bool AwsDoc::SES::deleteReceiptFilter(const Aws::String &receiptFilterName,
 
     return outcome.IsSuccess();
 }
-
-
 ```
++  For API details, see [DeleteReceiptFilter](https://docs.aws.amazon.com/goto/SdkForCpp/email-2010-12-01/DeleteReceiptFilter) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [DeleteReceiptFilter](../../../goto/SdkForCpp/email-2010-12-01/DeleteReceiptFilter.md "../../../goto/SdkForCpp/email-2010-12-01/DeleteReceiptFilter.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { DeleteReceiptFilterCommand } from "@aws-sdk/client-ses";
@@ -81,23 +71,14 @@ const run = async () => {
     return err;
   }
 };
-
-
 ```
++  For API details, see [DeleteReceiptFilter](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/DeleteReceiptFilterCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteReceiptFilter](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/DeleteReceiptFilterCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/DeleteReceiptFilterCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesReceiptHandler:
@@ -124,24 +105,14 @@ class SesReceiptHandler:
         except ClientError:
             logger.exception("Couldn't delete receipt filter %s.", filter_name)
             raise
-
-
-
 ```
++  For API details, see [DeleteReceiptFilter](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/DeleteReceiptFilter) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteReceiptFilter](../../../goto/boto3/email-2010-12-01/DeleteReceiptFilter.md "../../../goto/boto3/email-2010-12-01/DeleteReceiptFilter.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -152,14 +123,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteReceiptFilter](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteReceiptFilter](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

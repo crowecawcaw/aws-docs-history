@@ -1,77 +1,52 @@
-# Data encryption at rest for Amazon SES
 
-By default, Amazon SES encrypts all data at rest. Encryption by default helps reduce the
-operational overhead and complexity involved in protecting data. Encryption also enables you
-to create Mail Manager archives that meet strict encryption compliance and regulatory
-requirements.
+
+# Data encryption at rest for Amazon SES
+<a name="encryption-rest"></a>
+
+By default, Amazon SES encrypts all data at rest. Encryption by default helps reduce the operational overhead and complexity involved in protecting data. Encryption also enables you to create Mail Manager archives that meet strict encryption compliance and regulatory requirements.
 
 SES provides the following encryption options:
++ **AWS owned keys** – SES uses these by default. You can't view, manage, or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*. 
++ **Customer managed keys** – SES supports the use of symmetric customer managed keys that you create, own, and manage. Because you have full control of the encryption, you can perform such tasks as: 
+  + Establishing and maintaining key policies
+  + Establishing and maintaining IAM policies and grants
+  + Enabling and disabling key policies
+  + Rotating key cryptographic material
+  + Adding tags
+  + Creating key aliases
+  + Scheduling keys for deletion
 
-- **AWS owned keys** – SES uses these by
-  default. You can't view, manage, or use AWS owned keys, or audit their use. However, you
-  don't have to take any action or change any programs to protect the keys that encrypt your
-  data. For more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in
-  the _AWS Key Management Service Developer Guide_.
-- **Customer managed keys** – SES supports
-  the use of symmetric customer managed keys that you create, own, and manage. Because you have full
-  control of the encryption, you can perform such tasks as:
+  To use your own key, choose a customer managed key when you create your SES resources.
 
-  - Establishing and maintaining key policies
-  - Establishing and maintaining IAM policies and grants
-  - Enabling and disabling key policies
-  - Rotating key cryptographic material
-  - Adding tags
-  - Creating key aliases
-  - Scheduling keys for deletion
-    To use your own key, choose a customer managed key when you create your SES
-    resources.
+  For more information, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS Key Management Service Developer Guide*. 
 
-For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-in the _AWS Key Management Service Developer Guide_.
-
-###### Note
-
-SES automatically enables encryption at rest using AWS owned keys at no charge.
-
-However, AWS KMS charges apply for using a customer managed key. For more information about pricing,
-see the [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+**Note**  
+SES automatically enables encryption at rest using AWS owned keys at no charge.   
+However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see the [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/).
 
 ## Create a customer managed key
+<a name="create-key"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs.
+ You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs.
 
 **To create a symmetric customer managed key**
 
-Follow the steps for [Creating symmetric
-encryption KMS keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer
-Guide_.
+Follow the steps for [Creating symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide*.
 
-###### Note
-
-For archiving, your key must meet the following requirements:
-
-- The key must be symmetric.
-- The key material origin must be `AWS_KMS`.
-- The key usage must be `ENCRYPT_DECRYPT`.
+**Note**  
+For archiving, your key must meet the following requirements:  
+The key must be symmetric.
+The key material origin must be `AWS_KMS`.
+The key usage must be `ENCRYPT_DECRYPT`.
 
 **Key policy**
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly one key
-policy, which contains statements that determine who can use the key and how they can use
-it. When you create your customer managed key, you can specify a key policy. For more information, see
-[Managing
-access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service Developer
-Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed key with Mail Manager archiving, your key policy must permit the following API
-operations:
-
-- [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details that allow
-  SES to validate the key.
-- [kms:GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") – Allows SES to generate a data key for
-  encrypting data at rest.
-- [kms:Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – Allows SES to decrypt stored data before
-  returning it to API clients.
+To use your customer managed key with Mail Manager archiving, your key policy must permit the following API operations:
++ [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) – Provides the customer managed key details that allow SES to validate the key.
++ [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) – Allows SES to generate a data key for encrypting data at rest.
++ [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) – Allows SES to decrypt stored data before returning it to API clients.
 
 The following example shows a typical key policy:
 
@@ -91,48 +66,31 @@ The following example shows a typical key policy:
         },
 ```
 
-For more information, see [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), in the _AWS Key Management Service
-Developer Guide_.
+For more information, see [specifying permissions in a policy](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#overview-policy-elements), in the *AWS Key Management Service Developer Guide*.
 
-For more information about troubleshooting, see [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), in the _AWS Key Management Service Developer
-Guide_.
+For more information about troubleshooting, see [troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html#example-no-iam), in the *AWS Key Management Service Developer Guide*.
 
 ## Specifying a customer managed key for Mail Manager
+<a name="enable-custom-encryption"></a>
 
-You can specify a customer managed key as an alternative to using AWS owned keys.
-When you create an archive or configure an ingress endpoint with
-mutual TLS (mTLS) authentication, you can specify the data key by entering a
-**KMS key ARN**. For archiving, Mail Manager uses the key to encrypt
-all customer data in the archive. For mTLS ingress endpoints, Mail Manager uses the key to encrypt
-the trust store contents at rest.
-
-- **KMS key ARN** – A [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for a
-  AWS KMS customer managed key. Enter a key ID, key ARN, alias name, or alias ARN.
+You can specify a customer managed key as an alternative to using AWS owned keys. When you create an archive or configure an ingress endpoint with mutual TLS (mTLS) authentication, you can specify the data key by entering a **KMS key ARN**. For archiving, Mail Manager uses the key to encrypt all customer data in the archive. For mTLS ingress endpoints, Mail Manager uses the key to encrypt the trust store contents at rest.
++ **KMS key ARN** – A [key identifier](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) for a AWS KMS customer managed key. Enter a key ID, key ARN, alias name, or alias ARN.
 
 ## Amazon SES encryption context
+<a name="location-encryption-context"></a>
 
-An [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context")
-is an optional set of key-value pairs that contain additional contextual information about
-the data.
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data.
 
-AWS KMS uses the encryption context as additional authenticated data to support
-authenticated encryption. When you include an
-encryption context in a request to encrypt data, AWS KMS binds the encryption context to the
-encrypted data. To decrypt data, you include the same encryption context in the
-request.
+AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption. When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request.
 
-###### Note
-
-Amazon SES doesn't support encryption contexts for archive creation. Instead, you use an
-IAM or KMS policy. For example policies, see [Archive creation policies](#archive-creation-policies "#archive-creation-policies"), later in this section.
+**Note**  
+Amazon SES doesn't support encryption contexts for archive creation. Instead, you use an IAM or KMS policy. For example policies, see [Archive creation policies](#archive-creation-policies), later in this section.
 
 **Amazon SES encryption context**
 
-SES uses the same encryption context in all AWS KMS cryptographic operations,
-where the key is `aws:ses:arn` and the value is the resource [Amazon
-Resource Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
+SES uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:ses:arn` and the value is the resource [Amazon Resource Name](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) (ARN).
 
-###### Example
+**Example**  
 
 ```
 "encryptionContext": {
@@ -142,27 +100,16 @@ Resource Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../g
 
 **Using encryption context for monitoring**
 
-When you use a symmetric customer managed key to encrypt your SES resource, you can also use
-the encryption context in audit records and logs to identify how the customer managed key is being
-used. The encryption context also appears in [logs
-generated by AWS CloudTrail or Amazon CloudWatch Logs](#example-custom-encryption "#example-custom-encryption").
+When you use a symmetric customer managed key to encrypt your SES resource, you can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or Amazon CloudWatch Logs](#example-custom-encryption).
 
-**Using encryption context to control access to your
-customer managed key**
+**Using encryption context to control access to your customer managed key**
 
-You can use the encryption context in key policies and IAM policies as
-`conditions` to control access to your symmetric customer managed key. You can also use
-encryption context constraints in a grant.
+You can use the encryption context in key policies and IAM policies as `conditions` to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant.
 
-SES uses an encryption context constraint in grants to control access to the
-customer managed key in your account or region. The grant constraint requires that the operations that
-the grant allows use the specified encryption context.
+SES uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context.
 
-###### Example
-
-The following are example key policy statements to grant access to a customer managed key for a
-specific encryption context. The condition in this policy statement requires that the
-grants have an encryption context constraint that specifies the encryption context.
+**Example**  
+The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context.  
 
 ```
 {
@@ -191,9 +138,9 @@ grants have an encryption context constraint that specifies the encryption conte
 ```
 
 ## Archive creation policies
+<a name="archive-creation-policies"></a>
 
-The following example policies show how to enable archive creation. The policies work on
-all assets.
+The following example policies show how to enable archive creation. The policies work on all assets.
 
 **IAM policy**
 
@@ -242,13 +189,11 @@ all assets.
 ```
 
 ## Ingress endpoint mTLS policies
+<a name="ingress-endpoint-mtls-policies"></a>
 
-The following example policies enable using a customer managed key to encrypt trust store contents
-for mutual TLS (mTLS) authentication on Mail Manager ingress endpoints.
+The following example policies enable using a customer managed key to encrypt trust store contents for mutual TLS (mTLS) authentication on Mail Manager ingress endpoints.
 
-To scope the example policies to a specific ingress endpoint, replace the wildcard in
-the condition with an exact resource ARN (for example,
-`arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/inp-ab1c2defgh3ij4klmno5pq6rs`).
+To scope the example policies to a specific ingress endpoint, replace the wildcard in the condition with an exact resource ARN (for example, `arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/inp-ab1c2defgh3ij4klmno5pq6rs`).
 
 **IAM policy**
 
@@ -334,24 +279,20 @@ the condition with an exact resource ARN (for example,
 ```
 
 ## Monitoring your encryption keys for Amazon SES
+<a name="example-custom-encryption"></a>
 
-When you use an AWS KMS customer managed key with your Amazon SES resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track
-requests that SES sends to AWS KMS.
+When you use an AWS KMS customer managed key with your Amazon SES resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that SES sends to AWS KMS.
 
-The following examples are AWS CloudTrail events for
-`GenerateDataKey`, `Decrypt`, and `DescribeKey` to monitor
-KMS operations called by SES to access data encrypted by your customer managed key:
+The following examples are AWS CloudTrail events for `GenerateDataKey`, `Decrypt`, and `DescribeKey` to monitor KMS operations called by SES to access data encrypted by your customer managed key:
 
-GenerateDataKey
-When you enable an AWS KMS customer managed key for your resource, SES creates a unique
-table key. It sends a `GenerateDataKey` request to AWS KMS that specifies the
-AWS KMScustomer managed key for the resource.
+------
+#### [ GenerateDataKey ]
 
-When you enable an AWS KMS customer managed key for your Mail Manager archive resource, it will use
-`GenerateDataKey` when encrypting archive data at rest.
+When you enable an AWS KMS customer managed key for your resource, SES creates a unique table key. It sends a `GenerateDataKey` request to AWS KMS that specifies the AWS KMScustomer managed key for the resource.
 
-The following example event records the `GenerateDataKey`
-operation:
+When you enable an AWS KMS customer managed key for your Mail Manager archive resource, it will use `GenerateDataKey` when encrypting archive data at rest.
+
+The following example event records the `GenerateDataKey` operation:
 
 ```
 {
@@ -392,9 +333,10 @@ operation:
 }
 ```
 
-Decrypt
-When you access an encrypted resource, SES calls the `Decrypt`
-operation to use the stored encrypted data key to access the encrypted data.
+------
+#### [ Decrypt ]
+
+When you access an encrypted resource, SES calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data. 
 
 The following example event records the `Decrypt` operation:
 
@@ -437,9 +379,10 @@ The following example event records the `Decrypt` operation:
 }
 ```
 
-DescribeKey
-SES uses the `DescribeKey` operation to verify if the AWS KMS
-customer managed key associated with your resource exists in the account and region.
+------
+#### [ DescribeKey ]
+
+SES uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your resource exists in the account and region.
 
 The following example event records the `DescribeKey` operation:
 
@@ -495,12 +438,11 @@ The following example event records the `DescribeKey` operation:
 }
 ```
 
+------
+
 ## Learn more
+<a name="Learn-more-data-at-rest-encryption"></a>
 
 The following resources provide more information about data encryption at rest.
-
-- For more information about [AWS Key Management Service basic concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see
-  the _AWS Key Management Service Developer Guide_.
-- For more information about [Security best practices for
-  AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"), see the _AWS Key Management Service Developer
-  Guide_.
++ For more information about [AWS Key Management Service basic concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html), see the *AWS Key Management Service Developer Guide*.
++ For more information about [Security best practices for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html), see the *AWS Key Management Service Developer Guide*.

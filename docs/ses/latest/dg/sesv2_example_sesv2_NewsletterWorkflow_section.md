@@ -1,18 +1,16 @@
+
+
 # A complete Amazon SES API v2 Newsletter scenario using an AWS SDK
+<a name="sesv2_example_sesv2_NewsletterWorkflow_section"></a>
 
 The following code examples show how to run the Amazon SES API v2 newsletter scenario.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples").
-
-Run the scenario.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
+Run the scenario.  
 
 ```
 using System.Diagnostics;
@@ -457,11 +455,8 @@ public static class NewsletterWorkflow
         return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase);
     }
 }
-
-
 ```
-
-Wrapper for service operations.
+Wrapper for service operations.  
 
 ```
 using System.Net;
@@ -920,32 +915,24 @@ public class SESv2Wrapper
         return string.Empty;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateContact](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/CreateContact)
+  + [CreateContactList](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/CreateContactList)
+  + [CreateEmailIdentity](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailIdentity)
+  + [CreateEmailTemplate](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailTemplate)
+  + [DeleteContactList](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/DeleteContactList)
+  + [DeleteEmailIdentity](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailIdentity)
+  + [DeleteEmailTemplate](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailTemplate)
+  + [ListContacts](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts)
+  + [SendEmail.simple](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.simple)
+  + [SendEmail.template](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.template)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [CreateContact](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContact.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContact.md")
-  - [CreateContactList](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContactList.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContactList.md")
-  - [CreateEmailIdentity](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailIdentity.md")
-  - [CreateEmailTemplate](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailTemplate.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailTemplate.md")
-  - [DeleteContactList](../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteContactList.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteContactList.md")
-  - [DeleteEmailIdentity](../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailIdentity.md")
-  - [DeleteEmailTemplate](../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailTemplate.md")
-  - [ListContacts](../../../goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts.md")
-  - [SendEmail.simple](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.simple.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.simple.md")
-  - [SendEmail.template](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.template.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.template.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
 ```
     try {
@@ -1148,32 +1135,24 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
       System.err.println("Error occurred while deleting the email template: " + e.getMessage());
       e.printStackTrace();
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateContact](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/CreateContact)
+  + [CreateContactList](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/CreateContactList)
+  + [CreateEmailIdentity](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailIdentity)
+  + [CreateEmailTemplate](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailTemplate)
+  + [DeleteContactList](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/DeleteContactList)
+  + [DeleteEmailIdentity](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailIdentity)
+  + [DeleteEmailTemplate](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailTemplate)
+  + [ListContacts](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts)
+  + [SendEmail.simple](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.simple)
+  + [SendEmail.template](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.template)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [CreateContact](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContact.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContact.md")
-  - [CreateContactList](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContactList.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContactList.md")
-  - [CreateEmailIdentity](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailIdentity.md")
-  - [CreateEmailTemplate](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailTemplate.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailTemplate.md")
-  - [DeleteContactList](../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteContactList.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteContactList.md")
-  - [DeleteEmailIdentity](../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailIdentity.md")
-  - [DeleteEmailTemplate](../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailTemplate.md")
-  - [ListContacts](../../../goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts.md")
-  - [SendEmail.simple](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.simple.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.simple.md")
-  - [SendEmail.template](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.template.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.template.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
 
 ```
 def main():
@@ -1344,32 +1323,24 @@ class SESv2Workflow:
                 print(f"Email template '{TEMPLATE_NAME}' does not exist.")
             else:
                 print(e)
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateContact](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/CreateContact)
+  + [CreateContactList](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/CreateContactList)
+  + [CreateEmailIdentity](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/CreateEmailIdentity)
+  + [CreateEmailTemplate](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/CreateEmailTemplate)
+  + [DeleteContactList](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/DeleteContactList)
+  + [DeleteEmailIdentity](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity)
+  + [DeleteEmailTemplate](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate)
+  + [ListContacts](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/ListContacts)
+  + [SendEmail.simple](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/SendEmail.simple)
+  + [SendEmail.template](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/SendEmail.template)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-  - [CreateContact](../../../goto/boto3/sesv2-2019-09-27/CreateContact.md "../../../goto/boto3/sesv2-2019-09-27/CreateContact.md")
-  - [CreateContactList](../../../goto/boto3/sesv2-2019-09-27/CreateContactList.md "../../../goto/boto3/sesv2-2019-09-27/CreateContactList.md")
-  - [CreateEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md")
-  - [CreateEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/CreateEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailTemplate.md")
-  - [DeleteContactList](../../../goto/boto3/sesv2-2019-09-27/DeleteContactList.md "../../../goto/boto3/sesv2-2019-09-27/DeleteContactList.md")
-  - [DeleteEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md")
-  - [DeleteEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md")
-  - [ListContacts](../../../goto/boto3/sesv2-2019-09-27/ListContacts.md "../../../goto/boto3/sesv2-2019-09-27/ListContacts.md")
-  - [SendEmail.simple](../../../goto/boto3/sesv2-2019-09-27/SendEmail.simple.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.simple.md")
-  - [SendEmail.template](../../../goto/boto3/sesv2-2019-09-27/SendEmail.template.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.template.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 
 ```
         match self
@@ -1557,23 +1528,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
                 return Err(anyhow!("Error deleting email template: {e}"));
             }
         }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [CreateContact](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact)
+  + [CreateContactList](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact_list)
+  + [CreateEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity)
+  + [CreateEmailTemplate](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_template)
+  + [DeleteContactList](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_contact_list)
+  + [DeleteEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_email_identity)
+  + [DeleteEmailTemplate](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_email_template)
+  + [ListContacts](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts)
+  + [SendEmail.simple](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email.simple)
+  + [SendEmail.template](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email.template)
 
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
+------
 
-  - [CreateContact](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact")
-  - [CreateContactList](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact_list "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact_list")
-  - [CreateEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity")
-  - [CreateEmailTemplate](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_template "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_template")
-  - [DeleteContactList](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_contact_list "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_contact_list")
-  - [DeleteEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_email_identity "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_email_identity")
-  - [DeleteEmailTemplate](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_email_template "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.delete_email_template")
-  - [ListContacts](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts")
-  - [SendEmail.simple](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email.simple "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email.simple")
-  - [SendEmail.template](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email.template "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email.template")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

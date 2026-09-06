@@ -1,25 +1,21 @@
+
+
 # Use `GetIdentityVerificationAttributes` with an AWS SDK or CLI
+<a name="ses_example_ses_GetIdentityVerificationAttributes_section"></a>
 
 The following code examples show how to use `GetIdentityVerificationAttributes`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md) 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
 ```
-
     /// <summary>
     /// Get identity verification status for an email.
     /// </summary>
@@ -46,29 +42,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return result;
     }
+```
++  For API details, see [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/goto/DotNetSDKV3/email-2010-12-01/GetIdentityVerificationAttributes) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To get the Amazon SES verification status for a list of identities**  
+The following example uses the `get-identity-verification-attributes` command to retrieve the Amazon SES verification status for a list of identities:  
 
 ```
-
-- For API details, see
-  [GetIdentityVerificationAttributes](../../../goto/DotNetSDKV3/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/DotNetSDKV3/email-2010-12-01/GetIdentityVerificationAttributes.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get the Amazon SES verification status for a list of identities**
-
-The following example uses the `get-identity-verification-attributes` command to retrieve the Amazon SES verification status for a list of identities:
-
+aws ses get-identity-verification-attributes --identities {{"user1@example.com"}} {{"user2@example.com"}}
 ```
-`aws ses get-identity-verification-attributes --identities `"user1@example.com"` `"user2@example.com"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -82,24 +69,15 @@ Output:
    }
 }
 ```
+If you call this command with an identity that you have never submitted for verification, that identity won't appear in the output.  
+For more information about verified identities, see Verifying Email Addresses and Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
++  For API details, see [GetIdentityVerificationAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/get-identity-verification-attributes.html) in *AWS CLI Command Reference*. 
 
-If you call this command with an identity that you have never submitted for verification, that identity won't appear in the output.
+------
+#### [ Python ]
 
-For more information about verified identities, see Verifying Email Addresses and Domains in Amazon SES in the _Amazon Simple Email Service Developer Guide_.
-
-- For API details, see
-  [GetIdentityVerificationAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/get-identity-verification-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/get-identity-verification-attributes.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesIdentity:
@@ -133,27 +111,16 @@ class SesIdentity:
             raise
         else:
             return status
+```
++  For API details, see [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/GetIdentityVerificationAttributes) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
 ```
-
-- For API details, see
-  [GetIdentityVerificationAttributes](../../../goto/boto3/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/boto3/email-2010-12-01/GetIdentityVerificationAttributes.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples").
-
-```
-
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Create client in us-west-2 region
@@ -175,23 +142,14 @@ ids.identities.each do |email|
   # Display email addresses that have been verified
   puts email if status == 'Success'
 end
-
-
 ```
++  For API details, see [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/goto/SdkForRubyV3/email-2010-12-01/GetIdentityVerificationAttributes) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetIdentityVerificationAttributes](../../../goto/SdkForRubyV3/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/SdkForRubyV3/email-2010-12-01/GetIdentityVerificationAttributes.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     DATA lt_identities TYPE /aws1/cl_sesidentitylist_w=>tt_identitylist.
@@ -216,14 +174,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetIdentityVerificationAttributes](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,25 +1,21 @@
+
+
 # Use `SendEmail` with an AWS SDK or CLI
+<a name="ses_example_ses_SendEmail_section"></a>
 
 The following code examples show how to use `SendEmail`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md) 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
 ```
-
     /// <summary>
     ///  Send an email by using Amazon SES.
     /// </summary>
@@ -79,24 +75,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return messageId;
     }
-
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/DotNetSDKV3/email-2010-12-01/SendEmail) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/DotNetSDKV3/email-2010-12-01/SendEmail.md "../../../goto/DotNetSDKV3/email-2010-12-01/SendEmail.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
 ```
 //! Send an email to a list of recipients.
@@ -169,38 +155,28 @@ bool AwsDoc::SES::sendEmail(const Aws::Vector<Aws::String> &recipients,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/SdkForCpp/email-2010-12-01/SendEmail) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To send a formatted email using Amazon SES**  
+The following example uses the `send-email` command to send a formatted email:  
 
 ```
-
-- For API details, see
-  [SendEmail](../../../goto/SdkForCpp/email-2010-12-01/SendEmail.md "../../../goto/SdkForCpp/email-2010-12-01/SendEmail.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To send a formatted email using Amazon SES**
-
-The following example uses the `send-email` command to send a formatted email:
-
+aws ses send-email --from {{sender@example.com}} --destination {{file://destination.json}} --message {{file://message.json}}
 ```
-`aws ses send-email --from `sender@example.com` --destination `file://destination.json` --message `file://message.json``
-
-```
-
-Output:
+Output:  
 
 ```
 {
    "MessageId": "EXAMPLEf3a5efcd1-51adec81-d2a4-4e3f-9fe2-5d85c1b23783-000000"
 }
 ```
-
-The destination and the message are JSON data structures saved in .json files in the current directory. These files are as follows:
-
-`destination.json`:
+The destination and the message are JSON data structures saved in .json files in the current directory. These files are as follows:  
+`destination.json`:  
 
 ```
 {
@@ -209,8 +185,7 @@ The destination and the message are JSON data structures saved in .json files in
   "BccAddresses": []
 }
 ```
-
-`message.json`:
+`message.json`:  
 
 ```
 {
@@ -230,29 +205,17 @@ The destination and the message are JSON data structures saved in .json files in
    }
 }
 ```
+Replace the sender and recipient email addresses with the ones you want to use. Note that the sender's email address must be verified with Amazon SES. Until you are granted production access to Amazon SES, you must also verify the email address of each recipient unless the recipient is the Amazon SES mailbox simulator. For more information on verification, see Verifying Email Addresses and Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
+The Message ID in the output indicates that the call to send-email was successful.  
+If you don't receive the email, check your Junk box.  
+For more information on sending formatted email, see Sending Formatted Email Using the Amazon SES API in the *Amazon Simple Email Service Developer Guide*.  
++  For API details, see [SendEmail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/send-email.html) in *AWS CLI Command Reference*. 
 
-Replace the sender and recipient email addresses with the ones you want to use. Note that the sender's email address must be verified with Amazon SES. Until you are granted production access to Amazon SES, you must also verify the email address of each recipient
-unless the recipient is the Amazon SES mailbox simulator. For more information on verification, see Verifying Email Addresses and Domains in Amazon SES in the _Amazon Simple Email Service Developer Guide_.
+------
+#### [ Java ]
 
-The Message ID in the output indicates that the call to send-email was successful.
-
-If you don't receive the email, check your Junk box.
-
-For more information on sending formatted email, see Sending Formatted Email Using the Amazon SES API in the _Amazon Simple Email Service Developer Guide_.
-
-- For API details, see
-  [SendEmail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/send-email.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/send-email.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -529,23 +492,14 @@ public class SendMessageAttachment {
         System.out.println("Email sent using SesClient with attachment");
     }
 }
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/SendEmail) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/SdkForJavaV2/email-2010-12-01/SendEmail.md "../../../goto/SdkForJavaV2/email-2010-12-01/SendEmail.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { SendEmailCommand } from "@aws-sdk/client-ses";
@@ -605,24 +559,14 @@ const run = async () => {
     throw caught;
   }
 };
-
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/SendEmailCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/SendEmailCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/SendEmailCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesMailSender:
@@ -674,27 +618,16 @@ class SesMailSender:
             raise
         else:
             return message_id
+```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/SendEmail) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
 ```
-
-- For API details, see
-  [SendEmail](../../../goto/boto3/email-2010-12-01/SendEmail.md "../../../goto/boto3/email-2010-12-01/SendEmail.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples").
-
-```
-
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Replace sender@example.com with your "From" address.
@@ -765,23 +698,14 @@ begin
 rescue Aws::SES::Errors::ServiceError => e
   puts "Email not sent. Error message: #{e}"
 end
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/SdkForRubyV3/email-2010-12-01/SendEmail) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/SdkForRubyV3/email-2010-12-01/SendEmail.md "../../../goto/SdkForRubyV3/email-2010-12-01/SendEmail.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     " Create message object
@@ -820,14 +744,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex_generic.
     ENDTRY.
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendEmail](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

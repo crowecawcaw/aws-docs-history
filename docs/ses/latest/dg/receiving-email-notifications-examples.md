@@ -1,18 +1,16 @@
+
+
 # Examples of notifications for Amazon SES email receiving
+<a name="receiving-email-notifications-examples"></a>
 
 This section includes examples of the following types of notifications:
-
-- [A notification sent as
-  a result of an SNS action.](#receiving-email-notifications-examples-sns-action "#receiving-email-notifications-examples-sns-action")
-- [A notification sent as a
-  result of another type of action](#receiving-email-notifications-examples-alert "#receiving-email-notifications-examples-alert") (an _alert
-  notification_).
++ [A notification sent as a result of an SNS action.](#receiving-email-notifications-examples-sns-action)
++ [A notification sent as a result of another type of action](#receiving-email-notifications-examples-alert) (an *alert notification*).
 
 ## Notification of an SNS action
+<a name="receiving-email-notifications-examples-sns-action"></a>
 
-This section contains an example of an SNS action notification. Unlike the alert
-notification shown previously, it includes a `content` section that contains the
-email, which is typically in Multipurpose Internet Mail Extensions (MIME) format.
+This section contains an example of an SNS action notification. Unlike the alert notification shown previously, it includes a `content` section that contains the email, which is typically in Multipurpose Internet Mail Extensions (MIME) format.
 
 ```
 {
@@ -120,11 +118,9 @@ email, which is typically in Multipurpose Internet Mail Extensions (MIME) format
 ```
 
 ## Alert notification
+<a name="receiving-email-notifications-examples-alert"></a>
 
-This section contains an example of an Amazon SNS notification that can be triggered by an
-S3 action. Notifications triggered by Lambda actions, bounce actions, stop actions, and
-WorkMail actions are similar. Although the notification contains information about the email,
-it does not contain the content of the email itself.
+This section contains an example of an Amazon SNS notification that can be triggered by an S3 action. Notifications triggered by Lambda actions, bounce actions, stop actions, and WorkMail actions are similar. Although the notification contains information about the email, it does not contain the content of the email itself.
 
 ```
 {

@@ -1,21 +1,18 @@
+
+
 # Use `SendEmail` with an AWS SDK
+<a name="sesv2_example_sesv2_SendEmail_section"></a>
 
 The following code examples show how to use `SendEmail`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md) 
 
-- [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md "sesv2_example_sesv2_Scenario_EmailAttachments_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
 
 ```
     /// <summary>
@@ -115,28 +112,17 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return string.Empty;
     }
+```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Java ]
+
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
+Sends a message.  
 
 ```
-
-- For API details, see
-  [SendEmail](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.md")
-  in _AWS SDK for .NET API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
-
-Sends a message.
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sesv2.model.Body;
 import software.amazon.awssdk.services.sesv2.model.Content;
@@ -159,10 +145,10 @@ import software.amazon.awssdk.services.sesv2.SesV2Client;
 public class SendEmail {
     public static void main(String[] args) {
         final String usage = """
-
+                             
                              Usage:
                                  <sender> <recipient> <subject>\s
-
+                             
                              Where:
                                  sender - An email address that represents the sender.\s
                                  recipient - An email address that represents the recipient.\s
@@ -239,11 +225,8 @@ public class SendEmail {
         }
     }
 }
-
-
 ```
-
-Sends a message using a template.
+Sends a message using a template.  
 
 ```
       String coupons = Files.readString(Paths.get("resources/coupon_newsletter/sample_coupons.json"));
@@ -264,21 +247,18 @@ Sends a message using a template.
         SendEmailResponse newsletterResponse = sesClient.sendEmail(newsletterRequest);
         System.out.println("Newsletter sent to " + emailAddress + ": " + newsletterResponse.messageId());
       }
-
-
 ```
-
-Sends a message with header information.
+Sends a message with header information.  
 
 ```
 public class SendwithHeader {
 
     public static void main(String[] args) {
         final String usage = """
-
+                             
             Usage:
                 <sender> <recipient> <subject>\s
-
+                             
             Where:
                 sender - An email address that represents the sender.\s
                 recipient - An email address that represents the recipient.\s
@@ -358,25 +338,15 @@ public class SendwithHeader {
         }
     }
 }
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples").
-
-Sends a message with optional attachments.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples). 
+Sends a message with optional attachments.  
 
 ```
 class SESv2Wrapper:
@@ -469,24 +439,12 @@ class SESv2Wrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/SendEmail) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/boto3/sesv2-2019-09-27/SendEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples").
-
-Sends a message to all members of the contact list.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
+Sends a message to all members of the contact list.  
 
 ```
 def main():
@@ -533,11 +491,8 @@ class SESv2Workflow:
                     },
                 )
                 print(f"Welcome email sent to '{email}'.")
-
-
 ```
-
-Sends a message to all members of the contact list using a template.
+Sends a message to all members of the contact list using a template.  
 
 ```
 def main():
@@ -579,23 +534,14 @@ class SESv2Workflow:
                     },
                     ListManagementOptions={"ContactListName": CONTACT_LIST_NAME},
                 )
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/SendEmail) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/boto3/sesv2-2019-09-27/SendEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v2#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v2#code-examples). 
 
 ```
 require 'aws-sdk-sesv2'
@@ -629,25 +575,15 @@ def send_email(client, sender_email, recipient_email)
 end
 
 send_email(client, SENDER_EMAIL, RECIPIENT_EMAIL)
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/SdkForRubyV3/sesv2-2019-09-27/SendEmail) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [SendEmail](../../../goto/SdkForRubyV3/sesv2-2019-09-27/SendEmail.md "../../../goto/SdkForRubyV3/sesv2-2019-09-27/SendEmail.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples").
-
-Sends a message to all members of the contact list.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
+Sends a message to all members of the contact list.  
 
 ```
 async fn send_message(
@@ -704,11 +640,8 @@ async fn send_message(
 
     Ok(())
 }
-
-
 ```
-
-Sends a message to all members of the contact list using a template.
+Sends a message to all members of the contact list using a template.  
 
 ```
             let coupons = std::fs::read_to_string("../resources/newsletter/sample_coupons.json")
@@ -749,25 +682,15 @@ Sends a message to all members of the contact list using a template.
                 }
                 Err(e) => return Err(anyhow!("Error sending newsletter to {}: {}", email, e)),
             }
-
-
 ```
++  For API details, see [SendEmail](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [SendEmail](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
-
-Sends a message.
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples). 
+Sends a message.  
 
 ```
     TRY.
@@ -807,11 +730,8 @@ Sends a message.
         MESSAGE 'Message rejected - check email verification.' TYPE 'I'.
         RAISE EXCEPTION lo_message_rejected.
     ENDTRY.
-
-
 ```
-
-Sends a message using a template.
+Sends a message using a template.  
 
 ```
     TRY.
@@ -850,14 +770,9 @@ Sends a message using a template.
         MESSAGE 'Message rejected - check email verification.' TYPE 'I'.
         RAISE EXCEPTION lo_message_rejected.
     ENDTRY.
-
-
 ```
++  For API details, see [SendEmail](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendEmail](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

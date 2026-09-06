@@ -1,23 +1,22 @@
+
+
 # Amazon SNS notification examples for Amazon SES
+<a name="notification-examples"></a>
 
 The following sections provide examples of the three types of notifications:
-
-- For bounce notification examples, see [Amazon SNS bounce notification examples](#notification-examples-bounce "#notification-examples-bounce").
-- For complaint notification examples, see [Amazon SNS complaint notification examples](#notification-examples-complaint "#notification-examples-complaint").
-- For delivery notification examples, see [Amazon SNS delivery notification example](#notification-examples-delivery "#notification-examples-delivery").
++ For bounce notification examples, see [Amazon SNS bounce notification examples](#notification-examples-bounce).
++ For complaint notification examples, see [Amazon SNS complaint notification examples](#notification-examples-complaint).
++ For delivery notification examples, see [Amazon SNS delivery notification example](#notification-examples-delivery).
 
 ## Amazon SNS bounce notification examples
+<a name="notification-examples-bounce"></a>
 
-This section contains examples of bounce notifications with and without a Delivery
-Status Notification (DSN) provided by the email receiver that sent the feedback.
+This section contains examples of bounce notifications with and without a Delivery Status Notification (DSN) provided by the email receiver that sent the feedback.
 
 ### Bounce notification with a DSN
+<a name="notification-examples-bounce-with-dsn"></a>
 
-The following is an example of a bounce notification that contains a DSN and the
-original email headers. When bounce notifications are not configured to include the
-original email headers, the `mail` object within the notifications does
-not include the `headersTruncated`, `headers`, and
-`commonHeaders` fields.
+The following is an example of a bounce notification that contains a DSN and the original email headers. When bounce notifications are not configured to include the original email headers, the `mail` object within the notifications does not include the `headersTruncated`, `headers`, and `commonHeaders` fields.
 
 ```
    {
@@ -51,42 +50,42 @@ not include the `headersTruncated`, `headers`, and
             "mary@example.com",
             "richard@example.com"],
           "headersTruncated":false,
-          "headers":[
-           {
+          "headers":[ 
+           { 
              "name":"From",
              "value":"\"John Doe\" <john@example.com>"
            },
-           {
+           { 
              "name":"To",
              "value":"\"Jane Doe\" <jane@example.com>, \"Mary Doe\" <mary@example.com>, \"Richard Doe\" <richard@example.com>"
            },
-           {
+           { 
              "name":"Message-ID",
              "value":"custom-message-ID"
            },
-           {
+           { 
              "name":"Subject",
              "value":"Hello"
            },
-           {
+           { 
              "name":"Content-Type",
              "value":"text/plain; charset=\"UTF-8\""
            },
-           {
+           { 
              "name":"Content-Transfer-Encoding",
              "value":"base64"
            },
-           {
+           { 
              "name":"Date",
              "value":"Wed, 27 Jan 2016 14:05:45 +0000"
            }
           ],
-          "commonHeaders":{
-             "from":[
+          "commonHeaders":{ 
+             "from":[ 
                 "John Doe <john@example.com>"
              ],
              "date":"Wed, 27 Jan 2016 14:05:45 +0000",
-             "to":[
+             "to":[ 
                 "Jane Doe <jane@example.com>, Mary Doe <mary@example.com>, Richard Doe <richard@example.com>"
              ],
              "messageId":"custom-message-ID",
@@ -97,12 +96,9 @@ not include the `headersTruncated`, `headers`, and
 ```
 
 ### Bounce notification without a DSN
+<a name="notification-examples-bounce-no-dsn"></a>
 
-The following is an example of a bounce notification that includes the original
-email headers but does not include a DSN. When bounce notifications are not
-configured to include the original email headers, the `mail` object
-within the notifications does not include the `headersTruncated`,
-`headers`, and `commonHeaders` fields.
+The following is an example of a bounce notification that includes the original email headers but does not include a DSN. When bounce notifications are not configured to include the original email headers, the `mail` object within the notifications does not include the `headersTruncated`, `headers`, and `commonHeaders` fields.
 
 ```
    {
@@ -136,42 +132,42 @@ within the notifications does not include the `headersTruncated`,
             "richard@example.com"
          ],
         "headersTruncated":false,
-        "headers":[
-         {
+        "headers":[ 
+         { 
             "name":"From",
             "value":"\"John Doe\" <john@example.com>"
          },
-         {
+         { 
             "name":"To",
             "value":"\"Jane Doe\" <jane@example.com>, \"Mary Doe\" <mary@example.com>, \"Richard Doe\" <richard@example.com>"
          },
-         {
+         { 
             "name":"Message-ID",
             "value":"custom-message-ID"
          },
-         {
+         { 
             "name":"Subject",
             "value":"Hello"
          },
-         {
+         { 
             "name":"Content-Type",
             "value":"text/plain; charset=\"UTF-8\""
          },
-         {
+         { 
             "name":"Content-Transfer-Encoding",
             "value":"base64"
          },
-         {
+         { 
             "name":"Date",
             "value":"Wed, 27 Jan 2016 14:05:45 +0000"
           }
          ],
-         "commonHeaders":{
-           "from":[
+         "commonHeaders":{ 
+           "from":[ 
               "John Doe <john@example.com>"
            ],
            "date":"Wed, 27 Jan 2016 14:05:45 +0000",
-           "to":[
+           "to":[ 
               "Jane Doe <jane@example.com>, Mary Doe <mary@example.com>, Richard Doe <richard@example.com>"
            ],
            "messageId":"custom-message-ID",
@@ -182,17 +178,14 @@ within the notifications does not include the `headersTruncated`,
 ```
 
 ## Amazon SNS complaint notification examples
+<a name="notification-examples-complaint"></a>
 
-This section contains examples of complaint notifications, with and without a feedback
-report, provided by the email receiver that sent the feedback.
+This section contains examples of complaint notifications, with and without a feedback report, provided by the email receiver that sent the feedback.
 
 ### Complaint notification with a feedback report
+<a name="notification-examples-complaint-with-feedback"></a>
 
-The following is an example of a complaint notification that contains a feedback
-report and the original email headers. When complaint notifications are not
-configured to include the original email headers, the `mail` object
-within the notifications does not include the `headersTruncated`,
-`headers`, and `commonHeaders` fields.
+The following is an example of a complaint notification that contains a feedback report and the original email headers. When complaint notifications are not configured to include the original email headers, the `mail` object within the notifications does not include the `headersTruncated`, `headers`, and `commonHeaders` fields.
 
 ```
    {
@@ -221,44 +214,44 @@ within the notifications does not include the `headersTruncated`,
             "jane@example.com",
             "mary@example.com",
             "richard@example.com"
-         ],
+         ], 
           "headersTruncated":false,
-          "headers":[
-           {
+          "headers":[ 
+           { 
              "name":"From",
              "value":"\"John Doe\" <john@example.com>"
            },
-           {
+           { 
              "name":"To",
              "value":"\"Jane Doe\" <jane@example.com>, \"Mary Doe\" <mary@example.com>, \"Richard Doe\" <richard@example.com>"
            },
-           {
+           { 
              "name":"Message-ID",
              "value":"custom-message-ID"
            },
-           {
+           { 
              "name":"Subject",
              "value":"Hello"
            },
-           {
+           { 
              "name":"Content-Type",
              "value":"text/plain; charset=\"UTF-8\""
            },
-           {
+           { 
              "name":"Content-Transfer-Encoding",
              "value":"base64"
            },
-           {
+           { 
              "name":"Date",
              "value":"Wed, 27 Jan 2016 14:05:45 +0000"
            }
          ],
-         "commonHeaders":{
-           "from":[
+         "commonHeaders":{ 
+           "from":[ 
               "John Doe <john@example.com>"
            ],
            "date":"Wed, 27 Jan 2016 14:05:45 +0000",
-           "to":[
+           "to":[ 
               "Jane Doe <jane@example.com>, Mary Doe <mary@example.com>, Richard Doe <richard@example.com>"
            ],
            "messageId":"custom-message-ID",
@@ -269,12 +262,9 @@ within the notifications does not include the `headersTruncated`,
 ```
 
 ### Complaint notification without a feedback report
+<a name="notification-examples-complaint-no-feedback"></a>
 
-The following is an example of a complaint notification that includes the original
-email headers but does not include a feedback report. When complaint notifications
-are not configured to include the original email headers, the `mail`
-object within the notifications does not include the `headersTruncated`,
-`headers`, and `commonHeaders` fields.
+The following is an example of a complaint notification that includes the original email headers but does not include a feedback report. When complaint notifications are not configured to include the original email headers, the `mail` object within the notifications does not include the `headersTruncated`, `headers`, and `commonHeaders` fields.
 
 ```
    {
@@ -302,42 +292,42 @@ object within the notifications does not include the `headersTruncated`,
             "richard@example.com"
          ],
          "headersTruncated":false,
-         "headers":[
-          {
+         "headers":[ 
+          { 
             "name":"From",
             "value":"\"John Doe\" <john@example.com>"
           },
-          {
+          { 
             "name":"To",
             "value":"\"Jane Doe\" <jane@example.com>, \"Mary Doe\" <mary@example.com>, \"Richard Doe\" <richard@example.com>"
           },
-          {
+          { 
             "name":"Message-ID",
             "value":"custom-message-ID"
           },
-          {
+          { 
             "name":"Subject",
             "value":"Hello"
           },
-          {
+          { 
             "name":"Content-Type",
             "value":"text/plain; charset=\"UTF-8\""
           },
-          {
+          { 
             "name":"Content-Transfer-Encoding",
             "value":"base64"
           },
-          {
+          { 
             "name":"Date",
             "value":"Wed, 27 Jan 2016 14:05:45 +0000"
           }
           ],
-          "commonHeaders":{
-             "from":[
+          "commonHeaders":{ 
+             "from":[ 
                 "John Doe <john@example.com>"
              ],
              "date":"Wed, 27 Jan 2016 14:05:45 +0000",
-             "to":[
+             "to":[ 
                 "Jane Doe <jane@example.com>, Mary Doe <mary@example.com>, Richard Doe <richard@example.com>"
              ],
              "messageId":"custom-message-ID",
@@ -345,16 +335,12 @@ object within the notifications does not include the `headersTruncated`,
           }
        }
    }
-
 ```
 
 ## Amazon SNS delivery notification example
+<a name="notification-examples-delivery"></a>
 
-The following is an example of a delivery notification that includes the original
-email headers. When delivery notifications are not configured to include the original
-email headers, the `mail` object within the notifications does not include
-the `headersTruncated`, `headers`, and `commonHeaders`
-fields.
+The following is an example of a delivery notification that includes the original email headers. When delivery notifications are not configured to include the original email headers, the `mail` object within the notifications does not include the `headersTruncated`, `headers`, and `commonHeaders` fields.
 
 ```
    {
@@ -369,44 +355,44 @@ fields.
          "callerIdentity": "IAM_user_or_role_name",
          "destination":[
             "jane@example.com"
-         ],
+         ], 
           "headersTruncated":false,
-          "headers":[
-           {
+          "headers":[ 
+           { 
               "name":"From",
               "value":"\"John Doe\" <john@example.com>"
            },
-           {
+           { 
               "name":"To",
               "value":"\"Jane Doe\" <jane@example.com>"
            },
-           {
+           { 
               "name":"Message-ID",
               "value":"custom-message-ID"
            },
-           {
+           { 
               "name":"Subject",
               "value":"Hello"
            },
-           {
+           { 
               "name":"Content-Type",
               "value":"text/plain; charset=\"UTF-8\""
            },
-           {
+           { 
               "name":"Content-Transfer-Encoding",
               "value":"base64"
            },
-           {
+           { 
               "name":"Date",
               "value":"Wed, 27 Jan 2016 14:58:45 +0000"
            }
           ],
-          "commonHeaders":{
-            "from":[
+          "commonHeaders":{ 
+            "from":[ 
                "John Doe <john@example.com>"
             ],
             "date":"Wed, 27 Jan 2016 14:58:45 +0000",
-            "to":[
+            "to":[ 
                "Jane Doe <jane@example.com>"
             ],
             "messageId":"custom-message-ID",
@@ -416,10 +402,10 @@ fields.
       "delivery":{
          "timestamp":"2016-01-27T14:59:38.237Z",
          "recipients":["jane@example.com"],
-         "processingTimeMillis":546,
+         "processingTimeMillis":546,     
          "reportingMTA":"a8-70.smtp-out.amazonses.com",
          "smtpResponse":"250 ok:  Message 64111812 accepted",
          "remoteMtaIp":"127.0.2.0"
-      }
+      } 
    }
 ```

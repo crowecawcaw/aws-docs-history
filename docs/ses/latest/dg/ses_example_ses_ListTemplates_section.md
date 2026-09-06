@@ -1,24 +1,20 @@
+
+
 # Use `ListTemplates` with an AWS SDK
+<a name="ses_example_ses_ListTemplates_section"></a>
 
 The following code examples show how to use `ListTemplates`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
 ```
-
     /// <summary>
     /// List email templates for the current account.
     /// </summary>
@@ -39,24 +35,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return result;
     }
-
-
-
 ```
++  For API details, see [ListTemplates](https://docs.aws.amazon.com/goto/DotNetSDKV3/email-2010-12-01/ListTemplates) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListTemplates](../../../goto/DotNetSDKV3/email-2010-12-01/ListTemplates.md "../../../goto/DotNetSDKV3/email-2010-12-01/ListTemplates.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -92,23 +78,14 @@ public class ListTemplates {
         }
     }
 }
-
-
 ```
++  For API details, see [ListTemplates](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/ListTemplates) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListTemplates](../../../goto/SdkForJavaV2/email-2010-12-01/ListTemplates.md "../../../goto/SdkForJavaV2/email-2010-12-01/ListTemplates.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { ListTemplatesCommand } from "@aws-sdk/client-ses";
@@ -127,23 +104,14 @@ const run = async () => {
     return err;
   }
 };
-
-
 ```
++  For API details, see [ListTemplates](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/ListTemplatesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListTemplates](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/ListTemplatesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/ListTemplatesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesTemplate:
@@ -184,24 +152,14 @@ class SesTemplate:
             raise
         else:
             return templates
-
-
-
 ```
++  For API details, see [ListTemplates](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/ListTemplates) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListTemplates](../../../goto/boto3/email-2010-12-01/ListTemplates.md "../../../goto/boto3/email-2010-12-01/ListTemplates.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -213,14 +171,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListTemplates](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListTemplates](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

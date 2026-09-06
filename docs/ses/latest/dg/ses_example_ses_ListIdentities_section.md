@@ -1,26 +1,22 @@
+
+
 # Use `ListIdentities` with an AWS SDK or CLI
+<a name="ses_example_ses_ListIdentities_section"></a>
 
 The following code examples show how to use `ListIdentities`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md) 
++  [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md) 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md "ses_example_ses_Scenario_ReplicateIdentities_section.md")
-- [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
 ```
-
     /// <summary>
     /// Get the identities of a specified type for the current account.
     /// </summary>
@@ -45,24 +41,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return result;
     }
-
-
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/goto/DotNetSDKV3/email-2010-12-01/ListIdentities) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListIdentities](../../../goto/DotNetSDKV3/email-2010-12-01/ListIdentities.md "../../../goto/DotNetSDKV3/email-2010-12-01/ListIdentities.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
 ```
 //! List the identities associated with this account.
@@ -108,29 +94,20 @@ bool AwsDoc::SES::listIdentities(Aws::SES::Model::IdentityType identityType,
 
     return true;
 }
+```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/goto/SdkForCpp/email-2010-12-01/ListIdentities) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list all identities (email addresses and domains) for a specific AWS account**  
+The following example uses the `list-identities` command to list all identities that have been submitted for verification with Amazon SES:  
 
 ```
-
-- For API details, see
-  [ListIdentities](../../../goto/SdkForCpp/email-2010-12-01/ListIdentities.md "../../../goto/SdkForCpp/email-2010-12-01/ListIdentities.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list all identities (email addresses and domains) for a specific AWS account**
-
-The following example uses the `list-identities` command to list all identities that have been submitted for verification with Amazon SES:
-
+aws ses list-identities
 ```
-`aws ses list-identities`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -140,26 +117,16 @@ Output:
     ]
 }
 ```
+The list that is returned contains all identities regardless of verification status (verified, pending verification, failure, etc.).  
+In this example, email addresses *and* domains are returned because we did not specify the identity-type parameter.  
+For more information about verification, see Verifying Email Addresses and Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
++  For API details, see [ListIdentities](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/list-identities.html) in *AWS CLI Command Reference*. 
 
-The list that is returned contains all identities regardless of verification status (verified, pending verification, failure, etc.).
+------
+#### [ Java ]
 
-In this example, email addresses _and_ domains are returned because we did not specify the identity-type parameter.
-
-For more information about verification, see Verifying Email Addresses and Domains in Amazon SES in the _Amazon Simple Email Service Developer Guide_.
-
-- For API details, see
-  [ListIdentities](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/list-identities.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/list-identities.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -202,23 +169,14 @@ public class ListIdentities {
         }
     }
 }
-
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/ListIdentities) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListIdentities](../../../goto/SdkForJavaV2/email-2010-12-01/ListIdentities.md "../../../goto/SdkForJavaV2/email-2010-12-01/ListIdentities.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { ListIdentitiesCommand } from "@aws-sdk/client-ses";
@@ -237,51 +195,33 @@ const run = async () => {
     return err;
   }
 };
-
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/ListIdentitiesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListIdentities](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/ListIdentitiesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/ListIdentitiesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.**  
 
 ```
 Get-SESIdentity
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListIdentities](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.**  
 
 ```
 Get-SESIdentity
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListIdentities](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesIdentity:
@@ -313,28 +253,16 @@ class SesIdentity:
             raise
         else:
             return identities
+```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/ListIdentities) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
-
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
 ```
-
-- For API details, see
-  [ListIdentities](../../../goto/boto3/email-2010-12-01/ListIdentities.md "../../../goto/boto3/email-2010-12-01/ListIdentities.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples").
-
-```
-
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Create client in us-west-2 region
@@ -356,23 +284,14 @@ ids.identities.each do |email|
   # Display email addresses that have been verified
   puts email if status == 'Success'
 end
-
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/goto/SdkForRubyV3/email-2010-12-01/ListIdentities) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListIdentities](../../../goto/SdkForRubyV3/email-2010-12-01/ListIdentities.md "../../../goto/SdkForRubyV3/email-2010-12-01/ListIdentities.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -387,14 +306,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListIdentities](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListIdentities](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

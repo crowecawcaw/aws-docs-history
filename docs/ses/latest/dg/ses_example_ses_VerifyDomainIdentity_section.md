@@ -1,50 +1,40 @@
+
+
 # Use `VerifyDomainIdentity` with an AWS SDK or CLI
+<a name="ses_example_ses_VerifyDomainIdentity_section"></a>
 
 The following code examples show how to use `VerifyDomainIdentity`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md) 
++  [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md) 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md "ses_example_ses_Scenario_ReplicateIdentities_section.md")
-- [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To verify a domain with Amazon SES**
-
-The following example uses the `verify-domain-identity` command to verify a domain:
+**AWS CLI**  
+**To verify a domain with Amazon SES**  
+The following example uses the `verify-domain-identity` command to verify a domain:  
 
 ```
-`aws ses verify-domain-identity --domain `example.com``
-
+aws ses verify-domain-identity --domain {{example.com}}
 ```
-
-Output:
+Output:  
 
 ```
 {
    "VerificationToken": "eoEmxw+YaYhb3h3iVJHuXMJXqeu1q1/wwmvjuEXAMPLE"
 }
 ```
+To complete domain verification, you must add a TXT record with the returned verification token to your domain's DNS settings. For more information, see Verifying Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
++  For API details, see [VerifyDomainIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-domain-identity.html) in *AWS CLI Command Reference*. 
 
-To complete domain verification, you must add a TXT record with the returned verification token to your domain's DNS settings. For more information, see Verifying Domains in Amazon SES in the _Amazon Simple Email Service Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [VerifyDomainIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-domain-identity.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-domain-identity.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { VerifyDomainIdentityCommand } from "@aws-sdk/client-ses";
@@ -74,23 +64,14 @@ const run = async () => {
     return err;
   }
 };
-
-
 ```
++  For API details, see [VerifyDomainIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/VerifyDomainIdentityCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [VerifyDomainIdentity](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/VerifyDomainIdentityCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/VerifyDomainIdentityCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesIdentity:
@@ -124,24 +105,14 @@ class SesIdentity:
             raise
         else:
             return token
-
-
-
 ```
++  For API details, see [VerifyDomainIdentity](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/VerifyDomainIdentity) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [VerifyDomainIdentity](../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -153,14 +124,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [VerifyDomainIdentity](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [VerifyDomainIdentity](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

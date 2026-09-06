@@ -1,21 +1,18 @@
+
+
 # Use `ListContacts` with an AWS SDK
+<a name="sesv2_example_sesv2_ListContacts_section"></a>
 
 The following code examples show how to use `ListContacts`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Newsletter scenario](sesv2_example_sesv2_NewsletterWorkflow_section.md) 
 
-- [Newsletter scenario](sesv2_example_sesv2_NewsletterWorkflow_section.md "sesv2_example_sesv2_NewsletterWorkflow_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
 
 ```
     /// <summary>
@@ -52,23 +49,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return new List<Contact>();
     }
-
-
 ```
++  For API details, see [ListContacts](https://docs.aws.amazon.com/goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListContacts](../../../goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
 ```
       ListContactsRequest contactListRequest = ListContactsRequest.builder()
@@ -86,24 +74,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         // TODO: Remove when listContacts's GET body issue is resolved.
         contactEmails = this.contacts;
       }
-
-
-
 ```
++  For API details, see [ListContacts](https://docs.aws.amazon.com/goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListContacts](../../../goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
 
 ```
 def main():
@@ -144,23 +122,14 @@ class SESv2Workflow:
                 return
             else:
                 raise e
-
-
 ```
++  For API details, see [ListContacts](https://docs.aws.amazon.com/goto/boto3/sesv2-2019-09-27/ListContacts) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListContacts](../../../goto/boto3/sesv2-2019-09-27/ListContacts.md "../../../goto/boto3/sesv2-2019-09-27/ListContacts.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 
 ```
 async fn show_contacts(client: &Client, list: &str) -> Result<(), Error> {
@@ -178,23 +147,14 @@ async fn show_contacts(client: &Client, list: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListContacts](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListContacts](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples). 
 
 ```
     TRY.
@@ -209,14 +169,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE 'Contact list not found.' TYPE 'I'.
         RAISE EXCEPTION lo_not_found.
     ENDTRY.
-
-
 ```
++  For API details, see [ListContacts](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListContacts](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

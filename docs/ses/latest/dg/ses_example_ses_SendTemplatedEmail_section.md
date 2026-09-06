@@ -1,24 +1,20 @@
+
+
 # Use `SendTemplatedEmail` with an AWS SDK
+<a name="ses_example_ses_SendTemplatedEmail_section"></a>
 
 The following code examples show how to use `SendTemplatedEmail`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md) 
 
-- [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
 ```
-
     /// <summary>
     /// Send an email using a template.
     /// </summary>
@@ -56,24 +52,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return messageId;
     }
-
-
-
 ```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/goto/DotNetSDKV3/email-2010-12-01/SendTemplatedEmail) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [SendTemplatedEmail](../../../goto/DotNetSDKV3/email-2010-12-01/SendTemplatedEmail.md "../../../goto/DotNetSDKV3/email-2010-12-01/SendTemplatedEmail.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
 ```
 //! Send a templated email to a list of recipients.
@@ -144,23 +130,14 @@ bool AwsDoc::SES::sendTemplatedEmail(const Aws::Vector<Aws::String> &recipients,
 
     return outcome.IsSuccess();
 }
-
-
 ```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/goto/SdkForCpp/email-2010-12-01/SendTemplatedEmail) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [SendTemplatedEmail](../../../goto/SdkForCpp/email-2010-12-01/SendTemplatedEmail.md "../../../goto/SdkForCpp/email-2010-12-01/SendTemplatedEmail.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -254,23 +231,14 @@ public class SendEmailTemplate {
         }
     }
 }
-
-
 ```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/SendTemplatedEmail) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SendTemplatedEmail](../../../goto/SdkForJavaV2/email-2010-12-01/SendTemplatedEmail.md "../../../goto/SdkForJavaV2/email-2010-12-01/SendTemplatedEmail.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
 ```
 import { SendTemplatedEmailCommand } from "@aws-sdk/client-ses";
@@ -328,23 +296,14 @@ const run = async () => {
     throw caught;
   }
 };
-
-
 ```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ses/command/SendTemplatedEmailCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [SendTemplatedEmail](../../../AWSJavaScriptSDK/v3/latest/client/ses/command/SendTemplatedEmailCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ses/command/SendTemplatedEmailCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
 ```
 class SesMailSender:
@@ -400,25 +359,14 @@ class SesMailSender:
             raise
         else:
             return message_id
-
-
-
-
 ```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/goto/boto3/email-2010-12-01/SendTemplatedEmail) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SendTemplatedEmail](../../../goto/boto3/email-2010-12-01/SendTemplatedEmail.md "../../../goto/boto3/email-2010-12-01/SendTemplatedEmail.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
 ```
     TRY.
@@ -441,14 +389,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lv_error TYPE 'I'.
         RAISE EXCEPTION lo_ex_generic.
     ENDTRY.
-
-
 ```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendTemplatedEmail](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SES with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

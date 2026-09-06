@@ -1,89 +1,64 @@
+
+
 # Logging Amazon SES API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon SES is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or an AWS service in SES. CloudTrail captures API calls for SES as events.
-The calls captured include calls from the SES console and code calls to the SES
-API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an
-Amazon S3 bucket, including events for SES. If you don't configure a trail, you can still view
-the most recent events in the CloudTrail console in **Event history**. Using the
-information collected by CloudTrail, you can determine the request that was made to SES, the IP
-address from which the request was made, who made the request, when it was made, and additional
-details.
+Amazon SES is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in SES. CloudTrail captures API calls for SES as events. The calls captured include calls from the SES console and code calls to the SES API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for SES. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to SES, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## SES information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported event
-activity occurs in SES, that activity is recorded in a CloudTrail event along with other
-AWS service events in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in SES, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for SES,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3
-bucket. By default, when you create a trail in the console, the trail applies to all
-AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the
-log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS
-services to further analyze and act upon the event data collected in CloudTrail logs. For more
-information, see the following:
+For an ongoing record of events in your AWS account, including events for SES, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for
-  Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS
-  Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail
-  Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## SES data events in CloudTrail
+<a name="ses-data-events-cloudtrail"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource. These are also known as data plane operations. Data events are often high-volume
-activities. By default, CloudTrail doesn’t log data events. The CloudTrail event history doesn't record
-data events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource. These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail event history doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-###### Note
+**Note**  
+Email sending activity via SES SMTP Interface is not logged to CloudTrail events. For comprehensive activity logging, use the latest SES APIs in the [SES API Reference](https://docs.aws.amazon.com/ses/latest/APIReference/API_Operations.html) and [SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_Operations.html).
 
-Email sending activity via SES SMTP Interface is not logged to CloudTrail events. For
-comprehensive activity logging, use the latest SES APIs in the [SES API Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md") and [SES API v2 Reference](../APIReference-V2/API_Operations.md "../APIReference-V2/API_Operations.md").
+The following table lists the SES resource types for which you can log data events. The *Data event type (console)* column shows the value to choose from the **Data event type** list on the CloudTrail console. The *resources.type value* column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the column shows the AWS CLI or CloudTrail APIs. The *Data APIs logged to CloudTrail* column shows the API calls logged to CloudTrail for the resource type.
 
-The following table lists the SES resource types for which you can log data events.
-The _Data event type (console)_ column shows the value to choose from the
-**Data event type** list on the CloudTrail console. The _resources.type
-value_ column shows the `resources.type` value, which you would specify
-when configuring advanced event selectors using the column shows the AWS CLI or CloudTrail APIs. The
-_Data APIs logged to CloudTrail_ column shows the API calls logged to CloudTrail for
-the resource type.
 
-SES resource types for data events| Data event type (console) | resources.type value | Data APIs logged to CloudTrail |
-| --- | --- | --- |
-| SES identity | AWS::SES::EmailIdentity | **SES:**<br>[SendEmail](../APIReference/API_SendEmail.md "../APIReference/API_SendEmail.md")<br>[SendRawEmail](../APIReference/API_SendRawEmail.md "../APIReference/API_SendRawEmail.md")<br>[SendTemplatedEmail](../APIReference/API_SendTemplatedEmail.md "../APIReference/API_SendTemplatedEmail.md")<br>[SendBulkTemplatedEmail](../APIReference/API_SendBulkTemplatedEmail.md "../APIReference/API_SendBulkTemplatedEmail.md")<br>**SES v2:**<br>[SendEmail](../APIReference-V2/API_SendEmail.md "../APIReference-V2/API_SendEmail.md")<br>[SendBulkEmail](../APIReference-V2/API_SendBulkEmail.md "../APIReference-V2/API_SendBulkEmail.md") |
-| SES configuration set | AWS::SES::ConfigurationSet |
-| SES template | AWS::SES::Template | **SES:**<br>[SendTemplatedEmail](../APIReference/API_SendTemplatedEmail.md "../APIReference/API_SendTemplatedEmail.md")<br>[SendBulkTemplatedEmail](../APIReference/API_SendBulkTemplatedEmail.md "../APIReference/API_SendBulkTemplatedEmail.md")<br>**SES v2:**<br>[SendEmail](../APIReference-V2/API_SendEmail.md "../APIReference-V2/API_SendEmail.md")<br>[SendBulkEmail](../APIReference-V2/API_SendBulkEmail.md "../APIReference-V2/API_SendBulkEmail.md") |
+**SES resource types for data events**  
 
-The following example shows how to log all data events for all SES email identities
-by using the `--advanced-event-selectors` parameter:
+<table>
+<thead>
+  <tr><th>Data event type (console)</th><th>resources.type value</th><th>Data APIs logged to CloudTrail</th></tr>
+</thead>
+<tbody>
+  <tr><td>SES identity</td><td>AWS::SES::EmailIdentity</td><td rowspan="2"><b>SES:</b><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html">SendEmail</a><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html">SendRawEmail</a><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html">SendTemplatedEmail</a><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html">SendBulkTemplatedEmail</a><br /><b>SES v2:</b><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendEmail.html">SendEmail</a><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendBulkEmail.html">SendBulkEmail</a></td></tr>
+  <tr><td>SES configuration set</td><td>AWS::SES::ConfigurationSet</td></tr>
+  <tr><td>SES template</td><td>AWS::SES::Template</td><td><b>SES:</b><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html">SendTemplatedEmail</a><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html">SendBulkTemplatedEmail</a><br /><b>SES v2:</b><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendEmail.html">SendEmail</a><br /><a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendBulkEmail.html">SendBulkEmail</a></td></tr>
+</tbody>
+</table>
+
+
+The following example shows how to log all data events for all SES email identities by using the `--advanced-event-selectors` parameter:
 
 ```
 aws cloudtrail put-event-selectors \
 --region Region \
 --trail-name TrailName \
---advanced-event-selectors
+--advanced-event-selectors 
 '[
     {
         "Name": "Log SES data plane actions for all email identities",
@@ -95,59 +70,66 @@ aws cloudtrail put-event-selectors \
 ]'
 ```
 
-You can further refine the advanced event selectors to filter on the
-`eventName`, `readOnly`, and `resources.ARN` fields to log
-only those events that are important to you. For more information about these fields, see
-[AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_. For more examples on how to log data events see [Logging data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") for
-trails.
+You can further refine the advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*. For more examples on how to log data events see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for trails.
 
 ## CloudTrail log delivery scenarios for SES logging
+<a name="ct-log-delivery"></a>
 
-CloudTrail delivers logs based on such factors as account and resource ownership, identity type,
-and region. The following matrix explains to whom and where the logs would be delivered to
-based on specific combinations of these factors.
+CloudTrail delivers logs based on such factors as account and resource ownership, identity type, and region. The following matrix explains to whom and where the logs would be delivered to based on specific combinations of these factors.
 
-| Scenario type                        | Account roles                                                                                 | Resources                                                                    | Request flow                                | Log delivery                                                                                                      |
-| ------------------------------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Single cross-account**             | Account A:_resource owner_<br>Account B*: requester*                                          | Email identity                                                               | B → A's email identity                      | Logs delivered to both A and B                                                                                    |
-| Feedback forwarding email            | B → A's feedback email                                                                        | Logs delivered to both A and B                                               |
-| **Multiple cross-account**           | Account A:_feedback email owner_<br>Account B:_email identity owner_<br>Account C:_requester_ | Feedback email (A)<br>Email identity (B)                                     | C → A's feedback email + B's email identity | Logs delivered to A, B, and C                                                                                     |
-| **Global endpoint (Single account)** | Account A:_owner & requester_                                                                 | Global endpoint (primary: *eu‑west‑1<br>• &<br>secondary: _us‑west‑2_)       | A → Global endpoint                         | Logs delivered to A in region that processed the request (either<br>*eu‑west‑1<br>• or<br>_us‑west‑2_)            |
-| **Global endpoint (Cross-account)**  | Account A:_email identity owner_<br>Account B:_requester_                                     | Email identity (A)<br>Global endpoint (B) (*eu‑west‑1<br>• &<br>_us‑west‑2_) | B → A's email identity via Global endpoint  | Logs delivered to both A and B in region that processed the request (either<br>*eu‑west‑1<br>• or<br>_us‑west‑2_) |
 
-###### Note
 
-- CloudTrail always delivers logs to the requester account.
-- Resource owners receive logs even if they didn't perform the operation.
-- For Global endpoints, both accounts need CloudTrail subscriptions in all configured regions.
-- During regional impairments, all logs appear in the healthy region.
+- ****Single cross-account****
+  - **Account roles:** Account A:* resource owner*<br />Account B*: requester*
+  - **Resources:** Email identity / **Request flow:** B → A's email identity / **Log delivery:** Logs delivered to both A and B
+  - **Resources:** Feedback forwarding email / **Request flow:** B → A's feedback email / **Log delivery:** Logs delivered to both A and B
+
+- ****Multiple cross-account****
+  - **Account roles:** Account A:* feedback email owner*<br />Account B:* email identity owner*<br />Account C:* requester*
+  - **Resources:** Feedback email (A)<br />Email identity (B)
+  - **Request flow:** C → A's feedback email \+ B's email identity
+  - **Log delivery:** Logs delivered to A, B, and C
+
+- ****Global endpoint (Single account)****
+  - **Account roles:** Account A: owner & requester
+  - **Resources:** Global endpoint (primary: eu‑west‑1 & secondary: us‑west‑2)
+  - **Request flow:** A → Global endpoint
+  - **Log delivery:** Logs delivered to A in region that processed the request (either eu‑west‑1 or us‑west‑2) 
+
+- ****Global endpoint (Cross-account)****
+  - **Account roles:** Account A:* email identity owner*<br />Account B:* requester*
+  - **Resources:** Email identity (A)<br />Global endpoint (B) (*eu‑west‑1* & *us‑west‑2*)
+  - **Request flow:** B → A's email identity via Global endpoint
+  - **Log delivery:** Logs delivered to both A and B in region that processed the request (either eu‑west‑1 or us‑west‑2)
+
+
+
+**Note**  
+CloudTrail always delivers logs to the requester account.
+Resource owners receive logs even if they didn't perform the operation.
+For Global endpoints, both accounts need CloudTrail subscriptions in all configured regions.
+During regional impairments, all logs appear in the healthy region.
 
 ## SES management events in CloudTrail
+<a name="ses-management-events"></a>
 
-SES delivers management events to CloudTrail. Management events include actions that are
-related to creating and managing resources within your AWS account. In Amazon SES,
-management events include actions such as creating and deleting identities or receipt rules.
-For more information about SES API operations, see the [SES API Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md") and [SES API v2 Reference](../APIReference-V2/API_Operations.md "../APIReference-V2/API_Operations.md").
+SES delivers management events to CloudTrail. Management events include actions that are related to creating and managing resources within your AWS account. In Amazon SES, management events include actions such as creating and deleting identities or receipt rules. For more information about SES API operations, see the [SES API Reference](https://docs.aws.amazon.com/ses/latest/APIReference/API_Operations.html) and [SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_Operations.html).
 
 ## CloudTrail log file entries for SES
+<a name="ses-log-file-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a
-single request from any source and includes information about the requested action, the date
-and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack
-trace of the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 The following examples demonstrate CloudTrail logs of these event types:
 
-###### Event types
-
-- [DeleteIdentity](#DeleteIdentity "#DeleteIdentity")
-- [VerifyEmailIdentity](#VerifyEmailIdentity "#VerifyEmailIdentity")
-- [SendEmail with simple content](#SendEmail-with-simple-content "#SendEmail-with-simple-content")
-- [SendEmail with templated content](#SendEmail-with-templated-content "#SendEmail-with-templated-content")
+**Topics**
++ [DeleteIdentity](#DeleteIdentity)
++ [VerifyEmailIdentity](#VerifyEmailIdentity)
++ [SendEmail with simple content](#SendEmail-with-simple-content)
++ [SendEmail with templated content](#SendEmail-with-templated-content)
 
 ### DeleteIdentity
+<a name="DeleteIdentity"></a>
 
 ```
 {
@@ -202,6 +184,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ### VerifyEmailIdentity
+<a name="VerifyEmailIdentity"></a>
 
 ```
 {
@@ -256,6 +239,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ### SendEmail with simple content
+<a name="SendEmail-with-simple-content"></a>
 
 ```
 {
@@ -317,6 +301,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ### SendEmail with templated content
+<a name="SendEmail-with-templated-content"></a>
 
 ```
 {
