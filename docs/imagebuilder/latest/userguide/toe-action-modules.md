@@ -1,104 +1,94 @@
+
+
 # Action modules supported by AWSTOE component manager
+<a name="toe-action-modules"></a>
 
-Image building services, such as EC2 Image Builder, use AWSTOE action modules to help configure
-the EC2 instances that are used for building and testing customized machine images. This
-section describes the features of commonly used AWSTOE action modules, and how to
-configure them, including examples.
+Image building services, such as EC2 Image Builder, use AWSTOE action modules to help configure the EC2 instances that are used for building and testing customized machine images. This section describes the features of commonly used AWSTOE action modules, and how to configure them, including examples.
 
-Components are authored with plaintext YAML documents. For more
-information about document syntax, see [Use the AWSTOE component document framework for custom components](toe-use-documents.md "toe-use-documents.md").
+Components are authored with plaintext YAML documents. For more information about document syntax, see [Use the AWSTOE component document framework for custom components](toe-use-documents.md).
 
-###### Note
-
-All action modules use the same account as the Systems Manager agent when they run, which is
-`root` on Linux, and `NT Authority\SYSTEM` on Windows.
+**Note**  
+All action modules use the same account as the Systems Manager agent when they run, which is `root` on Linux, and `NT Authority\SYSTEM` on Windows.
 
 The following cross-reference categorizes action modules by the type of actions that they perform.
 
  
 
-###### General execution
+**General execution**
++ [Assert (Linux, Windows, macOS)](#action-modules-assertion)
++ [ExecuteBash (Linux, macOS)](#action-modules-executebash)
++ [ExecuteBinary (Linux, Windows, macOS)](#action-modules-executebinary)
++ [ExecuteDocument (Linux, Windows, macOS)](#action-modules-executedocument)
++ [ExecutePowerShell (Windows)](#action-modules-executepowershell)
 
-- [Assert (Linux, Windows, macOS)](#action-modules-assertion "#action-modules-assertion")
-- [ExecuteBash (Linux, macOS)](#action-modules-executebash "#action-modules-executebash")
-- [ExecuteBinary (Linux, Windows, macOS)](#action-modules-executebinary "#action-modules-executebinary")
-- [ExecuteDocument (Linux, Windows, macOS)](#action-modules-executedocument "#action-modules-executedocument")
-- [ExecutePowerShell (Windows)](#action-modules-executepowershell "#action-modules-executepowershell")
-   
+ 
 
-###### File download and upload
+**File download and upload**
++ [S3Download (Linux, Windows, macOS)](#action-modules-s3download)
++ [S3Upload (Linux, Windows, macOS)](#action-modules-s3upload)
++ [WebDownload (Linux, Windows, macOS)](#action-modules-webdownload)
 
-- [S3Download (Linux, Windows, macOS)](#action-modules-s3download "#action-modules-s3download")
-- [S3Upload (Linux, Windows, macOS)](#action-modules-s3upload "#action-modules-s3upload")
-- [WebDownload (Linux, Windows, macOS)](#action-modules-webdownload "#action-modules-webdownload")
-   
+ 
 
-###### File system operations
+**File system operations**
++ [AppendFile (Linux, Windows, macOS)](#action-modules-appendfile)
++ [CopyFile (Linux, Windows, macOS)](#action-modules-copyfile)
++ [CopyFolder (Linux, Windows, macOS)](#action-modules-copyfolder)
++ [CreateFile (Linux, Windows, macOS)](#action-modules-createfile)
++ [CreateFolder (Linux, Windows, macOS)](#action-modules-createfolder)
++ [CreateSymlink (Linux, Windows, macOS)](#action-modules-createsymlink)
++ [DeleteFile (Linux, Windows, macOS)](#action-modules-deletefile)
++ [DeleteFolder (Linux, Windows, macOS)](#action-modules-deletefolder)
++ [ListFiles (Linux, Windows, macOS)](#action-modules-listfiles)
++ [MoveFile (Linux, Windows, macOS)](#action-modules-movefile)
++ [MoveFolder (Linux, Windows, macOS)](#action-modules-movefolder)
++ [ReadFile (Linux, Windows, macOS)](#action-modules-readfile)
++ [SetFileEncoding (Linux, Windows, macOS)](#action-modules-setfileencoding)
++ [SetFileOwner (Linux, Windows, macOS)](#action-modules-setfileowner)
++ [SetFolderOwner (Linux, Windows, macOS)](#action-modules-setfolderowner)
++ [SetFilePermissions (Linux, Windows, macOS)](#action-modules-setfilepermissions)
++ [SetFolderPermissions (Linux, Windows, macOS)](#action-modules-setfolderpermissions)
 
-- [AppendFile (Linux, Windows, macOS)](#action-modules-appendfile "#action-modules-appendfile")
-- [CopyFile (Linux, Windows, macOS)](#action-modules-copyfile "#action-modules-copyfile")
-- [CopyFolder (Linux, Windows, macOS)](#action-modules-copyfolder "#action-modules-copyfolder")
-- [CreateFile (Linux, Windows, macOS)](#action-modules-createfile "#action-modules-createfile")
-- [CreateFolder (Linux, Windows, macOS)](#action-modules-createfolder "#action-modules-createfolder")
-- [CreateSymlink (Linux, Windows, macOS)](#action-modules-createsymlink "#action-modules-createsymlink")
-- [DeleteFile (Linux, Windows, macOS)](#action-modules-deletefile "#action-modules-deletefile")
-- [DeleteFolder (Linux, Windows, macOS)](#action-modules-deletefolder "#action-modules-deletefolder")
-- [ListFiles (Linux, Windows, macOS)](#action-modules-listfiles "#action-modules-listfiles")
-- [MoveFile (Linux, Windows, macOS)](#action-modules-movefile "#action-modules-movefile")
-- [MoveFolder (Linux, Windows, macOS)](#action-modules-movefolder "#action-modules-movefolder")
-- [ReadFile (Linux, Windows, macOS)](#action-modules-readfile "#action-modules-readfile")
-- [SetFileEncoding (Linux, Windows, macOS)](#action-modules-setfileencoding "#action-modules-setfileencoding")
-- [SetFileOwner (Linux, Windows, macOS)](#action-modules-setfileowner "#action-modules-setfileowner")
-- [SetFolderOwner (Linux, Windows, macOS)](#action-modules-setfolderowner "#action-modules-setfolderowner")
-- [SetFilePermissions (Linux, Windows, macOS)](#action-modules-setfilepermissions "#action-modules-setfilepermissions")
-- [SetFolderPermissions (Linux, Windows, macOS)](#action-modules-setfolderpermissions "#action-modules-setfolderpermissions")
-   
+ 
 
-###### Software installation actions
+**Software installation actions**
++ [InstallMSI (Windows)](#action-modules-install-msi)
++ [UninstallMSI (Windows)](#action-modules-uninstall-msi)
 
-- [InstallMSI (Windows)](#action-modules-install-msi "#action-modules-install-msi")
-- [UninstallMSI (Windows)](#action-modules-uninstall-msi "#action-modules-uninstall-msi")
-   
+ 
 
-###### System actions
-
-- [Reboot (Linux, Windows)](#action-modules-reboot "#action-modules-reboot")
-- [SetRegistry (Windows)](#action-modules-setregistry "#action-modules-setregistry")
-- [UpdateOS (Linux, Windows)](#action-modules-updateos "#action-modules-updateos")
+**System actions**
++ [Reboot (Linux, Windows)](#action-modules-reboot)
++ [SetRegistry (Windows)](#action-modules-setregistry)
++ [UpdateOS (Linux, Windows)](#action-modules-updateos)
 
 ## General execution modules
+<a name="action-modules-general-execution"></a>
 
-The following section contains details for action modules that run
-commands and control execution workflow.
+The following section contains details for action modules that run commands and control execution workflow.
 
-###### General execution action modules
-
-- [Assert (Linux, Windows, macOS)](#action-modules-assertion "#action-modules-assertion")
-- [ExecuteBash (Linux, macOS)](#action-modules-executebash "#action-modules-executebash")
-- [ExecuteBinary (Linux, Windows, macOS)](#action-modules-executebinary "#action-modules-executebinary")
-- [ExecuteDocument (Linux, Windows, macOS)](#action-modules-executedocument "#action-modules-executedocument")
-- [ExecutePowerShell (Windows)](#action-modules-executepowershell "#action-modules-executepowershell")
+**Topics**
++ [Assert (Linux, Windows, macOS)](#action-modules-assertion)
++ [ExecuteBash (Linux, macOS)](#action-modules-executebash)
++ [ExecuteBinary (Linux, Windows, macOS)](#action-modules-executebinary)
++ [ExecuteDocument (Linux, Windows, macOS)](#action-modules-executedocument)
++ [ExecutePowerShell (Windows)](#action-modules-executepowershell)
 
 ### Assert (Linux, Windows, macOS)
+<a name="action-modules-assertion"></a>
 
-The **Assert** action module performs value comparisons
-using [Comparison
-operators](toe-comparison-operators.md "toe-comparison-operators.md")
-or [Logical
-operators](toe-logical-operators.md "toe-logical-operators.md") as
-input. The result of the operator expression (true or false) indicates the overall success or
-failure status for the step.
+The **Assert** action module performs value comparisons using [Comparison operators](toe-comparison-operators.md) or [Logical operators](toe-logical-operators.md) as input. The result of the operator expression (true or false) indicates the overall success or failure status for the step.
 
-If the comparison or logical operator expression evaluates to `true`, the step is
-marked as `Success`. Otherwise, the step is marked as `Failed`. If the step
-fails, the `onFailure` parameter decides the outcome of the step.
+If the comparison or logical operator expression evaluates to `true`, the step is marked as `Success`. Otherwise, the step is marked as `Failed`. If the step fails, the `onFailure` parameter decides the outcome of the step.
 
-Input| Key name | Description | Type | Required |
-| --- | --- | --- | --- |
-| `input` | Contains a single comparison or logical operator. Note, logical operators<br>can contain more than one comparison operator. | This is variable, depending on the operator | Yes |
 
-**Input example: A simple comparison using the `stringEquals`
-comparison operator**
+**Input**  
+
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| input | Contains a single comparison or logical operator. Note, logical operators can contain more than one comparison operator. | This is variable, depending on the operator | Yes | 
+
+**Input example: A simple comparison using the `stringEquals` comparison operator**
 
 This example evaluates to `true`.
 
@@ -110,8 +100,7 @@ This example evaluates to `true`.
     value: '{{ validate.ApplicationVersion.outputs.stdout }}'
 ```
 
-**Input example: Regex comparisons using the `patternMatches`
-comparison operator**
+**Input example: Regex comparisons using the `patternMatches` comparison operator**
 
 These examples all evaluate to `true`.
 
@@ -127,7 +116,7 @@ These examples all evaluate to `true`.
   inputs:
     patternMatches: '^[a-zA-Z\s]+$'
     value: 'This text contains spaces'
-
+  
 - name: Numbers only
   action: Assert
   inputs:
@@ -135,16 +124,11 @@ These examples all evaluate to `true`.
     value: '1234567890'
 ```
 
-**Input example: Nested comparisons with logical operators and
-chained variables**
+**Input example: Nested comparisons with logical operators and chained variables**
 
-The following example demonstrates nested comparisons with logical operators that use
-comparisons with chained variables. The `Assert` evaluates to `true`
-if either of the following are true:
-
-- The `ApplicationVersion` is greater than `2.0` and the
-  `CPUArchitecture` equals `arm64`.
-- The `CPUArchitecture` equals `x86_64`.
+The following example demonstrates nested comparisons with logical operators that use comparisons with chained variables. The `Assert` evaluates to `true` if either of the following are true:
++ The `ApplicationVersion` is greater than `2.0` and the `CPUArchitecture` equals `arm64`.
++ The `CPUArchitecture` equals `x86_64`.
 
 ```
 - name: NestedComparisons
@@ -165,32 +149,24 @@ if either of the following are true:
 The output of an `Assert` is success or failure of the step.
 
 ### ExecuteBash (Linux, macOS)
+<a name="action-modules-executebash"></a>
 
-The **ExecuteBash** action module allows you to run
-bash scripts with inline shell code/commands. This module supports Linux.
+The **ExecuteBash** action module allows you to run bash scripts with inline shell code/commands. This module supports Linux. 
 
-All of the commands and instructions that you specify in the commands block are
-converted into a file (for example, `input.sh`) and run with the bash
-shell. The result of running the shell file is the exit code of the step.
+All of the commands and instructions that you specify in the commands block are converted into a file (for example, `input.sh`) and run with the bash shell. The result of running the shell file is the exit code of the step. 
 
-The **ExecuteBash** module handles system restarts if
-the script exits with an exit code of `194`. When initiated, the
-application performs one of the following actions:
+The **ExecuteBash** module handles system restarts if the script exits with an exit code of `194`. When initiated, the application performs one of the following actions:
++ The application hands the exit code to the caller if it is run by the Systems Manager Agent. The Systems Manager Agent handles the system reboot and runs the same step that initiated the restart, as described in [Rebooting Managed Instance from Scripts](https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-reboot.html).
++ The application saves the current `executionstate`, configures a restart trigger to rerun the application, and restarts the system.
 
-- The application hands the exit code to the caller if it is run by the
-  Systems Manager Agent. The Systems Manager Agent handles the system reboot and runs the same
-  step that initiated the restart, as described in [Rebooting
-  Managed Instance from Scripts](../../../systems-manager/latest/userguide/send-commands-reboot.md "../../../systems-manager/latest/userguide/send-commands-reboot.md").
-- The application saves the current `executionstate`, configures
-  a restart trigger to rerun the application, and restarts the system.
+After system restart, the application runs the same step that initiated the restart. If you require this functionality, you must write idempotent scripts that can handle multiple invocations of the same shell command.
 
-After system restart, the application runs the same step that initiated the
-restart. If you require this functionality, you must write idempotent scripts that
-can handle multiple invocations of the same shell command.
 
-Input| Key name | Description | Type | Required |
-| --- | --- | --- | --- |
-| `commands` | Contains a list of instructions or commands to run as per bash<br>syntax. Multi-line YAML is allowed. | List | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| commands | Contains a list of instructions or commands to run as per bash syntax. Multi-line YAML is allowed. | List | Yes | 
 
 **Input example: Before and after a reboot**
 
@@ -217,55 +193,49 @@ phases:
               exit 194
 ```
 
-Output| Field | Description | Type |
-| --- | --- | --- |
-| `stdout` | Standard output of command execution. | string |
 
-If you start a reboot and return exit code `194` as part of the action
-module, the build will resume at the same action module step that initiated the
-reboot. If you start a reboot without the exit code, the build process may
-fail.
+**Output**  
+
+| Field | Description | Type | 
+| --- | --- | --- | 
+| stdout | Standard output of command execution. | string | 
+
+If you start a reboot and return exit code `194` as part of the action module, the build will resume at the same action module step that initiated the reboot. If you start a reboot without the exit code, the build process may fail.
 
 **Output example: Before reboot (first time through document)**
 
 ```
-`{
- “stdout”: “The reboot file does not exist. Creating it and triggering a restart."
-}`
+{
+	“stdout”: “The reboot file does not exist. Creating it and triggering a restart."
+}
 ```
 
 **Output example: After reboot, (second time through document)**
 
 ```
-`{
- “stdout”: “The reboot file exists. Deleting it and exiting with success."
-}`
+{
+	“stdout”: “The reboot file exists. Deleting it and exiting with success."
+}
 ```
 
 ### ExecuteBinary (Linux, Windows, macOS)
+<a name="action-modules-executebinary"></a>
 
-The **ExecuteBinary** action module allows you to run
-binary files with a list of command-line arguments.
+The **ExecuteBinary** action module allows you to run binary files with a list of command-line arguments.
 
-The **ExecuteBinary** module handles system restarts
-if the binary file exits with an exit code of `194` (Linux) or
-`3010` (Windows). When this happens, the application performs one of the
-following actions:
+The **ExecuteBinary** module handles system restarts if the binary file exits with an exit code of `194` (Linux) or `3010` (Windows). When this happens, the application performs one of the following actions:
++ The application hands the exit code to the caller if it is run by the Systems Manager Agent. The Systems Manager Agent handles restarting the system and runs the same step that initiated the restart, as described in [Rebooting Managed Instance from Scripts](https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-reboot.html).
++ The application saves the current `executionstate`, configures a restart trigger to rerun the application, and restarts the system.
 
-- The application hands the exit code to the caller if it is run by the
-  Systems Manager Agent. The Systems Manager Agent handles restarting the system and runs the
-  same step that initiated the restart, as described in [Rebooting Managed Instance from Scripts](../../../systems-manager/latest/userguide/send-commands-reboot.md "../../../systems-manager/latest/userguide/send-commands-reboot.md").
-- The application saves the current `executionstate`, configures
-  a restart trigger to rerun the application, and restarts the system.
+After the system restarts, the application runs the same step that initiated the restart. If you require this functionality, you must write idempotent scripts that can handle multiple invocations of the same shell command.
 
-After the system restarts, the application runs the same step that initiated the
-restart. If you require this functionality, you must write idempotent scripts that
-can handle multiple invocations of the same shell command.
 
-Input| Key name | Description | Type | Required |
-| --- | --- | --- | --- |
-| `path` | The path to the binary file for execution. | String | Yes |
-| `arguments` | Contains a list of command-line arguments to use when running the<br>binary. | String List | No |
+**Input**  
+
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| path | The path to the binary file for execution. | String | Yes | 
+| arguments | Contains a list of command-line arguments to use when running the binary. | String List | No | 
 
 **Input example: install .NET**
 
@@ -279,68 +249,59 @@ Input| Key name | Description | Type | Required |
         - /norestart
 ```
 
-Output| Field | Description | Type |
-| --- | --- | --- |
-| `stdout` | Standard output of command execution. | string |
+
+**Output**  
+
+| Field | Description | Type | 
+| --- | --- | --- | 
+| stdout | Standard output of command execution. | string | 
 
 **Output example**
 
 ```
-`{
- "stdout": "success"
-}`
+{
+	"stdout": "success"
+}
 ```
 
 ### ExecuteDocument (Linux, Windows, macOS)
+<a name="action-modules-executedocument"></a>
 
-The **ExecuteDocument** action module adds support for
-nested component documents, running multiple component documents from one document.
-AWSTOE validates the document that is passed in the input parameter at run time.
+The **ExecuteDocument** action module adds support for nested component documents, running multiple component documents from one document. AWSTOE validates the document that is passed in the input parameter at run time.
 
-###### Restrictions
-
-- This action module runs one time, with no retries allowed, and no option to
-  set timeout limits. **ExecuteDocument** sets the
-  following default values, and returns an error if you try to change them.
-
-  - `timeoutSeconds`: -1
-  - `maxAttempts`: 1
-
-###### Note
-
+**Restrictions**
++ This action module runs one time, with no retries allowed, and no option to set timeout limits. **ExecuteDocument** sets the following default values, and returns an error if you try to change them.
+  + `timeoutSeconds`: -1
+  + `maxAttempts`: 1
+**Note**  
 You can leave these values blank, and AWSTOE uses the default values.
++ Document nesting is allowed, up to three levels deep, but no more than that. Three levels of nesting translates to four document levels, as the top level isn't nested. In this scenario, the lowest level document must not call any other documents.
++ Cyclic execution of component documents is not allowed. Any document that calls itself outside of a looping construct, or that calls another document higher up in the current chain of execution, initiates a cycle that can result in an endless loop. When AWSTOE detects a cyclic execution, it stops the execution and records the failure.
 
-- Document nesting is allowed, up to three levels deep, but no more than that. Three
-  levels of nesting translates to four document levels, as the top level isn't nested.
-  In this scenario, the lowest level document must not call any other documents.
-- Cyclic execution of component documents is not allowed. Any document that calls itself
-  outside of a looping construct, or that calls another document higher up in the current
-  chain of execution, initiates a cycle that can result in an endless loop. When AWSTOE
-  detects a cyclic execution, it stops the execution and records the failure.
+![Nesting level restrictions for the ExecuteDocument action module.](http://docs.aws.amazon.com/imagebuilder/latest/userguide/images/toe-component-document-nesting.png)
 
-![Nesting level restrictions for the ExecuteDocument action module.](images/toe-component-document-nesting.png)
 
-If a component document tries to run itself, or to run any of the component documents that
-are higher up in the current chain of execution, the execution fails.
+If a component document tries to run itself, or to run any of the component documents that are higher up in the current chain of execution, the execution fails.
 
 **Input**
 
-| Key name                   | Description                                                                                                                                                              | Type               | Required |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | -------- |
-| `document`                 | Path of component document. Valid options include:<br>• Local file paths<br>• S3 URIs<br>• EC2 Image Builder component build version ARNs                                | String             | Yes      |
-| `document-s3-bucket-owner` | The account ID of the S3 bucket owner for the S3 bucket where component<br>documents are stored. _(Recommended if you are using S3 URIs in<br>your component document.)_ | String             | No       |
-| `phases`                   | Phases to run in the component document, expressed as a comma-separated<br>list. If no phases are specified, then all phases run.                                        | String             | No       |
-| `parameters`               | Input parameters that are passed in to the component document at runtime<br>as key value pairs.                                                                          | Parameter Map List | No       |
+
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| document | Path of component document. Valid options include:+  Local file paths <br />+  S3 URIs <br />+  EC2 Image Builder component build version ARNs  | String | Yes | 
+| document-s3-bucket-owner | The account ID of the S3 bucket owner for the S3 bucket where component documents are stored. *(Recommended if you are using S3 URIs in your component document.)* | String | No | 
+| phases | Phases to run in the component document, expressed as a comma-separated list. If no phases are specified, then all phases run. | String | No | 
+| parameters | Input parameters that are passed in to the component document at runtime as key value pairs. | Parameter Map List | No | 
 
 **Parameter map input**
 
-| Key name | Description                                                                                                                        | Type   | Required |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- |
-| `name`   | The name of the input parameter to pass to the component document<br>that the *_ExecuteDocument_<br>• action module<br>is running. | String | Yes      |
-| `value`  | The value of the input parameter.                                                                                                  | String | Yes      |
 
-###### Input examples
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| name | The name of the input parameter to pass to the component document that the **ExecuteDocument** action module is running. | String | Yes | 
+| value | The value of the input parameter. | String | Yes | 
 
+**Input examples**  
 The following examples show variations of the inputs for your component document, depending on your installation path.
 
 **Input example: Local document path**
@@ -460,152 +421,133 @@ phases:
               value: value-2
 ```
 
-###### Output
-
-AWSTOE creates an output file called `detailedoutput.json`
-every time it runs. The file contains details about every phase and step of every
-component document that is invoked while it's running. For the
-**ExecuteDocument** action module, you can find a
-brief runtime summary in the `outputs` field, and details about the
-phases, steps, and documents that it runs in the `detailedOutput`.
+**Output**  
+AWSTOE creates an output file called `detailedoutput.json` every time it runs. The file contains details about every phase and step of every component document that is invoked while it's running. For the **ExecuteDocument** action module, you can find a brief runtime summary in the `outputs` field, and details about the phases, steps, and documents that it runs in the `detailedOutput`.
 
 ```
-`{
- \"executedStepCount\":1,\"executionId\":\"97054e22-06cc-11ec-9b14-acde48001122\",\"failedStepCount\":0,\"failureMessage\":\"\",\"ignoredFailedStepCount\":0,\"logUrl\":\"\",\"status\":\"success\"
-}",`
+{
+	\"executedStepCount\":1,\"executionId\":\"97054e22-06cc-11ec-9b14-acde48001122\",\"failedStepCount\":0,\"failureMessage\":\"\",\"ignoredFailedStepCount\":0,\"logUrl\":\"\",\"status\":\"success\"
+}",
 ```
 
-Each component document's output summary object contains the following details,
-as shown here, with sample values:
+Each component document's output summary object contains the following details, as shown here, with sample values:
++ executedStepCount":1
++ "executionId":"12345a67-89bc-01de-2f34-abcd56789012"
++ "failedStepCount":0
++ "failureMessage":""
++ "ignoredFailedStepCount":0
++ "logUrl":""
++ "status":"success"
 
-- executedStepCount":1
-- "executionId":"12345a67-89bc-01de-2f34-abcd56789012"
-- "failedStepCount":0
-- "failureMessage":""
-- "ignoredFailedStepCount":0
-- "logUrl":""
-- "status":"success"
-
-###### Output example
-
-The following example shows output from the **ExecuteDocument**
-action module when a nested execution occurs. In this example, the `main.yaml`
-component document successfully runs the `Sample-1.yaml` component document.
+**Output example**  
+The following example shows output from the **ExecuteDocument** action module when a nested execution occurs. In this example, the `main.yaml` component document successfully runs the `Sample-1.yaml` component document.
 
 ```
-`{
- "executionId": "12345a67-89bc-01de-2f34-abcd56789012",
- "status": "success",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "failureMessage": "",
- "documents": [
- {
- "name": "",
- "filePath": "main.yaml",
- "status": "success",
- "description": "",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "failureMessage": "",
- "phases": [
- {
- "name": "build",
- "status": "success",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "failureMessage": "",
- "steps": [
- {
- "name": "ExecuteNestedDocument",
- "status": "success",
- "failureMessage": "",
- "timeoutSeconds": -1,
- "onFailure": "Abort",
- "maxAttempts": 1,
- "action": "ExecuteDocument",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "inputs": "[{\"document\":\"Sample-1.yaml\",\"document-s3-bucket-owner\":\"\",\"phases\":\"\",\"parameters\":null}]",
- "outputs": "[{\"executedStepCount\":1,\"executionId\":\"98765f43-21ed-09cb-8a76-fedc54321098\",\"failedStepCount\":0,\"failureMessage\":\"\",\"ignoredFailedStepCount\":0,\"logUrl\":\"\",\"status\":\"success\"}]",
- "loop": null,
- "detailedOutput": [
- {
- "executionId": "98765f43-21ed-09cb-8a76-fedc54321098",
- "status": "success",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "failureMessage": "",
- "documents": [
- {
- "name": "",
- "filePath": "Sample-1.yaml",
- "status": "success",
- "description": "",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "failureMessage": "",
- "phases": [
- {
- "name": "build",
- "status": "success",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "failureMessage": "",
- "steps": [
- {
- "name": "ExecuteBashStep",
- "status": "success",
- "failureMessage": "",
- "timeoutSeconds": 7200,
- "onFailure": "Abort",
- "maxAttempts": 1,
- "action": "ExecuteBash",
- "startTime": "2021-08-26T17:20:31-07:00",
- "endTime": "2021-08-26T17:20:31-07:00",
- "inputs": "[{\"commands\":[\"echo \\\"Hello World!\\\"\"]}]",
- "outputs": "[{\"stdout\":\"Hello World!\"}]",
- "loop": null,
- "detailedOutput": null
- }]
- }]
- }]
- }]
- }]
-
- }]
- }]
-}`
+{
+    "executionId": "12345a67-89bc-01de-2f34-abcd56789012",
+    "status": "success",
+    "startTime": "2021-08-26T17:20:31-07:00",
+    "endTime": "2021-08-26T17:20:31-07:00",
+    "failureMessage": "",
+    "documents": [
+        {
+            "name": "",
+            "filePath": "main.yaml",
+            "status": "success",
+            "description": "",
+            "startTime": "2021-08-26T17:20:31-07:00",
+            "endTime": "2021-08-26T17:20:31-07:00",
+            "failureMessage": "",
+            "phases": [
+                {
+                    "name": "build",
+                    "status": "success",
+                    "startTime": "2021-08-26T17:20:31-07:00",
+                    "endTime": "2021-08-26T17:20:31-07:00",
+                    "failureMessage": "",
+                    "steps": [
+                        {
+                            "name": "ExecuteNestedDocument",
+                            "status": "success",
+                            "failureMessage": "",
+                            "timeoutSeconds": -1,
+                            "onFailure": "Abort",
+                            "maxAttempts": 1,
+                            "action": "ExecuteDocument",
+                            "startTime": "2021-08-26T17:20:31-07:00",
+                            "endTime": "2021-08-26T17:20:31-07:00",
+                            "inputs": "[{\"document\":\"Sample-1.yaml\",\"document-s3-bucket-owner\":\"\",\"phases\":\"\",\"parameters\":null}]",
+                            "outputs": "[{\"executedStepCount\":1,\"executionId\":\"98765f43-21ed-09cb-8a76-fedc54321098\",\"failedStepCount\":0,\"failureMessage\":\"\",\"ignoredFailedStepCount\":0,\"logUrl\":\"\",\"status\":\"success\"}]",
+                            "loop": null,
+                            "detailedOutput": [
+                                {
+                                    "executionId": "98765f43-21ed-09cb-8a76-fedc54321098",
+                                    "status": "success",
+                                    "startTime": "2021-08-26T17:20:31-07:00",
+                                    "endTime": "2021-08-26T17:20:31-07:00",
+                                    "failureMessage": "",
+                                    "documents": [
+                                        {
+                                            "name": "",
+                                            "filePath": "Sample-1.yaml",
+                                            "status": "success",
+                                            "description": "",
+                                            "startTime": "2021-08-26T17:20:31-07:00",
+                                            "endTime": "2021-08-26T17:20:31-07:00",
+                                            "failureMessage": "",
+                                            "phases": [
+                                                {
+                                                    "name": "build",
+                                                    "status": "success",
+                                                    "startTime": "2021-08-26T17:20:31-07:00",
+                                                    "endTime": "2021-08-26T17:20:31-07:00",
+                                                    "failureMessage": "",
+                                                    "steps": [
+                                                        {
+                                                            "name": "ExecuteBashStep",
+                                                            "status": "success",
+                                                            "failureMessage": "",
+                                                            "timeoutSeconds": 7200,
+                                                            "onFailure": "Abort",
+                                                            "maxAttempts": 1,
+                                                            "action": "ExecuteBash",
+                                                            "startTime": "2021-08-26T17:20:31-07:00",
+                                                            "endTime": "2021-08-26T17:20:31-07:00",
+                                                            "inputs": "[{\"commands\":[\"echo \\\"Hello World!\\\"\"]}]",
+                                                            "outputs": "[{\"stdout\":\"Hello World!\"}]",
+                                                            "loop": null,
+                                                            "detailedOutput": null
+                                                        }]
+                                                }]
+                                        }]
+                                }]
+                        }]
+                
+                }]
+        }]
+}
 ```
 
 ### ExecutePowerShell (Windows)
+<a name="action-modules-executepowershell"></a>
 
-The **ExecutePowerShell** action module allows you to
-run PowerShell scripts with inline shell code/commands. This module supports the
-Windows platform and Windows PowerShell.
+The **ExecutePowerShell** action module allows you to run PowerShell scripts with inline shell code/commands. This module supports the Windows platform and Windows PowerShell.
 
-All of the commands/instructions specified in the commands block are converted
-into a script file (for example, `input.ps1`) and run using Windows
-PowerShell. The result of running the shell file is the exit code.
+All of the commands/instructions specified in the commands block are converted into a script file (for example, `input.ps1`) and run using Windows PowerShell. The result of running the shell file is the exit code.
 
-The **ExecutePowerShell** module handles system
-restarts if the shell command exits with an exit code of `3010`. When
-initiated, the application performs one of the following actions:
+The **ExecutePowerShell** module handles system restarts if the shell command exits with an exit code of `3010`. When initiated, the application performs one of the following actions: 
++ Hands the exit code to the caller if run by the Systems Manager Agent. The Systems Manager Agent handles the system reboot and runs the same step that initiated the restart, as described in [Rebooting Managed Instance from Scripts](https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-reboot.html).
++ Saves the current `executionstate`, configures a restart trigger to rerun the application, and reboots the system.
 
-- Hands the exit code to the caller if run by the Systems Manager Agent. The Systems Manager
-  Agent handles the system reboot and runs the same step that initiated the
-  restart, as described in [Rebooting Managed Instance from Scripts](../../../systems-manager/latest/userguide/send-commands-reboot.md "../../../systems-manager/latest/userguide/send-commands-reboot.md").
-- Saves the current `executionstate`, configures a restart
-  trigger to rerun the application, and reboots the system.
+After system restart, the application runs the same step that initiated the restart. If you require this functionality, you must write idempotent scripts that can handle multiple invocations of the same shell command.
 
-After system restart, the application runs the same step that initiated the
-restart. If you require this functionality, you must write idempotent scripts that
-can handle multiple invocations of the same shell command.
 
-Input| Key name | Description | Type | Required |
-| --- | --- | --- | --- |
-| `commands` | Contains a list of instructions or commands to run as per<br>PowerShell syntax. Multi-line YAML is allowed. | String List | Yes. Must specify `commands` or<br>`file`, not both. |
-| `file` | Contains the path to a PowerShell script file. PowerShell will<br>run against this file using the `-file` command line<br>argument. The path must point to a `.ps1` file. | String | Yes. Must specify `commands` or<br>`file`, not both. |
+**Input**  
+
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| commands | Contains a list of instructions or commands to run as per PowerShell syntax. Multi-line YAML is allowed. | String List | Yes. Must specify `commands` or `file`, not both. | 
+| file | Contains the path to a PowerShell script file. PowerShell will run against this file using the -file command line argument. The path must point to a .ps1 file. | String | Yes. Must specify `commands` or `file`, not both. | 
 
 **Input example: Before and after a reboot**
 
@@ -632,194 +574,143 @@ phases:
               [System.Environment]::Exit(3010)
 ```
 
-Output| Field | Description | Type |
-| --- | --- | --- |
-| `stdout` | Standard output of command execution. | string |
 
-If you run a reboot and return exit code `3010` as part of the action
-module, the build will resume at the same action module step that initiated the
-reboot. If you run a reboot without the exit code, the build process may
-fail.
+**Output**  
+
+| Field | Description | Type | 
+| --- | --- | --- | 
+| stdout | Standard output of command execution. | string | 
+
+If you run a reboot and return exit code `3010` as part of the action module, the build will resume at the same action module step that initiated the reboot. If you run a reboot without the exit code, the build process may fail.
 
 **Output example: Before reboot (first time through document)**
 
 ```
-`{
- “stdout”: “The reboot file does not exist. Creating it and triggering a restart."
-}`
+{
+	“stdout”: “The reboot file does not exist. Creating it and triggering a restart."
+}
 ```
 
 **Output example: After reboot, (second time through document)**
 
 ```
-`{
- “stdout”: “The reboot file exists. Deleting it and exiting with success."
-}`
+{
+	“stdout”: “The reboot file exists. Deleting it and exiting with success."
+}
 ```
 
 ## File download and upload modules
+<a name="action-modules-download-upload"></a>
 
 The following section contains details for action modules that upload or download files.
 
-###### Download and upload action modules
-
-- [S3Download (Linux, Windows, macOS)](#action-modules-s3download "#action-modules-s3download")
-- [S3Upload (Linux, Windows, macOS)](#action-modules-s3upload "#action-modules-s3upload")
-- [WebDownload (Linux, Windows, macOS)](#action-modules-webdownload "#action-modules-webdownload")
+**Topics**
++ [S3Download (Linux, Windows, macOS)](#action-modules-s3download)
++ [S3Upload (Linux, Windows, macOS)](#action-modules-s3upload)
++ [WebDownload (Linux, Windows, macOS)](#action-modules-webdownload)
 
 ### S3Download (Linux, Windows, macOS)
+<a name="action-modules-s3download"></a>
 
-With the `S3Download` action module, you can download an Amazon S3
-object, or a set of objects, to a local file or folder that you specify with
-the `destination` path. If any file already exists in the specified
-location, and the `overwrite` flag is set to true,
-`S3Download` overwrites the file.
+With the `S3Download` action module, you can download an Amazon S3 object, or a set of objects, to a local file or folder that you specify with the `destination` path. If any file already exists in the specified location, and the `overwrite` flag is set to true, `S3Download` overwrites the file.
 
-Your `source` location can point to a specific object in Amazon S3,
-or you can use a key prefix with an asterisk wildcard (`*`) to
-download a set of objects that match the key prefix path. When you specify
-a key prefix in your `source` location, the `S3Download`
-action module downloads everything that matches the prefix (files and folders
-included). Make sure that the key prefix ends with a forward-slash, followed
-by an asterisk (`/*`), so that you download everything
-that matches the prefix. For example:
+Your `source` location can point to a specific object in Amazon S3, or you can use a key prefix with an asterisk wildcard (`*`) to download a set of objects that match the key prefix path. When you specify a key prefix in your `source` location, the `S3Download` action module downloads everything that matches the prefix (files and folders included). Make sure that the key prefix ends with a forward-slash, followed by an asterisk (`/*`), so that you download everything that matches the prefix. For example: `{{s3://my-bucket/my-folder/*}}`.
 
-`s3://my-bucket/my-folder/*`.
+If the `S3Download` action for a specified key prefix fails during a download, the folder content is not rolled back to its state prior to the failure. The destination folder remains as it was at the time of the failure.
 
-If the `S3Download` action for a specified key prefix
-fails during a download, the folder content is not rolled back to its
-state prior to the failure. The destination folder remains as it was
-at the time of the failure.
-
-###### Supported use cases
-
+**Supported use cases**  
 The `S3Download` action module supports the following use cases:
++ The Amazon S3 object is downloaded to a local folder, as specified in the download path.
++ Amazon S3 objects (with a key prefix in the Amazon S3 file path) are downloaded to the specified local folder, which recursively copies all Amazon S3 objects that match the key prefix to the local folder.
 
-- The Amazon S3 object is downloaded to a local folder, as specified in
-  the download path.
-- Amazon S3 objects (with a key prefix in the Amazon S3 file path) are
-  downloaded to the specified local folder, which recursively
-  copies all Amazon S3 objects that match the key prefix to
-  the local folder.
+**IAM requirements**  
+The IAM role that you associate with your instance profile must have permissions to run the `S3Download` action module. The following IAM policies must be attached to the IAM role that is associated with the instance profile:
++ **Single file**: `s3:GetObject` against the bucket/object (for example, `arn:aws:s3:::BucketName/*`).
++ **Multiple files**: `s3:ListBucket` against the bucket/object (for example, `arn:aws:s3:::BucketName`) and `s3:GetObject` against the bucket/object (for example, `arn:aws:s3:::BucketName/*`).
 
-###### IAM requirements
 
-The IAM role that you associate with your instance profile must have
-permissions to run the `S3Download` action module. The following
-IAM policies must be attached to the IAM role that is associated with the
-instance profile:
+**Input**  
 
-- **Single file**: `s3:GetObject`
-  against the bucket/object (for example,
-  `arn:aws:s3:::`BucketName`/*`).
-- **Multiple files**:
-  `s3:ListBucket` against the bucket/object (for example,
-  `arn:aws:s3:::`BucketName``) and
-  `s3:GetObject` against the bucket/object (for example,
-  `arn:aws:s3:::`BucketName`/*`).
+|  Key  |  Description  |  Type  |  Required  |  Default  | 
+| --- | --- | --- | --- | --- | 
+| `source` | The Amazon S3 bucket that is the source for your download. You can specify a path to a specific object, or use a key prefix, that ends with a forward-slash, followed by an asterisk wildcard (`/*`), to download a set of objects that match the key prefix. | String | Yes | N/A | 
+| `destination` | The local path where the Amazon S3 objects are downloaded. To download a single file, you must specify the file name as part of the path. For example, `{{/myfolder/package.zip}}`. | String | Yes | N/A | 
+| `expectedBucketOwner` | Expected owner account ID of the bucket provided in the `source` path. We recommend that you verify the ownership of the Amazon S3 bucket specified in the source. | String | No | N/A | 
+| `overwrite` | When set to true, if a file of the same name already exists in the destination folder for the specified local path, the download file overwrites the local file. When set to false, the existing file on the local system is protected from being overwritten, and the action module fails with a download error.<br />For example, `Error: S3Download: File already exists and "overwrite" property for "destination" file is set to false. Cannot download.` | Boolean | No | true | 
 
-Input| Key | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| `source` | The Amazon S3 bucket that is the source for your download.<br>You can specify a path to a specific object, or use a<br>key prefix, that ends with a forward-slash, followed by<br>an asterisk wildcard (`/*`), to download a<br>set of objects that match the key prefix. | String | Yes | N/A |
-| `destination` | The local path where the Amazon S3 objects are<br>downloaded. To download a single file, you must<br>specify the file name as part of the path. For<br>example, `/myfolder/package.zip`. | String | Yes | N/A |
-| `expectedBucketOwner` | Expected owner account ID of the bucket provided in the<br>`source` path. We recommend that you verify the<br>ownership of the Amazon S3 bucket specified in the source. | String | No | N/A |
-| `overwrite` | When set to true, if a file of the same name already exists<br>in the destination folder for the specified local path, the<br>download file overwrites the local file. When set to false,<br>the existing file on the local system is protected from being<br>overwritten, and the action module fails with a download error.<br>For example, `Error: S3Download: File already exists and "overwrite"<br>property for "destination" file is set to false. Cannot download.` | Boolean | No | true |
+**Note**  
+For the following examples, the Windows folder path can be replaced with a Linux path. For example, `{{C:\myfolder\package.zip}}` can be replaced with `{{/myfolder/package.zip}}`.
 
-###### Note
-
-For the following examples, the Windows folder path can be replaced with a
-Linux path. For example,
-`C:\myfolder\package.zip` can be
-replaced with
-`/myfolder/package.zip`.
-
-###### Input example: copy an Amazon S3 object to a local file
-
+**Input example: copy an Amazon S3 object to a local file**  
 The following example shows how to copy an Amazon S3 object to a local file.
 
 ```
   - name: DownloadMyFile
     action: S3Download
     inputs:
-      - source: s3://`amzn-s3-demo-source-bucket/path/to/package.zip`
-        destination: `C:\myfolder\package.zip`
-        expectedBucketOwner: `123456789022`
-        overwrite: `false`
-      - source: s3://`amzn-s3-demo-source-bucket/path/to/package.zip`
-        destination: `C:\myfolder\package.zip`
-        expectedBucketOwner: `123456789022`
-        overwrite: `true`
-      - source: s3://`amzn-s3-demo-source-bucket/path/to/package.zip`
-        destination: `C:\myfolder\package.zip`
-        expectedBucketOwner: `123456789022`
+      - source: s3://{{amzn-s3-demo-source-bucket/path/to/package.zip}}
+        destination: {{C:\myfolder\package.zip}}
+        expectedBucketOwner: {{123456789022}}
+        overwrite: {{false}}
+      - source: s3://{{amzn-s3-demo-source-bucket/path/to/package.zip}}
+        destination: {{C:\myfolder\package.zip}}
+        expectedBucketOwner: {{123456789022}}
+        overwrite: {{true}}
+      - source: s3://{{amzn-s3-demo-source-bucket/path/to/package.zip}}
+        destination: {{C:\myfolder\package.zip}}
+        expectedBucketOwner: {{123456789022}}
 ```
 
-###### Input example: copy all Amazon S3 objects in an Amazon S3 bucket with key prefix to a local folder
-
-The following example shows how to copy all Amazon S3 objects in an
-Amazon S3 bucket with the key prefix to a local folder.
-Amazon S3 has no concept of a folder, therefore all objects that match
-the key prefix are copied. The maximum number of
-objects that can be downloaded is 1000.
+**Input example: copy all Amazon S3 objects in an Amazon S3 bucket with key prefix to a local folder**  
+The following example shows how to copy all Amazon S3 objects in an Amazon S3 bucket with the key prefix to a local folder. Amazon S3 has no concept of a folder, therefore all objects that match the key prefix are copied. The maximum number of objects that can be downloaded is 1000.
 
 ```
   - name: MyS3DownloadKeyprefix
     action: S3Download
     maxAttempts: 3
     inputs:
-      - source: s3://`amzn-s3-demo-source-bucket/path/to/*`
-        destination: C:\`myfolder`\
-        expectedBucketOwner: `123456789022`
-        overwrite: `false`
-      - source: s3://`amzn-s3-demo-source-bucket/path/to/*`
-        destination: `C:\myfolder`\
-        expectedBucketOwner: `123456789022`
-        overwrite: `true`
-      - source: s3://`amzn-s3-demo-source-bucket/path/to/*`
-        destination: `C:\myfolder`\
-        expectedBucketOwner: `123456789022`
+      - source: s3://{{amzn-s3-demo-source-bucket/path/to/*}}
+        destination: C:\{{myfolder}}\
+        expectedBucketOwner: {{123456789022}}
+        overwrite: {{false}}
+      - source: s3://{{amzn-s3-demo-source-bucket/path/to/*}}
+        destination: {{C:\myfolder}}\
+        expectedBucketOwner: {{123456789022}}
+        overwrite: {{true}}
+      - source: s3://{{amzn-s3-demo-source-bucket/path/to/*}}
+        destination: {{C:\myfolder}}\
+        expectedBucketOwner: {{123456789022}}
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### S3Upload (Linux, Windows, macOS)
+<a name="action-modules-s3upload"></a>
 
-With the **S3Upload** action module, you can
-upload a file from a source file or folder to an Amazon S3 location. You can use
-a wildcard (`*`) in the path specified for your source location
-to upload all of the files whose path matches the wildcard pattern.
+With the **S3Upload** action module, you can upload a file from a source file or folder to an Amazon S3 location. You can use a wildcard (`*`) in the path specified for your source location to upload all of the files whose path matches the wildcard pattern.
 
-If the recursive **S3Upload** action fails,
-any files that have already been uploaded will remain in the destination
-Amazon S3 bucket.
+If the recursive **S3Upload** action fails, any files that have already been uploaded will remain in the destination Amazon S3 bucket.
 
-###### Supported use cases
+**Supported use cases**
++ Local file to Amazon S3 object.
++ Local files in folder (with wildcard) to Amazon S3 key prefix.
++ Copy local folder (must have `recurse` set to `true`) to Amazon S3 key prefix.
 
-- Local file to Amazon S3 object.
-- Local files in folder (with wildcard) to Amazon S3 key prefix.
-- Copy local folder (must have `recurse` set to `true`) to
-  Amazon S3 key prefix.
+**IAM requirements**  
+The IAM role that you associate with your instance profile must have permissions to run the `S3Upload` action module. The following IAM policy must be attached to the IAM role that is associated with the instance profile. The policy must grant `s3:PutObject` permissions to the target Amazon S3 bucket. For example, `arn:aws:s3:::BucketName/*`).
 
-###### IAM requirements
 
-The IAM role that you associate with your instance profile must
-have permissions to run the `S3Upload` action module. The
-following IAM policy must be attached to the IAM role that is
-associated with the instance profile. The policy must grant
-`s3:PutObject` permissions to the target Amazon S3 bucket.
-For example, `arn:aws:s3:::`BucketName`/*`).
+**Input**  
 
-Input| Key | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| `source` | The local path where source files/folders originate. The<br>`source` supports an asterisk wildcard (`*`). | String | Yes | N/A |
-| `destination` | The path for the destination Amazon S3 bucket where source<br>files/folders are uploaded. | String | Yes | N/A |
-| `recurse` | When set to `true`, performs *_S3Upload_<br>• recursively. | String | No | `false` |
-| `expectedBucketOwner` | The expected owner account ID for the Amazon S3 bucket specified<br>in the destination path. We recommend that you verify the<br>ownership of the Amazon S3 bucket specified in the destination. | String | No | N/A |
+|  Key  |  Description  |  Type  |  Required  |  Default  | 
+| --- | --- | --- | --- | --- | 
+| `source` | The local path where source files/folders originate. The `source` supports an asterisk wildcard (`*`). | String | Yes | N/A | 
+| `destination` | The path for the destination Amazon S3 bucket where source files/folders are uploaded. | String | Yes | N/A | 
+| `recurse` | When set to `true`, performs **S3Upload** recursively. | String | No | `false` | 
+| `expectedBucketOwner` | The expected owner account ID for the Amazon S3 bucket specified in the destination path. We recommend that you verify the ownership of the Amazon S3 bucket specified in the destination. | String | No | N/A | 
 
-###### Input example: copy a local file to an Amazon S3 object
-
+**Input example: copy a local file to an Amazon S3 object**  
 The following example shows how to copy a local file to an Amazon S3 object.
 
 ```
@@ -828,17 +719,13 @@ The following example shows how to copy a local file to an Amazon S3 object.
     onFailure: Abort
     maxAttempts: 3
     inputs:
-      - source: C:\`myfolder\package.zip`
-        destination: s3://`amzn-s3-demo-destination-bucket/path/to/package.zip`
-        expectedBucketOwner: `123456789022`
+      - source: C:\{{myfolder\package.zip}}
+        destination: s3://{{amzn-s3-demo-destination-bucket/path/to/package.zip}}
+        expectedBucketOwner: {{123456789022}}
 ```
 
-###### Input example: copy all files in a local folder to an Amazon S3 bucket with key prefix
-
-The following example shows how to copy all files in the local folder to
-an Amazon S3 bucket with key prefix. This example does not copy
-sub-folders or their contents because `recurse` is not specified,
-and it defaults to `false`.
+**Input example: copy all files in a local folder to an Amazon S3 bucket with key prefix**  
+The following example shows how to copy all files in the local folder to an Amazon S3 bucket with key prefix. This example does not copy sub-folders or their contents because `recurse` is not specified, and it defaults to `false`.
 
 ```
   - name: MyS3UploadMultipleFiles
@@ -846,15 +733,13 @@ and it defaults to `false`.
     onFailure: Abort
     maxAttempts: 3
     inputs:
-      - source: C:\`myfolder\*`
-        destination: s3://`amzn-s3-demo-destination-bucket/path/to/`
-        expectedBucketOwner: `123456789022`
+      - source: C:\{{myfolder\*}}
+        destination: s3://{{amzn-s3-demo-destination-bucket/path/to/}}
+        expectedBucketOwner: {{123456789022}}
 ```
 
-###### Input example: copy all files and folders recursively from a local folder to an Amazon S3 bucket
-
-The following example shows how to copy all files and folders recursively from a
-local folder to an Amazon S3 bucket with key prefix.
+**Input example: copy all files and folders recursively from a local folder to an Amazon S3 bucket**  
+The following example shows how to copy all files and folders recursively from a local folder to an Amazon S3 bucket with key prefix.
 
 ```
   - name: MyS3UploadFolder
@@ -862,47 +747,44 @@ local folder to an Amazon S3 bucket with key prefix.
     onFailure: Abort
     maxAttempts: 3
     inputs:
-      - source: C:\`myfolder\*`
-        destination: s3://`amzn-s3-demo-destination-bucket/path/to/`
-        recurse: `true`
-        expectedBucketOwner: `123456789022`
+      - source: C:\{{myfolder\*}}
+        destination: s3://{{amzn-s3-demo-destination-bucket/path/to/}}
+        recurse: {{true}}
+        expectedBucketOwner: {{123456789022}}
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### WebDownload (Linux, Windows, macOS)
+<a name="action-modules-webdownload"></a>
 
-The **WebDownload** action module allows you to
-download files and resources from a remote location over the HTTP/HTTPS protocol
-(_HTTPS is recommended_).
-There are no limits on the number or size of downloads. This module handles retry
-and exponential backoff logic.
+The **WebDownload** action module allows you to download files and resources from a remote location over the HTTP/HTTPS protocol (*HTTPS is recommended*). There are no limits on the number or size of downloads. This module handles retry and exponential backoff logic. 
 
-Each download operation is allocated a maximum of 5 attempts to succeed according
-to user inputs. These attempts differ from those specified in the
-`maxAttempts` field of document `steps`, which are related
-to action module failures.
+Each download operation is allocated a maximum of 5 attempts to succeed according to user inputs. These attempts differ from those specified in the `maxAttempts` field of document `steps`, which are related to action module failures.
 
-This action module implicitly handles redirects. All HTTP status codes, except for
-`200`, result in an error.
+This action module implicitly handles redirects. All HTTP status codes, except for `200`, result in an error.
 
-Input| Key name | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| `source` | The valid HTTP/HTTPS URL (_HTTPS is recommended_),<br>which follows the RFC 3986 standard. Chaining expressions are permitted. | String | Yes | N/A |
-| `destination` | An absolute or relative file or folder path on the local system.<br>Folder paths must end with `/`. If they do not end with<br>`/`, they will be treated as file paths. The module<br>creates any required file or folder for successful downloads.<br>Chaining expressions are permitted. | String | Yes | N/A |
-| `overwrite` | When enabled, overwrites any existing files on the local system<br>with the downloaded file or resource. When not enabled, any existing<br>files on the local system are not overwritten, and the action module<br>fails with an error. When overwrite is enabled and checksum and<br>algorithm are specified, then the action module downloads the file<br>only if the checksum and the hash of any pre-existing files do not<br>match. | Boolean | No | `true` |
-| `checksum` | When you specify the checksum, it is checked against the hash of<br>the downloaded file that is generated with the supplied algorithm.<br>For file verification to be enabled, both the checksum and the<br>algorithm must be provided. Chaining expressions are permitted. | String | No | N/A |
-| `algorithm` | The algorithm used to calculate the checksum. The options are<br>MD5, SHA1, SHA256, and SHA512. For file verification to be enabled,<br>both the checksum and the algorithm must be provided. Chaining<br>expressions are permitted. | String | No | N/A |
-| `ignoreCertificateErrors` | SSL certificate validation is ignored when enabled. | Boolean | No | `false` |
 
-Output| Key name | Description | Type |
-| --- | --- | --- |
-| `destination` | Newline character-delimited string that specifies the destination<br>path where the downloaded files or resources are stored. | String |
+**Input**  
 
-**Input example: download remote file to local
-destination**
+| Key name | Description | Type | Required | Default | 
+| --- | --- | --- | --- | --- | 
+| source | The valid HTTP/HTTPS URL (HTTPS is recommended), which follows the RFC 3986 standard. Chaining expressions are permitted. | String | Yes | N/A | 
+| destination | An absolute or relative file or folder path on the local system. Folder paths must end with /. If they do not end with /, they will be treated as file paths. The module creates any required file or folder for successful downloads. Chaining expressions are permitted. | String | Yes | N/A | 
+| overwrite | When enabled, overwrites any existing files on the local system with the downloaded file or resource. When not enabled, any existing files on the local system are not overwritten, and the action module fails with an error. When overwrite is enabled and checksum and algorithm are specified, then the action module downloads the file only if the checksum and the hash of any pre-existing files do not match.  | Boolean | No | true | 
+| checksum | When you specify the checksum, it is checked against the hash of the downloaded file that is generated with the supplied algorithm. For file verification to be enabled, both the checksum and the algorithm must be provided. Chaining expressions are permitted.  | String | No | N/A | 
+| algorithm | The algorithm used to calculate the checksum. The options are MD5, SHA1, SHA256, and SHA512. For file verification to be enabled, both the checksum and the algorithm must be provided. Chaining expressions are permitted.  | String | No | N/A | 
+| ignoreCertificateErrors | SSL certificate validation is ignored when enabled. | Boolean | No | false | 
+
+
+**Output**  
+
+| Key name | Description | Type | 
+| --- | --- | --- | 
+| destination | Newline character-delimited string that specifies the destination path where the downloaded files or resources are stored. | String | 
+
+**Input example: download remote file to local destination**
 
 ```
   - name: DownloadRemoteFile
@@ -916,13 +798,12 @@ destination**
 **Output:**
 
 ```
-`{
- "destination": "C:\\testfolder\\package.zip"
-}`
+{
+	"destination": "C:\\testfolder\\package.zip"
+}
 ```
 
-**Input example: download more than one remote file to more
-than one local destination**
+**Input example: download more than one remote file to more than one local destination **
 
 ```
   - name: DownloadRemoteFiles
@@ -938,14 +819,12 @@ than one local destination**
 **Output:**
 
 ```
-`{
- "destination": "/tmp/create_new_folder/java14_renamed.zip\n/tmp/create_new_folder_and_add_java14_as_zip/java14.zip"
-}`
+{
+	"destination": "/tmp/create_new_folder/java14_renamed.zip\n/tmp/create_new_folder_and_add_java14_as_zip/java14.zip"
+}
 ```
 
-**Input example: download one remote file without overwriting
-local destination, and download another remote file with file
-verification**
+**Input example: download one remote file without overwriting local destination, and download another remote file with file verification**
 
 ```
   - name: DownloadRemoteMultipleProperties
@@ -965,13 +844,12 @@ verification**
 **Output:**
 
 ```
-`{
- "destination": "C:\\create_new_folder\\java14_renamed.zip\nC:\\create_new_folder_and_add_java14_as_zip\\java14.zip"
-}`
+{
+	"destination": "C:\\create_new_folder\\java14_renamed.zip\nC:\\create_new_folder_and_add_java14_as_zip\\java14.zip"
+}
 ```
 
-**Input example: download remote file and ignore SSL
-certification validation**
+**Input example: download remote file and ignore SSL certification validation**
 
 ```
   - name: DownloadRemoteIgnoreValidation
@@ -986,60 +864,57 @@ certification validation**
 **Output:**
 
 ```
-`{
- "destination": "/tmp/downloads/resource"
-}`
+{
+	"destination": "/tmp/downloads/resource"
+}
 ```
 
 ## File system operations modules
+<a name="action-modules-file-system-operations"></a>
 
-The following section contains details for action modules that perform file system
-operations.
+The following section contains details for action modules that perform file system operations.
 
-###### File system operation action modules
-
-- [AppendFile (Linux, Windows, macOS)](#action-modules-appendfile "#action-modules-appendfile")
-- [CopyFile (Linux, Windows, macOS)](#action-modules-copyfile "#action-modules-copyfile")
-- [CopyFolder (Linux, Windows, macOS)](#action-modules-copyfolder "#action-modules-copyfolder")
-- [CreateFile (Linux, Windows, macOS)](#action-modules-createfile "#action-modules-createfile")
-- [CreateFolder (Linux, Windows, macOS)](#action-modules-createfolder "#action-modules-createfolder")
-- [CreateSymlink (Linux, Windows, macOS)](#action-modules-createsymlink "#action-modules-createsymlink")
-- [DeleteFile (Linux, Windows, macOS)](#action-modules-deletefile "#action-modules-deletefile")
-- [DeleteFolder (Linux, Windows, macOS)](#action-modules-deletefolder "#action-modules-deletefolder")
-- [ListFiles (Linux, Windows, macOS)](#action-modules-listfiles "#action-modules-listfiles")
-- [MoveFile (Linux, Windows, macOS)](#action-modules-movefile "#action-modules-movefile")
-- [MoveFolder (Linux, Windows, macOS)](#action-modules-movefolder "#action-modules-movefolder")
-- [ReadFile (Linux, Windows, macOS)](#action-modules-readfile "#action-modules-readfile")
-- [SetFileEncoding (Linux, Windows, macOS)](#action-modules-setfileencoding "#action-modules-setfileencoding")
-- [SetFileOwner (Linux, Windows, macOS)](#action-modules-setfileowner "#action-modules-setfileowner")
-- [SetFolderOwner (Linux, Windows, macOS)](#action-modules-setfolderowner "#action-modules-setfolderowner")
-- [SetFilePermissions (Linux, Windows, macOS)](#action-modules-setfilepermissions "#action-modules-setfilepermissions")
-- [SetFolderPermissions (Linux, Windows, macOS)](#action-modules-setfolderpermissions "#action-modules-setfolderpermissions")
+**Topics**
++ [AppendFile (Linux, Windows, macOS)](#action-modules-appendfile)
++ [CopyFile (Linux, Windows, macOS)](#action-modules-copyfile)
++ [CopyFolder (Linux, Windows, macOS)](#action-modules-copyfolder)
++ [CreateFile (Linux, Windows, macOS)](#action-modules-createfile)
++ [CreateFolder (Linux, Windows, macOS)](#action-modules-createfolder)
++ [CreateSymlink (Linux, Windows, macOS)](#action-modules-createsymlink)
++ [DeleteFile (Linux, Windows, macOS)](#action-modules-deletefile)
++ [DeleteFolder (Linux, Windows, macOS)](#action-modules-deletefolder)
++ [ListFiles (Linux, Windows, macOS)](#action-modules-listfiles)
++ [MoveFile (Linux, Windows, macOS)](#action-modules-movefile)
++ [MoveFolder (Linux, Windows, macOS)](#action-modules-movefolder)
++ [ReadFile (Linux, Windows, macOS)](#action-modules-readfile)
++ [SetFileEncoding (Linux, Windows, macOS)](#action-modules-setfileencoding)
++ [SetFileOwner (Linux, Windows, macOS)](#action-modules-setfileowner)
++ [SetFolderOwner (Linux, Windows, macOS)](#action-modules-setfolderowner)
++ [SetFilePermissions (Linux, Windows, macOS)](#action-modules-setfilepermissions)
++ [SetFolderPermissions (Linux, Windows, macOS)](#action-modules-setfolderpermissions)
 
 ### AppendFile (Linux, Windows, macOS)
+<a name="action-modules-appendfile"></a>
 
-The **AppendFile** action module adds specified
-content to the preexisting content of a file.
+The **AppendFile** action module adds specified content to the preexisting content of a file.
 
-If the file encoding value is different from the default encoding
-(`utf-8`) value, then you can specify the file encoding value by
-using the `encoding` option. By default, `utf-16` and
-`utf-32` are assumed to use little-endian encoding.
+If the file encoding value is different from the default encoding (`utf-8`) value, then you can specify the file encoding value by using the `encoding` option. By default, `utf-16` and `utf-32` are assumed to use little-endian encoding. 
 
 The action module returns an error when the following occurs:
++ The specified file does not exist at runtime.
++ You don't have write permissions to modify the file content.
++ The module encounters an error during the file operation.
 
-- The specified file does not exist at runtime.
-- You don't have write permissions to modify the file content.
-- The module encounters an error during the file operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Yes |
-| `content` | The content to be appended to the file. | String | No | Empty string | N/A | Yes |
-| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
+**Input**  
 
-**Input example: append file without encoding
-(Linux)**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Yes | 
+| content | The content to be appended to the file. | String | No | Empty string | N/A | Yes | 
+| encoding | The encoding standard. | String | No | utf8 | utf8, utf-8, utf16,utf-16, utf16-LE, utf-16-LE utf16-BE, utf-16-BE, utf32, utf-32, utf32-LE,utf-32-LE, utf32-BE, and  utf-32-BE. The value of the encoding option is case insensitive. | Yes | 
+
+**Input example: append file without encoding (Linux)**
 
 ```
   - name: AppendingFileWithOutEncodingLinux
@@ -1049,8 +924,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         content: "The string to be appended to the file"
 ```
 
-**Input example: append file without encoding
-(Windows)**
+**Input example: append file without encoding (Windows)**
 
 ```
   - name: AppendingFileWithOutEncodingWindows
@@ -1060,8 +934,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         content: "The string to be appended to the file"
 ```
 
-**Input example: append file with encoding
-(Linux)**
+**Input example: append file with encoding (Linux)**
 
 ```
   - name: AppendingFileWithEncodingLinux
@@ -1072,8 +945,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         encoding: UTF-32
 ```
 
-**Input example: append file with encoding
-(Windows)**
+**Input example: append file with encoding (Windows)**
 
 ```
   - name: AppendingFileWithEncodingWindows
@@ -1084,8 +956,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         encoding: UTF-32
 ```
 
-**Input example: append file with empty string
-(Linux)**
+**Input example: append file with empty string (Linux)**
 
 ```
   - name: AppendingEmptyStringLinux
@@ -1094,8 +965,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: /FolderName/SampleFile.txt
 ```
 
-**Input example: append file with empty string
-(Windows)**
+**Input example: append file with empty string (Windows)**
 
 ```
   - name: AppendingEmptyStringWindows
@@ -1104,57 +974,34 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\MyFolderName\SampleFile.txt
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### CopyFile (Linux, Windows, macOS)
+<a name="action-modules-copyfile"></a>
 
-The **CopyFile** action module copies files from the
-specified source to the specified destination. By default, the module recursively
-creates the destination folder if it does not exist at runtime.
+The **CopyFile** action module copies files from the specified source to the specified destination. By default, the module recursively creates the destination folder if it does not exist at runtime.
 
-If a file with the specified name already exists in the specified folder, the
-action module, by default, overwrites the existing file. You can override this
-default behavior by setting the overwrite option to `false`. When the
-overwrite option is set to `false`, and there is already a file in the
-specified location with the specified name, the action module will return an error.
-This option works the same as the `cp` command in Linux, which overwrites
-by default.
+If a file with the specified name already exists in the specified folder, the action module, by default, overwrites the existing file. You can override this default behavior by setting the overwrite option to `false`. When the overwrite option is set to `false`, and there is already a file in the specified location with the specified name, the action module will return an error. This option works the same as the `cp` command in Linux, which overwrites by default.
 
-The source file name can include a wildcard (`*`). Wildcard characters
-are accepted only after the last file path separator (`/` or
-`\`). If wildcard characters are included in the source file name,
-all of the files that match the wildcard are copied to the destination folder. If
-you want to move more than one file by using a wildcard character, the input to the
-`destination` option must end with a file path separator
-(`/` or `\`), which indicates that the destination input
-is a folder.
+The source file name can include a wildcard (`*`). Wildcard characters are accepted only after the last file path separator (`/` or `\`). If wildcard characters are included in the source file name, all of the files that match the wildcard are copied to the destination folder. If you want to move more than one file by using a wildcard character, the input to the `destination` option must end with a file path separator (`/` or `\`), which indicates that the destination input is a folder.
 
-If the destination file name is different from the source file name, you can
-specify the destination file name using the `destination` option. If you
-do not specify a destination file name, the name of the source file is used to
-create the destination file. Any text that follows the last file path separator
-(`/` or `\`) is treated as the file name. If you want to
-use the same file name as the source file, then the input of the
-`destination` option must end with a file path separator
-(`/` or `\`).
+If the destination file name is different from the source file name, you can specify the destination file name using the `destination` option. If you do not specify a destination file name, the name of the source file is used to create the destination file. Any text that follows the last file path separator (`/` or `\`) is treated as the file name. If you want to use the same file name as the source file, then the input of the `destination` option must end with a file path separator (`/` or `\`). 
 
 The action module returns an error when the following occurs:
++ You do not have permission to create a file in the specified folder.
++ The source files do not exist at runtime.
++ There is already a folder with the specified file name and the `overwrite` option is set to `false`.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to create a file in the specified
-  folder.
-- The source files do not exist at runtime.
-- There is already a folder with the specified file name and the
-  `overwrite` option is set to `false`.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `source` | The source file path. | String | Yes | N/A | N/A | Yes |
-| `destination` | The destination file path. | String | Yes | N/A | N/A | Yes |
-| `overwrite` | When set to false, the destination files will not be replaced<br>when there is already a file in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| source | The source file path. | String | Yes | N/A | N/A | Yes | 
+| destination | The destination file path. | String | Yes | N/A | N/A | Yes | 
+| overwrite | When set to false, the destination files will not be replaced when there is already a file in the specified location with the specified name. | Boolean | No | true | N/A | Yes | 
 
 **Input example: copy a file (Linux)**
 
@@ -1176,8 +1023,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\destinationFile.txt
 ```
 
-**Input example: copy a file using the source file name
-(Linux)**
+**Input example: copy a file using the source file name (Linux)**
 
 ```
   - name: CopyingFileWithSourceFileNameLinux
@@ -1187,8 +1033,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: copy a file using the source file name
-(Windows)**
+**Input example: copy a file using the source file name (Windows)**
 
 ```
   - name: CopyingFileWithSourceFileNameWindows
@@ -1198,8 +1043,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\
 ```
 
-**Input example: copy a file using the wildcard character
-(Linux)**
+**Input example: copy a file using the wildcard character (Linux)**
 
 ```
   - name: CopyingFilesWithWildCardLinux
@@ -1209,8 +1053,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: copy a file using the wildcard character
-(Windows)**
+**Input example: copy a file using the wildcard character (Windows)**
 
 ```
   - name: CopyingFilesWithWildCardWindows
@@ -1220,8 +1063,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\
 ```
 
-**Input example: copy a file without overwriting
-(Linux)**
+**Input example: copy a file without overwriting (Linux)**
 
 ```
   - name: CopyingFilesWithoutOverwriteLinux
@@ -1232,8 +1074,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-**Input example: copy a file without overwriting
-(Windows)**
+**Input example: copy a file without overwriting (Windows)**
 
 ```
   - name: CopyingFilesWithoutOverwriteWindows
@@ -1244,59 +1085,34 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### CopyFolder (Linux, Windows, macOS)
+<a name="action-modules-copyfolder"></a>
 
-The **CopyFolder** action module copies a folder from
-the specified source to the specified destination. The input for the
-`source` option is the folder to copy, and the input for the
-`destination` option is the folder where the contents of the source
-folder are copied. By default, the module recursively creates the destination folder
-if it does not exist at runtime.
+The **CopyFolder** action module copies a folder from the specified source to the specified destination. The input for the `source` option is the folder to copy, and the input for the `destination` option is the folder where the contents of the source folder are copied. By default, the module recursively creates the destination folder if it does not exist at runtime.
 
-If a folder with the specified name already exists in the specified folder, the
-action module, by default, overwrites the existing folder. You can override this
-default behavior by setting the overwrite option to `false`. When the
-overwrite option is set to `false`, and there is already a folder in the
-specified location with the specified name, the action module will return an
-error.
+If a folder with the specified name already exists in the specified folder, the action module, by default, overwrites the existing folder. You can override this default behavior by setting the overwrite option to `false`. When the overwrite option is set to `false`, and there is already a folder in the specified location with the specified name, the action module will return an error.
 
-The source folder name can include a wildcard (`*`). Wildcard
-characters are accepted only after the last file path separator (`/` or
-`\`). If wildcard characters are included in the source folder name,
-all of the folders that match the wildcard are copied to the destination folder. If
-you want to copy more than one folder by using a wildcard character, the input to
-the `destination` option must end with a file path separator
-(`/` or `\`), which indicates that the destination input
-is a folder.
+The source folder name can include a wildcard (`*`). Wildcard characters are accepted only after the last file path separator (`/` or `\`). If wildcard characters are included in the source folder name, all of the folders that match the wildcard are copied to the destination folder. If you want to copy more than one folder by using a wildcard character, the input to the `destination` option must end with a file path separator (`/` or `\`), which indicates that the destination input is a folder.
 
-If the destination folder name is different from the source folder name, you can
-specify the destination folder name using the `destination` option. If
-you do not specify a destination folder name, the name of the source folder is used
-to create the destination folder. Any text that follows the last file path separator
-(`/` or `\`) is treated as the folder name. If you want to
-use the same folder name as the source folder, then the input of the
-`destination` option must end with a file path separator
-(`/` or `\`).
+If the destination folder name is different from the source folder name, you can specify the destination folder name using the `destination` option. If you do not specify a destination folder name, the name of the source folder is used to create the destination folder. Any text that follows the last file path separator (`/` or `\`) is treated as the folder name. If you want to use the same folder name as the source folder, then the input of the `destination` option must end with a file path separator (`/` or `\`). 
 
 The action module returns an error when the following occurs:
++ You do not have permission to create a folder in the specified folder.
++ The source folders do not exist at runtime.
++ There is already a folder with the specified folder name and the `overwrite` option is set to `false`.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to create a folder in the specified
-  folder.
-- The source folders do not exist at runtime.
-- There is already a folder with the specified folder name and the
-  `overwrite` option is set to `false`.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `source` | The source folder path. | String | Yes | N/A | N/A | Yes |
-| `destination` | The destination folder path. | String | Yes | N/A | N/A | Yes |
-| `overwrite` | When set to false, the destination folders will not be replaced<br>when there is already a folder in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| source | The source folder path. | String | Yes | N/A | N/A | Yes | 
+| destination | The destination folder path. | String | Yes | N/A | N/A | Yes | 
+| overwrite | When set to false, the destination folders will not be replaced when there is already a folder in the specified location with the specified name. | Boolean | No | true | N/A | Yes | 
 
 **Input example: copy a folder (Linux)**
 
@@ -1318,8 +1134,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\destinationFolder
 ```
 
-**Input example: copy a folder using the source folder name
-(Linux)**
+**Input example: copy a folder using the source folder name (Linux)**
 
 ```
   - name: CopyingFolderSourceFolderNameLinux
@@ -1329,8 +1144,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: copy a folder using the source folder name
-(Windows)**
+**Input example: copy a folder using the source folder name (Windows)**
 
 ```
   - name: CopyingFolderSourceFolderNameWindows
@@ -1340,8 +1154,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\
 ```
 
-**Input example: copy a folder using the wildcard character
-(Linux)**
+**Input example: copy a folder using the wildcard character (Linux)**
 
 ```
   - name: CopyingFoldersWithWildCardLinux
@@ -1351,8 +1164,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: copy a folder using the wildcard character
-(Windows)**
+**Input example: copy a folder using the wildcard character (Windows)**
 
 ```
   - name: CopyingFoldersWithWildCardWindows
@@ -1362,8 +1174,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\
 ```
 
-**Input example: copy a folder without overwriting
-(Linux)**
+**Input example: copy a folder without overwriting (Linux)**
 
 ```
   - name: CopyingFoldersWithoutOverwriteLinux
@@ -1374,8 +1185,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-**Input example: copy a folder without overwriting
-(Windows)**
+**Input example: copy a folder without overwriting (Windows)**
 
 ```
   - name: CopyingFoldersWithoutOverwrite
@@ -1386,57 +1196,40 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### CreateFile (Linux, Windows, macOS)
+<a name="action-modules-createfile"></a>
 
-The **CreateFile** action module creates a file in a
-specified location. By default, if required, the module also recursively creates the
-parent folders.
+The **CreateFile** action module creates a file in a specified location. By default, if required, the module also recursively creates the parent folders.
 
-If the file already exists in the specified folder, the action module, by default,
-truncates or overwrites the existing file. You can override this default behavior by
-setting the overwrite option to `false`. When the overwrite option is set
-to `false`, and there is already a file in the specified location with
-the specified name, the action module will return an error.
+If the file already exists in the specified folder, the action module, by default, truncates or overwrites the existing file. You can override this default behavior by setting the overwrite option to `false`. When the overwrite option is set to `false`, and there is already a file in the specified location with the specified name, the action module will return an error.
 
-If the file encoding value is different from the default encoding
-(`utf-8`) value, then you can specify the file encoding value by
-using the `encoding` option. By default, `utf-16` and
-`utf-32` are assumed to use little-endian encoding.
+If the file encoding value is different from the default encoding (`utf-8`) value, then you can specify the file encoding value by using the `encoding` option. By default, `utf-16` and `utf-32` are assumed to use little-endian encoding. 
 
-`owner`, `group`, and `permissions` are optional
-inputs. The input for `permissions` must be a string value. Files are
-created with default values when not provided. These options are not supported on
-Windows platforms. This action module validates and returns an error if the
-`owner`, `group`, and `permissions` options are
-used on Windows platforms.
+`owner`, `group`, and `permissions` are optional inputs. The input for `permissions` must be a string value. Files are created with default values when not provided. These options are not supported on Windows platforms. This action module validates and returns an error if the `owner`, `group`, and `permissions` options are used on Windows platforms.
 
-This action module can create a file the with permissions defined by the default
-`umask` value of the operating system. You must set the
-`umask` value if you want to override the default value.
+This action module can create a file the with permissions defined by the default `umask` value of the operating system. You must set the `umask` value if you want to override the default value.
 
 The action module returns an error when the following occurs:
++ You do not have permission to create a file or a folder in the specified parent folder.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to create a file or a folder in the specified
-  parent folder.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Yes |
-| `content` | The text content of the file. | String | No | N/A | N/A | Yes |
-| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
-| `owner` | The user name or ID. | String | No | N/A | N/A | Not supported on Windows. |
-| `group` | The group name or ID. | String | No | The current user. | N/A | Not supported on Windows. |
-| `permissions` | The file permissions. | String | No | `0666` | N/A | Not supported on Windows. |
-| `overwrite` | If the name of the specified file already exists, setting this<br>value to `false` prevents the file from being truncated or<br>overwritten by default. | Boolean | No | `true` | N/A | Yes |
+**Input**  
 
-**Input example: create a file without overwriting
-(Linux)**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Yes | 
+| content | The text content of the file. | String | No | N/A | N/A | Yes | 
+| encoding | The encoding standard. | String | No | utf8 | utf8, utf-8, utf16,utf-16, utf16-LE, utf-16-LE utf16-BE, utf-16-BE, utf32, utf-32, utf32-LE,utf-32-LE, utf32-BE, and  utf-32-BE. The value of the encoding option is case insensitive. | Yes | 
+| owner | The user name or ID. | String | No | N/A | N/A | Not supported on Windows. | 
+| group | The group name or ID. | String | No | The current user. | N/A | Not supported on Windows. | 
+| permissions | The file permissions. | String | No | 0666 | N/A | Not supported on Windows. | 
+| overwrite | If the name of the specified file already exists, setting this value to false prevents the file from being truncated or overwritten by default. | Boolean | No | true | N/A | Yes | 
+
+**Input example: create a file without overwriting (Linux)**
 
 ```
   - name: CreatingFileWithoutOverwriteLinux
@@ -1447,8 +1240,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-**Input example: create a file without overwriting
-(Windows)**
+**Input example: create a file without overwriting (Windows)**
 
 ```
   - name: CreatingFileWithoutOverwriteWindows
@@ -1459,8 +1251,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-**Input example: create a file with file
-properties**
+**Input example: create a file with file properties**
 
 ```
   - name: CreatingFileWithFileProperties
@@ -1480,8 +1271,7 @@ properties**
         group: rootUserGroup
 ```
 
-**Input example: create a file without file
-properties**
+**Input example: create a file without file properties**
 
 ```
   - name: CreatingFileWithoutFileProperties
@@ -1491,58 +1281,45 @@ properties**
       - path: Sample1.txt
 ```
 
-**Input example: create an empty file to
-skip a section in the Linux clean up script**
+**Input example: create an empty file to skip a section in the Linux clean up script**
 
 ```
   - name: CreateSkipCleanupfile
     action: CreateFile
     inputs:
-      - path: `<skip section file name>`
+      - path: {{<skip section file name>}}
 ```
 
-For more information, see [Override the Linux clean up script](security-best-practices.md#override-linux-cleanup-script "security-best-practices.md#override-linux-cleanup-script")
+For more information, see [Override the Linux clean up script](security-best-practices.md#override-linux-cleanup-script)
 
-###### Output
-
+**Output**  
 None.
 
 ### CreateFolder (Linux, Windows, macOS)
+<a name="action-modules-createfolder"></a>
 
-The **CreateFolder** action module creates a folder
-in a specified location. By default, if required, the module also recursively
-creates the parent folders.
+The **CreateFolder** action module creates a folder in a specified location. By default, if required, the module also recursively creates the parent folders.
 
-If the folder already exists in the specified folder, the action module, by
-default, truncates or overwrites the existing folder. You can override this default
-behavior by setting the overwrite option to `false`. When the overwrite
-option is set to `false`, and there is already a folder in the specified
-location with the specified name, the action module will return an error.
+If the folder already exists in the specified folder, the action module, by default, truncates or overwrites the existing folder. You can override this default behavior by setting the overwrite option to `false`. When the overwrite option is set to `false`, and there is already a folder in the specified location with the specified name, the action module will return an error.
 
-`owner`, `group`, and `permissions` are optional
-inputs. The input for `permissions` must be a string value. These options
-are not supported on Windows platforms. This action module validates and returns an
-error if the `owner`, `group`, and `permissions`
-options are used on Windows platforms.
+`owner`, `group`, and `permissions` are optional inputs. The input for `permissions` must be a string value. These options are not supported on Windows platforms. This action module validates and returns an error if the `owner`, `group`, and `permissions` options are used on Windows platforms.
 
-This action module can create a folder the with permissions defined by the default
-`umask` value of the operating system. You must set the
-`umask` value if you want to override the default value.
+This action module can create a folder the with permissions defined by the default `umask` value of the operating system. You must set the `umask` value if you want to override the default value.
 
 The action module returns an error when the following occurs:
++ You do not have permission to create a folder in the specified location.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to create a folder in the specified
-  location.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The folder path. | String | Yes | N/A | N/A | Yes |
-| `owner` | The user name or ID. | String | No | The current user. | N/A | Not supported on Windows. |
-| `group` | The group name or ID. | String | No | The group of the current user. | N/A | Not supported on Windows. |
-| `permissions` | The folder permissions. | String | No | `0777` | N/A | Not supported on Windows. |
-| `overwrite` | If the name of the specified file already exists, setting this<br>value to `false` prevents the file from being truncated or<br>overwritten by default. | Boolean | No | `true` | N/A | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The folder path. | String | Yes | N/A | N/A | Yes | 
+| owner | The user name or ID. | String | No | The current user. | N/A | Not supported on Windows. | 
+| group | The group name or ID. | String | No | The group of the current user. | N/A | Not supported on Windows. | 
+| permissions | The folder permissions. | String | No | 0777 | N/A | Not supported on Windows. | 
+| overwrite | If the name of the specified file already exists, setting this value to false prevents the file from being truncated or overwritten by default. | Boolean | No | true | N/A | Yes | 
 
 **Input example: create a folder (Linux)**
 
@@ -1562,8 +1339,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\MyFolder
 ```
 
-**Input example: create a folder specifying folder
-properties**
+**Input example: create a folder specifying folder properties**
 
 ```
   - name: CreatingFolderWithFolderProperties
@@ -1577,8 +1353,7 @@ properties**
         permissions: 777
 ```
 
-**Input example: create a folder that
-overwrites the existing folder, if there is one.**
+**Input example: create a folder that overwrites the existing folder, if there is one.**
 
 ```
   - name: CreatingFolderWithOverwrite
@@ -1588,45 +1363,35 @@ overwrites the existing folder, if there is one.**
         overwrite: true
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### CreateSymlink (Linux, Windows, macOS)
+<a name="action-modules-createsymlink"></a>
 
-The **CreateSymlink** action module creates symbolic
-links, or files that contain a reference to another file. This module is not
-supported on Windows platforms.
+The **CreateSymlink** action module creates symbolic links, or files that contain a reference to another file. This module is not supported on Windows platforms. 
 
-The input for the `path` and `target` options can be either
-an absolute or relative path. If the input for the `path` option is a
-relative path, it is replaced with the absolute path when the link is
-created.
+The input for the `path` and `target` options can be either an absolute or relative path. If the input for the `path` option is a relative path, it is replaced with the absolute path when the link is created.
 
-By default, when a link with the specified name already exists in the specified
-folder, the action module returns an error. You can override this default behavior
-by setting the `force` option to `true`. When the
-`force` option is set to `true`, the module will overwrite
-the existing link.
+By default, when a link with the specified name already exists in the specified folder, the action module returns an error. You can override this default behavior by setting the `force` option to `true`. When the `force` option is set to `true`, the module will overwrite the existing link.
 
-If a parent folder does not exist, the action module creates the folder
-recursively, by default.
+If a parent folder does not exist, the action module creates the folder recursively, by default.
 
 The action module returns an error when the following occurs:
++ The target file does not exist at runtime.
++ A nonsymbolic link file with the specified name already exists.
++ The action module encounters an error while performing the operation.
 
-- The target file does not exist at runtime.
-- A nonsymbolic link file with the specified name already exists.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `target` | The target file path to which the symbolic link points. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `force` | Forces the creation of a link when a link with the same name<br>already exists. | Boolean | No | `false` | N/A | Not supported on Windows. |
+**Input**  
 
-**Input example: create symbolic link that forces the creation
-of a link**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| target | The target file path to which the symbolic link points. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| force | Forces the creation of a link when a link with the same name already exists. | Boolean | No | false | N/A | Not supported on Windows. | 
+
+**Input example: create symbolic link that forces the creation of a link**
 
 ```
   - name: CreatingSymbolicLinkWithForce
@@ -1637,8 +1402,7 @@ of a link**
         force: true
 ```
 
-**Input example: create a symbolic link that does not force
-the creation of a link**
+**Input example: create a symbolic link that does not force the creation of a link**
 
 ```
   - name: CreatingSymbolicLinkWithOutForce
@@ -1648,32 +1412,28 @@ the creation of a link**
         target: /Folder/Sample.txt
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### DeleteFile (Linux, Windows, macOS)
+<a name="action-modules-deletefile"></a>
 
-The **DeleteFile** action module deletes a file or
-files in a specified location.
+The **DeleteFile** action module deletes a file or files in a specified location.
 
-The input of `path` should be a valid file path or a file path with a
-wild card character (`*`) in the file name. When wildcard characters are
-specified in the file name, all of the files within the same folder that match the
-wildcard will be deleted.
+The input of `path` should be a valid file path or a file path with a wild card character (`*`) in the file name. When wildcard characters are specified in the file name, all of the files within the same folder that match the wildcard will be deleted. 
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform delete operations.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform delete operations.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Yes |
+**Input**  
 
-**Input example: delete a single file
-(Linux)**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Yes | 
+
+**Input example: delete a single file (Linux)**
 
 ```
   - name: DeletingSingleFileLinux
@@ -1682,8 +1442,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: /SampleFolder/MyFolder/Sample.txt
 ```
 
-**Input example: delete a single file
-(Windows)**
+**Input example: delete a single file (Windows)**
 
 ```
   - name: DeletingSingleFileWindows
@@ -1692,8 +1451,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\SampleFolder\MyFolder\Sample.txt
 ```
 
-**Input example: delete a file that ends with "log"
-(Linux)**
+**Input example: delete a file that ends with "log" (Linux)**
 
 ```
   - name: DeletingFileEndingWithLogLinux
@@ -1702,8 +1460,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: /SampleFolder/MyFolder/*log
 ```
 
-**Input example: delete a file that ends with "log"
-(Windows)**
+**Input example: delete a file that ends with "log" (Windows)**
 
 ```
   - name: DeletingFileEndingWithLogWindows
@@ -1712,8 +1469,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\SampleFolder\MyFolder\*log
 ```
 
-**Input example: delete all files in a specified folder
-(Linux)**
+**Input example: delete all files in a specified folder (Linux)**
 
 ```
   - name: DeletingAllFilesInAFolderLinux
@@ -1722,8 +1478,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: /SampleFolder/MyFolder/*
 ```
 
-**Input example: delete all files in a specified folder
-(Windows)**
+**Input example: delete all files in a specified folder (Windows)**
 
 ```
   - name: DeletingAllFilesInAFolderWindows
@@ -1732,34 +1487,29 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\SampleFolder\MyFolder\*
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### DeleteFolder (Linux, Windows, macOS)
+<a name="action-modules-deletefolder"></a>
 
-The **DeleteFolder** action module deletes
-folders.
+The **DeleteFolder** action module deletes folders.
 
-If the folder is not empty, you must set the `force` option to
-`true` to remove the folder and its contents. If you do not set the
-`force` option to `true`, and the folder you are trying to
-delete is not empty, the action module returns an error. The default value of the
-`force` option is `false`.
+If the folder is not empty, you must set the `force` option to `true` to remove the folder and its contents. If you do not set the `force` option to `true`, and the folder you are trying to delete is not empty, the action module returns an error. The default value of the `force` option is `false`.
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform delete operations.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform delete operations.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The folder path. | String | Yes | N/A | N/A | Yes |
-| `force` | Removes the folder whether or not the folder is empty. | Boolean | No | `false` | N/A | Yes |
+**Input**  
 
-**Input example: delete a folder that is not empty using the
-`force` option (Linux)**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The folder path. | String | Yes | N/A | N/A | Yes | 
+| force | Removes the folder whether or not the folder is empty. | Boolean | No | false | N/A | Yes | 
+
+**Input example: delete a folder that is not empty using the `force` option (Linux)** 
 
 ```
   - name: DeletingFolderWithForceOptionLinux
@@ -1769,8 +1519,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         force: true
 ```
 
-**Input example: delete a folder that is not empty using the
-`force` option (Windows)**
+**Input example: delete a folder that is not empty using the `force` option (Windows)** 
 
 ```
   - name: DeletingFolderWithForceOptionWindows
@@ -1780,7 +1529,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         force: true
 ```
 
-**Input example: delete a folder (Linux)**
+**Input example: delete a folder (Linux)** 
 
 ```
   - name: DeletingFolderWithOutForceLinux
@@ -1789,7 +1538,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: /Sample/MyFolder/Sample/
 ```
 
-**Input example: delete a folder (Windows)**
+**Input example: delete a folder (Windows)** 
 
 ```
   - name: DeletingFolderWithOutForce
@@ -1798,39 +1547,31 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\Sample\MyFolder\Sample\
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### ListFiles (Linux, Windows, macOS)
+<a name="action-modules-listfiles"></a>
 
-The **ListFiles** action module lists the files in a
-specified folder. When the recursive option is set to `true`, it lists
-the files in subfolders. This module does not list files in subfolders by
-default.
+The **ListFiles** action module lists the files in a specified folder. When the recursive option is set to `true`, it lists the files in subfolders. This module does not list files in subfolders by default.
 
-To list all of the files with names that match a specified pattern, use the
-`fileNamePattern` option to provide the pattern. The
-`fileNamePattern` option accepts the wildcard (`*`) value.
-When the `fileNamePattern` is provided, all of the files that match the
-specified file name format are returned.
+To list all of the files with names that match a specified pattern, use the `fileNamePattern` option to provide the pattern. The `fileNamePattern` option accepts the wildcard (`*`) value. When the `fileNamePattern` is provided, all of the files that match the specified file name format are returned. 
 
 The action module returns an error when the following occurs:
++ The specified folder does not exist at runtime.
++ You do not have permission to create a file or a folder in the specified parent folder.
++ The action module encounters an error while performing the operation.
 
-- The specified folder does not exist at runtime.
-- You do not have permission to create a file or a folder in the specified
-  parent folder.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The folder path. | String | Yes | N/A | N/A | Yes |
-| `fileNamePattern` | The pattern to match to list all files with names that match the<br>pattern. | String | No | N/A | N/A | Yes |
-| `recursive` | Lists files in the folder recursively. | Boolean | No | `false` | N/A | Yes |
+**Input**  
 
-**Input example: list files in specified folder
-(Linux)**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The folder path. | String | Yes | N/A | N/A | Yes | 
+| fileNamePattern | The pattern to match to list all files with names that match the pattern. | String | No | N/A | N/A | Yes | 
+| recursive | Lists files in the folder recursively. | Boolean | No | false | N/A | Yes | 
+
+**Input example: list files in specified folder (Linux)**
 
 ```
   - name: ListingFilesInSampleFolderLinux
@@ -1839,8 +1580,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: /Sample/MyFolder/Sample
 ```
 
-**Input example: list files in specified folder
-(Windows)**
+**Input example: list files in specified folder (Windows)**
 
 ```
   - name: ListingFilesInSampleFolderWindows
@@ -1849,8 +1589,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\Sample\MyFolder\Sample
 ```
 
-**Input example: list files that end with "log"
-(Linux)**
+**Input example: list files that end with "log" (Linux)**
 
 ```
   - name: ListingFilesWithEndingWithLogLinux
@@ -1860,8 +1599,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         fileNamePattern: *log
 ```
 
-**Input example: list files that end with "log"
-(Windows)**
+**Input example: list files that end with "log" (Windows)**
 
 ```
   - name: ListingFilesWithEndingWithLogWindows
@@ -1881,63 +1619,46 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         recursive: true
 ```
 
-Output| Key name | Description | Type |
-| --- | --- | --- |
-| `files` | The list of files. | String |
+
+**Output**  
+
+| Key name | Description | Type | 
+| --- | --- | --- | 
+| files | The list of files. | String | 
 
 **Output example**
 
 ```
-`{
- "files": "/sample1.txt,/sample2.txt,/sample3.txt"
-}`
+{
+	"files": "/sample1.txt,/sample2.txt,/sample3.txt"
+}
 ```
 
 ### MoveFile (Linux, Windows, macOS)
+<a name="action-modules-movefile"></a>
 
-The **MoveFile** action module moves files from the
-specified source to the specified destination.
+The **MoveFile** action module moves files from the specified source to the specified destination.
 
-If the file already exists in the specified folder, the action module, by default,
-overwrites the existing file. You can override this default behavior by setting the
-overwrite option to `false`. When the overwrite option is set to
-`false`, and there is already a file in the specified location with
-the specified name, the action module will return an error. This option works the
-same as the `mv` command in Linux, which overwrites by default.
+If the file already exists in the specified folder, the action module, by default, overwrites the existing file. You can override this default behavior by setting the overwrite option to `false`. When the overwrite option is set to `false`, and there is already a file in the specified location with the specified name, the action module will return an error. This option works the same as the `mv` command in Linux, which overwrites by default.
 
-The source file name can include a wildcard (`*`). Wildcard characters
-are accepted only after the last file path separator (`/` or
-`\`). If wildcard characters are included in the source file name,
-all of the files that match the wildcard are copied to the destination folder. If
-you want to move more than one file by using a wildcard character, the input to the
-`destination` option must end with a file path separator
-(`/` or `\`), which indicates that the destination input
-is a folder.
+The source file name can include a wildcard (`*`). Wildcard characters are accepted only after the last file path separator (`/` or `\`). If wildcard characters are included in the source file name, all of the files that match the wildcard are copied to the destination folder. If you want to move more than one file by using a wildcard character, the input to the `destination` option must end with a file path separator (`/` or `\`), which indicates that the destination input is a folder.
 
-If the destination file name is different from the source file name, you can
-specify the destination file name using the `destination` option. If you
-do not specify a destination file name, the name of the source file is used to
-create the destination file. Any text that follows the last file path separator
-(`/` or `\`) is treated as the file name. If you want to
-use the same file name as the source file, then the input of the
-`destination` option must end with a file path separator
-(`/` or `\`).
+If the destination file name is different from the source file name, you can specify the destination file name using the `destination` option. If you do not specify a destination file name, the name of the source file is used to create the destination file. Any text that follows the last file path separator (`/` or `\`) is treated as the file name. If you want to use the same file name as the source file, then the input of the `destination` option must end with a file path separator (`/` or `\`). 
 
 The action module returns an error when the following occurs:
++ You do not have permission to create a file in the specified folder.
++ The source files do not exist at runtime.
++ There is already a folder with the specified file name and the `overwrite` option is set to `false`.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to create a file in the specified
-  folder.
-- The source files do not exist at runtime.
-- There is already a folder with the specified file name and the
-  `overwrite` option is set to `false`.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `source` | The source file path. | String | Yes | N/A | N/A | Yes |
-| `destination` | The destination file path. | String | Yes | N/A | N/A | Yes |
-| `overwrite` | When set to false, the destination files will not be replaced<br>when there is already a file in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| source | The source file path. | String | Yes | N/A | N/A | Yes | 
+| destination | The destination file path. | String | Yes | N/A | N/A | Yes | 
+| overwrite | When set to false, the destination files will not be replaced when there is already a file in the specified location with the specified name. | Boolean | No | true | N/A | Yes | 
 
 **Input example: move a file (Linux)**
 
@@ -1959,8 +1680,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\destinationFile.txt
 ```
 
-**Input example: move a file using the source file name
-(Linux)**
+**Input example: move a file using the source file name (Linux)**
 
 ```
   - name: MovingFileWithSourceFileNameLinux
@@ -1970,8 +1690,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: move a file using the source file name
-(Windows)**
+**Input example: move a file using the source file name (Windows)**
 
 ```
   - name: MovingFileWithSourceFileNameWindows
@@ -1981,8 +1700,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder
 ```
 
-**Input example: move a file using a wildcard character
-(Linux)**
+**Input example: move a file using a wildcard character (Linux)**
 
 ```
   - name: MovingFilesWithWildCardLinux
@@ -1992,8 +1710,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: move a file using a wildcard character
-(Windows)**
+**Input example: move a file using a wildcard character (Windows)**
 
 ```
   - name: MovingFilesWithWildCardWindows
@@ -2003,8 +1720,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder
 ```
 
-**Input example: move a file without overwriting
-(Linux)**
+**Input example: move a file without overwriting (Linux)**
 
 ```
   - name: MovingFilesWithoutOverwriteLinux
@@ -2015,8 +1731,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-**Input example: move a file without overwriting
-(Windows)**
+**Input example: move a file without overwriting (Windows)**
 
 ```
   - name: MovingFilesWithoutOverwrite
@@ -2027,62 +1742,36 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### MoveFolder (Linux, Windows, macOS)
+<a name="action-modules-movefolder"></a>
 
-The **MoveFolder** action module moves folders from
-the specified source to the specified destination. The input for the
-`source` option is the folder to move, and the input to the
-`destination` option is the folder where the contents of the source
-folders are moved.
+The **MoveFolder** action module moves folders from the specified source to the specified destination. The input for the `source` option is the folder to move, and the input to the `destination` option is the folder where the contents of the source folders are moved.
 
-If the destination parent folder or the input to the `destination`
-option does not exist at runtime, the default behavior of the module is to
-recursively create the folder at the specified destination.
+If the destination parent folder or the input to the `destination` option does not exist at runtime, the default behavior of the module is to recursively create the folder at the specified destination.
 
-If a folder with the same as the source folder already exists in the destination
-folder, the action module, by default, overwrites the existing folder. You can
-override this default behavior by setting the overwrite option to
-`false`. When the overwrite option is set to `false`, and
-there is already a folder in the specified location with the specified name, the
-action module will return an error.
+If a folder with the same as the source folder already exists in the destination folder, the action module, by default, overwrites the existing folder. You can override this default behavior by setting the overwrite option to `false`. When the overwrite option is set to `false`, and there is already a folder in the specified location with the specified name, the action module will return an error.
 
-The source folder name can include a wildcard (`*`). Wildcard
-characters are accepted only after the last file path separator (`/` or
-`\`). If wildcard characters are included in the source folder name,
-all of the folders that match the wildcard are copied to the destination folder. If
-you want to move more than one folder by using a wildcard character, the input to
-the `destination` option must end with a file path separator
-(`/` or `\`), which indicates that the destination input
-is a folder.
+The source folder name can include a wildcard (`*`). Wildcard characters are accepted only after the last file path separator (`/` or `\`). If wildcard characters are included in the source folder name, all of the folders that match the wildcard are copied to the destination folder. If you want to move more than one folder by using a wildcard character, the input to the `destination` option must end with a file path separator (`/` or `\`), which indicates that the destination input is a folder.
 
-If the destination folder name is different from the source folder name, you can
-specify the destination folder name using the `destination` option. If
-you do not specify a destination folder name, the name of the source folder is used
-to create the destination folder. Any text that follows the last file path separator
-(`/` or `\`) is treated as the folder name. If you want to
-use the same folder name as the source folder, then the input of the
-`destination` option must end with a file path separator
-(`/` or `\`).
+If the destination folder name is different from the source folder name, you can specify the destination folder name using the `destination` option. If you do not specify a destination folder name, the name of the source folder is used to create the destination folder. Any text that follows the last file path separator (`/` or `\`) is treated as the folder name. If you want to use the same folder name as the source folder, then the input of the `destination` option must end with a file path separator (`/` or `\`). 
 
 The action module returns an error when the following occurs:
++ You do not have permission to create a folder in the destination folder.
++ The source folders do not exist at runtime.
++ There is already a folder with the specified name and the `overwrite` option is set to `false`.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to create a folder in the destination
-  folder.
-- The source folders do not exist at runtime.
-- There is already a folder with the specified name and the
-  `overwrite` option is set to `false`.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `source` | The source folder path. | String | Yes | N/A | N/A | Yes |
-| `destination` | The destination folder path. | String | Yes | N/A | N/A | Yes |
-| `overwrite` | When set to false, the destination folders will not be replaced<br>when there is already a folder in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| source | The source folder path. | String | Yes | N/A | N/A | Yes | 
+| destination | The destination folder path. | String | Yes | N/A | N/A | Yes | 
+| overwrite | When set to false, the destination folders will not be replaced when there is already a folder in the specified location with the specified name. | Boolean | No | true | N/A | Yes | 
 
 **Input example: move a folder (Linux)**
 
@@ -2104,8 +1793,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\destinationFolder
 ```
 
-**Input example: move a folder using the source folder name
-(Linux)**
+**Input example: move a folder using the source folder name (Linux)**
 
 ```
   - name: MovingFolderWithSourceFolderNameLinux
@@ -2115,8 +1803,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: move a folder using the source folder name
-(Windows)**
+**Input example: move a folder using the source folder name (Windows)**
 
 ```
   - name: MovingFolderWithSourceFolderNameWindows
@@ -2126,8 +1813,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\
 ```
 
-**Input example: move a folder using a wildcard character
-(Linux)**
+**Input example: move a folder using a wildcard character (Linux)**
 
 ```
   - name: MovingFoldersWithWildCardLinux
@@ -2137,8 +1823,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: /MyFolder/
 ```
 
-**Input example: move a folder using a wildcard character
-(Windows)**
+**Input example: move a folder using a wildcard character (Windows)**
 
 ```
   - name: MovingFoldersWithWildCardWindows
@@ -2148,8 +1833,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         destination: C:\MyFolder\
 ```
 
-**Input example: move a folder without overwriting
-(Linux)**
+**Input example: move a folder without overwriting (Linux)**
 
 ```
   - name: MovingFoldersWithoutOverwriteLinux
@@ -2160,8 +1844,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
     overwrite: false
 ```
 
-**Input example: move a folder without overwriting
-(Windows)**
+**Input example: move a folder without overwriting (Windows)**
 
 ```
   - name: MovingFoldersWithoutOverwriteWindows
@@ -2172,42 +1855,32 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         overwrite: false
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### ReadFile (Linux, Windows, macOS)
+<a name="action-modules-readfile"></a>
 
-The **ReadFile** action module reads the content of a
-text file of type string. This module can be used to read the content of a file for
-use in subsequent steps through chaining or for reading data to the
-`console.log` file. If the specified path is a symbolic link, this
-module returns the content of the target file. This module only supports text
-files.
+The **ReadFile** action module reads the content of a text file of type string. This module can be used to read the content of a file for use in subsequent steps through chaining or for reading data to the `console.log` file. If the specified path is a symbolic link, this module returns the content of the target file. This module only supports text files.
 
-If the file encoding value is different from the default encoding
-(`utf-8`) value, then you can specify the file encoding value by
-using the `encoding` option. By default, `utf-16` and
-`utf-32` are assumed to use little-endian encoding.
+If the file encoding value is different from the default encoding (`utf-8`) value, then you can specify the file encoding value by using the `encoding` option. By default, `utf-16` and `utf-32` are assumed to use little-endian encoding. 
 
-By default, this module cannot print the file content to the
-`console.log` file. You can override this setting by setting the
-`printFileContent` property to `true`.
+By default, this module cannot print the file content to the `console.log` file. You can override this setting by setting the `printFileContent` property to `true`.
 
-This module can return only the content of a file. It cannot parse files, such as
-Excel or JSON files.
+This module can return only the content of a file. It cannot parse files, such as Excel or JSON files.
 
 The action module returns an error when the following occurs:
++ The file does not exist at runtime.
++ The action module encounters an error while performing the operation.
 
-- The file does not exist at runtime.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Yes |
-| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
-| `printFileContent` | Prints the file content to the `console.log`<br>file. | Boolean | No | false | N/A | Yes. |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Yes | 
+| encoding | The encoding standard. | String | No | utf8 | utf8, utf-8, utf16,utf-16, utf16-LE, utf-16-LE utf16-BE, utf-16-BE, utf32, utf-32, utf32-LE,utf-32-LE, utf32-BE, and  utf-32-BE. The value of the encoding option is case insensitive. | Yes | 
+| printFileContent | Prints the file content to the console.log file. | Boolean | No | false | N/A | Yes. | 
 
 **Input example: read a file (Linux)**
 
@@ -2227,8 +1900,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
       - path: C:\Windows\WindowsUpdate.log
 ```
 
-**Input example: read a file and specify encoding
-standard**
+**Input example: read a file and specify encoding standard**
 
 ```
   - name: ReadingFileWithFileEncoding
@@ -2238,8 +1910,7 @@ standard**
         encoding: UTF-32
 ```
 
-**Input example: read a file and print to the
-`console.log` file**
+**Input example: read a file and print to the `console.log` file**
 
 ```
   - name: ReadingFileToConsole
@@ -2249,37 +1920,38 @@ standard**
         printFileContent: true
 ```
 
-Output| Field | Description | Type |
-| --- | --- | --- |
-| `content` | The file content. | string |
+
+**Output**  
+
+| Field | Description | Type | 
+| --- | --- | --- | 
+| content | The file content. | string | 
 
 **Output example**
 
 ```
-`{
- "content" : "The file content"
-}`
+{
+	"content" : "The file content"
+}
 ```
 
 ### SetFileEncoding (Linux, Windows, macOS)
+<a name="action-modules-setfileencoding"></a>
 
-The **SetFileEncoding** action module modifies the
-encoding property of an existing file. This module can convert file encoding from
-`utf-8` to a specified encoding standard. By default,
-`utf-16` and `utf-32` are assumed to be little-endian
-encoding.
+The **SetFileEncoding** action module modifies the encoding property of an existing file. This module can convert file encoding from `utf-8` to a specified encoding standard. By default, `utf-16` and `utf-32` are assumed to be little-endian encoding.
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform the specified modification.
++ The file does not exist at runtime.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform the specified modification.
-- The file does not exist at runtime.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Yes |
-| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Yes | 
+| encoding | The encoding standard. | String | No | utf8 | utf8, utf-8, utf16,utf-16, utf16-LE, utf-16-LE utf16-BE, utf-16-BE, utf32, utf-32, utf32-LE,utf-32-LE, utf32-BE, and  utf-32-BE. The value of the encoding option is case insensitive. | Yes | 
 
 **Input example: set file encoding property**
 
@@ -2291,37 +1963,32 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         encoding: UTF-16
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### SetFileOwner (Linux, Windows, macOS)
+<a name="action-modules-setfileowner"></a>
 
-The **SetFileOwner** action module modifies the
-`owner` and`group` owner properties of an existing file.
-If the specified file is a symbolic link, the module modifies the `owner`
-property of the source file. This module is not supported on Windows platforms.
+The **SetFileOwner** action module modifies the `owner` and`group` owner properties of an existing file. If the specified file is a symbolic link, the module modifies the `owner` property of the source file. This module is not supported on Windows platforms. 
 
-This module accepts user and group names as inputs. If the group name is not
-provided, the module assigns the group owner of the file to the group that the user
-belongs to.
+This module accepts user and group names as inputs. If the group name is not provided, the module assigns the group owner of the file to the group that the user belongs to.
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform the specified modification.
++ The specified user or group name does not exist at runtime.
++ The file does not exist at runtime.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform the specified modification.
-- The specified user or group name does not exist at runtime.
-- The file does not exist at runtime.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `owner` | The user name. | string | Yes | N/A | N/A | Not supported on Windows. |
-| `group` | The name of the user group. | String | No | The name of the group that the user belongs to. | N/A | Not supported on Windows. |
+**Input**  
 
-**Input example: set file owner property without specifying
-the name of the user group**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| owner | The user name. | string | Yes | N/A | N/A | Not supported on Windows. | 
+| group | The name of the user group. | String | No | The name of the group that the user belongs to. | N/A | Not supported on Windows. | 
+
+**Input example: set file owner property without specifying the name of the user group**
 
 ```
   - name: SettingFileOwnerPropertyNoGroup
@@ -2331,8 +1998,7 @@ the name of the user group**
         owner: LinuxUser
 ```
 
-**Input example: set file owner property by specifying the
-owner and the user group**
+**Input example: set file owner property by specifying the owner and the user group**
 
 ```
   - name: SettingFileOwnerProperty
@@ -2343,39 +2009,33 @@ owner and the user group**
         group: LinuxUserGroup
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### SetFolderOwner (Linux, Windows, macOS)
+<a name="action-modules-setfolderowner"></a>
 
-The **SetFolderOwner** action module recursively
-modifies the `owner` and`group` owner properties of an
-existing folder. By default, the module can modify ownership for all of the contents
-in a folder. You can set the `recursive` option to `false` to
-override this behavior. This module is not supported on Windows platforms.
+The **SetFolderOwner** action module recursively modifies the `owner` and`group` owner properties of an existing folder. By default, the module can modify ownership for all of the contents in a folder. You can set the `recursive` option to `false` to override this behavior. This module is not supported on Windows platforms. 
 
-This module accepts user and group names as inputs. If the group name is not
-provided, the module assigns the group owner of the file to the group that the user
-belongs to.
+This module accepts user and group names as inputs. If the group name is not provided, the module assigns the group owner of the file to the group that the user belongs to.
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform the specified modification.
++ The specified user or group name does not exist at runtime.
++ The folder does not exist at runtime.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform the specified modification.
-- The specified user or group name does not exist at runtime.
-- The folder does not exist at runtime.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The folder path. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `owner` | The user name. | string | Yes | N/A | N/A | Not supported on Windows. |
-| `group` | The name of the user group. | String | No | The name of the group that the user belongs to. | N/A | Not supported on Windows. |
-| `recursive` | Overrides the default behavior of modifying ownership for all of<br>the contents of a folder when set to `false`. | Boolean | No | `true` | N/A | Not supported on Windows. |
+**Input**  
 
-**Input example: set folder owner property without specifying
-the name of the user group**
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The folder path. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| owner | The user name. | string | Yes | N/A | N/A | Not supported on Windows. | 
+| group | The name of the user group. | String | No | The name of the group that the user belongs to. | N/A | Not supported on Windows. | 
+| recursive | Overrides the default behavior of modifying ownership for all of the contents of a folder when set to false. | Boolean | No | true | N/A | Not supported on Windows. | 
+
+**Input example: set folder owner property without specifying the name of the user group**
 
 ```
   - name: SettingFolderPropertyWithOutGroup
@@ -2385,8 +2045,7 @@ the name of the user group**
         owner: LinuxUser
 ```
 
-**Input example: set folder owner property without overriding
-the ownership of all of the contents in a folder**
+**Input example: set folder owner property without overriding the ownership of all of the contents in a folder **
 
 ```
   - name: SettingFolderPropertyWithOutRecursively
@@ -2397,8 +2056,7 @@ the ownership of all of the contents in a folder**
         recursive: false
 ```
 
-**Input example: set file ownership property by specifying the
-name of the user group**
+**Input example: set file ownership property by specifying the name of the user group**
 
 ```
   - name: SettingFolderPropertyWithGroup
@@ -2409,33 +2067,30 @@ name of the user group**
         group: LinuxUserGroup
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### SetFilePermissions (Linux, Windows, macOS)
+<a name="action-modules-setfilepermissions"></a>
 
-The **SetFilePermissions** action module modifies the
-`permissions` of an existing file. This module is not supported on
-Windows platforms.
+The **SetFilePermissions** action module modifies the `permissions` of an existing file. This module is not supported on Windows platforms. 
 
 The input for `permissions` must be a string value.
 
-This action module can create a file the with permissions defined by the default
-umask value of the operating system. You must set the `umask` value if
-you want to override the default value.
+This action module can create a file the with permissions defined by the default umask value of the operating system. You must set the `umask` value if you want to override the default value.
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform the specified modification.
++ The file does not exist at runtime.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform the specified modification.
-- The file does not exist at runtime.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The file path. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `permissions` | The file permissions. | String | Yes | N/A | N/A | Not supported on Windows. |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The file path. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| permissions | The file permissions. | String | Yes | N/A | N/A | Not supported on Windows. | 
 
 **Input example: modify file permissions**
 
@@ -2447,37 +2102,31 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         permissions: 766
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ### SetFolderPermissions (Linux, Windows, macOS)
+<a name="action-modules-setfolderpermissions"></a>
 
-The **SetFolderPermissions** action module
-recursively modifies the `permissions` of an existing folder and all of
-its subfiles and subfolders. By default, this module can modify permissions for all
-of the contents of the specified folder. You can set the `recursive`
-option to `false` to override this behavior. This module is not supported
-on Windows platforms.
+The **SetFolderPermissions** action module recursively modifies the `permissions` of an existing folder and all of its subfiles and subfolders. By default, this module can modify permissions for all of the contents of the specified folder. You can set the `recursive` option to `false` to override this behavior. This module is not supported on Windows platforms. 
 
-The input for `permissions` must be a string value.
+The input for `permissions` must be a string value. 
 
-This action module can modify permissions according to the default umask value of
-the operating system. You must set the `umask` value if you want to
-override the default value.
+This action module can modify permissions according to the default umask value of the operating system. You must set the `umask` value if you want to override the default value.
 
 The action module returns an error when the following occurs:
++ You do not have permission to perform the specified modification.
++ The folder does not exist at runtime.
++ The action module encounters an error while performing the operation.
 
-- You do not have permission to perform the specified modification.
-- The folder does not exist at runtime.
-- The action module encounters an error while performing the
-  operation.
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| --- | --- | --- | --- | --- | --- | --- |
-| `path` | The folder path. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `permissions` | The folder permissions. | String | Yes | N/A | N/A | Not supported on Windows. |
-| `recursive` | Overrides the default behavior of modifying permissions for all<br>of the contents of a folder when set to `false`. | Boolean | No | `true` | N/A | Not supported on Windows. |
+**Input**  
+
+| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| path | The folder path. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| permissions | The folder permissions. | String | Yes | N/A | N/A | Not supported on Windows. | 
+| recursive | Overrides the default behavior of modifying permissions for all of the contents of a folder when set to false. | Boolean | No | true | N/A | Not supported on Windows. | 
 
 **Input example: set folder permissions**
 
@@ -2489,8 +2138,7 @@ Input| Key name | Description | Type | Required | Default value | Acceptable val
         permissions: 0777
 ```
 
-**Input example: set folder permissions without modifying
-permissions for all of the contents of a folder**
+**Input example: set folder permissions without modifying permissions for all of the contents of a folder**
 
 ```
   - name: SettingFolderPermissionsNoRecursive
@@ -2501,91 +2149,68 @@ permissions for all of the contents of a folder**
         recursive: false
 ```
 
-###### Output
-
+**Output**  
 None.
 
 ## Software installation actions
+<a name="action-modules-software-install-actions"></a>
 
 The following section describes action modules that install or uninstall software.
 
-###### IAM requirements
+**IAM requirements**  
+If your installation download path is an S3 URI, then the IAM role that you associate with your instance profile must have permission to run the `S3Download` action module. To grant the required permission, attach the `S3:GetObject` IAM policy to the IAM role that is associated with your instance profile, and specify the path for your bucket. For example, `{{arn:aws:s3:::BucketName/*}}`).
 
-If your installation download path is an S3 URI, then the IAM role
-that you associate with your instance profile must have permission to
-run the `S3Download` action module. To grant the required
-permission, attach the `S3:GetObject` IAM policy to the
-IAM role that is associated with your instance profile, and specify
-the path for your bucket. For example,
-``arn:aws:s3:::`BucketName`/*``).
+**Complex MSI Inputs**  
+If your input strings contain double quote characters (`"`), you must use one of the following methods to ensure that they are interpreted correctly:
++ You can use single quotes (') on the outside of your string, to contain it, and double quotes (") inside of your string, as shown in the following example.
 
-###### Complex MSI Inputs
+  ```
+  properties:
+    COMPANYNAME: '"Acme ""Widgets"" and ""Gizmos."""'
+  ```
 
-If your input strings contain double quote characters (`"`),
-you must use one of the following methods to ensure that they are
-interpreted correctly:
+  In this case, if you need to use an apostrophe inside of your string, you must escape it. This means using another single quote (') before the apostrophe.
++ You can use double quotes (") on the outside of your string, to contain it. And you can escape any double quotes inside of your string, using the backslash character (`\`), as shown in the following example.
 
-- You can use single quotes (') on the outside of your
-  string, to contain it, and double quotes (") inside of
-  your string, as shown in the following example.
+  ```
+  properties:
+    COMPANYNAME: "\"Acme \"\"Widgets\"\" and \"\"Gizmos.\"\"\""
+  ```
 
-```
-`properties:
- COMPANYNAME: '"Acme ""Widgets"" and ""Gizmos."""'`
-```
+Both of these methods pass the value `COMPANYNAME="Acme ""Widgets"" and ""Gizmos."""` to the **msiexec** command.
 
-In this case, if you need to use an apostrophe inside of your string, you must escape it.
-This means using another single quote (') before the apostrophe.
-
-- You can use double quotes (") on the outside of your string, to contain it. And you can
-  escape any double quotes inside of your string, using the backslash character
-  (`\`), as shown in the following example.
-
-```
-`properties:
- COMPANYNAME: "\"Acme \"\"Widgets\"\" and \"\"Gizmos.\"\"\""`
-```
-
-Both of these methods pass the value `COMPANYNAME="Acme ""Widgets"" 
- and ""Gizmos."""` to the **msiexec** command.
-
-###### Software installation action modules
-
-- [InstallMSI (Windows)](#action-modules-install-msi "#action-modules-install-msi")
-- [UninstallMSI (Windows)](#action-modules-uninstall-msi "#action-modules-uninstall-msi")
+**Topics**
++ [InstallMSI (Windows)](#action-modules-install-msi)
++ [UninstallMSI (Windows)](#action-modules-uninstall-msi)
 
 ### InstallMSI (Windows)
+<a name="action-modules-install-msi"></a>
 
-The `InstallMSI` action module installs a Windows application using
-an MSI file. You can specify the MSI file using a local path, an S3 object URI, or
-a web URL. The reboot option configures the reboot behavior of the system.
+The `InstallMSI` action module installs a Windows application using an MSI file. You can specify the MSI file using a local path, an S3 object URI, or a web URL. The reboot option configures the reboot behavior of the system.
 
-AWSTOE generates the **msiexec** command based on
-the input parameters for the action module. Values for the `path`
-(MSI file location) and `logFile` (log file location) input parameters
-must be enclosed in quotation marks (").
+AWSTOE generates the **msiexec** command based on the input parameters for the action module. Values for the `path` (MSI file location) and `logFile` (log file location) input parameters must be enclosed in quotation marks (").
 
 The following MSI exit codes are considered successful:
++ 0 (Success)
++ 1614 (ERROR\_PRODUCT\_UNINSTALLED)
++ 1641 (Reboot Initiated)
++ 3010 (Reboot Required)
 
-- 0 (Success)
-- 1614 (ERROR\_PRODUCT\_UNINSTALLED)
-- 1641 (Reboot Initiated)
-- 3010 (Reboot Required)
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values |
-| --- | --- | --- | --- | --- | --- |
-| `path` | Specify the MSI file location using one of the following:<br>• The local file path. The path can be absolute or relative<br>• A valid S3 object URI.<br>• A valid web HTTP/HTTPS URL (HTTPS is recommended)<br>that follows the RFC 3986 standard.<br>Chaining expressions are allowed. | String | Yes | N/A | N/A |
-| `reboot` | Configure the system reboot behavior that follows a successful run of the action<br>module.<br>Settings:<br>• `Force` – Initiates a system<br>reboot after the *_msiexec_<br>• command<br>runs successfully.<br>• `Allow` – Initiates a system<br>reboot if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required.<br>• `Skip` – Logs an informational message<br>to the `console.log` file indicating that<br>a reboot was skipped. This option prevents a reboot, even<br>if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required. | String | No | `Allow` | `Allow, Force, Skip` |
-| `logOptions` | Specify the options to use for MSI installation logging.<br>Specified flags are passed to the MSI installer, along with<br>the `/L` command line parameter to enable logging.<br>If no flags are specified, AWSTOE uses the default value.<br>For more information about log options for MSI, see<br>[Command<br>Line Options](https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options "https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options") in the Microsoft _Windows Installer_<br>product documentation. | String | No | `*VX` | `i,w,e,a,r,u,c,m,o,p,v,x,+,!,*` |
-| `logFile` | An absolute or relative path to the log file location.<br>If the log file path does not exist, it is created. If<br>the log file path is not provided, AWSTOE does not store<br>the MSI installation log. | String | No | N/A | N/A |
-| `properties` | MSI logging property key-value pairs , for example: `TARGETDIR:<br>"C:\target\location"`<br>Note: Modification of the following properties is not allowed:<br>• `REBOOT="ReallySupress"`<br>• `REINSTALLMODE="ecmus"`<br>• `REINSTALL="ALL"` | Map[String]String | No | N/A | N/A |
-| `ignoreAuthenticodeSignatureErrors` | Flag to ignore authenticode signature validation errors for the installer<br>specified in path. The *_Get-AuthenticodeSignature_<br>• command<br>is used to validate installers.<br>Settings:<br>• `true` – Validation errors are ignored and the<br>installer runs.<br>• `false` – Validation errors are not ignored. The<br>installer runs only when validation is successful. This is the<br>default behavior. | Boolean | No | `false` | `true, false` |
-| `allowUnsignedInstaller` | Flag to allow running the unsigned installer specified in<br>the path. The **Get-AuthenticodeSignature**<br>command is used to validate installers.<br>Settings:<br>• `true` – Ignores the<br>`NotSigned` status returned by the<br>*_Get-AuthenticodeSignature_<br>• command<br>and runs the installer.<br>• `false` – Requires the<br>installer to be signed. Unsigned installers<br>will not run. This is the default behavior. | Boolean | No | `false` | `true, false` |
+**Input**  
 
-###### Examples
+| Key name | Description | Type | Required | Default value | Acceptable values | 
+| --- | --- | --- | --- | --- | --- | 
+| path | Specify the MSI file location using one of the following:+  The local file path. The path can be absolute or relative <br />+  A valid S3 object URI. <br />+  A valid web HTTP/HTTPS URL (HTTPS is recommended) that follows the RFC 3986 standard. <br />Chaining expressions are allowed. | String | Yes | N/A | N/A | 
+| reboot | Configure the system reboot behavior that follows a successful run of the action module.+  `Force` – Initiates a system reboot after the **msiexec** command runs successfully. <br />+  `Allow` – Initiates a system reboot if the **msiexec** command returns an exit code that indicates a reboot is required. <br />+  `Skip` – Logs an informational message to the `console.log` file indicating that a reboot was skipped. This option prevents a reboot, even if the **msiexec** command returns an exit code that indicates a reboot is required.  | String | No | Allow | Allow, Force, Skip | 
+| logOptions | Specify the options to use for MSI installation logging. Specified flags are passed to the MSI installer, along with the `/L` command line parameter to enable logging. If no flags are specified, AWSTOE uses the default value.<br />For more information about log options for MSI, see [Command Line Options](https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options) in the Microsoft *Windows Installer* product documentation. | String | No | \*VX | i,w,e,a,r,u,c,m,o,p,v,x,\+,\!,\* | 
+| logFile | An absolute or relative path to the log file location. If the log file path does not exist, it is created. If the log file path is not provided, AWSTOE does not store the MSI installation log. | String | No | N/A | N/A | 
+| properties | MSI logging property key-value pairs , for example: `TARGETDIR: "C:\target\location"`<br /> <br />Note: Modification of the following properties is not allowed:+  `REBOOT="ReallySupress"` <br />+  `REINSTALLMODE="ecmus"` <br />+  `REINSTALL="ALL"`  | Map[String]String | No | N/A | N/A | 
+| ignoreAuthenticodeSignatureErrors | Flag to ignore authenticode signature validation errors for the installer specified in path. The **Get-AuthenticodeSignature** command is used to validate installers.+  `true` – Validation errors are ignored and the installer runs. <br />+  `false` – Validation errors are not ignored. The installer runs only when validation is successful. This is the default behavior.  | Boolean | No | false | true, false | 
+| allowUnsignedInstaller | Flag to allow running the unsigned installer specified in the path. The **Get-AuthenticodeSignature** command is used to validate installers.+  `true` – Ignores the `NotSigned` status returned by the **Get-AuthenticodeSignature** command and runs the installer. <br />+  `false` – Requires the installer to be signed. Unsigned installers will not run. This is the default behavior.  | Boolean | No | false | true, false | 
 
-The following examples show variations of the input section for your
-component document, depending on your installation path.
+**Examples**  
+The following examples show variations of the input section for your component document, depending on your installation path.
 
 **Input example: local document path installation**
 
@@ -2635,53 +2260,46 @@ component document, depending on your installation path.
         allowUnsignedInstaller: false
 ```
 
-###### Output
-
+**Output**  
 The following is an example of the output from the `InstallMSI` action module.
 
 ```
-`{
- "logFile": "web-path-install.log",
- "msiExitCode": 0,
- "stdout": ""
-}`
+{
+	"logFile": "web-path-install.log",
+	"msiExitCode": 0,
+	"stdout": ""
+}
 ```
 
 ### UninstallMSI (Windows)
+<a name="action-modules-uninstall-msi"></a>
 
-The `UninstallMSI` action module allows you to remove a Windows application
-using an MSI file. You can specify the MSI file location using a local file path, an
-S3 object URI, or a web URL. The reboot option configures the reboot behavior of the
-system.
+The `UninstallMSI` action module allows you to remove a Windows application using an MSI file. You can specify the MSI file location using a local file path, an S3 object URI, or a web URL. The reboot option configures the reboot behavior of the system.
 
-AWSTOE generates the **msiexec** command based on the
-input parameters for the action module. The MSI file location
-(`path`) and log file location (`logFile`)
-are explicitly enclosed in double quotes (") while generating
-the **msiexec** command.
+AWSTOE generates the **msiexec** command based on the input parameters for the action module. The MSI file location (`path`) and log file location (`logFile`) are explicitly enclosed in double quotes (") while generating the **msiexec** command.
 
 The following MSI exit codes are considered successful:
++ 0 (Success)
++ 1605 (ERROR\_UNKNOWN\_PRODUCT)
++ 1614 (ERROR\_PRODUCT\_UNINSTALLED)
++ 1641 (Reboot Initiated)
++ 3010 (Reboot Required)
 
-- 0 (Success)
-- 1605 (ERROR\_UNKNOWN\_PRODUCT)
-- 1614 (ERROR\_PRODUCT\_UNINSTALLED)
-- 1641 (Reboot Initiated)
-- 3010 (Reboot Required)
 
-Input| Key name | Description | Type | Required | Default value | Acceptable values |
-| --- | --- | --- | --- | --- | --- |
-| `path` | Specify the MSI file location using one of the following:<br>• The local file path. The path can be absolute or relative.<br>• A valid S3 object URI.<br>• A valid web HTTP/HTTPS URL (HTTPS is recommended)<br>that follows the RFC 3986 standard.<br>Chaining expressions are allowed. | String | Yes | N/A | N/A |
-| `reboot` | Configures the system reboot behavior that follows a<br>successful run of the action module.<br>Settings:<br>• `Force` – Initiates a system<br>reboot after the *_msiexec_<br>• command<br>runs successfully.<br>• `Allow` – Initiates a system<br>reboot if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required.<br>• `Skip` – Logs an informational message<br>to the `console.log` file indicating that<br>a reboot was skipped. This option prevents a reboot, even<br>if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required. | String | No | `Allow` | `Allow, Force, Skip` |
-| `logOptions` | Specify the options to use for MSI installation logging.<br>Specified flags are passed to the MSI installer, along with<br>the `/L` command line parameter to enable logging.<br>If no flags are specified, AWSTOE uses the default value.<br>For more information about log options for MSI, see<br>[Command<br>Line Options](https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options "https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options") in the Microsoft _Windows Installer_<br>product documentation. | String | No | `*VX` | `i,w,e,a,r,u,c,m,o,p,v,x,+,!,*` |
-| `logFile` | An absolute or relative path to the log file location.<br>If the log file path does not exist, it is created. If<br>the log file path is not provided, AWSTOE does not store<br>the MSI installation log. | String | No | N/A | N/A |
-| `properties` | MSI logging property key-value pairs , for example: `TARGETDIR:<br>"C:\target\location"`<br>Note: Modification of the following properties is not allowed:<br>• `REBOOT="ReallySupress"`<br>• `REINSTALLMODE="ecmus"`<br>• `REINSTALL="ALL"` | Map[String]String | No | N/A | N/A |
-| `ignoreAuthenticodeSignatureErrors` | Flag to ignore authenticode signature validation errors for the installer<br>specified in path. The *_Get-AuthenticodeSignature_<br>• command<br>is used to validate installers.<br>Settings:<br>• `true` – Validation errors are ignored and the<br>installer runs.<br>• `false` – Validation errors are not ignored. The<br>installer runs only when validation is successful. This is the<br>default behavior. | Boolean | No | `false` | `true, false` |
-| `allowUnsignedInstaller` | Flag to allow running the unsigned installer specified in<br>the path. The **Get-AuthenticodeSignature**<br>command is used to validate installers.<br>Settings:<br>• `true` – Ignores the<br>`NotSigned` status returned by the<br>*_Get-AuthenticodeSignature_<br>• command<br>and runs the installer.<br>• `false` – Requires the<br>installer to be signed. Unsigned installers<br>will not run. This is the default behavior. | Boolean | No | `false` | `true, false` |
+**Input**  
 
-###### Examples
+| Key name | Description | Type | Required | Default value | Acceptable values | 
+| --- | --- | --- | --- | --- | --- | 
+| path | Specify the MSI file location using one of the following:+  The local file path. The path can be absolute or relative. <br />+  A valid S3 object URI. <br />+  A valid web HTTP/HTTPS URL (HTTPS is recommended) that follows the RFC 3986 standard. <br />Chaining expressions are allowed. | String | Yes | N/A | N/A | 
+| reboot | Configures the system reboot behavior that follows a successful run of the action module.+  `Force` – Initiates a system reboot after the **msiexec** command runs successfully. <br />+  `Allow` – Initiates a system reboot if the **msiexec** command returns an exit code that indicates a reboot is required. <br />+  `Skip` – Logs an informational message to the `console.log` file indicating that a reboot was skipped. This option prevents a reboot, even if the **msiexec** command returns an exit code that indicates a reboot is required.  | String | No | Allow | Allow, Force, Skip | 
+| logOptions | Specify the options to use for MSI installation logging. Specified flags are passed to the MSI installer, along with the `/L` command line parameter to enable logging. If no flags are specified, AWSTOE uses the default value.<br />For more information about log options for MSI, see [Command Line Options](https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options) in the Microsoft *Windows Installer* product documentation. | String | No | \*VX | i,w,e,a,r,u,c,m,o,p,v,x,\+,\!,\* | 
+| logFile | An absolute or relative path to the log file location. If the log file path does not exist, it is created. If the log file path is not provided, AWSTOE does not store the MSI installation log. | String | No | N/A | N/A | 
+| properties | MSI logging property key-value pairs , for example: `TARGETDIR: "C:\target\location"`<br /> <br />Note: Modification of the following properties is not allowed:+  `REBOOT="ReallySupress"` <br />+  `REINSTALLMODE="ecmus"` <br />+  `REINSTALL="ALL"`  | Map[String]String | No | N/A | N/A | 
+| ignoreAuthenticodeSignatureErrors | Flag to ignore authenticode signature validation errors for the installer specified in path. The **Get-AuthenticodeSignature** command is used to validate installers.+  `true` – Validation errors are ignored and the installer runs. <br />+  `false` – Validation errors are not ignored. The installer runs only when validation is successful. This is the default behavior.  | Boolean | No | false | true, false | 
+| allowUnsignedInstaller | Flag to allow running the unsigned installer specified in the path. The **Get-AuthenticodeSignature** command is used to validate installers.+  `true` – Ignores the `NotSigned` status returned by the **Get-AuthenticodeSignature** command and runs the installer. <br />+  `false` – Requires the installer to be signed. Unsigned installers will not run. This is the default behavior.  | Boolean | No | false | true, false | 
 
-The following examples show variations of the input section for your
-component document, depending on your installation path.
+**Examples**  
+The following examples show variations of the input section for your component document, depending on your installation path.
 
 **Input example: remove local document path installation**
 
@@ -2731,53 +2349,39 @@ component document, depending on your installation path.
         allowUnsignedInstaller: false
 ```
 
-###### Output
-
+**Output**  
 The following is an example of the output from the `UninstallMSI` action module.
 
 ```
-`{
- "logFile": "web-path-uninstall.log",
- "msiExitCode": 0,
- "stdout": ""
-}`
+{
+	"logFile": "web-path-uninstall.log",
+	"msiExitCode": 0,
+	"stdout": ""
+}
 ```
 
 ## System action modules
+<a name="action-modules-system-actions"></a>
 
-The following section describes action modules that perform system actions
-or update system settings.
+The following section describes action modules that perform system actions or update system settings.
 
-###### System action modules
-
-- [Reboot (Linux, Windows)](#action-modules-reboot "#action-modules-reboot")
-- [SetRegistry (Windows)](#action-modules-setregistry "#action-modules-setregistry")
-- [UpdateOS (Linux, Windows)](#action-modules-updateos "#action-modules-updateos")
+**Topics**
++ [Reboot (Linux, Windows)](#action-modules-reboot)
++ [SetRegistry (Windows)](#action-modules-setregistry)
++ [UpdateOS (Linux, Windows)](#action-modules-updateos)
 
 ### Reboot (Linux, Windows)
+<a name="action-modules-reboot"></a>
 
-The **Reboot** action module reboots the instance.
-It has a configurable option to delay the start of the reboot. By default,
-`delaySeconds` is set to `0`, which means that there is no
-delay. Step timeout is not supported for the Reboot action module, as it does not
-apply when the instance is rebooted.
+The **Reboot** action module reboots the instance. It has a configurable option to delay the start of the reboot. By default, `delaySeconds` is set to `0`, which means that there is no delay. Step timeout is not supported for the Reboot action module, as it does not apply when the instance is rebooted.
 
-If the application is invoked by the Systems Manager Agent, it hands the exit code
-(`3010` for Windows, `194` for Linux) to the Systems Manager Agent.
-The Systems Manager Agent handles the system reboot as described in [Rebooting Managed Instance from Scripts](../../../systems-manager/latest/userguide/send-commands-reboot.md "../../../systems-manager/latest/userguide/send-commands-reboot.md").
+If the application is invoked by the Systems Manager Agent, it hands the exit code (`3010` for Windows, `194` for Linux) to the Systems Manager Agent. The Systems Manager Agent handles the system reboot as described in [Rebooting Managed Instance from Scripts](https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-reboot.html).
 
-If the application is invoked on the host as a standalone process, it saves the
-current execution state, configures a post-reboot auto-run trigger to rerun the
-application after the reboot, and then reboots the system.
+If the application is invoked on the host as a standalone process, it saves the current execution state, configures a post-reboot auto-run trigger to rerun the application after the reboot, and then reboots the system.
 
 **Post-reboot auto-run trigger:**
-
-- **Windows**.
-  AWSTOE creates a Windows Task Scheduler entry with a trigger that runs
-  automatically at `SystemStartup`
-- **Linux**.
-  AWSTOE adds a job in crontab that runs automatically after the
-  system reboots.
++ **Windows**. AWSTOE creates a Windows Task Scheduler entry with a trigger that runs automatically at `SystemStartup`
++ **Linux**. AWSTOE adds a job in crontab that runs automatically after the system reboots.
 
 ```
 @reboot /download/path/awstoe run --document s3://bucket/key/doc.yaml
@@ -2785,22 +2389,17 @@ application after the reboot, and then reboots the system.
 
 This trigger is cleaned up when the application starts.
 
-###### Retries
+**Retries**  
+By default, the maximum number of retries is set to the Systems Manager `CommandRetryLimit`. If the number of reboots exceeds the retry limit, the automation fails. You can change the limit by editing the Systems Manager agent config file (`Mds.CommandRetryLimit`). See [Runtime Configuration](https://github.com/aws/amazon-ssm-agent/blob/mainline/README.md#runtime-configuration) in the Systems Manager agent open source.
 
-By default, the maximum number of retries is set to the Systems Manager
-`CommandRetryLimit`. If the number of reboots exceeds the
-retry limit, the automation fails. You can change the limit by
-editing the Systems Manager agent config file (`Mds.CommandRetryLimit`).
-See [Runtime Configuration](https://github.com/aws/amazon-ssm-agent/blob/mainline/README.md#runtime-configuration "https://github.com/aws/amazon-ssm-agent/blob/mainline/README.md#runtime-configuration")
-in the Systems Manager agent open source.
+To use the **Reboot** action module, for steps that contain reboot `exitcode` (for example, `3010`), you must run the application binary as `sudo user`.
 
-To use the **Reboot** action module, for steps that
-contain reboot `exitcode` (for example, `3010`), you must run
-the application binary as `sudo user`.
 
-Input| Key name | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| `delaySeconds` | Delays a specific amount of time before initiating a<br>reboot. | Integer | No | `0` |
+**Input**  
+
+| Key name | Description | Type | Required | Default | 
+| --- | --- | --- | --- | --- | 
+| delaySeconds | Delays a specific amount of time before initiating a reboot. | Integer | No | `0` | 
 
 **Input example: reboot step**
 
@@ -2817,39 +2416,37 @@ Input| Key name | Description | Type | Required | Default |
 
 None.
 
-When the **Reboot** module completes, Image Builder continues
-to the next step in the build.
+When the **Reboot** module completes, Image Builder continues to the next step in the build.
 
 ### SetRegistry (Windows)
+<a name="action-modules-setregistry"></a>
 
-The **SetRegistry** action module accepts a list of
-inputs and allows you to set the value for the specified registry key. If a registry
-key does not exist, it is created in the defined path. This feature applies only to
-Windows.
+The **SetRegistry** action module accepts a list of inputs and allows you to set the value for the specified registry key. If a registry key does not exist, it is created in the defined path. This feature applies only to Windows.
 
-Input| Key name | Description | Type | Required |
-| --- | --- | --- | --- |
-| `path` | Path of registry key. | String | Yes |
-| `name` | Name of registry key. | String | Yes |
-| `value` | Value of registry key. | String/Number/Array | Yes |
-| `type` | Value type of registry key. | String | Yes |
 
-###### Supported path prefixes
+**Input**  
 
-- `HKEY_CLASSES_ROOT / HKCR:`
-- `HKEY_USERS / HKU:`
-- `HKEY_LOCAL_MACHINE / HKLM:`
-- `HKEY_CURRENT_CONFIG / HKCC:`
-- `HKEY_CURRENT_USER / HKCU:`
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| path | Path of registry key. | String | Yes | 
+| name | Name of registry key. | String | Yes | 
+| value | Value of registry key. | String/Number/Array | Yes | 
+| type | Value type of registry key. | String | Yes | 
 
-###### Supported types
+**Supported path prefixes**
++ `HKEY_CLASSES_ROOT / HKCR:`
++ `HKEY_USERS / HKU:`
++ `HKEY_LOCAL_MACHINE / HKLM:`
++ `HKEY_CURRENT_CONFIG / HKCC:`
++ `HKEY_CURRENT_USER / HKCU:`
 
-- `BINARY`
-- `DWORD`
-- `QWORD`
-- `SZ`
-- `EXPAND_SZ`
-- `MULTI_SZ`
+**Supported types**
++ `BINARY`
++ `DWORD`
++ `QWORD`
++ `SZ`
++ `EXPAND_SZ`
++ `MULTI_SZ`
 
 **Input example: set registry key values**
 
@@ -2858,8 +2455,8 @@ Input| Key name | Description | Type | Required |
     action: SetRegistry
     maxAttempts: 3
     inputs:
-      - path: HKLM:\SOFTWARE\`MySoftWare`
-        name: `MyName`
+      - path: HKLM:\SOFTWARE\{{MySoftWare}}
+        name: {{MyName}}
         value: FirstVersionSoftware
         type: SZ
       - path: HKEY_CURRENT_USER\Software\Test
@@ -2873,42 +2470,26 @@ Input| Key name | Description | Type | Required |
 None.
 
 ### UpdateOS (Linux, Windows)
+<a name="action-modules-updateos"></a>
 
-The **UpdateOS** action module adds support for
-installing Windows and Linux updates. It installs all available
-updates by default. Alternatively, you can configure a list of one or more specific
-updates for the action module to install. You can also specify updates to exclude
-from the installation.
+The **UpdateOS** action module adds support for installing Windows and Linux updates. It installs all available updates by default. Alternatively, you can configure a list of one or more specific updates for the action module to install. You can also specify updates to exclude from the installation.
 
-If both "include" and "exclude" lists are provided, the resulting list of updates
-can include only those listed in the "include" list that are not listed in the
-"exclude" list.
+If both "include" and "exclude" lists are provided, the resulting list of updates can include only those listed in the "include" list that are not listed in the "exclude" list.
 
-###### Note
+**Note**  
+**UpdateOS** doesn't support Amazon Linux 2023 (AL2023). We recommend that you update your base AMI to the new version that comes with every release. For other alternatives, see [Control the updates received from major and minor releases](https://docs.aws.amazon.com/linux/al2023/ug/deterministic-upgrades.html#controlling-release-updates) in the *Amazon Linux 2023 User Guide*.
++ **Windows**. Updates are installed from the update source configured on the target machine.
++ **Linux**. The application checks for the supported package manager in the Linux platform and uses either `yum` or `apt-get` package manager. If neither are supported, an error is returned. You should have `sudo` permissions to run the **UpdateOS** action module. If you do not have `sudo` permissions an `error.Input` is returned.
 
-**UpdateOS** doesn't support Amazon Linux 2023 (AL2023).
-We recommend that you update your base AMI to the new version that comes with every
-release. For other alternatives, see [Control
-the updates received from major and minor releases](../../../linux/al2023/ug/deterministic-upgrades.md#controlling-release-updates "../../../linux/al2023/ug/deterministic-upgrades.md#controlling-release-updates") in the
-_Amazon Linux 2023 User Guide_.
 
-- **Windows**. Updates are installed from the
-  update source configured on the target machine.
-- **Linux**. The application checks for the
-  supported package manager in the Linux platform and uses either
-  `yum` or `apt-get` package manager. If neither are
-  supported, an error is returned. You should have `sudo`
-  permissions to run the **UpdateOS** action
-  module. If you do not have `sudo` permissions an
-  `error.Input` is returned.
+**Input**  
 
-Input| Key name | Description | Type | Required |
-| --- | --- | --- | --- |
-| `include` | For Windows, you can specify the following:<br>• One or more Microsoft Knowledge Base (KB) article IDs<br>to include in the list of updates that may be installed.<br>Valid formats are `KB1234567` or<br>`1234567`.<br>• An update name using a wildcard value<br>(`*`). Valid formats are<br>`Security*` or<br>`*Security*`.<br>For Linux, you can specify one or more packages to be included<br>in the list of updates for installation. | String List | No |
-| `exclude` | For Windows, you can specify the following:<br>• One or more Microsoft Knowledge Base (KB) article IDs<br>to include in the list of updates to be excluded from<br>the installation. Valid formats are<br>`KB1234567` or<br>`1234567`.<br>• An update name using a wildcard (`*`)<br>value. Valid formats are: `Security*` or<br>`*Security*`.<br>For Linux, you can specify one or more packages to be excluded<br>from the list of updates for installation. | String List | No |
+| Key name | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| include | For Windows, you can specify the following:+  One or more Microsoft Knowledge Base (KB) article IDs to include in the list of updates that may be installed. Valid formats are `KB1234567` or `1234567`.  <br />+  An update name using a wildcard value (`*`). Valid formats are `Security*` or `*Security*`. <br />For Linux, you can specify one or more packages to be included in the list of updates for installation. | String List | No | 
+| exclude | For Windows, you can specify the following:+  One or more Microsoft Knowledge Base (KB) article IDs to include in the list of updates to be excluded from the installation. Valid formats are `KB1234567` or `1234567`. <br />+  An update name using a wildcard (`*`) value. Valid formats are: `Security*` or `*Security*`.  <br />For Linux, you can specify one or more packages to be excluded from the list of updates for installation. | String List | No | 
 
-**Input example: add support for installing Linux
-updates**
+**Input example: add support for installing Linux updates**
 
 ```
   - name: UpdateMyLinux
@@ -2920,8 +2501,7 @@ updates**
         - ec2-hibinit-agent
 ```
 
-**Input example: add support for installing Windows
-updates**
+**Input example: add support for installing Windows updates**
 
 ```
   - name: UpdateWindowsOperatingSystem

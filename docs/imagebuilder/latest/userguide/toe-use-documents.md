@@ -1,214 +1,137 @@
+
+
 # Use the AWSTOE component document framework for custom components
+<a name="toe-use-documents"></a>
 
-To build a component using the AWS Task Orchestrator and Executor (AWSTOE) component framework, you must
-provide a YAML-based document that represents the phases and steps that apply for
-the component you create. AWS services use your component when they create a new
-Amazon Machine Image (AMI) or container image.
+To build a component using the AWS Task Orchestrator and Executor (AWSTOE) component framework, you must provide a YAML-based document that represents the phases and steps that apply for the component you create. AWS services use your component when they create a new Amazon Machine Image (AMI) or container image.
 
-###### Topics
-
-- [Component document workflow](#component-doc-workflow "#component-doc-workflow")
-- [Component logging](#component-logging "#component-logging")
-- [Input and output chaining](#document-chaining "#document-chaining")
-- [Document schema and definitions](#document-schema "#document-schema")
-- [Document examples](#document-example "#document-example")
-- [Use variables in your custom component document](toe-user-defined-variables.md "toe-user-defined-variables.md")
-- [Use conditional constructs in AWSTOE](toe-conditional-constructs.md "toe-conditional-constructs.md")
-- [Use comparison operators in AWSTOE component documents](toe-comparison-operators.md "toe-comparison-operators.md")
-- [Use logical operators in AWSTOE component documents](toe-logical-operators.md "toe-logical-operators.md")
-- [Use looping constructs in AWSTOE](toe-looping-constructs.md "toe-looping-constructs.md")
+**Topics**
++ [Component document workflow](#component-doc-workflow)
++ [Component logging](#component-logging)
++ [Input and output chaining](#document-chaining)
++ [Document schema and definitions](#document-schema)
++ [Document examples](#document-example)
++ [Use variables in your custom component document](toe-user-defined-variables.md)
++ [Use conditional constructs in AWSTOE](toe-conditional-constructs.md)
++ [Use comparison operators in AWSTOE component documents](toe-comparison-operators.md)
++ [Use logical operators in AWSTOE component documents](toe-logical-operators.md)
++ [Use looping constructs in AWSTOE](toe-looping-constructs.md)
 
 ## Component document workflow
+<a name="component-doc-workflow"></a>
 
-The AWSTOE component document uses phases and steps to group related tasks, and
-organize those tasks into a logical workflow for the component.
+The AWSTOE component document uses phases and steps to group related tasks, and organize those tasks into a logical workflow for the component.
 
-###### Tip
+**Tip**  
+The service that uses your component to build an image might implement rules about what phases to use for their build process, and when those phases are allowed to run. This is important to consider when you design your component.
 
-The service that uses your component to build an image might implement rules
-about what phases to use for their build process, and when those phases are
-allowed to run. This is important to consider when you design your component.
+**Phases**  
+Phases represent the progression of your workflow through the image build process. For example, the Image Builder service uses `build` and `validate` phases during its *build stage* for the images it produces. It uses the `test` and `container-host-test` phases during its *test stage* to ensure that the image snapshot or container image produces the expected results before creating the final AMI or distributing the container image.
 
-###### Phases
+When the component runs, the associated commands for each phase are applied in the order that they appear in the component document.
 
-Phases represent the progression of your workflow through the image build
-process. For example, the Image Builder service uses `build` and
-`validate` phases during its _build stage_ for
-the images it produces. It uses the `test` and
-`container-host-test` phases during its _test stage_
-to ensure that the image snapshot or container image produces the expected results
-before creating the final AMI or distributing the container image.
+**Rules for phases**
++ Each phase name must be unique within a document.
++ You can define many phases in your document.
++ You must include at least one of the following phases in your document:
+  + **build** – for Image Builder, this phase is generally used during the *build stage*.
+  + **validate** – for Image Builder, this phase is generally used during the *build stage*.
+  + **test** – for Image Builder, this phase is generally used during the *test stage*.
++ Phases always run in the order that they are defined in the document. The order in which they are specified for AWSTOE commands in the AWS CLI has no effect.
 
-When the component runs, the associated commands for each phase are applied
-in the order that they appear in the component document.
+**Steps**  
+Steps are individual units of work that define the workflow within each phase. Steps run in sequential order. However, input or output for one step can also feed into a subsequent step as input. This is called "chaining".
 
-###### Rules for phases
+**Rules for steps**
++ The step name must be unique for the phase.
++ The step must use a supported action (action module) that returns an exit code.
 
-- Each phase name must be unique within a document.
-- You can define many phases in your document.
-- You must include at least one of the following phases in your
-  document:
-
-  - build – for Image Builder, this
-    phase is generally used during the _build stage_.
-  - validate – for Image Builder, this
-    phase is generally used during the _build stage_.
-  - test – for Image Builder, this
-    phase is generally used during the _test stage_.
-
-- Phases always run in the order that they are defined in the document.
-  The order in which they are specified for AWSTOE commands in the AWS CLI
-  has no effect.
-
-###### Steps
-
-Steps are individual units of work that define the workflow
-within each phase. Steps run in sequential order. However, input
-or output for one step can also feed into a subsequent step
-as input. This is called "chaining".
-
-###### Rules for steps
-
-- The step name must be unique for the phase.
-- The step must use a supported action (action module)
-  that returns an exit code.
-
-For a complete list of supported action modules, how
-they work, input/output values, and examples, see
-[Action modules supported by AWSTOE component manager](toe-action-modules.md "toe-action-modules.md").
+  For a complete list of supported action modules, how they work, input/output values, and examples, see [Action modules supported by AWSTOE component manager](toe-action-modules.md).
 
 ## Component logging
+<a name="component-logging"></a>
 
-AWSTOE creates a new log folder on the EC2 instances that are
-used for building and testing a new image, each time your component
-runs. For container images, the log folder is stored in the container.
+AWSTOE creates a new log folder on the EC2 instances that are used for building and testing a new image, each time your component runs. For container images, the log folder is stored in the container.
 
-To assist with troubleshooting if something goes wrong during the image creation
-process, the input document and all of the output files AWSTOE creates while running the
-component are stored in the log folder.
+To assist with troubleshooting if something goes wrong during the image creation process, the input document and all of the output files AWSTOE creates while running the component are stored in the log folder.
 
 The log folder name is comprised of the following parts:
 
-1. **Log directory** – when
-   a service runs a AWSTOE component, it passes in the log directory,
-   along with other settings for the command. For the following
-   examples, we show the log file format that Image Builder uses.
+1. **Log directory** – when a service runs a AWSTOE component, it passes in the log directory, along with other settings for the command. For the following examples, we show the log file format that Image Builder uses.
+   + **Linux and macOS**: `/var/lib/amazon/toe/`
+   + **Windows**: `$env:ProgramFiles\Amazon\TaskOrchestratorAndExecutor\`
 
-   - **Linux and macOS**: `/var/lib/amazon/toe/`
-   - **Windows**:
-     `$env:ProgramFiles\Amazon\TaskOrchestratorAndExecutor\`
+1. **File prefix** – This is a standard prefix used for all components: "`TOE_`".
 
-2. **File prefix** – This is a
-   standard prefix used for all components: "`TOE_`".
-3. **Run time** – This is a timestamp
-   in YYYY-MM-DD\_HH-MM-SS\_UTC-0 format.
-4. **Execution ID** – This is the
-   GUID that is assigned when AWSTOE runs one or more components.
+1. **Run time** – This is a timestamp in YYYY-MM-DD\_HH-MM-SS\_UTC-0 format.
 
-Example: ``/var/lib/amazon/toe/`TOE_`2021-07-01_12-34-56_UTC-0`_`a1bcd2e3-45f6-789a-bcde-0fa1b2c3def4``
+1. **Execution ID** – This is the GUID that is assigned when AWSTOE runs one or more components.
+
+Example: `{{/var/lib/amazon/toe/}}TOE_{{2021-07-01_12-34-56_UTC-0}}_{{a1bcd2e3-45f6-789a-bcde-0fa1b2c3def4}}`
 
 AWSTOE stores the following core files in the log folder:
 
-###### Input files
+**Input files**
++ **document.yaml** – The document that is used as input for the command. After the component runs, this file is stored as an artifact.
 
-- **document.yaml** – The
-  document that is used as input for the command. After the component
-  runs, this file is stored as an artifact.
+**Output files**
++ **application.log** – The application log contains timestamped debug level information from AWSTOE about what's happening as the component is running.
++ **detailedoutput.json** – This JSON file has detailed information about run status, inputs, outputs, and failures for all documents, phases, and steps that apply for the component as it runs.
++ **console.log** – The console log contains all of the standard out (stdout) and standard error (stderr) information that AWSTOE writes to the console while the component is running.
++ **chaining.json** – This JSON file represents optimizations that AWSTOE applied to resolve chaining expressions.
 
-###### Output files
-
-- **application.log** – The
-  application log contains timestamped debug level information from
-  AWSTOE about what's happening as the component is running.
-- **detailedoutput.json** –
-  This JSON file has detailed information about run status, inputs,
-  outputs, and failures for all documents, phases, and steps that
-  apply for the component as it runs.
-- **console.log** – The
-  console log contains all of the standard out (stdout) and
-  standard error (stderr) information that AWSTOE writes to the
-  console while the component is running.
-- **chaining.json** –
-  This JSON file represents optimizations that AWSTOE applied
-  to resolve chaining expressions.
-
-###### Note
-
-The log folder might also contain other temporary
-files that are not covered here.
+**Note**  
+The log folder might also contain other temporary files that are not covered here.
 
 ## Input and output chaining
+<a name="document-chaining"></a>
 
-The AWSTOE configuration management application provides a feature for chaining inputs
-and outputs by writing references in the following formats:
+The AWSTOE configuration management application provides a feature for chaining inputs and outputs by writing references in the following formats:
 
-`{{ phase_name.step_name.inputs/outputs.variable
- }}`
+`{{ phase_name.step_name.inputs/outputs.variable }}`
 
 or
 
-`{{ phase_name.step_name.inputs/outputs[index].variable
- }}`
+`{{ phase_name.step_name.inputs/outputs[index].variable }}`
 
-The chaining feature allows you to recycle code and improve the maintainability of
-the document.
+The chaining feature allows you to recycle code and improve the maintainability of the document.
 
-###### Rules for chaining
-
-- Chaining expressions can be used only in the inputs section of each
-  step.
-- Statements with chaining expressions must be enclosed in quotes. For
-  example:
-
-  - **Invalid expression**: `echo {{ phase.step.inputs.variable
-   }}`
-  - **Valid expression**: `"echo {{ phase.step.inputs.variable
-   }}"`
-  - **Valid expression**: `'echo {{ phase.step.inputs.variable
-   }}'`
-
-- Chaining expressions can reference variables from other steps and phases
-  in the same document. However, the calling service might have rules that
-  require chaining expressions to operate only within the context of a single
-  stage. For example, Image Builder does not support chaining from the
-  _build stage_ to the _test stage_,
-  as it runs each stage independently.
-- Indexes in chaining expressions follow zero-based indexing. The
-  index starts with zero (0) to reference the first element.
+**Rules for chaining**
++ Chaining expressions can be used only in the inputs section of each step.
++ Statements with chaining expressions must be enclosed in quotes. For example:
+  + **Invalid expression**: `echo {{ phase.step.inputs.variable }}`
+  + **Valid expression**: `"echo {{ phase.step.inputs.variable }}"`
+  + **Valid expression**: `'echo {{ phase.step.inputs.variable }}'`
++ Chaining expressions can reference variables from other steps and phases in the same document. However, the calling service might have rules that require chaining expressions to operate only within the context of a single stage. For example, Image Builder does not support chaining from the *build stage* to the *test stage*, as it runs each stage independently.
++ Indexes in chaining expressions follow zero-based indexing. The index starts with zero (0) to reference the first element.
 
 **Examples**
 
-To refer to the source variable in the second entry of the following example step,
-the chaining pattern is `{{
- build.`SampleS3Download`.inputs[1].source
- }}`.
+To refer to the source variable in the second entry of the following example step, the chaining pattern is `{{ build.{{SampleS3Download}}.inputs[1].source }}`.
 
 ```
 phases:
   - name: 'build'
     steps:
-      - name: `SampleS3Download`
+      - name: {{SampleS3Download}}
         action: S3Download
         timeoutSeconds: 60
         onFailure: Abort
         maxAttempts: 3
         inputs:
-          - source: 's3://`sample-bucket`/`sample1`.ps1'
-            destination: 'C:\`sample1`.ps1'
-          - source: 's3://`sample-bucket`/`sample2`.ps1'
-            destination: 'C:\`sample2`.ps1'
+          - source: 's3://{{sample-bucket}}/{{sample1}}.ps1'
+            destination: 'C:\{{sample1}}.ps1'
+          - source: 's3://{{sample-bucket}}/{{sample2}}.ps1'
+            destination: 'C:\{{sample2}}.ps1'
 ```
 
-To refer to the output variable (equal to "Hello") of the following example step,
-the chaining pattern is `{{
- build.`SamplePowerShellStep`.outputs.stdout
- }}`.
+To refer to the output variable (equal to "Hello") of the following example step, the chaining pattern is `{{ build.{{SamplePowerShellStep}}.outputs.stdout }}`.
 
 ```
 phases:
   - name: 'build'
     steps:
-      - name: `SamplePowerShellStep`
+      - name: {{SamplePowerShellStep}}
         action: ExecutePowerShell
         timeoutSeconds: 120
         onFailure: Abort
@@ -219,6 +142,7 @@ phases:
 ```
 
 ## Document schema and definitions
+<a name="document-schema"></a>
 
 The following is the YAML schema for a document.
 
@@ -240,49 +164,48 @@ phases:
 
 The schema definitions for a document are as follows.
 
-| Field         | Description                                    | Type   | Required |
-| ------------- | ---------------------------------------------- | ------ | -------- |
-| name          | Name of the document.                          | String | No       |
-| description   | Description of the document.                   | String | No       |
-| schemaVersion | Schema version of the document, currently 1.0. | String | Yes      |
-| phases        | A list of phases with their steps.             | List   | Yes      |
 
-The `schemaVersion` field accepts `"1.0"` or
-`"1"` (which normalizes to `"1.0"`). AWSTOE does not support other schema versions.
+| Field | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| name | Name of the document. | String | No | 
+| description | Description of the document. | String | No | 
+| schemaVersion | Schema version of the document, currently 1.0. | String | Yes | 
+| phases | A list of phases with their steps. | List | Yes | 
 
-You can set the optional `disableLogging` field to `true` at
-the document, phase, or step level. This setting suppresses logging output for that
-scope. Use this setting for steps that handle sensitive data.
+The `schemaVersion` field accepts `"1.0"` or `"1"` (which normalizes to `"1.0"`). AWSTOE does not support other schema versions.
+
+You can set the optional `disableLogging` field to `true` at the document, phase, or step level. This setting suppresses logging output for that scope. Use this setting for steps that handle sensitive data.
 
 The schema definitions for a phase are as follows.
 
-| Field | Description                                                                                                                                                                                                                                                                                                                                                                        | Type   | Required |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- |
-| name  | Name of the phase. Phase names must conform to the following<br>rules:<br>• Phase names must contain only letters, numbers,<br>hyphens, and underscores.<br>• Phase names must be 3 to 128 characters<br>long.<br>• Phase names must be unique within a<br>document.<br>• When used with EC2 Image Builder, at least one phase must be<br>named `build`, `validate`, or<br>`test`. | String | Yes      |
-| steps | List of the steps in the phase.                                                                                                                                                                                                                                                                                                                                                    | List   | Yes      |
+
+| Field | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| name | Name of the phase. Phase names must conform to the following rules:+ Phase names must contain only letters, numbers, hyphens, and underscores.<br />+ Phase names must be 3 to 128 characters long.<br />+ Phase names must be unique within a document.<br />+ When used with EC2 Image Builder, at least one phase must be named `build`, `validate`, or `test`. | String | Yes | 
+| steps | List of the steps in the phase. | List  | Yes | 
 
 The schema definitions for a step are as follows.
 
-| Field          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Type    | Required | Default value        |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | -------------------- |
-| name           | User-defined name for the step. Step names must conform to the<br>following rules:<br>• Step names must contain only letters, numbers,<br>hyphens, and underscores.<br>• Step names must be 3 to 128 characters<br>long.<br>• Step names must be unique within a<br>phase.                                                                                                                                                                                                                                                                                                                                                                | String  |          |                      |
-| action         | Keyword pertaining to the module that runs the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | String  |          |                      |
-| timeoutSeconds | Number of seconds that the step runs before failing or<br>retrying.<br>Also, supports -1 value, which indicates infinite timeout. 0<br>and other negative values are not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Integer | No       | 7,200 sec (120 mins) |
-| onFailure      | Specifies what the step should do in case of failure.<br>Valid values are as follows:<br>• **Abort** – Fails the step<br>after the maximum number of attempts, and stops running.<br>Sets status for phase and document to<br>`Failed`.<br>• **Continue** – Fails the<br>step after the maximum number of attempts, and continues<br>to run remaining steps. Sets status for phase and<br>document to `Failed`.<br>• **Ignore** – Sets the step<br>to `IgnoredFailure` after the the maximum number<br>of failed attempts, and continues to run remaining steps.<br>Sets status for phase and document to<br>`SuccessWithIgnoredFailure`. | String  | No       | Abort                |
-| maxAttempts    | Maximum number of attempts allowed before failing the<br>step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Integer | No       | 1                    |
-| inputs         | Contains parameters required by the action module to run the<br>step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Dict    | Yes      |                      |
+
+| Field | Description | Type | Required | Default value | 
+| --- | --- | --- | --- | --- | 
+| name | User-defined name for the step. Step names must conform to the following rules:+ Step names must contain only letters, numbers, hyphens, and underscores.<br />+ Step names must be 3 to 128 characters long.<br />+ Step names must be unique within a phase. | String |  |  | 
+| action | Keyword pertaining to the module that runs the step. | String |  |  | 
+| timeoutSeconds | Number of seconds that the step runs before failing or retrying. <br />Also, supports -1 value, which indicates infinite timeout. 0 and other negative values are not allowed. | Integer | No | 7,200 sec (120 mins) | 
+| onFailure | Specifies what the step should do in case of failure. Valid values are as follows: +  **Abort** – Fails the step after the maximum number of attempts, and stops running. Sets status for phase and document to `Failed`. <br />+  **Continue** – Fails the step after the maximum number of attempts, and continues to run remaining steps. Sets status for phase and document to `Failed`. <br />+  **Ignore** – Sets the step to `IgnoredFailure` after the the maximum number of failed attempts, and continues to run remaining steps. Sets status for phase and document to `SuccessWithIgnoredFailure`.  | String | No | Abort | 
+| maxAttempts | Maximum number of attempts allowed before failing the step. | Integer | No | 1 | 
+| inputs | Contains parameters required by the action module to run the step. | Dict | Yes |  | 
 
 ## Document examples
+<a name="document-example"></a>
 
-The following examples show AWSTOE component documents that perform tasks
-for the target operating system.
+The following examples show AWSTOE component documents that perform tasks for the target operating system.
 
-Linux
+------
+#### [ Linux ]
 
-###### Example 1: Run a custom binary file
-
-The following is an example document that downloads and runs
-a custom binary file on a Linux instance.
+**Example 1: Run a custom binary file**  
+The following is an example document that downloads and runs a custom binary file on a Linux instance.
 
 ```
 name: LinuxBin
@@ -315,13 +238,11 @@ phases:
           - path: '{{ build.Download.inputs[0].destination }}'
 ```
 
-Windows
+------
+#### [ Windows ]
 
-###### Example 1: Install Windows updates
-
-The following is an example document that installs all available Windows
-updates, runs a configuration script, validates the changes before the AMI
-is created, and tests the changes after the AMI is created.
+**Example 1: Install Windows updates**  
+The following is an example document that installs all available Windows updates, runs a configuration script, validates the changes before the AMI is created, and tests the changes after the AMI is created.
 
 ```
 name: RunConfig_UpdateWindows
@@ -408,10 +329,8 @@ phases:
           file: '{{test.DownloadTestConfigScript.inputs[0].destination}}'
 ```
 
-###### Example 2: Install the AWS CLI on a Windows instance
-
-The following is an example document that installs the AWS CLI on
-a Windows instance, using the setup file.
+**Example 2: Install the AWS CLI on a Windows instance**  
+The following is an example document that installs the AWS CLI on a Windows instance, using the setup file.
 
 ```
 name: InstallCLISetUp
@@ -440,10 +359,8 @@ phases:
           - path: '{{ build.Download.inputs[0].destination }}'
 ```
 
-###### Example 3: Install the AWS CLI with the MSI installer
-
-The following is an example document that installs the AWS CLI with
-the MSI installer.
+**Example 3: Install the AWS CLI with the MSI installer**  
+The following is an example document that installs the AWS CLI with the MSI installer.
 
 ```
 name: InstallCLIMSI
@@ -473,12 +390,11 @@ phases:
           - path: '{{ build.Download.inputs[0].destination }}'
 ```
 
-macOS
+------
+#### [ macOS ]
 
-###### Example 1: Run a custom macOS binary file
-
-The following is an example document that downloads and runs a custom
-binary file on a macOS instance.
+**Example 1: Run a custom macOS binary file**  
+The following is an example document that downloads and runs a custom binary file on a macOS instance.
 
 ```
 name: macOSBin
@@ -510,3 +426,5 @@ phases:
         inputs:
           - path: '{{ build.Download.inputs[0].destination }}'
 ```
+
+------

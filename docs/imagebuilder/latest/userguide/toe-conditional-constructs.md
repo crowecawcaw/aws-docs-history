@@ -1,31 +1,23 @@
-# Use conditional constructs in AWSTOE
 
-Conditional constructs perform different actions in your component document based
-on whether the specified conditional expression evaluates to `true` or
-`false`. You can use the `if` construct to control the flow
-of execution in your component document.
+
+# Use conditional constructs in AWSTOE
+<a name="toe-conditional-constructs"></a>
+
+Conditional constructs perform different actions in your component document based on whether the specified conditional expression evaluates to `true` or `false`. You can use the `if` construct to control the flow of execution in your component document.
 
 ## if Construct
+<a name="toe-conditional-if"></a>
 
-You can use the `if` construct to evaluate whether a step should run
-or not. By default, when the `if` conditional expression evaluates to
-`true`, AWSTOE runs the step, and when the condition evaluates to `false`,
-AWSTOE skips the step. If a step is skipped, it's treated as a successful step when AWSTOE
-evaluates whether the phase and document ran successfully.
+You can use the `if` construct to evaluate whether a step should run or not. By default, when the `if` conditional expression evaluates to `true`, AWSTOE runs the step, and when the condition evaluates to `false`, AWSTOE skips the step. If a step is skipped, it's treated as a successful step when AWSTOE evaluates whether the phase and document ran successfully.
 
-###### Note
+**Note**  
+An `if` statement is only evaluated one time, even if the step triggers a restart. If a step restarts, it recognizes that the `if` statement has already been evaluated, and continues where it left off.
 
-An `if` statement is only evaluated one time, even if the step triggers
-a restart. If a step restarts, it recognizes that the `if` statement has
-already been evaluated, and continues where it left off.
-
-###### Note
-
-Conditional expressions support a maximum nesting depth of 4 levels. If you
-nest logical operators (`and`, `or`, `not`)
-beyond 4 levels deep, validation fails.
+**Note**  
+Conditional expressions support a maximum nesting depth of 4 levels. If you nest logical operators (`and`, `or`, `not`) beyond 4 levels deep, validation fails.
 
 ### Syntax
+<a name="toe-conditional-if-syntax"></a>
 
 ```
 if:
@@ -34,21 +26,18 @@ if:
       [else: <step action>]
 ```
 
-| Key name               | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| conditional expression | Yes         | The conditional expression can contain exactly one of the<br>following types of operators at the top level.<br>• **Comparison operator** –<br>For a list of comparison operators, and information about how<br>they work in AWSTOE component documents, see<br>[Comparison<br>operators](toe-comparison-operators.md "toe-comparison-operators.md").<br>• **Logical operator** –<br>Logical operators include `and`, `or`, and<br>`not`, and operate on one or more comparison operators.<br>For more information about how logical operators work in AWSTOE<br>component documents, see [Logical<br>operators](toe-logical-operators.md "toe-logical-operators.md").<br>If your expression must satisfy multiple conditions, use a<br>logical operator to specify your conditions. |
-| then                   | No          | Defines the action to take if the conditional expression<br>evaluates to `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| else                   | No          | Defines the action to take if the conditional expression<br>evaluates to `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| step action            | Conditional | When you use `then` or `else`,<br>you must specify one of the following step actions:<br>• **Abort** – AWSTOE<br>marks the step as failed.<br>• **Execute** – AWSTOE<br>runs the step.<br>• **Skip** – AWSTOE<br>skips the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-###### Example 1: Install package
+| Key name | Required | Description | 
+| --- | --- | --- | 
+| conditional expression | Yes | The conditional expression can contain exactly one of the following types of operators at the top level.+  **Comparison operator** – For a list of comparison operators, and information about how they work in AWSTOE component documents, see [Comparison operators](toe-comparison-operators.md). <br />+  **Logical operator** – Logical operators include `and`, `or`, and `not`, and operate on one or more comparison operators. For more information about how logical operators work in AWSTOE component documents, see [Logical operators](toe-logical-operators.md). <br />If your expression must satisfy multiple conditions, use a logical operator to specify your conditions. | 
+| then | No | Defines the action to take if the conditional expression evaluates to `true`. | 
+| else | No | Defines the action to take if the conditional expression evaluates to `false`. | 
+| step action | Conditional | When you use `then` or `else`, you must specify one of the following step actions:+  **Abort** – AWSTOE marks the step as failed. <br />+  **Execute** – AWSTOE runs the step. <br />+  **Skip** – AWSTOE skips the step.  | 
 
-The following example steps from an AWSTOE component document use logical operators
-to test a parameter value and run the appropriate package manager commands to install
-an application if the package is unzipped.
+**Example 1: Install package**  
+The following example steps from an AWSTOE component document use logical operators to test a parameter value and run the appropriate package manager commands to install an application if the package is unzipped.
 
 ```
-
     - name: InstallUnzipAptGet
       action: ExecuteBash
       if:
@@ -85,10 +74,8 @@ an application if the package is unzipped.
             - sudo zypper install -y unzip
 ```
 
-###### Example 2: Skip a step
-
-The following example shows two ways to skip a step. One uses a logical operator,
-and one uses a comparison operator with the `Skip` step action.
+**Example 2: Skip a step**  
+The following example shows two ways to skip a step. One uses a logical operator, and one uses a comparison operator with the `Skip` step action.
 
 ```
 # Creates a file if it does not exist using not

@@ -1,45 +1,35 @@
+
+
 # Amazon SNS integration in Image Builder
+<a name="integ-sns"></a>
 
-Amazon Simple Notification Service (Amazon SNS) is a managed service that provides asynchronous message delivery from
-publishers to subscribers (also known as producers and consumers).
+Amazon Simple Notification Service (Amazon SNS) is a managed service that provides asynchronous message delivery from publishers to subscribers (also known as producers and consumers).
 
-You can specify an SNS topic in your infrastructure configuration. When you create an
-image or run a pipeline, Image Builder can publish detailed messages about your image status to this
-topic. When the image status reaches one of the following states, Image Builder publishes a message:
+You can specify an SNS topic in your infrastructure configuration. When you create an image or run a pipeline, Image Builder can publish detailed messages about your image status to this topic. When the image status reaches one of the following states, Image Builder publishes a message:
++ `AVAILABLE`
++ `FAILED`
 
-- `AVAILABLE`
-- `FAILED`
-  For an example SNS message from Image Builder, see [SNS message format](#integ-sns-message "#integ-sns-message"). If you want to create a new SNS topic, see
-  [Getting started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md")
-  in the _Amazon Simple Notification Service Developer Guide_.
+For an example SNS message from Image Builder, see [SNS message format](#integ-sns-message). If you want to create a new SNS topic, see [Getting started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html) in the *Amazon Simple Notification Service Developer Guide*.
 
 ## Encrypted SNS Topics
+<a name="integ-sns-encrypted"></a>
 
-If your SNS topic is encrypted, you must grant permission in the AWS KMS key policy for
-the Image Builder service role to perform the following actions:
+If your SNS topic is encrypted, you must grant permission in the AWS KMS key policy for the Image Builder service role to perform the following actions:
++ `kms:Decrypt`
++ `kms:GenerateDataKey`
 
-- `kms:Decrypt`
-- `kms:GenerateDataKey`
+**Note**  
+If your SNS topic is encrypted, the key that encrypts this topic must reside in the account where the Image Builder service runs. Image Builder can't send notifications to SNS topics that are encrypted with keys from other accounts.
 
-###### Note
-
-If your SNS topic is encrypted, the key that encrypts this topic must reside in the
-account where the Image Builder service runs. Image Builder can't send notifications to SNS topics that
-are encrypted with keys from other accounts.
-
-###### Example KMS key policy addition
-
-The following example shows the additional section that you add to the
-KMS key policy. Use the Amazon Resource Name (ARN) for the IAM
-service-linked role that Image Builder created under your account when you first created
-an Image Builder image. To learn more about the Image Builder service-linked role, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+**Example KMS key policy addition**  
+The following example shows the additional section that you add to the KMS key policy. Use the Amazon Resource Name (ARN) for the IAM service-linked role that Image Builder created under your account when you first created an Image Builder image. To learn more about the Image Builder service-linked role, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md).
 
 ```
 {
   "Statement": [{
     "Effect": "Allow",
     "Principal": {
-      "AWS": "arn:aws:iam::`123456789012`:role/aws-service-role/imagebuilder.amazonaws.com/AWSServiceRoleForImageBuilder"
+      "AWS": "arn:aws:iam::{{123456789012}}:role/aws-service-role/imagebuilder.amazonaws.com/AWSServiceRoleForImageBuilder"
     },
     "Action": [
       "kms:GenerateDataKey*",
@@ -52,54 +42,49 @@ an Image Builder image. To learn more about the Image Builder service-linked rol
 
 You can use one of the following methods to get the ARN.
 
-AWS Management Console
-To get the ARN for the service-linked role that Image Builder created under
-your account from the AWS Management Console, follow these steps:
+------
+#### [ AWS Management Console ]
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the left navigation pane, choose
-   **Roles**.
-3. Search for `ImageBuilder`, and choose the following
-   **Role name** from the results:
-   `AWSServiceRoleForImageBuilder`. This displays
-   the role detail page.
-4. To copy the ARN to your clipboard, choose the icon next to the
-   ARN name.
+To get the ARN for the service-linked role that Image Builder created under your account from the AWS Management Console, follow these steps:
 
-AWS CLI
-To get the ARN for the service-linked role that Image Builder created under
-your account from the AWS CLI, use the IAM [get-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html") command, as
-follows.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
+
+1. In the left navigation pane, choose **Roles**.
+
+1. Search for `ImageBuilder`, and choose the following **Role name** from the results: `AWSServiceRoleForImageBuilder`. This displays the role detail page.
+
+1. To copy the ARN to your clipboard, choose the icon next to the ARN name.
+
+------
+#### [ AWS CLI ]
+
+To get the ARN for the service-linked role that Image Builder created under your account from the AWS CLI, use the IAM [get-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html) command, as follows.
 
 ```
-`aws iam get-role --role-name AWSServiceRoleForImageBuilder`
+aws iam get-role --role-name AWSServiceRoleForImageBuilder
 ```
 
 **Partial sample output:**
 
 ```
-`{
- "Role": {
- "Path": "/aws-service-role/imagebuilder.amazonaws.com/",
- "RoleName": "AWSServiceRoleForImageBuilder",
- ...
- "Arn": "arn:aws:iam::`123456789012`:role/aws-service-role/imagebuilder.amazonaws.com/AWSServiceRoleForImageBuilder",
- ...
-}`
+{
+    "Role": {
+        "Path": "/aws-service-role/imagebuilder.amazonaws.com/",
+        "RoleName": "AWSServiceRoleForImageBuilder",
+        ...
+        "Arn": "arn:aws:iam::{{123456789012}}:role/aws-service-role/imagebuilder.amazonaws.com/AWSServiceRoleForImageBuilder",
+        ...
+}
 ```
 
+------
+
 ## SNS message format
+<a name="integ-sns-message"></a>
 
-After Image Builder publishes a message to your Amazon SNS topic, other services that subscribe
-to the topic can filter on the message format and determine if it meets criteria for
-further action. For example, a success message might initiate a task to update an
-AWS Systems Manager parameter store, or to launch an external compliance testing workflow for
-the output AMI.
+After Image Builder publishes a message to your Amazon SNS topic, other services that subscribe to the topic can filter on the message format and determine if it meets criteria for further action. For example, a success message might initiate a task to update an AWS Systems Manager parameter store, or to launch an external compliance testing workflow for the output AMI.
 
-The following example shows the JSON payload for a typical message that Image Builder
-publishes when a pipeline build runs to completion, and creates a Linux
-image.
+The following example shows the JSON payload for a typical message that Image Builder publishes when a pipeline build runs to completion, and creates a Linux image.
 
 ```
 {
@@ -210,8 +195,7 @@ image.
 }
 ```
 
-The following example shows the JSON payload for a typical message that Image Builder
-publishes for a pipeline build failure for a Linux image.
+The following example shows the JSON payload for a typical message that Image Builder publishes for a pipeline build failure for a Linux image.
 
 ```
 {

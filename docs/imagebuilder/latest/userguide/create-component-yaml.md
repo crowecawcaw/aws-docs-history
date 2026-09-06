@@ -1,50 +1,27 @@
+
+
 # Create a YAML component document for custom components in Image Builder
+<a name="create-component-yaml"></a>
 
-To build a component, you must provide a YAML or JSON application component document. The
-document contains the code that runs during the phases and steps that you define to provide customization
-for your image.
+To build a component, you must provide a YAML or JSON application component document. The document contains the code that runs during the phases and steps that you define to provide customization for your image.
 
-Some of the examples in this section create a build component that calls the `UpdateOS`
-action module in the AWSTOE component management application. The module updates the
-operating system. For more information about the `UpdateOS` action module, see
-[UpdateOS](toe-action-modules.md#action-modules-updateos "toe-action-modules.md#action-modules-updateos").
+Some of the examples in this section create a build component that calls the `UpdateOS` action module in the AWSTOE component management application. The module updates the operating system. For more information about the `UpdateOS` action module, see [UpdateOS](toe-action-modules.md#action-modules-updateos).
 
-The macOS operating system example uses the `ExecuteBash` action module to install
-and verify the `wget` utility. The `UpdateOS` action module doesn't support
-macOS. For more information about the `ExecuteBash` action module, see [ExecuteBash](toe-action-modules.md#action-modules-executebash "toe-action-modules.md#action-modules-executebash").
-For more information about the phases, steps, and syntax for AWSTOE
-application component documents, see
-[Use documents in AWSTOE](toe-use-documents.md "toe-use-documents.md").
+The macOS operating system example uses the `ExecuteBash` action module to install and verify the `wget` utility. The `UpdateOS` action module doesn't support macOS. For more information about the `ExecuteBash` action module, see [ExecuteBash](toe-action-modules.md#action-modules-executebash). For more information about the phases, steps, and syntax for AWSTOE application component documents, see [Use documents in AWSTOE](https://docs.aws.amazon.com/imagebuilder/latest/userguide/toe-use-documents.html).
 
-###### Note
+**Note**  
+Image Builder determines the component type from the phases that are defined in the component document as follows:  
+**Build** – This is the default component type. Anything that is not classified as a test component, is a build component. This type of component runs during the image *Build stage*. If this build component has a `test` phase defined, that phase runs during the *Test stage*.
+**Test** – To qualify as a test component, the component document must include only one phase, named `test`. For tests that are related to build component configurations, we recommend that you don't use a standalone test component. Rather, use the `test` phase in the associated build component.
+For more information about how Image Builder uses stages and phases to manage component workflow in its build process, see [Use components to customize your Image Builder image](manage-components.md).
 
-Image Builder determines the component type from the phases that are defined in the component
-document as follows:
+To create a YAML application component document for a sample application, follow the steps on the tab that matches your image operating system. 
 
-- **Build** – This is the default component type.
-  Anything that is not classified as a test component, is a build component. This
-  type of component runs during the image _Build stage_. If this
-  build component has a `test` phase defined, that phase runs during
-  the _Test stage_.
-- **Test** – To qualify as a test component, the
-  component document must include only one phase, named `test`. For
-  tests that are related to build component configurations, we recommend that you
-  don't use a standalone test component. Rather, use the `test` phase
-  in the associated build component.
-  For more information about how Image Builder uses stages and phases to manage component
-  workflow in its build process, see [Use components to customize your Image Builder image](manage-components.md "manage-components.md").
+------
+#### [ Linux ]
 
-To create a YAML application component document for a sample application, follow the steps on
-the tab that matches your image operating system.
-
-Linux
-
-###### Create a YAML component file
-
-Use a file editing tool to create your component document.
-Documentation examples use a file named
-`update-linux-os.yaml`,
-with the following content:
+**Create a YAML component file**  
+Use a file editing tool to create your component document. Documentation examples use a file named `{{update-linux-os.yaml}}`, with the following content:
 
 ```
 # Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -73,20 +50,14 @@ phases:
 # Document End
 ```
 
-###### Tip
+**Tip**  
+Use a tool like this online [YAML Validator](https://jsonformatter.org/yaml-validator), or a YAML lint extension in your code environment to verify that your YAML is well-formed.
 
-Use a tool like this online [YAML
-Validator](https://jsonformatter.org/yaml-validator "https://jsonformatter.org/yaml-validator"), or a YAML lint extension in your code environment to verify
-that your YAML is well-formed.
+------
+#### [ Windows ]
 
-Windows
-
-###### Create a YAML component file
-
-Use a file editing tool to create your component document.
-Documentation examples use a file named
-`update-windows-os.yaml`,
-with the following content:
+**Create a YAML component file**  
+Use a file editing tool to create your component document. Documentation examples use a file named `{{update-windows-os.yaml}}`, with the following content:
 
 ```
 # Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -115,20 +86,14 @@ phases:
 # Document End
 ```
 
-###### Tip
+**Tip**  
+Use a tool like this online [YAML Validator](https://jsonformatter.org/yaml-validator), or a YAML lint extension in your code environment to verify that your YAML is well-formed.
 
-Use a tool like this online [YAML
-Validator](https://jsonformatter.org/yaml-validator "https://jsonformatter.org/yaml-validator"), or a YAML lint extension in your code environment to verify
-that your YAML is well-formed.
+------
+#### [ macOS ]
 
-macOS
-
-###### Create a YAML component file
-
-Use a file editing tool to create your component document.
-Documentation examples use a file named
-`wget-macos.yaml`,
-with the following content:
+**Create a YAML component file**  
+Use a file editing tool to create your component document. Documentation examples use a file named `{{wget-macos.yaml}}`, with the following content:
 
 ```
 name: WgetInstallDocument
@@ -174,8 +139,7 @@ phases:
             - wget -h
 ```
 
-###### Tip
+**Tip**  
+Use a tool like this online [YAML Validator](https://jsonformatter.org/yaml-validator), or a YAML lint extension in your code environment to verify that your YAML is well-formed.
 
-Use a tool like this online [YAML
-Validator](https://jsonformatter.org/yaml-validator "https://jsonformatter.org/yaml-validator"), or a YAML lint extension in your code environment to verify
-that your YAML is well-formed.
+------
