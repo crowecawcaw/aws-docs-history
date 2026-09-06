@@ -17,6 +17,7 @@ JSON
  "kafkaconnect:DescribeConnector",
  "kafkaconnect:ListConnectors",
  "kafkaconnect:UpdateConnector",
+ "kafkaconnect:RestartConnector",
  "kafkaconnect:CreateCustomPlugin",
  "kafkaconnect:DeleteCustomPlugin",
  "kafkaconnect:DescribeCustomPlugin",

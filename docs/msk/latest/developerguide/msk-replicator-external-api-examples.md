@@ -216,6 +216,10 @@ The example includes `tokenEndpointTlsCertificateArn`, which is optional and nee
 
 To set up bidirectional replication for rollback capability, both the forward and reverse Replicators must be created with `consumerGroupOffsetSyncMode` set to `ENHANCED`. This ensures consumer group offsets are synchronized in a way that supports seamless cutover in either direction.
 
+###### Important
+
+Register each cluster the same way in both Replicators. If a cluster is registered as an Amazon MSK cluster (`amazonMskCluster`, using its cluster ARN) in one Replicator, register it as an Amazon MSK cluster in the other as well. If it is registered as a self-managed Apache Kafka cluster (`apacheKafkaCluster`, using a bootstrap broker string), use that same type in both. Doing so ensures consistent tracking in MSK Replicator to prevent replication loops.
+
 **Using SASL/SCRAM authentication:**
 
 Create the forward Replicator (self-managed Kafka to MSK Provisioned) with `ENHANCED` offset sync mode:

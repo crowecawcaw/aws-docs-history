@@ -39,7 +39,7 @@ Use `CreateReplicator` API with `EARLIEST` starting position, Identical topic na
 
 ###### Step 6: (Optional) Set up bidirectional replication
 
-Create a reverse Replicator from the MSK Provisioned cluster back to the self-managed cluster for rollback capabilities. See [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
+Create a reverse Replicator from the MSK Provisioned cluster back to the self-managed cluster for rollback capabilities. Identify both clusters in the reverse Replicator exactly as you identified them in the forward Replicator. See [Bidirectional replication example](msk-replicator-external-api-examples.md#msk-replicator-external-bidirectional "msk-replicator-external-api-examples.md#msk-replicator-external-bidirectional").
 
 ###### Step 7: Monitor replication progress
 

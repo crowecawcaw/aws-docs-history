@@ -26,3 +26,21 @@ Here are some reasons a connector may use fewer tasks than the specified tasks.m
   single topic being consumed. If this doesn't work for your use case, you should [create a Worker Configuration](msk-connect-workers.md#msk-connect-create-custom-worker-config "msk-connect-workers.md#msk-connect-create-custom-worker-config") in which the
   `consumer.partition.assignment.strategy` property is set to a more
   suitable consumer partition assignor. See [Kafka 2.7 Interface ConsumerPartitionAssignor: _All Known Implementing Classes_](https://kafka.apache.org/27/javadoc/org/apache/kafka/clients/consumer/ConsumerPartitionAssignor.html "https://kafka.apache.org/27/javadoc/org/apache/kafka/clients/consumer/ConsumerPartitionAssignor.html").
+
+###### Connector restart operation reaches RESTART\_FAILED state
+
+If a restart operation reaches the `RESTART_FAILED` state, try the following to resolve the issue:
+
+- Check the `errorInfo` field in the `DescribeConnectorOperation` response for details.
+- Review connector logs from CloudWatch, Amazon S3, or Firehose for error messages indicating why tasks cannot complete startup.
+- Check whether the connector's tasks are blocked by external dependencies (databases, network endpoints, or other systems that the connector interacts with).
+- Verify that the connector's Kafka cluster is reachable and healthy.
+
+###### Cannot restart connector — 400 BadRequestException
+
+Here are some reasons why you might not be able to restart a connector:
+
+- The connector is not in the `RUNNING` state (for example, it is `CREATING`, `UPDATING`, or `DELETING`).
+- Another lifecycle operation is already in progress on the connector.
+- You specified `--only-failed-tasks` on a connector using Amazon MSK version earlier than 3.7 (this feature requires version 3.7 or later).
+- The connector was created before the restart capability was available. This feature is currently supported only for newly created connectors.
