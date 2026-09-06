@@ -1,153 +1,144 @@
-# Module 3: Add Authentication
 
-|                      |                                                                                  |
-| -------------------- | -------------------------------------------------------------------------------- |
-| **Time to complete** | 5 minutes                                                                        |
-| **Services used**    | [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") |
+
+# Module 3: Add Authentication
+<a name="module-three"></a>
+
+
+|  |  | 
+| --- |--- |
+| **Time to complete** | 5 minutes  | 
+| **Services used** | [AWS Amplify](https://aws.amazon.com/amplify/)  | 
 
 ## Overview
+<a name="overview"></a>
 
-The next feature you will be adding is user authentication. In
-this module, you will learn how to authenticate a user with the
-Amplify CLI and libraries, using
-[Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/"), a
-managed user identity provider.
+The next feature you will be adding is user authentication. In this module, you will learn how to authenticate a user with the Amplify CLI and libraries, using [Amazon Cognito](https://aws.amazon.com/cognito/), a managed user identity provider. 
 
-You will also learn how to use the Amazon Cognito hosted UI (user
-interface) to present an entire user authentication flow, allowing
-users to sign up, sign in, and reset their password with just a
-few lines of code.
+You will also learn how to use the Amazon Cognito hosted UI (user interface) to present an entire user authentication flow, allowing users to sign up, sign in, and reset their password with just a few lines of code. 
 
-Using a hosted UI means the application uses the Amazon Cognito
-web pages for the sign-in and sign-up UI flows. The user of the
-app is redirected to a web page hosted by Amazon Cognito and
-redirected back to the app after sign-in.
+Using a hosted UI means the application uses the Amazon Cognito web pages for the sign-in and sign-up UI flows. The user of the app is redirected to a web page hosted by Amazon Cognito and redirected back to the app after sign-in. 
 
-Amplify also offers a native UI component for authentication
-flows. You can follow
-[these
-workshop instructions](https://amplify-ios-workshop.go-aws.com/70_add_custom_gui/30_customized_ui.html "https://amplify-ios-workshop.go-aws.com/70_add_custom_gui/30_customized_ui.html") to learn more.
+Amplify also offers a native UI component for authentication flows. You can follow [these workshop instructions](https://amplify-ios-workshop.go-aws.com/70_add_custom_gui/30_customized_ui.html) to learn more. 
 
 ## What you will accomplish
+<a name="what-you-will-accomplish"></a>
 
-In this module, you will:
-
-- Create and deploy an authentication service
-- Configure your iOS app to include Amazon Cognito hosted UI
-  authentication
+In this module, you will: 
++ Create and deploy an authentication service 
++ Configure your iOS app to include Amazon Cognito hosted UI authentication 
 
 ## Key concepts
+<a name="key-concepts"></a>
 
-**Amplify libraries –** Using
-Amplify libraries you can interact with AWS services from a web or
-mobile application.
+**Amplify libraries –** Using Amplify libraries you can interact with AWS services from a web or mobile application. 
 
-**Authentication –** In software,
-authentication is the process of verifying and managing the
-identity of a user using an authentication service or API.
+**Authentication –** In software, authentication is the process of verifying and managing the identity of a user using an authentication service or API. 
 
 ## Implementation
+<a name="implementation"></a>
+
+### Step 1: Create the authentication service
+<a name="create-the-authentication-service"></a>
 
 1. Add authorization
 
-To create the authentication service, open **Terminal** and run the following **command**
-in your project root directory:
+   To create the authentication service, open **Terminal** and run the following **command** in your project root directory: 
 
-```
-amplify add auth
-```
+   ```
+   amplify add auth
+   ```
 
-2. Configure authorization options
+1. Configure authorization options
 
-Select the following **options**, when prompted:
+   Select the following **options**, when prompted: 
 
-```
-Do you want to use the default authentication and security configuration?
-     ❯ Default configuration with Social Provider (Federation)
-How do you want users to be able to sign in?
-     ❯ Username
-Do you want to configure advanced settings?
-     ❯ No, I am done.
-What domain name prefix do you want to use?
-     «default value»
-Enter your redirect signin URI:
-     gettingstarted://
-Do you want to add another redirect signin URI? (y/N)
-     N
-Enter your redirect signout URI:
-     gettingstarted://
-Do you want to add another redirect signout URI? (y/N)
-     N
-Select the social providers you want to configure for your user pool:
-     «Do not select any and just press enter»
+   ```
+   Do you want to use the default authentication and security configuration?
+        ❯ Default configuration with Social Provider (Federation) 
+   How do you want users to be able to sign in?
+        ❯ Username 
+   Do you want to configure advanced settings?
+        ❯ No, I am done.
+   What domain name prefix do you want to use?
+        «default value» 
+   Enter your redirect signin URI:
+        gettingstarted:// 
+   Do you want to add another redirect signin URI? (y/N)
+        N 
+   Enter your redirect signout URI:
+        gettingstarted:// 
+   Do you want to add another redirect signout URI? (y/N)
+        N
+   Select the social providers you want to configure for your user pool:
+        «Do not select any and just press enter»
+   ```
+**Note**  
+Do not forget to type the redirect URIs. They are needed for the redirection for Amazon Cognito Hosted UI to work.
 
-```
+1. Deploy the service
 
-###### Note
+   Run the following **command** to deploy the service: 
 
-Do not forget to type the redirect URIs. They are needed for the redirection for
-Amazon Cognito Hosted UI to work. 3. Deploy the service
+   ```
+   amplify push
+   ```
 
-Run the following **command** to deploy the service:
+   Press **Enter (Y)** when asked to continue. 
 
-```
-amplify push
-```
-
-Press **Enter (Y)** when asked to continue.
+### Step 2: Add the Amplify Authentication library to the project
+<a name="add-the-amplify-authentication-library-to-the-project"></a>
 
 1. Open the general tab
 
-To add the Amplify Authentication library to the dependencies of your project,
-navigate to the **General** tab of your Target
-application (Your Project > Targets > General).
+   To add the Amplify Authentication library to the dependencies of your project, navigate to the **General** tab of your Target application (Your Project > Targets > General). 
 
-Select the **plus (+)** in the **Frameworks, Libraries, and Embedded Content** section.
+   Select the **plus (\+)** in the **Frameworks, Libraries, and Embedded Content** section.   
+![The General tab in Xcode for an iOS app project named GettingStarted, highlighting project setup steps in the Amplify tutorial including package dependencies, supported device orientations, and adding frameworks or libraries.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/general-tab-xcode-project-named.png)
 
-![The General tab in Xcode for an iOS app project named GettingStarted, highlighting project setup steps in the Amplify tutorial including package dependencies, supported device orientations, and adding frameworks or libraries.](images/general-tab-xcode-project-named.png) 2. Select the plugin
+1. Select the plugin
 
-Select **AWSCognitoAuthPlugin**,and choose **Add**.
+   Select **AWSCognitoAuthPlugin**,and choose **Add**.   
+![The 'Choose frameworks and libraries to add' dialog in Xcode, highlighting the AWSCognitoAuthPlugin in the Amplify Package for an iOS app using AWS Amplify authentication.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/pxkqu-auth-plugin-choose-frameworks.png)
 
-![The 'Choose frameworks and libraries to add' dialog in Xcode, highlighting the AWSCognitoAuthPlugin in the Amplify Package for an iOS app using AWS Amplify authentication.](images/pxkqu-auth-plugin-choose-frameworks.png)
+### Step 3: Configure the Amplify Authentication library at runtime
+<a name="configure-the-amplify-authentication-library-at-runtime"></a>
++ Configure authentication
 
-- Configure authentication
+  Navigate back to Xcode, and open the **GettingStartedApp.swift **file. To configure Amplify Authentication, you will need to: 
+  + Add the **import AWSCognitoAuthPlugin** statement. 
+  + Create the **AWSCognitoAuthPlugin** plugin and register it with. 
 
-Navigate back to Xcode, and open the **GettingStartedApp.swift**file. To configure Amplify Authentication, you
-will need to:
+  Your code should look like the following: 
 
-    + Add the **import AWSCognitoAuthPlugin**
-     statement.
-    + Create the **AWSCognitoAuthPlugin** plugin and
-     register it with.
+  ```
+  import Amplify
+  import AWSCognitoAuthPlugin
+  import SwiftUI
+  
+  @main
+  struct GettingStartedApp: App {
+      init() {
+          do {
+              try Amplify.add(plugin: AWSCognitoAuthPlugin())
+              try Amplify.configure()
+              print("Initialized Amplify")
+          } catch {
+              print("Could not initialize Amplify: \(error)")
+          }
+      }
+  
+      var body: some Scene {
+          WindowGroup {
+              NotesView()
+          }
+      }
+  }
+  ```
 
-Your code should look like the following:
+### Step 4: Create a class to support authentication operations
+<a name="create-a-class-to-support-authentication-operations"></a>
 
-```
-import Amplify
-import AWSCognitoAuthPlugin
-import SwiftUI
-
-@main
-struct GettingStartedApp: App {
-    init() {
-        do {
-            try Amplify.add(plugin: AWSCognitoAuthPlugin())
-            try Amplify.configure()
-            print("Initialized Amplify")
-        } catch {
-            print("Could not initialize Amplify: \(error)")
-        }
-    }
-
-    var body: some Scene {
-        WindowGroup {
-            NotesView()
-        }
-    }
-}
-```
-
-Create a **new Swift file** named **AuthenticationService.swift** with the following content:
+Create a **new Swift file** named **AuthenticationService.swift** with the following content: 
 
 ```
 import Amplify
@@ -199,155 +190,149 @@ class AuthenticationService: ObservableObject {
 }
 ```
 
-This class takes care of handling authentication by relying on
-Amplify's HostedUI capabilities, while also informing whether a user
-is signed in or not.
+This class takes care of handling authentication by relying on Amplify's HostedUI capabilities, while also informing whether a user is signed in or not. 
+
+### Step 5: Update the UI with authentication
+<a name="update-the-ui-with-authentication"></a>
 
 1. Create authentication for signing in
 
-Create a **new Swift file** named **LandingView.swift** with the following content:
+   Create a **new Swift file** named **LandingView.swift ** with the following content: 
 
-```
-import AuthenticationServices
-import SwiftUI
+   ```
+   import AuthenticationServices
+   import SwiftUI
+   
+   struct LandingView: View {
+       @EnvironmentObject private var authenticationService: AuthenticationService
+       @State private var isLoading = true
+   
+       var body: some View {
+           ZStack {
+               if isLoading {
+                   ProgressView()
+               }
+   
+               Group {
+                   if authenticationService.isSignedIn {
+                       NotesView()
+                   } else {
+                       Button("Sign in") {
+                           Task {
+                               await authenticationService.signIn(presentationAnchor: window)
+                           }
+                       }
+                   }
+               }
+               .opacity(isLoading ? 0.5 : 1)
+               .disabled(isLoading)
+           }
+           .task {
+               isLoading = true
+               await authenticationService.fetchSession()
+               if !authenticationService.isSignedIn {
+                   await authenticationService.signIn(presentationAnchor: window)
+               }
+               isLoading = false
+           }
+       }
+   
+       private var window: ASPresentationAnchor {
+           if let delegate = UIApplication.shared.connectedScenes.first?.delegate as? UIWindowSceneDelegate,
+              let window = delegate.window as? UIWindow {
+               return window
+           }
+           return ASPresentationAnchor()
+       }
+   }
+   ```
 
-struct LandingView: View {
-    @EnvironmentObject private var authenticationService: AuthenticationService
-    @State private var isLoading = true
+   This view takes care of the following: 
+   + Before the view first appears, it will fetch the current user status using the **authenticationService **property. This is done in the view's **task(priority:\_:)** method. 
+   + If the user is signed in, it will display the **NotesView**. 
+   + If the user is not signed in, it will automatically invoke the HostedUI workflow. If the user does not sign in and closes that workflow, a "Sign In" button will be displayed that can be used to start the authentication workflow again. 
 
-    var body: some View {
-        ZStack {
-            if isLoading {
-                ProgressView()
-            }
+   We've marked the authenticationService variable with a **@EnvironmentObject **property wrapper annotation, meaning we need to set it using the **environmentObject(\_:) **view modifier on an ancestor view. 
 
-            Group {
-                if authenticationService.isSignedIn {
-                    NotesView()
-                } else {
-                    Button("Sign in") {
-                        Task {
-                            await authenticationService.signIn(presentationAnchor: window)
-                        }
-                    }
-                }
-            }
-            .opacity(isLoading ? 0.5 : 1)
-            .disabled(isLoading)
-        }
-        .task {
-            isLoading = true
-            await authenticationService.fetchSession()
-            if !authenticationService.isSignedIn {
-                await authenticationService.signIn(presentationAnchor: window)
-            }
-            isLoading = false
-        }
-    }
+   Update the **GettingStartedApp.swift** file body to create this view instead, and to set the **AuthenticationService **object with the following: 
 
-    private var window: ASPresentationAnchor {
-        if let delegate = UIApplication.shared.connectedScenes.first?.delegate as? UIWindowSceneDelegate,
-           let window = delegate.window as? UIWindow {
-            return window
-        }
-        return ASPresentationAnchor()
-    }
-}
-```
+   ```
+   var body: some Scene {
+       WindowGroup {
+           LandingView()
+               .environmentObject(AuthenticationService())
+       }
+   }
+   ```
 
-This view takes care of the following:
+1. Create authentication for signing out
 
-    * Before the view first appears, it will fetch the current user status using
-     the **authenticationService**property. This is
-     done in the view's **task(priority:\_:)** method.
-    * If the user is signed in, it will display the **NotesView**.
-    * If the user is not signed in, it will automatically invoke the HostedUI
-     workflow. If the user does not sign in and closes that workflow, a "Sign
-     In" button will be displayed that can be used to start the authentication
-     workflow again.
+   Open the **NotesView.swift **file and replace its contents with the following: 
 
-We've marked the authenticationService variable with a **@EnvironmentObject**property wrapper annotation, meaning we need to set
-it using the **environmentObject(\_:)**view modifier on
-an ancestor view.
+   ```
+   struct NotesView: View {
+       @EnvironmentObject private var authenticationService: AuthenticationService
+       @State var notes: [Note] = []
+   
+       var body: some View {
+           NavigationStack {
+               List {
+                   if notes.isEmpty {
+                       Text("No notes")
+                   }
+                   ForEach(notes, id: \.id) { note in
+                       NoteView(note: note)
+                   }
+               }
+               .navigationTitle("Notes")
+               .toolbar {
+                   Button("Sign Out") {
+                       Task {
+                           await authenticationService.signOut()
+                       }
+                   }
+               }
+           }
+       }
+   }
+   ```
 
-Update the **GettingStartedApp.swift** file body to
-create this view instead, and to set the **AuthenticationService**object with the following:
+   We've added a **Sign Out** button in the toolbar that calls **authenticationService.signOut()**. As this object has already been added when creating the LandingView ancestor, we don't need to do anything else. 
 
-```
-var body: some Scene {
-    WindowGroup {
-        LandingView()
-            .environmentObject(AuthenticationService())
-    }
-}
-```
+### Step 6: Build and test
+<a name="build-and-test"></a>
 
-2. Create authentication for signing out
+Build and launch the app in the simulator by pressing the **►** button in the toolbar. Alternatively, you can also do it by going to **Product -> Run**, or by pressing **Cmd \+ R**. 
 
-Open the **NotesView.swift**file and replace its
-contents with the following:
+The iOS simulator will open and the app should prompt you to sign in first. 
 
-```
-struct NotesView: View {
-    @EnvironmentObject private var authenticationService: AuthenticationService
-    @State var notes: [Note] = []
-
-    var body: some View {
-        NavigationStack {
-            List {
-                if notes.isEmpty {
-                    Text("No notes")
-                }
-                ForEach(notes, id: \.id) { note in
-                    NoteView(note: note)
-                }
-            }
-            .navigationTitle("Notes")
-            .toolbar {
-                Button("Sign Out") {
-                    Task {
-                        await authenticationService.signOut()
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-We've added a **Sign Out** button in the toolbar that
-calls **authenticationService.signOut()**. As this
-object has already been added when creating the LandingView ancestor, we don't need to
-do anything else.
-Build and launch the app in the simulator by pressing
-the **►** button in the toolbar.
-Alternatively, you can also do it by going
-to **Product -> Run**, or by
-pressing **Cmd + R**.
-
-The iOS simulator will open and the app should prompt you to sign in
-first.
-
-Once you've finished that process, the Notes view will display with
-a **Sign Out** button at the top
-right. If you choose it, you should land in the Sign in view again.
+Once you've finished that process, the Notes view will display with a **Sign Out** button at the top right. If you choose it, you should land in the Sign in view again. 
 
 #### Landing view
+<a name="landing-view"></a>
 
-![An iPhone 15 Pro simulator displaying a blank landing view with a loading spinner and 'Sign in' text, as part of an AWS Amplify tutorial for building iOS apps.](images/landing-view-iphone-pro-simulator.png)
+![An iPhone 15 Pro simulator displaying a blank landing view with a loading spinner and 'Sign in' text, as part of an AWS Amplify tutorial for building iOS apps.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/landing-view-iphone-pro-simulator.png)
+
 
 #### Hosted UI: Sign in
+<a name="hosted-ui-sign-in"></a>
 
-![An iPhone displaying the Amazon Cognito hosted UI sign-in screen as seen during an AWS Amplify tutorial for building an iOS app. The screen includes fields for username and password, a sign-in button, and options to reset the password or sign up.](images/wrli-hosted-sign-dba-iphone-displaying.png)
+![An iPhone displaying the Amazon Cognito hosted UI sign-in screen as seen during an AWS Amplify tutorial for building an iOS app. The screen includes fields for username and password, a sign-in button, and options to reset the password or sign up.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/wrli-hosted-sign-dba-iphone-displaying.png)
+
 
 #### Hosted UI: Sign up
+<a name="hosted-ui-sign-up"></a>
 
-![An iPhone 15 Pro displaying a hosted UI sign up screen from Amazon Cognito, showing fields for username, email, and password. Part of the 'build iOS app with Amplify' tutorial.](images/uvq-hosted-sign-iphone-pro-displaying.png)
+![An iPhone 15 Pro displaying a hosted UI sign up screen from Amazon Cognito, showing fields for username, email, and password. Part of the 'build iOS app with Amplify' tutorial.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/uvq-hosted-sign-iphone-pro-displaying.png)
+
 
 #### Hosted UI: Confirmation
+<a name="hosted-ui-confirmation"></a>
 
-![An iPhone displaying the account confirmation page from an AWS Amplify tutorial, showing a form to enter a verification code for account confirmation using Amazon Cognito Hosted UI.](images/hosted-confirmation-iphone-displaying.png)
+![An iPhone displaying the account confirmation page from an AWS Amplify tutorial, showing a form to enter a verification code for account confirmation using Amazon Cognito Hosted UI.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/hosted-confirmation-iphone-displaying.png)
+
 
 #### List of notes
+<a name="list-of-notes"></a>
 
-![An iOS app running in an iPhone 15 Pro simulator, displaying a 'Notes' screen with the message 'No notes.' Part of an AWS Amplify tutorial for building an iOS app with a hosted UI.](images/vfnmrvtl-hosted-notes-ebf-running-iphone.png)
+![An iOS app running in an iPhone 15 Pro simulator, displaying a 'Notes' screen with the message 'No notes.' Part of an AWS Amplify tutorial for building an iOS app with a hosted UI.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/vfnmrvtl-hosted-notes-ebf-running-iphone.png)
