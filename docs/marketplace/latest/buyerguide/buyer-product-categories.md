@@ -1,359 +1,276 @@
+
+
 # Product categories in AWS Marketplace
+<a name="buyer-product-categories"></a>
 
-The [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace") website is organized into
-primary categories, with subcategories under each. You can search and filter based on the
-categories and subcategories.
+ The [AWS Marketplace](https://aws.amazon.com/marketplace) website is organized into primary categories, with subcategories under each. You can search and filter based on the categories and subcategories. 
 
-###### Buyers in India
+**Buyers in India**  
+Products from sellers in India are identified with `[IN]` suffix and available exclusively to buyers in India. For more information, see [AWS Marketplace in India](http://aws.amazon.com/marketplace/features/india) and [Buyers in India FAQ](india-buyer-faq.md).
 
-Products from sellers in India are identified with `[IN]` suffix and available exclusively to buyers in India. For more information, see [AWS Marketplace in India](http://aws.amazon.com/marketplace/features/india "http://aws.amazon.com/marketplace/features/india") and [Buyers in India FAQ](india-buyer-faq.md "india-buyer-faq.md").
-
-###### Topics
-
-- [Infrastructure Software](#infrastructure-software-category "#infrastructure-software-category")
-- [DevOps](#developer-tools-category "#developer-tools-category")
-- [Business Applications](#business-software-category "#business-software-category")
-- [Machine Learning](#machine-learning-category "#machine-learning-category")
-- [IoT](#iot-category "#iot-category")
-- [Professional Services](#professional-services-category "#professional-services-category")
-- [Desktop applications](#desktop-applications-category "#desktop-applications-category")
-- [Data Products](#data-products "#data-products")
-- [Industries](#industries "#industries")
+**Topics**
++ [Infrastructure Software](#infrastructure-software-category)
++ [DevOps](#developer-tools-category)
++ [Business Applications](#business-software-category)
++ [Machine Learning](#machine-learning-category)
++ [IoT](#iot-category)
++ [Professional Services](#professional-services-category)
++ [Desktop applications](#desktop-applications-category)
++ [Data Products](#data-products)
++ [Industries](#industries)
 
 ## Infrastructure Software
+<a name="infrastructure-software-category"></a>
 
-The products in this category provide infrastructure-related solutions.
+ The products in this category provide infrastructure-related solutions. 
 
-**Backup & Recovery**
+**Backup & Recovery**  
+ Products used for storage and backup solutions. 
 
-Products used for storage and backup solutions.
+**Data Analytics**  
+ Products used for data analysis. 
 
-**Data Analytics**
+**High Performance Computing**  
+ High performance computing products. 
 
-Products used for data analysis.
+**Migration**  
+ Products used for migration projects. 
 
-**High Performance Computing**
+**Network Infrastructure**  
+ Products used to create networking solutions. 
 
-High performance computing products.
+**Operating Systems**  
+ Packaged Linux and Windows operating systems. 
 
-**Migration**
+**Security**  
+ Security products for your infrastructure. 
 
-Products used for migration projects.
-
-**Network Infrastructure**
-
-Products used to create networking solutions.
-
-**Operating Systems**
-
-Packaged Linux and Windows operating systems.
-
-**Security**
-
-Security products for your infrastructure.
-
-**Storage**
-
-Applications focused on job roles involved in storage.
+**Storage**  
+ Applications focused on job roles involved in storage. 
 
 ## DevOps
+<a name="developer-tools-category"></a>
 
-The products in this category provide tools focused on developers and developer teams.
+ The products in this category provide tools focused on developers and developer teams. 
 
-**Agile Lifecycle Management**
+**Agile Lifecycle Management**  
+ Products used for Agile SDLM. 
 
-Products used for Agile SDLM.
+**Application Development**  
+ Products used for application development. 
 
-**Application Development**
+**Application Servers**  
+ Servers used for application development. 
 
-Products used for application development.
+**Application Stacks**  
+ Stacks used for application development. 
 
-**Application Servers**
+**Continuous Integration and Continuous Delivery**  
+ Products used for CI/CD. 
 
-Servers used for application development.
+**Infrastructure as Code**  
+ Products used for infrastructure. 
 
-**Application Stacks**
+**Issues & Bug Tracking**  
+ Products used by developer teams to track and manage software bugs. 
 
-Stacks used for application development.
+**Monitoring**  
+ Products used for monitoring operating software. 
 
-**Continuous Integration and Continuous
-Delivery**
+**Log Analysis**  
+ Products used for logging and log analysis. 
 
-Products used for CI/CD.
+**Source Control**  
+ Tools used to manage and maintain source control. 
 
-**Infrastructure as Code**
-
-Products used for infrastructure.
-
-**Issues & Bug Tracking**
-
-Products used by developer teams to track and manage software bugs.
-
-**Monitoring**
-
-Products used for monitoring operating software.
-
-**Log Analysis**
-
-Products used for logging and log analysis.
-
-**Source Control**
-
-Tools used to manage and maintain source control.
-
-**Testing**
-
-Products used for automated testing of software products.
+**Testing**  
+ Products used for automated testing of software products. 
 
 ## Business Applications
+<a name="business-software-category"></a>
 
-The products in this category help you run your business.
+ The products in this category help you run your business.
 
-**Blockchain**
+**Blockchain**  
+ Products used for blockchain. 
 
-Products used for blockchain.
+**Collaboration & Productivity**  
+ Products used to enable collaboration in your business. 
 
-**Collaboration & Productivity**
+**Contact Center**  
+ Products used for enabling Contact Centers in your organization. 
 
-Products used to enable collaboration in your business.
+**Content Management**  
+ Products focused on content management. 
 
-**Contact Center**
+**CRM**  
+ Tools focused on customer relationship management. 
 
-Products used for enabling Contact Centers in your organization.
+**eCommerce**  
+ Products that provide eCommerce solutions. 
 
-**Content Management**
+**eLearning**  
+ Products that provide eLearning solutions. 
 
-Products focused on content management.
+**Human Resources**  
+ Products used for enabling Human Resources in your organization. 
 
-**CRM**
+**IT Business Management**  
+ Products used for enabling IT business management in your organization. 
 
-Tools focused on customer relationship management.
+**Business Intelligence**  
+ Products used for enabling business intelligence in your organization. 
 
-**eCommerce**
-
-Products that provide eCommerce solutions.
-
-**eLearning**
-
-Products that provide eLearning solutions.
-
-**Human Resources**
-
-Products used for enabling Human Resources in your organization.
-
-**IT Business Management**
-
-Products used for enabling IT business management in your organization.
-
-**Business Intelligence**
-
-Products used for enabling business intelligence in your organization.
-
-**Project Management**
-
-Tools for project management.
+**Project Management**  
+ Tools for project management. 
 
 ## Machine Learning
+<a name="machine-learning-category"></a>
 
-The products in this category provide machine learning algorithms and model packages that
-work with Amazon SageMaker AI.
+ The products in this category provide machine learning algorithms and model packages that work with Amazon SageMaker AI. 
 
-**ML Solutions**
+**ML Solutions**  
+ Machine learning solutions. 
 
-Machine learning solutions.
+**Data Labeling Services**  
+ Products that provide data labeling capability. 
 
-**Data Labeling Services**
+**Computer Vision**  
+ Products that enable computer vision capability. 
 
-Products that provide data labeling capability.
+**Natural Language Processing**  
+ Products that enable natural language processing capability. 
 
-**Computer Vision**
+**Speech Recognition**  
+ Products that enable speech recognition capability. 
 
-Products that enable computer vision capability.
+**Text**  
+ Products that enable text learning capability. Examples include classification, clustering, edit/processing, embedding, generation, grammar/parsing, identification, names and entity recognition, sentiment analysis, summarization, text-to-speech, and translation. 
 
-**Natural Language Processing**
+**Image**  
+ Products that enable image analysis capability. Examples include 3D, captioning, classification, edit/processing, embedding/feature extraction, generation, grammar/parsing, handwriting recognition, human/faces, object detection, segmentation/pixel labeling, and text/OCR. 
 
-Products that enable natural language processing capability.
+**Video**  
+ Products that enable video analysis capability. Examples include classification, object detection, edit/processing, anomaly detection, speaker identification, motion, re-identification, summarization, text/captioning, and tracking. 
 
-**Speech Recognition**
+**Audio**  
+ Products that enable audio analysis capability. Examples include speaker identification, speech-to-text, classification, song identification, and segmentation. 
 
-Products that enable speech recognition capability.
-
-**Text**
-
-Products that enable text learning capability. Examples include classification,
-clustering, edit/processing, embedding, generation, grammar/parsing, identification,
-names and entity recognition, sentiment analysis, summarization, text-to-speech, and
-translation.
-
-**Image**
-
-Products that enable image analysis capability. Examples include 3D, captioning,
-classification, edit/processing, embedding/feature extraction, generation,
-grammar/parsing, handwriting recognition, human/faces, object detection,
-segmentation/pixel labeling, and text/OCR.
-
-**Video**
-
-Products that enable video analysis capability. Examples include classification,
-object detection, edit/processing, anomaly detection, speaker identification, motion,
-re-identification, summarization, text/captioning, and tracking.
-
-**Audio**
-
-Products that enable audio analysis capability. Examples include speaker
-identification, speech-to-text, classification, song identification, and segmentation.
-
-**Structured**
-
-Products that enable structured analysis capability. Examples include
-classification, clustering, dimensionality reduction, factorization models, feature
-engineering, ranking, regression, and time-series forecasting.
+**Structured**  
+ Products that enable structured analysis capability. Examples include classification, clustering, dimensionality reduction, factorization models, feature engineering, ranking, regression, and time-series forecasting. 
 
 ## IoT
+<a name="iot-category"></a>
 
-Products used to create IoT-related solutions.
+ Products used to create IoT-related solutions. 
 
-**Analytics**
+**Analytics**  
+ Analytical products for IoT solutions. 
 
-Analytical products for IoT solutions.
+**Applications**  
+ Application products for the IoT solutions space. 
 
-**Applications**
+**Device Connectivity**  
+ Products used to manage device connectivity. 
 
-Application products for the IoT solutions space.
+**Device Management**  
+ Products used to manage devices. 
 
-**Device Connectivity**
+**Device Security**  
+ Products used to manage security for your IoT devices. 
 
-Products used to manage device connectivity.
+**Industrial IoT**  
+ Products focused on providing industrial-related IoT solutions. 
 
-**Device Management**
-
-Products used to manage devices.
-
-**Device Security**
-
-Products used to manage security for your IoT devices.
-
-**Industrial IoT**
-
-Products focused on providing industrial-related IoT solutions.
-
-**Smart Home & City**
-
-Products used to enable smart home and smart city solutions.
+**Smart Home & City**  
+ Products used to enable smart home and smart city solutions. 
 
 ## Professional Services
+<a name="professional-services-category"></a>
 
-The products in this category provide consulting services related to AWS Marketplace
-products.
+The products in this category provide consulting services related to AWS Marketplace products.
 
-**Assessments**
+**Assessments**  
+Evaluation of your current operating environment to find the right solutions for your organization.
 
-Evaluation of your current operating environment to find the right solutions for
-your organization.
-
-**Implementation**
-
+**Implementation**  
 Help with configuration, setup, and deployment of third-party software.
 
-**Managed Services**
-
+**Managed Services**  
 End-to-end environment management on your behalf.
 
-**Premium Support**
-
+**Premium Support**  
 Access to guidance and assistance from experts, designed for your needs.
 
-**Training**
-
-Tailored workshops, programs, and educational tools provided by experts to help your
-employees learn best practices.
+**Training**  
+Tailored workshops, programs, and educational tools provided by experts to help your employees learn best practices.
 
 ## Desktop applications
+<a name="desktop-applications-category"></a>
 
-The products in this category provide infrastructure-related solutions.
+ The products in this category provide infrastructure-related solutions. 
 
-**Desktop Applications**
+**Desktop Applications**  
+ Desktop applications and utilities for general productivity and specific job role enablement. 
 
-Desktop applications and utilities for general productivity and specific job role
-enablement.
+**AP and Billing**  
+ Applications used for job roles focused on accounts payable and billing. 
 
-**AP and Billing**
+**Application and the Web**  
+ General purpose and web environment applications. 
 
-Applications used for job roles focused on accounts payable and billing.
+**Development**  
+ Applications used for development. 
 
-**Application and the Web**
+**Business Intelligence**  
+ Applications used by job roles focused on managing business intelligence. 
 
-General purpose and web environment applications.
+**CAD and CAM**  
+ Applications used by job roles focused on computer-aided design and manufacture. 
 
-**Development**
+**GIS and Mapping**  
+ Applications used by job roles focused on GIS and mapping. 
 
-Applications used for development.
+**Illustration and Design**  
+ Applications for job roles focused on illustration and design. 
 
-**Business Intelligence**
+**Media and Encoding**  
+ Application used for job roles involved in media and encoding. 
 
-Applications used by job roles focused on managing business intelligence.
+**Productivity and Collaboration**  
+ Applications focused on enabling productivity and enabling collaboration. 
 
-**CAD and CAM**
+**Project Management**  
+ Application for project manager job roles. 
 
-Applications used by job roles focused on computer-aided design and manufacture.
+**Security/Storage/Archiving**  
+ Applications focused on job roles involved in security, storage, and data archiving. 
 
-**GIS and Mapping**
-
-Applications used by job roles focused on GIS and mapping.
-
-**Illustration and Design**
-
-Applications for job roles focused on illustration and design.
-
-**Media and Encoding**
-
-Application used for job roles involved in media and encoding.
-
-**Productivity and Collaboration**
-
-Applications focused on enabling productivity and enabling collaboration.
-
-**Project Management**
-
-Application for project manager job roles.
-
-**Security/Storage/Archiving**
-
-Applications focused on job roles involved in security, storage, and data
-archiving.
-
-**Utilities**
-
-Utility-focused applications for various job roles.
+**Utilities**  
+ Utility-focused applications for various job roles. 
 
 ## Data Products
+<a name="data-products"></a>
 
-The products in this category are sets of file-based data. For more information, see the
-[AWS Data Exchange User
-Guide](../../../data-exchange/latest/userguide/what-is.md "../../../data-exchange/latest/userguide/what-is.md").
+The products in this category are sets of file-based data. For more information, see the [AWS Data Exchange User Guide](https://docs.aws.amazon.com/data-exchange/latest/userguide/what-is.html).
 
 ## Industries
+<a name="industries"></a>
 
-**Education & Research**
+**Education & Research**  
+ Products aimed at providing education and research solutions. 
 
-Products aimed at providing education and research solutions.
+**Financial Services**  
+ Products that enable financial services in your organization. 
 
-**Financial Services**
+**Healthcare & Life Sciences**  
+ Products used in the healthcare and life sciences industries. 
 
-Products that enable financial services in your organization.
+**Media & Entertainment**  
+ Media-related products and solutions. 
 
-**Healthcare & Life Sciences**
+**Industrial**  
+ Industry-related products and solutions. 
 
-Products used in the healthcare and life sciences industries.
-
-**Media & Entertainment**
-
-Media-related products and solutions.
-
-**Industrial**
-
-Industry-related products and solutions.
-
-**Energy**
-
-Energy-related products and solutions.
+**Energy**  
+ Energy-related products and solutions. 

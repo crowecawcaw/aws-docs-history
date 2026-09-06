@@ -1,4 +1,7 @@
+
+
 # Private Marketplace for users
+<a name="for-users"></a>
 
 Users who are being governed by a Private Marketplace experience will only be allowed to procure AWS Marketplace products that are approved in their experience. They may have the ability to request an administrator to approve additional products in their Private Marketplace experience.
 

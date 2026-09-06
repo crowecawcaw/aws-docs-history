@@ -1,104 +1,96 @@
-# Managing subscriptions in AWS Marketplace
 
-You can view and manage your subscriptions in the AWS Marketplace console on the [**Manage subscriptions**](https://aws.amazon.com/marketplace/management/subscriptions "https://aws.amazon.com/marketplace/management/subscriptions") page.
+
+# Managing subscriptions in AWS Marketplace
+<a name="buyer-managing-subscriptions"></a>
+
+You can view and manage your subscriptions in the AWS Marketplace console on the [**Manage subscriptions**](https://aws.amazon.com/marketplace/management/subscriptions) page.
 
 ## Viewing your subscriptions
+<a name="view-subscriptions"></a>
 
 The **Manage subscriptions** page displays all of your active and inactive subscriptions. You can use this page to:
-
-- View subscription details including start and end dates, vendor information, and agreement status
-- Access product-specific agreements
-- View detailed agreement information
++ View subscription details including start and end dates, vendor information, and agreement status
++ Access product-specific agreements
++ View detailed agreement information
 
 By default, the page displays your active subscriptions. You can toggle between **active** and **inactive** subscriptions using the tabs at the top of the page.
 
 ### Understanding subscription information
+<a name="subscription-columns"></a>
 
 The **Manage subscriptions** page includes the following information for each subscription:
 
-![The Manage subscriptions page showing active subscriptions](images/manage-subscriptions.png)
+![The Manage subscriptions page showing active subscriptions](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/manage-subscriptions.png)
 
-**Product**
 
+**Product**  
 The name of the product you've subscribed to. Choose the product name to view all active and inactive agreements related to this product on the **subscription detail** page.
 
-**Start date**
-
+**Start date**  
 The date when your subscription began.
 
-**End date**
-
+**End date**  
 The date when your subscription will end or has ended.
 
-**Vendor**
-
+**Vendor**  
 The company that provides the product.
 
-**Agreement ID**
-
+**Agreement ID**  
 A unique identifier for your subscription agreement. Choose the agreement ID to view detailed information about the agreement.
 
-**Agreement status**
-
+**Agreement status**  
 The current status of your agreement. See the **Agreement status** section for more details.
 
-**At expiration**
+**At expiration**  
+What happens when the agreement reaches its end date: it auto-renews, converts to a public offer, or access ends.
 
-What happens when the agreement reaches its end date: it auto-renews, converts to a
-public offer, or access ends.
-
-**Renewal status**
-
-Whether the agreement is set to renew automatically. Agreements with auto-renewal
-terms show **Auto-renew enabled**, **Opted out**,
-**Seller opted out**, or **Renewal limit reached**;
-agreements without renewal terms show **No renewal terms**. You can
-filter the list by this column. For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md "buyer-private-offers-auto-renewal.md").
+**Renewal status**  
+Whether the agreement is set to renew automatically. Agreements with auto-renewal terms show **Auto-renew enabled**, **Opted out**, **Seller opted out**, or **Renewal limit reached**; agreements without renewal terms show **No renewal terms**. You can filter the list by this column. For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md).
 
 ### Agreement status
+<a name="agreement-status"></a>
 
 Your subscription agreements can have the following statuses:
 
-| Status     | Description                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------- |
-| Active     | Agreement terms are in effect.                                                           |
-| Pending    | Agreement submitted and being processed. While processing, some actions are unavailable. |
-| Expired    | Agreement ended on the contract end date.                                                |
-| Renewed    | Agreement continues with a new agreement and updated terms.                              |
-| Cancelled  | Agreement ended by your request.                                                         |
-| Replaced   | Agreement ended and transitioned to a new offer.                                         |
-| Terminated | Agreement ended prematurely by AWS.                                                      |
-| Archived   | Agreement ended without a specified reason.                                              |
+
+| Status | Description | 
+| --- | --- | 
+| Active | Agreement terms are in effect. | 
+| Pending | Agreement submitted and being processed. While processing, some actions are unavailable. | 
+| Expired | Agreement ended on the contract end date. | 
+| Renewed | Agreement continues with a new agreement and updated terms. | 
+| Cancelled | Agreement ended by your request. | 
+| Replaced | Agreement ended and transitioned to a new offer. | 
+| Terminated | Agreement ended prematurely by AWS. | 
+| Archived | Agreement ended without a specified reason. | 
 
 Inactive agreements include those that are expired, cancelled, terminated, replaced, renewed, and archived.
 
 ## Viewing subscription details
+<a name="subscription-detail-page"></a>
 
 To view detailed information about a specific subscription, choose the product name in the **Manage subscriptions** page. This opens the **subscription detail** page, which shows all active and inactive agreements related to that product.
 
 The **subscription detail** page provides a comprehensive view of your relationship with a specific product, including all past and current agreements.
 
-![The subscription detail page showing agreements for a specific product](images/subscription-detail-page.png)
+![The subscription detail page showing agreements for a specific product](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/subscription-detail-page.png)
+
 
 ## Viewing agreement details
+<a name="agreement-detail-page"></a>
 
 To view detailed information about a specific agreement, choose the agreement ID in either the **Manage subscriptions** page or the **subscription detail** page. This opens the **agreement detail** page, which provides comprehensive information about the agreement, including:
-
-- Agreement terms and conditions
-- Pricing information
-- Charge summary and associated purchase orders
-- [Purchase order details](buyer-purchase-orders.md "buyer-purchase-orders.md") (if applicable)
-- Deployed on AWS status
-- Option to download the agreement as a PDF
-- **Renewal details** tab – the renewal terms for
-  the next cycle, and the option to opt in or out of auto-renewal (present only when the
-  agreement has auto-renewal terms)
-- **Renewal history** tab – the offers and
-  agreements in the agreement's renewal chain (present only when the agreement has
-  auto-renewal terms)
++ Agreement terms and conditions
++ Pricing information
++ Charge summary and associated purchase orders
++ [Purchase order details](buyer-purchase-orders.md) (if applicable)
++ Deployed on AWS status
++ Option to download the agreement as a PDF
++ **Renewal details** tab – the renewal terms for the next cycle, and the option to opt in or out of auto-renewal (present only when the agreement has auto-renewal terms)
++ **Renewal history** tab – the offers and agreements in the agreement's renewal chain (present only when the agreement has auto-renewal terms)
 
 From the **agreement detail** page, you can manage your subscription and access all related information in one place.
 
-For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md "buyer-private-offers-auto-renewal.md").
+For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md).
 
-![The agreement detail page showing comprehensive information about a specific agreement](images/agreement-detail-page.png)
+![The agreement detail page showing comprehensive information about a specific agreement](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/agreement-detail-page.png)

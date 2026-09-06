@@ -1,30 +1,30 @@
+
+
 # Cancellation and billing adjustment events
+<a name="cancellation-adjustment-eventbridge"></a>
 
-AWS Marketplace sends notifications to Amazon EventBridge when a seller initiates a cancellation
-request or billing adjustment for one of your agreements. You can use these events to automate
-workflows and track cancellation and refund activity.
+AWS Marketplace sends notifications to Amazon EventBridge when a seller initiates a cancellation request or billing adjustment for one of your agreements. You can use these events to automate workflows and track cancellation and refund activity.
 
-The following table lists the buyer events that AWS Marketplace sends to EventBridge for cancellations and
-billing adjustments:
+The following table lists the buyer events that AWS Marketplace sends to EventBridge for cancellations and billing adjustments:
 
-| Event                                                         | Description                                                                                                                |
-| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Agreement Cancellation Request Pending Approval<br>• Acceptor | Sent when a seller submits a cancellation request for your agreement. Action required: you have 7 days to approve or deny. |
-| Agreement Cancellation Request Approved<br>• Acceptor         | Sent when a cancellation request is approved by you or auto-approved after 7 days                                          |
-| Agreement Cancellation Request Rejected<br>• Acceptor         | Sent when you deny a cancellation request                                                                                  |
-| Agreement Cancellation Request Cancelled<br>• Acceptor        | Sent when the seller withdraws a cancellation request                                                                      |
-| Purchase Agreement Billing Adjustment Completed<br>• Acceptor | Sent when a billing adjustment (refund) for your agreement is processed                                                    |
 
-All events are sent to your default EventBridge event bus in the `us-east-1` region with
-the event source `aws.agreement-marketplace`.
+| Event | Description | 
+| --- | --- | 
+| Agreement Cancellation Request Pending Approval - Acceptor | Sent when a seller submits a cancellation request for your agreement. Action required: you have 7 days to approve or deny. | 
+| Agreement Cancellation Request Approved - Acceptor | Sent when a cancellation request is approved by you or auto-approved after 7 days | 
+| Agreement Cancellation Request Rejected - Acceptor | Sent when you deny a cancellation request | 
+| Agreement Cancellation Request Cancelled - Acceptor | Sent when the seller withdraws a cancellation request | 
+| Purchase Agreement Billing Adjustment Completed - Acceptor | Sent when a billing adjustment (refund) for your agreement is processed | 
+
+All events are sent to your default EventBridge event bus in the `us-east-1` region with the event source `aws.agreement-marketplace`.
 
 ## Cancellation request event types
+<a name="cancellation-event-types"></a>
 
 ### Agreement Cancellation Request Pending Approval - Acceptor
+<a name="cancellation-pending-approval-acceptor"></a>
 
-AWS Marketplace sends this event when a seller submits a cancellation request for one of your
-agreements. You have 7 days to approve or deny the request. If you don't respond, the
-cancellation is automatically approved.
+AWS Marketplace sends this event when a seller submits a cancellation request for one of your agreements. You have 7 days to approve or deny the request. If you don't respond, the cancellation is automatically approved.
 
 **Event schema:**
 
@@ -61,10 +61,9 @@ cancellation is automatically approved.
 ```
 
 ### Agreement Cancellation Request Approved - Acceptor
+<a name="cancellation-approved-acceptor"></a>
 
-AWS Marketplace sends this event when a cancellation request for one of your agreements is
-approved. This can happen when you approve the request or when it is auto-approved after
-7 days without a response.
+AWS Marketplace sends this event when a cancellation request for one of your agreements is approved. This can happen when you approve the request or when it is auto-approved after 7 days without a response.
 
 **Event schema:**
 
@@ -101,9 +100,9 @@ approved. This can happen when you approve the request or when it is auto-approv
 ```
 
 ### Agreement Cancellation Request Rejected - Acceptor
+<a name="cancellation-rejected-acceptor"></a>
 
-AWS Marketplace sends this event when you deny a cancellation request for one of your
-agreements.
+AWS Marketplace sends this event when you deny a cancellation request for one of your agreements.
 
 **Event schema:**
 
@@ -140,9 +139,9 @@ agreements.
 ```
 
 ### Agreement Cancellation Request Cancelled - Acceptor
+<a name="cancellation-cancelled-acceptor"></a>
 
-AWS Marketplace sends this event when the seller withdraws a cancellation request before you
-respond.
+AWS Marketplace sends this event when the seller withdraws a cancellation request before you respond.
 
 **Event schema:**
 
@@ -179,11 +178,12 @@ respond.
 ```
 
 ## Billing adjustment event types
+<a name="billing-adjustment-event-types"></a>
 
 ### Purchase Agreement Billing Adjustment Completed - Acceptor
+<a name="billing-adjustment-successful-acceptor"></a>
 
-AWS Marketplace sends this event when a billing adjustment (refund) for one of your agreements
-is processed.
+AWS Marketplace sends this event when a billing adjustment (refund) for one of your agreements is processed.
 
 **Event schema:**
 
@@ -216,5 +216,4 @@ is processed.
 }
 ```
 
-For more information about responding to cancellation requests and tracking billing
-adjustments, see [Refunds and cancellations in AWS Marketplace](buyer-refunds.md "buyer-refunds.md").
+For more information about responding to cancellation requests and tracking billing adjustments, see [Refunds and cancellations in AWS Marketplace](buyer-refunds.md).

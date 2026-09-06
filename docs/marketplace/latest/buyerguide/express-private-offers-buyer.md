@@ -1,27 +1,31 @@
+
+
 # Express private offers
+<a name="express-private-offers-buyer"></a>
 
 Express private offers is an AWS Marketplace capability that enables you to instantly access personalized pricing based on your specific needs, without going through lengthy negotiations. This automated system evaluates your requirements against pre-configured seller criteria to generate immediate private offers.
 
 Key benefits for buyers include:
-
-- Instant access to discounted pricing without waiting for sales negotiations
-- Ability to qualify for private offers even on smaller purchases
-- Self-service process that allows you to proceed at your own pace
-- Option to transition to sales-assisted workflow when needed
++ Instant access to discounted pricing without waiting for sales negotiations
++ Ability to qualify for private offers even on smaller purchases
++ Self-service process that allows you to proceed at your own pace
++ Option to transition to sales-assisted workflow when needed
 
 ## How express private offers work
+<a name="express-private-offers-buyer-how-it-works"></a>
 
 The express private offer process streamlines the traditional private offer workflow into an automated, buyer-driven experience. When you engage with an express private offer-enabled product, you'll be guided through a series of steps to specify your requirements and qualify for instant pricing. The system employs an AI agent to guide you through your journey, evaluating your needs against seller requirements.
 
 During the process, you'll specify your desired quantities, contract terms, and provide any additional information required by the seller. The system evaluates this information against predefined criteria to determine your eligibility for automated pricing. If your requirements align with the seller's parameters, you'll receive an instant private offer. For more custom scenarios or when your needs fall outside the automated parameters, the system will smoothly transition you to a sales-assisted workflow, ensuring you receive appropriate support for your purchase.
 
 ## Required permissions
+<a name="express-private-offers-buyer-permissions"></a>
 
-Before initiating an express private offer request, ensure you have an AWS account with the appropriate permissions. Your account can use the [AWSMarketplaceManageSubscriptions](../../../aaws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md "../../../aaws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md") or [AWSMarketplaceFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.md") managed policy for the right permissions. You also can use the following IAM policy:
+Before initiating an express private offer request, ensure you have an AWS account with the appropriate permissions. Your account can use the [AWSMarketplaceManageSubscriptions](https://docs.aws.amazon.com/aaws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html) or [AWSMarketplaceFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.html) managed policy for the right permissions. You also can use the following IAM policy:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17"		 	 	 ,
     "Statement": [{
             "Sid": "AWSMarketplaceChangeSetReadAccess",
             "Effect": "Allow",
@@ -65,6 +69,7 @@ Before initiating an express private offer request, ensure you have an AWS accou
 ```
 
 ## Requesting an express private offer
+<a name="express-private-offers-buyer-requesting"></a>
 
 The request process begins on the product detail page, where you'll find the **Get Express Private Offer** button. Choosing this launches the express private offer workflow, starting with the configuration of product dimensions. The first page presents dimension options with comprehensive guidance from the seller. You can access more information about the dimension through the **View Guidance** option, which explains what each dimension means, how dimensions relate to each other, and methods for estimating quantities based on your business needs. If you find your requirements are more complex or difficult to estimate, you can opt to switch to a sales-assisted workflow at any point.
 
@@ -75,6 +80,7 @@ If the seller has configured profile-based qualifications, you'll proceed to ans
 The final step before offer generation involves reviewing all provided information and signing in with your AWS account credentials to confirm your authorization and generate the offer.
 
 ## Receiving and accepting your express private offer
+<a name="express-private-offers-buyer-receiving-accepting"></a>
 
 Upon completing the request process, the system will either generate your express private offer immediately or direct you to a sales-assisted workflow, depending on your qualification status. For successful qualifications, you'll see your offer details immediately, including complete pricing information with all applicable discounts, contract terms and conditions, and EULA documentation.
 
