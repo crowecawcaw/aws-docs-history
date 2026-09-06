@@ -1,51 +1,45 @@
-**End of support notice**: On February
-20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will
-no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more
-information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/ "https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/"). **Note:** This does not impact the
-availability of the [Amazon Chime SDK
-service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
+
+
+**End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Automating Amazon Chime with EventBridge
+<a name="automating-chime-with-cloudwatch-events"></a>
 
-Amazon EventBridge lets you automate your AWS services and respond automatically to system
-events, such as application availability issues or resource changes. For more information about the meeting events, see [Meeting events](../dg/using-events.md "../dg/using-events.md") in the
-_Amazon Chime Developer Guide_.
+Amazon EventBridge lets you automate your AWS services and respond automatically to system events, such as application availability issues or resource changes. For more information about the meeting events, see [Meeting events](https://docs.aws.amazon.com/chime/latest/dg/using-events.html) in the *Amazon Chime Developer Guide*.
 
-When Amazon Chime generates events, it sends them to EventBridge for _best effort delivery_, meaning Amazon Chime tries to send all events to EventBridge, but in rare cases an event might not be delivered. For more information, refer to
-[Events from AWS services](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md") in the _Amazon EventBridge User Guide_.
+When Amazon Chime generates events, it sends them to EventBridge for *best effort delivery*, meaning Amazon Chime tries to send all events to EventBridge, but in rare cases an event might not be delivered. For more information, refer to [Events from AWS services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) in the *Amazon EventBridge User Guide*.
 
-###### Note
-
-If you need to encrypt data, you must use Amazon S3-Managed Keys. We don't support server-side encryption using Customer Master Keys stored in the AWS Key Management Service.
+**Note**  
+If you need to encrypt data, you must use Amazon S3-Managed Keys. We don't support server-side encryption using Customer Master Keys stored in the AWS Key Management Service. 
 
 ## Automating Amazon Chime Voice Connectors with EventBridge
+<a name="events-cvc"></a>
 
 The actions that can be automatically triggered for Amazon Chime Voice Connectors include the following:
-
-- Invoking an AWS Lambda function
-- Launching an Amazon Elastic Container Service task
-- Relaying the event to Amazon Kinesis Video Streams
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic or an Amazon SQS queue
++ Invoking an AWS Lambda function
++ Launching an Amazon Elastic Container Service task
++ Relaying the event to Amazon Kinesis Video Streams
++ Activating an AWS Step Functions state machine
++ Notifying an Amazon SNS topic or an Amazon SQS queue
 
 Some examples of using EventBridge with Amazon Chime Voice Connectors include:
++ Activating a Lambda function to download audio for a call after the call is ended.
++ Launching an Amazon ECS task to enable real-time transcription after a call is started.
 
-- Activating a Lambda function to download audio for a call after the call is ended.
-- Launching an Amazon ECS task to enable real-time transcription after a call is
-  started.
-
-For more information, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md").
+For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/).
 
 ## Amazon Chime Voice Connector streaming events
+<a name="stream-events-cvc"></a>
 
-Amazon Chime Voice Connectors support sending events to EventBridge when the events discussed in this section
-occur.
+Amazon Chime Voice Connectors support sending events to EventBridge when the events discussed in this section occur.
+
+### Amazon Chime Voice Connector streaming starts
+<a name="stream-start-cvc"></a>
 
 Amazon Chime Voice Connectors send this event when media streaming to Kinesis Video Streams starts.
 
-###### Example Event data
-
-The following is example data for this event.
+**Example Event data**  
+The following is example data for this event.  
 
 ```
 {
@@ -89,11 +83,13 @@ The following is example data for this event.
 }
 ```
 
+### Amazon Chime Voice Connector streaming ends
+<a name="stream-end-cvc"></a>
+
 Amazon Chime Voice Connectors send this event when media streaming to Kinesis Video Streams ends.
 
-###### Example Event data
-
-The following is example data for this event.
+**Example Event data**  
+The following is example data for this event.  
 
 ```
 {
@@ -138,11 +134,13 @@ The following is example data for this event.
 }
 ```
 
+### Amazon Chime Voice Connector streaming updates
+<a name="stream-update-cvc"></a>
+
 Amazon Chime Voice Connectors send this event when media streaming to Kinesis Video Streams is updated.
 
-###### Example Event data
-
-The following is example data for this event.
+**Example Event data**  
+The following is example data for this event.  
 
 ```
 {
@@ -174,11 +172,13 @@ The following is example data for this event.
 }
 ```
 
+### Amazon Chime Voice Connector streaming fails
+<a name="stream-fail-cvc"></a>
+
 Amazon Chime Voice Connectors send this event when media streaming to Kinesis Video Streams fails.
 
-###### Example Event data
-
-The following is example data for this event.
+**Example Event data**  
+The following is example data for this event.  
 
 ```
 {

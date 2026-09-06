@@ -1,26 +1,23 @@
-**End of support notice**: On February
-20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will
-no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more
-information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/ "https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/"). **Note:** This does not impact the
-availability of the [Amazon Chime SDK
-service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
+
+
+**End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Amazon Chime events sent to chatbots
+<a name="events-bots"></a>
 
 The following events are sent to your chatbot from Amazon Chime:
++ **Invite** – Sent when your chatbot is added to an Amazon Chime chat room
++ **Mention** – Sent when a user in a chat room @mentions your chatbot
++ **Remove** – Sent when your chatbot is removed from an Amazon Chime chat room
 
-- Invite – Sent when your chatbot is added to an Amazon Chime chat room
-- Mention – Sent when a user in a chat room @mentions your chatbot
-- Remove – Sent when your chatbot is removed from an Amazon Chime chat room
-  The following examples show the JSON payload sent to your chatbot for each of these events.
+The following examples show the JSON payload sent to your chatbot for each of these events.
 
-###### Example: Invite event
+**Example : Invite event**  
 
 ```
-
             {
               "Sender": {
-                            "SenderId": "`user@example.com`",
+                            "SenderId": "{{user@example.com}}",
                             "SenderIdType": "EmailId"
                          },
               "Discussion": {
@@ -34,16 +31,14 @@ The following events are sent to your chatbot from Amazon Chime:
                                       },
               "EventTimestamp": "2019-04-04T21:27:52.736Z"
             }
-
 ```
 
-###### Example: Mention event
+**Example : Mention event**  
 
 ```
-
             {
                 "Sender": {
-                            "SenderId": "`user@example.com`",
+                            "SenderId": "{{user@example.com}}",
                             "SenderIdType": "EmailId"
                           },
                 "Discussion": {
@@ -56,22 +51,19 @@ The following events are sent to your chatbot from Amazon Chime:
                                             "Url": "https://hooks.a.chime.aws/incomingwebhooks/a1b2c34d-5678-90e1-f23g-h45i67j8901k?token=ABCDefGHiJK1LMnoP2Q3RST4uvwxYZAbC56DeFghIJkLM7N8OP9QRsTuV0WXYZABcdefgHiJ"
                                         },
                 "EventTimestamp": "2019-04-04T21:30:43.181Z",
-                "Message": "@`botDisplayName@example.com` `Hello Chatbot`"
+                "Message": "@{{botDisplayName@example.com}} {{Hello Chatbot}}"
             }
-
 ```
 
-###### Note
-
+**Note**  
 The `InboundHttpsEndpoint` URL for a Mention event expires 2 minutes after it is sent.
 
-###### Example: Remove event
+**Example : Remove event**  
 
 ```
-
             {
                 "Sender": {
-                            "SenderId": "`user@example.com`",
+                            "SenderId": "{{user@example.com}}",
                             "SenderIdType": "EmailId"
                           },
                 "Discussion": {
@@ -81,5 +73,4 @@ The `InboundHttpsEndpoint` URL for a Mention event expires 2 minutes after it is
                 "EventType": "Remove",
                 "EventTimestamp": "2019-04-04T21:27:29.626Z"
             }
-
 ```
