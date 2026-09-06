@@ -362,6 +362,32 @@ output:
 - **Amazon Nova GA models (base checkpoints)**: For example, `s3://escrow-nova-model-708977205387-us-east-1/nova-lite-2/prod/` — SageMaker manages access automatically, no additional S3 permissions needed.
 - **Customized Amazon Nova models (post-training checkpoints)**: `s3://customer-escrow-ACCOUNT_ID-SUFFIX/YOUR_RUN_NAME/outputs/checkpoints/step_N/` — this is the escrow bucket path from your training job output.
 
+###### Managed endpoint resources
+
+Grant the following optional permission to your execution role so the container can tag managed inference resources with the originating training job name and ARN. Tagged resources include the endpoint, endpoint configuration, and model. This helps identify resources if cleanup is interrupted. The container only applies tags when running as a SageMaker Training Job.
+
+```
+{
+  "Sid": "SageMakerTagManagedResources",
+  "Effect": "Allow",
+  "Action": "sagemaker:AddTags",
+  "Resource": [
+    "arn:aws:sagemaker:REGION:ACCOUNT_ID:model/*",
+    "arn:aws:sagemaker:REGION:ACCOUNT_ID:endpoint/*",
+    "arn:aws:sagemaker:REGION:ACCOUNT_ID:endpoint-config/*"
+  ]
+}
+```
+
+The container applies the following tags to managed resources:
+
+| Tag key                                | Example value                                                                       |
+| -------------------------------------- | ----------------------------------------------------------------------------------- |
+| `sagemaker-inspect-ai:TrainingJobName` | `my-eval-job-20260828-145940`                                                       |
+| `sagemaker-inspect-ai:TrainingJobArn`  | `arn:aws:sagemaker:us-east-1:123456789012:training-job/my-eval-job-20260828-145940` |
+
+External sources can interrupt resource management during runtime. For information about handling leftover resources, see [Troubleshooting](#nova-eval-container-troubleshooting "#nova-eval-container-troubleshooting").
+
 ### Option C: Evaluate through Amazon Bedrock Runtime
 
 Use this option to evaluate a model available through Amazon Bedrock Runtime without managing an endpoint. For more information about Amazon Bedrock endpoint options, see [Amazon Bedrock endpoints](../../../bedrock/latest/userguide/endpoints.md "../../../bedrock/latest/userguide/endpoints.md").
@@ -1011,36 +1037,28 @@ When using `cleanup_endpoint: true` with automatic endpoint creation, the follow
 | Wrong inference image URI  | Verify the image URI is correct for your Region and model framework                                                                         |
 | Endpoint stuck in Creating | Check CloudWatch Logs for the endpoint. The model might fail health checks. Increase `MaxRuntimeInSeconds` if the endpoint needs more time. |
 
+**Manually cleaning up managed resources**
+
+With managed endpoints enabled, managed resource information is logged to CloudWatch with the filter term `INFRA`. The logs include AWS CLI commands for manual cleanup if the container cannot complete teardown. Only run manual termination steps after the job is no longer in a running state.
+
+Example log output:
+
+```
+[WARNING] [INFRA] Managed SMI resources created; auto-deleted on normal completion or stop.
+If this job is force-killed or stopped mid-creation, delete them manually:
+  aws sagemaker delete-endpoint --endpoint-name inspectlens-ep-1787856688 --region us-east-1
+  aws sagemaker delete-endpoint-config --endpoint-config-name inspectlens-config-1787856688 --region us-east-1
+  aws sagemaker delete-model --model-name inspectlens-model-1787856688 --region us-east-1
+```
+
+Upon manual termination of the job through [stop-training-job](../../../cli/latest/reference/sagemaker/stop-training-job.md "../../../cli/latest/reference/sagemaker/stop-training-job.md"), the container performs a best-effort cleanup of managed resources within the 120-second grace period. If resources cannot be cleaned up, the job ends with an error state. If cleanup completes successfully, the job ends in a stopped state.
+
 **HuggingFace download timeouts**
 
 If benchmarks that download datasets from HuggingFace Hub time out, set the `HF_HUB_DOWNLOAD_TIMEOUT` environment variable to a higher value (in seconds):
 
 ```
 --environment '{"HF_HUB_DOWNLOAD_TIMEOUT": "600"}'
-```
-
-**Job killed but endpoint still running**
-
-If the training job is interrupted before cleanup completes, the inference endpoint might remain active. Manually delete the endpoint to avoid ongoing charges:
-
-```
-# List endpoints to find the orphaned one
-aws sagemaker list-endpoints \
-    --name-contains inspect \
-    --query "Endpoints[].EndpointName" \
-    --output table
-
-# Delete the endpoint
-aws sagemaker delete-endpoint \
-    --endpoint-name your-endpoint-name
-
-# Delete the endpoint configuration
-aws sagemaker delete-endpoint-config \
-    --endpoint-config-name your-endpoint-name
-
-# Delete the model
-aws sagemaker delete-model \
-    --model-name your-endpoint-name
 ```
 
 **Benchmark dependency conflicts**
