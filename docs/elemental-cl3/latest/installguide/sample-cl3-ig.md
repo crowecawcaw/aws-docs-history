@@ -1,10 +1,12 @@
-# Sample install of AWS Elemental Conductor Live
 
-Following is a screen printout of a typical install of AWS Elemental Conductor Live, showing the prompts
-and possible responses.
+
+# Sample install of AWS Elemental Conductor Live
+<a name="sample-cl3-ig"></a>
+
+Following is a screen printout of a typical install of AWS Elemental Conductor Live, showing the prompts and possible responses.
 
 ```
-[elemental@hostname ~] **sudo sh ./elemental\_production\_conductor\_live247\_3.25.5.4.12345.run -l -z -t**
+[elemental@hostname ~] sudo sh ./elemental_production_conductor_live247_3.25.5.4.12345.run -l -z -t
 Verifying archive integrity... All good.
 Uncompressing Elemental Installer  100%
 /tmp/selfgz1160911216/elemental_system_update/rpms /tmp/selfgz1160911216
@@ -106,33 +108,31 @@ IMPORTANT INFORMATION
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Do you agree to these terms? [N] `y`
+Do you agree to these terms? [N] y
 ```
 
 You are prompted to configure the network.
 
 ```
 Enter this server's Hostname: [elemental@hostname ~]live-3-01
-Detected 2 ethernet devices
-Configuring eth0
+Detected 2 ethernet devices 
+Configuring eth0 
 
-Does eth0 use DHCP to get its IP address? [Y]
-Would you like to configure eth1? [N]
+Does eth0 use DHCP to get its IP address? [Y] 
+Would you like to configure eth1? [N] 
 The firewall for this system is currently enabled. Would you like to disable it? [N]
-
-
 ```
 
 Services are stopped (note that actually no services are running) and interfaces are shut down.
@@ -211,14 +211,14 @@ Starting services...
 Starting system logger: [60G[[0;32m  OK  [0;39m]
 Starting httpd: httpd.worker: Could not reliably determine the server's fully qualified domain name, using ::1 for ServerName
 [60G[[0;32m  OK  [0;39m]
-Starting ntpd:
+Starting ntpd: 
 Starting snmpd: [60G[[0;32m  OK  [0;39m]
 ```
 
 You are prompted to start elemental\_se.
 
 ```
-Would you like to start the Elemental service now? [Y]
+Would you like to start the Elemental service now? [Y] 
 Starting elemental_se:     [  OK  ]
 Starting elemental-motd:   [60G[[0;32m  OK  [0;39m]
 Starting elemental-issue:  [  OK  ]
