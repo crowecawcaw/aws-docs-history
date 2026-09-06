@@ -1,19 +1,22 @@
+
+
 # Register your SAP HANA databases with Systems Manager for SAP
+<a name="register-database"></a>
 
-You can register a single node or a high availability setup with multiple nodes for SAP HANA database with Systems Manager for SAP. Ensure that you have completed the setup perquisites described in [Get started with Systems Manager for SAP](get-started.md "get-started.md"). Follow along these steps to register your database.
+You can register a single node or a high availability setup with multiple nodes for SAP HANA database with Systems Manager for SAP. Ensure that you have completed the setup perquisites described in [Get started with Systems Manager for SAP](https://docs.aws.amazon.com/ssm-sap/latest/userguide/get-started.html). Follow along these steps to register your database.
 
-###### Topics
-
-- [Step 1: Create a JSON for credentials](#step1 "#step1")
-- [Step 2: Register database](#step2 "#step2")
-- [Step 3: Check registration status](#step3 "#step3")
-- [Step 4: Verify registration](#step4 "#step4")
-- [Step 5: View component summary](#step5 "#step5")
-- [Backup your database – optional](#optional-step "#optional-step")
+**Topics**
++ [Step 1: Create a JSON for credentials](#step1)
++ [Step 2: Register database](#step2)
++ [Step 3: Check registration status](#step3)
++ [Step 4: Verify registration](#step4)
++ [Step 5: View component summary](#step5)
++ [Backup your database – *optional*](#optional-step)
 
 ## Step 1: Create a JSON for credentials
+<a name="step1"></a>
 
-Create a JSON file to store the credentials you created in [Register SAP HANA database credentials in AWS Secrets Manager](get-started.md#register-secrets "get-started.md#register-secrets").
+Create a JSON file to store the credentials you created in [Register SAP HANA database credentials in AWS Secrets Manager](get-started.md#register-secrets).
 
 ```
 [
@@ -29,10 +32,9 @@ Create a JSON file to store the credentials you created in [Register SAP HANA da
     }
 ]
 ```
-
-- Enter a unique name for the JSON file. For example, `SsmForSapRegistrationCredentials.json`.
-- For `DatabaseName`, ensure that you enter both, the system ID and the database name.
-- For `SecretId`, use the Secret name created in Step 4 of [Register SAP HANA database credentials in AWS Secrets Manager](get-started.md#register-secrets "get-started.md#register-secrets").
++ Enter a unique name for the JSON file. For example, `SsmForSapRegistrationCredentials.json`.
++ For `DatabaseName`, ensure that you enter both, the system ID and the database name.
++ For `SecretId`, use the Secret name created in Step 4 of [Register SAP HANA database credentials in AWS Secrets Manager](get-started.md#register-secrets).
 
 The following is an example JSON file.
 
@@ -52,18 +54,19 @@ The following is an example JSON file.
 ```
 
 ## Step 2: Register database
+<a name="step2"></a>
 
 Register your SAP HANA databases using the following command.
 
 Make sure to use the correct SAP HANA database instance number and SAP HANA database name (SID). These are different than the SAP instance number and SAP System Identifier.
 
-**Command Template**
+ **Command Template** 
 
 ```
 aws ssm-sap register-application --application-id <APPLICATION_ID> --application-type HANA --instances <YOUR_EC2_INSTANCE_ID> --sap-instance-number <YOUR_HANA_DATABASE_SYSTEM_NUMBER> --sid <YOUR_HANA_DATABASE_SID> --region <REGION> --credentials file://<PATH_TO_YOUR_CREDENTIALS_JSON_FILE>
 ```
 
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap register-application \
@@ -76,7 +79,7 @@ aws ssm-sap register-application \
 --credentials file://SsmForSapRegistrationCredentials.json
 ```
 
-**Example JSON response**
+ **Example JSON response** 
 
 ```
 {
@@ -96,14 +99,13 @@ aws ssm-sap register-application \
 
 In the preceding example, the instance number is 00 and SID is HDB. This can be verified with `/usr/sap/<SID>/HDB<instance number>`. For example, the path will be `/usr/sap/HDB/HDB00`.
 
-###### Note
-
-To register a high availability SAP HANA database, you can input either the primary or the secondary instance ID with the `--instances` parameter. For example, for a high availability SAP HANA database residing on primary node `i-0123456789abcdefg` and secondary node `i-9876543210abcdefg`, you can specify database registration in any one of the following ways.
-
-- `--instances i-0123456789abcdefg`
-- `--instances i-9876543210abcdefg`
+**Note**  
+To register a high availability SAP HANA database, you can input either the primary or the secondary instance ID with the `--instances` parameter. For example, for a high availability SAP HANA database residing on primary node `i-0123456789abcdefg` and secondary node `i-9876543210abcdefg`, you can specify database registration in any one of the following ways.  
+ `--instances i-0123456789abcdefg` 
+ `--instances i-9876543210abcdefg` 
 
 ## Step 3: Check registration status
+<a name="step3"></a>
 
 The registration may take a few minutes to complete. Use the following command to check the status of the registration. Replace `<YOUR_OPERATION_ID>` with the `OperationID` from the previous step.
 
@@ -112,16 +114,17 @@ aws ssm-sap get-operation --operation-id <YOUR_OPERATION_ID> --region <REGION>
 ```
 
 ## Step 4: Verify registration
+<a name="step4"></a>
 
-Verify the registration with [GetApplication](../../../ssmsap/latest/APIReference/API_GetApplication.md "../../../ssmsap/latest/APIReference/API_GetApplication.md") API. You can also view the details of registered databases with [ListDatabases](../../../ssmsap/latest/APIReference/API_ListDatabases.md "../../../ssmsap/latest/APIReference/API_ListDatabases.md") and [GetDatabase](../../../ssmsap/latest/APIReference/API_GetDatabase.md "../../../ssmsap/latest/APIReference/API_GetDatabase.md") API.
+Verify the registration with [GetApplication](https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_GetApplication.html) API. You can also view the details of registered databases with [ListDatabases](https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_ListDatabases.html) and [GetDatabase](https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_GetDatabase.html) API.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap get-application --application-id <APPLICATON_ID> --region <REGION>
 ```
 
-**Example to get the summary of an application**
+ **Example to get the summary of an application** 
 
 ```
 aws ssm-sap get-application \
@@ -129,7 +132,7 @@ aws ssm-sap get-application \
 --region us-east-1
 ```
 
-**Example output**
+ **Example output** 
 
 ```
 {
@@ -151,25 +154,22 @@ aws ssm-sap get-application \
 1. Take note of this component ID. You’ll need it in the next step.
 
 ## Step 5: View component summary
+<a name="step5"></a>
 
-Get the component summary with [GetComponent](../../../ssmsap/latest/APIReference/API_GetComponent.md "../../../ssmsap/latest/APIReference/API_GetComponent.md") API.
+Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_GetComponent.html) API.
 
 ```
 aws ssm-sap get-component --application-id <APPLICATION_ID> --component-id <YOUR_COMPONENT_ID_FROM_LAST_STEP> --region <REGION>
 ```
 
 Systems Manager for SAP provides two types of components for an SAP HANA application – parent and child.
-
-- `HANA` – there is only one parent component representing the logical database.
-- `HANA_NODE` – there are multiple child components representing database host entities.
++  `HANA` – there is only one parent component representing the logical database.
++  `HANA_NODE` – there are multiple child components representing database host entities.
 
 See the following table for examples of single node and high availability SAP HANA database setup with Systems Manager for SAP.
 
-###### Example
-
-Single node
-
-**GetComponent API output for parent component**
+**Example**  
+ **GetComponent API output for parent component**   
 
 ```
 {
@@ -202,8 +202,7 @@ Single node
     "Tags": {}
 }
 ```
-
-**GetComponent API output for child component**
+ **GetComponent API output for child component**   
 
 ```
 {
@@ -232,10 +231,7 @@ Single node
     "Tags": {}
 }
 ```
-
-High availability
-
-**GetComponent API output for parent component**
+ **GetComponent API output for parent component**   
 
 ```
 {
@@ -258,8 +254,7 @@ High availability
     "Tags": {}
 }
 ```
-
-**GetComponent API output for child component (primary)**
+ **GetComponent API output for child component (primary)**   
 
 ```
 {
@@ -289,8 +284,7 @@ High availability
     "Tags": {}
 }
 ```
-
-**GetComponent API output for child component (secondary)**
+ **GetComponent API output for child component (secondary)**   
 
 ```
 {
@@ -321,6 +315,7 @@ High availability
 }
 ```
 
-## Backup your database – _optional_
+## Backup your database – *optional*
+<a name="optional-step"></a>
 
-Now the registration is complete, and you can begin data protection operations, including backup and restore of your SAP HANA databases. For more details, see [AWS Backup documentation](../../../aws-backup/latest/devguide/backup-saphana.md#w142aac17c15c33b5 "../../../aws-backup/latest/devguide/backup-saphana.md#w142aac17c15c33b5").
+Now the registration is complete, and you can begin data protection operations, including backup and restore of your SAP HANA databases. For more details, see [AWS Backup documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-saphana.html#w142aac17c15c33b5).

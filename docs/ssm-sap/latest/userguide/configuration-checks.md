@@ -1,36 +1,40 @@
+
+
 # Run Configuration Checks with Systems Manager for SAP
+<a name="configuration-checks"></a>
 
 You can run configuration checks on your registered SAP applications to validate their setup and ensure they follow best practices. Configuration checks are organized to help you execute checks and understand their results:
++  **Configuration Check** - The top level at which checks are executed. Each check comprehensively answers a question such as "Have I chosen the right instance?" or "Is my storage configured correctly?"
++  **SubCheck** - A logical grouping used to organize and view results. SubChecks group related information based on how it is gathered or defined. For example, all package status checks or parameters for a specific resource might be grouped into one subcheck.
++  **Results** - Individual findings that evaluate a single parameter or configuration point in the system. Results can apply to a resource or be evaluated against the application. For example, "This package is installed on the primary HANA instance" or "Timezone is consistent across both the primary and secondary instances".
 
-- **Configuration Check** - The top level at which checks are executed. Each check comprehensively answers a question such as "Have I chosen the right instance?" or "Is my storage configured correctly?"
-- **SubCheck** - A logical grouping used to organize and view results. SubChecks group related information based on how it is gathered or defined. For example, all package status checks or parameters for a specific resource might be grouped into one subcheck.
-- **Results** - Individual findings that evaluate a single parameter or configuration point in the system. Results can apply to a resource or be evaluated against the application. For example, "This package is installed on the primary HANA instance" or "Timezone is consistent across both the primary and secondary instances".
-  You start configuration checks at the check level, while subchecks and results provide structured ways to view and understand the findings.
+You start configuration checks at the check level, while subchecks and results provide structured ways to view and understand the findings.
 
-###### Topics
-
-- [Run Configuration Checks](#executing-checks "#executing-checks")
-- [Reviewing Configuration Check Results](#reviewing-results "#reviewing-results")
+**Topics**
++ [Run Configuration Checks](#executing-checks)
++ [Reviewing Configuration Check Results](#reviewing-results)
 
 ## Run Configuration Checks
+<a name="executing-checks"></a>
 
 ### Step 1: View Available Checks
+<a name="check-step1"></a>
 
 View the list of available configuration checks to determine which checks you wish to evaluate for your SAP application.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap list-configuration-check-definitions --region <REGION_ID>
 ```
 
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap list-configuration-check-definitions --region us-east-1
 ```
 
-**Example JSON response**
+ **Example JSON response** 
 
 ```
 {
@@ -66,11 +70,11 @@ aws ssm-sap list-configuration-check-definitions --region us-east-1
 1. Use the check IDs (such as SAP\_CHECK\_01) when you want to start specific checks rather than running all available checks.
 
 ### Step 2: Start Configuration Checks
+<a name="check-step2"></a>
 
-Start the configuration checks for your application. You can run all available checks specify individual check ids.
-If no configuration-check-ids are specified, all checks will be run.
+Start the configuration checks for your application. You can run all available checks specify individual check ids. If no configuration-check-ids are specified, all checks will be run.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap start-configuration-checks \
@@ -79,7 +83,7 @@ aws ssm-sap start-configuration-checks \
 --region <REGION_ID>
 ```
 
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap start-configuration-checks \
@@ -88,7 +92,7 @@ aws ssm-sap start-configuration-checks \
 --region us-east-1
 ```
 
-**Example JSON response**
+ **Example JSON response** 
 
 ```
 {
@@ -107,16 +111,17 @@ aws ssm-sap start-configuration-checks \
 1. Take note of this operation ID. You’ll need it to check the status and view results.
 
 ### Step 3: Monitor Check Status
+<a name="check-step3"></a>
 
 The configuration checks may take several minutes to complete. Use the following command to check the status.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap get-configuration-check-operation --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap get-configuration-check-operation \
@@ -124,7 +129,7 @@ aws ssm-sap get-configuration-check-operation \
 --region us-east-1
 ```
 
-**Example JSON response in progress**
+ **Example JSON response in progress** 
 
 ```
 {
@@ -140,7 +145,7 @@ aws ssm-sap get-configuration-check-operation \
 }
 ```
 
-**Example JSON response successful**
+ **Example JSON response successful** 
 
 ```
 {
@@ -166,14 +171,16 @@ aws ssm-sap get-configuration-check-operation \
 ```
 
 ## Reviewing Configuration Check Results
+<a name="reviewing-results"></a>
 
 Configuration check results are organized hierarchically. Start by identifying the check operation you want to review, then drill down through subchecks to view individual rule results.
 
 ### Step 1: List Check Operations
+<a name="result-step1"></a>
 
 View the history of configuration check operations. Each operation represents a complete execution of one or more configuration checks. You can list all operations or just the latest operation for each check type.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap list-configuration-check-operations \
@@ -183,11 +190,10 @@ aws ssm-sap list-configuration-check-operations \
 ```
 
 The `--list-mode` parameter accepts two values:
++  `ALL_OPERATIONS` (default) - Lists all configuration check operations
++  `LATEST_PER_CHECK` - Lists only the most recent operation for each check type
 
-- `ALL_OPERATIONS` (default) - Lists all configuration check operations
-- `LATEST_PER_CHECK` - Lists only the most recent operation for each check type
-
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap list-configuration-check-operations \
@@ -196,7 +202,7 @@ aws ssm-sap list-configuration-check-operations \
 --list-mode LATEST_PER_CHECK
 ```
 
-**Example JSON response**
+ **Example JSON response** 
 
 ```
 {
@@ -260,17 +266,17 @@ aws ssm-sap list-configuration-check-operations \
 ```
 
 ### Step 2: View Sub-Check Results
+<a name="result-step2"></a>
 
-Each configuration check is divided into subchecks that group related rules together. For example, a subcheck might focus on package status checks or parameters for a specific resource.
-list-sub-check-results provides the subcheck-ids which allow you to view the detailed reuslts.
+Each configuration check is divided into subchecks that group related rules together. For example, a subcheck might focus on package status checks or parameters for a specific resource. list-sub-check-results provides the subcheck-ids which allow you to view the detailed reuslts.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap list-sub-check-results --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap list-sub-check-results \
@@ -278,7 +284,7 @@ aws ssm-sap list-sub-check-results \
 --region us-east-1
 ```
 
-**Example JSON response**
+ **Example JSON response** 
 
 ```
 {
@@ -307,19 +313,20 @@ aws ssm-sap list-sub-check-results \
 }
 ```
 
-**Note** Take note of the sub-check result IDs. You’ll need them to view detailed rule results.
+ **Note** Take note of the sub-check result IDs. You’ll need them to view detailed rule results.
 
 ### Step 3: View Rule Results
+<a name="result-step3"></a>
 
 View the detailed results for each rule within a sub-check.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap list-sub-check-rule-results --sub-check-result-id <SUB_CHECK_RESULT_ID> --region <REGION_ID>
 ```
 
-**Example command with sample values**
+ **Example command with sample values** 
 
 ```
 aws ssm-sap list-sub-check-rule-results \
@@ -327,7 +334,7 @@ aws ssm-sap list-sub-check-rule-results \
 --region us-east-1
 ```
 
-**Example JSON response**
+ **Example JSON response** 
 
 ```
 {

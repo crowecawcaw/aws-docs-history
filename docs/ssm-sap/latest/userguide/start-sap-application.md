@@ -1,27 +1,31 @@
+
+
 # Start SAP application
+<a name="start-sap-application"></a>
 
 You can perform a start operation on a single node or HA (high availability) SAP HANA application or on a single node or distributed setup of an SAP ABAP application which is registered with AWS Systems Manager for SAP.
 
 When starting an SAP HANA application, the Amazon EC2 instance(s) on which the SAP HANA application will run is started first (if it is not already running), before the application is started. When starting a single node setup of an SAP ABAP application, the HANA database and/or the Amazon EC2 instance on which the SAP ABAP application will run is started first (if it is not already running).
 
-Before you initiate a start operation, complete the setup prerequisites described in [Get started with AWS Systems Manager for SAP](get-started.md "get-started.md") and register your SAP application, if you have not already done so.
+Before you initiate a start operation, complete the setup prerequisites described in [Get started with AWS Systems Manager for SAP](get-started.md) and register your SAP application, if you have not already done so.
 
 You can start Systems Manager for SAP application using AWS CLI or AWS Management Console. The following procedure is for starting an SAP application using AWS CLI.
 
-###### Topics
-
-- [Step 1: Register SAP Application](#step1-start-application "#step1-start-application")
-- [Step 2: Start SAP Application](#step2-start-application "#step2-start-application")
-- [Step 3: Check Start Operation status](#step3-start-application "#step3-start-application")
-- [Step 4: Monitor and verify Start operation](#step4-start-application "#step4-start-application")
+**Topics**
++ [Step 1: Register SAP Application](#step1-start-application)
++ [Step 2: Start SAP Application](#step2-start-application)
++ [Step 3: Check Start Operation status](#step3-start-application)
++ [Step 4: Monitor and verify Start operation](#step4-start-application)
 
 ## Step 1: Register SAP Application
+<a name="step1-start-application"></a>
 
-Register your SAP application, if you have not already done so. For more information, see [Register SAP HANA database](register-database.md "register-database.md") or [Register SAP ABAP application](register-abap.md "register-abap.md").
+Register your SAP application, if you have not already done so. For more information, see [Register SAP HANA database](https://docs.aws.amazon.com/ssm-sap/latest/userguide/register-database.html) or [Register SAP ABAP application](https://docs.aws.amazon.com/ssm-sap/latest/userguide/register-abap.html).
 
 In your records, note the `ApplicationId` of your registration.
 
 ## Step 2: Start SAP Application
+<a name="step2-start-application"></a>
 
 You can use the following AWS CLI command to start your SAP application:
 
@@ -33,13 +37,13 @@ aws ssm-sap start-application \
 
 The parameter `application-id` is required. As the value, use the ApplicationID generated from registration in Step 1.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap start-application --application-id <APPLICATION_ID> --region <REGION_ID>
 ```
 
-**Command example**
+ **Command example** 
 
 ```
 aws ssm-sap start-application \
@@ -47,7 +51,7 @@ aws ssm-sap start-application \
 --region us-east-1
 ```
 
-**Return example**
+ **Return example** 
 
 ```
 {
@@ -55,29 +59,31 @@ aws ssm-sap start-application \
 }
 ```
 
-**Note** the OperationId for use in the next step
+ **Note** the OperationId for use in the next step
 
 ## Step 3: Check Start Operation status
+<a name="step3-start-application"></a>
 
 The start operation can take up to five minutes to complete. During that time, you can use the following command to check the status of the operation. Use the `OperationId` that was generated in Step 2.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap get-operation --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 ## Step 4: Monitor and verify Start operation
+<a name="step4-start-application"></a>
 
-Verify the start operation on the application through the event using the [ListOperationEvents](../../../ssmsap/latest/APIReference/API_ListOperationEvents.md "../../../ssmsap/latest/APIReference/API_ListOperationEvents.md") API.
+Verify the start operation on the application through the event using the [ListOperationEvents](https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_ListOperationEvents.html) API.
 
-**Command template**
+ **Command template** 
 
 ```
 aws ssm-sap list-operation-events --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
-**Command example**
+ **Command example** 
 
 ```
 aws ssm-sap list-operation-events \
@@ -85,7 +91,7 @@ aws ssm-sap list-operation-events \
 --region us-east-1
 ```
 
-**Json output**
+ **Json output** 
 
 ```
 {
