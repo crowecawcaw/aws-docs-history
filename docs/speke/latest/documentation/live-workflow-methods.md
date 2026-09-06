@@ -1,6 +1,9 @@
-# SPEKE API v1 - Live workflow method call examples
 
-_Request Syntax Example_
+
+# SPEKE API v1 - Live workflow method call examples
+<a name="live-workflow-methods"></a>
+
+ *Request Syntax Example* 
 
 The following URL is an example and does not indicate a fixed format:
 
@@ -8,39 +11,41 @@ The following URL is an example and does not indicate a fixed format:
 POST https://speke-compatible-server/speke/v1.0/copyProtection
 ```
 
-_Request Body_
+ *Request Body* 
 
 A CPIX element.
 
-_Request Headers_
+ *Request Headers* 
 
-| Name                   | Type   | Occurs | Description                                                                                                |
-| ---------------------- | ------ | ------ | ---------------------------------------------------------------------------------------------------------- |
-| `AWS Authorization`    | String | 1..1   | See [AWS Sigv4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") |
-| `X-Amz-Security-Token` | String | 1..1   | See [AWS Sigv4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") |
-| `X-Amz-Date`           | String | 1..1   | See [AWS Sigv4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") |
-| `Content-Type`         | String | 1..1   | application/xml                                                                                            |
 
-_Response Headers_
+| Name | Type | Occurs | Description | 
+| --- | --- | --- | --- | 
+|  `AWS Authorization`  | String | 1..1 | See [AWS Sigv4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)  | 
+|  `X-Amz-Security-Token`  | String | 1..1 | See [AWS Sigv4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)  | 
+|  `X-Amz-Date`  | String | 1..1 | See [AWS Sigv4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html)  | 
+|  `Content-Type`  | String | 1..1 | application/xml | 
 
-| Name               | Type   | Occurs | Description                             |
-| ------------------ | ------ | ------ | --------------------------------------- |
-| `Speke-User-Agent` | String | 1..1   | String that identifies the key provider |
-| `Content-Type`     | String | 1..1   | application/xml                         |
+ *Response Headers* 
 
-_Request Response_
 
-| HTTP CODE            | Payload Name         | Occurs | Description                     |
-| -------------------- | -------------------- | ------ | ------------------------------- |
-| `200 (Success)`      | CPIX                 | 1..1   | DASH-CPIX payload response      |
-| `4XX (Client error)` | Client error message | 1..1   | Description of the client error |
-| `5XX (Server error)` | Server error message | 1..1   | Description of the server error |
+| Name | Type | Occurs | Description | 
+| --- | --- | --- | --- | 
+|  `Speke-User-Agent`  | String | 1..1 | String that identifies the key provider | 
+|  `Content-Type`  | String | 1..1 | application/xml | 
 
-###### Note
+ *Request Response* 
 
-The examples in this section do not include content key encryption. For information about how to add content key encryption, see [Content key encryption](content-key-encryption.md "content-key-encryption.md").
 
-_Live Example Request Payload with Keys in the Clear_
+| HTTP CODE | Payload Name | Occurs | Description | 
+| --- | --- | --- | --- | 
+|  `200 (Success)`  | CPIX | 1..1 | DASH-CPIX payload response | 
+|  `4XX (Client error)`  | Client error message | 1..1 | Description of the client error | 
+|  `5XX (Server error)`  | Server error message | 1..1 | Description of the server error | 
+
+**Note**  
+The examples in this section do not include content key encryption. For information about how to add content key encryption, see [Content key encryption](content-key-encryption.md).
+
+ *Live Example Request Payload with Keys in the Clear* 
 
 The following example shows a typical live request payload from the encryptor to the DRM key provider:
 
@@ -86,7 +91,7 @@ The following example shows a typical live request payload from the encryptor to
 </cpix:CPIX>
 ```
 
-_Live Example Response Payload with Keys in the Clear_
+ *Live Example Response Payload with Keys in the Clear* 
 
 The following example shows a typical response payload from the DRM key provider:
 

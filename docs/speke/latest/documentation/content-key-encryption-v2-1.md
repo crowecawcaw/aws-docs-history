@@ -1,26 +1,27 @@
+
+
 # SPEKE API v2.1 - Content key encryption
+<a name="content-key-encryption-v2-1"></a>
 
 You can optionally add content key encryption to your SPEKE implementation. Content key encryption guarantees full end-to-end protection by encrypting the content keys for transit, in addition to encrypting the content itself. If you don’t implement this for your key provider, you rely on the transport layer encryption plus strong authentication for security.
 
 To use content key encryption for encryptors running in AWS Cloud, customers import certificates into the AWS Certificate Manager and then use the resulting certificate ARNs for their encryption activities. The encryptor uses the certificate ARNs and the ACM service to provide encrypted content keys to the DRM key provider.
 
-###### Restrictions
-
+**Restrictions**  
 SPEKE supports content key encryption as specified in the DASH-IF CPIX specification with the following restrictions:
++ SPEKE doesn’t support digital signature verification (XMLDSIG) for request or response payloads.
++ SPEKE requires 2048 RSA-based certificates.
 
-- SPEKE doesn’t support digital signature verification (XMLDSIG) for request or response payloads.
-- SPEKE requires 2048 RSA-based certificates.
-  These restrictions are also listed in [Customizations and constraints to the DASH-IF specification](speke-constraints-v2-1.md "speke-constraints-v2-1.md").
+These restrictions are also listed in [Customizations and constraints to the DASH-IF specification](speke-constraints-v2-1.md).
 
-###### Implement content key encryption
-
+**Implement content key encryption**  
 To provide content key encryption, include the following in your DRM key provider implementations:
++ Handle the element `<cpix:DeliveryDataList>` in the request and response payloads.
++ Provide encrypted values in the `<cpix:ContentKeyList>` of the response payloads.
 
-- Handle the element `<cpix:DeliveryDataList>` in the request and response payloads.
-- Provide encrypted values in the `<cpix:ContentKeyList>` of the response payloads.
-  For more information about these elements, see the [CPIX 2.4 specification](https://dashif.org/docs/CPIX2.4/Cpix.html "https://dashif.org/docs/CPIX2.4/Cpix.html") on the DASH-IF website.
+For more information about these elements, see the [CPIX 2.4 specification](https://dashif.org/docs/CPIX2.4/Cpix.html) on the DASH-IF website.
 
-_Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Request Payload_
+ *Example Content Key Encryption Element ` <cpix:DeliveryDataList> ` in the Request Payload* 
 
 ```
 <cpix:CPIX contentId="abc123"
@@ -42,7 +43,7 @@ _Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Reque
 </cpix:CPIX>
 ```
 
-_Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Response Payload_
+ *Example Content Key Encryption Element ` <cpix:DeliveryDataList> ` in the Response Payload* 
 
 ```
 <cpix:CPIX contentId="abc123"
@@ -88,7 +89,7 @@ _Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Respo
 </cpix:CPIX>
 ```
 
-_Example Content Key Encryption Element `*<cpix:ContentKeyList>*` in the Response Payload_
+ *Example Content Key Encryption Element ` <cpix:ContentKeyList> ` in the Response Payload* 
 
 The following example shows encrypted content key handling in the `<cpix:ContentKeyList>` element of the response payload. This uses the `<pskc:EncryptedValue>` element:
 

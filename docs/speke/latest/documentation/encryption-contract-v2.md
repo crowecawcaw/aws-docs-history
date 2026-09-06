@@ -1,52 +1,50 @@
+
+
 # SPEKE API v2.0 - Encryption contract
+<a name="encryption-contract-v2"></a>
 
 The encryption contract defines which content keys are protecting which tracks inside a given streamset, based on the tracks characteristics.
 
 Using multiple content keys for different tracks in a streamset, despite being a recommended industry best practice, is not mandatory, but recommended - at least two different content keys, one for audio tracks and one for video tracks. Using a single content key to encrypt multiple tracks is possible but needs to be explicitly signaled in the CPIX document sent by the encryptor to to key provider. Generally speaking, the encryptor always describes precisely how many content keys are required and how they are leveraged to encrypt the various media tracks.
 
-###### Principles
-
+**Principles**  
 The encryption contract is located in the `<cpix:ContentKeyUsageRuleList>` section of the CPIX document. In this section, each content key defined in the `<cpix:ContentKeyList>` section corresponds to a specific `<cpix:ContentKeyUsageRule>` element, which shall include:
++ a `ContentKeyUsageRule@intendedTrackType` attribute that can reference one or more sub-components, separated by the '\+' sign if multiple sub-components are used. The value of `ContentKeyUsageRule@intendedTrackType` shall be unique in an encryption contract, and can not be used in multiple `ContentKeyUsageRule` elements.
++ one or more `<cpix:AudioFilter>` or `<cpix:VideoFilter>` child element, depending on the value of `ContentKeyUsageRule@intendedTrackType` attribute.
 
-- a `ContentKeyUsageRule@intendedTrackType` attribute that can reference one or more sub-components, separated by the '+' sign if multiple sub-components are used.
-  The value of `ContentKeyUsageRule@intendedTrackType` shall be unique in an encryption contract, and can not be used in multiple `ContentKeyUsageRule` elements.
-- one or more `<cpix:AudioFilter>` or `<cpix:VideoFilter>` child element, depending on the value of `ContentKeyUsageRule@intendedTrackType` attribute.
-  The rules governing this relationship are the following:
+The rules governing this relationship are the following:
++ When all the audio and video tracks of the streamset need to be protected with a unique content key, the string `'ALL'` must be used as the `ContentKeyUsageRule@intendedTrackType` attribute value. Example 1 shows such a use case. In this situation, both a `<cpix:AudioFilter />` and a `<cpix:VideoFilter />` child elements without any attribute shall be included. Any other combination of `<cpix:AudioFilter>` and/or `<cpix:VideoFilter>` elements is invalid in this particular context.
++ For all other use cases, the value of the `ContentKeyUsageRule@intendedTrackType` attribute can be freely defined, and the number of `<cpix:AudioFilter />` and a `<cpix:VideoFilter />` child elements must correspond to the number of sub-components aggregated through the '\+' sign. Examples 2/3/4/5/6/7/9/10 illustrate this requirement, when a single sub-component is present in the `ContentKeyUsageRule@intendedTrackType` attribute value. Example 8 illustrate it when multiple sub-components are used: `ContentKeyUsageRule@intendedTrackType="SD+HD"` is described by two distinct `<cpix:VideoFilter>` child elements with different attributes values, and `ContentKeyUsageRule@intendedTrackType="HDR+HFR+UHD"` is described by three distinct `<cpix:VideoFilter>` child elements with different attributes values.
 
-- When all the audio and video tracks of the streamset need to be protected with a unique content key, the string `'ALL'` must be used as the `ContentKeyUsageRule@intendedTrackType` attribute value. Example 1 shows such a use case. In this situation, both a `<cpix:AudioFilter />` and a `<cpix:VideoFilter />` child elements without any attribute shall be included. Any other combination of `<cpix:AudioFilter>` and/or `<cpix:VideoFilter>` elements is invalid in this particular context.
-- For all other use cases, the value of the `ContentKeyUsageRule@intendedTrackType` attribute can be freely defined, and the number of `<cpix:AudioFilter />` and a `<cpix:VideoFilter />` child elements must correspond to the number of sub-components aggregated through the '+' sign.
-  Examples 2/3/4/5/6/7/9/10 illustrate this requirement, when a single sub-component is present in the `ContentKeyUsageRule@intendedTrackType` attribute value. Example 8 illustrate it when multiple sub-components are used: `ContentKeyUsageRule@intendedTrackType="SD+HD"` is described by two distinct `<cpix:VideoFilter>` child elements with different attributes values, and `ContentKeyUsageRule@intendedTrackType="HDR+HFR+UHD"` is described by three distinct `<cpix:VideoFilter>` child elements with different attributes values.
-
-###### Filters
-
+**Filters**  
 CPIX defines multiple filtering elements and attributes, but SPEKE supports only a subset of it. The following table summarizes these differences:
 
-| CPIX filter type       | Overall SPEKE support | Filter attributes supported by SPEKE                            | Filter attributes not supported by SPEKE |
-| ---------------------- | --------------------- | --------------------------------------------------------------- | ---------------------------------------- |
-| <cpix:VideoFilter>     | Yes                   | minPixels, maxPixels, hdr, minFps, maxFps (optional attributes) | wcg                                      |
-| <cpix:AudioFilter>     | Yes                   | minChannels, maxChannels (optional attributes)                  |                                          |
-| <cpix:KeyPeriodFilter> | Yes                   | periodId (mandatory attribute)                                  |                                          |
-| <cpix:BitrateFilter>   | No                    | N/A                                                             | N/A                                      |
-| <cpix:LabelFilter>     | No                    | N/A                                                             | N/A                                      |
+
+| CPIX filter type | Overall SPEKE support | Filter attributes supported by SPEKE | Filter attributes not supported by SPEKE | 
+| --- | --- | --- | --- | 
+| <cpix:VideoFilter> | Yes | minPixels, maxPixels, hdr, minFps, maxFps (optional attributes) | wcg | 
+| <cpix:AudioFilter> | Yes | minChannels, maxChannels (optional attributes) |  | 
+| <cpix:KeyPeriodFilter> | Yes | periodId (mandatory attribute) |  | 
+| <cpix:BitrateFilter> | No | N/A | N/A | 
+| <cpix:LabelFilter> | No | N/A | N/A | 
 
 As per the CPIX specification for VideoFilter, [minPixels, maxPixels] is an all inclusive range in both dimensions, while (minFps, maxFps] is inclusive only for the maxFps dimension. For AudioFilter, [minChannels, maxChannels] is an inclusive range in both dimensions.
 
-###### Problematic situations
-
+**Problematic situations**  
 There are situations where the information provided in the encryption contract might be partial, ambiguous or erroneous. In these cases, it is important that the encryptor and the key provider behave appropriately and guarantee a proper protection of the contents. The following table presents the recommended behavior in these situations:
 
-| In this situation                                                                                                                                                                            | The encryptor should/shall …​                                                                                                                                                                                                                | The key provider should/shall …​                                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| No rule applies to one or more tracks in the streamset (see example 3 below)                                                                                                                 | The encryptor should look at its configuration (external to the CPIX payload) and verify that the concerned tracks don’t require encryption. If it’s not the expectation, the encryptor should throw an error and stop processing.           | _Not relevant: the key provider doesn’t have knowledge of the streamset structure._                                                                                |
-| Multiple rules overlap and suggest multiple content keys to encrypt a specific track                                                                                                         | The encryptor should apply the last ContentKeyUsageRule successfully evaluated in the order of the document.                                                                                                                                 | _Not relevant: the key provider doesn’t have knowledge of the streamset structure._                                                                                |
-| The encryption contract changes in a single SPEKE request/response cycle                                                                                                                     | The encryptor shall raise an exception and stop processing, as the key provider is not responsible for defining the encryption contract.                                                                                                     | To prevent this situation to happen in the first place, the key provider must not modify an encryption contract received in the CPIX payload of the SPEKE request. |
-| Malformed encryption contract: intendedTrackType/Filters cardinality constraint exception, unsupported filters or attributes                                                                 | The encryptor shall raise an exception, stop processing and not send the SPEKE request to the key provider, as it would most likely result in erroneous content protection or leave some tracks unprotected.                                 | The key provider shall raise an exception and return a 'Malformed encryption contract' error.                                                                      |
-| Well formed encryption contract, but in breach of the DRM security levels constraints: as an example, a single content key being requested to protect both audio tracks and UHD video tracks | If the encryptor has got knowledge of the DRM security levels constraints, it should raise an exception, stop processing and not send the SPEKE request to the key provider, as it would most likely result in erroneous content protection. | The key provider shall raise an exception and return a 'Requested CPIX encryption contract not supported' error.                                                   |
-| Missing encryption contract                                                                                                                                                                  | The encryptor shall not send CPIX documents which don’t contain any VideoFilter or AudioFilter element.                                                                                                                                      | The key provider shall raise an exception and return a 'Missing CPIX encryption contract' error.                                                                   |
 
-###### Examples of Encryption Contracts
+| In this situation | The encryptor should/shall …​ | The key provider should/shall …​ | 
+| --- | --- | --- | 
+| No rule applies to one or more tracks in the streamset (see example 3 below) | The encryptor should look at its configuration (external to the CPIX payload) and verify that the concerned tracks don’t require encryption. If it’s not the expectation, the encryptor should throw an error and stop processing. |  *Not relevant: the key provider doesn’t have knowledge of the streamset structure.*  | 
+| Multiple rules overlap and suggest multiple content keys to encrypt a specific track | The encryptor should apply the last ContentKeyUsageRule successfully evaluated in the order of the document. |  *Not relevant: the key provider doesn’t have knowledge of the streamset structure.*  | 
+| The encryption contract changes in a single SPEKE request/response cycle | The encryptor shall raise an exception and stop processing, as the key provider is not responsible for defining the encryption contract. | To prevent this situation to happen in the first place, the key provider must not modify an encryption contract received in the CPIX payload of the SPEKE request. | 
+| Malformed encryption contract: intendedTrackType/Filters cardinality constraint exception, unsupported filters or attributes | The encryptor shall raise an exception, stop processing and not send the SPEKE request to the key provider, as it would most likely result in erroneous content protection or leave some tracks unprotected. | The key provider shall raise an exception and return a 'Malformed encryption contract' error. | 
+| Well formed encryption contract, but in breach of the DRM security levels constraints: as an example, a single content key being requested to protect both audio tracks and UHD video tracks | If the encryptor has got knowledge of the DRM security levels constraints, it should raise an exception, stop processing and not send the SPEKE request to the key provider, as it would most likely result in erroneous content protection. | The key provider shall raise an exception and return a 'Requested CPIX encryption contract not supported' error. | 
+| Missing encryption contract | The encryptor shall not send CPIX documents which don’t contain any VideoFilter or AudioFilter element. | The key provider shall raise an exception and return a 'Missing CPIX encryption contract' error. | 
 
-_Example 1: one content key for all audio and video tracks_
+**Examples of Encryption Contracts**  
+ *Example 1: one content key for all audio and video tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -58,7 +56,7 @@ _Example 1: one content key for all audio and video tracks_
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 2: one content key for all video tracks, one content key for all audio tracks_
+ *Example 2: one content key for all video tracks, one content key for all audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -73,7 +71,7 @@ _Example 2: one content key for all video tracks, one content key for all audio 
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 3: one content key for all video tracks, unencrypted audio tracks_
+ *Example 3: one content key for all video tracks, unencrypted audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -84,7 +82,7 @@ _Example 3: one content key for all video tracks, unencrypted audio tracks_
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 4: multiple content keys for different video tracks (SD/HD), one content key for all audio tracks_
+ *Example 4: multiple content keys for different video tracks (SD/HD), one content key for all audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -106,7 +104,7 @@ _Example 4: multiple content keys for different video tracks (SD/HD), one conten
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 5: multiple content keys for different video tracks (SD/HD/UHD), one content key for all audio tracks_
+ *Example 5: multiple content keys for different video tracks (SD/HD/UHD), one content key for all audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -133,7 +131,7 @@ _Example 5: multiple content keys for different video tracks (SD/HD/UHD), one co
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 6: multiple content keys for different video tracks (SD/HD/UHD1/UHD2), one content key for all audio tracks_
+ *Example 6: multiple content keys for different video tracks (SD/HD/UHD1/UHD2), one content key for all audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -165,7 +163,7 @@ _Example 6: multiple content keys for different video tracks (SD/HD/UHD1/UHD2), 
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 7: multiple content keys for different video tracks (SD/HD1/HD2/UHD1/UHD2), one content key for all audio tracks_
+ *Example 7: multiple content keys for different video tracks (SD/HD1/HD2/UHD1/UHD2), one content key for all audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -202,7 +200,7 @@ _Example 7: multiple content keys for different video tracks (SD/HD1/HD2/UHD1/UH
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 8: multiple content keys for different video tracks (based on multiple attributes types), one content key for all audio tracks_
+ *Example 8: multiple content keys for different video tracks (based on multiple attributes types), one content key for all audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -227,7 +225,7 @@ _Example 8: multiple content keys for different video tracks (based on multiple 
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 9: one content keys for all video tracks, multiple content keys for stereo and multichannel audio tracks_
+ *Example 9: one content keys for all video tracks, multiple content keys for stereo and multichannel audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>
@@ -249,7 +247,7 @@ _Example 9: one content keys for all video tracks, multiple content keys for ste
 </cpix:ContentKeyUsageRuleList>
 ```
 
-_Example 10: one content keys for all video tracks, multiple content keys for stereo and two types of multichannel audio tracks_
+ *Example 10: one content keys for all video tracks, multiple content keys for stereo and two types of multichannel audio tracks* 
 
 ```
 <cpix:ContentKeyUsageRuleList>

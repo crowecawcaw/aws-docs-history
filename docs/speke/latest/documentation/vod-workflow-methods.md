@@ -1,6 +1,9 @@
-# SPEKE API v1 - VOD workflow method call examples
 
-_Request Syntax Example_
+
+# SPEKE API v1 - VOD workflow method call examples
+<a name="vod-workflow-methods"></a>
+
+ *Request Syntax Example* 
 
 The following URL is an example and does not indicate a fixed format.
 
@@ -8,30 +11,31 @@ The following URL is an example and does not indicate a fixed format.
 POST https://speke-compatible-server/speke/v1.0/copyProtection
 ```
 
-_Request Body_
+ *Request Body* 
 
 A CPIX element.
 
-_Response Headers_
+ *Response Headers* 
 
-| Name               | Type   | Occurs | Description                             |
-| ------------------ | ------ | ------ | --------------------------------------- |
-| `Speke-User-Agent` | String | 1..1   | String that identifies the key provider |
-| `Content-Type`     | String | 1..1   | application/xml                         |
 
-_Request Response_
+| Name | Type | Occurs | Description | 
+| --- | --- | --- | --- | 
+|  `Speke-User-Agent`  | String | 1..1 | String that identifies the key provider | 
+|  `Content-Type`  | String | 1..1 | application/xml | 
 
-| HTTP CODE            | Payload Name         | Occurs | Description                     |
-| -------------------- | -------------------- | ------ | ------------------------------- |
-| `200 (Success)`      | CPIX                 | 1..1   | DASH-CPIX payload response      |
-| `4XX (Client error)` | Client error message | 1..1   | Description of the client error |
-| `5XX (Server error)` | Server error message | 1..1   | Description of the server error |
+ *Request Response* 
 
-###### Note
 
-The examples in this section do not include content key encryption. For information on how to add content key encryption, see [Content key encryption](content-key-encryption.md "content-key-encryption.md").
+| HTTP CODE | Payload Name | Occurs | Description | 
+| --- | --- | --- | --- | 
+|  `200 (Success)`  | CPIX | 1..1 | DASH-CPIX payload response | 
+|  `4XX (Client error)`  | Client error message | 1..1 | Description of the client error | 
+|  `5XX (Server error)`  | Server error message | 1..1 | Description of the server error | 
 
-_VOD Example Request Payload with Keys in the Clear_
+**Note**  
+The examples in this section do not include content key encryption. For information on how to add content key encryption, see [Content key encryption](content-key-encryption.md).
+
+ *VOD Example Request Payload with Keys in the Clear* 
 
 The following example shows a basic VOD request payload from the encryptor to the DRM key provider:
 
@@ -69,7 +73,7 @@ The following example shows a basic VOD request payload from the encryptor to th
     </cpix:CPIX>
 ```
 
-_VOD Example Response Payload with Keys in the Clear_
+ *VOD Example Response Payload with Keys in the Clear* 
 
 The following example shows a basic VOD response payload from the DRM key provider:
 
