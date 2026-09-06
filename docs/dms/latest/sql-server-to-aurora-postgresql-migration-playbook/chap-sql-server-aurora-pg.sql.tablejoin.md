@@ -1,33 +1,39 @@
+
+
 # Table JOIN for ANSI SQL
+<a name="chap-sql-server-aurora-pg.sql.tablejoin"></a>
 
 This topic provides reference information about join operations in SQL Server and their compatibility with Amazon Aurora PostgreSQL. You can understand how different types of joins, such as INNER JOIN, OUTER JOIN, CROSS JOIN, and APPLY operations, are supported or need to be rewritten when migrating from SQL Server to Aurora PostgreSQL.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                             |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | `OUTER JOIN` with commas. `CROSS APPLY` and `OUTER APPLY` aren’t supported. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A |  `OUTER JOIN` with commas. `CROSS APPLY` and `OUTER APPLY` aren’t supported. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.sqlserver"></a>
 
 ### ANSI JOIN
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.sqlserver.ansijoin"></a>
 
 SQL Server supports the standard ANSI join types.
-
-- `<Set A> CROSS JOIN <Set B>`. Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
-- `<Set A> INNER JOIN <Set B> ON <Join Condition>`. Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
-- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>`. Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
-- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
-- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>`. Designates both sets as reserved and adds non-matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
++  `<Set A> CROSS JOIN <Set B>`. Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
++  `<Set A> INNER JOIN <Set B> ON <Join Condition>`. Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
++  `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>`. Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
++  `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
++  `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>`. Designates both sets as reserved and adds non-matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
 
 ### APPLY
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.sqlserver.apply"></a>
 
 SQL Server also supports the `APPLY` operator, which is somewhat similar to a join. However, `APPLY` operators enable the creation of a correlation between `<Set A>` and `<Set B>` such that `<Set B>` may consist of a sub query, a `VALUES` row value constructor, or a table valued function that is evaluated for each row of `<Set A>` where the `<Set B>` query can reference columns from the current row in `<Set A>`. This functionality isn’t possible with any type of standard `JOIN` operator.
 
 There are two `APPLY` types:
-
-- `<Set A> CROSS APPLY <Set B>`. Similar to a `CROSS JOIN` in the sense that every row from `<Set A>` is matched with every row from `<Set B>`.
-- `<Set A> OUTER APPLY <Set B>`. Similar to a `LEFT OUTER JOIN` in the sense that rows from `<Set A>` are returned even if the sub query for `<Set B>` produces an empty set. In that case, NULL is assigned to all columns of `<Set B>`.
++  `<Set A> CROSS APPLY <Set B>`. Similar to a `CROSS JOIN` in the sense that every row from `<Set A>` is matched with every row from `<Set B>`.
++  `<Set A> OUTER APPLY <Set B>`. Similar to a `LEFT OUTER JOIN` in the sense that rows from `<Set A>` are returned even if the sub query for `<Set B>` produces an empty set. In that case, NULL is assigned to all columns of `<Set B>`.
 
 ### ANSI SQL 89 JOIN
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.sqlserver.ansisql"></a>
 
 Up until version 2008R2, SQL Server also supported the old-style `JOIN` syntax including `LEFT` and `RIGHT OUTER JOIN`.
 
@@ -57,15 +63,15 @@ WHERE Table1.Column1 *= Table2.Column1
 
 To perform a `FULL OUTER JOIN`, asterisks were placed on both sides of the equality sign of the join predicate.
 
-As of SQL Server 2008R2, outer joins using this syntax have been deprecated. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)?redirectedfrom=MSDN> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)?redirectedfrom=MSDN") in the _SQL Server documentation_.
+As of SQL Server 2008R2, outer joins using this syntax have been deprecated. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)?redirectedfrom=MSDN) in the *SQL Server documentation*.
 
-###### Note
-
+**Note**  
 Even though `INNER JOIN` using the ANSI SQL 89 syntax is still supported, they are highly discouraged due to being notorious for introducing hard-to-catch programming bugs.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.sqlserver.syntax"></a>
 
-**CROSS JOIN**
+ **CROSS JOIN** 
 
 ```
 FROM <Table Source 1>
@@ -79,7 +85,7 @@ FROM <Table Source 1>,
   <Table Source 2>
 ```
 
-**INNER / OUTER JOIN**
+ **INNER / OUTER JOIN** 
 
 ```
 FROM <Table Source 1>
@@ -96,7 +102,7 @@ WHERE <Join Predicate>
 <Join Predicate>:: <Table Source 1 Expression> | = | *= | =* | *=* <Table Source 2 Expression>
 ```
 
-**APPLY**
+ **APPLY** 
 
 ```
 FROM <Table Source 1>
@@ -106,6 +112,7 @@ FROM <Table Source 1>
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.sqlserver.examples"></a>
 
 Create the Orders and Items tables.
 
@@ -147,7 +154,7 @@ VALUES
 (3, 'M8 Washer', 200)
 ```
 
-**INNER JOIN**
+ **INNER JOIN** 
 
 ```
 SELECT *
@@ -162,7 +169,7 @@ FROM Items AS I,
 WHERE I.Item = OI.Item;
 ```
 
-**LEFT OUTER JOIN**
+ **LEFT OUTER JOIN** 
 
 Find Items that were never ordered.
 
@@ -186,7 +193,7 @@ FROM
 WHERE LeftJoined.OrderID IS NULL;
 ```
 
-**FULL OUTER JOIN**
+ **FULL OUTER JOIN** 
 
 ```
 CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
@@ -214,21 +221,22 @@ Col1  COl2  Col1  COl2
 NULL  NULL  3     CC
 ```
 
-For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.pg"></a>
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports all types of joins in the same way as SQL Server.
-
-- `<Set A> CROSS JOIN <Set B>`. Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
-- `<Set A> INNER JOIN <Set B> ON <Join Condition>`. Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
-- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>`. Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
-- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
-- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>`. Designates both sets as reserved and adds non-matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
+ Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports all types of joins in the same way as SQL Server.
++  `<Set A> CROSS JOIN <Set B>`. Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
++  `<Set A> INNER JOIN <Set B> ON <Join Condition>`. Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
++  `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>`. Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
++  `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
++  `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>`. Designates both sets as reserved and adds non-matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
 
 PostgreSQL doesn’t support `APPLY` options. You can replace them with `INNER JOIN LATERAL` and `LEFT JOIN LATERAL`.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.pg.syntax"></a>
 
 ```
 FROM
@@ -240,14 +248,15 @@ FROM
 ```
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.pg.considerations"></a>
 
 For most `JOIN` statements, the syntax should be equivalent and no rewrites should be needed. Find the differences following.
-
-- ANSI SQL 89 isn’t supported.
-- `FULL OUTER JOIN` and `OUTER JOIN` using the pre-ANSI SQL 92 syntax aren’t supported, but you can use workarounds.
-- `CROSS APPLY` and `OUTER APPLY` aren’t supported. You can rewrite these statements using `INNER JOIN LATERAL` and `LEFT JOIN LATERAL`.
++ ANSI SQL 89 isn’t supported.
++  `FULL OUTER JOIN` and `OUTER JOIN` using the pre-ANSI SQL 92 syntax aren’t supported, but you can use workarounds.
++  `CROSS APPLY` and `OUTER APPLY` aren’t supported. You can rewrite these statements using `INNER JOIN LATERAL` and `LEFT JOIN LATERAL`.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.pg.examples"></a>
 
 Create the Orders and Items tables.
 
@@ -289,7 +298,7 @@ VALUES
 (3, 'M8 Washer', 200)
 ```
 
-**INNER JOIN**
+ **INNER JOIN** 
 
 ```
 SELECT *
@@ -299,7 +308,7 @@ FROM Items AS I
   ON I.Item = OI.Item;
 ```
 
-**LEFT OUTER JOIN**
+ **LEFT OUTER JOIN** 
 
 Find Items that were never ordered.
 
@@ -312,7 +321,7 @@ FROM Items AS I
 WHERE OI.OrderID IS NULL;
 ```
 
-**FULL OUTER JOIN**
+ **FULL OUTER JOIN** 
 
 ```
 CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
@@ -341,15 +350,17 @@ NULL  NULL  3     CC
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.sql.tablejoin.summary"></a>
 
 The following table shows similarities, differences, and key migration considerations.
 
-| SQL Server feature                       | Aurora PostgreSQL feature | Comments                                       |
-| ---------------------------------------- | ------------------------- | ---------------------------------------------- |
-| `INNER JOIN` with `ON` clause or commas. | Supported.                |                                                |
-| `OUTER JOIN` with `ON` clause.           | Supported.                |                                                |
-| `OUTER JOIN` with commas.                | Not supported.            | Requires T-SQL rewrite post SQL Server 2008R2. |
-| `CROSS JOIN` or using commas.            | Supported.                |                                                |
-| `CROSS APPLY` and `OUTER APPLY`.         | Not supported.            | Rewrite required.                              |
 
-For more information, see [Controlling the Planner with Explicit JOIN Clauses](https://www.postgresql.org/docs/13/explicit-joins.html "https://www.postgresql.org/docs/13/explicit-joins.html") and [Joins Between Tables](https://www.postgresql.org/docs/13/tutorial-join.html "https://www.postgresql.org/docs/13/tutorial-join.html") in the _PostgreSQL documentation_.
+| SQL Server feature |  Aurora PostgreSQL feature | Comments | 
+| --- | --- | --- | 
+|  `INNER JOIN` with `ON` clause or commas. | Supported. |  | 
+|  `OUTER JOIN` with `ON` clause. | Supported. |  | 
+|  `OUTER JOIN` with commas. | Not supported. | Requires T-SQL rewrite post SQL Server 2008R2. | 
+|  `CROSS JOIN` or using commas. | Supported. |  | 
+|  `CROSS APPLY` and `OUTER APPLY`. | Not supported. | Rewrite required. | 
+
+For more information, see [Controlling the Planner with Explicit JOIN Clauses](https://www.postgresql.org/docs/13/explicit-joins.html) and [Joins Between Tables](https://www.postgresql.org/docs/13/tutorial-join.html) in the *PostgreSQL documentation*.

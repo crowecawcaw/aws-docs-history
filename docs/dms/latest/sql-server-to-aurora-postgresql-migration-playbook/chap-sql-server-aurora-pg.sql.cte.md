@@ -1,18 +1,24 @@
+
+
 # Common table expressions for ANSI SQL
+<a name="chap-sql-server-aurora-pg.sql.cte"></a>
 
 This topic provides reference information about Common Table Expressions (CTEs) in both SQL Server and PostgreSQL. It explains that CTEs are part of the ANSI SQL standard and are used to simplify queries and improve readability by defining temporary views or derived tables. The topic highlights the similarities between SQL Server and PostgreSQL implementations of CTEs, including their support for recursive functionality.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                    |
-| ------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | Use `RECURSIVE` keyword for recursive CTE queries. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  | N/A | Use `RECURSIVE` keyword for recursive CTE queries. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.sql.cte.sqlserver"></a>
 
 Common Table Expressions (CTE) are part of the ANSI standard since SQL:1999, simplify queries and make them more readable by defining a temporary view, or derived table, that a subsequent query can reference. You can use SQL Server CTEs as the target of DML modification statements. They have similar restrictions as updateable views.
 
 SQL Server CTEs provide recursive functionality in accordance with the ANSI 99 standard. Recursive CTEs can reference themselves and re-run queries until the data set is exhausted, or the maximum number of iterations is exceeded.
 
 ### CTE Syntax
+<a name="chap-sql-server-aurora-pg.sql.cte.sqlserver.syntax"></a>
 
 ```
 WITH <CTE NAME>
@@ -25,6 +31,7 @@ FROM CTE
 ```
 
 ### Recursive CTE Syntax
+<a name="chap-sql-server-aurora-pg.sql.cte.sqlserver.recursivesyntax"></a>
 
 ```
 WITH <CTE NAME>
@@ -37,6 +44,7 @@ SELECT ... FROM <CTE NAME>...
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.cte.sqlserver.examples"></a>
 
 Create and populate an OrderItems table.
 
@@ -141,15 +149,17 @@ LVL  Employee  DirectManager
 2    Fred      John
 ```
 
-For more information, see [Recursive Queries Using Common Table Expressions](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186243(v=sql.105)?redirectedfrom=MSDN> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186243(v=sql.105)?redirectedfrom=MSDN") in the _SQL Server documentation_.
+For more information, see [Recursive Queries Using Common Table Expressions](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186243(v=sql.105)?redirectedfrom=MSDN) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.sql.cte.pg"></a>
 
 PostgreSQL conforms to the ANSI SQL-99 standard and implementing CTEs in PostgreSQL is similar to SQL Server.
 
 CTE is also known as `WITH` query. This type of query helps you to simplify long queries, it is similar to defining temporary tables that exist only for the running of the query. The statement in a WITH clause can be a `SELECT`, `INSERT`, `UPDATE`, or `DELETE`, and the `WITH` clause itself is attached to a primary statement that can also be a `SELECT`, `INSERT`, `UPDATE`, or `DELETE`.
 
 ### CTE Syntax
+<a name="chap-sql-server-aurora-pg.sql.cte.pg.syntax"></a>
 
 ```
 WITH <CTE NAME>
@@ -162,6 +172,7 @@ Recursive CTE
 ```
 
 ### Recursive CTE Syntax
+<a name="chap-sql-server-aurora-pg.sql.cte.pg.recursivesyntax"></a>
 
 ```
 WITH RECURSIVE <CTE NAME>
@@ -174,6 +185,7 @@ SELECT OR DML
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.cte.pg.examples"></a>
 
 Create and populate an OrderItems table.
 
@@ -324,4 +336,4 @@ LVL  Employee  DirectManager
 2    Fred      John
 ```
 
-For more information, see [WITH Queries (Common Table Expressions)](https://www.postgresql.org/docs/13/queries-with.html "https://www.postgresql.org/docs/13/queries-with.html") in the _PostgreSQL documentation_.
+For more information, see [WITH Queries (Common Table Expressions)](https://www.postgresql.org/docs/13/queries-with.html) in the *PostgreSQL documentation*.

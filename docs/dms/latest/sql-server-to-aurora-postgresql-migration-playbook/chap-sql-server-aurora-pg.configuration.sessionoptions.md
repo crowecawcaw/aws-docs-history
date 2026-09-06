@@ -1,12 +1,17 @@
+
+
 # Configuring session options
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions"></a>
 
 This topic provides reference information comparing session options and system variables between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand how SQL Server’s session options translate to system variables, which is crucial for database administrators and developers migrating from SQL Server to Aurora PostgreSQL.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                      |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------------------------------------------------ |
-| Two star feature compatibility | N/A                                | N/A                       | `SET` options are significantly different, except for transaction isolation control. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A |  `SET` options are significantly different, except for transaction isolation control. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.sqlserver"></a>
 
 Session options in SQL Server is a collection of run-time settings that control certain aspects of how the server handles data for individual sessions. A session is the period between a login event and a disconnect event or an `exec sp_reset_connection` command for connection pooling.
 
@@ -18,11 +23,11 @@ Developers can explicitly use `SET` commands to change the default settings for 
 
 You can view the metadata for current sessions using the `sp_who_system` stored procedure and the `sysprocesses` system table.
 
-###### Note
-
+**Note**  
 To change the default setting for SQL Server Management Studio, choose **Tools**, **Options**, **Query Execution**, **SQL Server**, **Advanced**.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.sqlserver.syntax"></a>
 
 Syntax for the `SET` command:
 
@@ -38,11 +43,12 @@ Execution Stats  FORCEPLAN | SHOWPLAN_ALL | SHOWPLAN_TEXT | SHOWPLAN_XML | STATI
 Transactions     IMPLICIT_TRANSACTIONS | REMOTE_PROC_TRANSACTIONS | TRANSACTION ISOLATION LEVEL | XACT_ABORT
 ```
 
-For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ### SET ROWCOUNT for DML Deprecated Setting
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.sqlserver.setrowcount"></a>
 
-The SET ROWCOUNT for DML statements has been deprecated as of SQL Server 2008. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+The SET ROWCOUNT for DML statements has been deprecated as of SQL Server 2008. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)) in the *SQL Server documentation*.
 
 For SSQL Server version 2008 R2 and lower, you could limit the number of rows affected by `INSERT`, `UPDATE`, and `DELETE` operations using `SET ROWCOUNT`. For example, it is a common practice in SQL Server to batch large `DELETE` or `UPDATE` operations to avoid transaction logging issues.
 
@@ -57,8 +63,7 @@ BEGIN
 END
 ```
 
-Starting from SQL Server 2012, `SET ROWCOUNT` is ignored for `INSERT`, `UPDATE`, and `DELETE` statements. You can achieve the same functionality using `TOP`. You can convert `TOP` to the Aurora PostgreSQL
-`LIMIT`.
+Starting from SQL Server 2012, `SET ROWCOUNT` is ignored for `INSERT`, `UPDATE`, and `DELETE` statements. You can achieve the same functionality using `TOP`. You can convert `TOP` to the Aurora PostgreSQL `LIMIT`.
 
 For example, you can rewrite the preceding code as:
 
@@ -71,9 +76,10 @@ DELETE TOP (5000)
 END
 ```
 
-AWS Schema Conversion Tool can convert this syntax automatically.
+ AWS Schema Conversion Tool can convert this syntax automatically.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.sqlserver.examples"></a>
 
 Use SET within a stored procedure.
 
@@ -90,30 +96,30 @@ END
 
 Explicit `SET` commands affect their run scope and sub scopes. After the scope terminates and the procedure code exits, the calling scope resumes its original settings used before the calling the stored procedure.
 
-For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.pg"></a>
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports hundreds of Server System Variables to control server behavior and the global and session levels.
+ Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports hundreds of Server System Variables to control server behavior and the global and session levels.
 
-PostgreSQL provides session-modifiable parameters that are configured using the `SET SESSION` command. Configuration of parameters using `SET SESSION` will only be applicable in the current session. To view the list of
-parameters that can be set with `SET SESSION`, you can query `pg_settings`:
+PostgreSQL provides session-modifiable parameters that are configured using the `SET SESSION` command. Configuration of parameters using `SET SESSION` will only be applicable in the current session. To view the list of parameters that can be set with `SET SESSION`, you can query `pg_settings`:
 
 ```
 SELECT * FROM pg_settings where context = 'user';
 ```
 
 Examples of commonly used session parameters:
-
-- `client_encoding` configures the connected client character set.
-- `force_parallel_mode` forces use of parallel query for the session.
-- `lock_timeout` sets the maximum allowed duration of time to wait for a database lock to release.
-- `search_path` sets the schema search order for object names that aren’t schema-qualified.
-- `transaction_isolation` sets the current Transaction Isolation Level for the session.
++  `client_encoding` configures the connected client character set.
++  `force_parallel_mode` forces use of parallel query for the session.
++  `lock_timeout` sets the maximum allowed duration of time to wait for a database lock to release.
++  `search_path` sets the schema search order for object names that aren’t schema-qualified.
++  `transaction_isolation` sets the current Transaction Isolation Level for the session.
 
 You can view Aurora PostgreSQL variables using the PostgreSQL command line utility, Amazon Aurora database cluster parameters, Amazon Aurora database instance parameters, or SQL Server interface system variables.
 
 ### Converting from SQL Server 2008 SET ROWCOUNT for DML operations
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.pg.rowcount"></a>
 
 The use of `SET ROWCOUNT` for DML operations is deprecated as of SQL Server 2008 R2. Code that uses the `SET ROWCOUNT` syntax can’t be converted automatically.
 
@@ -130,8 +136,7 @@ BEGIN
 END
 ```
 
-You can rewrite the preceding example to use the Aurora PostgreSQL
-`LIMIT` clause:
+You can rewrite the preceding example to use the Aurora PostgreSQL `LIMIT` clause:
 
 ```
 WHILE row_count() > 0 LOOP
@@ -144,6 +149,7 @@ END LOOP;
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.pg.examples"></a>
 
 Change the time zone of the connected session.
 
@@ -168,22 +174,24 @@ now
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.configuration.sessionoptions.summary"></a>
 
 The following table summarizes commonly used SQL Server session options and their corresponding Aurora PostgreSQL system variables.
 
-| Category      | SQL Server                                                            | Aurora PostgreSQL                                                                                                        |
-| ------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Date and time | `DATEFIRST`                                                           | Use `DOW` in queries                                                                                                     |
-| Date and time | `DATEFORMAT`                                                          | `DateStyle`                                                                                                              |
-| Locking       | `LOCK_TIMEOUT`                                                        | `lock_timeout`                                                                                                           |
-| Transactions  | `IMPLICIT_TRANSACTIONS`                                               | `SET TRANSACTION`                                                                                                        |
-| Transactions  | `TRANSACTION ISOLATION LEVEL`                                         | `BEGIN TRANSACTION ISOLATION LEVEL`                                                                                      |
-| Query run     | `IDENTITY_INSERT`                                                     | See [Sequences and Identity](chap-sql-server-aurora-pg.tsql.sequences.md "chap-sql-server-aurora-pg.tsql.sequences.md"). |
-| Query run     | `LANGUAGE`                                                            | `lc_monetary`, `lc_numeric`, or `lc_time`                                                                                |
-| Query run     | `QUOTED_IDENTIFIER`                                                   | N/A                                                                                                                      |
-| Query run     | `NOCOUNT`                                                             | N/A and not needed                                                                                                       |
-| Run stats     | `SHOWPLAN_ALL`, `TEXT`, `XML`, `STATISTICS IO`, `PROFILE`, and `TIME` | See [Run Plans](chap-sql-server-aurora-pg.tuning.plans.md "chap-sql-server-aurora-pg.tuning.plans.md").                  |
-| Miscellaneous | `CONCAT_NULL_YIELDS_NULL`                                             | N/A                                                                                                                      |
-| Miscellaneous | `ROWCOUNT`                                                            | Use `LIMIT` within `SELECT`.                                                                                             |
 
-For more information, see [SET](https://www.postgresql.org/docs/13/sql-set.html "https://www.postgresql.org/docs/13/sql-set.html") in the _PostgreSQL documentation_.
+| Category | SQL Server |  Aurora PostgreSQL  | 
+| --- | --- | --- | 
+| Date and time |  `DATEFIRST`  | Use `DOW` in queries | 
+| Date and time |  `DATEFORMAT`  |  `DateStyle`  | 
+| Locking |  `LOCK_TIMEOUT`  |  `lock_timeout`  | 
+| Transactions |  `IMPLICIT_TRANSACTIONS`  |  `SET TRANSACTION`  | 
+| Transactions |  `TRANSACTION ISOLATION LEVEL`  |  `BEGIN TRANSACTION ISOLATION LEVEL`  | 
+| Query run |  `IDENTITY_INSERT`  | See [Sequences and Identity](chap-sql-server-aurora-pg.tsql.sequences.md). | 
+| Query run |  `LANGUAGE`  |  `lc_monetary`, `lc_numeric`, or `lc_time`  | 
+| Query run |  `QUOTED_IDENTIFIER`  | N/A | 
+| Query run |  `NOCOUNT`  | N/A and not needed | 
+| Run stats |  `SHOWPLAN_ALL`, `TEXT`, `XML`, `STATISTICS IO`, `PROFILE`, and `TIME`  | See [Run Plans](chap-sql-server-aurora-pg.tuning.plans.md). | 
+| Miscellaneous |  `CONCAT_NULL_YIELDS_NULL`  | N/A | 
+| Miscellaneous |  `ROWCOUNT`  | Use `LIMIT` within `SELECT`. | 
+
+For more information, see [SET](https://www.postgresql.org/docs/13/sql-set.html) in the *PostgreSQL documentation*.

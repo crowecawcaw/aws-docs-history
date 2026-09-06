@@ -1,12 +1,17 @@
+
+
 # Partitioning databases
+<a name="chap-sql-server-aurora-pg.storage.partitioning"></a>
 
 This topic provides reference information about partitioning in Microsoft SQL Server and Amazon Aurora PostgreSQL. It compares and contrasts how partitioning works in these two database systems, highlighting their similarities and differences. The topic explores the features, limitations, and recent improvements in partitioning capabilities for both platforms. You can use this information to understand the partitioning options available when migrating from SQL Server to Aurora PostgreSQL, helping you make informed decisions about database design and performance optimization.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                     | Key differences                                                                             |
-| ------------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | Three star automation level        | [Partitioning](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.partitioning "chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.partitioning") | PostgreSQL doesn’t support `LEFT` partition or foreign keys referencing partitioned tables. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Partitioning](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.partitioning)  | PostgreSQL doesn’t support `LEFT` partition or foreign keys referencing partitioned tables. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.storage.partitioning.sqlserver"></a>
 
 SQL Server provides a logical and physical framework for partitioning table and index data. SQL Server 2017 supports up to 15,000 partitions.
 
@@ -15,20 +20,19 @@ Partitioning separates data into logical units. You can store these logical unit
 All DQL and DML operations are partition agnostic except for the special `$partition` predicate. You can use the `$partition` predicate for explicit partition elimination.
 
 Partitioning is typically needed for very large tables to address the following management and performance challenges:
-
-- Deleting or inserting large amounts of data in a single operation with partition switching instead of individual row processing while maintaining logical consistency.
-- You can split and customize maintenance operations for each partition. For example, you can compress older data partitions. Then you can rebuild and reorganize more frequently active partitions.
-- Partitioned tables may use internal query optimization techniques such as collocated and parallel partitioned joins.
-- You can optimize physical storage performance by distributing IO across partitions and physical storage channels.
-- Concurrency improvements due to the engine’s ability to escalate locks to the partition level rather than the whole table.
++ Deleting or inserting large amounts of data in a single operation with partition switching instead of individual row processing while maintaining logical consistency.
++ You can split and customize maintenance operations for each partition. For example, you can compress older data partitions. Then you can rebuild and reorganize more frequently active partitions.
++ Partitioned tables may use internal query optimization techniques such as collocated and parallel partitioned joins.
++ You can optimize physical storage performance by distributing IO across partitions and physical storage channels.
++ Concurrency improvements due to the engine’s ability to escalate locks to the partition level rather than the whole table.
 
 Partitioning in SQL Server uses the following three objects:
-
-- **A partitioning column** is used by the partition function to partition the table or index. The value of this column determines the logical partition to which it belongs. You can use computed columns in a partition function as long as they are explicitly `PERSISTED`. Partitioning columns may be any data type that is a valid index column with less than 900 bytes for each key except timestamp and LOB data types.
-- **A partition function** is a database object that defines how the values of the partitioning columns for individual tables or index rows are mapped to a logical partition. The partition function describes the partitions for the table or index and their boundaries.
-- **A partition scheme** is a database object that maps individual logical partitions of a table or an index to a set of file groups, which in turn consist of physical operating system files. Placing individual partitions on individual file groups enables backup operations for individual partitions (by backing their associated file groups).
++  **A partitioning column** is used by the partition function to partition the table or index. The value of this column determines the logical partition to which it belongs. You can use computed columns in a partition function as long as they are explicitly `PERSISTED`. Partitioning columns may be any data type that is a valid index column with less than 900 bytes for each key except timestamp and LOB data types.
++  **A partition function** is a database object that defines how the values of the partitioning columns for individual tables or index rows are mapped to a logical partition. The partition function describes the partitions for the table or index and their boundaries.
++  **A partition scheme** is a database object that maps individual logical partitions of a table or an index to a set of file groups, which in turn consist of physical operating system files. Placing individual partitions on individual file groups enables backup operations for individual partitions (by backing their associated file groups).
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.storage.partitioning.sqlserver.syntax"></a>
 
 ```
 CREATE PARTITION FUNCTION <Partition Function>(<Data Type>)
@@ -48,6 +52,7 @@ ON <Partition Schema> (<Partitioning Column>);
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.storage.partitioning.sqlserver.examples"></a>
 
 The following example creates a partitioned table.
 
@@ -70,9 +75,10 @@ CREATE TABLE PartitionTable (
 ON PartitionScheme1 (Col1);
 ```
 
-For more information, see [Partitioned Tables and Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15"), [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15"), [CREATE PARTITION SCHEME (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-ver15"), and [CREATE PARTITION FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Partitioned Tables and Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15), [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15), [CREATE PARTITION SCHEME (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-ver15), and [CREATE PARTITION FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.storage.partitioning.pg"></a>
 
 Starting with PostgreSQL 10, there is an equivalent option to the SQL Server Partitions when using `RANGE` or `LIST` partitions. Support for `HASH` partitions is expected to be included in PostgreSQL 11.
 
@@ -83,20 +89,20 @@ In PostgreSQL 10, you still need to create the partition tables manually, but yo
 Some of the partitioning management operations are performed directly on the sub-partitions (sub-tables). You can query the partitioned table.
 
 Starting with PostgreSQL 11, the following features were added:
++ For partitioned tables, a default partition can now be created that will store data which can’t be redirected to any other explicit partitions
++ In addition to partitioning by ranges and lists, tables can now be partitioned by a hashed key.
++ When `UPDATE` changes values in a column that’s used as partition key in partitioned table, data is moved to proper partitions.
++ An index can now be created on a partitioned table. Corresponding indexes will be automatically created on individual partitions.
++ Foreign keys can now be created on a partitioned table. Corresponding foreign key constraints will be propagated to individual partitions
++ Triggers `FOR EACH ROW` can now be created on a partitioned table. Corresponding triggers will be automatically created on individual partitions as well.
++ When attaching or detaching new partition to a partitioned table with the foreign key, foreign key enforcement triggers are correctly propagated to a new partition.
 
-- For partitioned tables, a default partition can now be created that will store data which can’t be redirected to any other explicit partitions
-- In addition to partitioning by ranges and lists, tables can now be partitioned by a hashed key.
-- When `UPDATE` changes values in a column that’s used as partition key in partitioned table, data is moved to proper partitions.
-- An index can now be created on a partitioned table. Corresponding indexes will be automatically created on individual partitions.
-- Foreign keys can now be created on a partitioned table. Corresponding foreign key constraints will be propagated to individual partitions
-- Triggers `FOR EACH ROW` can now be created on a partitioned table. Corresponding triggers will be automatically created on individual partitions as well.
-- When attaching or detaching new partition to a partitioned table with the foreign key, foreign key enforcement triggers are correctly propagated to a new partition.
-
-For more information, see [Inheritance](https://www.postgresql.org/docs/13/ddl-inherit.html "https://www.postgresql.org/docs/13/ddl-inherit.html") and [Table Partitioning](https://www.postgresql.org/docs/13/ddl-partitioning.html "https://www.postgresql.org/docs/13/ddl-partitioning.html") in the _PostgreSQL documentation_.
+For more information, see [Inheritance](https://www.postgresql.org/docs/13/ddl-inherit.html) and [Table Partitioning](https://www.postgresql.org/docs/13/ddl-partitioning.html) in the *PostgreSQL documentation*.
 
 ### Using The Partition Mechanism
+<a name="chap-sql-server-aurora-pg.storage.partitioning.pg.зartitionьechanism"></a>
 
-**List Partition**
+ **List Partition** 
 
 ```
 CREATE TABLE emps (
@@ -136,7 +142,7 @@ To prevent the error shown in the preceding example, make sure that all partitio
 
 Use the `MAXVALUE` and `MINVALUE` in your `FROM/TO` clause. This can help you get all values with `RANGE` partitions without the risk of creating new partitions.
 
-**Range partition**
+ **Range partition** 
 
 ```
 CREATE TABLE sales (
@@ -177,7 +183,7 @@ When you create a table with `PARTITION OF` clause, you can still use the `PARTI
 
 A sub-partition can be the same type as the partition table it is related to, or another partition type.
 
-**List combined with range partition**
+ **List combined with range partition** 
 
 The following example creates a list partition and sub partitions by range.
 
@@ -231,14 +237,19 @@ CREATE TABLE sales_def_2018q3
 ```
 
 ### Implementing List Table Partitioning with Inheritance Tables
+<a name="chap-sql-server-aurora-pg.storage.partitioning.pg.inheritancetables"></a>
 
 For older PostgreSQL versions, follow these steps to implement list table partitioning using inherited tables:
 
 1. Create a parent table from which all child tables or partitions will inherit.
-2. Create child tables that inherit from the parent table. This is similar to creating table partitions. The child tables should have an identical structure to the parent table.
-3. Create indexes on each child table. Optionally, add constraints to define allowed values in each table. For example, add primary keys or check constraints.
-4. Create a database trigger to redirect data inserted into the parent table to the appropriate child table.
-5. Make sure that the PostgreSQL `constraint_exclusion` parameter is turned on and set to partition. This parameter ensures the queries are optimized for working with table partitions.
+
+1. Create child tables that inherit from the parent table. This is similar to creating table partitions. The child tables should have an identical structure to the parent table.
+
+1. Create indexes on each child table. Optionally, add constraints to define allowed values in each table. For example, add primary keys or check constraints.
+
+1. Create a database trigger to redirect data inserted into the parent table to the appropriate child table.
+
+1. Make sure that the PostgreSQL `constraint_exclusion` parameter is turned on and set to partition. This parameter ensures the queries are optimized for working with table partitions.
 
 ```
 show constraint_exclusion;
@@ -247,7 +258,7 @@ constraint_exclusion
 partition
 ```
 
-For more information, see [constraint\_exclusion](https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION "https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION") in the _PostgreSQL documentation_.
+For more information, see [constraint\_exclusion](https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION) in the *PostgreSQL documentation*.
 
 PostgreSQL 9.6 doesn’t support declarative partitioning, nor several of the table partitioning features available in SQL Server.
 
@@ -256,6 +267,7 @@ PostgreSQL 9.6 table partitioning doesn’t support the creation of foreign keys
 PostgreSQL doesn’t support `SPLIT` and `EXCHANGE` of table partitions. For these actions, you will need to plan your data migrations manually (between tables) to replace the data into the right partition.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.storage.partitioning.pg.examples"></a>
 
 The following examples create a PostgreSQL list-partitioned table.
 
@@ -431,6 +443,7 @@ event_no  event_date  event_str
 ```
 
 ### Examples of New Partitioning Features of PostgreSQL 11
+<a name="chap-sql-server-aurora-pg.storage.partitioning.pg.examplesnewfeatures"></a>
 
 The following example creates default partitions.
 
@@ -683,17 +696,19 @@ Access method: heap
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.storage.partitioning.summary"></a>
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Feature                           | SQL Server                                                    | Aurora PostgreSQL                                             |
-| --------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| Partition types                   | `RANGE` only                                                  | `RANGE`, `LIST`                                               |
-| Partitioned tables scope          | All tables are partitioned, some have more than one partition | All tables are partitioned, some have more than one partition |
-| Partition boundary direction      | `LEFT` or `RIGHT`                                             | `RIGHT`                                                       |
-| Exchange partition                | Any partition to any partition                                | N/A                                                           |
-| Partition function                | Abstract function object, independent of individual column    | Abstract function object, independent of individual column    |
-| Partition scheme                  | Abstract partition storage mapping object                     | Abstract partition storage mapping object                     |
-| Limitations on partitioned tables | None — all tables are partitioned                             | Not all commands are compatible with table inheritance        |
 
-For more information, see [Table Partitioning](https://www.postgresql.org/docs/10/ddl-partitioning.html "https://www.postgresql.org/docs/10/ddl-partitioning.html") in the _PostgreSQL documentation_.
+| Feature | SQL Server |  Aurora PostgreSQL  | 
+| --- | --- | --- | 
+| Partition types |  `RANGE` only |  `RANGE`, `LIST`  | 
+| Partitioned tables scope | All tables are partitioned, some have more than one partition | All tables are partitioned, some have more than one partition | 
+| Partition boundary direction |  `LEFT` or `RIGHT`  |  `RIGHT`  | 
+| Exchange partition | Any partition to any partition | N/A | 
+| Partition function | Abstract function object, independent of individual column | Abstract function object, independent of individual column | 
+| Partition scheme | Abstract partition storage mapping object | Abstract partition storage mapping object | 
+| Limitations on partitioned tables | None — all tables are partitioned | Not all commands are compatible with table inheritance | 
+
+For more information, see [Table Partitioning](https://www.postgresql.org/docs/10/ddl-partitioning.html) in the *PostgreSQL documentation*.

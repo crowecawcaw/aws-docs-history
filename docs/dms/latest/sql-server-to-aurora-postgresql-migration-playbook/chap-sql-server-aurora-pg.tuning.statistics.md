@@ -1,12 +1,17 @@
+
+
 # Managing statistics
+<a name="chap-sql-server-aurora-pg.tuning.statistics"></a>
 
 This topic provides reference information about statistics and query optimization in SQL Server and PostgreSQL databases. You can understand how these database systems use statistics to improve query performance and how they differ in their approach to collecting and managing statistical data. The topic compares the methods for creating, viewing, and updating statistics in SQL Server with similar functionality in PostgreSQL.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                       |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tuning.statistics.sqlserver"></a>
 
 Statistics objects in SQL Server are designed to support SQL Server cost-based query optimizer. It uses statistics to evaluate the various plan options and choose an optimal plan for optimal query performance.
 
@@ -23,6 +28,7 @@ When a query is submitted with `AUTO_CREATE_STATISTICS` on and the query optimiz
 After creation of a new statistics object, either automatically or explicitly using the `CREATE STATISTICS` statement, the refresh of the statistics is controlled by the `AUTO_UPDATE_STATISTICS` database option. When set to `ON`, statistics are recalculated when they are stale, which happens when significant data modifications have occurred since the last refresh.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.tuning.statistics.sqlserver.syntax"></a>
 
 ```
 CREATE STATISTICS <Statistics Name>
@@ -32,6 +38,7 @@ ON <Table Name> (<Column> [,...])
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tuning.statistics.sqlserver.examples"></a>
 
 The following example creates new statistics on multiple columns. Set to use a full scan and to not refresh.
 
@@ -60,18 +67,19 @@ Turn off automatic statistics creation for a database.
 ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
 ```
 
-For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW\_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15), and [DBCC SHOW\_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tuning.statistics.pg"></a>
 
 Use the `ANALYZE` command to collect statistics about a database, a table, or a specific table column. The PostgreSQL `ANALYZE` command collects table statistics that support the generation of efficient query run plans by the query planner.
-
-- **Histograms** — `ANALYZE` collects statistics on table column values and creates a histogram of the approximate data distribution in each column.
-- **Pages and Rows** — `ANALYZE` collects statistics on the number of database pages and rows from which each table is comprised.
-- **Data Sampling** — For large tables, the `ANALYZE` command takes random samples of values rather than examining each row. This allows the `ANALYZE` command to scan very large tables in a relatively small amount of time.
-- **Statistic Collection Granularity** — Running the `ANALYZE` command without parameters instructs PostgreSQL to examine every table in the current schema. Supplying the table name or column name to `ANALYZE` instructs the database to examine a specific table or table column.
++  **Histograms** — `ANALYZE` collects statistics on table column values and creates a histogram of the approximate data distribution in each column.
++  **Pages and Rows** — `ANALYZE` collects statistics on the number of database pages and rows from which each table is comprised.
++  **Data Sampling** — For large tables, the `ANALYZE` command takes random samples of values rather than examining each row. This allows the `ANALYZE` command to scan very large tables in a relatively small amount of time.
++  **Statistic Collection Granularity** — Running the `ANALYZE` command without parameters instructs PostgreSQL to examine every table in the current schema. Supplying the table name or column name to `ANALYZE` instructs the database to examine a specific table or table column.
 
 ### Automatic Statistics Collection
+<a name="chap-sql-server-aurora-pg.tuning.statistics.pg.automaticstatisticscollection"></a>
 
 By default, PostgreSQL is configured with an `AUTOVACUUM` daemon which automates the run of statistics collection by using the ANALYZE commands (in addition to automation of the VACUUM command). The `AUTOVACUUM` daemon scans for tables that show signs of large modifications in data to collect the current statistics. `AUTOVACUUM` is controlled by several parameters.
 
@@ -85,21 +93,22 @@ The preceding command enables `AUTOVACUUM` for the `custom_autovaccum` table and
 
 It also specifies a 1% of the table size to be added to `autovacuum_vacuum_threshold` and 0.5% of the table size to be added to `autovacuum_analyze_threshold` when deciding whether to trigger a `VACUUM`.
 
-For more information, see [Automatic Vacuuming](https://www.postgresql.org/docs/13/runtime-config-autovacuum.html "https://www.postgresql.org/docs/13/runtime-config-autovacuum.html") in the _PostgreSQL documentation_.
+For more information, see [Automatic Vacuuming](https://www.postgresql.org/docs/13/runtime-config-autovacuum.html) in the *PostgreSQL documentation*.
 
 ### Manual Statistics Collection
+<a name="chap-sql-server-aurora-pg.tuning.statistics.pg.manualstatisticscollection"></a>
 
 In PostgreSQL, you can collect statistics on-demand using the `ANALYZE` command at the database level, table level, or column level.
-
-- `ANALYZE` on indexes isn’t currently supported.
-- `ANALYZE` requires only a read-lock on the target table. It can run in parallel with other activity on the table.
-- For large tables, `ANALYZE` takes a random sample of the table contents. It is configured by the show `default_statistics_target` parameter. The default value is 100 entries. Raising the limit might allow more accurate planner estimates to be made at the price of consuming more space in the `pg_statistic` table.
++  `ANALYZE` on indexes isn’t currently supported.
++  `ANALYZE` requires only a read-lock on the target table. It can run in parallel with other activity on the table.
++ For large tables, `ANALYZE` takes a random sample of the table contents. It is configured by the show `default_statistics_target` parameter. The default value is 100 entries. Raising the limit might allow more accurate planner estimates to be made at the price of consuming more space in the `pg_statistic` table.
 
 Starting from PostgreSQL 10, there is a new command `CREATE STATISTICS`, which creates a new extended statistics object tracking data about the specified table.
 
 The `STATISTICS` object tells the server to collect more detailed statistics.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tuning.statistics.pg.examples"></a>
 
 The following example gathers statistics for the entire database.
 
@@ -144,11 +153,13 @@ select relname, last_analyze from pg_stat_all_tables;
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.tuning.statistics.summary"></a>
 
-| Feature                                                   | SQL Server                                                                   | PostgreSQL                                                                                                               |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Analyze a specific database table                         | `<br>CREATE STATISTICS MyStatistics<br>ON MyTable (Col1, Col2)<br>`          | `<br>ANALYZE EMPLOYEES;<br>`                                                                                             |
-| Analyze a database table while only sampling certain rows | `<br>UPDATE STATISTICS MyTable(MyStatistics)<br>WITH SAMPLE 50 PERCENT;<br>` | Configure the number of entries for the table:<br>`<br>SET default_statistics_target to 150;<br>ANALYZE EMPLOYEES ;<br>` |
-| View last time statistics were collected                  | `<br>DBCC SHOW_STATISTICS ('MyTable','MyStatistics');<br>`                   | `<br>select relname, last<br>`                                                                                           |
 
-For more information, see [ANALYZE](https://www.postgresql.org/docs/13/sql-analyze.html "https://www.postgresql.org/docs/13/sql-analyze.html") and [The Autovacuum Daemon](https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM "https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM") in the _PostgreSQL documentation_.
+| Feature | SQL Server | PostgreSQL | 
+| --- | --- | --- | 
+| Analyze a specific database table |  <pre>CREATE STATISTICS MyStatistics<br />ON MyTable (Col1, Col2)</pre>  |  <pre>ANALYZE EMPLOYEES;</pre>  | 
+| Analyze a database table while only sampling certain rows |  <pre>UPDATE STATISTICS MyTable(MyStatistics)<br />WITH SAMPLE 50 PERCENT;</pre>  | Configure the number of entries for the table:<pre>SET default_statistics_target to 150;<br />ANALYZE EMPLOYEES ;</pre> | 
+| View last time statistics were collected |  <pre>DBCC SHOW_STATISTICS ('MyTable','MyStatistics');</pre>  |  <pre>select relname, last</pre>  | 
+
+For more information, see [ANALYZE](https://www.postgresql.org/docs/13/sql-analyze.html) and [The Autovacuum Daemon](https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM) in the *PostgreSQL documentation*.

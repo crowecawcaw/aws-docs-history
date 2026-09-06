@@ -1,4 +1,7 @@
+
+
 # AWS Database Migration Service overview
+<a name="chap-sql-server-aurora-pg.tools.awsdms"></a>
 
 This topic provides conceptual information about AWS Database Migration Service (AWS DMS). It introduces you to the capabilities and benefits of AWS DMS for migrating databases to AWS quickly and securely
 
@@ -6,53 +9,56 @@ The AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS 
 
 The service supports homogenous migrations such as Oracle to Oracle as well as heterogeneous migrations between different database platforms such as Oracle to Amazon Aurora or Microsoft SQL Server to MySQL. You can also use AWS DMS to stream data to Amazon Redshift, Amazon DynamoDB, and Amazon S3 from any of the supported sources, which are Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, SAP ASE, SQL Server, IBM DB2 LUW, and MongoDB, enabling consolidation and easy analysis of data in a petabyte-scale data warehouse. The AWS Database Migration Service can also be used for continuous data replication with high availability.
 
-For AWS DMS pricing, see [Database Migration Service pricing](https://aws.amazon.com/dms/pricing "https://aws.amazon.com/dms/pricing").
+For AWS DMS pricing, see [Database Migration Service pricing](https://aws.amazon.com/dms/pricing).
 
-For all supported sources for AWS DMS, see [Sources for data migration](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md").
+For all supported sources for AWS DMS, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
 
-For all supported targets for AWS DMS, see [Targets for data migration](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md").
+For all supported targets for AWS DMS, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 
 ## Migration Tasks Performed by AWS DMS
+<a name="chap-sql-server-aurora-pg.tools.awsdms.tasks"></a>
 
 In a traditional solution, you need to perform capacity analysis, procure hardware and software, install and administer systems, and test and debug the installation. AWS DMS automatically manages the deployment, management, and monitoring of all hardware and software needed for your migration. You can start your migration within minutes of starting the AWS DMS configuration process.
 
 With AWS DMS, you can scale up (or scale down) your migration resources as needed to match your actual workload. For example, if you determine that you need additional storage, you can easily increase your allocated storage and restart your migration, usually within minutes. On the other hand, if you discover that you aren’t using all of the resource capacity you configured, you can easily downsize to meet your actual workload.
 
-AWS DMS uses a pay-as-you-go model. You only pay for AWS DMS resources while you use them as opposed to traditional licensing models with up-front purchase costs and ongoing maintenance charges.
+ AWS DMS uses a pay-as-you-go model. You only pay for AWS DMS resources while you use them as opposed to traditional licensing models with up-front purchase costs and ongoing maintenance charges.
 
-AWS DMS automatically manages all of the infrastructure that supports your migration server including hardware and software, software patching, and error reporting.
+ AWS DMS automatically manages all of the infrastructure that supports your migration server including hardware and software, software patching, and error reporting.
 
-AWS DMS provides automatic failover. If your primary replication server fails for any reason, a backup replication server can take over with little or no interruption of service.
+ AWS DMS provides automatic failover. If your primary replication server fails for any reason, a backup replication server can take over with little or no interruption of service.
 
-AWS DMS can help you switch to a modern, perhaps more cost-effective database engine than the one you are running now. For example, AWS DMS can help you take advantage of the managed database services provided by Amazon RDS or Amazon Aurora. Or, it can help you move to the managed data warehouse service provided by Amazon Redshift, NoSQL platforms like Amazon DynamoDB, or low-cost storage platforms like Amazon S3. Conversely, if you want to migrate away from old infrastructure but continue to use the same database engine, AWS DMS also supports that process.
+ AWS DMS can help you switch to a modern, perhaps more cost-effective database engine than the one you are running now. For example, AWS DMS can help you take advantage of the managed database services provided by Amazon RDS or Amazon Aurora. Or, it can help you move to the managed data warehouse service provided by Amazon Redshift, NoSQL platforms like Amazon DynamoDB, or low-cost storage platforms like Amazon S3. Conversely, if you want to migrate away from old infrastructure but continue to use the same database engine, AWS DMS also supports that process.
 
-AWS DMS supports nearly all of today’s most popular DBMS engines as data sources, including Oracle, Microsoft SQL Server, MySQL, MariaDB, PostgreSQL, Db2 LUW, SAP, MongoDB, and Amazon Aurora.
+ AWS DMS supports nearly all of today’s most popular DBMS engines as data sources, including Oracle, Microsoft SQL Server, MySQL, MariaDB, PostgreSQL, Db2 LUW, SAP, MongoDB, and Amazon Aurora.
 
-AWS DMS provides a broad coverage of available target engines including Oracle, Microsoft SQL Server, PostgreSQL, MySQL, Amazon Redshift, SAP ASE, Amazon S3, and Amazon DynamoDB.
+ AWS DMS provides a broad coverage of available target engines including Oracle, Microsoft SQL Server, PostgreSQL, MySQL, Amazon Redshift, SAP ASE, Amazon S3, and Amazon DynamoDB.
 
 You can migrate from any of the supported data sources to any of the supported data targets. AWS DMS supports fully heterogeneous data migrations between the supported engines.
 
-AWS DMS ensures that your data migration is secure. Data at rest is encrypted with AWS Key Management Service (AWS KMS) encryption. During migration, you can use Secure Socket Layers (SSL) to encrypt your in-flight data as it travels from source to target.
+ AWS DMS ensures that your data migration is secure. Data at rest is encrypted with AWS Key Management Service (AWS KMS) encryption. During migration, you can use Secure Socket Layers (SSL) to encrypt your in-flight data as it travels from source to target.
 
 ## How AWS DMS Works
+<a name="chap-sql-server-aurora-pg.tools.awsdms.howitworks"></a>
 
 At its most basic level, AWS DMS is a server in the AWS Cloud that runs replication software. You create a source and target connection to tell AWS DMS where to extract from and load to. Then, you schedule a task that runs on this server to move your data. AWS DMS creates the tables and associated primary keys if they don’t exist on the target. You can pre-create the target tables manually if you prefer. Or you can use AWS SCT to create some or all of the target tables, indexes, views, triggers, and so on.
 
 The following diagram illustrates the AWS DMS process.
 
-![How Database Migration Service works](images/pb-how-aws-dms-works.png)
+![How Database Migration Service works](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-how-aws-dms-works.png)
+
 
 ## Latest Updates
+<a name="chap-sql-server-aurora-pg.tools.awsdms.updates"></a>
 
-AWS DMS is continuously evolving and supporting more and more options, find some of the latest updates following:
+ AWS DMS is continuously evolving and supporting more and more options, find some of the latest updates following:
++ Support for full-load with change data capture (CDC) and CDC-only tasks running against Oracle source tables created using the `CREATE TABLE AS` statement.
++ New MySQL version AWS DMS now supports MySQL version 8.0 as a source except when the transaction payload is compressed.
++ Support for AWS Secrets Manager integration. You can store the database connection details (user credentials) for supported endpoints securely in AWS Secrets Manager. You can then submit the corresponding secret instead of plain-text credentials to AWS DMS when you create or modify an endpoint. AWS DMS then connects to the endpoint databases using the secret. For more information, see [Using secrets to access Database Migration Service endpoints](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security_iam_secretsmanager).
++ Support for Oracle extended data types for source and target.
++ Support for TLS 1.2 for MySQL endpoints.
++ Support for TLS 1.2 for SQL Server endpoints.
 
-- Support for full-load with change data capture (CDC) and CDC-only tasks running against Oracle source tables created using the `CREATE TABLE AS` statement.
-- New MySQL version AWS DMS now supports MySQL version 8.0 as a source except when the transaction payload is compressed.
-- Support for AWS Secrets Manager integration. You can store the database connection details (user credentials) for supported endpoints securely in AWS Secrets Manager. You can then submit the corresponding secret instead of plain-text credentials to AWS DMS when you create or modify an endpoint. AWS DMS then connects to the endpoint databases using the secret. For more information, see [Using secrets to access Database Migration Service endpoints](../userguide/CHAP_Security.md#security_iam_secretsmanager "../userguide/CHAP_Security.md#security_iam_secretsmanager").
-- Support for Oracle extended data types for source and target.
-- Support for TLS 1.2 for MySQL endpoints.
-- Support for TLS 1.2 for SQL Server endpoints.
+For a complete guide with a step-by-step walkthrough including all the latest notes for migrating SQL Server to Aurora MySQL with AWS DMS, see [Migrating a SQL Server Database to Amazon Aurora MySQL](https://docs.aws.amazon.com/dms/latest/sbs/chap-sqlserver2aurora.html).
 
-For a complete guide with a step-by-step walkthrough including all the latest notes for migrating SQL Server to Aurora MySQL with AWS DMS, see [Migrating a SQL Server Database to Amazon Aurora MySQL](../sbs/chap-sqlserver2aurora.md "../sbs/chap-sqlserver2aurora.md").
-
-For more information about AWS DMS, see [What is Database Migration Service?](../userguide/Welcome.md "../userguide/Welcome.md") and [Best practices for Database Migration Service](../userguide/CHAP_BestPractices.md "../userguide/CHAP_BestPractices.md").
+For more information about AWS DMS, see [What is Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) and [Best practices for Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.html).

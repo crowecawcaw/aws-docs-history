@@ -1,21 +1,20 @@
+
+
 # Export and import features
+<a name="chap-sql-server-aurora-pg.management.exportimport"></a>
 
 This topic provides reference information on data export and import capabilities in Microsoft SQL Server and PostgreSQL, with a focus on migration scenarios. You can use various tools and utilities to export data from SQL Server and import it into PostgreSQL, which is particularly useful when migrating to Amazon Aurora PostgreSQL.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences      |
-| ------------------------ | ---------------------------------- | ------------------------- | -------------------- |
-| No feature compatibility | N/A                                | N/A                       | Non-compatible tool. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.management.exportimport.sqlserver"></a>
 
 SQL Server provides many options for exporting and importing text files. These operations are commonly used for data migration, scripting, and backup.
-
-- Save results to a file in SQL Server Management Studio (SSMS). For more information, see [KB - How to create .csv or .rpt files from an SQL statement in Microsoft SQL Server](https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b "https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b") in the _SQL Server documentation_.
-  l SQLCMD. For more information, see [Run the script file](https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file "https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file") in the _SQL Server documentation_.
-  l PowerShell wrapper for SQLCMD
-  l SSMS Import/Export Wizard. For more information, see [Start the SQL Server Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15") in the _SQL Server documentation_.
-  l SQL Server Reporting Services (SSRS)
-  l Bulk Copy Program (BCP). For more information, see [Import and export bulk data using bcp (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
++ Save results to a file in SQL Server Management Studio (SSMS). For more information, see [KB - How to create .csv or .rpt files from an SQL statement in Microsoft SQL Server](https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b) in the *SQL Server documentation*. l SQLCMD. For more information, see [Run the script file](https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file) in the *SQL Server documentation*. l PowerShell wrapper for SQLCMD l SSMS Import/Export Wizard. For more information, see [Start the SQL Server Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15) in the *SQL Server documentation*. l SQL Server Reporting Services (SSRS) l Bulk Copy Program (BCP). For more information, see [Import and export bulk data using bcp (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15) in the *SQL Server documentation*.
 
 All of the options described before required additional tools to export data. Most of the tools are open source and provide support for a variety of databases.
 
@@ -78,6 +77,7 @@ sqlcmd
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.management.exportimport.sqlserver.examples"></a>
 
 Connect to a named instance using Windows Authentication and specify input and output files.
 
@@ -89,35 +89,33 @@ If the file is needed for import to another database, query the data as `INSERT`
 
 You can export data with SQLCMD and import with the Export/Import wizard.
 
-For more information, see [sqlcmd Utility](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [sqlcmd Utility](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.management.exportimport.pg"></a>
 
 PostgreSQL provides the native utilities `pg_dump` and `pg_restore` to perform logical database exports and imports with comparable functionality to the SQl Server SQLCMD utility. For example, moving data between two databases and creating logical database backups.
-
-- **pg\_dump** to export data.
-- **pg\_restore** to import data.
++  **pg\_dump** to export data.
++  **pg\_restore** to import data.
 
 The binaries for both utilities must be installed on your local workstation or on an Amazon EC2 server as part of the PostgreSQL client binaries.
 
 You can export and copy PostgreSQL dump files created using `pg_dump` to an Amazon S3 bucket as cloud backup storage or for maintaining the desired backup retention policy. Later, when you need the dump files for database restore, you can copy them copied back to a desktop or server that has a PostgreSQL client, such as your workstation or an Amazon EC2 server. Then you can issue the `pg_restore` command.
 
 Starting with PostgreSQL 10, these capabilities were added:
++ You can exclude a schema in `pg_dump` and `pg_restore` commands.
++ Can create dumps with no blobs.
++ Allow to run `pg_dumpall` by non-superusers, using the `--no-role-passwords` option.
++ Create additional integrity option to ensure that the data is stored in disk using `fsync()` method.
 
-- You can exclude a schema in `pg_dump` and `pg_restore` commands.
-- Can create dumps with no blobs.
-- Allow to run `pg_dumpall` by non-superusers, using the `--no-role-passwords` option.
-- Create additional integrity option to ensure that the data is stored in disk using `fsync()` method.
-
-Starting with PostgreSQL 11, the following capabilities were added:
-\* `pg_dump` and `pg_restore` now export or import relationships between extensions and database objects established with `ALTER …​ DEPENDS ON EXTENSION`, which allows these objects to be dropped when extension is dropped with `CASCADE` option.
+Starting with PostgreSQL 11, the following capabilities were added: \* `pg_dump` and `pg_restore` now export or import relationships between extensions and database objects established with `ALTER …​ DEPENDS ON EXTENSION`, which allows these objects to be dropped when extension is dropped with `CASCADE` option.
 
 ### Notes
-
-- `pg_dump` creates consistent backups even if the database is being used concurrently.
-- `pg_dump` doesn’t block other users accessing the database (readers or writers).
-- `pg_dump` only exports a single database. To backup global objects common to all databases in a cluster (such as roles and tablespaces), use `pg_dumpall`.
-- PostgreSQL dump files can be plain-text and custom format files.
+<a name="chap-sql-server-aurora-pg.management.exportimport.pg.notes"></a>
++  `pg_dump` creates consistent backups even if the database is being used concurrently.
++  `pg_dump` doesn’t block other users accessing the database (readers or writers).
++  `pg_dump` only exports a single database. To backup global objects common to all databases in a cluster (such as roles and tablespaces), use `pg_dumpall`.
++ PostgreSQL dump files can be plain-text and custom format files.
 
 Another option to export and import data from PostgreSQL database is to use `COPY TO/COPY FROM` commands. Starting with PostgreSQL 12, you can use the `COPY FROM` command to load data into DB. This command has support for filtering incoming rows with the `WHERE` condition.
 
@@ -128,6 +126,7 @@ COPY tst_copy FROM '/home/postgres/file.csv' WITH (FORMAT CSV) WHERE v LIKE '%ap
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.management.exportimport.pg.examples"></a>
 
 Export data using `pg_dump`. Use a workstation or server with the PostgreSQL client installed to connect to the Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) instance. Issue the `pg_dump` command providing the hostname (-h), database user name (-U), and database name (-d).
 
@@ -155,8 +154,7 @@ Copy the output file from the local server to an Amazon S3 Bucket using the AWS 
 $ aws s3 cp /usr/Exports/hr.dmp s3://my-bucket/backup-$(date "+%Y-%m-%d-%H-%M-%S")
 ```
 
-###### Note
-
+**Note**  
 The `{-$(date "+%Y-%m-%d-%H-%M-%S")}` format is valid on Linux servers only.
 
 Download the output file from the Amazon S3 bucket.
@@ -165,8 +163,7 @@ Download the output file from the Amazon S3 bucket.
 $ aws s3 cp s3://my-bucket/backup-2017-09-10-01-10-10 /usr/Exports/hr.dmp
 ```
 
-###### Note
-
+**Note**  
 You can create a copy of an existing database without having to use `pg_dump` or `pg_restore`. Instead, use the template keyword to specify the source database.
 
 ```
@@ -174,11 +171,13 @@ CREATE DATABASE mydb_copy TEPLATE mydb;
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.management.exportimport.summary"></a>
 
-| Description                                                                                         | SQL Server export / import                                                                           |
-| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PostgreSQL Dump                                                                                     | Export data to a file                                                                                |
-| Using SQLCMD or Export/Import Wizard<br>`<br>SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt<br>` | `<br>pg_dump -F c -h hostname.rds.amazonaws.com<br>-U username -d hr -p 5432 > c:\Export\hr.dmp<br>` |
-| Import data to a new database with a new name                                                       | Run SQLCMD with objects and data creation script<br>`<br>SQLCMD -i C:\sql\myquery.sql<br>`           |
 
-For more information, see [SQL Dump](https://www.postgresql.org/docs/13/backup-dump.html "https://www.postgresql.org/docs/13/backup-dump.html") and [pg\_restore](https://www.postgresql.org/docs/13/app-pgrestore.html "https://www.postgresql.org/docs/13/app-pgrestore.html") in the _PostgreSQL documentation_.
+| Description | SQL Server export / import | 
+| --- | --- | 
+| PostgreSQL Dump | Export data to a file | 
+| Using SQLCMD or Export/Import Wizard<pre>SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt</pre> |  <pre>pg_dump -F c -h hostname.rds.amazonaws.com<br />    -U username -d hr -p 5432 > c:\Export\hr.dmp</pre>  | 
+| Import data to a new database with a new name | Run SQLCMD with objects and data creation script<pre>SQLCMD -i C:\sql\myquery.sql</pre> | 
+
+For more information, see [SQL Dump](https://www.postgresql.org/docs/13/backup-dump.html) and [pg\_restore](https://www.postgresql.org/docs/13/app-pgrestore.html) in the *PostgreSQL documentation*.

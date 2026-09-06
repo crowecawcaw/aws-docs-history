@@ -1,17 +1,21 @@
+
+
 # User-defined functions for T-SQL
+<a name="chap-sql-server-aurora-pg.tsql.udf"></a>
 
 This topic provides reference information about User-Defined Functions (UDFs) in SQL Server and their compatibility with PostgreSQL. It introduces the types of UDFs supported in SQL Server, including scalar functions, table-valued functions, and multi-statement table-valued functions. The topic explains the characteristics of UDFs, such as their inability to modify database structures or data outside their scope, and the distinction between deterministic and non-deterministic functions.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------ |
-| Three star feature compatibility | Three star automation level        | N/A                       | Syntax and option differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Syntax and option differences. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver"></a>
 
 User-Defined Functions (UDF) are code objects that accept input parameters and return either a scalar value or a set consisting of rows and columns. You can use T-SQL or Common Language Runtime (CLR) code to implement SQL Server UDFs.
 
-###### Note
-
+**Note**  
 This section doesn’t cover CLR code objects.
 
 Function invocations can’t have any lasting impact on the database. They must be contained and can only modify objects and data local to their scope (for example, data in local variables). Functions aren’t allowed to modify data or the structure of a database.
@@ -20,13 +24,15 @@ Functions may be deterministic or non-deterministic. Deterministic functions alw
 
 SQL Server supports three types of T-SQL UDFs: Scalar Functions, Table-Valued Functions, and Multi-Statement Table-Valued Functions.
 
-SQL Server 2019 adds scalar user-defined functions (UDF) inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15") in the _SQL Server documentation_.
+SQL Server 2019 adds scalar user-defined functions (UDF) inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ### Scalar User-Defined Functions
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.scalar"></a>
 
 Scalar UDFs accept zero or more parameters and return a scalar value. You can use scalar UDFs in T-SQL expressions.
 
 #### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.scalar.syntax"></a>
 
 ```
 CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
@@ -40,6 +46,7 @@ END[;]
 ```
 
 #### Examples
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.scalar.examples"></a>
 
 The following example creates a scalar function to change the first character of a string to upper case.
 
@@ -59,10 +66,12 @@ Mixedcase
 ```
 
 ### User-Defined Table-Valued Functions
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.table"></a>
 
 Inline table-valued UDFs are similar to views or a Common Table Expressions (CTE) with the added benefit of parameters. You can use inline table-valued UDFs in `FROM` clauses as subqueries. Also, you can join inline table-valued UDFs to other source table rows using the `APPLY` and `OUTER APPLY` operators. In-line table-valued UDFs have many associated internal optimizer optimizations due to their simple, view-like characteristics.
 
 #### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.table.syntax"></a>
 
 ```
 CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
@@ -73,6 +82,7 @@ RETURN (<SELECT Query>)[;]
 ```
 
 #### Examples
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.table.examples"></a>
 
 The following example creates a table-valued function to aggregate employee orders.
 
@@ -121,6 +131,7 @@ EmployeeID  OrderYear  OrderMonth  NumOrders
 ```
 
 ### Multi-Statement User-Defined Table-Valued Functions
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.multistatement"></a>
 
 Multi-statement table-valued UDFs, such as In-line UDFs, are also similar to views or CTEs with the added benefit of parameters. You can use multi-statement table-valued UDFs in `FROM` clauses as sub queries. Also, you can join multi-statement table-valued UDFs to other source table rows using the `APPLY` and `OUTER APPLY` operators.
 
@@ -129,6 +140,7 @@ The difference between multi-statement UDFs and the inline UDFs is that multi-st
 The downside of using multi-statement UDFs is that there are far less optimizations possible and performance may suffer.
 
 #### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.udf.sqlserver.multistatement.syntax"></a>
 
 ```
 CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
@@ -141,13 +153,15 @@ RETURN
 END[;]
 ```
 
-For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tsql.udf.pg"></a>
 
-For more information, see [Stored Procedures](chap-sql-server-aurora-pg.tsql.storedprocedures.md "chap-sql-server-aurora-pg.tsql.storedprocedures.md").
+For more information, see [Stored Procedures](chap-sql-server-aurora-pg.tsql.storedprocedures.md).
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.udf.pg.examples"></a>
 
 ```
 CREATE [ OR REPLACE ] FUNCTION

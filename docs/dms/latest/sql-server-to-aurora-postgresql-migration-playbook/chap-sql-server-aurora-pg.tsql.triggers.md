@@ -1,36 +1,43 @@
+
+
 # Triggers for T-SQL
+<a name="chap-sql-server-aurora-pg.tsql.triggers"></a>
 
 This topic provides reference information about migrating triggers from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It compares the trigger functionality between the two database systems, highlighting similarities and differences in syntax, scope, and usage. You’ll gain insights into how triggers work in both environments, including their types, execution phases, and management capabilities.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                         | Key differences                                       |
-| -------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        | [Triggers](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.triggers "chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.triggers") | Syntax and option differences, similar functionality. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Triggers](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.triggers)  | Syntax and option differences, similar functionality. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tsql.triggers.sqlserver"></a>
 
 Triggers are special types of stored procedures that run automatically in response to events. They are most commonly used for Data Manipulation Language (DML).
 
 SQL Server supports `AFTER`, `FOR`, and `INSTEAD OF` triggers, which you can create on tables and views (`AFTER` and `FOR` are synonymous). SQL Server also provides an event trigger framework at the server and database levels that includes Data Definition Language (DDL), Data Control Language (DCL), and general system events such as login.
 
-###### Note
-
+**Note**  
 SQL Server doesn’t support `FOR EACH ROW` triggers in which the trigger code is run once for each row of modified data.
 
 ### Trigger Run
+<a name="chap-sql-server-aurora-pg.tsql.triggers.sqlserver.run"></a>
 
-`AFTER` triggers runs after DML statements complete run. `INSTEAD OF` triggers run code in place of the original DML statement. You can create `AFTER` triggers on tables only. You can create `INSTEAD OF` triggers on tables and views.
+ `AFTER` triggers runs after DML statements complete run. `INSTEAD OF` triggers run code in place of the original DML statement. You can create `AFTER` triggers on tables only. You can create `INSTEAD OF` triggers on tables and views.
 
 You can create only one `INSTEAD OF` trigger for any given object and event. When multiple `AFTER` triggers exist for the same event and object, you can partially set the trigger order by using the `sp_settriggerorder` system stored procedure. You can use it to set the first and last triggers to be run, but not the order of others.
 
 ### Trigger Scope
+<a name="chap-sql-server-aurora-pg.tsql.triggers.sqlserver.scope"></a>
 
 SQL Server supports statement level triggers only. The trigger code runs once for each statement. The data modified by the DML statement is available to the trigger scope and is saved in two virtual tables: `INSERTED` and `DELETED`. These tables contain the entire set of changes performed by the DML statement that caused trigger run.
 
 SQL Server triggers always run within the transaction of the statement that triggered the run. If the trigger code issues an explicit `ROLLBACK`, or causes an exception that mandates a rollback, the DML statement is also rolled back. For `INSTEAD OF` triggers, the DML statement doesn’t run and doesn’t require a rollback.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tsql.triggers.sqlserver.examples"></a>
 
-**Use a DML trigger to audit invoice deletions**
+ **Use a DML trigger to audit invoice deletions** 
 
 The following examples demonstrate how to use a trigger to log rows deleted from a table.
 
@@ -106,7 +113,7 @@ InvoiceID  Customer  TotalAmount  InvoiceID  Customer  TotalAmount  DeleteDate  
 NULL       NULL      NULL         3          James     677.22       20180224 13:02  Domain/JohnCortney
 ```
 
-**Create a DDL trigger**
+ **Create a DDL trigger** 
 
 Create a trigger to protect all tables in the database from accidental deletion.
 
@@ -136,52 +143,52 @@ Msg 3609, Level 16, State 2, Line 57
 The transaction ended in the trigger. The batch has been aborted.
 ```
 
-For more information, see [DML Triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/dml-triggers?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/triggers/dml-triggers?view=sql-server-ver15") and [DDL Triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/ddl-triggers?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/triggers/ddl-triggers?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [DML Triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/dml-triggers?view=sql-server-ver15) and [DDL Triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/ddl-triggers?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tsql.triggers.pg"></a>
 
 Triggers provide much of the same functionality as SQL Server:
-
-- DML triggers run based on table related events, such as DML.
-- Event triggers run after certain database events, such as running DDL commands.
++ DML triggers run based on table related events, such as DML.
++ Event triggers run after certain database events, such as running DDL commands.
 
 Unlike SQL Server triggers, PostgreSQL triggers must call a function. They don’t support anonymous blocks of PL/pgSQL code as part of the trigger body. The user-supplied function is declared with no arguments and has a return type of trigger.
 
 ### PostgreSQL DML Triggers
+<a name="chap-sql-server-aurora-pg.tsql.triggers.pg.dml"></a>
 
 PostgreSQL triggers can be fired BEFORE or AFTER a DML operation.
-
-- They run before the operation is attempted on a row.
-
-  - Before constraints are checked and the INSERT, UPDATE, or DELETE is attempted.
-  - If the trigger runs before or instead of the event, the trigger can skip the operation for the current row or change the row being inserted (for INSERT and UPDATE operations only).
-
-- Triggers can run after the operation was completed, after constraints are checked, and the `INSERT`, `UPDATE`, or `DELETE` command completed. If the trigger runs after the event, all changes, including the effects of other triggers, are visible to the trigger.
++ They run before the operation is attempted on a row.
+  + Before constraints are checked and the INSERT, UPDATE, or DELETE is attempted.
+  + If the trigger runs before or instead of the event, the trigger can skip the operation for the current row or change the row being inserted (for INSERT and UPDATE operations only).
++ Triggers can run after the operation was completed, after constraints are checked, and the `INSERT`, `UPDATE`, or `DELETE` command completed. If the trigger runs after the event, all changes, including the effects of other triggers, are visible to the trigger.
 
 PostgreSQL triggers can run `INSTEAD OF` a DML command when created on views.
 
 PostgreSQL triggers can run `FOR EACH ROW` affected by the DML statement or `FOR EACH STATEMENT` running only once as part of a DML statement.
 
-| When fired | Database event         | Row-Level trigger (FOR EACH ROW) | Statement-level trigger (FOR EACH STATEMENT) |
-| ---------- | ---------------------- | -------------------------------- | -------------------------------------------- |
-| BEFORE     | INSERT, UPDATE, DELETE | Tables and foreign tables        | Tables, views, and foreign tables            |
-| BEFORE     | TRUNCATE               | —                                | Tables                                       |
-| AFTER      | INSERT, UPDATE, DELETE | Tables and foreign tables        | Tables, views, and foreign tables            |
-| AFTER      | TRUNCATE               | —                                | Tables                                       |
-| INSTEAD OF | INSERT, UPDATE, DELETE | Views                            | —                                            |
-| INSTEAD OF | TRUNCATE               | —                                | —                                            |
+
+| When fired | Database event | Row-Level trigger (FOR EACH ROW) | Statement-level trigger (FOR EACH STATEMENT) | 
+| --- | --- | --- | --- | 
+| BEFORE | INSERT, UPDATE, DELETE | Tables and foreign tables | Tables, views, and foreign tables | 
+| BEFORE | TRUNCATE | — | Tables | 
+| AFTER | INSERT, UPDATE, DELETE | Tables and foreign tables | Tables, views, and foreign tables | 
+| AFTER | TRUNCATE | — | Tables | 
+| INSTEAD OF | INSERT, UPDATE, DELETE | Views | — | 
+| INSTEAD OF | TRUNCATE | — | — | 
 
 ### PostgreSQL Event Triggers
+<a name="chap-sql-server-aurora-pg.tsql.triggers.pg.event"></a>
 
 An event trigger runs when a specific event associated with the trigger occurs in the database. Supported events include `ddl_command_start`, `ddl_command_end`, `table_rewrite`, and `sql_drop`.
++  `ddl_command_start` occurs before the run of a `CREATE`, `ALTER`, `DROP`, `SECURITY LABEL`, `COMMENT`, `GRANT`, `REVOKE`, or `SELECT INTO` command.
++  `ddl_command_end` occurs after the command completed and before the transaction commits.
++  `sql_drop` runs only for the `DROP` DDL command, before the `ddl_command_end` trigger runs.
 
-- `ddl_command_start` occurs before the run of a `CREATE`, `ALTER`, `DROP`, `SECURITY LABEL`, `COMMENT`, `GRANT`, `REVOKE`, or `SELECT INTO` command.
-- `ddl_command_end` occurs after the command completed and before the transaction commits.
-- `sql_drop` runs only for the `DROP` DDL command, before the `ddl_command_end` trigger runs.
-
-For a full list of supported PostgreSQL event trigger types, see [Event Trigger Firing Matrix](https://www.postgresql.org/docs/10/event-trigger-matrix.html "https://www.postgresql.org/docs/10/event-trigger-matrix.html") in the _PostgreSQL documentation_.
+For a full list of supported PostgreSQL event trigger types, see [Event Trigger Firing Matrix](https://www.postgresql.org/docs/10/event-trigger-matrix.html) in the *PostgreSQL documentation*.
 
 ### PostgreSQL CREATE TRIGGER Synopsis
+<a name="chap-sql-server-aurora-pg.tsql.triggers.pg.synopsis"></a>
 
 ```
 CREATE [ CONSTRAINT ] TRIGGER name { BEFORE | AFTER | INSTEAD OF } { event [ OR ... ]}
@@ -201,13 +208,13 @@ where event can be one of:
   TRUNCATE
 ```
 
-###### Note
-
-`REFERENCING` is a new option since PostgreSQL 10. You can use it with `AFTER` trigger to interact with the overall view of the `OLD` or the `NEW TABLE` changed rows.
+**Note**  
+ `REFERENCING` is a new option since PostgreSQL 10. You can use it with `AFTER` trigger to interact with the overall view of the `OLD` or the `NEW TABLE` changed rows.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tsql.triggers.pg.examples"></a>
 
-**Create a trigger**
+ **Create a trigger** 
 
 Create a trigger function that stores the run logic (this is the same as a SQL Server DML trigger).
 
@@ -253,7 +260,7 @@ projectno
 (0 rows)
 ```
 
-**Create a trigger**
+ **Create a trigger** 
 
 Create an event trigger function. This is the same as a SQL Server DDL System/Schema level trigger, such as a trigger that prevents running a DDL DROP on objects in the HR schema.
 
@@ -291,17 +298,19 @@ CONTEXT: PL/pgSQL function abort_drop_command() line 3 at RAISE
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.tsql.triggers.summary"></a>
 
-| Feature                     | SQL Server                                                                                 | Aurora PostgreSQL                                                        |
-| --------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| DML Triggers Scope          | Statement level only                                                                       | `FOR EACH ROW` and `FOR EACH STATMENT`                                   |
-| Access to change set        | `INSERTED` and `DELETED` virtual multi-row tables                                          | `OLD` and `NEW` virtual one-row tables or the whole view of changed rows |
-| System event triggers       | DDL, DCL, and other event types                                                            | Event triggers                                                           |
-| Trigger run phase           | `AFTER` and `INSTEAD OF`                                                                   | `AFTER`, `BEFORE`, and `INSTEAD OF`                                      |
-| Multi-trigger run order     | Can only set first and last using `sp_settriggerorder`                                     | Call function within a function                                          |
-| Drop a trigger              | `DROP TRIGGER <trigger name>;`                                                             | `DROP TRIGGER <trigger name>;`                                           |
-| Modify trigger code         | Use the `ALTER TRIGGER` statement                                                          | Modify function code                                                     |
-| Enable or disable a trigger | Use the `ALTER TRIGGER <trigger name> ENABLE;` and `ALTER TRIGGER <trigger name> DISABLE;` | `ALTER TABLE`                                                            |
-| Triggers on views           | `INSTEAD OF` triggers only                                                                 | `INSTEAD OF` triggers only                                               |
 
-For more information, see [Trigger Functions](https://www.postgresql.org/docs/13/plpgsql-trigger.html "https://www.postgresql.org/docs/13/plpgsql-trigger.html") in the _PostgreSQL documentation_.
+| Feature | SQL Server |  Aurora PostgreSQL  | 
+| --- | --- | --- | 
+| DML Triggers Scope | Statement level only |  `FOR EACH ROW` and `FOR EACH STATMENT`  | 
+| Access to change set |  `INSERTED` and `DELETED` virtual multi-row tables |  `OLD` and `NEW` virtual one-row tables or the whole view of changed rows | 
+| System event triggers | DDL, DCL, and other event types | Event triggers | 
+| Trigger run phase |  `AFTER` and `INSTEAD OF`  |  `AFTER`, `BEFORE`, and `INSTEAD OF`  | 
+| Multi-trigger run order | Can only set first and last using `sp_settriggerorder`  | Call function within a function | 
+| Drop a trigger |  `DROP TRIGGER <trigger name>;`  |  `DROP TRIGGER <trigger name>;`  | 
+| Modify trigger code | Use the `ALTER TRIGGER` statement | Modify function code | 
+| Enable or disable a trigger | Use the `ALTER TRIGGER <trigger name> ENABLE;` and `ALTER TRIGGER <trigger name> DISABLE;`  |  `ALTER TABLE`  | 
+| Triggers on views |  `INSTEAD OF` triggers only |  `INSTEAD OF` triggers only | 
+
+For more information, see [Trigger Functions](https://www.postgresql.org/docs/13/plpgsql-trigger.html) in the *PostgreSQL documentation*.

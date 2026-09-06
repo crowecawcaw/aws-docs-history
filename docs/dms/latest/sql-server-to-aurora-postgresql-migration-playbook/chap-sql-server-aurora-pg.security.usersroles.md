@@ -1,12 +1,17 @@
+
+
 # Users and roles for Aurora PostgreSQL
+<a name="chap-sql-server-aurora-pg.security.usersroles"></a>
 
 This topic provides reference information about the security and authentication differences between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how user management, role-based access control, and authentication mechanisms differ between these two database systems. The topic explains the fundamental concepts of users, roles, and permissions in both SQL Server and PostgreSQL, highlighting the key differences in terminology and implementation.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                     |
-| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. There are no users in PostgreSQL, only roles. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. There are no users in PostgreSQL, only roles. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.security.usersroles.sqlserver"></a>
 
 SQL Server provides two layers of security principals: logins at the server level and users at the database level. Logins are mapped to users in one or more databases. Administrators can grant logins server-level permissions that aren’t mapped to particular databases such as database creator, system administrator, and security administrator.
 
@@ -19,6 +24,7 @@ Logins are authenticated using either Windows Authentication, which uses the Win
 In previous versions of SQL server, the concepts of user and schema were interchangeable. For backward compatibility, each database has several existing schemas, including a default schema named dbo which is owned by the `db_owner` role. Logins with system administrator privileges are automatically mapped to the dbo user in each database. Typically, you don’t need to migrate these schemas.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.security.usersroles.sqlserver.examples"></a>
 
 Create a login.
 
@@ -44,15 +50,17 @@ Assign `MyUser` to the `db_datareader` role.
 ALTER ROLE db_datareader ADD MEMBER 'MyUser';
 ```
 
-For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.security.usersroles.pg"></a>
 
 PostgreSQL supports only roles; there are no users. However, there is a `CREATE USER` command, which is an alias for `CREATE ROLE` that automatically includes the `LOGIN` permission.
 
 Roles are defined at the database cluster level and are valid in all databases in the PostgreSQL cluster.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.security.usersroles.pg.syntax"></a>
 
 The following example shows a simplified syntax for `CREATE ROLE` in Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL).
 
@@ -82,6 +90,7 @@ where option can be:
 The `UNENCRYPTED PASSWORD` option was dropped in PostgreSQL 10, the password must be kept encrypted.
 
 ### Example
+<a name="chap-sql-server-aurora-pg.security.usersroles.pg.examples"></a>
 
 Create a new database role called `hr_role`. Users can use this role to create new databases in the PostgreSQL cluster. Note that this role isn’t able to login to the database and act as a database user. In addition, grant `SELECT`, `INSERT`, and `DELETE` privileges on the `hr.employees` table to the role.
 
@@ -91,18 +100,20 @@ GRANT SELECT, INSERT,DELETE on hr.employees to hr_role;
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.security.usersroles.summary"></a>
 
 The following table summarizes common security tasks and the differences between SQL Server and Aurora PostgreSQL.
 
-| Task                       | SQL Server                                             | Aurora PostgreSQL                                                    |
-| -------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------- |
-| View database users        | `SELECT Name FROM sys.sysusers`                        | `SELECT<br>• FROM pg_roles where rolcanlogin = true;`                |
-| Create a user and password | `CREATE USER <User Name> WITH PASSWORD = <PassWord>;`  | `CREATE USER <User Name> WITH PASSWORD '<PassWord>';`                |
-| Create a role              | `CREATE ROLE <Role Name>`                              | `CREATE ROLE <Role Name>`                                            |
-| Change a user’s password   | `ALTER LOGIN <SQL Login> WITH PASSWORD = <PassWord>;`  | `ALTER USER <SQL Login> WITH PASSWORD '<PassWord>';`                 |
-| External authentication    | Windows Authentication                                 | N/A                                                                  |
-| Add a user to a role       | `ALTER ROLE <Role Name> ADD MEMBER <User Name>`        | `ALTER ROLE <Role Name> SET <property and value>`                    |
-| Lock a user                | `ALTER LOGIN <Login Name> DISABLE`                     | `REVOKE CONNECT ON DATABASE <database_name> from <Role Name>;`       |
-| Grant `SELECT` on a schema | `GRANT SELECT ON SCHEMA::<Schema Name> to <User Name>` | `GRANT SELECT ON ALL TABLES IN SCHEMA <Schema Name> TO <User Name>;` |
 
-For more information, see [CREATE ROLE](https://www.postgresql.org/docs/13/sql-createrole.html "https://www.postgresql.org/docs/13/sql-createrole.html") in the _PostgreSQL documentation_.
+| Task | SQL Server |  Aurora PostgreSQL  | 
+| --- | --- | --- | 
+| View database users |  `SELECT Name FROM sys.sysusers`  |  `SELECT * FROM pg_roles where rolcanlogin = true;`  | 
+| Create a user and password |  `CREATE USER <User Name> WITH PASSWORD = <PassWord>;`  |  `CREATE USER <User Name> WITH PASSWORD '<PassWord>';`  | 
+| Create a role |  `CREATE ROLE <Role Name>`  |  `CREATE ROLE <Role Name>`  | 
+| Change a user’s password |  `ALTER LOGIN <SQL Login> WITH PASSWORD = <PassWord>;`  |  `ALTER USER <SQL Login> WITH PASSWORD '<PassWord>';`  | 
+| External authentication | Windows Authentication | N/A | 
+| Add a user to a role |  `ALTER ROLE <Role Name> ADD MEMBER <User Name>`  |  `ALTER ROLE <Role Name> SET <property and value>`  | 
+| Lock a user |  `ALTER LOGIN <Login Name> DISABLE`  |  `REVOKE CONNECT ON DATABASE <database_name> from <Role Name>;`  | 
+| Grant `SELECT` on a schema |  `GRANT SELECT ON SCHEMA::<Schema Name> to <User Name>`  |  `GRANT SELECT ON ALL TABLES IN SCHEMA <Schema Name> TO <User Name>;`  | 
+
+For more information, see [CREATE ROLE](https://www.postgresql.org/docs/13/sql-createrole.html) in the *PostgreSQL documentation*.

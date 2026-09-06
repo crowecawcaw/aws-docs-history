@@ -1,30 +1,38 @@
+
+
 # Query hints and plan guides
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning"></a>
 
 This topic provides reference information about the differences in feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically regarding database hints and query optimization. You can understand how SQL Server’s hint functionality, which allows direct influence over query execution plans, contrasts with PostgreSQL’s approach. While PostgreSQL doesn’t support database hints in the same way, it offers alternative methods to influence query planning through session parameters.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                 |
-| ------------------------------ | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | Very limited set of hints<br>• Index hints and optimizer hints as comments. Syntax differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Very limited set of hints - Index hints and optimizer hints as comments. Syntax differences. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver"></a>
 
 SQL Server hints are instructions that override automatic choices made by the query processor for DML and DQL statements. The term hint is misleading because, in reality, it forces an override to any other choice of run plan.
 
 ### JOIN Hints
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver.join"></a>
 
 You can explicitly add `LOOP`, `HASH`, `MERGE`, and `REMOTE` hints to a `JOIN` statement. For example, `…​ Table1 INNER LOOP JOIN Table2 ON …​`.
 
 These hints force the optimizer to use nested loops, hash match, or merge physical join algorithms.
 
-`REMOTE` enables processing a join with a remote table on the local server.
+ `REMOTE` enables processing a join with a remote table on the local server.
 
 ### Table Hints
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver.tablehints"></a>
 
 Table hints override the default behavior of the query optimizer. Table hints are used to explicitly force a particular locking strategy or access method for a table operation clause. These hints don’t modify the defaults and apply only for the duration of the DML or DQL statement.
 
 Some common table hints are `INDEX = <Index value>`, `FORCESEEK`, `NOLOCK`, and `TABLOCKX`.
 
 ### Query Hints
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver.queryhints"></a>
 
 Query hints affect the entire set of query operators, not just the individual clause in which they appear. Query hints may be `JOIN` hints, table hints, or from a set of hints that are only relevant for query hints.
 
@@ -33,6 +41,7 @@ Some common table hints include `OPTIMIZE FOR`, `RECOMPILE`, `FORCE ORDER`, `FAS
 You can specify query hints after the query itself following the `WITH` options clause.
 
 ### Plan Guides
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver.planguides"></a>
 
 Plan guides provide similar functionality to query hints in the sense they allow explicit user intervention and control over query optimizer plan choices. Plan guides can use either query hints or a full fixed, pre-generated plan attached to a query. The difference between query hints and plan guides is the way they are associated with a query.
 
@@ -43,12 +52,12 @@ A plan guide consists of the statement whose run plan needs to be adjusted and e
 At run time, SQL Server matches the text of the query specified by the guide and attaches the OPTION hints. Alternatively, it assigns the provided plan for running.
 
 SQL Server supports three types of plan guides:
-
-- **Object plan guides** target statements that run within the scope of a code object such as a stored procedure, function, or trigger. If the same statement is found in another context, the plan guide is not be applied.
-- **SQL plan guides** are used for matching general ad-hoc statements not within the scope of code objects. In this case, any instance of the statement regardless of the originating client is assigned the plan guide.
-- **Template plan guides** can be used to abstract statement templates that differ only in parameter values. You can use them to override the `PARAMETERIZATION` database option setting for a family of queries.
++  **Object plan guides** target statements that run within the scope of a code object such as a stored procedure, function, or trigger. If the same statement is found in another context, the plan guide is not be applied.
++  **SQL plan guides** are used for matching general ad-hoc statements not within the scope of code objects. In this case, any instance of the statement regardless of the originating client is assigned the plan guide.
++  **Template plan guides** can be used to abstract statement templates that differ only in parameter values. You can use them to override the `PARAMETERIZATION` database option setting for a family of queries.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver.syntax"></a>
 
 The following example uses query hints in a `SELECT` statement. You can use query hints in all DQL and DML statements.
 
@@ -94,6 +103,7 @@ EXECUTE sp_create_plan_guide @name = '<Plan Guide Name>'
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver.examples"></a>
 
 Limit parallelism for a sales report query.
 
@@ -121,13 +131,15 @@ FROM MyTable1 AS T1
 WHERE T1.Date BETWEEN DATEADD(DAY, -7, GETDATE()) AND GETDATE()
 ```
 
-For more information, see [Hints (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql?view=sql-server-ver15") and [Plan Guides](https://docs.microsoft.com/en-us/sql/relational-databases/performance/plan-guides?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/plan-guides?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Hints (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql?view=sql-server-ver15) and [Plan Guides](https://docs.microsoft.com/en-us/sql/relational-databases/performance/plan-guides?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.pg"></a>
 
 PostgreSQL doesn’t support database hints to influence the behavior of the query planner, and you can’t influence how run plans are generated from within SQL queries. Although database hints aren’t directly supported, session parameters (also known as Query Planning Parameters) can influence the behavior of the query optimizer at the session level.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tuning.queryplanning.pg.examples"></a>
 
 Configure the query planner to use indexes instead of full table scans (disable SEQSCAN).
 
@@ -148,4 +160,4 @@ Turn on or turn off the query planner’s use of nested-loops when performing jo
 SET ENABLE_NESTLOOP to FALSE;
 ```
 
-For more information, see [Query Planning](https://www.postgresql.org/docs/13/static/runtime-config-query.html "https://www.postgresql.org/docs/13/static/runtime-config-query.html") in the _PostgreSQL documentation_.
+For more information, see [Query Planning](https://www.postgresql.org/docs/13/static/runtime-config-query.html) in the *PostgreSQL documentation*.

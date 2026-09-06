@@ -1,4 +1,7 @@
+
+
 # Migration guide overview
+<a name="chap-sql-server-aurora-pg"></a>
 
 The first section of this document provides an overview of AWS Schema Conversion Tool (AWS SCT) and the AWS Database Migration Service (AWS DMS) tools for automating the migration of schema, objects and data. The remainder of the document contains individual sections for the source database features and their Aurora counterparts. Each section provides a short overview of the feature, examples, and potential workaround solutions for incompatibilities.
 
@@ -9,44 +12,48 @@ The Migration Quick Tips section provides a list of tips for administrators or d
 Note that not all of the source database features are fully compatible with Aurora or have simple workarounds. From a migration perspective, this document doesn’t yet cover all source database features and capabilities.
 
 This database migration playbook covers the following topics:
++  [Migration Tools and Services](chap-sql-server-aurora-pg.tools.md) 
++  [ANSI SQL](chap-sql-server-aurora-pg.sql.md) 
++  [T-SQL](chap-sql-server-aurora-pg.tsql.md) 
++  [High Availability and Disaster Recovery](chap-sql-server-aurora-pg.hadr.md) 
++  [Configuration](chap-sql-server-aurora-pg.configuration.md) 
++  [Indexes](chap-sql-server-aurora-pg.indexes.md) 
++  [Management](chap-sql-server-aurora-pg.management.md) 
++  [Performance Tuning](chap-sql-server-aurora-pg.tuning.md) 
++  [Physical Storage](chap-sql-server-aurora-pg.storage.md) 
++  [Security](chap-sql-server-aurora-pg.security.md) 
++  [SQL Server 2018 Deprecated Features List](chap-sql-server-aurora-pg.deprecatedfeatures.md) 
++  [Migration Quick Tips](chap-sql-server-aurora-pg.tips.md) 
 
-- [Migration Tools and Services](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [ANSI SQL](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md")
-- [T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [High Availability and Disaster Recovery](chap-sql-server-aurora-pg.hadr.md "chap-sql-server-aurora-pg.hadr.md")
-- [Configuration](chap-sql-server-aurora-pg.configuration.md "chap-sql-server-aurora-pg.configuration.md")
-- [Indexes](chap-sql-server-aurora-pg.indexes.md "chap-sql-server-aurora-pg.indexes.md")
-- [Management](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Performance Tuning](chap-sql-server-aurora-pg.tuning.md "chap-sql-server-aurora-pg.tuning.md")
-- [Physical Storage](chap-sql-server-aurora-pg.storage.md "chap-sql-server-aurora-pg.storage.md")
-- [Security](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [SQL Server 2018 Deprecated Features List](chap-sql-server-aurora-pg.deprecatedfeatures.md "chap-sql-server-aurora-pg.deprecatedfeatures.md")
-- [Migration Quick Tips](chap-sql-server-aurora-pg.tips.md "chap-sql-server-aurora-pg.tips.md")
-
-**Disclaimer**
+ **Disclaimer** 
 
 The various code snippets, commands, guides, best practices, and scripts included in this document should be used for reference only and are provided as-is without warranty. Test all of the code, commands, best practices, and scripts outlined in this document in a non-production environment first. Amazon and its affiliates are not responsible for any direct or indirect damage that may occur from the information contained in this document.
 
 ## Tables of Feature Compatibility
+<a name="chap-sql-server-aurora-pg.features"></a>
 
 ### Feature Compatibility Legend
+<a name="chap-sql-server-aurora-pg.features.legend"></a>
 
-| Automation level icon            | Description                                                                                                                                      |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Five star feature compatibility  | **Very high compatibility**. None or minimal low-risk and low-effort rewrites needed.                                                            |
-| Four star feature compatibility  | **High compatibility**. Some low-risk rewrites needed, easy workarounds exist for incompatible features.                                         |
-| Three star feature compatibility | **Medium compatibility**. More involved low-medium risk rewrites needed, some redesign may be needed for incompatible features.                  |
-| Two star feature compatibility   | **Low compatibility**. Medium to high risk rewrites needed, some incompatible features require redesign and reasonable-effort workarounds exist. |
-| One star feature compatibility   | **Very low compatibility**. High risk and/or high-effort rewrites needed, some features require redesign and workarounds are challenging.        |
-| No compatibility                 | **Not compatible**. No practical workarounds yet, may require an application level architectural solution to work around incompatibilities.      |
+
+| Automation level icon | Description | 
+| --- | --- | 
+|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  |  **Very high compatibility**. None or minimal low-risk and low-effort rewrites needed. | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  **High compatibility**. Some low-risk rewrites needed, easy workarounds exist for incompatible features. | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  **Medium compatibility**. More involved low-medium risk rewrites needed, some redesign may be needed for incompatible features. | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  **Low compatibility**. Medium to high risk rewrites needed, some incompatible features require redesign and reasonable-effort workarounds exist. | 
+|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  |  **Very low compatibility**. High risk and/or high-effort rewrites needed, some features require redesign and workarounds are challenging. | 
+|  ![No compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  **Not compatible**. No practical workarounds yet, may require an application level architectural solution to work around incompatibilities. | 
 
 ### AWS SCT and AWS DMS Automation Level Legend
+<a name="chap-sql-server-aurora-pg.features.automation"></a>
 
-| Automation level icon       | Description                                                                                            |
-| --------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Five star automation level  | **Full automation**. AWS SCT performs fully automatic conversion, no manual conversion needed.         |
-| Four star automation level  | **High automation**. Minor, simple manual conversions may be needed.                                   |
-| Three star automation level | **Medium automation**. Low-medium complexity manual conversions may be needed.                         |
-| Two star automation level   | **Low automation**. Medium-high complexity manual conversions may be needed.                           |
-| One star automation level   | **Very low automation**. High risk or complex manual conversions may be needed.                        |
-| No automation               | **No automation**. Not currently supported by AWS SCT, manual conversion is required for this feature. |
+
+| Automation level icon | Description | 
+| --- | --- | 
+|  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  |  **Full automation**. AWS SCT performs fully automatic conversion, no manual conversion needed. | 
+|  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  **High automation**. Minor, simple manual conversions may be needed. | 
+|  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  **Medium automation**. Low-medium complexity manual conversions may be needed. | 
+|  ![Two star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-2.png)  |  **Low automation**. Medium-high complexity manual conversions may be needed. | 
+|  ![One star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-1.png)  |  **Very low automation**. High risk or complex manual conversions may be needed. | 
+|  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  **No automation**. Not currently supported by AWS SCT, manual conversion is required for this feature. | 

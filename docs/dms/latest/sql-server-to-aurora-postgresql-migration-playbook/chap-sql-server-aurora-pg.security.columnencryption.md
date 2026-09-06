@@ -1,19 +1,23 @@
+
+
 # Column encryption for Aurora PostgreSQL
+<a name="chap-sql-server-aurora-pg.security.columnencryption"></a>
 
 This topic provides reference information comparing encryption and decryption capabilities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand the encryption functions available in SQL Server and their counterparts in Aurora PostgreSQL. The topic highlights the similarities in functionality while noting the differences in syntax and options. It introduces the encryption hierarchy in SQL Server and the various encryption algorithms supported by Aurora PostgreSQL.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                       |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.security.columnencryption.sqlserver"></a>
 
 SQL Server provides encryption and decryption functions to secure the content of individual columns. The following list identifies common encryption functions:
-
-- `EncryptByKey` and `DecryptByKey`.
-- `EncryptByCert` and `DecryptByCert`.
-- `EncryptByPassPhrase` and `DecryptByPassPhrase`.
-- `EncryptByAsymKey` and `DecryptByAsymKey`.
++  `EncryptByKey` and `DecryptByKey`.
++  `EncryptByCert` and `DecryptByCert`.
++  `EncryptByPassPhrase` and `DecryptByPassPhrase`.
++  `EncryptByAsymKey` and `DecryptByAsymKey`.
 
 You can use these functions anywhere in your code; they aren’t limited to encrypting table columns. A common use case is to increase run time security by encrypting of application user security tokens passed as parameters.
 
@@ -21,11 +25,11 @@ These functions follow the general SQL Server encryption hierarchy, which in tur
 
 Symmetric encryption and decryption consume minimal resources. You can use them for large data sets.
 
-###### Note
-
+**Note**  
 This section doesn’t cover Transparent Data Encryption (TDE) or Always Encrypted end-to-end encryption.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.security.columnencryption.sqlserver.syntax"></a>
 
 General syntax for `EncryptByKey` and `DecryptByKey`:
 
@@ -38,6 +42,7 @@ DecryptByKey ( 'Encrypted Text' , <use authenticator flag>, { <authenticator> )
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.security.columnencryption.sqlserver.examples"></a>
 
 The following examples demonstrate how to encrypt an employee Social Security Number.
 
@@ -96,30 +101,31 @@ EmployeeID  SSN_Encrypted              SSN
 1           0x00F983FF436E32418132...  1112223333
 ```
 
-For more information, see [Encrypt a Column of Data](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15") and [Encryption Hierarchy](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Encrypt a Column of Data](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15) and [Encryption Hierarchy](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.security.columnencryption.pg"></a>
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides encryption and decryption functions similar to SQL Server using the `pgcrypto` extension. To use this feature, you must first install the `pgcrypto` extension.
+ Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides encryption and decryption functions similar to SQL Server using the `pgcrypto` extension. To use this feature, you must first install the `pgcrypto` extension.
 
 ```
 CREATE EXTENSION pgcrypto;
 ```
 
-Aurora PostgreSQL supports many encryption algorithms:
-
-- MD5
-- SHA1
-- SHA224/256/384/512
-- Blowfish
-- AES
-- Raw encryption
-- PGP Symmetric encryption
-- PGP Public-Key encryption
+ Aurora PostgreSQL supports many encryption algorithms:
++ MD5
++ SHA1
++ SHA224/256/384/512
++ Blowfish
++ AES
++ Raw encryption
++ PGP Symmetric encryption
++ PGP Public-Key encryption
 
 This section describes the use of `PGP_SYM_ENCRYPT` and `PGP_SYM_DECRYPT`, but there are many more options available. For more information, see the link and the end of this section.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.security.columnencryption.pg.syntax"></a>
 
 Encrypt columns using `PGP_SYM_ENCRYPT`.
 
@@ -129,6 +135,7 @@ pgp_sym_decrypt(msg bytea, psw text [, options text ]) returns text
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.security.columnencryption.pg.examples"></a>
 
 The following examples demonstrate how to encrypt an employee’s Social Security Number.
 
@@ -175,4 +182,4 @@ name  pass
 John  0000
 ```
 
-For more information, see [pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html "https://www.postgresql.org/docs/13/pgcrypto.html") in the _PostgreSQL documentation_.
+For more information, see [pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html) in the *PostgreSQL documentation*.

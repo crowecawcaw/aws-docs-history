@@ -1,24 +1,31 @@
+
+
 # Pivot and unpivot for T-SQL
+<a name="chap-sql-server-aurora-pg.tsql.pivot"></a>
 
 This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically regarding the PIVOT and UNPIVOT operators. You can understand the differences in functionality and learn how to adapt your SQL queries when migrating from SQL Server to Aurora PostgreSQL.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                            | Key differences                                        |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Three star feature compatibility | No automation                      | [PIVOT and UNPIVOT](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.pivot "chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.pivot") | Straightforward rewrite to use traditional SQL syntax. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [PIVOT and UNPIVOT](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.pivot)  | Straightforward rewrite to use traditional SQL syntax. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tsql.pivot.sqlserver"></a>
 
-`PIVOT` and `UNPIVOT` are relational operations used to transform a set by rotating rows into columns and columns into rows.
+ `PIVOT` and `UNPIVOT` are relational operations used to transform a set by rotating rows into columns and columns into rows.
 
 ### PIVOT
+<a name="chap-sql-server-aurora-pg.tsql.pivot.sqlserver.pivot"></a>
 
 The `PIVOT` operator consists of several clauses and implied expressions.
 
-The _anchor column_ isn’t pivoted and results in a single row for each unique value, similar to `GROUP BY`.
+The *anchor column* isn’t pivoted and results in a single row for each unique value, similar to `GROUP BY`.
 
 The pivoted columns are derived from the `PIVOT` clause and are the row values transformed into columns. The values for these columns are derived from the source column defined in the `PIVOT` clause.
 
 #### PIVOT Syntax
+<a name="chap-sql-server-aurora-pg.tsql.pivot.sqlserver.pivot.syntax"></a>
 
 ```
 SELECT <Anchor column>,
@@ -38,6 +45,7 @@ FOR
 ```
 
 #### PIVOT Examples
+<a name="chap-sql-server-aurora-pg.tsql.pivot.sqlserver.pivot.examples"></a>
 
 The following example creates and populates the Orders table.
 
@@ -116,14 +124,16 @@ Mitch     1  0  0  0
 ```
 
 ### UNPIVOT
+<a name="chap-sql-server-aurora-pg.tsql.pivot.sqlserver.unpivot"></a>
 
-`UNPIVOT` is similar to `PIVOT` in reverse, but spreads existing column values into rows.
+ `UNPIVOT` is similar to `PIVOT` in reverse, but spreads existing column values into rows.
 
 The source set is similar to the result of the `PIVOT` with values pertaining to particular entities listed in columns. Because the result set has more rows than the source, aggregations aren’t required.
 
 It is less commonly used than `PIVOT` because most data in relational databases have attributes in columns; not the other way around.
 
 #### UNPIVOT Examples
+<a name="chap-sql-server-aurora-pg.tsql.pivot.sqlserver.unpivot.examples"></a>
 
 The following example creates and populates the pivot-like `EmployeeSales` table. This is most likely a view or a set from an external source.
 
@@ -181,15 +191,17 @@ SaleDate    Employee  SaleAmount
 2018-01-04  Mary      100
 ```
 
-For more information, see [FROM - Using PIVOT and UNPIVOT](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15&viewFallbackFrom=sqlserver-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15&viewFallbackFrom=sqlserver-ver15") in the _SQL Server documentation_.
+For more information, see [FROM - Using PIVOT and UNPIVOT](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15&viewFallbackFrom=sqlserver-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tsql.pivot.pg"></a>
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t support the `PIVOT` and `UNPIVOT` relational operators.
+ Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t support the `PIVOT` and `UNPIVOT` relational operators.
 
 You can rewrite the functionality of these operators to use standard SQL syntax, as shown in the following examples.
 
 ### PIVOT Examples
+<a name="chap-sql-server-aurora-pg.tsql.pivot.pg.pivotexamples"></a>
 
 The following example creates and populates the Orders table.
 
@@ -255,6 +267,7 @@ Mitch     1  0  0  0
 ```
 
 ### UNPIVOT Examples
+<a name="chap-sql-server-aurora-pg.tsql.pivot.pg.unpivotexamples"></a>
 
 The following example creates and populates the pivot-like `EmployeeSales` table. In real life this will most likely be a view, or a set from an external source.
 

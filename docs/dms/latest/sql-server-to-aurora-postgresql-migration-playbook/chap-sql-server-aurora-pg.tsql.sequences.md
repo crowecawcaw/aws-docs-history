@@ -1,27 +1,31 @@
+
+
 # Identity and sequences for T-SQL
+<a name="chap-sql-server-aurora-pg.tsql.sequences"></a>
 
 This topic provides reference information comparing automatic enumeration features between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. It focuses on how these databases handle sequence generation and identity columns, which are commonly used for creating surrogate keys in relational database systems.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                              |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------ |
-| Three star feature compatibility | Three star automation level        | N/A                       | Less options with `SERIAL`. Reseeding needs to be rewritten. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Less options with `SERIAL`. Reseeding needs to be rewritten. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver"></a>
 
 Automatic enumeration functions and columns are common with relational database management systems and are often used for generating surrogate keys.
 
 SQL Server provides several features that support automatic generation of monotonously increasing value generators.
-
-- `IDENTITY` property of a table column.
-- `SEQUENCE` objects framework.
-- Numeric functions such as `IDENTITY` and `NEWSEQUENTIALID`.
++  `IDENTITY` property of a table column.
++  `SEQUENCE` objects framework.
++ Numeric functions such as `IDENTITY` and `NEWSEQUENTIALID`.
 
 ### Identity
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.identity"></a>
 
 The `IDENTITY` property is probably the most widely used means of generating surrogate primary keys in SQL Server applications. Each table may have a single numeric column assigned as an `IDENTITY`, using the `CREATE TABLE` or `ALTER TABLE` DDL statements. You can explicitly specify a starting value and increment.
 
-###### Note
-
+**Note**  
 The identity property doesn’t enforce uniqueness of column values, indexing, or any other property. Additional constraints such as primary or unique keys, explicit index specifications, or other properties must be specified in addition to the `IDENTITY` property.
 
 The `IDENTITY` value is generated as part of the transaction that inserts table rows. Applications can obtain `IDENTITY` values using the `@@IDENTITY`, `SCOPE_IDENTITY`, and `IDENT_CURRENT` functions.
@@ -29,12 +33,14 @@ The `IDENTITY` value is generated as part of the transaction that inserts table 
 You can manage `IDENTITY` columns using the `DBCC CHECKIDENT` command, which provides functionality for reseeding and altering properties.
 
 #### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.identity.syntax"></a>
 
 ```
 IDENTITY [(<Seed Value>, <Increment Value>)]
 ```
 
 #### Examples
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.identity.examples"></a>
 
 The following example creates a table with an `IDENTITY` column.
 
@@ -81,19 +87,20 @@ CREATE TABLE MyTABLE
 ```
 
 ### SEQUENCE
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.sequence"></a>
 
 Sequences are objects that are independent of a particular table or column and are defined using the `CREATE SEQUENCE` DDL statement. You can manage sequences using the `ALTER SEQUENCE` statement. Multiple tables and multiple columns from the same table may use the values from one or more `SEQUENCE` objects.
 
 You can retrieve a value from a `SEQUENCE` object using the `NEXT VALUE FOR` function. For example, a `SEQUENCE` value can be used as a default value for a surrogate key column.
 
-`SEQUENCE` objects provide several advantages over `IDENTITY` columns:
-
-- You can use `SEQUENCE` objects to obtain a value before the actual `INSERT` takes place.
-- You can share value series among columns and tables.
-- Easier management, restart, and modification of sequence properties.
-- Allows assignment of value ranges using `sp_sequence_get_range` and not just per-row values.
+ `SEQUENCE` objects provide several advantages over `IDENTITY` columns:
++ You can use `SEQUENCE` objects to obtain a value before the actual `INSERT` takes place.
++ You can share value series among columns and tables.
++ Easier management, restart, and modification of sequence properties.
++ Allows assignment of value ranges using `sp_sequence_get_range` and not just per-row values.
 
 #### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.sequence.syntax"></a>
 
 ```
 CREATE SEQUENCE <Sequence Name> [AS <Integer Data Type> ]
@@ -108,6 +115,7 @@ INCREMENT BY <New Increment Value>;
 ```
 
 #### Examples
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.sequence.examples"></a>
 
 The following example creates sequence and uses it for a primary key default.
 
@@ -136,21 +144,21 @@ Col1  Col2
 ```
 
 ### Identity
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.enumeration"></a>
 
 SQL Server provides two sequential generation functions: `IDENTITY` and `NEWSEQUENTIALID`.
 
-###### Note
-
+**Note**  
 The IDENTITY function should not be confused with the IDENTITY property of a column.
 
 You can use the IDENTITY function only in a `SELECT …​ INTO` statement to insert `IDENTITY` column values into a new table.
 
-The `NEWSEQUNTIALID` function generates a hexadecimal GUID, which is an integer. While the `NEWID` function generates a random GUID, the `NEWSEQUENTIALID` function guarantees that every GUID created is greater (in numeric value) than any other GUID previously generated by the same function on the same server
-since the operating system restart.
+The `NEWSEQUNTIALID` function generates a hexadecimal GUID, which is an integer. While the `NEWID` function generates a random GUID, the `NEWSEQUENTIALID` function guarantees that every GUID created is greater (in numeric value) than any other GUID previously generated by the same function on the same server since the operating system restart.
 
 You can use `NEWSEQUENTIALID` only with `DEFAULT` constraints associated with columns having a `UNIQUEIDENTIFIER` data type.
 
 #### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.enumeration.syntax"></a>
 
 ```
 IDENTITY (<Data Type> [, <Seed Value>, <Increment Value>]) [AS <Alias>]
@@ -161,6 +169,7 @@ NEWSEQUENTIALID()
 ```
 
 #### Examples
+<a name="chap-sql-server-aurora-pg.tsql.sequences.sqlserver.enumeration.examples"></a>
 
 The following example uses the `IDENTITY` function as surrogate key for a new table based on an existing table.
 
@@ -229,26 +238,28 @@ Col1
 9CC01320-C5AA-E811-8440-305B3A017068
 ```
 
-For more information, see [Sequence Numbers](https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15") and [CREATE TABLE (Transact-SQL) IDENTITY (Property)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Sequence Numbers](https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15) and [CREATE TABLE (Transact-SQL) IDENTITY (Property)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tsql.sequences.pg"></a>
 
 The PostgreSQL `CREATE SEQUENCE` command is mostly compatible with the SQL Server `CREATE SEQUENCE` command. Sequences in PostgreSQL serve the same purpose as in SQL Server; they generate numeric identifiers automatically. A sequence object is owned by the user that created it.
 
 ### Sequence Parameters
-
-- `TEMPORARY` or `TEMP` — PostgreSQL can create a temporary sequence within a session. Once the session ends, the sequence is automatically dropped.
-- `IF NOT EXISTS` — Creates a sequence. If a sequence with an identical name already exists, it is replaced.
-- `INCREMENT BY` — An optional parameter with a default value of 1. Positive values generate sequence values in ascending order. Negative values generate sequence values in descending sequence.
-- `START WITH` — An optional parameter having a default of 1. It uses the MINVALUE for ascending sequences and the MAXVALUE for descending sequences.
-- `MAXVALUE` | `NO MAXVALUE` — Defaults are between 263 for ascending sequences and -1 for descending sequences.
-- `MINVALUE` | `NO MINVALUE` — Defaults are between 1 for ascending sequences and -263 for descending sequences.
-- `CYCLE` | `NO CYCLE` — If the sequence value reaches `MAXVALUE` or `MINVALUE`, the `CYCLE` parameter instructs the sequence to return to the initial value (`MINVALUE` or `MAXVALUE`). The default is `NO CYCLE`.
-- `CACHE` — In PostgreSQL, the `NOCACHE` isn’t supported. By default, when the `CACHE` parameter isn’t specified, no sequence values are pre-cached into memory (equivalent to the SQL Server `NOCACHE` parameter). The minimum value is 1.
-- `OWNED BY` | `OWNBY NON` — Specifies that the sequence object is to be associated with a specific column in a table. When dropping this type of sequence, an error is returned due to the sequence/table association.
-- `AS data_type` — This option is available in PostgreSQL version 10 and higher. To easily determine the minimum and maximum values and also improve storage management, you can select the data type for the sequence. The available data types are smallint, integer, and bigint. The default data type is bigint.
+<a name="chap-sql-server-aurora-pg.tsql.sequences.pg.parameters"></a>
++  `TEMPORARY` or `TEMP` — PostgreSQL can create a temporary sequence within a session. Once the session ends, the sequence is automatically dropped.
++  `IF NOT EXISTS` — Creates a sequence. If a sequence with an identical name already exists, it is replaced.
++  `INCREMENT BY` — An optional parameter with a default value of 1. Positive values generate sequence values in ascending order. Negative values generate sequence values in descending sequence.
++  `START WITH` — An optional parameter having a default of 1. It uses the MINVALUE for ascending sequences and the MAXVALUE for descending sequences.
++  `MAXVALUE` \| `NO MAXVALUE` — Defaults are between 263 for ascending sequences and -1 for descending sequences.
++  `MINVALUE` \| `NO MINVALUE` — Defaults are between 1 for ascending sequences and -263 for descending sequences.
++  `CYCLE` \| `NO CYCLE` — If the sequence value reaches `MAXVALUE` or `MINVALUE`, the `CYCLE` parameter instructs the sequence to return to the initial value (`MINVALUE` or `MAXVALUE`). The default is `NO CYCLE`.
++  `CACHE` — In PostgreSQL, the `NOCACHE` isn’t supported. By default, when the `CACHE` parameter isn’t specified, no sequence values are pre-cached into memory (equivalent to the SQL Server `NOCACHE` parameter). The minimum value is 1.
++  `OWNED BY` \| `OWNBY NON` — Specifies that the sequence object is to be associated with a specific column in a table. When dropping this type of sequence, an error is returned due to the sequence/table association.
++  `AS data_type` — This option is available in PostgreSQL version 10 and higher. To easily determine the minimum and maximum values and also improve storage management, you can select the data type for the sequence. The available data types are smallint, integer, and bigint. The default data type is bigint.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.sequences.pg.syntax"></a>
 
 ```
 CREATE [ TEMPORARY | TEMP ] SEQUENCE [ IF NOT EXISTS ] name
@@ -261,6 +272,7 @@ CREATE [ TEMPORARY | TEMP ] SEQUENCE [ IF NOT EXISTS ] name
 Most SQL Server `CREATE SEQUENCE` parameters are compatible with PostgreSQL.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tsql.sequences.pg.examples"></a>
 
 The following example creates a sequence.
 
@@ -322,6 +334,7 @@ ALTER SEQUENCE SEQ_1 MAXVALUE 1000000;
 ```
 
 ### IDENTITY Usage
+<a name="chap-sql-server-aurora-pg.tsql.sequences.pg.identity"></a>
 
 Starting from PostgreSQL 10, there is a new option called identity columns which is similar to the `SERIAL` data type but more SQL standard compliant. The identity columns are slightly more compatible compared to SQL Server identity columns.
 
@@ -350,6 +363,7 @@ Detail: Key (emp_id)=(2) already exists.
 ```
 
 ### SERIAL Usage
+<a name="chap-sql-server-aurora-pg.tsql.sequences.pg.serial"></a>
 
 In PostgreSQL, you can create a sequence similar to the `IDENTITY` property supported by identity columns. When you create a new table, the sequence is created through the `SERIAL` pseudo-type. Other types from the same family are `SMALLSERIAL` and `BIGSERIAL`.
 
@@ -402,8 +416,7 @@ CREATE TABLE SERIAL_SEQ_TST(COL1 SERIAL PRIMARY KEY, COL2 VARCHAR(10));
 ALTER SEQUENCE serial_seq_tst_col1_seq INCREMENT BY 10;
 ```
 
-###### Note
-
+**Note**  
 The auto generated sequence’s name should be created with the following format: `TABLENAME_COLUMNNAME_seq`.
 
 Create a table with a compound primary key including a `SERIAL` column:
@@ -414,17 +427,19 @@ CREATE TABLE SERIAL_SEQ_TST
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.tsql.sequences.summary"></a>
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Feature                              | SQL Server                                                | Aurora PostgreSQL                                                                                                                                                                  |
-| ------------------------------------ | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Independent `SEQUENCE` object        | `CREATE SEQUENCE`                                         | `CREATE SEQUENCE`                                                                                                                                                                  |
-| Automatic enumerator column property | `IDENTITY`                                                | `SERIAL` or `IDENTITY`                                                                                                                                                             |
-| Reseed sequence value                | `DBCC CHECKIDENT`                                         | 1. Find sequence name:<br>`pg_get_serial_sequence('[table_name]', '[serial_field_name]')`<br>2. `SELECT SETVALSELECT pg_get_serial_sequence('table_name', 'person_id', 1, false);` |
-| Column restrictions                  | Numeric                                                   | Numeric                                                                                                                                                                            |
-| Controlling seed and interval values | `CREATE/ALTER SEQUENCE`                                   | `CREATE/ALTER SEQUENCE`                                                                                                                                                            |
-| Sequence setting initialization      | Maintained through service restarts                       | `ALTER SEQUENCE`                                                                                                                                                                   |
-| Explicit values to column            | Not allowed by default, `SET IDENTITY_INSERT ON` required | Allowed                                                                                                                                                                            |
 
-For more information, see [CREATE SEQUENCE](https://www.postgresql.org/docs/13/sql-createsequence.html "https://www.postgresql.org/docs/13/sql-createsequence.html"), [Sequence Manipulation Functions](https://www.postgresql.org/docs/13/functions-sequence.html "https://www.postgresql.org/docs/13/functions-sequence.html"), [Numeric Types](https://www.postgresql.org/docs/13/datatype-numeric.html "https://www.postgresql.org/docs/13/datatype-numeric.html"), and [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the _PostgreSQL documentation_.
+| Feature | SQL Server |  Aurora PostgreSQL  | 
+| --- | --- | --- | 
+| Independent `SEQUENCE` object |  `CREATE SEQUENCE`  |  `CREATE SEQUENCE`  | 
+| Automatic enumerator column property |  `IDENTITY`  |  `SERIAL` or `IDENTITY`  | 
+| Reseed sequence value |  `DBCC CHECKIDENT`  |  1.  Find sequence name: `pg_get_serial_sequence('[table_name]', '[serial_field_name]')`  <br />2.   `SELECT SETVALSELECT pg_get_serial_sequence('table_name', 'person_id', 1, false);`    | 
+| Column restrictions | Numeric | Numeric | 
+| Controlling seed and interval values |  `CREATE/ALTER SEQUENCE`  |  `CREATE/ALTER SEQUENCE`  | 
+| Sequence setting initialization | Maintained through service restarts |  `ALTER SEQUENCE`  | 
+| Explicit values to column | Not allowed by default, `SET IDENTITY_INSERT ON` required | Allowed | 
+
+For more information, see [CREATE SEQUENCE](https://www.postgresql.org/docs/13/sql-createsequence.html), [Sequence Manipulation Functions](https://www.postgresql.org/docs/13/functions-sequence.html), [Numeric Types](https://www.postgresql.org/docs/13/datatype-numeric.html), and [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html) in the *PostgreSQL documentation*.

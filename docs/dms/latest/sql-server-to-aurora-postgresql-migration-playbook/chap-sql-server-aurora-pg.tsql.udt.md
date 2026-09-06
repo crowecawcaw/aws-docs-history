@@ -1,12 +1,17 @@
+
+
 # User-defined types for T-SQL
+<a name="chap-sql-server-aurora-pg.tsql.udt"></a>
 
 This topic provides reference information about user-defined types in SQL Server and PostgreSQL, which is valuable for database administrators and developers migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can gain insight into how both database systems implement custom data types, including their similarities and differences.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                |
-| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------ |
-| Four star feature compatibility | Four star automation level         | N/A                       | Syntax and option differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | Syntax and option differences. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tsql.udt.sqlserver"></a>
 
 SQL Server user-defined types provide a mechanism for encapsulating custom data types and for adding NULL constraints.
 
@@ -14,13 +19,13 @@ SQL Server also supports table-valued user-defined types, which you can use to p
 
 User-defined types can also be associated to CLR code assemblies. Beginning with SQL Server 2014, memory optimized types support memory optimized tables and code.
 
-###### Note
-
+**Note**  
 If your code uses custom rules bound to data types, Microsoft recommends discontinuing the use of this deprecated feature.
 
 All user-defined types are based on an existing system data types. They allow developers to reuse the definition, making the code and schema more readable.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.udt.sqlserver.syntax"></a>
 
 The simplified syntax for the `CREATE TYPE` statement is shown following.
 
@@ -30,6 +35,7 @@ FROM <base type> [ NULL | NOT NULL ] | AS TABLE (<Table Definition>)}
 ```
 
 ### User-Defined Types Examples
+<a name="chap-sql-server-aurora-pg.tsql.udt.sqlserver.examples"></a>
 
 The following example creates a `ZipCode` scalar user-defined type.
 
@@ -59,6 +65,7 @@ The statement has been terminated.
 ```
 
 ### Table-Valued Types Examples
+<a name="chap-sql-server-aurora-pg.tsql.udt.sqlserver.tvtexamples"></a>
 
 The following example demonstrates how to create and use a table-valued types to pass a set of values to a stored procedure.
 
@@ -129,47 +136,45 @@ OrderID  Item       Quantity
 1        M8 Washer  200
 ```
 
-For more information, see [CREATE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tsql.udt.pg"></a>
 
 Similar to SQL Server, PostgreSQL enables the creation of user-defined types using the `CREATE TYPE` statement.
 
 A user-defined type is owned by the user who creates it. If a schema name is specified, the type is created under that schema.
 
-PostgreSQL supports the creation of several different user-defined types:
-\* Composite types store a single named attribute attached to a data type or multiple attributes as an attribute collection. In PostgreSQL, you can also use the CREATE TYPE statement standalone with an association to a table.
-\* Enumerated types (enum) store a static ordered set of values. For example, product categories.
+PostgreSQL supports the creation of several different user-defined types: \* Composite types store a single named attribute attached to a data type or multiple attributes as an attribute collection. In PostgreSQL, you can also use the CREATE TYPE statement standalone with an association to a table. \* Enumerated types (enum) store a static ordered set of values. For example, product categories.
 
--
+\+
 
 ```
 CREATE TYPE PRODUCT_CATEGORT AS ENUM
   ('Hardware', 'Software', 'Document');
 ```
++ Range Types store a range of values, for example, a range of timestamps used to represent the ranges of time of when a course is scheduled.
 
-- Range Types store a range of values, for example, a range of timestamps used to represent the ranges of time of when a course is scheduled.
+  ```
+  CREATE TYPE float8_range AS RANGE
+    (subtype = float8, subtype_diff = float8mi);
+  ```
 
-```
-CREATE TYPE float8_range AS RANGE
-  (subtype = float8, subtype_diff = float8mi);
-```
+  For more information, see [Range Types](https://www.postgresql.org/docs/13/rangetypes.html) in the *PostgreSQL documentation*.
++ Base types are the system core types (abstract types) and are implemented in a low-level language such as C.
++ Array types support definition of columns as multidimensional arrays. You can create an array column with a built-in type or a user-defined base type, enum type, or composite.
 
-For more information, see [Range Types](https://www.postgresql.org/docs/13/rangetypes.html "https://www.postgresql.org/docs/13/rangetypes.html") in the _PostgreSQL documentation_.
+  ```
+  CREATE TABLE COURSE_SCHEDULE (
+    COURSE_ID NUMERIC PRIMARY KEY,
+    COURSE_NAME VARCHAR(60),
+    COURSE_SCHEDULES text[]);
+  ```
 
-- Base types are the system core types (abstract types) and are implemented in a low-level language such as C.
-- Array types support definition of columns as multidimensional arrays. You can create an array column with a built-in type or a user-defined base type, enum type, or composite.
-
-```
-CREATE TABLE COURSE_SCHEDULE (
-  COURSE_ID NUMERIC PRIMARY KEY,
-  COURSE_NAME VARCHAR(60),
-  COURSE_SCHEDULES text[]);
-```
-
-For more information, see [Arrays](https://www.postgresql.org/docs/13/arrays.html "https://www.postgresql.org/docs/13/arrays.html") in the _PostgreSQL documentation_.
+  For more information, see [Arrays](https://www.postgresql.org/docs/13/arrays.html) in the *PostgreSQL documentation*.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.tsql.udt.pg.syntax"></a>
 
 ```
 CREATE TYPE name AS RANGE (
@@ -202,6 +207,7 @@ CREATE TYPE name (
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.tsql.udt.pg.examples"></a>
 
 The following example creates a user-defined type for storing an employee phone numbers.
 
@@ -251,4 +257,4 @@ emp_name    state  city         street             zip_code
 John Smith  AL     Gulf Shores  3033 Joyce Street  36542
 ```
 
-For more information, see [CREATE TYPE](https://www.postgresql.org/docs/13/sql-createtype.html "https://www.postgresql.org/docs/13/sql-createtype.html") and [Composite Types](https://www.postgresql.org/docs/13/rowtypes.htm "https://www.postgresql.org/docs/13/rowtypes.htm") in the _PostgreSQL documentation_.
+For more information, see [CREATE TYPE](https://www.postgresql.org/docs/13/sql-createtype.html) and [Composite Types](https://www.postgresql.org/docs/13/rowtypes.htm) in the *PostgreSQL documentation*.

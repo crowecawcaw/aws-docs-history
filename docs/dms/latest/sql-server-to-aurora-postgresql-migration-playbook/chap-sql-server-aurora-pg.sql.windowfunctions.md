@@ -1,25 +1,30 @@
+
+
 # Window functions for ANSI SQL
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions"></a>
 
 This topic provides reference information comparing window functions in Microsoft SQL Server and PostgreSQL, which is valuable for database migration projects. You can gain insights into the similarities and differences between these two database systems' analytical capabilities. The topic highlights the types of window functions available in SQL Server, including ranking, aggregate, and analytic functions, and compares them to PostgreSQL’s window function support.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  | N/A | N/A | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.sqlserver"></a>
 
 Window functions use an `OVER` clause to define the window and frame for a data set to be processed. They are part of the ANSI standard and are typically compatible among various SQL dialects. However, most RDBMS don’t yet support the full ANSI specification.
 
 Window functions are a relatively new, advanced, and efficient T-SQL programming tool. They are highly utilized by developers to solve numerous programming challenges.
 
 SQL Server currently supports the following window functions:
-
-- Ranking functions: `ROW_NUMBER`, `RANK`, `DENSE_RANK`, and `NTILE`.
-- Aggregate functions: `AVG`, `MIN`, `MAX`, `SUM`, `COUNT`, `COUNT_BIG`, `VAR`, `STDEV`, `STDEVP`, `STRING_AGG`, `GROUPING`, `GROUPING_ID`, `VAR`, `VARP`, and `CHECKSUM_AGG`.
-- Analytic functions: `LAG`, `LEAD`, `FIRST_Value`, `LAST_VALUE`, `PERCENT_RANK`, `PERCENTILE_CONT`, `PERCENTILE_DISC`, and `CUME_DIST`.
-- Other functions: `NEXT_VALUE_FOR`. For more information, see [Sequences and Identity](chap-sql-server-aurora-pg.tsql.sequences.md "chap-sql-server-aurora-pg.tsql.sequences.md").
++ Ranking functions: `ROW_NUMBER`, `RANK`, `DENSE_RANK`, and `NTILE`.
++ Aggregate functions: `AVG`, `MIN`, `MAX`, `SUM`, `COUNT`, `COUNT_BIG`, `VAR`, `STDEV`, `STDEVP`, `STRING_AGG`, `GROUPING`, `GROUPING_ID`, `VAR`, `VARP`, and `CHECKSUM_AGG`.
++ Analytic functions: `LAG`, `LEAD`, `FIRST_Value`, `LAST_VALUE`, `PERCENT_RANK`, `PERCENTILE_CONT`, `PERCENTILE_DISC`, and `CUME_DIST`.
++ Other functions: `NEXT_VALUE_FOR`. For more information, see [Sequences and Identity](chap-sql-server-aurora-pg.tsql.sequences.md).
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.sqlserver.syntax"></a>
 
 ```
 <Function()>
@@ -32,6 +37,7 @@ OVER
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.sqlserver.examples"></a>
 
 The following example creates and populates an OrderItems table.
 
@@ -115,48 +121,53 @@ M8 Washer       200       3        300
 M6 Locking Nut  300       3        NULL
 ```
 
-For more information, see [SELECT - OVER Clause (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SELECT - OVER Clause (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.pg"></a>
 
 PostgreSQL refers to ANSI SQL analytical functions as window functions. They provide the same core functionality as SQL Server analytical functions. Window functions in PostgreSQL operate on a logical partition or window of the result set and return a value for rows in that window.
 
 From a database migration perspective, you should examine PostgreSQL window functions by type and compare them with the equivalent SQL Server window functions to verify compatibility of syntax and output.
 
-###### Note
-
+**Note**  
 Even if a PostgreSQL window function provides the same functionality of a specific SQL Server window function, the returned data type may be different and require application changes.
 
 PostgreSQL provides support for two main types of window functions: aggregation functions and ranking functions.
 
 ### PostgreSQL Window Functions by Type
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.pg.types"></a>
 
-| Function type | Related functions                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Aggregate     | `avg`, `count`, `max`, `min`, `sum`, `string_agg`                                                                                 |
-| Ranking       | `row_number`, `rank`, `dense_rank`, `percent_rank`, `cume_dist`, `ntile`, `lag`, `lead`, `first_value`, `last_value`, `nth_value` |
+
+| Function type | Related functions | 
+| --- | --- | 
+| Aggregate |  `avg`, `count`, `max`, `min`, `sum`, `string_agg`  | 
+| Ranking |  `row_number`, `rank`, `dense_rank`, `percent_rank`, `cume_dist`, `ntile`, `lag`, `lead`, `first_value`, `last_value`, `nth_value`  | 
 
 ### PostgreSQL Window Functions
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.pg.all"></a>
 
-| PostgreSQL window function | Returned data type                                        | Compatible syntax |
-| -------------------------- | --------------------------------------------------------- | ----------------- |
-| Count                      | bigint                                                    | Yes               |
-| Max                        | numeric, string, date/time, network or enum type          | Yes               |
-| Min                        | numeric, string, date/time, network or enum type          | Yes               |
-| Avg                        | numeric, double, otherwise same data type as the argument | Yes               |
-| Sum                        | bigint, otherwise same data type as the argument          | Yes               |
-| rank()                     | bigint                                                    | Yes               |
-| row\_number()              | bigint                                                    | Yes               |
-| dense\_rank()              | bigint                                                    | Yes               |
-| percent\_rank()            | double                                                    | Yes               |
-| cume\_dist()               | double                                                    | Yes               |
-| ntile()                    | integer                                                   | Yes               |
-| lag()                      | Same type as value                                        | Yes               |
-| lead()                     | Same type as value                                        | Yes               |
-| first\_value()             | Same type as value                                        | Yes               |
-| last\_value()              | Same type as value                                        | Yes               |
+
+| PostgreSQL window function | Returned data type | Compatible syntax | 
+| --- | --- | --- | 
+| Count | bigint | Yes | 
+| Max | numeric, string, date/time, network or enum type | Yes | 
+| Min | numeric, string, date/time, network or enum type | Yes | 
+| Avg | numeric, double, otherwise same data type as the argument | Yes | 
+| Sum | bigint, otherwise same data type as the argument | Yes | 
+| rank() | bigint | Yes | 
+| row\_number() | bigint | Yes | 
+| dense\_rank() | bigint | Yes | 
+| percent\_rank() | double | Yes | 
+| cume\_dist() | double | Yes | 
+| ntile() | integer | Yes | 
+| lag() | Same type as value | Yes | 
+| lead() | Same type as value | Yes | 
+| first\_value() | Same type as value | Yes | 
+| last\_value() | Same type as value | Yes | 
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.windowfunctions.pg.examples"></a>
 
 The following example uses he PostgreSQL `rank()` function.
 
@@ -246,4 +257,4 @@ M8 Washer       200       3        300
 M6 Locking Nut  300       3        NULL
 ```
 
-For more information, see [Window Functions](https://www.postgresql.org/docs/13/tutorial-window.html "https://www.postgresql.org/docs/13/tutorial-window.html") in the _PostgreSQL documentation_.
+For more information, see [Window Functions](https://www.postgresql.org/docs/13/tutorial-window.html) in the *PostgreSQL documentation*.

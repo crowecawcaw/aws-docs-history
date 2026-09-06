@@ -1,26 +1,31 @@
+
+
 # Service Broker functionality for T-SQL
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker"></a>
 
 This topic provides reference information about migrating from Microsoft SQL Server 2019’s Service Broker functionality to Amazon Aurora PostgreSQL. You can understand the challenges and alternatives available when moving from SQL Server’s native messaging and queuing capabilities to Aurora PostgreSQL, which doesn’t offer a direct equivalent. The topic explores how you can achieve similar functionality using a combination of AWS services, including DB Links, AWS Lambda, and Amazon SQS.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                         | Key differences                              |
-| --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| No compatibility      | No automation                      | [Service Broker](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker "chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker") | Use Amazon Lambda for similar functionality. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Service Broker](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker)  | Use Amazon Lambda for similar functionality. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver"></a>
 
 SQL Server Service Broker provides native support for messaging and queuing applications. Developers use Server Broker to create complex applications that use the database engine components to communicate between several SQL Server databases. Developers can use Service Broker to easily build distributed and more reliable applications.
 
 Benefits of using messaging queues:
-
-- Decouple dependencies between applications by communicating through messages.
-- Scale out your architecture by moving queues or message processors to separate servers as needed.
-- Maintain individual parts with a minimal impact to the end users.
-- Control when the messages are processed, for example, off-peak hours.
-- Process queued messages on multiple servers or processes or threads.
++ Decouple dependencies between applications by communicating through messages.
++ Scale out your architecture by moving queues or message processors to separate servers as needed.
++ Maintain individual parts with a minimal impact to the end users.
++ Control when the messages are processed, for example, off-peak hours.
++ Process queued messages on multiple servers or processes or threads.
 
 The following sections describe the Service Broker commands.
 
 ### CREATE MESSAGE TYPE
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver.messagetype"></a>
 
 The following example creates a message with name and structure.
 
@@ -35,9 +40,10 @@ CREATE MESSAGE TYPE message_type_name
 [ ; ]
 ```
 
-For more information, see [CREATE MESSAGE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [CREATE MESSAGE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017) in the *SQL Server documentation*.
 
 ### CREATE QUEUE
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver.queue"></a>
 
 The following example creates a queue to store messages.
 
@@ -71,9 +77,10 @@ CREATE QUEUE <object>
 }
 ```
 
-For more information, see [CREATE QUEUE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [CREATE QUEUE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017) in the *SQL Server documentation*.
 
 ### CREATE CONTRACT
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver.contract"></a>
 
 The following example specifies the role and what type of messages a service can handle.
 
@@ -86,9 +93,10 @@ CREATE CONTRACT contract_name
 [ ; ]
 ```
 
-For more information, see [CREATE CONTRACT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [CREATE CONTRACT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017) in the *SQL Server documentation*.
 
 ### CREATE SERVICE
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver.service"></a>
 
 The following example creates a named Service Broker for a specified task or set of tasks.
 
@@ -100,9 +108,10 @@ CREATE SERVICE service_name
 [ ; ]
 ```
 
-For more information, see [CREATE SERVICE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [CREATE SERVICE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017) in the *SQL Server documentation*.
 
 ### BEGIN DIALOG CONVERSATION
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver.dialog"></a>
 
 The following example starts the interaction between Service Brokers.
 
@@ -120,9 +129,10 @@ BEGIN DIALOG [ CONVERSATION ] @dialog_handle
 [ ; ]
 ```
 
-For more information, see [BEGIN DIALOG CONVERSATION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [BEGIN DIALOG CONVERSATION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017) in the *SQL Server documentation*.
 
 ### WAITFOR(RECEIVE TOP(1))
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.sqlserver.examples"></a>
 
 The following example specifies that a code block has to wait until one message is received.
 
@@ -150,17 +160,18 @@ The following example specifies that a code block has to wait until one message 
 }
 ```
 
-For more information, see [RECEIVE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [RECEIVE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017) in the *SQL Server documentation*.
 
 You can combine all of the preceding commands to achieve your architecture goals.
 
-For more information, see [Service Broker](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [Service Broker](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.tsql.servicebroker.pg"></a>
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t provide a compatible solution to the SQL Server Service Broker. However, you can use DB Links and AWS Lambda to achieve similar functionality.
+ Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t provide a compatible solution to the SQL Server Service Broker. However, you can use DB Links and AWS Lambda to achieve similar functionality.
 
-You can combine AWS Lambda with AWS SQS to reduce costs and remove some loads from the database into the AWS Lambda and Amazon Simple Queue Service (Amazon SQS). This will be much more efficient. For more information, see [Using Lambda with Amazon SQS](../../../lambda/latest/dg/with-sqs.md "../../../lambda/latest/dg/with-sqs.md").
+You can combine AWS Lambda with AWS SQS to reduce costs and remove some loads from the database into the AWS Lambda and Amazon Simple Queue Service (Amazon SQS). This will be much more efficient. For more information, see [Using Lambda with Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html).
 
 For example, you can create a table in each database and connect each database with a DB link to read the tables and process the data. For more information, see DB Links.
 
@@ -168,4 +179,4 @@ You can also use AWS Lambda to query a table from the database, process the data
 
 For even more decoupling and reducing workloads from the database, you can use Amazon SQS with Lambda.
 
-For more information, see [Database Mail](chap-sql-server-aurora-pg.management.databasemail.md "chap-sql-server-aurora-pg.management.databasemail.md").
+For more information, see [Database Mail](chap-sql-server-aurora-pg.management.databasemail.md).

@@ -1,16 +1,22 @@
+
+
 # GROUP BY for ANSI SQL
+<a name="chap-sql-server-aurora-pg.sql.groupby"></a>
 
 This topic provides reference information about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL, focusing on GROUP BY, CUBE, ROLLUP, and GROUPING SETS functionalities. You can use this guide to understand the similarities and differences between these database systems when working with aggregate functions and grouping operations.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  | N/A | N/A | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-pg.sql.groupby.sqlserver"></a>
 
-`GROUP BY` is an ANSI SQL query clause used to group individual rows that have passed the `WHERE` filter clause into groups to be passed on to the `HAVING` filter and then to the `SELECT` list. This grouping supports the use of aggregate functions such as `SUM`, `MAX`, `AVG`, and others.
+ `GROUP BY` is an ANSI SQL query clause used to group individual rows that have passed the `WHERE` filter clause into groups to be passed on to the `HAVING` filter and then to the `SELECT` list. This grouping supports the use of aggregate functions such as `SUM`, `MAX`, `AVG`, and others.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.sql.groupby.sqlserver.syntax"></a>
 
 ANSI compliant `GROUP BY` Syntax.
 
@@ -38,8 +44,9 @@ Also, up to SQL Server 2008 R2, SQL Server supported the `GROUP BY ALL` syntax, 
 SQL Server supports the following aggregate functions: `AVG`, `CHECKSUM_AGG`, `COUNT`, `COUNT_BIG`, `GROUPING`, `GROUPING_ID`, `STDEV`, `STDEVP`, `STRING_AGG`, `SUM`, `MIN`, `MAX`, `VAR`, `VARP`.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.groupby.sqlserver.examples"></a>
 
-**Legacy CUBE and ROLLUP Syntax**
+ **Legacy CUBE and ROLLUP Syntax** 
 
 ```
 CREATE TABLE Orders
@@ -82,9 +89,8 @@ NULL      NULL        6
 ```
 
 The rows with NULL were added as a result of the `WITH ROLLUP` clause and contain super aggregates for the following:
-
-- All orders for Jim and John regardless of OrderDate.
-- A super aggregated for all customers and all dates.
++ All orders for Jim and John regardless of OrderDate.
++ A super aggregated for all customers and all dates.
 
 Using `CUBE` instead of `ROLLUP` adds super aggregates in all possible combinations, not only in `GROUP BY` expression order.
 
@@ -118,7 +124,7 @@ John      NULL        3
 
 Four additional rows were added by the `CUBE`. They provide super aggregates for every date for all customers that were not part of the `ROLLUP` results in the preceding example.
 
-**Legacy GROUP BY ALL**
+ **Legacy GROUP BY ALL** 
 
 Use the Orders table from the previous example.
 
@@ -144,7 +150,7 @@ Warning: Null value is eliminated by an aggregate or other SET operation.
 
 The last row failed the WHERE clause and was returned as an empty group as indicated by the warning for the empty `COUNT(*) = 0`.
 
-**Use GROUPING SETS**
+ **Use GROUPING SETS** 
 
 The following query uses the ANSI compliant `GROUPING SETS` syntax to provide all possible aggregate combinations for the Orders table, similar to the result of the `CUBE` syntax. This syntax requires specifying each dimension that needs to be aggregated.
 
@@ -178,11 +184,12 @@ Jim       NULL        3
 John      NULL        3
 ```
 
-For more information, see [Aggregate Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql?view=sql-server-ver15") and [SELECT - GROUP BY- Transact-SQL](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Aggregate Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql?view=sql-server-ver15) and [SELECT - GROUP BY- Transact-SQL](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## PostgreSQL Usage
+<a name="chap-sql-server-aurora-pg.sql.groupby.pg"></a>
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports the basic ANSI syntax for `GROUP BY` and also supports `GROUPING SETS CUBE`, and `ROLLUP`.
+ Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports the basic ANSI syntax for `GROUP BY` and also supports `GROUPING SETS CUBE`, and `ROLLUP`.
 
 In Aurora PostgreSQL, you can use `ROLLUP` and `ORDER BY` clauses in the same query, but the syntax is different from SQL Server. There is no `WITH` clause in the statement.
 
@@ -215,9 +222,10 @@ GROUP BY GROUPING SETS (
 );
 ```
 
-For more information, see [Table Expressions](https://www.postgresql.org/docs/13/queries-table-expressions.html "https://www.postgresql.org/docs/13/queries-table-expressions.html") in the _PostgreSQL documentation_.
+For more information, see [Table Expressions](https://www.postgresql.org/docs/13/queries-table-expressions.html) in the *PostgreSQL documentation*.
 
 ### Syntax
+<a name="chap-sql-server-aurora-pg.sql.groupby.pg.syntax"></a>
 
 ```
 SELECT <Select List>
@@ -229,12 +237,14 @@ GROUP BY
 ```
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-pg.sql.groupby.pg.considerations"></a>
 
 The `GROUP BY` functionality exists except for the `ALL` option.
 
 Convert every query to use the column name after the `GROUP BY` option, such as `CUBE`, `ROLLUP`, or `CUBE`.
 
 ### Examples
+<a name="chap-sql-server-aurora-pg.sql.groupby.pg.examples"></a>
 
 Rewrite SQL Server `WITH CUBE` modifier for migration.
 
@@ -305,18 +315,20 @@ Jim       2018-05-04  0
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-pg.sql.groupby.summary"></a>
 
 The following table shows similarities, differences, and key migration considerations.
 
-| SQL Server feature                        | Aurora PostgreSQL feature                     | Comments                                                                                                    |
-| ----------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `MAX`, `MIN`, `AVG`, `COUNT`, `COUNT_BIG` | `MAX`, `MIN`, `AVG`, `COUNT`                  | In Aurora PostgreSQL, `COUNT` returns a `BIGINT` and is compatible with SQL Server `COUNT` and `COUNT_BIG`. |
-| `CHECKSUM_AGG`                            | N/A                                           | Use a loop to calculate checksums.                                                                          |
-| `GROUPING`, `GROUPING_ID`                 | `GROUPING`                                    | Reconsider the query logic to avoid having NULL groups that are ambiguous with the super aggregates.        |
-| `STDEV`, `STDEVP`, `VAR`, `VARP`          | `STDDEV`, `STDDEV_POP`, `VARIANCE`, `VAR_POP` | Rewrite keywords only.                                                                                      |
-| `STRING_AGG`                              | `STRING_AGG`                                  |                                                                                                             |
-| `WITH ROLLUP`                             | `ROLLUP`                                      | Remove `WITH` and change the columns names to be after the `ROLLUP` keyword.                                |
-| `WITH CUBE`                               | `CUBE`                                        | Remove `WITH` and change the columns names to be after the `CUBE` keyword.                                  |
-| `GROUPING SETS`                           | `GROUPING SETS`                               |                                                                                                             |
 
-For more information, see [Aggregate Functions](https://www.postgresql.org/docs/10/functions-aggregate.html "https://www.postgresql.org/docs/10/functions-aggregate.html") in the _PostgreSQL documentation_.
+| SQL Server feature |  Aurora PostgreSQL feature | Comments | 
+| --- | --- | --- | 
+|  `MAX`, `MIN`, `AVG`, `COUNT`, `COUNT_BIG`  |  `MAX`, `MIN`, `AVG`, `COUNT`  | In Aurora PostgreSQL, `COUNT` returns a `BIGINT` and is compatible with SQL Server `COUNT` and `COUNT_BIG`. | 
+|  `CHECKSUM_AGG`  | N/A | Use a loop to calculate checksums. | 
+|  `GROUPING`, `GROUPING_ID`  |  `GROUPING`  | Reconsider the query logic to avoid having NULL groups that are ambiguous with the super aggregates. | 
+|  `STDEV`, `STDEVP`, `VAR`, `VARP`  |  `STDDEV`, `STDDEV_POP`, `VARIANCE`, `VAR_POP`  | Rewrite keywords only. | 
+|  `STRING_AGG`  |  `STRING_AGG`  |  | 
+|  `WITH ROLLUP`  |  `ROLLUP`  | Remove `WITH` and change the columns names to be after the `ROLLUP` keyword. | 
+|  `WITH CUBE`  |  `CUBE`  | Remove `WITH` and change the columns names to be after the `CUBE` keyword. | 
+|  `GROUPING SETS`  |  `GROUPING SETS`  |  | 
+
+For more information, see [Aggregate Functions](https://www.postgresql.org/docs/10/functions-aggregate.html) in the *PostgreSQL documentation*.
