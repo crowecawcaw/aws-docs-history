@@ -40,6 +40,6 @@ details**.
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
 
-![Gateway name MonitronGateway-e837456fe770 selected in the Gateways list.](/images/Monitron/latest/user-guide/images/ethernet-gateway-web-app-1.png) 2. The **Gateway details** page is displayed.
+![Gateway name MonitronGateway-e837456fe770 selected in the Gateways list.](images/ethernet-gateway-web-app-1.png) 2. The **Gateway details** page is displayed.
 
 ![Gateway details interface showing device information, status, and network statistics.](images/wifi-gateway-details-web.png)

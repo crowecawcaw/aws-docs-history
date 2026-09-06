@@ -36,7 +36,7 @@ Business](https://business.amazon.com/ "https://business.amazon.com/").
 
 You mount the sensors directly on the machines (or _assets_) that you want to monitor. You can place up to 20 sensors on an asset.
 
-![Orange sensor device with Amazon smile logo and regulatory compliance markings.](images/real-sensor.png)
+![Orange sensor device with Amazon smile logo and regulatory compliance markings.](/images/Monitron/latest/user-guide/images/real-sensor.png)
 
 _An Amazon Monitron sensor_
 
