@@ -1,69 +1,41 @@
+
+
 # Envoy defaults set by App Mesh
+<a name="envoy-defaults"></a>
 
-###### Important
+**Important**  
+End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect). 
 
-End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect "https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect").
-
-The following sections provide information about the Envoy defaults for the route retry
-policy and circuit breaker that are set by App Mesh.
+The following sections provide information about the Envoy defaults for the route retry policy and circuit breaker that are set by App Mesh.
 
 ## Default route retry policy
+<a name="default-retry-policy"></a>
 
-App Mesh automatically creates a default Envoy route retry policy for all HTTP, HTTP/2, and gRPC
-requests in any mesh in your account. For more information about Envoy route retry policies, see [config.route.v3.RetryPolicy](https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/route/v3/route_components.proto#envoy-v3-api-msg-config-route-v3-retrypolicy "https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/route/v3/route_components.proto#envoy-v3-api-msg-config-route-v3-retrypolicy") in the Envoy documentation.
+App Mesh automatically creates a default Envoy route retry policy for all HTTP, HTTP/2, and gRPC requests in any mesh in your account. For more information about Envoy route retry policies, see [config.route.v3.RetryPolicy](https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/route/v3/route_components.proto#envoy-v3-api-msg-config-route-v3-retrypolicy) in the Envoy documentation.
 
-App Mesh creates an Envoy route when you either create an App Mesh [route](routes.md "routes.md") or define a virtual node provider for an App Mesh [virtual service](virtual_services.md "virtual_services.md"). Though you can create an App Mesh route
-retry policy, you can't create an App Mesh retry policy for a virtual node provider.
+App Mesh creates an Envoy route when you either create an App Mesh [route](routes.md) or define a virtual node provider for an App Mesh [virtual service](virtual_services.md). Though you can create an App Mesh route retry policy, you can't create an App Mesh retry policy for a virtual node provider.
 
-The default policy isn't visible through the App Mesh API. The default policy is only
-visible through Envoy. To view the configuration, [enable the administration interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface "troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface")
-and send a request to Envoy for a `config_dump`. The default policy includes the
-following settings:
-
-- **Max retries** – `2`
-- **gRPC retry events** – `UNAVAILABLE`
-- **HTTP retry events** – `503`
-
-###### Note
-
-It's not possible to create an App Mesh route retry policy that looks for a specific
-HTTP error code. However, an App Mesh route retry policy can look for
-`server-error` or `gateway-error`. Both of these include
-`503` errors. For more information, see [Routes](routes.md "routes.md").
-
-- **TCP retry event** – `connect-failure` and
-  `refused-stream`
-
-###### Note
-
-It's not possible to create an App Mesh route retry policy that looks for either of
-these events. However, an App Mesh route retry policy can look for
-`connection-error`, which is equivalent to `connect-failure`.
-For more information, see [Routes](routes.md "routes.md").
-
-- **Reset** – Envoy attempts a retry if the upstream server
-  doesn't respond at all (disconnect/reset/read timeout).
+The default policy isn't visible through the App Mesh API. The default policy is only visible through Envoy. To view the configuration, [enable the administration interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface) and send a request to Envoy for a `config_dump`. The default policy includes the following settings:
++ **Max retries** – `2`
++ **gRPC retry events** – `UNAVAILABLE`
++ **HTTP retry events** – `503`
+**Note**  
+It's not possible to create an App Mesh route retry policy that looks for a specific HTTP error code. However, an App Mesh route retry policy can look for `server-error` or `gateway-error`. Both of these include `503` errors. For more information, see [Routes](routes.md).
++ **TCP retry event** – `connect-failure` and `refused-stream`
+**Note**  
+It's not possible to create an App Mesh route retry policy that looks for either of these events. However, an App Mesh route retry policy can look for `connection-error`, which is equivalent to `connect-failure`. For more information, see [Routes](routes.md).
++ **Reset** – Envoy attempts a retry if the upstream server doesn't respond at all (disconnect/reset/read timeout).
 
 ## Default circuit breaker
+<a name="default-circuit-breaker"></a>
 
-When you deploy an Envoy in App Mesh, Envoy default values are set for some of the circuit
-breaker settings. For more information, see [cluster.CircuitBreakers.Thresholds](https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-msg-config-cluster-v3-circuitbreakers-thresholds "https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-msg-config-cluster-v3-circuitbreakers-thresholds") in the Envoy documentation. These settings
-aren't visible through the App Mesh API. The settings are only visible through Envoy. To view
-the configuration, [enable the
-administration interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface "troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface") and send a request to Envoy for a
-`config_dump`.
+When you deploy an Envoy in App Mesh, Envoy default values are set for some of the circuit breaker settings. For more information, see [cluster.CircuitBreakers.Thresholds](https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-msg-config-cluster-v3-circuitbreakers-thresholds) in the Envoy documentation. These settings aren't visible through the App Mesh API. The settings are only visible through Envoy. To view the configuration, [enable the administration interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface) and send a request to Envoy for a `config_dump`.
 
 App Mesh effectively disables circuit breakers by changing the Envoy settings to the following default values:
++ `max_requests` – `2147483647`
++ `max_pending_requests` – `2147483647`
++ `max_connections` – `2147483647`
++ `max_retries` – `2147483647`
 
-- `**max\_requests**` –
-  `2147483647`
-- `**max\_pending\_requests**` –
-  `2147483647`
-- `**max\_connections**` –
-  `2147483647`
-- `**max\_retries**` –
-  `2147483647`
-
-###### Note
-
+**Note**  
 You cannot modify the App Mesh default circuit breaker values.
