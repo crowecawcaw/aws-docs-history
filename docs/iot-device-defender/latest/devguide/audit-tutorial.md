@@ -183,7 +183,8 @@ You must manually add these permissions to your audit role when using customer m
 4. In the **Permissions** tab, choose **Add permissions**,
    and then choose **Create inline policy**.
 5. Choose the **JSON** tab and enter the following policy. Replace
-   `REGION`, `ACCOUNT_ID`, and
+   the example `us-east-1` Region,
+   `111122223333` account ID, and
    `KEY_ID` with your AWS KMS key details:
 
 ```
@@ -195,7 +196,7 @@ You must manually add these permissions to your audit role when using customer m
       "Action": [
         "kms:Decrypt"
       ],
-      "Resource": "arn:aws:kms:`REGION`:`ACCOUNT_ID`:key/`KEY_ID`"
+      "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`KEY_ID`"
     }
   ]
 }
