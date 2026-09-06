@@ -1,108 +1,91 @@
-# Viewing your Link devices
 
-1. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/").
-2. In the navigation pane, choose **Input devices**. The devices that
-   you have access to appear in the **Device list** page.
-3. If you don't see **Link input device** listed in the
-   navigation pane, or if you don't see a card for the device that you want, you are
-   probably in the wrong Region, follow the troubleshooting tips after this
-   procedure.
-4. Find the card for the Link input device that you want. If there are many
-   Link input devices, enter part of the name to filter the list.
-5. Choose the hyperlink. The **Device details** page appears. The page
-   consists of an **Aggregate status** panel, and a panel with three
-   tabs.
-   **Troubleshooting tips**
+
+# Viewing your Link devices
+<a name="device-view"></a>
+
+1. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/).
+
+1. In the navigation pane, choose **Input devices**. The devices that you have access to appear in the **Device list** page.
+
+1. If you don't see **Link input device** listed in the navigation pane, or if you don't see a card for the device that you want, you are probably in the wrong Region, follow the troubleshooting tips after this procedure.
+
+1. Find the card for the Link input device that you want. If there are many Link input devices, enter part of the name to filter the list.
+
+1. Choose the hyperlink. The **Device details** page appears. The page consists of an **Aggregate status** panel, and a panel with three tabs.
+
+**Troubleshooting tips**
 
 If you can't find an expected device in the list, try the following:
++ Another user in your organization might have moved the device to another Region. 
 
-- Another user in your organization might have moved the device to another Region.
+  Determine the Region that the device is in. In the MediaLive console, look for the Region menu in the navigation bar at the top of the page. Switch to the appropriate Region.
++ This might be a new device that you purchased from AWS. In this case, the device initially appears in the Region you specified when you purchased the device. 
 
-Determine the Region that the device is in. In the MediaLive console, look for the
-Region menu in the navigation bar at the top of the page. Switch to the appropriate
-Region.
+  In the MediaLive console, look for the Region menu in the navigation bar at the top of the page. Switch to the appropriate Region.
++ This might be a new device that you purchased from an AWS reseller. In this case, the device is in the us-west-2 Region. 
 
-- This might be a new device that you purchased from AWS. In this case, the device
-  initially appears in the Region you specified when you purchased the device.
+  In the MediaLive console, look for the Region menu in the navigation bar at the top of the page. Switch to the us-west-2 Region. If the device still doesn't appear, you probably need to [claim the device.](device-claim.md) 
 
-In the MediaLive console, look for the Region menu in the navigation bar at the top of
-the page. Switch to the appropriate Region.
-
-- This might be a new device that you purchased from an AWS reseller. In this case,
-  the device is in the us-west-2 Region.
-
-In the MediaLive console, look for the Region menu in the navigation bar at the top of
-the page. Switch to the us-west-2 Region. If the device still doesn't appear, you
-probably need to [claim the device.](device-claim.md "device-claim.md")
-
-###### Topics
-
-- [Aggregate status panel](#device-view-aggregate-status "#device-view-aggregate-status")
-- [Details tab](#device-view-details-tab "#device-view-details-tab")
-- [Attachments tab](#device-view-attachments-tab "#device-view-attachments-tab")
-- [Tags tab](#device-view-tags-tab "#device-view-tags-tab")
+**Topics**
++ [Aggregate status panel](#device-view-aggregate-status)
++ [Details tab](#device-view-details-tab)
++ [Attachments tab](#device-view-attachments-tab)
++ [Tags tab](#device-view-tags-tab)
 
 ## Aggregate status panel
+<a name="device-view-aggregate-status"></a>
 
 The panel includes the sections and fields specified in this table.
 
-| Section                                                                     | Fields                                                                                             | Details                                                                                                                                                                                                    |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Title line                                                                  | The unique ID of the Link hardware                                                                 |                                                                                                                                                                                                            |
-| Synchronization state                                                       |                                                                                                    |
-| Software status                                                             | To update software, see [Updating software on a Link device](device-update.md "device-update.md"). |
-| Aggregate status                                                            | A device thumbnail                                                                                 | A thumbnail of the content that is currently being pushed by the device, if<br>there is any being pushed. The device generates the thumbnails by capturing a<br>video frame approximately every 5 seconds. |
-| The device state, connection state, video resolution (WxH), active<br>input | Only shows information if the device is connected to AWS and is sending<br>content.                |
+
+
+- **Title line**
+  - **Fields:** The unique ID of the Link hardware / **Details:** 
+  - **Fields:** Synchronization state / **Details:** 
+  - **Fields:** Software status / **Details:** To update software, see [Updating software on a Link device](device-update.md).
+
+- ** Aggregate status **
+  - **Fields:** A device thumbnail / **Details:** A thumbnail of the content that is currently being pushed by the device, if there is any being pushed. The device generates the thumbnails by capturing a video frame approximately every 5 seconds.
+  - **Fields:** The device state, connection state, video resolution (WxH), active input / **Details:** Only shows information if the device is connected to AWS and is sending content.
+
+
 
 ## Details tab
+<a name="device-view-details-tab"></a>
 
 This tab includes the sections and fields specified in this table.
 
-| Section          | Fields                                                                                                  | Details                                                                                                                                                                                                                                                                                               |
-| ---------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Network settings | The current network settings                                                                            | Shows information only if the device is connected to AWS. To connect, see<br>[Deploying the Link hardware](elink-setup-device.md "elink-setup-device.md").                                                                                                                                            |
-| Device settings  | The current configuration of the device.                                                                | The streaming fields (such as the framerate) show information only if the<br>device is sending content to AWS.You can set some fields. Choose the<br>*_Modify_<br>• then **Configure device**. For<br>information about the dialog, see [Configuring a Link device](device-edit.md "device-edit.md"). |
-| Device metadata  | The Device ARN (which includes the unique device ID), serial number, device<br>ID, type, name of device |                                                                                                                                                                                                                                                                                                       |
+
+| Section | Fields | Details | 
+| --- | --- | --- | 
+| Network settings | The current network settings | Shows information only if the device is connected to AWS. To connect, see [Deploying the Link hardware](elink-setup-device.md). | 
+| Device settings | The current configuration of the device.  | The streaming fields (such as the framerate) show information only if the device is sending content to AWS.You can set some fields. Choose the **Modify** then **Configure device**. For information about the dialog, see [Configuring a Link device](device-edit.md). | 
+| Device metadata | The Device ARN (which includes the unique device ID), serial number, device ID, type, name of device |  | 
 
 ## Attachments tab
+<a name="device-view-attachments-tab"></a>
 
-This tab displays information about how the device is currently being used — whether
-the device is connected to a MediaLive input, a MediaConnect flow, or isn't being used.
+This tab displays information about how the device is currently being used — whether the device is connected to a MediaLive input, a MediaConnect flow, or isn't being used.
 
-You can change the flow that the device is attached to. You can detach the flow, so
-that the device isn't in use. For more information about both these tasks, see [Attaching and detaching a Link device](device-attach.md "device-attach.md").
+You can change the flow that the device is attached to. You can detach the flow, so that the device isn't in use. For more information about both these tasks, see [Attaching and detaching a Link device](device-attach.md).
 
 **Device is not configured for any use**
 
-A message indicates that the device is not being used. To set up the device as the
-source for an input, see [Using Link with a MediaLive input](device-use-input.md "device-use-input.md"). To set up the device as the
-source for a MediaConnect flow (UHD devices only), see [Using Link with a MediaConnect flow](device-use-flow.md "device-use-flow.md").
+A message indicates that the device is not being used. To set up the device as the source for an input, see [Using Link with a MediaLive input](device-use-input.md). To set up the device as the source for a MediaConnect flow (UHD devices only), see [Using Link with a MediaConnect flow](device-use-flow.md).
 
-**Device is configured as the source for one or more
-inputs**
+**Device is configured as the source for one or more inputs**
 
-The tab displays the ARN of the MediaLive input that the device is attached to. You can
-set up the device as the source for up to four inputs. You can detach the input so that
-the device isn't in use. For more information about both these tasks, see [Attaching and detaching a Link device](device-attach.md "device-attach.md").
+The tab displays the ARN of the MediaLive input that the device is attached to. You can set up the device as the source for up to four inputs. You can detach the input so that the device isn't in use. For more information about both these tasks, see [Attaching and detaching a Link device](device-attach.md).
 
-**Device is configured as the source for an MediaConnect
-flow**
+**Device is configured as the source for an MediaConnect flow**
 
-Applies only to UHD devices. The tab displays information about the attachment to the
-flow:
-
-- The ARN of the flow
-
-- The source name of the flow. Keep in mind that flows can have more than one
-  source.
-
-- The ARN of the secret used for encryption.
-
-- The ARN of the role that MediaLive uses to work with the flow.
+Applies only to UHD devices. The tab displays information about the attachment to the flow:
++ The ARN of the flow
++ The source name of the flow. Keep in mind that flows can have more than one source.
++ The ARN of the secret used for encryption. 
++ The ARN of the role that MediaLive uses to work with the flow.
 
 ## Tags tab
+<a name="device-view-tags-tab"></a>
 
-This table displays tags that you have set up for the device. You can choose
-**Add tag** and **Remove tag** to change tags. For
-more information about tags, see [Tagging
-AWS Elemental MediaLive resources.](tagging.md "tagging.md")
+This table displays tags that you have set up for the device. You can choose **Add tag** and **Remove tag** to change tags. For more information about tags, see [Tagging AWS Elemental MediaLive resources.](tagging.md)

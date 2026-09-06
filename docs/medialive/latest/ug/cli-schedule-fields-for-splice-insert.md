@@ -1,7 +1,9 @@
-# Splice\_insert message – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for a splice\_insert message](schedule-fields-for-splice_insert.md "schedule-fields-for-splice_insert.md").
+
+# Splice\_insert message – payload
+<a name="cli-schedule-fields-for-splice-insert"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for a splice\_insert message](schedule-fields-for-splice_insert.md).
 
 ```
 {
@@ -31,13 +33,9 @@ JSON, see [Fields for a splice\_insert message](schedule-fields-for-splice_inser
 ```
 
 ## Example of a splice insert with a fixed start time
+<a name="json-splice-insert-example"></a>
 
-This example of a request creates an action for a
-splice\_insert with a UTC start time of 20:42:04.000. It
-also has an `ActionName` that perhaps
-references an ad avail from your database, a unique
-integer for the splice event ID, and a duration of
-1,350,000 kHz ticks (15 seconds).
+This example of a request creates an action for a splice\_insert with a UTC start time of 20:42:04.000. It also has an `ActionName` that perhaps references an ad avail from your database, a unique integer for the splice event ID, and a duration of 1,350,000 kHz ticks (15 seconds).
 
 ```
 {
@@ -64,18 +62,11 @@ integer for the splice event ID, and a duration of
 ```
 
 ## Example of a splice insert as a follow
+<a name="json-splice-insert-example2"></a>
 
-This example of a request creates an action for a
-splice\_insert to be inserted after the input switch
-called nature-doco-003 ends. The action has an
-`ActionName` that perhaps references an
-ad avail from your database, a unique integer for the
-splice event ID, and a duration of 1,350,000 kHz ticks
-(15 seconds).
+This example of a request creates an action for a splice\_insert to be inserted after the input switch called nature-doco-003 ends. The action has an `ActionName` that perhaps references an ad avail from your database, a unique integer for the splice event ID, and a duration of 1,350,000 kHz ticks (15 seconds).
 
-Follow mode for a SCTE 35 message is useful when you
-want an ad avail to occur as soon as an input finishes,
-but you don't know when that will happen.
+Follow mode for a SCTE 35 message is useful when you want an ad avail to occur as soon as an input finishes, but you don't know when that will happen. 
 
 ```
 {

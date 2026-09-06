@@ -1,16 +1,18 @@
-# Rules for Akamai CDNs
 
-You can set up redundant manifests in a MediaLive HLS output group so long as the downstream
-system can work with specific rules. Read this section if you are setting up redundant
-manifests with an Akamai CDN. If your downstream system is not an Akamai CDN, see [Rules for most downstream systems](hls-redundant-manif-most-systems.md "hls-redundant-manif-most-systems.md").
+
+# Rules for Akamai CDNs
+<a name="hls-redundant-manif-akamai"></a>
+
+You can set up redundant manifests in a MediaLive HLS output group so long as the downstream system can work with specific rules. Read this section if you are setting up redundant manifests with an Akamai CDN. If your downstream system is not an Akamai CDN, see [Rules for most downstream systems](hls-redundant-manif-most-systems.md).
 
 You must make sure that the downstream system can work with the following rules.
 
-| Field                                                              | Rule                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Protocol/domain/path portion of the two destination URIs (A and B) | Can be different from each other, or can be the same.                                                                                                                                                                                                                                                                                                                                              |
-| BaseFilename portion of the two destination URIs (A and B)         | Can be different from each other, or can be the same.<br>It *cannot<br>• use [variable identifiers](variable-data-identifiers.md "variable-data-identifiers.md") that include the<br>date or time.<br>The combination of the protocol/domain/path and the baseFilename must be unique<br>in A and B. This rule ensures that the output files from the two pipelines don’t<br>overwrite each other. |
-| Name modifier                                                      | There is only one instance of this field. Both pipelines use the same<br>value.<br>It *cannot<br>• use [variable identifiers](variable-data-identifiers.md "variable-data-identifiers.md") that include the<br>date or time.                                                                                                                                                                       |
-| Segment modifier                                                   | There is only one instance of this field. Both pipelines use the same value.<br>It *can<br>• use [variable identifiers](variable-data-identifiers.md "variable-data-identifiers.md") that include the<br>date or time.                                                                                                                                                                             |
-| Base URL Manifest A and Base URL Manifest B                        | These fields apply only if you are also implementing [custom manifest paths](hls-manifests-how-work.md#hls-custom-manifest-paths "hls-manifests-how-work.md#hls-custom-manifest-paths"). Typically, with<br>Akamai CDNs, you do implement custom manifest paths.<br>Complete both fields.                                                                                                          |
-| Base URL Content A and Base URL Content B                          | These fields apply only if you are also implementing [custom manifest paths](hls-manifests-how-work.md#hls-custom-manifest-paths "hls-manifests-how-work.md#hls-custom-manifest-paths").<br>Complete both fields.                                                                                                                                                                                  |
+
+|  Field  |  Rule  | 
+| --- | --- | 
+|  Protocol/domain/path portion of the two destination URIs (A and B)  | Can be different from each other, or can be the same.  | 
+|  BaseFilename portion of the two destination URIs (A and B)  | Can be different from each other, or can be the same.<br />It *cannot* use [variable identifiers](variable-data-identifiers.md) that include the date or time.<br />The combination of the protocol/domain/path and the baseFilename must be unique in A and B. This rule ensures that the output files from the two pipelines don’t overwrite each other.  | 
+|  Name modifier  | There is only one instance of this field. Both pipelines use the same value.<br />It *cannot* use [variable identifiers](variable-data-identifiers.md) that include the date or time.  | 
+|  Segment modifier  | There is only one instance of this field. Both pipelines use the same value. <br />It *can* use [variable identifiers](variable-data-identifiers.md) that include the date or time. | 
+| Base URL Manifest A and Base URL Manifest B  | These fields apply only if you are also implementing [custom manifest paths](hls-manifests-how-work.md#hls-custom-manifest-paths). Typically, with Akamai CDNs, you do implement custom manifest paths.<br />Complete both fields. | 
+| Base URL Content A and Base URL Content B  | These fields apply only if you are also implementing [custom manifest paths](hls-manifests-how-work.md#hls-custom-manifest-paths). <br />Complete both fields.  | 

@@ -1,17 +1,15 @@
+
+
 # JSON for an alert event
+<a name="monitoring-cloudwatch-json-alert"></a>
 
-Events that are based on [alerts](monitor-activity-types-alerts-channels.md "monitor-activity-types-alerts-channels.md") are identified by their
-`detail-type` property:
+Events that are based on [alerts](monitor-activity-types-alerts-channels.md) are identified by their `detail-type` property:
++ `MediaLive Channel Alert` for a channel
++ `MediaLive Multiplex Alert` for a multiplex.
 
-- `MediaLive Channel Alert` for a
-  channel
+**Example**
 
-- `MediaLive Multiplex Alert` for a
-  multiplex.
-  **Example**
-
-Following is an example of the JSON payload for an alert
-event. Note the `detail-type` in line 3.
+Following is an example of the JSON payload for an alert event. Note the `detail-type` in line 3.
 
 ```
 {
@@ -31,7 +29,7 @@ event. Note the `detail-type` in line 3.
         "alert_type": "Failed to Create Output File or Socket",
         "pipeline": "0",
         "channel_arn": "arn:aws:medialive:us-west-2:111122223333:channel:123456",
-        "message": "MPEGTS muxer for mediaID [1] unable to open output or stream [https://`<path>`]."
+        "message": "MPEGTS muxer for mediaID [1] unable to open output or stream [https://{{<path>}}]."
     }
 }
 ```

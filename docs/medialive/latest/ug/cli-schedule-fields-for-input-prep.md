@@ -1,20 +1,15 @@
+
+
 # Input prepare action – payload
+<a name="cli-schedule-fields-for-input-prep"></a>
 
-The following sections show the payload for input switch
-actions.
+The following sections show the payload for input switch actions. 
 
-In this payload, the
-`ScheduleActionStartSettings` contains only
-one of `FixedModeScheduleActionStartSettings`,
-`ImmediateModeScheduleActionStartSettings`,
-or
-`FollowModeScheduleActionStartSettings`.
+In this payload, the `ScheduleActionStartSettings` contains only one of `FixedModeScheduleActionStartSettings`, `ImmediateModeScheduleActionStartSettings`, or `FollowModeScheduleActionStartSettings`.
 
-See the examples that follow for samples of each of these
-tags.
+See the examples that follow for samples of each of these tags.
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for an input switch](schedule-fields-for-ips.md "schedule-fields-for-ips.md").
+For information about the meaning and values for the fields in the following JSON, see [Fields for an input switch](schedule-fields-for-ips.md).
 
 ```
 {
@@ -57,13 +52,9 @@ JSON, see [Fields for an input switch](schedule-fields-for-ips.md "schedule-fiel
 ```
 
 ## Example of an input prepare with a fixed start time
+<a name="json-prep-example-1"></a>
 
-This example of a request is to switch to a live input
-at a fixed start time. The switch action is called
-`studio-feed` and it switches to the
-input that is connected to the input attachment called
-`live-studio-feed`. It switches to this
-input at the specified UTC time.
+This example of a request is to switch to a live input at a fixed start time. The switch action is called `studio-feed` and it switches to the input that is connected to the input attachment called `live-studio-feed`. It switches to this input at the specified UTC time. 
 
 ```
 {
@@ -89,16 +80,9 @@ input at the specified UTC time.
 ```
 
 ## Example of an input prepare as a follow
+<a name="json-prep-example-2"></a>
 
-This example of a request is to switch to a static
-file input to follow the end of the previous input. The
-switch action is called `action-ad-003` and
-it switches to the input that is connected to the input
-attachment called `zel-cafe`. It switches to
-this input when the action called
-`action-ad-002` ends. The file for this
-action is clipped so that it ends after 30 seconds and
-11 frames:
+This example of a request is to switch to a static file input to follow the end of the previous input. The switch action is called `action-ad-003` and it switches to the input that is connected to the input attachment called `zel-cafe`. It switches to this input when the action called `action-ad-002` ends. The file for this action is clipped so that it ends after 30 seconds and 11 frames:
 
 ```
 {

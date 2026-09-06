@@ -1,10 +1,11 @@
+
+
 # ID3 segment tag item – payload
+<a name="cli-schedule-fields-id3-segment-tag"></a>
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for ID3 segment tags](schedule-fields-for-id3-segment-tags.md "schedule-fields-for-id3-segment-tags.md").
+For information about the meaning and values for the fields in the following JSON, see [Fields for ID3 segment tags](schedule-fields-for-id3-segment-tags.md).
 
-**Payload for the HlsId3SegmentTaggingSettings
-action**
+**Payload for the HlsId3SegmentTaggingSettings action**
 
 ```
 {
@@ -27,11 +28,9 @@ action**
   }
  ]
 }
-
 ```
 
-**Payload for the Id3SegmentTaggingSettings
-action**
+**Payload for the Id3SegmentTaggingSettings action**
 
 ```
 {
@@ -54,20 +53,12 @@ action**
   }
  ]
 }
-
 ```
 
 ## Example using the tag property
+<a name="json-id3-segment-example"></a>
 
-This example of a request
-uses the
-`HlsId3SegmentTaggingSettings` action. It
-creates an ID3 segment tag to be inserted starting at
-13:35:59 UTC. This example uses the `Tag` property
-,
-which means that you specify only the content of the `value` for
-the `TXXX` field. In this example, the content is the date, time,
-and number of the segment.
+This example of a request uses the `HlsId3SegmentTaggingSettings` action. It creates an ID3 segment tag to be inserted starting at 13:35:59 UTC. This example uses the `Tag` property , which means that you specify only the content of the `value` for the `TXXX` field. In this example, the content is the date, time, and number of the segment. 
 
 ```
 {
@@ -90,15 +81,12 @@ and number of the segment.
     ]
   }
 }
-
 ```
 
 ## Example using the Id3 property
+<a name="json-ide-segment-id3-example"></a>
 
-This example of a request creates an ID3 segment tag to be inserted
-immediately. This example uses the `Id3`
-property,
-which means that the content is encoded as base64.
+This example of a request creates an ID3 segment tag to be inserted immediately. This example uses the `Id3` property, which means that the content is encoded as base64.
 
 ```
 {
@@ -120,5 +108,4 @@ which means that the content is encoded as base64.
     ]
   }
 }
-
 ```

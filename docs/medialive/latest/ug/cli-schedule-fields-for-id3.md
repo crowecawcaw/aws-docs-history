@@ -1,10 +1,11 @@
+
+
 # ID3 metadata item – payload
+<a name="cli-schedule-fields-for-id3"></a>
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for ID3 metadata](schedule-fields-for-id3-userdata.md "schedule-fields-for-id3-userdata.md").
+For information about the meaning and values for the fields in the following JSON, see [Fields for ID3 metadata](schedule-fields-for-id3-userdata.md).
 
-**Payload for the HlsTimedMetadataSettings
-action**
+**Payload for the HlsTimedMetadataSettings action**
 
 ```
 {
@@ -26,11 +27,9 @@ action**
   }
  ]
 }
-
 ```
 
-**Payload for the TimedMetadataSettings
-action**
+**Payload for the TimedMetadataSettings action**
 
 ```
 {
@@ -52,17 +51,12 @@ action**
   }
  ]
 }
-
 ```
 
 ## Example
+<a name="json-id3-example"></a>
 
-This example of a request
-uses the
-`HlsTimedMetadataSettings` action. It
-creates ID3 metadata to be inserted
-in a
-appropriate output groups at 13:35:59 UTC.
+This example of a request uses the `HlsTimedMetadataSettings` action. It creates ID3 metadata to be inserted in a appropriate output groups at 13:35:59 UTC.
 
 ```
 {
@@ -85,5 +79,4 @@ appropriate output groups at 13:35:59 UTC.
     ]
   }
 }
-
 ```

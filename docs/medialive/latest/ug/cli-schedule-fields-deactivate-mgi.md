@@ -1,7 +1,9 @@
-# Deactivate motion graphic overlay – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for deactivating a motion graphics overlay](schedule-fields-for-mg-deactivate.md "schedule-fields-for-mg-deactivate.md").
+
+# Deactivate motion graphic overlay – payload
+<a name="cli-schedule-fields-deactivate-mgi"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for deactivating a motion graphics overlay](schedule-fields-for-mg-deactivate.md).
 
 ```
 {
@@ -25,13 +27,12 @@ JSON, see [Fields for deactivating a motion graphics overlay](schedule-fields-fo
   ]
  }
 }
-
 ```
 
 ## Example
+<a name="json-deactivate-mgi-example"></a>
 
-This example of a request creates an action to end a
-motion graphic overlay at 23:59:00.000 (UTC). :
+This example of a request creates an action to end a motion graphic overlay at 23:59:00.000 (UTC). :
 
 ```
 {
@@ -52,5 +53,4 @@ motion graphic overlay at 23:59:00.000 (UTC). :
   ]
  }
 }
-
 ```

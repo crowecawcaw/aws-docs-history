@@ -1,7 +1,9 @@
-# Activate global image action – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for activating a global image overlay](schedule-fields-for-activate-image.md "schedule-fields-for-activate-image.md").
+
+# Activate global image action – payload
+<a name="cli-schedule-fields-for-activate-image"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for activating a global image overlay](schedule-fields-for-activate-image.md).
 
 ```
 {
@@ -42,13 +44,9 @@ JSON, see [Fields for activating a global image overlay](schedule-fields-for-act
 ```
 
 ## Example
+<a name="json-activate-image-example"></a>
 
-This example of a request creates an image overlay to be inserted in every
-video output in every output group in the channel. The overlay uses a file
-that is stored in an Amazon S3 bucket. The request doesn't include a duration and
-therefore doesn't include a fadeout. Instead, the intention is to send a
-separate deactivate request at the appropriate time. All the times are in
-milliseconds, and all the positioning values are in pixels:
+This example of a request creates an image overlay to be inserted in every video output in every output group in the channel. The overlay uses a file that is stored in an Amazon S3 bucket. The request doesn't include a duration and therefore doesn't include a fadeout. Instead, the intention is to send a separate deactivate request at the appropriate time. All the times are in milliseconds, and all the positioning values are in pixels:
 
 ```
 {
@@ -82,5 +80,4 @@ milliseconds, and all the positioning values are in pixels:
     ]
   }
 }
-
 ```

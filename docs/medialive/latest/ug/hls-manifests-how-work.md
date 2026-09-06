@@ -1,102 +1,92 @@
+
+
 # How manifests work
+<a name="hls-manifests-how-work"></a>
 
 The following sections describe how MediaLive handles manifest paths.
 
 ## How manifest paths work by default
+<a name="hls-default-manifest-paths"></a>
 
-The manifests that MediaLive creates include information about the paths to other files,
-specifically:
+The manifests that MediaLive creates include information about the paths to other files, specifically:
++ The content inside the main manifest includes a path to each child manifest.
 
-- The content inside the main manifest includes a path to each child manifest.
+  By default, the syntax of this path is the following: 
 
-By default, the syntax of this path is the following:
+  ```
+  baseFilename nameModifier extension
+  ```
 
-```
-baseFilename nameModifier extension
-```
+  For example:
 
-For example:
+  ```
+  curling-high.m3u8
+  ```
 
-```
-curling-high.m3u8
-```
+  The path is relative to the location of the main manifest.
++ The content inside each child manifest includes a path to its media files.
 
-The path is relative to the location of the main manifest.
+  By default, the syntax of this path is the following:
 
-- The content inside each child manifest includes a path to its media files.
+  ```
+  baseFilename nameModifier optionalSegmentModifier counter extension
+  ```
 
-By default, the syntax of this path is the following:
+  For example:
 
-```
-baseFilename nameModifier optionalSegmentModifier counter extension
-```
+  ```
+  curling-high-000001.ts
+  ```
 
-For example:
-
-```
-curling-high-000001.ts
-```
-
-The path is relative to the location of the child manifest.
+  The path is relative to the location of the child manifest.
 
 ## How custom paths work
+<a name="hls-custom-manifest-paths"></a>
 
-If the default paths inside the manifests are not suitable for the way that the downstream
-system handles the three sets of files, you can complete the _base
-URL_ fields:
-
-- Complete the **Base URL manifest** fields so that MediaLive constructs
-  custom paths to the child manifests.
-- Complete the **Base URL content** fields so that MediaLive constructs custom
-  paths to the media files.
+If the default paths inside the manifests are not suitable for the way that the downstream system handles the three sets of files, you can complete the *base URL* fields:
++ Complete the **Base URL manifest** fields so that MediaLive constructs custom paths to the child manifests. 
++ Complete the **Base URL content** fields so that MediaLive constructs custom paths to the media files. 
 
 When you customize the paths, the syntax changes.
++ When you complete the **Base URL manifest** fields, the syntax for the child manifest path (inside the main manifest) is the following: 
 
-- When you complete the **Base URL manifest** fields, the syntax for the
-  child manifest path (inside the main manifest) is the following:
+  ```
+  baseURLManifest baseFilename nameModifier extension
+  ```
 
-```
-baseURLManifest baseFilename nameModifier extension
-```
+  For example:
 
-For example:
+  ```
+  http://viewing/sports/curling-high.m3u8
+  ```
++ When you complete the **Base URL content** fields, the syntax for the media file paths (inside the child manifests) is the following: 
 
-```
-http://viewing/sports/curling-high.m3u8
-```
+  ```
+  baseURLContent baseFilename nameModifier optionalSegmentModifier counter
+          extension
+  ```
 
-- When you complete the **Base URL content** fields, the syntax for the
-  media file paths (inside the child manifests) is the following:
+  For example:
 
-```
-baseURLContent baseFilename nameModifier optionalSegmentModifier counter
-        extension
-```
-
-For example:
-
-```
-http://viewing/media/sports/curling-high-000001.ts
-```
+  ```
+  http://viewing/media/sports/curling-high-000001.ts
+  ```
 
 ## How MediaLive constructs these paths
+<a name="hls-how-construct-custom-paths"></a>
 
 The custom paths to the child manifests are constructed as follows:
++ You complete the **Base URL manifest** fields, or the **Base URL content** fields, or both. 
 
-- You complete the **Base URL manifest** fields, or the **Base URL
-  content** fields, or both.
+  For example:
 
-For example:
+  ```
+  http://198.51.100/sports/viewing/
+  ```
 
-```
-http://198.51.100/sports/viewing/
-```
+  Note the slash at the end of the value.
++ MediaLive prepends that value to the [default path](#hls-default-manifest-paths). For example:
 
-Note the slash at the end of the value.
-
-- MediaLive prepends that value to the [default
-  path](#hls-default-manifest-paths "#hls-default-manifest-paths"). For example:
-
-```
-http://198.51.100/sports/viewing/curling-high.m3u8
-```
+  ```
+  http://198.51.100/sports/viewing/curling-high.m3u8
+  ```

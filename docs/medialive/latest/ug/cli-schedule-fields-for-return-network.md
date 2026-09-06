@@ -1,7 +1,9 @@
-# Return-to-network message – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for a return-to-network message](schedule-fields-for-return-to-network.md "schedule-fields-for-return-to-network.md").
+
+# Return-to-network message – payload
+<a name="cli-schedule-fields-for-return-network"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for a return-to-network message](schedule-fields-for-return-to-network.md).
 
 ```
 {
@@ -21,19 +23,18 @@ JSON, see [Fields for a return-to-network message](schedule-fields-for-return-to
    "ActionName": "string",
    "ScheduleActionSettings": {
     "Scte35ReturnToNetworkSettings": {
-     "SpliceEventId": integer
+     "SpliceEventId": integer                
     }
    }
   }
  ]
 }
-
 ```
 
 ## Example
+<a name="json-return-network-example"></a>
 
-This example of a request creates a return-to-network
-with a UTC start time of 20:42:19.
+This example of a request creates a return-to-network with a UTC start time of 20:42:19.
 
 ```
 {
@@ -55,5 +56,4 @@ with a UTC start time of 20:42:19.
     ]
   }
 }
-
 ```

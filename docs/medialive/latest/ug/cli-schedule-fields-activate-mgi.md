@@ -1,7 +1,9 @@
-# Activate motion graphic overlay – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for activating a motion graphics overlay](schedule-fields-for-mg.md "schedule-fields-for-mg.md").
+
+# Activate motion graphic overlay – payload
+<a name="cli-schedule-fields-activate-mgi"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for activating a motion graphics overlay](schedule-fields-for-mg.md).
 
 ```
 {
@@ -31,14 +33,9 @@ JSON, see [Fields for activating a motion graphics overlay](schedule-fields-for-
 ```
 
 ## Example
+<a name="json-activate-mgi-example"></a>
 
-This example of a request creates a motion graphics
-overlay action called mg\_ticker\_tape. The motion graphic
-asset is stored at http://example.com/ticker\_tape.html.
-This server requires user credentials. The request
-doesn't include a duration. Instead, the intention is to
-send a separate deactivate request at the appropriate
-time.
+This example of a request creates a motion graphics overlay action called mg\_ticker\_tape. The motion graphic asset is stored at http://example.com/ticker\_tape.html. This server requires user credentials. The request doesn't include a duration. Instead, the intention is to send a separate deactivate request at the appropriate time. 
 
 ```
 {

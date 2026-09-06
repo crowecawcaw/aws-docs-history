@@ -1,7 +1,9 @@
-# Pause pipeline action – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for pause](schedule-fields-for-pause.md "schedule-fields-for-pause.md").
+
+# Pause pipeline action – payload
+<a name="cli-schedule-fields-for-pause"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for pause](schedule-fields-for-pause.md).
 
 ```
 {
@@ -27,16 +29,12 @@ JSON, see [Fields for pause](schedule-fields-for-pause.md "schedule-fields-for-p
   }
  ]
 }
-
 ```
 
 ## Example: Pausing one pipeline
+<a name="json-pause-example"></a>
 
-This example of a request pauses pipeline 0 at
-20:42:19 UTC. MediaLive always reads the command
-as:_set the specified
-pipeline or pipelines to pause and set all other
-pipelines to unpaused._
+This example of a request pauses pipeline 0 at 20:42:19 UTC. MediaLive always reads the command as:*set the specified pipeline or pipelines to pause and set all other pipelines to unpaused.*
 
 ```
 {
@@ -63,22 +61,15 @@ pipelines to unpaused._
     ]
   }
 }
-
 ```
 
 ## Example: Unpausing both pipelines
+<a name="json-unpause-example"></a>
 
-This example of a request unpauses all pipelines that
-are currently paused.
+This example of a request unpauses all pipelines that are currently paused. 
 
-###### Note
-
-MediaLive always reads the command as:_set the specified pipeline or
-pipelines to pause and set all other pipelines
-to unpaused._ In this example, the
-`Pipelines` array is empty. MediaLive
-interprets this empty array as: _set all pipelines to
-unpaused_.
+**Note**  
+MediaLive always reads the command as:*set the specified pipeline or pipelines to pause and set all other pipelines to unpaused.* In this example, the `Pipelines` array is empty. MediaLive interprets this empty array as: *set all pipelines to unpaused*.
 
 ```
 {

@@ -1,7 +1,9 @@
-# Time\_signal message – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for a time\_signal message](schedule-fields-for-time-signal.md "schedule-fields-for-time-signal.md").
+
+# Time\_signal message – payload
+<a name="cli-schedule-fields-for-time-signal"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for a time\_signal message](schedule-fields-for-time-signal.md).
 
 ```
 {
@@ -50,18 +52,12 @@ JSON, see [Fields for a time\_signal message](schedule-fields-for-time-signal.md
   }
  ]
 }
-
 ```
 
 ## Example
+<a name="json-time-signal-example"></a>
 
-This example of a request creates an action for a
-time\_signal with a UTC start time of 20:42:04.000 and
-with a unique integer for
-`SegmentationEventId`. For the
-restrictions fields, `NoRegionalBlackoutFlag`
-has a restriction set (regional blackouts are in
-place).
+This example of a request creates an action for a time\_signal with a UTC start time of 20:42:04.000 and with a unique integer for `SegmentationEventId`. For the restrictions fields, `NoRegionalBlackoutFlag` has a restriction set (regional blackouts are in place).
 
 ```
 {

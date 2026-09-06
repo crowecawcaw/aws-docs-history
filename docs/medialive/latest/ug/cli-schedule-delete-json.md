@@ -1,10 +1,9 @@
-# JSON payload for delete actions
 
-In the `Deletes` section, include the list of
-actions to delete by entering an array of
-`ActionNames`. The array contains one or more
-action names. You can obtain these action names using the
-`DescribeChannel` command (see [Viewing the schedule (AWS CLI)](viewing-schedule-using-cli.md "viewing-schedule-using-cli.md").
+
+# JSON payload for delete actions
+<a name="cli-schedule-delete-json"></a>
+
+ In the `Deletes` section, include the list of actions to delete by entering an array of `ActionNames`. The array contains one or more action names. You can obtain these action names using the `DescribeChannel` command (see [Viewing the schedule (AWS CLI)](viewing-schedule-using-cli.md).
 
 ```
 {
@@ -15,14 +14,12 @@ action names. You can obtain these action names using the
     ]
   }
 }
-
 ```
 
 ## Example
+<a name="cli-schedule-delete-json-example"></a>
 
-This example of a request deletes the three actions
-identified by `ActionNames` that were assigned
-when you created the actions.
+This example of a request deletes the three actions identified by `ActionNames` that were assigned when you created the actions.
 
 ```
 {
@@ -35,5 +32,4 @@ when you created the actions.
       ]
   }
 }
-
 ```

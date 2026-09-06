@@ -1,7 +1,9 @@
-# Deactivate per-outputs overlay action – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for deactivating a per-outputs image overlay](schedule-fields-deactivate-image-per-output.md "schedule-fields-deactivate-image-per-output.md").
+
+# Deactivate per-outputs overlay action – payload
+<a name="cli-schedule-fields-for-deactivate-image-per-output"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for deactivating a per-outputs image overlay](schedule-fields-deactivate-image-per-output.md).
 
 ```
 {
@@ -27,17 +29,14 @@ JSON, see [Fields for deactivating a per-outputs image overlay](schedule-fields-
   }
  ]
 }
-
 ```
 
 ## Example
+<a name="cli-schedule-fields-for-deactivate-image-per-output-example"></a>
 
-The deactivate action deactivates the image in the specified per-output
-layer, in the specified output or outputs.
+The deactivate action deactivates the image in the specified per-output layer, in the specified output or outputs.
 
-In this example, which follows on from the activate example, the action
-removes all image overlays that are in per-outputs layer 4 in the output
-hls-high-res.
+In this example, which follows on from the activate example, the action removes all image overlays that are in per-outputs layer 4 in the output hls-high-res. 
 
 ```
 {
@@ -64,5 +63,4 @@ hls-high-res.
     ]
   }
 }
-
 ```

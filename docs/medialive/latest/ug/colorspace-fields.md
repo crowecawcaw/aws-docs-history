@@ -1,21 +1,29 @@
+
+
 # Reference: Location of fields
+<a name="colorspace-fields"></a>
 
-Read this section if you know how to handle color space in MediaLive, and you only need a
-reminder of where the fields are located in the MediaLive Console.
+Read this section if you know how to handle color space in MediaLive, and you only need a reminder of where the fields are located in the MediaLive Console.
 
-| Topic                                                                                      | Location on the Channel page           | Field                                                                                                                    |
-| ------------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Input handling                                                                             | **Input attachments**                  | **Video Selector**                                                                                                       | **Color space**          |
-| **Color space usage**                                                                      |
-| Enter the display metadata for an input from a AWS Elemental Link device                   | **Input attachments**                  | **Video Selector**, then **Color space<br>settings**                                                                     | **Max CLL**              |
-| **Max Fall**                                                                               |
-| Output, configure the video codec                                                          | **Output groups**, then<br>**Outputs** | **Stream settings**, then **Video**                                                                                      | **Codec settings**       |
-| **Stream settings**, then<br>**Video**, then **Codec settings**, then<br>**Codec details** | **Profile**                            |
-| **Tier**                                                                                   |
-| **Level**                                                                                  |
-| Output, convert the color space                                                            | **Output groups**, then **Outputs**    | **Stream settings**, then **Video**, then<br>**Color space**                                                             | **Color space settings** |
-| Output, include or omit color space metadata                                               | **Output groups**, then **Outputs**    | **Stream settings**, then **Video**, then<br>**Codec settings**, then **Codec details**, then<br>**Additional settings** | **Color metadata**       |
-| Output, specify display metadata to include, only if you are<br>converting to HDR10        | **Output groups**, then<br>**Outputs** | **Stream settings**, then<br>**Video**, then **Color space**, then<br>**Color space settings**                           | **Max CLL**              |
-| **Max Fall**                                                                               |
-| Output, set up enhanced VQ, only if the output codec is<br>H.264                           | **Output groups**, then<br>**Outputs** | **Stream settings**, then<br>**Video**, then **Codec settings**, then<br>**Additional encoding settings**                | **Quality level**        |
-| **Filter settings**                                                                        |
+
+<table>
+<thead>
+  <tr><th>Topic</th><th colspan="2">Location on the Channel page</th><th>Field</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2">Input handling</td><td rowspan="2"><b>Input attachments</b></td><td rowspan="2"><b>Video Selector</b></td><td><b>Color space</b></td></tr>
+  <tr><td><b>Color space usage</b></td></tr>
+  <tr><td rowspan="2">Enter the display metadata for an input from a AWS Elemental Link device</td><td rowspan="2"><b>Input attachments</b></td><td rowspan="2"><b>Video Selector</b>, then <b>Color space settings</b></td><td><b>Max CLL</b></td></tr>
+  <tr><td><b>Max Fall</b></td></tr>
+  <tr><td rowspan="4">Output, configure the video codec</td><td rowspan="4"><b>Output groups</b>, then <b>Outputs</b></td><td><b>Stream settings</b>, then <b>Video</b> </td><td><b>Codec settings</b></td></tr>
+  <tr><td rowspan="3"><b>Stream settings</b>, then <b>Video</b>, then <b>Codec settings</b>, then <b>Codec details</b></td><td><b>Profile</b></td></tr>
+  <tr><td><b>Tier</b></td></tr>
+  <tr><td><b>Level</b></td></tr>
+  <tr><td>Output, convert the color space</td><td><b>Output groups</b>, then <b>Outputs</b></td><td><b>Stream settings</b>, then <b>Video</b>, then <b>Color space</b></td><td> <b>Color space settings</b></td></tr>
+  <tr><td>Output, include or omit color space metadata</td><td><b>Output groups</b>, then <b>Outputs</b></td><td><b>Stream settings</b>, then <b>Video</b>, then <b>Codec settings</b>, then <b>Codec details</b>, then <b>Additional settings</b></td><td><b>Color metadata</b></td></tr>
+  <tr><td rowspan="2">Output, specify display metadata to include, only if you are converting to HDR10</td><td rowspan="2"><b>Output groups</b>, then <b>Outputs</b></td><td rowspan="2"><b>Stream settings</b>, then <b>Video</b>, then <b>Color space</b>, then <b>Color space settings</b></td><td><b>Max CLL</b></td></tr>
+  <tr><td><b>Max Fall</b></td></tr>
+  <tr><td rowspan="2">Output, set up enhanced VQ, only if the output codec is H.264</td><td rowspan="2"><b>Output groups</b>, then <b>Outputs</b></td><td rowspan="2"><b>Stream settings</b>, then <b>Video</b>, then <b>Codec settings</b>, then <b>Additional encoding settings</b></td><td><b>Quality level</b></td></tr>
+  <tr><td><b>Filter settings</b></td></tr>
+</tbody>
+</table>

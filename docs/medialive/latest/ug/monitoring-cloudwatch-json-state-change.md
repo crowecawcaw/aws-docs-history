@@ -1,18 +1,15 @@
+
+
 # JSON for a state change event
+<a name="monitoring-cloudwatch-json-state-change"></a>
 
-Events that are based on a change of state in a [channel or
-multiplex](monitor-activity-types-channel.md "monitor-activity-types-channel.md") are identified by their `detail-type`
-property:
+Events that are based on a change of state in a [channel or multiplex](monitor-activity-types-channel.md) are identified by their `detail-type` property:
++ `MediaLive Channel State Change` for a channel
++ `MediaLive Multiplex State Change` for a multiplex.
 
-- `MediaLive Channel State Change` for a
-  channel
+**Example**
 
-- `MediaLive Multiplex State Change` for a
-  multiplex.
-  **Example**
-
-Following is an example of the JSON payload for a state
-change event. Note the `detail-type` in line 3.
+Following is an example of the JSON payload for a state change event. Note the `detail-type` in line 3.
 
 ```
 {

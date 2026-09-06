@@ -1,7 +1,9 @@
-# Activate per-outputs image action – payload
 
-For information about the meaning and values for the fields in the following
-JSON, see [Fields for activating a per-outputs image overlay](schedule-fields-activate-image-per-output.md "schedule-fields-activate-image-per-output.md").
+
+# Activate per-outputs image action – payload
+<a name="cli-schedule-fields-for-activate-image-per-output"></a>
+
+For information about the meaning and values for the fields in the following JSON, see [Fields for activating a per-outputs image overlay](schedule-fields-activate-image-per-output.md).
 
 ```
 {
@@ -45,16 +47,11 @@ JSON, see [Fields for activating a per-outputs image overlay](schedule-fields-ac
 ```
 
 ## Example
+<a name="json-deactivate-image-per-output-example"></a>
 
-This example of a request creates an image overlay to be inserted in
-specific outputs in the channel. The overlay uses a file that is stored in
-an Amazon S3 bucket. The request inserts the image in the outputs
-`hls-high-res` and `mss-high-res`.
-The image is sized appropriately for the video resolution in these outputs.
+This example of a request creates an image overlay to be inserted in specific outputs in the channel. The overlay uses a file that is stored in an Amazon S3 bucket. The request inserts the image in the outputs `hls-high-res` and `mss-high-res`. The image is sized appropriately for the video resolution in these outputs. 
 
-The request is intended to be always present. Therefore, it is set up to
-start immediately (as soon as the channel starts). All the times are in
-milliseconds, and all the positioning values are in pixels:
+The request is intended to be always present. Therefore, it is set up to start immediately (as soon as the channel starts). All the times are in milliseconds, and all the positioning values are in pixels:
 
 ```
 {
@@ -62,7 +59,7 @@ milliseconds, and all the positioning values are in pixels:
   "Creates": {
   "ScheduleActions": [
     {
-        "ScheduleActionStartSettings":
+        "ScheduleActionStartSettings": 
           {
           "ImmediateModeScheduleActionStartSettings": {
           }
@@ -90,5 +87,4 @@ milliseconds, and all the positioning values are in pixels:
     ]
   }
 }
-
 ```

@@ -1,4 +1,7 @@
+
+
 # MediaLive Anywhere usage types
+<a name="billing-medialive-anywhere"></a>
 
 MediaLive Anywhere (EMLA) uses a simpler format than cloud-based channels:
 

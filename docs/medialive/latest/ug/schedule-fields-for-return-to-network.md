@@ -1,14 +1,17 @@
+
+
 # Fields for a return-to-network message
+<a name="schedule-fields-for-return-to-network"></a>
 
-This table shows the fields that apply for an action to insert a
-return-to-network SCTE 35 message.
+This table shows the fields that apply for an action to insert a return-to-network SCTE 35 message.
 
-| Field                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Action type**           | SCTE 35 Return to Network.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Action name**           | A name for this return-to-network action. For example,<br>`splice0003_ return_early`.                                                                                                                                                                                                                                                                                                                                                          |
-| **Start type**            | *_Fixed_<br>• or *_Follow_<br>• or<br>**Immediate**.                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Date and time**         | If the *_Start type_<br>• is<br>**Fixed**, specify the UTC start time<br>for the return. The time should be at least 15 seconds in<br>the future.<br>Note that the time is the wall clock time, not the<br>timecode in the input.                                                                                                                                                                                                              |
-| **Reference action name** | If the *_Start type_<br>• is<br>**Follow**, choose the input to follow.<br>The dropdown list shows all existing input switches that are<br>file inputs. Remember that a SCTE 35 action can follow input<br>A only if input A is a file input and the source end<br>behavior for input A is _continue_.<br>For information about these switching rules, see [Fixed, immediate, and follow switches](ips-switch-types.md "ips-switch-types.md"). |
-| **Follow point**          | If the *_Start type_<br>• is<br>**Follow**, complete this field. The follow<br>point is always **End**, to indicate that the<br>switch will occur when the input in *_Reference action<br>name_<br>• has finished.                                                                                                                                                                                                                             |
-| **Splice event id**       | The ID of the splice\_insert that the return-to-network should<br>end. You assigned this ID when you created the<br>splice\_insert.                                                                                                                                                                                                                                                                                                            |
+
+| Field | Description | 
+| --- | --- | 
+| Action type | SCTE 35 Return to Network. | 
+| Action name | A name for this return-to-network action. For example, splice0003\_ return\_early. | 
+|  Start type  | Fixed or Follow or Immediate. | 
+| Date and time | If the **Start type** is **Fixed**, specify the UTC start time for the return. The time should be at least 15 seconds in the future.<br />Note that the time is the wall clock time, not the timecode in the input. | 
+| Reference action name | If the **Start type** is **Follow**, choose the input to follow. The dropdown list shows all existing input switches that are file inputs. Remember that a SCTE 35 action can follow input A only if input A is a file input and the source end behavior for input A is *continue*.<br />For information about these switching rules, see [Fixed, immediate, and follow switches](ips-switch-types.md). | 
+| Follow point | If the Start type is Follow, complete this field. The follow point is always End, to indicate that the switch will occur when the input in Reference action name has finished. | 
+| Splice event id | The ID of the splice\_insert that the return-to-network should end. You assigned this ID when you created the splice\_insert. | 

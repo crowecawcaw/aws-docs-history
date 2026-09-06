@@ -1,36 +1,51 @@
+
+
 # Captions formats supported in HLS or MediaPackage outputs
+<a name="supported-formats-hls-output"></a>
 
-In this table, look up your input container and captions type. Then read across to
-find the caption formats that are supported in MediaLive when you have this input container
-and captions type, and produce these outputs:
+In this table, look up your input container and captions type. Then read across to find the caption formats that are supported in MediaLive when you have this input container and captions type, and produce these outputs:
++ HLS output 
++ MediaPackage output with an HLS container
 
-- HLS output
-- MediaPackage output with an HLS container
+**Note**  
+You can also produce subtitles without a caption source in your input. Enable the Smart Subtitles feature, which uses AWS Elemental Inference to generate subtitles from the audio. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md).
 
-###### Note
 
-You can also produce subtitles without a caption source in your input.
-Enable the Smart Subtitles feature, which uses AWS Elemental Inference to generate
-subtitles from the audio. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md "elemental-inference-automatic-subtitling.md").
 
-| Source caption container                                                                                          | Source caption input  | Supported output captions |
-| ----------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------- |
-| CDI container                                                                                                     | ARIB                  | None                      |
-| Embedded                                                                                                          | Burn-inEmbeddedWebVTT |
-| Teletext                                                                                                          | Teletext              |
-| HLS container                                                                                                     | Embedded              | Burn-inEmbeddedWebVTT     |
-| SCTE-20                                                                                                           | Burn-inEmbeddedWebVTT |
-| Link container                                                                                                    | Embedded              | Burn-inEmbeddedWebVTT     |
-| Teletext                                                                                                          | Burn-inWebVTT         |
-| MP4 container                                                                                                     | Ancillary             | Burn-inEmbeddedWebVTT     |
-| Embedded or Embedded+SCTE-20                                                                                      | Burn-inEmbeddedWebVTT |
-| RTMP container                                                                                                    | Embedded              | Burn-inEmbeddedWebVTT     |
-| MPEG-TS container (through MediaConnect or through<br>the RTP or SRT protocols)                                   | ARIB                  | None                      |
-| DVB-Sub                                                                                                           | Burn-inWebVTT         |
-| Embedded or Embedded+SCTE-20                                                                                      | Burn-inEmbeddedWebVTT |
-| SCTE-20                                                                                                           | Burn-inEmbeddedWebVTT |
-| SCTE-27                                                                                                           | Burn-inWebVTT         |
-| Teletext                                                                                                          | Burn-inWebVTT         |
-| SMPTE 2110                                                                                                        | Embedded              | Burn-inWebVTT             |
-| Teletext                                                                                                          | Burn-inWebVTT         |
-| All input containers(Smart Subtitles generates subtitles from the source audio, not from captions in the source.) | Smart Subtitles       | WebVTT                    |
+- **CDI container**
+  - **Source caption input:** ARIB / **Supported output captions:** None
+  - **Source caption input:** Embedded / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+  - **Source caption input:** Teletext / **Supported output captions:** Teletext
+
+- **HLS container**
+  - **Source caption input:** Embedded / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+  - **Source caption input:** SCTE-20 / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+
+- **Link container**
+  - **Source caption input:** Embedded / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+  - **Source caption input:** Teletext / **Supported output captions:** Burn-inWebVTT
+
+- **MP4 container**
+  - **Source caption input:** Ancillary / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+  - **Source caption input:** Embedded or Embedded\+SCTE-20 / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+
+- **RTMP container**
+  - **Source caption input:** Embedded
+  - **Supported output captions:** Burn-inEmbedded<br />WebVTT
+
+- **MPEG-TS container (through MediaConnect or through the RTP or SRT protocols)**
+  - **Source caption input:** ARIB / **Supported output captions:** None
+  - **Source caption input:** DVB-Sub / **Supported output captions:** Burn-inWebVTT
+  - **Source caption input:** Embedded or Embedded\+SCTE-20 / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+  - **Source caption input:** SCTE-20 / **Supported output captions:** Burn-inEmbedded<br />WebVTT
+  - **Source caption input:** SCTE-27 / **Supported output captions:** Burn-inWebVTT
+  - **Source caption input:** Teletext / **Supported output captions:** Burn-inWebVTT
+
+- **SMPTE 2110**
+  - **Source caption input:** Embedded / **Supported output captions:** Burn-inWebVTT
+  - **Source caption input:** Teletext / **Supported output captions:** Burn-inWebVTT
+
+- **All input containers(Smart Subtitles generates subtitles from the source audio, not from captions in the source.)**
+  - **Source caption input:** Smart Subtitles
+  - **Supported output captions:** WebVTT
+

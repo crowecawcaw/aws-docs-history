@@ -1,106 +1,54 @@
+
+
 # Fields for the output destination
+<a name="smooth-destinations"></a>
 
-The following fields configure the destination of each
-Microsoft Smooth output.
-
-- **Output group** –
-  **Microsoft Smooth group
-  destination** section
-- **Output group – Event configuration
-  – Event ID mode**
-- **Output group – Event configuration
-  – Event ID**
-- **Microsoft Smooth settings**
-  section – **General
-  configuration** section:
-
-  - **Connection retry
-    interval**
-  - **Num retries**
-  - **Filecache
-    duration**
-  - **Restart delay**
-  - **Certificate
-    mode**
+The following fields configure the destination of each Microsoft Smooth output.
++ **Output group** – **Microsoft Smooth group destination** section
++ **Output group – Event configuration – Event ID mode** 
++ **Output group – Event configuration – Event ID**
++ **Microsoft Smooth settings** section – **General configuration** section:
+  + **Connection retry interval** 
+  + **Num retries**
+  + **Filecache duration**
+  + **Restart delay**
+  + **Certificate mode**
 
 ## Complete the fields on the console
+<a name="smooth-specify-destination"></a>
 
-The full path for each output in a Microsoft Smooth
-output group consists of the following:
+The full path for each output in a Microsoft Smooth output group consists of the following:
 
-`URL eventID streamInformation`
+`URL eventID streamInformation `
++ The URL and event ID are know as the *publishing points*. For example:
 
-- The URL and event ID are know as the _publishing points_.
-  For example:
+  `https://203.0.113.18/sports/Events(1585232182)`
++ MediaLive generates the event ID using information that you provide. For more information, expand **Event Configuration** on the console, and choose the **Info **link next to each field.
++ MediaLive generates the stream ID. It assigns a unique number to the stream, starting from 0. For example: `/Streams(stream0)`.
 
-`https://203.0.113.18/sports/Events(1585232182)`
+  You will be able to see the stream information when you look at the MediaLive logs for the output.
 
-- MediaLive generates the event ID using information
-  that you provide. For more information, expand
-  **Event Configuration** on
-  the console, and choose the **Info** link next to each field.
-- MediaLive generates the stream ID. It assigns a
-  unique number to the stream, starting from 0.
-  For example:
-  `/Streams(stream0)`.
+**To specify the path and connection to the downstream system**
 
-You will be able to see the stream information
-when you look at the MediaLive logs for the
-output.
+1. Complete the **URL** fields in the **Microsoft Smooth group destinations** section. Specify two destinations if the channel is set up as a standard channel, or one destination if it is set up as a single-pipeline channel. Don't worry about the event ID. You will specify that in another field.
 
-###### To specify the path and connection to the downstream system
+    For example:
 
-1. Complete the **URL** fields
-   in the **Microsoft Smooth group
-   destinations** section. Specify two
-   destinations if the channel is set up as a
-   standard channel, or one destination if it is
-   set up as a single-pipeline channel. Don't worry
-   about the event ID. You will specify that in
-   another field.
+   `https://203.0.113.55/sports/curling`
 
-For example:
+   `https://203.0.113.82/sports/curling`
 
-`https://203.0.113.55/sports/curling`
+1. Complete the **Credentials** section, if the downstream system provided you with a user name and password. For the password, enter the name of the password stored on the AWS Systems Manager Parameter Store. Don't enter the password itself. For more information, see [Requirements for AWS Systems Manager password parameters](requirements-for-EC2.md). 
 
-`https://203.0.113.82/sports/curling` 2. Complete the **Credentials**
-section, if the downstream system provided you
-with a user name and password. For the password,
-enter the name of the password stored on the
-AWS Systems Manager Parameter Store. Don't enter the
-password itself. For more information, see [Requirements for AWS Systems Manager password parameters](requirements-for-EC2.md "requirements-for-EC2.md"). 3. If you obtained values to configure the
-connection, enter those values in the
-**General configuration**
-section on the **Microsoft Smooth
-group** page. 4. Set up the event ID in the following fields:
+1. If you obtained values to configure the connection, enter those values in the **General configuration** section on the **Microsoft Smooth group** page.
 
-**Output group settings – Event
-configuration – Event ID
-Mode**
+1. Set up the event ID in the following fields: 
 
-**Output group settings – Event
-configuration – Event
-ID**
+   **Output group settings – Event configuration – Event ID Mode**
 
-You can set up the event ID in three
-ways:
+   **Output group settings – Event configuration – Event ID**
 
-    * With an event ID that you specify –
-     Set **Event ID mode**
-     to **USE\_CONFIGURED**.
-     Then specify the ID. For example,
-     `curling`. The
-     event ID will look like this:
-     `/Events(curling)`
-    * With a timestamp – Set **Event
-     ID mode** to
-     **USE\_TIMESTAMP**.
-     MediaLive generates a Unix timecode based on
-     the time that you start the channel. The
-     event ID will look like this:
-     `/Events(1585232182)`
-    * With no event ID – set **Event
-     ID mode** to
-     **NO\_EVENT\_ID**. We
-     strongly recommend that you don't use
-     this method.
+   You can set up the event ID in three ways:
+   + With an event ID that you specify – Set **Event ID mode** to **USE\_CONFIGURED**. Then specify the ID. For example, **curling**. The event ID will look like this: **/Events(curling)**
+   + With a timestamp – Set **Event ID mode** to **USE\_TIMESTAMP**. MediaLive generates a Unix timecode based on the time that you start the channel. The event ID will look like this: **/Events(1585232182)**
+   + With no event ID – set **Event ID mode** to **NO\_EVENT\_ID**. We strongly recommend that you don't use this method.
