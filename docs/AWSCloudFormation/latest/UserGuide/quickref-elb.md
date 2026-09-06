@@ -1,20 +1,21 @@
+
+
 # Elastic Load Balancing template snippets
+<a name="quickref-elb"></a>
 
-To create an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer, use the V2 resource types, which start with `AWS::ElasticLoadBalancingV2`.
-To create a Classic Load Balancer, use the resource types that start with `AWS::ElasticLoadBalancing`.
+To create an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer, use the V2 resource types, which start with `AWS::ElasticLoadBalancingV2`. To create a Classic Load Balancer, use the resource types that start with `AWS::ElasticLoadBalancing`.
 
-###### Contents
-
-- [ELBv2 resources](#scenario-elbv2-load-balancer "#scenario-elbv2-load-balancer")
-- [Classic Load Balancer resources](#scenario-elb-load-balancer "#scenario-elb-load-balancer")
+**Topics**
++ [ELBv2 resources](#scenario-elbv2-load-balancer)
++ [Classic Load Balancer resources](#scenario-elb-load-balancer)
 
 ## ELBv2 resources
+<a name="scenario-elbv2-load-balancer"></a>
 
-This example defines an Application Load Balancer with an HTTP listener and a default action that
-forwards traffic to the target group. The load balancer uses the default health check
-settings. The target group has two registered EC2 instances.
+This example defines an Application Load Balancer with an HTTP listener and a default action that forwards traffic to the target group. The load balancer uses the default health check settings. The target group has two registered EC2 instances. 
 
-YAML
+------
+#### [ YAML ]
 
 ```
 Resources:
@@ -24,10 +25,10 @@ Resources:
       Name: my-alb
       Type: application
       Scheme: internal
-      Subnets:
+      Subnets: 
         - !Ref subnet-AZ1
         - !Ref subnet-AZ2
-      SecurityGroups:
+      SecurityGroups: 
         - !Ref mySecurityGroup
 
   myHTTPlistener:
@@ -39,7 +40,7 @@ Resources:
       DefaultActions:
         - Type: "forward"
           TargetGroupArn: !Ref myTargetGroup
-
+                        
   myTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
@@ -55,7 +56,8 @@ Resources:
           Port: 80
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -135,12 +137,15 @@ JSON
 }
 ```
 
+------
+
 ## Classic Load Balancer resources
+<a name="scenario-elb-load-balancer"></a>
 
-This example defines a Classic Load Balancer with an HTTP listener and no registered EC2 instances.
-The load balancer uses the default health check settings.
+This example defines a Classic Load Balancer with an HTTP listener and no registered EC2 instances. The load balancer uses the default health check settings.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 myLoadBalancer:
@@ -154,7 +159,8 @@ myLoadBalancer:
       Protocol: HTTP
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 "myLoadBalancer" : {
@@ -170,10 +176,12 @@ JSON
 }
 ```
 
-This example defines a Classic Load Balancer with an HTTP listener, two registered EC2 instances,
-and custom health check settings.
+------
 
-YAML
+This example defines a Classic Load Balancer with an HTTP listener, two registered EC2 instances, and custom health check settings.
+
+------
+#### [ YAML ]
 
 ```
 myClassicLoadBalancer:
@@ -196,7 +204,8 @@ myClassicLoadBalancer:
       Timeout: '5'
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 "myClassicLoadBalancer" : {
@@ -223,3 +232,5 @@ JSON
     }
 }
 ```
+
+------

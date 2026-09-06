@@ -1,142 +1,109 @@
+
+
 # CloudFormation template Outputs syntax
+<a name="outputs-section-structure"></a>
 
-The optional `Outputs` section declares output values for the stack. These
-output values can be used in various ways:
+The optional `Outputs` section declares output values for the stack. These output values can be used in various ways:
++ **Capture important details about your resources** – An output is a convenient way to capture important information about your resources. For example, you can output the S3 bucket name for a stack to make the bucket easier to find. You can view output values in the **Outputs** tab of the CloudFormation console or by using the [describe-stacks](service_code_examples.md#describe-stacks-sdk) CLI command. 
++ **Cross-stack references** – You can import output values into other stacks to [create references between stacks](using-cfn-stack-exports.md). This is helpful when you need to share resources or configurations across multiple stacks.
++ **Cross-account and cross-Region references** – You can reference output values from stacks in other AWS accounts or Regions using the `Fn::GetStackOutput` function, without requiring explicit export declarations. For more information, see [Fn::GetStackOutput](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-getstackoutput.html) in the *CloudFormation Template Reference Guide*.
 
-- Capture important details about your resources
-  – An output is a convenient way to capture important information about your
-  resources. For example, you can output the S3 bucket name for a stack to make the
-  bucket easier to find. You can view output values in the
-  **Outputs** tab of the CloudFormation console or by using the [describe-stacks](service_code_examples.md#describe-stacks-sdk "service_code_examples.md#describe-stacks-sdk") CLI command.
-- Cross-stack references – You can import
-  output values into other stacks to [create
-  references between stacks](using-cfn-stack-exports.md "using-cfn-stack-exports.md"). This is helpful when you need to share
-  resources or configurations across multiple stacks.
-- Cross-account and cross-Region references
-  – You can reference output values from stacks in other AWS accounts or
-  Regions using the `Fn::GetStackOutput` function, without requiring
-  explicit export declarations. For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the _CloudFormation Template Reference Guide_.
-
-###### Important
-
-CloudFormation doesn't redact or obfuscate any information you include in the
-`Outputs` section. We strongly recommend you don't use this section to
-output sensitive information, such as passwords or secrets.
-
-Output values are available after the stack operation is complete. Stack output values
-aren't available when a stack status is in any of the `IN_PROGRESS`
-[statuses](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes"). We
-don't recommend establishing dependencies between a service runtime and the stack output
-value because output values might not be available at all times.
+**Important**  
+CloudFormation doesn't redact or obfuscate any information you include in the `Outputs` section. We strongly recommend you don't use this section to output sensitive information, such as passwords or secrets.  
+Output values are available after the stack operation is complete. Stack output values aren't available when a stack status is in any of the `IN_PROGRESS` [statuses](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes). We don't recommend establishing dependencies between a service runtime and the stack output value because output values might not be available at all times.
 
 ## Syntax
+<a name="outputs-section-syntax"></a>
 
-The `Outputs` section consists of the key name `Outputs`. You
-can declare a maximum of 200 outputs in a template.
+The `Outputs` section consists of the key name `Outputs`. You can declare a maximum of 200 outputs in a template.
 
-The following example demonstrates the structure of the `Outputs`
-section.
+The following example demonstrates the structure of the `Outputs` section.
 
 ### JSON
+<a name="outputs-section-structure-syntax.json"></a>
 
-Use braces to enclose all output declarations. Delimit multiple outputs with
-commas.
+Use braces to enclose all output declarations. Delimit multiple outputs with commas.
 
 ```
 "Outputs" : {
-  "`OutputLogicalID`" : {
-    "Description" : "`Information about the value`",
-    "Value" : "`Value to return`",
+  "{{OutputLogicalID}}" : {
+    "Description" : "{{Information about the value}}",
+    "Value" : "{{Value to return}}",
     "Export" : {
-      "Name" : "`Name of resource to export`"
+      "Name" : "{{Name of resource to export}}"
     }
   }
 }
 ```
 
 ### YAML
+<a name="outputs-section-structure-syntax.yaml"></a>
 
 ```
 Outputs:
-  `OutputLogicalID`:
-    Description: `Information about the value`
-    Value: `Value to return`
+  {{OutputLogicalID}}:
+    Description: {{Information about the value}}
+    Value: {{Value to return}}
     Export:
-      Name: `Name of resource to export`
+      Name: {{Name of resource to export}}
 ```
 
 ### Output fields
+<a name="outputs-section-structure-output-fields"></a>
 
 The `Outputs` section can include the following fields.
 
-**Logical ID (also called _logical name_)**
+**Logical ID (also called *logical name*)**  
+An identifier for the current output. The logical ID must be alphanumeric (`a–z`, `A–Z`, `0–9`) and unique within the template.
 
-An identifier for the current output. The logical ID must be
-alphanumeric (`a–z`, `A–Z`,
-`0–9`) and unique within the template.
+**`Description` (optional)**  
+A `String` type that describes the output value. The value for the description declaration must be a literal string that's between 0 and 1024 bytes in length. You can't use a parameter or function to specify the description. 
 
-**`Description` (optional)**
+**`Value` (required)**  
+The value of the property returned by the [describe-stacks](service_code_examples.md#describe-stacks-sdk) command. The value of an output can include literals, parameter references, pseudo parameters, a mapping value, or intrinsic functions.
 
-A `String` type that describes the output value. The value
-for the description declaration must be a literal string that's between
-0 and 1024 bytes in length. You can't use a parameter or function to
-specify the description.
+**`Export` (optional)**  
+The name of the resource output to be exported for a cross-stack reference.  
+You can use intrinsic functions to customize the `Name` value of an export.  
+For more information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md).
 
-**`Value` (required)**
-
-The value of the property returned by the [describe-stacks](service_code_examples.md#describe-stacks-sdk "service_code_examples.md#describe-stacks-sdk")
-command. The value of an output can include literals, parameter
-references, pseudo parameters, a mapping value, or intrinsic
-functions.
-
-**`Export` (optional)**
-
-The name of the resource output to be exported for a cross-stack
-reference.
-
-You can use intrinsic functions to customize the `Name`
-value of an export.
-
-For more information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
-
-To associate a condition with an output, define the condition in the [Conditions](conditions-section-structure.md "conditions-section-structure.md") section of the template.
+To associate a condition with an output, define the condition in the [Conditions](conditions-section-structure.md) section of the template.
 
 ## Examples
+<a name="outputs-section-structure-examples"></a>
 
 The following examples illustrate how stack output works.
 
-###### Topics
-
-- [Stack output](#outputs-section-structure-examples-stack-output "#outputs-section-structure-examples-stack-output")
-- [Customize export name using Fn::Sub](#outputs-section-structure-examples-cross-stack "#outputs-section-structure-examples-cross-stack")
-- [Customize export name using Fn::Join](#outputs-section-structure-examples-join-export-name "#outputs-section-structure-examples-join-export-name")
-- [Return a URL constructed using Fn::Join](#outputs-section-structure-examples-join-export-url "#outputs-section-structure-examples-join-export-url")
+**Topics**
++ [Stack output](#outputs-section-structure-examples-stack-output)
++ [Customize export name using `Fn::Sub`](#outputs-section-structure-examples-cross-stack)
++ [Customize export name using `Fn::Join`](#outputs-section-structure-examples-join-export-name)
++ [Return a URL constructed using `Fn::Join`](#outputs-section-structure-examples-join-export-url)
 
 ### Stack output
+<a name="outputs-section-structure-examples-stack-output"></a>
 
-In the following example, the output named `BackupLoadBalancerDNSName`
-returns the DNS name for the resource with the logical ID
-`BackupLoadBalancer` only when the `CreateProdResources`
-condition is true. The output named `InstanceID` returns the ID of the
-EC2 instance with the logical ID `EC2Instance`.
+In the following example, the output named `BackupLoadBalancerDNSName` returns the DNS name for the resource with the logical ID `BackupLoadBalancer` only when the `CreateProdResources` condition is true. The output named `InstanceID` returns the ID of the EC2 instance with the logical ID `EC2Instance`.
 
 #### JSON
+<a name="outputs-section-structure-example.json"></a>
 
 ```
 "Outputs" : {
   "BackupLoadBalancerDNSName" : {
-    "Description": "The DNSName of the backup load balancer",
+    "Description": "The DNSName of the backup load balancer",  
     "Value" : { "Fn::GetAtt" : [ "BackupLoadBalancer", "DNSName" ]},
     "Condition" : "CreateProdResources"
   },
   "InstanceID" : {
-    "Description": "The Instance ID",
+    "Description": "The Instance ID",  
     "Value" : { "Ref" : "EC2Instance" }
   }
 }
 ```
 
 #### YAML
+<a name="outputs-section-structure-example.yaml"></a>
 
 ```
 Outputs:
@@ -150,12 +117,12 @@ Outputs:
 ```
 
 ### Customize export name using `Fn::Sub`
+<a name="outputs-section-structure-examples-cross-stack"></a>
 
-In the following examples, the output named `StackVPC` returns the ID
-of a VPC, and then exports the value for cross-stack referencing with the name
-`VPCID` appended to the stack's name.
+In the following examples, the output named `StackVPC` returns the ID of a VPC, and then exports the value for cross-stack referencing with the name `VPCID` appended to the stack's name.
 
 #### JSON
+<a name="outputs-section-structure-cross-stack-example.json"></a>
 
 ```
 "Outputs" : {
@@ -170,6 +137,7 @@ of a VPC, and then exports the value for cross-stack referencing with the name
 ```
 
 #### YAML
+<a name="outputs-section-structure-cross-stack-example.yaml"></a>
 
 ```
 Outputs:
@@ -180,19 +148,17 @@ Outputs:
       Name: !Sub "${AWS::StackName}-VPCID"
 ```
 
-For more information about the `Fn::Sub` function, see [Fn::Sub](../TemplateReference/intrinsic-function-reference-sub.md "../TemplateReference/intrinsic-function-reference-sub.md").
+For more information about the `Fn::Sub` function, see [Fn::Sub](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-sub.html).
 
 ### Customize export name using `Fn::Join`
+<a name="outputs-section-structure-examples-join-export-name"></a>
 
-You can also use the `Fn::Join` function to construct values based on
-parameters, resource attributes, and other strings.
+You can also use the `Fn::Join` function to construct values based on parameters, resource attributes, and other strings.
 
-The following examples use the `Fn::Join` function to customize the
-export name instead of the `Fn::Sub` function. The example
-`Fn::Join` function concatenates the stack name with the name
-`VPCID` using a colon as a separator.
+The following examples use the `Fn::Join` function to customize the export name instead of the `Fn::Sub` function. The example `Fn::Join` function concatenates the stack name with the name `VPCID` using a colon as a separator.
 
 #### JSON
+<a name="outputs-section-structure-join-export-name-example.json"></a>
 
 ```
 "Outputs" : {
@@ -207,6 +173,7 @@ export name instead of the `Fn::Sub` function. The example
 ```
 
 #### YAML
+<a name="outputs-section-structure-join-export-name-example.yaml"></a>
 
 ```
 Outputs:
@@ -217,21 +184,19 @@ Outputs:
       Name: !Join [ ":", [ !Ref "AWS::StackName", VPCID ] ]
 ```
 
-For more information about the `Fn::Join` function, see [Fn::Join](../TemplateReference/intrinsic-function-reference-join.md "../TemplateReference/intrinsic-function-reference-join.md").
+For more information about the `Fn::Join` function, see [Fn::Join](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-join.html).
 
 ### Return a URL constructed using `Fn::Join`
+<a name="outputs-section-structure-examples-join-export-url"></a>
 
-In the following example for a template that creates a WordPress site,
-`InstallURL` is the string returned by a `Fn::Join`
-function call that concatenates `http://`, the DNS name of the resource
-`ElasticLoadBalancer`, and `/wp-admin/install.php`. The
-output value would be similar to the following:
+In the following example for a template that creates a WordPress site, `InstallURL` is the string returned by a `Fn::Join` function call that concatenates `http://`, the DNS name of the resource `ElasticLoadBalancer`, and `/wp-admin/install.php`. The output value would be similar to the following:
 
 ```
-http://mywptests-elasticl-1gb51l6sl8y5v-206169572.aws-region.elb.amazonaws.com/wp-admin/install.php
+http://mywptests-elasticl-1gb51l6sl8y5v-206169572.{{aws-region}}.elb.amazonaws.com/wp-admin/install.php
 ```
 
 #### JSON
+<a name="outputs-section-structure-examples-join-export-url.json"></a>
 
 ```
 {
@@ -259,18 +224,19 @@ http://mywptests-elasticl-1gb51l6sl8y5v-206169572.aws-region.elb.amazonaws.com/w
 ```
 
 #### YAML
+<a name="outputs-section-structure-examples-join-export-url.yaml"></a>
 
 ```
 Outputs:
   InstallURL:
-    Value: !Join
+    Value: !Join 
       - ''
       - - 'http://'
-        - !GetAtt
+        - !GetAtt 
           - ElasticLoadBalancer
           - DNSName
         - /wp-admin/install.php
     Description: Installation URL of the WordPress website
 ```
 
-For more information about the `Fn::Join` function, see [Fn::Join](../TemplateReference/intrinsic-function-reference-join.md "../TemplateReference/intrinsic-function-reference-join.md").
+For more information about the `Fn::Join` function, see [Fn::Join](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-join.html).

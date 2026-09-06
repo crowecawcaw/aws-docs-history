@@ -1,16 +1,19 @@
+
+
 # Amazon DynamoDB template snippets
+<a name="quickref-dynamodb"></a>
 
-###### Topics
-
-- [Application Auto Scaling with an Amazon DynamoDB table](#quickref-dynamodb-application-autoscaling "#quickref-dynamodb-application-autoscaling")
-- [See also](#w2aac11c41c39b7 "#w2aac11c41c39b7")
+**Topics**
++ [Application Auto Scaling with an Amazon DynamoDB table](#quickref-dynamodb-application-autoscaling)
++ [See also](#w2aac11c41c39b7)
 
 ## Application Auto Scaling with an Amazon DynamoDB table
+<a name="quickref-dynamodb-application-autoscaling"></a>
 
-This example sets up Application Auto Scaling for a `AWS::DynamoDB::Table` resource.
-The template defines a `TargetTrackingScaling` scaling policy that scales up the `WriteCapacityUnits` throughput for the table.
+This example sets up Application Auto Scaling for a `AWS::DynamoDB::Table` resource. The template defines a `TargetTrackingScaling` scaling policy that scales up the `WriteCapacityUnits` throughput for the table.
 
 ### JSON
+<a name="quickref-dynamodb-example.json"></a>
 
 ```
 {
@@ -107,10 +110,10 @@ The template defines a `TargetTrackingScaling` scaling policy that scales up the
         }
     }
 }
-
 ```
 
 ### YAML
+<a name="quickref-dynamodb-example.yaml"></a>
 
 ```
 Resources:
@@ -170,8 +173,8 @@ Resources:
 ```
 
 ## See also
+<a name="w2aac11c41c39b7"></a>
 
-For more information, see the blog post [How to use CloudFormation to configure auto scaling for DynamoDB tables and
-indexes](https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure-auto-scaling-for-amazon-dynamodb-tables-and-indexes/ "https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure-auto-scaling-for-amazon-dynamodb-tables-and-indexes/") on the AWS Database Blog.
+For more information, see the blog post [How to use CloudFormation to configure auto scaling for DynamoDB tables and indexes](https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure-auto-scaling-for-amazon-dynamodb-tables-and-indexes/) on the AWS Database Blog.
 
-For more information about DynamoDB resources, see [AWS::DynamoDB::Table](../TemplateReference/aws-resource-dynamodb-table.md "../TemplateReference/aws-resource-dynamodb-table.md").
+For more information about DynamoDB resources, see [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dynamodb-table.html).

@@ -1,54 +1,51 @@
+
+
 # CloudFormation template Rules syntax
+<a name="rules-section-structure"></a>
 
-The `Rules` section is an optional part of a CloudFormation template that enables
-custom validation logic. When included, this section contains rule functions that validate
-parameter values before CloudFormation creates or updates any resources.
+The `Rules` section is an optional part of a CloudFormation template that enables custom validation logic. When included, this section contains rule functions that validate parameter values before CloudFormation creates or updates any resources.
 
-Rules are useful when standard parameter constraints are insufficient. For example, when SSL
-is enabled, both a certificate and domain name must be provided. A rule can ensure that these
-dependencies are met.
+Rules are useful when standard parameter constraints are insufficient. For example, when SSL is enabled, both a certificate and domain name must be provided. A rule can ensure that these dependencies are met.
 
 ## Syntax
+<a name="template-constraint-rules-syntax"></a>
 
 The `Rules` section uses the following syntax:
 
 ### JSON
+<a name="rules-section-structure-syntax.json"></a>
 
-The `Rules` section of a template consists of the key name
-`Rules`, followed by a single colon. You must use braces to enclose all rule
-declarations. If you declare multiple rules, they're delimited by commas. For each rule, you
-declare a logical name in quotation marks followed by a colon and braces that enclose the
-rule condition and assertions.
+The `Rules` section of a template consists of the key name `Rules`, followed by a single colon. You must use braces to enclose all rule declarations. If you declare multiple rules, they're delimited by commas. For each rule, you declare a logical name in quotation marks followed by a colon and braces that enclose the rule condition and assertions.
 
 ```
 {
     "Rules": {
-        "`LogicalRuleName1`": {
+        "{{LogicalRuleName1}}": {
             "RuleCondition": {
-                "`rule-specific intrinsic function`": "`Value`"
+                "{{rule-specific intrinsic function}}": "{{Value}}"
             },
             "Assertions": [
                 {
                     "Assert": {
-                        "`rule-specific intrinsic function`": "`Value`"
+                        "{{rule-specific intrinsic function}}": "{{Value}}"
                     },
-                    "AssertDescription": "`Information about this assert`"
+                    "AssertDescription": "{{Information about this assert}}"
                 },
                 {
                     "Assert": {
-                        "`rule-specific intrinsic function`": "`Value`"
+                        "{{rule-specific intrinsic function}}": "{{Value}}"
                     },
-                    "AssertDescription": "`Information about this assert`"
+                    "AssertDescription": "{{Information about this assert}}"
                 }
             ]
         },
-        "`LogicalRuleName2`": {
+        "{{LogicalRuleName2}}": {
             "Assertions": [
                 {
                     "Assert": {
-                        "`rule-specific intrinsic function`": "`Value`"
+                        "{{rule-specific intrinsic function}}": "{{Value}}"
                     },
-                    "AssertDescription": "`Information about this assert`"
+                    "AssertDescription": "{{Information about this assert}}"
                 }
             ]
         }
@@ -57,99 +54,81 @@ rule condition and assertions.
 ```
 
 ### YAML
+<a name="rules-section-structure-syntax.yaml"></a>
 
 ```
 Rules:
-  `LogicalRuleName1`:
+  {{LogicalRuleName1}}:
     RuleCondition:
-      `rule-specific intrinsic function`: `Value`
+      {{rule-specific intrinsic function}}: {{Value}}
     Assertions:
       - Assert:
-          `rule-specific intrinsic function`: `Value`
-        AssertDescription: `Information about this assert`
+          {{rule-specific intrinsic function}}: {{Value}}
+        AssertDescription: {{Information about this assert}}
       - Assert:
-          `rule-specific intrinsic function`: `Value`
-        AssertDescription: `Information about this assert`
-  `LogicalRuleName2`:
+          {{rule-specific intrinsic function}}: {{Value}}
+        AssertDescription: {{Information about this assert}}
+  {{LogicalRuleName2}}:
     Assertions:
       - Assert:
-          `rule-specific intrinsic function`: `Value`
-        AssertDescription: `Information about this assert`
+          {{rule-specific intrinsic function}}: {{Value}}
+        AssertDescription: {{Information about this assert}}
 ```
 
 ### Rules fields
+<a name="rules-section-fields"></a>
 
 The `Rules` section can include the following fields.
 
-**Logical ID (also called _logical name_)**
-
+**Logical ID (also called *logical name*)**  
 A unique identifier for each rule.
 
-**`RuleCondition` (optional)**
+**`RuleCondition` (optional)**  
+A property that determines when a rule takes effect. If you don't define a rule condition, the rule's assertions always take effect. For each rule, you can define only one rule condition. 
 
-A property that determines when a rule takes effect. If you don't define a rule
-condition, the rule's assertions always take effect. For each rule, you can define
-only one rule condition.
+**`Assertions` (required)**  
+One or more statements that specify the acceptable values for a particular parameter.
 
-**`Assertions` (required)**
-
-One or more statements that specify the acceptable values for a particular
-parameter.
-
-**`Assert`**
-
+**`Assert`**  
 A condition that must evaluate to `true`.
 
-**`AssertDescription`**
-
+**`AssertDescription`**  
 A message displayed when an assertion fails.
 
 ## Rule-specific intrinsic functions
+<a name="rules-specific-intrinsic-section-structure"></a>
 
-To define your rules, you must use _rule-specific functions_, which are
-functions that can only be used in the `Rules` section of a template. While these
-functions can be nested, the final result of a rule condition or assertion must be either
-`true` or `false`.
+To define your rules, you must use *rule-specific functions*, which are functions that can only be used in the `Rules` section of a template. While these functions can be nested, the final result of a rule condition or assertion must be either `true` or `false`.
 
 The following rule functions are available:
++ [Fn::And](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-and)
++ [Fn::Contains](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-rules.html#fn-contains)
++ [Fn::EachMemberEquals](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-rules.html#fn-eachmemberequals)
++ [Fn::EachMemberIn](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-rules.html#fn-eachmemberin)
++ [Fn::Equals](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-equals)
++ [Fn::If](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-if)
++ [Fn::Not](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-not)
++ [Fn::Or](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-or)
++ [Fn::RefAll](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-rules.html#fn-refall)
++ [Fn::ValueOf](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-rules.html#fn-valueof)
++ [Fn::ValueOfAll](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-rules.html#fn-valueofall)
 
-- [Fn::And](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-and "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-and")
-- [Fn::Contains](../TemplateReference/intrinsic-function-reference-rules.md#fn-contains "../TemplateReference/intrinsic-function-reference-rules.md#fn-contains")
-- [Fn::EachMemberEquals](../TemplateReference/intrinsic-function-reference-rules.md#fn-eachmemberequals "../TemplateReference/intrinsic-function-reference-rules.md#fn-eachmemberequals")
-- [Fn::EachMemberIn](../TemplateReference/intrinsic-function-reference-rules.md#fn-eachmemberin "../TemplateReference/intrinsic-function-reference-rules.md#fn-eachmemberin")
-- [Fn::Equals](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-equals "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-equals")
-- [Fn::If](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if")
-- [Fn::Not](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-not "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-not")
-- [Fn::Or](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-or "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-or")
-- [Fn::RefAll](../TemplateReference/intrinsic-function-reference-rules.md#fn-refall "../TemplateReference/intrinsic-function-reference-rules.md#fn-refall")
-- [Fn::ValueOf](../TemplateReference/intrinsic-function-reference-rules.md#fn-valueof "../TemplateReference/intrinsic-function-reference-rules.md#fn-valueof")
-- [Fn::ValueOfAll](../TemplateReference/intrinsic-function-reference-rules.md#fn-valueofall "../TemplateReference/intrinsic-function-reference-rules.md#fn-valueofall")
-
-These functions are used in the condition or assertions of a rule. The condition property
-determines if CloudFormation applies the assertions. If the condition evaluates to
-`true`, CloudFormation evaluates the assertions to verify whether a parameter value
-is valid when a provisioned product is created or updated. If a parameter value is invalid,
-CloudFormation does not create or update the stack. If the condition evaluates to
-`false`, CloudFormation doesn't check the parameter value and proceeds with the stack
-operation.
+These functions are used in the condition or assertions of a rule. The condition property determines if CloudFormation applies the assertions. If the condition evaluates to `true`, CloudFormation evaluates the assertions to verify whether a parameter value is valid when a provisioned product is created or updated. If a parameter value is invalid, CloudFormation does not create or update the stack. If the condition evaluates to `false`, CloudFormation doesn't check the parameter value and proceeds with the stack operation.
 
 ## Examples
+<a name="template-constraint-rules-example"></a>
 
-###### Topics
-
-- [Conditionally verify a parameter value](#template-constraint-rules-example-verify "#template-constraint-rules-example-verify")
-- [Cross-parameter validation](#template-cross-parameter-rules-example "#template-cross-parameter-rules-example")
+**Topics**
++ [Conditionally verify a parameter value](#template-constraint-rules-example-verify)
++ [Cross-parameter validation](#template-cross-parameter-rules-example)
 
 ### Conditionally verify a parameter value
+<a name="template-constraint-rules-example-verify"></a>
 
-In the following example, the two rules check the value of the `InstanceType`
-parameter. Depending on the value of the environment parameter (`test` or
-`prod`), the user must specify `t3.medium` or `t3.large`
-for the `InstanceType` parameter. The `InstanceType` and
-`Environment` parameters must be declared in the `Parameters`
-section of the same template.
+In the following example, the two rules check the value of the `InstanceType` parameter. Depending on the value of the environment parameter (`test` or `prod`), the user must specify `t3.medium` or `t3.large` for the `InstanceType` parameter. The `InstanceType` and `Environment` parameters must be declared in the `Parameters` section of the same template.
 
 #### JSON
+<a name="rules-section-example-conditionally-verify.json"></a>
 
 ```
 {
@@ -194,15 +173,15 @@ section of the same template.
     }
   }
 }
-
 ```
 
 #### YAML
+<a name="rules-section-example-conditionally-verify.yaml"></a>
 
 ```
 Rules:
   testInstanceType:
-    RuleCondition: !Equals
+    RuleCondition: !Equals 
       - !Ref Environment
       - test
     Assertions:
@@ -212,7 +191,7 @@ Rules:
             - !Ref InstanceType
         AssertDescription: 'For a test environment, the instance type must be t3.medium'
   prodInstanceType:
-    RuleCondition: !Equals
+    RuleCondition: !Equals 
       - !Ref Environment
       - prod
     Assertions:
@@ -224,23 +203,17 @@ Rules:
 ```
 
 ### Cross-parameter validation
+<a name="template-cross-parameter-rules-example"></a>
 
-The following sample templates demonstrate the use of rules for cross-parameter
-validations. They create a sample website running on an Auto Scaling group behind a load balancer.
-The website is available on port 80 or 443 depending on input parameters. The instances in
-the Auto Scaling group can be configured to listen on any port (with 8888 as the default).
+The following sample templates demonstrate the use of rules for cross-parameter validations. They create a sample website running on an Auto Scaling group behind a load balancer. The website is available on port 80 or 443 depending on input parameters. The instances in the Auto Scaling group can be configured to listen on any port (with 8888 as the default).
 
-The rules in this template validate input parameters before stack creation. They verify
-that all subnets belong to the specified VPC and ensure that when the `UseSSL`
-parameter is set to `Yes`, both an SSL certificate ARN and hosted zone name are
-provided.
+The rules in this template validate input parameters before stack creation. They verify that all subnets belong to the specified VPC and ensure that when the `UseSSL` parameter is set to `Yes`, both an SSL certificate ARN and hosted zone name are provided.
 
-###### Note
-
-You will be billed for the AWS resources used if you create a stack from this
-template.
+**Note**  
+You will be billed for the AWS resources used if you create a stack from this template.
 
 #### JSON
+<a name="rules-section-example-cross-parameter-validation.json"></a>
 
 ```
 {
@@ -558,10 +531,10 @@ template.
     }
   }
 }
-
 ```
 
 #### YAML
+<a name="rules-section-example-syntax.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -618,7 +591,7 @@ Parameters:
     Description: '[Optional] The domain name of a valid Hosted Zone on AWS.'
     Type: String
 Conditions:
-  UseALBSSL: !Equals
+  UseALBSSL: !Equals 
     - !Ref UseSSL
     - 'Yes'
 Rules:
@@ -632,17 +605,17 @@ Rules:
             - Ref: VpcId
         AssertDescription: All subnets must be in the VPC
   ValidateHostedZone:
-    RuleCondition: !Equals
+    RuleCondition: !Equals 
       - !Ref UseSSL
       - 'Yes'
     Assertions:
-      - Assert: !Not
-          - !Equals
+      - Assert: !Not 
+          - !Equals 
             - !Ref ALBSSLCertificateARN
             - ''
         AssertDescription: ACM Certificate value cannot be empty if SSL is required
-      - Assert: !Not
-          - !Equals
+      - Assert: !Not 
+          - !Equals 
             - !Ref HostedZoneName
             - ''
         AssertDescription: Route53 Hosted Zone Name is mandatory when SSL is required
@@ -678,7 +651,7 @@ Resources:
               httpd: []
           files:
             /var/www/html/index.html:
-              content: !Join
+              content: !Join 
                 - |+
                 - - >-
                     <h1>Congratulations, you have successfully launched the AWS
@@ -735,7 +708,7 @@ Resources:
       GroupDescription: Allow access to the ELB
       VpcId: !Ref VpcId
       SecurityGroupIngress:
-        - !If
+        - !If 
           - UseALBSSL
           - IpProtocol: tcp
             FromPort: 443
@@ -762,12 +735,12 @@ Resources:
         - UseALBSSL
         - 443
         - 80
-      Protocol: !If
+      Protocol: !If 
         - UseALBSSL
         - HTTPS
         - HTTP
       Certificates:
-        - !If
+        - !If 
           - UseALBSSL
           - CertificateArn: !Ref ALBSSLCertificateARN
           - !Ref 'AWS::NoValue'
@@ -789,9 +762,9 @@ Resources:
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-          SourceSecurityGroupId: !Select
+          SourceSecurityGroupId: !Select 
             - 0
-            - !GetAtt
+            - !GetAtt 
               - ApplicationLoadBalancer
               - SecurityGroups
         - IpProtocol: tcp
@@ -803,18 +776,18 @@ Resources:
     Type: AWS::Route53::RecordSetGroup
     Condition: UseALBSSL
     Properties:
-      HostedZoneName: !Join
+      HostedZoneName: !Join 
         - ''
         - - !Ref HostedZoneName
           - .
       RecordSets:
-        - Name: !Join
+        - Name: !Join 
             - ''
-            - - !Select
+            - - !Select 
                 - '0'
-                - !Split
+                - !Split 
                   - .
-                  - !GetAtt
+                  - !GetAtt 
                     - ApplicationLoadBalancer
                     - DNSName
               - .
@@ -822,39 +795,39 @@ Resources:
               - .
           Type: A
           AliasTarget:
-            DNSName: !GetAtt
+            DNSName: !GetAtt 
               - ApplicationLoadBalancer
               - DNSName
             EvaluateTargetHealth: true
-            HostedZoneId: !GetAtt
+            HostedZoneId: !GetAtt 
               - ApplicationLoadBalancer
               - CanonicalHostedZoneID
 Outputs:
   URL:
     Description: URL of the website
-    Value: !Join
+    Value: !Join 
       - ''
-      - - !If
+      - - !If 
           - UseALBSSL
-          - !Join
+          - !Join 
             - ''
             - - 'https://'
-              - !Join
+              - !Join 
                 - ''
-                - - !Select
+                - - !Select 
                     - '0'
-                    - !Split
+                    - !Split 
                       - .
-                      - !GetAtt
+                      - !GetAtt 
                         - ApplicationLoadBalancer
                         - DNSName
                   - .
                   - !Ref HostedZoneName
                   - .
-          - !Join
+          - !Join 
             - ''
             - - 'http://'
-              - !GetAtt
+              - !GetAtt 
                 - ApplicationLoadBalancer
                 - DNSName
 ```

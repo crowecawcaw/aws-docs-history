@@ -1,57 +1,48 @@
+
+
 # Walkthrough: Create a delay mechanism with a Lambda-backed custom resource
+<a name="walkthrough-lambda-backed-custom-resources"></a>
 
-This walkthrough shows you how to configure and launch a Lambda-backed custom resource using
-a sample CloudFormation template. This template creates a delay mechanism that pauses stack
-deployments for a specified time. This can be useful when you need to introduce deliberate
-delays during resource provisioning, such as when waiting for resources to stabilize before
-dependent resources are created.
+This walkthrough shows you how to configure and launch a Lambda-backed custom resource using a sample CloudFormation template. This template creates a delay mechanism that pauses stack deployments for a specified time. This can be useful when you need to introduce deliberate delays during resource provisioning, such as when waiting for resources to stabilize before dependent resources are created.
 
-###### Note
+**Note**  
+While Lambda-backed custom resources were previously recommended for retrieving AMI IDs, we now recommend using AWS Systems Manager parameters. This approach makes your templates more reusable and easier to maintain. For more information, see [Get a plaintext value from Systems Manager Parameter Store](dynamic-references-ssm.md). 
 
-While Lambda-backed custom resources were previously recommended for retrieving AMI IDs, we
-now recommend using AWS Systems Manager parameters. This approach makes your templates more reusable and
-easier to maintain. For more information, see [Get a plaintext value from Systems Manager Parameter Store](dynamic-references-ssm.md "dynamic-references-ssm.md").
-
-###### Topics
-
-- [Overview](#walkthrough-lambda-backed-custom-resources-overview "#walkthrough-lambda-backed-custom-resources-overview")
-- [Sample template](#walkthrough-lambda-backed-custom-resources-sample-template "#walkthrough-lambda-backed-custom-resources-sample-template")
-- [Sample template walkthrough](#walkthrough-lambda-backed-custom-resources-sample-template-walkthrough "#walkthrough-lambda-backed-custom-resources-sample-template-walkthrough")
-- [Prerequisites](#walkthrough-lambda-backed-custom-resources-prerequisites "#walkthrough-lambda-backed-custom-resources-prerequisites")
-- [Launching the stack](#walkthrough-lambda-backed-custom-resources-createfunction-createstack "#walkthrough-lambda-backed-custom-resources-createfunction-createstack")
-- [Cleaning up resources](#walkthrough-lambda-backed-custom-resources-createfunction-cleanup "#walkthrough-lambda-backed-custom-resources-createfunction-cleanup")
-- [Related information](#w2aac11c45b9c24b9c23 "#w2aac11c45b9c24b9c23")
+**Topics**
++ [Overview](#walkthrough-lambda-backed-custom-resources-overview)
++ [Sample template](#walkthrough-lambda-backed-custom-resources-sample-template)
++ [Sample template walkthrough](#walkthrough-lambda-backed-custom-resources-sample-template-walkthrough)
++ [Prerequisites](#walkthrough-lambda-backed-custom-resources-prerequisites)
++ [Launching the stack](#walkthrough-lambda-backed-custom-resources-createfunction-createstack)
++ [Cleaning up resources](#walkthrough-lambda-backed-custom-resources-createfunction-cleanup)
++ [Related information](#w2aac11c45b9c24b9c23)
 
 ## Overview
+<a name="walkthrough-lambda-backed-custom-resources-overview"></a>
 
-The sample stack template used in this walkthrough creates a Lambda-backed custom resource.
-This custom resource introduces a configurable delay (60 seconds by default) during stack
-creation. The delay occurs during stack updates only when the custom resource's properties are
-modified.
+The sample stack template used in this walkthrough creates a Lambda-backed custom resource. This custom resource introduces a configurable delay (60 seconds by default) during stack creation. The delay occurs during stack updates only when the custom resource's properties are modified.
 
 The template provisions the following resources:
-
-- a custom resource,
-- a Lambda function, and
-- an IAM role that enables Lambda to write logs to CloudWatch.
++ a custom resource,
++ a Lambda function, and
++ an IAM role that enables Lambda to write logs to CloudWatch.
 
 It also defines two outputs:
++ The actual time the function waited.
++ A unique identifier generated during each execution of the Lambda function.
 
-- The actual time the function waited.
-- A unique identifier generated during each execution of the Lambda function.
 
-###### Note
 
-CloudFormation is a free service but Lambda charges based on the number of requests for your
-functions and the time your code executes. For more information about Lambda pricing, see
-[AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+**Note**  
+CloudFormation is a free service but Lambda charges based on the number of requests for your functions and the time your code executes. For more information about Lambda pricing, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/).
 
 ## Sample template
+<a name="walkthrough-lambda-backed-custom-resources-sample-template"></a>
 
-You can see the Lambda-backed custom resource sample template with the delay mechanism
-below:
+You can see the Lambda-backed custom resource sample template with the delay mechanism below:
 
 ### JSON
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-json"></a>
 
 ```
 {
@@ -131,6 +122,7 @@ below:
 ```
 
 ### YAML
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-yaml"></a>
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -159,7 +151,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Handler: index.handler
-      Runtime: python3.9
+      Runtime: python3.9 
       Timeout: 900
       Role: !GetAtt LambdaExecutionRole.Arn
       Code:
@@ -178,7 +170,7 @@ Resources:
               sleep(wait_seconds)
             response = {
               "TimeWaited": wait_seconds,
-              "Id": id
+              "Id": id 
             }
             cfnresponse.send(event, context, cfnresponse.SUCCESS, response, "Waiter-"+id)
   CFNWaiterCustomResource:
@@ -198,40 +190,24 @@ Outputs:
 ```
 
 ## Sample template walkthrough
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-walkthrough"></a>
 
-The following snippets explain relevant parts of the sample template to help you
-understand how the Lambda function is associated with a custom resource and understand the
-output.
+The following snippets explain relevant parts of the sample template to help you understand how the Lambda function is associated with a custom resource and understand the output.
 
-[AWS::Lambda::Function](../TemplateReference/aws-resource-lambda-function.md "../TemplateReference/aws-resource-lambda-function.md") resource `CFNWaiter`
-
-The `AWS::Lambda::Function` resource specifies the function's source
-code, handler name, runtime environment, and execution role Amazon Resource Name
-(ARN).
-
-The `Handler` property is set to `index.handler` since it uses
-a Python source code. For more information on accepted handler identifiers when using
-inline function source codes, see [AWS::Lambda::Function Code](aws-properties-lambda-function-code.md#cfn-lambda-function-code-zipfile "aws-properties-lambda-function-code.md#cfn-lambda-function-code-zipfile").
-
-The `Runtime` is specified as `python3.9` since the source
-file is a Python code.
-
-The `Timeout` is set to 900 seconds.
-
-The `Role` property uses the `Fn::GetAtt` function to get the
-ARN of the `LambdaExecutionRole` execution role that's declared in the
-`AWS::IAM::Role` resource in the template.
-
-The `Code` property defines the function code inline using a Python
-function. The Python function in the sample template does the following:
-
-- Create a unique ID using the UUID
-- Check if the request is a create or update request
-- Sleep for the duration specified for `ServiceTimeout` during
-  `Create` or `Update` requests
-- Return the wait time and unique ID
+[AWS::Lambda::Function](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html) resource `CFNWaiter`  
+The `AWS::Lambda::Function` resource specifies the function's source code, handler name, runtime environment, and execution role Amazon Resource Name (ARN).  
+The `Handler` property is set to `index.handler` since it uses a Python source code. For more information on accepted handler identifiers when using inline function source codes, see [ AWS::Lambda::Function Code](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile).  
+The `Runtime` is specified as `python3.9` since the source file is a Python code.  
+The `Timeout` is set to 900 seconds.  
+The `Role` property uses the `Fn::GetAtt` function to get the ARN of the `LambdaExecutionRole` execution role that's declared in the `AWS::IAM::Role` resource in the template.  
+The `Code` property defines the function code inline using a Python function. The Python function in the sample template does the following:  
++ Create a unique ID using the UUID
++ Check if the request is a create or update request
++ Sleep for the duration specified for `ServiceTimeout` during `Create` or `Update` requests
++ Return the wait time and unique ID
 
 ### JSON
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-lambda-resource-json"></a>
 
 ```
 ...
@@ -268,6 +244,7 @@ function. The Python function in the sample template does the following:
 ```
 
 ### YAML
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-lambda-resource-yaml"></a>
 
 ```
 ...
@@ -275,7 +252,7 @@ function. The Python function in the sample template does the following:
     Type: AWS::Lambda::Function
     Properties:
       Handler: index.handler
-      Runtime: python3.9
+      Runtime: python3.9 
       Timeout: 900
       Role: !GetAtt LambdaExecutionRole.Arn
       Code:
@@ -294,19 +271,17 @@ function. The Python function in the sample template does the following:
               sleep(wait_seconds)
             response = {
               "TimeWaited": wait_seconds,
-              "Id": id
+              "Id": id 
             }
             cfnresponse.send(event, context, cfnresponse.SUCCESS, response, "Waiter-"+id)
 ...
 ```
 
-[AWS::IAM::Role](../TemplateReference/aws-resource-iam-role.md "../TemplateReference/aws-resource-iam-role.md") resource `LambdaExecutionRole`
-
-The `AWS::IAM:Role` resource creates an execution role for the Lambda
-function, which includes an assume role policy which allows Lambda to use it. It also
-contains a policy allowing CloudWatch Logs access.
+[AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html) resource `LambdaExecutionRole`  
+The `AWS::IAM:Role` resource creates an execution role for the Lambda function, which includes an assume role policy which allows Lambda to use it. It also contains a policy allowing CloudWatch Logs access.
 
 ### JSON
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-iam-role-json"></a>
 
 ```
 ...
@@ -337,6 +312,7 @@ contains a policy allowing CloudWatch Logs access.
 ```
 
 ### YAML
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-iam-role-yaml"></a>
 
 ```
 ...
@@ -363,15 +339,11 @@ contains a policy allowing CloudWatch Logs access.
 ...
 ```
 
-[AWS::CloudFormation::CustomResource](aws-resource-cloudformation-customresource.md "aws-resource-cloudformation-customresource.md") resource
-`CFNWaiterCustomResource`
-
-The custom resource links to the Lambda function with its ARN using `!GetAtt
- CFNWaiter.Arn`. It will implement a 60 second wait time for create and update
-operations, as set in `ServiceTimeout`. The resource will only be invoked for an
-update operation if the properties are modified.
+[AWS::CloudFormation::CustomResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html) resource `CFNWaiterCustomResource`  
+The custom resource links to the Lambda function with its ARN using `!GetAtt CFNWaiter.Arn`. It will implement a 60 second wait time for create and update operations, as set in `ServiceTimeout`. The resource will only be invoked for an update operation if the properties are modified.
 
 ### JSON
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-custom-resource-json"></a>
 
 ```
 ...
@@ -387,6 +359,7 @@ update operation if the properties are modified.
 ```
 
 ### YAML
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-custom-resource-yaml"></a>
 
 ```
 ...
@@ -398,15 +371,11 @@ update operation if the properties are modified.
 ...
 ```
 
-`Outputs`
-
-The `Outputs` of this template are the `TimeWaited` and the
-`WaiterId`. The `TimeWaited` value uses a
-`Fn::GetAtt` function to provide the amount of time the waiter resource
-actually waited. The `WaiterId` uses a `Fn::GetAtt` function to
-provide the unique ID that was generated and associated with the execution.
+`Outputs`  
+The `Outputs` of this template are the `TimeWaited` and the `WaiterId`. The `TimeWaited` value uses a `Fn::GetAtt` function to provide the amount of time the waiter resource actually waited. The `WaiterId` uses a `Fn::GetAtt` function to provide the unique ID that was generated and associated with the execution.
 
 ### JSON
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-output-json"></a>
 
 ```
 ...
@@ -425,6 +394,7 @@ provide the unique ID that was generated and associated with the execution.
 ```
 
 ### YAML
+<a name="walkthrough-lambda-backed-custom-resources-sample-template-output-yaml"></a>
 
 ```
 ...
@@ -441,65 +411,59 @@ Outputs:
 ```
 
 ## Prerequisites
+<a name="walkthrough-lambda-backed-custom-resources-prerequisites"></a>
 
-You must have IAM permissions to use all the corresponding services, such as Lambda and
-CloudFormation.
+You must have IAM permissions to use all the corresponding services, such as Lambda and CloudFormation.
 
 ## Launching the stack
+<a name="walkthrough-lambda-backed-custom-resources-createfunction-createstack"></a>
 
-###### To create the stack
+**To create the stack**
 
-1. Find the template of your preference (YAML or JSON) from the [Sample template](#walkthrough-lambda-backed-custom-resources-sample-template "#walkthrough-lambda-backed-custom-resources-sample-template") section and
-   save it to your machine with the name
-   `samplelambdabackedcustomresource.template`.
-2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-3. From the **Stacks** page, choose **Create stack** at
-   top right, and then choose **With new resources (standard)**.
-4. For **Prerequisite - Prepare template**, choose **Choose an
-   existing template**.
-5. For **Specify template**, choose **Upload a template
-   file**, and then choose **Choose file**.
-6. Select the `samplelambdabackedcustomresource.template` template file you
-   saved earlier.
-7. Choose **Next**.
-8. For **Stack name**, type
-   `SampleCustomResourceStack` and choose
-   **Next**.
-9. For this walkthrough, you don't need to add tags or specify advanced settings, so
-   choose **Next**.
-10. Ensure that the stack name looks correct, and then choose
-    **Create**.
+1. Find the template of your preference (YAML or JSON) from the [Sample template](#walkthrough-lambda-backed-custom-resources-sample-template) section and save it to your machine with the name `samplelambdabackedcustomresource.template`.
 
-It might take several minutes for CloudFormation to create your stack. To monitor progress,
-view the stack events. For more information, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/).
 
-If stack creation succeeds, all resources in the stack, such as the Lambda function and
-custom resource, were created. You have successfully used a Lambda function and custom
-resource.
+1. From the **Stacks** page, choose **Create stack** at top right, and then choose **With new resources (standard)**.
 
-If the Lambda function returns an error, view the function's logs in the CloudWatch Logs [console](https://console.aws.amazon.com/cloudwatch/home#logs: "https://console.aws.amazon.com/cloudwatch/home#logs:"). The name of the log stream is
-the physical ID of the custom resource, which you can find by viewing the stack's resources.
-For more information, see [View log data](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData") in the _Amazon CloudWatch User Guide_.
+1. For **Prerequisite - Prepare template**, choose **Choose an existing template**.
+
+1. For **Specify template**, choose **Upload a template file**, and then choose **Choose file**.
+
+1. Select the `samplelambdabackedcustomresource.template` template file you saved earlier.
+
+1. Choose **Next**.
+
+1. For **Stack name**, type **SampleCustomResourceStack** and choose **Next**.
+
+1. For this walkthrough, you don't need to add tags or specify advanced settings, so choose **Next**.
+
+1. Ensure that the stack name looks correct, and then choose **Create**.
+
+It might take several minutes for CloudFormation to create your stack. To monitor progress, view the stack events. For more information, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md).
+
+If stack creation succeeds, all resources in the stack, such as the Lambda function and custom resource, were created. You have successfully used a Lambda function and custom resource.
+
+If the Lambda function returns an error, view the function's logs in the CloudWatch Logs [console](https://console.aws.amazon.com/cloudwatch/home#logs:). The name of the log stream is the physical ID of the custom resource, which you can find by viewing the stack's resources. For more information, see [View log data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#ViewingLogData) in the *Amazon CloudWatch User Guide*.
 
 ## Cleaning up resources
+<a name="walkthrough-lambda-backed-custom-resources-createfunction-cleanup"></a>
 
-Delete the stack to clean up all the stack resources that you created so that you aren't
-charged for unnecessary resources.
+Delete the stack to clean up all the stack resources that you created so that you aren't charged for unnecessary resources.
 
-###### To delete the stack
+**To delete the stack**
 
-1. From the CloudFormation console, choose the **SampleCustomResourceStack**
-   stack.
-2. Choose **Actions** and then **Delete Stack**.
-3. In the confirmation message, choose **Yes, Delete**.
+1. From the CloudFormation console, choose the **SampleCustomResourceStack** stack.
+
+1. Choose **Actions** and then **Delete Stack**.
+
+1. In the confirmation message, choose **Yes, Delete**.
 
 All the resources that you created are deleted.
 
-Now that you understand how to create and use Lambda-backed custom resource, you can use
-the sample template and code from this walkthrough to build and experiment with other stacks
-and functions.
+Now that you understand how to create and use Lambda-backed custom resource, you can use the sample template and code from this walkthrough to build and experiment with other stacks and functions.
 
 ## Related information
-
-- [CloudFormation Custom Resource Reference](crpg-ref.md "crpg-ref.md")
-- [AWS::CloudFormation::CustomResource](aws-resource-cloudformation-customresource.md "aws-resource-cloudformation-customresource.md")
+<a name="w2aac11c45b9c24b9c23"></a>
++ [CloudFormation Custom Resource Reference](crpg-ref.md)
++ [AWS::CloudFormation::CustomResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html)

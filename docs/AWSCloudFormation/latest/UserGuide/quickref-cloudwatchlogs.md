@@ -1,34 +1,28 @@
+
+
 # Amazon CloudWatch Logs template snippets
+<a name="quickref-cloudwatchlogs"></a>
 
-Amazon CloudWatch Logs can monitor your system, application, and custom log files from Amazon EC2 instances
-or other sources. You can use CloudFormation to provision and manage log groups and metric filters.
-For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
+Amazon CloudWatch Logs can monitor your system, application, and custom log files from Amazon EC2 instances or other sources. You can use CloudFormation to provision and manage log groups and metric filters. For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
 
-###### Topics
-
-- [Send logs to CloudWatch Logs from a Linux instance](#quickref-cloudwatchlogs-example1 "#quickref-cloudwatchlogs-example1")
-- [Send logs to CloudWatch Logs from a Windows instance](#quickref-cloudwatchlogs-example2 "#quickref-cloudwatchlogs-example2")
-- [See also](#w2aac11c41c35c11 "#w2aac11c41c35c11")
+**Topics**
++ [Send logs to CloudWatch Logs from a Linux instance](#quickref-cloudwatchlogs-example1)
++ [Send logs to CloudWatch Logs from a Windows instance](#quickref-cloudwatchlogs-example2)
++ [See also](#w2aac11c41c35c11)
 
 ## Send logs to CloudWatch Logs from a Linux instance
+<a name="quickref-cloudwatchlogs-example1"></a>
 
-The following template demonstrates how to set up a web server on Amazon Linux 2023 with
-CloudWatch Logs integration. The template performs the following tasks:
+The following template demonstrates how to set up a web server on Amazon Linux 2023 with CloudWatch Logs integration. The template performs the following tasks:
++ Installs Apache and PHP.
++ Configures the CloudWatch agent to forward Apache access logs to CloudWatch Logs.
++ Sets up an IAM role to allow the CloudWatch agent to send log data to CloudWatch Logs.
++ Creates custom alarms and notifications to monitor for 404 errors or high bandwidth usage.
 
-- Installs Apache and PHP.
-- Configures the CloudWatch agent to forward Apache access logs to CloudWatch Logs.
-- Sets up an IAM role to allow the CloudWatch agent to send log data to
-  CloudWatch Logs.
-- Creates custom alarms and notifications to monitor for 404 errors or high
-  bandwidth usage.
-
-Log events from the web server provide metric data for CloudWatch alarms. The two metric
-filters describe how the log information is transformed into CloudWatch metrics. The 404
-metric counts the number of 404 occurrences. The size metric tracks the size of a
-request. The two CloudWatch alarms will send notifications if there are more than two 404s
-within 2 minutes or if the average request size is over 3500 KB over 10 minutes.
+Log events from the web server provide metric data for CloudWatch alarms. The two metric filters describe how the log information is transformed into CloudWatch metrics. The 404 metric counts the number of 404 occurrences. The size metric tracks the size of a request. The two CloudWatch alarms will send notifications if there are more than two 404s within 2 minutes or if the average request size is over 3500 KB over 10 minutes.
 
 ### JSON
+<a name="quickref-cloudwatchlogs-example.json"></a>
 
 ```
 {
@@ -59,7 +53,7 @@ within 2 minutes or if the average request size is over 3500 KB over 10 minutes.
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -79,7 +73,7 @@ within 2 minutes or if the average request size is over 3500 KB over 10 minutes.
                     {
                         "PolicyName": "LogRolePolicy",
                         "PolicyDocument": {
-                            "Version": "2012-10-17",
+                            "Version": "2012-10-17",		 	 	 
                             "Statement": [
                                 {
                                     "Effect": "Allow",
@@ -340,6 +334,7 @@ within 2 minutes or if the average request size is over 3500 KB over 10 minutes.
 ```
 
 ### YAML
+<a name="quickref-cloudwatchlogs-example.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -365,7 +360,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -377,7 +372,7 @@ Resources:
       Policies:
         - PolicyName: LogRolePolicy
           PolicyDocument:
-            Version: 2012-10-17
+            Version: 2012-10-17		 	 	 
             Statement:
               - Effect: Allow
                 Action:
@@ -485,13 +480,13 @@ Resources:
           dnf update -y aws-cfn-bootstrap
           dnf install -y amazon-cloudwatch-agent
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource WebServerHost --region ${AWS::Region}
-
+          
           # Verify Apache log directory exists and create if needed
           mkdir -p /var/log/httpd
-
+          
           # Start CloudWatch agent
           /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/etc/amazon-cloudwatch-agent/amazon-cloudwatch-agent.json -s
-
+          
           # Signal success
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebServerHost --region ${AWS::Region}
           echo "Done"
@@ -565,24 +560,19 @@ Outputs:
   CloudWatchLogGroupName:
     Description: The name of the CloudWatch log group
     Value: !Ref WebServerLogGroup
-
 ```
 
 ## Send logs to CloudWatch Logs from a Windows instance
+<a name="quickref-cloudwatchlogs-example2"></a>
 
 The following template configures CloudWatch Logs for a Windows 2012R2 instance.
 
-The CloudWatch Logs agent on Windows (SSM agent on Windows 2012R2 and Windows 2016 AMIs) only
-sends logs after it's started, so any logs that are generated before startup aren't
-sent. To work around this, the template helps to ensure that the agent starts before any
-logs are written by:
-
-- Configuring the agent setup as the first `config` item in cfn-init
-  `configSets`.
-- Using `waitAfterCompletion` to insert a pause after the command
-  that starts the agent.
+The CloudWatch Logs agent on Windows (SSM agent on Windows 2012R2 and Windows 2016 AMIs) only sends logs after it's started, so any logs that are generated before startup aren't sent. To work around this, the template helps to ensure that the agent starts before any logs are written by:
++ Configuring the agent setup as the first `config` item in cfn-init `configSets`.
++ Using `waitAfterCompletion` to insert a pause after the command that starts the agent.
 
 ### JSON
+<a name="quickref-cloudwatchlogs-example2.json"></a>
 
 ```
 {
@@ -633,7 +623,7 @@ logs are written by:
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -656,7 +646,7 @@ logs are written by:
                     {
                         "PolicyName": "LogRolePolicy",
                         "PolicyDocument": {
-                            "Version": "2012-10-17",
+                            "Version": "2012-10-17",		 	 	 
                             "Statement": [
                                 {
                                     "Effect": "Allow",
@@ -1002,6 +992,7 @@ logs are written by:
 ```
 
 ### YAML
+<a name="quickref-cloudwatchlogs-example2.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -1041,7 +1032,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -1055,7 +1046,7 @@ Resources:
       Policies:
         - PolicyName: LogRolePolicy
           PolicyDocument:
-            Version: 2012-10-17
+            Version: 2012-10-17		 	 	 
             Statement:
               - Effect: Allow
                 Action:
@@ -1261,7 +1252,7 @@ Resources:
             0-enableSSM:
               command: >-
                 powershell.exe -Command "Set-Service -Name AmazonSSMAgent
-                -StartupType Automatic"
+                -StartupType Automatic" 
               waitAfterCompletion: '0'
             1-restartSSM:
               command: powershell.exe -Command "Restart-Service AmazonSSMAgent "
@@ -1270,7 +1261,7 @@ Resources:
           commands:
             01_install_webserver:
               command: >-
-                powershell.exe -Command "Install-WindowsFeature Web-Server
+                powershell.exe -Command "Install-WindowsFeature Web-Server 
                 -IncludeAllSubFeature"
               waitAfterCompletion: '0'
         02-ConfigureApplication:
@@ -1294,25 +1285,25 @@ Resources:
       SecurityGroupIds:
         - !Ref WebServerSecurityGroup
       IamInstanceProfile: !Ref LogRoleInstanceProfile
-      UserData: !Base64
+      UserData: !Base64 
         'Fn::Sub': >
           <script>
 
           wmic product where "description='Amazon SSM Agent' " uninstall
 
-          wmic product where "description='aws-cfn-bootstrap' " uninstall
+          wmic product where "description='aws-cfn-bootstrap' " uninstall 
 
           start /wait c:\\Windows\\system32\\msiexec /passive /qn /i
           https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-win64-latest.msi
 
           powershell.exe -Command "iwr
-          https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe
+          https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe 
           -UseBasicParsing -OutFile C:\\AmazonSSMAgentSetup.exe"
 
           start /wait C:\\AmazonSSMAgentSetup.exe /install /quiet
 
           cfn-init.exe -v -c config -s ${AWS::StackName} --resource
-          WebServerHost --region ${AWS::Region}
+          WebServerHost --region ${AWS::Region} 
 
           </script>
   LogGroup:
@@ -1358,16 +1349,15 @@ Outputs:
     Description: URL for the web server
   PublicIP:
     Description: Public IP address of the web server
-    Value: !GetAtt
+    Value: !GetAtt 
       - WebServerHost
       - PublicIp
   CloudWatchLogGroupName:
     Description: The name of the CloudWatch log group
     Value: !Ref LogGroup
-
 ```
 
 ## See also
+<a name="w2aac11c41c35c11"></a>
 
-For more information about CloudWatch Logs resources, see [AWS::Logs::LogGroup](../TemplateReference/aws-resource-logs-loggroup.md "../TemplateReference/aws-resource-logs-loggroup.md") or
-[AWS::Logs::MetricFilter](../TemplateReference/aws-resource-logs-metricfilter.md "../TemplateReference/aws-resource-logs-metricfilter.md").
+For more information about CloudWatch Logs resources, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-loggroup.html) or [AWS::Logs::MetricFilter](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-metricfilter.html).

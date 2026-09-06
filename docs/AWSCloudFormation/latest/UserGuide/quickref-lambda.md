@@ -1,18 +1,14 @@
+
+
 # AWS Lambda template
+<a name="quickref-lambda"></a>
 
-The following template uses an AWS Lambda (Lambda) function and custom resource to append a new security group to a
-list of existing security groups. This function is useful when you want to build a list of security groups
-dynamically, so that your list includes both new and existing security groups. For example, you can pass a list of
-existing security groups as a parameter value, append the new value to the list, and then associate all your values
-with an EC2 instance. For more information about the Lambda function resource type, see [AWS::Lambda::Function](../TemplateReference/aws-resource-lambda-function.md "../TemplateReference/aws-resource-lambda-function.md").
+The following template uses an AWS Lambda (Lambda) function and custom resource to append a new security group to a list of existing security groups. This function is useful when you want to build a list of security groups dynamically, so that your list includes both new and existing security groups. For example, you can pass a list of existing security groups as a parameter value, append the new value to the list, and then associate all your values with an EC2 instance. For more information about the Lambda function resource type, see [AWS::Lambda::Function](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html).
 
-In the example, when CloudFormation creates the `AllSecurityGroups` custom resource, CloudFormation invokes the
-`AppendItemToListFunction` Lambda function. CloudFormation passes the list of existing security groups and a new
-security group (`NewSecurityGroup`) to the function, which appends the new security group to the list and
-then returns the modified list. CloudFormation uses the modified list to associate all security groups with the
-`MyEC2Instance` resource.
+In the example, when CloudFormation creates the `AllSecurityGroups` custom resource, CloudFormation invokes the `AppendItemToListFunction` Lambda function. CloudFormation passes the list of existing security groups and a new security group (`NewSecurityGroup`) to the function, which appends the new security group to the list and then returns the modified list. CloudFormation uses the modified list to associate all security groups with the `MyEC2Instance` resource.
 
 ## JSON
+<a name="quickref-lambda-example-1.json"></a>
 
 ```
 {
@@ -125,7 +121,7 @@ then returns the modified list. CloudFormation uses the modified list to associa
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17", 		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -145,7 +141,7 @@ then returns the modified list. CloudFormation uses the modified list to associa
                     {
                         "PolicyName": "root",
                         "PolicyDocument": {
-                            "Version": "2012-10-17",
+                            "Version": "2012-10-17", 		 	 	 
                             "Statement": [
                                 {
                                     "Effect": "Allow",
@@ -181,6 +177,7 @@ then returns the modified list. CloudFormation uses the modified list to associa
 ```
 
 ## YAML
+<a name="quickref-lambda-example-1.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -243,7 +240,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17' 		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -255,7 +252,7 @@ Resources:
       Policies:
         - PolicyName: root
           PolicyDocument:
-            Version: '2012-10-17'
+            Version: '2012-10-17' 		 	 	 
             Statement:
               - Effect: Allow
                 Action:

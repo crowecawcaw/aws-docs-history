@@ -1,9 +1,11 @@
+
+
 # Repository Sync Status Change event detail
+<a name="event-detail-respository-sync-status-change"></a>
 
 Below are the detail fields for Repository Sync Status Change events.
 
-The `source` and `detail-type` fields are included
-because they contain specific values for events.
+The `source` and `detail-type` fields are included because they contain specific values for events.
 
 ```
 {
@@ -30,88 +32,44 @@ because they contain specific values for events.
 }
 ```
 
-`detail-type`
+`detail-type`  <a name="respository-sync-status-change-detail-type"></a>
+Identifies the type of event.  
+For Repository Sync status events, this value is `Git Sync Repository Sync Status Change`.
 
-Identifies the type of event.
+`source`  <a name="respository-sync-status-change-source"></a>
+Identifies the service that generated the event. For Git sync events, this value is `aws.codeconnections`.
 
-For Repository Sync status events, this value is `Git Sync
- Repository Sync Status Change`.
+`detail`  <a name="respository-sync-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For Repository sync status events, this data includes:    
+`connectionArn`  <a name="respository-sync-status-change-connection-arn"></a>
+The Amazon Resource Name (ARN) associated with CodeConnections.  
+`providerType`  <a name="respository-sync-status-change-provider-type"></a>
+The Git provider connected to CloudFormation.  
+*Valid values*: `GitHub` \| `GitHub Enterprise` \| `GitLab` \| `BitBucket`  
+`repositoryName`  <a name="respository-sync-status-change-repository-name"></a>
+The Git repository name.  
+`repositoryArn`  <a name="respository-sync-status-change-repository-arn"></a>
+The ARN associated with the Git repository.  
+`repositoryLinkId`  <a name="respository-sync-status-change-repository-link-id"></a>
+The unique ID associated with repository link.  
+`ownerId`  <a name="respository-sync-status-change-owner-id"></a>
+The unique ID associated with repository owner.  
+`commit`  <a name="respository-sync-status-change-commit"></a>
+The unique ID associated with the repository commit.  
+`branch`  <a name="respository-sync-status-change-branch"></a>
+The unique ID associated with the repository branch.  
+`syncType`  <a name="respository-sync-status-change-sync-type"></a>
+The type of sync being performed.  
+`status`  <a name="respository-sync-status-change-status"></a>
+The current repository sync status.  
+*Valid values*: `FAILED` \| `INITIATED` \| `IN_PROGRESS` \| `SUCCEEDED`  
+`previousSync`  <a name="respository-sync-status-change-previous-sync"></a>
+The sync status previous to the current status.  
+*Valid values*: `FAILED` \| `INITIATED` \| `IN_PROGRESS` \| `SUCCEEDED`
 
-`source`
-
-Identifies the service that generated the event. For Git sync events,
-this value is `aws.codeconnections`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For Repository sync status events, this data includes:
-
-`connectionArn`
-
-The Amazon Resource Name (ARN) associated with
-CodeConnections.
-
-`providerType`
-
-The Git provider connected to CloudFormation.
-
-_Valid values_: `GitHub` |
-`GitHub Enterprise` | `GitLab` |
-`BitBucket`
-
-`repositoryName`
-
-The Git repository name.
-
-`repositoryArn`
-
-The ARN associated with the Git repository.
-
-`repositoryLinkId`
-
-The unique ID associated with repository link.
-
-`ownerId`
-
-The unique ID associated with repository owner.
-
-`commit`
-
-The unique ID associated with the repository
-commit.
-
-`branch`
-
-The unique ID associated with the repository
-branch.
-
-`syncType`
-
-The type of sync being performed.
-
-`status`
-
-The current repository sync status.
-
-_Valid values_: `FAILED` |
-`INITIATED` | `IN_PROGRESS` |
-`SUCCEEDED`
-
-`previousSync`
-
-The sync status previous to the current status.
-
-_Valid values_: `FAILED` |
-`INITIATED` | `IN_PROGRESS` |
-`SUCCEEDED`
-
-###### Example: Repository Sync Status Change event
-
-The following is an example Repository Sync Status Change event. The event
-details that CodeConnections has successfully synchronized the repository.
+**Example: Repository Sync Status Change event**  <a name="event-detail-respository-sync-status-change.example"></a>
+The following is an example Repository Sync Status Change event. The event details that CodeConnections has successfully synchronized the repository.  
 
 ```
 {

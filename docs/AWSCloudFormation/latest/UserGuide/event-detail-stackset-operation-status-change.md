@@ -1,9 +1,11 @@
+
+
 # StackSet Operation Status Change event detail
+<a name="event-detail-stackset-operation-status-change"></a>
 
 Below are the detail fields for StackSet Operation Status Change events.
 
-The `source` and `detail-type` fields are included
-because they contain specific values for events.
+The `source` and `detail-type` fields are included because they contain specific values for events.
 
 ```
 {
@@ -22,53 +24,28 @@ because they contain specific values for events.
 }
 ```
 
-`detail-type`
+`detail-type`  <a name="stackset-operation-status-change-detail-type"></a>
+Identifies the type of event.  
+For StackSet operation status events, this value is `CloudFormation StackSet Operation Status Change`.
 
-Identifies the type of event.
+`source`  <a name="stackset-operation-status-change-source"></a>
+Identifies the service that generated the event. For CloudFormation events, this value is `aws.cloudformation`.
 
-For StackSet operation status events, this value is `CloudFormation
- StackSet Operation Status Change`.
+`detail`  <a name="stackset-operation-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For StackSet operation status events, this data includes:    
+`stack-set-arn`  <a name="stackset-operation-status-change-stack-set-arn"></a>
+The Amazon Resource Name (ARN) associated with the StackSet.  
+`stack-set-operation-id`  <a name="stackset-operation-status-change-stack-set-operation-id"></a>
+The unique ID that's associated with the StackSet operation.  
+`status-details`  <a name="stackset-operation-status-change-status-details"></a>  
+`status`  <a name="stackset-operation-status-change-status"></a>
+The StackSet operation status.  
+For more details, see [StackSets status codes](stacksets-concepts.md#stackset-status-codes).  
+*Valid values*: `RUNNING` \| `SUCCEEDED` \| `FAILED` \| `STOPPING` \| `STOPPED` \| `QUEUED`
 
-`source`
-
-Identifies the service that generated the event. For CloudFormation
-events, this value is `aws.cloudformation`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For StackSet operation status events, this data includes:
-
-`stack-set-arn`
-
-The Amazon Resource Name (ARN) associated with the
-StackSet.
-
-`stack-set-operation-id`
-
-The unique ID that's associated with the StackSet
-operation.
-
-`status-details`
-
-`status`
-
-The StackSet operation status.
-
-For more details, see [StackSets status codes](stacksets-concepts.md#stackset-status-codes "stacksets-concepts.md#stackset-status-codes").
-
-_Valid values_:
-`RUNNING` | `SUCCEEDED` |
-`FAILED` | `STOPPING` |
-`STOPPED` | `QUEUED`
-
-###### Example: StackSet Operation Status Change event
-
-The following is an example StackSet Operation Status Change event. The event
-details that CloudFormation has successfully completed the requested operation on
-the specified stack set.
+**Example: StackSet Operation Status Change event**  <a name="event-detail-stackset-operation-status-change.example"></a>
+The following is an example StackSet Operation Status Change event. The event details that CloudFormation has successfully completed the requested operation on the specified stack set.  
 
 ```
 {

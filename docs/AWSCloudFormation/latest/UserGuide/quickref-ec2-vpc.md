@@ -1,33 +1,23 @@
+
+
 # Configure Amazon VPC resources with CloudFormation
+<a name="quickref-ec2-vpc"></a>
 
-This section provides examples for configuring Amazon VPC resources using CloudFormation. VPCs
-allow you to create a virtual network within AWS, and these snippets show how to
-configure aspects of VPCs to meet your networking requirements.
+This section provides examples for configuring Amazon VPC resources using CloudFormation. VPCs allow you to create a virtual network within AWS, and these snippets show how to configure aspects of VPCs to meet your networking requirements. 
 
-###### Example snippets
-
-- [Enable IPv6 egress-only internet access in a VPC](#quickref-ec2-route-egressonlyinternetgateway "#quickref-ec2-route-egressonlyinternetgateway")
-- [Elastic network interface (ENI) template snippets](#cfn-template-snippets-eni "#cfn-template-snippets-eni")
+**Topics**
++ [Enable IPv6 egress-only internet access in a VPC](#quickref-ec2-route-egressonlyinternetgateway)
++ [Elastic network interface (ENI) template snippets](#cfn-template-snippets-eni)
 
 ## Enable IPv6 egress-only internet access in a VPC
+<a name="quickref-ec2-route-egressonlyinternetgateway"></a>
 
-An egress-only internet gateway allows instances within a VPC to access the
-internet and prevent resources on the internet from communicating with the
-instances. The following snippet enables IPv6 egress-only internet access from
-within a VPC. It creates a VPC with an IPv4 address range of `10.0.0/16`
-using an [AWS::EC2::VPC](../TemplateReference/aws-resource-ec2-vpc.md "../TemplateReference/aws-resource-ec2-vpc.md") resource. A route table is associated with this VPC
-resource using an [AWS::EC2::RouteTable](../TemplateReference/aws-resource-ec2-routetable.md "../TemplateReference/aws-resource-ec2-routetable.md")
-resource. The route table manages routes for instances within the VPC. An [AWS::EC2::EgressOnlyInternetGateway](../TemplateReference/aws-resource-ec2-egressonlyinternetgateway.md "../TemplateReference/aws-resource-ec2-egressonlyinternetgateway.md") is used to create an egress-only
-internet gateway to enable IPv6 communication for outbound traffic from instances
-within the VPC, while preventing inbound traffic. An [AWS::EC2::Route](../TemplateReference/aws-resource-ec2-route.md "../TemplateReference/aws-resource-ec2-route.md") resource is
-specified to create an IPv6 route in the route table that directs all outbound IPv6
-traffic (`::/0`) to the egress-only internet gateway.
+An egress-only internet gateway allows instances within a VPC to access the internet and prevent resources on the internet from communicating with the instances. The following snippet enables IPv6 egress-only internet access from within a VPC. It creates a VPC with an IPv4 address range of `10.0.0/16` using an [AWS::EC2::VPC](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpc.html) resource. A route table is associated with this VPC resource using an [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routetable.html) resource. The route table manages routes for instances within the VPC. An [AWS::EC2::EgressOnlyInternetGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-egressonlyinternetgateway.html) is used to create an egress-only internet gateway to enable IPv6 communication for outbound traffic from instances within the VPC, while preventing inbound traffic. An [AWS::EC2::Route](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-route.html) resource is specified to create an IPv6 route in the route table that directs all outbound IPv6 traffic (`::/0`) to the egress-only internet gateway. 
 
-For more information about egress-only internet gateways, see [Enable outbound
-IPv6 traffic using an egress-only internet gateway](../../../vpc/latest/userguide/egress-only-internet-gateway.md "../../../vpc/latest/userguide/egress-only-internet-gateway.md") in the
-_Amazon VPC User Guide_.
+For more information about egress-only internet gateways, see [Enable outbound IPv6 traffic using an egress-only internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html) in the *Amazon VPC User Guide*.
 
 ### JSON
+<a name="quickref-ec2-example-16.json"></a>
 
 ```
 "DefaultIpv6Route": {
@@ -67,6 +57,7 @@ _Amazon VPC User Guide_.
 ```
 
 ### YAML
+<a name="quickref-ec2-example-16.yaml"></a>
 
 ```
 DefaultIpv6Route:
@@ -94,35 +85,21 @@ VPC:
 ```
 
 ## Elastic network interface (ENI) template snippets
+<a name="cfn-template-snippets-eni"></a>
 
 ### Create an Amazon EC2 instance with attached elastic network interfaces (ENIs)
+<a name="cfn-template-snippets-eni-template"></a>
 
-The following example snippet creates an Amazon EC2 instance using an [AWS::EC2::Instance](../TemplateReference/aws-resource-ec2-instance.md "../TemplateReference/aws-resource-ec2-instance.md") resource in the specified Amazon VPC and subnet. It attaches two
-network interfaces (ENIs) with the instance, associates Elastic IP addresses to the instances
-through the attached ENIs, and configures the security group for SSH and HTTP access. User
-data is supplied to the instance as part of the launch configuration when the instance is
-created. The user data includes a script encoded in `base64` format to ensure it is
-passed to the instance. When the instance is launched, the script runs automatically as part
-of the bootstrapping process. It installs `ec2-net-utils`, configures the network
-interfaces, and starts the HTTP service.
+The following example snippet creates an Amazon EC2 instance using an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html) resource in the specified Amazon VPC and subnet. It attaches two network interfaces (ENIs) with the instance, associates Elastic IP addresses to the instances through the attached ENIs, and configures the security group for SSH and HTTP access. User data is supplied to the instance as part of the launch configuration when the instance is created. The user data includes a script encoded in `base64` format to ensure it is passed to the instance. When the instance is launched, the script runs automatically as part of the bootstrapping process. It installs `ec2-net-utils`, configures the network interfaces, and starts the HTTP service. 
 
-To determine the appropriate Amazon Machine Image (AMI) based on the selected Region, the
-snippet uses a `Fn::FindInMap` function that looks up values in a
-`RegionMap` mapping. This mapping must be defined in the larger template. The
-two network interfaces are created using [AWS::EC2::NetworkInterface](../TemplateReference/aws-resource-ec2-networkinterface.md "../TemplateReference/aws-resource-ec2-networkinterface.md") resources. Elastic IP addresses are specified using
-[AWS::EC2::EIP](../TemplateReference/aws-resource-ec2-eip.md "../TemplateReference/aws-resource-ec2-eip.md")
-resources allocated to the `vpc` domain. These elastic IP addresses are associated
-with the network interfaces using [AWS::EC2::EIPAssociation](../TemplateReference/aws-resource-ec2-eipassociation.md "../TemplateReference/aws-resource-ec2-eipassociation.md") resources.
+To determine the appropriate Amazon Machine Image (AMI) based on the selected Region, the snippet uses a `Fn::FindInMap` function that looks up values in a `RegionMap` mapping. This mapping must be defined in the larger template. The two network interfaces are created using [AWS::EC2::NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinterface.html) resources. Elastic IP addresses are specified using [AWS::EC2::EIP](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-eip.html) resources allocated to the `vpc` domain. These elastic IP addresses are associated with the network interfaces using [AWS::EC2::EIPAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-eipassociation.html) resources. 
 
-The `Outputs` section defines values or resources that you want to access after
-the stack is created. In this snippet, the defined output is `InstancePublicIp`,
-which represents the public IP address of the EC2 instance created by the stack. You can
-retrieve this output in the **Output** tab on the CloudFormation console, or using the
-[describe-stacks](../../../cli/latest/reference/cloudformation/describe-stacks.md "../../../cli/latest/reference/cloudformation/describe-stacks.md") command.
+The `Outputs` section defines values or resources that you want to access after the stack is created. In this snippet, the defined output is `InstancePublicIp`, which represents the public IP address of the EC2 instance created by the stack. You can retrieve this output in the **Output** tab on the CloudFormation console, or using the [describe-stacks](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/describe-stacks.html) command. 
 
-For more information about elastic network interfaces, see [Elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md").
+For more information about elastic network interfaces, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html).
 
 #### JSON
+<a name="cfn-template-snippets-eni-example-1.json"></a>
 
 ```
 "Resources": {
@@ -305,6 +282,7 @@ For more information about elastic network interfaces, see [Elastic network inte
 ```
 
 #### YAML
+<a name="cfn-template-snippets-eni-example.yaml"></a>
 
 ```
 Resources:

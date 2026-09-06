@@ -1,9 +1,11 @@
+
+
 # StackSet Stack Instance Status Change event detail
+<a name="event-detail-stackset-stack-instance-status-change"></a>
 
 Below are the detail fields for StackSet stack instance status events.
 
-The `source` and `detail-type` fields are included
-because they contain specific values for events.
+The `source` and `detail-type` fields are included because they contain specific values for events.
 
 ```
 {
@@ -14,7 +16,7 @@ because they contain specific values for events.
   "detail": {
     "stack-set-arn" : "string",
     "stack-id" : "string",
-    "action" : "string",
+    "action" : "string",       
     "status-details": {
         "status": "string",
         "status-reason": "string",
@@ -25,75 +27,36 @@ because they contain specific values for events.
 }
 ```
 
-`detail-type`
+`detail-type`  <a name="stackset-stack-instance-status-detail-type"></a>
+Identifies the type of event.  
+For StackSet stack instance status events, this value is `CloudFormation StackSet StackInstance Status Change`.
 
-Identifies the type of event.
+`source`  <a name="stackset-stack-instance-status-source"></a>
+Identifies the service that generated the event. For CloudFormation events, this value is `aws.cloudformation`.
 
-For StackSet stack instance status events, this value is
-`CloudFormation StackSet StackInstance Status Change`.
+`detail`  <a name="stackset-stack-instance-status-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For StackSet stack instance status events, this data includes:    
+`stack-set-arn`  <a name="stackset-stack-instance-status-stack-set-arn"></a>
+The Amazon Resource Name (ARN) associated with the StackSet.  
+`stack-id`  <a name="stackset-stack-instance-status-stack-id"></a>
+The unique stack ID that's associated with the stack instance.  
+`action`  <a name="stackset-stack-instance-status-action"></a>
+The type of stack set operation.  
+*Valid values*: `CREATE` \| `UPDATE`\| `DELETE` \| `DETECT_DRIFT`  
+`status-details`  <a name="stackset-stack-instance-status-status-details"></a>  
+`status`  <a name="stackset-stack-instance-status-status"></a>
+The StackSet instance status.  
+For more details, see [Stack instance status codes](stacksets-concepts.md#stack-instance-status-codes).  
+*Valid values*: `CURRENT` \| `OUTDATED`\| `INOPERABLE`  
+`status-reason`  <a name="stackset-stack-instance-status-status-reason"></a>
+Status reason of the StackSet instance.  
+`detailed-status`  <a name="stackset-stack-instance-status-detailed-status"></a>
+The detailed StackSet instance detailed status.  
+*Valid values*: `CANCELLED` \| `FAILED` \| `FAILED_IMPORT` \| `INOPERABLE` \| `PENDING` \| `RUNNING` \| `SKIPPED_SUSPENDED_ACCOUNT` \| `SUCCEEDED`
 
-`source`
-
-Identifies the service that generated the event. For CloudFormation
-events, this value is `aws.cloudformation`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For StackSet stack instance status events, this data includes:
-
-`stack-set-arn`
-
-The Amazon Resource Name (ARN) associated with the
-StackSet.
-
-`stack-id`
-
-The unique stack ID that's associated with the stack
-instance.
-
-`action`
-
-The type of stack set operation.
-
-_Valid values_:
-`CREATE` | `UPDATE`|
-`DELETE` | `DETECT_DRIFT`
-
-`status-details`
-
-`status`
-
-The StackSet instance status.
-
-For more details, see [Stack instance status codes](stacksets-concepts.md#stack-instance-status-codes "stacksets-concepts.md#stack-instance-status-codes").
-
-_Valid values_:
-`CURRENT` | `OUTDATED`|
-`INOPERABLE`
-
-`status-reason`
-
-Status reason of the StackSet instance.
-
-`detailed-status`
-
-The detailed StackSet instance detailed
-status.
-
-_Valid values_:
-`CANCELLED` | `FAILED` |
-`FAILED_IMPORT` |
-`INOPERABLE` | `PENDING` |
-`RUNNING` |
-`SKIPPED_SUSPENDED_ACCOUNT` |
-`SUCCEEDED`
-
-###### Example: StackSet Stack Instance Status Change event
-
-The following is an example StackSet Stack Instance Status Change event.
+**Example: StackSet Stack Instance Status Change event**  <a name="event-detail-stackset-stack-instance-status-change.example"></a>
+The following is an example StackSet Stack Instance Status Change event.   
 
 ```
 {

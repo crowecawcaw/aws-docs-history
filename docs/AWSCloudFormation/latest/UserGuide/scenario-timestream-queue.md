@@ -1,40 +1,36 @@
+
+
 # Amazon Timestream template snippets
+<a name="scenario-timestream-queue"></a>
 
-Amazon Timestream for InfluxDB makes it easy for application developers and DevOps teams to run fully managed InfluxDB
-databases on AWS for real-time time-series applications using open-source APIs. You can quickly create an InfluxDB
-database that handles demanding time- series workloads. With a few simple API calls, you can set up, migrate,
-operate, and scale an InfluxDB database on AWS with automated software patching, backups, and recovery. You can
-also find these samples at [awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb") on
-GitHub.
+Amazon Timestream for InfluxDB makes it easy for application developers and DevOps teams to run fully managed InfluxDB databases on AWS for real-time time-series applications using open-source APIs. You can quickly create an InfluxDB database that handles demanding time- series workloads. With a few simple API calls, you can set up, migrate, operate, and scale an InfluxDB database on AWS with automated software patching, backups, and recovery. You can also find these samples at [awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb) on GitHub.
 
-###### Topics
+**Topics**
++ [Minimal sample using default values](#scenario-timestream-influxdb-example-1)
++ [More complete example with parameters](#scenario-timestream-influxdb-example-2)
 
-- [Minimal sample using default values](#scenario-timestream-influxdb-example-1 "#scenario-timestream-influxdb-example-1")
-- [More complete example with parameters](#scenario-timestream-influxdb-example-2 "#scenario-timestream-influxdb-example-2")
-  These CloudFormation templates create the following resources that are needed to successfully create, connect to, and
-  monitor a Amazon Timestream for InfluxDB instance:
+These CloudFormation templates create the following resources that are needed to successfully create, connect to, and monitor a Amazon Timestream for InfluxDB instance:
 
-###### Amazon VPC
+**Amazon VPC**
++ `VPC`
++ One or more `Subnet`
++ `InternetGateway`
++ `RouteTable`
++ `SecurityGroup`
 
-- `VPC`
-- One or more `Subnet`
-- `InternetGateway`
-- `RouteTable`
-- `SecurityGroup`
+**Amazon S3**
++ `Bucket`
 
-###### Amazon S3
-
-- `Bucket`
-
-###### Amazon Timestream
-
-- `InfluxDBInstance`
+**Amazon Timestream**
++ `InfluxDBInstance`
 
 ## Minimal sample using default values
+<a name="scenario-timestream-influxdb-example-1"></a>
 
 This example deploys a multi- AZ and publicly accessible instance using default values when possible.
 
 ### JSON
+<a name="scenario-timestream-influxdb-example-1.json"></a>
 
 ```
 {
@@ -201,7 +197,7 @@ This example deploys a multi- AZ and publicly accessible instance using default 
       "Properties": {
         "Bucket": {"Ref": "InfluxDBLogsS3Bucket"},
         "PolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Action": "s3:PutObject",
@@ -320,9 +316,10 @@ This example deploys a multi- AZ and publicly accessible instance using default 
 ```
 
 ### YAML
+<a name="scenario-timestream-influxdb-example-1.yaml"></a>
 
 ```
-Metadata:
+Metadata: 
   AWS::CloudFormation::Interface:
     ParameterGroups:
       -
@@ -446,7 +443,7 @@ Resources:
       Password: !Ref InfluxDBPassword
       PubliclyAccessible: true
       DeploymentType: WITH_MULTIAZ_STANDBY
-      VpcSecurityGroupIds:
+      VpcSecurityGroupIds: 
         - !Ref InfluxDBSecurityGroup
       VpcSubnetIds:
         - !Ref Subnet1
@@ -487,15 +484,15 @@ Outputs:
   Endpoint:
     Description: The endpoint URL to connect to InfluxDB
     Value: !Join ["", ["https://", !GetAtt DbInstance.Endpoint, ":8086"]]
-
 ```
 
 ## More complete example with parameters
+<a name="scenario-timestream-influxdb-example-2"></a>
 
-This example template dynamically alters the network resources based on the parameters provided. Parameters
-include `PubliclyAccessible` and `DeploymentType`.
+This example template dynamically alters the network resources based on the parameters provided. Parameters include `PubliclyAccessible` and `DeploymentType`.
 
 ### JSON
+<a name="scenario-timestream-influxdb-example-2.json"></a>
 
 ```
 {
@@ -786,7 +783,7 @@ include `PubliclyAccessible` and `DeploymentType`.
       "Properties": {
         "Bucket": {"Ref": "InfluxDBLogsS3Bucket"},
         "PolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Action": "s3:PutObject",
@@ -930,12 +927,13 @@ include `PubliclyAccessible` and `DeploymentType`.
 ```
 
 ### YAML
+<a name="scenario-timestream-influxdb-example-2.yaml"></a>
 
 ```
-Metadata:
+Metadata: 
   AWS::CloudFormation::Interface:
     ParameterGroups:
-      -
+      - 
         Label:
           default: "Network Configuration"
         Parameters:
@@ -970,7 +968,7 @@ Parameters:
     Type: String
     Default: mydbinstance
     MinLength: 3
-    MaxLength: 40
+    MaxLength: 40    
     AllowedPattern: ^[a-zA-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$
   # InfluxDB initial user configurations
   InfluxDBUsername:
@@ -1149,7 +1147,7 @@ Resources:
       Bucket: !Ref InfluxDBBucket
       PubliclyAccessible: !If [IsPublic, true, false]
       DeploymentType: !Ref DeploymentType
-      VpcSecurityGroupIds:
+      VpcSecurityGroupIds: 
         - !Ref InfluxDBSecurityGroup
       VpcSubnetIds: !If
         - IsMultiAZ

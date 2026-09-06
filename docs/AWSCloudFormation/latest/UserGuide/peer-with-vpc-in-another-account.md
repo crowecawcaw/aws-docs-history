@@ -1,303 +1,287 @@
+
+
 # Peer with a VPC in another AWS account
+<a name="peer-with-vpc-in-another-account"></a>
 
-You can peer with a Virtual Private Cloud (VPC) in another AWS account by using [AWS::EC2::VPCPeeringConnection](../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md "../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md"). This creates a networking connection
-between two VPCs that enables you to route traffic between them so they can communicate as if
-they were within the same network. A VPC peering connection can help facilitate data access and
-data transfer.
+You can peer with a Virtual Private Cloud (VPC) in another AWS account by using [AWS::EC2::VPCPeeringConnection](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcpeeringconnection.html). This creates a networking connection between two VPCs that enables you to route traffic between them so they can communicate as if they were within the same network. A VPC peering connection can help facilitate data access and data transfer.
 
-To establish a VPC peering connection, you need to authorize two separate AWS accounts
-within a single CloudFormation stack.
+To establish a VPC peering connection, you need to authorize two separate AWS accounts within a single CloudFormation stack.
 
-For more information about VPC peering and its limitations, see the [Amazon VPC Peering Guide](../../../vpc/latest/peering.md "../../../vpc/latest/peering.md").
+For more information about VPC peering and its limitations, see the [Amazon VPC Peering Guide](https://docs.aws.amazon.com/vpc/latest/peering/). 
 
 ## Prerequisites
+<a name="peer-with-vpc-in-another-account-prerequisites"></a>
 
-1. You need a peer VPC ID, a peer AWS account ID, and a [cross-account
-   access role](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") for the peering connection.
+1. You need a peer VPC ID, a peer AWS account ID, and a [cross-account access role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) for the peering connection. 
+**Note**  
+This walkthrough refers to two accounts: First is an account that allows cross-account peering (the *accepter account*). Second is an account that requests the peering connection (the *requester account*).
 
-###### Note
-
-This walkthrough refers to two accounts: First is an account that allows
-cross-account peering (the _accepter account_). Second is an account
-that requests the peering connection (the _requester
-account_). 2. To accept the VPC peering connection, the cross-account access role must be assumable
-by you. The resource behaves the same way as a VPC peering connection resource in the same
-account. For information about how an IAM administrator grants permissions to assume the
-cross-account role, see [Grant a user
-permissions to switch roles](../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md "../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md") in the _IAM User Guide_.
+1. To accept the VPC peering connection, the cross-account access role must be assumable by you. The resource behaves the same way as a VPC peering connection resource in the same account. For information about how an IAM administrator grants permissions to assume the cross-account role, see [Grant a user permissions to switch roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html) in the *IAM User Guide*.
 
 ## Step 1: Create a VPC and a cross-account role
+<a name="step-1-create-vpc-and-cross-account-role"></a>
 
-In this step, you'll create the VPC and role in the _accepter
-account_.
+In this step, you'll create the VPC and role in the *accepter account*.
 
-###### To create a VPC and a cross-account access role
+**To create a VPC and a cross-account access role**
 
-1. Sign in to the AWS Management Console and open the CloudFormation console at
-   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. From the **Stacks** page, choose **Create stack** at
-   top right, and then choose **With new resources (standard)**.
-3. For **Prerequisite - Prepare template**, choose **Choose an
-   existing template** and then **Upload a template file**,
-   **Choose file**.
-4. Open a text editor on your local machine and add one of the following templates. Save
-   the file and return to the console to select it as the template file.
+1. Sign in to the AWS Management Console and open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-###### Example JSON
+1. From the **Stacks** page, choose **Create stack** at top right, and then choose **With new resources (standard)**.
 
-```
-{
-  "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Create a VPC and an assumable role for cross account VPC peering.",
-  "Parameters": {
-    "PeerRequesterAccountId": {
-      "Type": "String"
-    }
-  },
-  "Resources": {
-    "vpc": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": "10.1.0.0/16",
-        "EnableDnsSupport": false,
-        "EnableDnsHostnames": false,
-        "InstanceTenancy": "default"
-      }
-    },
-    "peerRole": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Principal": {
-                "AWS": {
-                  "Ref": "PeerRequesterAccountId"
-                }
-              },
-              "Action": [
-                "sts:AssumeRole"
-              ],
-              "Effect": "Allow"
-            }
-          ]
-        },
-        "Path": "/",
-        "Policies": [
-          {
-            "PolicyName": "root",
-            "PolicyDocument": {
-              "Version": "2012-10-17",
-              "Statement": [
-                {
-                  "Effect": "Allow",
-                  "Action": "ec2:AcceptVpcPeeringConnection",
-                  "Resource": "*"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Outputs": {
-    "VPCId": {
-      "Value": {
-        "Ref": "vpc"
-      }
-    },
-    "RoleARN": {
-      "Value": {
-        "Fn::GetAtt": [
-          "peerRole",
-          "Arn"
-        ]
-      }
-    }
-  }
-}
-```
+1. For **Prerequisite - Prepare template**, choose **Choose an existing template** and then **Upload a template file**, **Choose file**.
 
-###### Example YAML
+1. Open a text editor on your local machine and add one of the following templates. Save the file and return to the console to select it as the template file.  
+**Example JSON**  
 
-```
-AWSTemplateFormatVersion: 2010-09-09
-Description: Create a VPC and an assumable role for cross account VPC peering.
-Parameters:
-  PeerRequesterAccountId:
-    Type: String
-Resources:
-  vpc:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.1.0.0/16
-      EnableDnsSupport: false
-      EnableDnsHostnames: false
-      InstanceTenancy: default
-  peerRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Principal:
-              AWS: !Ref PeerRequesterAccountId
-            Action:
-              - 'sts:AssumeRole'
-            Effect: Allow
-      Path: /
-      Policies:
-        - PolicyName: root
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-              - Effect: Allow
-                Action: 'ec2:AcceptVpcPeeringConnection'
-                Resource: '*'
-Outputs:
-  VPCId:
-    Value: !Ref vpc
-  RoleARN:
-    Value: !GetAtt
-      - peerRole
-      - Arn
-```
+   ```
+   {
+     "AWSTemplateFormatVersion": "2010-09-09",
+     "Description": "Create a VPC and an assumable role for cross account VPC peering.",
+     "Parameters": {
+       "PeerRequesterAccountId": {
+         "Type": "String"
+       }
+     },
+     "Resources": {
+       "vpc": {
+         "Type": "AWS::EC2::VPC",
+         "Properties": {
+           "CidrBlock": "10.1.0.0/16",
+           "EnableDnsSupport": false,
+           "EnableDnsHostnames": false,
+           "InstanceTenancy": "default"
+         }
+       },
+       "peerRole": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+           "AssumeRolePolicyDocument": {
+             "Statement": [
+               {
+                 "Principal": {
+                   "AWS": {
+                     "Ref": "PeerRequesterAccountId"
+                   }
+                 },
+                 "Action": [
+                   "sts:AssumeRole"
+                 ],
+                 "Effect": "Allow"
+               }
+             ]
+           },
+           "Path": "/",
+           "Policies": [
+             {
+               "PolicyName": "root",
+               "PolicyDocument": {
+                 "Version": "2012-10-17",		 	 	 
+                 "Statement": [
+                   {
+                     "Effect": "Allow",
+                     "Action": "ec2:AcceptVpcPeeringConnection",
+                     "Resource": "*"
+                   }
+                 ]
+               }
+             }
+           ]
+         }
+       }
+     },
+     "Outputs": {
+       "VPCId": {
+         "Value": {
+           "Ref": "vpc"
+         }
+       },
+       "RoleARN": {
+         "Value": {
+           "Fn::GetAtt": [
+             "peerRole",
+             "Arn"
+           ]
+         }
+       }
+     }
+   }
+   ```  
+**Example YAML**  
 
-5. Choose **Next**.
-6. Give the stack a name (for example, `VPC-owner`), and then enter
-   the AWS account ID of the _requester account_ in the
-   **PeerRequesterAccountId** field.
-7. Accept the defaults, and then choose **Next**.
-8. Choose **I acknowledge that CloudFormation might create IAM resources**, and
-   then choose **Create stack**.
+   ```
+   AWSTemplateFormatVersion: 2010-09-09
+   Description: Create a VPC and an assumable role for cross account VPC peering.
+   Parameters:
+     PeerRequesterAccountId:
+       Type: String
+   Resources:
+     vpc:
+       Type: AWS::EC2::VPC
+       Properties:
+         CidrBlock: 10.1.0.0/16
+         EnableDnsSupport: false
+         EnableDnsHostnames: false
+         InstanceTenancy: default
+     peerRole:
+       Type: AWS::IAM::Role
+       Properties:
+         AssumeRolePolicyDocument:
+           Statement:
+             - Principal:
+                 AWS: !Ref PeerRequesterAccountId
+               Action:
+                 - 'sts:AssumeRole'
+               Effect: Allow
+         Path: /
+         Policies:
+           - PolicyName: root
+             PolicyDocument:
+               Version: 2012-10-17 		 	 	 
+               Statement:
+                 - Effect: Allow
+                   Action: 'ec2:AcceptVpcPeeringConnection'
+                   Resource: '*'
+   Outputs:
+     VPCId:
+       Value: !Ref vpc
+     RoleARN:
+       Value: !GetAtt 
+         - peerRole
+         - Arn
+   ```
+
+1. Choose **Next**.
+
+1. Give the stack a name (for example, **VPC-owner**), and then enter the AWS account ID of the *requester account* in the **PeerRequesterAccountId** field.
+
+1. Accept the defaults, and then choose **Next**.
+
+1. Choose **I acknowledge that CloudFormation might create IAM resources**, and then choose **Create stack**.
 
 ## Step 2: Create a template that includes `AWS::EC2::VPCPeeringConnection`
+<a name="step-2-create-template-for-vpc-peering-connection-owner"></a>
 
-Now that you've created the VPC and cross-account role, you can peer with the VPC using
-another AWS account (the _requester account_).
+Now that you've created the VPC and cross-account role, you can peer with the VPC using another AWS account (the *requester account*).
 
-###### To create a template that includes the [AWS::EC2::VPCPeeringConnection](../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md "../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md") resource
+**To create a template that includes the [AWS::EC2::VPCPeeringConnection](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcpeeringconnection.html) resource**
 
 1. Go back to the CloudFormation console home page.
-2. From the **Stacks** page, choose **Create stack** at
-   top right, and then choose **With new resources (standard)**.
-3. For **Prerequisite - Prepare template**, choose **Choose an
-   existing template** and then **Upload a template file**,
-   **Choose file**.
-4. Open a text editor on your local machine and add one of the following templates. Save
-   the file and return to the console to select it as the template file.
 
-###### Example JSON
+1. From the **Stacks** page, choose **Create stack** at top right, and then choose **With new resources (standard)**.
 
-```
-{
-  "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Create a VPC and a VPC Peering connection using the PeerRole to accept.",
-  "Parameters": {
-    "PeerVPCAccountId": {
-      "Type": "String"
-    },
-    "PeerVPCId": {
-      "Type": "String"
-    },
-    "PeerRoleArn": {
-      "Type": "String"
-    }
-  },
-  "Resources": {
-    "vpc": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": "10.2.0.0/16",
-        "EnableDnsSupport": false,
-        "EnableDnsHostnames": false,
-        "InstanceTenancy": "default"
-      }
-    },
-    "vpcPeeringConnection": {
-      "Type": "AWS::EC2::VPCPeeringConnection",
-      "Properties": {
-        "VpcId": {
-          "Ref": "vpc"
-        },
-        "PeerVpcId": {
-          "Ref": "PeerVPCId"
-        },
-        "PeerOwnerId": {
-          "Ref": "PeerVPCAccountId"
-        },
-        "PeerRoleArn": {
-          "Ref": "PeerRoleArn"
-        }
-      }
-    }
-  },
-  "Outputs": {
-    "VPCId": {
-      "Value": {
-        "Ref": "vpc"
-      }
-    },
-    "VPCPeeringConnectionId": {
-      "Value": {
-        "Ref": "vpcPeeringConnection"
-      }
-    }
-  }
-}
-```
+1. For **Prerequisite - Prepare template**, choose **Choose an existing template** and then **Upload a template file**, **Choose file**.
 
-###### Example YAML
+1. Open a text editor on your local machine and add one of the following templates. Save the file and return to the console to select it as the template file.  
+**Example JSON**  
 
-```
-AWSTemplateFormatVersion: 2010-09-09
-Description: Create a VPC and a VPC Peering connection using the PeerRole to accept.
-Parameters:
-  PeerVPCAccountId:
-    Type: String
-  PeerVPCId:
-    Type: String
-  PeerRoleArn:
-    Type: String
-Resources:
-  vpc:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.2.0.0/16
-      EnableDnsSupport: false
-      EnableDnsHostnames: false
-      InstanceTenancy: default
-  vpcPeeringConnection:
-    Type: AWS::EC2::VPCPeeringConnection
-    Properties:
-      VpcId: !Ref vpc
-      PeerVpcId: !Ref PeerVPCId
-      PeerOwnerId: !Ref PeerVPCAccountId
-      PeerRoleArn: !Ref PeerRoleArn
-Outputs:
-  VPCId:
-    Value: !Ref vpc
-  VPCPeeringConnectionId:
-    Value: !Ref vpcPeeringConnection
-```
+   ```
+   {
+     "AWSTemplateFormatVersion": "2010-09-09",
+     "Description": "Create a VPC and a VPC Peering connection using the PeerRole to accept.",
+     "Parameters": {
+       "PeerVPCAccountId": {
+         "Type": "String"
+       },
+       "PeerVPCId": {
+         "Type": "String"
+       },
+       "PeerRoleArn": {
+         "Type": "String"
+       }
+     },
+     "Resources": {
+       "vpc": {
+         "Type": "AWS::EC2::VPC",
+         "Properties": {
+           "CidrBlock": "10.2.0.0/16",
+           "EnableDnsSupport": false,
+           "EnableDnsHostnames": false,
+           "InstanceTenancy": "default"
+         }
+       },
+       "vpcPeeringConnection": {
+         "Type": "AWS::EC2::VPCPeeringConnection",
+         "Properties": {
+           "VpcId": {
+             "Ref": "vpc"
+           },
+           "PeerVpcId": {
+             "Ref": "PeerVPCId"
+           },
+           "PeerOwnerId": {
+             "Ref": "PeerVPCAccountId"
+           },
+           "PeerRoleArn": {
+             "Ref": "PeerRoleArn"
+           }
+         }
+       }
+     },
+     "Outputs": {
+       "VPCId": {
+         "Value": {
+           "Ref": "vpc"
+         }
+       },
+       "VPCPeeringConnectionId": {
+         "Value": {
+           "Ref": "vpcPeeringConnection"
+         }
+       }
+     }
+   }
+   ```  
+**Example YAML**  
 
-5. Choose **Next**.
-6. Give the stack a name (for example,
-   `VPC-peering-connection`).
-7. Accept the defaults, and then choose **Next**.
-8. Choose **I acknowledge that CloudFormation might create IAM resources**, and
-   then choose **Create stack**.
+   ```
+   AWSTemplateFormatVersion: 2010-09-09
+   Description: Create a VPC and a VPC Peering connection using the PeerRole to accept.
+   Parameters:
+     PeerVPCAccountId:
+       Type: String
+     PeerVPCId:
+       Type: String
+     PeerRoleArn:
+       Type: String
+   Resources:
+     vpc:
+       Type: AWS::EC2::VPC
+       Properties:
+         CidrBlock: 10.2.0.0/16
+         EnableDnsSupport: false
+         EnableDnsHostnames: false
+         InstanceTenancy: default
+     vpcPeeringConnection:
+       Type: AWS::EC2::VPCPeeringConnection
+       Properties:
+         VpcId: !Ref vpc
+         PeerVpcId: !Ref PeerVPCId
+         PeerOwnerId: !Ref PeerVPCAccountId
+         PeerRoleArn: !Ref PeerRoleArn
+   Outputs:
+     VPCId:
+       Value: !Ref vpc
+     VPCPeeringConnectionId:
+       Value: !Ref vpcPeeringConnection
+   ```
+
+1. Choose **Next**.
+
+1. Give the stack a name (for example, **VPC-peering-connection**).
+
+1. Accept the defaults, and then choose **Next**.
+
+1. Choose **I acknowledge that CloudFormation might create IAM resources**, and then choose **Create stack**.
 
 ## Create a template with a highly restrictive policy
+<a name="create-template-with-highly-restrictive-policy"></a>
 
-You might want to create a highly restrictive policy for peering your VPC with another
-AWS account.
+You might want to create a highly restrictive policy for peering your VPC with another AWS account. 
 
-The following example template shows how to change the VPC peer owner template (the
-_accepter account_ created in Step 1 above) so that it's more
-restrictive.
+The following example template shows how to change the VPC peer owner template (the *accepter account* created in Step 1 above) so that it's more restrictive.
 
-###### Example JSON
+**Example JSON**  
 
 ```
 {
@@ -354,7 +338,7 @@ restrictive.
                   }
                 }
               ],
-              "Version":"2012-10-17"
+              "Version":"2012-10-17" 		 	 	 
             },
             "PolicyName":"root"
           }
@@ -389,7 +373,7 @@ restrictive.
 }
 ```
 
-###### Example YAML
+**Example YAML**  
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -426,7 +410,7 @@ Resources:
                 Resource:
                   'Fn::Sub': >-
                     arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:vpc-peering-connection/*
-            Version: 2012-10-17
+            Version: 2012-10-17 		 	 	 
           PolicyName: root
   vpc:
     Type: AWS::EC2::VPC
@@ -448,5 +432,4 @@ Outputs:
 
 To access the VPC, you can use the same requester template as in Step 2 above.
 
-For more information, see [Identity and access management for VPC
-peering](../../../vpc/latest/peering/security-iam.md "../../../vpc/latest/peering/security-iam.md") in the _Amazon VPC Peering Guide_.
+For more information, see [Identity and access management for VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/security-iam.html) in the *Amazon VPC Peering Guide*.

@@ -1,118 +1,73 @@
+
+
 # `cfn-response` module
+<a name="cfn-lambda-function-code-cfnresponsemodule"></a>
 
-In your CloudFormation template, you can specify a Lambda function as the target of a custom
-resource. When you use the `ZipFile` property to specify your [function's](../TemplateReference/aws-resource-lambda-function.md "../TemplateReference/aws-resource-lambda-function.md")
-source code, you can load the `cfn-response` module to send responses from your Lambda
-function to a custom resource. The `cfn-response` module is a library that simplifies
-sending responses to the custom resource that invoked your Lambda function. The module has a
-`send` method that sends a [response
-object](crpg-ref.md#crpg-ref-responses "crpg-ref.md#crpg-ref-responses") to a custom resource by way of an Amazon S3 presigned URL (the
-`ResponseURL`).
+In your CloudFormation template, you can specify a Lambda function as the target of a custom resource. When you use the `ZipFile` property to specify your [function's](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html) source code, you can load the `cfn-response` module to send responses from your Lambda function to a custom resource. The `cfn-response` module is a library that simplifies sending responses to the custom resource that invoked your Lambda function. The module has a `send` method that sends a [response object](crpg-ref.md#crpg-ref-responses) to a custom resource by way of an Amazon S3 presigned URL (the `ResponseURL`).
 
-The `cfn-response` module is available only when you use the `ZipFile`
-property to write your source code. It isn't available for source code that's stored in Amazon S3
-buckets. For code in buckets, you must write your own functions to send responses.
+The `cfn-response` module is available only when you use the `ZipFile` property to write your source code. It isn't available for source code that's stored in Amazon S3 buckets. For code in buckets, you must write your own functions to send responses.
 
-###### Note
-
-After executing the `send` method, the Lambda function terminates, so anything
-you write after that method is ignored.
+**Note**  
+After executing the `send` method, the Lambda function terminates, so anything you write after that method is ignored.
 
 ## Loading the `cfn-response` module
+<a name="cfn-lambda-function-code-cfnresponsemodule-loading"></a>
 
-For Node.js functions, use the `require()` function to load the
-`cfn-response` module. For example, the following code example creates a
-`cfn-response` object with the name `response`:
+For Node.js functions, use the `require()` function to load the `cfn-response` module. For example, the following code example creates a `cfn-response` object with the name `response`:
 
 ```
 var response = require('cfn-response');
 ```
 
-For Python, use the `import` statement to load the `cfnresponse`
-module, as shown in the following example:
+For Python, use the `import` statement to load the `cfnresponse` module, as shown in the following example:
 
-###### Note
-
-Use this exact import statement. If you use other variants of the import statement,
-CloudFormation doesn't include the response module.
+**Note**  
+Use this exact import statement. If you use other variants of the import statement, CloudFormation doesn't include the response module.
 
 ```
 import cfnresponse
 ```
 
 ## `send` method parameters
+<a name="cfn-lambda-function-code-cfnresponsemodule-send-parameters"></a>
 
 You can use the following parameters with the `send` method.
 
-`event`
+`event`  
+The fields in a [custom resource request](crpg-ref.md#crpg-ref-requesttypes).
 
-The fields in a [custom resource
-request](crpg-ref.md#crpg-ref-requesttypes "crpg-ref.md#crpg-ref-requesttypes").
+`context`  
+An object, specific to Lambda functions, that you can use to specify when the function and any callbacks have completed execution, or to access information from within the Lambda execution environment. For more information, see [Building Lambda functions with Node.js](https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html) in the *AWS Lambda Developer Guide*.
 
-`context`
+`responseStatus`  
+Whether the function successfully completed. Use the `cfnresponse` module constants to specify the status: `SUCCESS` for successful executions and `FAILED` for failed executions.
 
-An object, specific to Lambda functions, that you can use to specify when the
-function and any callbacks have completed execution, or to access information from
-within the Lambda execution environment. For more information, see [Building Lambda functions with Node.js](../../../lambda/latest/dg/lambda-nodejs.md "../../../lambda/latest/dg/lambda-nodejs.md") in
-the _AWS Lambda Developer Guide_.
+`responseData`  
+The `Data` field of a custom resource [response object](crpg-ref.md#crpg-ref-responses). The data is a list of name-value pairs.
 
-`responseStatus`
+`physicalResourceId`  
+Optional. The unique identifier of the custom resource that invoked the function. By default, the module uses the name of the Amazon CloudWatch Logs log stream that's associated with the Lambda function.  
+The value returned for a `PhysicalResourceId` can change custom resource update operations. If the value returned is the same, it's considered a normal update. If the value returned is different, CloudFormation recognizes the update as a replacement and sends a delete request to the old resource. For more information, see [AWS::CloudFormation::CustomResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-customresource.html).
 
-Whether the function successfully completed. Use the `cfnresponse` module
-constants to specify the status: `SUCCESS` for successful executions and
-`FAILED` for failed executions.
-
-`responseData`
-
-The `Data` field of a custom resource [response object](crpg-ref.md#crpg-ref-responses "crpg-ref.md#crpg-ref-responses"). The data is a list of name-value pairs.
-
-`physicalResourceId`
-
-Optional. The unique identifier of the custom resource that invoked the function. By
-default, the module uses the name of the Amazon CloudWatch Logs log stream that's associated with the
-Lambda function.
-
-The value returned for a `PhysicalResourceId` can change custom resource
-update operations. If the value returned is the same, it's considered a normal update.
-If the value returned is different, CloudFormation recognizes the update as a replacement
-and sends a delete request to the old resource. For more information, see [AWS::CloudFormation::CustomResource](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
-
-`noEcho`
-
-Optional. Indicates whether to mask the output of the custom resource when it's
-retrieved by using the `Fn::GetAtt` function. If set to `true`,
-all returned values are masked with asterisks (\*\*\*\*\*), except for information stored in
-the locations specified below. By default, this value is `false`.
-
-###### Important
-
-Using the `NoEcho` attribute does not mask any information stored in the following:
-
-- The `Metadata` template section. CloudFormation does not transform, modify, or redact any
-  information you include in the `Metadata` section. For more information, see
-  [Metadata](metadata-section-structure.md "metadata-section-structure.md").
-- The `Outputs` template section. For more information, see
-  [Outputs](outputs-section-structure.md "outputs-section-structure.md").
-- The `Metadata` attribute of a resource definition. For more information, see
-  [`Metadata` attribute](../TemplateReference/aws-attribute-metadata.md "../TemplateReference/aws-attribute-metadata.md").
-  We strongly recommend you do not use these mechanisms to include sensitive information, such as
-  passwords or secrets.
-
-For more information about using `NoEcho` to mask sensitive information,
-see the [Do not embed credentials in your templates](security-best-practices.md#creds "security-best-practices.md#creds") best practice.
+`noEcho`  
+Optional. Indicates whether to mask the output of the custom resource when it's retrieved by using the `Fn::GetAtt` function. If set to `true`, all returned values are masked with asterisks (\*\*\*\*\*), except for information stored in the locations specified below. By default, this value is `false`.  
+Using the `NoEcho` attribute does not mask any information stored in the following:  
++ The `Metadata` template section. CloudFormation does not transform, modify, or redact any information you include in the `Metadata` section. For more information, see [Metadata](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html).
++ The `Outputs` template section. For more information, see [Outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html).
++ The `Metadata` attribute of a resource definition. For more information, see [`Metadata` attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-attribute-metadata.html).
+We strongly recommend you do not use these mechanisms to include sensitive information, such as passwords or secrets.
+For more information about using `NoEcho` to mask sensitive information, see the [Do not embed credentials in your templates](security-best-practices.md#creds) best practice.
 
 ## Examples
+<a name="cfn-lambda-function-code-cfnresponsemodule-examples"></a>
 
 ### Node.js
+<a name="cfn-lambda-function-code-zipfile-examplenodejs"></a>
 
-In the following Node.js example, the inline Lambda function takes an input value and
-multiplies it by 5. Inline functions are especially useful for smaller functions because
-they allow you to specify the source code directly in the template, instead of creating a
-package and uploading it to an Amazon S3 bucket. The function uses the `cfn-response`
-`send` method to send the result back to the custom resource that invoked
-it.
+In the following Node.js example, the inline Lambda function takes an input value and multiplies it by 5. Inline functions are especially useful for smaller functions because they allow you to specify the source code directly in the template, instead of creating a package and uploading it to an Amazon S3 bucket. The function uses the `cfn-response` `send` method to send the result back to the custom resource that invoked it.
 
 #### JSON
+<a name="cfn-lambda-function-code-zipfile-examplenodejs.json"></a>
 
 ```
 "ZipFile": { "Fn::Join": ["", [
@@ -126,6 +81,7 @@ it.
 ```
 
 #### YAML
+<a name="cfn-lambda-function-code-zipfile-examplenodejs-yaml"></a>
 
 ```
 ZipFile: >
@@ -138,11 +94,12 @@ ZipFile: >
 ```
 
 ### Python
+<a name="cfn-lambda-function-code-zipfile-examplepython"></a>
 
-In the following Python example, the inline Lambda function takes an integer value and
-multiplies it by 5.
+In the following Python example, the inline Lambda function takes an integer value and multiplies it by 5.
 
 #### JSON
+<a name="cfn-lambda-function-code-zipfile-examplepython.json"></a>
 
 ```
 "ZipFile" : { "Fn::Join" : ["\n", [
@@ -157,6 +114,7 @@ multiplies it by 5.
 ```
 
 #### YAML
+<a name="cfn-lambda-function-code-zipfile-examplepython.yaml"></a>
 
 ```
 ZipFile: |
@@ -170,18 +128,17 @@ ZipFile: |
 ```
 
 ## Module source code
+<a name="cfn-lambda-function-code-cfnresponsemodule-source"></a>
 
-###### Topics
-
-- [Asynchronous Node.js source code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs-async "#cfn-lambda-function-code-cfnresponsemodule-source-nodejs-async")
-- [Node.js source code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs "#cfn-lambda-function-code-cfnresponsemodule-source-nodejs")
-- [Python source code](#cfn-lambda-function-code-cfnresponsemodule-source-python "#cfn-lambda-function-code-cfnresponsemodule-source-python")
+**Topics**
++ [Asynchronous Node.js source code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs-async)
++ [Node.js source code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs)
++ [Python source code](#cfn-lambda-function-code-cfnresponsemodule-source-python)
 
 ### Asynchronous Node.js source code
+<a name="cfn-lambda-function-code-cfnresponsemodule-source-nodejs-async"></a>
 
-The following is the response module source code for the Node.js functions if the
-handler is asynchronous. Review it to understand what the module does and for help with
-implementing your own response functions.
+The following is the response module source code for the Node.js functions if the handler is asynchronous. Review it to understand what the module does and for help with implementing your own response functions.
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -235,24 +192,22 @@ exports.send = function(event, context, responseStatus, responseData, physicalRe
         request.end();
     })
 }
-
+ 
 function maskCredentialsAndSignature(message) {
     return message.replace(/X-Amz-Credential=[^&\s]+/i, 'X-Amz-Credential=*****')
         .replace(/X-Amz-Signature=[^&\s]+/i, 'X-Amz-Signature=*****');
 }
-
 ```
 
 ### Node.js source code
+<a name="cfn-lambda-function-code-cfnresponsemodule-source-nodejs"></a>
 
-The following is the response module source code for the Node.js functions if the
-handler is not asynchronous. Review it to understand what the module does and for help with
-implementing your own response functions.
+The following is the response module source code for the Node.js functions if the handler is not asynchronous. Review it to understand what the module does and for help with implementing your own response functions.
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-
+ 
 exports.SUCCESS = "SUCCESS";
 exports.FAILED = "FAILED";
 
@@ -302,13 +257,14 @@ exports.send = function(event, context, responseStatus, responseData, physicalRe
 ```
 
 ### Python source code
+<a name="cfn-lambda-function-code-cfnresponsemodule-source-python"></a>
 
 The following is the response module source code for Python functions:
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-
+ 
 from __future__ import print_function
 import urllib3
 import json
@@ -352,8 +308,8 @@ def send(event, context, responseStatus, responseData, physicalResourceId=None, 
     except Exception as e:
 
         print("send(..) failed executing http.request(..):", mask_credentials_and_signature(e))
-
-
+ 
+ 
 def mask_credentials_and_signature(message):
     message = re.sub(r'X-Amz-Credential=[^&\s]+', 'X-Amz-Credential=*****', message, flags=re.IGNORECASE)
     return re.sub(r'X-Amz-Signature=[^&\s]+', 'X-Amz-Signature=*****', message, flags=re.IGNORECASE)

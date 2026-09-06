@@ -1,187 +1,147 @@
+
+
 # Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell
+<a name="service_code_examples"></a>
 
-The following command line examples demonstrate how to perform individual CloudFormation
-actions with the AWS CLI and PowerShell. These examples include only the most commonly used
-actions. For a complete list, see [cloudformation](../../../cli/latest/reference/cloudformation.md "../../../cli/latest/reference/cloudformation.md") in the
-_AWS CLI Command Reference_.
+The following command line examples demonstrate how to perform individual CloudFormation actions with the AWS CLI and PowerShell. These examples include only the most commonly used actions. For a complete list, see [cloudformation](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/) in the *AWS CLI Command Reference*.
 
-The examples in this guide use the convention of a backslash (\) to indicate that a long
-command line continues on the next line.
+The examples in this guide use the convention of a backslash (\\) to indicate that a long command line continues on the next line. 
 
-###### Topics
-
-- [Cancel a stack update](#cancel-update-stack-sdk "#cancel-update-stack-sdk")
-- [Continue rolling back an update](#continue-update-rollback-sdk "#continue-update-rollback-sdk")
-- [Create a stack](#create-stack-sdk "#create-stack-sdk")
-- [Create a stack that includes transforms](#deploy-sdk "#deploy-sdk")
-- [Delete a stack](#delete-stack-sdk "#delete-stack-sdk")
-- [Describe stack events](#describe-stack-events-sdk "#describe-stack-events-sdk")
-- [Describe a stack resource](#describe-stack-resource-sdk "#describe-stack-resource-sdk")
-- [Describe stack resources](#describe-stack-resources-sdk "#describe-stack-resources-sdk")
-- [Describe stacks](#describe-stacks-sdk "#describe-stacks-sdk")
-- [Get a template](#get-template-sdk "#get-template-sdk")
-- [List stack resources](#list-stack-resources-sdk "#list-stack-resources-sdk")
-- [List stacks](#list-stacks-sdk "#list-stacks-sdk")
-- [Update a stack](#update-stack-sdk "#update-stack-sdk")
-- [Validate your template](#validate-template-sdk "#validate-template-sdk")
-- [Upload local artifacts to an S3 bucket with the AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md")
+**Topics**
++ [Cancel a stack update](#cancel-update-stack-sdk)
++ [Continue rolling back an update](#continue-update-rollback-sdk)
++ [Create a stack](#create-stack-sdk)
++ [Create a stack that includes transforms](#deploy-sdk)
++ [Delete a stack](#delete-stack-sdk)
++ [Describe stack events](#describe-stack-events-sdk)
++ [Describe a stack resource](#describe-stack-resource-sdk)
++ [Describe stack resources](#describe-stack-resources-sdk)
++ [Describe stacks](#describe-stacks-sdk)
++ [Get a template](#get-template-sdk)
++ [List stack resources](#list-stack-resources-sdk)
++ [List stacks](#list-stacks-sdk)
++ [Update a stack](#update-stack-sdk)
++ [Validate your template](#validate-template-sdk)
++ [Upload local artifacts to an S3 bucket with the AWS CLI](using-cfn-cli-package.md)
 
 ## Cancel a stack update
+<a name="cancel-update-stack-sdk"></a>
 
-Use the [cancel-update-stack](../../../cli/latest/reference/cloudformation/cancel-update-stack.md "../../../cli/latest/reference/cloudformation/cancel-update-stack.md") command command to cancel a stack
-update. For more information, see [Cancel a stack update](using-cfn-stack-update-cancel.md "using-cfn-stack-update-cancel.md").
+Use the [cancel-update-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/cancel-update-stack.html) command command to cancel a stack update. For more information, see [Cancel a stack update](using-cfn-stack-update-cancel.md).
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To cancel a stack update that is in progress**
-
-The following `cancel-update-stack` command cancels a stack update on the `myteststack` stack:
-
-```
-`aws cloudformation cancel-update-stack --stack-name `myteststack``
+**AWS CLI**  
+**To cancel a stack update that is in progress**  
+The following `cancel-update-stack` command cancels a stack update on the `myteststack` stack:  
 
 ```
+aws cloudformation cancel-update-stack --stack-name {{myteststack}}
+```
++  For API details, see [CancelUpdateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/cancel-update-stack.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CancelUpdateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/cancel-update-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/cancel-update-stack.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Cancels an update on the specified stack.**
+**Tools for PowerShell V4**  
+**Example 1: Cancels an update on the specified stack.**  
 
 ```
 Stop-CFNUpdateStack -StackName "myStack"
-
 ```
++  For API details, see [CancelUpdateStack](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CancelUpdateStack](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Cancels an update on the specified stack.**
+**Tools for PowerShell V5**  
+**Example 1: Cancels an update on the specified stack.**  
 
 ```
 Stop-CFNUpdateStack -StackName "myStack"
-
 ```
++  For API details, see [CancelUpdateStack](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CancelUpdateStack](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## Continue rolling back an update
+<a name="continue-update-rollback-sdk"></a>
 
-Use the [continue-update-rollback](../../../cli/latest/reference/cloudformation/continue-update-rollback.md "../../../cli/latest/reference/cloudformation/continue-update-rollback.md") command to continue rolling
-back an update. For more information, see [Continue rolling back an update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md").
+Use the [continue-update-rollback](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/continue-update-rollback.html) command to continue rolling back an update. For more information, see [Continue rolling back an update](using-cfn-updating-stacks-continueupdaterollback.md).
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retry an update rollback**
-
-The following `continue-update-rollback` example resumes a rollback operation from a previously failed stack update.
-
-```
-`aws cloudformation continue-update-rollback \
- --stack-name `my-stack``
+**AWS CLI**  
+**To retry an update rollback**  
+The following `continue-update-rollback` example resumes a rollback operation from a previously failed stack update.  
 
 ```
+aws cloudformation continue-update-rollback \
+    --stack-name {{my-stack}}
+```
+This command produces no output.  
++  For API details, see [ContinueUpdateRollback](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/continue-update-rollback.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ContinueUpdateRollback](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/continue-update-rollback.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/continue-update-rollback.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE\_ROLLBACK\_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE\_ROLLBACK\_COMPLETE'.**
+**Tools for PowerShell V4**  
+**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE\_ROLLBACK\_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE\_ROLLBACK\_COMPLETE'.**  
 
 ```
 Resume-CFNUpdateRollback -StackName "myStack"
-
 ```
++  For API details, see [ContinueUpdateRollback](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ContinueUpdateRollback](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE\_ROLLBACK\_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE\_ROLLBACK\_COMPLETE'.**
+**Tools for PowerShell V5**  
+**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE\_ROLLBACK\_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE\_ROLLBACK\_COMPLETE'.**  
 
 ```
 Resume-CFNUpdateRollback -StackName "myStack"
-
 ```
++  For API details, see [ContinueUpdateRollback](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ContinueUpdateRollback](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## Create a stack
+<a name="create-stack-sdk"></a>
 
-Use the [create-stack](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") command to create a stack. You must provide
-the stack name, the location of a valid template, and any input parameters. The
-parameter key names are case sensitive. If you mistype a parameter key name, CloudFormation
-doesn't create the stack and reports that the template doesn't contain that
-parameter.
+Use the [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create a stack. You must provide the stack name, the location of a valid template, and any input parameters. The parameter key names are case sensitive. If you mistype a parameter key name, CloudFormation doesn't create the stack and reports that the template doesn't contain that parameter.
 
-The following examples show how to create a new stack with the specified name,
-template, and input parameters.
+The following examples show how to create a new stack with the specified name, template, and input parameters. 
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create an AWS CloudFormation stack**
-
-The following `create-stacks` command creates a stack with the name `myteststack` using the `sampletemplate.json` template:
+**AWS CLI**  
+**To create an AWS CloudFormation stack**  
+The following `create-stacks` command creates a stack with the name `myteststack` using the `sampletemplate.json` template:  
 
 ```
-`aws cloudformation create-stack --stack-name `myteststack` --template-body `file://sampletemplate.json` --parameters `ParameterKey=KeyPairName,ParameterValue=TestKey` ParameterKey=SubnetIDs,ParameterValue=SubnetID1\\,SubnetID2`
-
+aws cloudformation create-stack --stack-name {{myteststack}} --template-body {{file://sampletemplate.json}} --parameters {{ParameterKey=KeyPairName,ParameterValue=TestKey}} ParameterKey=SubnetIDs,ParameterValue=SubnetID1\\,SubnetID2
 ```
-
-Output:
+Output:  
 
 ```
 {
     "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
 }
 ```
+For more information, see Stacks in the *AWS CloudFormation User Guide*.  
++  For API details, see [CreateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html) in *AWS CLI Command Reference*. 
 
-For more information, see Stacks in the _AWS CloudFormation User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [CreateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will not be rolled back.**
+**Tools for PowerShell V4**  
+**Example 1: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will not be rolled back.**  
 
 ```
 New-CFNStack -StackName "myStack" `
              -TemplateBody "{TEMPLATE CONTENT HERE}" `
              -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" }) `
              -DisableRollback $true
-
 ```
-
-**Example 2: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back.**
+**Example 2: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back.**  
 
 ```
 $p1 = New-Object -Type Amazon.CloudFormation.Model.Parameter
@@ -196,45 +156,34 @@ New-CFNStack -StackName "myStack" `
              -TemplateBody "{TEMPLATE CONTENT HERE}" `
              -Parameter @( $p1, $p2 ) `
              -OnFailure "ROLLBACK"
-
 ```
-
-**Example 3: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false).**
+**Example 3: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false).**  
 
 ```
 New-CFNStack -StackName "myStack" `
              -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
              -Parameter @{ ParameterKey="PK1"; ParameterValue="PV1" }
-
 ```
-
-**Example 4: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false). The specified notification AENs will receive published stack-related events.**
+**Example 4: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false). The specified notification AENs will receive published stack-related events.**  
 
 ```
 New-CFNStack -StackName "myStack" `
              -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
              -Parameter @{ ParameterKey="PK1"; ParameterValue="PV1" } `
              -NotificationARN @( "arn1", "arn2" )
-
 ```
++  For API details, see [CreateStack](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateStack](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will not be rolled back.**
+**Tools for PowerShell V5**  
+**Example 1: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will not be rolled back.**  
 
 ```
 New-CFNStack -StackName "myStack" `
              -TemplateBody "{TEMPLATE CONTENT HERE}" `
              -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" }) `
              -DisableRollback $true
-
 ```
-
-**Example 2: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back.**
+**Example 2: Creates a new stack with the specified name. The template is parsed from the supplied content with customization parameters ('PK1' and 'PK2' represent the names of parameters declared in the template content, 'PV1' and 'PV2' represent the values for those parameters. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back.**  
 
 ```
 $p1 = New-Object -Type Amazon.CloudFormation.Model.Parameter
@@ -249,267 +198,218 @@ New-CFNStack -StackName "myStack" `
              -TemplateBody "{TEMPLATE CONTENT HERE}" `
              -Parameter @( $p1, $p2 ) `
              -OnFailure "ROLLBACK"
-
 ```
-
-**Example 3: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false).**
+**Example 3: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false).**  
 
 ```
 New-CFNStack -StackName "myStack" `
              -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
              -Parameter @{ ParameterKey="PK1"; ParameterValue="PV1" }
-
 ```
-
-**Example 4: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false). The specified notification AENs will receive published stack-related events.**
+**Example 4: Creates a new stack with the specified name. The template is obtained from the Amazon S3 URL with customization parameters ('PK1' represents the name of a parameter declared in the template content, 'PV1' represents the value for the parameter. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. If creation of the stack fails, it will be rolled back (same as specifying -DisableRollback $false). The specified notification AENs will receive published stack-related events.**  
 
 ```
 New-CFNStack -StackName "myStack" `
              -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
              -Parameter @{ ParameterKey="PK1"; ParameterValue="PV1" } `
              -NotificationARN @( "arn1", "arn2" )
+```
++  For API details, see [CreateStack](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
+
+------
+
+**Note**  
+You can use the AWS CLI `--template-url` option to specify a template file location in Amazon S3 or AWS Systems Manager.  
+For Amazon S3, the URL must begin with `https://`. S3 static website URLs are not supported.  
 
 ```
-
-- For API details, see
-  [CreateStack](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
-
-###### Note
-
-You can use the AWS CLI `--template-url` option to specify a template
-file location in Amazon S3 or AWS Systems Manager.
-
-For Amazon S3, the URL must begin with `https://`. S3 static website URLs are not supported.
+--template-url {{https://s3.region-code.amazonaws.com/bucket-name/template-name}}
+```
+For AWS Systems Manager, use the following format:  
 
 ```
-`--template-url `https://s3.region-code.amazonaws.com/bucket-name/template-name``
+--template-url {{"ssm-doc://arn:aws:ssm:region-code:account-id:document/document-name"}}
 ```
 
-For AWS Systems Manager, use the following format:
+**Express mode**  
+To create a stack using express mode, add the `--deployment-config` parameter. Express mode completes the stack operation as soon as CloudFormation applies the resource configuration. For more information, see [Express mode](cloudformation-express-mode.md).
 
 ```
-`--template-url `"ssm-doc://arn:aws:ssm:region-code:account-id:document/document-name"``
-```
-
-###### Express mode
-
-To create a stack using express mode, add the `--deployment-config`
-parameter. Express mode completes the stack operation as soon as CloudFormation applies
-the resource configuration. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
-
-```
-`aws cloudformation create-stack --stack-name `myteststack` \
- --template-body `file://sampletemplate.json` \
- --deployment-config '{"mode": "EXPRESS"}'`
+aws cloudformation create-stack --stack-name {{myteststack}} \
+    --template-body {{file://sampletemplate.json}} \
+    --deployment-config '{"mode": "EXPRESS"}'
 ```
 
 ## Create a stack that includes transforms
+<a name="deploy-sdk"></a>
 
-Use the [deploy](../../../cli/latest/reference/cloudformation/deploy.md "../../../cli/latest/reference/cloudformation/deploy.md")
-command to create a stack that includes transforms. When you create a stack from a
-template that includes transforms, you must use a change set. The `deploy`
-command combines two steps (creating a change set and executing it) into a single
-command.
+Use the [deploy](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/deploy/) command to create a stack that includes transforms. When you create a stack from a template that includes transforms, you must use a change set. The `deploy` command combines two steps (creating a change set and executing it) into a single command.
 
-AWS CLI
-The following `deploy` command creates a stack with the
-specified name, template, and input parameters.
+------
+#### [ AWS CLI ]
+
+The following `deploy` command creates a stack with the specified name, template, and input parameters.
 
 ```
-`aws cloudformation deploy --stack-name `myteststack` \
- --template `/path_to_template/my-template.json` \
- --parameter-overrides `Key1=Value1 Key2=Value2``
+aws cloudformation deploy --stack-name {{myteststack}} \
+  --template {{/path_to_template/my-template.json}} \
+  --parameter-overrides {{Key1=Value1 Key2=Value2}}
 ```
+
+------
 
 ## Delete a stack
+<a name="delete-stack-sdk"></a>
 
-Use the [delete-stack](../../../cli/latest/reference/cloudformation/delete-stack.md "../../../cli/latest/reference/cloudformation/delete-stack.md") command to delete a stack. For more
-information, see [Delete a stack](cfn-console-delete-stack.md "cfn-console-delete-stack.md").
+Use the [delete-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/delete-stack.html) command to delete a stack. For more information, see [Delete a stack](cfn-console-delete-stack.md).
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To delete a stack**
-
-The following `delete-stack` example deletes the specified stack.
+**AWS CLI**  
+**To delete a stack**  
+The following `delete-stack` example deletes the specified stack.  
 
 ```
-`aws cloudformation delete-stack \
- --stack-name `my-stack``
+aws cloudformation delete-stack \
+    --stack-name {{my-stack}}
+```
+This command produces no output.  
++  For API details, see [DeleteStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/delete-stack.html) in *AWS CLI Command Reference*. 
 
+------
+#### [ PowerShell ]
+
+**Tools for PowerShell V4**  
+**Example 1: Deletes the specified stack.**  
+
+```
+Remove-CFNStack -StackName "myStack"
+```
++  For API details, see [DeleteStack](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
+
+**Tools for PowerShell V5**  
+**Example 1: Deletes the specified stack.**  
+
+```
+Remove-CFNStack -StackName "myStack"
+```
++  For API details, see [DeleteStack](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
+
+------
+
+If the deletion fails and returns a `DELETE_FAILED` state, you can choose to delete the stack by force using the `--deletion-mode` option. These are the following values that can be used with `deletion-mode`:
++ `STANDARD`: Deletes the stack normally. This is the default deletion mode.
++ `FORCE_DELETE_STACK`: Deletes the stack and skips all resources that are failing to delete.
+
+------
+#### [ AWS CLI ]
+
+The following `delete-stack` command force deletes the `{{myteststack}}` stack using the `FORCE_DELETE_STACK` value with the `deletion-mode` parameter:
+
+```
+aws cloudformation delete-stack --stack-name {{myteststack}} \
+    --deletion-mode FORCE_DELETE_STACK
 ```
 
 This command produces no output.
 
-- For API details, see
-  [DeleteStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/delete-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/delete-stack.html")
-  in _AWS CLI Command Reference_.
+------
 
-PowerShell
+After using `FORCE_DELETE_STACK`, you can use the `list-stack-resources` command to list the resources that were skipped during the stack deletion process. The retained resources will show a DELETE\_SKIPPED status. For more information, see [List stack resources](#list-stack-resources-sdk).
 
-**Tools for PowerShell V4**
-
-**Example 1: Deletes the specified stack.**
+**Express mode**  
+To delete a stack using express mode, add the `--deployment-config` parameter:
 
 ```
-Remove-CFNStack -StackName "myStack"
-
+aws cloudformation delete-stack --stack-name {{myteststack}} \
+    --deployment-config '{"mode": "EXPRESS"}'
 ```
 
-- For API details, see
-  [DeleteStack](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Deletes the specified stack.**
-
-```
-Remove-CFNStack -StackName "myStack"
-
-```
-
-- For API details, see
-  [DeleteStack](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
-
-If the deletion fails and returns a `DELETE_FAILED` state, you can choose
-to delete the stack by force using the `--deletion-mode` option. These are
-the following values that can be used with `deletion-mode`:
-
-- `STANDARD`: Deletes the stack normally. This is the default
-  deletion mode.
-- `FORCE_DELETE_STACK`: Deletes the stack and skips all resources
-  that are failing to delete.
-
-AWS CLI
-The following `delete-stack` command force deletes the
-`myteststack` stack using the
-`FORCE_DELETE_STACK` value with the
-`deletion-mode` parameter:
-
-```
-`aws cloudformation delete-stack --stack-name `myteststack` \
- --deletion-mode FORCE_DELETE_STACK`
-```
-
-This command produces no output.
-
-After using `FORCE_DELETE_STACK`, you can use the
-`list-stack-resources` command to list the resources that were skipped
-during the stack deletion process. The retained resources will show a DELETE\_SKIPPED
-status. For more information, see [List stack resources](#list-stack-resources-sdk "#list-stack-resources-sdk").
-
-###### Express mode
-
-To delete a stack using express mode, add the `--deployment-config`
-parameter:
-
-```
-`aws cloudformation delete-stack --stack-name `myteststack` \
- --deployment-config '{"mode": "EXPRESS"}'`
-```
-
-For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+For more information, see [Express mode](cloudformation-express-mode.md).
 
 ## Describe stack events
+<a name="describe-stack-events-sdk"></a>
 
-Use the [describe-stack-events](../../../cli/latest/reference/cloudformation/describe-stack-events.md "../../../cli/latest/reference/cloudformation/describe-stack-events.md") command to describe stack events.
-For more information, see [Monitor stack progress](monitor-stack-progress.md "monitor-stack-progress.md").
+Use the [describe-stack-events](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/describe-stack-events.html) command to describe stack events. For more information, see [Monitor stack progress](monitor-stack-progress.md).
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe stack events**
-
-The following `describe-stack-events` example displays the 2 most recent events for the specified stack.
-
-```
-`aws cloudformation describe-stack-events \
- --stack-name `my-stack` \
- --max-items `2`
-
-`{`
- "StackEvents": `[`
- `{`
- "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
- "EventId": "4e1516d0-e4d6-xmpl-b94f-0a51958a168c",
- "StackName": "my-stack",
- "LogicalResourceId": "my-stack",
- "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
- "ResourceType": "AWS::CloudFormation::Stack",
- "Timestamp": "2019-10-02T05:34:29.556Z",
- "ResourceStatus": `"UPDATE_COMPLETE"`
- `},`
- `{`
- "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
- "EventId": "4dd3c810-e4d6-xmpl-bade-0aaf8b31ab7a",
- "StackName": "my-stack",
- "LogicalResourceId": "my-stack",
- "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
- "ResourceType": "AWS::CloudFormation::Stack",
- "Timestamp": "2019-10-02T05:34:29.127Z",
- "ResourceStatus": `"UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"`
- `}`
- `],`
- "NextToken": `"eyJOZXh0VG9XMPLiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="`
-`}``
+**AWS CLI**  
+**To describe stack events**  
+The following `describe-stack-events` example displays the 2 most recent events for the specified stack.  
 
 ```
+aws cloudformation describe-stack-events \
+    --stack-name {{my-stack}} \
+    --max-items {{2}}
 
-- For API details, see
-  [DescribeStackEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-events.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-events.html")
-  in _AWS CLI Command Reference_.
+{{{}}
+    "StackEvents": {{[}}
+        {{{}}
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "EventId": "4e1516d0-e4d6-xmpl-b94f-0a51958a168c",
+            "StackName": "my-stack",
+            "LogicalResourceId": "my-stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2019-10-02T05:34:29.556Z",
+            "ResourceStatus": {{"UPDATE_COMPLETE"}}
+        {{},}}
+        {{{}}
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "EventId": "4dd3c810-e4d6-xmpl-bade-0aaf8b31ab7a",
+            "StackName": "my-stack",
+            "LogicalResourceId": "my-stack",
+            "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "ResourceType": "AWS::CloudFormation::Stack",
+            "Timestamp": "2019-10-02T05:34:29.127Z",
+            "ResourceStatus": {{"UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"}}
+        {{}}}
+    {{],}}
+    "NextToken": {{"eyJOZXh0VG9XMPLiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="}}
+{{}}}
+```
++  For API details, see [DescribeStackEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-events.html) in *AWS CLI Command Reference*. 
 
-PowerShell
+------
+#### [ PowerShell ]
 
-**Tools for PowerShell V4**
-
-**Example 1: Returns all stack related events for the specified stack.**
+**Tools for PowerShell V4**  
+**Example 1: Returns all stack related events for the specified stack.**  
 
 ```
 Get-CFNStackEvent -StackName "myStack"
-
 ```
++  For API details, see [DescribeStackEvents](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeStackEvents](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns all stack related events for the specified stack.**
+**Tools for PowerShell V5**  
+**Example 1: Returns all stack related events for the specified stack.**  
 
 ```
 Get-CFNStackEvent -StackName "myStack"
-
 ```
++  For API details, see [DescribeStackEvents](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeStackEvents](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## Describe a stack resource
+<a name="describe-stack-resource-sdk"></a>
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get information about a stack resource**
-
-The following `describe-stack-resource` example displays details for the resource named `MyFunction` in the specified stack.
-
-```
-`aws cloudformation describe-stack-resource \
- --stack-name `MyStack` \
- --logical-resource-id `MyFunction``
+**AWS CLI**  
+**To get information about a stack resource**  
+The following `describe-stack-resource` example displays details for the resource named `MyFunction` in the specified stack.  
 
 ```
-
-Output:
+aws cloudformation describe-stack-resource \
+    --stack-name {{MyStack}} \
+    --logical-resource-id {{MyFunction}}
+```
+Output:  
 
 ```
 {
@@ -528,56 +428,44 @@ Output:
     }
 }
 ```
++  For API details, see [DescribeStackResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resource.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeStackResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resource.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the description of a resource identified in the template associated with the specified stack by the logical ID "MyDBInstance".**
+**Tools for PowerShell V4**  
+**Example 1: Returns the description of a resource identified in the template associated with the specified stack by the logical ID "MyDBInstance".**  
 
 ```
 Get-CFNStackResource -StackName "myStack" -LogicalResourceId "MyDBInstance"
-
 ```
++  For API details, see [DescribeStackResource](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeStackResource](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the description of a resource identified in the template associated with the specified stack by the logical ID "MyDBInstance".**
+**Tools for PowerShell V5**  
+**Example 1: Returns the description of a resource identified in the template associated with the specified stack by the logical ID "MyDBInstance".**  
 
 ```
 Get-CFNStackResource -StackName "myStack" -LogicalResourceId "MyDBInstance"
-
 ```
++  For API details, see [DescribeStackResource](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeStackResource](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## Describe stack resources
+<a name="describe-stack-resources-sdk"></a>
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get information about a stack resource**
-
-The following `describe-stack-resources` example displays details for the resources in the specified stack.
-
-```
-`aws cloudformation describe-stack-resources \
- --stack-name `my-stack``
+**AWS CLI**  
+**To get information about a stack resource**  
+The following `describe-stack-resources` example displays details for the resources in the specified stack.  
 
 ```
-
-Output:
+aws cloudformation describe-stack-resources \
+    --stack-name {{my-stack}}
+```
+Output:  
 
 ```
 {
@@ -621,97 +509,73 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeStackResources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resources.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeStackResources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resources.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resources.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the AWS resource descriptions for up to 100 resources associated with the specified stack. To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the AWS resource descriptions for up to 100 resources associated with the specified stack. To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**  
 
 ```
 Get-CFNStackResourceList -StackName "myStack"
-
 ```
-
-**Example 2: Returns the description of the Amazon EC2 instance identified in the template associated with the specified stack by the logical ID "Ec2Instance".**
+**Example 2: Returns the description of the Amazon EC2 instance identified in the template associated with the specified stack by the logical ID "Ec2Instance".**  
 
 ```
 Get-CFNStackResourceList -StackName "myStack" -LogicalResourceId "Ec2Instance"
-
 ```
-
-**Example 3: Returns the description of up to 100 resources associated with the stack containing an Amazon EC2 instance identified by instance ID "i-123456". To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**
+**Example 3: Returns the description of up to 100 resources associated with the stack containing an Amazon EC2 instance identified by instance ID "i-123456". To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**  
 
 ```
 Get-CFNStackResourceList -PhysicalResourceId "i-123456"
-
 ```
-
-**Example 4: Returns the description of the Amazon EC2 instance identified by the logical ID "Ec2Instance" in the template for a stack. The stack is identified using the physical resource ID of a resource it contains, in this case also an Amazon EC2 instance with instance ID "i-123456". A different physical resource could also be used to identify the stack depending on the template content, for example an Amazon S3 bucket.**
+**Example 4: Returns the description of the Amazon EC2 instance identified by the logical ID "Ec2Instance" in the template for a stack. The stack is identified using the physical resource ID of a resource it contains, in this case also an Amazon EC2 instance with instance ID "i-123456". A different physical resource could also be used to identify the stack depending on the template content, for example an Amazon S3 bucket.**  
 
 ```
 Get-CFNStackResourceList -PhysicalResourceId "i-123456" -LogicalResourceId "Ec2Instance"
-
 ```
++  For API details, see [DescribeStackResources](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeStackResources](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the AWS resource descriptions for up to 100 resources associated with the specified stack. To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the AWS resource descriptions for up to 100 resources associated with the specified stack. To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**  
 
 ```
 Get-CFNStackResourceList -StackName "myStack"
-
 ```
-
-**Example 2: Returns the description of the Amazon EC2 instance identified in the template associated with the specified stack by the logical ID "Ec2Instance".**
+**Example 2: Returns the description of the Amazon EC2 instance identified in the template associated with the specified stack by the logical ID "Ec2Instance".**  
 
 ```
 Get-CFNStackResourceList -StackName "myStack" -LogicalResourceId "Ec2Instance"
-
 ```
-
-**Example 3: Returns the description of up to 100 resources associated with the stack containing an Amazon EC2 instance identified by instance ID "i-123456". To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**
+**Example 3: Returns the description of up to 100 resources associated with the stack containing an Amazon EC2 instance identified by instance ID "i-123456". To obtain details of all resources associated with a stack use the Get-CFNStackResourceSummary, which also supports manual paging of the results.**  
 
 ```
 Get-CFNStackResourceList -PhysicalResourceId "i-123456"
-
 ```
-
-**Example 4: Returns the description of the Amazon EC2 instance identified by the logical ID "Ec2Instance" in the template for a stack. The stack is identified using the physical resource ID of a resource it contains, in this case also an Amazon EC2 instance with instance ID "i-123456". A different physical resource could also be used to identify the stack depending on the template content, for example an Amazon S3 bucket.**
+**Example 4: Returns the description of the Amazon EC2 instance identified by the logical ID "Ec2Instance" in the template for a stack. The stack is identified using the physical resource ID of a resource it contains, in this case also an Amazon EC2 instance with instance ID "i-123456". A different physical resource could also be used to identify the stack depending on the template content, for example an Amazon S3 bucket.**  
 
 ```
 Get-CFNStackResourceList -PhysicalResourceId "i-123456" -LogicalResourceId "Ec2Instance"
-
 ```
++  For API details, see [DescribeStackResources](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeStackResources](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## Describe stacks
+<a name="describe-stacks-sdk"></a>
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe AWS CloudFormation stacks**
-
-The following `describe-stacks` command shows summary information for the `myteststack` stack:
-
-```
-`aws cloudformation describe-stacks --stack-name `myteststack``
+**AWS CLI**  
+**To describe AWS CloudFormation stacks**  
+The following `describe-stacks` command shows summary information for the `myteststack` stack:  
 
 ```
-
-Output:
+aws cloudformation describe-stacks --stack-name {{myteststack}}
+```
+Output:  
 
 ```
 {
@@ -737,25 +601,16 @@ Output:
     ]
 }
 ```
+For more information, see Stacks in the *AWS CloudFormation User Guide*.  
++  For API details, see [DescribeStacks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stacks.html) in *AWS CLI Command Reference*. 
 
-For more information, see Stacks in the _AWS CloudFormation User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [DescribeStacks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stacks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stacks.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/user_pools_and_lambda_triggers#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/user_pools_and_lambda_triggers#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/user_pools_and_lambda_triggers#code-examples). 
 
 ```
-
 import (
 	"context"
 	"log"
@@ -785,99 +640,67 @@ func (actor CloudFormationActions) GetOutputs(ctx context.Context, stackName str
 	}
 	return stackOutputs
 }
-
-
-
 ```
++  For API details, see [DescribeStacks](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudformation#Client.DescribeStacks) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeStacks](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudformation#Client.DescribeStacks "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudformation#Client.DescribeStacks")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns a collection of Stack instances describing all of the user's stacks.**
+**Tools for PowerShell V4**  
+**Example 1: Returns a collection of Stack instances describing all of the user's stacks.**  
 
 ```
 Get-CFNStack
-
 ```
-
-**Example 2: Returns a Stack instance describing the specified stack**
+**Example 2: Returns a Stack instance describing the specified stack**  
 
 ```
 Get-CFNStack -StackName "myStack"
-
 ```
++  For API details, see [DescribeStacks](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeStacks](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns a collection of Stack instances describing all of the user's stacks.**
+**Tools for PowerShell V5**  
+**Example 1: Returns a collection of Stack instances describing all of the user's stacks.**  
 
 ```
 Get-CFNStack
-
 ```
-
-**Example 2: Returns a Stack instance describing the specified stack**
+**Example 2: Returns a Stack instance describing the specified stack**  
 
 ```
 Get-CFNStack -StackName "myStack"
-
 ```
++  For API details, see [DescribeStacks](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeStacks](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-By default, the `describe-stacks` command returns parameter values. To
-prevent sensitive parameter values such as passwords from being returned, include a
-`NoEcho` property set to `TRUE` in your CloudFormation
-templates.
+By default, the `describe-stacks` command returns parameter values. To prevent sensitive parameter values such as passwords from being returned, include a `NoEcho` property set to `TRUE` in your CloudFormation templates.
 
-###### Important
+**Important**  
+Using the `NoEcho` attribute does not mask any information stored in the following:  
+The `Metadata` template section. CloudFormation does not transform, modify, or redact any information you include in the `Metadata` section. For more information, see [Metadata](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html).
+The `Outputs` template section. For more information, see [Outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html).
+The `Metadata` attribute of a resource definition. For more information, see [`Metadata` attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-attribute-metadata.html).
+We strongly recommend you do not use these mechanisms to include sensitive information, such as passwords or secrets.
 
-Using the `NoEcho` attribute does not mask any information stored in the following:
-
-- The `Metadata` template section. CloudFormation does not transform, modify, or redact any
-  information you include in the `Metadata` section. For more information, see
-  [Metadata](metadata-section-structure.md "metadata-section-structure.md").
-- The `Outputs` template section. For more information, see
-  [Outputs](outputs-section-structure.md "outputs-section-structure.md").
-- The `Metadata` attribute of a resource definition. For more information, see
-  [`Metadata` attribute](../TemplateReference/aws-attribute-metadata.md "../TemplateReference/aws-attribute-metadata.md").
-  We strongly recommend you do not use these mechanisms to include sensitive information, such as
-  passwords or secrets.
-
-###### Important
-
-Rather than embedding sensitive information directly in your CloudFormation templates, we recommend you use dynamic parameters in the stack template to
-reference sensitive information that is stored and managed outside of CloudFormation, such as in the AWS Systems Manager Parameter Store or AWS Secrets Manager.
-
-For more information, see the [Do not embed credentials in your templates](security-best-practices.md#creds "security-best-practices.md#creds") best practice.
+**Important**  
+Rather than embedding sensitive information directly in your CloudFormation templates, we recommend you use dynamic parameters in the stack template to reference sensitive information that is stored and managed outside of CloudFormation, such as in the AWS Systems Manager Parameter Store or AWS Secrets Manager.  
+For more information, see the [Do not embed credentials in your templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/security-best-practices.html#creds) best practice.
 
 ## Get a template
+<a name="get-template-sdk"></a>
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To view the template body for an AWS CloudFormation stack**
-
-The following `get-template` command shows the template for the `myteststack` stack:
-
-```
-`aws cloudformation get-template --stack-name `myteststack``
+**AWS CLI**  
+**To view the template body for an AWS CloudFormation stack**  
+The following `get-template` command shows the template for the `myteststack` stack:  
 
 ```
-
-Output:
+aws cloudformation get-template --stack-name {{myteststack}}
+```
+Output:  
 
 ```
 {
@@ -903,56 +726,44 @@ Output:
     }
 }
 ```
++  For API details, see [GetTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/get-template.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/get-template.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/get-template.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the template associated with the specified stack.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the template associated with the specified stack.**  
 
 ```
 Get-CFNTemplate -StackName "myStack"
-
 ```
++  For API details, see [GetTemplate](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetTemplate](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the template associated with the specified stack.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the template associated with the specified stack.**  
 
 ```
 Get-CFNTemplate -StackName "myStack"
-
 ```
++  For API details, see [GetTemplate](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetTemplate](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## List stack resources
+<a name="list-stack-resources-sdk"></a>
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list resources in a stack**
-
-The following command displays the list of resources in the specified stack.
-
-```
-`aws cloudformation list-stack-resources \
- --stack-name `my-stack``
+**AWS CLI**  
+**To list resources in a stack**  
+The following command displays the list of resources in the specified stack.  
 
 ```
-
-Output:
+aws cloudformation list-stack-resources \
+    --stack-name {{my-stack}}
+```
+Output:  
 
 ```
 {
@@ -990,60 +801,45 @@ Output:
     ]
 }
 ```
++  For API details, see [ListStackResources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stack-resources.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListStackResources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stack-resources.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stack-resources.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns descriptions of all the resources associated with the specified stack.**
+**Tools for PowerShell V4**  
+**Example 1: Returns descriptions of all the resources associated with the specified stack.**  
 
 ```
 Get-CFNStackResourceSummary -StackName "myStack"
-
 ```
++  For API details, see [ListStackResources](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListStackResources](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns descriptions of all the resources associated with the specified stack.**
+**Tools for PowerShell V5**  
+**Example 1: Returns descriptions of all the resources associated with the specified stack.**  
 
 ```
 Get-CFNStackResourceSummary -StackName "myStack"
-
 ```
++  For API details, see [ListStackResources](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListStackResources](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## List stacks
+<a name="list-stacks-sdk"></a>
 
-Use the [list-stacks](../../../cli/latest/reference/cloudformation/list-stacks.md "../../../cli/latest/reference/cloudformation/list-stacks.md") command to list stacks. To list only stacks
-with the specified status codes, include the `--stack-status-filter` option.
-You can specify one or more stack status codes for the
-`--stack-status-filter` option. For more information, see [Stack status codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
+Use the [list-stacks](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-stacks.html) command to list stacks. To list only stacks with the specified status codes, include the `--stack-status-filter` option. You can specify one or more stack status codes for the `--stack-status-filter` option. For more information, see [Stack status codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes).
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list AWS CloudFormation stacks**
-
-The following `list-stacks` command shows a summary of all stacks that have a status of `CREATE_COMPLETE`:
+**AWS CLI**  
+**To list AWS CloudFormation stacks**  
+The following `list-stacks` command shows a summary of all stacks that have a status of `CREATE_COMPLETE`:  
 
 ```
-`aws cloudformation list-stacks --stack-status-filter `CREATE_COMPLETE``
-
+aws cloudformation list-stacks --stack-status-filter {{CREATE_COMPLETE}}
 ```
-
-Output:
+Output:  
 
 ```
 [
@@ -1057,251 +853,188 @@ Output:
     }
 ]
 ```
++  For API details, see [ListStacks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stacks.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListStacks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stacks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stacks.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns summary information for all stacks.**
+**Tools for PowerShell V4**  
+**Example 1: Returns summary information for all stacks.**  
 
 ```
 Get-CFNStackSummary
-
 ```
-
-**Example 2: Returns summary information for all stacks that are currently being created.**
+**Example 2: Returns summary information for all stacks that are currently being created.**  
 
 ```
 Get-CFNStackSummary -StackStatusFilter "CREATE_IN_PROGRESS"
-
 ```
-
-**Example 3: Returns summary information for all stacks that are currently being created or updated.**
+**Example 3: Returns summary information for all stacks that are currently being created or updated.**  
 
 ```
 Get-CFNStackSummary -StackStatusFilter @("CREATE_IN_PROGRESS", "UPDATE_IN_PROGRESS")
-
 ```
++  For API details, see [ListStacks](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListStacks](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns summary information for all stacks.**
+**Tools for PowerShell V5**  
+**Example 1: Returns summary information for all stacks.**  
 
 ```
 Get-CFNStackSummary
-
 ```
-
-**Example 2: Returns summary information for all stacks that are currently being created.**
+**Example 2: Returns summary information for all stacks that are currently being created.**  
 
 ```
 Get-CFNStackSummary -StackStatusFilter "CREATE_IN_PROGRESS"
-
 ```
-
-**Example 3: Returns summary information for all stacks that are currently being created or updated.**
+**Example 3: Returns summary information for all stacks that are currently being created or updated.**  
 
 ```
 Get-CFNStackSummary -StackStatusFilter @("CREATE_IN_PROGRESS", "UPDATE_IN_PROGRESS")
-
 ```
++  For API details, see [ListStacks](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListStacks](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 ## Update a stack
+<a name="update-stack-sdk"></a>
 
-Use the [update-stack](../../../cli/latest/reference/cloudformation/update-stack.md "../../../cli/latest/reference/cloudformation/update-stack.md") command to directly update a stack. You
-specify the stack, and parameter values and capabilities that you want to update, and,
-if you want use an updated template, the name of the template. For more information, see
-[Update stacks directly](using-cfn-updating-stacks-direct.md "using-cfn-updating-stacks-direct.md").
+Use the [update-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/update-stack.html) command to directly update a stack. You specify the stack, and parameter values and capabilities that you want to update, and, if you want use an updated template, the name of the template. For more information, see [Update stacks directly](using-cfn-updating-stacks-direct.md).
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To update AWS CloudFormation stacks**
-
-The following `update-stack` command updates the template and input parameters for the `mystack` stack:
+**AWS CLI**  
+**To update AWS CloudFormation stacks**  
+The following `update-stack` command updates the template and input parameters for the `mystack` stack:  
 
 ```
-`aws cloudformation update-stack --stack-name `mystack` --template-url `https://s3.amazonaws.com/sample/updated.template` --parameters `ParameterKey=KeyPairName,ParameterValue=SampleKeyPair` ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,SampleSubnetID2`
+aws cloudformation update-stack --stack-name {{mystack}} --template-url {{https://s3.amazonaws.com/sample/updated.template}} --parameters {{ParameterKey=KeyPairName,ParameterValue=SampleKeyPair}} ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,SampleSubnetID2
+```
+The following `update-stack` command updates just the `SubnetIDs` parameter value for the `mystack` stack. If you don't specify a parameter value, the default value that is specified in the template is used:  
 
 ```
-
-The following `update-stack` command updates just the `SubnetIDs` parameter value for the `mystack` stack. If you
-don't specify a parameter value, the default value that is specified in the template is used:
+aws cloudformation update-stack --stack-name {{mystack}} --template-url {{https://s3.amazonaws.com/sample/updated.template}} --parameters {{ParameterKey=KeyPairName,UsePreviousValue=true}} ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,UpdatedSampleSubnetID2
+```
+The following `update-stack` command adds two stack notification topics to the `mystack` stack:  
 
 ```
-`aws cloudformation update-stack --stack-name `mystack` --template-url `https://s3.amazonaws.com/sample/updated.template` --parameters `ParameterKey=KeyPairName,UsePreviousValue=true` ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,UpdatedSampleSubnetID2`
-
+aws cloudformation update-stack --stack-name {{mystack}} --use-previous-template --notification-arns {{"arn:aws:sns:use-east-1:123456789012:mytopic1"}} {{"arn:aws:sns:us-east-1:123456789012:mytopic2"}}
 ```
+For more information, see [AWS CloudFormation stack updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) in the *AWS CloudFormation User Guide*.  
++  For API details, see [UpdateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html) in *AWS CLI Command Reference*. 
 
-The following `update-stack` command adds two stack notification topics to the `mystack` stack:
+------
+#### [ PowerShell ]
 
-```
-`aws cloudformation update-stack --stack-name `mystack` --use-previous-template --notification-arns `"arn:aws:sns:use-east-1:123456789012:mytopic1"` `"arn:aws:sns:us-east-1:123456789012:mytopic2"``
-
-```
-
-For more information, see [AWS CloudFormation stack updates](using-cfn-updating-stacks.md "using-cfn-updating-stacks.md") in the _AWS CloudFormation User Guide_.
-
-- For API details, see
-  [UpdateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV1' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Tools for PowerShell V4**  
+**Example 1: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV1' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateBody "{Template Content Here}" `
                 -Parameter @{ ParameterKey="PK1"; ParameterValue="PV1" }
-
 ```
-
-**Example 2: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Example 2: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateBody "{Template Content Here}" `
                 -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" } )
-
 ```
-
-**Example 3: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV2' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Example 3: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV2' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" -TemplateBody "{Template Content Here}" -Parameters @{ ParameterKey="PK1"; ParameterValue="PV1" }
-
 ```
-
-**Example 4: Updates the stack 'myStack' with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Example 4: Updates the stack 'myStack' with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
                 -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" } )
-
 ```
-
-**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY\_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**
+**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY\_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
                 -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" } ) `
                 -Capabilities "CAPABILITY_IAM"
-
 ```
++  For API details, see [UpdateStack](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateStack](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV1' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Tools for PowerShell V5**  
+**Example 1: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV1' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateBody "{Template Content Here}" `
                 -Parameter @{ ParameterKey="PK1"; ParameterValue="PV1" }
-
 ```
-
-**Example 2: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Example 2: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateBody "{Template Content Here}" `
                 -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" } )
-
 ```
-
-**Example 3: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV2' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Example 3: Updates the stack 'myStack' with the specified template and customization parameters. 'PK1' represents the name of a parameter declared in the template and 'PV2' represents its value. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" -TemplateBody "{Template Content Here}" -Parameters @{ ParameterKey="PK1"; ParameterValue="PV1" }
-
 ```
-
-**Example 4: Updates the stack 'myStack' with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**
+**Example 4: Updates the stack 'myStack' with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
                 -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" } )
-
 ```
-
-**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY\_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**
+**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY\_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**  
 
 ```
 Update-CFNStack -StackName "myStack" `
                 -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template `
                 -Parameter @( @{ ParameterKey="PK1"; ParameterValue="PV1" }, @{ ParameterKey="PK2"; ParameterValue="PV2" } ) `
                 -Capabilities "CAPABILITY_IAM"
+```
++  For API details, see [UpdateStack](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
+
+------
+
+**Note**  
+To remove all notifications, specify for `[]` for the `--notification-arns` option.
+
+**Express mode**  
+To update a stack using express mode, add the `--deployment-config` parameter:
 
 ```
-
-- For API details, see
-  [UpdateStack](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
-
-###### Note
-
-To remove all notifications, specify for `[]` for the
-`--notification-arns` option.
-
-###### Express mode
-
-To update a stack using express mode, add the `--deployment-config`
-parameter:
-
-```
-`aws cloudformation update-stack --stack-name `myteststack` \
- --template-body `file://sampletemplate.json` \
- --deployment-config '{"mode": "EXPRESS"}'`
+aws cloudformation update-stack --stack-name {{myteststack}} \
+    --template-body {{file://sampletemplate.json}} \
+    --deployment-config '{"mode": "EXPRESS"}'
 ```
 
-For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+For more information, see [Express mode](cloudformation-express-mode.md).
 
 ## Validate your template
+<a name="validate-template-sdk"></a>
 
-Use the [validate-template](../../../cli/latest/reference/cloudformation/validate-template.md "../../../cli/latest/reference/cloudformation/validate-template.md") command to check your template file
-for syntax errors.
+Use the [validate-template](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/validate-template.html) command to check your template file for syntax errors.
 
-During validation, CloudFormation first checks if the template is valid JSON. If it isn't,
-CloudFormation checks if the template is valid YAML. If both checks fail, CloudFormation returns
-a template validation error.
+During validation, CloudFormation first checks if the template is valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If both checks fail, CloudFormation returns a template validation error.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To validate an AWS CloudFormation template**
-
-The following `validate-template` command validates the `sampletemplate.json` template:
+**AWS CLI**  
+**To validate an AWS CloudFormation template**  
+The following `validate-template` command validates the `sampletemplate.json` template:  
 
 ```
-`aws cloudformation validate-template --template-body `file://sampletemplate.json``
-
+aws cloudformation validate-template --template-body {{file://sampletemplate.json}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -1310,54 +1043,39 @@ Output:
     "Capabilities": []
 }
 ```
+For more information, see Working with AWS CloudFormation Templates in the *AWS CloudFormation User Guide*.  
++  For API details, see [ValidateTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/validate-template.html) in *AWS CLI Command Reference*. 
 
-For more information, see Working with AWS CloudFormation Templates in the _AWS CloudFormation User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ValidateTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/validate-template.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/validate-template.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Validates the specified template content. The output details the capabilities, description and parameters of the template.**
+**Tools for PowerShell V4**  
+**Example 1: Validates the specified template content. The output details the capabilities, description and parameters of the template.**  
 
 ```
 Test-CFNTemplate -TemplateBody "{TEMPLATE CONTENT HERE}"
-
 ```
-
-**Example 2: Validates the specified template accessed via an Amazon S3 URL. The output details the capabilities, description and parameters of the template.**
+**Example 2: Validates the specified template accessed via an Amazon S3 URL. The output details the capabilities, description and parameters of the template.**  
 
 ```
 Test-CFNTemplate -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template
-
 ```
++  For API details, see [ValidateTemplate](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ValidateTemplate](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Validates the specified template content. The output details the capabilities, description and parameters of the template.**
+**Tools for PowerShell V5**  
+**Example 1: Validates the specified template content. The output details the capabilities, description and parameters of the template.**  
 
 ```
 Test-CFNTemplate -TemplateBody "{TEMPLATE CONTENT HERE}"
-
 ```
-
-**Example 2: Validates the specified template accessed via an Amazon S3 URL. The output details the capabilities, description and parameters of the template.**
+**Example 2: Validates the specified template accessed via an Amazon S3 URL. The output details the capabilities, description and parameters of the template.**  
 
 ```
 Test-CFNTemplate -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template
-
 ```
++  For API details, see [ValidateTemplate](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ValidateTemplate](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
 The following is an example response that produces a validation error.
 
@@ -1379,18 +1097,9 @@ The following is an example response that produces a validation error.
 A client error (ValidationError) occurred: Template format error: JSON not well-formed. (line 11, column 8)
 ```
 
-###### Note
+**Note**  
+The `validate-template` command is designed to check only the syntax of your template. It does not ensure that the property values that you have specified for a resource are valid for that resource. Nor does it determine the number of resources that will exist when the stack is created.  
+To check the operational validity, you need to attempt to create the stack. There is no sandbox or test area for CloudFormation stacks, so you are charged for the resources you create during testing.
 
-The `validate-template` command is designed to check only the syntax of
-your template. It does not ensure that the property values that you have specified
-for a resource are valid for that resource. Nor does it determine the number of
-resources that will exist when the stack is created.
-
-To check the operational validity, you need to attempt to create the stack. There
-is no sandbox or test area for CloudFormation stacks, so you are charged for the resources
-you create during testing.
-
-###### Example availability
-
-Can't find what you need? Request a new example by using the **Provide
-feedback** link at the bottom of this page.
+**Example availability**  
+Can't find what you need? Request a new example by using the **Provide feedback** link at the bottom of this page.

@@ -1,50 +1,33 @@
-# Amazon Redshift template snippets
 
-Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can use
-CloudFormation to provision and manage Amazon Redshift clusters.
+
+# Amazon Redshift template snippets
+<a name="quickref-redshift"></a>
+
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can use CloudFormation to provision and manage Amazon Redshift clusters.
 
 ## Amazon Redshift cluster
+<a name="quickref-redshift-samplecluster"></a>
 
-The following sample template creates an Amazon Redshift cluster according to the parameter values
-that are specified when the stack is created. The cluster parameter group that is associated
-with the Amazon Redshift cluster enables user activity logging. The template also launches the Amazon Redshift
-clusters in an Amazon VPC that is defined in the template. The VPC includes an internet gateway so
-that you can access the Amazon Redshift clusters from the Internet. However, the communication between
-the cluster and the Internet gateway must also be enabled, which is done by the route table
-entry.
+The following sample template creates an Amazon Redshift cluster according to the parameter values that are specified when the stack is created. The cluster parameter group that is associated with the Amazon Redshift cluster enables user activity logging. The template also launches the Amazon Redshift clusters in an Amazon VPC that is defined in the template. The VPC includes an internet gateway so that you can access the Amazon Redshift clusters from the Internet. However, the communication between the cluster and the Internet gateway must also be enabled, which is done by the route table entry.
 
-###### Note
+**Note**  
+The template includes the `IsMultiNodeCluster` condition so that the `NumberOfNodes` parameter is declared only when the `ClusterType` parameter value is set to `multi-node`.
 
-The template includes the `IsMultiNodeCluster` condition so that the
-`NumberOfNodes` parameter is declared only when the `ClusterType`
-parameter value is set to `multi-node`.
+The example defines the `MysqlRootPassword` parameter with its `NoEcho` property set to `true`. If you set the `NoEcho` attribute to `true`, CloudFormation returns the parameter value masked as asterisks (\*\*\*\*\*) for any calls that describe the stack or stack events, except for information stored in the locations specified below.
 
-The example defines the `MysqlRootPassword` parameter with its `NoEcho` property set to `true`. If you set the `NoEcho` attribute to `true`,
-CloudFormation returns the parameter value masked as asterisks (\*\*\*\*\*) for any calls that
-describe the stack or stack events, except for information stored in the locations specified below.
+**Important**  
+Using the `NoEcho` attribute does not mask any information stored in the following:  
+The `Metadata` template section. CloudFormation does not transform, modify, or redact any information you include in the `Metadata` section. For more information, see [Metadata](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html).
+The `Outputs` template section. For more information, see [Outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html).
+The `Metadata` attribute of a resource definition. For more information, see [`Metadata` attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-attribute-metadata.html).
+We strongly recommend you do not use these mechanisms to include sensitive information, such as passwords or secrets.
 
-###### Important
-
-Using the `NoEcho` attribute does not mask any information stored in the following:
-
-- The `Metadata` template section. CloudFormation does not transform, modify, or redact any
-  information you include in the `Metadata` section. For more information, see
-  [Metadata](metadata-section-structure.md "metadata-section-structure.md").
-- The `Outputs` template section. For more information, see
-  [Outputs](outputs-section-structure.md "outputs-section-structure.md").
-- The `Metadata` attribute of a resource definition. For more information, see
-  [`Metadata` attribute](../TemplateReference/aws-attribute-metadata.md "../TemplateReference/aws-attribute-metadata.md").
-  We strongly recommend you do not use these mechanisms to include sensitive information, such as
-  passwords or secrets.
-
-###### Important
-
-Rather than embedding sensitive information directly in your CloudFormation templates, we recommend you use dynamic parameters in the stack template to
-reference sensitive information that is stored and managed outside of CloudFormation, such as in the AWS Systems Manager Parameter Store or AWS Secrets Manager.
-
-For more information, see the [Do not embed credentials in your templates](security-best-practices.md#creds "security-best-practices.md#creds") best practice.
+**Important**  
+Rather than embedding sensitive information directly in your CloudFormation templates, we recommend you use dynamic parameters in the stack template to reference sensitive information that is stored and managed outside of CloudFormation, such as in the AWS Systems Manager Parameter Store or AWS Secrets Manager.  
+For more information, see the [Do not embed credentials in your templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/security-best-practices.html#creds) best practice.
 
 ### JSON
+<a name="quickref-redshift-example-1.json"></a>
 
 ```
 {
@@ -72,7 +55,7 @@ For more information, see the [Do not embed credentials in your templates](secur
       "Type" : "String",
       "Default" : "ds2.xlarge",
       "AllowedValues" : [ "ds2.xlarge", "ds2.8xlarge", "dc1.large", "dc1.8xlarge" ]
-    },
+    }, 
     "MasterUsername" : {
       "Description" : "The user name that is associated with the master user account for the cluster that is being created",
       "Type" : "String",
@@ -101,7 +84,7 @@ For more information, see the [Do not embed credentials in your templates](secur
   },
   "Conditions" : {
     "IsMultiNodeCluster" : {
-      "Fn::Equals" : [{ "Ref" : "ClusterType" }, "multi-node" ]
+      "Fn::Equals" : [{ "Ref" : "ClusterType" }, "multi-node" ]        
     }
   },
   "Resources" : {
@@ -114,7 +97,7 @@ For more information, see the [Do not embed credentials in your templates](secur
         "NodeType" : { "Ref" : "NodeType" },
         "DBName" : { "Ref" : "DatabaseName" },
         "MasterUsername" : { "Ref" : "MasterUsername" },
-        "MasterUserPassword" : { "Ref" : "MasterUserPassword" },
+        "MasterUserPassword" : { "Ref" : "MasterUserPassword" },               
         "ClusterParameterGroupName" : { "Ref" : "RedshiftClusterParameterGroup" },
         "VpcSecurityGroupIds" : [ { "Ref" : "SecurityGroup" } ],
         "ClusterSubnetGroupName" : { "Ref" : "RedshiftClusterSubnetGroup" },
@@ -235,6 +218,7 @@ For more information, see the [Do not embed credentials in your templates](secur
 ```
 
 ### YAML
+<a name="quickref-redshift-example-1.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -414,5 +398,6 @@ Outputs:
 ```
 
 ## See also
+<a name="w2aac11c41c72b7"></a>
 
-[AWS::Redshift::Cluster](../TemplateReference/aws-resource-redshift-cluster.md "../TemplateReference/aws-resource-redshift-cluster.md")
+[AWS::Redshift::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-cluster.html)

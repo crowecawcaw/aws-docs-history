@@ -1,31 +1,20 @@
+
+
 # Example simple string replacement macro
+<a name="macros-example"></a>
 
-The following example walks you through the process of using macros, from defining the
-macro in a template, to creating a Lambda function for the macro, and then to using the
-macro in a template.
+The following example walks you through the process of using macros, from defining the macro in a template, to creating a Lambda function for the macro, and then to using the macro in a template.
 
-In this example, we create a simple macro that inserts the specified string in place
-of the specified target content in the processed template. And then we'll use it to
-insert a blank `WaitHandleCondition` in the specified location in the
-processed template.
+In this example, we create a simple macro that inserts the specified string in place of the specified target content in the processed template. And then we'll use it to insert a blank `WaitHandleCondition` in the specified location in the processed template.
 
 ## Creating a macro
+<a name="macros-example-definiton"></a>
 
-Before using a macro, we first have to complete two things: create the Lambda
-function that performs the desired template processing, and then make that Lambda
-function available to CloudFormation by creating a macro definition.
+Before using a macro, we first have to complete two things: create the Lambda function that performs the desired template processing, and then make that Lambda function available to CloudFormation by creating a macro definition.
 
-The following sample template contains the definition for our example macro. To
-make the macro available in a specific AWS account, create a stack from the
-template. The macro definition specifies the macro name, a brief description, and
-references the ARN of the Lambda function that CloudFormation invokes when this macro is
-used in a template. (We haven't included a `LogGroupName` or
-`LogRoleARN` property for error logging.)
+The following sample template contains the definition for our example macro. To make the macro available in a specific AWS account, create a stack from the template. The macro definition specifies the macro name, a brief description, and references the ARN of the Lambda function that CloudFormation invokes when this macro is used in a template. (We haven't included a `LogGroupName` or `LogRoleARN` property for error logging.) 
 
-In this example, assume that the stack created from this template is named
-`JavaMacroFunc`. Because the macro `Name` property is set
-to the stack name, the resulting macro is named `JavaMacroFunc` as
-well.
+In this example, assume that the stack created from this template is named `JavaMacroFunc`. Because the macro `Name` property is set to the stack name, the resulting macro is named `JavaMacroFunc` as well.
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -33,21 +22,17 @@ AWSTemplateFormatVersion: 2010-09-09
     Macro:
       Type: AWS::CloudFormation::Macro
       Properties:
-        Name: `!Sub '${AWS::StackName}'`
-        Description: `Adds a blank WaitConditionHandle named WaitHandle`
-        FunctionName: `'arn:aws:lambda:us-east-1:012345678910:function:JavaMacroFunc'`
+        Name: {{!Sub '${AWS::StackName}'}}
+        Description: {{Adds a blank WaitConditionHandle named WaitHandle}}
+        FunctionName: {{'arn:aws:lambda:us-east-1:012345678910:function:JavaMacroFunc'}}
 ```
 
 ## Using the macro
+<a name="macros-example-usage"></a>
 
-To use our macro, we include it in a template using the `Fn::Transform`
-intrinsic function.
+To use our macro, we include it in a template using the `Fn::Transform` intrinsic function.
 
-When we create a stack using the template below, CloudFormation calls our example
-macro. The underlying Lambda function replaces one specified string with another
-specified string. In this case, the result is a blank
-`AWS::CloudFormation::WaitConditionHandle` is inserted into the
-processed template.
+When we create a stack using the template below, CloudFormation calls our example macro. The underlying Lambda function replaces one specified string with another specified string. In this case, the result is a blank `AWS::CloudFormation::WaitConditionHandle` is inserted into the processed template.
 
 ```
 Parameters:
@@ -64,74 +49,49 @@ Resources:
         target: '$$REPLACEMENT$$'
     Type: '$$REPLACEMENT$$'
 ```
-
-- The macro to invoke is specified as `JavaMacroFunc`, which is
-  from the previous macro definition example.
-- The macro is passed two parameters, `target` and
-  `replacement`, which represent the target string and its
-  desired replacement value.
-- The macro can operate on the contents of the `Type` node
-  because `Type` is a sibling of the `Fn::Transform`
-  function referencing the macro.
-- The resulting `AWS::CloudFormation::WaitConditionHandle` is
-  named `2a`.
-- The template also contains a template parameter,
-  `ExampleParameter`, which the macro also has access to (but
-  doesn't use in this case).
++ The macro to invoke is specified as `JavaMacroFunc`, which is from the previous macro definition example.
++ The macro is passed two parameters, `target` and `replacement`, which represent the target string and its desired replacement value.
++ The macro can operate on the contents of the `Type` node because `Type` is a sibling of the `Fn::Transform` function referencing the macro.
++ The resulting `AWS::CloudFormation::WaitConditionHandle` is named `2a`.
++ The template also contains a template parameter, `ExampleParameter`, which the macro also has access to (but doesn't use in this case).
 
 ## Lambda input data
+<a name="macros-example-request"></a>
 
-When CloudFormation processes our example template during stack creation, it passes
-the following event mapping to the Lambda function referenced in the
-`JavaMacroFunc` macro definition.
+When CloudFormation processes our example template during stack creation, it passes the following event mapping to the Lambda function referenced in the `JavaMacroFunc` macro definition.
++ `region` : `us-east-1`
++ `accountId` : `012345678910`
++ `fragment` :
 
-- `region` : `us-east-1`
-- `accountId` : `012345678910`
-- `fragment` :
+  ```
+  {
+    "Type": "$$REPLACEMENT$$"
+  }
+  ```
++ `transformId` : `012345678910::JavaMacroFunc`
++ `params` : 
 
-```
-{
-  "Type": "$$REPLACEMENT$$"
-}
-```
+  ```
+  {
+      "replacement": "AWS::CloudFormation::WaitConditionHandle",
+      "target": "$$REPLACEMENT$$"
+  }
+  ```
++ `requestId` : `5dba79b5-f117-4de0-9ce4-d40363bfb6ab`
++ `templateParameterValues` :
 
-- `transformId` : `012345678910::JavaMacroFunc`
-- `params` :
+  ```
+  {
+      "ExampleParameter": "SampleMacro"
+  }
+  ```
 
-```
-{
-    "replacement": "AWS::CloudFormation::WaitConditionHandle",
-    "target": "$$REPLACEMENT$$"
-}
-```
-
-- `requestId` :
-  `5dba79b5-f117-4de0-9ce4-d40363bfb6ab`
-- `templateParameterValues` :
-
-```
-{
-    "ExampleParameter": "SampleMacro"
-}
-```
-
-`fragment` contains JSON representing the template fragment that the
-macro can process. This fragment consists of the siblings of the
-`Fn::Transform` function call, but not the function call itself.
-Also, `params` contains JSON representing the macro parameters. In this
-case, replacement and target. Similarly, `templateParameterValues`
-contains JSON representing the parameters specified for the template as a
-whole.
+`fragment` contains JSON representing the template fragment that the macro can process. This fragment consists of the siblings of the `Fn::Transform` function call, but not the function call itself. Also, `params` contains JSON representing the macro parameters. In this case, replacement and target. Similarly, `templateParameterValues` contains JSON representing the parameters specified for the template as a whole.
 
 ## Lambda function code
+<a name="macros-example-function"></a>
 
-Following is the actual code for the Lambda function underlying the
-`JavaMacroFunc` example macro. It iterates over the template fragment
-included in the response (be it in string, list, or map format), looking for the
-specified target string. If it finds the specified target string, the Lambda function
-replaces the target string with the specified replacement string. If not, the
-function leaves the template fragment unchanged. Then, the function returns a map of
-the expected properties, discussed in detail below, to CloudFormation.
+Following is the actual code for the Lambda function underlying the `JavaMacroFunc` example macro. It iterates over the template fragment included in the response (be it in string, list, or map format), looking for the specified target string. If it finds the specified target string, the Lambda function replaces the target string with the specified replacement string. If not, the function leaves the template fragment unchanged. Then, the function returns a map of the expected properties, discussed in detail below, to CloudFormation.
 
 ```
 package com.macroexample.lambda.demo;
@@ -164,12 +124,12 @@ public class LambdaFunctionHandler implements RequestHandler<Map<String, Object>
 	        if (!event.containsKey(PARAMS)) {
 	        	throw new RuntimeException("Params are required");
 	        }
-
+	    	
 	        final Map<String, Object> params = (Map<String, Object>) event.get(PARAMS);
 	        if (!params.containsKey(REPLACEMENT) || !params.containsKey(TARGET)) {
 	        	throw new RuntimeException("replacement or target under Params are required");
 	        }
-
+	    	
 	    	final String replacement = (String) params.get(REPLACEMENT);
 	    	final String target = (String) params.get(TARGET);
 	    	final Object fragment = event.getOrDefault(FRAGMENT, new HashMap<String, Object>());
@@ -192,7 +152,7 @@ public class LambdaFunctionHandler implements RequestHandler<Map<String, Object>
     		return responseMap;
     	}
     }
-
+    
     private Map<String, Object> iterateAndReplace(final String replacement, final String target, final Map<String, Object> fragment) {
     	final Map<String, Object> retFragment = new HashMap<String, Object>();
     	final List<String> replacementKeys = new ArrayList<>();
@@ -225,7 +185,7 @@ public class LambdaFunctionHandler implements RequestHandler<Map<String, Object>
     	});
     	return retFragment;
     }
-
+    
     private String iterateAndReplace(final String replacement, final String target, final String fragment) {
     	System.out.println(replacement + " == " + target + " == " + fragment );
     	if (fragment != null AND_AND fragment.equals(target))
@@ -235,41 +195,28 @@ public class LambdaFunctionHandler implements RequestHandler<Map<String, Object>
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## Lambda function response
+<a name="macros-example-response"></a>
 
-Following is the mapping that the Lambda function returns to CloudFormation for
-processing.
+Following is the mapping that the Lambda function returns to CloudFormation for processing. 
++ `requestId` : `5dba79b5-f117-4de0-9ce4-d40363bfb6ab`
++ `status` : `SUCCESS`
++ `fragment` :
 
-- `requestId` :
-  `5dba79b5-f117-4de0-9ce4-d40363bfb6ab`
-- `status` : `SUCCESS`
-- `fragment` :
+  ```
+  {
+    "Type": "AWS::CloudFormation::WaitConditionHandle"
+  }
+  ```
 
-```
-{
-  "Type": "AWS::CloudFormation::WaitConditionHandle"
-}
-```
-
-The `requestId` matches that sent from CloudFormation, and a
-`status` value of `SUCCESS` denotes that the Lambda
-function successfully processed the template fragment included in the request. In
-this response, `fragment` contains JSON representing the content to
-insert into the processed template in place of the original template snippet.
+The `requestId` matches that sent from CloudFormation, and a `status` value of `SUCCESS` denotes that the Lambda function successfully processed the template fragment included in the request. In this response, `fragment` contains JSON representing the content to insert into the processed template in place of the original template snippet.
 
 ## Resulting processed template
+<a name="macros-example-processed"></a>
 
-After CloudFormation receives a successful response from the Lambda function, it
-inserts the returned template fragment into the processed template.
+After CloudFormation receives a successful response from the Lambda function, it inserts the returned template fragment into the processed template.
 
-Below is the resulting processed template for our example. The
-`Fn::Transform` intrinsic function call that referenced the
-`JavaMacroFunc` macro is no longer included. The template fragment
-returned by the Lambda function is included in the appropriate location, with the
-result that the content `"Type": "$$REPLACEMENT$$"` has been replaced
-with `"Type": "AWS::CloudFormation::WaitConditionHandle"`.
+Below is the resulting processed template for our example. The `Fn::Transform` intrinsic function call that referenced the `JavaMacroFunc` macro is no longer included. The template fragment returned by the Lambda function is included in the appropriate location, with the result that the content `"Type": "$$REPLACEMENT$$"` has been replaced with `"Type": "AWS::CloudFormation::WaitConditionHandle"`.
 
 ```
 {

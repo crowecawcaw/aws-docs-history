@@ -1,133 +1,99 @@
+
+
 # CloudFormation template Conditions syntax
+<a name="conditions-section-structure"></a>
 
-The optional `Conditions` section contains statements that define the
-circumstances under which entities are created or configured. For example, you can create a
-condition and associate it with a resource or output so that CloudFormation creates the resource
-or output only if the condition is true. Similarly, you can associate a condition with a
-property so that CloudFormation sets the property to a specific value only if the condition is
-true. If the condition is false, CloudFormation sets the property to an alternative value that
-you specify.
+The optional `Conditions` section contains statements that define the circumstances under which entities are created or configured. For example, you can create a condition and associate it with a resource or output so that CloudFormation creates the resource or output only if the condition is true. Similarly, you can associate a condition with a property so that CloudFormation sets the property to a specific value only if the condition is true. If the condition is false, CloudFormation sets the property to an alternative value that you specify.
 
-You can use conditions when you want to reuse a template to create resources in different
-contexts, such as test versus production environments. For example, in your template, you
-can add an `EnvironmentType` input parameter that accepts either
-`prod` or `test` as inputs. For the `prod` environment,
-you might include EC2 instances with certain capabilities, while for the `test`
-environment, you might use reduced capabilities to save money. This condition definition
-allows you to define which resources are created and how they're configured for each
-environment type.
+You can use conditions when you want to reuse a template to create resources in different contexts, such as test versus production environments. For example, in your template, you can add an `EnvironmentType` input parameter that accepts either `prod` or `test` as inputs. For the `prod` environment, you might include EC2 instances with certain capabilities, while for the `test` environment, you might use reduced capabilities to save money. This condition definition allows you to define which resources are created and how they're configured for each environment type.
 
 ## Syntax
+<a name="conditions-section-structure-syntax"></a>
 
-The `Conditions` section consists of the key name `Conditions`.
-Each condition declaration includes a logical ID and one or more intrinsic functions.
+The `Conditions` section consists of the key name `Conditions`. Each condition declaration includes a logical ID and one or more intrinsic functions. 
 
 ### JSON
+<a name="conditions-section-structure-syntax.json"></a>
 
 ```
 "Conditions": {
-  "`LogicalConditionName1`": {
-    "`Intrinsic function`": `...`[
+  "{{LogicalConditionName1}}": {
+    "{{Intrinsic function}}": {{...}}[
   },
 
-  "`LogicalConditionName2`": {
-    "`Intrinsic function`": `...`
+  "{{LogicalConditionName2}}": {
+    "{{Intrinsic function}}": {{...}}
   }
 }
 ```
 
 ### YAML
+<a name="conditions-section-structure-syntax.yaml"></a>
 
 ```
 Conditions:
-  `LogicalConditionName1`:
-    `Intrinsic function`:
-      `...`
+  {{LogicalConditionName1}}:
+    {{Intrinsic function}}:
+      {{...}}
 
-  `LogicalConditionName2`:
-    `Intrinsic function`:
-      `...`
+  {{LogicalConditionName2}}:
+    {{Intrinsic function}}:
+      {{...}}
 ```
 
 ## How conditions work
+<a name="conditions-section-structure-overview"></a>
 
 To use conditions, follow these steps:
 
-1. Add a parameter definition – Define the
-   inputs that your conditions will evaluate in the `Parameters` section
-   of your template. The conditions evaluate to true or false based on these input
-   parameter values. Note that pseudo parameters are automatically available and
-   don't require explicit definition in the `Parameters` section. For
-   more information about pseudo parameters, see [Get AWS values using pseudo parameters](pseudo-parameter-reference.md "pseudo-parameter-reference.md").
-2. Add a condition definition – Define
-   conditions in the `Conditions` section using intrinsic functions such
-   as `Fn::If` or `Fn::Equals`. These conditions determine
-   when CloudFormation creates the associated resources. The conditions can be based
-   on:
+1. **Add a parameter definition** – Define the inputs that your conditions will evaluate in the `Parameters` section of your template. The conditions evaluate to true or false based on these input parameter values. Note that pseudo parameters are automatically available and don't require explicit definition in the `Parameters` section. For more information about pseudo parameters, see [Get AWS values using pseudo parameters](pseudo-parameter-reference.md).
 
-   - Input or pseudo parameter values
-   - Other conditions
-   - Mapping values
-     However, you can't reference resource logical IDs or their attributes in
-     conditions.
+1. **Add a condition definition** – Define conditions in the `Conditions` section using intrinsic functions such as `Fn::If` or `Fn::Equals`. These conditions determine when CloudFormation creates the associated resources. The conditions can be based on:
+   + Input or pseudo parameter values
+   + Other conditions
+   + Mapping values
 
-3. Associate conditions with resources or outputs
-   – Reference conditions in resources or outputs using the
-   `Condition` key and a condition's logical ID. Optionally, use
-   `Fn::If` in other parts of the template (such as property values)
-   to set values based on a condition. For more information, see [Using the Condition key](#using-conditions-in-templates "#using-conditions-in-templates").
+   However, you can't reference resource logical IDs or their attributes in conditions.
 
-CloudFormation evaluates conditions when creating or updating a stack. CloudFormation creates
-entities that are associated with a true condition and ignores entities that are
-associated with a false condition. CloudFormation also re-evaluates these conditions during
-each stack update before modifying any resources. Entities that remain associated with a
-true condition are updated, while those that become associated with a false condition
-are deleted.
+1. **Associate conditions with resources or outputs** – Reference conditions in resources or outputs using the `Condition` key and a condition's logical ID. Optionally, use `Fn::If` in other parts of the template (such as property values) to set values based on a condition. For more information, see [Using the `Condition` key](#using-conditions-in-templates).
 
-###### Important
+CloudFormation evaluates conditions when creating or updating a stack. CloudFormation creates entities that are associated with a true condition and ignores entities that are associated with a false condition. CloudFormation also re-evaluates these conditions during each stack update before modifying any resources. Entities that remain associated with a true condition are updated, while those that become associated with a false condition are deleted.
 
-During a stack update, you can't update conditions by themselves. You can update
-conditions only when you include changes that add, modify, or delete
-resources.
+**Important**  
+During a stack update, you can't update conditions by themselves. You can update conditions only when you include changes that add, modify, or delete resources.
 
 ## Condition intrinsic functions
+<a name="conditions-section-structure-functions"></a>
 
 You can use the following intrinsic functions to define conditions:
++ [Fn::And](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-and)
++ [Fn::Equals](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-equals)
++ [Fn::ForEach](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-foreach.html)
++ [Fn::If](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-if)
++ [Fn::Not](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-not)
++ [Fn::Or](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-or)
 
-- [Fn::And](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-and "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-and")
-- [Fn::Equals](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-equals "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-equals")
-- [Fn::ForEach](../TemplateReference/intrinsic-function-reference-foreach.md "../TemplateReference/intrinsic-function-reference-foreach.md")
-- [Fn::If](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if")
-- [Fn::Not](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-not "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-not")
-- [Fn::Or](../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-or "../TemplateReference/intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-or")
-
-###### Note
-
-`Fn::If` is only supported in the metadata attribute, update policy
-attribute, and property values in the `Resources` section and
-`Outputs` sections of a template.
+**Note**  
+`Fn::If` is only supported in the metadata attribute, update policy attribute, and property values in the `Resources` section and `Outputs` sections of a template.
 
 ## Using the `Condition` key
+<a name="using-conditions-in-templates"></a>
 
-Once a condition is defined, you can apply it in several places in the template, such
-as `Resources` and `Outputs`, using the `Condition`
-key. The `Condition` key references a condition's logical name and returns
-the evaluated result of the specified condition.
+Once a condition is defined, you can apply it in several places in the template, such as `Resources` and `Outputs`, using the `Condition` key. The `Condition` key references a condition's logical name and returns the evaluated result of the specified condition.
 
-###### Topics
-
-- [Associate conditions with resources](#associate-conditions-with-resources "#associate-conditions-with-resources")
-- [Associate conditions with outputs](#associate-conditions-with-outputs "#associate-conditions-with-outputs")
-- [Reference conditions in other conditions](#reference-conditions-in-other-conditions "#reference-conditions-in-other-conditions")
-- [Conditionally return property values using Fn::If](#conditional-return-property-values-using-fn-if "#conditional-return-property-values-using-fn-if")
+**Topics**
++ [Associate conditions with resources](#associate-conditions-with-resources)
++ [Associate conditions with outputs](#associate-conditions-with-outputs)
++ [Reference conditions in other conditions](#reference-conditions-in-other-conditions)
++ [Conditionally return property values using `Fn::If`](#conditional-return-property-values-using-fn-if)
 
 ### Associate conditions with resources
+<a name="associate-conditions-with-resources"></a>
 
-To conditionally create resources, add the `Condition` key and the
-logical ID of the condition as an attribute to the resource. CloudFormation creates the
-resource only when the condition evaluates to true.
+To conditionally create resources, add the `Condition` key and the logical ID of the condition as an attribute to the resource. CloudFormation creates the resource only when the condition evaluates to true.
 
 #### JSON
+<a name="associate-conditions-with-resources.json"></a>
 
 ```
 "NewVolume" : {
@@ -141,6 +107,7 @@ resource only when the condition evaluates to true.
 ```
 
 #### YAML
+<a name="associate-conditions-with-resources.yaml"></a>
 
 ```
 NewVolume:
@@ -152,11 +119,12 @@ NewVolume:
 ```
 
 ### Associate conditions with outputs
+<a name="associate-conditions-with-outputs"></a>
 
-You can also associate conditions with outputs. CloudFormation creates the output only
-when the associated condition evaluates to true.
+You can also associate conditions with outputs. CloudFormation creates the output only when the associated condition evaluates to true.
 
 #### JSON
+<a name="associate-conditions-with-outputs.json"></a>
 
 ```
 "Outputs" : {
@@ -168,6 +136,7 @@ when the associated condition evaluates to true.
 ```
 
 #### YAML
+<a name="associate-conditions-with-outputs.yaml"></a>
 
 ```
 Outputs:
@@ -177,16 +146,14 @@ Outputs:
 ```
 
 ### Reference conditions in other conditions
+<a name="reference-conditions-in-other-conditions"></a>
 
-When defining conditions in the `Conditions` section, you can reference
-other conditions using the `Condition` key. This allows you to create
-more complex conditional logic by combining multiple conditions.
+When defining conditions in the `Conditions` section, you can reference other conditions using the `Condition` key. This allows you to create more complex conditional logic by combining multiple conditions.
 
-In the following example, the `IsProdAndFeatureEnabled` condition
-evaluates to true only if the `IsProduction` and
-`IsFeatureEnabled` conditions evaluate to true.
+In the following example, the `IsProdAndFeatureEnabled` condition evaluates to true only if the `IsProduction` and `IsFeatureEnabled` conditions evaluate to true.
 
 #### JSON
+<a name="reference-conditions-in-other-conditions.json"></a>
 
 ```
 "Conditions": {
@@ -202,6 +169,7 @@ evaluates to true only if the `IsProduction` and
 ```
 
 #### YAML
+<a name="reference-conditions-in-other-conditions.yaml"></a>
 
 ```
 Conditions:
@@ -215,20 +183,17 @@ Conditions:
 ```
 
 ### Conditionally return property values using `Fn::If`
+<a name="conditional-return-property-values-using-fn-if"></a>
 
-For more granular control, you can use the `Fn::If` intrinsic function
-to conditionally return one of two property values within resources or outputs. This
-function evaluates a condition and returns one value if the condition is true and
-another value if the condition is false.
+For more granular control, you can use the `Fn::If` intrinsic function to conditionally return one of two property values within resources or outputs. This function evaluates a condition and returns one value if the condition is true and another value if the condition is false.
 
 #### Conditional property values
+<a name="using-fn-if-for-conditional-values"></a>
 
-The following example demonstrates setting an EC2 instance type based on an
-environment condition. If the `IsProduction` condition evaluates to
-true, the instance type is set to `c5.xlarge`. Otherwise, it's set to
-`t3.small`.
+The following example demonstrates setting an EC2 instance type based on an environment condition. If the `IsProduction` condition evaluates to true, the instance type is set to `c5.xlarge`. Otherwise, it's set to `t3.small`.
 
 ##### JSON
+<a name="using-fn-if-for-conditional-values.json"></a>
 
 ```
 "Properties" : {
@@ -243,6 +208,7 @@ true, the instance type is set to `c5.xlarge`. Otherwise, it's set to
 ```
 
 ##### YAML
+<a name="using-fn-if-for-conditional-values.yaml"></a>
 
 ```
 Properties:
@@ -253,11 +219,12 @@ Properties:
 ```
 
 #### Conditional property removal
+<a name="using-fn-if-with-novalue"></a>
 
-You can also use the `AWS::NoValue` pseudo parameter as a return
-value to remove the corresponding property when a condition is false.
+You can also use the `AWS::NoValue` pseudo parameter as a return value to remove the corresponding property when a condition is false.
 
 ##### JSON
+<a name="using-fn-if-with-novalue.json"></a>
 
 ```
 "DBSnapshotIdentifier" : {
@@ -270,6 +237,7 @@ value to remove the corresponding property when a condition is false.
 ```
 
 ##### YAML
+<a name="using-fn-if-with-novalue.yaml"></a>
 
 ```
 DBSnapshotIdentifier: !If
@@ -279,20 +247,19 @@ DBSnapshotIdentifier: !If
 ```
 
 ## Examples
+<a name="conditions-section-structure-examples"></a>
 
-###### Topics
-
-- [Environment-based resource creation](#environment-based-resource-creation "#environment-based-resource-creation")
-- [Multi-condition resource provisioning](#multi-condition-resource-provisioning "#multi-condition-resource-provisioning")
+**Topics**
++ [Environment-based resource creation](#environment-based-resource-creation)
++ [Multi-condition resource provisioning](#multi-condition-resource-provisioning)
 
 ### Environment-based resource creation
+<a name="environment-based-resource-creation"></a>
 
-This following examples provision an EC2 instance, and conditionally create and
-attach a new EBS volume only if the environment type is `prod`. If the
-environment is `test`, they just create the EC2 instance without the
-additional volume.
+This following examples provision an EC2 instance, and conditionally create and attach a new EBS volume only if the environment type is `prod`. If the environment is `test`, they just create the EC2 instance without the additional volume.
 
 #### JSON
+<a name="conditions-section-example-resource-creation.json"></a>
 
 ```
 {
@@ -358,6 +325,7 @@ additional volume.
 ```
 
 #### YAML
+<a name="conditions-section-example-resource-creation.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -398,13 +366,12 @@ Resources:
 ```
 
 ### Multi-condition resource provisioning
+<a name="multi-condition-resource-provisioning"></a>
 
-The following examples conditionally create an S3 bucket if a bucket name is
-provided, and attach a bucket policy only when the environment is set to
-`prod`. If no bucket name is given or the environment is
-`test`, no resources are created.
+The following examples conditionally create an S3 bucket if a bucket name is provided, and attach a bucket policy only when the environment is set to `prod`. If no bucket name is given or the environment is `test`, no resources are created.
 
 #### JSON
+<a name="conditions-section-example-multi-condition.json"></a>
 
 ```
 {
@@ -479,6 +446,7 @@ provided, and attach a bucket policy only when the environment is set to
 ```
 
 #### YAML
+<a name="conditions-section-example-multi-condition.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -516,12 +484,7 @@ Resources:
       PolicyDocument: ...
 ```
 
-In this example, the `CreateBucketPolicy` condition demonstrates how to
-reference other conditions using the `Condition` key. The policy is
-created only when both the `IsProduction` and `CreateBucket`
-conditions evaluate to true.
+In this example, the `CreateBucketPolicy` condition demonstrates how to reference other conditions using the `Condition` key. The policy is created only when both the `IsProduction` and `CreateBucket` conditions evaluate to true.
 
-###### Note
-
-For more complex examples of using conditions, see the [Condition attribute](../TemplateReference/aws-attribute-condition.md "../TemplateReference/aws-attribute-condition.md") topic in the
-_CloudFormation Template Reference Guide_.
+**Note**  
+For more complex examples of using conditions, see the [Condition attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-attribute-condition.html) topic in the *CloudFormation Template Reference Guide*.

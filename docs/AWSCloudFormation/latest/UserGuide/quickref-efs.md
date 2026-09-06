@@ -1,36 +1,21 @@
+
+
 # Amazon Elastic File System Sample Template
+<a name="quickref-efs"></a>
 
-Amazon Elastic File System (Amazon EFS) is a file storage service for Amazon Elastic Compute Cloud (Amazon EC2) instances. With Amazon EFS,
-your applications have storage when they need it because storage capacity grows and shrinks
-automatically as you add and remove files.
+Amazon Elastic File System (Amazon EFS) is a file storage service for Amazon Elastic Compute Cloud (Amazon EC2) instances. With Amazon EFS, your applications have storage when they need it because storage capacity grows and shrinks automatically as you add and remove files.
 
-The following sample template deploys EC2 instances (in an Auto Scaling group) that are associated
-with an Amazon EFS file system. To associate the instances with the file system, the instances run
-the cfn-init helper script, which downloads and installs the `nfs-utils` yum package,
-creates a new directory, and then uses the file system's DNS name to mount the file system at
-that directory. The file system's DNS name resolves to a mount target's IP address in the Amazon EC2
-instance's Availability Zone. For more information about the DNS name structure, see [Mounting File Systems](../../../efs/latest/ug/mounting-fs.md "../../../efs/latest/ug/mounting-fs.md") in the
-_Amazon Elastic File System User Guide_.
+The following sample template deploys EC2 instances (in an Auto Scaling group) that are associated with an Amazon EFS file system. To associate the instances with the file system, the instances run the cfn-init helper script, which downloads and installs the `nfs-utils` yum package, creates a new directory, and then uses the file system's DNS name to mount the file system at that directory. The file system's DNS name resolves to a mount target's IP address in the Amazon EC2 instance's Availability Zone. For more information about the DNS name structure, see [Mounting File Systems](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html) in the *Amazon Elastic File System User Guide*.
 
-To measure Network File System activity, the template includes custom Amazon CloudWatch metrics. The
-template also creates a VPC, subnet, and security groups. To allow the instances to communicate
-with the file system, the VPC must have DNS enabled, and the mount target and the EC2 instances
-must be in the same Availability Zone (AZ), which is specified by the subnet.
+To measure Network File System activity, the template includes custom Amazon CloudWatch metrics. The template also creates a VPC, subnet, and security groups. To allow the instances to communicate with the file system, the VPC must have DNS enabled, and the mount target and the EC2 instances must be in the same Availability Zone (AZ), which is specified by the subnet.
 
-The security group of the mount target enables a network connection to TCP port 2049, which
-is required for an NFSv4 client to mount a file system. For more information on security groups
-for EC2 instances and mount targets, see [Security](../../../efs/latest/ug/security-considerations.md "../../../efs/latest/ug/security-considerations.md") in the [_Amazon Elastic File System User Guide_](../../../efs/latest/ug.md "../../../efs/latest/ug.md").
+The security group of the mount target enables a network connection to TCP port 2049, which is required for an NFSv4 client to mount a file system. For more information on security groups for EC2 instances and mount targets, see [Security](https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html) in the [*Amazon Elastic File System User Guide*](https://docs.aws.amazon.com/efs/latest/ug/).
 
-###### Note
-
-If you make an update to the mount target that causes it to be replaced, instances or
-applications that use the associated file system might be disrupted. This can cause
-uncommitted writes to be lost. To avoid disruption, stop your instances when you update the
-mount target by setting the desired capacity to zero. This allows the instances to unmount the
-file system before the mount target is deleted. After the mount update has completed, start
-your instances in a subsequent update by setting the desired capacity.
+**Note**  
+If you make an update to the mount target that causes it to be replaced, instances or applications that use the associated file system might be disrupted. This can cause uncommitted writes to be lost. To avoid disruption, stop your instances when you update the mount target by setting the desired capacity to zero. This allows the instances to unmount the file system before the mount target is deleted. After the mount update has completed, start your instances in a subsequent update by setting the desired capacity.
 
 ## JSON
+<a name="quickref-efs-example-1.json"></a>
 
 ```
 {
@@ -41,60 +26,60 @@ your instances in a subsequent update by setting the desired capacity.
       "Description" : "WebServer EC2 instance type",
       "Type" : "String",
       "Default" : "t2.small",
-      "AllowedValues" : [
-        "t1.micro",
-        "t2.nano",
-        "t2.micro",
-        "t2.small",
-        "t2.medium",
-        "t2.large",
-        "m1.small",
-        "m1.medium",
-        "m1.large",
-        "m1.xlarge",
-        "m2.xlarge",
-        "m2.2xlarge",
-        "m2.4xlarge",
-        "m3.medium",
-        "m3.large",
-        "m3.xlarge",
-        "m3.2xlarge",
-        "m4.large",
-        "m4.xlarge",
-        "m4.2xlarge",
-        "m4.4xlarge",
-        "m4.10xlarge",
-        "c1.medium",
-        "c1.xlarge",
-        "c3.large",
-        "c3.xlarge",
-        "c3.2xlarge",
-        "c3.4xlarge",
-        "c3.8xlarge",
-        "c4.large",
-        "c4.xlarge",
-        "c4.2xlarge",
-        "c4.4xlarge",
-        "c4.8xlarge",
-        "g2.2xlarge",
-        "g2.8xlarge",
-        "r3.large",
-        "r3.xlarge",
-        "r3.2xlarge",
-        "r3.4xlarge",
-        "r3.8xlarge",
-        "i2.xlarge",
-        "i2.2xlarge",
-        "i2.4xlarge",
-        "i2.8xlarge",
-        "d2.xlarge",
-        "d2.2xlarge",
-        "d2.4xlarge",
-        "d2.8xlarge",
-        "hi1.4xlarge",
-        "hs1.8xlarge",
-        "cr1.8xlarge",
-        "cc2.8xlarge",
+      "AllowedValues" : [ 
+        "t1.micro", 
+        "t2.nano", 
+        "t2.micro", 
+        "t2.small", 
+        "t2.medium", 
+        "t2.large", 
+        "m1.small", 
+        "m1.medium", 
+        "m1.large", 
+        "m1.xlarge", 
+        "m2.xlarge", 
+        "m2.2xlarge", 
+        "m2.4xlarge", 
+        "m3.medium", 
+        "m3.large", 
+        "m3.xlarge", 
+        "m3.2xlarge", 
+        "m4.large", 
+        "m4.xlarge", 
+        "m4.2xlarge", 
+        "m4.4xlarge", 
+        "m4.10xlarge", 
+        "c1.medium", 
+        "c1.xlarge", 
+        "c3.large", 
+        "c3.xlarge", 
+        "c3.2xlarge", 
+        "c3.4xlarge", 
+        "c3.8xlarge", 
+        "c4.large", 
+        "c4.xlarge", 
+        "c4.2xlarge", 
+        "c4.4xlarge", 
+        "c4.8xlarge", 
+        "g2.2xlarge", 
+        "g2.8xlarge", 
+        "r3.large", 
+        "r3.xlarge", 
+        "r3.2xlarge", 
+        "r3.4xlarge", 
+        "r3.8xlarge", 
+        "i2.xlarge", 
+        "i2.2xlarge", 
+        "i2.4xlarge", 
+        "i2.8xlarge", 
+        "d2.xlarge", 
+        "d2.2xlarge", 
+        "d2.4xlarge", 
+        "d2.8xlarge", 
+        "hi1.4xlarge", 
+        "hs1.8xlarge", 
+        "cr1.8xlarge", 
+        "cc2.8xlarge", 
         "cg1.4xlarge"
       ],
       "ConstraintDescription" : "must be a valid EC2 instance type."
@@ -228,7 +213,7 @@ your instances in a subsequent update by setting the desired capacity.
         "Properties" : {
             "PolicyName" : "CloudWatch_PutMetricData",
             "PolicyDocument" : {
-              "Version": "2012-10-17",
+              "Version": "2012-10-17",		 	 	 
               "Statement": [
                 {
                   "Sid": "CloudWatchPutMetricData",
@@ -301,7 +286,7 @@ your instances in a subsequent update by setting the desired capacity.
         "CidrBlock": "10.0.0.0/24",
         "Tags": [ { "Key": "Application", "Value": { "Ref": "AWS::StackId" } } ]
       }
-    },
+    },    
     "InstanceSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -345,7 +330,7 @@ your instances in a subsequent update by setting the desired capacity.
       "Properties": {
         "FileSystemId": { "Ref": "FileSystem" },
         "SubnetId": { "Ref": "Subnet" },
-        "SecurityGroups": [ { "Ref": "MountTargetSecurityGroup" } ]
+        "SecurityGroups": [ { "Ref": "MountTargetSecurityGroup" } ]        
       }
     },
     "LaunchConfiguration": {
@@ -520,6 +505,7 @@ your instances in a subsequent update by setting the desired capacity.
 ```
 
 ## YAML
+<a name="quickref-efs-example-1.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'

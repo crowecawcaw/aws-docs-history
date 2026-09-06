@@ -1,84 +1,58 @@
+
+
 # Bootstrapping Windows-based CloudFormation stacks
+<a name="cfn-windows-stacks-bootstrapping"></a>
 
-This topic describes how to bootstrap a Windows stack and troubleshoot stack
-creation issues.
+This topic describes how to bootstrap a Windows stack and troubleshoot stack creation issues. 
 
-###### Topics
-
-- [User data in EC2 instances](#cfn-windows-bootstrapping-user-data "#cfn-windows-bootstrapping-user-data")
-- [CloudFormation helper scripts](#cfn-windows-bootstrapping-helper-scripts "#cfn-windows-bootstrapping-helper-scripts")
-- [Example of bootstrapping a Windows stack](#cfn-windows-bootstrapping-example "#cfn-windows-bootstrapping-example")
-- [Escape backslashes in Windows file paths](#cfn-windows-stacks-escape-backslashes "#cfn-windows-stacks-escape-backslashes")
-- [Manage Windows services](#cfn-windows-stacks-manage-windows-services "#cfn-windows-stacks-manage-windows-services")
-- [Troubleshoot stack creation issues](#cfn-windows-stacks-troubleshooting "#cfn-windows-stacks-troubleshooting")
+**Topics**
++ [User data in EC2 instances](#cfn-windows-bootstrapping-user-data)
++ [CloudFormation helper scripts](#cfn-windows-bootstrapping-helper-scripts)
++ [Example of bootstrapping a Windows stack](#cfn-windows-bootstrapping-example)
++ [Escape backslashes in Windows file paths](#cfn-windows-stacks-escape-backslashes)
++ [Manage Windows services](#cfn-windows-stacks-manage-windows-services)
++ [Troubleshoot stack creation issues](#cfn-windows-stacks-troubleshooting)
 
 ## User data in EC2 instances
+<a name="cfn-windows-bootstrapping-user-data"></a>
 
-User data is an Amazon EC2 feature that allows you to pass scripts or configuration
-information to an EC2 instance when it launches.
+User data is an Amazon EC2 feature that allows you to pass scripts or configuration information to an EC2 instance when it launches. 
 
 For Windows EC2 instances:
++ You can use either batch scripts (using `<script>` tags) or PowerShell scripts (using `<powershell>` tags).
++ Script execution is handled by EC2Launch.
 
-- You can use either batch scripts (using `<script>` tags) or
-  PowerShell scripts (using `<powershell>` tags).
-- Script execution is handled by EC2Launch.
-
-###### Important
-
-If you are creating your own Windows AMI for use with CloudFormation, make sure
-that EC2Launch v2 is properly configured. EC2Launch v2 is required for
-CloudFormation bootstrapping tools to properly initialize and configure Windows
-instances during stack creation. For more information, see [Use the EC2Launch v2 agent to
-perform tasks during EC2 Windows instance launch](../../../AWSEC2/latest/UserGuide/ec2launch-v2.md "../../../AWSEC2/latest/UserGuide/ec2launch-v2.md") in the _Amazon EC2 User
-Guide_.
-
-For information about AWS Windows AMIs, see the [AWS Windows
-AMI Reference](../../../ec2/latest/windows-ami-reference/windows-amis.md "../../../ec2/latest/windows-ami-reference/windows-amis.md").
+**Important**  
+If you are creating your own Windows AMI for use with CloudFormation, make sure that EC2Launch v2 is properly configured. EC2Launch v2 is required for CloudFormation bootstrapping tools to properly initialize and configure Windows instances during stack creation. For more information, see [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch-v2.html) in the *Amazon EC2 User Guide*.  
+For information about AWS Windows AMIs, see the [AWS Windows AMI Reference](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/windows-amis.html).
 
 ## CloudFormation helper scripts
+<a name="cfn-windows-bootstrapping-helper-scripts"></a>
 
-Helper scripts are utilities for configuring instances during the bootstrapping process.
-Used with Amazon EC2 user data, they provide powerful configuration options.
+Helper scripts are utilities for configuring instances during the bootstrapping process. Used with Amazon EC2 user data, they provide powerful configuration options.
 
-CloudFormation provides the following Python helper scripts that you can use to install
-software and start services on an Amazon EC2 instance that you create as part of your
-stack:
+CloudFormation provides the following Python helper scripts that you can use to install software and start services on an Amazon EC2 instance that you create as part of your stack:
++  `cfn-init` – Use to retrieve and interpret resource metadata, install packages, create files, and start services.
++  `cfn-signal` – Use to signal with a `CreationPolicy`, so you can synchronize other resources in the stack when the prerequisite resource or application is ready.
++  `cfn-get-metadata` – Use to retrieve metadata for a resource or path to a specific key.
++  `cfn-hup` – Use to check for updates to metadata and execute custom hooks when changes are detected.
 
-- `cfn-init` – Use to retrieve and interpret resource metadata,
-  install packages, create files, and start services.
-- `cfn-signal` – Use to signal with a `CreationPolicy`, so
-  you can synchronize other resources in the stack when the prerequisite resource or
-  application is ready.
-- `cfn-get-metadata` – Use to retrieve metadata for a resource or
-  path to a specific key.
-- `cfn-hup` – Use to check for updates to metadata and execute custom
-  hooks when changes are detected.
+You call the scripts directly from your template. The scripts work in conjunction with resource metadata that's defined in the same template. The scripts run on the Amazon EC2 instance during the stack creation process.
 
-You call the scripts directly from your template. The scripts work in conjunction with
-resource metadata that's defined in the same template. The scripts run on the Amazon EC2
-instance during the stack creation process.
-
-For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the _CloudFormation Template
-Reference Guide_.
+For more information, see the [CloudFormation helper scripts reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/cfn-helper-scripts-reference.html) in the *CloudFormation Template Reference Guide*.
 
 ## Example of bootstrapping a Windows stack
+<a name="cfn-windows-bootstrapping-example"></a>
 
-Let's examine example snippets from a Windows Server template that
-performs the following actions:
+Let's examine example snippets from a Windows Server template that performs the following actions:
++ Launches an EC2 instance named `TestInstance` from a Windows Server 2022 AMI.
++ Creates a simple test file to verify `cfn-init` is working.
++ Configures `cfn-hup` for ongoing configuration management.
++ Uses a `CreationPolicy` to ensure the instance signals successful completion.
 
-- Launches an EC2 instance named `TestInstance` from a Windows
-  Server 2022 AMI.
-- Creates a simple test file to verify `cfn-init` is working.
-- Configures `cfn-hup` for ongoing configuration management.
-- Uses a `CreationPolicy` to ensure the instance signals successful
-  completion.
+The `cfn-init` helper script is used to perform each of these actions based on information in the `AWS::CloudFormation::Init` resource in the template.
 
-The `cfn-init` helper script is used to perform each of these actions
-based on information in the `AWS::CloudFormation::Init` resource in the
-template.
-
-The `AWS::CloudFormation::Init` section is named `TestInstance`
-and begins with the following declaration.
+The `AWS::CloudFormation::Init` section is named `TestInstance` and begins with the following declaration.
 
 ```
 TestInstance:
@@ -91,8 +65,7 @@ TestInstance:
           - start_services
 ```
 
-After this, the `files` section of `AWS::CloudFormation::Init` is
-declared.
+After this, the `files` section of `AWS::CloudFormation::Init` is declared.
 
 ```
       create_files:
@@ -114,20 +87,12 @@ declared.
               action=cfn-init.exe -v -s ${AWS::StackName} -r TestInstance -c default --region ${AWS::Region}
 ```
 
-Three files are created here and placed in the `C:\cfn` directory on
-the server instance:
+Three files are created here and placed in the `C:\cfn` directory on the server instance:
++ `test.txt`, a simple test file that verifies `cfn-init` is working correctly and can create files with dynamic content.
++ `cfn-hup.conf`, the configuration file for `cfn-hup` with a 2-minute check interval.
++ `cfn-auto-reloader.conf`, the configuration file for the hook used by `cfn-hup` to initiate an update (calling `cfn-init`) when the metadata in `AWS::CloudFormation::Init` changes.
 
-- `test.txt`, a simple test file that verifies
-  `cfn-init` is working correctly and can create files with dynamic
-  content.
-- `cfn-hup.conf`, the configuration file for `cfn-hup`
-  with a 2-minute check interval.
-- `cfn-auto-reloader.conf`, the configuration file for the hook
-  used by `cfn-hup` to initiate an update (calling `cfn-init`)
-  when the metadata in `AWS::CloudFormation::Init` changes.
-
-Next is the `start_services` section, which configures Windows
-services.
+Next is the `start_services` section, which configures Windows services.
 
 ```
       start_services:
@@ -141,10 +106,7 @@ services.
                 - c:\cfn\hooks.d\cfn-auto-reloader.conf
 ```
 
-This section ensures that the `cfn-hup` service is started and will
-automatically restart if the configuration files are modified. The service monitors for
-changes to the CloudFormation metadata and re-runs `cfn-init` when updates are
-detected.
+This section ensures that the `cfn-hup` service is started and will automatically restart if the configuration files are modified. The service monitors for changes to the CloudFormation metadata and re-runs `cfn-init` when updates are detected.
 
 Next is the `Properties` section.
 
@@ -171,24 +133,11 @@ TestInstance:
         </powershell>
 ```
 
-In this section, the `UserData` property contains a PowerShell script that
-will be executed by EC2Launch, surrounded by `<powershell>` tags.
-The script runs `cfn-init` with the `default` configSet, then uses
-`cfn-signal` to report the exit code back to CloudFormation. The
-`CreationPolicy` is used to ensure the instance is properly configured before
-the stack creation is considered complete.
+In this section, the `UserData` property contains a PowerShell script that will be executed by EC2Launch, surrounded by `<powershell>` tags. The script runs `cfn-init` with the `default` configSet, then uses `cfn-signal` to report the exit code back to CloudFormation. The `CreationPolicy` is used to ensure the instance is properly configured before the stack creation is considered complete.
 
-The `ImageId` property uses a Systems Manager Parameter Store public parameter to
-automatically retrieve the latest Windows Server 2022 AMI ID. This approach
-eliminates the need for region-specific AMI mappings and ensures you always get the most
-recent AMI. Using Systems Manager parameters for AMI IDs is a best practice for maintaining
-current AMI references. If you plan to connect to your instance, make sure that the
-`SecurityGroupIds` property references a security group that allows RDP
-access.
+The `ImageId` property uses a Systems Manager Parameter Store public parameter to automatically retrieve the latest Windows Server 2022 AMI ID. This approach eliminates the need for region-specific AMI mappings and ensures you always get the most recent AMI. Using Systems Manager parameters for AMI IDs is a best practice for maintaining current AMI references. If you plan to connect to your instance, make sure that the `SecurityGroupIds` property references a security group that allows RDP access.
 
-The `CreationPolicy` is declared as part of the resource properties and
-specifies a timeout period. The `cfn-signal` command in the user data
-signals when the instance configuration is complete:
+The `CreationPolicy` is declared as part of the resource properties and specifies a timeout period. The `cfn-signal` command in the user data signals when the instance configuration is complete:
 
 ```
 TestInstance:
@@ -200,16 +149,9 @@ TestInstance:
     # ... other properties ...
 ```
 
-Because the bootstrapping process is minimal and only creates files and starts services,
-the `CreationPolicy` waits 20 minutes (PT20M) before timing out. The timeout is
-specified using ISO 8601 duration format. Note that Windows instances generally
-take longer to launch than Linux instances, so test thoroughly to determine the best
-timeout values for your needs.
+Because the bootstrapping process is minimal and only creates files and starts services, the `CreationPolicy` waits 20 minutes (PT20M) before timing out. The timeout is specified using ISO 8601 duration format. Note that Windows instances generally take longer to launch than Linux instances, so test thoroughly to determine the best timeout values for your needs.
 
-If all goes well, the `CreationPolicy` completes successfully and you can
-access the Windows Server instance using its public IP address. Once stack
-creation is complete, the instance ID and public IP address will be displayed in the
-**Outputs** tab of the CloudFormation console.
+If all goes well, the `CreationPolicy` completes successfully and you can access the Windows Server instance using its public IP address. Once stack creation is complete, the instance ID and public IP address will be displayed in the **Outputs** tab of the CloudFormation console. 
 
 ```
 Outputs:
@@ -221,44 +163,33 @@ Outputs:
     Description: Public IP address of the Windows Server
 ```
 
-You can also manually verify that the bootstrapping worked correctly by connecting to the
-instance via RDP and checking that the file `C:\cfn\test.txt` exists and
-contains the expected content. For more information about connecting to Windows
-instances, see [Connect to your
-Windows instance using RDP](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md") in the
-_Amazon EC2 User Guide_.
+You can also manually verify that the bootstrapping worked correctly by connecting to the instance via RDP and checking that the file `C:\cfn\test.txt` exists and contains the expected content. For more information about connecting to Windows instances, see [Connect to your Windows instance using RDP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html) in the *Amazon EC2 User Guide*.
 
 ## Escape backslashes in Windows file paths
+<a name="cfn-windows-stacks-escape-backslashes"></a>
 
-When referencing Windows paths in CloudFormation templates, always remember to properly
-escape backslashes (`\`) according to the template format you're using.
+When referencing Windows paths in CloudFormation templates, always remember to properly escape backslashes (`\`) according to the template format you're using.
++ For JSON templates, you must use double backslashes in Windows file paths because JSON treats backslash as an escape character. The first backslash escapes the second, resulting in the interpretation of a single, literal backslash.
 
-- For JSON templates, you must use double backslashes in Windows file paths because JSON treats backslash as
-  an escape character. The first backslash escapes the second, resulting in the interpretation of a single, literal backslash.
-
-```
-"commands" : {
-  "1-extract" : {
-    "command" : "C:\\SharePoint\\SharePointFoundation2010.exe /extract:C:\\SharePoint\\SPF2010 /quiet /log:C:\\SharePoint\\SharePointFoundation2010-extract.log"
+  ```
+  "commands" : {
+    "1-extract" : {
+      "command" : "C:\\SharePoint\\SharePointFoundation2010.exe /extract:C:\\SharePoint\\SPF2010 /quiet /log:C:\\SharePoint\\SharePointFoundation2010-extract.log"
+    }
   }
-}
-```
+  ```
++ For YAML templates, single backslashes are typically sufficient.
 
-- For YAML templates, single backslashes are typically sufficient.
-
-```
-commands:
-  1-extract:
-    command: C:\SharePoint\SharePointFoundation2010.exe /extract:C:\SharePoint\SPF2010 /quiet /log:C:\SharePoint\SharePointFoundation2010-extract.log
-```
+  ```
+  commands:
+    1-extract:
+      command: C:\SharePoint\SharePointFoundation2010.exe /extract:C:\SharePoint\SPF2010 /quiet /log:C:\SharePoint\SharePointFoundation2010-extract.log
+  ```
 
 ## Manage Windows services
+<a name="cfn-windows-stacks-manage-windows-services"></a>
 
-You manage Windows services in the same way as Linux services, except that you
-use a `windows` key instead of `sysvinit`. The following example
-starts the `cfn-hup` service, sets it to Automatic, and restarts the service if
-`cfn-init` modifies the `c:\cfn\cfn-hup.conf` or
-`c:\cfn\hooks.d\cfn-auto-reloader.conf` configuration files.
+You manage Windows services in the same way as Linux services, except that you use a `windows` key instead of `sysvinit`. The following example starts the `cfn-hup` service, sets it to Automatic, and restarts the service if `cfn-init` modifies the `c:\cfn\cfn-hup.conf` or `c:\cfn\hooks.d\cfn-auto-reloader.conf` configuration files.
 
 ```
         services:
@@ -271,35 +202,21 @@ starts the `cfn-hup` service, sets it to Automatic, and restarts the service if
                 - c:\cfn\hooks.d\cfn-auto-reloader.conf
 ```
 
-You can manage other Windows services in the same way by using the name, not the
-display name, to reference the service.
+You can manage other Windows services in the same way by using the name, not the display name, to reference the service.
 
 ## Troubleshoot stack creation issues
+<a name="cfn-windows-stacks-troubleshooting"></a>
 
-If your stack fails during creation, the default behavior is to rollback on failure.
-While this is normally a good default because it avoids unnecessary charges, it makes it
-difficult to debug why your stack creation is failing.
+If your stack fails during creation, the default behavior is to rollback on failure. While this is normally a good default because it avoids unnecessary charges, it makes it difficult to debug why your stack creation is failing.
 
-To turn this behavior off when creating or updating your stack with the CloudFormation
-console, choose the **Preserve successfully provisioned resources** option
-under **Stack failure options**. For more information, see [Choose how to handle failures when provisioning resources](stack-failure-options.md "stack-failure-options.md"). This allows you
-to log into your instance and view the log files to pinpoint issues encountered when
-running your startup scripts.
+To turn this behavior off when creating or updating your stack with the CloudFormation console, choose the **Preserve successfully provisioned resources** option under **Stack failure options**. For more information, see [Choose how to handle failures when provisioning resources](stack-failure-options.md). This allows you to log into your instance and view the log files to pinpoint issues encountered when running your startup scripts.
 
 Important logs to look at are:
++ The EC2 configuration log at `%ProgramData%\Amazon\EC2Launch\log\agent.log`
++ The **cfn-init** log at `C:\cfn\log\cfn-init.log` (check exit codes and error messages for specific failure points)
 
-- The EC2 configuration log at
-  `%ProgramData%\Amazon\EC2Launch\log\agent.log`
-- The **cfn-init** log at
-  `C:\cfn\log\cfn-init.log` (check exit codes and error messages
-  for specific failure points)
+For more logs, see the following topics in the *Amazon EC2 User Guide*:
++ [EC2Launch directory structure](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2config-service.html#UsingConfigXML_WinAMI)
++ [EC2Launch v2 directory structure](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch-v2.html#ec2launch-v2-directory)
 
-For more logs, see the following topics in the _Amazon EC2 User
-Guide_:
-
-- [EC2Launch directory structure](../../../AWSEC2/latest/UserGuide/ec2config-service.md#UsingConfigXML_WinAMI "../../../AWSEC2/latest/UserGuide/ec2config-service.md#UsingConfigXML_WinAMI")
-- [EC2Launch v2 directory structure](../../../AWSEC2/latest/UserGuide/ec2launch-v2.md#ec2launch-v2-directory "../../../AWSEC2/latest/UserGuide/ec2launch-v2.md#ec2launch-v2-directory")
-
-For more information about troubleshooting bootstrapping issues, see [How do I
-troubleshoot helper scripts that won't bootstrap in a CloudFormation stack with
-Windows instances?](https://repost.aws/knowledge-center/cloudformation-helper-scripts-windows "https://repost.aws/knowledge-center/cloudformation-helper-scripts-windows").
+For more information about troubleshooting bootstrapping issues, see [How do I troubleshoot helper scripts that won't bootstrap in a CloudFormation stack with Windows instances?](https://repost.aws/knowledge-center/cloudformation-helper-scripts-windows).

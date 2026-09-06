@@ -1,18 +1,20 @@
-# Amazon Elastic Container Service sample templates
 
-Amazon Elastic Container Service (Amazon ECS) is a container management service that makes it easy to run, stop, and
-manage Docker containers on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances.
+
+# Amazon Elastic Container Service sample templates
+<a name="quickref-ecs"></a>
+
+Amazon Elastic Container Service (Amazon ECS) is a container management service that makes it easy to run, stop, and manage Docker containers on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
 ## Create a cluster with the AL2023 Amazon ECS-Optimized-AMI
+<a name="create-cluster-al2023"></a>
 
-Define a cluster that uses a capacity provider that launches AL2023 instances on
-Amazon EC2.
+Define a cluster that uses a capacity provider that launches AL2023 instances on Amazon EC2.
 
-###### Important
-
-For the latest AMI IDs, see [Amazon ECS-optimized AMI](../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md "../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md") in the _Amazon Elastic Container Service Developer Guide_.
+**Important**  
+For the latest AMI IDs, see [Amazon ECS-optimized AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 
 ### JSON
+<a name="quickref-ecs-example-1.json"></a>
 
 ```
 {
@@ -285,10 +287,10 @@ For the latest AMI IDs, see [Amazon ECS-optimized AMI](../../../AmazonECS/latest
       }
   }
 }
-
 ```
 
 ### YAML
+<a name="quickref-ecs-example-1.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -343,7 +345,7 @@ Resources:
   #  Type: AWS::IAM::ServiceLinkedRole
   #  Properties:
   #    AWSServiceName: 'ecs.amazonaws.com'
-
+  
    # ECS Resources
   ECSCluster:
     Type: AWS::ECS::Cluster
@@ -351,7 +353,7 @@ Resources:
       ClusterSettings:
         - Name: containerInsights
           Value: enabled
-
+  
   # Autoscaling group. This launches the actual EC2 instances that will register
   # themselves as members of the cluster, and run the docker containers.
   ECSAutoScalingGroup:
@@ -406,8 +408,8 @@ Resources:
     Type: AWS::IAM::InstanceProfile
     Properties:
       Path: /
-      Roles:
-      - !Ref EC2Role
+      Roles: 
+      - !Ref EC2Role 
   # Create an ECS capacity provider to attach the ASG to the ECS cluster
   # so that it autoscales as we launch more containers
   CapacityProvider:
@@ -501,10 +503,12 @@ Outputs:
 ```
 
 ## Deploy a service
+<a name="create-service"></a>
 
 The following template defines a service that uses the capacity provider to request AL2023 capacity to run on. Containers will be launched onto the AL2023 instances as they come online:
 
 ### JSON
+<a name="quickref-ecs-example-2.json"></a>
 
 ```
 {
@@ -811,6 +815,7 @@ The following template defines a service that uses the capacity provider to requ
 ```
 
 ### YAML
+<a name="quickref-ecs-example-2.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -982,5 +987,4 @@ Resources:
       SourceSecurityGroupId: !Ref PublicLoadBalancerSG
   LogGroup:
     Type: AWS::Logs::LogGroup
-
 ```

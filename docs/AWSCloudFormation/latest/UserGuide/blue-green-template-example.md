@@ -1,15 +1,14 @@
+
+
 # Blue/green deployment template example
+<a name="blue-green-template-example"></a>
 
-The following example template sets up a CodeDeploy blue/green deployment on ECS, with a
-traffic routing progress of 15 percent per step and a stabilization period of 5 minutes
-between each step.
+The following example template sets up a CodeDeploy blue/green deployment on ECS, with a traffic routing progress of 15 percent per step and a stabilization period of 5 minutes between each step. 
 
-Creating a stack with the template will provision the initial configuration of the
-deployment. If you then made any changes to properties in the `BlueTaskSet`
-resource that require that resource be replaced, CloudFormation will then initiate a green
-deployment as part of the stack update.
+Creating a stack with the template will provision the initial configuration of the deployment. If you then made any changes to properties in the `BlueTaskSet` resource that require that resource be replaced, CloudFormation will then initiate a green deployment as part of the stack update.
 
 ## JSON
+<a name="blue-green-template-example.json"></a>
 
 ```
 {
@@ -182,7 +181,7 @@ deployment as part of the stack update.
       "Type":"AWS::IAM::Role",
       "Properties":{
         "AssumeRolePolicyDocument":{
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement":[
             {
               "Sid":"",
@@ -278,6 +277,7 @@ deployment as part of the stack update.
 ```
 
 ## YAML
+<a name="blue-green-template-example.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -433,7 +433,7 @@ Resources:
   BlueTaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
-      ExecutionRoleArn: !GetAtt
+      ExecutionRoleArn: !GetAtt 
         - ECSTaskExecutionRole
         - Arn
       ContainerDefinitions:
@@ -488,7 +488,7 @@ Resources:
     Properties:
       Cluster: !Ref ECSDemoCluster
       Service: !Ref ECSDemoService
-      TaskSetId: !GetAtt
+      TaskSetId: !GetAtt 
         - BlueTaskSet
         - Id
 ```

@@ -1,57 +1,43 @@
+
+
 # Using parameter override functions with CodePipeline pipelines
+<a name="continuous-delivery-codepipeline-parameter-override-functions"></a>
 
-In a CodePipeline stage, you can specify [parameter overrides](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md") for
-CloudFormation actions. Parameter overrides let you specify template parameter values that override
-values in a template configuration file. CloudFormation provides functions to help you to specify dynamic
-values (values that are unknown until the pipeline runs).
+In a CodePipeline stage, you can specify [parameter overrides](continuous-delivery-codepipeline-action-reference.md) for CloudFormation actions. Parameter overrides let you specify template parameter values that override values in a template configuration file. CloudFormation provides functions to help you to specify dynamic values (values that are unknown until the pipeline runs).
 
-###### Topics
-
-- [Fn::GetArtifactAtt](#w2aac21c17b7 "#w2aac21c17b7")
-- [Fn::GetParam](#w2aac21c17b9 "#w2aac21c17b9")
-- [See also](#w2aac21c17c11 "#w2aac21c17c11")
+**Topics**
++ [`Fn::GetArtifactAtt`](#w2aac21c17b7)
++ [`Fn::GetParam`](#w2aac21c17b9)
++ [See also](#w2aac21c17c11)
 
 ## `Fn::GetArtifactAtt`
+<a name="w2aac21c17b7"></a>
 
-The `Fn::GetArtifactAtt` function retrieves the value of an attribute from an
-input artifact, such as the S3 bucket name where the artifact is stored. Use this function to
-specify attributes of an artifact, such as its file name or Amazon S3 bucket name.
+The `Fn::GetArtifactAtt` function retrieves the value of an attribute from an input artifact, such as the S3 bucket name where the artifact is stored. Use this function to specify attributes of an artifact, such as its file name or Amazon S3 bucket name.
 
-When you run a pipeline, CodePipeline copies and writes files to the pipeline's artifact store
-(an S3 bucket). CodePipeline generates the file names in the artifact store. These file names are
-unknown before you run the pipeline.
+When you run a pipeline, CodePipeline copies and writes files to the pipeline's artifact store (an S3 bucket). CodePipeline generates the file names in the artifact store. These file names are unknown before you run the pipeline.
 
-For example, in your pipeline, you might have a source stage where CodePipeline copies your
-AWS Lambda function source code to the artifact store. In the next stage, you have an CloudFormation
-template that creates the Lambda function, but CloudFormation requires the file name to create the
-function. You must use the `Fn::GetArtifactAtt` function to pass the exact S3
-bucket and file names.
+For example, in your pipeline, you might have a source stage where CodePipeline copies your AWS Lambda function source code to the artifact store. In the next stage, you have an CloudFormation template that creates the Lambda function, but CloudFormation requires the file name to create the function. You must use the `Fn::GetArtifactAtt` function to pass the exact S3 bucket and file names.
 
 ### Syntax
+<a name="w2aac21c17b7b9"></a>
 
 Use the following syntax to retrieve an attribute value of an artifact.
 
 ```
-{ "Fn::GetArtifactAtt" : [ "`artifactName`", "`attributeName`" ] }
+{ "Fn::GetArtifactAtt" : [ "{{artifactName}}", "{{attributeName}}" ] }
 ```
 
-`artifactName`
+`artifactName`  
+The name of the input artifact. You must declare this artifact as input for the associated action.
 
-The name of the input artifact. You must declare this artifact as input for the
-associated action.
-
-`attributeName`
-
-The name of the artifact attribute whose value you want to retrieve. For details
-about each artifact attribute, see the following Attributes section.
+`attributeName`  
+The name of the artifact attribute whose value you want to retrieve. For details about each artifact attribute, see the following Attributes section.
 
 ### Example
+<a name="w2aac21c17b7c11"></a>
 
-The following parameter overrides specify the `BucketName` and
-`ObjectKey` parameters by retrieving the S3 bucket name and file name of the
-`LambdaFunctionSource` artifact. This example assumes that CodePipeline copied Lambda
-function source code and saved it as an artifact, for example, as part of a source
-stage.
+The following parameter overrides specify the `BucketName` and `ObjectKey` parameters by retrieving the S3 bucket name and file name of the `LambdaFunctionSource` artifact. This example assumes that CodePipeline copied Lambda function source code and saved it as an artifact, for example, as part of a source stage.
 
 ```
 {
@@ -61,65 +47,53 @@ stage.
 ```
 
 ### Attributes
+<a name="w2aac21c17b7c13"></a>
 
 You can retrieve the following attributes for an artifact.
 
-`BucketName`
-
+`BucketName`  
 The name of the S3 bucket where the artifact is stored.
 
-`ObjectKey`
+`ObjectKey`  
+The name of the `.zip` file that contains the artifact that is generated by CodePipeline, such as `1ABCyZZ.zip`.
 
-The name of the `.zip` file that contains the artifact that is
-generated by CodePipeline, such as `1ABCyZZ.zip`.
-
-`URL`
-
-The Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as
-`https://s3.us-west-2.amazonaws.com/artifactstorebucket-yivczw8jma0c/test/TemplateSo/1ABCyZZ.zip`.
+`URL`  
+The Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as `https://s3.us-west-2.amazonaws.com/artifactstorebucket-yivczw8jma0c/test/TemplateSo/1ABCyZZ.zip`.
 
 ## `Fn::GetParam`
+<a name="w2aac21c17b9"></a>
 
-The `Fn::GetParam` function returns a value from a key-value pair in a
-JSON-formatted file. The JSON file must be included in an artifact.
+The `Fn::GetParam` function returns a value from a key-value pair in a JSON-formatted file. The JSON file must be included in an artifact.
 
-Use this function to retrieve output values from an CloudFormation stack and use them as input for
-another action. For example, if you specify an output file name for an CloudFormation action, CodePipeline
-saves the output in a JSON file and then adds it to the output artifact's `.zip`
-file. Use the `Fn::GetParam` function to retrieve the output value, and use it as
-input for another action.
+Use this function to retrieve output values from an CloudFormation stack and use them as input for another action. For example, if you specify an output file name for an CloudFormation action, CodePipeline saves the output in a JSON file and then adds it to the output artifact's `.zip` file. Use the `Fn::GetParam` function to retrieve the output value, and use it as input for another action.
 
 ### Syntax
+<a name="w2aac21c17b9b7"></a>
 
 Use the following syntax to retrieve a value from a key-value pair.
 
 ```
-{ "Fn::GetParam" : [ "`artifactName`", "`JSONFileName`", "`keyName`" ] }
+{ "Fn::GetParam" : [ "{{artifactName}}", "{{JSONFileName}}", "{{keyName}}" ] }
 ```
 
-`artifactName`
+`artifactName`  
+The name of the artifact, which must be included as an input artifact for the associated action.
 
-The name of the artifact, which must be included as an input artifact for the
-associated action.
-
-`JSONFileName`
-
+`JSONFileName`  
 The name of a JSON file that is contained in the artifact.
 
-`keyName`
-
+`keyName`  
 The name of the key whose value you want to retrieve.
 
 ### Examples
+<a name="w2aac21c17b9b9"></a>
 
-The following examples demonstrate how to use the `Fn::GetParam` function in
-a parameter override.
+The following examples demonstrate how to use the `Fn::GetParam` function in a parameter override.
 
 #### Syntax
+<a name="w2aac21c17b9b9b5"></a>
 
-The following parameter override specifies the `WebSiteURL` parameter by
-retrieving the value of the `URL` key from the `stack-output.json`
-file that is in the `WebStackOutput` artifact.
+The following parameter override specifies the `WebSiteURL` parameter by retrieving the value of the `URL` key from the `stack-output.json` file that is in the `WebStackOutput` artifact.
 
 ```
 {
@@ -128,25 +102,18 @@ file that is in the `WebStackOutput` artifact.
 ```
 
 #### CloudFormation template snippets
+<a name="w2aac21c17b9b9b7"></a>
 
-The following CloudFormation template snippets, from a CodePipeline pipeline, demonstrate how to pass
-stack outputs. These snippets show two stages of pipeline definition. The first stage
-creates a stack and saves its outputs in the `TestOutput.json` file in the
-`StackAOutput` artifact. These values are specified by the
-`OutputFileName` and `OutputArtifacts` properties.
+The following CloudFormation template snippets, from a CodePipeline pipeline, demonstrate how to pass stack outputs. These snippets show two stages of pipeline definition. The first stage creates a stack and saves its outputs in the `TestOutput.json` file in the `StackAOutput` artifact. These values are specified by the `OutputFileName` and `OutputArtifacts` properties.
 
-The name of the source input artifact for the stages is `TemplateSource`.
-The file name for the stack template is `teststackA.yaml`, and the file name
-for the configuration file is `test-configuration.json`. In both stages, these
-values are specified for the `TemplateConfiguration` and
-`TemplatePath` properties as shown:
+The name of the source input artifact for the stages is `TemplateSource`. The file name for the stack template is `teststackA.yaml`, and the file name for the configuration file is `test-configuration.json`. In both stages, these values are specified for the `TemplateConfiguration` and `TemplatePath` properties as shown:
 
 ```
 TemplateConfiguration: TemplateSource::test-configuration.json
 TemplatePath: TemplateSource::teststackA.yaml
 ```
 
-###### Example Create stack A stage
+**Example Create stack A stage**  
 
 ```
 - Name: CreateTestStackA
@@ -172,12 +139,9 @@ TemplatePath: TemplateSource::teststackA.yaml
       RunOrder: '1'
 ```
 
-In a subsequent stage, stack B uses the outputs from stack A. In the
-`ParameterOverrides` property, the example uses the `Fn::GetParam`
-function to specify the `StackBInputParam` parameter. The resulting value is
-the value associated with the `StackAOutputName` key.
+In a subsequent stage, stack B uses the outputs from stack A. In the `ParameterOverrides` property, the example uses the `Fn::GetParam` function to specify the `StackBInputParam` parameter. The resulting value is the value associated with the `StackAOutputName` key.
 
-###### Example Create stack B stage
+**Example Create stack B stage**  
 
 ```
 - Name: CreateTestStackB
@@ -206,14 +170,9 @@ the value associated with the `StackAOutputName` key.
 ```
 
 ## See also
+<a name="w2aac21c17c11"></a>
 
 The following related resources can help you as you work with these parameters.
-
-- For more information about the CloudFormation action parameters in CodePipeline, see the [CloudFormation deploy
-  action configuration reference](../../../codepipeline/latest/userguide/action-reference-CloudFormation.md "../../../codepipeline/latest/userguide/action-reference-CloudFormation.md") in the
-  _AWS CodePipeline User Guide_.
-- For example template values by action provider, such as for the `Owner`
-  field or the `configuration` fields, see the [Action structure
-  reference](../../../codepipeline/latest/userguide/action-reference.md "../../../codepipeline/latest/userguide/action-reference.md") in the _AWS CodePipeline User Guide_.
-- To download example pipeline stack templates in YAML or JSON format, see [Tutorial: Create a
-  pipeline with CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.
++ For more information about the CloudFormation action parameters in CodePipeline, see the [CloudFormation deploy action configuration reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CloudFormation.html) in the *AWS CodePipeline User Guide*.
++ For example template values by action provider, such as for the `Owner` field or the `configuration` fields, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide*.
++ To download example pipeline stack templates in YAML or JSON format, see [Tutorial: Create a pipeline with CloudFormation](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-cloudformation.html) in the *AWS CodePipeline User Guide*.

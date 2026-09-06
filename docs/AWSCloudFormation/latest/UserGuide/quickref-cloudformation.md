@@ -1,248 +1,247 @@
+
+
 # CloudFormation template snippets
+<a name="quickref-cloudformation"></a>
 
-###### Topics
-
-- [Nested stacks](#w2aac11c41c23b5 "#w2aac11c41c23b5")
-- [Wait condition](#w2aac11c41c23b7 "#w2aac11c41c23b7")
+**Topics**
++ [Nested stacks](#w2aac11c41c23b5)
++ [Wait condition](#w2aac11c41c23b7)
 
 ## Nested stacks
+<a name="w2aac11c41c23b5"></a>
 
 ### Nesting a stack in a template
+<a name="scenario-stack"></a>
 
-This example template contains a nested stack resource called `myStack`. When CloudFormation creates a stack from the template, it creates the `myStack`, whose template is specified in the `TemplateURL` property.
-The output value `StackRef` returns the stack ID for `myStack` and the value `OutputFromNestedStack` returns the output value `BucketName` from within the `myStack` resource.
-The `Outputs.`nestedstackoutputname`` format is reserved for specifying output values from nested stacks and can be used anywhere within the containing template.
+This example template contains a nested stack resource called `myStack`. When CloudFormation creates a stack from the template, it creates the `myStack`, whose template is specified in the `TemplateURL` property. The output value `StackRef` returns the stack ID for `myStack` and the value `OutputFromNestedStack` returns the output value `BucketName` from within the `myStack` resource. The `Outputs.{{nestedstackoutputname}}` format is reserved for specifying output values from nested stacks and can be used anywhere within the containing template.
 
-For more information, see [AWS::CloudFormation::Stack](../TemplateReference/aws-resource-cloudformation-stack.md "../TemplateReference/aws-resource-cloudformation-stack.md").
+For more information, see [AWS::CloudFormation::Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-stack.html).
 
 #### JSON
+<a name="quickref-cloudformation-example-1.json"></a>
 
 ```
-{
-    "AWSTemplateFormatVersion" : "2010-09-09",
-    "Resources" : {
-        "myStack" : {
-	       "Type" : "AWS::CloudFormation::Stack",
-	       "Properties" : {
-	        "TemplateURL" : "https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3_Bucket.template",
-              "TimeoutInMinutes" : "60"
-	       }
-        }
-    },
-    "Outputs": {
-       "StackRef": {"Value": { "Ref" : "myStack"}},
-       "OutputFromNestedStack" : {
-             "Value" : { "Fn::GetAtt" : [ "myStack", "Outputs.BucketName" ] }
-       }
-    }
-}
+ 1. {
+ 2.     "AWSTemplateFormatVersion" : "2010-09-09",
+ 3.     "Resources" : {
+ 4.         "myStack" : {
+ 5. 	       "Type" : "AWS::CloudFormation::Stack",
+ 6. 	       "Properties" : {
+ 7. 	        "TemplateURL" : "https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3_Bucket.template",
+ 8.               "TimeoutInMinutes" : "60"
+ 9. 	       }
+10.         }
+11.     },
+12.     "Outputs": {
+13.        "StackRef": {"Value": { "Ref" : "myStack"}},
+14.        "OutputFromNestedStack" : {
+15.              "Value" : { "Fn::GetAtt" : [ "myStack", "Outputs.BucketName" ] }
+16.        }
+17.     }
+18. }
 ```
 
 #### YAML
+<a name="quickref-cloudformation-example-1.yaml"></a>
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  myStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3_Bucket.template
-      TimeoutInMinutes: '60'
-Outputs:
-  StackRef:
-    Value: !Ref myStack
-  OutputFromNestedStack:
-    Value: !GetAtt myStack.Outputs.BucketName
+ 1. AWSTemplateFormatVersion: '2010-09-09'
+ 2. Resources:
+ 3.   myStack:
+ 4.     Type: AWS::CloudFormation::Stack
+ 5.     Properties:
+ 6.       TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3_Bucket.template
+ 7.       TimeoutInMinutes: '60'
+ 8. Outputs:
+ 9.   StackRef:
+10.     Value: !Ref myStack
+11.   OutputFromNestedStack:
+12.     Value: !GetAtt myStack.Outputs.BucketName
 ```
 
 ### Nesting a stack with input parameters in a template
+<a name="scenario-stack-parameters"></a>
 
 This example template contains a stack resource that specifies input parameters. When CloudFormation creates a stack from this template, it uses the value pairs declared within the `Parameters` property as the input parameters for the template used to create the `myStackWithParams` stack. In this example, the `InstanceType` and `KeyName` parameters are specified.
 
-For more information, see [AWS::CloudFormation::Stack](../TemplateReference/aws-resource-cloudformation-stack.md "../TemplateReference/aws-resource-cloudformation-stack.md").
+For more information, see [AWS::CloudFormation::Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-stack.html).
 
 #### JSON
+<a name="quickref-cloudformation-example-2.json"></a>
 
 ```
-{
-    "AWSTemplateFormatVersion" : "2010-09-09",
-    "Resources" : {
-        "myStackWithParams" : {
-  	       "Type" : "AWS::CloudFormation::Stack",
-	       "Properties" : {
-	           "TemplateURL" : "https://s3.amazonaws.com/cloudformation-templates-us-east-1/EC2ChooseAMI.template",
-	           "Parameters" : {
-	               "InstanceType" : "t2.micro",
-	               "KeyName" : "mykey"
-	           }
-   	       }
-        }
-    }
-}
+ 1. {
+ 2.     "AWSTemplateFormatVersion" : "2010-09-09",
+ 3.     "Resources" : {
+ 4.         "myStackWithParams" : {
+ 5.   	       "Type" : "AWS::CloudFormation::Stack",
+ 6. 	       "Properties" : {
+ 7. 	           "TemplateURL" : "https://s3.amazonaws.com/cloudformation-templates-us-east-1/EC2ChooseAMI.template",
+ 8. 	           "Parameters" : {
+ 9. 	               "InstanceType" : "t2.micro",
+10. 	               "KeyName" : "mykey"
+11. 	           }
+12.    	       }
+13.         }
+14.     }
+15. }
 ```
 
 #### YAML
+<a name="quickref-cloudformation-example-2.yaml"></a>
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  myStackWithParams:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-1/EC2ChooseAMI.template
-      Parameters:
-        InstanceType: t2.micro
-        KeyName: mykey
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Resources:
+3.   myStackWithParams:
+4.     Type: AWS::CloudFormation::Stack
+5.     Properties:
+6.       TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-1/EC2ChooseAMI.template
+7.       Parameters:
+8.         InstanceType: t2.micro
+9.         KeyName: mykey
 ```
 
 ## Wait condition
+<a name="w2aac11c41c23b7"></a>
 
 ### Using a wait condition with an Amazon EC2 instance
+<a name="scenario-waitcondition"></a>
 
-###### Important
+**Important**  
+For Amazon EC2 and Auto Scaling resources, we recommend that you use a CreationPolicy attribute instead of wait conditions. Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
 
-For Amazon EC2 and Auto Scaling resources, we recommend that you use a CreationPolicy attribute instead of wait conditions.
-Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
+If you can't use a creation policy, you view the following example template, which declares an Amazon EC2 instance with a wait condition. The `myWaitCondition` wait condition uses `myWaitConditionHandle` for signaling, uses the `DependsOn` attribute to specify that the wait condition will trigger after the Amazon EC2 instance resource has been created, and uses the `Timeout` property to specify a duration of 4500 seconds for the wait condition. In addition, the presigned URL that signals the wait condition is passed to the Amazon EC2 instance with the `UserData` property of the `Ec2Instance` resource, thus allowing an application or script running on that Amazon EC2 instance to retrieve the presigned URL and employ it to signal a success or failure to the wait condition. You need to use `cfn-signal` or create the application or script that signals the wait condition. The output value `ApplicationData` contains the data passed back from the wait condition signal.
 
-If you can't use a creation policy, you view the following example template, which
-declares an Amazon EC2 instance with a wait condition. The `myWaitCondition` wait condition
-uses `myWaitConditionHandle` for signaling, uses the `DependsOn` attribute to specify that the
-wait condition will trigger after the Amazon EC2 instance resource has been created, and
-uses the `Timeout` property to specify a duration of 4500 seconds for the wait
-condition. In addition, the presigned URL that signals the wait condition is passed
-to the Amazon EC2 instance with the `UserData` property of the `Ec2Instance` resource, thus
-allowing an application or script running on that Amazon EC2 instance to retrieve the
-presigned URL and employ it to signal a success or failure to the wait condition.
-You need to use `cfn-signal` or create the application or script that signals the wait
-condition. The output value `ApplicationData` contains the data passed back from the
-wait condition signal.
-
-For more information, see [Create wait conditions in a CloudFormation template](using-cfn-waitcondition.md "using-cfn-waitcondition.md").
+For more information, see [Create wait conditions in a CloudFormation template](using-cfn-waitcondition.md).
 
 #### JSON
+<a name="quickref-cloudformation-example-3.json"></a>
 
 ```
-{
-    "AWSTemplateFormatVersion" : "2010-09-09",
-    "Mappings" : {
-        "RegionMap" : {
-            "us-east-1" : {
-                "AMI" : "ami-0123456789abcdef0"
-            },
-            "us-west-1" : {
-                "AMI" : "ami-0987654321fedcba0"
-            },
-            "eu-west-1" : {
-                "AMI" : "ami-0abcdef123456789a"
-            },
-            "ap-northeast-1" : {
-                "AMI" : "ami-0fedcba987654321b"
-            },
-            "ap-southeast-1" : {
-                "AMI" : "ami-0c1d2e3f4a5b6c7d8"
-            }
-        }
-    },
-    "Resources" : {
-        "Ec2Instance" : {
-            "Type" : "AWS::EC2::Instance",
-            "Properties" : {
-                "UserData" : { "Fn::Base64" : {"Ref" : "myWaitHandle"}},
-                "ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]}
-            }
-        },
-        "myWaitHandle" : {
-            "Type" : "AWS::CloudFormation::WaitConditionHandle",
-            "Properties" : {
-            }
-        },
-        "myWaitCondition" : {
-            "Type" : "AWS::CloudFormation::WaitCondition",
-            "DependsOn" : "Ec2Instance",
-            "Properties" : {
-                "Handle" : { "Ref" : "myWaitHandle" },
-                "Timeout" : "4500"
-            }
-        }
-    },
-    "Outputs" : {
-        "ApplicationData" : {
-            "Value" : { "Fn::GetAtt" : [ "myWaitCondition", "Data" ]},
-            "Description" : "The data passed back as part of signalling the WaitCondition."
-        }
-    }
-}
+ 1. {
+ 2.     "AWSTemplateFormatVersion" : "2010-09-09",
+ 3.     "Mappings" : {
+ 4.         "RegionMap" : {
+ 5.             "us-east-1" : {
+ 6.                 "AMI" : "ami-0123456789abcdef0"
+ 7.             },
+ 8.             "us-west-1" : {
+ 9.                 "AMI" : "ami-0987654321fedcba0"
+10.             },
+11.             "eu-west-1" : {
+12.                 "AMI" : "ami-0abcdef123456789a"
+13.             },
+14.             "ap-northeast-1" : {
+15.                 "AMI" : "ami-0fedcba987654321b"
+16.             },
+17.             "ap-southeast-1" : {
+18.                 "AMI" : "ami-0c1d2e3f4a5b6c7d8"
+19.             }
+20.         }
+21.     },
+22.     "Resources" : {
+23.         "Ec2Instance" : {
+24.             "Type" : "AWS::EC2::Instance",
+25.             "Properties" : {
+26.                 "UserData" : { "Fn::Base64" : {"Ref" : "myWaitHandle"}},
+27.                 "ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]}
+28.             }
+29.         },
+30.         "myWaitHandle" : {
+31.             "Type" : "AWS::CloudFormation::WaitConditionHandle",
+32.             "Properties" : {
+33.             }
+34.         },
+35.         "myWaitCondition" : {
+36.             "Type" : "AWS::CloudFormation::WaitCondition",
+37.             "DependsOn" : "Ec2Instance",
+38.             "Properties" : {
+39.                 "Handle" : { "Ref" : "myWaitHandle" },
+40.                 "Timeout" : "4500"
+41.             }
+42.         }
+43.     },
+44.     "Outputs" : {
+45.         "ApplicationData" : {
+46.             "Value" : { "Fn::GetAtt" : [ "myWaitCondition", "Data" ]},
+47.             "Description" : "The data passed back as part of signalling the WaitCondition."
+48.         }
+49.     }
+50. }
 ```
 
 #### YAML
+<a name="quickref-cloudformation-example-3.yaml"></a>
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Mappings:
-  RegionMap:
-    us-east-1:
-      AMI: ami-0123456789abcdef0
-    us-west-1:
-      AMI: ami-0987654321fedcba0
-    eu-west-1:
-      AMI: ami-0abcdef123456789a
-    ap-northeast-1:
-      AMI: ami-0fedcba987654321b
-    ap-southeast-1:
-      AMI: ami-0c1d2e3f4a5b6c7d8
-Resources:
-  Ec2Instance:
-    Type: AWS::EC2::Instance
-    Properties:
-      UserData:
-        Fn::Base64: !Ref myWaitHandle
-      ImageId:
-        Fn::FindInMap:
-        - RegionMap
-        - Ref: AWS::Region
-        - AMI
-  myWaitHandle:
-    Type: AWS::CloudFormation::WaitConditionHandle
-    Properties: {}
-  myWaitCondition:
-    Type: AWS::CloudFormation::WaitCondition
-    DependsOn: Ec2Instance
-    Properties:
-      Handle: !Ref myWaitHandle
-      Timeout: '4500'
-Outputs:
-  ApplicationData:
-    Value: !GetAtt myWaitCondition.Data
-    Description: The data passed back as part of signalling the WaitCondition.
+ 1. AWSTemplateFormatVersion: '2010-09-09'
+ 2. Mappings:
+ 3.   RegionMap:
+ 4.     us-east-1:
+ 5.       AMI: ami-0123456789abcdef0
+ 6.     us-west-1:
+ 7.       AMI: ami-0987654321fedcba0
+ 8.     eu-west-1:
+ 9.       AMI: ami-0abcdef123456789a
+10.     ap-northeast-1:
+11.       AMI: ami-0fedcba987654321b
+12.     ap-southeast-1:
+13.       AMI: ami-0c1d2e3f4a5b6c7d8
+14. Resources:
+15.   Ec2Instance:
+16.     Type: AWS::EC2::Instance
+17.     Properties:
+18.       UserData:
+19.         Fn::Base64: !Ref myWaitHandle
+20.       ImageId:
+21.         Fn::FindInMap:
+22.         - RegionMap
+23.         - Ref: AWS::Region
+24.         - AMI
+25.   myWaitHandle:
+26.     Type: AWS::CloudFormation::WaitConditionHandle
+27.     Properties: {}
+28.   myWaitCondition:
+29.     Type: AWS::CloudFormation::WaitCondition
+30.     DependsOn: Ec2Instance
+31.     Properties:
+32.       Handle: !Ref myWaitHandle
+33.       Timeout: '4500'
+34. Outputs:
+35.   ApplicationData:
+36.     Value: !GetAtt myWaitCondition.Data
+37.     Description: The data passed back as part of signalling the WaitCondition.
 ```
 
 ### Using the cfn-signal helper script to signal a wait condition
+<a name="scenario-waitcondition-cfn-signal"></a>
 
-This example shows a `cfn-signal` command line that signals success to a wait
-condition. You need to define the command line in the `UserData`
-property of the EC2 instance.
+This example shows a `cfn-signal` command line that signals success to a wait condition. You need to define the command line in the `UserData` property of the EC2 instance.
 
 #### JSON
+<a name="w2aac11c41c23b7b4b4"></a>
 
 ```
 "UserData": {
   "Fn::Base64": {
     "Fn::Join": [
-      "",
+      "", 
       [
          "#!/bin/bash -xe\n",
-         "/opt/aws/bin/cfn-signal --exit-code 0 '",
+         "/opt/aws/bin/cfn-signal --exit-code 0 '", 
          {
            "Ref": "myWaitHandle"
          },
          "'\n"
-      ]
+      ]   
     ]
   }
 }
 ```
 
 #### YAML
+<a name="w2aac11c41c23b7b4b6"></a>
 
 ```
 UserData:
@@ -252,28 +251,27 @@ UserData:
 ```
 
 ### Using Curl to signal a wait condition
+<a name="scenario-waitcondition-curl"></a>
 
-This example shows a Curl command line that signals success to a wait
-condition.
+This example shows a Curl command line that signals success to a wait condition.
 
 ```
-curl -T /tmp/a "https://cloudformation-waitcondition-test.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A034017226601%3Astack%2Fstack-gosar-20110427004224-test-stack-with-WaitCondition--VEYW%2Fe498ce60-70a1-11e0-81a7-5081d0136786%2FmyWaitConditionHandle?Expires=1303976584&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=ik1twT6hpS4cgNAw7wyOoRejVoo%3D"
+1. curl -T /tmp/a "https://cloudformation-waitcondition-test.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A034017226601%3Astack%2Fstack-gosar-20110427004224-test-stack-with-WaitCondition--VEYW%2Fe498ce60-70a1-11e0-81a7-5081d0136786%2FmyWaitConditionHandle?Expires=1303976584&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=ik1twT6hpS4cgNAw7wyOoRejVoo%3D"
 ```
 
 Where the file /tmp/a contains the following JSON structure:
 
 ```
-{
-  "Status" : "SUCCESS",
-  "Reason" : "Configuration Complete",
-  "UniqueId" : "ID1234",
-  "Data" : "Application has completed configuration."
-}
+1. {
+2.   "Status" : "SUCCESS",
+3.   "Reason" : "Configuration Complete",
+4.   "UniqueId" : "ID1234",
+5.   "Data" : "Application has completed configuration."
+6. }
 ```
 
-This example shows a Curl command line that sends the same success signal except
-it sends the JSON as a parameter on the command line.
+This example shows a Curl command line that sends the same success signal except it sends the JSON as a parameter on the command line.
 
 ```
-curl -X PUT -H 'Content-Type:' --data-binary '{"Status" : "SUCCESS","Reason" : "Configuration Complete","UniqueId" : "ID1234","Data" : "Application has completed configuration."}' "https://cloudformation-waitcondition-test.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A034017226601%3Astack%2Fstack-gosar-20110427004224-test-stack-with-WaitCondition--VEYW%2Fe498ce60-70a1-11e0-81a7-5081d0136786%2FmyWaitConditionHandle?Expires=1303976584&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=ik1twT6hpS4cgNAw7wyOoRejVoo%3D"
+1. curl -X PUT -H 'Content-Type:' --data-binary '{"Status" : "SUCCESS","Reason" : "Configuration Complete","UniqueId" : "ID1234","Data" : "Application has completed configuration."}' "https://cloudformation-waitcondition-test.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A034017226601%3Astack%2Fstack-gosar-20110427004224-test-stack-with-WaitCondition--VEYW%2Fe498ce60-70a1-11e0-81a7-5081d0136786%2FmyWaitConditionHandle?Expires=1303976584&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=ik1twT6hpS4cgNAw7wyOoRejVoo%3D"
 ```

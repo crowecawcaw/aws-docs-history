@@ -1,22 +1,19 @@
-# Elastic Beanstalk template snippets
 
-With Elastic Beanstalk, you can quickly deploy and manage applications in AWS without worrying about
-the infrastructure that runs those applications. The following sample template can help you
-describe Elastic Beanstalk resources in your CloudFormation template.
+
+# Elastic Beanstalk template snippets
+<a name="quickref-elasticbeanstalk"></a>
+
+With Elastic Beanstalk, you can quickly deploy and manage applications in AWS without worrying about the infrastructure that runs those applications. The following sample template can help you describe Elastic Beanstalk resources in your CloudFormation template.
 
 ## Elastic Beanstalk sample PHP
+<a name="quickref-elasticbeanstalk-sampleenv"></a>
 
-The following sample template deploys a sample PHP web application that's stored in an
-Amazon S3 bucket. The environment is also an auto-scaling, load-balancing environment, with a
-minimum of two Amazon EC2 instances and a maximum of six. It shows an Elastic Beanstalk environment that
-uses a legacy launch configuration. For information about using a launch template
-instead, see [Launch Templates](../../../elasticbeanstalk/latest/dg/environments-cfg-autoscaling-launch-templates.md "../../../elasticbeanstalk/latest/dg/environments-cfg-autoscaling-launch-templates.md") in the _AWS Elastic Beanstalk Developer Guide_.
+The following sample template deploys a sample PHP web application that's stored in an Amazon S3 bucket. The environment is also an auto-scaling, load-balancing environment, with a minimum of two Amazon EC2 instances and a maximum of six. It shows an Elastic Beanstalk environment that uses a legacy launch configuration. For information about using a launch template instead, see [Launch Templates](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-autoscaling-launch-templates.html) in the *AWS Elastic Beanstalk Developer Guide*.
 
-Replace `solution-stack` with a solution stack
-name (platform version). For a list of available solution stacks, use the AWS CLI command
-**aws elasticbeanstalk list-available-solution-stacks**.
+Replace `{{solution-stack}}` with a solution stack name (platform version). For a list of available solution stacks, use the AWS CLI command **aws elasticbeanstalk list-available-solution-stacks**.
 
 ### JSON
+<a name="quickref-elasticbeanstalk-example-1.json"></a>
 
 ```
 {
@@ -74,7 +71,7 @@ name (platform version). For a list of available solution stacks, use the AWS CL
                         }
                     }
                 ],
-                "SolutionStackName": "`solution-stack`"
+                "SolutionStackName": "{{solution-stack}}"
             }
         },
         "sampleEnvironment": {
@@ -96,7 +93,7 @@ name (platform version). For a list of available solution stacks, use the AWS CL
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -134,6 +131,7 @@ name (platform version). For a list of available solution stacks, use the AWS CL
 ```
 
 ### YAML
+<a name="quickref-elasticbeanstalk-example-1.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -169,8 +167,8 @@ Resources:
         Value: LoadBalanced
       - Namespace: aws:autoscaling:launchconfiguration
         OptionName: IamInstanceProfile
-        Value: !Ref MyInstanceProfile
-      SolutionStackName: `solution-stack`
+        Value: !Ref MyInstanceProfile        
+      SolutionStackName: {{solution-stack}}
   sampleEnvironment:
     Type: AWS::ElasticBeanstalk::Environment
     Properties:
@@ -183,7 +181,7 @@ Resources:
         Ref: sampleApplicationVersion
   MyInstanceRole:
     Type: AWS::IAM::Role
-    Properties:
+    Properties: 
       AssumeRolePolicyDocument:
         Version: 2012-10-17
         Statement:
@@ -194,13 +192,13 @@ Resources:
             Action:
               - sts:AssumeRole
       Description: Beanstalk EC2 role
-      ManagedPolicyArns:
+      ManagedPolicyArns: 
         - arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier
         - arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker
         - arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier
   MyInstanceProfile:
     Type: AWS::IAM::InstanceProfile
-    Properties:
+    Properties: 
       Roles:
         - !Ref MyInstanceRole
 ```
