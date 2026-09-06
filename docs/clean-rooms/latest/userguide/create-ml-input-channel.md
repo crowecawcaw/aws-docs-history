@@ -1,289 +1,140 @@
+
+
 # Creating an ML input channel in AWS Clean Rooms ML
+<a name="create-ml-input-channel"></a>
 
-**Prerequisites:**
+**Prerequisites: **
++ An AWS account with access to AWS Clean Rooms
++ A collaboration set up in AWS Clean Rooms where you want to create the ML input channel
++ Permissions to query data and create ML input channels in the collaboration. 
++ (Optional) An existing model algorithm to associate with the ML input channel, or permissions to create a new one
++ (Optional) Tables with analysis rules that can be run for your specified model. 
++ (Optional) An existing SQL query or analysis template to use for generating the dataset
++ (Optional) An existing service role with appropriate permissions, or permissions to create a new service role
++ (Optional) A custom AWS KMS key if you want to use your own encryption key
++ Appropriate permissions to create and manage ML models in the collaboration
 
-- An AWS account with access to AWS Clean Rooms
-- A collaboration set up in AWS Clean Rooms where you want to create the ML input
-  channel
-- Permissions to query data and create ML input channels in the collaboration.
-- (Optional) An existing model algorithm to associate with the ML input channel,
-  or permissions to create a new one
-- (Optional) Tables with analysis rules that can be run for your specified
-  model.
-- (Optional) An existing SQL query or analysis template to use for generating
-  the dataset
-- (Optional) An existing service role with appropriate permissions, or
-  permissions to create a new service role
-- (Optional) A custom AWS KMS key if you want to use your own encryption
-  key
-- Appropriate permissions to create and manage ML models in the
-  collaboration
-  An _ML input channel_ is a dataset that is created
-  from a specific data query. Members with the ability to query data can prepare their
-  data for training and inference by creating an ML input channel. Creating an ML input
-  channel allows that data to be used in different training models within the same
-  collaboration. You should create separate ML input channels for training and
-  inference.
+An *ML input channel* is a dataset that is created from a specific data query. Members with the ability to query data can prepare their data for training and inference by creating an ML input channel. Creating an ML input channel allows that data to be used in different training models within the same collaboration. You should create separate ML input channels for training and inference.
 
-To create an ML input channel, you must specify the SQL query that is used to query
-the input data and create the ML input channel. The results of this query are never
-shared with any member and remain within the boundaries of Clean Rooms ML. The reference Amazon
-Resource Name (ARN) is used in the next steps to train a model or run inference.
+To create an ML input channel, you must specify the SQL query that is used to query the input data and create the ML input channel. The results of this query are never shared with any member and remain within the boundaries of Clean Rooms ML. The reference Amazon Resource Name (ARN) is used in the next steps to train a model or run inference.
 
-Console
+------
+#### [ Console ]
 
-###### To create an ML input channel (console)
+**To create an ML input channel (console)**
 
-1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. On the **Collaborations** page, choose the
-   collaboration where you want to create an ML input channel.
-4. After the collaboration opens, choose the **ML
-   models** tab.
-5. Under **Custom ML models**, in the **ML
-   input channels** section, choose **Create ML
-   input channel**.
-6. On the **Create ML input channel** page, for
-   **ML input channel details**, do the following:
+1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home).
 
-   1. For **Name**, enter a unique name for
-      your channel.
-   2. (Optional) For **Description**, enter a
-      description of your channel.
-   3. For **Associated model algorithm**,
-      select the algorithm to use.
+1. In the left navigation pane, choose **Collaborations**.
 
-   Choose **Associate model algorithm** to
-   add a new one.
+1. On the **Collaborations** page, choose the collaboration where you want to create an ML input channel.
 
-7. For **Dataset**, choose a method to generate the
-   training dataset:
+1. After the collaboration opens, choose the **ML models** tab.
 
-   - Choose **SQL query** to use the results
-     of a SQL query as the training dataset.
+1. Under **Custom ML models**, in the **ML input channels** section, choose **Create ML input channel**.
 
-   If you chose **SQL query**, enter your
-   query in the **SQL query** field.
+1. On the **Create ML input channel** page, for **ML input channel details**, do the following: 
 
-   (Optional) To import a query you've used recently, choose
-   **Import from recent queries**.
-   - Choose **Analysis template** to use the
-     results of an analysis template as the training
-     dataset.
+   1. For **Name**, enter a unique name for your channel.
 
-   ###### Warning
+   1. (Optional) For **Description**, enter a description of your channel.
 
-   Synthetic data generation protects against inferring
-   individual attributes whether specific individuals are
-   present in the original dataset or learning attributes
-   of those individuals are present. However, it doesn't
-   prevent literal values from the original dataset,
-   including personally identifiable information (PII) from
-   appearing in the synthetic dataset.
+   1. For **Associated model algorithm**, select the algorithm to use.
 
-   We recommend avoiding values in the input dataset that
-   are associated with only one data subject because these
-   may re-identify a data subject. For example, if only one
-   user lives in a zip code, the presence of that zip code
-   in the synthetic dataset would confirm that user was in
-   the original dataset. Techniques like truncating high
-   precision values or replacing uncommon catalogues with
-   _other_ can be used
-   to mitigate this risk. These transformations can be part
-   of the query used to create the ML input channel.
-   1. If no tables are associated, choose **Associate
-      table** to add tables with an analysis rule
-      that can be run for the specified model.
-   2. Choose **Worker type** to use when creating this data channel. The default worker type is **CR.1X**.
-      Specify the **Number of workers** to use.
-      The default worker number is **16**. To specify **Spark
-      properties**:
+      Choose **Associate model algorithm** to add a new one.
+
+1. For **Dataset**, choose a method to generate the training dataset:
+   + Choose **SQL query** to use the results of a SQL query as the training dataset. 
+
+     If you chose **SQL query**, enter your query in the **SQL query** field.
+
+     (Optional) To import a query you've used recently, choose **Import from recent queries**. 
+   + Choose **Analysis template** to use the results of an analysis template as the training dataset.
+**Warning**  
+Synthetic data generation protects against inferring individual attributes whether specific individuals are present in the original dataset or learning attributes of those individuals are present. However, it doesn't prevent literal values from the original dataset, including personally identifiable information (PII) from appearing in the synthetic dataset.  
+We recommend avoiding values in the input dataset that are associated with only one data subject because these may re-identify a data subject. For example, if only one user lives in a zip code, the presence of that zip code in the synthetic dataset would confirm that user was in the original dataset. Techniques like truncating high precision values or replacing uncommon catalogues with *other* can be used to mitigate this risk. These transformations can be part of the query used to create the ML input channel.
+
+   1. If no tables are associated, choose **Associate table** to add tables with an analysis rule that can be run for the specified model. 
+
+   1. Choose **Worker type** to use when creating this data channel. The default worker type is **CR.1X**. Specify the **Number of workers** to use. The default worker number is **16**. To specify **Spark properties**:
 
       1. Expand **Spark properties**.
-      2. Choose **Add Spark properties**.
-      3. On the **Spark properties** dialog box, choose a
-         **Property name** from the dropdown list and enter a
-         **Value**.The following tables provide a definition for each property.
 
-   For more information about Spark properties, see [Spark
-   Properties](https://spark.apache.org/docs/latest/configuration.html#spark-properties "https://spark.apache.org/docs/latest/configuration.html#spark-properties") in the Apache Spark documentation.
+      1. Choose **Add Spark properties**.
 
-   ###### Note
+      1. On the **Spark properties** dialog box, choose a **Property name** from the dropdown list and enter a **Value**.
 
-   You can configure a maximum of 50 Spark properties. Each property value
-   can be up to 500 characters.
+      The following tables provide a definition for each property.
 
-   | Property Name                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Default Value                                                    |
-   | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-   | spark.task.maxFailures                                                   | Controls how many consecutive times a task can fail before the job fails.<br>Requires a value greater than or equal to 1. The number of allowed retries<br>equals this value minus 1. The failure count resets if any attempt succeeds.<br>Failures across different tasks don't accumulate toward this limit.                                                                                                                                                             | 4                                                                |
-   | spark.sql.files.maxPartitionBytes                                        | Sets the maximum number of bytes to pack into a single partition when<br>reading from file-based sources such as Parquet, JSON, and ORC.                                                                                                                                                                                                                                                                                                                                   | 128MB                                                            |
-   | spark.hadoop.fs.s3.maxRetries                                            | Sets the maximum number of retry attempts for Amazon S3 file<br>operations.                                                                                                                                                                                                                                                                                                                                                                                                | (none)                                                           |
-   | spark.network.timeout                                                    | Sets the default timeout for all network interactions. Overrides the<br>following timeout settings if they aren't configured:<br>• spark.storage.blockManagerHeartbeatTimeoutMs<br>• spark.shuffle.io.connectionTimeout<br>• spark.rpc.askTimeout<br>• spark.rpc.lookupTimeout                                                                                                                                                                                             | 120s                                                             |
-   | spark.rdd.compress                                                       | Specifies whether to compress serialized RDD partitions using<br>spark.io.compression.codec. Applies to StorageLevel.MEMORY\_ONLY\_SER in Java<br>and Scala, or StorageLevel.MEMORY\_ONLY in Python. Reduces storage space but<br>requires additional CPU processing time.                                                                                                                                                                                                 | false                                                            |
-   | spark.shuffle.spill.compress                                             | Specifies whether to compress shuffle spill data using<br>spark.io.compression.codec.                                                                                                                                                                                                                                                                                                                                                                                      | true                                                             |
-   | spark.shuffle.compress                                                   | Specifies whether to compress map output files. Compression uses spark.io.compression.codec.                                                                                                                                                                                                                                                                                                                                                                               | true                                                             |
-   | spark.shuffle.service.index.cache.size                                   | Sets the cache size limit, in bytes unless otherwise specified.                                                                                                                                                                                                                                                                                                                                                                                                            | 100m                                                             |
-   | spark.shuffle.io.maxRetries                                              | Sets the maximum number of retries for fetches that fail due to IO-related exceptions.                                                                                                                                                                                                                                                                                                                                                                                     | 3                                                                |
-   | spark.shuffle.io.retryWait                                               | Sets the wait time between retries of fetches. The maximum delay caused by retrying is 15 seconds by default, calculated as maxRetries \<br>• retryWait.                                                                                                                                                                                                                                                                                                                   | 5s                                                               |
-   | spark.shuffle.io.connectionTimeout                                       | Sets the timeout for established connections between shuffle servers and clients to be marked as idle and closed if there are still outstanding fetch requests but no traffic on the channel.                                                                                                                                                                                                                                                                              | (value of spark.network.timeout)                                 |
-   | spark.driver.maxResultSize                                               | Sets the total size limit of serialized results of all partitions for each<br>Spark action, in bytes. Should be at least 1M, or 0 for unlimited.                                                                                                                                                                                                                                                                                                                           | 1g                                                               |
-   | spark.memory.fraction                                                    | Sets the fraction of (heap space<br>• 300MB) used for execution and storage. The lower<br>this value, the more frequently spills and cached data eviction occur.<br>Leaving this at the default value is recommended.                                                                                                                                                                                                                                                      | 0.6                                                              |
-   | spark.scheduler.mode                                                     | Sets the scheduling mode between jobs submitted to the same SparkContext.<br>Can be set to FAIR to use fair sharing instead of queueing jobs one after<br>another. Supported values: FAIR, FIFO.                                                                                                                                                                                                                                                                           | FIFO                                                             |
-   | spark.sql.adaptive.advisoryPartitionSizeInBytes                          | Sets the target size in bytes for shuffle partitions during adaptive<br>optimization when spark.sql.adaptive.enabled is true. Controls partition size<br>when coalescing small partitions or splitting skewed partitions.                                                                                                                                                                                                                                                  | (value of spark.sql.adaptive.shuffle.targetPostShuffleInputSize) |
-   | spark.sql.adaptive.autoBroadcastJoinThreshold                            | Sets the maximum table size in bytes for broadcasting to worker nodes<br>during joins. Applies only in adaptive framework. Uses the same default value<br>as spark.sql.autoBroadcastJoinThreshold. Set to -1 to disable<br>broadcasting.                                                                                                                                                                                                                                   | (none)                                                           |
-   | spark.sql.adaptive.coalescePartitions.enabled                            | Specifies whether to coalesce contiguous shuffle partitions based on<br>spark.sql.adaptive.advisoryPartitionSizeInBytes to optimize task size.<br>Requires spark.sql.adaptive.enabled to be true.                                                                                                                                                                                                                                                                          | true                                                             |
-   | spark.sql.adaptive.coalescePartitions.initialPartitionNum                | Defines the initial number of shuffle partitions before coalescing.<br>Requires both spark.sql.adaptive.enabled and<br>spark.sql.adaptive.coalescePartitions.enabled to be true. Defaults to the<br>value of spark.sql.shuffle.partitions.                                                                                                                                                                                                                                 | (none)                                                           |
-   | spark.sql.adaptive.coalescePartitions.minPartitionSize                   | Sets the minimum size for coalesced shuffle partitions to prevent<br>partitions from becoming too small during adaptive optimization.                                                                                                                                                                                                                                                                                                                                      | 1 MB                                                             |
-   | spark.sql.adaptive.coalescePartitions.parallelismFirst                   | Specifies whether to calculate partition sizes based on cluster<br>parallelism instead of spark.sql.adaptive.advisoryPartitionSizeInBytes during<br>partition coalescing. Generates smaller partition sizes than the configured<br>target size to maximize parallelism. We recommend setting this to false on<br>busy clusters to improve resource utilization by preventing excessive small<br>tasks.                                                                     | true                                                             |
-   | spark.sql.adaptive.enabled                                               | Specifies whether to enable adaptive query execution to re-optimize query<br>plans during query execution, based on accurate runtime statistics.                                                                                                                                                                                                                                                                                                                           | true                                                             |
-   | spark.sql.adaptive.forceOptimizeSkewedJoin                               | Specifies whether to force enable OptimizeSkewedJoin even if it introduces<br>extra shuffle.                                                                                                                                                                                                                                                                                                                                                                               | false                                                            |
-   | spark.sql.adaptive.localShuffleReader.enabled                            | Specifies whether to use local shuffle readers when shuffle partitioning<br>isn't required, such as after converting from sort-merge joins to<br>broadcast-hash joins. Requires spark.sql.adaptive.enabled to be true.                                                                                                                                                                                                                                                     | true                                                             |
-   | spark.sql.adaptive.maxShuffledHashJoinLocalMapThreshold                  | Sets the maximum partition size in bytes for building local hash maps.<br>Prioritizes shuffled hash joins over sort-merge joins when:<br>• This value equals or exceeds<br>spark.sql.adaptive.advisoryPartitionSizeInBytes<br>• All partition sizes are within this limit<br>Overrides spark.sql.join.preferSortMergeJoin setting.                                                                                                                                         | 0 bytes                                                          |
-   | spark.sql.adaptive.optimizeSkewsInRebalancePartitions.enabled            | Specifies whether to optimize skewed shuffle partitions by splitting them<br>into smaller partitions based on<br>spark.sql.adaptive.advisoryPartitionSizeInBytes. Requires<br>spark.sql.adaptive.enabled to be true.                                                                                                                                                                                                                                                       | true                                                             |
-   | spark.sql.adaptive.rebalancePartitionsSmallPartitionFactor               | Defines the size threshold factor for merging partitions during splitting.<br>Partitions smaller than this factor multiplied by<br>spark.sql.adaptive.advisoryPartitionSizeInBytes are merged.                                                                                                                                                                                                                                                                             | 0.2                                                              |
-   | spark.sql.adaptive.skewJoin.enabled                                      | Specifies whether to handle data skew in shuffled joins by splitting and<br>optionally replicating skewed partitions. Applies to sort-merge and shuffled<br>hash joins. Requires spark.sql.adaptive.enabled to be true.                                                                                                                                                                                                                                                    | true                                                             |
-   | spark.sql.adaptive.skewJoin.skewedPartitionFactor                        | Determines the size factor that determines partition skew. A partition is<br>skewed when its size exceeds both:<br>• This factor multiplied by the median partition size<br>• The value of<br>spark.sql.adaptive.skewJoin.skewedPartitionThresholdInBytes                                                                                                                                                                                                                  | 5                                                                |
-   | spark.sql.adaptive.skewJoin.skewedPartitionThresholdInBytes              | Sets the size threshold in bytes for identifying skewed partitions. A<br>partition is skewed when its size exceeds both:<br>• This threshold<br>• The median partition size multiplied by<br>spark.sql.adaptive.skewJoin.skewedPartitionFactor<br>We recommend setting this value larger than<br>spark.sql.adaptive.advisoryPartitionSizeInBytes.                                                                                                                          | 256MB                                                            |
-   | spark.sql.broadcastTimeout                                               | Controls the timeout period in seconds for the broadcast operations during<br>broadcast joins.                                                                                                                                                                                                                                                                                                                                                                             | 300 seconds                                                      |
-   | spark.sql.cbo.enabled                                                    | Specifies whether to enable cost-based optimization (CBO) for plan<br>statistics estimation.                                                                                                                                                                                                                                                                                                                                                                               | false                                                            |
-   | spark.sql.cbo.joinReorder.dp.star.filter                                 | Specifies whether to apply star-join filter heuristics during cost-based<br>join enumeration.                                                                                                                                                                                                                                                                                                                                                                              | false                                                            |
-   | spark.sql.cbo.joinReorder.dp.threshold                                   | Sets the maximum number of joined nodes allowed in the dynamic programming<br>algorithm.                                                                                                                                                                                                                                                                                                                                                                                   | 12                                                               |
-   | spark.sql.cbo.joinReorder.enabled                                        | Specifies whether to enable join reordering in cost-based optimization<br>(CBO).                                                                                                                                                                                                                                                                                                                                                                                           | false                                                            |
-   | spark.sql.cbo.planStats.enabled                                          | Specifies whether to fetch row counts and column statistics from the<br>catalog during logical plan generation.                                                                                                                                                                                                                                                                                                                                                            | false                                                            |
-   | spark.sql.cbo.starSchemaDetection                                        | Specifies whether to enable join reordering based on star schema<br>detection.                                                                                                                                                                                                                                                                                                                                                                                             | false                                                            |
-   | spark.sql.files.maxPartitionNum                                          | Sets the target maximum number of split file partitions for file-based<br>sources (Parquet, JSON, and ORC). Rescales partitions when the initial count<br>exceeds this value. This is a suggested target, not a guaranteed limit.                                                                                                                                                                                                                                          | (none)                                                           |
-   | spark.sql.files.maxRecordsPerFile                                        | Sets the maximum number of records to write to a single file. No limit<br>applies when set to zero or a negative value.                                                                                                                                                                                                                                                                                                                                                    | 0                                                                |
-   | spark.sql.files.minPartitionNum                                          | Sets the target minimum number of split file partitions for file-based<br>sources (Parquet, JSON, and ORC). Defaults to<br>spark.sql.leafNodeDefaultParallelism. This is a suggested target, not a<br>guaranteed limit.                                                                                                                                                                                                                                                    | (none)                                                           |
-   | spark.sql.inMemoryColumnarStorage.batchSize                              | Controls the batch size for columnar caching. Increasing the size improves<br>memory utilization and compression but increases the risk of out-of-memory<br>errors.                                                                                                                                                                                                                                                                                                        | 10000                                                            |
-   | spark.sql.inMemoryColumnarStorage.compressed                             | Specifies whether to automatically select compression codecs for columns<br>based on data statistics.                                                                                                                                                                                                                                                                                                                                                                      | true                                                             |
-   | spark.sql.inMemoryColumnarStorage.enableVectorizedReader                 | Specifies whether to enable vectorized reading for columnar<br>caching.                                                                                                                                                                                                                                                                                                                                                                                                    | true                                                             |
-   | spark.sql.legacy.allowHashOnMapType                                      | Specifies whether to allow hash operations on map type data structures.<br>This legacy setting maintains compatibility with older Spark versions' map<br>type handling.                                                                                                                                                                                                                                                                                                    | (none)                                                           |
-   | spark.sql.legacy.allowNegativeScaleOfDecimal                             | Specifies whether to allow negative scale values in decimal type<br>definitions. This legacy setting maintains compatibility with older Spark<br>versions that supported negative decimal scales.                                                                                                                                                                                                                                                                          | (none)                                                           |
-   | spark.sql.legacy.castComplexTypesToString.enabled                        | Specifies whether to enable legacy behavior for casting complex types to<br>strings. Maintains compatibility with older Spark versions' type conversion<br>rules.                                                                                                                                                                                                                                                                                                          | (none)                                                           |
-   | spark.sql.legacy.charVarcharAsString                                     | Specifies whether to treat CHAR and VARCHAR types as STRING types. This<br>legacy setting provides compatibility with older Spark versions' string type<br>handling.                                                                                                                                                                                                                                                                                                       | (none)                                                           |
-   | spark.sql.legacy.createEmptyCollectionUsingStringType                    | Specifies whether to create empty collections using string type elements.<br>This legacy setting maintains compatibility with older Spark versions'<br>collection initialization behavior.                                                                                                                                                                                                                                                                                 | (none)                                                           |
-   | spark.sql.legacy.exponentLiteralAsDecimal.enabled                        | Specifies whether to interpret exponential literals as decimal types. This<br>legacy setting maintains compatibility with older Spark versions' numeric<br>literal handling.                                                                                                                                                                                                                                                                                               | (none)                                                           |
-   | spark.sql.legacy.json.allowEmptyString.enabled                           | Specifies whether to allow empty strings in JSON processing. This legacy<br>setting maintains compatibility with older Spark versions' JSON parsing<br>behavior.                                                                                                                                                                                                                                                                                                           | (none)                                                           |
-   | spark.sql.legacy.parquet.int96RebaseModeInRead                           | Specifies whether to use legacy INT96 timestamp rebase mode when reading<br>Parquet files. This legacy setting maintains compatibility with older Spark<br>versions' timestamp handling.                                                                                                                                                                                                                                                                                   | (none)                                                           |
-   | spark.sql.legacy.timeParserPolicy                                        | Controls the time parsing behavior for backwards compatibility. This<br>legacy setting determines how timestamps and dates are parsed from<br>strings.                                                                                                                                                                                                                                                                                                                     | (none)                                                           |
-   | spark.sql.legacy.typeCoercion.datetimeToString.enabled                   | Specifies whether to enable legacy type coercion behavior when converting<br>datetime values to strings. Maintains compatibility with older Spark versions'<br>datetime conversion rules.                                                                                                                                                                                                                                                                                  | (none)                                                           |
-   | spark.sql.maxSinglePartitionBytes                                        | Sets the maximum partition size in bytes. The planner introduces shuffle<br>operations for larger partitions to improve parallelism.                                                                                                                                                                                                                                                                                                                                       | 128m                                                             |
-   | spark.sql.metadataCacheTTLSeconds                                        | Controls the time-to-live (TTL) for metadata caches. Applies to partition<br>file metadata and session catalog caches. Requires:<br>• A positive value greater than zero<br>• spark.sql.catalogImplementation set to hive<br>• spark.sql.hive.filesourcePartitionFileCacheSize greater than<br>zero<br>• spark.sql.hive.manageFilesourcePartitions set to true                                                                                                             | -1000ms                                                          |
-   | spark.sql.optimizer.collapseProjectAlwaysInline                          | Specifies whether to collapse adjacent projections and inline expressions,<br>even when it causes duplication.                                                                                                                                                                                                                                                                                                                                                             | false                                                            |
-   | spark.sql.optimizer.dynamicPartitionPruning.enabled                      | Specifies whether to generate predicates for partition columns used as<br>join keys.                                                                                                                                                                                                                                                                                                                                                                                       | true                                                             |
-   | spark.sql.optimizer.enableCsvExpressionOptimization                      | Specifies whether to optimize CSV expressions in SQL optimizer by pruning<br>unnecessary columns from from\_csv operations.                                                                                                                                                                                                                                                                                                                                                | true                                                             |
-   | spark.sql.optimizer.enableJsonExpressionOptimization                     | Specifies whether to optimize JSON expressions in SQL optimizer by:<br>• Pruning unnecessary columns from from\_json operations<br>• Simplifying from\_json and to\_json combinations<br>• Optimizing named\_struct operations                                                                                                                                                                                                                                             | true                                                             |
-   | spark.sql.optimizer.excludedRules                                        | Defines optimizer rules to disable, identified by comma-separated rule<br>names. Some rules cannot be disabled as they are required for correctness. The<br>optimizer logs which rules are successfully disabled.                                                                                                                                                                                                                                                          | (none)                                                           |
-   | spark.sql.optimizer.runtime.bloomFilter.applicationSideScanSizeThreshold | Sets the minimum aggregated scan size in bytes required to inject a Bloom<br>filter on the application side.                                                                                                                                                                                                                                                                                                                                                               | 10GB                                                             |
-   | spark.sql.optimizer.runtime.bloomFilter.creationSideThreshold            | Defines the maximum size threshold for injecting a Bloom filter on the<br>creation side.                                                                                                                                                                                                                                                                                                                                                                                   | 10MB                                                             |
-   | spark.sql.optimizer.runtime.bloomFilter.enabled                          | Specifies whether to insert a Bloom filter to reduce shuffle data when one<br>side of a shuffle join has a selective predicate.                                                                                                                                                                                                                                                                                                                                            | true                                                             |
-   | spark.sql.optimizer.runtime.bloomFilter.expectedNumItems                 | Defines the default number of expected items in the runtime Bloom<br>filter.                                                                                                                                                                                                                                                                                                                                                                                               | 1000000                                                          |
-   | spark.sql.optimizer.runtime.bloomFilter.maxNumBits                       | Sets the maximum number of bits allowed in the runtime Bloom<br>filter.                                                                                                                                                                                                                                                                                                                                                                                                    | 67108864                                                         |
-   | spark.sql.optimizer.runtime.bloomFilter.maxNumItems                      | Sets the maximum number of expected items allowed in the runtime Bloom<br>filter.                                                                                                                                                                                                                                                                                                                                                                                          | 4000000                                                          |
-   | spark.sql.optimizer.runtime.bloomFilter.numBits                          | Defines the default number of bits used in the runtime Bloom<br>filter.                                                                                                                                                                                                                                                                                                                                                                                                    | 8388608                                                          |
-   | spark.sql.optimizer.runtime.rowLevelOperationGroupFilter.enabled         | Specifies whether to enable runtime group filtering for row-level<br>operations. Allows data sources to:<br>• Prune entire groups of data (such as files or partitions) using data<br>source filters<br>• Execute runtime queries to identify matching records<br>• Discard unnecessary groups to avoid expensive rewrites<br>Limitations:<br>• Not all expressions can convert to data source filters<br>• Some expressions require Spark evaluation (such as subqueries) | true                                                             |
-   | spark.sql.optimizer.runtimeFilter.number.threshold                       | Sets the total number of injected runtime filters (non-DPP). This is to<br>prevent driver OOMs with too many Bloom filters.                                                                                                                                                                                                                                                                                                                                                | 10                                                               |
-   | spark.sql.optimizer.runtimeFilter.semiJoinReduction.enabled              | Specifies whether to insert a semi-join to reduce shuffle data when one<br>side of a shuffle join has a selective predicate.                                                                                                                                                                                                                                                                                                                                               | false                                                            |
-   | spark.sql.parquet.aggregatePushdown                                      | Specifies whether to push down aggregates to Parquet for optimization.<br>Supports:<br>• MIN and MAX for boolean, integer, float, and date types<br>• COUNT for all data types<br>Throws an exception if statistics are missing from any Parquet file<br>footer.                                                                                                                                                                                                           | false                                                            |
-   | spark.sql.parquet.columnarReaderBatchSize                                | Controls the number of rows in each Parquet vectorized reader batch.<br>Choose a value that balances performance overhead and memory usage to prevent<br>out-of-memory errors.                                                                                                                                                                                                                                                                                             | 4096                                                             |
-   | spark.sql.parquet.enableVectorizedReader                                 | Specifies whether to enable vectorized Parquet decoding.                                                                                                                                                                                                                                                                                                                                                                                                                   | true                                                             |
-   | spark.sql.shuffle.partitions                                             | Sets the default number of partitions for data shuffling during joins or<br>aggregations. Cannot be modified between structured streaming query restarts<br>from the same checkpoint location.                                                                                                                                                                                                                                                                             | 200                                                              |
-   | spark.sql.shuffledHashJoinFactor                                         | Defines the multiplication factor used to determine shuffle hash join<br>eligibility. A shuffle hash join is selected when the small-side data size<br>multiplied by this factor is less than the large-side data size.                                                                                                                                                                                                                                                    | 3                                                                |
-   | spark.sql.sources.parallelPartitionDiscovery.threshold                   | Sets the maximum number of paths for driver-side file listing with<br>file-based sources (Parquet, JSON, and ORC). When exceeded during partition<br>discovery, files are listed using a separate Spark distributed job.                                                                                                                                                                                                                                                   | 32                                                               |
-   | spark.sql.statistics.histogram.enabled                                   | Specifies whether to generate equi-height histograms during column<br>statistics computation to improve estimation accuracy. Requires an additional<br>table scan beyond the one needed for basic column statistics.                                                                                                                                                                                                                                                       | false                                                            |
-   | spark.dynamicAllocation.executorIdleTimeout                              | Sets the duration an executor must be idle before it is removed when<br>dynamic allocation is enabled.                                                                                                                                                                                                                                                                                                                                                                     | 60s                                                              |
-   | spark.dynamicAllocation.schedulerBacklogTimeout                          | Sets the duration that pending tasks must be backlogged before new executors<br>are requested when dynamic allocation is enabled.                                                                                                                                                                                                                                                                                                                                          | 1s                                                               |
-   | spark.dynamicAllocation.sustainedSchedulerBacklogTimeout                 | Same as spark.dynamicAllocation.schedulerBacklogTimeout, but used only for<br>subsequent executor requests.                                                                                                                                                                                                                                                                                                                                                                | (value of spark.dynamicAllocation.schedulerBacklogTimeout)       |
-   | spark.scheduler.minRegisteredResourcesRatio                              | Sets the minimum ratio of registered resources (registered resources / total<br>expected resources) to wait for before scheduling begins. Specified as a double<br>between 0.0 and 1.0. Regardless of whether the minimum ratio of resources has<br>been reached, the maximum amount of time it will wait before scheduling begins<br>is controlled by spark.scheduler.maxRegisteredResourcesWaitingTime.                                                                  | 0.8                                                              |
-   | spark.scheduler.maxRegisteredResourcesWaitingTime                        | Sets the maximum amount of time to wait for resources to register before<br>scheduling begins.                                                                                                                                                                                                                                                                                                                                                                             | 30s                                                              |
-   | spark.sql.hive.metastorePartitionPruningFallbackOnException              | Specifies whether to fall back to getting all partitions from Hive metastore<br>and perform partition pruning on the Spark client side when encountering<br>MetaException from the metastore.                                                                                                                                                                                                                                                                              | false                                                            |
-   | spark.sql.crossJoin.enabled                                              | Specifies whether to allow queries that contain a cartesian product without<br>explicit CROSS JOIN syntax.                                                                                                                                                                                                                                                                                                                                                                 | true                                                             |
-   | spark.sql.analyzer.maxIterations                                         | Sets the maximum number of iterations the query analyzer runs before giving<br>up. Higher values allow the analyzer to process very large or deeply nested<br>queries.                                                                                                                                                                                                                                                                                                     | 100                                                              |
-   | spark.sql.dataprefetch.filescan.maxParallelismPerTask                    | Sets the maximum number of file splits to pre-fetch concurrently for each<br>task when scanning files.                                                                                                                                                                                                                                                                                                                                                                     | 4                                                                |
-   | spark.sql.iceberg.data-prefetch.enabled                                  | Specifies whether to enable data pre-fetch optimization when reading<br>Iceberg tables.                                                                                                                                                                                                                                                                                                                                                                                    | true                                                             |
-   | spark.sql.legacy.nullValueWrittenAsQuotedEmptyStringCsv                  | Specifies whether to restore the legacy behavior of writing nulls as quoted<br>empty strings in CSV output. When false, Spark writes nulls as unquoted empty<br>strings.                                                                                                                                                                                                                                                                                                   | false                                                            |
-   | spark.maxRemoteBlockSizeFetchToMem                                       | Sets the size threshold above which Spark fetches remote blocks to disk<br>instead of memory. This avoids a single large request consuming too much<br>memory.                                                                                                                                                                                                                                                                                                             | 200m                                                             |
-   | spark.emr-serverless.allocation.batch.size                               | Sets the number of executors to request at once in each round of executor<br>allocation.                                                                                                                                                                                                                                                                                                                                                                                   | 20                                                               |
+      For more information about Spark properties, see [Spark Properties](https://spark.apache.org/docs/latest/configuration.html#spark-properties) in the Apache Spark documentation. 
+**Note**  
+You can configure a maximum of 50 Spark properties. Each property value can be up to 500 characters.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-ml-input-channel.html)    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-ml-input-channel.html)
 
-   | Property Name                                   | Description                                                                                                                                                                                                                                                                                                                   | Default Value                       |
-   | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-   | spark.sql.autoBroadcastJoinThreshold            | Sets the maximum table size in bytes for broadcasting to worker nodes<br>during joins. Set to -1 to disable broadcasting.                                                                                                                                                                                                     | 10MB (-1 for CR.4X with 32 workers) |
-   | spark.dynamicAllocation.enabled                 | Specifies whether to use dynamic resource allocation, which scales the number<br>of executors registered with this application up and down based on the workload.                                                                                                                                                             | true                                |
-   | spark.files.fetchFailure.unRegisterOutputOnHost | Specifies whether to unregister all map outputs on a host when a fetch<br>failure occurs. When false, Spark unregisters only the outputs of the specific<br>executor that failed, which reduces unnecessary stage recomputation.                                                                                              | false                               |
-   | spark.io.compression.codec                      | Sets the codec used to compress internal data such as RDD partitions, event log,<br>broadcast variables, and shuffle outputs. Supported values: lz4, snappy, zstd, gzip.                                                                                                                                                      | snappy                              |
-   | spark.sql.session.timeZone                      | Defines the session time zone for handling timestamps in string literals<br>and Java object conversion. Accepts:<br>• Region-based IDs in area/city format (such as<br>America/Los\_Angeles)<br>• Zone offsets in (+/-)HH, (+/-)HH:mm, or (+/-)HH:mm:ss format (such as<br>-08 or +01:00)<br>• UTC or Z as aliases for +00:00 | UTC                                 |
-   3. For **Data retention in days**, enter the
-      number of days to keep the data.
-   4. For **Result format,** choose either
-      **CSV** or **Parquet**
-      as the data format the ML input channel should use.
+   1. For **Data retention in days**, enter the number of days to keep the data.
 
-8. For **Service access**, choose the
-   **Existing service role name** that will be
-   used to access this table or choose **Create and use a new
-   service role**.
-9. For **Encryption**, choose the **Encrypt
-   secret with a custom KMS key** to specify your own
-   KMS key and related information. Otherwise, Clean Rooms ML will manage
-   the encryption.
-10. (Optional) For **Compute payer**, select the
-    collaboration member who pays for query compute costs.
+   1. For **Result format,** choose either **CSV** or **Parquet** as the data format the ML input channel should use.
 
-###### Note
+1. For **Service access**, choose the **Existing service role name** that will be used to access this table or choose **Create and use a new service role**. 
 
-If there is only one payer candidate for query compute in
-the collaboration, it defaults to that payer. 11. (Optional) For **Synthetic data generation payer**, select the
-collaboration member who pays for synthetic data generation costs.
+1. For **Encryption**, choose the **Encrypt secret with a custom KMS key** to specify your own KMS key and related information. Otherwise, Clean Rooms ML will manage the encryption.
 
-###### Note
+1. (Optional) For **Compute payer**, select the collaboration member who pays for query compute costs.
+**Note**  
+If there is only one payer candidate for query compute in the collaboration, it defaults to that payer.
 
-This option appears when the ML input channel uses an analysis template configured for synthetic data output. If there is only one payer candidate for synthetic data generation in the collaboration, it defaults to that payer. 12. Choose **Create ML input channel**.
+1. (Optional) For **Synthetic data generation payer**, select the collaboration member who pays for synthetic data generation costs.
+**Note**  
+This option appears when the ML input channel uses an analysis template configured for synthetic data output. If there is only one payer candidate for synthetic data generation in the collaboration, it defaults to that payer.
 
-It will take a few minutes to create the ML input channel. You can
-see a list of ML input channels on the **ML
-models** tab.
+1. Choose **Create ML input channel**. 
 
-###### Note
+   It will take a few minutes to create the ML input channel. You can see a list of ML input channels on the **ML models** tab.
 
+**Note**  
 After the ML input channel is created, you can't edit it.
 
-API
+------
+#### [ API ]
+
 To create an ML input channel (API)
 
-Run the following code with your specific parameters:
+Run the following code with your specific parameters: 
 
 ```
-`import boto3
+import boto3 
 acr_client = boto3.client('cleanroomsml')
 
 acr_client.create_ml_input_channel(
- name="`ml_input_channel_name`",
- membershipIdentifier='`membership_id`',
- configuredModelAlgorithmAssociations=[`configured_model_algorithm_association_arn`],
- retentionInDays=`1`,
- inputChannel={
- "dataSource": {
- "protectedQueryInputParameters": {
- "sqlParameters": {
- "queryString": "select * from `table`",
- "computeConfiguration": {
- "worker": {
- "type": "`CR.1X`",
- "number": `16`,
- "properties": {
- "spark": {
- "`spark configuration key`": "`spark configuration value`",
- }
- }
- }
- },
- "resultFormat": "`PARQUET`"
- }
- }
- },
- "roleArn": "arn:aws:iam::`111122223333`:role/`role_name`"
- }
+    name="{{ml_input_channel_name}}",
+    membershipIdentifier='{{membership_id}}',
+    configuredModelAlgorithmAssociations=[{{configured_model_algorithm_association_arn}}],
+    retentionInDays={{1}},
+    inputChannel={
+        "dataSource": {
+            "protectedQueryInputParameters": {
+                "sqlParameters": {
+                    "queryString": "select * from {{table}}",
+                    "computeConfiguration": {
+                        "worker": {
+                            "type": "{{CR.1X}}",
+                            "number": {{16}},
+                            "properties": {
+                                "spark": {
+                                    "{{spark configuration key}}": "{{spark configuration value}}",
+                                }
+                            }   
+                        }
+                    },
+                    "resultFormat": "{{PARQUET}}"
+                }
+            }
+        },
+        "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
+    }
 )
-channel_arn = resp['`ML Input Channel ARN`']`
+channel_arn = resp['{{ML Input Channel ARN}}']
 ```
+
+------

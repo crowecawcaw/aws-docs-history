@@ -1,135 +1,108 @@
+
+
 # ID mapping table analysis rule
+<a name="analysis-rules-id-mapping-table"></a>
 
-In AWS Clean Rooms, an _ID mapping table analysis rule_ isn't a
-standalone analysis rule. This type of analysis rule is managed by AWS Clean Rooms and is used to join
-disparate identity data to facilitate querying. It's automatically added to ID mapping tables
-and can't be edited. It inherits the behaviors of the other analysis rules in the collaboration
-– as long as those analysis rules are homogeneous.
+In AWS Clean Rooms, an *ID mapping table analysis rule* isn't a standalone analysis rule. This type of analysis rule is managed by AWS Clean Rooms and is used to join disparate identity data to facilitate querying. It's automatically added to ID mapping tables and can't be edited. It inherits the behaviors of the other analysis rules in the collaboration – as long as those analysis rules are homogeneous.
 
-The ID mapping table analysis rule enforces security on an ID mapping table. It restricts a
-collaboration member from directly selecting or inspecting the non-overlap population between
-the two members' datasets using the ID mapping table. The ID mapping table analysis rule is used
-to protect the sensitive data in the ID mapping table when used in queries with other analysis
-rules implicitly.
+The ID mapping table analysis rule enforces security on an ID mapping table. It restricts a collaboration member from directly selecting or inspecting the non-overlap population between the two members' datasets using the ID mapping table. The ID mapping table analysis rule is used to protect the sensitive data in the ID mapping table when used in queries with other analysis rules implicitly.
 
-With the ID mapping table analysis rule, AWS Clean Rooms enforces an overlap on both sides of the ID
-mapping table in expanded SQL. This enables you to do the following tasks:
+With the ID mapping table analysis rule, AWS Clean Rooms enforces an overlap on both sides of the ID mapping table in expanded SQL. This enables you to do the following tasks: 
++ Use the overlap of the ID mapping table in JOIN statements.
 
-- Use the overlap of the ID mapping table in JOIN statements.
+  AWS Clean Rooms allows an INNER, LEFT, or RIGHT join on the ID mapping table if it respects the overlap. To protect sensitive mapping information, the ID mapping table must always be on the "inner" side of any JOIN operation. For example, the following JOIN operations are valid:
+  + table LEFT JOIN id\_mapping\_table
+  + id\_mapping\_table RIGHT JOIN table
+  + table INNER JOIN id\_mapping\_table
 
-AWS Clean Rooms allows an INNER, LEFT, or RIGHT join
-on the ID mapping table if it respects the overlap. To protect sensitive mapping
-information, the ID mapping table must always be on the "inner" side of any
-JOIN operation. For example, the following JOIN operations
-are valid:
+  The following JOIN operations are invalid:
+  + id\_mapping\_table LEFT JOIN table
+  + table RIGHT JOIN id\_mapping\_table
 
-    + table LEFT JOIN id\_mapping\_table
-    + id\_mapping\_table RIGHT JOIN table
-    + table INNER JOIN id\_mapping\_table
+  This prevents exposure of mapping records that don't have corresponding matches in your dataset. Allowing such operations could potentially reveal sensitive information about other collaboration members' data mappings.
++ Use the mapping table columns in JOIN statements. 
 
-The following JOIN operations are invalid:
+  You can’t use the mapping table columns in the following statements: SELECT, WHERE, HAVING, GROUP BY, or ORDER BY (unless protections are modified on the source ID namespace association or the target ID namespace association).
++ In expanded SQL, AWS Clean Rooms also supports OUTER JOIN, implicit JOIN, and CROSS JOIN. These joins can't satisfy overlap requirements. Instead, AWS Clean Rooms uses `requireOverlap` to specify which columns have to be joined on.
 
-    + id\_mapping\_table LEFT JOIN table
-    + table RIGHT JOIN id\_mapping\_table
+The supported query structure and syntax are deﬁned in [ID mapping table query structure and syntax](#id-mapping-table-query-controls).
 
-This prevents exposure of mapping records that don't have corresponding matches in your
-dataset. Allowing such operations could potentially reveal sensitive information about other
-collaboration members' data mappings.
+The parameters of the analysis rule, deﬁned in [ID mapping table analysis rule query controls](#parameters-id-mapping-query-controls), include query controls and query results controls. Its query controls include the ability to require overlap of the ID mapping table in JOIN statements (that is, `requireOverlap`).
 
-- Use the mapping table columns in JOIN statements.
-
-You can’t use the mapping table columns in the following statements:
-SELECT, WHERE, HAVING, GROUP
-BY, or ORDER BY (unless protections are modified on the source ID
-namespace association or the target ID namespace association).
-
-- In expanded SQL, AWS Clean Rooms also supports OUTER
-  JOIN, implicit JOIN, and CROSS JOIN. These
-  joins can't satisfy overlap requirements. Instead, AWS Clean Rooms uses `requireOverlap` to
-  specify which columns have to be joined on.
-  The supported query structure and syntax are deﬁned in [ID mapping table query structure and syntax](#id-mapping-table-query-controls "#id-mapping-table-query-controls").
-
-The parameters of the analysis rule, deﬁned in [ID mapping table analysis rule query controls](#parameters-id-mapping-query-controls "#parameters-id-mapping-query-controls"), include query controls and query
-results controls. Its query controls include the ability to require overlap of the ID mapping
-table in JOIN statements (that is, `requireOverlap`).
-
-###### Topics
-
-- [ID mapping table query structure and syntax](#id-mapping-table-query-controls "#id-mapping-table-query-controls")
-- [ID mapping table analysis rule query controls](#parameters-id-mapping-query-controls "#parameters-id-mapping-query-controls")
-- [ID mapping table analysis rule predefined structure](#id-mapping-table-predefined-structure "#id-mapping-table-predefined-structure")
-- [ID mapping table analysis rule – example](#id-mapping-table-example "#id-mapping-table-example")
+**Topics**
++ [ID mapping table query structure and syntax](#id-mapping-table-query-controls)
++ [ID mapping table analysis rule query controls](#parameters-id-mapping-query-controls)
++ [ID mapping table analysis rule predefined structure](#id-mapping-table-predefined-structure)
++ [ID mapping table analysis rule – example](#id-mapping-table-example)
 
 ## ID mapping table query structure and syntax
+<a name="id-mapping-table-query-controls"></a>
 
-Queries on tables that have an ID mapping table analysis rule must adhere to the following
-syntax.
+Queries on tables that have an ID mapping table analysis rule must adhere to the following syntax.
 
 ```
+--{{select_list_expression}}
+SELECT 
+provider.data_col, consumer.data_col 
 
---`select_list_expression`
-SELECT
-provider.data_col, consumer.data_col
-
---`table_expression`
+--{{table_expression}}
 FROM provider
 
 JOIN idMappingTable idmt ON provider.id = idmt.sourceId
 
 JOIN consumer ON consumer.id = idmt.targetId
-
-
-
 ```
 
 ### Collaboration tables
+<a name="collab-table-structure"></a>
 
-The following tables represent configured tables that exist in an AWS Clean Rooms collaboration.
-The **id** column in both the **cr\_drivers\_license** and **cr\_insurance** tables
-represents a column to match with the ID mapping table.
+The following tables represent configured tables that exist in an AWS Clean Rooms collaboration. The **id** column in both the **cr\_drivers\_license** and **cr\_insurance** tables represents a column to match with the ID mapping table.
 
 **cr\_drivers\_license**
 
-|     |              |                         |
-| --- | ------------ | ----------------------- |
-| id  | driver\_name | state\_of\_registration |
-| 1   | Eduard       | TX                      |
-| 2   | Dana         | MA                      |
-| 3   | Gweneth      | IL                      |
+
+|  |  |  | 
+| --- |--- |--- |
+| id | driver\_name | state\_of\_registration | 
+| 1 | Eduard | TX | 
+| 2 | Dana | MA | 
+| 3 | Gweneth | IL | 
 
 **cr\_insurance**
 
-|     |                              |                                      |
-| --- | ---------------------------- | ------------------------------------ |
-| id  | policyholder\_email          | policy\_number                       |
-| a   | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 |
-| b   | gwen@internal.company.com    | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 |
-| c   | rosa@internal.company.com    | d7692e84-3d3c-47b8-b46d-a0d5345f0601 |
+
+|  |  |  | 
+| --- |--- |--- |
+| id | policyholder\_email | policy\_number | 
+| a | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 | 
+| b | gwen@internal.company.com | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 | 
+| c | rosa@internal.company.com | d7692e84-3d3c-47b8-b46d-a0d5345f0601 | 
 
 ### ID mapping table
+<a name="id-mapping-table-structure"></a>
 
-The following table represents an existing ID mapping table that matches on the
-**cr\_drivers\_license** and **cr\_insurance** tables. Not all entries will have IDs for both collaboration
-tables.
+The following table represents an existing ID mapping table that matches on the **cr\_drivers\_license** and **cr\_insurance** tables. Not all entries will have IDs for both collaboration tables.
 
-|                          |                   |
-| ------------------------ | ----------------- |
-| cr\_drivers\_license\_id | cr\_insurance\_id |
-| 1                        | a                 |
-| 2                        | null              |
-| 3                        | b                 |
-| null                     | c                 |
 
-The ID mapping table analysis rule only allows for queries to run on the set of
-overlapping data, which would look as follows:
+|  |  | 
+| --- |--- |
+| cr\_drivers\_license\_id | cr\_insurance\_id | 
+| 1 | a | 
+| 2 | null | 
+| 3 | b | 
+| null | c | 
 
-|                          |                   |              |                         |                              |                                      |
-| ------------------------ | ----------------- | ------------ | ----------------------- | ---------------------------- | ------------------------------------ |
-| cr\_drivers\_license\_id | cr\_insurance\_id | driver\_name | state\_of\_registration | policyholder\_email          | policy\_number                       |
-| 1                        | a                 | Eduard       | TX                      | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 |
-| 3                        | b                 | Gweneth      | IL                      | gwen@internal.company.com    | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 |
+The ID mapping table analysis rule only allows for queries to run on the set of overlapping data, which would look as follows:
+
+
+|  |  |  |  |  |  | 
+| --- |--- |--- |--- |--- |--- |
+| cr\_drivers\_license\_id | cr\_insurance\_id | driver\_name | state\_of\_registration | policyholder\_email | policy\_number | 
+| 1 | a | Eduard | TX | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 | 
+| 3 | b | Gweneth | IL | gwen@internal.company.com | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 | 
 
 ### Example queries
+<a name="id-mapping-table-example-queries"></a>
 
 The following examples show valid locations for the ID mapping table joins:
 
@@ -168,71 +141,49 @@ WITH
 ```
 
 ### Considerations
+<a name="id-mapping-table-considerations"></a>
 
 For ID mapping table query structure and syntax, be aware of the following:
-
-- You can’t edit it.
-- It's applied to the ID mapping table by default.
-- It uses a source and target ID namespace association inside the collaboration.
-- The ID mapping table is configured by default to provide default protections for the
-  column that comes from the ID namepsace. You can modify this configuration so that the
-  column that comes from the ID namespace (either `sourceID` or
-  `targetID`) can be allowed anywhere in the query. For more information, see
-  [ID namespaces in AWS Clean Rooms](working-with-id-namespaces.md "working-with-id-namespaces.md").
-- The ID mapping table analysis rule inherits the SQL restrictions of the other
-  analysis rules in the collaboration.
++ You can’t edit it.
++ It's applied to the ID mapping table by default.
++ It uses a source and target ID namespace association inside the collaboration. 
++ The ID mapping table is configured by default to provide default protections for the column that comes from the ID namepsace. You can modify this configuration so that the column that comes from the ID namespace (either `sourceID` or `targetID`) can be allowed anywhere in the query. For more information, see [ID namespaces in AWS Clean Rooms](working-with-id-namespaces.md).
++ The ID mapping table analysis rule inherits the SQL restrictions of the other analysis rules in the collaboration.
 
 ## ID mapping table analysis rule query controls
+<a name="parameters-id-mapping-query-controls"></a>
 
-With ID mapping table query controls, AWS Clean Rooms controls how the columns in your table are
-used to query the table. For example, it controls which columns are used for joining, and
-which columns require overlap. The ID mapping table analysis rule also includes functionality
-that enables you to allow the `sourceID`, the `targetID`, or both, to be
-projected without requiring a JOIN.
+With ID mapping table query controls, AWS Clean Rooms controls how the columns in your table are used to query the table. For example, it controls which columns are used for joining, and which columns require overlap. The ID mapping table analysis rule also includes functionality that enables you to allow the `sourceID`, the `targetID`, or both, to be projected without requiring a JOIN. 
 
 The following table explains each control.
 
-| Control                          | Definition                                                                                       | Usage                                                                                                                                                                                                                      |
-| -------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `joinColumns`                    | The columns that the member who can query can use in the INNER JOIN<br>statement.                | You can't use `joinColumns` in any other parts of the query other than<br>INNER JOIN.For more information, see [Join controls](analysis-rules-aggregation.md#join-controls "analysis-rules-aggregation.md#join-controls"). |
-| `dimensionColumns`               | The columns (if any) that the member who can query can use in SELECT and GROUP BY<br>statements. | A `dimensionColumn` can be used in SELECT and<br>GROUP<br>BY.<br>A `dimensionColumn` can appear as `joinKeys`.<br>You can only use `dimensionColumns` in the JOIN clause if you specify<br>it in brackets.                 |
-| `queryContraints:RequireOverlap` | The columns in the ID mapping table that must be joined on so the query can<br>run.              | These columns must be used to JOIN the ID Mapping table and a collaboration<br>table.                                                                                                                                      |
+
+| Control | Definition | Usage | 
+| --- | --- | --- | 
+| joinColumns | The columns that the member who can query can use in the INNER JOIN statement. | You can't use joinColumns in any other parts of the query other than INNER JOIN.For more information, see [Join controls](analysis-rules-aggregation.md#join-controls). | 
+| dimensionColumns  | The columns (if any) that the member who can query can use in SELECT and GROUP BY statements.  | A `dimensionColumn` can be used in SELECT and GROUP BY.<br />A `dimensionColumn` can appear as `joinKeys`. <br />You can only use `dimensionColumns` in the JOIN clause if you specify it in brackets. | 
+| queryContraints:RequireOverlap | The columns in the ID mapping table that must be joined on so the query can run. | These columns must be used to JOIN the ID Mapping table and a collaboration table. | 
 
 ## ID mapping table analysis rule predefined structure
+<a name="id-mapping-table-predefined-structure"></a>
 
-The predeﬁned structure for an ID mapping table analysis rule comes with default
-protections that are applied to the `sourceID` and `targetID`. This
-means that the column with protections applied must be used in queries.
+The predeﬁned structure for an ID mapping table analysis rule comes with default protections that are applied to the `sourceID` and `targetID`. This means that the column with protections applied must be used in queries.
 
 You can configure the ID mapping table analysis rule in the following ways:
++ Both `sourceID` and `targetID` protected
 
-- Both `sourceID` and `targetID` protected
+  In this configuration, the `sourceID` and `targetID` can't both be projected. The `sourceID` and `targetID` must be used in a JOIN when the ID mapping table is referenced.
++ Only `targetID` protected
 
-In this configuration, the `sourceID` and `targetID` can't both
-be projected. The `sourceID` and `targetID` must be used in a JOIN
-when the ID mapping table is referenced.
+  In this configuration, the `targetID` can't be projected. The `targetID` must be used in a JOIN when the ID mapping table is referenced. The `sourceID` can be used in query.
++ Only `sourceID` protected
 
-- Only `targetID` protected
+  In this configuration, the `sourceID` can't be projected. The `sourceID` must be used in a JOIN when ID mapping table is referenced. The `targetID` can be used in query.
++ Neither `sourceID` or `targetID` protected
 
-In this configuration, the `targetID` can't be projected. The
-`targetID` must be used in a JOIN when the ID mapping table is referenced.
-The `sourceID` can be used in query.
+  In this configuration, the ID mapping table isn't subject to any specific enforcement that can be used in query.
 
-- Only `sourceID` protected
-
-In this configuration, the `sourceID` can't be projected. The
-`sourceID` must be used in a JOIN when ID mapping table is referenced. The
-`targetID` can be used in query.
-
-- Neither `sourceID` or `targetID` protected
-
-In this configuration, the ID mapping table isn't subject to any specific enforcement
-that can be used in query.
-
-The following example shows a predeﬁned structure for an ID mapping table analysis rule
-with the default protections applied to the `sourceID` and `targetID`.
-In this example, the ID mapping table analysis rule only allows an INNER JOIN on both the
-`sourceID` column and the `targetID` column.
+The following example shows a predeﬁned structure for an ID mapping table analysis rule with the default protections applied to the `sourceID` and `targetID`. In this example, the ID mapping table analysis rule only allows an INNER JOIN on both the `sourceID` column and the `targetID` column. 
 
 ```
 {
@@ -254,9 +205,7 @@ In this example, the ID mapping table analysis rule only allows an INNER JOIN on
 }
 ```
 
-The following example shows a predeﬁned structure for an ID mapping table analysis rule
-with protections applied to the `targetID`. In this example, the ID mapping table
-analysis rule only allows an INNER JOIN on the `sourceID` column.
+The following example shows a predeﬁned structure for an ID mapping table analysis rule with protections applied to the `targetID`. In this example, the ID mapping table analysis rule only allows an INNER JOIN on the `sourceID` column. 
 
 ```
 {
@@ -279,9 +228,7 @@ analysis rule only allows an INNER JOIN on the `sourceID` column.
 }
 ```
 
-The following example shows a predeﬁned structure for an ID mapping table analysis rule
-with protections applied to the `sourceID`. In this example, the ID mapping table
-analysis rule only allows an INNER JOIN on the `targetID` column.
+The following example shows a predeﬁned structure for an ID mapping table analysis rule with protections applied to the `sourceID`. In this example, the ID mapping table analysis rule only allows an INNER JOIN on the `targetID` column. 
 
 ```
 {
@@ -304,10 +251,7 @@ analysis rule only allows an INNER JOIN on the `targetID` column.
 }
 ```
 
-The following example shows a predeﬁned structure for an ID mapping table analysis rule
-without protections applied to the `sourceID` or `targetID`. In this
-example, the ID mapping table analysis rule allows an INNER JOIN on both the
-`sourceID` column and the `targetID` column.
+The following example shows a predeﬁned structure for an ID mapping table analysis rule without protections applied to the `sourceID` or `targetID`. In this example, the ID mapping table analysis rule allows an INNER JOIN on both the `sourceID` column and the `targetID` column. 
 
 ```
 {
@@ -330,51 +274,43 @@ example, the ID mapping table analysis rule allows an INNER JOIN on both the
 ```
 
 ## ID mapping table analysis rule – example
+<a name="id-mapping-table-example"></a>
 
-Rather than writing a long waterfall statement that references Personally Identifiable
-Information (PII), for example, companies can use the ID mapping table analysis rule to use
-multi-party LiveRamp transcoding. The following example demonstrates how you can collaborate
-in AWS Clean Rooms using the ID mapping table analysis rule.
+Rather than writing a long waterfall statement that references Personally Identifiable Information (PII), for example, companies can use the ID mapping table analysis rule to use multi-party LiveRamp transcoding. The following example demonstrates how you can collaborate in AWS Clean Rooms using the ID mapping table analysis rule.
 
-Company A is an advertiser who has customer and sales data, which will be used as a
-source. Company A also performs transcoding on behalf of the parties in the collaboration, and
-brings the LiveRamp credentials.
+Company A is an advertiser who has customer and sales data, which will be used as a source. Company A also performs transcoding on behalf of the parties in the collaboration, and brings the LiveRamp credentials.
 
 Company B is a publisher who has event data, which will be used as a target.
 
-###### Note
+**Note**  
+Either Company A or Company B can provide LiveRamp transcoding credentials and perform the transcoding.
 
-Either Company A or Company B can provide LiveRamp transcoding credentials and perform
-the transcoding.
+To create a collaboration that enables the ID mapping table analysis in collaboration, the companies do the following:
 
-To create a collaboration that enables the ID mapping table analysis in collaboration, the
-companies do the following:
+1. Company A creates a collaboration and creates a membership. It adds Company B, who also creates a membership in the collaboration.
 
-1. Company A creates a collaboration and creates a membership. It adds Company B, who
-   also creates a membership in the collaboration.
-2. Company A either associates an existing ID namespace source or creates a new one in
-   AWS Entity Resolution using the AWS Clean Rooms console.
+1. Company A either associates an existing ID namespace source or creates a new one in AWS Entity Resolution using the AWS Clean Rooms console.
 
-Company A creates a configured table with their sales data and a column keyed to the
-`sourceId` in the ID mapping table.
+   Company A creates a configured table with their sales data and a column keyed to the `sourceId` in the ID mapping table.
 
-The ID namespace source provides data to transcode. 3. Company B either associates an existing ID namespace target or creates a new one in
-AWS Entity Resolution using the AWS Clean Rooms console.
+   The ID namespace source provides data to transcode.
 
-Company B creates a configured table with their event data and a column keyed to the
-`targetId` in the ID mapping table.
+1. Company B either associates an existing ID namespace target or creates a new one in AWS Entity Resolution using the AWS Clean Rooms console.
 
-The ID namespace target doesn't provide data to transcode, only metadata around the
-LiveRamp configuration. 4. Company A discovers the two ID namespaces associated to the collaboration and creates
-and populates an ID mapping table. 5. Company A runs a query across the two datasets by joining on the ID mapping
-table.
+   Company B creates a configured table with their event data and a column keyed to the `targetId` in the ID mapping table.
 
-```
---- this would be valid for Custom or List
-SELECT provider.data_col, consumer.data_col
-FROM provider
-  JOIN idMappingTable-123123123123-myMappingWFName idmt
-     ON provider.id = idmt.sourceId
-  JOIN consumer
-     ON consumer.id = idmt.targetId
-```
+   The ID namespace target doesn't provide data to transcode, only metadata around the LiveRamp configuration.
+
+1. Company A discovers the two ID namespaces associated to the collaboration and creates and populates an ID mapping table.
+
+1. Company A runs a query across the two datasets by joining on the ID mapping table.
+
+   ```
+   --- this would be valid for Custom or List
+   SELECT provider.data_col, consumer.data_col
+   FROM provider
+     JOIN idMappingTable-123123123123-myMappingWFName idmt 
+        ON provider.id = idmt.sourceId
+     JOIN consumer 
+        ON consumer.id = idmt.targetId
+   ```

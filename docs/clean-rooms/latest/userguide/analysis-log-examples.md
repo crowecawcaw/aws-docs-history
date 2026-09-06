@@ -1,9 +1,11 @@
+
+
 # Example analysis logs
+<a name="analysis-log-examples"></a>
 
-The following examples show representative analysis log entries. The examples use
-fictional identifiers.
+The following examples show representative analysis log entries. The examples use fictional identifiers.
 
-###### Example Query log when an analysis runs
+**Example Query log when an analysis runs**  
 
 ```
 {
@@ -29,7 +31,7 @@ fictional identifiers.
 }
 ```
 
-###### Example Query log when an analysis finishes
+**Example Query log when an analysis finishes**  
 
 ```
 {
@@ -45,7 +47,7 @@ fictional identifiers.
 }
 ```
 
-###### Example Job log when an analysis runs
+**Example Job log when an analysis runs**  
 
 ```
 {
@@ -68,7 +70,7 @@ fictional identifiers.
 }
 ```
 
-###### Example Job log when an analysis finishes
+**Example Job log when an analysis finishes**  
 
 ```
 {

@@ -1,60 +1,57 @@
+
+
 # Creating a user script
+<a name="create-user-script"></a>
 
-The user script must contain an entrypoint function (in other words, a handler). You can
-name your user script file with any valid Python filename.
+The user script must contain an entrypoint function (in other words, a handler). You can name your user script file with any valid Python filename.
 
-The following procedure describes how to create a user script to define the core
-functionality of your PySpark analysis.
+The following procedure describes how to create a user script to define the core functionality of your PySpark analysis.
 
 **Prerequisites**
++ PySpark 1.0 (corresponds to Python 3.11 and Spark 3.5.3)
++ Datasets in Amazon S3 can only be read as configured table associations in the Spark session you define. 
++ Your code can't directly call Amazon S3 and AWS Glue
++ Your code can’t make network calls
 
-- PySpark 1.0 (corresponds to Python 3.11 and Spark 3.5.3)
-- Datasets in Amazon S3 can only be read as configured table associations in the Spark
-  session you define.
-- Your code can't directly call Amazon S3 and AWS Glue
-- Your code can’t make network calls
+**To create a user script**
 
-###### To create a user script
+1. Open a text editor or Integrated Development Environment (IDE) of your choice.
 
-1. Open a text editor or Integrated Development Environment (IDE) of your
-   choice.
+   You can use any text editor or IDE (such as Visual Studio Code, PyCharm, or Notepad\+\+) that supports Python files.
 
-You can use any text editor or IDE (such as Visual Studio Code, PyCharm, or
-Notepad++) that supports Python files. 2. Create a new Python file with a name of your choice (for example, `my_analysis.py`). 3. Define an entrypoint function that accepts a context object parameter.
+1. Create a new Python file with a name of your choice (for example, **my\_analysis.py**).
 
-```
-def entrypoint(context)
-```
+1. Define an entrypoint function that accepts a context object parameter.
 
-The `context` object parameter is a dictionary that provides access to
-essential Spark components, referenced tables, and analysis parameters. It contains:
+   ```
+   def entrypoint(context)
+   ```
 
-Spark session access via `context['sparkSession']`
+   The `context` object parameter is a dictionary that provides access to essential Spark components, referenced tables, and analysis parameters. It contains:
 
-Referenced tables via `context['referencedTables']`
+   Spark session access via `context['sparkSession']`
 
-Analysis parameters via `context['analysisParameters']` (if parameters are defined in the template) 4. Define the results of the entrypoint function:
+   Referenced tables via `context['referencedTables']`
 
-```
-return results
-```
+   Analysis parameters via `context['analysisParameters']` (if parameters are defined in the template)
 
-The `results` must return an object containing a results dictionary of
-filenames to an output DataFrame.
+1. Define the results of the entrypoint function: 
 
-###### Note
+   ```
+   return results
+   ```
 
-AWS Clean Rooms automatically writes the DataFrame objects to the S3 bucket of the result
-receiver. 5. You are now ready to:
+   The `results` must return an object containing a results dictionary of filenames to an output DataFrame.
+**Note**  
+AWS Clean Rooms automatically writes the DataFrame objects to the S3 bucket of the result receiver.
 
-    1. Store this user script in S3. For more information, see [Storing a user script and virtual environment in S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md").
-    2. Create the optional virtual environment to support any additional libraries
-     required by your user script. For more information, see [Creating a virtual environment (optional)](create-virtual-environment.md "create-virtual-environment.md").
+1. You are now ready to: 
 
-###### Example 1
+   1. Store this user script in S3. For more information, see [Storing a user script and virtual environment in S3](store-artifacts-in-s3.md).
 
-The following example demonstrates a generic user script for a PySpark analysis
-template.
+   1. Create the optional virtual environment to support any additional libraries required by your user script. For more information, see [Creating a virtual environment (optional)](create-virtual-environment.md).
+
+**Example 1**  
 
 ```
 # File name: my_analysis.py
@@ -72,7 +69,7 @@ def entrypoint(context):
         output_df1 = input_table1.select("column1", "column2")
         output_df2 = input_table2.join(input_table1, "join_key")
         output_df3 = input_table1.groupBy("category").count()
-
+    
         # Return results - each key creates a separate output folder
         return {
             "results": {
@@ -81,13 +78,12 @@ def entrypoint(context):
                 "analysis_summary": output_df3 # Creates analysis_summary/ folder
             }
         }
-
+   
     except Exception as e:
         print(f"Error in main function: {str(e)}")
         raise e
 ```
-
-The folder structure of this example is as follows:
+The folder structure of this example is as follows:   
 
 ```
 analysis_results/
@@ -105,10 +101,7 @@ analysis_results/
 └── _SUCCESS
 ```
 
-###### Example 2
-
-The following example demonstrates a more complex user script for a PySpark
-analysis template.
+**Example 2**  
 
 ```
 def entrypoint(context):

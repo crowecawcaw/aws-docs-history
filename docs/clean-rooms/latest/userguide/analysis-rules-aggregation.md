@@ -1,497 +1,407 @@
+
+
 # Aggregation analysis rule
+<a name="analysis-rules-aggregation"></a>
 
-In AWS Clean Rooms, an _aggregation analysis rule_ generates
-aggregate statistics using COUNT, SUM, and/or AVG functions along optional dimensions. When the
-aggregation analysis rule is added to a configured table, it enables the member who can query to
-run queries on the configured table.
+In AWS Clean Rooms, an *aggregation analysis rule* generates aggregate statistics using COUNT, SUM, and/or AVG functions along optional dimensions. When the aggregation analysis rule is added to a configured table, it enables the member who can query to run queries on the configured table.
 
-The aggregation analysis rule supports uses cases such as campaign planning, media reach,
-frequency measurement, and attribution.
+The aggregation analysis rule supports uses cases such as campaign planning, media reach, frequency measurement, and attribution. 
 
-The supported query structure and syntax are defined in [Aggregation query structure and syntax](#agg-query-structure-syntax "#agg-query-structure-syntax").
+The supported query structure and syntax are defined in [Aggregation query structure and syntax](#agg-query-structure-syntax).
 
-The parameters of the analysis rule, defined in [Aggregation analysis rule - query controls](#agg-query-controls "#agg-query-controls"), include query controls and query results controls. Its
-query controls include the ability to require that a configured table is joined to at least one
-configured table owned by the member who can query, either directly or transitively. This
-requirement allows you to ensure that the query is run on the intersection (INNER
-JOIN) of your table and theirs.
+The parameters of the analysis rule, defined in [Aggregation analysis rule - query controls](#agg-query-controls), include query controls and query results controls. Its query controls include the ability to require that a configured table is joined to at least one configured table owned by the member who can query, either directly or transitively. This requirement allows you to ensure that the query is run on the intersection (INNER JOIN) of your table and theirs.
 
 ## Aggregation query structure and syntax
+<a name="agg-query-structure-syntax"></a>
 
-Queries on tables that have an aggregation analysis rule must adhere to the following
-syntax.
+Queries on tables that have an aggregation analysis rule must adhere to the following syntax.
 
 ```
---`select_aggregate_function_expression`
-SELECT
+--{{select_aggregate_function_expression}}
+SELECT 
 aggregation_function(column_name) [[AS] column_alias ] [, ...]
 
- --`select_grouping_column_expression`
-  [, {column_name|scalar_function(arguments)} [[AS] column_alias ]][, ...]
+ --{{select_grouping_column_expression}}                        
+  [, {column_name|scalar_function(arguments)} [[AS] column_alias ]][, ...]   
 
---`table_expression`
+--{{table_expression}}
 FROM table_name [[AS] table_alias ]
   [[INNER] JOIN table_name [[AS] table_alias] ON join_condition] [...]
 
---`where_expression`
-[WHERE where_condition]
+--{{where_expression}}
+[WHERE where_condition]          
 
---`group_by_expression`
-[GROUP BY {column_name|scalar_function(arguments)}, ...]]
+--{{group_by_expression}}                          
+[GROUP BY {column_name|scalar_function(arguments)}, ...]]                  
 
---`having_expression`
-[HAVING having_condition]
+--{{having_expression}}
+[HAVING having_condition]                               
 
---`order_by_expression`
+--{{order_by_expression}}    
 [ORDER BY {column_name|scalar_function(arguments)} [{ASC|DESC}]] [,...]]
 ```
 
 The following table explains each expression listed in the preceding syntax.
 
-| Expression                               | Definition                                                                                                                                                                                                                                                                                                                                                                                                                            | Examples                                                                                                                                                                                      |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `select_aggregate_function_expression`   | A comma-separated list containing the following expressions:<br>• `select_aggregation_function_expression`<br>• `select_aggregate_expression`<br>NoteThere must be at least one `select_aggregation_function_expression`<br>in the `select_aggregate_expression`.                                                                                                                                                                     | `SELECT SUM(PRICE), user_segment`                                                                                                                                                             |
-| `select_aggregation_function_expression` | One or more supported aggregation functions applied to one or more columns. Only<br>columns are allowed as arguments of aggregation functions.<br>NoteThere must be at least one `select_aggregation_function_expression`<br>in the `select_aggregate_expression`.                                                                                                                                                                    | `AVG(PRICE)`<br>`COUNT(DISTINCT user_id)`                                                                                                                                                     |
-| `select_grouping_column_expression`      | An expression that can contain any expression using the following:<br>• Table column names<br>• Supported scalar functions<br>• String literals<br>• Numerical literals<br>Note`select_aggregate_expression` can alias columns with or without the<br>`AS` parameter. For more information, see the [AWS Clean Rooms SQL Reference](../sql-reference/sql-reference.md "../sql-reference/sql-reference.md").                           | `TRUNC(timestampColumn)`<br>`UPPER(campaignName)`                                                                                                                                             |
-| `table_expression`                       | A table, or join of tables, connecting join conditional expressions with<br>`join_condition`.<br>`join_condition` returns a Boolean.<br>The `table_expression` supports:<br>• A specific JOIN type (INNER<br>JOIN)<br>• The equality comparison condition within a `join_condition`<br>(`=`)<br>• Logical operators (`AND`, `OR`).                                                                                                    | `<br>FROM consumer_table<br>INNER JOIN provider_table<br>ON<br>consumer_table.identifier1 = provider_table.identifier1<br>AND<br>consumer_table.identifier2 = provider_table.identifier2<br>` |
-| `where_expression`                       | A conditional expression that returns a Boolean. It may be comprised of the<br>following:<br>• Table column names<br>• Supported scalar functions<br>• Mathematical operators<br>• String literals<br>• Numerical literals<br>Supported comparison conditions are (`=, >, <, <=, >=, <>, !=,<br>NOT, IN, NOT IN, LIKE, IS NULL, IS NOT NULL`).<br>Supported logical operators are (`AND, OR`).<br>The `where_expression` is optional. | `WHERE where_condition`<br>`WHERE price > 100`<br>`WHERE TRUNC(timestampColumn) = '1/1/2022'`<br>`WHERE timestampColumn = timestampColumn2<br>• 14`                                           |
-| `group_by_expression`                    | A comma-separated list of expressions that match the requirements for the<br>`select_grouping_column_expression`.                                                                                                                                                                                                                                                                                                                     | `GROUP<br>BY TRUNC(timestampColumn), UPPER(campaignName),<br>segment`                                                                                                                         |
-| `having_expression`                      | A conditional expression that returns an Boolean. They have a supported<br>aggregation function applied to a single column (for example,<br>`SUM(price)`) and are compared to a numerical literal.<br>Supported conditions are (`=, >, <, <=, >=, <>, !=`).<br>Supported logical operators are (`AND, OR`).<br>The `having_expression` is optional.                                                                                   | `HAVING SUM(SALES) > 500`                                                                                                                                                                     |
-| `order_by_expression`                    | A comma-separated list of expressions that is compatible with the same<br>requirements defined in `select_aggregate_expression` defined earlier.<br>The `order_by_expression` is optional.<br>Note`order_by_expression` permits `ASC` and<br>`DESC` parameters. For more information, see ASC DESC parameters in<br>the [AWS Clean Rooms SQL Reference](../sql-reference/sql-reference.md "../sql-reference/sql-reference.md").       | `ORDER<br>BY SUM(SALES), UPPER(campaignName)`                                                                                                                                                 |
+
+| Expression | Definition | Examples | 
+| --- | --- | --- | 
+| {{select\_aggregate\_function\_expression}} | A comma-separated list containing the following expressions:+  `select_aggregation_function_expression` <br />+  `select_aggregate_expression`  There must be at least one `select_aggregation_function_expression` in the `select_aggregate_expression`.   | `SELECT SUM(PRICE), user_segment` | 
+| {{select\_aggregation\_function\_expression}} | One or more supported aggregation functions applied to one or more columns. Only columns are allowed as arguments of aggregation functions. There must be at least one `select_aggregation_function_expression` in the `select_aggregate_expression`.   | `AVG(PRICE)`<br />`COUNT(DISTINCT user_id)` | 
+| {{select\_grouping\_column\_expression}} | An expression that can contain any expression using the following:+  Table column names <br />+  Supported scalar functions <br />+  String literals <br />+  Numerical literals  `select_aggregate_expression` can alias columns with or without the `AS` parameter. For more information, see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).  | `TRUNC(timestampColumn)` <br />`UPPER(campaignName)`  | 
+| {{table\_expression}} | A table, or join of tables, connecting join conditional expressions with `join_condition`.<br />`join_condition` returns a Boolean. <br />The `table_expression` supports:+  A specific JOIN type (INNER JOIN)  <br />+  The equality comparison condition within a `join_condition` (`=`) <br />+  Logical operators (`AND`, `OR`).   |  <pre>FROM consumer_table <br />INNER JOIN provider_table<br />ON<br />consumer_table.identifier1 = provider_table.identifier1<br />AND<br />consumer_table.identifier2 = provider_table.identifier2</pre>  | 
+| {{where\_expression}} | A conditional expression that returns a Boolean. It may be comprised of the following:+  Table column names <br />+  Supported scalar functions <br />+  Mathematical operators <br />+  String literals <br />+  Numerical literals <br />Supported comparison conditions are (`=, >, <, <=, >=, <>, !=, NOT, IN, NOT IN, LIKE, IS NULL, IS NOT NULL`). <br />Supported logical operators are (`AND, OR`).<br />The `where_expression` is optional. | `WHERE where_condition`<br />`WHERE price > 100` <br />`WHERE TRUNC(timestampColumn) = '1/1/2022'` <br />`WHERE timestampColumn = timestampColumn2 - 14`  | 
+| {{group\_by\_expression}} | A comma-separated list of expressions that match the requirements for the `select_grouping_column_expression`.  | `GROUP BY TRUNC(timestampColumn), UPPER(campaignName), segment` | 
+| {{having\_expression}} | A conditional expression that returns an Boolean. They have a supported aggregation function applied to a single column (for example, `SUM(price)`) and are compared to a numerical literal.<br />Supported conditions are (`=, >, <, <=, >=, <>, !=`). <br />Supported logical operators are (`AND, OR`).<br />The `having_expression` is optional. | `HAVING SUM(SALES) > 500` | 
+| {{order\_by\_expression}} | A comma-separated list of expressions that is compatible with the same requirements defined in `select_aggregate_expression` defined earlier. <br />The `order_by_expression` is optional. `order_by_expression` permits `ASC` and `DESC` parameters. For more information, see ASC DESC parameters in the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).  | `ORDER BY SUM(SALES), UPPER(campaignName)` | 
 
 For aggregation query structure and syntax, be aware of the following:
-
-- SQL commands other than SELECT are not supported.
-- Sub-queries and common table expressions (for example, WITH) are not
-  supported.
-- Operators that combine multiple queries (for example, UNION) are not
-  supported.
-- TOP, LIMIT, and OFFSET parameters are not
-  supported.
++ SQL commands other than SELECT are not supported.
++ Sub-queries and common table expressions (for example, WITH) are not supported.
++ Operators that combine multiple queries (for example, UNION) are not supported. 
++ TOP, LIMIT, and OFFSET parameters are not supported.
 
 ## Aggregation analysis rule - query controls
+<a name="agg-query-controls"></a>
 
-With aggregation query controls, you can control how the columns in your table are used to
-query the table. For example, you can control which column is used for joining, which column
-can be counted, or which column can be used in WHERE statements.
+With aggregation query controls, you can control how the columns in your table are used to query the table. For example, you can control which column is used for joining, which column can be counted, or which column can be used in WHERE statements.
 
 The following sections explain each control.
 
-###### Topics
-
-- [Aggregation controls](#agg-functions "#agg-functions")
-- [Join controls](#join-controls "#join-controls")
-- [Dimension controls](#dimension-controls "#dimension-controls")
-- [Scalar functions](#scalar-functions "#scalar-functions")
+**Topics**
++ [Aggregation controls](#agg-functions)
++ [Join controls](#join-controls)
++ [Dimension controls](#dimension-controls)
++ [Scalar functions](#scalar-functions)
 
 ### Aggregation controls
+<a name="agg-functions"></a>
 
-By using _aggregation controls_, you can define which
-aggregation functions to allow, and what columns they must to be applied to. Aggregation
-functions can be used in the SELECT, HAVING, and
-ORDER
-BY expressions.
+By using *aggregation controls*, you can define which aggregation functions to allow, and what columns they must to be applied to. Aggregation functions can be used in the SELECT, HAVING, and ORDER BY expressions.
 
-| Control            | Definition                                                                               | Usage                                                                                                                                                                                                                                                                                                         |
-| ------------------ | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aggregateColumns` | Columns of configured table columns you allow for use within aggregation<br>functions.   | `aggregateColumns` can be used inside an aggregation function in<br>the SELECT, HAVING, and ORDER<br>BY expressions.<br>Some `aggregateColumns` can also be categorized as a<br>`joinColumn` (defined later).<br>Given `aggregateColumn` can't also be categorized as a<br>`dimensionColumn` (defined later). |
-| `function`         | The COUNT, SUM, and AVG functions you allow for use on top of the<br>`aggregateColumns`. | `function` can be applied to an `aggregateColumns` that<br>is associated to it.                                                                                                                                                                                                                               |
+
+| Control | Definition | Usage | 
+| --- | --- | --- | 
+| aggregateColumns | Columns of configured table columns you allow for use within aggregation functions. | `aggregateColumns` can be used inside an aggregation function in the SELECT, HAVING, and ORDER BY expressions.<br />Some `aggregateColumns` can also be categorized as a `joinColumn` (defined later).<br />Given `aggregateColumn` can't also be categorized as a `dimensionColumn` (defined later). | 
+| function | The COUNT, SUM, and AVG functions you allow for use on top of the aggregateColumns. | `function` can be applied to an `aggregateColumns` that is associated to it.  | 
 
 ### Join controls
+<a name="join-controls"></a>
 
-A `JOIN` clause is used to combine rows from two or more tables, based on a
-related column between them.
+A `JOIN` clause is used to combine rows from two or more tables, based on a related column between them.
 
-You can use _Join controls_ to control how your table
-can be joined to other tables in the `table_expression`. AWS Clean Rooms only supports
-INNER
-JOIN. INNER
-JOIN statements can only use columns that have been explicitly categorized as
-a `joinColumn` in your analysis rule, subject to the controls that you define.
+You can use *Join controls* to control how your table can be joined to other tables in the `table_expression`. AWS Clean Rooms only supports INNER JOIN. INNER JOIN statements can only use columns that have been explicitly categorized as a `joinColumn` in your analysis rule, subject to the controls that you define. 
 
-The INNER
-JOIN must operate on a `joinColumn` from your configured table and
-a `joinColumn` from another configured table in the collaboration. You decide
-which columns from your table can be used as `joinColumn`.
+The INNER JOIN must operate on a `joinColumn` from your configured table and a `joinColumn` from another configured table in the collaboration. You decide which columns from your table can be used as `joinColumn`.
 
-Each match condition within the ON clause is required to use the equality
-comparison condition (`=`) between two columns.
+Each match condition within the ON clause is required to use the equality comparison condition (`=`) between two columns. 
 
-Multiple match conditions within an ON clauses can be:
+Multiple match conditions within an ON clauses can be: 
++ Combined using the `AND` logical operator
++ Separated using the `OR` logical operator
 
-- Combined using the `AND` logical operator
-- Separated using the `OR` logical operator
-
-###### Note
-
-All JOIN match conditions must match one row from each side of the
-JOIN. All conditionals connected by an `OR` or an
-`AND` logical operator must adhere to this requirement as well.
+**Note**  
+All JOIN match conditions must match one row from each side of the JOIN. All conditionals connected by an `OR` or an `AND` logical operator must adhere to this requirement as well.
 
 The following is an example of a query with an `AND` logical operator.
 
 ```
-SELECT some_col, other_col
-FROM table1
-    JOIN table2
+SELECT some_col, other_col 
+FROM table1 
+    JOIN table2 
     ON table1.id = table2.id AND table1.name = table2.name
 ```
 
 The following is an example of a query with an `OR` logical operator.
 
 ```
-SELECT some_col, other_col
-FROM table1
-    JOIN table2
+SELECT some_col, other_col 
+FROM table1 
+    JOIN table2 
     ON table1.id = table2.id OR table1.name = table2.name
 ```
 
-| Control        | Definition                                                                                                     | Usage                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `joinColumns`  | The columns (if any) that you want to allow the member who can query to use in<br>the INNER<br>JOIN statement. | A specific `joinColumn` can also be categorized as a<br>`aggregateColumn` (see [Aggregation controls](#agg-functions "#agg-functions")).<br>The same column can't be used both as `joinColumn` and<br>`dimensionColumns` (see later).<br>Unless it has also been categorized as an `aggregateColumn`, a<br>`joinColumn` can't be used in any other parts of the query other than<br>the INNER<br>JOIN.                             |
-| `joinRequired` | Control whether you require an INNER<br>JOIN with a configured table from the member who can query.            | If you enable this parameter, an INNER<br>JOIN is required. If you don't enable this parameter, an<br>INNER<br>JOIN is optional.<br>Assuming you enable this parameter, the member who can query is required to<br>include a table they own in the INNER<br>JOIN. They must JOIN your table with theirs, either<br>directly or transitively (that is, join their table to another table, which itself<br>is joined to your table). |
+
+| Control | Definition | Usage | 
+| --- | --- | --- | 
+| joinColumns | The columns (if any) that you want to allow the member who can query to use in the INNER JOIN statement. | A specific `joinColumn` can also be categorized as a `aggregateColumn` (see [Aggregation controls](#agg-functions)).<br />The same column can't be used both as `joinColumn` and `dimensionColumns` (see later).<br />Unless it has also been categorized as an `aggregateColumn`, a `joinColumn` can't be used in any other parts of the query other than the INNER JOIN. | 
+| joinRequired | Control whether you require an INNER JOIN with a configured table from the member who can query.  | If you enable this parameter, an INNER JOIN is required. If you don't enable this parameter, an INNER JOIN is optional.<br />Assuming you enable this parameter, the member who can query is required to include a table they own in the INNER JOIN. They must JOIN your table with theirs, either directly or transitively (that is, join their table to another table, which itself is joined to your table). | 
 
 Following is an example of transitivity.
 
 ```
-ON
+ON 
 my_table.identifer = third_party_table.identifier
 ....
 ON
 third_party_table.identifier = member_who_can_query_table.id
 ```
 
-###### Note
-
-The member who can query can also use the `joinRequired` parameter. In that
-case, the query must join their table with at least one other table.
+**Note**  
+The member who can query can also use the `joinRequired` parameter. In that case, the query must join their table with at least one other table. 
 
 ### Dimension controls
+<a name="dimension-controls"></a>
 
-_Dimension controls_ control the column along which the
-aggregation columns can be filtered, grouped, or aggregated.
+*Dimension controls* control the column along which the aggregation columns can be filtered, grouped, or aggregated.
 
-| Control            | Definition                                                                                                             | Usage                                                                                                                                                                                                                             |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dimensionColumns` | The columns (if any) that you allow the member who can query to use in<br>SELECT, WHERE, GROUP<br>BY, and ORDER<br>BY. | A `dimensionColumn` can be used in SELECT<br>(`select_grouping_column_expression`), WHERE,<br>GROUP<br>BY, and ORDER<br>BY.<br>The same column can't be both a `dimensionColumn`, a<br>`joinColumn`, and/or an `aggregateColumn`. |
+
+| Control | Definition | Usage | 
+| --- | --- | --- | 
+| dimensionColumns | The columns (if any) that you allow the member who can query to use in SELECT, WHERE, GROUP BY, and ORDER BY. | A `dimensionColumn` can be used in SELECT (`select_grouping_column_expression`), WHERE, GROUP BY, and ORDER BY.<br />The same column can't be both a `dimensionColumn`, a `joinColumn`, and/or an `aggregateColumn`. | 
 
 ### Scalar functions
+<a name="scalar-functions"></a>
 
-_Scalar functions_ control which scalar functions can
-be used on dimension columns.
+*Scalar functions* control which scalar functions can be used on dimension columns.
 
-| Control           | Definition                                                                   | Usage                                                                                                                                                                                                                                                                                               |
-| ----------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scalarFunctions` | The scalar functions that can be used on `dimensionColumns` in the<br>query. | Specifies the scalar functions (if any) that you allow (for example,<br>CAST) to be applied on `dimensionColumns`.<br>Scalar functions can't be used on top of other functions or within other<br>functions. Arguments of scalar functions can be columns, string literals, or<br>numeric literals. |
+
+| Control | Definition | Usage | 
+| --- | --- | --- | 
+| scalarFunctions | The scalar functions that can be used on `dimensionColumns` in the query. | Specifies the scalar functions (if any) that you allow (for example, CAST) to be applied on `dimensionColumns`. <br />Scalar functions can't be used on top of other functions or within other functions. Arguments of scalar functions can be columns, string literals, or numeric literals. | 
 
 The following scalar functions are supported:
++ Math functions – ABS, CEILING, FLOOR, LOG, LN, ROUND, SQRT
++ Data type formatting functions – CAST, CONVERT, TO\_CHAR, TO\_DATE, TO\_NUMBER, TO\_TIMESTAMP
++ String functions – LOWER, UPPER, TRIM, RTRIM, SUBSTRING
+  + For RTRIM, custom character sets to trim aren't allowed. 
++ Conditional expressions – COALESCE
++ Date functions – EXTRACT, GETDATE, CURRENT\_DATE, DATEADD
++ Other functions – TRUNC
 
-- Math functions – ABS, CEILING,
-  FLOOR,
-  LOG, LN, ROUND,
-  SQRT
-- Data
-  type formatting functions –
-  CAST,
-  CONVERT, TO\_CHAR, TO\_DATE, TO\_NUMBER, TO\_TIMESTAMP
-- String functions – LOWER, UPPER,
-  TRIM,
-  RTRIM,
-  SUBSTRING
-
-  - For RTRIM, custom character sets to trim aren't allowed.
-
-- Conditional expressions – COALESCE
-- Date functions – EXTRACT, GETDATE, CURRENT\_DATE, DATEADD
-- Other functions – TRUNC
-
-For more details, see the [AWS Clean Rooms SQL Reference](../sql-reference/sql-reference.md "../sql-reference/sql-reference.md").
+For more details, see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
 
 ## Aggregation analysis rule - query results controls
+<a name="agg-query-results-controls"></a>
 
-With the aggregation query results controls, you can control which results are returned by
-specifying one or more conditions that each output row must meet for it to be returned.
-AWS Clean Rooms supports aggregation constraints in the form of `COUNT (DISTINCT column) >=
- X`. This form requires that each row aggregates at least X distinct values of a choice
-from your configured table (for example, a minimum number of distinct `user_id`
-values). This minimum threshold is automatically enforced, even if the submitted query itself
-does not use the specified column. They are enforced collectively across each configured table
-in the query from the configured tables from each member in the collaboration.
+With the aggregation query results controls, you can control which results are returned by specifying one or more conditions that each output row must meet for it to be returned. AWS Clean Rooms supports aggregation constraints in the form of `COUNT (DISTINCT column) >= X`. This form requires that each row aggregates at least X distinct values of a choice from your configured table (for example, a minimum number of distinct `user_id` values). This minimum threshold is automatically enforced, even if the submitted query itself does not use the specified column. They are enforced collectively across each configured table in the query from the configured tables from each member in the collaboration. 
 
-Each configured table must have at least one aggregation constraint in their analysis
-rule. Configured table owners can add multiple `columnName` and associated
-`minimum` and they are enforced collectively.
+Each configured table must have at least one aggregation constraint in their analysis rule. Configured table owners can add multiple `columnName` and associated `minimum` and they are enforced collectively. 
 
 ### Aggregation constraints
+<a name="agg-constraints"></a>
 
-_Aggregation constraints_ control which rows in the
-query results are returned. To be returned, a row must meet the specified minimum number of
-distinct values in each column specified in the aggregation constraint. This requirement
-applies even if the column isn't explicitly mentioned in the query or in other parts of the
-analysis rule.
+*Aggregation constraints* control which rows in the query results are returned. To be returned, a row must meet the specified minimum number of distinct values in each column specified in the aggregation constraint. This requirement applies even if the column isn't explicitly mentioned in the query or in other parts of the analysis rule.
 
-| Control      | Definition                                                                                                                                                                               | Usage                                      |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `columnName` | The `aggregateColumn` that is used in the condition that each<br>output row must meet.                                                                                                   | Can be any column in the configured table. |
-| `minimum`    | The minimum number of distinct values for the associated<br>`aggregateColumn` that the output row must have (for example, COUNT<br>DISTINCT) for it to be returned in the query results. | The `minimum` must be at least value of 2. |
+
+| Control | Definition | Usage | 
+| --- | --- | --- | 
+| columnName | The `aggregateColumn` that is used in the condition that each output row must meet. | Can be any column in the configured table. | 
+| minimum | The minimum number of distinct values for the associated `aggregateColumn` that the output row must have (for example, COUNT DISTINCT) for it to be returned in the query results.  | The `minimum` must be at least value of 2. | 
 
 ## Aggregation analysis rule structure
+<a name="agg-analysis-rule-template"></a>
 
-The following example shows a predefined structure for an aggregation analysis rule.
+The following example shows a predefined structure for an aggregation analysis rule. 
 
-In the following example, `MyTable` refers to your
-data table. You can replace each `user input placeholder` with your
-own information.
+In the following example, {{`MyTable`}} refers to your data table. You can replace each {{user input placeholder}} with your own information. 
 
 ```
 {
   "aggregateColumns": [
     {
-      "columnNames": [`MyTable column names`], "function": [`Allowed Agg Functions`]
+      "columnNames": [{{MyTable column names}}], "function": [{{Allowed Agg Functions}}]
     },
   ],
-  "joinRequired": ["QUERY_RUNNER"],
-  "joinColumns": [`MyTable column names`],
-  "dimensionColumns": [`MyTable column names`],
-  "scalarFunctions": [`Allowed Scalar functions`],
+  "joinRequired": ["QUERY_RUNNER"],  
+  "joinColumns": [{{MyTable column names}}],
+  "dimensionColumns": [{{MyTable column names}}],
+  "scalarFunctions": [{{Allowed Scalar functions}}],
   "outputConstraints": [
     {
-      "columnName": [`MyTable column names`], "minimum": [`Numeric value`]
+      "columnName": [{{MyTable column names}}], "minimum": [{{Numeric value}}] 
     },
   ]
 }
 ```
 
 ## Aggregation analysis rule - example
+<a name="agg-analysis-rule-example"></a>
 
-The following example demonstrates how two companies can collaborate in AWS Clean Rooms using
-aggregation analysis.
+The following example demonstrates how two companies can collaborate in AWS Clean Rooms using aggregation analysis.
 
-Company A has customer and sales data. Company A is interested in understanding product
-return activity. Company B is one of Company A's retailers and has returns data. Company B
-also has segment attributes on customers that are useful to Company A (for example, purchased
-related products, uses customer service from the retailer). Company B doesn't want to provide
-row-level customer return data and attribute information. Company B only wants to enable a set
-of queries for Company A to obtain aggregate statistics on overlapping customers at a minimum
-aggregation threshold.
+Company A has customer and sales data. Company A is interested in understanding product return activity. Company B is one of Company A's retailers and has returns data. Company B also has segment attributes on customers that are useful to Company A (for example, purchased related products, uses customer service from the retailer). Company B doesn't want to provide row-level customer return data and attribute information. Company B only wants to enable a set of queries for Company A to obtain aggregate statistics on overlapping customers at a minimum aggregation threshold. 
 
-Company A and Company B decide to collaborate so that Company A can understand product
-return activity and deliver better products at Company B and other channels.
+Company A and Company B decide to collaborate so that Company A can understand product return activity and deliver better products at Company B and other channels. 
 
-To create the collaboration and run an aggregation analysis, the companies do the
-following:
+To create the collaboration and run an aggregation analysis, the companies do the following: 
 
-1. Company A creates a collaboration and creates a membership. The collaboration has
-   Company B as another member in the collaboration. Company A enables query logging in the
-   collaboration, and it enables query logging in their account.
-2. Company B creates a membership in the collaboration. It enables query logging in its
-   account.
-3. Company A creates a sales configured table.
-4. Company A adds the following aggregation analysis rule to the sales configured
-   table.
+1. Company A creates a collaboration and creates a membership. The collaboration has Company B as another member in the collaboration. Company A enables query logging in the collaboration, and it enables query logging in their account. 
 
-```
-{
-  "aggregateColumns": [
-    {
-      "columnNames": [
-        "identifier"
-      ],
-      "function": "COUNT_DISTINCT"
-    },
-    {
-      "columnNames": [
-        "purchases"
-      ],
-      "function": "AVG"
-    },
-    {
-      "columnNames": [
-        "purchases"
-      ],
-      "function": "SUM"
-    }
-  ],
-  "joinColumns": [
-    "hashedemail"
-  ],
-  "dimensionColumns": [
-    "demoseg",
-    "purchasedate",
-    "productline"
-  ],
-  "scalarFunctions": [
-    "CAST",
-    "COALESCE",
-    "TRUNC"
-  ],
-  "outputConstraints": [
-    {
-      "columnName": "hashedemail",
-      "minimum": 2,
-      "type": "COUNT_DISTINCT"
-    },
-  ]
-}
-```
+1. Company B creates a membership in the collaboration. It enables query logging in its account. 
 
-`aggregateColumns` – Company A wants to count the number of unique
-customers in the overlap between sales data and returns data. Company A also wants to sum
-the number of `purchases` made to compare to number of
-`returns`.
+1. Company A creates a sales configured table.
 
-`joinColumns` – Company A wants to use `identifier` to
-match customers from sales data to customers from returns data. This will help Company A
-match returns to the right purchases. It also helps Company A segment overlapping
-customers.
+1. Company A adds the following aggregation analysis rule to the sales configured table.
 
-`dimensionColumns` – Company A uses `dimensionColumns` to
-filter by the specific product, compare purchases and returns over a certain period of
-time, ensure the return date is after the product date, and help segment overlapping
-customers.
+   ```
+   {
+     "aggregateColumns": [
+       {
+         "columnNames": [
+           "identifier"
+         ],
+         "function": "COUNT_DISTINCT"
+       },
+       {
+         "columnNames": [
+           "purchases"
+         ],
+         "function": "AVG"
+       },
+       {
+         "columnNames": [
+           "purchases"
+         ],
+         "function": "SUM"
+       }
+     ],
+     "joinColumns": [
+       "hashedemail"
+     ],
+     "dimensionColumns": [
+       "demoseg",
+       "purchasedate",
+       "productline"
+     ],
+     "scalarFunctions": [
+       "CAST",
+       "COALESCE",
+       "TRUNC"
+     ],
+     "outputConstraints": [
+       {
+         "columnName": "hashedemail",
+         "minimum": 2,
+         "type": "COUNT_DISTINCT"
+       },
+     ]
+   }
+   ```
 
-`scalarFunctions` – Company A selects
-`CAST` scalar function to help update data type formats if
-needed based on the configured table Company A associates to the collaboration. It also
-adds scalar functions to help formatting columns if needed.
+   `aggregateColumns` – Company A wants to count the number of unique customers in the overlap between sales data and returns data. Company A also wants to sum the number of `purchases` made to compare to number of `returns`.
 
-`outputConstraints` – Company A sets minimum output constraints. It
-doesn't need to constrain the results because the analyst is allowed to see row-level data
-from their sales table
+   `joinColumns` – Company A wants to use `identifier` to match customers from sales data to customers from returns data. This will help Company A match returns to the right purchases. It also helps Company A segment overlapping customers.
 
-###### Note
+   `dimensionColumns` – Company A uses `dimensionColumns` to filter by the specific product, compare purchases and returns over a certain period of time, ensure the return date is after the product date, and help segment overlapping customers. 
 
-Company A doesn't include `joinRequired` in the analysis rule. It
-provides flexibility for their analyst to query the sales table alone. 5. Company B creates a returns configured table. 6. Company B adds the following aggregation analysis rule to the returns configured
-table.
+   `scalarFunctions` – Company A selects `CAST` scalar function to help update data type formats if needed based on the configured table Company A associates to the collaboration. It also adds scalar functions to help formatting columns if needed. 
 
-```
-{
-  "aggregateColumns": [
-    {
-      "columnNames": [
-        "identifier"
-      ],
-      "function": "COUNT_DISTINCT"
-    },
-    {
-      "columnNames": [
-        "returns"
-      ],
-      "function": "AVG"
-    },
-    {
-      "columnNames": [
-        "returns"
-      ],
-      "function": "SUM"
-    }
-  ],
-  "joinColumns": [
-    "hashedemail"
-  ],
-  "joinRequired": [
-    "QUERY_RUNNER"
-  ],
-  "dimensionColumns": [
-    "state",
-    "popularpurchases",
-    "customerserviceuser",
-    "productline",
-    "returndate"
-  ],
-  "scalarFunctions": [
-    "CAST",
-    "LOWER",
-    "UPPER",
-    "TRUNC"
-  ],
-  "outputConstraints": [
-    {
-      "columnName": "hashedemail",
-      "minimum": 100,
-      "type": "COUNT_DISTINCT"
-    },
-    {
-      "columnName": "producttype",
-      "minimum": 2,
-      "type": "COUNT_DISTINCT"
-    }
-  ]
-}
-```
+   `outputConstraints` – Company A sets minimum output constraints. It doesn't need to constrain the results because the analyst is allowed to see row-level data from their sales table 
+**Note**  
+Company A doesn't include `joinRequired` in the analysis rule. It provides flexibility for their analyst to query the sales table alone.
 
-`aggregateColumns` – Company B enables Company A to sum
-`returns` to compare to the number of purchases. They have at least one
-aggregate column because they are enabling an aggregate query.
+1. Company B creates a returns configured table.
 
-`joinColumns` – Company B enables Company A to join on
-`identifier` to match customers from return data to customers from sales
-data. `identifier` data is particularly sensitive and having it as a
-`joinColumn` ensures that the data will never be outputted in a query.
+1. Company B adds the following aggregation analysis rule to the returns configured table.
 
-`joinRequired` – Company B requires queries on the return data to be
-overlapped with the sales data. They don’t want to enable Company A to query all
-individuals in their dataset. They also agreed on that restriction in their collaboration
-agreement.
+   ```
+   {
+     "aggregateColumns": [
+       {
+         "columnNames": [
+           "identifier"
+         ],
+         "function": "COUNT_DISTINCT"
+       },
+       {
+         "columnNames": [
+           "returns"
+         ],
+         "function": "AVG"
+       },
+       {
+         "columnNames": [
+           "returns"
+         ],
+         "function": "SUM"
+       }
+     ],
+     "joinColumns": [
+       "hashedemail"
+     ],
+     "joinRequired": [
+       "QUERY_RUNNER"
+     ],
+     "dimensionColumns": [
+       "state",
+       "popularpurchases",
+       "customerserviceuser",
+       "productline",
+       "returndate"
+     ],
+     "scalarFunctions": [
+       "CAST",
+       "LOWER",
+       "UPPER",
+       "TRUNC"
+     ],
+     "outputConstraints": [
+       {
+         "columnName": "hashedemail",
+         "minimum": 100,
+         "type": "COUNT_DISTINCT"
+       },
+       {
+         "columnName": "producttype",
+         "minimum": 2,
+         "type": "COUNT_DISTINCT"
+       }
+     ]
+   }
+   ```
 
-`dimensionColumns` – Company B enables Company A to filter and group
-by `state`, `popularpurchases`, and `customerserviceuser`
-which are unique attributes that could help make the analysis for Company A. Company B
-enables Company A to use `returndate` to filter output on
-`returndate` that occurs after `purchasedate`. With this
-filtering, the output is more accurate for evaluating the impact of the product change.
+   `aggregateColumns` – Company B enables Company A to sum `returns` to compare to the number of purchases. They have at least one aggregate column because they are enabling an aggregate query. 
 
-`scalarFunctions` – Company B enables the following:
+   `joinColumns` – Company B enables Company A to join on `identifier` to match customers from return data to customers from sales data. `identifier` data is particularly sensitive and having it as a `joinColumn` ensures that the data will never be outputted in a query. 
 
-    * TRUNC for dates
-    * LOWER and UPPER in case the `producttype` is entered in a different
-     format in their data
-    * CAST if Company A needs to convert data types in sales to be the
-     same as data types in returns
+   `joinRequired` – Company B requires queries on the return data to be overlapped with the sales data. They don’t want to enable Company A to query all individuals in their dataset. They also agreed on that restriction in their collaboration agreement. 
 
-Company A doesn't enable other scalar functions because they don’t believe they are
-required for queries.
+   `dimensionColumns` – Company B enables Company A to filter and group by `state`, `popularpurchases`, and `customerserviceuser` which are unique attributes that could help make the analysis for Company A. Company B enables Company A to use `returndate` to filter output on `returndate` that occurs after `purchasedate`. With this filtering, the output is more accurate for evaluating the impact of the product change. 
 
-`outputConstraints` – Company B sets minimum output constraints on
-`hashedemail` to help reduce the ability to re-identify customers. It also
-adds minimum output constraint on `producttype` to reduce the ability to
-re-identify specific products that were returned. Certain product types could be more
-dominant based on dimensions of the output (for example, `state`). Their output
-constraints will always be enforced regardless of output constraints added by Company A to
-their data. 7. Company A creates a sales table association to collaboration. 8. Company B creates a returns table association to collaboration. 9. Company A runs queries, such as the following example, to better understand the
-quantity of returns in Company B as compared to total purchases by location in 2022.
+   `scalarFunctions` – Company B enables the following: 
+   + TRUNC for dates
+   + LOWER and UPPER in case the `producttype` is entered in a different format in their data
+   + CAST if Company A needs to convert data types in sales to be the same as data types in returns
 
-```
-SELECT
-  companyB.state,
-  SUM(companyB.returns),
-  COUNT(DISTINCT companyA.hashedemail)
-FROM
-  sales companyA
-  INNER JOIN returns companyB ON companyA.identifier = companyB.identifier
-WHERE
-  companyA.purchasedate BETWEEN '2022-01-01' AND '2022-12-31' AND
-  TRUNC(companyB.returndate) > companyA.purchasedate
-GROUP BY
-  companyB.state;
-```
+   Company A doesn't enable other scalar functions because they don’t believe they are required for queries.
 
-10. Company A and Company B review query logs. Company B verifies that the query aligns
-    with what was agreed upon in the collaboration agreement.
+   `outputConstraints` – Company B sets minimum output constraints on `hashedemail` to help reduce the ability to re-identify customers. It also adds minimum output constraint on `producttype` to reduce the ability to re-identify specific products that were returned. Certain product types could be more dominant based on dimensions of the output (for example, `state`). Their output constraints will always be enforced regardless of output constraints added by Company A to their data. 
+
+1. Company A creates a sales table association to collaboration.
+
+1. Company B creates a returns table association to collaboration.
+
+1. Company A runs queries, such as the following example, to better understand the quantity of returns in Company B as compared to total purchases by location in 2022.
+
+   ```
+   SELECT
+     companyB.state,
+     SUM(companyB.returns),
+     COUNT(DISTINCT companyA.hashedemail)
+   FROM
+     sales companyA
+     INNER JOIN returns companyB ON companyA.identifier = companyB.identifier
+   WHERE
+     companyA.purchasedate BETWEEN '2022-01-01' AND '2022-12-31' AND
+     TRUNC(companyB.returndate) > companyA.purchasedate
+   GROUP BY
+     companyB.state;
+   ```
+
+1. Company A and Company B review query logs. Company B verifies that the query aligns with what was agreed upon in the collaboration agreement. 
 
 ## Troubleshooting aggregation analysis rule issues
+<a name="troubleshooting-agg-analysis-rule"></a>
 
-Use the information here to help you diagnose and fix common issues when you work with
-aggregation analysis rules.
+Use the information here to help you diagnose and fix common issues when you work with aggregation analysis rules. 
 
-###### Issues
-
-- [My query didn’t return any results](#query-no-results "#query-no-results")
+**Topics**
++ [My query didn’t return any results](#query-no-results)
 
 ### My query didn’t return any results
+<a name="query-no-results"></a>
 
-This can happen when there are no matching results or when the matching results don’t
-meet one or more minimum aggregation thresholds.
+This can happen when there are no matching results or when the matching results don’t meet one or more minimum aggregation thresholds. 
 
-For more information about minimum aggregation thresholds, see [Aggregation analysis rule - example](#agg-analysis-rule-example "#agg-analysis-rule-example").
+For more information about minimum aggregation thresholds, see [Aggregation analysis rule - example](#agg-analysis-rule-example).

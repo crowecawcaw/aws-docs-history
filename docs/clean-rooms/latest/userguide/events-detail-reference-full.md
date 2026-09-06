@@ -1,31 +1,23 @@
+
+
 # AWS Clean Rooms events detail reference
+<a name="events-detail-reference-full"></a>
 
-All events from AWS services have a common set of fields containing metadata about
-the event, such as the AWS service that is the source of the event, the time the event
-was generated, the account and region in which the event took place, and others. For
-definitions of these general fields, see [Event structure](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../eventbridge/latest/ref/overiew-event-structure.md") in
-the _Amazon EventBridge Events Reference_.
+All events from AWS services have a common set of fields containing metadata about the event, such as the AWS service that is the source of the event, the time the event was generated, the account and region in which the event took place, and others. For definitions of these general fields, see [Event structure](https://docs.aws.amazon.com/eventbridge/latest/ref/overiew-event-structure.html) in the *Amazon EventBridge Events Reference*. 
 
-In addition, each event has a `detail` field that contains data specific to
-that particular event. The reference below defines the detail fields for the various
-AWS Clean Rooms events.
+In addition, each event has a `detail` field that contains data specific to that particular event. The reference below defines the detail fields for the various AWS Clean Rooms events.
 
-When using EventBridge to select and manage AWS Clean Rooms events, it's useful to keep the
-following in mind:
+When using EventBridge to select and manage AWS Clean Rooms events, it's useful to keep the following in mind:
++ The `source` field for all events from AWS Clean Rooms is set to `aws.cleanrooms`.
++ The `detail-type` field specifies the event type. 
 
-- The `source` field for all events from AWS Clean Rooms is set to
-  `aws.cleanrooms`.
-- The `detail-type` field specifies the event type.
+  For example, `Collaboration Created`.
++ The `detail` field contains the data that is specific to that particular event. 
 
-For example, `Collaboration Created`.
-
-- The `detail` field contains the data that is specific to that
-  particular event.
-  For information on constructing event patterns that enable rules to match AWS Clean Rooms
-  events, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in
-  the _Amazon EventBridge User Guide_.
+For information on constructing event patterns that enable rules to match AWS Clean Rooms events, see [Event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide*.
 
 ## Analysis Template Created event
+<a name="event-detail-analysis-template-created"></a>
 
 Below are the detail fields for the `Analysis Template Created` event.
 
@@ -37,6 +29,7 @@ Below are the detail fields for the `Analysis Template Created` event.
 ```
 
 ## Analysis Template Updated event
+<a name="event-detail-analysis-template-updated"></a>
 
 Below are the detail fields for the `Analysis Template Updated` event.
 
@@ -48,6 +41,7 @@ Below are the detail fields for the `Analysis Template Updated` event.
 ```
 
 ## Analysis Template Deleted event
+<a name="event-detail-analysis-template-deleted"></a>
 
 Below are the detail fields for the `Analysis Template Deleted` event.
 
@@ -59,6 +53,7 @@ Below are the detail fields for the `Analysis Template Deleted` event.
 ```
 
 ## Collaboration Created event
+<a name="event-detail-collaboration-created"></a>
 
 Below are the detail fields for the `Collaboration Created` event.
 
@@ -70,6 +65,7 @@ Below are the detail fields for the `Collaboration Created` event.
 ```
 
 ## Collaboration Updated event
+<a name="event-detail-collaboration-updated"></a>
 
 Below are the detail fields for the `Collaboration Updated` event.
 
@@ -81,6 +77,7 @@ Below are the detail fields for the `Collaboration Updated` event.
 ```
 
 ## Collaboration Change Request Created event
+<a name="event-detail-collaboration-change-request-created"></a>
 
 Below are the detail fields for the `Collaboration Change Request Created` event.
 
@@ -92,6 +89,7 @@ Below are the detail fields for the `Collaboration Change Request Created` event
 ```
 
 ## Collaboration Change Request Approved event
+<a name="event-detail-collaboration-change-request-approved"></a>
 
 Below are the detail fields for the `Collaboration Change Request Approved` event.
 
@@ -103,6 +101,7 @@ Below are the detail fields for the `Collaboration Change Request Approved` even
 ```
 
 ## Collaboration Change Request Cancelled event
+<a name="event-detail-collaboration-change-request-cancelled"></a>
 
 Below are the detail fields for the `Collaboration Change Request Cancelled` event.
 
@@ -114,6 +113,7 @@ Below are the detail fields for the `Collaboration Change Request Cancelled` eve
 ```
 
 ## Collaboration Change Request Committed event
+<a name="event-detail-collaboration-change-request-committed"></a>
 
 Below are the detail fields for the `Collaboration Change Request Committed` event.
 
@@ -125,6 +125,7 @@ Below are the detail fields for the `Collaboration Change Request Committed` eve
 ```
 
 ## Configured Table Association Created event
+<a name="event-detail-configured-table-association-created"></a>
 
 Below are the detail fields for the `Configured Table Association Created` event.
 
@@ -136,6 +137,7 @@ Below are the detail fields for the `Configured Table Association Created` event
 ```
 
 ## Configured Table Association Updated event
+<a name="event-detail-configured-table-association-updated"></a>
 
 Below are the detail fields for the `Configured Table Association Updated` event.
 
@@ -147,6 +149,7 @@ Below are the detail fields for the `Configured Table Association Updated` event
 ```
 
 ## Configured Table Association Deleted event
+<a name="event-detail-configured-table-association-deleted"></a>
 
 Below are the detail fields for the `Configured Table Association Deleted` event.
 
@@ -158,6 +161,7 @@ Below are the detail fields for the `Configured Table Association Deleted` event
 ```
 
 ## Configured Table Association Analysis Rule Created event
+<a name="event-detail-configured-table-association-analysis-rule-created"></a>
 
 Below are the detail fields for the `Configured Table Association Analysis Rule Created` event.
 
@@ -169,6 +173,7 @@ Below are the detail fields for the `Configured Table Association Analysis Rule 
 ```
 
 ## Configured Table Association Analysis Rule Updated event
+<a name="event-detail-configured-table-association-analysis-rule-updated"></a>
 
 Below are the detail fields for the `Configured Table Association Analysis Rule Updated` event.
 
@@ -180,6 +185,7 @@ Below are the detail fields for the `Configured Table Association Analysis Rule 
 ```
 
 ## Configured Table Association Analysis Rule Deleted event
+<a name="event-detail-configured-table-association-analysis-rule-deleted"></a>
 
 Below are the detail fields for the `Configured Table Association Analysis Rule Deleted` event.
 
@@ -191,6 +197,7 @@ Below are the detail fields for the `Configured Table Association Analysis Rule 
 ```
 
 ## Id Mapping Table Created event
+<a name="event-detail-id-mapping-table-created"></a>
 
 Below are the detail fields for the `Id Mapping Table Created` event.
 
@@ -202,6 +209,7 @@ Below are the detail fields for the `Id Mapping Table Created` event.
 ```
 
 ## Id Mapping Table Updated event
+<a name="event-detail-id-mapping-table-updated"></a>
 
 Below are the detail fields for the `Id Mapping Table Updated` event.
 
@@ -213,6 +221,7 @@ Below are the detail fields for the `Id Mapping Table Updated` event.
 ```
 
 ## Id Mapping Table Deleted event
+<a name="event-detail-id-mapping-table-deleted"></a>
 
 Below are the detail fields for the `Id Mapping Table Deleted` event.
 
@@ -224,6 +233,7 @@ Below are the detail fields for the `Id Mapping Table Deleted` event.
 ```
 
 ## Id Namespace Association Created event
+<a name="event-detail-id-namespace-association-created"></a>
 
 Below are the detail fields for the `Id Namespace Association Created` event.
 
@@ -235,6 +245,7 @@ Below are the detail fields for the `Id Namespace Association Created` event.
 ```
 
 ## Id Namespace Association Updated event
+<a name="event-detail-id-namespace-association-updated"></a>
 
 Below are the detail fields for the `Id Namespace Association Updated` event.
 
@@ -245,10 +256,8 @@ Below are the detail fields for the `Id Namespace Association Updated` event.
 }
 ```
 
-###### Note
-
-When a collaboration is deleted, the event is captured in the Id Namespace Association Updated
-event in the `detail.status` field.
+**Note**  
+When a collaboration is deleted, the event is captured in the Id Namespace Association Updated event in the `detail.status` field.
 
 ```
 {
@@ -260,6 +269,7 @@ event in the `detail.status` field.
 ```
 
 ## Id Namespace Association Deleted event
+<a name="event-detail-id-namespace-association-deleted"></a>
 
 Below are the detail fields for the `Id Namespace Association Deleted` event.
 
@@ -271,6 +281,7 @@ Below are the detail fields for the `Id Namespace Association Deleted` event.
 ```
 
 ## Invited To Collaboration event
+<a name="event-detail-invited-to-collaboration"></a>
 
 Below are the detail fields for the `Invited To Collaboration` event.
 
@@ -282,6 +293,7 @@ Below are the detail fields for the `Invited To Collaboration` event.
 ```
 
 ## Membership Created event
+<a name="event-detail-membership-created"></a>
 
 Below are the detail fields for the `Membership Created` event.
 
@@ -293,6 +305,7 @@ Below are the detail fields for the `Membership Created` event.
 ```
 
 ## Membership Updated event
+<a name="event-detail-membership-updated"></a>
 
 Below are the detail fields for the `Membership Updated` event.
 
@@ -304,6 +317,7 @@ Below are the detail fields for the `Membership Updated` event.
 ```
 
 ## Membership Deleted event
+<a name="event-detail-membership-deleted"></a>
 
 Below are the detail fields for the `Membership Deleted` event.
 
@@ -315,6 +329,7 @@ Below are the detail fields for the `Membership Deleted` event.
 ```
 
 ## Protected Job Submitted event
+<a name="event-detail-protected-job-submitted"></a>
 
 Below are the detail fields for the `Protected Job Submitted` event.
 
@@ -326,6 +341,7 @@ Below are the detail fields for the `Protected Job Submitted` event.
 ```
 
 ## Protected Job Started event
+<a name="event-detail-protected-job-started"></a>
 
 Below are the detail fields for the `Protected Job Started` event.
 
@@ -337,6 +353,7 @@ Below are the detail fields for the `Protected Job Started` event.
 ```
 
 ## Protected Job Cancelling event
+<a name="event-detail-protected-job-cancelling"></a>
 
 Below are the detail fields for the `Protected Job Cancelling` event.
 
@@ -348,6 +365,7 @@ Below are the detail fields for the `Protected Job Cancelling` event.
 ```
 
 ## Protected Job Cancelled event
+<a name="event-detail-protected-job-cancelled"></a>
 
 Below are the detail fields for the `Protected Job Cancelled` event.
 
@@ -359,6 +377,7 @@ Below are the detail fields for the `Protected Job Cancelled` event.
 ```
 
 ## Protected Job Succeeded event
+<a name="event-detail-protected-job-succeeded"></a>
 
 Below are the detail fields for the `Protected Job Succeeded` event.
 
@@ -370,6 +389,7 @@ Below are the detail fields for the `Protected Job Succeeded` event.
 ```
 
 ## Protected Job Failed event
+<a name="event-detail-protected-job-failed"></a>
 
 Below are the detail fields for the `Protected Job Failed` event.
 
@@ -381,6 +401,7 @@ Below are the detail fields for the `Protected Job Failed` event.
 ```
 
 ## Protected Query Submitted event
+<a name="event-detail-protected-query-submitted"></a>
 
 Below are the detail fields for the `Protected Query Submitted` event.
 
@@ -392,6 +413,7 @@ Below are the detail fields for the `Protected Query Submitted` event.
 ```
 
 ## Protected Query Started event
+<a name="event-detail-protected-query-started"></a>
 
 Below are the detail fields for the `Protected Query Started` event.
 
@@ -403,6 +425,7 @@ Below are the detail fields for the `Protected Query Started` event.
 ```
 
 ## Protected Query Cancelling event
+<a name="event-detail-protected-query-cancelling"></a>
 
 Below are the detail fields for the `Protected Query Cancelling` event.
 
@@ -414,6 +437,7 @@ Below are the detail fields for the `Protected Query Cancelling` event.
 ```
 
 ## Protected Query Cancelled event
+<a name="event-detail-protected-query-cancelled"></a>
 
 Below are the detail fields for the `Protected Query Cancelled` event.
 
@@ -425,6 +449,7 @@ Below are the detail fields for the `Protected Query Cancelled` event.
 ```
 
 ## Protected Query Succeeded event
+<a name="event-detail-protected-query-succeeded"></a>
 
 Below are the detail fields for the `Protected Query Succeeded` event.
 
@@ -436,6 +461,7 @@ Below are the detail fields for the `Protected Query Succeeded` event.
 ```
 
 ## Protected Query Failed event
+<a name="event-detail-protected-query-failed"></a>
 
 Below are the detail fields for the `Protected Query Failed` event.
 
@@ -447,6 +473,7 @@ Below are the detail fields for the `Protected Query Failed` event.
 ```
 
 ## Protected Query Timed Out event
+<a name="event-detail-protected-query-timed-out"></a>
 
 Below are the detail fields for the `Protected Query Timed Out` event.
 

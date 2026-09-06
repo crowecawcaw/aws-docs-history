@@ -1,331 +1,289 @@
+
+
 # AWS Clean Rooms Glossary
+<a name="glossary"></a>
 
 Consult this glossary to become familiar with terminology that is used for AWS Clean Rooms.
 
 ## Aggregation analysis rule
+<a name="glossary-agg-analysis-rule"></a>
 
-The query restriction that allows queries that aggregate analysis using
-COUNT, SUM, or AVG functions along optional
-dimensions. These queries won't reveal row-level information.
+The query restriction that allows queries that aggregate analysis using COUNT, SUM, or AVG functions along optional dimensions. These queries won't reveal row-level information.
 
-Supports use cases such as campaign planning, media reach, frequency, and conversion
-measurement.
+Supports use cases such as campaign planning, media reach, frequency, and conversion measurement.
 
-Other types of analysis rules are [custom](#glossary-custom-analysis-rule "#glossary-custom-analysis-rule") and [list](#glossary-list-analysis-rule "#glossary-list-analysis-rule").
+Other types of analysis rules are [custom](#glossary-custom-analysis-rule) and [list](#glossary-list-analysis-rule).
 
 ## Analysis rules
+<a name="glossary-analysis-rule"></a>
 
 The query restrictions that authorize a specific type of query.
 
-The analysis rule type determines what kind of analysis can be run on the configured
-table. Each type has a predefined query structure. You control how your table columns can be
-used in the structure through the query controls.
+The analysis rule type determines what kind of analysis can be run on the configured table. Each type has a predefined query structure. You control how your table columns can be used in the structure through the query controls.
 
-The types of analysis rules are [aggregation](#glossary-agg-analysis-rule "#glossary-agg-analysis-rule"), [list](#glossary-list-analysis-rule "#glossary-list-analysis-rule"), and [custom](#glossary-custom-analysis-rule "#glossary-custom-analysis-rule").
+The types of analysis rules are [aggregation](#glossary-agg-analysis-rule), [list](#glossary-list-analysis-rule), and [custom](#glossary-custom-analysis-rule).
 
 ## Analysis template
+<a name="glossary-analysis-template"></a>
 
 A collaboration-specific, pre-approved query that can be reused.
 
 Supported formats: SQL code or Python code for Spark.
 
-If using SQL, the analysis template can contain parameters wherever a literal value could
-typically appear in a SQL query. For more information about supported parameter types, see
-[Data types](../sql-reference/c_Supported_data_types.md "../sql-reference/c_Supported_data_types.md") in the
-_AWS Clean Rooms SQL Reference_.
+If using SQL, the analysis template can contain parameters wherever a literal value could typically appear in a SQL query. For more information about supported parameter types, see [Data types](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/c_Supported_data_types.html) in the *AWS Clean Rooms SQL Reference*.
 
-Analysis templates only work with the [custom analysis rule](analysis-rules-custom.md "analysis-rules-custom.md").
+Analysis templates only work with the [custom analysis rule](analysis-rules-custom.md).
 
 ## Base table
+<a name="glossary-base-table"></a>
 
-Any configured table, ID mapping table, or other intermediate table that is used in the
-analysis to populate an intermediate table.
+Any configured table, ID mapping table, or other intermediate table that is used in the analysis to populate an intermediate table.
 
 ## C3R encryption client
+<a name="glossary-c3r-encryption-client"></a>
 
-The Cryptographic Computing for Clean Rooms (C3R) encryption client.
+The Cryptographic Computing for Clean Rooms (C3R) encryption client. 
 
-Used to encrypt and decrypt data, C3R is a client-side encryption SDK with a
-command line interface.
+Used to encrypt and decrypt data, C3R is a client-side encryption SDK with a command line interface.
 
 ## Cleartext column
+<a name="glossary-cleartext-column"></a>
 
-A column that isn't cryptographically protected for either a JOIN or
-SELECT SQL construct.
+A column that isn't cryptographically protected for either a JOIN or SELECT SQL construct.
 
 Cleartext columns can be used in any part of the SQL query.
 
 ## Collaboration
+<a name="glossary-collaboration"></a>
 
-A secure logical boundary in AWS Clean Rooms in which members can perform SQL queries on
-configured tables.
+A secure logical boundary in AWS Clean Rooms in which members can perform SQL queries on configured tables. 
 
-Collaborations are created by the [collaboration creator](#glossary-collaboration-creator "#glossary-collaboration-creator").
+Collaborations are created by the [collaboration creator](#glossary-collaboration-creator).
 
 Only members who have been invited to the collaboration can join the collaboration.
 
-A collaboration can have only one [member who can query](#glossary-member-who-can-query "#glossary-member-who-can-query") data or one [member who can run queries and
-jobs](#glossary-member-who-can-run-queries-jobs "#glossary-member-who-can-run-queries-jobs").
+A collaboration can have only one [member who can query](#glossary-member-who-can-query) data or one [member who can run queries and jobs](#glossary-member-who-can-run-queries-jobs).
 
-A collaboration can have only one [member who can receive
-results](#glossary-member-who-can-receive-results "#glossary-member-who-can-receive-results").
+A collaboration can have only one [member who can receive results](#glossary-member-who-can-receive-results).
 
-A collaboration can have one or more [members paying for query compute
-costs](#glossary-member-paying-for-query-compute "#glossary-member-paying-for-query-compute") or [members paying for query and job
-compute costs](#glossary-member-paying-for-query-job-compute "#glossary-member-paying-for-query-job-compute").
+A collaboration can have one or more [members paying for query compute costs](#glossary-member-paying-for-query-compute) or [members paying for query and job compute costs](#glossary-member-paying-for-query-job-compute).
 
-All members can see the list of invited participants in the collaboration before they join
-the collaboration.
+All members can see the list of invited participants in the collaboration before they join the collaboration.
 
 ## Collaboration creator
+<a name="glossary-collaboration-creator"></a>
 
 The member who creates a collaboration.
 
 There is only one collaboration creator per collaboration.
 
-Only the collaboration creator can remove members from the collaboration or delete the
-collaboration.
+Only the collaboration creator can remove members from the collaboration or delete the collaboration.
 
 ## Configured table
+<a name="glossary-configured-table"></a>
 
-Each configured table represents a reference to an existing table in the AWS Glue Data Catalog that
-has been configured for use in AWS Clean Rooms. A configured table contains an analysis rule that
-determines how the data can be used.
+Each configured table represents a reference to an existing table in the AWS Glue Data Catalog that has been configured for use in AWS Clean Rooms. A configured table contains an analysis rule that determines how the data can be used.
 
-Currently, AWS Clean Rooms supports associating data stored in Amazon Simple Storage Service (Amazon S3) that is cataloged
-through AWS Glue.
+Currently, AWS Clean Rooms supports associating data stored in Amazon Simple Storage Service (Amazon S3) that is cataloged through AWS Glue.
 
-For more information about AWS Glue, see the [AWS Glue Developer
-Guide](../../../glue/latest/dg/what-is-glue.md "../../../glue/latest/dg/what-is-glue.md").
+For more information about AWS Glue, see the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html).
 
 Configured tables can be associated to one or more collaborations.
 
-###### Note
-
-AWS Clean Rooms doesn't currently support Amazon S3 bucket locations that are registered with
-AWS Lake Formation.
+**Note**  
+AWS Clean Rooms doesn't currently support Amazon S3 bucket locations that are registered with AWS Lake Formation.
 
 ## Custom analysis rule
+<a name="glossary-custom-analysis-rule"></a>
 
-The query restriction that allows a specific set of pre-approved queries ([analysis
-templates](#glossary-analysis-template "#glossary-analysis-template")) or allows a specific set of accounts that can provide queries or jobs that
-use your data.
+The query restriction that allows a specific set of pre-approved queries ([analysis templates](#glossary-analysis-template)) or allows a specific set of accounts that can provide queries or jobs that use your data. 
 
-Supports use cases such as first-touch attribution, incremental analyses, and audience
-discovery analyses.
+Supports use cases such as first-touch attribution, incremental analyses, and audience discovery analyses.
 
 Supports differential privacy.
 
-Other types of analysis rules are [aggregation](#glossary-agg-analysis-rule "#glossary-agg-analysis-rule") and [list](#glossary-list-analysis-rule "#glossary-list-analysis-rule").
+Other types of analysis rules are [aggregation](#glossary-agg-analysis-rule) and [list](#glossary-list-analysis-rule).
 
 ## Decryption
+<a name="glossary-decryption"></a>
 
-The process of transforming encrypted data back to its original form. Decryption can only
-be performed if you have access to the secret key.
+The process of transforming encrypted data back to its original form. Decryption can only be performed if you have access to the secret key.
 
 ## Differential privacy
+<a name="glossary-differential-privacy"></a>
 
-A mathematically-rigorous technique that protects the collaboration data from the member
-who can receive results learning about a specific individual.
+A mathematically-rigorous technique that protects the collaboration data from the member who can receive results learning about a specific individual.
 
 ## Encryption
+<a name="glossary-encryption"></a>
 
-The process of encoding data into a form that appears random using a secret value called a
-key. It's impossible to determine the original plaintext without access to the key.
+The process of encoding data into a form that appears random using a secret value called a key. It's impossible to determine the original plaintext without access to the key.
 
 ## Fingerprint column
+<a name="glossary-fingerprint-column"></a>
 
-A column that is cryptographically protected for a JOIN SQL
-construct.
+A column that is cryptographically protected for a JOIN SQL construct.
 
 ## ID mapping workflow method
+<a name="glossary-id-mapping-method"></a>
 
-How you want the ID mapping to be performed.
+How you want the ID mapping to be performed. 
 
 There are two ID mapping workflow methods:
++ Rule-based ID mapping – The method by which you use matching rules to translate first-party data from a source to a target in an ID mapping workflow.
++ Provider services ID mapping – The method by which you use a provider service to translate third party-encoded data from a source to a target in an ID mapping workflow.
 
-- Rule-based ID mapping – The method by which you use matching rules to translate
-  first-party data from a source to a target in an ID mapping workflow.
-- Provider services ID mapping – The method by which you use a provider service
-  to translate third party-encoded data from a source to a target in an ID mapping
-  workflow.
-
-AWS Clean Rooms currently supports LiveRamp as the provider services-based ID mapping workflow
-method. You must have a subscription to LiveRamp through AWS Data Exchange to use this method. For
-more information, see [Subscribe to a provider service on AWS Data Exchange](../../../entityresolution/latest/userguide/prepare-third-party-input-data.md#subscribe-provider-service "../../../entityresolution/latest/userguide/prepare-third-party-input-data.md#subscribe-provider-service") in the _AWS Entity Resolution User Guide._
+  AWS Clean Rooms currently supports LiveRamp as the provider services-based ID mapping workflow method. You must have a subscription to LiveRamp through AWS Data Exchange to use this method. For more information, see [Subscribe to a provider service on AWS Data Exchange](https://docs.aws.amazon.com/entityresolution/latest/userguide/prepare-third-party-input-data.html#subscribe-provider-service) in the *AWS Entity Resolution User Guide.*
 
 ## ID mapping table
+<a name="glossary-id-mapping-table"></a>
 
-A resource in AWS Clean Rooms that enables either first-party matching rules or multi-party identity
-transcoding in a collaboration.
+A resource in AWS Clean Rooms that enables either first-party matching rules or multi-party identity transcoding in a collaboration.
 
-A ID mapping table is a reference to an existing table in the AWS Glue Data Catalog. It contains an
-[ID mapping table analysis
-rule](#glossary-id-mapping-table-analysis-rule "#glossary-id-mapping-table-analysis-rule") that determines how the data can be queried in AWS Clean Rooms. ID mapping tables can be
-associated to one or more collaborations.
+A ID mapping table is a reference to an existing table in the AWS Glue Data Catalog. It contains an [ID mapping table analysis rule](#glossary-id-mapping-table-analysis-rule) that determines how the data can be queried in AWS Clean Rooms. ID mapping tables can be associated to one or more collaborations.
 
 ## ID mapping table analysis rule
+<a name="glossary-id-mapping-table-analysis-rule"></a>
 
-A type of analysis rule managed by AWS Clean Rooms and used to join disparate identity
-data to facilitate querying. It's automatically added to [ID mapping
-tables](#glossary-id-mapping-table "#glossary-id-mapping-table") and can't be edited. It inherits the behaviors of the other analysis rules in
-the collaboration – as long as those analysis rules are homogeneous.
+A type of analysis rule managed by AWS Clean Rooms and used to join disparate identity data to facilitate querying. It's automatically added to [ID mapping tables](#glossary-id-mapping-table) and can't be edited. It inherits the behaviors of the other analysis rules in the collaboration – as long as those analysis rules are homogeneous.
 
 ## ID mapping workflow
+<a name="glossary-id-mapping-workflow"></a>
 
-A data processing job that maps data from a source to a target based on the specified
-[ID
-mapping workflow method](#glossary-id-mapping-method "#glossary-id-mapping-method"). It produces an [ID mapping table](#glossary-id-mapping-table "#glossary-id-mapping-table").
+A data processing job that maps data from a source to a target based on the specified [ID mapping workflow method](#glossary-id-mapping-method). It produces an [ID mapping table](#glossary-id-mapping-table). 
 
 ## ID namespace
+<a name="glossary-id-namespace"></a>
 
-A resource in AWS Clean Rooms that contains metadata explaining datasets across multiple
-AWS accounts and how to use these datasets in an [ID
-mapping workflow](#glossary-id-mapping-workflow "#glossary-id-mapping-workflow").
+A resource in AWS Clean Rooms that contains metadata explaining datasets across multiple AWS accounts and how to use these datasets in an [ID mapping workflow](#glossary-id-mapping-workflow).
 
 ## ID namespace association
+<a name="glossary-id-namespace-association"></a>
 
-An association of an ID namespace resource that helps you discover inputs into their [ID
-mapping workflow](#glossary-id-mapping-workflow "#glossary-id-mapping-workflow").
+An association of an ID namespace resource that helps you discover inputs into their [ID mapping workflow](#glossary-id-mapping-workflow).
 
 ## Intermediate table
+<a name="glossary-intermediate-table"></a>
 
-A collaboration-scoped resource in AWS Clean Rooms that caches analysis results within a
-collaboration for reuse in subsequent analyses. Intermediate tables store data in AWS
-managed storage and are not exported outside the collaboration.
+A collaboration-scoped resource in AWS Clean Rooms that caches analysis results within a collaboration for reuse in subsequent analyses. Intermediate tables store data in AWS managed storage and are not exported outside the collaboration.
 
 ## Job
+<a name="glossary-job"></a>
 
-A method to access and analyze configured tables in a collaboration using a supported set
-of functions, classes, and variables.
+A method to access and analyze configured tables in a collaboration using a supported set of functions, classes, and variables. 
 
-AWS Clean Rooms currently supports the PySpark job type.
+AWS Clean Rooms currently supports the PySpark job type. 
 
 AWS Clean Rooms currently supports running jobs using a PySpark analysis template.
 
 ## List analysis rule
+<a name="glossary-list-analysis-rule"></a>
 
-The query restriction that allows queries that output row-level attribute analysis of the
-overlap between this table and the tables of the member who can query.
+The query restriction that allows queries that output row-level attribute analysis of the overlap between this table and the tables of the member who can query.
 
 Supports use cases such as enrichment and audience building or suppression.
 
-Other types of analysis rules are [aggregation](#glossary-agg-analysis-rule "#glossary-agg-analysis-rule") and [custom](#glossary-custom-analysis-rule "#glossary-custom-analysis-rule").
+Other types of analysis rules are [aggregation](#glossary-agg-analysis-rule) and [custom](#glossary-custom-analysis-rule).
 
 ## Lookalike model
+<a name="glossary-lookalike-model"></a>
 
-A model of a training data provider's data that allows a seed data provider to create a
-[lookalike segment](#glossary-lookalike-segment "#glossary-lookalike-segment") of training data provider's data that most closely resembles their
-[seed data](#glossary-seed-data "#glossary-seed-data").
+A model of a training data provider's data that allows a seed data provider to create a [lookalike segment](#glossary-lookalike-segment) of training data provider's data that most closely resembles their [seed data](#glossary-seed-data). 
 
 ## Lookalike segment
+<a name="glossary-lookalike-segment"></a>
 
-A subset of the training data that most closely resembles the [seed data](#glossary-seed-data "#glossary-seed-data").
+A subset of the training data that most closely resembles the [seed data](#glossary-seed-data).
 
 ## Member
+<a name="glossary-member"></a>
 
-An AWS customer who is a participant in a [collaboration](#glossary-collaboration "#glossary-collaboration").
+An AWS customer who is a participant in a [collaboration](#glossary-collaboration). 
 
-A member is identified using their AWS account.
+A member is identified using their AWS account. 
 
 All members can contribute data.
 
 ## Member who can query
+<a name="glossary-member-who-can-query"></a>
 
-The member who can query data in the [collaboration](#glossary-collaboration "#glossary-collaboration").
+The member who can query data in the [collaboration](#glossary-collaboration). 
 
-There is only one member who can query per collaboration, and that member is
-immutable.
+There is only one member who can query per collaboration, and that member is immutable.
 
-An administrative user can use AWS Identity and Access Management (IAM) permissions to control which of their
-IAM principals (such as users or roles) can query data in the collaboration. For more
-information, see [Create a service role to read data from Amazon S3](setting-up-roles.md#create-service-role-procedure "setting-up-roles.md#create-service-role-procedure").
+An administrative user can use AWS Identity and Access Management (IAM) permissions to control which of their IAM principals (such as users or roles) can query data in the collaboration. For more information, see [Create a service role to read data from Amazon S3](setting-up-roles.md#create-service-role-procedure).
 
 ## Member who can run queries and jobs
+<a name="glossary-member-who-can-run-queries-jobs"></a>
 
-The member who can run queries and jobs on the data in the [collaboration](#glossary-collaboration "#glossary-collaboration").
+The member who can run queries and jobs on the data in the [collaboration](#glossary-collaboration). 
 
-There is only one member who can run queries and jobs per collaboration, and that member
-is immutable.
+There is only one member who can run queries and jobs per collaboration, and that member is immutable.
 
-An administrative user can use AWS Identity and Access Management (IAM) permissions to control which of their
-IAM principals (such as users or roles) can run queries and jobs in the collaboration. For
-more information, see [Create a service role to read data from Amazon S3](setting-up-roles.md#create-service-role-procedure "setting-up-roles.md#create-service-role-procedure").
+An administrative user can use AWS Identity and Access Management (IAM) permissions to control which of their IAM principals (such as users or roles) can run queries and jobs in the collaboration. For more information, see [Create a service role to read data from Amazon S3](setting-up-roles.md#create-service-role-procedure).
 
 ## Member who can receive results
+<a name="glossary-member-who-can-receive-results"></a>
 
-A member who can receive query results. A member who can receive results specifies query
-results settings for the Amazon S3 destination and the query result format (CSV or Parquet).
+A member who can receive query results. A member who can receive results specifies query results settings for the Amazon S3 destination and the query result format (CSV or Parquet).
 
-For analyses with the Spark analytics engine, a member who can receive results also
-specifies whether files should be output as a single file or as multiple files.
+For analyses with the Spark analytics engine, a member who can receive results also specifies whether files should be output as a single file or as multiple files.
 
 There can be more than one member who can receive results in a collaboration.
 
 ## Member paying for query compute costs
+<a name="glossary-member-paying-for-query-compute"></a>
 
 A member who is responsible for paying for query compute costs.
 
-One or more members can be designated as payer candidates for query compute costs in a
-collaboration. When running a query, the member who initiates the query selects which payer
-candidate pays for the compute costs.
+One or more members can be designated as payer candidates for query compute costs in a collaboration. When running a query, the member who initiates the query selects which payer candidate pays for the compute costs.
 
-The collaboration creator can update payer configurations after the collaboration is
-created by submitting a change request.
+The collaboration creator can update payer configurations after the collaboration is created by submitting a change request.
 
-The member paying for query compute costs receives a bill for the queries that have been
-run in the collaboration.
+The member paying for query compute costs receives a bill for the queries that have been run in the collaboration.
 
 ## Member paying for query and job compute costs
+<a name="glossary-member-paying-for-query-job-compute"></a>
 
 A member who is responsible for paying for query and job compute costs.
 
-One or more members can be designated as payer candidates for query and job compute costs
-in a collaboration. When running a query or job, the member who initiates selects which payer
-candidate pays for the compute costs.
+One or more members can be designated as payer candidates for query and job compute costs in a collaboration. When running a query or job, the member who initiates selects which payer candidate pays for the compute costs.
 
-The collaboration creator can update payer configurations after the collaboration is
-created by submitting a change request.
+The collaboration creator can update payer configurations after the collaboration is created by submitting a change request.
 
-The member paying for query and job compute costs receives a bill for the queries that
-have been run in the collaboration.
+The member paying for query and job compute costs receives a bill for the queries that have been run in the collaboration.
 
 ## Membership
+<a name="glossary-membership"></a>
 
-A resource created when a [member](#glossary-member "#glossary-member") joins a [collaboration](#glossary-collaboration "#glossary-collaboration").
+A resource created when a [member](#glossary-member) joins a [collaboration](#glossary-collaboration).
 
-All resources that the member associates to a collaboration are a part of the membership
-or are associated with the membership.
+All resources that the member associates to a collaboration are a part of the membership or are associated with the membership.
 
-Only the member that owns the membership can add, remove, or edit resources in that
-membership.
+Only the member that owns the membership can add, remove, or edit resources in that membership.
 
 ## Sealed column
+<a name="glossary-sealed-columns"></a>
 
-A column that is cryptographically protected for a SELECT SQL
-construct.
+A column that is cryptographically protected for a SELECT SQL construct.
 
 ## Seed data
+<a name="glossary-seed-data"></a>
 
-The seed data provider's data, which is used to create a [lookalike
-segment](#glossary-lookalike-segment "#glossary-lookalike-segment"). The seed data can be provided directly or it can come from the results of an
-AWS Clean Rooms query. The lookalike segment output is a set of users from the training data that most
-closely resembles the seed users.
+The seed data provider's data, which is used to create a [lookalike segment](#glossary-lookalike-segment). The seed data can be provided directly or it can come from the results of an AWS Clean Rooms query. The lookalike segment output is a set of users from the training data that most closely resembles the seed users.
 
 ## Spark analytics engine
+<a name="glossary-spark-analytics-engine"></a>
 
-An analytics option in AWS Clean Rooms that enables customers to run complex queries on large
-datasets stored in Amazon S3, Amazon Athena, or Snowflake using Apache Spark SQL functions. It also supports PySpark analysis in AWS Clean Rooms.
+An analytics option in AWS Clean Rooms that enables customers to run complex queries on large datasets stored in Amazon S3, Amazon Athena, or Snowflake using Apache Spark SQL functions. It also supports PySpark analysis in AWS Clean Rooms.
 
-When you create a collaboration using the [CreateCollaboration
-API](../apireference/API_CreateCollaboration.md "../apireference/API_CreateCollaboration.md"), the value of the Spark analytics engine is `SPARK`.
+When you create a collaboration using the [CreateCollaboration API](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html), the value of the Spark analytics engine is `SPARK`.
 
 ## Query
+<a name="glossary-query"></a>
 
-A method to access and analyze configured tables in a collaboration, using a supported set
-of functions, classes, and variables.
+A method to access and analyze configured tables in a collaboration, using a supported set of functions, classes, and variables. 
 
-AWS Clean Rooms currently supports the SQL query language.
+AWS Clean Rooms currently supports the SQL query language. 
 
-AWS Clean Rooms currently supports running direct SQL queries or running queries using a SQL
-analysis template.
+AWS Clean Rooms currently supports running direct SQL queries or running queries using a SQL analysis template.

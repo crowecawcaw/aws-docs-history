@@ -1,276 +1,250 @@
+
+
 # Editing collaborations
+<a name="edit-collaboration"></a>
 
 As a collaboration creator, you can edit the different parts of a collaboration.
 
-For information about how to edit a collaboration using the AWS SDKs, see the _[AWS
-Clean Rooms API Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
+For information about how to edit a collaboration using the AWS SDKs, see the *[AWS Clean Rooms API Reference](https://docs.aws.amazon.com/clean-rooms/latest/apireference/Welcome.html)*.
 
-###### Topics
-
-- [Edit collaboration name and description](#edit-name-descrip "#edit-name-descrip")
-- [Update collaboration analytics engine](#change-collab-analytics-engine "#change-collab-analytics-engine")
-- [Turn off log storage](#turn-off-log-storage "#turn-off-log-storage")
-- [Edit collaboration logs settings](#edit-logs-settings "#edit-logs-settings")
-- [Edit collaboration tags](#edit-collab-tags "#edit-collab-tags")
-- [Edit membership tags](#edit-membership-tags "#edit-membership-tags")
-- [Add a new member](#add-new-member "#add-new-member")
-- [Edit existing member abilities](#edit-member-abilities "#edit-member-abilities")
-- [Edit collaboration auto-approval settings](#edit-auto-approval "#edit-auto-approval")
-- [Edit associated table tags](#edit-associated-table-tags "#edit-associated-table-tags")
-- [Edit analysis template tags](#edit-analysis-template-tags "#edit-analysis-template-tags")
-- [Edit differential privacy policy tags](#edit-dp-policy-tags "#edit-dp-policy-tags")
+**Topics**
++ [Edit collaboration name and description](#edit-name-descrip)
++ [Update collaboration analytics engine](#change-collab-analytics-engine)
++ [Turn off log storage](#turn-off-log-storage)
++ [Edit collaboration logs settings](#edit-logs-settings)
++ [Edit collaboration tags](#edit-collab-tags)
++ [Edit membership tags](#edit-membership-tags)
++ [Add a new member](#add-new-member)
++ [Edit existing member abilities](#edit-member-abilities)
++ [Edit collaboration auto-approval settings](#edit-auto-approval)
++ [Edit associated table tags](#edit-associated-table-tags)
++ [Edit analysis template tags](#edit-analysis-template-tags)
++ [Edit differential privacy policy tags](#edit-dp-policy-tags)
 
 ## Edit collaboration name and description
+<a name="edit-name-descrip"></a>
 
-After you create the collaboration, you can only edit the collaboration name and
-description.
+After you create the collaboration, you can only edit the collaboration name and description.
 
-###### To edit the collaboration name and description
+**To edit the collaboration name and description**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. On the collaboration detail page, choose **Actions**, and
-   then choose **Edit collaboration**.
-5. On the **Edit collaboration** page, for
-   **Details**, edit the **Name** and
-   **Description** of the collaboration.
-6. Choose **Save changes**.
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home).
+
+1. In the left navigation pane, choose **Collaborations**.
+
+1. Choose the collaboration that you created.
+
+1. On the collaboration detail page, choose **Actions**, and then choose **Edit collaboration**. 
+
+1. On the **Edit collaboration** page, for **Details**, edit the **Name** and **Description** of the collaboration.
+
+1. Choose **Save changes**.
 
 ## Update collaboration analytics engine
+<a name="change-collab-analytics-engine"></a>
 
-After you create the collaboration, you can change the analytics engine from AWS Clean Rooms SQL
-to Spark.
+After you create the collaboration, you can change the analytics engine from AWS Clean Rooms SQL to Spark.
 
-###### Note
+**Note**  
+Changing the analytics engine from AWS Clean Rooms SQL to Spark might break existing workflows.
 
-Changing the analytics engine from AWS Clean Rooms SQL to Spark might break existing
-workflows.
+**To update the collaboration analytics engine**
 
-###### To update the collaboration analytics engine
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. On the collaboration detail page, choose **Actions**, and
-   then choose **Edit collaboration**.
-5. Choose **Save changes**.
+1. In the left navigation pane, choose **Collaborations**.
+
+1. Choose the collaboration that you created.
+
+1. On the collaboration detail page, choose **Actions**, and then choose **Edit collaboration**. 
+
+1. Choose **Save changes**.
 
 ## Turn off log storage
+<a name="turn-off-log-storage"></a>
 
-If you have enabled **Analysis logging**, you can edit whether the
-analysis logs are stored in your Amazon CloudWatch Logs account.
+If you have enabled **Analysis logging**, you can edit whether the analysis logs are stored in your Amazon CloudWatch Logs account.
 
-###### To turn off log storage
+**To turn off log storage**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that has analysis logging turned on.
-4. On the collaboration detail page, choose **Actions**, and
-   then choose **Turn off log storage**.
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-###### Note
+1. In the left navigation pane, choose **Collaborations**.
 
-A warning appears, indicating the following:
+1. Choose the collaboration that has analysis logging turned on.
 
-    * New queries will no longer be logged to your CloudWatch
-     account.
-    * Existing logs will be preserved according to your current
-     retention settings.
-    * If you reactivate logging in the future, it will only apply to
-     queries made after reactivation.
-    * This change affects only your logs - other team members' logging
-     settings remain unchanged.
+1. On the collaboration detail page, choose **Actions**, and then choose **Turn off log storage**. 
+**Note**  
+A warning appears, indicating the following:  
+New queries will no longer be logged to your CloudWatch account.
+Existing logs will be preserved according to your current retention settings.
+If you reactivate logging in the future, it will only apply to queries made after reactivation.
+This change affects only your logs - other team members' logging settings remain unchanged.
 
-5. Choose **Turn off**.
+1. Choose **Turn off**.
 
 ## Edit collaboration logs settings
+<a name="edit-logs-settings"></a>
 
-If you have enabled **Query logging**, you can edit whether the query
-logs are stored in your Amazon CloudWatch Logs account.
+If you have enabled **Query logging**, you can edit whether the query logs are stored in your Amazon CloudWatch Logs account.
 
-###### To edit collaboration logs settings
+**To edit collaboration logs settings**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. On the collaboration detail page, do one of the following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-   - Choose **Actions**, and then choose **Edit
-     logs settings**.
-   - On the **Logs** tab, choose **Edit logs
-     settings**.
+1. In the left navigation pane, choose **Collaborations**.
 
-5. On the **Edit logs settings modal**, for **Log
-   storage in Amazon CloudWatch Logs**:
+1. Choose the collaboration that you created.
 
-   - If you don't want logs relevant to you to be stored in your Amazon CloudWatch Logs
-     account, choose **Turn oﬀ**.
-   - If you do want logs relevant to you to be stored in your Amazon CloudWatch Logs
-     account, choose **Turn on**.
+1. On the collaboration detail page, do one of the following:
+   + Choose **Actions**, and then choose **Edit logs settings**. 
+   + On the **Logs** tab, choose **Edit logs settings**.
 
-   You can only receive logs for queries that you initiated or that
-   contain you data.
+1. On the **Edit logs settings modal**, for **Log storage in Amazon CloudWatch Logs**:
+   + If you don't want logs relevant to you to be stored in your Amazon CloudWatch Logs account, choose **Turn oﬀ**.
+   + If you do want logs relevant to you to be stored in your Amazon CloudWatch Logs account, choose **Turn on**.
 
-   The member who can receive results also receives logs for all queries
-   run in a collaboration, even if their data isn't accessed in a
-   query.
+     You can only receive logs for queries that you initiated or that contain you data.
 
-        1. Under **Supported log types**, choose from
-         the log types the collaboration creator has chosen to
-         support:
+     The member who can receive results also receives logs for all queries run in a collaboration, even if their data isn't accessed in a query.
 
+     1. Under **Supported log types**, choose from the log types the collaboration creator has chosen to support:
+        + If you want to receive logs generated from SQL queries, choose the **Logs from queries** checkbox.
+        + If you want to receive logs generated from jobs using PySpark, choose the **Logs from jobs** checkbox.
 
+1. Choose **Save changes**.
 
-
-        	+ If you want to receive logs generated from SQL
-        	 queries, choose the **Logs from
-        	 queries** checkbox.
-        	+ If you want to receive logs generated from jobs using
-        	 PySpark, choose the **Logs from jobs**
-        	 checkbox.
-
-6. Choose **Save changes**.
-
-###### Note
-
-After you turn on logging, it can take a few minutes for log storage to be set up
-and start receiving logs in Amazon CloudWatch Logs. During this brief period, the
-member who can query might run queries that don’t actually send logs.
+**Note**  
+After you turn on logging, it can take a few minutes for log storage to be set up and start receiving logs in Amazon CloudWatch Logs. During this brief period, the member who can query might run queries that don’t actually send logs.
 
 ## Edit collaboration tags
+<a name="edit-collab-tags"></a>
 
-As a collaboration creator, after you have created a collaboration, you can manage the
-tags on the collaboration resource.
+As a collaboration creator, after you have created a collaboration, you can manage the tags on the collaboration resource.
 
-###### To edit the collaboration tags
+**To edit the collaboration tags**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. Choose one of the following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-| If you are...                                                      | Then ...                                         |
-| ------------------------------------------------------------------ | ------------------------------------------------ |
-| The collaboration creator and a member of the<br>collaboration     | Choose the *_Details_<br>• tab.                  |
-| The collaboration creator but not a member of the<br>collaboration | Scroll down the page to the **Tags**<br>section. |
+1. In the left navigation pane, choose **Collaborations**.
 
-5. For **Collaboration details**, choose **Manage
-   tags**.
-6. On the **Manage tags** page, you can do the following:
+1. Choose the collaboration that you created.
 
-   - To remove a tag, choose **Remove**.
-   - To add a tag, choose **Add new tag**.
-   - To save your changes, choose **Save changes**
+1. Choose one of the following:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/edit-collaboration.html)
+
+1. For **Collaboration details**, choose **Manage tags**.
+
+1. On the **Manage tags** page, you can do the following:
+   + To remove a tag, choose **Remove**.
+   + To add a tag, choose **Add new tag**.
+   + To save your changes, choose **Save changes**
 
 ## Edit membership tags
+<a name="edit-membership-tags"></a>
 
-As a collaboration creator, after you have created a collaboration, you can manage the
-tags on the membership resource.
+As a collaboration creator, after you have created a collaboration, you can manage the tags on the membership resource.
 
-###### To edit the membership tags
+**To edit the membership tags**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. Choose the **Details** tab.
-5. For **Membership details**, choose **Manage
-   tags**.
-6. On the **Manage membership tags** page, you can do the
-   following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-   - To remove a tag, choose **Remove**.
-   - To add a tag, choose **Add new tag**.
-   - To save your changes, choose **Save changes**.
+1. In the left navigation pane, choose **Collaborations**.
+
+1. Choose the collaboration that you created.
+
+1. Choose the **Details** tab.
+
+1. For **Membership details**, choose **Manage tags**.
+
+1. On the **Manage membership tags** page, you can do the following:
+   + To remove a tag, choose **Remove**.
+   + To add a tag, choose **Add new tag**.
+   + To save your changes, choose **Save changes**.
 
 ## Add a new member
+<a name="add-new-member"></a>
 
-For more information, see [Add a new member to a collaboration](change-requests.md#add-new-member-change-request "change-requests.md#add-new-member-change-request").
+For more information, see [Add a new member to a collaboration](change-requests.md#add-new-member-change-request).
 
 ## Edit existing member abilities
+<a name="edit-member-abilities"></a>
 
-For more information, see [Update member abilities](change-requests.md#update-member-abilities-change-request "change-requests.md#update-member-abilities-change-request").
+For more information, see [Update member abilities](change-requests.md#update-member-abilities-change-request).
 
 ## Edit collaboration auto-approval settings
+<a name="edit-auto-approval"></a>
 
-For more information, see [Edit collaboration auto-approval settings](change-requests.md#edit-auto-approval-settings "change-requests.md#edit-auto-approval-settings").
+For more information, see [Edit collaboration auto-approval settings](change-requests.md#edit-auto-approval-settings).
 
 ## Edit associated table tags
+<a name="edit-associated-table-tags"></a>
 
-As a collaboration creator, after you associate tables to a collaboration, you can
-manage the tags on the associated table resource.
+As a collaboration creator, after you associate tables to a collaboration, you can manage the tags on the associated table resource.
 
-###### To edit the associated table tags
+**To edit the associated table tags**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. Choose the **Tables** tab.
-5. For **Tables associated by you**, choose a table.
-6. On the configured table detail page, for **Tags**, choose
-   **Manage tags**.
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-On the **Manage tags** page, you can do the following:
+1. In the left navigation pane, choose **Collaborations**.
 
-    * To remove a tag, choose **Remove**.
-    * To add a tag, choose **Add new tag**.
-    * To save your changes, choose **Save changes**.
+1. Choose the collaboration that you created.
+
+1. Choose the **Tables** tab.
+
+1. For **Tables associated by you**, choose a table.
+
+1. On the configured table detail page, for **Tags**, choose **Manage tags**.
+
+   On the **Manage tags** page, you can do the following:
+   + To remove a tag, choose **Remove**.
+   + To add a tag, choose **Add new tag**.
+   + To save your changes, choose **Save changes**.
 
 ## Edit analysis template tags
+<a name="edit-analysis-template-tags"></a>
 
-As a collaboration creator, after you have created a collaboration, you can manage the
-tags on the analysis template resource.
+As a collaboration creator, after you have created a collaboration, you can manage the tags on the analysis template resource.
 
-###### To edit the membership tags
+**To edit the membership tags**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that you created.
-4. Choose the **Templates** tab.
-5. On the **Analysis templates created by you** section, choose
-   the analysis template.
-6. On the analysis template table detail page, scroll down to the
-   **Tags** section.
-7. Choose **Manage tags**.
-8. On the **Manage tags** page, you can do the following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-   - To remove a tag, choose **Remove**.
-   - To add a tag, choose **Add new tag**.
-   - To save your changes, choose **Save changes**.
+1. In the left navigation pane, choose **Collaborations**.
+
+1. Choose the collaboration that you created.
+
+1. Choose the **Templates** tab.
+
+1. On the **Analysis templates created by you** section, choose the analysis template.
+
+1. On the analysis template table detail page, scroll down to the **Tags** section.
+
+1. Choose **Manage tags**.
+
+1. On the **Manage tags** page, you can do the following:
+   + To remove a tag, choose **Remove**.
+   + To add a tag, choose **Add new tag**.
+   + To save your changes, choose **Save changes**.
 
 ## Edit differential privacy policy tags
+<a name="edit-dp-policy-tags"></a>
 
-As a collaboration creator, after you have created a collaboration, you can manage the
-tags on the analysis template resource.
+As a collaboration creator, after you have created a collaboration, you can manage the tags on the analysis template resource.
 
-###### To edit the membership tags
+**To edit the membership tags**
 
-1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-   haven't yet done so).
-2. In the left navigation pane, choose
-   **Collaborations**.
-3. Choose the collaboration that contains the differential privacy policy you
-   want to edit.
-4. Choose the **Tables** tab.
-5. On the **Tables** tab, choose the **Manage
-   tags**.
-6. On the **Manage tags** page, you can do the following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).
 
-   - To remove a tag, choose **Remove**.
-   - To add a tag, choose **Add new tag**.
-   - To save your changes, choose **Save changes**.
+1. In the left navigation pane, choose **Collaborations**.
+
+1. Choose the collaboration that contains the differential privacy policy you want to edit.
+
+1. Choose the **Tables** tab.
+
+1. On the **Tables** tab, choose the **Manage tags**.
+
+1. On the **Manage tags** page, you can do the following:
+   + To remove a tag, choose **Remove**.
+   + To add a tag, choose **Add new tag**.
+   + To save your changes, choose **Save changes**.

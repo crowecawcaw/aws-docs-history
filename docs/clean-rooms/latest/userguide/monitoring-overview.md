@@ -1,33 +1,12 @@
+
+
 # Monitoring AWS Clean Rooms
+<a name="monitoring-overview"></a>
 
-Monitoring is an important part of maintaining the reliability, availability, and
-performance of AWS Clean Rooms and your other AWS solutions. AWS provides the following
-monitoring tools to watch AWS Clean Rooms, report when something is wrong, and take automatic actions
-when appropriate:
+Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Clean Rooms and your other AWS solutions. AWS provides the following monitoring tools to watch AWS Clean Rooms, report when something is wrong, and take automatic actions when appropriate:
++ *Amazon CloudWatch Logs* enables you to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, and other sources. Amazon CloudWatch Logs can monitor information in the log files and notify you when certain thresholds are met. You can also archive your log data in highly durable storage. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/).
 
-- _Amazon CloudWatch Logs_ enables you to monitor, store, and access your log files
-  from Amazon EC2 instances, AWS CloudTrail, and other sources. Amazon CloudWatch Logs can monitor information in the
-  log files and notify you when certain thresholds are met. You can also archive your log data
-  in highly durable storage. For more information, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md").
-
-Clean Rooms ML allows cross-account jobs for certain API actions. The AWS account that
-started the job receives the AWS CloudTrail audit log event for the job. For more information, see
-[IAM behaviors for AWS Clean Rooms ML](ml-behaviors.md "ml-behaviors.md")
-
-- _AWS CloudTrail_ captures API calls and related events made by or on behalf
-  of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can
-  identify which users and accounts called AWS, the source IP address from which the calls
-  were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
-- _Amazon EventBridge_ is a serverless event bus service that makes it easy to
-  connect your applications with data from a variety of sources. EventBridge delivers a stream of
-  real-time data from your own applications, Software-as-a-Service (SaaS) applications, and
-  AWS services and routes that data to targets such as Lambda. This enables you to monitor
-  events that happen in services, and build event-driven architectures. For more information,
-  see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md") and the [Amazon EventBridge
-  Events Reference](../../../eventbridge/latest/ref/events-ref-cleanrooms.md "../../../eventbridge/latest/ref/events-ref-cleanrooms.md").
-- _AWS Billing and Cost Management_ is a service that provides features to help you pay
-  your bills and optimize your costs. Amazon Web Services bills your account based on usage,
-  ensuring that you pay only for what you use. AWS also enables you to apply [cost
-  allocation tags](../../../awsaccountbilling/latest/aboutv2/custom-tags.md "../../../awsaccountbilling/latest/aboutv2/custom-tags.md") to your resources to track and categorize your AWS costs. For
-  example, in AWS Clean Rooms, you can apply tags to collaboration memberships to track costs
-  per collaboration. For more information, see the [AWS Billing User Guide](../../../awsaccountbilling/latest/aboutv2.md "../../../awsaccountbilling/latest/aboutv2.md").
+  Clean Rooms ML allows cross-account jobs for certain API actions. The AWS account that started the job receives the AWS CloudTrail audit log event for the job. For more information, see [IAM behaviors for AWS Clean Rooms ML](ml-behaviors.md)
++ *AWS CloudTrail* captures API calls and related events made by or on behalf of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
++ *Amazon EventBridge* is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources. EventBridge delivers a stream of real-time data from your own applications, Software-as-a-Service (SaaS) applications, and AWS services and routes that data to targets such as Lambda. This enables you to monitor events that happen in services, and build event-driven architectures. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/) and the [Amazon EventBridge Events Reference](https://docs.aws.amazon.com/eventbridge/latest/ref/events-ref-cleanrooms.html).
++ *AWS Billing and Cost Management* is a service that provides features to help you pay your bills and optimize your costs. Amazon Web Services bills your account based on usage, ensuring that you pay only for what you use. AWS also enables you to apply [cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/custom-tags.html) to your resources to track and categorize your AWS costs. For example, in AWS Clean Rooms, you can apply tags to collaboration memberships to track costs per collaboration. For more information, see the [AWS Billing User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/). 
