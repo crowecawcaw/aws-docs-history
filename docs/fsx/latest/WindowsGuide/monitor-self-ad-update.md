@@ -1,61 +1,51 @@
+
+
 # Monitoring self-managed Active Directory updates
+<a name="monitor-self-ad-update"></a>
 
-You can monitor the progress of a self-managed Active Directory configuration update using the AWS Management Console, the API,
-or the AWS CLI, as described in the following procedures.
+You can monitor the progress of a self-managed Active Directory configuration update using the AWS Management Console, the API, or the AWS CLI, as described in the following procedures.
 
-When you update your file system's self-managed Active Directory configuration,
-the file system's state switches from **Available** to
-**Updating** while the update is applied. Once the update is complete, the state
-switches back to **Available**. An Active Directory configuration update
-can take up to several minutes to complete.
+When you update your file system's self-managed Active Directory configuration, the file system's state switches from **Available** to **Updating** while the update is applied. Once the update is complete, the state switches back to **Available**. An Active Directory configuration update can take up to several minutes to complete.
 
-In the **Updates** tab in the **File system details**
-window, you can view the 10 most recent updates for each update type.
+## Monitoring updates in the console
+<a name="monitor-self-ad-update-action-console"></a>
 
-![Console screen shot showing recent updates list.](images/fs-updates-panel.png)
+In the **Updates** tab in the **File system details** window, you can view the 10 most recent updates for each update type.
+
+![Console screen shot showing recent updates list.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
+
 
 For self-managed Active Directory updates, you can view the following information.
 
-****Update type****
+****Update type****  
+Supported types are as follows:  
++ DNS server IP address
++ Service account credentials
 
-Supported types are as follows:
+****Target value****  
+The desired value to update the file system property to. For **Service account credentials** updates, only the user name is shown, service account passwords are never included in this field.
 
-- DNS server IP address
-- Service account credentials
+****Status****  
+The current status of the update. For self-managed Active Directory updates, the possible values are as follows:  
++ **Pending** – Amazon FSx has received the update request, but has not started processing it.
++ **In progress** – Amazon FSx is processing the update request.
++ **Completed** – The file system update completed successfully.
++ **Failed** – The file system update failed. Choose the question mark (**?**) to see details about the failure.
 
-****Target value****
-
-The desired value to update the file system property to. For **Service account credentials**
-updates, only the user name is shown, service account passwords are never included in this field.
-
-****Status****
-
-The current status of the update. For self-managed Active Directory updates, the possible values are as follows:
-
-- **Pending** – Amazon FSx has received the update request, but has not
-  started processing it.
-- **In progress** – Amazon FSx is processing the update request.
-- **Completed** – The file system update completed
-  successfully.
-- **Failed** – The file system update failed. Choose the question
-  mark (**?**) to see details about the failure.
-
-****Progress %****
-
+****Progress %****  
 Displays the progress of the file system update as percent complete.
 
-****Request time****
-
+****Request time****  
 The time that Amazon FSx received the update action request.
 
-You can view and monitor file system update requests that are in progress using the [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command and the [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API action. The `AdministrativeActions`
-array lists the 10 most recent update actions for each administrative action type.
+## Monitoring updates using the AWS CLI and API
+<a name="monitor-self-ad-update-action-cli-api"></a>
 
-The following example shows an excerpt of the response of a
-**describe-file-systems** CLI command. The output shows two self-managed Active Directory file system updates.
+You can view and monitor file system update requests that are in progress using the [describe-file-systems](https://docs.aws.amazon.com/cli/latest/reference/fsx/describe-file-systems.html) AWS CLI command and the [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) API action. The `AdministrativeActions` array lists the 10 most recent update actions for each administrative action type. 
+
+The following example shows an excerpt of the response of a **describe-file-systems** CLI command. The output shows two self-managed Active Directory file system updates. 
 
 ```
-
         {
             "OwnerId": "111122223333",
             .
@@ -70,7 +60,7 @@ The following example shows an excerpt of the response of a
                     "TargetFileSystemValues": {
                         "WindowsConfiguration": {
                             "SelfManagedActiveDirectoryConfiguration": {
-                                "UserName": "`serviceUser`",
+                                "UserName": "{{serviceUser}}",
                             }
                         }
                     }
@@ -89,7 +79,7 @@ The following example shows an excerpt of the response of a
                         }
                     },
                     "FailureDetails": {
-                        "Message": "`Failure details message`."
+                        "Message": "{{Failure details message}}."
                     }
                 }
             ],

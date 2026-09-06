@@ -1,205 +1,112 @@
+
+
 # Logging end user access with file access auditing
+<a name="file-access-auditing"></a>
 
-Amazon FSx for Windows File Server supports auditing end-user access to files, folders,
-and file shares. You can choose to send a file system's audit event logs to other
-AWS services that offer a rich set of features. These include the enabling querying, processing, storing and archiving logs, issuing
-notifications, and triggering actions to further advance your security and
-compliance goals.
+Amazon FSx for Windows File Server supports auditing end-user access to files, folders, and file shares. You can choose to send a file system's audit event logs to other AWS services that offer a rich set of features. These include the enabling querying, processing, storing and archiving logs, issuing notifications, and triggering actions to further advance your security and compliance goals.
 
-For more information about using file access auditing to get insights into access patterns
-and implement security notifications for end user activity, see [File storage access patterns insights](https://aws.amazon.com/blogs/storage/file-storage-access-patterns-insights-using-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/file-storage-access-patterns-insights-using-amazon-fsx-for-windows-file-server/")
-and [Implementing security notifications for end user activity](https://aws.amazon.com/blogs/modernizing-with-aws/implementing-security-notifications-for-end-user-activity-on-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/modernizing-with-aws/implementing-security-notifications-for-end-user-activity-on-amazon-fsx-for-windows-file-server/").
+For more information about using file access auditing to get insights into access patterns and implement security notifications for end user activity, see [File storage access patterns insights](https://aws.amazon.com/blogs/storage/file-storage-access-patterns-insights-using-amazon-fsx-for-windows-file-server/) and [Implementing security notifications for end user activity](https://aws.amazon.com/blogs/modernizing-with-aws/implementing-security-notifications-for-end-user-activity-on-amazon-fsx-for-windows-file-server/).
 
-###### Note
+**Note**  
+File access auditing is supported only on FSx for Windows file systems with a throughput capacity of 32 MBps or greater. You can modify the throughput capacity on existing file systems. For more information, see [Managing throughput capacity](managing-throughput-capacity.md).
 
-File access auditing is supported only on FSx for Windows file systems with
-a throughput capacity of 32 MBps or greater. You
-can modify the throughput capacity on existing file systems. For more information, see
-[Managing throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md").
+File access auditing enables you to record end-user accesses of individual files, folders, and file shares based on your defined audit controls. Audit controls are also known as NTFS system access control lists (SACLs). If you already have audit controls set up on your existing file data, you can take advantage of file access auditing by creating a new Amazon FSx for Windows File Server file system and migrating your data.
 
-File access auditing enables you to record end-user accesses of
-individual files, folders, and file shares based on your defined
-audit controls. Audit controls are also known as NTFS system access
-control lists (SACLs). If you already have audit controls
-set up on your existing file data, you can take advantage of file access
-auditing by creating a new Amazon FSx for Windows File Server file system and migrating
-your data.
+Amazon FSx supports the following Windows audit events for file, folder, and file share accesses:
++ For file accesses, it supports: All, Traverse folder / Execute file, List folder / Read data, Read attributes, Create files / Write data, Create folders / Append data, Write attributes, Delete subfolders and files, Delete, Read permissions, Change permissions, and Take ownership.
++ For file share accesses, it supports: Connect to a file share.
 
-Amazon FSx supports the following Windows audit events
-for file, folder, and file share accesses:
+Across file, folder, and file share accesses, Amazon FSx supports logging of successful attempts (such as a user with sufficient permissions successfully accessing a file or file share), failed attempts, or both.
 
-- For file accesses, it supports: All, Traverse folder / Execute file,
-  List folder / Read data, Read attributes, Create files / Write data,
-  Create folders / Append data, Write attributes, Delete subfolders and files,
-  Delete, Read permissions, Change permissions, and Take ownership.
-- For file share accesses, it supports: Connect to a file share.
-  Across file, folder, and file share accesses, Amazon FSx supports logging of
-  successful attempts (such as a user with sufficient permissions successfully
-  accessing a file or file share), failed attempts, or both.
+You can configure whether you want access auditing only on files and folders, only on file shares, or both. You can also configure which types of accesses should be logged (successful attempts only, failed attempts only, or both). You can also turn off file access auditing at any time.
 
-You can configure whether you want access auditing only on files and folders,
-only on file shares, or both. You can also configure which types of accesses
-should be logged (successful attempts only, failed attempts only, or both). You can
-also turn off file access auditing at any time.
+**Note**  
+File access auditing records end-user access data only from the time it is enabled. That is, file access auditing doesn't generate audit event logs of end-user file, folder, and file share access activity that occurred before file access auditing was enabled.
 
-###### Note
+The maximum rate of access audit events supported is 5,000 events per second. Access audit events are not generated for each file read and write operation, but generated once per file metadata operation, such as when a user creates, opens, or deletes a file.
 
-File access auditing records end-user access data only from the time
-it is enabled. That is, file access auditing doesn't generate audit event logs
-of end-user file, folder, and file share access activity that occurred before
-file access auditing was enabled.
-
-The maximum rate of access audit events supported is 5,000 events per second.
-Access audit events are not generated for each file read and write operation,
-but generated once per file metadata operation, such as when a user creates, opens,
-or deletes a file.
-
-###### Topics
-
-- [Audit event log destinations](#faa-log-destinations "#faa-log-destinations")
-- [Migrating your audit controls](#migrate-faa "#migrate-faa")
-- [Viewing event logs](#view-faa-logs "#view-faa-logs")
-- [Setting file and folder auditing controls](faa-audit-controls.md "faa-audit-controls.md")
-- [Managing file access auditing](manage-faa.md "manage-faa.md")
+**Topics**
++ [Audit event log destinations](#faa-log-destinations)
++ [Migrating your audit controls](#migrate-faa)
++ [Viewing event logs](#view-faa-logs)
++ [Setting file and folder auditing controls](faa-audit-controls.md)
++ [Managing file access auditing](manage-faa.md)
 
 ## Audit event log destinations
+<a name="faa-log-destinations"></a>
 
-When you enable file access auditing, you must configure an AWS service to which
-Amazon FSx sends the audit event logs. You can send audit event logs
-to either an Amazon CloudWatch Logs log stream in a CloudWatch Logs log group or an Amazon Data Firehose
-delivery stream. You choose the audit event logs destination either when you create your
-Amazon FSx for Windows File Server file system, or anytime after by updating an existing file system.
-For more information, see
-[Managing file access auditing](manage-faa.md "manage-faa.md").
+When you enable file access auditing, you must configure an AWS service to which Amazon FSx sends the audit event logs. You can send audit event logs to either an Amazon CloudWatch Logs log stream in a CloudWatch Logs log group or an Amazon Data Firehose delivery stream. You choose the audit event logs destination either when you create your Amazon FSx for Windows File Server file system, or anytime after by updating an existing file system. For more information, see [Managing file access auditing](manage-faa.md).
 
-Following are some recommendations that may help you decide which audit event logs
-destination to choose:
+Following are some recommendations that may help you decide which audit event logs destination to choose: 
++ Choose CloudWatch Logs if you want to store, view, and search audit event logs in the Amazon CloudWatch console, run queries on the logs using CloudWatch Logs Insights, and trigger CloudWatch alarms or Lambda functions.
++ Choose Amazon Data Firehose if you want to continuously stream events to storage in Amazon S3, to a database in Amazon Redshift, to Amazon OpenSearch Service, or to AWS Partner solutions such as Splunk or Datadog for further analysis.
 
-- Choose CloudWatch Logs if you want to store, view, and search audit event logs in the
-  Amazon CloudWatch console, run queries on the logs using CloudWatch Logs Insights, and trigger
-  CloudWatch alarms or Lambda functions.
-- Choose Amazon Data Firehose if you want to continuously stream events to storage in Amazon S3,
-  to a database in Amazon Redshift, to Amazon OpenSearch Service, or to AWS Partner solutions such as Splunk or Datadog
-  for further analysis.
+By default, Amazon FSx will create and use a default CloudWatch Logs log group in your account as the audit event log destination. If you want to use a custom CloudWatch Logs log group or use Firehose as the audit event log destination, here are the requirements for the names and locations of the audit event log destination:
++ The name of the CloudWatch Logs log group must begin with the `/aws/fsx/` prefix. If you don't have an existing CloudWatch Logs log group when you create or update a file system on the console, Amazon FSx can create and use a default log stream in the CloudWatch Logs `/aws/fsx/windows` log group. If you don't want to use the default log group, the configuration UI lets you create a CloudWatch Logs log group when you create or update your file system on the console.
++ The name of the Firehose delivery stream must begin with the `aws-fsx-` prefix. If you don't have an existing Firehose delivery stream, you can create one when you create or update your file system at the console.
++ The Firehose delivery stream must be configured to use `Direct PUT` as its source. You cannot use an existing Kinesis data stream as a data source for your delivery stream.
++ The destination (either CloudWatch Logs log group or Firehose delivery stream) must be in the same AWS partition, AWS Region, and AWS account as your Amazon FSx file system.
 
-By default, Amazon FSx will create and use a default CloudWatch Logs log group in your account
-as the audit event log destination. If you want to use a custom CloudWatch Logs log group or use
-Firehose as the audit event log destination, here are the requirements for the names and
-locations of the audit event log destination:
-
-- The name of the CloudWatch Logs log group must begin with the
-  `/aws/fsx/` prefix. If you don't have an
-  existing CloudWatch Logs log group when you create or update a file
-  system on the console, Amazon FSx can create and use a default log stream in
-  the CloudWatch Logs `/aws/fsx/windows` log group. If you don't
-  want to use the default log group, the configuration UI lets
-  you create a CloudWatch Logs log group when you create or update
-  your file system on the console.
-- The name of the Firehose delivery stream must begin with the
-  `aws-fsx-` prefix. If you don't have an existing
-  Firehose delivery stream, you can create one when you create or update
-  your file system at the console.
-- The Firehose delivery stream must be configured to use
-  `Direct PUT` as its source. You cannot use an existing
-  Kinesis data stream as a data source for your delivery stream.
-- The destination (either CloudWatch Logs log group or Firehose delivery
-  stream) must be in the same AWS partition, AWS Region,
-  and AWS account as your Amazon FSx file system.
-
-You can change the audit event log destination at any
-time (for example, from CloudWatch Logs to Firehose). When you do so, new audit
-event logs are sent only to the new destination.
+You can change the audit event log destination at any time (for example, from CloudWatch Logs to Firehose). When you do so, new audit event logs are sent only to the new destination.
 
 ### Best effort audit event log delivery
+<a name="faa-log-delivery"></a>
 
-Typically, audit event log records are delivered to the destination in minutes, but can
-sometimes take longer. On very rare occasions, audit event log records might
-be missed. If your use case requires particular semantics (for example,
-ensuring that no audit events are missed), we recommend that you account
-for missed events when designing your workflows. You can audit for missed
-events by scanning the file and folder structure on your file system.
+Typically, audit event log records are delivered to the destination in minutes, but can sometimes take longer. On very rare occasions, audit event log records might be missed. If your use case requires particular semantics (for example, ensuring that no audit events are missed), we recommend that you account for missed events when designing your workflows. You can audit for missed events by scanning the file and folder structure on your file system.
 
 ## Migrating your audit controls
+<a name="migrate-faa"></a>
 
-If you have audit controls (SACLs) already set up on your existing file data, you can
-create an Amazon FSx file system and migrate your data to your new file system. We recommend
-using AWS DataSync to transfer data and the associated SACLs to your Amazon FSx file system. As an
-alternative solution, you can use Robocopy (Robust File Copy). For more information, see
-[Migrating existing file storage to Amazon FSx](migrate-to-fsx.md "migrate-to-fsx.md").
+If you have audit controls (SACLs) already set up on your existing file data, you can create an Amazon FSx file system and migrate your data to your new file system. We recommend using AWS DataSync to transfer data and the associated SACLs to your Amazon FSx file system. As an alternative solution, you can use Robocopy (Robust File Copy). For more information, see [Migrating existing file storage to Amazon FSx](migrate-to-fsx.md).
 
 ## Viewing event logs
+<a name="view-faa-logs"></a>
 
-You can view the audit event logs after Amazon FSx has started emitting them. Where and how you view
-the logs depends on the audit event log destination:
+You can view the audit event logs after Amazon FSx has started emitting them. Where and how you view the logs depends on the audit event log destination: 
++ You can view CloudWatch Logs logs by going to the CloudWatch console and choosing the log group and log stream to which your audit event logs are sent. For more information, see [ View log data sent to CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*. 
 
-- You can view CloudWatch Logs logs by going to the CloudWatch console and choosing the log
-  group and log stream to which your audit event logs are sent. For more information,
-  see [View log data sent to CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch Logs User Guide_.
+  You can use CloudWatch Logs Insights to interactively search and analyze your log data. For more information, see [ Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html), in the *Amazon CloudWatch Logs User Guide*.
 
-You can use CloudWatch Logs Insights to interactively search and analyze your log data.
-For more information, see
-[Analyzing Log Data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md"), in the _Amazon CloudWatch Logs User Guide_.
-
-You can also export the audit event logs to Amazon S3. For more information, see
-[Exporting Log Data to Amazon S3](../../../AmazonCloudWatch/latest/logs/S3Export.md "../../../AmazonCloudWatch/latest/logs/S3Export.md"), also in the _Amazon CloudWatch Logs User Guide_.
-
-- You can't view the audit event logs on Firehose. However, you can configure Firehose to forward
-  the logs to a destination that you can read from. The destinations include Amazon S3, Amazon Redshift, Amazon OpenSearch Service,
-  and partner solutions such as Splunk and Datadog, For more information, see
-  [Choose destination](../../../firehose/latest/dev/create-destination.md "../../../firehose/latest/dev/create-destination.md") in the _Amazon Data Firehose Developer Guide_.
+  You can also export the audit event logs to Amazon S3. For more information, see [ Exporting Log Data to Amazon S3](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html), also in the *Amazon CloudWatch Logs User Guide*.
++ You can't view the audit event logs on Firehose. However, you can configure Firehose to forward the logs to a destination that you can read from. The destinations include Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and partner solutions such as Splunk and Datadog, For more information, see [Choose destination ](https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html) in the *Amazon Data Firehose Developer Guide*.
 
 ### Audit event fields
+<a name="faa-event-data"></a>
 
-This section provides descriptions of the information in audit event logs
-and examples of audit events.
+This section provides descriptions of the information in audit event logs and examples of audit events.
 
 Following are descriptions of the salient fields in a Windows audit event.
++ **EventID** refers to the Microsoft-defined Windows event log event ID. See Microsoft documentation for information on [file system events](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-file-system) and [file share events](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-file-share).
++ **SubjectUserName** refers to the user performing the access.
++ **ObjectName** refers to the target file, folder, or file share that was accessed.
++ **ShareName** is available for events that are generated for file share access. For example, `EventID 5140` is generated when a network share object was accessed.
++ **IpAddress** refers to the client that initiated the event for file share events.
++ **Keywords**, when available, refer to whether the file access was successful or a failure. For successful accesses, the value is `0x8020000000000000`. For failed accesses, the value is `0x8010000000000000`.
++ **TimeCreated SystemTime** refers to the time the event was generated in the system and shown in <YYYY-MM-DDThh:mm:ss.s>Z format.
++ **Computer** refers to the DNS name of the file system Windows Remote PowerShell Endpoint and can be used to identify the file system.
++ **AccessMask**, when available, refers to the type of file access performed (for example, ReadData, WriteData).
++ **AccessList** refers to requested or granted access to an Object. For details, see the table below and Microsoft documentation (such as in [Event 4556](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656)).
 
-- **EventID** refers to the Microsoft-defined Windows event
-  log event ID. See Microsoft documentation for information on
-  [file system events](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-file-system "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-file-system")
-  and [file share events](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-file-share "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-file-share").
-- **SubjectUserName** refers to the user performing the access.
-- **ObjectName** refers to the target file, folder, or file share
-  that was accessed.
-- **ShareName** is available for events that are generated for
-  file share access. For example, `EventID 5140` is generated when a
-  network share object was accessed.
-- **IpAddress** refers to the client that initiated the
-  event for file share events.
-- **Keywords**, when available, refer to whether the file access was
-  successful or a failure. For successful accesses, the value is `0x8020000000000000`.
-  For failed accesses, the value is `0x8010000000000000`.
-- **TimeCreated SystemTime** refers to the time the event was generated
-  in the system and shown in <YYYY-MM-DDThh:mm:ss.s>Z format.
-- **Computer** refers to the DNS name of the file system
-  Windows Remote PowerShell Endpoint and can be used to identify the file system.
-- **AccessMask**, when available, refers to the type of file access
-  performed (for example, ReadData, WriteData).
-- **AccessList** refers to requested or granted access to an Object.
-  For details, see the table below and Microsoft documentation (such as in
-  [Event 4556](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656 "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656")).
 
-| Access Type                     | Access Mask | Value  |
-| ------------------------------- | ----------- | ------ |
-| Read Data or List Directory     | 0x1         | %%4416 |
-| Write Data or Add File          | 0x2         | %%4417 |
-| Append Data or Add Subdirectory | 0x4         | %%4418 |
-| Read Extended Attributes        | 0x8         | %%4419 |
-| Write Extended Attributes       | 0x10        | %%4420 |
-| Execute/Traverse                | 0x20        | %%4421 |
-| Delete Child                    | 0x40        | %%4422 |
-| Read Attributes                 | 0x80        | %%4423 |
-| Write Attributes                | 0x100       | %%4424 |
-| Delete                          | 0x10000     | %%1537 |
-| Read ACL                        | 0x20000     | %%1538 |
-| Write ACL                       | 0x40000     | %%1539 |
-| Write Owner                     | 0x80000     | %%1540 |
-| Synchronize                     | 0x100000    | %%1541 |
-| Access Security ACL             | 0x1000000   | %%1542 |
+| Access Type | Access Mask | Value | 
+| --- | --- | --- | 
+| Read Data or List Directory | 0x1 | %%4416 | 
+| Write Data or Add File | 0x2 | %%4417 | 
+| Append Data or Add Subdirectory | 0x4 | %%4418 | 
+| Read Extended Attributes | 0x8 | %%4419 | 
+| Write Extended Attributes | 0x10 | %%4420 | 
+| Execute/Traverse | 0x20 | %%4421 | 
+| Delete Child | 0x40 | %%4422 | 
+| Read Attributes | 0x80 | %%4423 | 
+| Write Attributes | 0x100 | %%4424 | 
+| Delete | 0x10000 | %%1537 | 
+| Read ACL | 0x20000 | %%1538 | 
+| Write ACL | 0x40000 | %%1539 | 
+| Write Owner | 0x80000 | %%1540 | 
+| Synchronize | 0x100000 | %%1541 | 
+| Access Security ACL | 0x1000000 | %%1542 | 
 
-Following are some key events with examples. Note that the XML is formatted
-for readability.
+Following are some key events with examples. Note that the XML is formatted for readability.
 
 **Event ID 4660** is logged when an object is deleted.
 
@@ -239,8 +146,7 @@ for readability.
 <Data Name='ProcessId'>0x4</Data></EventData></Event>
 ```
 
-**Event ID 4663** is logged when a specific operation was performed on the object.
-The following example shows reading data from a file, which can be interpreted from `AccessList %%4416`.
+**Event ID 4663** is logged when a specific operation was performed on the object. The following example shows reading data from a file, which can be interpreted from `AccessList %%4416`.
 
 ```
 <Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
@@ -278,9 +184,7 @@ The following example shows write/append data from a file, which can be interpre
 <Data Name='ProcessName'></Data><Data Name='ResourceAttributes'>S:AI</Data></EventData></Event>
 ```
 
-**Event ID 4656** indicates that a specific access was requested for an object.
-In the following example, the Read request was initiated to ObjectName "permtest" and was a failed attempt, as seen
-in the Keywords value of `0x8010000000000000`.
+**Event ID 4656** indicates that a specific access was requested for an object. In the following example, the Read request was initiated to ObjectName "permtest" and was a failed attempt, as seen in the Keywords value of `0x8010000000000000`.
 
 ```
 <Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
@@ -305,10 +209,7 @@ in the Keywords value of `0x8010000000000000`.
 <Data Name='ResourceAttributes'>-</Data></EventData></Event>
 ```
 
-**Event ID 4670** is logged when permissions for an object are changed. The following example
-shows that user "admin" modified the permission on ObjectName "permtest" to add permissions to
-SID "S-1-5-21-658495921-4185342820-3824891517-1113". Refer to Microsoft documentation for more information
-on how to interpret the permissions.
+**Event ID 4670** is logged when permissions for an object are changed. The following example shows that user "admin" modified the permission on ObjectName "permtest" to add permissions to SID "S-1-5-21-658495921-4185342820-3824891517-1113". Refer to Microsoft documentation for more information on how to interpret the permissions.
 
 ```
 <Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
@@ -346,8 +247,7 @@ S-1-5-21-658495921-4185342820-3824891517-2622)</Data><Data Name='ProcessId'>0x4<
 				</Data></EventData></Event>
 ```
 
-**Event ID 5145** is logged when access is denied at the file share level.
-The following example shows access to ShareName "demoshare01" was denied.
+**Event ID 5145** is logged when access is denied at the file share level. The following example shows access to ShareName "demoshare01" was denied.
 
 ```
 <Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
@@ -367,22 +267,18 @@ The following example shows access to ShareName "demoshare01" was denied.
 %%1804 %%1541: %%1805 %%4416: %%1805 %%4419: %%1805 %%4423: %%1805 </Data></EventData></Event>
 ```
 
-If you use CloudWatch Logs Insights to search your log data, you can run queries on the event fields,
-as shown by the following examples:
+If you use CloudWatch Logs Insights to search your log data, you can run queries on the event fields, as shown by the following examples:
++ To query for a specific event ID:
 
-- To query for a specific event ID:
+  ```
+  fields @message
+     | filter @message like /4660/
+  ```
++ To query all events matching a particular file name:
 
-```
-fields @message
-   | filter @message like /4660/
-```
+  ```
+  fields @message
+     | filter @message like /event.txt/
+  ```
 
-- To query all events matching a particular file name:
-
-```
-fields @message
-   | filter @message like /event.txt/
-```
-
-For more information on the CloudWatch Logs Insights query language, see
-[Analyzing Log Data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md"), in the _Amazon CloudWatch Logs User Guide_.
+ For more information on the CloudWatch Logs Insights query language, see [ Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html), in the *Amazon CloudWatch Logs User Guide*.
