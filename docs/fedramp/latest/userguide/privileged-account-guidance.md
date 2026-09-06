@@ -1,48 +1,59 @@
+
+
 # Privileged Account Guidance
+<a name="privileged-account-guidance"></a>
 
 This guide provides security configuration for privileged account access.
 
-**Important Disclaimer**: This document provides AWS recommended practices and guidance only. It does not constitute legal, compliance, or regulatory advice. Organizations are solely responsible for determining their compliance requirements and implementing appropriate controls. AWS makes no warranties or representations regarding FedRAMP compliance or the adequacy of these recommendations for any specific use case. AWS services and features evolve rapidly. Customers should verify current service capabilities and limitations through official AWS documentation before implementation.
+ **Important Disclaimer**: This document provides AWS recommended practices and guidance only. It does not constitute legal, compliance, or regulatory advice. Organizations are solely responsible for determining their compliance requirements and implementing appropriate controls. AWS makes no warranties or representations regarding FedRAMP compliance or the adequacy of these recommendations for any specific use case. AWS services and features evolve rapidly. Customers should verify current service capabilities and limitations through official AWS documentation before implementation.
 
-**Command and Configuration Disclaimer**: All AWS CLI commands, API calls, and configuration examples provided in this document are for illustrative purposes only. Organizations must validate all commands and configurations in non-production environments before implementation. AWS CLI commands may require specific IAM permissions, resource names, and parameter values that must be customized for each environment. Always refer to the latest AWS CLI documentation and service-specific guides for current syntax and available options.
+ **Command and Configuration Disclaimer**: All AWS CLI commands, API calls, and configuration examples provided in this document are for illustrative purposes only. Organizations must validate all commands and configurations in non-production environments before implementation. AWS CLI commands may require specific IAM permissions, resource names, and parameter values that must be customized for each environment. Always refer to the latest AWS CLI documentation and service-specific guides for current syntax and available options.
 
 ## Document Information
+<a name="privileged_account_guidancedocument_information"></a>
 
-|              |            |
-| ------------ | ---------- |
-| Version      | 1.0.2      |
-| Last Updated | 2026-03-26 |
+
+|  |  | 
+| --- |--- |
+| Version | 1.0.2 | 
+| Last Updated | 2026-03-26 | 
 
 ## FedRAMP Requirements
+<a name="privileged_account_guidancefedramp_requirements"></a>
 
 ## SCG-CSO-RSC: Recommended Secure Configuration - Part 3
+<a name="privileged_account_guidancescg_cso_rsc_recommended_secure_configuration_part_3"></a>
 
 ✓ RECOMMENDED - Recommended for all FedRAMP services
 
-**OSCAL Control ID: SCG-CSO-RSC**
-**UUID: scg-cso-rsc-control**
+ **OSCAL Control ID: SCG-CSO-RSC** **UUID: scg-cso-rsc-control** 
 
 ## Requirement
+<a name="privileged_account_guidancerequirement"></a>
 
 This guidance addresses Part 3 of SCG-CSO-RSC: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
 
 Providers MUST create, maintain, and make available recommendations for securely configuring their cloud services (the Secure Configuration Guide) that includes at least the following information:
 
-1. **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
-2. **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
-3. **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
+1.  **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+
+1.  **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
+
+1.  **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
 
 ### Component Implementation (OSCAL)
+<a name="privileged_account_guidancecomponent_implementation_oscal"></a>
 
-**Component UUID**: iam-privileged-component-003
+ **Component UUID**: iam-privileged-component-003
 
-**Component Type**: Account
+ **Component Type**: Account
 
-**Control Implementation**: AC-2 (Account Management), AC-3 (Access Enforcement), AC-6 (Least Privilege), IA-2 (Identification and Authentication), IA-5 (Authenticator Management)
+ **Control Implementation**: AC-2 (Account Management), AC-3 (Access Enforcement), AC-6 (Least Privilege), IA-2 (Identification and Authentication), IA-5 (Authenticator Management)
 
-**Implementation Status**: Implemented
+ **Implementation Status**: Implemented
 
 ## Executive Summary
+<a name="privileged_account_guidanceexecutive_summary"></a>
 
 This guidance provides AWS recommended practices for managing privileged accounts and security-related settings that require elevated permissions in AWS environments. Privileged accounts control critical security configurations and require enhanced controls, monitoring, and governance to support FedRAMP compliance considerations. This guidance demonstrates how to implement granular privilege delegation by use case categories, helping organizations avoid broad administrative roles and reduce potential security impact.
 
@@ -50,51 +61,51 @@ This document covers security-related settings that can only be operated by priv
 
 The term "account: in these guides is not an isolated AWS account, but rather a pattern of usage and application to segregation of duties as applied to users in AWS. These are typically assigned via Users, Groups or roles.
 
-**Key Coverage Areas**:
+ **Key Coverage Areas**:
 
-**Privileged Account Classification**: Defines security, network, infrastructure, and database administration account types with specific responsibilities and risk levels.
+ **Privileged Account Classification**: Defines security, network, infrastructure, and database administration account types with specific responsibilities and risk levels.
 
-**Privileged-Only Security Settings**: Explains AWS configurations that require privileged access, including Service Control Policies, organization-wide security services, and cross-account trust relationships.
+ **Privileged-Only Security Settings**: Explains AWS configurations that require privileged access, including Service Control Policies, organization-wide security services, and cross-account trust relationships.
 
-**Security Implications Analysis**: Details the blast radius, recovery complexity, and compliance considerations for each privileged setting.
+ **Security Implications Analysis**: Details the blast radius, recovery complexity, and compliance considerations for each privileged setting.
 
-**Access Management Framework**: Provides just-in-time access, break-glass procedures, and comprehensive monitoring for privileged operations.
+ **Access Management Framework**: Provides just-in-time access, break-glass procedures, and comprehensive monitoring for privileged operations.
 
-**Compliance and Governance**: Offers automated compliance checking, regular access reviews, and incident response integration for privileged account management.
+ **Compliance and Governance**: Offers automated compliance checking, regular access reviews, and incident response integration for privileged account management.
 
 ## Privileged Account Classification
+<a name="privileged_account_guidanceprivileged_account_classification"></a>
 
 This section defines the primary types of privileged accounts in AWS environments, their specific responsibilities, risk levels, and security requirements. The examples below provide an approach that provides segregation of duties, but would also apply to any user granted the AWS Managed Administrator policy that has unrestricted access to AWS resources.
 
 ### Security Administration Accounts
+<a name="privileged_account_guidancesecurity_administration_accounts"></a>
 
 This subsection covers accounts responsible for managing security services, policies, and compliance configurations across AWS environments.
 
-**Purpose**: Manage security services, policies, and compliance configurations
+ **Purpose**: Manage security services, policies, and compliance configurations
 
-**Risk Level**: Critical - Can modify security controls and access policies
+ **Risk Level**: Critical - Can modify security controls and access policies
 
-**Responsibilities and Permissions**:
+ **Responsibilities and Permissions**:
++  **AWS IAM Management**: Create, modify, and delete IAM users, roles, and policies
++  **AWS CloudTrail**: Configure audit logging, modify trail settings, and manage log integrity
++  **AWS Config**: Deploy and manage configuration rules, remediation actions, and compliance reporting
++  **AWS Security Hub**: Manage security findings, configure integrations, and customize standards
++  **Amazon GuardDuty**: Configure threat detection, manage findings, and set up automated responses
++  **AWS KMS**: Manage encryption keys, key policies, and cryptographic operations
 
-- **AWS IAM Management**: Create, modify, and delete IAM users, roles, and policies
-- **AWS CloudTrail**: Configure audit logging, modify trail settings, and manage log integrity
-- **AWS Config**: Deploy and manage configuration rules, remediation actions, and compliance reporting
-- **AWS Security Hub**: Manage security findings, configure integrations, and customize standards
-- **Amazon GuardDuty**: Configure threat detection, manage findings, and set up automated responses
-- **AWS KMS**: Manage encryption keys, key policies, and cryptographic operations
+ **Security Requirements** 
++  **Multi-Factor Authentication**: Hardware security keys (FIDO2) required for all security admin accounts
++  **Session Duration**: Maximum 4-hour session duration with re-authentication required
++  **IP Restrictions**: Access limited to corporate, trusted network ranges and approved VPN endpoints
++  **Time-based Access**: Consider restricting access to business hours unless emergency procedures are invoked
 
-**Security Requirements**
-
-- **Multi-Factor Authentication**: Hardware security keys (FIDO2) required for all security admin accounts
-- **Session Duration**: Maximum 4-hour session duration with re-authentication required
-- **IP Restrictions**: Access limited to corporate, trusted network ranges and approved VPN endpoints
-- **Time-based Access**: Consider restricting access to business hours unless emergency procedures are invoked
-
-**Example IAM Policy (Security Administrator)**:
+ **Example IAM Policy (Security Administrator)**:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -129,92 +140,85 @@ This subsection covers accounts responsible for managing security services, poli
 ```
 
 ### Network Administration Accounts
+<a name="privileged_account_guidancenetwork_administration_accounts"></a>
 
 This subsection covers accounts responsible for managing network infrastructure, connectivity, and network security controls.
 
-**Purpose**: Manage network infrastructure, connectivity, and security controls
-**Risk Level**: High - Can modify network security controls and connectivity
+ **Purpose**: Manage network infrastructure, connectivity, and security controls **Risk Level**: High - Can modify network security controls and connectivity
 
-**Responsibilities and Permissions**:
+ **Responsibilities and Permissions**:
++  **Amazon VPC**: Create and modify VPCs, subnets, route tables, and network ACLs
++  **Security Groups**: Configure firewall rules and network access controls
++  **AWS Direct Connect**: Manage dedicated network connections and virtual interfaces
++  **AWS Transit Gateway**: Configure inter-VPC and on-premises connectivity
++  **AWS Network Firewall**: Deploy and manage stateful network security controls
++  **Amazon Route 53**: Manage DNS configurations and health checks
 
-- **Amazon VPC**: Create and modify VPCs, subnets, route tables, and network ACLs
-- **Security Groups**: Configure firewall rules and network access controls
-- **AWS Direct Connect**: Manage dedicated network connections and virtual interfaces
-- **AWS Transit Gateway**: Configure inter-VPC and on-premises connectivity
-- **AWS Network Firewall**: Deploy and manage stateful network security controls
-- **Amazon Route 53**: Manage DNS configurations and health checks
-
-**Security Controls**:
-
-- **Change Management**: All network changes require approval through formal change control process
-- **Backup Configurations**: Automated backup of network configurations before changes
-- **Testing Requirements**: Network changes must be tested in non-production environments first
-- **Rollback Procedures**: Documented rollback procedures for all network modifications
+ **Security Controls**:
++  **Change Management**: All network changes require approval through formal change control process
++  **Backup Configurations**: Automated backup of network configurations before changes
++  **Testing Requirements**: Network changes must be tested in non-production environments first
++  **Rollback Procedures**: Documented rollback procedures for all network modifications
 
 ### Infrastructure Administration Accounts
+<a name="privileged_account_guidanceinfrastructure_administration_accounts"></a>
 
 This subsection covers accounts responsible for managing compute resources, storage, and system-level configurations.
 
-**Purpose**: Manage compute resources, storage, and system-level configurations
-**Risk Level**: High - Can access and modify system resources and data
+ **Purpose**: Manage compute resources, storage, and system-level configurations **Risk Level**: High - Can access and modify system resources and data
 
-**Responsibilities and Permissions**:
+ **Responsibilities and Permissions**:
++  **Amazon EC2**: Launch, terminate, and modify EC2 instances and associated resources
++  **Amazon EBS**: Create, attach, and manage encrypted storage volumes
++  **AWS Systems Manager**: Execute commands, manage patches, and configure systems
++  **Amazon CloudWatch**: Configure monitoring, alarms, and log management
++  **AWS Lambda**: Deploy and manage serverless functions and execution roles
++  **Amazon S3**: Manage storage buckets, objects, and access policies
 
-- **Amazon EC2**: Launch, terminate, and modify EC2 instances and associated resources
-- **Amazon EBS**: Create, attach, and manage encrypted storage volumes
-- **AWS Systems Manager**: Execute commands, manage patches, and configure systems
-- **Amazon CloudWatch**: Configure monitoring, alarms, and log management
-- **AWS Lambda**: Deploy and manage serverless functions and execution roles
-- **Amazon S3**: Manage storage buckets, objects, and access policies
-
-**Privileged Access Management**:
-
-- **Session Manager**: Use AWS Systems Manager Session Manager for secure shell access
-- **Instance Profiles**: Assign minimal IAM roles to EC2 instances based on function
-- **Encryption Requirements**: All storage volumes and S3 buckets must use AWS KMS encryption
-- **Audit Logging**: Enable detailed CloudTrail logging for all system administration activities
+ **Privileged Access Management**:
++  **Session Manager**: Use AWS Systems Manager Session Manager for secure shell access
++  **Instance Profiles**: Assign minimal IAM roles to EC2 instances based on function
++  **Encryption Requirements**: All storage volumes and S3 buckets must use AWS KMS encryption
++  **Audit Logging**: Enable detailed CloudTrail logging for all system administration activities
 
 ### Database Administration Accounts
+<a name="privileged_account_guidancedatabase_administration_accounts"></a>
 
 This subsection covers accounts responsible for managing database services, configurations, and access controls with direct access to sensitive data.
 
-**Purpose**: Manage database services, configurations, and access controls
-**Risk Level**: Critical - Direct access to sensitive data and database configurations
+ **Purpose**: Manage database services, configurations, and access controls **Risk Level**: Critical - Direct access to sensitive data and database configurations
 
-**Database Services Coverage**
+ **Database Services Coverage** 
++  **Amazon RDS**: Relational database management (MySQL, PostgreSQL, Oracle, SQL Server)
++  **Amazon Aurora**: High-performance managed database clusters
++  **Amazon DynamoDB**: NoSQL database management and configuration
++  **Amazon ElastiCache**: In-memory caching services (Redis, Memcached)
++  **Amazon DocumentDB**: MongoDB-compatible document database
++  **Amazon Neptune**: Graph database for connected data applications
 
-- **Amazon RDS**: Relational database management (MySQL, PostgreSQL, Oracle, SQL Server)
-- **Amazon Aurora**: High-performance managed database clusters
-- **Amazon DynamoDB**: NoSQL database management and configuration
-- **Amazon ElastiCache**: In-memory caching services (Redis, Memcached)
-- **Amazon DocumentDB**: MongoDB-compatible document database
-- **Amazon Neptune**: Graph database for connected data applications
+ **Enhanced Security Controls** 
++  **Database Authentication**: Use IAM database authentication where supported
++  **Credential Management**: Store master credentials in AWS Secrets Manager with automatic rotation
++  **Network Isolation**: Deploy databases in private subnets with restrictive security groups
++  **Encryption at Rest**: Enable encryption for all database instances using customer-managed KMS keys
++  **Encryption in Transit**: Force SSL/TLS connections for all database communications
++  **Audit Logging**: Enable database audit logs and forward to CloudWatch Logs
 
-**Enhanced Security Controls**
+ **Example RDS Configuration with Enhanced Security** 
 
-- **Database Authentication**: Use IAM database authentication where supported
-- **Credential Management**: Store master credentials in AWS Secrets Manager with automatic rotation
-- **Network Isolation**: Deploy databases in private subnets with restrictive security groups
-- **Encryption at Rest**: Enable encryption for all database instances using customer-managed KMS keys
-- **Encryption in Transit**: Force SSL/TLS connections for all database communications
-- **Audit Logging**: Enable database audit logs and forward to CloudWatch Logs
-
-**Example RDS Configuration with Enhanced Security**
-
-**Create RDS instance with comprehensive security controls**
+ **Create RDS instance with comprehensive security controls** 
 
 This command creates a PostgreSQL database instance with multiple security layers to protect sensitive data and meet compliance requirements:
 
-**Security Features Explained:**
+ **Security Features Explained:** 
++  **Credential Management** (`--manage-master-user-password`, `--master-user-secret-kms-key-id`): Automatically stores the master password in AWS Secrets Manager with KMS encryption, eliminating the need to handle passwords directly and enabling automatic rotation
++  **Encryption at Rest** (`--storage-encrypted`, `--kms-key-id`): Encrypts all database storage using customer-managed KMS keys, providing control over encryption key policies and audit trails for data access
++  **Network Isolation** (`--vpc-security-group-ids`, `--db-subnet-group-name`): Deploys the database in private subnets with restrictive security groups, preventing direct internet access and limiting connections to authorized resources only
++  **Backup Protection** (`--backup-retention-period 30`, `--copy-tags-to-snapshot`): Maintains 30 days of automated backups with proper tagging for compliance tracking and disaster recovery
++  **Monitoring & Auditing** (`--enable-performance-insights`, `--enable-cloudwatch-logs-exports`): Enables comprehensive logging and performance monitoring with encrypted insights data for security analysis and troubleshooting
++  **Deletion Protection** (`--deletion-protection`): Prevents accidental database deletion, requiring explicit removal of this flag before the database can be deleted
 
-- **Credential Management** (`--manage-master-user-password`, `--master-user-secret-kms-key-id`): Automatically stores the master password in AWS Secrets Manager with KMS encryption, eliminating the need to handle passwords directly and enabling automatic rotation
-- **Encryption at Rest** (`--storage-encrypted`, `--kms-key-id`): Encrypts all database storage using customer-managed KMS keys, providing control over encryption key policies and audit trails for data access
-- **Network Isolation** (`--vpc-security-group-ids`, `--db-subnet-group-name`): Deploys the database in private subnets with restrictive security groups, preventing direct internet access and limiting connections to authorized resources only
-- **Backup Protection** (`--backup-retention-period 30`, `--copy-tags-to-snapshot`): Maintains 30 days of automated backups with proper tagging for compliance tracking and disaster recovery
-- **Monitoring & Auditing** (`--enable-performance-insights`, `--enable-cloudwatch-logs-exports`): Enables comprehensive logging and performance monitoring with encrypted insights data for security analysis and troubleshooting
-- **Deletion Protection** (`--deletion-protection`): Prevents accidental database deletion, requiring explicit removal of this flag before the database can be deleted
-
-**Why These Settings Matter for Security:**
+ **Why These Settings Matter for Security:** 
 
 These configurations implement defense-in-depth by combining encryption, access controls, monitoring, and operational safeguards. Together, they help prevent unauthorized access, detect security incidents, maintain audit trails, and ensure data can be recovered in case of failure or attack.
 
@@ -244,40 +248,39 @@ aws rds create-db-instance \
 ```
 
 ## Privileged-Only Security Settings
+<a name="privileged_account_guidanceprivileged_only_security_settings"></a>
 
 This section explains AWS security-related settings that can only be operated by privileged accounts, their security implications, and recommended management approaches.
 
 ### AWS Organizations Service Control Policies
+<a name="privileged_account_guidanceaws_organizations_service_control_policies"></a>
 
 This subsection covers organization-wide policy controls that can only be managed by privileged accounts in the management account.
 
-**Security Significance**: Service Control Policies act as guardrails for all accounts in the organization and can prevent or allow specific AWS service actions across the entire organization.
+ **Security Significance**: Service Control Policies act as guardrails for all accounts in the organization and can prevent or allow specific AWS service actions across the entire organization.
 
-**Privileged-Only Operations**
+ **Privileged-Only Operations** 
++ Create and modify Service Control Policies at the organization level
++ Attach SCPs to organizational units or individual member accounts
++ Enable and disable AWS service access organization-wide
++ Manage policy inheritance hierarchy and precedence rules
++ Configure policy exceptions and exemptions for specific accounts
 
-- Create and modify Service Control Policies at the organization level
-- Attach SCPs to organizational units or individual member accounts
-- Enable and disable AWS service access organization-wide
-- Manage policy inheritance hierarchy and precedence rules
-- Configure policy exceptions and exemptions for specific accounts
+ **Security Implications** 
++  **Immediate Impact**: SCP changes take effect immediately across all affected accounts
++  **Blast Radius**: Can affect hundreds or thousands of accounts simultaneously
++  **Recovery Complexity**: Overly restrictive SCPs may require root account access to resolve
++  **Compliance Considerations**: SCP changes may affect FedRAMP boundary definitions and control implementations
 
-**Security Implications**
+ **Implementation Requirements** 
++ Formal change management process for all SCP modifications
++ Testing in non-production organizational units before production deployment
++ Documentation of business justification for policy changes
++ Rollback procedures and emergency access protocols
 
-- **Immediate Impact**: SCP changes take effect immediately across all affected accounts
-- **Blast Radius**: Can affect hundreds or thousands of accounts simultaneously
-- **Recovery Complexity**: Overly restrictive SCPs may require root account access to resolve
-- **Compliance Considerations**: SCP changes may affect FedRAMP boundary definitions and control implementations
+ **Create Service Control Policy with security guardrails**:
 
-**Implementation Requirements**
-
-- Formal change management process for all SCP modifications
-- Testing in non-production organizational units before production deployment
-- Documentation of business justification for policy changes
-- Rollback procedures and emergency access protocols
-
-**Create Service Control Policy with security guardrails**:
-
-The example policy uses a sample IAM role of SecurityAdministratorRole to indicate you organizations security administrtor role that has far reaching access to your org. EmergencyAccessRole is a role your organization can adopt as a break-glass mechanism for access to AWS. AWS recommends implementing a break-glass mechanism to your AWS accounts in case of emergencies. Please read more in the [AWS DevOps Guidance docs](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md")
+The example policy uses a sample IAM role of SecurityAdministratorRole to indicate you organizations security administrtor role that has far reaching access to your org. EmergencyAccessRole is a role your organization can adopt as a break-glass mechanism for access to AWS. AWS recommends implementing a break-glass mechanism to your AWS accounts in case of emergencies. Please read more in the [AWS DevOps Guidance docs](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.html) 
 
 ```
 aws organizations create-policy \
@@ -285,7 +288,7 @@ aws organizations create-policy \
   --description "Prevent high-risk security actions" \
   --type SERVICE_CONTROL_POLICY \
   --content '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
       {
         "Effect": "Deny",
@@ -312,26 +315,25 @@ aws organizations create-policy \
 ```
 
 ### Cross-Account Trust Relationships
+<a name="privileged_account_guidancecross_account_trust_relationships"></a>
 
 This subsection covers IAM trust policies that enable cross-account access and can only be established by privileged accounts.
 
-**Security Significance**: Cross-account trust relationships enable resource sharing and centralized management but can create security vulnerabilities if misconfigured.
+ **Security Significance**: Cross-account trust relationships enable resource sharing and centralized management but can create security vulnerabilities if misconfigured.
 
-**Privileged-Only Operations**:
+ **Privileged-Only Operations**:
++ Create and modify IAM role trust policies for cross-account access
++ Establish trust relationships between AWS Organizations accounts
++ Configure external account trust for third-party integrations
++ Manage assume role permissions and conditions
 
-- Create and modify IAM role trust policies for cross-account access
-- Establish trust relationships between AWS Organizations accounts
-- Configure external account trust for third-party integrations
-- Manage assume role permissions and conditions
+ **Security Implications**:
++  **Immediate Impact**: Trust policy changes can immediately grant or revoke cross-account access
++  **Blast Radius**: Affects security boundaries between AWS accounts
++  **Recovery Complexity**: Broken trust relationships may require coordination across multiple accounts
++  **Compliance Considerations**: Cross-account access must align with data classification and access control requirements
 
-**Security Implications**:
-
-- **Immediate Impact**: Trust policy changes can immediately grant or revoke cross-account access
-- **Blast Radius**: Affects security boundaries between AWS accounts
-- **Recovery Complexity**: Broken trust relationships may require coordination across multiple accounts
-- **Compliance Considerations**: Cross-account access must align with data classification and access control requirements
-
-**Create secure cross-account trust relationship**
+ **Create secure cross-account trust relationship** 
 
 In this example the important factor is the ExternalID IAM condition that limits access to assume the role to only accounts that are allowed and provide the unique external ID.
 
@@ -339,7 +341,7 @@ In this example the important factor is the ExternalID IAM condition that limits
 aws iam create-role \
   --role-name CrossAccountSecurityRole \
   --assume-role-policy-document '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
       {
         "Effect": "Allow",
@@ -364,27 +366,26 @@ aws iam create-role \
 ```
 
 ### AWS KMS Key Policies and Administrative Access
+<a name="privileged_account_guidanceaws_kms_key_policies_and_administrative_access"></a>
 
 This subsection covers encryption key management operations that require privileged access to maintain data security.
 
-**Security Significance**: KMS key policies control access to encryption keys that protect sensitive data across AWS services.
+ **Security Significance**: KMS key policies control access to encryption keys that protect sensitive data across AWS services.
 
-**Privileged-Only Operations**
+ **Privileged-Only Operations** 
++ Create and modify KMS key policies and administrative permissions
++ Enable and disable encryption keys for data protection
++ Configure key rotation policies and schedules
++ Manage cross-account key access and sharing
++ Grant and revoke key usage permissions for AWS services
 
-- Create and modify KMS key policies and administrative permissions
-- Enable and disable encryption keys for data protection
-- Configure key rotation policies and schedules
-- Manage cross-account key access and sharing
-- Grant and revoke key usage permissions for AWS services
+ **Security Implications** 
++  **Immediate Impact**: Key policy changes can immediately affect data access across multiple services
++  **Blast Radius**: Can impact encrypted data in S3, EBS, RDS, and other AWS services
++  **Recovery Complexity**: Incorrect key policies may cause data access issues requiring emergency procedures
++  **Compliance Considerations**: Key management changes must maintain encryption requirements for sensitive data
 
-**Security Implications**
-
-- **Immediate Impact**: Key policy changes can immediately affect data access across multiple services
-- **Blast Radius**: Can impact encrypted data in S3, EBS, RDS, and other AWS services
-- **Recovery Complexity**: Incorrect key policies may cause data access issues requiring emergency procedures
-- **Compliance Considerations**: Key management changes must maintain encryption requirements for sensitive data
-
-**Create KMS key with comprehensive administrative controls**
+ **Create KMS key with comprehensive administrative controls** 
 
 ```
 aws kms create-key \
@@ -392,7 +393,7 @@ aws kms create-key \
   --key-usage ENCRYPT_DECRYPT \
   --key-spec SYMMETRIC_DEFAULT \
   --policy '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
       {
         "Sid": "KeyAdministration",
@@ -421,27 +422,26 @@ aws kms create-key \
 ```
 
 ### Organization-Wide Security Service Configuration
+<a name="privileged_account_guidanceorganization_wide_security_service_configuration"></a>
 
 This subsection covers AWS security services that can only be configured at the organization level by management account privileged users.
 
-**Security Significance**: Organization-wide security services provide centralized visibility and control but require careful configuration to avoid service disruptions. Being able to aggregate and delgate these service can help you to centralize your AWS security services and limit access to one AWS account only.
+ **Security Significance**: Organization-wide security services provide centralized visibility and control but require careful configuration to avoid service disruptions. Being able to aggregate and delgate these service can help you to centralize your AWS security services and limit access to one AWS account only.
 
-**Privileged-Only Operations**:
+ **Privileged-Only Operations**:
++ Configure AWS Security Hub master account and member account aggregation
++ Set up AWS Config organization aggregators and compliance rules
++ Establish AWS CloudTrail organization trails with cross-account logging
++ Configure Amazon GuardDuty master account and threat intelligence sharing
++ Manage AWS Access Analyzer organization-wide findings
 
-- Configure AWS Security Hub master account and member account aggregation
-- Set up AWS Config organization aggregators and compliance rules
-- Establish AWS CloudTrail organization trails with cross-account logging
-- Configure Amazon GuardDuty master account and threat intelligence sharing
-- Manage AWS Access Analyzer organization-wide findings
+ **Security Implications**:
++  **Immediate Impact**: Configuration changes affect security monitoring across all organization accounts
++  **Blast Radius**: Can impact compliance reporting and security incident detection organization-wide
++  **Recovery Complexity**: Service misconfigurations may require coordination across multiple security teams
++  **Compliance Considerations**: Changes must maintain continuous monitoring requirements for FedRAMP compliance
 
-**Security Implications**:
-
-- **Immediate Impact**: Configuration changes affect security monitoring across all organization accounts
-- **Blast Radius**: Can impact compliance reporting and security incident detection organization-wide
-- **Recovery Complexity**: Service misconfigurations may require coordination across multiple security teams
-- **Compliance Considerations**: Changes must maintain continuous monitoring requirements for FedRAMP compliance
-
-**Enable Security Hub organization-wide with compliance standards**
+ **Enable Security Hub organization-wide with compliance standards** 
 
 ```
 # Enable Security Hub in management account
@@ -464,32 +464,31 @@ aws securityhub create-configuration-policy \
 ```
 
 ### S3 Bucket Policies with Deny Statements
+<a name="privileged_account_guidances3_bucket_policies_with_deny_statements"></a>
 
 This subsection covers S3 bucket policies that can create access lockouts requiring privileged account intervention.
 
-**Security Significance**: S3 bucket policies with deny statements can override all other access controls and may require root account access to resolve.
+ **Security Significance**: S3 bucket policies with deny statements can override all other access controls and may require root account access to resolve.
 
-**Privileged-Only Operations**:
+ **Privileged-Only Operations**:
++ Create and modify S3 bucket policies with explicit deny statements
++ Remove bucket policies that deny access to all principals including bucket owner
++ Configure bucket policies that restrict access based on IP addresses or VPC endpoints
++ Manage cross-account bucket access policies and permissions
 
-- Create and modify S3 bucket policies with explicit deny statements
-- Remove bucket policies that deny access to all principals including bucket owner
-- Configure bucket policies that restrict access based on IP addresses or VPC endpoints
-- Manage cross-account bucket access policies and permissions
+ **Security Implications**:
++  **Immediate Impact**: Deny policies take effect immediately and can lock out all users including administrators
++  **Blast Radius**: Can affect applications and services that depend on S3 bucket access
++  **Recovery Complexity**: May require root account access or AWS Support intervention to resolve
++  **Compliance Considerations**: Bucket policy changes must maintain data access controls and audit requirements
 
-**Security Implications**:
-
-- **Immediate Impact**: Deny policies take effect immediately and can lock out all users including administrators
-- **Blast Radius**: Can affect applications and services that depend on S3 bucket access
-- **Recovery Complexity**: May require root account access or AWS Support intervention to resolve
-- **Compliance Considerations**: Bucket policy changes must maintain data access controls and audit requirements
-
-**Create S3 bucket policy with secure access controls**
+ **Create S3 bucket policy with secure access controls** 
 
 ```
 aws s3api put-bucket-policy \
   --bucket secure-data-bucket \
   --policy '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
       {
         "Sid": "DenyInsecureConnections",
@@ -523,29 +522,28 @@ aws s3api put-bucket-policy \
 ```
 
 ### Break-Glass Emergency Access
+<a name="privileged_account_guidancebreak_glass_emergency_access"></a>
 
 This subsection covers emergency access procedures for critical incidents requiring immediate privileged access outside normal approval processes. This is a recommendation on how customers could apply this to their organization. It is not a required configuraiton within your AWS account.
 
-**Purpose**: Emergency access procedures for critical incidents requiring immediate response while maintaining security controls and audit trails.
+ **Purpose**: Emergency access procedures for critical incidents requiring immediate response while maintaining security controls and audit trails.
 
-**Emergency Access Triggers**
+ **Emergency Access Triggers** 
++ Security incidents requiring immediate containment or response actions
++ System outages affecting critical business operations or customer services
++ Data recovery operations necessary for business continuity
++ Compliance violations requiring immediate remediation to prevent regulatory impact
 
-- Security incidents requiring immediate containment or response actions
-- System outages affecting critical business operations or customer services
-- Data recovery operations necessary for business continuity
-- Compliance violations requiring immediate remediation to prevent regulatory impact
+ **Break-Glass Procedures** 
++  **Incident Declaration**: Formal declaration of emergency requiring privileged access through incident management system
++  **Emergency Role Assumption**: Use pre-configured emergency IAM roles with enhanced monitoring
++  **Immediate Notification**: Automated alerts to security and management teams within 5 minutes
++  **Enhanced Logging**: Comprehensive logging and monitoring during emergency access period
++  **Time Limitation**: Emergency access limited to maximum 2 hours with extension requiring additional approval
++  **Post-Incident Review**: Mandatory review of all emergency access activities within 24 hours
++  **Documentation Requirements**: Complete documentation of actions taken and business justification
 
-**Break-Glass Procedures**
-
-- **Incident Declaration**: Formal declaration of emergency requiring privileged access through incident management system
-- **Emergency Role Assumption**: Use pre-configured emergency IAM roles with enhanced monitoring
-- **Immediate Notification**: Automated alerts to security and management teams within 5 minutes
-- **Enhanced Logging**: Comprehensive logging and monitoring during emergency access period
-- **Time Limitation**: Emergency access limited to maximum 2 hours with extension requiring additional approval
-- **Post-Incident Review**: Mandatory review of all emergency access activities within 24 hours
-- **Documentation Requirements**: Complete documentation of actions taken and business justification
-
-**Assume emergency access role with enhanced monitoring**
+ **Assume emergency access role with enhanced monitoring** 
 
 ```
 aws sts assume-role \
@@ -555,10 +553,11 @@ aws sts assume-role \
 ```
 
 ### Privileged Session Monitoring
+<a name="privileged_account_guidanceprivileged_session_monitoring"></a>
 
 This subsection covers comprehensive monitoring and analysis of privileged account activities for security and compliance purposes.
 
-**CloudWatch metric filter for privileged account activities**
+ **CloudWatch metric filter for privileged account activities** 
 
 ```
 aws logs put-metric-filter \
@@ -569,7 +568,7 @@ aws logs put-metric-filter \
 metricName=PrivilegedAccountActivity,metricNamespace=Security/PrivilegedAccess,metricValue=1
 ```
 
-**CloudWatch alarm for unusual privileged activity**
+ **CloudWatch alarm for unusual privileged activity** 
 
 ```
 aws cloudwatch put-metric-alarm \
@@ -584,33 +583,33 @@ aws cloudwatch put-metric-alarm \
   --alarm-actions arn:aws:sns:region:account:security-alerts
 ```
 
-**Session Recording and Analysis**:
-
-- **AWS CloudTrail**: Comprehensive API call logging for all privileged activities with log file validation
-- **AWS Config**: Configuration change tracking and compliance monitoring for privileged operations
-- **VPC Flow Logs**: Network traffic analysis for privileged instances and security assessment
-- **Systems Manager Session Manager**: Shell session recording and audit trails for system access
+ **Session Recording and Analysis**:
++  **AWS CloudTrail**: Comprehensive API call logging for all privileged activities with log file validation
++  **AWS Config**: Configuration change tracking and compliance monitoring for privileged operations
++  **VPC Flow Logs**: Network traffic analysis for privileged instances and security assessment
++  **Systems Manager Session Manager**: Shell session recording and audit trails for system access
 
 ## Compliance and Governance
+<a name="privileged_account_guidancecompliance_and_governance"></a>
 
 This section covers ongoing compliance monitoring, access reviews, and governance processes for privileged account management. There are many ways to monitor and implement compliance. This is an example of how you can apply this in AWS.
 
 ### Regular Access Reviews
+<a name="privileged_account_guidanceregular_access_reviews"></a>
 
 This subsection covers systematic review processes for privileged account permissions and usage patterns.
 
-**Quarterly Privileged Account Review Process**:
+ **Quarterly Privileged Account Review Process**:
++  **Account Inventory**: Comprehensive list of all privileged accounts and roles with current status
++  **Permission Analysis**: Review of assigned permissions against current job functions and responsibilities
++  **Usage Assessment**: Analysis of account usage patterns, frequency, and access times
++  **Risk Evaluation**: Assessment of security risks and potential impact based on current permissions
++  **Remediation Actions**: Remove unnecessary permissions, disable unused accounts, and update role assignments
++  **Documentation Update**: Update privileged account documentation, procedures, and approval matrices
 
-- **Account Inventory**: Comprehensive list of all privileged accounts and roles with current status
-- **Permission Analysis**: Review of assigned permissions against current job functions and responsibilities
-- **Usage Assessment**: Analysis of account usage patterns, frequency, and access times
-- **Risk Evaluation**: Assessment of security risks and potential impact based on current permissions
-- **Remediation Actions**: Remove unnecessary permissions, disable unused accounts, and update role assignments
-- **Documentation Update**: Update privileged account documentation, procedures, and approval matrices
+ **Access Review Automation**:
 
-**Access Review Automation**:
-
-**Generate privileged account usage report**
+ **Generate privileged account usage report** 
 
 ```
 # Generate credential report for privileged account analysis
@@ -628,10 +627,11 @@ aws iam list-roles \
 ```
 
 ### Automated Compliance Checking
+<a name="privileged_account_guidanceautomated_compliance_checking"></a>
 
 This subsection covers automated monitoring and validation of privileged account compliance with security policies.
 
-**AWS Config rule for privileged account MFA compliance**
+ **AWS Config rule for privileged account MFA compliance** 
 
 ```
 aws configservice put-config-rule \
@@ -649,87 +649,90 @@ aws configservice put-config-rule \
 ```
 
 ### Incident Response Integration
+<a name="privileged_account_guidanceincident_response_integration"></a>
 
 This subsection covers integration of privileged account management with security incident response procedures.
 
-**Privileged Account Compromise Response**:
+ **Privileged Account Compromise Response**:
 
-**Immediate Containment Actions**:
+ **Immediate Containment Actions**:
++ Disable compromised account credentials and revoke active sessions
++ Revoke temporary credentials and assume role permissions
++ Block identified source IP addresses and suspicious network traffic
++ Enable enhanced monitoring and alerting for affected accounts and resources
 
-- Disable compromised account credentials and revoke active sessions
-- Revoke temporary credentials and assume role permissions
-- Block identified source IP addresses and suspicious network traffic
-- Enable enhanced monitoring and alerting for affected accounts and resources
+ **Impact Assessment Procedures**:
++ Review CloudTrail logs for unauthorized activities and configuration changes
++ Analyze configuration changes and resource modifications during compromise period
++ Assess data access patterns and evaluate potential data exfiltration
++ Evaluate lateral movement attempts and privilege escalation activities
 
-**Impact Assessment Procedures**:
-
-- Review CloudTrail logs for unauthorized activities and configuration changes
-- Analyze configuration changes and resource modifications during compromise period
-- Assess data access patterns and evaluate potential data exfiltration
-- Evaluate lateral movement attempts and privilege escalation activities
-
-**Recovery and Remediation Steps**:
-
-- Reset credentials, regenerate access keys, and update MFA devices
-- Review and update IAM policies, permissions, and trust relationships
-- Implement additional security controls and enhanced monitoring capabilities
-- Conduct comprehensive security assessment and penetration testing
-- Update incident response procedures based on lessons learned
+ **Recovery and Remediation Steps**:
++ Reset credentials, regenerate access keys, and update MFA devices
++ Review and update IAM policies, permissions, and trust relationships
++ Implement additional security controls and enhanced monitoring capabilities
++ Conduct comprehensive security assessment and penetration testing
++ Update incident response procedures based on lessons learned
 
 ## Best Practices and Recommendations
+<a name="privileged_account_guidancebest_practices_and_recommendations"></a>
 
 This section provides comprehensive guidance for implementing effective privileged account management in AWS environments.
 
 ### Principle of Least Privilege
+<a name="privileged_account_guidanceprinciple_of_least_privilege"></a>
 
 This subsection covers implementation of least privilege access controls for privileged accounts.
 
-**Granular Permissions Implementation**: Grant only the minimum permissions necessary for specific job functions and time-limited tasks
+ **Granular Permissions Implementation**: Grant only the minimum permissions necessary for specific job functions and time-limited tasks
 
-**Resource-Specific Access Controls**: Use resource-based policies and conditions to limit access to specific AWS resources and services
+ **Resource-Specific Access Controls**: Use resource-based policies and conditions to limit access to specific AWS resources and services
 
-**Condition-Based Policy Enforcement**: Implement conditional access based on time windows, geographic location, and multi-factor authentication
+ **Condition-Based Policy Enforcement**: Implement conditional access based on time windows, geographic location, and multi-factor authentication
 
-**Regular Permission Optimization**: Conduct quarterly reviews to identify and remove unnecessary permissions and unused access rights
+ **Regular Permission Optimization**: Conduct quarterly reviews to identify and remove unnecessary permissions and unused access rights
 
 ### Defense in Depth Strategy
+<a name="privileged_account_guidancedefense_in_depth_strategy"></a>
 
 This subsection covers layered security controls for comprehensive privileged account protection.
 
-**Multi-Factor Authentication Requirements**: Hardware security keys (FIDO2/WebAuthn) required for all privileged accounts with backup authentication methods
+ **Multi-Factor Authentication Requirements**: Hardware security keys (FIDO2/WebAuthn) required for all privileged accounts with backup authentication methods
 
-**Network Segmentation Controls**: Isolate privileged access networks and implement dedicated administrative workstations
+ **Network Segmentation Controls**: Isolate privileged access networks and implement dedicated administrative workstations
 
-**Endpoint Security Enhancement**: Deploy advanced security controls on privileged access workstations including EDR and application whitelisting
+ **Endpoint Security Enhancement**: Deploy advanced security controls on privileged access workstations including EDR and application whitelisting
 
-**Behavioral Analytics Monitoring**: Implement user and entity behavior analytics (UEBA) to detect unusual privileged account activity patterns
+ **Behavioral Analytics Monitoring**: Implement user and entity behavior analytics (UEBA) to detect unusual privileged account activity patterns
 
 ### Automation and Orchestration
+<a name="privileged_account_guidanceautomation_and_orchestration"></a>
 
 This subsection covers automated processes for consistent and secure privileged account management.
 
-**Automated Provisioning Processes**: Use Infrastructure as Code (IaC) for consistent privileged account setup and configuration management
+ **Automated Provisioning Processes**: Use Infrastructure as Code (IaC) for consistent privileged account setup and configuration management
 
-**Policy Enforcement Automation**: Implement Service Control Policies (SCPs) and AWS Config rules for organization-wide security controls
+ **Policy Enforcement Automation**: Implement Service Control Policies (SCPs) and AWS Config rules for organization-wide security controls
 
-**Compliance Monitoring Systems**: Deploy automated compliance checking, remediation workflows, and continuous monitoring capabilities
+ **Compliance Monitoring Systems**: Deploy automated compliance checking, remediation workflows, and continuous monitoring capabilities
 
-**Incident Response Automation**: Implement automated response procedures for privileged account security events and policy violations
+ **Incident Response Automation**: Implement automated response procedures for privileged account security events and policy violations
 
 ## Summary and Implementation Guidance
+<a name="privileged_account_guidancesummary_and_implementation_guidance"></a>
 
 This section provides a comprehensive overview of privileged account management requirements and implementation recommendations.
 
-**Critical Implementation Areas**:
+ **Critical Implementation Areas**:
 
-**Privileged Account Classification**: Establish clear categories for security, network, infrastructure, and database administration accounts with defined responsibilities and risk levels.
+ **Privileged Account Classification**: Establish clear categories for security, network, infrastructure, and database administration accounts with defined responsibilities and risk levels.
 
-**Privileged-Only Settings Management**: Implement comprehensive controls for AWS Organizations SCPs, cross-account trust relationships, KMS key policies, and organization-wide security service configuration.
+ **Privileged-Only Settings Management**: Implement comprehensive controls for AWS Organizations SCPs, cross-account trust relationships, KMS key policies, and organization-wide security service configuration.
 
-**Access Management Framework**: Deploy just-in-time access, break-glass emergency procedures, and comprehensive session monitoring for all privileged operations.
+ **Access Management Framework**: Deploy just-in-time access, break-glass emergency procedures, and comprehensive session monitoring for all privileged operations.
 
-**Compliance and Governance**: Maintain regular access reviews, automated compliance checking, and integrated incident response procedures for privileged account security.
+ **Compliance and Governance**: Maintain regular access reviews, automated compliance checking, and integrated incident response procedures for privileged account security.
 
-**Operational Excellence**: Privileged account management requires ongoing attention to security controls, monitoring capabilities, and governance processes. Organizations should implement comprehensive controls including just-in-time access, enhanced monitoring, regular reviews, and incident response procedures. The combination of AWS native security services, proper IAM configuration, and operational procedures provides a robust framework for managing privileged access while supporting FedRAMP compliance considerations.
+ **Operational Excellence**: Privileged account management requires ongoing attention to security controls, monitoring capabilities, and governance processes. Organizations should implement comprehensive controls including just-in-time access, enhanced monitoring, regular reviews, and incident response procedures. The combination of AWS native security services, proper IAM configuration, and operational procedures provides a robust framework for managing privileged access while supporting FedRAMP compliance considerations.
 
-**Important Note**: This guidance provides AWS recommended practices and considerations for privileged account management. Organizations are responsible for evaluating these recommendations against their specific compliance requirements and implementing appropriate controls to meet their regulatory obligations. Regular review and updates of privileged account procedures help ensure continued effectiveness and compliance alignment.
+ **Important Note**: This guidance provides AWS recommended practices and considerations for privileged account management. Organizations are responsible for evaluating these recommendations against their specific compliance requirements and implementing appropriate controls to meet their regulatory obligations. Regular review and updates of privileged account procedures help ensure continued effectiveness and compliance alignment.

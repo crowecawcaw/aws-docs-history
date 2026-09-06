@@ -1,348 +1,344 @@
+
+
 # Root Security Guidance
+<a name="root-security-guidance"></a>
 
 This topic discusses root security guidance.
 
-**Important Disclaimer**: This document provides AWS recommended practices and guidance only. It does not constitute legal, compliance, or regulatory advice. Organizations are solely responsible for determining their compliance requirements and implementing appropriate controls. AWS makes no warranties or representations regarding FedRAMP compliance or the adequacy of these recommendations for any specific use case. AWS services and features evolve rapidly. Customers should verify current service capabilities and limitations through official AWS documentation before implementation.
+ **Important Disclaimer**: This document provides AWS recommended practices and guidance only. It does not constitute legal, compliance, or regulatory advice. Organizations are solely responsible for determining their compliance requirements and implementing appropriate controls. AWS makes no warranties or representations regarding FedRAMP compliance or the adequacy of these recommendations for any specific use case. AWS services and features evolve rapidly. Customers should verify current service capabilities and limitations through official AWS documentation before implementation.
 
-**Command and Configuration Disclaimer**: All AWS CLI commands, API calls, and configuration examples provided in this document are for illustrative purposes only. Organizations must validate all commands and configurations in non-production environments before implementation. AWS CLI commands may require specific IAM permissions, resource names, and parameter values that must be customized for each environment. Always refer to the latest AWS CLI documentation and service-specific guides for current syntax and available options.
+ **Command and Configuration Disclaimer**: All AWS CLI commands, API calls, and configuration examples provided in this document are for illustrative purposes only. Organizations must validate all commands and configurations in non-production environments before implementation. AWS CLI commands may require specific IAM permissions, resource names, and parameter values that must be customized for each environment. Always refer to the latest AWS CLI documentation and service-specific guides for current syntax and available options.
 
 ## Document Information
+<a name="root_security_guidancedocument_information"></a>
 
-|              |            |
-| ------------ | ---------- |
-| Version      | 1.0.2      |
-| Last Updated | 2026-03-26 |
+
+|  |  | 
+| --- |--- |
+| Version | 1.0.2 | 
+| Last Updated | 2026-03-26 | 
 
 ## SCG-CSO-RSC: Recommended Secure Configuration - Part 2
+<a name="root_security_guidancescg_cso_rsc_recommended_secure_configuration_part_2"></a>
 
 ✓ MUST - Required for all FedRAMP services
 
-**OSCAL Control ID: SCG-CSO-RSC**
+ **OSCAL Control ID: SCG-CSO-RSC** 
 
-**UUID: scg-cso-rsc-control**
+ **UUID: scg-cso-rsc-control** 
 
 ## Requirement
+<a name="root_security_guidancerequirement"></a>
 
 This guidance addresses Part 2 of SCG-CSO-RSC: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
 
 Providers MUST create, maintain, and make available recommendations for securely configuring their cloud services (the Secure Configuration Guide) that includes at least the following information:
 
-1. **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
-2. **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
-3. **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
+1.  **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+
+1.  **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
+
+1.  **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
 
 ## Component Implementation (OSCAL)
+<a name="root_security_guidancecomponent_implementation_oscal"></a>
 
-**Component UUID**: account-mgmt-component-002
+ **Component UUID**: account-mgmt-component-002
 
-**Component Type**: Account
+ **Component Type**: Account
 
-**Control Implementation**: AC-2 (Account Management), AC-6 (Least Privilege), SC-28 (Protection of Information at Rest)
+ **Control Implementation**: AC-2 (Account Management), AC-6 (Least Privilege), SC-28 (Protection of Information at Rest)
 
-**Implementation Status**: Available
+ **Implementation Status**: Available
 
 ## Executive Summary
+<a name="root_security_guidanceexecutive_summary"></a>
 
 This guidance provides AWS recommended practices for security-related settings and operations that require root-level administrative privileges in AWS environments. These settings are critical for maintaining the security posture of AWS accounts and cannot be delegated to IAM users or roles, making proper root account management essential for FedRAMP compliance considerations.
 
 ## Root-Only Security Operations
+<a name="root_security_guidanceroot_only_security_operations"></a>
 
 ### Account-Level Security Settings
+<a name="root_security_guidanceaccount_level_security_settings"></a>
 
 This section covers fundamental account security configurations that can only be modified by root account credentials.
 
-**Account Information and Contact Details**:
+ **Account Information and Contact Details**:
++  **Security Significance**: Account contact information is used for security notifications, billing alerts, and account recovery procedures.
++  **Root Account Email Address**: Primary contact for AWS security notifications and account recovery
++  **Alternate Contacts**: Security, billing, and operations contacts for incident response
++  **Security Challenge Questions**: Account recovery mechanism requiring root access to modify
 
-- **Security Significance**: Account contact information is used for security notifications, billing alerts, and account recovery procedures.
-- **Root Account Email Address**: Primary contact for AWS security notifications and account recovery
-- **Alternate Contacts**: Security, billing, and operations contacts for incident response
-- **Security Challenge Questions**: Account recovery mechanism requiring root access to modify
-
-**Implementation Requirements**:
-
-- Use organizational email addresses, not personal accounts, or individual corporate emails, use a dedicate email for the account as needed.
-- Implement email security controls (SPF, DKIM, DMARC)
-- Monitor email accounts for unauthorized access
-- Establish procedures for email account changes
+ **Implementation Requirements**:
++ Use organizational email addresses, not personal accounts, or individual corporate emails, use a dedicate email for the account as needed.
++ Implement email security controls (SPF, DKIM, DMARC)
++ Monitor email accounts for unauthorized access
++ Establish procedures for email account changes
 
 ### Account Recovery and Authentication Settings
+<a name="root_security_guidanceaccount_recovery_and_authentication_settings"></a>
 
 This section describes security settings that control how account access can be restored if primary authentication methods are compromised.
 
-**Account Recovery Configuration**:
+ **Account Recovery Configuration**:
 
-**Security Significance**: Account recovery mechanisms are critical security controls that can bypass primary authentication if compromised. Weak recovery settings can enable account takeover even when primary credentials are secure.
+ **Security Significance**: Account recovery mechanisms are critical security controls that can bypass primary authentication if compromised. Weak recovery settings can enable account takeover even when primary credentials are secure.
 
-**Root-Only Operations**:
+ **Root-Only Operations**:
++ Password recovery email address configuration
++ Security challenge questions setup and modification
++ Account recovery phone number management
++ Alternate authentication method configuration
 
-- Password recovery email address configuration
-- Security challenge questions setup and modification
-- Account recovery phone number management
-- Alternate authentication method configuration
+ **Security Implications**:
++ Compromise of recovery email may allow unauthorized account access
++ Weak security questions could be researched or guessed by unauthorized users
++ Recovery phone numbers may be subject to social engineering attacks
++ Recovery information should be secured independently from primary account credentials
 
-**Security Implications**:
-
-- Compromise of recovery email may allow unauthorized account access
-- Weak security questions could be researched or guessed by unauthorized users
-- Recovery phone numbers may be subject to social engineering attacks
-- Recovery information should be secured independently from primary account credentials
-
-**Implementation Requirements**:
-
-- Use organizational email addresses with strong security controls
-- Implement unique, non-guessable security challenge questions
-- Secure recovery phone numbers with carrier-level protections
-- Regular review and update of recovery information
-- Monitor recovery mechanisms for unauthorized changes
+ **Implementation Requirements**:
++ Use organizational email addresses with strong security controls
++ Implement unique, non-guessable security challenge questions
++ Secure recovery phone numbers with carrier-level protections
++ Regular review and update of recovery information
++ Monitor recovery mechanisms for unauthorized changes
 
 ### Billing and Financial Security Controls
+<a name="root_security_guidancebilling_and_financial_security_controls"></a>
 
 This section covers financial security settings that require root account access to prevent unauthorized cost exposure and financial fraud.
 
-**Billing Contact Information Management**:
+ **Billing Contact Information Management**:
 
-**Security Significance**: Billing contacts receive financial notifications and have access to cost information that could reveal business intelligence or enable financial fraud.
+ **Security Significance**: Billing contacts receive financial notifications and have access to cost information that could reveal business intelligence or enable financial fraud.
 
-**Root-Only Operations**:
+ **Root-Only Operations**:
++ Primary billing contact configuration
++ Alternate billing contact setup
++ Payment method configuration and updates
++ Tax information and compliance settings
++ Cost allocation tag policy enforcement
 
-- Primary billing contact configuration
-- Alternate billing contact setup
-- Payment method configuration and updates
-- Tax information and compliance settings
-- Cost allocation tag policy enforcement
+ **Security Implications**:
++ Unauthorized billing contact changes may obscure unusual charges
++ Modified payment methods could allow unauthorized resource provisioning
++ Billing information may reveal organizational spending patterns
++ Tax setting modifications could result in compliance issues
 
-**Security Implications**:
-
-- Unauthorized billing contact changes may obscure unusual charges
-- Modified payment methods could allow unauthorized resource provisioning
-- Billing information may reveal organizational spending patterns
-- Tax setting modifications could result in compliance issues
-
-**Implementation Requirements**:
-
-- Use secure, monitored email addresses for billing contacts
-- Implement approval workflows for payment method changes
-- Regular audit of billing contact information
-- Monitor for unauthorized cost allocation changes
-- Establish cost anomaly detection and alerting
+ **Implementation Requirements**:
++ Use secure, monitored email addresses for billing contacts
++ Implement approval workflows for payment method changes
++ Regular audit of billing contact information
++ Monitor for unauthorized cost allocation changes
++ Establish cost anomaly detection and alerting
 
 ### Regional Service Configuration
+<a name="root_security_guidanceregional_service_configuration"></a>
 
 This section covers region-specific security settings that require root account management.
 
-**Regional Service Enablement**:
+ **Regional Service Enablement**:
 
-**Security Significance**: Regional service availability affects data sovereignty, compliance boundaries, and incident response capabilities.
+ **Security Significance**: Regional service availability affects data sovereignty, compliance boundaries, and incident response capabilities.
 
-**Root-Only Operations**:
+ **Root-Only Operations**:
++ New region enablement for account
++ Region-specific service activation
++ Cross-region replication configuration
++ Regional compliance setting management
 
-- New region enablement for account
-- Region-specific service activation
-- Cross-region replication configuration
-- Regional compliance setting management
+ **Security Implications**:
++ Unauthorized region enablement may affect data sovereignty requirements
++ New regions require additional monitoring and logging configuration
++ Cross-region data transfer should align with compliance policies
++ Regional service differences may require security control adjustments
 
-**Security Implications**:
-
-- Unauthorized region enablement may affect data sovereignty requirements
-- New regions require additional monitoring and logging configuration
-- Cross-region data transfer should align with compliance policies
-- Regional service differences may require security control adjustments
-
-**Implementation Requirements**:
-
-- Compliance review required before enabling new regions
-- Update monitoring and logging for new regions
-- Verify data classification policies for regional data
-- Establish incident response procedures for new regions
-- Document regional security control variations
+ **Implementation Requirements**:
++ Compliance review required before enabling new regions
++ Update monitoring and logging for new regions
++ Verify data classification policies for regional data
++ Establish incident response procedures for new regions
++ Document regional security control variations
 
 ### Account Closure and Decommissioning
+<a name="root_security_guidanceaccount_closure_and_decommissioning"></a>
 
 This section provides guidance for the permanent closure of AWS accounts, which requires root account authorization.
 
-[Close an AWS account](../../../accounts/latest/reference/manage-acct-closing.md "../../../accounts/latest/reference/manage-acct-closing.md")
+ [Close an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html) 
 
-**Security Significance**: Permanent account closure is irreversible and requires root authorization to prevent unauthorized account termination. There is a 90 day grace period in account closures, during this time the account remains recoverable, but resources within the account may be impacted.
+ **Security Significance**: Permanent account closure is irreversible and requires root authorization to prevent unauthorized account termination. There is a 90 day grace period in account closures, during this time the account remains recoverable, but resources within the account may be impacted.
 
-**Root-Only Operations**:
+ **Root-Only Operations**:
++ Account closure initiation
++ Account closure confirmation
++ Grace period management
++ Final data export and backup
 
-- Account closure initiation
-- Account closure confirmation
-- Grace period management
-- Final data export and backup
+ **Security Implications**:
++ Unauthorized closure can cause business disruption
++ Data loss risk during grace period
++ Compliance record retention requirements
++ Cross-account dependency impacts
 
-**Security Implications**:
-
-- Unauthorized closure can cause business disruption
-- Data loss risk during grace period
-- Compliance record retention requirements
-- Cross-account dependency impacts
-
-**Implementation Requirements**:
-
-- Formal approval process for account closure
-- Complete data backup before closure initiation
-- Notification to dependent systems and accounts
-- Documentation of closure rationale and timeline
-- Compliance team review for record retention requirements
+ **Implementation Requirements**:
++ Formal approval process for account closure
++ Complete data backup before closure initiation
++ Notification to dependent systems and accounts
++ Documentation of closure rationale and timeline
++ Compliance team review for record retention requirements
 
 ### Support and Service Plan Management
+<a name="root_security_guidancesupport_and_service_plan_management"></a>
 
 This section covers AWS Support plan modifications that affect security incident response capabilities.
 
-[Change AWS Support Plans](../../../awssupport/latest/user/changing-support-plans.md "../../../awssupport/latest/user/changing-support-plans.md")
+ [Change AWS Support Plans](https://docs.aws.amazon.com/awssupport/latest/user/changing-support-plans.html) 
 
-**AWS Support Plan Configuration**:
+ **AWS Support Plan Configuration**:
 
-**Security Significance**: Modification of a support plan can limit your ability to interact with AWS Support, and impact additional entitlements that come with your support tier.
+ **Security Significance**: Modification of a support plan can limit your ability to interact with AWS Support, and impact additional entitlements that come with your support tier.
 
-**Root-Only Operations**:
+ **Root-Only Operations**:
++ Support plan tier changes (Basic, Developer, Business, Enterprise)
++ Support case access level modifications
++ Technical Account Manager assignment changes
++ Concierge support activation/deactivation
 
-- Support plan tier changes (Basic, Developer, Business, Enterprise)
-- Support case access level modifications
-- Technical Account Manager assignment changes
-- Concierge support activation/deactivation
+ **Security Implications**:
++  **Support Case Access**: Higher support tiers provide faster response times for security incidents
++  **Trusted Advisor**: Business and Enterprise plans include security recommendations
++  **Technical Account Manager**: Enterprise plans provide dedicated security guidance
++  **Concierge Support**: Assistance with account and billing security issues
++ Downgrading support can delay security incident response
++ Loss of security advisory services may increase risk exposure
 
-**Security Implications**:
-
-- **Support Case Access**: Higher support tiers provide faster response times for security incidents
-- **Trusted Advisor**: Business and Enterprise plans include security recommendations
-- **Technical Account Manager**: Enterprise plans provide dedicated security guidance
-- **Concierge Support**: Assistance with account and billing security issues
-- Downgrading support can delay security incident response
-- Loss of security advisory services may increase risk exposure
-
-**Implementation Requirements**:
-
-- Security team approval required for support plan changes
-- Document impact on incident response capabilities
-- Ensure alternative security advisory resources if downgrading
-- Maintain emergency contact procedures regardless of support tier
-- Regular review of support plan adequacy for security needs
+ **Implementation Requirements**:
++ Security team approval required for support plan changes
++ Document impact on incident response capabilities
++ Ensure alternative security advisory resources if downgrading
++ Maintain emergency contact procedures regardless of support tier
++ Regular review of support plan adequacy for security needs
 
 ### Root account functionality
+<a name="root_security_guidanceroot_account_functionality"></a>
 
 This section provides an overview of AWS root account capabilities and references to detailed guidance on avoiding root account usage.
 
-The root account controls specific functionality in AWS. Refer to the [Top Level Guidance](../../../admin-guidance/top-level-admin-guidance.md "../../../admin-guidance/top-level-admin-guidance.md") for detailed information on how to avoid using the root account in your AWS environment.
+The root account controls specific functionality in AWS. Refer to the [Top Level Guidance](https://docs.aws.amazon.com/admin-guidance/top-level-admin-guidance.html) for detailed information on how to avoid using the root account in your AWS environment.
 
-###### Important
-
+**Important**  
 AWS strongly recommends that you don’t use the root user for your everyday tasks and that you follow the root user best practices for your AWS account. Safeguard your root user credentials and use them to perform the tasks that only the root user can perform. For the complete list of tasks that require you to sign in as the root user, see Tasks that require root user credentials.
 
-The AWS Documentation contains information on what requests can be performed by a root user and how to [perform a privileged task](../../../IAM/latest/UserGuide/id_root-user-privileged-task.md "../../../IAM/latest/UserGuide/id_root-user-privileged-task.md").
+The AWS Documentation contains information on what requests can be performed by a root user and how to [perform a privileged task](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user-privileged-task.html).
 
 ## Management Account Exclusive Security Operations
+<a name="root_security_guidancemanagement_account_exclusive_security_operations"></a>
 
 ### Organization-Wide Security Service Configuration
+<a name="root_security_guidanceorganization_wide_security_service_configuration"></a>
 
 This section covers security services that can only be configured at the organization level by the management account.
 
-**AWS Config Organization Aggregator Setup**:
+ **AWS Config Organization Aggregator Setup**:
 
-**Security Significance**: Centralized compliance data collection across all organization accounts enables comprehensive security posture monitoring.
+ **Security Significance**: Centralized compliance data collection across all organization accounts enables comprehensive security posture monitoring.
 
-**Management Account Only Operations**:
+ **Management Account Only Operations**:
++ Organization aggregator creation and configuration
++ Cross-account authorization for compliance data collection
++ Aggregated compliance rule deployment
++ Organization-wide configuration baseline enforcement
 
-- Organization aggregator creation and configuration
-- Cross-account authorization for compliance data collection
-- Aggregated compliance rule deployment
-- Organization-wide configuration baseline enforcement
+ **Security Implications**:
++ Centralized visibility into security configuration across all accounts
++ Ability to detect configuration drift organization-wide
++ Compliance reporting aggregation for audit purposes
++ Centralized monitoring requires appropriate access controls and redundancy planning
 
-**Security Implications**:
+ **Security Hub Master Account Configuration**:
 
-- Centralized visibility into security configuration across all accounts
-- Ability to detect configuration drift organization-wide
-- Compliance reporting aggregation for audit purposes
-- Centralized monitoring requires appropriate access controls and redundancy planning
+ **Security Significance**: Centralized security findings management enables coordinated threat response across the organization.
 
-**Security Hub Master Account Configuration**:
+ **Management Account Only Operations**:
++ Security Hub master account designation
++ Cross-account finding aggregation setup
++ Organization-wide security standard enablement
++ Centralized finding workflow configuration
 
-**Security Significance**: Centralized security findings management enables coordinated threat response across the organization.
+ **Security Implications**:
++ Unified security dashboard for entire organization
++ Coordinated incident response across multiple accounts
++ Standardized security control implementation
++ Centralized security data requires appropriate access controls and protection measures
 
-**Management Account Only Operations**:
+ **GuardDuty Master Account Configuration**:
 
-- Security Hub master account designation
-- Cross-account finding aggregation setup
-- Organization-wide security standard enablement
-- Centralized finding workflow configuration
+ **Security Significance**: Centralized threat detection coordination enables organization-wide security monitoring.
 
-**Security Implications**:
+ **Management Account Only Operations**:
++ GuardDuty master account setup
++ Member account invitation and management
++ Organization-wide threat intelligence sharing
++ Centralized finding and alert management
 
-- Unified security dashboard for entire organization
-- Coordinated incident response across multiple accounts
-- Standardized security control implementation
-- Centralized security data requires appropriate access controls and protection measures
-
-**GuardDuty Master Account Configuration**:
-
-**Security Significance**: Centralized threat detection coordination enables organization-wide security monitoring.
-
-**Management Account Only Operations**:
-
-- GuardDuty master account setup
-- Member account invitation and management
-- Organization-wide threat intelligence sharing
-- Centralized finding and alert management
-
-**Security Implications**:
-
-- Comprehensive threat detection across all organization accounts
-- Coordinated response to multi-account security incidents
-- Centralized threat intelligence and IOC sharing
-- Member account configuration should be validated to ensure complete coverage
+ **Security Implications**:
++ Comprehensive threat detection across all organization accounts
++ Coordinated response to multi-account security incidents
++ Centralized threat intelligence and IOC sharing
++ Member account configuration should be validated to ensure complete coverage
 
 ### Identity and Access Management at Organization Level
+<a name="root_security_guidanceidentity_and_access_management_at_organization_level"></a>
 
 This section covers identity and access management configurations that require management account privileges.
 
-**AWS SSO/Identity Center Organization Setup**:
+ **AWS SSO/Identity Center Organization Setup**:
 
-**Security Significance**: Centralized workforce identity management affects access control across the entire organization.
+ **Security Significance**: Centralized workforce identity management affects access control across the entire organization.
 
-**Management Account Only Operations**:
+ **Management Account Only Operations**:
++ Identity Center instance creation and configuration
++ Organization-wide SSO enablement
++ External identity provider integration
++ Permission set deployment across accounts
 
-- Identity Center instance creation and configuration
-- Organization-wide SSO enablement
-- External identity provider integration
-- Permission set deployment across accounts
+ **Security Implications**:
++ Single sign-on security for entire organization
++ Centralized access control and audit capabilities
++ Centralized identity management requires appropriate redundancy and access controls
++ Identity provider integration should include security dependency assessment
 
-**Security Implications**:
+ **Cross-Account Role Trust Relationship Management**:
 
-- Single sign-on security for entire organization
-- Centralized access control and audit capabilities
-- Centralized identity management requires appropriate redundancy and access controls
-- Identity provider integration should include security dependency assessment
+ **Security Significance**: Cross-account trust relationships enable secure resource sharing but can create security vulnerabilities if misconfigured.
 
-**Cross-Account Role Trust Relationship Management**:
+ **Management Account Only Operations**:
++ Organization-wide cross-account role creation
++ Trust policy establishment between accounts
++ Centralized role assumption monitoring
++ Cross-account permission boundary enforcement
 
-**Security Significance**: Cross-account trust relationships enable secure resource sharing but can create security vulnerabilities if misconfigured.
-
-**Management Account Only Operations**:
-
-- Organization-wide cross-account role creation
-- Trust policy establishment between accounts
-- Centralized role assumption monitoring
-- Cross-account permission boundary enforcement
-
-**Security Implications**:
-
-- Secure resource sharing across organization accounts
-- Trust policies should follow least privilege principles to prevent excessive permissions
-- Centralized monitoring of cross-account access patterns
-- Cross-account access should be regularly reviewed and validated
+ **Security Implications**:
++ Secure resource sharing across organization accounts
++ Trust policies should follow least privilege principles to prevent excessive permissions
++ Centralized monitoring of cross-account access patterns
++ Cross-account access should be regularly reviewed and validated
 
 ## Root Account Specific Security Operations
+<a name="root_security_guidanceroot_account_specific_security_operations"></a>
 
 ### S3 Security Controls
+<a name="root_security_guidances3_security_controls"></a>
 
-**S3 MFA Delete Protection**:
+ **S3 MFA Delete Protection**:
 
-**Security Purpose**: Prevents accidental or malicious deletion of S3 objects and bucket versions.
+ **Security Purpose**: Prevents accidental or malicious deletion of S3 objects and bucket versions.
 
-**Implementation**:
+ **Implementation**:
 
-**Enable MFA Delete (requires root account with MFA)**
+ **Enable MFA Delete (requires root account with MFA)** 
 
 ```
 aws s3api put-bucket-versioning \
@@ -351,51 +347,50 @@ aws s3api put-bucket-versioning \
 --mfa "SERIAL-NUMBER TOKEN-CODE"
 ```
 
-**Verify MFA Delete status**
+ **Verify MFA Delete status** 
 
 ```
 aws s3api get-bucket-versioning --bucket BUCKET-NAME
 ```
 
-**Operational Impact**:
-
-- Requires MFA token for object version deletion
-- Protects against automated deletion scripts
-- Adds additional verification step for data protection
-- Cannot be enabled through IAM users or roles
+ **Operational Impact**:
++ Requires MFA token for object version deletion
++ Protects against automated deletion scripts
++ Adds additional verification step for data protection
++ Cannot be enabled through IAM users or roles
 
 ### IAM Access Recovery Operations
+<a name="root_security_guidanceiam_access_recovery_operations"></a>
 
-**IAM Permission Boundary Restoration**:
+ **IAM Permission Boundary Restoration**:
 
-**Security Purpose**: Restore IAM access when administrative users are locked out due to overly restrictive policies.
+ **Security Purpose**: Restore IAM access when administrative users are locked out due to overly restrictive policies.
 
-**Common Lockout Scenarios**:
+ **Common Lockout Scenarios**:
++ Misconfigured IAM policies denying all access
++ Incorrect permission boundaries blocking administrative actions
++ Service Control Policies (SCPs) preventing IAM operations
++ Resource-based policies denying IAM principals
 
-- Misconfigured IAM policies denying all access
-- Incorrect permission boundaries blocking administrative actions
-- Service Control Policies (SCPs) preventing IAM operations
-- Resource-based policies denying IAM principals
-
-**Recovery Procedures**:
-
-- **Root Account Access**: Use root credentials to access AWS Console
-- **Policy Analysis**: Review IAM policies, SCPs, and resource policies
-- **Temporary Fix**: Create emergency administrative role with necessary permissions
-- **Permanent Resolution**: Correct the underlying policy issues
-- **Testing**: Verify administrative access is restored
+ **Recovery Procedures**:
++  **Root Account Access**: Use root credentials to access AWS Console
++  **Policy Analysis**: Review IAM policies, SCPs, and resource policies
++  **Temporary Fix**: Create emergency administrative role with necessary permissions
++  **Permanent Resolution**: Correct the underlying policy issues
++  **Testing**: Verify administrative access is restored
 
 ### Emergency Resource Policy Recovery
+<a name="root_security_guidanceemergency_resource_policy_recovery"></a>
 
-**S3 Bucket Policy Unlock**:
+ **S3 Bucket Policy Unlock**:
 
-**Use Case**: Remove S3 bucket policies that deny access to all principals, including the bucket owner. In some cases, users may create an access control list for an S3 bucket that "locks" the user out of the bucket. In this situation the only way to restore access is to access the AWS account as a root user and remove the bucket policy. This can be done now with the usage of [privileged actions](../../../IAM/latest/UserGuide/security-iam-awsmanpol.md#security-iam-awsmanpol-S3UnlockBucketPolicy "../../../IAM/latest/UserGuide/security-iam-awsmanpol.md#security-iam-awsmanpol-S3UnlockBucketPolicy") which further removes the need to log onto the root account. Some organization may not have centralzied root management enabled and this it’s important to understand that this is still limited to root account only in some situations.
+ **Use Case**: Remove S3 bucket policies that deny access to all principals, including the bucket owner. In some cases, users may create an access control list for an S3 bucket that "locks" the user out of the bucket. In this situation the only way to restore access is to access the AWS account as a root user and remove the bucket policy. This can be done now with the usage of [privileged actions](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-S3UnlockBucketPolicy) which further removes the need to log onto the root account. Some organization may not have centralzied root management enabled and this it’s important to understand that this is still limited to root account only in some situations.
 
-**Example Problematic Policy**:
+ **Example Problematic Policy**:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Deny",
@@ -410,9 +405,9 @@ aws s3api get-bucket-versioning --bucket BUCKET-NAME
 }
 ```
 
-**Root-Only Resolution**:
+ **Root-Only Resolution**:
 
-**Using AWS Organizations privileged actions with temporary elevated permissions.**
+ **Using AWS Organizations privileged actions with temporary elevated permissions.** 
 
 ```
 aws organizations enable-policy-type \
@@ -422,7 +417,7 @@ aws organizations enable-policy-type \
 aws iam create-role \
 --role-name S3BucketPolicyRemovalRole \
 --assume-role-policy-document '{
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [{
     "Effect": "Allow",
     "Principal": {"AWS": "arn:aws:iam:MANAGEMENT-ACCOUNT-ID:user/USERNAME"},
@@ -439,7 +434,7 @@ aws sts assume-role \
 --role-session-name s3-policy-removal-session
 ```
 
-**Delete the problematic bucket policy using assumed role credentials**
+ **Delete the problematic bucket policy using assumed role credentials** 
 
 ```
 export AWS_ACCESS_KEY_ID=ASSUMED-ROLE-ACCESS-KEY
@@ -450,31 +445,34 @@ aws s3api delete-bucket-policy --bucket bucket-name
 ```
 
 ### Security Best Practices for Root-Only Operations
+<a name="root_security_guidancesecurity_best_practices_for_root_only_operations"></a>
 
 #### Access Control and Authentication
+<a name="root_security_guidanceaccess_control_and_authentication"></a>
 
-Limit access to usage of AWS root account actions. You can implement AWS Organizations Security Control Policies to limit root logon permission in an AWS Organization. You can limit both the creation of root access keys, and dissallow actions as root user as well. AWS Control Tower offers [strong recommended preventive](../../../controltower/latest/controlreference/strongly-recommended-preventive-controls.md "../../../controltower/latest/controlreference/strongly-recommended-preventive-controls.md") controls that you can implement in your organization. If you are allowing root logons you should secure them with the appropriate measures.
+Limit access to usage of AWS root account actions. You can implement AWS Organizations Security Control Policies to limit root logon permission in an AWS Organization. You can limit both the creation of root access keys, and dissallow actions as root user as well. AWS Control Tower offers [strong recommended preventive](https://docs.aws.amazon.com/controltower/latest/controlreference/strongly-recommended-preventive-controls.html) controls that you can implement in your organization. If you are allowing root logons you should secure them with the appropriate measures.
 
 #### Multi Factor Authentication
+<a name="root_security_guidancemulti_factor_authentication"></a>
 
-**Multi-Factor Authentication Requirements**:
-
-- **Hardware Security Keys**: FIDO2/WebAuthn devices (YubiKey, etc.) - Highest security
-- **Virtual MFA Devices**: Authenticator apps (Google Authenticator, Authy) - Good security
-- **SMS MFA**: Consider alternative methods for FedRAMP environments due to potential social engineering risks
+ **Multi-Factor Authentication Requirements**:
++  **Hardware Security Keys**: FIDO2/WebAuthn devices (YubiKey, etc.) - Highest security
++  **Virtual MFA Devices**: Authenticator apps (Google Authenticator, Authy) - Good security
++  **SMS MFA**: Consider alternative methods for FedRAMP environments due to potential social engineering risks
 
 #### Session Management
-
-- **Session Timeout**: Configure automatic logout after inactivity
-- **Concurrent Sessions**: Monitor for multiple simultaneous root sessions
-- **Geographic Restrictions**: Implement IP-based access controls where possible
-- **Time-based Access**: Restrict root access to business hours when feasible
+<a name="root_security_guidancesession_management"></a>
++  **Session Timeout**: Configure automatic logout after inactivity
++  **Concurrent Sessions**: Monitor for multiple simultaneous root sessions
++  **Geographic Restrictions**: Implement IP-based access controls where possible
++  **Time-based Access**: Restrict root access to business hours when feasible
 
 #### Monitoring and Auditing
+<a name="root_security_guidancemonitoring_and_auditing"></a>
 
 CloudTrail Configuration for Root activities can help to identify usage of AWS root account credentials. It’s important to setup monitoring and alerting for root account actions.
 
-**Create dedicated CloudTrail for root account monitoring**
+ **Create dedicated CloudTrail for root account monitoring** 
 
 ```
 aws cloudtrail create-trail \
@@ -488,7 +486,7 @@ aws cloudtrail create-trail \
 
 Create real-time Alerting for Root Usage as well to make sure you can maintain awareness of usage.
 
-**CloudWatch metric filter for root account usage**
+ **CloudWatch metric filter for root account usage** 
 
 ```
 aws logs put-metric-filter \
@@ -499,7 +497,7 @@ aws logs put-metric-filter \
 metricName=RootAccountAPIUsage,metricNamespace=Security/RootAccount,metricValue=1
 ```
 
-**CloudWatch alarm for root account API usage**
+ **CloudWatch alarm for root account API usage** 
 
 ```
 aws cloudwatch put-metric-alarm \
@@ -515,31 +513,33 @@ aws cloudwatch put-metric-alarm \
 ```
 
 ### Operational Procedures
+<a name="root_security_guidanceoperational_procedures"></a>
 
 #### Change Management Process
+<a name="root_security_guidancechange_management_process"></a>
 
 A formal change management process is helpful in reducing the likliehood of inadvertent usage of root credentials. Placing safeguards and checks in place to prevent usage of root credentials can be implemented with the following items.
-
-- **Request Authorization**: Formal approval process for root account usage
-- **Justification Documentation**: Business case and technical necessity
-- **Witness Requirement**: Two-person integrity for sensitive operations
-- **Time Limitation**: Specific time windows for root account access
-- **Post-Action Review**: Verification and documentation of changes made
++  **Request Authorization**: Formal approval process for root account usage
++  **Justification Documentation**: Business case and technical necessity
++  **Witness Requirement**: Two-person integrity for sensitive operations
++  **Time Limitation**: Specific time windows for root account access
++  **Post-Action Review**: Verification and documentation of changes made
 
 #### Emergency Access Procedures
+<a name="root_security_guidanceemergency_access_procedures"></a>
 
 In case of emergency use, consider proper steps to ensure process is still followed.
-
-- **Emergency Access Process**: Documented emergency access procedures
-- **Incident Response**: Integration with security incident response plans
-- **Communication Plan**: Notification requirements for emergency root access
-- **Recovery Validation**: Verification that emergency actions resolved the issue
++  **Emergency Access Process**: Documented emergency access procedures
++  **Incident Response**: Integration with security incident response plans
++  **Communication Plan**: Notification requirements for emergency root access
++  **Recovery Validation**: Verification that emergency actions resolved the issue
 
 #### Compliance and Governance
+<a name="root_security_guidancecompliance_and_governance"></a>
 
 Using AWS Config Rules for Root Account Security are recommended for monitoring specific component of root usage.
 
-**Config Rules for Root Account Security**
+ **Config Rules for Root Account Security** 
 
 Deploy AWS Config rules for root account compliance. The two provided AWS Config rules monitor for account compliance in having MFA enabled for root accounts, and identification if a root account has access keys.
 
@@ -567,19 +567,15 @@ aws configservice put-config-rule \
 }'
 ```
 
-**Summary and Recommendations**
+ **Summary and Recommendations** 
 
-###### Immediate Actions
+**Immediate Actions**
++ Implement AWS Organizations root access management for all multi-account environments, avoid usage of root logons
++ Enable comprehensive monitoring for all root account activities
++ Document emergency procedures for root-only operations
++ Train security teams on new root access management capabilities ---
 
-- Implement AWS Organizations root access management for all multi-account environments, avoid usage of root logons
-- Enable comprehensive monitoring for all root account activities
-- Document emergency procedures for root-only operations
-- Train security teams on new root access management capabilities
-
----
-
-###### Long-term Strategy
-
-- Implement automated compliance validation using AWS Config
-- Establish regular security reviews of root account configurations and usage
-- Integrate with enterprise identity systems for centralized access management
+**Long-term Strategy**
++ Implement automated compliance validation using AWS Config
++ Establish regular security reviews of root account configurations and usage
++ Integrate with enterprise identity systems for centralized access management
