@@ -5,7 +5,7 @@ This repository provides weekly snapshots of AWS documentation converted to Mark
 - **Markdown versions of AWS docs** for giving context to AI agents, training models, or offline reference
 - **Historical tracking** of how AWS documentation changes over time
 
-The repository automatically crawls the AWS documentation index once per week, converts the HTML pages to Markdown, and commits the results. The Git history provides a complete timeline of documentation updates across all AWS services.
+The repository automatically crawls the AWS documentation index once per week, downloads the Markdown provided by AWS, and commits the results. The Git history provides a complete timeline of documentation updates across all AWS services.
 
 ## Running the crawler
 
@@ -25,8 +25,9 @@ python crawler.py --service-url "https://docs.aws.amazon.com/AmazonS3/latest/use
 <!-- sparkline-start -->
 ## Documentation activity
 
-Net lines changed per service per week over the last 6 months. Bar heights use a
-log scale. Green = net lines added, red = net lines removed.
+Net lines changed per service per week over the last 6 months, excluding each
+service's initial snapshot. Bar heights use a log scale. Green = net lines
+added, red = net lines removed.
 
 ![Documentation activity](docs_activity.svg)
 <!-- sparkline-end -->

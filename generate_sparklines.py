@@ -61,9 +61,18 @@ def get_git_numstat(since_date: str, cache_path: str | None = None) -> str:
 
 
 def parse_numstat(raw: str) -> dict:
-    """Parse git log --numstat output into {service: {week_start: {added, deleted}}}."""
+    """Parse numstat output, excluding each service's initial snapshot commit.
+
+    The first commit for a service establishes its baseline.  In particular, it
+    may contain a one-time formatting diff when the archive changes how it
+    obtains Markdown, so counting it as documentation activity would add noise
+    to the chart.
+    """
     data = defaultdict(lambda: defaultdict(lambda: {"added": 0, "deleted": 0}))
     current_date = None
+    current_commit = None
+    commits = []
+    commit_stats = None
 
     for line in raw.splitlines():
         line = line.strip()
@@ -71,7 +80,10 @@ def parse_numstat(raw: str) -> dict:
             continue
         if line.startswith("COMMIT "):
             parts = line.split()
+            current_commit = parts[1]
             current_date = parts[2]  # YYYY-MM-DD
+            commit_stats = defaultdict(lambda: {"added": 0, "deleted": 0})
+            commits.append((current_commit, current_date, commit_stats))
             continue
         if line.startswith("fatal:"):
             continue
@@ -84,12 +96,27 @@ def parse_numstat(raw: str) -> dict:
         if not path.startswith("docs/"):
             continue
         service = path.split("/")[1]
-        # Compute ISO week start (Monday)
-        dt = datetime.strptime(current_date, "%Y-%m-%d")
+        commit_stats[service]["added"] += int(added_str)
+        commit_stats[service]["deleted"] += int(deleted_str)
+
+    # `git log` emits newest commits first, so the last commit encountered for
+    # each service is its initial snapshot. Keep the service in the result (and
+    # therefore in the chart), but do not count that baseline's line changes.
+    initial_commits = {}
+    for commit, _date, stats in commits:
+        for service in stats:
+            initial_commits[service] = commit
+            data[service]
+
+    for commit, commit_date, stats in commits:
+        dt = datetime.strptime(commit_date, "%Y-%m-%d")
         week_start = dt - timedelta(days=dt.weekday())
         week_key = week_start.strftime("%Y-%m-%d")
-        data[service][week_key]["added"] += int(added_str)
-        data[service][week_key]["deleted"] += int(deleted_str)
+        for service, changes in stats.items():
+            if commit == initial_commits[service]:
+                continue
+            data[service][week_key]["added"] += changes["added"]
+            data[service][week_key]["deleted"] += changes["deleted"]
 
     return data
 
@@ -191,8 +218,9 @@ def update_readme(svg_path: str, readme_path: str = "README.md"):
     section = f"""{SVG_MARKER_START}
 ## Documentation activity
 
-Net lines changed per service per week over the last 6 months. Bar heights use a
-log scale. Green = net lines added, red = net lines removed.
+Net lines changed per service per week over the last 6 months, excluding each
+service's initial snapshot. Bar heights use a log scale. Green = net lines
+added, red = net lines removed.
 
 ![Documentation activity](docs_activity.svg)
 {SVG_MARKER_END}"""
