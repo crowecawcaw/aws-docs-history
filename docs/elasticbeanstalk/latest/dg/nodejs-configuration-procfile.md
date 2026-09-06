@@ -1,17 +1,17 @@
+
+
 # Configuring custom start commands with a Procfileon Elastic Beanstalk
+<a name="nodejs-configuration-procfile"></a>
 
-You can include a file that's called `Procfile` at the root of your source bundle to specify the command that starts your
-application.
+You can include a file that's called `Procfile` at the root of your source bundle to specify the command that starts your application.
 
-###### Example Procfile
+**Example Procfile**  
 
 ```
 web: node index.js
 ```
 
-For information about `Procfile` usage see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").
+For information about `Procfile` usage see [Buildfile and Procfile](platforms-linux-extend.build-proc.md).
 
-###### Note
-
-This feature replaces the legacy `NodeCommand` option in the `aws:elasticbeanstalk:container:nodejs`
-namespace.
+**Note**  
+This feature replaces the legacy `NodeCommand` option in the `aws:elasticbeanstalk:container:nodejs` namespace.

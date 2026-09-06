@@ -1,21 +1,16 @@
+
+
 # Example: DynamoDB, CloudWatch, and SNS
+<a name="customize-environment-resources-dynamodb"></a>
 
-This configuration file sets up the DynamoDB table as a session handler for a PHP-based
-application using the AWS SDK for PHP 2. To use this example, you must have an IAM instance
-profile, which is added to the instances in your environment and used to access the DynamoDB
-table.
+This configuration file sets up the DynamoDB table as a session handler for a PHP-based application using the AWS SDK for PHP 2. To use this example, you must have an IAM instance profile, which is added to the instances in your environment and used to access the DynamoDB table.
 
-You can download the sample that we'll use in this step at [DynamoDB session Support example](https://elasticbeanstalk.s3.amazonaws.com/extensions/PHP-DynamoDB-Session-Support.zip "https://elasticbeanstalk.s3.amazonaws.com/extensions/PHP-DynamoDB-Session-Support.zip").
-The sample contains the following files:
+ You can download the sample that we'll use in this step at [DynamoDB session Support example](https://elasticbeanstalk.s3.amazonaws.com/extensions/PHP-DynamoDB-Session-Support.zip). The sample contains the following files:
++ The sample application, `index.php`
++ A configuration file, `dynamodb.config`, to create and configure a DynamoDB table and other AWS resources and install software on the EC2 instances that host the application in an Elastic Beanstalk environment
++ A configuration file, `options.config`, that overrides the defaults in `dynamodb.config` with specific settings for this particular installation
 
-- The sample application, `index.php`
-- A configuration file, `dynamodb.config`, to create and configure a
-  DynamoDB table and other AWS resources and install software on the EC2 instances
-  that host the application in an Elastic Beanstalk environment
-- A configuration file, `options.config`, that overrides the
-  defaults in `dynamodb.config` with specific settings for this
-  particular installation
-  **`index.php`**
+**`index.php`**
 
 ```
 <?php
@@ -82,7 +77,6 @@ if (isset($_POST['continue'])) {
 }
 ?>
 </form>
-
 ```
 
 **`.ebextensions/dynamodb.config`**
@@ -92,7 +86,7 @@ Resources:
   SessionTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      KeySchema:
+      KeySchema: 
         HashKeyElement:
           AttributeName:
             Fn::GetOptionSetting:
@@ -168,7 +162,7 @@ Resources:
       Statistic: Sum
       Period: 300
       EvaluationPeriods: 1
-      Threshold:
+      Threshold: 
         Fn::GetOptionSetting:
           OptionName: SessionThrottledRequestsThreshold
           DefaultValue: 1
@@ -213,17 +207,9 @@ container_commands:
    command: "rm -Rf /var/app/composer.*"
 ```
 
-In the sample configuration file, we first create the DynamoDB table and configure the
-primary key structure for the table and the capacity units to allocate sufficient resources to
-provide the requested throughput. Next, we create CloudWatch alarms for
-`WriteCapacity` and `ReadCapacity`. We create an SNS topic that sends
-email to "nobody@amazon.com" if the alarm thresholds are breached.
+In the sample configuration file, we first create the DynamoDB table and configure the primary key structure for the table and the capacity units to allocate sufficient resources to provide the requested throughput. Next, we create CloudWatch alarms for `WriteCapacity` and `ReadCapacity`. We create an SNS topic that sends email to "nobody@amazon.com" if the alarm thresholds are breached. 
 
-After we create and configure our AWS resources for our environment, we need to customize
-the EC2 instances. We use the `files` key to pass the details of the DynamoDB table
-to the EC2 instances in our environment as well as add a "require" in the
-`composer.json` file for the AWS SDK for PHP 2. Finally, we run container
-commands to install composer, the required dependencies, and then remove the installer.
+After we create and configure our AWS resources for our environment, we need to customize the EC2 instances. We use the `files` key to pass the details of the DynamoDB table to the EC2 instances in our environment as well as add a "require" in the `composer.json` file for the AWS SDK for PHP 2. Finally, we run container commands to install composer, the required dependencies, and then remove the installer.
 
 **`.ebextensions/options.config`**
 
@@ -234,16 +220,13 @@ option_settings:
      SessionHashKeyType                      : S
      SessionReadCapacityUnits                : 1
      SessionReadCapacityUnitsAlarmThreshold  : 240
-     SessionWriteCapacityUnits               : 1
+     SessionWriteCapacityUnits               : 1 
      SessionWriteCapacityUnitsAlarmThreshold : 240
      SessionThrottledRequestsThreshold       : 1
-     SessionAlarmEmail                       : `me@example.com`
+     SessionAlarmEmail                       : {{me@example.com}}
 ```
 
-Replace the SessionAlarmEmail value with the email where you want alarm notifications sent.
-The `options.config` file contains the values used for some of the variables
-defined in `dynamodb.config`. For example,
-`dynamodb.config` contains the following lines:
+Replace the SessionAlarmEmail value with the email where you want alarm notifications sent. The `options.config` file contains the values used for some of the variables defined in `dynamodb.config`. For example, `dynamodb.config` contains the following lines:
 
 ```
 Subscription:
@@ -253,17 +236,9 @@ Subscription:
         DefaultValue: "nobody@amazon.com"
 ```
 
-These lines that tell Elastic Beanstalk to get the value for the **Endpoint** property
-from the **SessionAlarmEmail** value in a config file
-(`options.config` in our sample application) that contains an
-option\_settings section with an **aws:elasticbeanstalk:customoption** section
-that contains a name-value pair that contains the actual value to use. In the example above,
-this means **SessionAlarmEmail** would be assigned the value
-`nobody@amazon.com`.
+These lines that tell Elastic Beanstalk to get the value for the **Endpoint** property from the **SessionAlarmEmail** value in a config file (`options.config` in our sample application) that contains an option\_settings section with an **aws:elasticbeanstalk:customoption** section that contains a name-value pair that contains the actual value to use. In the example above, this means **SessionAlarmEmail** would be assigned the value `nobody@amazon.com`.
 
-For more information about the CloudFormation resources used in this example, see the
-following references:
-
-- [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md")
-- [AWS::CloudWatch::Alarm](../../../AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.md")
-- [AWS::SNS::Topic](../../../AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.md")
+For more information about the CloudFormation resources used in this example, see the following references:
++ [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html)
++ [AWS::CloudWatch::Alarm](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html)
++ [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html)

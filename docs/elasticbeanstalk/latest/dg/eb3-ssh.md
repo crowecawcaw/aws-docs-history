@@ -1,69 +1,63 @@
+
+
 # **eb ssh**
+<a name="eb3-ssh"></a>
 
 ## Description
+<a name="eb3-sshdescription"></a>
 
-###### Note
-
+**Note**  
 This command does not work with environments running Windows Server instances.
 
-Connect to a Linux Amazon EC2 instance in your environment using Secure Shell (SSH). If an
-environment has multiple running instances, EB CLI prompts you to specify which instance you
-want to connect to. To use this command, SSH must be installed on your local machine and
-available from the command line. Private key files must be located in a folder named
-`.ssh` under your user directory, and the EC2 instances in your
-environment must have public IP addresses.
+Connect to a Linux Amazon EC2 instance in your environment using Secure Shell (SSH). If an environment has multiple running instances, EB CLI prompts you to specify which instance you want to connect to. To use this command, SSH must be installed on your local machine and available from the command line. Private key files must be located in a folder named `.ssh` under your user directory, and the EC2 instances in your environment must have public IP addresses.
 
-If the root directory contains a `platform.yaml` file specifying a
-custom platform, this command also connects to instances in the custom environment.
+If the root directory contains a `platform.yaml` file specifying a custom platform, this command also connects to instances in the custom environment.
 
-###### SSH keys
+ 
 
-If you have not previously configured SSH, you can use the EB CLI to create a key
-when running **eb init**. If you have already run **eb init**, run it
-again with the `--interactive` option and select **Yes** and
-**Create New Keypair** when prompted to set up SSH. Keys created
-during this process will be stored in the proper folder by the EB CLI.
+**SSH keys**  
+If you have not previously configured SSH, you can use the EB CLI to create a key when running **eb init**. If you have already run **eb init**, run it again with the `--interactive` option and select **Yes** and **Create New Keypair** when prompted to set up SSH. Keys created during this process will be stored in the proper folder by the EB CLI.
 
-This command temporarily opens port 22 in your environment's security group for incoming
-traffic from 0.0.0.0/0 (all IP addresses) if no rules for port 22 are already in place. If
-you have configured your environment's security group to open port 22 to a restricted CIDR
-range for increased security, the EB CLI will respect that setting and forgo any changes to
-the security group. To override this behavior and force the EB CLI to open port 22 to all
-incoming traffic, use the `--force` option.
+This command temporarily opens port 22 in your environment's security group for incoming traffic from 0.0.0.0/0 (all IP addresses) if no rules for port 22 are already in place. If you have configured your environment's security group to open port 22 to a restricted CIDR range for increased security, the EB CLI will respect that setting and forgo any changes to the security group. To override this behavior and force the EB CLI to open port 22 to all incoming traffic, use the `--force` option.
 
-See [EC2 security groups](using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups") for information on
-configuring your environment's security group.
+See [EC2 security groups](using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups) for information on configuring your environment's security group.
 
 ## Syntax
+<a name="eb3-sshsyntax"></a>
 
-**eb ssh**
+ **eb ssh** 
 
-**eb ssh `environment-name`**
+ **eb ssh {{environment-name}}** 
 
 ## Options
+<a name="eb3-sshoptions"></a>
 
-| Name                                                      | Description                                                                                                                                                                                                                                                                                                                                        |
-| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-i`<br>or<br>`--instance`                                | Specifies the instance ID of the instance to which you connect. We recommend<br>that you use this option.                                                                                                                                                                                                                                          |
-| `-n`<br>or<br>`--number`                                  | Specify the instance to connect to by number.                                                                                                                                                                                                                                                                                                      |
-| `-o`<br>or<br>`--keep_open`                               | Leave port 22 open on the security group after the SSH session ends.                                                                                                                                                                                                                                                                               |
-| `--command`                                               | Execute a shell command on the specified instance instead of starting an SSH<br>session.                                                                                                                                                                                                                                                           |
-| `--custom`                                                | Specify an SSH command to use instead of 'ssh -i keyfile'. Do not include the<br>remote user and hostname.                                                                                                                                                                                                                                         |
-| `--setup`                                                 | Change the key pair assigned to the environment's instances (requires<br>instances to be replaced).                                                                                                                                                                                                                                                |
-| `--force`                                                 | Open port 22 to incoming traffic from 0.0.0.0/0 in the environment's security<br>group, even if the security group is already configured for SSH.<br>Use this option if your environment's security group is configured to open<br>port 22 to a restricted CIDR range that does not include the IP address that you<br>are trying to connect from. |
-| `--timeout`<br>`minutes`                                  | Set number of minutes before the command times out.<br>Can only be used with the `--setup` argument.                                                                                                                                                                                                                                               |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                                                                                                                                                                    |
+
+
+|  Name  |  Description  | 
+| --- | --- | 
+| `-i`<br />or<br />`--instance` | Specifies the instance ID of the instance to which you connect. We recommend that you use this option. | 
+| `-n`<br />or<br />`--number` | Specify the instance to connect to by number. | 
+| `-o`<br />or<br />`--keep_open` | Leave port 22 open on the security group after the SSH session ends. | 
+| `--command` | Execute a shell command on the specified instance instead of starting an SSH session. | 
+| `--custom` | Specify an SSH command to use instead of 'ssh -i keyfile'. Do not include the remote user and hostname. | 
+| `--setup` | Change the key pair assigned to the environment's instances (requires instances to be replaced). | 
+| `--force` | Open port 22 to incoming traffic from 0.0.0.0/0 in the environment's security group, even if the security group is already configured for SSH.<br />Use this option if your environment's security group is configured to open port 22 to a restricted CIDR range that does not include the IP address that you are trying to connect from. | 
+| `--timeout` {{minutes}} | Set number of minutes before the command times out.<br />Can only be used with the `--setup` argument. | 
+| [Common options](eb3-cmd-options.md) |  | 
 
 ## Output
+<a name="eb3-sshoutput"></a>
 
 If successful, the command opens an SSH connection to the instance.
 
 ## Example
+<a name="eb3-sshexample"></a>
 
 The following example connects you to the specified environment.
 
 ```
-$ `eb ssh`
+$ eb ssh
 Select an instance to ssh into
 1) i-96133799
 2) i-5931e053

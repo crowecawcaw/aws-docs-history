@@ -1,36 +1,39 @@
+
+
 # Troubleshooting and diagnostics
+<a name="dotnet-migrating-applications-troubleshooting"></a>
 
-###### Try Amazon Q Developer CLI for AI-assisted troubleshooting
-
-Amazon Q Developer CLI can help you troubleshoot environment issues quickly. The Q CLI provides
-solutions by checking environment status, reviewing events, analyzing logs, and asking clarifying questions. For
-more information and detailed walkthroughs, see [Troubleshooting Elastic Beanstalk Environments with Amazon Q Developer CLI](https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/ "https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/") in the AWS blogs.
+**Try Amazon Q Developer CLI for AI-assisted troubleshooting**  
+ Amazon Q Developer CLI can help you troubleshoot environment issues quickly. The Q CLI provides solutions by checking environment status, reviewing events, analyzing logs, and asking clarifying questions. For more information and detailed walkthroughs, see [Troubleshooting Elastic Beanstalk Environments with Amazon Q Developer CLI ](https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/) in the AWS blogs.
 
 This section provides guidance for troubleshooting common issues that may arise during the migration of IIS applications to Elastic Beanstalk.
 
 ## Associating an EC2 keypair with your environment
+<a name="dotnet-migrating-applications-troubleshooting-keypair"></a>
 
-You can securely log in to the Amazon Elastic Compute Cloud(Amazon EC2) instances provisioned for your Elastic Beanstalk application with an Amazon EC2 key pair. For instructions on creating a key pair, see [Creating a Key Pair Using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair") in the _Amazon EC2 User Guide_.
+You can securely log in to the Amazon Elastic Compute Cloud(Amazon EC2) instances provisioned for your Elastic Beanstalk application with an Amazon EC2 key pair. For instructions on creating a key pair, see [Creating a Key Pair Using Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair) in the *Amazon EC2 User Guide*.
 
 Specifying a keyname to **eb migrate** has the effect of associating your Elastic Beanstalk environment with the keypair. For security purposes, this will not open up port 3389 on your EC2 instances security group. You can associate additional EC2 security groups allowing traffic at port 3389 through **eb config** after the initial migration.
 
 ```
-`PS C:\migrations_workspace>` `eb migrate `
- --keyname "my-keypair" `
- --verbose`
+PS C:\migrations_workspace> eb migrate  `
+    --keyname "my-keypair"  `
+    --verbose
 ```
 
-When you create a key pair, Amazon EC2 stores a copy of your public key. If you no longer need to use it to connect to any environment instances, you can delete it from Amazon EC2. For details, see [Deleting Your Key Pair](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#delete-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#delete-key-pair") in the _Amazon EC2 User Guide_.
+When you create a key pair, Amazon EC2 stores a copy of your public key. If you no longer need to use it to connect to any environment instances, you can delete it from Amazon EC2. For details, see [Deleting Your Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#delete-key-pair) in the *Amazon EC2 User Guide*.
 
-For more information about connecting to Windows Amazon EC2 instances, see [Connecting to Windows Instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md").
+For more information about connecting to Windows Amazon EC2 instances, see [Connecting to Windows Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html).
 
 ## Accessing logs
+<a name="dotnet-migrating-applications-troubleshooting-logs"></a>
 
 The EB CLI provides an **eb logs** facility which you can use to retrieve logs from an Elastic Beanstalk environment without logging into its EC2 instances. After an execution of **eb migrate**, you can issue the **eb logs --zip** command which will download and save logs into the `.elasticbeanstalk\logs` directory.
 
-Alternatively, you can view logs through the AWS Elastic Beanstalk console. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
+Alternatively, you can view logs through the AWS Elastic Beanstalk console. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md).
 
 ## Accessing client-side artifacts
+<a name="dotnet-migrating-applications-troubleshooting-artifacts"></a>
 
 The **eb migrate** command stores application and error logs generated by **msdeploy** inside migrations artifacts directories.
 
@@ -44,112 +47,90 @@ The **eb migrate** command stores application and error logs generated by **msde
 ```
 
 ## Monitoring environment health
+<a name="dotnet-migrating-applications-troubleshooting-health"></a>
 
 Elastic Beanstalk helps you monitor health using the enhanced health monitoring capabilities. It is an automated health monitoring system that continuously tracks the operational status of application instances, leveraging built-in metrics such as CPU utilization, latency, request counts, and response codes.
 
-The health monitoring system utilizes an agent-based approach to collect instance-level
-data and integrates with real-time logging and alerting. Elastic Load Balancing (ELB) and Auto Scaling dynamically
-respond to health status changes, ensuring high availability and fault tolerance. Advanced
-monitoring modes, including enhanced health reporting, provide granular visibility into
-application behavior, enabling proactive troubleshooting and automatic recovery
-mechanisms.
+The health monitoring system utilizes an agent-based approach to collect instance-level data and integrates with real-time logging and alerting. Elastic Load Balancing (ELB) and Auto Scaling dynamically respond to health status changes, ensuring high availability and fault tolerance. Advanced monitoring modes, including enhanced health reporting, provide granular visibility into application behavior, enabling proactive troubleshooting and automatic recovery mechanisms.
 
-Run the EB CLI **eb health** command to display the environment's health.
-The following information displays:
-
-- Instance health status
-- Application response metrics
-- System resource utilization
-- Recent deployment events
+Run the EB CLI **eb health** command to display the environment's health. The following information displays:
++ Instance health status
++ Application response metrics
++ System resource utilization
++ Recent deployment events
 
 ## EC2 performance optimization
+<a name="dotnet-migrating-applications-troubleshooting-performance"></a>
 
-By default, **eb migrate** selects the [c5.2xlarge](https://aws.amazon.com/ec2/instance-types/c5/ "https://aws.amazon.com/ec2/instance-types/c5/") instance type to
-provide an optimal first-time experience with Elastic Beanstalk. You can override this behavior with the
-**--instance-type** argument:
+By default, **eb migrate** selects the [c5.2xlarge](https://aws.amazon.com/ec2/instance-types/c5/) instance type to provide an optimal first-time experience with Elastic Beanstalk. You can override this behavior with the **--instance-type** argument:
 
 ```
-`PS C:\migrations_workspace>` `eb migrate `
- --instance-type "t3.large"`
+PS C:\migrations_workspace> eb migrate `
+    --instance-type "t3.large"
 ```
 
 For production environments, consider these factors when selecting an instance type:
-
-- Memory requirements of your applications
-- CPU requirements for processing workloads
-- Network performance needs
-- Cost optimization goals
++ Memory requirements of your applications
++ CPU requirements for processing workloads
++ Network performance needs
++ Cost optimization goals
 
 ## EBS volume configuration
+<a name="dotnet-migrating-applications-troubleshooting-ebs"></a>
 
-By default, Elastic Beanstalk will create only a root block-device volume (`C:\`)
-for your environment. You can pass additional Amazon Elastic Block Store snapshot volumes with the
-**--ebs-snapshots** option:
+By default, Elastic Beanstalk will create only a root block-device volume (`C:\`) for your environment. You can pass additional Amazon Elastic Block Store snapshot volumes with the **--ebs-snapshots** option:
 
 ```
-`PS C:\migrations_workspace>` `eb migrate `
- --ebs-snapshots "snap-123456789abc"`
+PS C:\migrations_workspace> eb migrate `
+    --ebs-snapshots "snap-123456789abc"
 ```
 
-For examples of how you can configure block-device mappings with Elastic Beanstalk, see the blog article
-[Customize Ephemeral and EBS Volumes in Elastic Beanstalk Environments](https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/ "https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/").
+For examples of how you can configure block-device mappings with Elastic Beanstalk, see the blog article [ Customize Ephemeral and EBS Volumes in Elastic Beanstalk Environments](https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/).
 
 For applications with high storage requirements, consider the following options:
-
-- Using EBS volumes for persistent data
-- Implementing Amazon S3 for static content
-- Using Amazon FSx for Windows File Server for shared file systems
++ Using EBS volumes for persistent data
++ Implementing Amazon S3 for static content
++ Using Amazon FSx for Windows File Server for shared file systems
 
 ## Common issues and solutions
+<a name="dotnet-migrating-applications-troubleshooting-common"></a>
 
-**Event:**
-_Missing Web Deploy installation_
+**Event:** *Missing Web Deploy installation*
 
-If you encounter errors related to Web Deploy not being found, then install Web Deploy 3.6
-or later from the [Microsoft
-Web Platform Installer](https://www.iis.net/downloads/microsoft/web-deploy "https://www.iis.net/downloads/microsoft/web-deploy"). The following example displays a possible error
-message.
+If you encounter errors related to Web Deploy not being found, then install Web Deploy 3.6 or later from the [Microsoft Web Platform Installer](https://www.iis.net/downloads/microsoft/web-deploy). The following example displays a possible error message.
 
 ```
 Couldn't find msdeploy.exe. Follow instructions here: https://learn.microsoft.com/en-us/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy
 ```
 
-**Event:**
-_Permission issues during migration_
+**Event:** *Permission issues during migration*
 
-If you encounter permission-related errors, then ensure that you're running the EB CLI
-with administrative privileges. The following example displays a possible error
-message.
+If you encounter permission-related errors, then ensure that you're running the EB CLI with administrative privileges. The following example displays a possible error message.
 
 ```
 [ERROR] Access to the path 'C:\inetpub\wwwroot\web.config' is denied.
 ```
 
-**Event:**
-_Application pool identity issues_
+**Event:** *Application pool identity issues*
 
-If your application fails to start due to application pool identity issues,
-create a custom script to configure application pool identities as shown in [Custom application pool settings](dotnet-migrating-applications-advanced-scenarios.md#dotnet-migrating-applications-advanced-scenarios-apppool "dotnet-migrating-applications-advanced-scenarios.md#dotnet-migrating-applications-advanced-scenarios-apppool").
+If your application fails to start due to application pool identity issues, create a custom script to configure application pool identities as shown in [Custom application pool settings](dotnet-migrating-applications-advanced-scenarios.md#dotnet-migrating-applications-advanced-scenarios-apppool).
 
-**Event:**
-_SSL certificate configuration errors_
+**Event:** *SSL certificate configuration errors*
 
 If HTTPS bindings fail to work, ensure that you've specified a valid ACM certificate ARN using the **eb mibrate** option `--ssl-certificates` parameter.
 
-**Event:**
-_Environment creation timeout_
+**Event:** *Environment creation timeout*
 
 If environment creation times out, check CloudFormation events in the AWS Management Console for specific resource creation failures. Common causes include VPC configuration issues or service limits.
 
 ## Getting support
+<a name="dotnet-migrating-applications-troubleshooting-support"></a>
 
 If you encounter issues that you cannot resolve, before contacting AWS Support gather the following information:
++ Environment ID (`eb status`)
++ Application logs (`eb logs --zip`)
++ Migration artifacts from `.\migrations\latest\`
++ Source IIS configuration (output of `eb migrate explore --verbose`)
++ Detailed error messages
 
-- Environment ID (`eb status`)
-- Application logs (`eb logs --zip`)
-- Migration artifacts from `.\migrations\latest\`
-- Source IIS configuration (output of `eb migrate explore --verbose`)
-- Detailed error messages
-
-For more information about Elastic Beanstalk troubleshooting, see
-[Troubleshooting your Elastic Beanstalk environment](troubleshooting.md "troubleshooting.md").
+For more information about Elastic Beanstalk troubleshooting, see [Troubleshooting your Elastic Beanstalk environment](troubleshooting.md).

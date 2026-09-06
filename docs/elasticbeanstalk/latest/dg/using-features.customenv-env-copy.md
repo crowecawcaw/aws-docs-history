@@ -1,96 +1,81 @@
+
+
 # Preserving access to an Amazon Machine Image (AMI) for a retired platform
+<a name="using-features.customenv-env-copy"></a>
 
-Elastic Beanstalk sets a platform branch status to _retired_ when the operating system or major component used by the branch
-reaches End of Life. The _base_ Elastic Beanstalk AMI for the platform branch may also be made private to prevent the use of this
-out-of-date AMI. Environments using AMIs that have been made private will no longer be able to launch instances.
+Elastic Beanstalk sets a platform branch status to *retired* when the operating system or major component used by the branch reaches End of Life. The *base *Elastic Beanstalk AMI for the platform branch may also be made private to prevent the use of this out-of-date AMI. Environments using AMIs that have been made private will no longer be able to launch instances.
 
-If you're unable to migrate your application to a supported environment before it's retired, your environment may be in this situation. The need to
-update an environment for a Beanstalk platform branch, where its base Elastic Beanstalk AMI has been made private, may arise. An alternative approach is available. You
-can update an existing environment based on a _copy_ of the base Elastic Beanstalk AMI used by your environment.
+If you're unable to migrate your application to a supported environment before it's retired, your environment may be in this situation. The need to update an environment for a Beanstalk platform branch, where its base Elastic Beanstalk AMI has been made private, may arise. An alternative approach is available. You can update an existing environment based on a *copy* of the base Elastic Beanstalk AMI used by your environment. 
 
-This topic offers some steps and a standalone script to update an existing environment based on a _copy_ of the base
-Elastic Beanstalk AMI used by your environment. Once you're able to migrate your application to a supported platform you can continue to use the standard
-procedures for maintaining your application and supported environments.
+This topic offers some steps and a standalone script to update an existing environment based on a *copy* of the base Elastic Beanstalk AMI used by your environment. Once you're able to migrate your application to a supported platform you can continue to use the standard procedures for maintaining your application and supported environments.
 
 ## Manual steps
+<a name="using-features.customenv-env-copy.manual-steps"></a>
 
-###### To update an environment based on an AMI copy of the base Elastic Beanstalk AMI
+**To update an environment based on an AMI copy of the base Elastic Beanstalk AMI**
 
-1. **Determine which AMI your environment is using.** This command returns the AMI used by the Elastic Beanstalk environment that
-   you provide in the parameters. The returned value is used as the _source-ami-id_ in the next step.
+1. **Determine which AMI your environment is using.** This command returns the AMI used by the Elastic Beanstalk environment that you provide in the parameters. The returned value is used as the *source-ami-id* in the next step.
 
-In a command window, run a command like the following. For more information, see [describe-configuration-settings](../../../cli/latest/reference/elasticbeanstalk/describe-configuration-settings.md "../../../cli/latest/reference/elasticbeanstalk/describe-configuration-settings.md") in the
-_AWS CLI Command Reference_.
+   In a command window, run a command like the following. For more information, see [describe-configuration-settings](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-configuration-settings.html) in the *AWS CLI Command Reference*.
 
-Specify the AWS Region that stores the source AMI you want to copy. Replace the application name and environment name with those based on the
-source AMI. Enter the text for the query parameter as shown.
+   Specify the AWS Region that stores the source AMI you want to copy. Replace the application name and environment name with those based on the source AMI. Enter the text for the query parameter as shown.  
+**Example**  
 
-###### Example
+   ```
+   >aws elasticbeanstalk describe-configuration-settings \
+     --application-name {{my-application}} \
+     --environment-name {{my-environment}} \
+     --region {{us-east-2}} \
+     --query "ConfigurationSettings[0].OptionSettings[?OptionName=='ImageId'] | [0].Value"
+   ```
 
-```
->`aws elasticbeanstalk describe-configuration-settings \
- --application-name `my-application` \
- --environment-name `my-environment` \
- --region `us-east-2` \
- --query "ConfigurationSettings[0].OptionSettings[?OptionName=='ImageId'] | [0].Value"`
+1. **Copy the AMI into your account.** This command returns the new AMI that results from copying the *source-ami-id* that was returned in the prior step. 
+**Note**  
+Be sure to make a note of the new AMI id that is output by this command. You'll need to enter it in the next step, replacing *copied-ami-id* in the example command.
 
-```
+   In a command window, run a command like the following. For more information, see [copy-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/copy-image.html) in the *AWS CLI Command Reference*.
 
-2. **Copy the AMI into your account.** This command returns the new AMI that results from copying the _source-ami-id_ that was returned in the prior step.
+   Specify the AWS Region of the source AMI you want to copy (**--source-region**) and the Region where you want to use your new custom AMI (**--region**). Replace *source-ami-id *with the AMI of the image that you're copying. The *source-ami-id* was returned by the command in the prior step. Replace *new-ami-name* with a name to describe the new AMI in the destination Region. The script that follows this procedure generates the new AMI name by appending the string "*Copy of*" to the beginning of the name of the *source-ami-id.*
 
-###### Note
+   ```
+   >aws ec2 copy-image \
+       --region {{us-east-2}} \
+       --source-image-id {{source-ami-id}} \
+       --source-region {{us-east-2}} \
+       --name {{new-ami-name}}
+   ```
 
-Be sure to make a note of the new AMI id that is output by this command. You'll need to enter it in the next step, replacing _copied-ami-id_ in the example command.
+1. **Update an environment to use the copied AMI.** After the command runs it returns the status of the environment.
 
-In a command window, run a command like the following. For more information, see [copy-image](../../../cli/latest/reference/ec2/copy-image.md "../../../cli/latest/reference/ec2/copy-image.md") in the _AWS CLI Command Reference_.
+   In a command window, run a command like the following. For more information, see [update-environment](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/update-environment.html) in the *AWS CLI Command Reference*.
 
-Specify the AWS Region of the source AMI you want to copy (**--source-region**) and the Region where you want to
-use your new custom AMI (**--region**). Replace _source-ami-id_ with the AMI of the
-image that you're copying. The _source-ami-id_ was returned by the command in the prior step. Replace _new-ami-name_ with a name to describe the new AMI in the destination Region. The script that follows this procedure
-generates the new AMI name by appending the string "_Copy of_" to the beginning of the name of the _source-ami-id._
+   Specify the AWS Region of the environment and application you need to update. Replace the application name and environment name with those you need to associate with the *copied-ami-id* from the prior step. For the **--option-setttings** parameter, replace {{copied-ami-id}} with the AMI id you noted from the output of the prior command.
 
-```
->`aws ec2 copy-image \
- --region `us-east-2` \
- --source-image-id `source-ami-id` \
- --source-region `us-east-2` \
- --name `new-ami-name``
+   ```
+   >aws elasticbeanstalk update-environment \
+     --application-name {{my-application}} \
+     --environment-name {{my-environment}} \
+     --region {{us-east-2}} \
+     --option-settings "Namespace=aws:autoscaling:launchconfiguration,OptionName=ImageId,Value={{copied-ami-id}}"
+   ```
 
-```
-
-3. **Update an environment to use the copied AMI.** After the command runs it returns the status of the
-   environment.
-
-In a command window, run a command like the following. For more information, see [update-environment](../../../cli/latest/reference/elasticbeanstalk/update-environment.md "../../../cli/latest/reference/elasticbeanstalk/update-environment.md") in the _AWS CLI Command Reference_.
-
-Specify the AWS Region of the environment and application you need to update. Replace the application name and environment name with those you
-need to associate with the _copied-ami-id_ from the prior step. For the **--option-setttings** parameter, replace `copied-ami-id` with the AMI id you noted from the output of the prior
-command.
-
-```
->`aws elasticbeanstalk update-environment \
- --application-name `my-application` \
- --environment-name `my-environment` \
- --region `us-east-2` \
- --option-settings "Namespace=aws:autoscaling:launchconfiguration,OptionName=ImageId,Value=`copied-ami-id`"`
-
-```
-
-###### Note
-
-To minimize storage costs, consider cleaning up your custom AMI when you don't need it to launch Elastic Beanstalk environments anymore. For more information,
-see [Cleaning up a custom AMI](using-features.customenv.md#using-features.customenv.cleanup "using-features.customenv.md#using-features.customenv.cleanup").
+**Note**  
+To minimize storage costs, consider cleaning up your custom AMI when you don't need it to launch Elastic Beanstalk environments anymore. For more information, see [Cleaning up a custom AMI](using-features.customenv.md#using-features.customenv.cleanup).
 
 ## Standalone script
+<a name="using-features.customenv-env-copy.script"></a>
 
-The following script provides the same results as the previous manual steps. Download the script by selecting this link: [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip.md "samples/copy_ami_and_update_env.zip.md").
+The following script provides the same results as the previous manual steps. Download the script by selecting this link: [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip).
+
+### Script source: copy\_ami\_and\_update\_env.sh
+<a name="abc"></a>
 
 ```
 #!/bin/bash
 
 set -ue
 
-USAGE="This script is used to copy an AMI used by your Elastic Beanstalk environment into your account to use in your environment.\n\n"
+USAGE="This script is used to copy an AMI used by your Elastic Beanstalk environment into your account to use in your environment.\n\n" 
 USAGE+="Usage:\n\n"
 USAGE+="./$(basename $0) [OPTIONS]\n"
 USAGE+="OPTIONS:\n"
@@ -200,37 +185,36 @@ aws elasticbeanstalk wait environment-updated \
 echo "Environment ${ENVIRONMENT_NAME} update complete"
 ```
 
-###### Note
+**Note**  
+You must have the AWS CLI installed to execute the script. For installation instructions, see [Install or update the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.  
+After installing the AWS CLI, you must also configure it to use the AWS account that owns the environment. For more information, see [Configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) in the *AWS Command Line Interface User Guide*. The account must also have permissions to create an AMI and update the Elastic Beanstalk environment. 
 
-You must have the AWS CLI installed to execute the script. For installation instructions, see [Install or update the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the
-_AWS Command Line Interface User Guide_.
+ These steps describe the process that the script follows. 
 
-After installing the AWS CLI, you must also configure it to use the AWS account that owns the environment. For more information, see [Configure the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in the _AWS Command Line Interface User Guide_. The
-account must also have permissions to create an AMI and update the Elastic Beanstalk environment.
+1. Print the account in use. 
 
-These steps describe the process that the script follows.
+1. Determine which AMI is used by the environment (source AMI).
 
-1. Print the account in use.
-2. Determine which AMI is used by the environment (source AMI).
-3. Check if the source AMI is already owned by the account. If yes, exit.
-4. Determine the name of the source AMI so it can be used in the new AMI name. This also serves to confirm access to the source AMI.
-5. Check if the source AMI has already been copied to the account. This is done by searching for AMIs with the name of the copied AMI owned by the
-   account. If the AMI name has been changed in between script executions, it will copy the image again.
-6. If the source AMI has not already been copied, copy the source AMI to the account and wait for the new AMI to be available.
-7. Update the environment configuration to use the new AMI.
-8. Wait for the environment update to complete.
+1. Check if the source AMI is already owned by the account. If yes, exit. 
 
-After you extract the script from the [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip.md "samples/copy_ami_and_update_env.zip.md") file, run it by executing the following
-example. Replace the application name and environment name in the example with your own values.
+1. Determine the name of the source AMI so it can be used in the new AMI name. This also serves to confirm access to the source AMI.
+
+1. Check if the source AMI has already been copied to the account. This is done by searching for AMIs with the name of the copied AMI owned by the account. If the AMI name has been changed in between script executions, it will copy the image again.
+
+1. If the source AMI has not already been copied, copy the source AMI to the account and wait for the new AMI to be available.
+
+1. Update the environment configuration to use the new AMI.
+
+1. Wait for the environment update to complete.
+
+After you extract the script from the [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip) file, run it by executing the following example. Replace the application name and environment name in the example with your own values.
 
 ```
->`sh copy_ami_and_update_env.sh \
- --application-name `my-application` \
- --environment-name `my-environment` \
- --region `us-east-1``
+>sh copy_ami_and_update_env.sh \
+  --application-name {{my-application}} \
+  --environment-name {{my-environment}} \
+  --region {{us-east-1}}
 ```
 
-###### Note
-
-To minimize storage costs, consider cleaning up your custom AMI when you don't need it to launch Elastic Beanstalk environments anymore. For more information,
-see [Cleaning up a custom AMI](using-features.customenv.md#using-features.customenv.cleanup "using-features.customenv.md#using-features.customenv.cleanup").
+**Note**  
+To minimize storage costs, consider cleaning up your custom AMI when you don't need it to launch Elastic Beanstalk environments anymore. For more information, see [Cleaning up a custom AMI](using-features.customenv.md#using-features.customenv.cleanup).

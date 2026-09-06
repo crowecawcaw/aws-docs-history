@@ -1,60 +1,57 @@
+
+
 # **eb terminate**
+<a name="eb3-terminate"></a>
 
 ## Description
+<a name="eb3-terminatedescription"></a>
 
 Terminates the running environment so that you don't incur charges for unused AWS resources.
 
-Using the `--all` option, deletes the application that the current directory was initialized to using [eb init](eb3-init.md "eb3-init.md"). The command terminates all environments in the application. It also terminates the [application versions](applications-versions.md "applications-versions.md") and [saved configurations](environment-configuration-savedconfig.md "environment-configuration-savedconfig.md") for the application, and then deletes
-the application.
+Using the `--all` option, deletes the application that the current directory was initialized to using [**eb init**](eb3-init.md). The command terminates all environments in the application. It also terminates the [application versions](applications-versions.md) and [saved configurations](environment-configuration-savedconfig.md) for the application, and then deletes the application.
 
-If the root directory contains a `platform.yaml` file specifying a custom platform, this command terminates the running custom
-environment.
+If the root directory contains a `platform.yaml` file specifying a custom platform, this command terminates the running custom environment.
 
-###### Note
-
+**Note**  
 You can always launch a new environment using the same version later.
 
-If you have data from an environment that you want to preserve, set the database deletion policy to `Retain` before terminating the
-environment. This keeps the database operational outside of Elastic Beanstalk. After this, any Elastic Beanstalk environments must connect to it as an external database. If you
-want to back up the data without keeping the database operational, set the deletion policy to take a snapshot of the database before terminating the
-environment. For more information, see [Database lifecycle](using-features.managing.db.md#environments-cfg-rds-lifecycle "using-features.managing.db.md#environments-cfg-rds-lifecycle") in the
-_Configuring environments_ chapter of this guide.
+If you have data from an environment that you want to preserve, set the database deletion policy to `Retain` before terminating the environment. This keeps the database operational outside of Elastic Beanstalk. After this, any Elastic Beanstalk environments must connect to it as an external database. If you want to back up the data without keeping the database operational, set the deletion policy to take a snapshot of the database before terminating the environment. For more information, see [Database lifecycle](using-features.managing.db.md#environments-cfg-rds-lifecycle) in the *Configuring environments* chapter of this guide.
 
-###### Important
-
-If you terminate an environment, you must also delete any CNAME mappings that you created, as other customers can reuse an available hostname. Be sure to
-delete DNS records that point to your terminated environment to prevent a _dangling DNS entry_. A dangling DNS entry can expose internet
-traffic destined for your domain to security vulnerabilities. It can also present other risks.
-
-For more information, see [Protection from dangling
-delegation records in Route 53](../../../Route53/latest/DeveloperGuide/protection-from-dangling-dns.md "../../../Route53/latest/DeveloperGuide/protection-from-dangling-dns.md") in the _Amazon Route 53 Developer Guide_. You can also learn more about dangling DNS entries in [Enhanced Domain Protections for Amazon CloudFront Requests](https://aws.amazon.com/blogs/security/enhanced-domain-protections-for-amazon-cloudfront-requests/ "https://aws.amazon.com/blogs/security/enhanced-domain-protections-for-amazon-cloudfront-requests/") in the _AWS Security Blog_.
+**Important**  
+If you terminate an environment, you must also delete any CNAME mappings that you created, as other customers can reuse an available hostname. Be sure to delete DNS records that point to your terminated environment to prevent a *dangling DNS entry*. A dangling DNS entry can expose internet traffic destined for your domain to security vulnerabilities. It can also present other risks.  
+For more information, see [Protection from dangling delegation records in Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/protection-from-dangling-dns.html) in the *Amazon Route 53 Developer Guide*. You can also learn more about dangling DNS entries in [Enhanced Domain Protections for Amazon CloudFront Requests](https://aws.amazon.com/blogs/security/enhanced-domain-protections-for-amazon-cloudfront-requests/) in the *AWS Security Blog*.
 
 ## Syntax
+<a name="eb3-terminatesyntax"></a>
 
-**eb terminate**
+ **eb terminate** 
 
-**eb terminate `environment-name`**
+ **eb terminate {{environment-name}}** 
 
 ## Options
+<a name="eb3-terminateoptions"></a>
 
-| Name             | Description                                                                                                                                                                                                                                                                                              |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--all`          | Terminates all environments in the application, the application's [application versions](applications-versions.md "applications-versions.md"), and its<br>[saved configurations](environment-configuration-savedconfig.md "environment-configuration-savedconfig.md"), and then deletes the application. |
-| `--force`        | Terminates the environment without prompting for confirmation.                                                                                                                                                                                                                                           |
-| `--ignore-links` | Terminates the environment even if there are dependent environments with links to it. See [Compose<br>Environments](ebcli-compose.md "ebcli-compose.md").                                                                                                                                                |
-| `--timeout`      | The number of minutes before the command times out.                                                                                                                                                                                                                                                      |
+
+
+|  Name  |  Description  | 
+| --- | --- | 
+| `--all` | Terminates all environments in the application, the application's [application versions](applications-versions.md), and its [saved configurations](environment-configuration-savedconfig.md), and then deletes the application. | 
+| `--force` | Terminates the environment without prompting for confirmation. | 
+| `--ignore-links` | Terminates the environment even if there are dependent environments with links to it. See [Compose Environments](ebcli-compose.md). | 
+| `--timeout` | The number of minutes before the command times out. | 
 
 ## Output
+<a name="eb3-terminateoutput"></a>
 
-If successful, the command returns the status of the `terminate`
-operation.
+If successful, the command returns the status of the `terminate` operation.
 
 ## Example
+<a name="eb3-terminateexample"></a>
 
 The following example request terminates the environment tmp-dev.
 
 ```
-$ `eb terminate`
+$ eb terminate
 The environment "tmp-dev" and all associated instances will be terminated.
 To confirm, type the environment name: tmp-dev
 2018-07-11 21:05:25    INFO: terminateEnvironment is starting.

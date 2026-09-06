@@ -1,29 +1,38 @@
+
+
 # **eb events**
+<a name="eb3-events"></a>
 
 ## Description
+<a name="eb3-eventsdescription"></a>
 
 Returns the most recent events for the environment.
 
-If the root directory contains a `platform.yaml` file specifying a custom platform, this command also returns the most recent
-events for the builder environment.
+If the root directory contains a `platform.yaml` file specifying a custom platform, this command also returns the most recent events for the builder environment.
 
 ## Syntax
+<a name="eb3-eventssyntax"></a>
 
-**eb events**
+ **eb events** 
 
-**eb events `environment-name`**
+ **eb events {{environment-name}}** 
 
 ## Options
+<a name="eb3-eventsoptions"></a>
 
-| Name                     | Description                              |
-| ------------------------ | ---------------------------------------- |
-| `-f`<br>or<br>`--follow` | Streams events. To cancel, press CTRL+C. |
+
+
+|  Name  |  Description  | 
+| --- | --- | 
+| `-f`<br />or<br />`--follow` | Streams events. To cancel, press CTRL\+C. | 
 
 ## Output
+<a name="eb3-eventsoutput"></a>
 
 If successful, the command returns recent events.
 
 ## Example
+<a name="eb3-eventsexample"></a>
 
 The following example returns the most recent events.
 

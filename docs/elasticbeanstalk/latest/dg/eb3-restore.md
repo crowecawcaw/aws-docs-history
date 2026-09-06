@@ -1,32 +1,39 @@
+
+
 # **eb restore**
+<a name="eb3-restore"></a>
 
 ## Description
+<a name="eb3-restoredescription"></a>
 
-Rebuilds a terminated environment, creating a new environment with the same name, ID,
-and configuration. The environment name, domain name, and application version must be
-available for use in order for the rebuild to succeed.
+Rebuilds a terminated environment, creating a new environment with the same name, ID, and configuration. The environment name, domain name, and application version must be available for use in order for the rebuild to succeed.
 
 ## Syntax
+<a name="eb3-restoresyntax"></a>
 
-**eb restore**
+ **eb restore** 
 
-**eb restore `environment_id`**
+ **eb restore {{environment\_id}}** 
 
 ## Options
+<a name="eb3-restoreoptions"></a>
 
-| Name                                                      | Description |
-| --------------------------------------------------------- | ----------- |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |             |
+
+
+|  Name  |  Description  | 
+| --- | --- | 
+| [Common options](eb3-cmd-options.md) |  | 
 
 ## Output
+<a name="eb3-restoreoutput"></a>
 
-The EB CLI displays a list of terminated environments that are available to
-restore.
+The EB CLI displays a list of terminated environments that are available to restore.
 
 ## Example
+<a name="eb3-restoreexample"></a>
 
 ```
-$ `eb restore`
+$ eb restore
 Select a terminated environment to restore
 
   #   Name          ID             Application Version      Date Terminated        Ago

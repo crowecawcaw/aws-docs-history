@@ -1,35 +1,31 @@
+
+
 # Configuring the proxy server
+<a name="java-se-nginx"></a>
 
-Elastic Beanstalk uses [nginx](https://www.nginx.com/ "https://www.nginx.com/") as the reverse proxy to map your application to your Elastic Load Balancing load balancer on port 80. Elastic Beanstalk provides a default nginx configuration
-that you can either extend or override completely with your own configuration.
+Elastic Beanstalk uses [nginx](https://www.nginx.com/) as the reverse proxy to map your application to your Elastic Load Balancing load balancer on port 80. Elastic Beanstalk provides a default nginx configuration that you can either extend or override completely with your own configuration.
 
-By default, Elastic Beanstalk configures the nginx proxy to forward requests to your application on port 5000. You can override the default port by setting the
-`PORT`
-[environment property](java-se-platform.md#java-se-options "java-se-platform.md#java-se-options") to the port on which your main application listens.
+By default, Elastic Beanstalk configures the nginx proxy to forward requests to your application on port 5000. You can override the default port by setting the `PORT` [environment property](java-se-platform.md#java-se-options) to the port on which your main application listens.
 
-###### Note
-
+**Note**  
 The port that your application listens on doesn't affect the port that the nginx server listens to receive requests from the load balancer.
 
-###### Configuring the proxy server on your platform version
+**Configuring the proxy server on your platform version**  
+All AL2023/AL2 platforms support a uniform proxy configuration feature. For more information about configuring the proxy server on your platform versions running AL2023/AL2, see [Reverse proxy configuration](platforms-linux-extend.proxy.md). 
 
-All AL2023/AL2 platforms support a uniform proxy configuration feature.
-For more information about configuring the proxy server on your platform versions
-running AL2023/AL2,
-see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
+## Configuring the proxy on Amazon Linux AMI (preceding Amazon Linux 2)
+<a name="java-se-nginx.alami"></a>
 
 If your Elastic Beanstalk Java SE environment uses an Amazon Linux AMI platform version (preceding Amazon Linux 2), read the additional information in this section.
 
-###### Notes
+**Notes**  
+The information in this topic only applies to platform branches based on Amazon Linux AMI (AL1). AL2023/AL2 platform branches are incompatible with previous Amazon Linux AMI (AL1) platform versions and *require different configuration settings*.
+ On [July 18, 2022](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2022-07-18-linux-al1-retire.html), Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**. For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md).
 
-- The information in this topic only applies to platform branches based on Amazon Linux AMI (AL1). AL2023/AL2 platform branches are incompatible with previous Amazon Linux AMI
-  (AL1) platform versions and _require different configuration settings_.
-- On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
-  Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
-  To extend Elastic Beanstalk's default nginx configuration, add `.conf` configuration files to a folder named
-  `.ebextensions/nginx/conf.d/` in your application source bundle. Elastic Beanstalk's nginx configuration includes `.conf` files
-  in this folder automatically.
+### Extending and overriding the default proxy configuration — Amazon Linux AMI (AL1)
+<a name="java-se-nginx.alami.extending"></a>
+
+To extend Elastic Beanstalk's default nginx configuration, add `.conf` configuration files to a folder named `.ebextensions/nginx/conf.d/` in your application source bundle. Elastic Beanstalk's nginx configuration includes `.conf` files in this folder automatically.
 
 ```
 ~/workspace/my-app/
@@ -40,8 +36,7 @@ If your Elastic Beanstalk Java SE environment uses an Amazon Linux AMI platform 
 `-- web.jar
 ```
 
-To override Elastic Beanstalk's default nginx configuration completely, include a configuration in your source bundle at
-`.ebextensions/nginx/nginx.conf`:
+To override Elastic Beanstalk's default nginx configuration completely, include a configuration in your source bundle at `.ebextensions/nginx/nginx.conf`:
 
 ```
 ~/workspace/my-app/
@@ -51,18 +46,15 @@ To override Elastic Beanstalk's default nginx configuration completely, include 
 `-- web.jar
 ```
 
-If you override Elastic Beanstalk's nginx configuration, add the following line to your `nginx.conf` to pull in Elastic Beanstalk's configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), automatic application mappings, and static files.
+If you override Elastic Beanstalk's nginx configuration, add the following line to your `nginx.conf` to pull in Elastic Beanstalk's configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md), automatic application mappings, and static files.
 
 ```
  include conf.d/elasticbeanstalk/*.conf;
 ```
 
-The following example configuration from the [Scorekeep sample application](https://github.com/aws-samples/eb-java-scorekeep/ "https://github.com/aws-samples/eb-java-scorekeep/")
-overrides Elastic Beanstalk's default configuration to serve a static web application from the `public` subdirectory of
-`/var/app/current`, where the Java SE platform copies the application source code. The `/api` location forwards traffic to
-routes under `/api/` to the Spring application listening on port 5000. All other traffic is served by the web app at the root path.
+The following example configuration from the [Scorekeep sample application](https://github.com/aws-samples/eb-java-scorekeep/) overrides Elastic Beanstalk's default configuration to serve a static web application from the `public` subdirectory of `/var/app/current`, where the Java SE platform copies the application source code. The `/api` location forwards traffic to routes under `/api/` to the Spring application listening on port 5000. All other traffic is served by the web app at the root path.
 
-###### Example
+**Example**  
 
 ```
 user                    nginx;
@@ -95,7 +87,7 @@ http {
 
       location / {
       }git pull
-
+      
 
       location /api {
           proxy_pass          http://127.0.0.1:5000;

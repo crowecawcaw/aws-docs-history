@@ -1,18 +1,22 @@
+
+
 # Advanced migration scenarios
+<a name="dotnet-migrating-applications-advanced-scenarios"></a>
 
 This section covers advanced migration scenarios for complex IIS deployments.
 
 ## Multi-site migrations with Application Request Routing (ARR)
+<a name="dotnet-migrating-applications-advanced-scenarios-arr"></a>
 
 The **eb migrate** command automatically detects and preserves ARR configurations during migration. When it identifies ARR settings in your IIS `applicationHost.config`, it generates the necessary PowerShell scripts to reinstall and configure ARR on the target EC2 instances.
 
 ### ARR configuration detection
+<a name="dotnet-migrating-applications-advanced-scenarios-arr-detection"></a>
 
 The migration process examines three key configuration sections in IIS:
-
-- `system.webServer/proxy`: Core ARR proxy settings
-- `system.webServer/rewrite`: URL rewrite rules
-- `system.webServer/caching`: Caching configuration
++ `system.webServer/proxy`: Core ARR proxy settings
++ `system.webServer/rewrite`: URL rewrite rules
++ `system.webServer/caching`: Caching configuration
 
 For example, consider a common ARR configuration where a `RouterSite` running on port 80 proxies requests to `APIService` and `AdminPortal` running on ports 8081 and 8082 respectively:
 
@@ -34,22 +38,23 @@ For example, consider a common ARR configuration where a `RouterSite` running on
 
 The following diagram depicts how these rules are hidden behind port 80 in the IIS server and not exposed via the EC2 Security Groups. Only port 80 is accessible to the Application Load Balancer and all traffic from it is routed to the target group at port 80.
 
-![Elastic Beanstalk architecture with Application Request Routing (ARR)](images/architecture-diagram-with-arr.png)
+![Elastic Beanstalk architecture with Application Request Routing (ARR)](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/architecture-diagram-with-arr.png)
+
 
 The following command can migrate this configuration:
 
 ```
-`PS C:\migrations_workspace>` `eb migrate --sites "RouterSite,APIService,AdminPortal" `
- --copy-firewall-config`
+PS C:\migrations_workspace> eb migrate --sites "RouterSite,APIService,AdminPortal" `
+    --copy-firewall-config
 ```
 
 ### ARR migration process
+<a name="dotnet-migrating-applications-advanced-scenarios-arr-process"></a>
 
 The migration process preserves your ARR configuration through several steps.
 
-Configuration export
-
-The tool exports your existing ARR settings from the three key configuration sections into separate XML files stored in the `ebmigrateScripts` directory:
+Configuration export  
+The tool exports your existing ARR settings from the three key configuration sections into separate XML files stored in the `ebmigrateScripts` directory:  
 
 ```
 ebmigrateScripts\
@@ -58,16 +63,15 @@ ebmigrateScripts\
 └── arr_config_caching.xml
 ```
 
-Installation scripts
-
-Two PowerShell scripts are generated to handle ARR setup:
+Installation scripts  
+Two PowerShell scripts are generated to handle ARR setup:  
 
 1. `arr_msi_installer.ps1`: Downloads and installs the ARR module
-2. `arr_configuration_importer_script.ps1`: Imports your exported ARR configuration
 
-Deployment manifest integration
+1. `arr_configuration_importer_script.ps1`: Imports your exported ARR configuration
 
-The scripts are integrated into the deployment process through entries in `aws-windows-deployment-manifest.json`:
+Deployment manifest integration  
+The scripts are integrated into the deployment process through entries in `aws-windows-deployment-manifest.json`:  
 
 ```
 {
@@ -96,27 +100,21 @@ The scripts are integrated into the deployment process through entries in `aws-w
 ```
 
 ### Load balancer integration
+<a name="dotnet-migrating-applications-advanced-scenarios-arr-lb"></a>
 
-The migration process translates your ARR rules into Application Load Balancer (ALB) listener rules where
-possible. For example, the above ARR configuration results in ALB rules that route traffic
-based on URL path patterns while maintaining internal routing on the EC2 instances.
+The migration process translates your ARR rules into Application Load Balancer (ALB) listener rules where possible. For example, the above ARR configuration results in ALB rules that route traffic based on URL path patterns while maintaining internal routing on the EC2 instances.
 
-The resulting environment maintains your ARR routing logic while taking advantage of
-AWS's elastic infrastructure. Your applications continue to work as before, with ARR
-handling internal routing while the Application Load Balancer manages external traffic distribution.
+The resulting environment maintains your ARR routing logic while taking advantage of AWS's elastic infrastructure. Your applications continue to work as before, with ARR handling internal routing while the Application Load Balancer manages external traffic distribution.
 
 ## Multi-site migrations without ARR using host-based routing
+<a name="dotnet-migrating-applications-advanced-scenarios-no-arr"></a>
 
-While Application Request Routing (ARR) is a common approach for managing multiple sites
-in IIS, you can also migrate multi-site deployments directly to Elastic Beanstalk without ARR by
-leveraging the Application Load Balancer's host-based routing capabilities. This approach can reduce complexity
-and improve performance by eliminating an additional routing layer.
+While Application Request Routing (ARR) is a common approach for managing multiple sites in IIS, you can also migrate multi-site deployments directly to Elastic Beanstalk without ARR by leveraging the Application Load Balancer's host-based routing capabilities. This approach can reduce complexity and improve performance by eliminating an additional routing layer.
 
 ### Host-based routing overview
+<a name="dotnet-migrating-applications-advanced-scenarios-no-arr-overview"></a>
 
-In this approach, each IIS site is exposed outside the EC2 instance, and the Application Load Balancer
-routes traffic directly to the appropriate port based on the host header. This eliminates
-the need for ARR while maintaining separation between your applications.
+In this approach, each IIS site is exposed outside the EC2 instance, and the Application Load Balancer routes traffic directly to the appropriate port based on the host header. This eliminates the need for ARR while maintaining separation between your applications.
 
 Consider a multi-site IIS configuration with three sites, each with its own hostname binding:
 
@@ -142,70 +140,75 @@ Consider a multi-site IIS configuration with three sites, each with its own host
 
 These sites are exposed at ports 8081, 8082, and 8083 via the EC2 Security Groups. The Application Load Balancer routes to them based on the Load Balancer listener rule configuration.
 
-![Elastic Beanstalk architecture without Application Request Routing (ARR)](images/architecture-diagram-without-arr.png)
+![Elastic Beanstalk architecture without Application Request Routing (ARR)](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/architecture-diagram-without-arr.png)
+
 
 ### Migration process
+<a name="dotnet-migrating-applications-advanced-scenarios-no-arr-migration"></a>
 
 To migrate this configuration to Elastic Beanstalk without using ARR use the **eb migrate** command in the following example:
 
 ```
-`PS C:\migrations_workspace>` `eb migrate --sites "Default Web Site,InternalAPI,ReportingPortal"`
+PS C:\migrations_workspace> eb migrate --sites "Default Web Site,InternalAPI,ReportingPortal"
 ```
 
 The migration process automatically configures the Application Load Balancer with host-based routing rules that direct traffic to the appropriate target group based on the host header. Each target group forwards traffic to the corresponding port on your EC2 instances:
 
 1. Host header www.example.com → Target Group on port 8081
-2. Host header api.internal → Target Group on port 8082
-3. Host header reports.internal → Target Group on port 8083
+
+1. Host header api.internal → Target Group on port 8082
+
+1. Host header reports.internal → Target Group on port 8083
 
 ### SSL/TLS configuration
+<a name="dotnet-migrating-applications-advanced-scenarios-no-arr-ssl"></a>
 
 To secure your applications with SSL/TLS do the following steps:
 
 1. Request certificates for your domains through AWS Certificate Manager(ACM).
-2. Configure HTTPS listeners on your Application Load Balancer using these certificates.
-3. Update your environment configuration to include HTTPS listeners with the following configuration option settings.
 
-```
-option_settings:
-  aws:elb:listener:443:
-    ListenerProtocol: HTTPS
-    SSLCertificateId: arn:aws:acm:region:account-id:certificate/certificate-id
-    InstancePort: 80
-    InstanceProtocol: HTTP
-```
+1. Configure HTTPS listeners on your Application Load Balancer using these certificates.
+
+1. Update your environment configuration to include HTTPS listeners with the following configuration option settings.
+
+   ```
+   option_settings:
+     aws:elb:listener:443:
+       ListenerProtocol: HTTPS
+       SSLCertificateId: arn:aws:acm:region:account-id:certificate/certificate-id
+       InstancePort: 80
+       InstanceProtocol: HTTP
+   ```
 
 With this configuration, SSL termination occurs at the load balancer, and traffic is forwarded to your instances over HTTP. This simplifies certificate management while maintaining secure connections with clients.
 
 ### Best practices
+<a name="dotnet-migrating-applications-advanced-scenarios-no-arr-best"></a>
 
-Security groups
-
+Security groups  
 Configure security groups to allow inbound traffic only on the ports used by your IIS sites (8081, 8082, 8083 in this example) from the Application Load Balancer security group.
 
-Health checks
-
+Health checks  
 Configure health checks for each target group to ensure traffic is only routed to healthy instances. Create health check endpoints for each application if they don't already exist.
 
-Monitoring
-
+Monitoring  
 Set up CloudWatch alarms to monitor the health and performance of each target group separately. This allows you to identify issues specific to individual applications.
 
-Scaling
-
+Scaling  
 Consider the resource requirements of all applications when configuring auto scaling policies. If one application has significantly different resource needs, consider migrating it to a separate environment.
 
 ## Virtual directory management
+<a name="dotnet-migrating-applications-advanced-scenarios-vdir"></a>
 
 The **eb migrate** command preserves virtual directory structures while migrating your IIS applications to Elastic Beanstalk.
 
 ### Default permission configuration
+<a name="dotnet-migrating-applications-advanced-scenarios-vdir-default"></a>
 
 When migrating virtual directories, **eb migrate** establishes a baseline set of permissions by granting ReadAndExecute access to:
-
-- IIS\_IUSRS
-- IUSR
-- Authenticated Users
++ IIS\_IUSRS
++ IUSR
++ Authenticated Users
 
 For example, consider a typical virtual directory structure:
 
@@ -220,15 +223,14 @@ For example, consider a typical virtual directory structure:
 ```
 
 ### Password-protected virtual directories
+<a name="dotnet-migrating-applications-advanced-scenarios-vdir-password"></a>
 
-When **eb migrate** encounters password-protected virtual directories, it
-issues warnings and requires manual intervention.
+When **eb migrate** encounters password-protected virtual directories, it issues warnings and requires manual intervention. 
 
-The following configuration example will cause the warning response that follows the
-example.
+The following configuration example will cause the warning response that follows the example.
 
 ```
-<virtualDirectory path="/secure"
+<virtualDirectory path="/secure" 
                  physicalPath="C:\secure\content"
                  userName="DOMAIN\User"
                  password="[encrypted]" />
@@ -238,8 +240,7 @@ example.
 [WARNING] CorporatePortal/secure is hosted at C:\secure\content which is password-protected and won't be copied.
 ```
 
-To maintain password protection, create a custom deployment script like the
-following:
+To maintain password protection, create a custom deployment script like the following:
 
 ```
 # PS C:\migrations_workspace> cat secure_vdir_config.ps1
@@ -291,9 +292,11 @@ Add this script to your deployment by including it in the manifest:
 ```
 
 ### Custom permission management
+<a name="dotnet-migrating-applications-advanced-scenarios-vdir-custom"></a>
 
-The **eb migrate** command provides a framework for custom permission
-scripts to accommodate applications that require permissions other than the defaults.
+The **eb migrate** command provides a framework for custom permission scripts to accommodate applications that require permissions other than the defaults. 
+
+
 
 ```
 $paths = @(
@@ -313,18 +316,18 @@ foreach ($path in $paths) {
     $customRules = @(
         # Application Pool Identity - Full Control
         [System.Security.AccessControl.FileSystemAccessRule]::new(
-            "IIS AppPool\CorporatePortalPool",
-            "FullControl",
-            "ContainerInherit,ObjectInherit",
-            "None",
+            "IIS AppPool\CorporatePortalPool", 
+            "FullControl", 
+            "ContainerInherit,ObjectInherit", 
+            "None", 
             "Allow"
         ),
         # Custom Service Account
         [System.Security.AccessControl.FileSystemAccessRule]::new(
-            "NT SERVICE\CustomService",
-            "Modify",
-            "ContainerInherit,ObjectInherit",
-            "None",
+            "NT SERVICE\CustomService", 
+            "Modify", 
+            "ContainerInherit,ObjectInherit", 
+            "None", 
             "Allow"
         )
     )
@@ -332,160 +335,156 @@ foreach ($path in $paths) {
     foreach ($rule in $customRules) {
         $acl.AddAccessRule($rule)
     }
-
+    
     Set-Acl $path $acl
     Write-Host "Custom permissions applied to: $path"
 }
 ```
 
 ### Best practices
+<a name="dotnet-migrating-applications-advanced-scenarios-vdir-best"></a>
 
 Follow these best practices to plan, execute, monitor, and verify your migration.
 
-Pre-migration planning
-
+Pre-migration planning  
 Document existing permissions and authentication requirements before migration. Test custom permission scripts in a development environment before deploying to production.
 
-Shared content management
+Shared content management  
+For shared content directories, ensure all necessary file system permissions are properly configured through custom scripts. Consider using [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/) for shared storage requirements.
 
-For shared content directories, ensure all necessary file system permissions are properly configured through custom scripts. Consider using [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/ "https://aws.amazon.com/fsx/windows/") for shared storage requirements.
-
-Monitoring and verification
-
-Monitor application logs after migration to verify proper access to virtual
-directories. Pay special attention to the following areas:
-
-- Application pool identity access
-- Custom service account permissions
-- Network share connectivity
-- Authentication failures
+Monitoring and verification  
+Monitor application logs after migration to verify proper access to virtual directories. Pay special attention to the following areas:  
++ Application pool identity access
++ Custom service account permissions
++ Network share connectivity
++ Authentication failures
 
 ## Custom application pool settings
+<a name="dotnet-migrating-applications-advanced-scenarios-apppool"></a>
 
-The **eb migrate** command does not copy over custom application pool
-settings by default. To preserve custom application pool configurations, follow this procedure
-to create and apply a custom manifest section.
+The **eb migrate** command does not copy over custom application pool settings by default. To preserve custom application pool configurations, follow this procedure to create and apply a custom manifest section.
 
 1. Create an archive of your migration artifacts.
 
-```
-`PS C:\migrations_workspace>` `eb migrate --archive`
-```
+   ```
+   PS C:\migrations_workspace> eb migrate --archive
+   ```
 
-2. Create a custom PowerShell script to configure application pools.
+1. Create a custom PowerShell script to configure application pools.
 
-```
-# PS C:\migrations_workspace> cat .\migrations\latest\upload_target\customize_application_pool_config.ps1
+   ```
+   # PS C:\migrations_workspace> cat .\migrations\latest\upload_target\customize_application_pool_config.ps1
+   
+   $configPath = "$env:windir\System32\inetsrv\config\applicationHost.config"
+   
+   [xml]$config = Get-Content -Path $configPath
+   
+   $newPoolXml = @"
+   <!-- Original IIS Configuration -->
+   <applicationPools>
+       <add name="CustomPool" 
+            managedRuntimeVersion="v4.0" 
+            managedPipelineMode="Integrated">
+           <processModel identityType="SpecificUser" 
+                        userName="AppPoolUser" 
+                        password="[encrypted]" />
+           <recycling>
+               <periodicRestart time="00:00:00">
+                   <schedule>
+                       <add value="02:00:00" />
+                       <add value="14:00:00" />
+                   </schedule>
+               </periodicRestart>
+           </recycling>
+       </add>
+   </applicationPools>
+   "@
+   $newPoolXmlNode = [xml]$newPoolXml
+   
+   # Find the applicationPools section
+   $applicationPools = $config.SelectSingleNode("//configuration/system.applicationHost/applicationPools")
+   
+   # Import the new node into the document
+   $importedNode = $config.ImportNode($newPoolXmlNode.DocumentElement, $true)
+   $applicationPools.AppendChild($importedNode)
+   
+   # Save the changes
+   $config.Save($configPath)
+   
+   Write-Host "ApplicationHost.config has been updated successfully."
+   ```
 
-$configPath = "$env:windir\System32\inetsrv\config\applicationHost.config"
+1. Update the `aws-windows-deployment-manifest.json` file to include your custom script.
 
-[xml]$config = Get-Content -Path $configPath
+   ```
+   {
+       "manifestVersion": 1,
+       "deployments": {
+           ...
+           "custom": [
+               ...,
+               {
+                   "name": "ModifyApplicationPoolConfig",
+                   "description": "Modify application pool configuration from source machine to remove",
+                   "scripts": {
+                       "install": {
+                           "file": "customize_application_pool_config.ps1"
+                       },
+                       "restart": {
+                           "file": "ebmigrateScripts\\noop.ps1"
+                       },
+                       "uninstall": {
+                           "file": "ebmigrateScripts\\noop.ps1"
+                       }
+                   }
+               }
+           ]
+       }
+   }
+   ```
 
-$newPoolXml = @"
-<!-- Original IIS Configuration -->
-<applicationPools>
-    <add name="CustomPool"
-         managedRuntimeVersion="v4.0"
-         managedPipelineMode="Integrated">
-        <processModel identityType="SpecificUser"
-                     userName="AppPoolUser"
-                     password="[encrypted]" />
-        <recycling>
-            <periodicRestart time="00:00:00">
-                <schedule>
-                    <add value="02:00:00" />
-                    <add value="14:00:00" />
-                </schedule>
-            </periodicRestart>
-        </recycling>
-    </add>
-</applicationPools>
-"@
-$newPoolXmlNode = [xml]$newPoolXml
+1. Create an environment with the updated archive directory.
 
-# Find the applicationPools section
-$applicationPools = $config.SelectSingleNode("//configuration/system.applicationHost/applicationPools")
-
-# Import the new node into the document
-$importedNode = $config.ImportNode($newPoolXmlNode.DocumentElement, $true)
-$applicationPools.AppendChild($importedNode)
-
-# Save the changes
-$config.Save($configPath)
-
-Write-Host "ApplicationHost.config has been updated successfully."
-```
-
-3. Update the `aws-windows-deployment-manifest.json` file to include your custom script.
-
-```
-{
-    "manifestVersion": 1,
-    "deployments": {
-        ...
-        "custom": [
-            ...,
-            {
-                "name": "ModifyApplicationPoolConfig",
-                "description": "Modify application pool configuration from source machine to remove",
-                "scripts": {
-                    "install": {
-                        "file": "customize_application_pool_config.ps1"
-                    },
-                    "restart": {
-                        "file": "ebmigrateScripts\\noop.ps1"
-                    },
-                    "uninstall": {
-                        "file": "ebmigrateScripts\\noop.ps1"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
-4. Create an environment with the updated archive directory.
-
-```
-`PS C:\migrations_workspace>` `eb migrate `
- --archive-dir '.\migrations\latest\upload_target\'`
-```
+   ```
+   PS C:\migrations_workspace> eb migrate `
+       --archive-dir '.\migrations\latest\upload_target\'
+   ```
 
 The `--archive-dir` argument tells **eb migrate** to use the source code that it previously created, avoiding the creation of new archives.
 
 ## Deploying previous versions
+<a name="dotnet-migrating-applications-advanced-scenarios-previous"></a>
 
-The **eb migrate** maintains a history of your migrations through
-timestamped directories and application versions in Elastic Beanstalk. Each migration creates a unique zip
-file that can be deployed if needed.
+The **eb migrate** maintains a history of your migrations through timestamped directories and application versions in Elastic Beanstalk. Each migration creates a unique zip file that can be deployed if needed.
 
 ```
-`PS C:\migrations_workspace>` `ls .\migrations\`
-`Mode LastWriteTime Length Name
----- ------------- ------ ----
-d----l 3/18/2025 10:34 PM latest
-d----- 3/16/2025 5:47 AM migration_1742104049.479849
-d----- 3/17/2025 9:18 PM migration_1742246303.18056
-d----- 3/17/2025 9:22 PM migration_1742246546.565739
+PS C:\migrations_workspace> ls .\migrations\
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d----l        3/18/2025  10:34 PM                latest
+d-----        3/16/2025   5:47 AM                migration_1742104049.479849
+d-----        3/17/2025   9:18 PM                migration_1742246303.18056
+d-----        3/17/2025   9:22 PM                migration_1742246546.565739
 ...
-d----- 3/18/2025 10:34 PM migration_1742337258.30742`
+d-----        3/18/2025  10:34 PM                migration_1742337258.30742
 ```
 
 The `latest` symbolic link always points to the most recently created migration artifact directory. In addition to relevant application and error logs, each migration artifact directory also contains a `upload_target.zip` file which you can deploy to Elastic Beanstalk.
 
 ```
-`PS C:\migrations_workspace>` `ls .\migrations\latest\`
-`Mode LastWriteTime Length Name
----- ------------- ------ ----
-d----- 3/18/2025 10:34 PM upload_target
--a---- 3/18/2025 10:34 PM 13137 application.log
--a---- 3/18/2025 10:34 PM 0 error.log
--a---- 3/18/2025 10:34 PM 1650642 upload_target.zip`
+PS C:\migrations_workspace> ls .\migrations\latest\
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        3/18/2025  10:34 PM                upload_target
+-a----        3/18/2025  10:34 PM          13137 application.log
+-a----        3/18/2025  10:34 PM              0 error.log
+-a----        3/18/2025  10:34 PM        1650642 upload_target.zip
 ```
 
 You can deploy the `upload_target.zip` file using **eb migrate**:
 
 ```
-`PS C:\migrations_workspace>` `eb migrate --zip .\migrations\latest\upload_target.zip`
+PS C:\migrations_workspace> eb migrate --zip .\migrations\latest\upload_target.zip
 ```

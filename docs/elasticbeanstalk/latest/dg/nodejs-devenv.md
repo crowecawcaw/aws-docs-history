@@ -1,118 +1,116 @@
+
+
 # Setting up your Node.js development environment for Elastic Beanstalk
+<a name="nodejs-devenv"></a>
 
-This topic provides instructions to set up a Node.js development environment to test your application locally prior to deploying it to
-AWS Elastic Beanstalk. It also references websites that provide installation instructions for useful tools.
+This topic provides instructions to set up a Node.js development environment to test your application locally prior to deploying it to AWS Elastic Beanstalk. It also references websites that provide installation instructions for useful tools.
 
-###### Topics
-
-- [Install Node.js](#nodejs-devenv-nodejs "#nodejs-devenv-nodejs")
-- [Confirm npm installation](#nodejs-devenv-npm "#nodejs-devenv-npm")
-- [Install the AWS SDK for Node.js](#nodejs-devenv-awssdk "#nodejs-devenv-awssdk")
-- [Install the Express generator](#nodejs-devenv-express "#nodejs-devenv-express")
-- [Set up an Express framework and server](#nodejs-devenv-express-framework "#nodejs-devenv-express-framework")
+**Topics**
++ [Install Node.js](#nodejs-devenv-nodejs)
++ [Confirm npm installation](#nodejs-devenv-npm)
++ [Install the AWS SDK for Node.js](#nodejs-devenv-awssdk)
++ [Install the Express generator](#nodejs-devenv-express)
++ [Set up an Express framework and server](#nodejs-devenv-express-framework)
 
 ## Install Node.js
+<a name="nodejs-devenv-nodejs"></a>
 
-Install Node.js to run Node.js applications locally. If you don't have a preference, get the latest version supported by Elastic Beanstalk. See [Node.js](../platforms/platforms-supported.md#platforms-supported.nodejs "../platforms/platforms-supported.md#platforms-supported.nodejs") in the _AWS Elastic Beanstalk Platforms_ document
-for a list of supported versions.
+Install Node.js to run Node.js applications locally. If you don't have a preference, get the latest version supported by Elastic Beanstalk. See [Node.js](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.nodejs) in the *AWS Elastic Beanstalk Platforms* document for a list of supported versions.
 
-Download Node.js at [nodejs.org](https://nodejs.org/en/ "https://nodejs.org/en/").
+Download Node.js at [nodejs.org](https://nodejs.org/en/).
 
 ## Confirm npm installation
+<a name="nodejs-devenv-npm"></a>
 
-Node.js uses the npm package manager to help you install tools and frameworks for use in your application. Since npm is distributed with Node.js, you
-will automatically install it when you download and install Node.js. To confirm you have npm installed you can run the following command:
+Node.js uses the npm package manager to help you install tools and frameworks for use in your application. Since npm is distributed with Node.js, you will automatically install it when you download and install Node.js. To confirm you have npm installed you can run the following command:
 
 ```
-$ `npm -v`
+$ npm -v
 ```
 
-For more information on npm, visit the [npmjs](https://www.npmjs.com/get-npm "https://www.npmjs.com/get-npm") website.
+For more information on npm, visit the [npmjs](https://www.npmjs.com/get-npm) website.
 
 ## Install the AWS SDK for Node.js
+<a name="nodejs-devenv-awssdk"></a>
 
 If you need to manage AWS resources from within your application, install the AWS SDK for JavaScript in Node.js. Install the SDK with npm:
 
 ```
-$ `npm install aws-sdk`
+$ npm install aws-sdk
 ```
 
-Visit the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/ "https://aws.amazon.com/sdk-for-node-js/") homepage for more information.
+Visit the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/) homepage for more information.
 
 ## Install the Express generator
+<a name="nodejs-devenv-express"></a>
 
-Express is a web application framework that runs on Node.js. To use it, first install the Express generator command line application. Once the Express
-generator is installed, you can run the **express** command to generate a base project structure for your web application. Once the base
-project, files, and dependencies are installed you can start up a local Express server on your development machine.
+Express is a web application framework that runs on Node.js. To use it, first install the Express generator command line application. Once the Express generator is installed, you can run the **express** command to generate a base project structure for your web application. Once the base project, files, and dependencies are installed you can start up a local Express server on your development machine.
 
-###### Note
+ 
 
-- These steps walk you through installing the Express generator on a Linux operating system.
-- For Linux, depending on your permission level to system directories, you might need to prefix some of these commands with
-  `sudo`.
+**Note**  
+These steps walk you through installing the Express generator on a Linux operating system.
+For Linux, depending on your permission level to system directories, you might need to prefix some of these commands with `sudo`.
 
-###### To install the Express generator on your development environment
+**To install the Express generator on your development environment**
 
-1. Create a working directory for your Express framework and server.
+1. Create a working directory for your Express framework and server. 
 
-```
-~$ `mkdir node-express`
-~$ `cd node-express`
-```
+   ```
+   ~$ mkdir node-express
+   ~$ cd node-express
+   ```
 
-2. Install Express globally so that you have access to the `express` command.
+1. Install Express globally so that you have access to the `express` command.
 
-```
-~/node-express$ `npm install -g express-generator`
-```
+   ```
+   ~/node-express$ npm install -g express-generator
+   ```
 
-3. Depending on your operating system, you may need to set your path to run the `express` command. The output from the previous step
-   provides information if you need to set your path variable. The following is an example for Linux.
+1. Depending on your operating system, you may need to set your path to run the `express` command. The output from the previous step provides information if you need to set your path variable. The following is an example for Linux.
 
-```
-~/node-express$ `export PATH=$PATH:/usr/local/share/npm/bin/express`
-```
+   ```
+   ~/node-express$ export PATH=$PATH:/usr/local/share/npm/bin/express
+   ```
 
-When you follow the tutorials in this chapter, you'll need to run the **express** command from different directories.
-Each tutorial sets up a base Express project structure in it's own directory.
+   When you follow the tutorials in this chapter, you'll need to run the **express** command from different directories. Each tutorial sets up a base Express project structure in it's own directory.
 
-You have now installed the Express command line generator. You can use it to create a framework directory for your web application, set up
-dependencies, and start up the web app server. Next, we'll go through the steps to accomplish this in the `node-express` directory that
-we created.
+You have now installed the Express command line generator. You can use it to create a framework directory for your web application, set up dependencies, and start up the web app server. Next, we'll go through the steps to accomplish this in the `node-express` directory that we created.
 
 ## Set up an Express framework and server
+<a name="nodejs-devenv-express-framework"></a>
 
-Follow these steps to create the base Express framework directories and contents. The tutorials in this chapter also include these steps to set up the
-base Express framework in each of the tutorial's application directories.
+Follow these steps to create the base Express framework directories and contents. The tutorials in this chapter also include these steps to set up the base Express framework in each of the tutorial's application directories.
 
-###### To set up an Express framework and server
+**To set up an Express framework and server**
 
 1. Run the `express` command. This generates `package.json`, `app.js`, and a few directories.
 
-```
-~/node-express$ `express`
-```
+   ```
+   ~/node-express$ express
+   ```
 
-When prompted, type `y` if you want to continue. 2. Set up local dependencies.
+   When prompted, type **y** if you want to continue.
 
-```
-~/node-express$ `npm install`
-```
+1. Set up local dependencies.
 
-3. Verify the web app server starts up.
+   ```
+   ~/node-express$ npm install
+   ```
 
-```
-~/node-express$ `npm start`
-```
+1. Verify the web app server starts up.
 
-You should see output similar to the following:
+   ```
+   ~/node-express$ npm start
+   ```
 
-```
-> nodejs@0.0.0 start /home/local/user/node-express
-> node ./bin/www
-```
+   You should see output similar to the following:
 
-The server runs on port 3000 by default. To test it, run `curl http://localhost:3000` in another terminal, or open a browser on the
-local computer and enter URL address `http://localhost:3000`.
+   ```
+   > nodejs@0.0.0 start /home/local/user/node-express
+   > node ./bin/www
+   ```
 
-Press **Ctrl+C** to stop the server.
+   The server runs on port 3000 by default. To test it, run `curl http://localhost:3000` in another terminal, or open a browser on the local computer and enter URL address `http://localhost:3000`.
+
+   Press **Ctrl\+C** to stop the server.

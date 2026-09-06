@@ -1,36 +1,44 @@
+
+
 # **eb health**
+<a name="eb3-health"></a>
 
 ## Description
+<a name="eb3-healthdescription"></a>
 
 Returns the most recent health for the environment.
 
-If the root directory contains a `platform.yaml` file specifying a
-custom platform, this command also returns the most recent health for the builder
-environment.
+If the root directory contains a `platform.yaml` file specifying a custom platform, this command also returns the most recent health for the builder environment.
 
 ## Syntax
+<a name="eb3-healthsyntax"></a>
 
-**eb health**
+ **eb health** 
 
-**eb health `environment-name`**
+ **eb health {{environment-name}}** 
 
 ## Options
+<a name="eb3-healthoptions"></a>
 
-| Name                      | Description                                                                                       |
-| ------------------------- | ------------------------------------------------------------------------------------------------- |
-| `-r`<br>or<br>`--refresh` | Show health information interactively and update every 10 seconds as new information is reported. |
-| `--mono`                  | Don't display color in output.                                                                    |
+
+
+|  Name  |  Description  | 
+| --- | --- | 
+| `-r`<br />or<br />`--refresh` | Show health information interactively and update every 10 seconds as new information is reported. | 
+| --mono | Don't display color in output. | 
 
 ## Output
+<a name="eb3-healthoutput"></a>
 
 If successful, the command returns recent health.
 
 ## Example
+<a name="eb3-healthexample"></a>
 
 The following example returns the most recent health information for a Linux environment.
 
 ```
-~/project $ `eb health`
+~/project $ eb health
  elasticBeanstalkExa-env                                  Ok                       2015-07-08 23:13:20
 WebServer                                                                              Ruby 2.1 (Puma)
   total      ok    warning  degraded  severe    info   pending  unknown
@@ -58,7 +66,7 @@ WebServer                                                                       
   i-136e00c0    t2.micro   1b   12 mins       0.15    0.07        5.5    0.0      0.9   93.2       0.0
   i-126e00c1    t2.micro   1b   12 mins       0.17    0.14        5.7    0.0      1.4   92.7       0.1
   i-8b2cf575    t2.micro   1c   1 hour        0.19    0.08        6.5    0.0      1.2   92.1       0.1
-
+  
   instance-id   status     id   version              ago                                                                   deployments
   i-d581497d    Deployed   1    Sample Application   12 mins
   i-d481497c    Deployed   1    Sample Application   12 mins

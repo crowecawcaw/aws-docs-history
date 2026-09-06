@@ -1,49 +1,48 @@
-# Environment overview pane
 
-This topic describes the top-level information about your environment that appears at the top of the environment management console. This area is made
-up of the **Environment overview** pane and the **Platform** pane.
+
+# Environment overview pane
+<a name="environments-dashboard-envoverview"></a>
+
+This topic describes the top-level information about your environment that appears at the top of the environment management console. This area is made up of the **Environment overview** pane and the **Platform** pane.
 
 The following image displays the **Environment overview** and **Platform** panes.
 
-![Environment overview and Platform panes: health, domain, ID, application name, platform version, and platform state.](images/environment-overview-v2-top-part-OK-status.png)
+![Environment overview and Platform panes: health, domain, ID, application name, platform version, and platform state.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-top-part-OK-status.png)
+
 
 ## Health
+<a name="environments-dashboard-envoverview.health"></a>
 
-The overall health of the environment. If the health of your environment degrades, the **View causes** link displays next to the
-environment health. Select this link to view the **Health & monitoring** tab with more details.
+The overall health of the environment. If the health of your environment degrades, the **View causes** link displays next to the environment health. Select this link to view the **Health & monitoring** tab with more details.
 
 ## Domain
+<a name="environments-dashboard-envoverview.Domain"></a>
 
-The environment's **Domain**, or URL, is located in the **Environment overview** pane, below the environment's
-**Health**. This is the URL of the web application that the environment is running. You can launch the application by selecting the
-URL.
+The environment's **Domain**, or URL, is located in the **Environment overview** pane, below the environment's **Health**. This is the URL of the web application that the environment is running. You can launch the application by selecting the URL.
 
 ## Environment ID
+<a name="environments-dashboard-envoverview.Environmentid"></a>
 
 The environment ID. This is an internal ID that's generated when the environment is created.
 
 ## Application name
+<a name="environments-dashboard-envoverview.Applicationname"></a>
 
 The name of the application that is deployed and running on your environment.
 
 ## Running version
+<a name="environments-dashboard-envoverview.Runningversion"></a>
 
-The name of the application version that is deployed and running on your environment. Choose **Upload and deploy** to upload a
-[source bundle](applications-sourcebundle.md "applications-sourcebundle.md") and deploy it to your environment. This option creates a new application
-version.
+The name of the application version that is deployed and running on your environment. Choose **Upload and deploy** to upload a [source bundle](applications-sourcebundle.md) and deploy it to your environment. This option creates a new application version.
 
 ## Platform
+<a name="environments-dashboard-envoverview.Platform"></a>
 
-The name of the platform version running on your environment. Typically, this comprises the architecture, operating system (OS), language, and
-application server (collectively known as the _platform branch_), with a specific platform version number.
+The name of the platform version running on your environment. Typically, this comprises the architecture, operating system (OS), language, and application server (collectively known as the *platform branch*), with a specific platform version number.
 
-If your platform version is not the most recently available, then a status label displays next to it in the **Platform** pane. The
-**Update** label indicates that although the platform version is supported a newer version is available. The platform version may
-also be labeled as **Deprecated** or **Retired**. Select **Change version** to update your platform
-branch to a newer version. For more information about the _states_ of a platform version, see the _Platform
-Branch_ section in the [Elastic Beanstalk platforms glossary](platforms-glossary.md "platforms-glossary.md").
+If your platform version is not the most recently available, then a status label displays next to it in the **Platform** pane. The **Update** label indicates that although the platform version is supported a newer version is available. The platform version may also be labeled as **Deprecated** or **Retired**. Select **Change version** to update your platform branch to a newer version. For more information about the *states* of a platform version, see the *Platform Branch* section in the [Elastic Beanstalk platforms glossary](platforms-glossary.md).
 
 ## Platform state
+<a name="environments-dashboard-envoverview.Platformstate"></a>
 
-The lifecycle state of the platform version running on your environment, such as **Supported**, **Deprecated**,
-or **Retired**.
+The lifecycle state of the platform version running on your environment, such as **Supported**, **Deprecated**, or **Retired**.
