@@ -1,22 +1,20 @@
+
+
 # Creating your first serverless function
+<a name="example_lambda_GettingStarted_019_section"></a>
 
 The following code example shows how to:
++ Create an IAM role for Lambda
++ Create function code
++ Create a Lambda function
++ Test your Lambda function
++ Clean up resources
 
-- Create an IAM role for Lambda
-- Create function code
-- Create a Lambda function
-- Test your Lambda function
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/019-lambda-gettingstarted "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/019-lambda-gettingstarted")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/019-lambda-gettingstarted) repository. 
 
 ```
 #!/bin/bash
@@ -257,7 +255,7 @@ echo "==========================================="
 echo ""
 
 TRUST_POLICY='{
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -472,24 +470,21 @@ cleanup_resources
 
 echo ""
 echo "Done."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/CreateFunction)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/DeleteFunction)
+  + [DeleteLogGroup](https://docs.aws.amazon.com/goto/aws-cli/logs-2014-03-28/DeleteLogGroup)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DescribeLogStreams](https://docs.aws.amazon.com/goto/aws-cli/logs-2014-03-28/DescribeLogStreams)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetFunction](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/GetFunction)
+  + [GetFunctionConfiguration](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/GetFunctionConfiguration)
+  + [GetLogEvents](https://docs.aws.amazon.com/goto/aws-cli/logs-2014-03-28/GetLogEvents)
+  + [Invoke](https://docs.aws.amazon.com/goto/aws-cli/lambda-2015-03-31/Invoke)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateFunction](../../../goto/aws-cli/lambda-2015-03-31/CreateFunction.md "../../../goto/aws-cli/lambda-2015-03-31/CreateFunction.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteFunction](../../../goto/aws-cli/lambda-2015-03-31/DeleteFunction.md "../../../goto/aws-cli/lambda-2015-03-31/DeleteFunction.md")
-  - [DeleteLogGroup](../../../goto/aws-cli/logs-2014-03-28/DeleteLogGroup.md "../../../goto/aws-cli/logs-2014-03-28/DeleteLogGroup.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DescribeLogStreams](../../../goto/aws-cli/logs-2014-03-28/DescribeLogStreams.md "../../../goto/aws-cli/logs-2014-03-28/DescribeLogStreams.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetFunction](../../../goto/aws-cli/lambda-2015-03-31/GetFunction.md "../../../goto/aws-cli/lambda-2015-03-31/GetFunction.md")
-  - [GetFunctionConfiguration](../../../goto/aws-cli/lambda-2015-03-31/GetFunctionConfiguration.md "../../../goto/aws-cli/lambda-2015-03-31/GetFunctionConfiguration.md")
-  - [GetLogEvents](../../../goto/aws-cli/logs-2014-03-28/GetLogEvents.md "../../../goto/aws-cli/logs-2014-03-28/GetLogEvents.md")
-  - [Invoke](../../../goto/aws-cli/lambda-2015-03-31/Invoke.md "../../../goto/aws-cli/lambda-2015-03-31/Invoke.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

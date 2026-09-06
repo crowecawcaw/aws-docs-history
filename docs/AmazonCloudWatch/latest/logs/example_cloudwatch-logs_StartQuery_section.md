@@ -1,21 +1,18 @@
+
+
 # Use `StartQuery` with an AWS SDK
+<a name="example_cloudwatch-logs_StartQuery_section"></a>
 
 The following code examples show how to use `StartQuery`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md) 
 
-- [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md "example_cloudwatch-logs_Scenario_BigQuery_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples). 
 
 ```
     /// <summary>
@@ -64,23 +61,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return null;
         }
     }
-
-
 ```
++  For API details, see [StartQuery](https://docs.aws.amazon.com/goto/DotNetSDKV4/logs-2014-03-28/StartQuery) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [StartQuery](../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md "../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
 ```
   /**
@@ -113,23 +101,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
       throw err;
     }
   }
-
-
 ```
++  For API details, see [StartQuery](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [StartQuery](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs#code-examples). 
 
 ```
     def perform_query(self, date_range):
@@ -202,24 +181,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             return response["queryId"]
         except client.exceptions.ResourceNotFoundException as e:
             raise DateOutOfBoundsError(f"Resource not found: {e}")
-
-
-
 ```
++  For API details, see [StartQuery](https://docs.aws.amazon.com/goto/boto3/logs-2014-03-28/StartQuery) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartQuery](../../../goto/boto3/logs-2014-03-28/StartQuery.md "../../../goto/boto3/logs-2014-03-28/StartQuery.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples). 
 
 ```
     TRY.
@@ -232,7 +201,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
           iv_endtime      = iv_end_time
           iv_querystring  = iv_query_string
           iv_limit        = iv_limit ).
-
+        
         " Display the query ID for tracking
         DATA(lv_query_id) = oo_result->get_queryid( ).
         MESSAGE |Query started successfully with ID: { lv_query_id }| TYPE 'I'.
@@ -247,14 +216,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cwlserviceunavailex.
         MESSAGE 'Service unavailable.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [StartQuery](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [StartQuery](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

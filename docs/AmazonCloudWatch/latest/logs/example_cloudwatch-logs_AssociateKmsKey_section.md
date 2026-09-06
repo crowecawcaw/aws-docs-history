@@ -1,16 +1,15 @@
+
+
 # Use `AssociateKmsKey` with an AWS SDK
+<a name="example_cloudwatch-logs_AssociateKmsKey_section"></a>
 
 The following code example shows how to use `AssociateKmsKey`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples). 
 
 ```
     using System;
@@ -53,15 +52,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
-
-
-
 ```
++  For API details, see [AssociateKmsKey](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/AssociateKmsKey) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [AssociateKmsKey](../../../goto/DotNetSDKV3/logs-2014-03-28/AssociateKmsKey.md "../../../goto/DotNetSDKV3/logs-2014-03-28/AssociateKmsKey.md")
-  in _AWS SDK for .NET API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

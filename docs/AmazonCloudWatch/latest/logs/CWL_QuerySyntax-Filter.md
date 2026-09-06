@@ -1,15 +1,13 @@
+
+
 # filter
+<a name="CWL_QuerySyntax-Filter"></a>
 
-Use `filter` to get log events that match one or more
-conditions.
+ Use `filter` to get log events that match one or more conditions. 
 
-**Example: Filter log events using one condition**
+ ** Example: Filter log events using one condition ** 
 
-The code snippet shows an example of a query that returns all log events
-where the value for `range` is greater than
-_**3000**_. The query limits the
-results to 20 log events and sorts the logs events by
-`@timestamp` and in descending order.
+ The code snippet shows an example of a query that returns all log events where the value for `range` is greater than ***3000***. The query limits the results to 20 log events and sorts the logs events by `@timestamp` and in descending order. 
 
 ```
 fields @timestamp, @message
@@ -18,18 +16,11 @@ fields @timestamp, @message
 | limit 20
 ```
 
-**Example: Filter log events using more than one condition**
+ ** Example: Filter log events using more than one condition ** 
 
-You can use the keywords `and` and `or` to combine
-more than one condition.
+ You can use the keywords `and` and `or` to combine more than one condition. 
 
-The code snippet shows an example of a query that returns log events
-where the value for `range` is greater than
-_**3000**_ and value for
-`accountId` is equal to
-_**123456789012**_.
-The query limits the results to 20 log events and sorts the logs events by
-`@timestamp` and in descending order.
+ The code snippet shows an example of a query that returns log events where the value for `range` is greater than ***3000*** and value for `accountId` is equal to ***123456789012***. The query limits the results to 20 log events and sorts the logs events by `@timestamp` and in descending order. 
 
 ```
 fields @timestamp, @message
@@ -39,40 +30,18 @@ fields @timestamp, @message
 ```
 
 ## Indexed fields and the filter command
+<a name="CWL_QuerySyntax-index"></a>
 
-If you have created field indexes for a log group, you can use
-those field indexes to make your `filter` queries more
-efficient and reduce scanned volume. For example, suppose you have
-created a field index for `requestId`. Then, any CloudWatch Logs Insights query on that log group that includes
-`filter requestId = `value`` or
-`filter requestId IN [`value`,
- `value`, ...]` will attempt to
-skip processing log events that are known not to include the indexed
-field. By attempting to scan only the log events that are known to
-contain that indexed field, scan volume can be reduced and the query is
-faster.
+If you have created field indexes for a log group, you can use those field indexes to make your `filter` queries more efficient and reduce scanned volume. For example, suppose you have created a field index for `requestId`. Then, any CloudWatch Logs Insights query on that log group that includes `filter requestId = {{value}}` or `filter requestId IN [{{value}}, {{value}}, ...]` will attempt to skip processing log events that are known not to include the indexed field. By attempting to scan only the log events that are known to contain that indexed field, scan volume can be reduced and the query is faster.
 
-For more information about field indexes and how to create them, see
-[Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
+For more information about field indexes and how to create them, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md).
 
-###### Important
+**Important**  
+Only queries with `filter {{fieldName}} =...` and `filter {{fieldName}} IN...` will benefit from the field index improvements. Queries with `filter {{fieldName}} like` don't use indexes and always scan all log events in the selected log groups.
 
-Only queries with `filter
- `fieldName` =...` and
-`filter `fieldName` IN...`
-will benefit from the field index improvements. Queries with
-`filter `fieldName` like`
-don't use indexes and always scan all log events in the selected log
-groups.
+** Example: Find log events that are related to a certain request ID, using indexes ** 
 
-**Example: Find log events that are related to a certain
-request ID, using indexes**
-
-This example assumes that you have created a field index on
-`requestId`. For log groups that use this field index,
-the query will use field indexes to attempt to scan the least
-amount of log events to find events with `requestId` with a
-value of `123456`
+ This example assumes that you have created a field index on `requestId`. For log groups that use this field index, the query will use field indexes to attempt to scan the least amount of log events to find events with `requestId` with a value of `123456` 
 
 ```
 fields @timestamp, @message
@@ -81,120 +50,78 @@ fields @timestamp, @message
 ```
 
 ## Matches and regular expressions in the filter command
+<a name="CWL_QuerySyntax-regex"></a>
 
-The filter command supports the use of regular expressions. You can
-use the following comparison operators (`=`, `!=`,
-`<`, `<=`, `>`,
-`>=`) and Boolean operators (`and`,
-`or`, and `not`).
+The filter command supports the use of regular expressions. You can use the following comparison operators (`=`, `!=`, `<`, `<=`, `>`, `>=`) and Boolean operators (`and`, `or`, and `not`).
 
-You can use the keyword `in` to test for set membership and
-check for elements in an array. To check for elements in an array, put
-the array after `in`. You can use the Boolean operator
-`not` with `in`. You can create queries that
-use `in` to return log events where fields are string
-matches. The fields must be complete strings. For example, the following
-code snippet shows a query that uses `in` to return log
-events where the field `logGroup` is the complete string
-`example_group`.
+You can use the keyword `in` to test for set membership and check for elements in an array. To check for elements in an array, put the array after `in`. You can use the Boolean operator `not` with `in`. You can create queries that use `in` to return log events where fields are string matches. The fields must be complete strings. For example, the following code snippet shows a query that uses `in` to return log events where the field `logGroup` is the complete string `example_group`.
 
 ```
 fields @timestamp, @message
 | filter logGroup in ["example_group"]
 ```
 
-You can use the keyword phrases `like` and `not
- like` to match substrings. You can use the regular expression
-operator `=~` to match substrings. To match a substring with
-`like` and `not like`, enclose the substring
-that you want to match in single or double quotation marks. You can use
-regular expression patterns with `like` and `not
- like`. To match a substring with the regular expression
-operator, enclose the substring that you want to match in forward
-slashes. The following examples contain code snippets that show how you
-can match substrings using the `filter` command.
+You can use the keyword phrases `like` and `not like` to match substrings. You can use the regular expression operator `=~` to match substrings. To match a substring with `like` and `not like`, enclose the substring that you want to match in single or double quotation marks. You can use regular expression patterns with `like` and `not like`. To match a substring with the regular expression operator, enclose the substring that you want to match in forward slashes. The following examples contain code snippets that show how you can match substrings using the `filter` command.
 
 **Examples: Match substrings**
 
-The following examples return log events where `f1`
-contains the word _**Exception**_.
-All three examples are case sensitive.
+ The following examples return log events where `f1` contains the word ***Exception***. All three examples are case sensitive. 
 
-The first example matches a substring with `like`.
+The first example matches a substring with `like`. 
 
 ```
-fields f1, f2, f3
+fields f1, f2, f3 
 | filter f1 like "Exception"
 ```
 
-The second example matches a substring with `like` and a
-regular expression pattern.
+ The second example matches a substring with `like` and a regular expression pattern. 
 
 ```
-fields f1, f2, f3
+fields f1, f2, f3 
 | filter f1 like /Exception/
 ```
 
-The third example matches a substring with a regular expression.
+ The third example matches a substring with a regular expression. 
 
 ```
-fields f1, f2, f3
+fields f1, f2, f3 
 | filter f1 =~ /Exception/
 ```
 
 **Example: Match substrings with wildcards**
 
-You can use the period symbol (`.`) as a wildcard in
-regular expressions to match substrings. In the following example, the
-query returns matches where the value for `f1` begins with
-the string `ServiceLog`.
+ You can use the period symbol (`.`) as a wildcard in regular expressions to match substrings. In the following example, the query returns matches where the value for `f1` begins with the string `ServiceLog`. 
 
 ```
 fields f1, f2, f3
 | filter f1 like /ServiceLog./
 ```
 
-You can place the asterisk symbol after the period symbol
-(`.*`) to create a greedy quantifier that returns as many
-matches as possible. For example, the following query returns matches
-where the value for `f1` not only begins with the string
-`ServiceLog`, but also includes the string
-`ServiceLog`.
+ You can place the asterisk symbol after the period symbol (`.*`) to create a greedy quantifier that returns as many matches as possible. For example, the following query returns matches where the value for `f1` not only begins with the string `ServiceLog`, but also includes the string `ServiceLog`. 
 
 ```
 fields f1, f2, f3
 | filter f1 like /ServiceLog.*/
 ```
 
-Possible matches can be formatted like the following:
-
-- `ServiceLogSampleApiLogGroup`
-- `SampleApiLogGroupServiceLog`
+ Possible matches can be formatted like the following: 
++  `ServiceLogSampleApiLogGroup` 
++  `SampleApiLogGroupServiceLog` 
 
 **Example: Exclude substrings from matches**
 
-The following example shows a query that returns log events where
-`f1` doesn't contain the word
-_**Exception**_. The example
-is case senstive.
+The following example shows a query that returns log events where `f1` doesn't contain the word ***Exception***. The example is case senstive.
 
 ```
-fields f1, f2, f3
+fields f1, f2, f3 
 | filter f1 not like "Exception"
 ```
 
-**Example: Match substrings with case-insensitive
-patterns**
+**Example: Match substrings with case-insensitive patterns**
 
-You can match substrings that are case insensitive with
-`like` and regular expressions. Place the following
-parameter (**?i**) before the substring you want to
-match. The following example shows a query that returns log events where
-`f1` contains the word
-_**Exception**_ or
-_**exception**_.
+You can match substrings that are case insensitive with `like` and regular expressions. Place the following parameter (**?i**) before the substring you want to match. The following example shows a query that returns log events where `f1` contains the word ***Exception*** or ***exception***.
 
 ```
-fields f1, f2, f3
+fields f1, f2, f3 
 | filter f1 like /(?i)Exception/
 ```

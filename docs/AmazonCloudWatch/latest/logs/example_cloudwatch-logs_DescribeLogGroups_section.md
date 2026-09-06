@@ -1,16 +1,15 @@
+
+
 # Use `DescribeLogGroups` with an AWS SDK or CLI
+<a name="example_cloudwatch-logs_DescribeLogGroups_section"></a>
 
 The following code examples show how to use `DescribeLogGroups`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples). 
 
 ```
     using System;
@@ -70,27 +69,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             while (!done);
         }
     }
+```
++  For API details, see [DescribeLogGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/DescribeLogGroups) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command describes a log group named `my-logs`:  
 
 ```
-
-- For API details, see
-  [DescribeLogGroups](../../../goto/DotNetSDKV3/logs-2014-03-28/DescribeLogGroups.md "../../../goto/DotNetSDKV3/logs-2014-03-28/DescribeLogGroups.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command describes a log group named `my-logs`:
-
+aws logs describe-log-groups --log-group-name-prefix {{my-logs}}
 ```
-`aws logs describe-log-groups --log-group-name-prefix `my-logs``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -106,20 +97,13 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeLogGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeLogGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
 ```
 import {
@@ -142,14 +126,9 @@ export const main = async () => {
   console.log(logGroups);
   return logGroups;
 };
-
-
 ```
++  For API details, see [DescribeLogGroups](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeLogGroupsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeLogGroups](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeLogGroupsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeLogGroupsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

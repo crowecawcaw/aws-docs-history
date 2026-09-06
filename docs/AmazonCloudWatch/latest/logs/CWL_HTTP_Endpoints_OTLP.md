@@ -1,20 +1,21 @@
+
+
 # Sending logs using the OTLP endpoint (OpenTelemetry Logs)
+<a name="CWL_HTTP_Endpoints_OTLP"></a>
 
-The OpenTelemetry Logs endpoint (`/v1/logs`) accepts OpenTelemetry Protocol
-(OTLP) log data in either JSON or Protobuf encoding. For detailed information about the
-OTLP endpoint, including configuration and usage, see [Send metrics and traces to CloudWatch with OpenTelemetry](../monitoring/CloudWatch-OTLPEndpoint.md "../monitoring/CloudWatch-OTLPEndpoint.md").
+The OpenTelemetry Logs endpoint (`/v1/logs`) accepts OpenTelemetry Protocol (OTLP) log data in either JSON or Protobuf encoding. For detailed information about the OTLP endpoint, including configuration and usage, see [Send metrics and traces to CloudWatch with OpenTelemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPEndpoint.html).
 
-If you are using bearer token authentication, complete the setup steps in
-[Setting up bearer token authentication](CWL_HTTP_Endpoints_BearerTokenAuth.md "CWL_HTTP_Endpoints_BearerTokenAuth.md") before proceeding.
+If you are using bearer token authentication, complete the setup steps in [Setting up bearer token authentication](CWL_HTTP_Endpoints_BearerTokenAuth.md) before proceeding.
 
 ## Request format
-
-- Method: `POST`
-- Content-Type: `application/json` or `application/x-protobuf`
-- Log group: `x-aws-log-group` header only (query parameter not supported)
-- Log stream: `x-aws-log-stream` header
+<a name="CWL_OTLP_Format"></a>
++ Method: `POST`
++ Content-Type: `application/json` or `application/x-protobuf`
++ Log group: `x-aws-log-group` header only (query parameter not supported)
++ Log stream: `x-aws-log-stream` header
 
 ## Example request
+<a name="CWL_OTLP_Example"></a>
 
 ```
 curl -X POST "https://logs.<region>.amazonaws.com/v1/logs" \
@@ -63,6 +64,7 @@ curl -X POST "https://logs.<region>.amazonaws.com/v1/logs" \
 ```
 
 ## Responses
+<a name="CWL_OTLP_Responses"></a>
 
 **Success (all events accepted):**
 
@@ -82,14 +84,10 @@ HTTP 200 OK
 }
 ```
 
-When the request Content-Type is `application/x-protobuf`, the response is
-returned as a serialized `ExportLogsServiceResponse` protobuf message with
-the same fields.
+When the request Content-Type is `application/x-protobuf`, the response is returned as a serialized `ExportLogsServiceResponse` protobuf message with the same fields.
 
 ## OTLP-specific behaviors
+<a name="CWL_OTLP_Specific_Behaviors"></a>
 
-The following behaviors are specific to the OTLP endpoint and are not present on the
-other HTTP ingestion endpoints:
-
-- **Retry-After header** – Included on
-  503 and 429 responses to indicate when the client should retry.
+The following behaviors are specific to the OTLP endpoint and are not present on the other HTTP ingestion endpoints:
++ **Retry-After header** – Included on 503 and 429 responses to indicate when the client should retry.

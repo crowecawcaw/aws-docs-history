@@ -1,24 +1,23 @@
+
+
 # Use `GetLogEvents` with an AWS SDK or CLI
+<a name="example_cloudwatch-logs_GetLogEvents_section"></a>
 
 The following code examples show how to use `GetLogEvents`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
 
-- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-The following command retrieves log events from a log stream named `20150601` in the log group `my-logs`:
+**AWS CLI**  
+The following command retrieves log events from a log stream named `20150601` in the log group `my-logs`:  
 
 ```
-`aws logs get-log-events --log-group-name `my-logs` --log-stream-name `20150601``
-
+aws logs get-log-events --log-group-name {{my-logs}} --log-stream-name {{20150601}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -43,20 +42,13 @@ Output:
     "nextBackwardToken": "b/31961209122358285602261756944988674324553373268216709120"
 }
 ```
++  For API details, see [GetLogEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/get-log-events.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetLogEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/get-log-events.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/get-log-events.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -85,12 +77,12 @@ public class GetLogEvents {
         final String usage = """
 
                 Usage:
-                  <logGroupName> <logStreamName>
+                  <logGroupName> <logStreamName> 
 
                 Where:
                   logGroupName - The name of the log group (for example, myloggroup).
                   logStreamName - The name of the log stream (for example, mystream).
-
+                  
                 """;
 
        // if (args.length != 2) {
@@ -156,14 +148,9 @@ public class GetLogEvents {
         }
     }
 }
-
-
 ```
++  For API details, see [GetLogEvents](https://docs.aws.amazon.com/goto/SdkForJavaV2/logs-2014-03-28/GetLogEvents) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetLogEvents](../../../goto/SdkForJavaV2/logs-2014-03-28/GetLogEvents.md "../../../goto/SdkForJavaV2/logs-2014-03-28/GetLogEvents.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

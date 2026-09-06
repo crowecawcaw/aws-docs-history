@@ -1,24 +1,23 @@
+
+
 # Use `DescribeLogStreams` with an AWS SDK or CLI
+<a name="example_cloudwatch-logs_DescribeLogStreams_section"></a>
 
 The following code examples show how to use `DescribeLogStreams`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
 
-- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-The following command shows all log streams starting with the prefix `2015` in the log group `my-logs`:
+**AWS CLI**  
+The following command shows all log streams starting with the prefix `2015` in the log group `my-logs`:  
 
 ```
-`aws logs describe-log-streams --log-group-name `my-logs` --log-stream-name-prefix `2015``
-
+aws logs describe-log-streams --log-group-name {{my-logs}} --log-stream-name-prefix {{2015}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -38,25 +37,16 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeLogStreams](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-streams.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeLogStreams](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-streams.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-streams.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples").
-
-Searches for log streams within a specified log group that match a given prefix.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples). 
+Searches for log streams within a specified log group that match a given prefix.  
 
 ```
-
 /**
  * Before running this Java V2 code example, set up your development
  * environment, including your credentials.
@@ -71,13 +61,13 @@ public class CloudWatchLogsSearch {
         final String usage = """
 
                 Usage:
-                  <logGroupName> <logStreamName>
+                  <logGroupName> <logStreamName> 
 
                 Where:
                   logGroupName - The name of the log group (for example, WeathertopJavaContainerLogs).
                   logStreamName - The name of the log stream (for example, weathertop-java-stream).
-                  pattern - the pattern to use (for example, INFO)
-
+                  pattern - the pattern to use (for example, INFO) 
+                  
                 """;
 
         if (args.length != 3) {
@@ -133,14 +123,10 @@ public class CloudWatchLogsSearch {
         }
     }
 }
-
+```
+Prints metadata about the most recent log stream in a specified log group.  
 
 ```
-
-Prints metadata about the most recent log stream in a specified log group.
-
-```
-
 /**
  * Before running this Java V2 code example, set up your development
  * environment, including your credentials.
@@ -210,14 +196,9 @@ public class CloudWatchLogQuery {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeLogStreams](https://docs.aws.amazon.com/goto/SdkForJavaV2/logs-2014-03-28/DescribeLogStreams) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeLogStreams](../../../goto/SdkForJavaV2/logs-2014-03-28/DescribeLogStreams.md "../../../goto/SdkForJavaV2/logs-2014-03-28/DescribeLogStreams.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

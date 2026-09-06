@@ -1,30 +1,27 @@
+
+
 # Built-in processors for AWS vended logs
+<a name="CloudWatch-Logs-Transformation-BuiltIn"></a>
 
-This section contains information about the built-in processors that you can use with AWS services that vend logs.
+This section contains information about the built-in processors that you can use with AWS services that vend logs. 
 
-###### Contents
-
-- [parseWAF](CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseWAF "CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseWAF")
-- [parsePostgres](CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parsePostGres "CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parsePostGres")
-- [parseCloudfront](CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseCloudFront "CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseCloudFront")
-- [parseRoute53](CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseRoute53 "CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseRoute53")
-- [parseVPC](CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseVPC "CloudWatch-Logs-Transformation-BuiltIn.md#CloudWatch-Logs-Transformation-parseVPC")
-- [parseToOCSF](CloudWatch-Logs-Transformation-parseToOCSF.md "CloudWatch-Logs-Transformation-parseToOCSF.md")
+**Contents**
++ [parseWAF](#CloudWatch-Logs-Transformation-parseWAF)
++ [parsePostgres](#CloudWatch-Logs-Transformation-parsePostGres)
++ [parseCloudfront](#CloudWatch-Logs-Transformation-parseCloudFront)
++ [parseRoute53](#CloudWatch-Logs-Transformation-parseRoute53)
++ [parseVPC](#CloudWatch-Logs-Transformation-parseVPC)
++ [parseToOCSF](CloudWatch-Logs-Transformation-parseToOCSF.md)
 
 ## parseWAF
+<a name="CloudWatch-Logs-Transformation-parseWAF"></a>
 
-Use this processor to parse AWS WAF vended logs, It takes the contents of
-`httpRequest.headers` and creates JSON keys from each header
-name, with the corresponding value. It also does the same for
-`labels`. These transformations can make querying AWS WAF logs much
-easier. For more information about AWS WAF log format, see [Log examples for web ACL traffic](../../../waf/latest/developerguide/logging-examples.md "../../../waf/latest/developerguide/logging-examples.md").
+Use this processor to parse AWS WAF vended logs, It takes the contents of `httpRequest.headers` and creates JSON keys from each header name, with the corresponding value. It also does the same for `labels`. These transformations can make querying AWS WAF logs much easier. For more information about AWS WAF log format, see [ Log examples for web ACL traffic](https://docs.aws.amazon.com/waf/latest/developerguide/logging-examples.html).
 
 This processor accepts only `@message` as the input.
 
-###### Important
-
-If you use this processor, it must be the first processor in your
-transformer.
+**Important**  
+If you use this processor, it must be the first processor in your transformer.
 
 **Example**
 
@@ -123,17 +120,14 @@ The transformed log event would be the following.
 ```
 
 ## parsePostgres
+<a name="CloudWatch-Logs-Transformation-parsePostGres"></a>
 
-Use this processor to parse Amazon RDS for PostgreSQL vended logs, extract
-fields, and convert them to JSON format. For more information about
-RDS for PostgreSQL log format, see [RDS for PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix").
+Use this processor to parse Amazon RDS for PostgreSQL vended logs, extract fields, and convert them to JSON format. For more information about RDS for PostgreSQL log format, see [ RDS for PostgreSQL database log files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.html#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix).
 
 This processor accepts only `@message` as the input.
 
-###### Important
-
-If you use this processor, it must be the first processor in your
-transformer.
+**Important**  
+If you use this processor, it must be the first processor in your transformer.
 
 **Example**
 
@@ -167,19 +161,14 @@ The transformed log event would be the following.
 ```
 
 ## parseCloudfront
+<a name="CloudWatch-Logs-Transformation-parseCloudFront"></a>
 
-Use this processor to parse Amazon CloudFront vended logs, extract
-fields, and convert them into JSON format. Encoded field values are decoded.
-Values that are integers and doubles are treated as such. For more information
-about Amazon CloudFront log format, see [Configure and
-use standard logs (access logs)](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md").
+Use this processor to parse Amazon CloudFront vended logs, extract fields, and convert them into JSON format. Encoded field values are decoded. Values that are integers and doubles are treated as such. For more information about Amazon CloudFront log format, see [ Configure and use standard logs (access logs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html).
 
 This processor accepts only `@message` as the input.
 
-###### Important
-
-If you use this processor, it must be the first processor in your
-transformer.
+**Important**  
+If you use this processor, it must be the first processor in your transformer.
 
 **Example**
 
@@ -240,17 +229,14 @@ The transformed log event would be the following.
 ```
 
 ## parseRoute53
+<a name="CloudWatch-Logs-Transformation-parseRoute53"></a>
 
-Use this processor to parse Amazon Route 53 Public Data Plane vended logs, extract
-fields, and convert them into JSON format. Encoded field values are decoded.
-This processor does not support Amazon Route 53 Resolver logs.
+Use this processor to parse Amazon Route 53 Public Data Plane vended logs, extract fields, and convert them into JSON format. Encoded field values are decoded. This processor does not support Amazon Route 53 Resolver logs.
 
 This processor accepts only `@message` as the input.
 
-###### Important
-
-If you use this processor, it must be the first processor in your
-transformer.
+**Important**  
+If you use this processor, it must be the first processor in your transformer.
 
 **Example**
 
@@ -288,16 +274,14 @@ The transformed log event would be the following.
 ```
 
 ## parseVPC
+<a name="CloudWatch-Logs-Transformation-parseVPC"></a>
 
-Use this processor to parse Amazon VPC vended logs, extract fields, and convert
-them into JSON format. Encoded field values are decoded.
+Use this processor to parse Amazon VPC vended logs, extract fields, and convert them into JSON format. Encoded field values are decoded.
 
 This processor accepts only `@message` as the input.
 
-###### Important
-
-If you use this processor, it must be the first processor in your
-transformer.
+**Important**  
+If you use this processor, it must be the first processor in your transformer.
 
 **Example**
 

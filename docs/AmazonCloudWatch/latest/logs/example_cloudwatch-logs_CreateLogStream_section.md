@@ -1,16 +1,15 @@
+
+
 # Use `CreateLogStream` with an AWS SDK or CLI
+<a name="example_cloudwatch-logs_CreateLogStream_section"></a>
 
 The following code examples show how to use `CreateLogStream`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples). 
 
 ```
     using System;
@@ -52,30 +51,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [CreateLogStream](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/CreateLogStream) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command creates a log stream named `20150601` in the log group `my-logs`:  
 
 ```
-
-- For API details, see
-  [CreateLogStream](../../../goto/DotNetSDKV3/logs-2014-03-28/CreateLogStream.md "../../../goto/DotNetSDKV3/logs-2014-03-28/CreateLogStream.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command creates a log stream named `20150601` in the log group `my-logs`:
-
+aws logs create-log-stream --log-group-name {{my-logs}} --log-stream-name {{20150601}}
 ```
-`aws logs create-log-stream --log-group-name `my-logs` --log-stream-name `20150601``
++  For API details, see [CreateLogStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-stream.html) in *AWS CLI Command Reference*. 
 
-```
+------
 
-- For API details, see
-  [CreateLogStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-stream.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-stream.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Use `DescribeExportTasks` with an AWS SDK
+<a name="example_cloudwatch-logs_DescribeExportTasks_section"></a>
 
 The following code example shows how to use `DescribeExportTasks`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples). 
 
 ```
     using System;
@@ -50,15 +49,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             while (response.NextToken is not null);
         }
     }
-
-
-
 ```
++  For API details, see [DescribeExportTasks](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/DescribeExportTasks) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeExportTasks](../../../goto/DotNetSDKV3/logs-2014-03-28/DescribeExportTasks.md "../../../goto/DotNetSDKV3/logs-2014-03-28/DescribeExportTasks.md")
-  in _AWS SDK for .NET API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,21 @@
+
+
 # where
+<a name="CWL_QuerySyntax-Where"></a>
 
-Use the `where` command as an alias for the
-`filter` command.
-It accepts identical syntax and behavior.
+Use the `where` command as an alias for the `filter` command. It accepts identical syntax and behavior.
 
-###### Syntax
+**Syntax**  
+
 
 ```
-| where `condition`
+| where {{condition}}
 ```
 
 The command uses the following arguments:
++ `{{condition}}` – A boolean expression identical to what the `filter` command accepts.
 
-- `condition` – A
-  boolean expression identical to what the `filter`
-  command accepts.
-
-###### Example
-
+**Example**  
 The following query filters for log events containing "error".
 
 ```

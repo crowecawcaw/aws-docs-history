@@ -1,18 +1,16 @@
+
+
 # Use `PutSubscriptionFilter` with an AWS SDK
+<a name="example_cloudwatch-logs_PutSubscriptionFilter_section"></a>
 
 The following code examples show how to use `PutSubscriptionFilter`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -20,11 +18,8 @@ Include the required files.
 #include <aws/logs/model/PutSubscriptionFilterRequest.h>
 #include <aws/core/utils/Outcome.h>
 #include <iostream>
-
-
 ```
-
-Create the subscription filter.
+Create the subscription filter.  
 
 ```
         Aws::CloudWatchLogs::CloudWatchLogsClient cwl;
@@ -45,23 +40,14 @@ Create the subscription filter.
             std::cout << "Successfully created CloudWatch logs subscription " <<
                 "filter " << filter_name << std::endl;
         }
-
-
 ```
++  For API details, see [PutSubscriptionFilter](https://docs.aws.amazon.com/goto/SdkForCpp/logs-2014-03-28/PutSubscriptionFilter) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [PutSubscriptionFilter](../../../goto/SdkForCpp/logs-2014-03-28/PutSubscriptionFilter.md "../../../goto/SdkForCpp/logs-2014-03-28/PutSubscriptionFilter.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -151,23 +137,14 @@ public class PutSubscriptionFilter {
         }
     }
 }
-
-
 ```
++  For API details, see [PutSubscriptionFilter](https://docs.aws.amazon.com/goto/SdkForJavaV2/logs-2014-03-28/PutSubscriptionFilter) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutSubscriptionFilter](../../../goto/SdkForJavaV2/logs-2014-03-28/PutSubscriptionFilter.md "../../../goto/SdkForJavaV2/logs-2014-03-28/PutSubscriptionFilter.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
 ```
 import { PutSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs";
@@ -200,21 +177,11 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
++  For API details, see [PutSubscriptionFilter](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutSubscriptionFilterCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutSubscriptionFilter](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutSubscriptionFilterCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutSubscriptionFilterCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -239,15 +206,10 @@ cwl.putSubscriptionFilter(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-subscriptions.html#cloudwatch-examples-subscriptions-creating). 
++  For API details, see [PutSubscriptionFilter](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/logs-2014-03-28/PutSubscriptionFilter) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-subscriptions.md#cloudwatch-examples-subscriptions-creating "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-subscriptions.md#cloudwatch-examples-subscriptions-creating").
-- For API details, see
-  [PutSubscriptionFilter](../../../goto/AWSJavaScriptSDK/logs-2014-03-28/PutSubscriptionFilter.md "../../../goto/AWSJavaScriptSDK/logs-2014-03-28/PutSubscriptionFilter.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

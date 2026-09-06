@@ -1,34 +1,27 @@
+
+
 # Use `DeleteSubscriptionFilter` with an AWS SDK
+<a name="example_cloudwatch-logs_DeleteSubscriptionFilter_section"></a>
 
 The following code examples show how to use `DeleteSubscriptionFilter`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples). 
+Include the required files.  
 
 ```
-
 #include <aws/core/Aws.h>
 #include <aws/core/utils/Outcome.h>
 #include <aws/logs/CloudWatchLogsClient.h>
 #include <aws/logs/model/DeleteSubscriptionFilterRequest.h>
 #include <iostream>
-
+```
+Delete the subscription filter.  
 
 ```
-
-Delete the subscription filter.
-
-```
-
         Aws::CloudWatchLogs::CloudWatchLogsClient cwl;
         Aws::CloudWatchLogs::Model::DeleteSubscriptionFilterRequest request;
         request.SetFilterName(filter_name);
@@ -43,23 +36,14 @@ Delete the subscription filter.
             std::cout << "Successfully deleted CloudWatch logs subscription " <<
                 "filter " << filter_name << std::endl;
         }
-
-
 ```
++  For API details, see [DeleteSubscriptionFilter](https://docs.aws.amazon.com/goto/SdkForCpp/logs-2014-03-28/DeleteSubscriptionFilter) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [DeleteSubscriptionFilter](../../../goto/SdkForCpp/logs-2014-03-28/DeleteSubscriptionFilter.md "../../../goto/SdkForCpp/logs-2014-03-28/DeleteSubscriptionFilter.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples). 
 
 ```
 import software.amazon.awssdk.services.cloudwatch.model.CloudWatchException;
@@ -116,23 +100,14 @@ public class DeleteSubscriptionFilter {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteSubscriptionFilter](https://docs.aws.amazon.com/goto/SdkForJavaV2/logs-2014-03-28/DeleteSubscriptionFilter) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteSubscriptionFilter](../../../goto/SdkForJavaV2/logs-2014-03-28/DeleteSubscriptionFilter.md "../../../goto/SdkForJavaV2/logs-2014-03-28/DeleteSubscriptionFilter.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
 ```
 import { DeleteSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs";
@@ -154,21 +129,11 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
++  For API details, see [DeleteSubscriptionFilter](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteSubscriptionFilterCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteSubscriptionFilter](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteSubscriptionFilterCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteSubscriptionFilterCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -191,24 +156,15 @@ cwl.deleteSubscriptionFilter(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-subscriptions.html#cloudwatch-examples-subscriptions-deleting). 
++  For API details, see [DeleteSubscriptionFilter](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/logs-2014-03-28/DeleteSubscriptionFilter) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-subscriptions.md#cloudwatch-examples-subscriptions-deleting "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-subscriptions.md#cloudwatch-examples-subscriptions-deleting").
-- For API details, see
-  [DeleteSubscriptionFilter](../../../goto/AWSJavaScriptSDK/logs-2014-03-28/DeleteSubscriptionFilter.md "../../../goto/AWSJavaScriptSDK/logs-2014-03-28/DeleteSubscriptionFilter.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun deleteSubFilter(
@@ -226,14 +182,9 @@ suspend fun deleteSubFilter(
         println("Successfully deleted CloudWatch logs subscription filter named $filter")
     }
 }
-
-
 ```
++  For API details, see [DeleteSubscriptionFilter](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteSubscriptionFilter](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

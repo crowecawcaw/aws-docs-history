@@ -1,138 +1,72 @@
+
+
 # Cross-account cross-Region log centralization
+<a name="CloudWatchLogs_Centralization"></a>
 
-Amazon CloudWatch Logs data centralization works with AWS Organizations to collect log data from multiple member
-accounts into one data repository using cross-account and cross-region centralization rules.
-You define the rules that automatically replicate log data from multiple accounts and
-AWS Regions into a centralized account within your organization. This capability
-streamlines log consolidation for improved centralized monitoring, analysis, and compliance
-across your entire AWS infrastructure.
+Amazon CloudWatch Logs data centralization works with AWS Organizations to collect log data from multiple member accounts into one data repository using cross-account and cross-region centralization rules. You define the rules that automatically replicate log data from multiple accounts and AWS Regions into a centralized account within your organization. This capability streamlines log consolidation for improved centralized monitoring, analysis, and compliance across your entire AWS infrastructure.
 
-CloudWatch Logs data centralization offers configuration flexibility to meet operational and
-security requirements, such as the ability to configure a backup region during rule setup
-within the destination account to ensure increased resiliency. Additionally, you have full
-control over encryption behavior for log groups copied from source accounts to handle data
-originally encrypted with customer managed KMS keys.
+ CloudWatch Logs data centralization offers configuration flexibility to meet operational and security requirements, such as the ability to configure a backup region during rule setup within the destination account to ensure increased resiliency. Additionally, you have full control over encryption behavior for log groups copied from source accounts to handle data originally encrypted with customer managed KMS keys.
 
-###### Note
-
-The CloudWatch Logs centralization feature only processes new log data that arrives in source accounts
-after you create the centralization rule. Historical log data (logs that existed before
-rule creation) is not centralized.
+**Note**  
+The CloudWatch Logs centralization feature only processes new log data that arrives in source accounts after you create the centralization rule. Historical log data (logs that existed before rule creation) is not centralized.
 
 ## Data centralization concepts
+<a name="centralization-concepts"></a>
 
-Before you begin using CloudWatch Logs data centralization, familiarize yourself with the
-following concepts:
+Before you begin using CloudWatch Logs data centralization, familiarize yourself with the following concepts:
 
-**Centralization rule**
+**Centralization rule**  
+A configuration that defines how log data from source accounts and regions is replicated to a destination account and region. Rules specify source criteria and destination settings.
 
-A configuration that defines how log data from source accounts and regions
-is replicated to a destination account and region. Rules specify source
-criteria and destination settings.
+**Source account**  
+The AWS account where log data originates. Log events from source accounts are replicated to the destination account based on the centralization rules you define.
 
-**Source account**
+**Destination account**  
+The destination AWS account where replicated log data is stored. This account serves as the centralized location for log analysis and monitoring.
 
-The AWS account where log data originates. Log events from source
-accounts are replicated to the destination account based on the
-centralization rules you define.
+**Backup region**  
+An optional secondary region within the destination account where log data can be replicated for increased resiliency and disaster recovery purposes.
 
-**Destination account**
+**Tag propagation**  
+An opt-in capability that propagates resource tags from source log groups to their corresponding destination log groups. Tag propagation uses a customer-managed IAM role in the destination account to add, update, and remove tags on destination log groups. You configure tag propagation by adding a `TagPropagationConfiguration` block to your centralization rule's destination configuration.
 
-The destination AWS account where replicated log data is stored. This
-account serves as the centralized location for log analysis and
-monitoring.
-
-**Backup region**
-
-An optional secondary region within the destination account where log data
-can be replicated for increased resiliency and disaster recovery
-purposes.
-
-**Tag propagation**
-
-An opt-in capability that propagates resource tags from source log groups
-to their corresponding destination log groups. Tag propagation uses a
-customer-managed IAM role in the destination account to add, update, and
-remove tags on destination log groups. You configure tag propagation by
-adding a `TagPropagationConfiguration` block to your
-centralization rule's destination configuration.
-
-**Encryption in CloudWatch Logs**
-
-Log group data is always encrypted in CloudWatch Logs. By default,
-CloudWatch Logs uses server-side encryption with 256-bit Advanced Encryption
-Standard Galois/Counter Mode (AES-GCM) to encrypt log data at rest. As an alternative,
-you can use AWS Key Management Service for this encryption. For more information,
-see [CloudWatch Logs Encryption documentation](encrypt-log-data-kms.md "encrypt-log-data-kms.md").
-
-- **How encryption works during centralization**: CloudWatch Logs centralization actively
-  copies log data at ingestion time from source accounts to destination accounts. During this
-  process, your data remains encrypted in transit using an AWS owned service key. Data at rest in both
-  source and destination log groups is encrypted using your chosen encryption method
-  (customer managed or AWS owned KMS keys). If you are using customer managed KMS key in your destination log groups,
-  add the tag `LogsManaged = true` to the kms key for Centralization service to access it.
-- **When KMS permissions are required**:
-
-  - If you are using customer managed KMS keys in your source accounts, CloudWatch Logs
-    requires [KMS permissions](encrypt-log-data-kms.md#cmk-permissions-lg "encrypt-log-data-kms.md#cmk-permissions-lg")
-    in the following example scenarios:
-
-    - **Throughput Management**: When centralization throughput limits are reached, log data is
-      temporarily stored encrypted with your customer managed KMS key until bandwidth becomes available.
-    - **Data Protection and Redaction**: When source log groups have data protection policies enabled,
-      CloudWatch Logs requires decrypt permissions to access raw log data to centralize it.
-
-###### Important
-
-Centralization rules are managed by the AWS Organizations management account or delegated administrator.
-To exclude customer managed KMS-encrypted log groups from centralization, configure the rule settings
-to "Do not centralize log groups encrypted with AWS KMS key."
+**Encryption in CloudWatch Logs **  
+Log group data is always encrypted in CloudWatch Logs. By default, CloudWatch Logs uses server-side encryption with 256-bit Advanced Encryption Standard Galois/Counter Mode (AES-GCM) to encrypt log data at rest. As an alternative, you can use AWS Key Management Service for this encryption. For more information, see [CloudWatch Logs Encryption documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html).   
++ **How encryption works during centralization**: CloudWatch Logs centralization actively copies log data at ingestion time from source accounts to destination accounts. During this process, your data remains encrypted in transit using an AWS owned service key. Data at rest in both source and destination log groups is encrypted using your chosen encryption method (customer managed or AWS owned KMS keys). If you are using customer managed KMS key in your destination log groups, add the tag `LogsManaged = true` to the kms key for Centralization service to access it.
++ **When KMS permissions are required**: 
+  + If you are using customer managed KMS keys in your source accounts, CloudWatch Logs requires [KMS permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html#cmk-permissions-lg) in the following example scenarios: 
+    + **Throughput Management**: When centralization throughput limits are reached, log data is temporarily stored encrypted with your customer managed KMS key until bandwidth becomes available.
+    + **Data Protection and Redaction**: When source log groups have data protection policies enabled, CloudWatch Logs requires decrypt permissions to access raw log data to centralize it.
+Centralization rules are managed by the AWS Organizations management account or delegated administrator. To exclude customer managed KMS-encrypted log groups from centralization, configure the rule settings to "Do not centralize log groups encrypted with AWS KMS key."
 
 ## Setting up log centralization
+<a name="centralization-setup"></a>
 
-To set up CloudWatch Logs Centralization, you need to configure centralization rules that define
-how log data flows from log groups in source accounts to log groups in your destination
-account.
+To set up CloudWatch Logs Centralization, you need to configure centralization rules that define how log data flows from log groups in source accounts to log groups in your destination account.
 
-Once the centralization rule is enabled and log events are being replicated to the
-destination account, you can create metric, subscription, and account filters on centralized log
-groups with enhanced filtering capabilities. These filters can target log events from
-specific source accounts and regions, and can emit source account and region information
-as metric dimensions. For more information, see [Creating metrics from log events using filters](MonitoringLogData.md "MonitoringLogData.md").
+Once the centralization rule is enabled and log events are being replicated to the destination account, you can create metric, subscription, and account filters on centralized log groups with enhanced filtering capabilities. These filters can target log events from specific source accounts and regions, and can emit source account and region information as metric dimensions. For more information, see [Creating metrics from log events using filters](MonitoringLogData.md).
 
 ### Prerequisites
-
-- AWS Organizations must be set up and the source and destination accounts must both
-  belong to the organization.
-- Trusted access must be enabled for CloudWatch, the management account and the
-  destination account so provide access to the log data.
-
-###### Note
-
-It is recommended to enable trusted access through the console, which
-automatically creates the required service-linked role (SLR). If trusted
-access is enabled through other methods, the service-linked role will
-need to be created separately.
+<a name="centralization-prerequisites"></a>
++ AWS Organizations must be set up and the source and destination accounts must both belong to the organization.
++  Trusted access must be enabled for CloudWatch, the management account and the destination account so provide access to the log data. 
+**Note**  
+It is recommended to enable trusted access through the console, which automatically creates the required service-linked role (SLR). If trusted access is enabled through other methods, the service-linked role will need to be created separately.
 
 #### Tag propagation prerequisites
+<a name="centralization-tag-propagation-prerequisites"></a>
 
-To enable tag propagation, you must complete the following additional
-setup:
+To enable tag propagation, you must complete the following additional setup:
 
 ##### Create a customer-managed IAM role
+<a name="centralization-tag-propagation-role"></a>
 
-You must create a customer-managed IAM role in the destination
-account with the following configuration:
+You must create a customer-managed IAM role in the destination account with the following configuration:
 
 ##### Trust policy
+<a name="centralization-tag-propagation-trust-policy"></a>
 
-The role's trust policy must allow the centralization service-linked
-role to assume it. The following example trust policy grants the
-`AWSServiceRoleForObservabilityAdmin_LogsCentralization`
-service-linked role permission to assume the destination role. Replace
-`<destination-account-id>` with your destination
-account ID and `<organization-id>` with your
-AWS Organizations ID.
+The role's trust policy must allow the centralization service-linked role to assume it. The following example trust policy grants the `AWSServiceRoleForObservabilityAdmin_LogsCentralization` service-linked role permission to assume the destination role. Replace `<destination-account-id>` with your destination account ID and `<organization-id>` with your AWS Organizations ID.
 
 ```
 {
@@ -153,13 +87,9 @@ AWS Organizations ID.
 ```
 
 ##### Permissions policy
+<a name="centralization-tag-propagation-permissions-policy"></a>
 
-The role's permissions policy must grant tag operations on the
-destination log groups. The following example grants the minimum
-required permissions. Replace
-`<destination-account-id>` with your value. You can
-scope the `Resource` further to specific log group ARN
-patterns.
+The role's permissions policy must grant tag operations on the destination log groups. The following example grants the minimum required permissions. Replace `<destination-account-id>` with your value. You can scope the `Resource` further to specific log group ARN patterns.
 
 ```
 {
@@ -177,20 +107,12 @@ patterns.
 ```
 
 ##### Grant iam:PassRole permission
+<a name="centralization-tag-propagation-passrole"></a>
 
-You must have `iam:PassRole` permission on the destination
-role, scoped to the centralization service via the
-`iam:PassedToService` condition key. The following example
-grants permission to pass the role. Replace
-`<destination-account-id>` and
-`<your-tag-role-name>` with your values.
+You must have `iam:PassRole` permission on the destination role, scoped to the centralization service via the `iam:PassedToService` condition key. The following example grants permission to pass the role. Replace `<destination-account-id>` and `<your-tag-role-name>` with your values.
 
-###### Note
-
-This statement goes on your identity policy (the principal calling
-`CreateCentralizationRuleForOrganization` or
-`UpdateCentralizationRuleForOrganization`), not on the
-destination role itself.
+**Note**  
+This statement goes on your identity policy (the principal calling `CreateCentralizationRuleForOrganization` or `UpdateCentralizationRuleForOrganization`), not on the destination role itself.
 
 ```
 {
@@ -209,440 +131,288 @@ destination role itself.
 ```
 
 ### Customizing destination log group names
+<a name="centralization-destination-log-group-names"></a>
 
-When you create a centralization rule, you can customize how destination log group
-names are structured using attributes. These attributes are automatically replaced
-with actual values when log groups are created, allowing you to organize logs
-hierarchically in your destination account. By default, only the
-`${source.logGroup}` attribute is used, which merges all log groups with
-the same name in the destination account. If a variable cannot be resolved,
-it inherits the value from its parent variable in the hierarchy.
+When you create a centralization rule, you can customize how destination log group names are structured using attributes. These attributes are automatically replaced with actual values when log groups are created, allowing you to organize logs hierarchically in your destination account. By default, only the `${source.logGroup}` attribute is used, which merges all log groups with the same name in the destination account. If a variable cannot be resolved, it inherits the value from its parent variable in the hierarchy.
 
 #### Available attributes
+<a name="centralization-destination-attributes"></a>
 
-You can use the following attributes in your destination log group name
-pattern:
+You can use the following attributes in your destination log group name pattern:
 
-Destination log group name attributes| Attribute | Description |
-| --- | --- |
-| `${source.accountId}` | The AWS account ID where the log originated. |
-| `${source.region}` | The AWS Region where the log originated. |
-| `${source.logGroup}` | The original log group name from the source account. |
-| `${source.org.id}` | Your AWS Organizations ID of the source account. |
-| `${source.org.ouId}` | The organizational unit ID of the source account |
-| `${source.org.rootId}` | The organization root ID |
-| `${source.org.path}` | The full organizational path from account to root |
+
+**Destination log group name attributes**  
+
+| Attribute | Description | 
+| --- | --- | 
+| ${source.accountId} | The AWS account ID where the log originated. | 
+| ${source.region} | The AWS Region where the log originated. | 
+| ${source.logGroup} | The original log group name from the source account. | 
+| ${source.org.id} | Your AWS Organizations ID of the source account. | 
+| ${source.org.ouId} | The organizational unit ID of the source account | 
+| ${source.org.rootId} | The organization root ID | 
+| ${source.org.path} | The full organizational path from account to root | 
 
 #### Examples
+<a name="centralization-destination-examples"></a>
 
-Preserve original log group structure
-
-Pattern: `/centralized/${source.accountId}${source.logGroup}`
-
+Preserve original log group structure  
+Pattern: `/centralized/${source.accountId}${source.logGroup}`  
 Result: `/centralized/123456789012/aws/lambda/my-function`
 
-Organize by account and region
-
-Pattern: `/centralized/${source.accountId}/${source.region}`
-
+Organize by account and region  
+Pattern: `/centralized/${source.accountId}/${source.region}`  
 Result: `/centralized/123456789012/us-east-1`
 
-Organize by organization structure
-
-Pattern: `/logs/${source.org.id}/${source.org.ouId}/${source.accountId}`
-
+Organize by organization structure  
+Pattern: `/logs/${source.org.id}/${source.org.ouId}/${source.accountId}`  
 Result: `/logs/o-abc123/ou-xyz-12345678/123456789012`
 
-Simple flat structure
-
-Pattern: `/centralized-logs`
-
+Simple flat structure  
+Pattern: `/centralized-logs`  
 Result: `/centralized-logs`
 
 #### Best practices
-
-- Include the source account ID to easily identify which account logs
-  came from.
-- Include the source region if you are centralizing from multiple
-  regions.
-- Structure destination log group names to be under 512 characters.
-  CloudWatch Logs enforces a maximum log group name length of 512
-  characters.
-- If you enable tag propagation, the pattern must contain all three
-  attributes: `${source.logGroup}`,
-  `${source.accountId}`, and
-  `${source.region}`. This ensures each source log group
-  maps to a unique destination log group.
+<a name="centralization-destination-best-practices"></a>
++ Include the source account ID to easily identify which account logs came from.
++ Include the source region if you are centralizing from multiple regions.
++ Structure destination log group names to be under 512 characters. CloudWatch Logs enforces a maximum log group name length of 512 characters.
++ If you enable tag propagation, the pattern must contain all three attributes: `${source.logGroup}`, `${source.accountId}`, and `${source.region}`. This ensures each source log group maps to a unique destination log group.
 
 ### Creating a centralization rule
+<a name="create-centralization-rule"></a>
 
-Use the following procedure to create a centralization rule that replicates log
-data from source accounts to your destination account.
+Use the following procedure to create a centralization rule that replicates log data from source accounts to your destination account.
 
-###### To create a centralization rule
+**To create a centralization rule**
 
-1. Navigate to the CloudWatch console in the Management or Delegated Administrator
-   account of the organization.
-2. Choose **Settings**.
-3. Navigate to the **Organization** tab.
-4. Choose **Configure rule**.
-5. Specify source details by setting the following fields, then choose
-   **Next**:
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization.
 
-   1. **Centralization rule name**: Enter a unique name
-      for the centralization rule.
-   2. **Source accounts**: Define source selection
-      criteria to pick accounts from which telemetry data will be
-      centralized. The selection criteria can include:
+1. Choose **Settings**.
 
-      - A list of member accounts in the organization
-      - A list of organization units in the organization
-      - The entire organization
-        You can provide the selection criteria in two modes:
+1. Navigate to the **Organization** tab.
 
-      - **Builder**: A click-based experience to
-        generate the source selection criteria
-      - **Editor**: A free-form text box to
-        provide the source selection criteria
-        Supported syntax for source selection criteria:
+1. Choose **Configure rule**.
 
-      - _Supported Keys:_ OrganizationId |
-        OrganizationUnitId | AccountId | \*
-      - _Supported Operators:_ = | IN |
-        OR
+1. Specify source details by setting the following fields, then choose **Next**:
 
-   3. **Source Regions**: Select a list of regions to
-      look for the telemetry data to centralize.
+   1. **Centralization rule name**: Enter a unique name for the centralization rule.
 
-6. Specify destination details by setting the following fields, then choose
-   **Next**:
+   1. **Source accounts**: Define source selection criteria to pick accounts from which telemetry data will be centralized. The selection criteria can include:
+      + A list of member accounts in the organization
+      + A list of organization units in the organization
+      + The entire organization
 
-   1. **Destination account**: Select an account in the
-      organization that acts as a central destination for telemetry
-      data.
-   2. **Destination Region**: Select a primary region
-      that stores a copy of the centralized telemetry data.
-   3. **Backup Region**: Optionally select a region
-      that stores a second copy of the centralized telemetry data.
+      You can provide the selection criteria in two modes:
+      + **Builder**: A click-based experience to generate the source selection criteria
+      + **Editor**: A free-form text box to provide the source selection criteria
 
-7. Specify telemetry data by setting the following fields, then choose
-   **Next**:
+      Supported syntax for source selection criteria:
+      + *Supported Keys:* OrganizationId \| OrganizationUnitId \| AccountId \| \*
+      + *Supported Operators:* = \| IN \| OR
 
-   1. **Log groups**: Choose one of the following
-      options:
+   1. **Source Regions**: Select a list of regions to look for the telemetry data to centralize.
 
-      - **All log groups**: Centralize logs from
-        all log groups in the source accounts.
-      - **Filter log group**: Centralize logs
-        from a subset of log groups in the source accounts, matching
-        selection criteria. You can provide the
-        selection criteria in two modes:
+1. Specify destination details by setting the following fields, then choose **Next**:
 
-        - **Builder**: A choose-based
-          experience to generate the selection
-          criteria
-        - **Editor**: A free-form text box
-          to provide the selection criteria
-          There are two selection criteria that you can use to filter
-          logs:
+   1. **Destination account**: Select an account in the organization that acts as a central destination for telemetry data.
 
-        - **Log group selection criteria**:
-          The selection criteria that specifies which
-          source log groups to centralize.
+   1. **Destination Region**: Select a primary region that stores a copy of the centralized telemetry data.
 
-          - _Supported Keys:_ LogGroupName
-            | \*
-          - _Supported Operators:_ = | != |
-            IN | NOT IN | AND | OR | LIKE | NOT LIKE
+   1. **Backup Region**: Optionally select a region that stores a second copy of the centralized telemetry data.
 
-        - **Data source selection criteria**:
-          The selection criteria that specifies which
-          data sources to centralize.
+1. Specify telemetry data by setting the following fields, then choose **Next**:
 
-          - _Supported Keys:_ DataSourceName
-            | DataSourceType
-          - _Supported Operators:_ = | != |
-            IN | NOT IN | AND | OR | LIKE | NOT LIKE
-            When both log group selection criteria and data source
-            selection criteria are specified, a log event must match
-            both criteria to be centralized.
+   1. **Log groups**: Choose one of the following options:
+      + **All log groups**: Centralize logs from all log groups in the source accounts.
+      + **Filter log group**: Centralize logs from a subset of log groups in the source accounts, matching selection criteria. You can provide the selection criteria in two modes:
+        + **Builder**: A choose-based experience to generate the selection criteria
+        + **Editor**: A free-form text box to provide the selection criteria
 
-   2. **KMS Encrypted Log Group**
+        There are two selection criteria that you can use to filter logs:
+        + **Log group selection criteria**: The selection criteria that specifies which source log groups to centralize.
+          + *Supported Keys:* LogGroupName \| \*
+          + *Supported Operators:* = \| \!= \| IN \| NOT IN \| AND \| OR \| LIKE \| NOT LIKE
+        + **Data source selection criteria**: The selection criteria that specifies which data sources to centralize.
+          + *Supported Keys:* DataSourceName \| DataSourceType
+          + *Supported Operators:* = \| \!= \| IN \| NOT IN \| AND \| OR \| LIKE \| NOT LIKE
 
-   ###### Important
+        When both log group selection criteria and data source selection criteria are specified, a log event must match both criteria to be centralized.
 
-   CloudWatch centralization rules will fail to deliver logs from the
-   source account to the destination log groups if the KMS Key
-   provided in the Centralization rule doesn't permit CloudWatch Logs to use
-   it. If you are using customer managed KMS key in your destination log groups,
-   add the tag LogsManaged = true to the kms key. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
+   1. **KMS Encrypted Log Group**
+**Important**  
+CloudWatch centralization rules will fail to deliver logs from the source account to the destination log groups if the KMS Key provided in the Centralization rule doesn't permit CloudWatch Logs to use it. If you are using customer managed KMS key in your destination log groups, add the tag LogsManaged = true to the kms key. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions).
 
-   Choose one of the following options:
+      Choose one of the following options:
+      + ** Centralize source log groups encrypted with customer managed KMS keys using a destination specific customer managed KMS key **: Centralize log events from source log groups encrypted with customer managed KMS keys into destination log groups encrypted with a customer managed KMS key in the destination account.
 
-        * **Centralize source log groups encrypted with customer managed KMS keys
-         using a destination specific customer managed KMS key** : Centralize log events from source log groups encrypted with
-         customer managed KMS keys into destination log groups encrypted with a
-         customer managed KMS key in the destination account.
+         When this setting is selected, you must also set the following:
+        + **Destination encryption key ARN**: ARN of the customer managed KMS key in the destination account and primary destination region, to be associated with newly created destination log groups. 
+        + **Backup destination encryption key ARN** (if backup region is selected): ARN of the customer managed KMS key in the destination account and backup destination region, to be associated with newly created destination log groups. 
+        + **Skip centralizing to unencrypted destination log groups** (optional): If a log group already exists without a customer managed KMS key, CloudWatch cannot update its encryption. Choose this option to skip centralization of log events from source log groups encrypted with customer managed KMS keys into destination log groups that are not associated with a customer managed KMS key.
+      + **Centralize log groups encrypted with customer managed KMS keys in destination account with AWS owned KMS key**: Centralize log events from source log groups encrypted with customer managed KMS keys into newly created destination log groups encrypted using an AWS owned KMS key.
+      + **Do not centralize log groups encrypted with customer managed KMS keys**: Skip centralization of log events from source log groups encrypted with customer managed KMS keys.
 
+1. Review the centralization rule, optionally make any last-minute edits, and choose **Create Centralization policy**.
 
-         When this setting is selected, you must also set the
-         following:
-
-
-
-
-        	+ **Destination encryption key
-        	 ARN**: ARN of the customer managed KMS key in the destination account
-        	 and primary destination region, to be associated with newly created destination log groups.
-        	+ **Backup destination encryption key
-        	 ARN** (if backup region is selected): ARN of the customer managed KMS key in the
-        	 destination account and backup destination region, to be associated with newly created destination log groups.
-        	+ **Skip centralizing to unencrypted destination log
-        	 groups** (optional): If a log group already exists without a customer managed KMS key,
-        	 CloudWatch cannot update its encryption. Choose this option to skip centralization of log events
-        	 from source log groups encrypted with customer managed KMS keys into destination log groups that
-        	 are not associated with a customer managed KMS key.
-        * **Centralize log groups encrypted with customer managed KMS keys in destination account
-         with AWS owned KMS key**: Centralize log events from source log groups encrypted with customer managed
-         KMS keys into newly created destination log groups encrypted using an AWS owned KMS key.
-        * **Do not centralize log groups encrypted with
-         customer managed KMS keys**: Skip centralization of log events from source log groups
-         encrypted with customer managed KMS keys.
-
-8. Review the centralization rule, optionally make any last-minute edits, and
-   choose **Create Centralization policy**.
+   
 
 ### Modifying a centralization rule
+<a name="modify-centralization-rule"></a>
 
 Use the following procedure to modify an existing centralization rule.
 
-###### To modify a centralization rule
+**To modify a centralization rule**
 
-1. Navigate to the CloudWatch console in the Management or Delegated Administrator
-   account of the organization.
-2. Choose **Settings**.
-3. Navigate to the **Organization** tab.
-4. Choose **Manage rules**.
-5. Select the rule to update and choose **Edit**.
-6. Update the rule configuration as needed, choosing
-   **Next** to proceed through each step.
-7. In Step 4, Review and configure, choose **Update centralization
-   policy**.
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization.
+
+1. Choose **Settings**.
+
+1. Navigate to the **Organization** tab.
+
+1. Choose **Manage rules**.
+
+1. Select the rule to update and choose **Edit**.
+
+1. Update the rule configuration as needed, choosing **Next** to proceed through each step.
+
+1. In Step 4, Review and configure, choose **Update centralization policy**.
 
 ### Viewing a centralization rule
+<a name="view-centralization-rule"></a>
 
-Use the following procedure to view details of an existing centralization
-rule.
+Use the following procedure to view details of an existing centralization rule.
 
-###### To view a centralization rule
+**To view a centralization rule**
 
-1. Navigate to the CloudWatch console in the Management or Delegated Administrator
-   account of the organization.
-2. Choose **Settings**.
-3. Navigate to the **Organization** tab.
-4. Choose **Manage rules**.
-5. View a list of all existing centralization rules and choose a specific
-   rule name to view its details.
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization.
+
+1. Choose **Settings**.
+
+1. Navigate to the **Organization** tab.
+
+1. Choose **Manage rules**.
+
+1. View a list of all existing centralization rules and choose a specific rule name to view its details.
 
 ### Deleting a centralization rule
+<a name="delete-centralization-rule"></a>
 
 Use the following procedure to delete an existing centralization rule.
 
-###### To delete a centralization rule
+**To delete a centralization rule**
 
-1. Navigate to the CloudWatch console in the Management or Delegated Administrator
-   account of the organization.
-2. Choose **Settings**.
-3. Navigate to the **Organization** tab.
-4. Choose **Manage rules**.
-5. Select the rule to delete and choose **Delete**.
-6. Confirm deletion and choose **Delete**.
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization.
+
+1. Choose **Settings**.
+
+1. Navigate to the **Organization** tab.
+
+1. Choose **Manage rules**.
+
+1. Select the rule to delete and choose **Delete**.
+
+1. Confirm deletion and choose **Delete**.
 
 ## Monitoring and troubleshooting centralization rules
+<a name="centralization-monitoring"></a>
 
-You can monitor the status and performance of your centralization rules using CloudWatch
-metrics, the CloudWatch Logs console, and AWS CloudTrail logs. This helps you ensure that log data is
-being replicated successfully and identify any issues with your centralization configuration.
+You can monitor the status and performance of your centralization rules using CloudWatch metrics, the CloudWatch Logs console, and AWS CloudTrail logs. This helps you ensure that log data is being replicated successfully and identify any issues with your centralization configuration.
 
 CloudWatch Logs provides:
 
-1. _Rule health per Centralization rule_
+1. *Rule health per Centralization rule*
 
    1. Choose **Settings**.
-   2. Navigate to the **Organization** tab.
-   3. Choose **Manage rules**.
 
-2. _Logs API calls with AWS CloudTrail_
-3. CloudWatch also publishes metrics for centralization, including log events replicated,
-   errors, and throttling. For more information about these metrics and their dimensions,
-   see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics").
+   1. Navigate to the **Organization** tab.
+
+   1. Choose **Manage rules**.
+
+1. *Logs API calls with AWS CloudTrail*
+
+1. CloudWatch also publishes metrics for centralization, including log events replicated, errors, and throttling. For more information about these metrics and their dimensions, see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics).
 
 ### Centralization rule health status
+<a name="centralization-rule-health"></a>
 
-Each centralization rule has a health status that indicates whether it's operating
-correctly. You can check rule health through the console or programmatically using
-the API.
+Each centralization rule has a health status that indicates whether it's operating correctly. You can check rule health through the console or programmatically using the API.
 
 Rule health statuses include:
++ `HEALTHY`: The rule is operating normally and replicating log data as configured
++ `UNHEALTHY`: The rule has encountered issues and may not be replicating data correctly
++ `PROVISIONING`: Centralization for the organization is in the process of being set up. 
 
-- `HEALTHY`: The rule is operating normally and replicating log
-  data as configured
-- `UNHEALTHY`: The rule has encountered issues and may not be
-  replicating data correctly
-- `PROVISIONING`: Centralization for the organization is in the
-  process of being set up.
-
-When a rule is marked as UNHEALTHY, the `FailureReason` field provides
-details about the specific issue that needs to be addressed.
+When a rule is marked as UNHEALTHY, the `FailureReason` field provides details about the specific issue that needs to be addressed.
 
 #### Tag propagation health status
+<a name="centralization-tag-propagation-health"></a>
 
-Tag propagation has its own health status (`TagPropagationStatus`)
-that is independent of the overall `RuleHealth` for log delivery.
-If you misconfigure the destination role, your overall rule health is not
-affected — only tag propagation shows as unhealthy.
-
-- `Healthy`: The most recent tag-propagation attempt
-  succeeded.
-- `Unhealthy`: The most recent tag-propagation attempt
-  failed. Check the `TagPropagationFailureReason` field for
-  details. See the troubleshooting section below for remediation
-  steps.
+Tag propagation has its own health status (`TagPropagationStatus`) that is independent of the overall `RuleHealth` for log delivery. If you misconfigure the destination role, your overall rule health is not affected — only tag propagation shows as unhealthy.
++ `Healthy`: The most recent tag-propagation attempt succeeded.
++ `Unhealthy`: The most recent tag-propagation attempt failed. Check the `TagPropagationFailureReason` field for details. See the troubleshooting section below for remediation steps.
 
 ### Monitoring centralization API calls with AWS CloudTrail
+<a name="centralization-cloudtrail"></a>
 
-AWS CloudTrail logs API calls made to the centralization service, allowing you to track
-configuration changes and troubleshoot issues for accounts that are members of your
-AWS Organizations.
+AWS CloudTrail logs API calls made to the centralization service, allowing you to track configuration changes and troubleshoot issues for accounts that are members of your AWS Organizations.
 
 Key CloudTrail events for centralization include:
++ `CreateCentralizationRuleForOrganization`: When a new centralization rule is created
++ `UpdateCentralizationRuleForOrganization`: When an existing rule is modified
++ `DeleteCentralizationRuleForOrganization`: When a rule is deleted
++ `GetCentralizationRuleForOrganization`: When rule details are retrieved
++ `ListCentralizationRulesForOrganization`: When rules are listed
 
-- `CreateCentralizationRuleForOrganization`: When a new
-  centralization rule is created
-- `UpdateCentralizationRuleForOrganization`: When an existing
-  rule is modified
-- `DeleteCentralizationRuleForOrganization`: When a rule is
-  deleted
-- `GetCentralizationRuleForOrganization`: When rule details are
-  retrieved
-- `ListCentralizationRulesForOrganization`: When rules are
-  listed
-
-You can use CloudTrail logs to audit centralization configuration changes and correlate
-them with performance issues or replication failures.
+You can use CloudTrail logs to audit centralization configuration changes and correlate them with performance issues or replication failures.
 
 ### Monitoring recommendations
+<a name="centralization-monitoring-recommendations"></a>
 
-To ensure centralization is working correctly, we recommend setting up CloudWatch alarms
-on key centralization metrics that we vend to CloudWatch Metrics. This proactive monitoring helps you detect issues early
-and maintain reliable log centralization across your organization.
+To ensure centralization is working correctly, we recommend setting up CloudWatch alarms on key centralization metrics that we vend to CloudWatch Metrics. This proactive monitoring helps you detect issues early and maintain reliable log centralization across your organization.
 
 Key metrics to monitor include:
++ `IncomingCopiedBytes`: Monitor the volume of log data being successfully replicated to your destination account. A sudden drop or absence of this metric may indicate centralization issues.
++ `CentralizationError`: Set up alarms for any errors in the centralization process to quickly identify and resolve issues.
++ `CentralizationThrottled`: Monitor for throttling events that could impact log replication performance.
 
-- `IncomingCopiedBytes`: Monitor the volume of log data being
-  successfully replicated to your destination account. A sudden drop or absence
-  of this metric may indicate centralization issues.
-- `CentralizationError`: Set up alarms for any errors in the centralization
-  process to quickly identify and resolve issues.
-- `CentralizationThrottled`: Monitor for throttling events that could
-  impact log replication performance.
+For a complete list of available centralization metrics and their dimensions, see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics).
 
-For a complete list of available centralization metrics and their dimensions,
-see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics").
+If logs are not being centralized as expected, review the following common scenarios that can prevent log centralization.
 
-If logs are not being centralized as expected, review the following common scenarios
-that can prevent log centralization.
+**Historical log data**  
+The CloudWatch Logs centralization feature only processes new log data that arrives in source accounts after you create the centralization rule. Historical log data (logs that existed before rule creation) is not centralized.
 
-**Historical log data**
+**KMS key permissions**  
+Centralization rules will fail to deliver logs from the source account to the destination log groups if the KMS key provided in the centralization rule doesn't permit CloudWatch Logs to use it. Ensure that the KMS key policy grants the necessary permissions to CloudWatch Logs. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions).
 
-The CloudWatch Logs centralization feature only processes new log data that arrives
-in source accounts after you create the centralization rule. Historical log
-data (logs that existed before rule creation) is not centralized.
+**Customer Managed KMS key configuration**  
+If you selected **Do not centralize log groups encrypted with Customer Managed KMS key** during rule creation, log events from source log groups encrypted with Customer Managed KMS key will be skipped and not centralized.
 
-**KMS key permissions**
+**Destination encryption mismatch**  
+If the destination log group already exists with a different KMS encryption configuration than what the centralization rule specifies, and the conflict resolution is set to SKIP, records will be dropped and a `DestinationEncryptionMismatch` error will be emitted. For example, this occurs when the destination has default encryption but the rule specifies a customer managed KMS key.
 
-Centralization rules will fail to deliver logs from the source account to
-the destination log groups if the KMS key provided in the centralization
-rule doesn't permit CloudWatch Logs to use it. Ensure that the KMS key policy grants
-the necessary permissions to CloudWatch Logs. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
+**Trusted access not enabled**  
+Trusted access must be enabled for CloudWatch in AWS Organizations for the management account and the destination account to provide access to the log data.
 
-**Customer Managed KMS key configuration**
+**Source selection criteria**  
+Verify that your centralization rule's source selection criteria is configured correctly:  
++ *Accounts and regions*: Ensure that the source accounts and regions where logs originate are included in the rule. Log groups from accounts or regions not specified in the rule will not be centralized.
++ *Log group filters*: If you configured log group filters, only log groups matching the specified criteria will be centralized. Verify that your log group selection criteria includes the log groups you expect to centralize.
++ *Organization membership*: Both source and destination accounts must belong to the same AWS Organizations organization. Accounts outside the organization cannot participate in centralization.
 
-If you selected **Do not centralize log groups encrypted with
-Customer Managed KMS key** during rule creation, log events
-from source log groups encrypted with Customer Managed KMS key will be
-skipped and not centralized.
+**Log group quota limit reached**  
+If the destination account has reached its log group quota limit, new log groups cannot be created for centralization. Verify that the destination account has sufficient quota to accommodate centralized log groups from all source accounts. You can request a quota increase if needed.
 
-**Destination encryption mismatch**
+**Log stream name length limit exceeded**  
+Log stream names have maximum length restrictions. When centralization replicates log streams to the destination account, a suffix is added to the log stream name. If the resulting log stream name exceeds the maximum allowed length, records will be dropped and an `InvalidLogStream` error will be emitted to the customer account.
 
-If the destination log group already exists with a different KMS encryption
-configuration than what the centralization rule specifies, and the conflict
-resolution is set to SKIP, records will be dropped and a
-`DestinationEncryptionMismatch` error will be emitted. For
-example, this occurs when the destination has default encryption but the rule
-specifies a customer managed KMS key.
+**Rule health status**  
+Check the centralization rule health status in the console or using the `GetCentralizationRuleForOrganization` API. If the rule is marked as UNHEALTHY, review the `FailureReason` field for specific details about the issue.
 
-**Trusted access not enabled**
+**Tag propagation health status**  
+If `TagPropagationStatus` shows `Unhealthy`, check the `TagPropagationFailureReason` field:  
++ `RoleNotAssumable`: The service cannot assume the destination role. Verify that the role's trust policy allows the centralization service-linked role to assume it and that the `sts:ExternalId` matches your organization ID.
++ `RoleLacksPermissions`: The role was assumed but the tag API call was denied. Ensure the role's permissions policy grants `logs:ListTagsForResource`, `logs:TagResource`, and `logs:UntagResource` on the destination log groups.
 
-Trusted access must be enabled for CloudWatch in AWS Organizations for the management
-account and the destination account to provide access to the log data.
-
-**Source selection criteria**
-
-Verify that your centralization rule's source selection criteria is
-configured correctly:
-
-- _Accounts and regions_: Ensure that the source
-  accounts and regions where logs originate are included in the rule.
-  Log groups from accounts or regions not specified in the rule will
-  not be centralized.
-- _Log group filters_: If you configured log group
-  filters, only log groups matching the specified criteria will be
-  centralized. Verify that your log group selection criteria includes
-  the log groups you expect to centralize.
-- _Organization membership_: Both source and
-  destination accounts must belong to the same AWS Organizations organization.
-  Accounts outside the organization cannot participate in
-  centralization.
-
-**Log group quota limit reached**
-
-If the destination account has reached its log group quota limit, new log
-groups cannot be created for centralization. Verify that the destination
-account has sufficient quota to accommodate centralized log groups from all
-source accounts. You can request a quota increase if needed.
-
-**Log stream name length limit exceeded**
-
-Log stream names have maximum length restrictions. When centralization
-replicates log streams to the destination account, a suffix is added to the
-log stream name. If the resulting log stream name exceeds the maximum allowed
-length, records will be dropped and an `InvalidLogStream`
-error will be emitted to the customer account.
-
-**Rule health status**
-
-Check the centralization rule health status in the console or using the
-`GetCentralizationRuleForOrganization` API. If the rule is
-marked as UNHEALTHY, review the `FailureReason` field for
-specific details about the issue.
-
-**Tag propagation health status**
-
-If `TagPropagationStatus` shows `Unhealthy`,
-check the `TagPropagationFailureReason` field:
-
-- `RoleNotAssumable`: The service cannot assume the
-  destination role. Verify that the role's trust policy allows the
-  centralization service-linked role to assume it and that the
-  `sts:ExternalId` matches your organization ID.
-- `RoleLacksPermissions`: The role was assumed but the
-  tag API call was denied. Ensure the role's permissions policy grants
-  `logs:ListTagsForResource`,
-  `logs:TagResource`, and
-  `logs:UntagResource` on the destination log
-  groups.
-
-To diagnose centralization issues, review the centralization rule health status in the
-console, check CloudWatch metrics for errors and throttling, and examine AWS CloudTrail logs for API
-call failures. For more information about centralization metrics, see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics").
+To diagnose centralization issues, review the centralization rule health status in the console, check CloudWatch metrics for errors and throttling, and examine AWS CloudTrail logs for API call failures. For more information about centralization metrics, see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics).

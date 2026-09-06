@@ -1,148 +1,130 @@
+
+
 # Logging CloudWatch Logs API and console operations in AWS CloudTrail
+<a name="logging_cw_api_calls_cwl"></a>
 
-Amazon CloudWatch Logs is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
-AWS service. CloudTrail captures API calls for CloudWatch Logs as events. The calls captured include calls from the CloudWatch Logs console
-and code calls to the CloudWatch Logs API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to CloudWatch Logs, the IP address from which the request was
-made, when it was made, and additional details.
+Amazon CloudWatch Logs is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for CloudWatch Logs as events. The calls captured include calls from the CloudWatch Logs console and code calls to the CloudWatch Logs API operations. Using the information collected by CloudTrail, you can determine the request that was made to CloudWatch Logs, the IP address from which the request was made, when it was made, and additional details.
 
-Every event or log entry contains information about who generated the request. The identity
-information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials for a role or federated
-  user.
-- Whether the request was made by another AWS service.
-  CloudTrail is active in your AWS account when you create the account and you automatically have
-  access to the CloudTrail **Event history**. The CloudTrail **Event
-  history** provides a viewable, searchable, downloadable, and immutable record of the
-  past 90 days of recorded management events in an AWS Region. For more information, see [Working
-  with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-  charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
-**CloudTrail trails**
+**CloudTrail trails**  
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.  
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the _AWS CloudTrail User Guide_.
-
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-**CloudTrail Lake event data stores**
-
-_CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into _event data stores_, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the _AWS CloudTrail User Guide_.
-
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+**CloudTrail Lake event data stores**  
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [ Apache ORC](https://orc.apache.org/) format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) in the *AWS CloudTrail User Guide*.  
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
 CloudWatch Logs supports logging the following actions as events in CloudTrail log files:
++ [AssociateKmsKey](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_AssociateKmsKey.html)
++ [CancelExportTask](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html)
++ [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html)
++ [CreateExportTask](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.html)
++ [CreateLogAnomalyDetector](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html)
++ [CreateLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html)
++ [CreateLogStream](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html)
++ [DeleteAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html)
++ [DeleteDataProtectionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDataProtectionPolicy.html)
++ [DeleteDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDelivery.html)
++ [DeleteDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestination.html)
++ [DeleteDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestinationPolicy.html)
++ [DeleteDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliverySource.html)
++ [DeleteDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.html)
++ [DeleteIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteIndexPolicy.html)
++ [DeleteIntegration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteIntegration.html)
++ [DeleteLogAnomalyDetector](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogAnomalyDetector.html)
++ [DeleteLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html)
++ [DeleteLogStream](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogStream.html)
++ [DeleteMetricFilter](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.html)
++ [DeleteQueryDefinition](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteQueryDefinition.html)
++ [DeleteResourcePolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteResourcePolicy.html)
++ [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html)
++ [DeleteSubscriptionFilter](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.html)
++ [DeleteTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteTransformer.html)
++ [DescribeAccountPolicies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html)
++ [DescribeConfigurationTemplates](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html)
++ [DescribeDeliveries](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html)
++ [DescribeDeliveryDestinations](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html)
++ [DescribeDeliverySources](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliverySources.html)
++ [DescribeDestinations](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html)
++ [DescribeExportTasks](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html)
++ [DescribeFieldIndexes](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeFieldIndexes.html)
++ [DescribeIndexPolicies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeIndexPolicies.html)
++ [DescribeLogGroups](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html)
++ [DescribeLogStreams](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html)
++ [DescribeMetricFilters](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html)
++ [DescribeQueries](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueries.html)
++ [DescribeQueryDefinitions](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html)
++ [DescribeResourcePolicies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeResourcePolicies.html)
++ [DescribeSubscriptionFilters](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html)
++ [DisassociateKmsKey](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DisassociateKmsKey.html)
++ [FilterLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html)
++ [GetDataProtectionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDataProtectionPolicy.html)
++ [GetDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDelivery.html)
++ [GetDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestination.html)
++ [GetDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestinationPolicy.html)
++ [GetDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDeliverySource.html)
++ [GetIntegration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetIntegration.html)
++ [GetLogAnomalyDetector](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogAnomalyDetector.html)
++ [GetLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html)
++ [GetLogGroupFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html)
++ [GetLogRecord](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html)
++ [GetQueryResults](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html)
++ [GetTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetTransformer.html)
++ [ListAnomalies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html)
++ [ListIntegrations](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html)
++ [ListLogAnomalyDetectors](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html)
++ [ListLogGroups](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogGroups.html)
++ [ListLogGroupsForQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogGroupsForQuery.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html)
++ [ListTagsLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html)
++ [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html)
++ [PutDataProtectionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html)
++ [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html)
++ [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html)
++ [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html)
++ [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html)
++ [PutDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html)
++ [PutIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html)
++ [PutIntegration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIntegration.html)
++ [PutMetricFilter](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html)
++ [PutQueryDefinition](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.html)
++ [PutResourcePolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.html)
++ [PutRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html)
++ [PutSubscriptionFilter](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html)
++ [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html)
++ [StartLiveTail](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.html)
++ [StartQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html)
++ [StopQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StopQuery.html)
++ [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html)
++ [TestMetricFilter](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html)
++ [TestTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestTransformer.html)
++ [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html)
++ [UpdateAnomaly](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html)
++ [UpdateDeliveryConfiguration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html)
++ [UpdateLogAnomalyDetector](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html)
 
-- [AssociateKmsKey](../../../AmazonCloudWatchLogs/latest/APIReference/API_AssociateKmsKey.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_AssociateKmsKey.md")
-- [CancelExportTask](../../../AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.md")
-- [CreateDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md")
-- [CreateExportTask](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.md")
-- [CreateLogAnomalyDetector](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.md")
-- [CreateLogGroup](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.md")
-- [CreateLogStream](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.md")
-- [DeleteAccountPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.md")
-- [DeleteDataProtectionPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDataProtectionPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDataProtectionPolicy.md")
-- [DeleteDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDelivery.md")
-- [DeleteDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestination.md")
-- [DeleteDeliveryDestinationPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestinationPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestinationPolicy.md")
-- [DeleteDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliverySource.md")
-- [DeleteDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.md")
-- [DeleteIndexPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteIndexPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteIndexPolicy.md")
-- [DeleteIntegration](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteIntegration.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteIntegration.md")
-- [DeleteLogAnomalyDetector](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogAnomalyDetector.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogAnomalyDetector.md")
-- [DeleteLogGroup](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.md")
-- [DeleteLogStream](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogStream.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogStream.md")
-- [DeleteMetricFilter](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.md")
-- [DeleteQueryDefinition](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteQueryDefinition.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteQueryDefinition.md")
-- [DeleteResourcePolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteResourcePolicy.md")
-- [DeleteRetentionPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.md")
-- [DeleteSubscriptionFilter](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.md")
-- [DeleteTransformer](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteTransformer.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteTransformer.md")
-- [DescribeAccountPolicies](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.md")
-- [DescribeConfigurationTemplates](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.md")
-- [DescribeDeliveries](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.md")
-- [DescribeDeliveryDestinations](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.md")
-- [DescribeDeliverySources](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliverySources.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliverySources.md")
-- [DescribeDestinations](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.md")
-- [DescribeExportTasks](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.md")
-- [DescribeFieldIndexes](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeFieldIndexes.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeFieldIndexes.md")
-- [DescribeIndexPolicies](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeIndexPolicies.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeIndexPolicies.md")
-- [DescribeLogGroups](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.md")
-- [DescribeLogStreams](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.md")
-- [DescribeMetricFilters](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.md")
-- [DescribeQueries](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueries.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueries.md")
-- [DescribeQueryDefinitions](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.md")
-- [DescribeResourcePolicies](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeResourcePolicies.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeResourcePolicies.md")
-- [DescribeSubscriptionFilters](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.md")
-- [DisassociateKmsKey](../../../AmazonCloudWatchLogs/latest/APIReference/API_DisassociateKmsKey.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DisassociateKmsKey.md")
-- [FilterLogEvents](../../../AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.md")
-- [GetDataProtectionPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDataProtectionPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDataProtectionPolicy.md")
-- [GetDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDelivery.md")
-- [GetDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestination.md")
-- [GetDeliveryDestinationPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestinationPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestinationPolicy.md")
-- [GetDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetDeliverySource.md")
-- [GetIntegration](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetIntegration.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetIntegration.md")
-- [GetLogAnomalyDetector](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogAnomalyDetector.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogAnomalyDetector.md")
-- [GetLogEvents](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.md")
-- [GetLogGroupFields](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.md")
-- [GetLogRecord](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.md")
-- [GetQueryResults](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.md")
-- [GetTransformer](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetTransformer.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetTransformer.md")
-- [ListAnomalies](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.md")
-- [ListIntegrations](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.md")
-- [ListLogAnomalyDetectors](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.md")
-- [ListLogGroups](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListLogGroups.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListLogGroups.md")
-- [ListLogGroupsForQuery](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListLogGroupsForQuery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListLogGroupsForQuery.md")
-- [ListTagsForResource](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.md")
-- [ListTagsLogGroup](../../../AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.md")
-- [PutAccountPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.md")
-- [PutDataProtectionPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.md")
-- [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md")
-- [PutDeliveryDestinationPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.md")
-- [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md")
-- [PutDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.md")
-- [PutDestinationPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.md")
-- [PutIndexPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.md")
-- [PutIntegration](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutIntegration.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutIntegration.md")
-- [PutMetricFilter](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.md")
-- [PutQueryDefinition](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.md")
-- [PutResourcePolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md")
-- [PutRetentionPolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.md")
-- [PutSubscriptionFilter](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.md")
-- [PutTransformer](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.md")
-- [StartLiveTail](../../../AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.md")
-- [StartQuery](../../../AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.md")
-- [StopQuery](../../../AmazonCloudWatchLogs/latest/APIReference/API_StopQuery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_StopQuery.md")
-- [TagResource](../../../AmazonCloudWatchLogs/latest/APIReference/API_TagResource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_TagResource.md")
-- [TestMetricFilter](../../../AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.md")
-- [TestTransformer](../../../AmazonCloudWatchLogs/latest/APIReference/API_TestTransformer.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_TestTransformer.md")
-- [UntagResource](../../../AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.md")
-- [UpdateAnomaly](../../../AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.md")
-- [UpdateDeliveryConfiguration](../../../AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.md")
-- [UpdateLogAnomalyDetector](../../../AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.md")
-  Every event or log entry contains information about who generated the request. The
-  identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or IAM user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root or IAM user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-  For more information, see the [CloudTrail userIdentity
-  Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Query generation information in CloudTrail
+<a name="cwl_query-generation-cloudtrail"></a>
 
-CloudTrail logging for Query generator console events is also supported. Query generator is currently supported for CloudWatch Logs Insights and
-CloudWatch Metric Insights. In these CloudTrail events, the `eventSource` is `monitoring.amazonaws.com`.
+CloudTrail logging for Query generator console events is also supported. Query generator is currently supported for CloudWatch Logs Insights and CloudWatch Metric Insights. In these CloudTrail events, the `eventSource` is `monitoring.amazonaws.com`.
 
-The following example shows a
-CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatch Logs Insights.
+The following example shows a CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatch Logs Insights. 
 
 ```
 {
@@ -188,21 +170,17 @@ CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatc
     "readOnly": true,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "111122223333",
+    "recipientAccountId": "111122223333", 
     "eventCategory": "Management"
 }
 ```
 
 ## Understanding log file entries
+<a name="understanding_cw_log_file_entries_cwl"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+ A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following log file entry shows that a user called the CloudWatch Logs
-**CreateExportTask** action.
+The following log file entry shows that a user called the CloudWatch Logs **CreateExportTask** action.
 
 ```
 {

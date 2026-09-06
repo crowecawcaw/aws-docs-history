@@ -1,18 +1,16 @@
+
+
 # Use CloudWatch Logs to run a large query
+<a name="example_cloudwatch-logs_Scenario_BigQuery_section"></a>
 
 The following code examples show how to use CloudWatch Logs to query more than 10,000 records.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples").
-
-This is the main workflow that demonstrates the large query scenario.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples). 
+This is the main workflow that demonstrates the large query scenario.  
 
 ```
 using System.Diagnostics;
@@ -859,26 +857,17 @@ public class LargeQueryWorkflow
             .ToList();
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [GetQueryResults](https://docs.aws.amazon.com/goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults)
+  + [StartQuery](https://docs.aws.amazon.com/goto/DotNetSDKV4/logs-2014-03-28/StartQuery)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ JavaScript ]
 
-  - [GetQueryResults](../../../goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults.md "../../../goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults.md")
-  - [StartQuery](../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md "../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs/scenarios/large-query#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs/scenarios/large-query#code-examples").
-
-This is the entry point.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs/scenarios/large-query#code-examples). 
+This is the entry point.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -907,11 +896,8 @@ await cloudWatchQuery.run();
 console.log(
   `Queries finished in ${cloudWatchQuery.secondsElapsed} seconds.\nTotal logs found: ${cloudWatchQuery.results.length}`,
 );
-
-
 ```
-
-This is a class that splits queries into multiple steps if necessary.
+This is a class that splits queries into multiple steps if necessary.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -1114,26 +1100,17 @@ export class CloudWatchQuery {
     );
   }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [GetQueryResults](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand)
+  + [StartQuery](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [GetQueryResults](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand.md")
-  - [StartQuery](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs/scenarios/large-query#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs/scenarios/large-query#code-examples").
-
-This file invokes an example module for managing CloudWatch queries exceeding 10,000 results.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs/scenarios/large-query#code-examples). 
+This file invokes an example module for managing CloudWatch queries exceeding 10,000 results.  
 
 ```
 import logging
@@ -1198,7 +1175,7 @@ class CloudWatchLogsQueryRunner:
         except ValueError as e:
             logging.error(f"Error parsing date environment variables: {e}")
             sys.exit(1)
-
+        
         try:
             log_group = os.environ["QUERY_LOG_GROUP"]
         except KeyError:
@@ -1273,11 +1250,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 ```
-
-This module processes CloudWatch queries exceeding 10,000 results.
+This module processes CloudWatch queries exceeding 10,000 results.  
 
 ```
 import logging
@@ -1499,16 +1473,11 @@ class CloudWatchQuery:
                 "Unknown",
             ]:
                 return results.get("results", [])
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [GetQueryResults](https://docs.aws.amazon.com/goto/boto3/logs-2014-03-28/GetQueryResults)
+  + [StartQuery](https://docs.aws.amazon.com/goto/boto3/logs-2014-03-28/StartQuery)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [GetQueryResults](../../../goto/boto3/logs-2014-03-28/GetQueryResults.md "../../../goto/boto3/logs-2014-03-28/GetQueryResults.md")
-  - [StartQuery](../../../goto/boto3/logs-2014-03-28/StartQuery.md "../../../goto/boto3/logs-2014-03-28/StartQuery.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,22 +1,22 @@
+
+
 # Use `StartLiveTail` with an AWS SDK
+<a name="example_cloudwatch-logs_StartLiveTail_section"></a>
 
 The following code examples show how to use `StartLiveTail`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-Include the required files.
+**SDK for .NET**  
+Include the required files.  
 
 ```
 using Amazon;
 using Amazon.CloudWatchLogs;
 using Amazon.CloudWatchLogs.Model;
-
-
 ```
-
-Start the Live Tail session.
+Start the Live Tail session.  
 
 ```
             var client = new AmazonCloudWatchLogsClient();
@@ -35,11 +35,8 @@ Start the Live Tail session.
                 Console.WriteLine("Failed to start live tail session");
                 return;
             }
-
-
 ```
-
-You can handle the events from the Live Tail session in two ways:
+You can handle the events from the Live Tail session in two ways:  
 
 ```
             /* Method 1
@@ -47,7 +44,7 @@ You can handle the events from the Live Tail session in two ways:
             * 2). Set a timer to dispose the stream and stop the Live Tail session at the end.
             */
             var eventStream = response.ResponseStream;
-            var task = Task.Run(() =>
+            var task = Task.Run(() => 
             {
                 foreach (var item in eventStream)
                 {
@@ -74,8 +71,6 @@ You can handle the events from the Live Tail session in two ways:
                 eventStream.Dispose();
                 Console.WriteLine("End of line");
             }
-
-
 ```
 
 ```
@@ -92,13 +87,13 @@ You can handle the events from the Live Tail session in two ways:
                     Console.WriteLine("LiveTail session started");
                 };
                 eventStream.SessionUpdateReceived += (sender, e) =>
-                {
+                {   
                     foreach (LiveTailSessionLogEvent logEvent in e.EventStreamEvent.SessionResults){
                         Console.WriteLine("Message: {0}", logEvent.Message);
                     }
                 };
                 // On-stream exceptions are captured here
-                eventStream.ExceptionReceived += (sender, e) =>
+                eventStream.ExceptionReceived += (sender, e) => 
                 {
                     Console.WriteLine($"ERROR: {e.EventStreamException.Message}");
                 };
@@ -108,19 +103,14 @@ You can handle the events from the Live Tail session in two ways:
                 endEvent.WaitOne(TimeSpan.FromSeconds(10));
                 Console.WriteLine("End of line");
             }
-
-
 ```
++  For API details, see [StartLiveTail](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/StartLiveTail) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [StartLiveTail](../../../goto/DotNetSDKV3/logs-2014-03-28/StartLiveTail.md "../../../goto/DotNetSDKV3/logs-2014-03-28/StartLiveTail.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-Include the required files.
+**SDK for Go V2**  
+Include the required files.  
 
 ```
 import (
@@ -132,11 +122,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs"
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs/types"
 )
-
-
 ```
-
-Handle the events from the Live Tail session.
+Handle the events from the Live Tail session.  
 
 ```
 func handleEventStreamAsync(stream *cloudwatchlogs.StartLiveTailEventStream) {
@@ -163,11 +150,8 @@ func handleEventStreamAsync(stream *cloudwatchlogs.StartLiveTailEventStream) {
 		}
 	}
 }
-
-
 ```
-
-Start the Live Tail session.
+Start the Live Tail session.  
 
 ```
 	cfg, err := config.LoadDefaultConfig(context.TODO())
@@ -191,30 +175,22 @@ Start the Live Tail session.
 	// Start a Goroutine to handle events over stream
 	stream := response.GetStream()
 	go handleEventStreamAsync(stream)
-
-
 ```
-
-Stop the Live Tail session after a period of time has elapsed.
+Stop the Live Tail session after a period of time has elapsed.  
 
 ```
 	// Close the stream (which ends the session) after a timeout
 	time.Sleep(10 * time.Second)
 	stream.Close()
 	log.Println("Event stream closed")
-
-
 ```
++  For API details, see [StartLiveTail](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs#Client.StartLiveTail) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [StartLiveTail](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs#Client.StartLiveTail "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs#Client.StartLiveTail")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Include the required files.
+**SDK for Java 2.x**  
+Include the required files.  
 
 ```
 import io.reactivex.FlowableSubscriber;
@@ -233,11 +209,8 @@ import software.amazon.awssdk.services.cloudwatchlogs.model.StartLiveTailRespons
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-
-
 ```
-
-Handle the events from the Live Tail session.
+Handle the events from the Live Tail session.  
 
 ```
     private static StartLiveTailResponseHandler getStartLiveTailResponseStreamHandler(
@@ -287,11 +260,8 @@ Handle the events from the Live Tail session.
             })
             .build();
     }
-
-
 ```
-
-Start the Live Tail session.
+Start the Live Tail session.  
 
 ```
         CloudWatchLogsAsyncClient cloudWatchLogsAsyncClient =
@@ -306,15 +276,12 @@ Start the Live Tail session.
                     .logEventFilterPattern(logEventFilterPattern)
                     .build();
 
-        /* Create a reference to store the subscription */
+        /* Create a reference to store the subscription */ 
         final AtomicReference<Subscription> subscriptionAtomicReference = new AtomicReference<>(null);
 
         cloudWatchLogsAsyncClient.startLiveTail(request, getStartLiveTailResponseStreamHandler(subscriptionAtomicReference));
-
-
 ```
-
-Stop the Live Tail session after a period of time has elapsed.
+Stop the Live Tail session after a period of time has elapsed.  
 
 ```
         /* Set a timeout for the session and cancel the subscription. This will:
@@ -330,27 +297,19 @@ Stop the Live Tail session after a period of time has elapsed.
             subscriptionAtomicReference.get().cancel();
             System.out.println("Subscription to stream closed");
         }
-
-
 ```
++  For API details, see [StartLiveTail](https://docs.aws.amazon.com/goto/SdkForJavaV2/logs-2014-03-28/StartLiveTail) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [StartLiveTail](../../../goto/SdkForJavaV2/logs-2014-03-28/StartLiveTail.md "../../../goto/SdkForJavaV2/logs-2014-03-28/StartLiveTail.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Include the required files.
+**SDK for JavaScript (v3)**  
+Include the required files.  
 
 ```
 import { CloudWatchLogsClient, StartLiveTailCommand } from "@aws-sdk/client-cloudwatch-logs";
-
-
 ```
-
-Handle the events from the Live Tail session.
+Handle the events from the Live Tail session.  
 
 ```
 async function handleResponseAsync(response) {
@@ -363,21 +322,18 @@ async function handleResponseAsync(response) {
             const timestamp = logEvent.timestamp;
             const date = new Date(timestamp);
             console.log("[" + date + "] " + logEvent.message);
-          }
+          } 
         } else {
             console.error("Unknown event type");
         }
       }
-    } catch (err) {
+    } catch (err) {  
         // On-stream exceptions are captured here
         console.error(err)
     }
 }
-
-
 ```
-
-Start the Live Tail session.
+Start the Live Tail session.  
 
 ```
     const client = new CloudWatchLogsClient();
@@ -394,11 +350,8 @@ Start the Live Tail session.
         // Pre-stream exceptions are captured here
         console.log(err);
     }
-
-
 ```
-
-Stop the Live Tail session after a period of time has elapsed.
+Stop the Live Tail session after a period of time has elapsed.  
 
 ```
     /* Set a timeout to close the client. This will stop the Live Tail session. */
@@ -406,30 +359,22 @@ Stop the Live Tail session after a period of time has elapsed.
         console.log("Client timeout");
         client.destroy();
       }, 10000);
-
-
 ```
++  For API details, see [StartLiveTail](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartLiveTailCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [StartLiveTail](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartLiveTailCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartLiveTailCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-Include the required files.
+**SDK for Kotlin**  
+Include the required files.  
 
 ```
 import aws.sdk.kotlin.services.cloudwatchlogs.CloudWatchLogsClient
 import aws.sdk.kotlin.services.cloudwatchlogs.model.StartLiveTailRequest
 import aws.sdk.kotlin.services.cloudwatchlogs.model.StartLiveTailResponseStream
 import kotlinx.coroutines.flow.takeWhile
-
-
 ```
-
-Start the Live Tail session.
+Start the Live Tail session.  
 
 ```
     val client = CloudWatchLogsClient.fromEnvironment()
@@ -469,29 +414,21 @@ Start the Live Tail session.
         println("Exception occurred during StartLiveTail: $e")
         System.exit(1)
     }
+```
++  For API details, see [StartLiveTail](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Include the required files.  
 
 ```
-
-- For API details, see
-  [StartLiveTail](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Include the required files.
-
-```
-import boto3
+import boto3 
 import time
 from datetime import datetime
-
-
 ```
-
-Start the Live Tail session.
+Start the Live Tail session.  
 
 ```
     # Initialize the client
@@ -527,14 +464,9 @@ Start the Live Tail session.
                 raise RuntimeError(str(event))
     except Exception as e:
         print(e)
-
-
 ```
++  For API details, see [StartLiveTail](https://docs.aws.amazon.com/goto/boto3/logs-2014-03-28/StartLiveTail) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartLiveTail](../../../goto/boto3/logs-2014-03-28/StartLiveTail.md "../../../goto/boto3/logs-2014-03-28/StartLiveTail.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

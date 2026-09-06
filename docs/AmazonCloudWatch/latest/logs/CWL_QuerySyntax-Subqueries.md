@@ -1,12 +1,15 @@
+
+
 # subqueries
+<a name="CWL_QuerySyntax-Subqueries"></a>
 
-A subquery is a nested Logs Insights query that can be used as an input to
-another query. Subqueries can be used to derive intermediate result sets that are
-then consumed by subsequent commands.
+A subquery is a nested Logs Insights query that can be used as an input to another query. Subqueries can be used to derive intermediate result sets that are then consumed by subsequent commands.
 
-###### Syntax
+**Syntax**  
 
-###### Subquery in filter
+
+**Subquery in filter**  
+
 
 ```
 filter <field> in (
@@ -14,19 +17,15 @@ filter <field> in (
 )
 ```
 
-###### Parameters
+**Parameters**  
 
-- `<subquery>` – A valid Logs Insights query that
-  returns a result set. The subquery must produce fields referenced by the
-  outer query.
++ `<subquery>` – A valid Logs Insights query that returns a result set. The subquery must produce fields referenced by the outer query.
 
-###### Examples
+**Examples**  
 
-###### Example 1: Find requests that encountered errors in downstream services
 
-This example shows how to use a subquery to identify requests in your main
-service that resulted in errors in a downstream service. This is useful for
-troubleshooting cascading failures in distributed systems.
+**Example 1: Find requests that encountered errors in downstream services**  
+This example shows how to use a subquery to identify requests in your main service that resulted in errors in a downstream service. This is useful for troubleshooting cascading failures in distributed systems.  
 
 ```
 filter requestId in (
@@ -37,22 +36,17 @@ filter requestId in (
 | fields @timestamp, requestId, endpoint, userId, responseTime
 | sort @timestamp desc
 ```
+This query:  
 
-This query:
+1. The subquery finds all `requestId` values from the database service that experienced connection timeouts
 
-1. The subquery finds all `requestId` values from the database
-   service that experienced connection timeouts
-2. The outer query filters your main service's logs to show only
-   requests that match those error-prone request IDs
-3. Results show the full context of requests that failed downstream,
-   including which endpoints and users were affected
-   This pattern helps you understand the upstream impact of downstream failures.
+1. The outer query filters your main service's logs to show only requests that match those error-prone request IDs
 
-###### Example 2: Identify frequently failing requests for targeted investigation
+1. Results show the full context of requests that failed downstream, including which endpoints and users were affected
+This pattern helps you understand the upstream impact of downstream failures.
 
-This example demonstrates using a subquery with aggregation to find requests
-that fail repeatedly, which often indicates systematic issues rather than
-transient errors.
+**Example 2: Identify frequently failing requests for targeted investigation**  
+This example demonstrates using a subquery with aggregation to find requests that fail repeatedly, which often indicates systematic issues rather than transient errors.  
 
 ```
 filter requestId in (
@@ -65,37 +59,34 @@ filter requestId in (
 | fields @timestamp, requestId, customerId, amount, failureReason
 | sort @timestamp asc
 ```
+This query:  
 
-This query:
+1. The subquery aggregates failed payment attempts and identifies request IDs that failed more than 3 times
 
-1. The subquery aggregates failed payment attempts and identifies
-   request IDs that failed more than 3 times
-2. The outer query retrieves all log events for those problematic
-   request IDs
-3. Results are sorted chronologically to show the progression of
-   retry attempts
-   This helps distinguish between transient failures (single occurrence) and
-   persistent issues (multiple failures) that require deeper investigation.
+1. The outer query retrieves all log events for those problematic request IDs
 
-###### Behavior
+1. Results are sorted chronologically to show the progression of retry attempts
+This helps distinguish between transient failures (single occurrence) and persistent issues (multiple failures) that require deeper investigation.
 
-- Subqueries are executed independently of the outer query.
-- Results are materialized before being consumed by the outer query.
-- Only fields explicitly selected in the subquery are available to the outer query.
+**Behavior**  
 
-###### Notes and limitations
++ Subqueries are executed independently of the outer query.
++ Results are materialized before being consumed by the outer query.
++ Only fields explicitly selected in the subquery are available to the outer query.
 
-- Subqueries must return fields referenced by the outer query.
-- Nested subqueries are not supported.
-- Subqueries may increase query execution time and cost.
-- Correlated subqueries are not supported.
-- Inner query execution is limited to 30 seconds.
+**Notes and limitations**  
 
-###### Related commands
++ Subqueries must return fields referenced by the outer query.
++ Nested subqueries are not supported.
++ Subqueries may increase query execution time and cost.
++ Correlated subqueries are not supported.
++ Inner query execution is limited to 30 seconds.
 
-- [fields](CWL_QuerySyntax-Fields.md "CWL_QuerySyntax-Fields.md")
-- [filter](CWL_QuerySyntax-Filter.md "CWL_QuerySyntax-Filter.md")
-- [parse](CWL_QuerySyntax-Parse.md "CWL_QuerySyntax-Parse.md")
-- [stats](CWL_QuerySyntax-Stats.md "CWL_QuerySyntax-Stats.md")
-- [sort](CWL_QuerySyntax-Sort.md "CWL_QuerySyntax-Sort.md")
-- [limit](CWL_QuerySyntax-Limit.md "CWL_QuerySyntax-Limit.md")
+**Related commands**  
+
++ [fields](CWL_QuerySyntax-Fields.md)
++ [filter](CWL_QuerySyntax-Filter.md)
++ [parse](CWL_QuerySyntax-Parse.md)
++ [stats](CWL_QuerySyntax-Stats.md)
++ [sort](CWL_QuerySyntax-Sort.md)
++ [limit](CWL_QuerySyntax-Limit.md)

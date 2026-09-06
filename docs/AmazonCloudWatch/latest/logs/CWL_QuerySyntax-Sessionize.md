@@ -1,30 +1,24 @@
+
+
 # sessionize
+<a name="CWL_QuerySyntax-Sessionize"></a>
 
-Use the `sessionize` command to group events into sessions by
-identity fields and an inactivity gap. The command emits a session
-identifier field.
+Use the `sessionize` command to group events into sessions by identity fields and an inactivity gap. The command emits a session identifier field.
 
-###### Syntax
+**Syntax**  
+
 
 ```
-| sessionize `field`[, `field` ...] [maxspan `duration`] [AS `out`]
+| sessionize {{field}}[, {{field}} ...] [maxspan {{duration}}] [AS {{out}}]
 ```
 
 The command uses the following arguments:
++ `{{field}}` – One or more identity fields to group by.
++ `maxspan {{duration}}` (Optional) – The maximum inactivity gap before starting a new session. Default: `30m`.
++ `AS {{out}}` (Optional) – The output field name. Default: `session_id`.
 
-- `field` – One or more
-  identity fields to group by.
-- `maxspan
- `duration`` (Optional) – The
-  maximum inactivity gap before starting a new session. Default:
-  `30m`.
-- `AS `out`` (Optional) – The output field name. Default:
-  `session_id`.
-
-###### Example
-
-The following query groups events into sessions by user and device
-with a 1-hour inactivity gap.
+**Example**  
+The following query groups events into sessions by user and device with a 1-hour inactivity gap.
 
 ```
 fields @timestamp, userId, deviceId

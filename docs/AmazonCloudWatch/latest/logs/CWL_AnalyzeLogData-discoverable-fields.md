@@ -1,91 +1,69 @@
+
+
 # Supported logs and discovered fields
+<a name="CWL_AnalyzeLogData-discoverable-fields"></a>
 
-CloudWatch Logs Insights supports different log types. For every log that's sent to a Standard class
-log group in Amazon CloudWatch Logs, CloudWatch Logs Insights automatically generates five system fields:
+CloudWatch Logs Insights supports different log types. For every log that's sent to a Standard class log group in Amazon CloudWatch Logs, CloudWatch Logs Insights automatically generates five system fields: 
++ `@message` contains the raw unparsed log event. This is the equivalent to the `message` field in [InputLogevent](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.html).
++ `@timestamp` contains the event timestamp in the log event's `timestamp` field. This is the equivalent to the `timestamp` field in [InputLogevent](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.html).
++ `@ingestionTime` contains the time when CloudWatch Logs received the log event.
++ `@logStream` contains the name of the log stream that the log event was added to. Log streams group logs through the same process that generated them.
++ `@log` is a log group identifier in the form of `{{account-id}}:{{log-group-name}}`. When querying multiple log groups, this can be useful to identify which log group a particular event belongs to.
++ `@entity` contains flattened JSON related to entities for the [Explore related telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ExploreRelated.html) feature.
 
-- `@message` contains the raw unparsed log event. This is the
-  equivalent to the `message` field in [InputLogevent](../../../AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.md").
-- `@timestamp` contains the event timestamp in the log event's
-  `timestamp` field. This is the equivalent to the
-  `timestamp` field in [InputLogevent](../../../AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.md").
-- `@ingestionTime` contains the time when CloudWatch Logs received the log
-  event.
-- `@logStream` contains the name of the log stream that the log event
-  was added to. Log streams group logs through the same process that generated
-  them.
-- `@log` is a log group identifier in the form of
-  ``account-id`:`log-group-name``.
-  When querying multiple log groups, this can be useful to identify which log
-  group a particular event belongs to.
-- `@entity` contains flattened JSON related to entities for the
-  [Explore related
-  telemetry](../monitoring/ExploreRelated.md "../monitoring/ExploreRelated.md") feature.
+  For example, this JSON can represent an entity.
 
-For example, this JSON can represent an entity.
-
-```
-{
-  "Entity": {
-    "KeyAttributes": {
-      "Type": "Service",
-      "Name": "PetClinic"
-    },
-    "Attributes": {
-      "PlatformType": "AWS::EC2",
-      "EC2.InstanceId": "i-1234567890123"
+  ```
+  {
+    "Entity": {
+      "KeyAttributes": {
+        "Type": "Service",
+        "Name": "PetClinic"
+      },
+      "Attributes": {
+        "PlatformType": "AWS::EC2",
+        "EC2.InstanceId": "i-1234567890123"
+      }
     }
   }
-}
-```
+  ```
 
-For this entity, the extracted system fields would be the following:
+  For this entity, the extracted system fields would be the following:
 
-```
-@entity.KeyAttributes.Type = Service
-@entity.KeyAttributes.Name = PetClinic
-@entity.Attributes.PlatformType = AWS::EC2
-@entity.Attributes.EC2.InstanceId = i-1234567890123
-```
+  ```
+  @entity.KeyAttributes.Type = Service
+  @entity.KeyAttributes.Name = PetClinic
+  @entity.Attributes.PlatformType = AWS::EC2
+  @entity.Attributes.EC2.InstanceId = i-1234567890123
+  ```
 
-###### Note
+**Note**  
+Field discovery is supported only for log groups in the Standard log class. For more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md).
 
-Field discovery is supported only for log groups in the Standard log class. For
-more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md "CloudWatch_Logs_Log_Classes.md").
+CloudWatch Logs Insights inserts the **@** symbol at the start of fields that it generates.
 
-CloudWatch Logs Insights inserts the **@** symbol at the start of fields that it
-generates.
+For many log types, CloudWatch Logs also automatically discovers the log fields contained in the logs. These automatic discovery fields are shown in the following table.
 
-For many log types, CloudWatch Logs also automatically discovers the log fields contained in the
-logs. These automatic discovery fields are shown in the following table.
+For other types of logs with fields that CloudWatch Logs Insights doesn't automatically discover, you can use the `parse` command to extract and create extracted fields for use in that query. For more information, see [CloudWatch Logs Insights language query syntax](CWL_QuerySyntax.md).
 
-For other types of logs with fields that CloudWatch Logs Insights doesn't automatically discover, you
-can use the `parse` command to extract and create extracted fields for use in
-that query. For more information, see [CloudWatch Logs Insights language query syntax](CWL_QuerySyntax.md "CWL_QuerySyntax.md").
+If the name of a discovered log field starts with the `@` character, CloudWatch Logs Insights displays it with an additional `@` appended to the beginning. For example, if a log field name is `@example.com`, this field name is displayed as `@@example.com`.
 
-If the name of a discovered log field starts with the `@` character,
-CloudWatch Logs Insights displays it with an additional `@` appended to the beginning. For
-example, if a log field name is `@example.com`, this field name is displayed
-as `@@example.com`.
+**Note**  
+Except for `@message`, `@timestamp`, or `@log`, you can create field indexes for discovered fields. For more information about field indexes, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md). 
 
-###### Note
 
-Except for `@message`, `@timestamp`, or `@log`,
-you can create field indexes for discovered fields. For more information about field
-indexes, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
-
-| Log type                               | Discovered log fields                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon VPC flow logs                   | `@timestamp`, `@logStream`,<br>`@message`, `accountId`,<br>`endTime`, `interfaceId`,<br>`logStatus`, `startTime`,<br>`version`, `action`, `bytes`,<br>`dstAddr`, `dstPort`,<br>`packets`, `protocol`, `srcAddr`,<br>`srcPort`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Route 53 logs                          | `@timestamp`, `@logStream`,<br>`@message`, `edgeLocation`,<br>`ednsClientSubnet`, `hostZoneId`,<br>`protocol`, `queryName`,<br>`queryTimestamp`, `queryType`,<br>`resolverIp`, `responseCode`,<br>`version`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Lambda logs                            | `@timestamp`, `@logStream`,<br>`@message`, `@requestId`, `@duration,` `@billedDuration`, `@type`,<br>`@maxMemoryUsed`, `@memorySize`<br>If a Lambda log line contains an X-Ray trace ID, it also includes<br>the following fields: `@xrayTraceId` and<br>`@xraySegmentId`.<br>CloudWatch Logs Insights automatically discovers log fields in Lambda logs, but only<br>for the first embedded JSON fragment in each log event. If a Lambda<br>log event contains multiple JSON fragments, you can parse and<br>extract the log fields by using the `**parse**` command. For more information, see<br>[Fields in JSON logs](#CWL_AnalyzeLogData-discoverable-JSON-logs "#CWL_AnalyzeLogData-discoverable-JSON-logs"). |
-| CloudTrail logs<br>Logs in JSON format | For more information, see [Fields in JSON logs](#CWL_AnalyzeLogData-discoverable-JSON-logs "#CWL_AnalyzeLogData-discoverable-JSON-logs").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Other log types                        | `@timestamp`, `@ingestionTime`,<br>`@logStream`, `@message`,<br>`@log`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Log type | Discovered log fields | 
+| --- | --- | 
+| Amazon VPC flow logs | `@timestamp`, `@logStream`, `@message`, `accountId`, `endTime`, `interfaceId`, `logStatus`, `startTime`, `version`, `action`, `bytes`, `dstAddr`, `dstPort`, `packets`, `protocol`, `srcAddr`, `srcPort`<br />  | 
+| Route 53 logs | `@timestamp`, `@logStream`, `@message`, `edgeLocation`, `ednsClientSubnet`, `hostZoneId`, `protocol`, `queryName`, `queryTimestamp`, `queryType`, `resolverIp`, `responseCode`, `version` | 
+| Lambda logs | `@timestamp`, `@logStream`, `@message`, `@requestId`, `@duration, ``@billedDuration`, `@type`, `@maxMemoryUsed`, `@memorySize`<br />If a Lambda log line contains an X-Ray trace ID, it also includes the following fields: `@xrayTraceId` and `@xraySegmentId`.<br />CloudWatch Logs Insights automatically discovers log fields in Lambda logs, but only for the first embedded JSON fragment in each log event. If a Lambda log event contains multiple JSON fragments, you can parse and extract the log fields by using the `parse` command. For more information, see [Fields in JSON logs](#CWL_AnalyzeLogData-discoverable-JSON-logs). | 
+| CloudTrail logs<br />Logs in JSON format | For more information, see [Fields in JSON logs](#CWL_AnalyzeLogData-discoverable-JSON-logs). | 
+| Other log types | `@timestamp`, `@ingestionTime`, `@logStream`, `@message`, `@log`. | 
 
 ## Fields in JSON logs
+<a name="CWL_AnalyzeLogData-discoverable-JSON-logs"></a>
 
-With CloudWatch Logs Insights, you use dot notation to represent JSON fields. This section contains
-an example JSON event and code snippet that show how you can access JSON fields
-using dot notation.
+With CloudWatch Logs Insights, you use dot notation to represent JSON fields. This section contains an example JSON event and code snippet that show how you can access JSON fields using dot notation.
 
 **Example: JSON event**
 
@@ -135,19 +113,9 @@ using dot notation.
 }
 ```
 
-The example JSON event contains an object that's named `userIdentity`.
-`userIdentity` contains a field that's named `type`. To
-represent value of `type` using dot notation, you use
-`userIdentity.type`.
+The example JSON event contains an object that's named `userIdentity`. `userIdentity` contains a field that's named `type`. To represent value of `type` using dot notation, you use `userIdentity.type`.
 
-The example JSON event contains arrays that flatten to lists of nested field names
-and values. To represent the value of `instanceId` for the first item in
-`requestParameters.instancesSet`, you use
-`requestParameters.instancesSet.items.0.instanceId`. The number
-`0` that's placed before the field `instanceID` refers to
-the position of values for the field `items`. The following example
-contains a code snippet that shows how you can access nested JSON fields in a JSON
-log event.
+The example JSON event contains arrays that flatten to lists of nested field names and values. To represent the value of `instanceId` for the first item in `requestParameters.instancesSet`, you use `requestParameters.instancesSet.items.0.instanceId`. The number `0` that's placed before the field `instanceID` refers to the position of values for the field `items`. The following example contains a code snippet that shows how you can access nested JSON fields in a JSON log event.
 
 **Example: Query**
 
@@ -157,50 +125,26 @@ fields @timestamp, @message
 | sort @timestamp desc
 ```
 
-The code snippet shows a query that uses dot notation with the `filter`
-command to access the value of the nested JSON field `instanceId`. The
-query filters on messages where the value of `instanceId` equals
-`"i-abcde123"` and returns all of the log events that contain the
-specified value.
+The code snippet shows a query that uses dot notation with the `filter` command to access the value of the nested JSON field `instanceId`. The query filters on messages where the value of `instanceId` equals `"i-abcde123"` and returns all of the log events that contain the specified value.
 
-###### Dot notation and JSON-encoded string fields
-
-Dot notation traverses only fields that are stored as structurally nested
-JSON objects at ingest time. If a field's value is a JSON-encoded string (a
-string whose content happens to be valid JSON), dot notation treats it as an
-opaque leaf value and does not access sub-fields within it.
+**Dot notation and JSON-encoded string fields**  
+Dot notation traverses only fields that are stored as structurally nested JSON objects at ingest time. If a field's value is a JSON-encoded string (a string whose content happens to be valid JSON), dot notation treats it as an opaque leaf value and does not access sub-fields within it.
 
 This commonly occurs with:
++ Logs transformed by OCSF pipelines (for example, `api.request.data` is typed as `json_t` in the OCSF schema)
++ Any log source where variable-structure payloads are serialized as strings before ingestion
 
-- Logs transformed by OCSF pipelines (for example,
-  `api.request.data` is typed as `json_t` in the
-  OCSF schema)
-- Any log source where variable-structure payloads are serialized as strings
-  before ingestion
+For example, if `api.request.data` contains `{"startTime":1234,"endTime":5678}` as a string value, then `api.request.data.startTime` returns no results because CloudWatch Logs Insights treats the entire string as a single leaf value rather than a nested object.
 
-For example, if `api.request.data` contains
-`{"startTime":1234,"endTime":5678}` as a string value, then
-`api.request.data.startTime` returns no results because CloudWatch Logs Insights
-treats the entire string as a single leaf value rather than a nested object.
+To access sub-fields within a JSON-encoded string, use `jsonParse` to convert the string into a traversable map.
 
-To access sub-fields within a JSON-encoded string, use
-`jsonParse` to convert the string into a traversable map.
-
-**Example: Query using jsonParse for a JSON-encoded string
-field**
+**Example: Query using jsonParse for a JSON-encoded string field**
 
 ```
 fields jsonParse(api.request.data).startTime as startTime
 ```
 
-This query uses `jsonParse` to parse the JSON-encoded string in
-`api.request.data` into a map, and then accesses the
-`startTime` sub-field with dot notation. For more information about
-`jsonParse`, see [Structure types](CWL_QuerySyntax-operations-functions.md#CWL_QuerySyntax-structure-types "CWL_QuerySyntax-operations-functions.md#CWL_QuerySyntax-structure-types").
+This query uses `jsonParse` to parse the JSON-encoded string in `api.request.data` into a map, and then accesses the `startTime` sub-field with dot notation. For more information about `jsonParse`, see [Structure types](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-operations-functions.html#CWL_QuerySyntax-structure-types).
 
-###### Note
-
-CloudWatch Logs Insights can extract a maximum of 200 log event fields from a JSON log. For
-additional fields that aren't extracted, you can use the `parse`
-command to extract the fields from the raw unparsed log event in the message
-field. For more information about the `parse` command, see [Query syntax](CWL_QuerySyntax.md "CWL_QuerySyntax.md") in the Amazon CloudWatch User Guide.
+**Note**  
+CloudWatch Logs Insights can extract a maximum of 200 log event fields from a JSON log. For additional fields that aren't extracted, you can use the `parse` command to extract the fields from the raw unparsed log event in the message field. For more information about the `parse` command, see [Query syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) in the Amazon CloudWatch User Guide.

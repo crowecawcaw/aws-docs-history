@@ -1,26 +1,22 @@
+
+
 # fillmissing
+<a name="CWL_QuerySyntax-Fillmissing"></a>
 
-Use the `fillmissing` command to insert rows for empty time
-bins after `stats ... by bin()`. You can optionally fill fields
-with a constant value.
+Use the `fillmissing` command to insert rows for empty time bins after `stats ... by bin()`. You can optionally fill fields with a constant value.
 
-###### Syntax
+**Syntax**  
+
 
 ```
-| fillmissing [with `value` for `field` [, `value` for `field` ...]]
+| fillmissing [with {{value}} for {{field}} [, {{value}} for {{field}} ...]]
 ```
 
 The command uses the following arguments:
++ `with {{value}} for {{field}}` (Optional) – The constant value to assign to the specified field in the inserted rows.
 
-- `with `value`for
-`field`` (Optional) – The
-  constant value to assign to the specified field in the inserted
-  rows.
-
-###### Example
-
-The following query fills empty 1-minute bins with 0 for the
-`avg_latency` field.
+**Example**  
+The following query fills empty 1-minute bins with 0 for the `avg_latency` field.
 
 ```
 fields @timestamp, latency

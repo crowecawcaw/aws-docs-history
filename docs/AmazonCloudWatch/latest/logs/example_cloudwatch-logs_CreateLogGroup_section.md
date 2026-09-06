@@ -1,21 +1,18 @@
+
+
 # Use `CreateLogGroup` with an AWS SDK or CLI
+<a name="example_cloudwatch-logs_CreateLogGroup_section"></a>
 
 The following code examples show how to use `CreateLogGroup`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md) 
 
-- [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/CloudWatchLogs#code-examples). 
 
 ```
     using System;
@@ -55,39 +52,25 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [CreateLogGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/CreateLogGroup) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command creates a log group named `my-logs`:  
 
 ```
-
-- For API details, see
-  [CreateLogGroup](../../../goto/DotNetSDKV3/logs-2014-03-28/CreateLogGroup.md "../../../goto/DotNetSDKV3/logs-2014-03-28/CreateLogGroup.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command creates a log group named `my-logs`:
-
+aws logs create-log-group --log-group-name {{my-logs}}
 ```
-`aws logs create-log-group --log-group-name `my-logs``
++  For API details, see [CreateLogGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [CreateLogGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
 ```
 import { CreateLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs";
@@ -107,14 +90,9 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
++  For API details, see [CreateLogGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogGroupCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateLogGroup](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogGroupCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

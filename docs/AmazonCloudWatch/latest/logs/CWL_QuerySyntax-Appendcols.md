@@ -1,27 +1,24 @@
+
+
 # appendcols
+<a name="CWL_QuerySyntax-Appendcols"></a>
 
-Use the `appendcols` command to append a sub-query's columns
-to the current results by positional row matching.
+Use the `appendcols` command to append a sub-query's columns to the current results by positional row matching.
 
-###### Syntax
+**Syntax**  
+
 
 ```
-| appendcols [override=true|false] [max=`n`] ( `subquery` )
+| appendcols [override=true|false] [max={{n}}] ( {{subquery}} )
 ```
 
 The command uses the following arguments:
++ `override` (Optional) – Whether to overwrite existing fields. Default: `false`.
++ `max` (Optional) – Maximum rows to process (1–100000, default 10000).
++ `{{subquery}}` – A complete CloudWatch Logs Insights query enclosed in parentheses.
 
-- `override` (Optional) – Whether to overwrite
-  existing fields. Default: `false`.
-- `max` (Optional) – Maximum rows to process
-  (1–100000, default 10000).
-- `subquery` – A
-  complete CloudWatch Logs Insights query enclosed in parentheses.
-
-###### Example
-
-The following query appends average latency per service from another
-log group.
+**Example**  
+The following query appends average latency per service from another log group.
 
 ```
 fields svc

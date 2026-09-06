@@ -1,24 +1,26 @@
+
+
 # String mutate processors
+<a name="CloudWatch-Logs-Transformation-StringMutate"></a>
 
-This section contains information about the string mutate processors that you can use with a log event
-transformer.
+This section contains information about the string mutate processors that you can use with a log event transformer. 
 
-###### Contents
-
-- [lowerCaseString](CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-lowerCaseString "CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-lowerCaseString")
-- [upperCaseString](CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-upperCaseString "CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-upperCaseString")
-- [splitString](CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-splitString "CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-splitString")
-- [substituteString](CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-substituteString "CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-substituteString")
-- [trimString](CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-trimString "CloudWatch-Logs-Transformation-StringMutate.md#CloudWatch-Logs-Transformation-trimString")
+**Contents**
++ [lowerCaseString](#CloudWatch-Logs-Transformation-lowerCaseString)
++ [upperCaseString](#CloudWatch-Logs-Transformation-upperCaseString)
++ [splitString](#CloudWatch-Logs-Transformation-splitString)
++ [substituteString](#CloudWatch-Logs-Transformation-substituteString)
++ [trimString](#CloudWatch-Logs-Transformation-trimString)
 
 ## lowerCaseString
+<a name="CloudWatch-Logs-Transformation-lowerCaseString"></a>
 
-The `lowerCaseString` processor converts a string to its lowercase
-version.
+The `lowerCaseString` processor converts a string to its lowercase version.
 
-| Field    | Description                            | Required? | Default | Limits              |
-| -------- | -------------------------------------- | --------- | ------- | ------------------- |
-| withKeys | A list of keys to convert to lowercase | Yes       |         | Maximum entries: 10 |
+
+| Field | Description | Required? | Default | Limits | 
+| --- | --- | --- | --- | --- | 
+| withKeys | A list of keys to convert to lowercase | Yes |  | Maximum entries: 10 | 
 
 **Example**
 
@@ -32,8 +34,7 @@ Take the following example log event:
 }
 ```
 
-The transformer configuration is this, using `lowerCaseString` with
-`parseJSON`:
+The transformer configuration is this, using `lowerCaseString` with `parseJSON`:
 
 ```
 [
@@ -46,7 +47,6 @@ The transformer configuration is this, using `lowerCaseString` with
         }
     }
 ]
-
 ```
 
 The transformed log event would be the following.
@@ -60,13 +60,14 @@ The transformed log event would be the following.
 ```
 
 ## upperCaseString
+<a name="CloudWatch-Logs-Transformation-upperCaseString"></a>
 
-The `upperCaseString` processor converts a string to its uppercase
-version.
+The `upperCaseString` processor converts a string to its uppercase version.
 
-| Field    | Description                            | Required? | Default | Limits              |
-| -------- | -------------------------------------- | --------- | ------- | ------------------- |
-| withKeys | A list of keys to convert to uppercase | Yes       |         | Maximum entries: 10 |
+
+| Field | Description | Required? | Default | Limits | 
+| --- | --- | --- | --- | --- | 
+| withKeys | A list of keys to convert to uppercase | Yes |  | Maximum entries: 10 | 
 
 **Example**
 
@@ -80,8 +81,7 @@ Take the following example log event:
 }
 ```
 
-The transformer configuration is this, using `upperCaseString` with
-`parseJSON`:
+The transformer configuration is this, using `upperCaseString` with `parseJSON`:
 
 ```
 [
@@ -107,15 +107,16 @@ The transformed log event would be the following.
 ```
 
 ## splitString
+<a name="CloudWatch-Logs-Transformation-splitString"></a>
 
-The `splitString` processor is a type of string mutate processor
-which splits a field into an array using a delimiting character.
+The `splitString` processor is a type of string mutate processor which splits a field into an array using a delimiting character.
 
-| Field     | Description                                                                                  | Required? | Default | Limits              |
-| --------- | -------------------------------------------------------------------------------------------- | --------- | ------- | ------------------- |
-| entries   | Array of entries. Each item in the array must contain<br>`source` and `delimiter`<br>fields. | Yes       |         | Maximum entries: 10 |
-| source    | The key of the field value to split                                                          | Yes       |         | Maximum length: 128 |
-| delimiter | The delimiter string to split the field value on                                             | Yes       |         | Maximum length: 128 |
+
+| Field | Description | Required? | Default | Limits | 
+| --- | --- | --- | --- | --- | 
+| entries | Array of entries. Each item in the array must contain source and delimiter fields. | Yes |  | Maximum entries: 10 | 
+| source | The key of the field value to split | Yes |  | Maximum length: 128 | 
+| delimiter | The delimiter string to split the field value on | Yes |  | Maximum length: 128 | 
 
 **Example 1**
 
@@ -129,8 +130,7 @@ Take the following example log event:
 }
 ```
 
-The transformer configuration is this, using `splitString` with
-`parseJSON`:
+The transformer configuration is this, using `splitString` with `parseJSON`:
 
 ```
 [
@@ -212,17 +212,17 @@ The transformed log event would be the following.
 ```
 
 ## substituteString
+<a name="CloudWatch-Logs-Transformation-substituteString"></a>
 
-The `substituteString` processor is a type of string mutate
-processor which matches a key’s value against a regular expression and replaces
-all matches with a replacement string.
+The `substituteString` processor is a type of string mutate processor which matches a key’s value against a regular expression and replaces all matches with a replacement string.
 
-| Field   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required? | Default | Limits                                                                                                          |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| entries | Array of entries. Each item in the array must contain<br>`source`, `from`, and `to`<br>fields.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Yes       |         | Maximum entries: 10                                                                                             |
-| source  | The key of the field to modify                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Yes       |         | Maximum length: 128<br>Maximum nested key depth: 3                                                              |
-| from    | The regular expression string to be replaced. Special<br>regex characters such as [ and ] must be escaped using \\<br>when using double quotes and with \ when using single quotes<br>or when configured from the AWS Management Console. For more information,<br>see [Class Pattern](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html") on the Oracle web site.<br>You can wrap a pattern in `(...)` to create a<br>numbered capturing group and create<br>`(?P<group_name>...)` named capturing<br>groups that can be referenced in the `to`<br>field. | Yes       |         | Maximum length: 128                                                                                             |
-| to      | The string to be substituted for each match of<br>`from` Backreferences to capturing groups can be<br>used. Use the form $n for numbered groups such as<br>`$1`and use`${group_name}` for named<br>groups such as $`{my_group}`.>                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Yes       |         | Maximum length: 128<br>Maximum number of backreferences: 10<br>Maximum number of duplicate backreferences:<br>2 |
+
+| Field | Description | Required? | Default | Limits | 
+| --- | --- | --- | --- | --- | 
+| entries | Array of entries. Each item in the array must contain source, from, and to fields. | Yes |  | Maximum entries: 10 | 
+| source | The key of the field to modify | Yes |  | Maximum length: 128<br />Maximum nested key depth: 3 | 
+| from | The regular expression string to be replaced. Special regex characters such as [ and ] must be escaped using \\\\ when using double quotes and with \\ when using single quotes or when configured from the AWS Management Console. For more information, see [ Class Pattern](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html) on the Oracle web site.<br />You can wrap a pattern in `(...)` to create a numbered capturing group and create `(?P<group_name>...)` named capturing groups that can be referenced in the `to` field. | Yes |  | Maximum length: 128 | 
+| to | The string to be substituted for each match of from Backreferences to capturing groups can be used. Use the form $n for numbered groups such as $1 and use ${group\_name} for named groups such as ${my\_group}.> | Yes |  | Maximum length: 128<br />Maximum number of backreferences: 10<br />Maximum number of duplicate backreferences: 2 | 
 
 **Example 1**
 
@@ -238,8 +238,7 @@ Take the following example log event:
 }
 ```
 
-The transformer configuration is this, using `substituteString`
-with `parseJSON`:
+The transformer configuration is this, using `substituteString` with `parseJSON`:
 
 ```
 [
@@ -295,8 +294,7 @@ Take the following example log event:
 }
 ```
 
-The transformer configuration is this, using `substituteString`
-with `parseJSON`:
+The transformer configuration is this, using `substituteString` with `parseJSON`:
 
 ```
 [
@@ -334,13 +332,14 @@ The transformed log event would be the following.
 ```
 
 ## trimString
+<a name="CloudWatch-Logs-Transformation-trimString"></a>
 
-The `trimString` processor removes whitespace from the beginning
-and end of a key.
+The `trimString` processor removes whitespace from the beginning and end of a key.
 
-| Field    | Description            | Required? | Default | Limits              |
-| -------- | ---------------------- | --------- | ------- | ------------------- |
-| withKeys | A list of keys to trim | Yes       |         | Maximum entries: 10 |
+
+| Field | Description | Required? | Default | Limits | 
+| --- | --- | --- | --- | --- | 
+| withKeys | A list of keys to trim | Yes |  | Maximum entries: 10 | 
 
 **Example**
 
@@ -354,8 +353,7 @@ Take the following example log event:
 }
 ```
 
-The transformer configuration is this, using `trimString` with
-`parseJSON`:
+The transformer configuration is this, using `trimString` with `parseJSON`:
 
 ```
 [
