@@ -128,7 +128,7 @@ CloudShell.
 curl -s "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-latest.zip" -o "kiro-cloudshell-latest.zip"
 unzip -q -o kiro-cloudshell-latest.zip
 chmod +x kiro-cloudshell-latest.sh
-./kiro-cloudshell-latest.sh
+./kiro-cloudshell-latest.sh --classic
 ```
 
 You can also download [kiro-cloudshell-latest.zip](samples/kiro-cloudshell-latest.zip.md "samples/kiro-cloudshell-latest.zip.md")
