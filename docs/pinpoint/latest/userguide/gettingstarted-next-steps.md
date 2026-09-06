@@ -1,33 +1,15 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Next steps
+<a name="gettingstarted-next-steps"></a>
 
-After completing this tutorial, you can explore additional Amazon Pinpoint features. For
-example:
-
-- You can improve the delivery of your email campaigns by making sure that your
-  campaigns align with industry best practices. For more information, see [Email best practices](channels-email-best-practices.md "channels-email-best-practices.md").
-- You can verify an entire domain, which allows you to send email from any address
-  on that domain. For more information about verifying domains, see [Verifying a domain](channels-email-manage-verify.md#channels-email-manage-verify-domain "channels-email-manage-verify.md#channels-email-manage-verify-domain").
-- You can obtain dedicated IP addresses for sending your email. Dedicated IP
-  addresses are useful for sending email in certain use cases. For more
-  information, see [Using dedicated IP addresses with Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md").
-- You can use email deliverability features through [Amazon Simple Email Service Virtual Deliverability Manager](../../../ses/latest/dg/vdm-global-deliverability.md "../../../ses/latest/dg/vdm-global-deliverability.md"). Virtual Deliverability
-  Manager helps you identify issues that could impact the delivery of your
-  emails.
-- You can send messages through other channels, such as SMS or push. Before you can
-  use these channels, you have to enable and configure them on the Settings page. For
-  more information about using the Settings page to enable and configure channels, see
-  [Amazon Pinpoint channels](channels.md "channels.md").
-- You can send data about your campaigns outside of Amazon Pinpoint. For example, you can send
-  delivery and response data for your campaigns to Amazon S3 for long-term storage. You can
-  also send data to Amazon Redshift to perform custom analyses. For more information about
-  sending your data outside of Amazon Pinpoint, see [Streaming events with Amazon Pinpoint](analytics-streaming.md "analytics-streaming.md").
-- You can integrate Amazon Pinpoint with your apps, or interact with Amazon Pinpoint programmatically,
-  by using an AWS SDK. For more information, see the [Amazon Pinpoint Developer Guide](../developerguide.md "../developerguide.md").
+After completing this tutorial, you can explore additional Amazon Pinpoint features. For example:
++ You can improve the delivery of your email campaigns by making sure that your campaigns align with industry best practices. For more information, see [Email best practices](channels-email-best-practices.md).
++ You can verify an entire domain, which allows you to send email from any address on that domain. For more information about verifying domains, see [Verifying a domain](channels-email-manage-verify.md#channels-email-manage-verify-domain).
++ You can obtain dedicated IP addresses for sending your email. Dedicated IP addresses are useful for sending email in certain use cases. For more information, see [Using dedicated IP addresses with Amazon Pinpoint](channels-email-dedicated-ips.md).
++ You can use email deliverability features through [Amazon Simple Email Service Virtual Deliverability Manager](https://docs.aws.amazon.com/ses/latest/dg/vdm-global-deliverability.html). Virtual Deliverability Manager helps you identify issues that could impact the delivery of your emails.
++ You can send messages through other channels, such as SMS or push. Before you can use these channels, you have to enable and configure them on the Settings page. For more information about using the Settings page to enable and configure channels, see [Amazon Pinpoint channels](channels.md).
++ You can send data about your campaigns outside of Amazon Pinpoint. For example, you can send delivery and response data for your campaigns to Amazon S3 for long-term storage. You can also send data to Amazon Redshift to perform custom analyses. For more information about sending your data outside of Amazon Pinpoint, see [Streaming events with Amazon Pinpoint](analytics-streaming.md).
++ You can integrate Amazon Pinpoint with your apps, or interact with Amazon Pinpoint programmatically, by using an AWS SDK. For more information, see the [Amazon Pinpoint Developer Guide](https://docs.aws.amazon.com/pinpoint/latest/developerguide/).
