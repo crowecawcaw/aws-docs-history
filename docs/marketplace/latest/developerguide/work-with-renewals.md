@@ -32,8 +32,8 @@ payment options or not.
   AMI hourly, AMI annual, and SaaS pay-as-you-go subscriptions) that can be
   accepted anytime to renew an existing agreement.
 - **Auto-renewal**: Customers can enable
-  auto-renewal for public offers and AWS Data Exchange products with private offers to
-  automatically create a new agreement when a previous agreement ends.
+  auto-renewal for contract-based offers, public or private, so that a new
+  agreement starts automatically when the current agreement ends.
 
 ###### Topics
 

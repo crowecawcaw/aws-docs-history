@@ -2055,7 +2055,27 @@ Content-type: application/json
       "DetailsDocument": {
         "Terms": [
           {
-            "Type": "RenewalTerm"
+            "Type": "RenewalTerm",
+            "LockoutPeriod": "P30D",
+            "AdjustmentDeadline": "P60D",
+            "MaxRenewals": 3,
+            "PriceIncrease": {
+              "Type": "PercentageRange",
+              "Range": {
+                "MinValue": "3.00",
+                "MaxValue": "10.00",
+                "DefaultValue": "5.00"
+              }
+            },
+            "TermTemplates": [
+              {
+                "Type": "PaymentScheduleTermTemplate",
+                "Schedule": [
+                  { "ChargeDateOffset": "P0M", "ChargePercentage": "50.00" },
+                  { "ChargeDateOffset": "P6M", "ChargePercentage": "50.00", "DayOfMonth": 15 }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -2094,8 +2114,126 @@ change type:
       acceptance/agreement creation.
 
       - **Type** (string)
-        – Type of the term being updated.
-        `RenewalTerm`
+        (required) – Type of the term being updated.
+        Must be `RenewalTerm`.
+      - **LockoutPeriod**
+        (string) (optional) – The period before the
+        agreement end date after which the auto-renewal
+        decision can no longer be changed. Until then,
+        either the buyer or the seller can opt in to or opt
+        out of the renewal; buyers and sellers see this as
+        the renewal decision deadline. Expressed as an ISO
+        8601 duration in days of at least one day, and must
+        be shorter than the agreement duration. If you omit
+        this field, either party can change the auto-renewal
+        decision until the agreement end date. For example,
+        `P30D` puts the renewal decision deadline
+        30 days before the agreement end date; for an
+        agreement that ends December 31, December 1 is the
+        last day either party can opt in or opt
+        out.
+      - **AdjustmentDeadline**
+        (string) (optional) – The deadline, before
+        the agreement end date, by which the seller must
+        finalize the renewal price. Required when
+        `PriceIncrease` is a
+        `PercentageRange`, and supported only
+        with that type. Expressed as an ISO 8601 duration in
+        days of at least one day, and must be shorter than
+        the agreement duration. When
+        `LockoutPeriod` is also provided, this
+        duration must be at least one day longer, so that
+        the deadline falls before the renewal decision
+        deadline. For example, `P60D` requires
+        the seller to finalize the renewal price 60 days
+        before the agreement end date; for an agreement that
+        ends December 31, the seller must finalize by
+        November 1.
+      - **MaxRenewals**
+        (integer) (optional) – The maximum number of
+        times the agreement can be renewed. If you omit this
+        field, there is no limit on the number of
+        renewals.
+      - **PriceIncrease**
+        (object) (required for private offers) –
+        Specifies how the price can increase at renewal.
+        Must be one of the following two types, identified
+        by its `Type`:
+
+        - **FixedPercentage** –
+          Applies a fixed percentage increase at each
+          renewal.
+
+          - **Type** (string) (required)
+            – The type of price
+            increase. Must be
+            `FixedPercentage`.
+          - **Value** (string) (required)
+            – A percentage between
+            `0.00` and
+            `100.00`, with up to two
+            decimal places. Use
+            `0.00` to renew at the
+            same price.
+
+        - **PercentageRange** – A
+          seller-adjustable range for the renewal
+          price increase.
+
+          - **Type** (string) (required)
+            – Must be
+            `PercentageRange`.
+          - **Range** (object) (required)
+            – The `MinValue`,
+            `MaxValue`, and
+            `DefaultValue` for the
+            range, each a percentage between
+            `0.00` and
+            `100.00` with up to two
+            decimal places.
+            `DefaultValue` applies if
+            the seller doesn't finalize a
+            percentage before the
+            `AdjustmentDeadline`.
+
+      - **TermTemplates**
+        (array of structures) (optional) – A list
+        containing at most one
+        `PaymentScheduleTermTemplate`. It defines
+        the payment schedule applied to renewed
+        agreements.
+
+        - **Type**
+          (string) – The only supported value
+          is
+          `PaymentScheduleTermTemplate`.
+        - **Schedule**
+          (array of structures) – A list of
+          `1`–`86`
+          installments. The
+          `ChargePercentage` values must
+          sum to exactly 100.
+
+          - **ChargeDateOffset** (string)
+            – An ISO 8601 duration that
+            offsets the charge from the agreement
+            start date. Only month and day units
+            are supported, and every offset in a
+            schedule must use the same
+            unit.
+          - **ChargePercentage** (string)
+            – A percentage from
+            `0.01` to
+            `100.00`, inclusive, with
+            up to two decimal places.
+          - **DayOfMonth** (integer)
+            (optional) – The day of the
+            month
+            (`1`–`31`)
+            on which the charge occurs. Supported
+            only when
+            `ChargeDateOffset` uses
+            months.
 
 **Response Syntax**
 
@@ -2124,10 +2262,22 @@ actions in the AWS Marketplace Catalog API. These validations are performed when
 `StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
-| Input field  | Validation rule                   | HTTP code |
-| ------------ | --------------------------------- | --------- |
-| Terms        | Required                          | 422       |
-| Terms[].Type | RequiredCan only be "RenewalTerm" | 422       |
+| Input field                                         | Validation rule                                                                                                                                                                                                                                                                                                                             | HTTP code |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Terms                                               | RequiredCan contain at most one renewal term. Provide an<br>empty list to remove all renewal terms from the<br>offer.                                                                                                                                                                                                                       | 422       |
+| Terms[].Type                                        | RequiredCan only be "RenewalTerm"                                                                                                                                                                                                                                                                                                           | 422       |
+| Terms[].LockoutPeriod                               | OptionalISO 8601 duration in days of at least one day, for<br>example "P30D"                                                                                                                                                                                                                                                                | 422       |
+| Terms[].AdjustmentDeadline                          | OptionalISO 8601 duration in days of at least one day, for<br>example "P60D"                                                                                                                                                                                                                                                                | 422       |
+| Terms[].MaxRenewals                                 | OptionalInteger greater than or equal to 1                                                                                                                                                                                                                                                                                                  | 422       |
+| Terms[].PriceIncrease.Type                          | Required when PriceIncrease is providedCan only be<br>"FixedPercentage" or "PercentageRange"                                                                                                                                                                                                                                                | 422       |
+| Terms[].PriceIncrease.Value                         | Required when PriceIncrease.Type is "FixedPercentage"A<br>percentage between 0.00 and 100.00, with up to two decimal<br>places                                                                                                                                                                                                              | 422       |
+| Terms[].PriceIncrease.Range                         | Required when PriceIncrease.Type is "PercentageRange"Must<br>provide MinValue, MaxValue, and DefaultValue, each a percentage<br>between 0.00 and 100.00 with up to two decimal places. MinValue<br>must be less than or equal to DefaultValue, which must be less<br>than or equal to MaxValue. MinValue and MaxValue must not be<br>equal. | 422       |
+| Terms[].TermTemplates                               | OptionalCan contain at most one<br>PaymentScheduleTermTemplate                                                                                                                                                                                                                                                                              | 422       |
+| Terms[].TermTemplates[].Type                        | Required when TermTemplates is providedCan only be<br>"PaymentScheduleTermTemplate"                                                                                                                                                                                                                                                         | 422       |
+| Terms[].TermTemplates[].Schedule                    | Required when TermTemplates is providedBetween 1 and 86<br>items                                                                                                                                                                                                                                                                            | 422       |
+| Terms[].TermTemplates[].Schedule[].ChargeDateOffset | RequiredISO 8601 duration in months or days, for example<br>"P6M" or "P30D". All offsets in a schedule must use the same<br>unit.                                                                                                                                                                                                           | 422       |
+| Terms[].TermTemplates[].Schedule[].ChargePercentage | RequiredA percentage between 0.01 and 100.00, with up to two<br>decimal places                                                                                                                                                                                                                                                              | 422       |
+| Terms[].TermTemplates[].Schedule[].DayOfMonth       | OptionalInteger between 1 and 31. Only supported with a<br>month-based ChargeDateOffset.                                                                                                                                                                                                                                                    | 422       |
 
 **Asynchronous Errors**
 
@@ -2137,13 +2287,31 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 details about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code            | Error message                                                                 |
-| --------------------- | ----------------------------------------------------------------------------- |
-| INCOMPATIBLE\_PRODUCT | **`RenewalTerm isn't supported in private offers for the<br>product.`**       |
-| INCOMPATIBLE\_TERMS   | **`RenewalTerm isn't supported together with<br>PaymentScheduleTerm.`**       |
-| INCOMPATIBLE\_TERMS   | **`RenewalTerm isn't supported with the<br>PricingModel.`**                   |
-| INCOMPATIBLE\_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
-| INCOMPATIBLE\_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
+| Error code                                 | Error message                                                                                                                                                                                              |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DUPLICATE\_CHARGE\_DATE\_OFFSETS           | **`Provide unique ChargeDateOffset and DayOfMonth<br>combinations in PaymentScheduleTermTemplate.`**                                                                                                       |
+| INCOMPATIBLE\_PRODUCT                      | **`RenewalTerm isn't supported for ADX products with the<br>following fields: [LockoutPeriod, MaxRenewals, AdjustmentDeadline,<br>PriceIncrease].`**                                                       |
+| INCOMPATIBLE\_TERMS                        | **`RenewalTerm isn't supported with the<br>PricingModel.`**                                                                                                                                                |
+| INCOMPATIBLE\_TERMS                        | **`RenewalTerm isn't supported for public offers with the<br>following fields: [LockoutPeriod, MaxRenewals, AdjustmentDeadline,<br>PriceIncrease].`**                                                      |
+| INCOMPATIBLE\_TERMS                        | **`PaymentScheduleTermTemplate in RenewalTerm isn't<br>supported without a PaymentScheduleTerm in the<br>offer.`**                                                                                         |
+| INCOMPATIBLE\_TERMS                        | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                              |
+| INCOMPATIBLE\_TERMS                        | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                               |
+| INVALID\_ADJUSTMENT\_DEADLINE              | **`AdjustmentDeadline isn't supported with the provided<br>PriceIncrease.`**                                                                                                                               |
+| INVALID\_ADJUSTMENT\_DEADLINE              | **`Provide an AdjustmentDeadline that is at least 1 days<br>longer than LockoutPeriod in RenewalTerm.`**                                                                                                   |
+| INVALID\_ADJUSTMENT\_DEADLINE              | **`Provide an AdjustmentDeadline in RenewalTerm that is<br>less than agreement duration.`**                                                                                                                |
+| INVALID\_CHARGE\_DATE\_OFFSETS             | **`ChargeDateOffset(s) in PaymentScheduleTermTemplate may<br>fall beyond AgreementDuration. Provide ChargeDateOffset(s) that<br>are within AgreementDuration.`**                                           |
+| INVALID\_CHARGE\_DATE\_OFFSETS             | **`ChargeDateOffset(s) in PaymentScheduleTermTemplate may<br>fall beyond the duration between AgreementStartDate and<br>AgreementEndDate. Provide ChargeDateOffset(s) that are within<br>that duration.`** |
+| INVALID\_CHARGE\_PERCENTAGES               | **`ChargePercentage values in PaymentScheduleTermTemplate<br>in the RenewalTerm must sum to 100.`**                                                                                                        |
+| INVALID\_DAY\_OF\_MONTH                    | **`Multiple charges with ChargeDateOffset P0M can't each<br>specify DayOfMonth in<br>PaymentScheduleTermTemplate.`**                                                                                       |
+| INVALID\_DAY\_OF\_MONTH                    | **`Charges with ChargeDateOffset in the final month of<br>the agreement can't specify DayOfMonth in<br>PaymentScheduleTermTemplate.`**                                                                     |
+| INVALID\_LOCKOUT\_PERIOD                   | **`Provide a LockoutPeriod in RenewalTerm that is less<br>than agreement duration.`**                                                                                                                      |
+| INVALID\_PERCENTAGE\_RANGE                 | **`Provide a valid PercentageRange for PriceIncrease in<br>RenewalTerm.`**                                                                                                                                 |
+| INVALID\_PERCENTAGE\_RANGE                 | **`Use FixedPercentage instead of a PercentageRange with<br>equal MinValue and MaxValue for PriceIncrease in<br>RenewalTerm.`**                                                                            |
+| INVALID\_UPDATE\_REQUEST                   | **`The change type UpdateRenewalTerms isn't supported on a<br>renewal offer.`**                                                                                                                            |
+| MISSING\_ADJUSTMENT\_DEADLINE              | **`Provide an AdjustmentDeadline in RenewalTerm with the<br>provided PriceIncrease.`**                                                                                                                     |
+| MISSING\_MANDATORY\_TERMS                  | **`Provide a RenewalTerm for public offers with contract<br>pricing for the product.`**                                                                                                                    |
+| MISSING\_PAYMENT\_SCHEDULE\_TERM\_TEMPLATE | **`Provide a PaymentScheduleTermTemplate in RenewalTerm<br>when the offer contains a<br>PaymentScheduleTerm.`**                                                                                            |
+| MISSING\_PRICE\_INCREASE                   | **`Provide PriceIncrease in<br>RenewalTerm.`**                                                                                                                                                             |
 
 ## Publish an offer
 
