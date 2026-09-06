@@ -1,7 +1,8 @@
+
+
 # Quotas and limits
+<a name="quotas-and-limits"></a>
 
-You can view the supported regions, their associated endpoints, and quotas at [AWS Ground Station endpoints and quotas](../../../general/latest/gr/gs.md "../../../general/latest/gr/gs.md").
+ You can view the supported regions, their associated endpoints, and quotas at [AWS Ground Station endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/gs.html). 
 
-You can use the [Service Quotas console](https://console.aws.amazon.com/servicequotas "https://console.aws.amazon.com/servicequotas"), the [AWS API](../../../servicequotas/2019-06-24/apireference/Welcome.md "../../../servicequotas/2019-06-24/apireference/Welcome.md")
-and the [AWS CLI](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md")
-to request quota increases, when needed.
+ You can use the [Service Quotas console](https://console.aws.amazon.com/servicequotas), the [AWS API](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/Welcome.html) and the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide) to request quota increases, when needed. 

@@ -1,33 +1,21 @@
+
+
 # Get the current ephemeris for a satellite
+<a name="getting-current-ephemeris"></a>
 
-The current ephemeris in use by AWS Ground Station for a specific satellite can be retrieved by calling the
-[GetSatellite](../APIReference/API_GetSatellite.md "../APIReference/API_GetSatellite.md") or [ListSatellites](../APIReference/API_ListSatellites.md "../APIReference/API_ListSatellites.md") actions. Both of these methods will return
-metadata for the ephemeris currently in use. This ephemeris metadata is different for custom ephemerides uploaded
-to AWS Ground Station and for default ephemerides.
+ The current ephemeris in use by AWS Ground Station for a specific satellite can be retrieved by calling the [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) or [ListSatellites](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListSatellites.html) actions. Both of these methods will return metadata for the ephemeris currently in use. This ephemeris metadata is different for custom ephemerides uploaded to AWS Ground Station and for default ephemerides. 
 
-###### Note
+**Note**  
+ Azimuth elevation ephemerides are not associated with satellites and therefore are not returned by [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) or [ListSatellites](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListSatellites.html). To retrieve information about azimuth elevation ephemerides, use the [DescribeEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeEphemeris.html) API with the specific ephemeris ID, or use [ListEphemerides](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListEphemerides.html) to see all available ephemerides for your account. 
 
-Azimuth elevation ephemerides are not associated with satellites and therefore are not returned
-by [GetSatellite](../APIReference/API_GetSatellite.md "../APIReference/API_GetSatellite.md") or [ListSatellites](../APIReference/API_ListSatellites.md "../APIReference/API_ListSatellites.md"). To retrieve information
-about azimuth elevation ephemerides, use the [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md") API with the
-specific ephemeris ID, or use [ListEphemerides](../APIReference/API_ListEphemerides.md "../APIReference/API_ListEphemerides.md") to see all available ephemerides
-for your account.
+ Default Ephemerides will only include `source` and `epoch` fields. The `epoch` is the [epoch](https://en.wikipedia.org/wiki/Epoch_(astronomy)) of the [two-line element set](https://en.wikipedia.org/wiki/Two-line_element_set) that was pulled from [Space-Track](https://www.space-track.org/), and it is currently being used for computing the trajectory of the satellite. 
 
-Default Ephemerides will only include `source` and `epoch` fields. The
-`epoch` is the [epoch](<https://en.wikipedia.org/wiki/Epoch_(astronomy)> "https://en.wikipedia.org/wiki/Epoch_(astronomy)") of the
-[two-line element set](https://en.wikipedia.org/wiki/Two-line_element_set "https://en.wikipedia.org/wiki/Two-line_element_set") that was pulled from
-[Space-Track](https://www.space-track.org/ "https://www.space-track.org/"), and it is currently being used for computing the trajectory of the satellite.
+ A custom ephemeris will have a `source` value of `CUSTOMER_PROVIDED` and will include a unique identifier in the `ephemerisId` field. This unique identifier can be used to query for the ephemeris via the [DescribeEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeEphemeris.html) action. An optional `name` field will be returned if the ephemeris was assigned a name during upload to AWS Ground Station via the [CreateEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateEphemeris.html) action. 
 
-A custom ephemeris will have a `source` value of `CUSTOMER_PROVIDED` and will
-include a unique identifier in the `ephemerisId` field. This unique identifier can be used to query
-for the ephemeris via the [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md") action. An optional `name` field
-will be returned if the ephemeris was assigned a name during upload to AWS Ground Station via the
-[CreateEphemeris](../APIReference/API_CreateEphemeris.md "../APIReference/API_CreateEphemeris.md") action.
+ It is important to note that ephemerides are updated dynamically by AWS Ground Station so the returned data is only a snapshot of the ephemeris being used at the time of the call to the API. 
 
-It is important to note that ephemerides are updated dynamically by AWS Ground Station so the returned data is only
-a snapshot of the ephemeris being used at the time of the call to the API.
-
-## Example [GetSatellite](../APIReference/API_GetSatellite.md "../APIReference/API_GetSatellite.md") return for a satellite using a default ephemeris
+## Example [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) return for a satellite using a default ephemeris
+<a name="w2aac28c23c13"></a>
 
 ```
 {
@@ -45,7 +33,8 @@ a snapshot of the ephemeris being used at the time of the call to the API.
 }
 ```
 
-## Example [GetSatellite](../APIReference/API_GetSatellite.md "../APIReference/API_GetSatellite.md") for a satellite using a custom ephemeris
+## Example [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) for a satellite using a custom ephemeris
+<a name="w2aac28c23c15"></a>
 
 ```
 {
@@ -65,17 +54,17 @@ a snapshot of the ephemeris being used at the time of the call to the API.
 ```
 
 ## Listing azimuth elevation ephemerides
+<a name="w2aac28c23c17"></a>
 
-Since azimuth elevation ephemerides are not associated with satellites, you need to use different
-APIs to discover and retrieve information about them:
+ Since azimuth elevation ephemerides are not associated with satellites, you need to use different APIs to discover and retrieve information about them: 
 
-1. Use [ListEphemerides](../APIReference/API_ListEphemerides.md "../APIReference/API_ListEphemerides.md") to list all ephemerides in your account, including
-   azimuth elevation ephemerides. You can filter by status and ephemeris type.
-2. Use [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md") with a specific ephemeris ID to get detailed
-   information about an azimuth elevation ephemeris.
-3. Use [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") with a specific contact ID to get detailed information about an ephemeris used for the contact.
+1. Use [ListEphemerides](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListEphemerides.html) to list all ephemerides in your account, including azimuth elevation ephemerides. You can filter by status and ephemeris type.
 
-Example [ListEphemerides](../APIReference/API_ListEphemerides.md "../APIReference/API_ListEphemerides.md") response including an azimuth elevation ephemeris:
+1. Use [DescribeEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeEphemeris.html) with a specific ephemeris ID to get detailed information about an azimuth elevation ephemeris.
+
+1. Use [DescribeContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeContact.html) with a specific contact ID to get detailed information about an ephemeris used for the contact.
+
+ Example [ListEphemerides](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListEphemerides.html) response including an azimuth elevation ephemeris: 
 
 ```
 {
@@ -98,8 +87,5 @@ Example [ListEphemerides](../APIReference/API_ListEphemerides.md "../APIReferenc
 }
 ```
 
-###### Note
-
-In the [ListEphemerides](../APIReference/API_ListEphemerides.md "../APIReference/API_ListEphemerides.md") response, azimuth elevation ephemerides will have
-a `groundStation` field instead of a `satelliteId` field,
-making them easy to identify.
+**Note**  
+ In the [ListEphemerides](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListEphemerides.html) response, azimuth elevation ephemerides will have a `groundStation` field instead of a `satelliteId` field, making them easy to identify. 

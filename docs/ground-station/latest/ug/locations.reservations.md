@@ -1,47 +1,32 @@
+
+
 # View ground station reservations
+<a name="locations.reservations"></a>
 
-You can view reservations across antennas at a ground station by using the
-[ListGroundStationReservations](../APIReference/API_ListGroundStationReservations.md "../APIReference/API_ListGroundStationReservations.md")
-API. Reservations represent time blocks on antennas, including your scheduled contacts.
-[AWS Ground Station Dedicated Antennas](dedicated-antennas.md "dedicated-antennas.md") customers also see maintenance windows.
+ You can view reservations across antennas at a ground station by using the [ListGroundStationReservations](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListGroundStationReservations.html) API. Reservations represent time blocks on antennas, including your scheduled contacts. [AWS Ground Station Dedicated Antennas](dedicated-antennas.md) customers also see maintenance windows. 
 
-This information helps you understand antenna availability when planning contact schedules
-and provides visibility into what is happening on the antennas at a ground station.
+ This information helps you understand antenna availability when planning contact schedules and provides visibility into what is happening on the antennas at a ground station. 
 
 ## Listing reservations
+<a name="locations.reservations.listing"></a>
 
-To list reservations, call [ListGroundStationReservations](../APIReference/API_ListGroundStationReservations.md "../APIReference/API_ListGroundStationReservations.md")
-with a ground station identifier and a time range. The API returns reservations across all
-antennas at the ground station within the specified time window.
+ To list reservations, call [ListGroundStationReservations](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListGroundStationReservations.html) with a ground station identifier and a time range. The API returns reservations across all antennas at the ground station within the specified time window. 
 
-The reservations you see depend on your access level:
-
-- **Public AWS Ground Station customers** — You can see
-  only your own contact reservations. Maintenance windows and contacts owned by other
-  accounts are not included.
-- **AWS Ground Station Dedicated Antennas customers** —
-  You can see all reservations on your Dedicated Antennas, including maintenance windows
-  and contacts scheduled by other accounts. Contact identifiers are only included for
-  contacts that you own. For more information, see
-  [AWS Ground Station Dedicated Antennas](dedicated-antennas.md "dedicated-antennas.md").
+ The reservations you see depend on your access level: 
++  **Public AWS Ground Station customers** — You can see only your own contact reservations. Maintenance windows and contacts owned by other accounts are not included. 
++  **AWS Ground Station Dedicated Antennas customers** — You can see all reservations on your Dedicated Antennas, including maintenance windows and contacts scheduled by other accounts. Contact identifiers are only included for contacts that you own. For more information, see [AWS Ground Station Dedicated Antennas](dedicated-antennas.md). 
 
 ## Reservation types
+<a name="locations.reservations.types"></a>
 
 Each reservation has a type that indicates what the antenna time is being used for:
-
-- **Contact** — A contact reservation represents
-  antenna time reserved for satellite communication. The reservation start and end
-  times reflect the full antenna reservation, including pre-pass and post-pass time,
-  not just the satellite pass window.
-- **Maintenance** — A maintenance reservation
-  represents a time period when the antenna is unavailable due to maintenance. Maintenance
-  reservations include a `maintenanceType` that indicates whether the maintenance
-  was planned or unplanned.
++  **Contact** — A contact reservation represents antenna time reserved for satellite communication. The reservation start and end times reflect the full antenna reservation, including pre-pass and post-pass time, not just the satellite pass window. 
++  **Maintenance** — A maintenance reservation represents a time period when the antenna is unavailable due to maintenance. Maintenance reservations include a `maintenanceType` that indicates whether the maintenance was planned or unplanned. 
 
 ## Code example
+<a name="locations.reservations.examples"></a>
 
-The following example lists reservations at a ground station for the next 7 days using
-the AWS SDK for Python (Boto3), including filtering by reservation type.
+ The following example lists reservations at a ground station for the next 7 days using the AWS SDK for Python (Boto3), including filtering by reservation type. 
 
 ```
 import boto3
@@ -120,5 +105,4 @@ for page in page_iterator:
             f"  {maintenance_type} maintenance on {reservation['antennaName']}: "
             f"{reservation['startTime']} to {reservation['endTime']}"
         )
-
 ```

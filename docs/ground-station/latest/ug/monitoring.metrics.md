@@ -1,251 +1,215 @@
+
+
 # View metrics with Amazon CloudWatch
+<a name="monitoring.metrics"></a>
 
-During a contact, AWS Ground Station automatically captures and sends data to CloudWatch for analysis. Your
-data can be viewed in the Amazon CloudWatch console. For more information about accessing and CloudWatch
-Metrics, see [Using Amazon CloudWatch
-Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md").
+During a contact, AWS Ground Station automatically captures and sends data to CloudWatch for analysis. Your data can be viewed in the Amazon CloudWatch console. For more information about accessing and CloudWatch Metrics, see [Using Amazon CloudWatch Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html). 
 
-The AWS Ground Station telemetry feature can also be used to receive near real-time metrics during contacts.
-CloudWatch metrics are not available in near real-time and may have delays in delivery. CloudWatch also
-aggregates metrics over a one-second period, potentially reducing data granularity.
-The telemetry feature provides the individual metrics and delivers them in near real-time
-directly to your AWS account. For more information, see
-[Work with telemetry](telemetry.md "telemetry.md").
+The AWS Ground Station telemetry feature can also be used to receive near real-time metrics during contacts. CloudWatch metrics are not available in near real-time and may have delays in delivery. CloudWatch also aggregates metrics over a one-second period, potentially reducing data granularity. The telemetry feature provides the individual metrics and delivers them in near real-time directly to your AWS account. For more information, see [Work with telemetry](telemetry.md).
 
-###### Important
-
-AWS Ground Station emits CloudWatch metrics to the AWS region associated with the contact's ground station
-location, not the AWS region from which the contact was scheduled. To view metrics for a
-contact, you must access CloudWatch in the ground station region. For information about which AWS
-region is associated with each ground station location, see [Finding the AWS region for a ground station location](aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions "aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions").
-To receive telemetry data in the region from which you schedule your contacts, you can use the
-AWS Ground Station telemetry feature. See [Work with telemetry](telemetry.md "telemetry.md") for more details.
+**Important**  
+ AWS Ground Station emits CloudWatch metrics to the AWS region associated with the contact's ground station location, not the AWS region from which the contact was scheduled. To view metrics for a contact, you must access CloudWatch in the ground station region. For information about which AWS region is associated with each ground station location, see [Finding the AWS region for a ground station location](aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions). To receive telemetry data in the region from which you schedule your contacts, you can use the AWS Ground Station telemetry feature. See [Work with telemetry](telemetry.md) for more details. 
 
 ## AWS Ground Station Metrics and Dimensions
+<a name="monitoring.metrics.metrics-and-dimensions"></a>
 
 ### What metrics are available?
+<a name="monitoring.metrics.metrics-and-dimensions.available-metrics"></a>
 
-The following metrics are available from AWS Ground Station.
+ The following metrics are available from AWS Ground Station. 
 
-###### Note
+**Note**  
+ The specific metrics emitted depend on the AWS Ground Station capabilities being used. Depending on your configuration, only a subset of the below metrics may be emitted. 
 
-The specific metrics emitted depend on the AWS Ground Station capabilities being used. Depending on
-your configuration, only a subset of the below metrics may be emitted.
 
-| Metric                                        | Metric Dimensions                  | Description                                                                                                                                                                                                     |
-| --------------------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AzimuthAngle`                                | SatelliteId                        | The azimuth angle of the antenna. True north is 0 degrees and east is 90<br>degrees.<br>Units: degrees                                                                                                          |
-| `BitErrorRate`                                | Channel, Polarization, SatelliteId | The error rate on bits in a given number of bit transmissions. Bit errors are<br>caused by noise, distortion, or interference<br>Units: Bits errors per unit time                                               |
-| `BlockErrorRate`                              | Channel, Polarization, SatelliteId | The error rate of blocks in a given number of received blocks. Block errors<br>are caused by interference.<br>Units: Erroneous blocks / Total number of blocks                                                  |
-| `CarrierFrequencyRecovery_Cn0`                | Category, Config, SatelliteId      | Carrier to noise density ratio per unit bandwidth.<br>Units: decibel-Hertz (dB-Hz)                                                                                                                              |
-| `CarrierFrequencyRecovery_Locked`             | Category, Config, SatelliteId      | Set to 1 when the demodulator carrier frequency recovery loop is locked and 0<br>when unlocked.<br>Units: unitless                                                                                              |
-| `CarrierFrequencyRecovery_OffsetFrequency_Hz` | Category, Config, SatelliteId      | The offset between the estimated signal center and ideal center frequency.<br>This is<br>caused by Doppler shift and local oscillator offset between spacecraft and antenna<br>system.<br>Units: hertz (Hz)     |
-| `ElevationAngle`                              | SatelliteId                        | The elevation angle of the antenna. The horizon is 0 degrees and zenith is 90<br>degrees.<br>Units: degrees                                                                                                     |
-| `Es/N0`                                       | Channel, Polarization, SatelliteId | The ratio of energy per symbol to noise power spectral density.<br>Units: decibels (dB)                                                                                                                         |
-| `ReceivedPower`                               | Polarization, SatelliteId          | The measured signal strength in the demodulator/decoder.<br>Units: decibels relative to milliwatts (dBm)                                                                                                        |
-| `SymbolTimingRecovery_ErrorVectorMagnitude`   | Category, Config, SatelliteId      | The error vector magnitude between received symbols and ideal constellation<br>points.<br>Units: percent                                                                                                        |
-| `SymbolTimingRecovery_Locked`                 | Category, Config, SatelliteId      | Set to 1 when the demodulator symbol timing recovery loop is locked and 0 when<br>unlocked<br>Units: unitless                                                                                                   |
-| `SymbolTimingRecovery_OffsetSymbolRate`       | Category, Config, SatelliteId      | The offset between the estimated symbol rate and ideal signal symbol rate.<br>This is<br>caused by Doppler shift and local oscillator offset between spacecraft and antenna<br>system.<br>Units: symbols/second |
+| Metric | Metric Dimensions | Description | 
+| --- | --- | --- | 
+|  `AzimuthAngle`  | SatelliteId | The azimuth angle of the antenna. True north is 0 degrees and east is 90 degrees. <br />Units: degrees | 
+|  `BitErrorRate`  | Channel, Polarization, SatelliteId | The error rate on bits in a given number of bit transmissions. Bit errors are caused by noise, distortion, or interference <br />Units: Bits errors per unit time | 
+|  `BlockErrorRate`  | Channel, Polarization, SatelliteId | The error rate of blocks in a given number of received blocks. Block errors are caused by interference. <br />Units: Erroneous blocks / Total number of blocks | 
+|  `CarrierFrequencyRecovery_Cn0`  | Category, Config, SatelliteId | Carrier to noise density ratio per unit bandwidth.<br />Units: decibel-Hertz (dB-Hz) | 
+|  `CarrierFrequencyRecovery_Locked`  | Category, Config, SatelliteId | Set to 1 when the demodulator carrier frequency recovery loop is locked and 0 when unlocked. <br />Units: unitless | 
+|  `CarrierFrequencyRecovery_OffsetFrequency_Hz`  | Category, Config, SatelliteId | The offset between the estimated signal center and ideal center frequency. This is caused by Doppler shift and local oscillator offset between spacecraft and antenna system. <br />Units: hertz (Hz) | 
+|  `ElevationAngle`  | SatelliteId | The elevation angle of the antenna. The horizon is 0 degrees and zenith is 90 degrees. <br />Units: degrees | 
+|  `Es/N0`  | Channel, Polarization, SatelliteId | The ratio of energy per symbol to noise power spectral density.<br />Units: decibels (dB) | 
+|  `ReceivedPower`  | Polarization, SatelliteId | The measured signal strength in the demodulator/decoder.<br />Units: decibels relative to milliwatts (dBm) | 
+|  `SymbolTimingRecovery_ErrorVectorMagnitude`  | Category, Config, SatelliteId | The error vector magnitude between received symbols and ideal constellation points. <br />Units: percent | 
+|  `SymbolTimingRecovery_Locked`  | Category, Config, SatelliteId | Set to 1 when the demodulator symbol timing recovery loop is locked and 0 when unlocked <br />Units: unitless | 
+|  `SymbolTimingRecovery_OffsetSymbolRate`  | Category, Config, SatelliteId | The offset between the estimated symbol rate and ideal signal symbol rate. This is caused by Doppler shift and local oscillator offset between spacecraft and antenna system. <br />Units: symbols/second | 
 
 ### What dimensions are used for AWS Ground Station?
+<a name="monitoring.metrics.metrics-and-dimensions.metric-dimensions"></a>
 
-You can filter AWS Ground Station data using the following dimensions.
+ You can filter AWS Ground Station data using the following dimensions. 
 
-| Dimension      | Description                                                                                                                  |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `Category`     | Demodulation or Decode.                                                                                                      |
-| `Channel`      | The channels for each contact include One, Two, I (in-phase), and Q<br>(quadrature).                                         |
-| `Config`       | An antenna downlink demod decode config arn.                                                                                 |
-| `Polarization` | The polarization for each contact include LHCP (Left Hand Circular Polarized)<br>or RHCP<br>(Right Hand Circular Polarized). |
-| `SatelliteId`  | The satellite ID contains the ARN of the satellite for your contacts.                                                        |
+
+| Dimension | Description | 
+| --- | --- | 
+|  `Category`  | Demodulation or Decode. | 
+|  `Channel`  | The channels for each contact include One, Two, I (in-phase), and Q (quadrature). | 
+|  `Config`  | An antenna downlink demod decode config arn. | 
+|  `Polarization`  | The polarization for each contact include LHCP (Left Hand Circular Polarized) or RHCP (Right Hand Circular Polarized).  | 
+|  `SatelliteId`  | The satellite ID contains the ARN of the satellite for your contacts. | 
 
 ## Viewing Metrics
+<a name="monitoring.metrics.viewing-metrics"></a>
 
-When viewing graphed metrics, it is important to note that the aggregation window
-determines how your metrics will be displayed. Each metric in a contact can be displayed as
-data per second for 3 hours after the data is received. Your data will be aggregated by CloudWatch
-Metrics as data per minute after that 3-hour period has elapsed. If you need to view your
-metrics on a data per second measurement, it is recommended to view your data within the
-3-hour period after the data is received or persist it outside of CloudWatch Metrics. For more
-information on CloudWatch retention, see [Amazon
-CloudWatch concepts - Metric retention](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#metrics-retention "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#metrics-retention").
+ When viewing graphed metrics, it is important to note that the aggregation window determines how your metrics will be displayed. Each metric in a contact can be displayed as data per second for 3 hours after the data is received. Your data will be aggregated by CloudWatch Metrics as data per minute after that 3-hour period has elapsed. If you need to view your metrics on a data per second measurement, it is recommended to view your data within the 3-hour period after the data is received or persist it outside of CloudWatch Metrics. For more information on CloudWatch retention, see [Amazon CloudWatch concepts - Metric retention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#metrics-retention). 
 
-In addition, any data captured within the first 60 seconds will not contain enough information
-to produce meaningful metrics, and will likely not be displayed. In order to view meaningful
-metrics, it is recommended to view your data after 60 seconds has passed.
+ In addition, any data captured within the first 60 seconds will not contain enough information to produce meaningful metrics, and will likely not be displayed. In order to view meaningful metrics, it is recommended to view your data after 60 seconds has passed. 
 
-![Graph showing pass metrics with dBm and error rate lines over time during 11 minutes of a contact.](images/viewing-metrics.png)
+ ![Graph showing pass metrics with dBm and error rate lines over time during 11 minutes of a contact.](http://docs.aws.amazon.com/ground-station/latest/ug/images/viewing-metrics.png) 
 
-For more information about graphing AWS Ground Station metrics in CloudWatch, see [Graphing
-Metrics](../../../AmazonCloudWatch/latest/monitoring/graph_metrics.md "../../../AmazonCloudWatch/latest/monitoring/graph_metrics.md").
+ For more information about graphing AWS Ground Station metrics in CloudWatch, see [Graphing Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph_metrics.html). 
 
 ### To view metrics using the console
+<a name="monitoring.metrics.viewing-metrics.metrics-using-console"></a>
 
-1. Determine the AWS region associated with your ground station location. AWS Ground Station
-   emits CloudWatch metrics in the region associated with your contact's ground station location.
-   For the list of ground station locations and their associated AWS regions, see [Finding the AWS region for a ground station location](aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions "aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions").
-2. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
-3. In the navigation pane, choose **Metrics**.
-4. Select the **GroundStation** namespace.
+1.  Determine the AWS region associated with your ground station location. AWS Ground Station emits CloudWatch metrics in the region associated with your contact's ground station location. For the list of ground station locations and their associated AWS regions, see [Finding the AWS region for a ground station location](aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions). 
 
-![Interface showing metrics categorized by AWS services used, including a tile for AWS Ground Station, which will appear after metrics have been emitted from the service.](images/GroundStation-namespace.png) 5. Select your desired metric dimensions (for example, **Channel,
-Polarization, SatelliteId**).
+1.  Open the [ CloudWatch console](https://console.aws.amazon.com/cloudwatch). 
 
-![Metrics interface showing "All metrics" tab with metrics grouped by dimensions, "Channel, Polarization, SatelliteId" and "Polarization, SatelliteId."](images/metric-dimensions.png) 6. The **All metrics** tab displays all metrics for that
-dimension in the namespace. You can do the following:
+1.  In the navigation pane, choose **Metrics**.
 
-    1. To sort the table, use the column heading.
-    2. To graph a metric, select the checkbox associated with the metric. To select
-     all
-     metrics, select the checkbox in the heading row of the table.
-    3. To filter by resource, choose the resource ID and then choose **Add to search**.
-    4. To filter by metric, choose the metric name and then choose **Add to search**.
+1.  Select the **GroundStation** namespace.
+
+    ![Interface showing metrics categorized by AWS services used, including a tile for AWS Ground Station, which will appear after metrics have been emitted from the service.](http://docs.aws.amazon.com/ground-station/latest/ug/images/GroundStation-namespace.png) 
+
+1.  Select your desired metric dimensions (for example, **Channel, Polarization, SatelliteId**).
+
+    ![Metrics interface showing "All metrics" tab with metrics grouped by dimensions, "Channel, Polarization, SatelliteId" and "Polarization, SatelliteId."](http://docs.aws.amazon.com/ground-station/latest/ug/images/metric-dimensions.png) 
+
+1.  The **All metrics** tab displays all metrics for that dimension in the namespace. You can do the following:
+
+   1.  To sort the table, use the column heading. 
+
+   1.  To graph a metric, select the checkbox associated with the metric. To select all metrics, select the checkbox in the heading row of the table. 
+
+   1.  To filter by resource, choose the resource ID and then choose **Add to search**. 
+
+   1.  To filter by metric, choose the metric name and then choose **Add to search**. 
 
 ### To view metrics using AWS CLI
+<a name="monitoring.metrics.viewing-metrics.metrics-using-cli"></a>
 
-AWS Ground Station emits CloudWatch metrics in the region associated with your contact's ground station
-location. For the list of ground station locations their associated AWS regions, [Finding the AWS region for a ground station location](aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions "aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions"). Replace `ground-station-region-code` with the AWS region code for your ground station
-location (for example, `us-west-2` for Oregon 1, Hawaii 1, or Alaska 1). All
-subsequent AWS CLI commands in this procedure must use the same region.
+ AWS Ground Station emits CloudWatch metrics in the region associated with your contact's ground station location. For the list of ground station locations their associated AWS regions, [Finding the AWS region for a ground station location](aws-ground-station-antenna-locations.md#aws-ground-station-antenna-locations.antenna-regions). Replace {{ ground-station-region-code}} with the AWS region code for your ground station location (for example, `us-west-2` for Oregon 1, Hawaii 1, or Alaska 1). All subsequent AWS CLI commands in this procedure must use the same region. 
 
-1. Ensure that AWS CLI is installed. For information about installing AWS CLI, see [Installing the AWS
-   CLI version 2](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md").
-2. Identify the AWS region associated with your ground station location.
-3. Use the [get-metric-data](../../../cli/latest/reference/cloudwatch/get-metric-data.md "../../../cli/latest/reference/cloudwatch/get-metric-data.md")
-   method of the CloudWatch CLI to generate a file that can be modified to specify the metrics
-   that you're interested in, and then be used to query for those metrics.
+1.  Ensure that AWS CLI is installed. For information about installing AWS CLI, see [Installing the AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html). 
 
-To do this, run the following: `aws cloudwatch get-metric-data --region `ground-station-region-code` --generate-cli-skeleton`. This will generate
-output similar to:
+1.  Identify the AWS region associated with your ground station location.
 
-```
+1.  Use the [get-metric-data](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/get-metric-data.html) method of the CloudWatch CLI to generate a file that can be modified to specify the metrics that you're interested in, and then be used to query for those metrics. 
 
-        {
-           "MetricDataQueries": [
-              {
-                 "Id": "",
-                 "MetricStat": {
-                    "Metric": {
-                       "Namespace": "",
-                       "MetricName": "",
-                       "Dimensions": [
-                          {
-                             "Name": "",
-                             "Value": ""
-                          }
-                       ]
+    To do this, run the following: `aws cloudwatch get-metric-data --region {{ ground-station-region-code}} --generate-cli-skeleton`. This will generate output similar to: 
+
+   ```
+           {
+              "MetricDataQueries": [
+                 {
+                    "Id": "",
+                    "MetricStat": {
+                       "Metric": {
+                          "Namespace": "",
+                          "MetricName": "",
+                          "Dimensions": [
+                             {
+                                "Name": "",
+                                "Value": ""
+                             }
+                          ]
+                       },
+                       "Period": 0,
+                       "Stat": "",
+                       "Unit": "Seconds"
                     },
+                    "Expression": "",
+                    "Label": "",
+                    "ReturnData": true,
                     "Period": 0,
-                    "Stat": "",
-                    "Unit": "Seconds"
-                 },
-                 "Expression": "",
-                 "Label": "",
-                 "ReturnData": true,
-                 "Period": 0,
-                 "AccountId": ""
-              } ],
-           "StartTime": "1970-01-01T00:00:00",
-           "EndTime": "1970-01-01T00:00:00",
-           "NextToken": "",
-           "ScanBy": "TimestampDescending",
-           "MaxDatapoints": 0,
-           "LabelOptions": {
-              "Timezone": ""
-           }
-        }
-
-```
-
-4. List the available CloudWatch metrics by running `aws cloudwatch list-metrics
- --region `ground-station-region-code`` .
-
-If you've recently used AWS Ground Station, the method should return output that contains entries
-like:
-
-```
-
-        ...
-        {
-           "Namespace": "AWS/GroundStation",
-           "MetricName": "ReceivedPower",
-           "Dimensions": [
-              {
-                 "Name": "Polarization",
-                 "Value": "LHCP"
-              },
-              {
-                 "Name": "SatelliteId",
-                 "Value": "arn:aws:groundstation::111111111111:satellite/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+                    "AccountId": ""
+                 } ],
+              "StartTime": "1970-01-01T00:00:00",
+              "EndTime": "1970-01-01T00:00:00",
+              "NextToken": "",
+              "ScanBy": "TimestampDescending",
+              "MaxDatapoints": 0,
+              "LabelOptions": {
+                 "Timezone": ""
               }
-           ]
-       },
-       ...
+           }
+   ```
 
-```
+1. List the available CloudWatch metrics by running `aws cloudwatch list-metrics --region {{ground-station-region-code}}` .
 
-###### Note
+   If you've recently used AWS Ground Station, the method should return output that contains entries like: 
 
-If it's been over 2 weeks since you last used AWS Ground Station, then you will need to
-manually inspect the [table of
-available metrics](#monitoring.metrics.metrics-and-dimensions.available-metrics "#monitoring.metrics.metrics-and-dimensions.available-metrics") to find the metric names and dimensions in the `AWS/GroundStation` metric namespace. For more information about CloudWatch limitations
-see: [View
-available metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") 5. Modify the JSON file you created in step 2 to match the required values from step
-3, for example `SatelliteId`, and `Polarization` from your
-metrics. Also be sure to update the `StartTime`, and `EndTime`
-values to match your contact. For example:
+   ```
+           ...
+           {
+              "Namespace": "AWS/GroundStation",
+              "MetricName": "ReceivedPower",
+              "Dimensions": [
+                 {
+                    "Name": "Polarization",
+                    "Value": "LHCP"
+                 },
+                 {
+                    "Name": "SatelliteId",
+                    "Value": "arn:aws:groundstation::111111111111:satellite/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+                 }
+              ]
+          },
+          ...
+   ```
+**Note**  
+ If it's been over 2 weeks since you last used AWS Ground Station, then you will need to manually inspect the [table of available metrics](#monitoring.metrics.metrics-and-dimensions.available-metrics) to find the metric names and dimensions in the ` AWS/GroundStation` metric namespace. For more information about CloudWatch limitations see: [View available metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html) 
 
-```
+1.  Modify the JSON file you created in step 2 to match the required values from step 3, for example `SatelliteId`, and `Polarization` from your metrics. Also be sure to update the `StartTime`, and `EndTime` values to match your contact. For example:
 
-         {
-            "MetricDataQueries": [
-               {
-                  "Id": "receivedPowerExample",
-                  "MetricStat": {
-                     "Metric": {
-                        "Namespace": "AWS/GroundStation",
-                        "MetricName": "ReceivedPower",
-                        "Dimensions": [
-                           {
-                              "Name": "SatelliteId",
-                              "Value": "arn:aws:groundstation::111111111111:satellite/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
-                           },
-                           {
-                              "Name": "Polarization",
-                              "Value": "RHCP"
-                           }
-                        ]
+   ```
+            {
+               "MetricDataQueries": [
+                  {
+                     "Id": "receivedPowerExample",
+                     "MetricStat": {
+                        "Metric": {
+                           "Namespace": "AWS/GroundStation",
+                           "MetricName": "ReceivedPower",
+                           "Dimensions": [
+                              {
+                                 "Name": "SatelliteId",
+                                 "Value": "arn:aws:groundstation::111111111111:satellite/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+                              },
+                              {
+                                 "Name": "Polarization",
+                                 "Value": "RHCP"
+                              }
+                           ]
+                        },
+                        "Period": 300,
+                        "Stat": "Maximum",
+                        "Unit": "None"
                      },
-                     "Period": 300,
-                     "Stat": "Maximum",
-                     "Unit": "None"
-                  },
-                  "Label": "ReceivedPowerExample",
-                  "ReturnData": true
-               }
-            ],
-            "StartTime": "2024-02-08T00:00:00",
-            "EndTime": "2024-04-09T00:00:00"
-         }
+                     "Label": "ReceivedPowerExample",
+                     "ReturnData": true
+                  }
+               ],
+               "StartTime": "2024-02-08T00:00:00",
+               "EndTime": "2024-04-09T00:00:00"
+            }
+   ```
+**Note**  
+ AWS Ground Station publishes metrics every 1 to 60 seconds, depending on the metric. Metrics will not be returned if the `Period` field has a value less than the publishing period for the metric. 
+
+1.  Run `aws cloudwatch get-metric-data` with the configuration file created in the previous steps. An example is provided below. 
+
+   ```
+   aws cloudwatch get-metric-data --region {{ground-station-region-code}} --cli-input-json file://<nameOfConfigurationFileCreatedInStep2>.json
+   ```
+
+ Metrics will be provided with timestamps from your contact. An example output of AWS Ground Station metrics is provided below.
 
 ```
-
-###### Note
-
-AWS Ground Station publishes metrics every 1 to 60 seconds, depending on the metric. Metrics
-will not be returned if the `Period` field has a value less than the
-publishing period for the metric. 6. Run `aws cloudwatch get-metric-data` with the configuration file created
-in the previous steps. An example is provided below.
-
-```
-aws cloudwatch get-metric-data --region `ground-station-region-code` --cli-input-json file://<nameOfConfigurationFileCreatedInStep2>.json
-```
-
-Metrics will be provided with timestamps from your contact. An example output of AWS Ground Station
-metrics is provided below.
-
-```
-
 {
    "MetricDataResults": [
       {
@@ -266,5 +230,4 @@ metrics is provided below.
    ],
    "Messages": []
 }
-
 ```

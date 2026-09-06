@@ -1,43 +1,36 @@
+
+
 # Reserve contacts with custom ephemeris
+<a name="reserving-contacts-with-custom-ephemeris"></a>
 
 ## Overview
+<a name="w2aac28c19b3"></a>
 
-When using custom ephemeris (TLE, OEM, or azimuth elevation), you can reserve contacts using the
-[ReserveContact](../APIReference/API_ReserveContact.md "../APIReference/API_ReserveContact.md") API.
-This section describes two common workflows for reserving contacts and important considerations for ensuring successful contact scheduling.
+ When using custom ephemeris (TLE, OEM, or azimuth elevation), you can reserve contacts using the [ReserveContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ReserveContact.html) API. This section describes two common workflows for reserving contacts and important considerations for ensuring successful contact scheduling. 
 
-AWS Ground Station antennas are shared resources among multiple customers. This means that even if a contact
-window appears available when you list contacts, another customer might reserve it before you do.
-Therefore, it's crucial to verify that your contact reaches the `SCHEDULED` state
-after reservation and to implement proper monitoring for contact state changes.
+ AWS Ground Station antennas are shared resources among multiple customers. This means that even if a contact window appears available when you list contacts, another customer might reserve it before you do. Therefore, it's crucial to verify that your contact reaches the `SCHEDULED` state after reservation and to implement proper monitoring for contact state changes. 
 
-###### Important
-
-For azimuth elevation ephemeris, the `satelliteArn` parameter may be omitted
-from the `ReserveContact` request, and you must provide `trackingOverrides`
-with the ephemeris ID. For TLE and OEM ephemeris, you still need to provide the `satelliteArn`.
+**Important**  
+ For azimuth elevation ephemeris, the `satelliteArn` parameter may be omitted from the `ReserveContact` request, and you must provide `trackingOverrides` with the ephemeris ID. For TLE and OEM ephemeris, you still need to provide the `satelliteArn`. 
 
 ## Contact reservation workflows
+<a name="w2aac28c19b5"></a>
 
-There are two primary workflows for reserving contacts with custom ephemeris:
+ There are two primary workflows for reserving contacts with custom ephemeris: 
 
-1. _List-then-reserve workflow:_ First list available contact windows using
-   [ListContacts](../APIReference/API_ListContacts.md "../APIReference/API_ListContacts.md"),
-   then select and reserve a specific window. This approach is useful when you want to see all available
-   opportunities before making a selection.
-2. _Direct reservation workflow:_ Directly reserve a contact for a specific
-   time window without first listing available contacts. This approach is useful when you already know
-   your desired contact time or are working with predetermined schedules.
+1. *List-then-reserve workflow:* First list available contact windows using [ListContacts](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListContacts.html), then select and reserve a specific window. This approach is useful when you want to see all available opportunities before making a selection.
 
-Both workflows are valid and the choice depends on your operational requirements. The following
-sections provide examples of each approach.
+1. *Direct reservation workflow:* Directly reserve a contact for a specific time window without first listing available contacts. This approach is useful when you already know your desired contact time or are working with predetermined schedules.
+
+ Both workflows are valid and the choice depends on your operational requirements. The following sections provide examples of each approach. 
 
 ## Workflow 1: List available contacts then reserve
+<a name="w2aac28c19b7"></a>
 
-This workflow first queries for available contact windows, then reserves a specific window.
-This is useful when you want to see all available opportunities before making a selection.
+ This workflow first queries for available contact windows, then reserves a specific window. This is useful when you want to see all available opportunities before making a selection. 
 
 ### Example: List and reserve with azimuth elevation ephemeris
+<a name="w2aac28c19b7b5"></a>
 
 ```
 import boto3
@@ -126,10 +119,10 @@ if contacts["contactList"]:
     print(f"Reserved contact: {reservation['contactId']}")
 else:
     print("No available contacts found")
-
 ```
 
 ### Example: List and reserve with TLE ephemeris
+<a name="w2aac28c19b7b7"></a>
 
 ```
 import boto3
@@ -213,15 +206,15 @@ if contacts["contactList"]:
     print(f"Reserved contact: {reservation['contactId']}")
 else:
     print("No available contacts found")
-
 ```
 
 ## Workflow 2: Direct contact reservation
+<a name="w2aac28c19b9"></a>
 
-This workflow directly reserves a contact without first listing available windows. This approach
-is useful when you already know your desired contact time or are implementing automated scheduling.
+ This workflow directly reserves a contact without first listing available windows. This approach is useful when you already know your desired contact time or are implementing automated scheduling. 
 
 ### Example: Direct reservation with azimuth elevation ephemeris
+<a name="w2aac28c19b9b5"></a>
 
 ```
 import boto3
@@ -296,10 +289,10 @@ reservation = ground_station_client.reserve_contact(
 )
 
 print(f"Reserved contact: {reservation['contactId']}")
-
 ```
 
 ### Example: Direct reservation with TLE ephemeris
+<a name="w2aac28c19b9b7"></a>
 
 ```
 import boto3
@@ -369,47 +362,43 @@ reservation = ground_station_client.reserve_contact(
 )
 
 print(f"Reserved contact: {reservation['contactId']}")
-
 ```
 
 ## Monitoring contact state changes
+<a name="w2aac28c19c11"></a>
 
-After reserving a contact, it's important to monitor its state to ensure it successfully transitions
-to `SCHEDULED` and to be notified of any issues. AWS Ground Station emits events to
-Amazon EventBridge for all contact state changes.
+ After reserving a contact, it's important to monitor its state to ensure it successfully transitions to `SCHEDULED` and to be notified of any issues. AWS Ground Station emits events to Amazon EventBridge for all contact state changes. 
 
-Contact states follow this lifecycle:
+ Contact states follow this lifecycle: 
++ `SCHEDULING` - The contact is being processed for scheduling
++ `SCHEDULED` - The contact was successfully scheduled and will execute
++ `FAILED_TO_SCHEDULE` - The contact could not be scheduled (terminal state)
 
-- `SCHEDULING` - The contact is being processed for scheduling
-- `SCHEDULED` - The contact was successfully scheduled and will execute
-- `FAILED_TO_SCHEDULE` - The contact could not be scheduled (terminal state)
-
-For more information on contact states and lifecycle, see
-[Understand contact lifecycle](contacts.lifecycle.md "contacts.lifecycle.md").
+ For more information on contact states and lifecycle, see [Understand contact lifecycle](contacts.lifecycle.md). 
 
 ### Implementing contact state monitoring with EventBridge
+<a name="w2aac28c19c11c11"></a>
 
-To monitor contact state changes in real-time, you can set up an Amazon EventBridge rule that triggers
-a Lambda function whenever a Ground Station contact changes state. This approach is more efficient and
-scalable than polling the contact status.
+ To monitor contact state changes in real-time, you can set up an Amazon EventBridge rule that triggers a Lambda function whenever a Ground Station contact changes state. This approach is more efficient and scalable than polling the contact status. 
 
 #### Implementation steps
+<a name="w2aac28c19c11c11b5"></a>
 
 1. Create a Lambda function to process contact state change events
-2. Create an EventBridge rule that matches Ground Station contact state change events
-3. Add the Lambda function as a target for the rule
+
+1. Create an EventBridge rule that matches Ground Station contact state change events
+
+1. Add the Lambda function as a target for the rule
 
 #### Example Lambda function handler
+<a name="w2aac28c19c11c11b7"></a>
 
-For a complete example of a Lambda function that processes contact state change events, see the
-`GroundStationCloudWatchEventHandlerLambda` resource in the
-`AquaSnppJpssTerraDigIF.yml` CloudFormation template. This template is available in the
-AWS Ground Station customer onboarding Amazon S3 bucket. For instructions on accessing this template, see the
-[Putting it together](examples.pbs-data-dataflow-endpoint.md#examples.pbs-dataflow-endpoint.putting-it-together "examples.pbs-data-dataflow-endpoint.md#examples.pbs-dataflow-endpoint.putting-it-together") section of the dataflow endpoint example.
+ For a complete example of a Lambda function that processes contact state change events, see the `GroundStationCloudWatchEventHandlerLambda` resource in the `AquaSnppJpssTerraDigIF.yml` CloudFormation template. This template is available in the AWS Ground Station customer onboarding Amazon S3 bucket. For instructions on accessing this template, see the [Putting it together](examples.pbs-data-dataflow-endpoint.md#examples.pbs-dataflow-endpoint.putting-it-together) section of the dataflow endpoint example. 
 
 #### EventBridge rule configuration
+<a name="w2aac28c19c11c11b9"></a>
 
-The EventBridge rule should use the following event pattern to match all Ground Station contact state changes:
+ The EventBridge rule should use the following event pattern to match all Ground Station contact state changes: 
 
 ```
 {
@@ -418,7 +407,7 @@ The EventBridge rule should use the following event pattern to match all Ground 
 }
 ```
 
-To filter for specific states only (e.g., failures), you can add a detail filter:
+ To filter for specific states only (e.g., failures), you can add a detail filter: 
 
 ```
 {
@@ -435,54 +424,55 @@ To filter for specific states only (e.g., failures), you can add a detail filter
 }
 ```
 
-For detailed instructions on creating EventBridge rules with Lambda targets, see
-[Creating rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
-in the Amazon EventBridge User Guide.
+ For detailed instructions on creating EventBridge rules with Lambda targets, see [Creating rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) in the Amazon EventBridge User Guide. 
 
 ### Setting up EventBridge rules for automation
+<a name="w2aac28c19c11c13"></a>
 
-You can create EventBridge rules to automatically respond to contact state changes. For example:
+ You can create EventBridge rules to automatically respond to contact state changes. For example: 
++ Send notifications when a contact fails to schedule
++ Trigger Lambda functions to prepare resources when a contact enters `PREPASS`
++ Log contact completions for auditing purposes
 
-- Send notifications when a contact fails to schedule
-- Trigger Lambda functions to prepare resources when a contact enters `PREPASS`
-- Log contact completions for auditing purposes
-
-For detailed information on setting up EventBridge rules for AWS Ground Station events, see
-[Automate AWS Ground Station with Events](monitoring.automating-events.md "monitoring.automating-events.md").
+ For detailed information on setting up EventBridge rules for AWS Ground Station events, see [Automate AWS Ground Station with Events](monitoring.automating-events.md). 
 
 ## Best practices and considerations
+<a name="w2aac28c19c13"></a>
 
 ### Handling scheduling conflicts
+<a name="w2aac28c19c13b3"></a>
 
-Since AWS Ground Station antennas are shared resources, a contact window that appears available in
-`ListContacts` might be reserved by another customer before you can reserve it.
-To handle this:
+ Since AWS Ground Station antennas are shared resources, a contact window that appears available in `ListContacts` might be reserved by another customer before you can reserve it. To handle this: 
 
 1. Always check the contact status after reservation
-2. Implement retry logic with alternative time windows
-3. Consider reserving contacts well in advance when possible
-4. Use EventBridge events to monitor for `FAILED_TO_SCHEDULE` states
+
+1. Implement retry logic with alternative time windows
+
+1. Consider reserving contacts well in advance when possible
+
+1. Use EventBridge events to monitor for `FAILED_TO_SCHEDULE` states
 
 ### Ephemeris validation timing
+<a name="w2aac28c19c13b5"></a>
 
-Remember that ephemeris must be in `ENABLED` state before you can use it to
-reserve contacts. The validation process typically takes a few seconds to a few minutes depending
-on the ephemeris type and size. Always verify the ephemeris status before attempting to reserve contacts.
+ Remember that ephemeris must be in `ENABLED` state before you can use it to reserve contacts. The validation process typically takes a few seconds to a few minutes depending on the ephemeris type and size. Always verify the ephemeris status before attempting to reserve contacts. 
 
 ### Contact timing considerations
+<a name="w2aac28c19c13b7"></a>
 
-When using custom ephemeris:
-
-- Ensure your ephemeris covers the entire contact duration
-- For azimuth elevation ephemeris, verify that the angles keep the antenna above the [site mask](locations.site-masks.md "locations.site-masks.md") throughout the contact
-- Consider ephemeris expiration times when scheduling future contacts
+ When using custom ephemeris: 
++ Ensure your ephemeris covers the entire contact duration
++ For azimuth elevation ephemeris, verify that the angles keep the antenna above the [site mask](https://docs.aws.amazon.com/ground-station/latest/ug/locations.site-masks.html) throughout the contact
++ Consider ephemeris expiration times when scheduling future contacts
 
 ### API differences by ephemeris type
+<a name="w2aac28c19c13b9"></a>
 
-The `ReserveContact` API behaves differently depending on the ephemeris type:
+ The `ReserveContact` API behaves differently depending on the ephemeris type: 
 
-| Ephemeris Type    | satelliteArn Required | trackingOverrides Required |
-| ----------------- | --------------------- | -------------------------- |
-| TLE               | Yes                   | No (optional)              |
-| OEM               | Yes                   | No (optional)              |
-| Azimuth Elevation | No (optional)         | Yes                        |
+
+| Ephemeris Type | satelliteArn Required | trackingOverrides Required | 
+| --- | --- | --- | 
+| TLE | Yes | No (optional) | 
+| OEM | Yes | No (optional) | 
+| Azimuth Elevation | No (optional) | Yes | 

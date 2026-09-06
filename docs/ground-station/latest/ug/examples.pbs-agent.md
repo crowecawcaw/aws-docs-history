@@ -1,36 +1,26 @@
+
+
 # Public broadcast satellite utilizing AWS Ground Station Agent (wideband)
+<a name="examples.pbs-agent"></a>
 
-This example builds off the analysis done in the [JPSS-1 - Public broadcast satellite (PBS) - Evaluation](examples.md#examples.pbs-definition "examples.md#examples.pbs-definition") section of the user guide.
+ This example builds off the analysis done in the [JPSS-1 - Public broadcast satellite (PBS) - Evaluation](examples.md#examples.pbs-definition) section of the user guide. 
 
-To complete this example, you'll need to assume a scenario -- you want to capture
-the HRD communication path as wideband digital intermediate frequency (DigIF) and process it as
-it's received by the AWS Ground Station Agent on an Amazon EC2 instance using an SDR.
+ To complete this example, you'll need to assume a scenario -- you want to capture the HRD communication path as wideband digital intermediate frequency (DigIF) and process it as it's received by the AWS Ground Station Agent on an Amazon EC2 instance using an SDR. 
 
-###### Note
-
-The actual JPSS HRD communication path signal has a bandwidth of 30 MHz, but you will configure
-the _antenna-downlink_ config to treat it as a signal with a 100 MHz
-bandwidth so that it can flow through the correct path to be received by the AWS Ground Station Agent for
-this example.
+**Note**  
+ The actual JPSS HRD communication path signal has a bandwidth of 30 MHz, but you will configure the *antenna-downlink* config to treat it as a signal with a 100 MHz bandwidth so that it can flow through the correct path to be received by the AWS Ground Station Agent for this example. 
 
 ## Communication paths
+<a name="examples.pbs-agent.communication-paths"></a>
 
-This section represents
-[Plan your dataflow communication paths](getting-started.step2.md "getting-started.step2.md")
-of getting started. For this example, you will need an additional section in your CloudFormation template that hasn't been used in the other examples, the Mappings section.
+ This section represents [Plan your dataflow communication paths](getting-started.step2.md) of getting started. For this example, you will need an additional section in your CloudFormation template that hasn't been used in the other examples, the Mappings section. 
 
-###### Note
+**Note**  
+ For more information about the contents of a CloudFormation template, see [ Template sections](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html). 
 
-For more information about the contents of a CloudFormation template, see
-[Template sections](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md").
-
-You'll begin by setting up a Mappings section in your CloudFormation template for the AWS Ground Station prefix lists by region. This allows the prefix lists to be easily
-referenced by the Amazon EC2 instance security group.
-For more information about using a prefix list, see
-[VPC Configuration with AWS Ground Station Agent](dataflows.vpc-configuration.md#dataflows.vpc-configuration.agent "dataflows.vpc-configuration.md#dataflows.vpc-configuration.agent").
+ You'll begin by setting up a Mappings section in your CloudFormation template for the AWS Ground Station prefix lists by region. This allows the prefix lists to be easily referenced by the Amazon EC2 instance security group. For more information about using a prefix list, see [VPC Configuration with AWS Ground Station Agent](dataflows.vpc-configuration.md#dataflows.vpc-configuration.agent). 
 
 ```
-
 Mappings:
   PrefixListId:
     us-east-2:
@@ -57,55 +47,40 @@ Mappings:
       groundstation: pl-033e44023025215c0
     af-south-1:
       groundstation: pl-0382d923a9d555425
-
 ```
 
-For the Parameters section, you're going to add the following parameters. You'll specify values for these when creating the stack via the CloudFormation console.
+ For the Parameters section, you're going to add the following parameters. You'll specify values for these when creating the stack via the CloudFormation console. 
 
 ```
-
 Parameters:
   EC2Key:
-    Description: The SSH key used to access the EC2 receiver instance. Choose any SSH key if you are not creating an EC2 receiver instance. For instructions on how to create an SSH key see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
+    Description: The SSH key used to access the EC2 receiver instance. Choose any SSH key if you are not creating an EC2 receiver instance. For instructions on how to create an SSH key see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html)
     Type: AWS::EC2::KeyPair::KeyName
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
 
-  AZ:
+  AZ: 
     Description: "The AvailabilityZone that the resources of this stack will be created in. (e.g. us-east-2a)"
     Type: AWS::EC2::AvailabilityZone::Name
 
   ReceiverAMI:
-    Description: The Ground Station Agent AMI ID you want to use. Please note that AMIs are region specific. For instructions on how to retrieve an AMI see https://docs.aws.amazon.com/ground-station/latest/ug/dataflows.ec2-configuration.html#dataflows.ec2-configuration.amis
+    Description: The Ground Station Agent AMI ID you want to use. Please note that AMIs are region specific. For instructions on how to retrieve an AMI see [https://docs.aws.amazon.com/ground-station/latest/ug/dataflows.ec2-configuration.html#dataflows.ec2-configuration.amis](https://docs.aws.amazon.com/ground-station/latest/ug/dataflows.ec2-configuration.html#dataflows.ec2-configuration.amis)
     Type: AWS::EC2::Image::Id
-
 ```
 
-###### Note
+**Note**  
+ You **need** to create a key pair, and provide the name for the Amazon EC2 `EC2Key` parameter. See [ Create a key pair for your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html).   
+ Additionally, you'll **need** to provide the correct **region specific** AMI ID, when creating the CloudFormation stack. See [AWS Ground Station Amazon Machine Images (AMIs)](dataflows.ec2-configuration.md#dataflows.ec2-configuration.amis). 
 
-You **need** to create a key pair, and provide the name for the Amazon EC2 `EC2Key` parameter. See
-[Create a key pair for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/create-key-pairs.md "../../../AWSEC2/latest/UserGuide/create-key-pairs.md").
-
-Additionally, you'll **need** to provide the correct **region specific** AMI ID, when creating the CloudFormation stack. See
-[AWS Ground Station Amazon Machine Images (AMIs)](dataflows.ec2-configuration.md#dataflows.ec2-configuration.amis "dataflows.ec2-configuration.md#dataflows.ec2-configuration.amis").
-
-The remaining template snippets belong in the Resources section of the CloudFormation
-template.
+ The remaining template snippets belong in the Resources section of the CloudFormation template. 
 
 ```
-
 Resources:
   # Resources that you would like to create should be placed within the Resources section.
-
 ```
 
-Given our scenario to deliver a single communication path to an Amazon EC2 instance, you know that you'll
-have a single synchronous delivery path. Per the
-[Synchronous data delivery](getting-started.step2.md#getting-started.step2.sync-data-delivery "getting-started.step2.md#getting-started.step2.sync-data-delivery")
-section, you must set up and configure an Amazon EC2 instance with AWS Ground Station Agent, and create one
-or more dataflow endpoint groups. You'll begin by first setting up the Amazon VPC for the AWS Ground Station Agent.
+ Given our scenario to deliver a single communication path to an Amazon EC2 instance, you know that you'll have a single synchronous delivery path. Per the [Synchronous data delivery](getting-started.step2.md#getting-started.step2.sync-data-delivery) section, you must set up and configure an Amazon EC2 instance with AWS Ground Station Agent, and create one or more dataflow endpoint groups. You'll begin by first setting up the Amazon VPC for the AWS Ground Station Agent. 
 
 ```
-
   ReceiverVPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -138,7 +113,7 @@ or more dataflow endpoint groups. You'll begin by first setting up the Amazon VP
       Tags:
         - Key: Name
           Value: AWS Ground Station Example - RouteTable
-
+  
   RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -152,30 +127,27 @@ or more dataflow endpoint groups. You'll begin by first setting up the Amazon VP
       RouteTableId: !Ref RouteTable
       DestinationCidrBlock: '0.0.0.0/0'
       GatewayId: !Ref InternetGateway
-
+  
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
         - Key: Name
           Value: AWS Ground Station Example - Internet Gateway
-
+    
   GatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       VpcId: !Ref ReceiverVPC
       InternetGatewayId: !Ref InternetGateway
-
 ```
 
-###### Note
+**Note**  
+ For more information about the VPC configurations supported by the AWS Ground Station Agent, see [AWS Ground Station Agent Requirements - VPC diagrams](https://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/agent-requirements.html#vpc-subnet-diagrams). 
 
-For more information about the VPC configurations supported by the AWS Ground Station Agent, see [AWS Ground Station Agent Requirements - VPC diagrams](../gs-agent-ug/agent-requirements.md#vpc-subnet-diagrams "../gs-agent-ug/agent-requirements.md#vpc-subnet-diagrams").
-
-Next, you'll set up the Receiver Amazon EC2 instance.
+ Next, you'll set up the Receiver Amazon EC2 instance. 
 
 ```
-
   # The placement group in which your EC2 instance is placed.
   ClusterPlacementGroup:
     Type: AWS::EC2::PlacementGroup
@@ -287,11 +259,9 @@ Next, you'll set up the Receiver Amazon EC2 instance.
 
             - DataflowEndpointGroupId: !Ref DataflowEndpointGroup
               EIP: !Ref ReceiverInstanceElasticIp
-
 ```
 
 ```
-
   # The AWS Ground Station Dataflow Endpoint Group that defines the endpoints that AWS Ground
   # Station will use to send/receive data to/from your satellite.
   DataflowEndpointGroup:
@@ -312,14 +282,11 @@ Next, you'll set up the Receiver Amazon EC2 instance.
                 PortRange:
                   Minimum: 42000
                   Maximum: 55000
-
 ```
 
-You'll also need the appropriate policies, roles, and profiles to allow AWS Ground Station to create the elastic network interface (ENI) in
-your account.
+ You'll also need the appropriate policies, roles, and profiles to allow AWS Ground Station to create the elastic network interface (ENI) in your account. 
 
 ```
-
   # The security group for your EC2 instance.
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -470,22 +437,16 @@ your account.
                 "kms:EncryptionContext:sourceAccount": !Ref AWS::AccountId
         Version: "2012-10-17"
       EnableKeyRotation: true
-
 ```
 
 ## AWS Ground Station configs
+<a name="examples.pbs-agent.configs"></a>
 
-This section represents
-[Create configs](getting-started.step3.md "getting-started.step3.md")
-of getting started.
+ This section represents [Create configs](getting-started.step3.md) of getting started. 
 
-You'll need a _tracking-config_ to set your preference on using
-autotrack. Selecting _PREFERRED_ as autotrack can improve the signal
-quality, but it isn't required to meet the signal quality due to sufficient JPSS-1 ephemeris
-quality.
+ You'll need a *tracking-config* to set your preference on using autotrack. Selecting *PREFERRED* as autotrack can improve the signal quality, but it isn't required to meet the signal quality due to sufficient JPSS-1 ephemeris quality. 
 
 ```
-
   TrackingConfig:
     Type: AWS::GroundStation::Config
     Properties:
@@ -493,16 +454,11 @@ quality.
       ConfigData:
         TrackingConfig:
           Autotrack: "PREFERRED"
-
 ```
 
-Based on the communication path, you'll need to define an
-_antenna-downlink_ config to represent the satellite portion, as well as a
-_dataflow-endpoint_ config to refer to the dataflow endpoint group that
-defines the endpoint details.
+ Based on the communication path, you'll need to define an *antenna-downlink* config to represent the satellite portion, as well as a *dataflow-endpoint* config to refer to the dataflow endpoint group that defines the endpoint details. 
 
 ```
-
   # The AWS Ground Station Antenna Downlink Config that defines the frequency spectrum used to
   # downlink data from your satellite.
   SnppJpssDownlinkDigIfAntennaConfig:
@@ -530,19 +486,16 @@ defines the endpoint details.
         DataflowEndpointConfig:
           DataflowEndpointName: !Join [ "-" , [ !Ref "AWS::StackName" , "Downlink" ] ]
           DataflowEndpointRegion: !Ref AWS::Region
-
 ```
 
 ## AWS Ground Station mission profile
+<a name="examples.pbs-agent.mission-profile"></a>
 
-This section represents
-[Create mission profile](getting-started.step4.md "getting-started.step4.md") of getting started.
+ This section represents [Create mission profile](getting-started.step4.md) of getting started. 
 
-Now that you have the associated configs, you can use them to construct the dataflow. You'll use
-the defaults for the remaining parameters.
+ Now that you have the associated configs, you can use them to construct the dataflow. You'll use the defaults for the remaining parameters. 
 
 ```
-
   # The AWS Ground Station Mission Profile that groups the above configurations to define how to
   # uplink and downlink data to your satellite.
   SnppJpssMissionProfile:
@@ -559,51 +512,36 @@ the defaults for the remaining parameters.
       StreamsKmsKey:
         KmsKeyArn: !GetAtt GroundStationDataDeliveryKmsKey.Arn
       StreamsKmsRole: !GetAtt GroundStationKmsKeyRole.Arn
-
 ```
 
 ## Putting it together
+<a name="examples.pbs-agent.putting-it-together"></a>
 
-With the above resources, you now have the ability to schedule JPSS-1 contacts for
-synchronous data delivery from any of your onboarded AWS Ground Station [AWS Ground Station Locations](aws-ground-station-antenna-locations.md "aws-ground-station-antenna-locations.md").
+ With the above resources, you now have the ability to schedule JPSS-1 contacts for synchronous data delivery from any of your onboarded AWS Ground Station [AWS Ground Station Locations](aws-ground-station-antenna-locations.md). 
 
-The following is a complete CloudFormation template that includes all resources described
-in this section combined into a single template that can be directly used in CloudFormation.
+ The following is a complete CloudFormation template that includes all resources described in this section combined into a single template that can be directly used in CloudFormation. 
 
-The CloudFormation template named `DirectBroadcastSatelliteWbDigIfEc2DataDelivery.yml` is
-designed to give you quick access to start receiving digitized intermediate frequency (DigIF)
-data for the Aqua, SNPP, JPSS-1/NOAA-20, and Terra satellites.
-It contains an Amazon EC2 instance and the required CloudFormation resources to receive raw DigIF direct
-broadcast data using AWS Ground Station Agent.
+ The CloudFormation template named `DirectBroadcastSatelliteWbDigIfEc2DataDelivery.yml` is designed to give you quick access to start receiving digitized intermediate frequency (DigIF) data for the Aqua, SNPP, JPSS-1/NOAA-20, and Terra satellites. It contains an Amazon EC2 instance and the required CloudFormation resources to receive raw DigIF direct broadcast data using AWS Ground Station Agent. 
 
-If Aqua, SNPP, JPSS-1/NOAA-20, and Terra are not onboarded to your account, see
-[Onboard satellite](getting-started.step1.md "getting-started.step1.md").
+ If Aqua, SNPP, JPSS-1/NOAA-20, and Terra are not onboarded to your account, see [Onboard satellite](getting-started.step1.md). 
 
-###### Note
+**Note**  
+ You can access the template by accessing the customer onboarding Amazon S3 bucket using valid AWS credentials. The links below use a regional Amazon S3 bucket. Change the `us-west-2` region code to represent the corresponding region of which you want to create the CloudFormation stack in.   
+ Additionally, the following instructions use YAML. However, the templates are available in both YAML and JSON format. To use JSON, replace the `.yml` file extension with `.json` when downloading the template. 
 
-You can access the template by accessing the customer onboarding Amazon S3 bucket using valid
-AWS credentials. The links below use a regional Amazon S3 bucket.
-Change the `us-west-2` region code to represent the corresponding region of which you want to create the CloudFormation
-stack in.
-
-Additionally, the following instructions use YAML. However, the templates are available in
-both YAML and JSON format. To use JSON, replace the `.yml` file extension with
-`.json` when downloading the template.
-
-To download the template using AWS CLI, use the following command:
+ To download the template using AWS CLI, use the following command: 
 
 ```
 aws s3 cp s3://groundstation-cloudformation-templates-us-west-2/agent/ec2_delivery/DirectBroadcastSatelliteWbDigIfEc2DataDelivery.yml .
 ```
 
-You can view and download the template in the console by navigating to the following URL in
-your browser:
+ You can view and download the template in the console by navigating to the following URL in your browser: 
 
 ```
 https://s3.console.aws.amazon.com/s3/object/groundstation-cloudformation-templates-us-west-2/agent/ec2_delivery/DirectBroadcastSatelliteWbDigIfEc2DataDelivery.yml
 ```
 
-You can specify the template directly in CloudFormation using the following link:
+ You can specify the template directly in CloudFormation using the following link: 
 
 ```
 https://groundstation-cloudformation-templates-us-west-2.s3.us-west-2.amazonaws.com/agent/ec2_delivery/DirectBroadcastSatelliteWbDigIfEc2DataDelivery.yml
@@ -612,55 +550,18 @@ https://groundstation-cloudformation-templates-us-west-2.s3.us-west-2.amazonaws.
 **What additional resources does the template define?**
 
 The `DirectBroadcastSatelliteWbDigIfEc2DataDelivery` template includes the following additional resources:
++  **Receiver Instance Elastic Network Interface** - (Conditional) An elastic network interface is created in the subnet specified by **PublicSubnetId ** if provided. This is required if the receiver instance is in a private subnet. The elastic network interface will be associated with the EIP and attached to the receiver instance. 
++  **Receiver Instance Elastic IP** - An elastic IP that AWS Ground Station will connect to. This attaches to the receiver instance or elastic network interface. 
++ One of the following Elastic IP associations:
+  +  **Receiver Instance to Elastic IP Association** - The association of the Elastic IP to your receiver instance, if **PublicSubnetId ** is not specified. This requires that **SubnetId ** reference a public subnet. 
+  +  **Receiver Instance Elastic Network Interface to Elastic IP Association ** - The association of the elastic IP to the receiver instance elastic network interface, if **PublicSubnetId** is specified. 
++ (Optional) **CloudWatch Event Triggers** - AWS Lambda Function that is triggered using CloudWatch Events sent by AWS Ground Station before and after a contact. The AWS Lambda Function will start and optionally stop your Receiver Instance. 
++ (Optional) **Amazon EC2 Verification for Contacts** - The option to use Lambda to set up a verification system of your Amazon EC2 instance(s) for contacts with SNS notification. It is important to note that this may incur charges depending on your current usage. 
++  **Additional mission profiles** - Mission profiles for additional public broadcast satellites (Aqua, SNPP, and Terra). 
++  **Additional antenna-downlink configs** - Antenna downlink configs for additional public broadcast satellites (Aqua, SNPP, and Terra). 
 
-- **Receiver Instance Elastic Network Interface**
+ The values and parameters for the satellites in this template are already populated. These parameters make it easy for you to use AWS Ground Station immediately with these satellites. You do not need to configure your own values in order to use AWS Ground Station when using this template. However, you can customize the values to make the template work for your use case. 
 
-* (Conditional) An elastic network interface is created in the subnet specified by **PublicSubnetId** if provided. This is required if the receiver instance is in a private subnet.
-  The elastic network interface will be associated with the EIP and attached to the receiver
-  instance.
+ **Where do I receive my data?** 
 
-- **Receiver Instance Elastic IP**
-
-* An elastic IP that AWS Ground Station will connect to.
-  This attaches to the receiver instance or elastic network interface.
-
-- One of the following Elastic IP associations:
-
-  - **Receiver Instance to Elastic IP Association**
-  * The association of the Elastic IP to your receiver instance, if **PublicSubnetId** is not specified. This requires that **SubnetId** reference a public subnet.
-  - **Receiver Instance Elastic Network Interface to Elastic IP
-    Association**
-  * The association of the elastic IP to the receiver instance elastic network
-    interface, if **PublicSubnetId** is specified.
-
-- (Optional) **CloudWatch Event Triggers** - AWS Lambda
-  Function that is triggered using CloudWatch Events sent by AWS Ground Station before and after a contact.
-  The AWS Lambda Function will start and optionally stop your Receiver Instance.
-- (Optional) **Amazon EC2 Verification for Contacts** - The option
-  to use Lambda to set up a verification system of your Amazon EC2 instance(s) for contacts
-  with SNS notification. It is important to note that this may incur charges depending on
-  your current usage.
-- **Additional mission profiles**
-
-* Mission profiles for additional public broadcast satellites (Aqua, SNPP, and Terra).
-
-- **Additional antenna-downlink configs**
-
-* Antenna downlink configs for additional public broadcast satellites (Aqua, SNPP, and
-  Terra).
-
-The values and parameters for the satellites in this template are already populated. These
-parameters make it easy for you to use AWS Ground Station immediately with these satellites.
-You do not need to configure your own values in order to use AWS Ground Station when using this template.
-However, you can customize the values to make the template work for your use case.
-
-**Where do I receive my data?**
-
-The dataflow endpoint group is set up to use the receiver instance network interface that
-part of the template creates.
-The receiver instance uses the AWS Ground Station Agent to receive the data stream from AWS Ground Station on the port
-defined by the dataflow endpoint.
-For more information about setting up a dataflow endpoint group, see
-[AWS::GroundStation::DataflowEndpointGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.md"). For more information about the AWS Ground Station
-Agent, see
-[What is the AWS Ground Station Agent?](../gs-agent-ug/overview.md "../gs-agent-ug/overview.md")
+ The dataflow endpoint group is set up to use the receiver instance network interface that part of the template creates. The receiver instance uses the AWS Ground Station Agent to receive the data stream from AWS Ground Station on the port defined by the dataflow endpoint. For more information about setting up a dataflow endpoint group, see [ AWS::GroundStation::DataflowEndpointGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html). For more information about the AWS Ground Station Agent, see [ What is the AWS Ground Station Agent? ](https://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/overview.html) 

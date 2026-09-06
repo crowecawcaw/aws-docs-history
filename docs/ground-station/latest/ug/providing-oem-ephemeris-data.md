@@ -1,99 +1,92 @@
+
+
 # Provide OEM ephemeris data
+<a name="providing-oem-ephemeris-data"></a>
 
-###### Important
+**Important**  
+ The ephemeris API is currently in a Preview state 
 
-The ephemeris API is currently in a Preview state
-
-Access to the Ephemeris API is provided only on an as-needed basis. If you require the
-ability to upload custom ephemeris data, please open an AWS Support ticket through the [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support"). Our team will work with you to enable this capability for your specific requirements.
+ Access to the Ephemeris API is provided only on an as-needed basis. If you require the ability to upload custom ephemeris data, please open an AWS Support ticket through the [AWS Support Center Console](https://console.aws.amazon.com/support). Our team will work with you to enable this capability for your specific requirements. 
 
 ## Overview
+<a name="w2aac28c17c13b7"></a>
 
-Orbit Ephemeris Message (OEM) is a standardized format for representing spacecraft
-trajectory data. The Ephemeris API allows OEM ephemerides to be uploaded to AWS Ground Station for use
-with a satellite. These ephemerides override the default ephemerides from [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") (see: [Default ephemeris data](default-ephemeris-data.md "default-ephemeris-data.md")).
+ Orbit Ephemeris Message (OEM) is a standardized format for representing spacecraft trajectory data. The Ephemeris API allows OEM ephemerides to be uploaded to AWS Ground Station for use with a satellite. These ephemerides override the default ephemerides from [Space-Track](https://www.space-track.org/) (see: [Default ephemeris data](default-ephemeris-data.md)). 
 
-AWS Ground Station treats ephemerides as [Individualized
-Usage Data](https://aws.amazon.com/service-terms "https://aws.amazon.com/service-terms"). If you use this optional feature, AWS will use your ephemeris data to
-provide troubleshooting support.
+ AWS Ground Station treats ephemerides as [Individualized Usage Data](https://aws.amazon.com/service-terms). If you use this optional feature, AWS will use your ephemeris data to provide troubleshooting support. 
 
-Uploading custom OEM ephemerides can improve the quality of tracking, handle early
-operations where no [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") ephemerides
-are available to AWS Ground Station, and account for maneuvers.
+ Uploading custom OEM ephemerides can improve the quality of tracking, handle early operations where no [Space-Track](https://www.space-track.org/) ephemerides are available to AWS Ground Station, and account for maneuvers. 
 
-###### Note
-
-When providing custom ephemeris before a satellite catalog number is assigned for your
-satellite, you can use `satelliteId` for the `OBJECT_ID` portion
-of the OEM.
-
-For more information about the format of OEMs, see [OEM ephemeris format](#oem-ephemeris-format "#oem-ephemeris-format").
+**Note**  
+ When providing custom ephemeris before a satellite catalog number is assigned for your satellite, you can use `satelliteId` for the `OBJECT_ID` portion of the OEM.   
+ For more information about the format of OEMs, see [OEM ephemeris format](#oem-ephemeris-format). 
 
 ## OEM ephemeris format
+<a name="oem-ephemeris-format"></a>
 
-AWS Ground Station processes OEM Customer Provided Ephemerides according to the [CCSDS standard](https://ccsds.org/Pubs/502x0b3e1.pdf "https://ccsds.org/Pubs/502x0b3e1.pdf") with some extra
-restrictions. OEM files should be in KVN format. The following table outlines the different
-fields in an OEM and how AWS Ground Station differs from the CCSDS standard.
+ AWS Ground Station processes OEM Customer Provided Ephemerides according to the [CCSDS standard](https://ccsds.org/Pubs/502x0b3e1.pdf) with some extra restrictions. OEM files should be in KVN format. The following table outlines the different fields in an OEM and how AWS Ground Station differs from the CCSDS standard. 
 
-| Section               | Field             | CCSDS required  | AWS Ground Station required                                                                                                                                                                                         | Notes               |
-| --------------------- | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Header                | CCSDS\_OEM\_VERS  | Yes             | Yes                                                                                                                                                                                                                 | Required value: 2.0 |
-| COMMENT               | No                | No              |                                                                                                                                                                                                                     |
-| CLASSIFICATION        | No                | No              |                                                                                                                                                                                                                     |
-| CREATION\_DATE        | Yes               | Yes             |                                                                                                                                                                                                                     |
-| ORIGINATOR            | Yes               | Yes             |                                                                                                                                                                                                                     |
-| MESSAGE\_ID           | No                | No              |                                                                                                                                                                                                                     |
-| Metadata              | META\_START       | Yes             | Yes                                                                                                                                                                                                                 |                     |
-| COMMENT               | No                | No              |                                                                                                                                                                                                                     |
-| OBJECT\_NAME          | Yes               | Yes             |                                                                                                                                                                                                                     |
-| OBJECT\_ID            | Yes               | Yes             |                                                                                                                                                                                                                     |
-| CENTER\_NAME          | Yes               | Yes             | Required value: Earth                                                                                                                                                                                               |
-| REF\_FRAME            | Yes               | Yes             | Accepted values: EME2000, ITRF2000                                                                                                                                                                                  |
-| REF\_FRAME\_EPOCH     | No                | Not supported\* | Not needed because the accepted REF\_FRAMEs have an implicit epoch                                                                                                                                                  |
-| TIME\_SYSTEM          | Yes               | Yes             | Required value: UTC                                                                                                                                                                                                 |
-| START\_TIME           | Yes               | Yes             |                                                                                                                                                                                                                     |
-| USEABLE\_START\_TIME  | No                | No              |                                                                                                                                                                                                                     |
-| USEABLE\_STOP\_TIME   | No                | No              |                                                                                                                                                                                                                     |
-| STOP\_TIME            | Yes               | Yes             |                                                                                                                                                                                                                     |
-| INTERPOLATION         | No                | Yes             | Required so AWS Ground Station can generate accurate pointing angles for contacts.                                                                                                                                  |
-| INTERPOLATION\_DEGREE | No                | Yes             | Required so AWS Ground Station can generate accurate pointing angles for contacts. The<br>specified degree will be used if possible, but a lower degree will be used if there is<br>not enough data in the segment. |
-| META\_STOP            | Yes               | Yes             |                                                                                                                                                                                                                     |
-| Data                  | X                 | Yes             | Yes                                                                                                                                                                                                                 | Represented in `km` |
-| Y                     | Yes               | Yes             | Represented in `km`                                                                                                                                                                                                 |
-| Z                     | Yes               | Yes             | Represented in `km`                                                                                                                                                                                                 |
-| X\_DOT                | Yes               | Yes             | Represented in `km/s`                                                                                                                                                                                               |
-| Y\_DOT                | Yes               | Yes             | Represented in `km/s`                                                                                                                                                                                               |
-| Z\_DOT                | Yes               | Yes             | Represented in `km/s`                                                                                                                                                                                               |
-| X\_DDOT               | No                | No              | Represented in `km/s^2`                                                                                                                                                                                             |
-| Y\_DDOT               | No                | No              | Represented in `km/s^2`                                                                                                                                                                                             |
-| Z\_DDOT               | No                | No              | Represented in `km/s^2`                                                                                                                                                                                             |
-| Covariance matrix     | COVARIANCE\_START | No              | No                                                                                                                                                                                                                  |                     |
-| EPOCH                 | No                | No              |                                                                                                                                                                                                                     |
-| COV\_REF\_FRAME       | No                | No              |                                                                                                                                                                                                                     |
-| COVARIANCE\_STOP      | No                | No              |                                                                                                                                                                                                                     |
 
-\* If any rows that aren't supported by AWS Ground Station are included in the provided OEM, the OEM
-will fail validation.
 
-The important deviations from the CCSDS standard for AWS Ground Station are:
+- **Header**
+  - **Field:** CCSDS\_OEM\_VERS / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Required value: 2.0
+  - **Field:** COMMENT / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** CLASSIFICATION / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** CREATION\_DATE / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** ORIGINATOR / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** MESSAGE\_ID / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
 
-- `CCSDS_OEM_VERS` is required to be `2.0`.
-- `REF_FRAME` is required to be either `EME2000` or `ITRF2000`.
-- `REF_FRAME_EPOCH` is not supported by AWS Ground Station.
-- `CENTER_NAME` is required to be `Earth`.
-- `TIME_SYSTEM` is required to be `UTC`.
-- `INTERPOLATION` and `INTERPOLATION_DEGREE` are both
-  required for AWS Ground Station customer provided ephemeris.
-- AWS Ground Station deviates from CCSDS 5.2.4.7 by allowing OEM data blocks that do not
-  contain enough ephemeris data records to perform interpolation at the specified
-  `INTERPOLATION_DEGREE`. In this case, AWS Ground Station will use the highest
-  interpolation degree possible that is less than or equal to the specified
-  `INTERPOLATION_DEGREE`.
+- **Metadata**
+  - **Field:** META\_START / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** COMMENT / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** OBJECT\_NAME / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** OBJECT\_ID / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** CENTER\_NAME / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Required value: Earth
+  - **Field:** REF\_FRAME / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Accepted values: EME2000, ITRF2000
+  - **Field:** REF\_FRAME\_EPOCH / **CCSDS required:** No / **AWS Ground Station required:** Not supported\* / **Notes:** Not needed because the accepted REF\_FRAMEs have an implicit epoch
+  - **Field:** TIME\_SYSTEM / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Required value: UTC
+  - **Field:** START\_TIME / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** USEABLE\_START\_TIME / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** USEABLE\_STOP\_TIME / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** STOP\_TIME / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+  - **Field:** INTERPOLATION / **CCSDS required:** No / **AWS Ground Station required:** Yes / **Notes:** Required so AWS Ground Station can generate accurate pointing angles for contacts.
+  - **Field:** INTERPOLATION\_DEGREE / **CCSDS required:** No / **AWS Ground Station required:** Yes / **Notes:** Required so AWS Ground Station can generate accurate pointing angles for contacts. The specified degree will be used if possible, but a lower degree will be used if there is not enough data in the segment.
+  - **Field:** META\_STOP / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** 
+
+- **Data**
+  - **Field:** X / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Represented in km
+  - **Field:** Y / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Represented in km
+  - **Field:** Z / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Represented in km
+  - **Field:** X\_DOT / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Represented in km/s
+  - **Field:** Y\_DOT / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Represented in km/s
+  - **Field:** Z\_DOT / **CCSDS required:** Yes / **AWS Ground Station required:** Yes / **Notes:** Represented in km/s
+  - **Field:** X\_DDOT / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** Represented in km/s^2
+  - **Field:** Y\_DDOT / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** Represented in km/s^2
+  - **Field:** Z\_DDOT / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** Represented in km/s^2
+
+- **Covariance matrix**
+  - **Field:** COVARIANCE\_START / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** EPOCH / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** COV\_REF\_FRAME / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+  - **Field:** COVARIANCE\_STOP / **CCSDS required:** No / **AWS Ground Station required:** No / **Notes:** 
+
+
+
+ \* If any rows that aren't supported by AWS Ground Station are included in the provided OEM, the OEM will fail validation. 
+
+ The important deviations from the CCSDS standard for AWS Ground Station are: 
++ `CCSDS_OEM_VERS` is required to be `2.0`.
++ `REF_FRAME` is required to be either `EME2000` or ` ITRF2000`.
++ `REF_FRAME_EPOCH` is not supported by AWS Ground Station.
++ `CENTER_NAME` is required to be `Earth`.
++ `TIME_SYSTEM` is required to be `UTC`.
++ `INTERPOLATION` and `INTERPOLATION_DEGREE` are both required for AWS Ground Station customer provided ephemeris.
++ AWS Ground Station deviates from CCSDS 5.2.4.7 by allowing OEM data blocks that do not contain enough ephemeris data records to perform interpolation at the specified `INTERPOLATION_DEGREE`. In this case, AWS Ground Station will use the highest interpolation degree possible that is less than or equal to the specified `INTERPOLATION_DEGREE`.
 
 ## Example OEM ephemeris in KVN format
+<a name="w2aac28c17c13c11"></a>
 
-Following is a truncated example of an OEM ephemeris in KVN format for the JPSS-1 public
-broadcaster satellite.
+ Following is a truncated example of an OEM ephemeris in KVN format for the JPSS-1 public broadcaster satellite. 
 
 ```
 CCSDS_OEM_VERS = 2.0
@@ -125,25 +118,20 @@ META_STOP
 ```
 
 ## Creating an OEM ephemeris
+<a name="w2aac28c17c13c13"></a>
 
-An OEM ephemeris can be created using the [CreateEphemeris](../APIReference/API_CreateEphemeris.md "../APIReference/API_CreateEphemeris.md") action in the AWS Ground Station
-API. This action will upload an ephemeris using data either in the request body or from a
-specified S3 bucket.
+ An OEM ephemeris can be created using the [CreateEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateEphemeris.html) action in the AWS Ground Station API. This action will upload an ephemeris using data either in the request body or from a specified S3 bucket. 
 
-It is important to note that uploading an ephemeris sets the ephemeris to `VALIDATING` and starts an asynchronous workflow that will validate and generate
-potential contacts from your ephemeris. Only once an ephemeris has passed this workflow and
-become `ENABLED` will it be used for contacts. You should poll [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md")
-for the ephemeris status or use CloudWatch events to track the ephemeris' status changes.
+ It is important to note that uploading an ephemeris sets the ephemeris to ` VALIDATING` and starts an asynchronous workflow that will validate and generate potential contacts from your ephemeris. Only once an ephemeris has passed this workflow and become `ENABLED` will it be used for contacts. You should poll [DescribeEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeEphemeris.html) for the ephemeris status or use CloudWatch events to track the ephemeris' status changes. 
 
-To troubleshoot an invalid ephemeris see: [Troubleshoot invalid ephemerides](troubleshooting-invalid-ephemerides.md "troubleshooting-invalid-ephemerides.md")
+ To troubleshoot an invalid ephemeris see: [Troubleshoot invalid ephemerides](troubleshooting-invalid-ephemerides.md) 
 
 ## Example: Uploading OEM ephemeris data from an S3 bucket
+<a name="w2aac28c17c13c15"></a>
 
-It is also possible to upload an OEM ephemeris file directly from an S3 bucket by
-pointing to the bucket and object key. AWS Ground Station will retrieve the object on your behalf.
-Information about the encryption of data at rest in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.encryption-at-rest.md "security.encryption-at-rest.md").
+ It is also possible to upload an OEM ephemeris file directly from an S3 bucket by pointing to the bucket and object key. AWS Ground Station will retrieve the object on your behalf. Information about the encryption of data at rest in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.encryption-at-rest.md). 
 
-Below is an example of uploading an OEM ephemeris file from an S3 bucket
+ Below is an example of uploading an OEM ephemeris file from an S3 bucket 
 
 ```
 import boto3
@@ -208,11 +196,9 @@ s3_oem_ephemeris = ground_station_client.create_ephemeris(
 )
 
 print(f"Created OEM ephemeris with ID: {s3_oem_ephemeris['ephemerisId']}")
-
 ```
 
-Below is an example returned data from the [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md") action being called for
-the OEM ephemeris uploaded in the previous block of example code.
+ Below is an example returned data from the [DescribeEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeEphemeris.html) action being called for the OEM ephemeris uploaded in the previous block of example code. 
 
 ```
 {
