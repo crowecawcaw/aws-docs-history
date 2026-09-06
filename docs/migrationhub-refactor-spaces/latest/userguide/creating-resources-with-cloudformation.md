@@ -1,38 +1,27 @@
-AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+
+
+AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Creating Refactor Spaces resources with CloudFormation
+<a name="creating-resources-with-cloudformation"></a>
 
-AWS Migration Hub Refactor Spaces is integrated with AWS CloudFormation, a service that helps you to model and set up
-your AWS resources so that you can spend less time creating and managing your resources
-and infrastructure. You create a template that describes all the AWS resources that you
-want (such as environments, applications, services, and routes), and CloudFormation provisions and configures those resources for you.
+AWS Migration Hub Refactor Spaces is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as environments, applications, services, and routes), and CloudFormation provisions and configures those resources for you. 
 
-When you use CloudFormation, you can reuse your template to set up your Refactor Spaces resources
-consistently and repeatedly. Describe your resources once, and then provision the same
-resources over and over in multiple AWS accounts and Regions.
+When you use CloudFormation, you can reuse your template to set up your Refactor Spaces resources consistently and repeatedly. Describe your resources once, and then provision the same resources over and over in multiple AWS accounts and Regions. 
 
 ## Refactor Spaces and CloudFormation templates
+<a name="working-with-templates"></a>
 
-To provision and configure resources for Refactor Spaces and related services, you must
-understand [CloudFormation
-templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are formatted text files in JSON or YAML. These templates
-describe the resources that you want to provision in your CloudFormation stacks. If you're
-unfamiliar with JSON or YAML, you can use CloudFormation Designer to help you get started with
-CloudFormation templates. For more information, see [What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the
-_AWS CloudFormation User Guide_.
+To provision and configure resources for Refactor Spaces and related services, you must understand [CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html). Templates are formatted text files in JSON or YAML. These templates describe the resources that you want to provision in your CloudFormation stacks. If you're unfamiliar with JSON or YAML, you can use CloudFormation Designer to help you get started with CloudFormation templates. For more information, see [What is CloudFormation Designer?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html) in the *AWS CloudFormation User Guide*.
 
-Refactor Spaces supports creating environments, applications, services, and routes in CloudFormation. For more information, including
-examples of JSON and YAML templates for environments, applications, services, and routes, see [AWS Migration Hub Refactor Spaces](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md")
-in the _AWS CloudFormation User Guide_.
+Refactor Spaces supports creating environments, applications, services, and routes in CloudFormation. For more information, including examples of JSON and YAML templates for environments, applications, services, and routes, see [AWS Migration Hub Refactor Spaces](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide*.
 
 ### Template example
+<a name="working-with-templates-example"></a>
 
-The following example template creates a virtual private cloud (VPC) and Refactor Spaces
-resources. When you choose to deploy an CloudFormation template to create a demo refactor
-environment from the Getting started dialog box, the following
-template is deployed by the Refactor Spaces console.
+The following example template creates a virtual private cloud (VPC) and Refactor Spaces resources. When you choose to deploy an CloudFormation template to create a demo refactor environment from the Getting started dialog box, the following template is deployed by the Refactor Spaces console.
 
-###### Example YAML Refactor Spaces template
+**Example YAML Refactor Spaces template**  
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -121,12 +110,10 @@ Resources:
 ```
 
 ## Learn more about CloudFormation
+<a name="learn-more-cloudformation"></a>
 
 To learn more about CloudFormation, see the following resources:
-
-- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
-- [AWS CloudFormation User
-  Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-- [CloudFormation API
-  Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md")
-- [AWS CloudFormation Command Line Interface User Guide](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md")
++ [AWS CloudFormation](https://aws.amazon.com/cloudformation/)
++ [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
++ [CloudFormation API Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html)
++ [AWS CloudFormation Command Line Interface User Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html)
