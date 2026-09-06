@@ -345,7 +345,7 @@ For example, for the OU resource, AWS Organizations defines actions like the fol
 - `AttachPolicy` and `DetachPolicy`
 - `CreateOrganizationalUnit` and
   `DeleteOrganizationalUnit`
-- `ListOrganizationalUnits` and
+- `ListOrganizationalUnitsForParent` and
   `DescribeOrganizationalUnit`
 
 In some cases, performing an API operation might require permissions to more than one

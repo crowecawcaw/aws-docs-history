@@ -987,7 +987,7 @@ You can use one of the following to create a tag policy:
 You can use any text editor to create a tag policy. Use JSON
 syntax and save the tag policy as a file with any name and extension
 in a location of your choosing. Tag policies can have a maximum of
-2,500 characters, including spaces. For information about tag policy
+10,000 characters, including spaces. For information about tag policy
 syntax, see [Tag policy syntax](orgs_manage_policies_example-tag-policies.md#tag-policy-syntax-reference "orgs_manage_policies_example-tag-policies.md#tag-policy-syntax-reference").
 
 ###### To create a tag policy
@@ -1162,8 +1162,8 @@ policy:
 You can use any text editor to create a chat applications policy.
 Use JSON syntax and save the chat applications policy as a file with
 any name and extension in a location of your choosing. Chat
-applications policies can have a maximum of ? characters, including
-spaces. For information about tag policy syntax, see [Chat applications policy syntax and examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_syntax.md").
+applications policies can have a maximum of 10,000 characters, including
+spaces. For information about chat applications policy syntax, see [Chat applications policy syntax and examples](orgs_manage_policies_chatbot_syntax.md "orgs_manage_policies_chatbot_syntax.md").
 
 ###### To create a chat applications policy
 

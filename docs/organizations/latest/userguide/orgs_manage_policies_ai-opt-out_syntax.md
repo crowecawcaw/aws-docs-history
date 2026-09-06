@@ -95,6 +95,7 @@ elements:
     	- `aiops`
     	- `aidevops`
     	- `awssupplychain`
+    	- `biodiscovery`
     	- `chimesdkvoiceanalytics`
     	- `cloudwatch`
     	- `codeguruprofiler`
@@ -120,6 +121,7 @@ elements:
     	- `q`
     	- `quicksightq`
     	- `rekognition`
+    	- `scenariodiscovery`
     	- `securitylake`
     	- `textract`
     	- `transcribe`

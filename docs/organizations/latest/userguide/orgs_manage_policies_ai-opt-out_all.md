@@ -40,6 +40,7 @@ see [AWS Service Terms](https://aws.amazon.com/service-terms/#81._Industrial_AI_
 The following is a list of AWS services supported by the AI services opt-out policy:
 
 - [Amazon AI Operations](https://aws.amazon.com/what-is/aiops "https://aws.amazon.com/what-is/aiops")
+- [Amazon Bio Discovery](https://aws.amazon.com/biodiscovery/ "https://aws.amazon.com/biodiscovery/")
 - [Amazon Chime SDK voice analytics](../../../chime-sdk/latest/dg/voice-analytics.md "../../../chime-sdk/latest/dg/voice-analytics.md")
 - [Amazon CloudWatch](../../../cloudwatch.md "../../../cloudwatch.md")
 - [Amazon CodeGuru Profiler](../../../codeguru.md "../../../codeguru.md")
@@ -47,8 +48,6 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Comprehend](../../../comprehend.md "../../../comprehend.md")
 - [AWS Config](../../../config.md "../../../config.md")
 - [Amazon Connect Customer](../../../connect.md "../../../connect.md")
-- [Amazon Connect Customer Optimization](../../../connect.md "../../../connect.md")
-- [Amazon Connect Customer Contact Lens](../../../connect/latest/adminguide/contact-lens.md "../../../connect/latest/adminguide/contact-lens.md")
 - [Amazon Connect Decisions](../../../connect-decisions.md "../../../connect-decisions.md")
 - [Amazon Connect Health Operational Support](../../../connecthealth/latest/userguide.md "../../../connecthealth/latest/userguide.md")
 - [Amazon Connect Health Model Training](../../../connecthealth/latest/userguide.md "../../../connecthealth/latest/userguide.md")
@@ -65,6 +64,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Q](../../../amazonq.md "../../../amazonq.md")
 - [Amazon Quick](../../../quicksight.md "../../../quicksight.md")
 - [Amazon Rekognition](../../../rekognition.md "../../../rekognition.md")
+- [Scenario Discovery](../../../iot-sitewise.md "../../../iot-sitewise.md")
 - [Amazon Security Lake](../../../security-lake.md "../../../security-lake.md")
 - [AWS Supply Chain](https://aws.amazon.com/products/connect/decisions/ "https://aws.amazon.com/products/connect/decisions/")
 - [Amazon Textract](../../../textract.md "../../../textract.md")
