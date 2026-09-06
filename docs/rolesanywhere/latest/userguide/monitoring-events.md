@@ -1,18 +1,21 @@
-# Monitoring IAM Roles Anywhere events in Amazon EventBridge
 
-You can monitor IAM Roles Anywhere events in [Amazon EventBridge](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md"). Events from IAM Roles Anywhere are delivered to EventBridge in near-real time. You can write simple rules to indicate which events are of interest to you and the automated actions to take when an event matches a rule. With EventBridge, you can use events to trigger targets including AWS Lambda functions, AWS Batch jobs, Amazon SNS topics, and many others. For more information, see [Creating Amazon EventBridge rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md").
+
+# Monitoring IAM Roles Anywhere events in Amazon EventBridge
+<a name="monitoring-events"></a>
+
+You can monitor IAM Roles Anywhere events in [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/). Events from IAM Roles Anywhere are delivered to EventBridge in near-real time. You can write simple rules to indicate which events are of interest to you and the automated actions to take when an event matches a rule. With EventBridge, you can use events to trigger targets including AWS Lambda functions, AWS Batch jobs, Amazon SNS topics, and many others. For more information, see [Creating Amazon EventBridge rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html).
 
 The following examples show events for IAM Roles Anywhere.
 
-###### Topics
-
-- [Trust anchor certificate expiration event](#trust_anchor_cert_expiry_event "#trust_anchor_cert_expiry_event")
-- [Intermediate or end-entity certificate expiration event](#cert_expiry_event "#cert_expiry_event")
-- [Responding to an event](#event-sns-response "#event-sns-response")
+**Topics**
++ [Trust anchor certificate expiration event](#trust_anchor_cert_expiry_event)
++ [Intermediate or end-entity certificate expiration event](#cert_expiry_event)
++ [Responding to an event](#event-sns-response)
 
 ## Trust anchor certificate expiration event
+<a name="trust_anchor_cert_expiry_event"></a>
 
-IAM Roles Anywhere sends daily expiration event for each trust anchor certificate that satisfies [notification evaluation criteria](customize-notification-settings.md#notification-evaluation "customize-notification-settings.md#notification-evaluation"). You can use expiration events to configure Amazon SNS to send a text notification whenever IAM Roles Anywhere generates this event.
+IAM Roles Anywhere sends daily expiration event for each trust anchor certificate that satisfies [notification evaluation criteria](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/customize-notification-settings.html#notification-evaluation). You can use expiration events to configure Amazon SNS to send a text notification whenever IAM Roles Anywhere generates this event.
 
 Expiration events have the following structure.
 
@@ -37,8 +40,9 @@ Expiration events have the following structure.
 ```
 
 ## Intermediate or end-entity certificate expiration event
+<a name="cert_expiry_event"></a>
 
-IAM Roles Anywhere sends an expiration event for intermediate or end-entity certificates when the certificate satisfies [notification evaluation criteria](customize-notification-settings.md#notification-evaluation "customize-notification-settings.md#notification-evaluation") and used in createSession API. You can use expiration events to configure Amazon SNS to send a text notification whenever IAM Roles Anywhere generates this event.
+IAM Roles Anywhere sends an expiration event for intermediate or end-entity certificates when the certificate satisfies [notification evaluation criteria](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/customize-notification-settings.html#notification-evaluation) and used in createSession API. You can use expiration events to configure Amazon SNS to send a text notification whenever IAM Roles Anywhere generates this event.
 
 Expiration events have the following structure.
 
@@ -60,35 +64,40 @@ Expiration events have the following structure.
 ```
 
 ## Responding to an event
+<a name="event-sns-response"></a>
 
-You can configure Amazon Simple Notification Service to send a text notification whenever IAM Roles Anywhere generates an
-EventBridge event.
+You can configure Amazon Simple Notification Service to send a text notification whenever IAM Roles Anywhere generates an EventBridge event.
 
-###### To create an Amazon EventBridge rule that reacts to events
+**To create an Amazon EventBridge rule that reacts to events**
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the navigation pane, choose **Rules**.
-3. Choose **Create rule**.
-4. Enter a name and description for the rule.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-A rule can't have the same name as another rule in the same Region and on the
-same event bus. 5. For **Event bus**, choose the event bus that you want
-to associate with this rule. If you want this rule to match events that come
-from your account, select **AWS default event bus**. When an
-AWS service in your account emits an event, it always goes to your account’s
-default event bus. 6. For **Rule type**, choose **Rule with an event
-pattern**. 7. Choose **Next**. 8. For **Event source**, choose
-**AWS services**. 9. For **Sample events**, choose an event under
-**IAM Roles Anywhere**. 10. For **Event pattern**, do the following:
+1. In the navigation pane, choose **Rules**.
 
-    1. For **Event source**, choose **AWS
-     services**.
-    2. For **AWS service**, choose
-     **IAM Roles Anywhere.**
-    3. For **Event Type**, choose an **IAM Roles Anywhere**
-     event.
-    4. Choose **Next**
+1. Choose **Create rule**.
 
-11. In the **Targets** section, choose a service that can consume your
-event such as Amazon SNS, or choose **Lambda function** to pass the event to
-customized executable code.
+1. Enter a name and description for the rule.
+
+   A rule can't have the same name as another rule in the same Region and on the same event bus.
+
+1. For **Event bus**, choose the event bus that you want to associate with this rule. If you want this rule to match events that come from your account, select ** AWS default event bus**. When an AWS service in your account emits an event, it always goes to your account’s default event bus.
+
+1. For **Rule type**, choose **Rule with an event pattern**.
+
+1. Choose **Next**.
+
+1. For **Event source**, choose **AWS services**.
+
+1. For **Sample events**, choose an event under **IAM Roles Anywhere**.
+
+1. For **Event pattern**, do the following:
+
+   1. For **Event source**, choose **AWS services**.
+
+   1. For **AWS service**, choose **IAM Roles Anywhere.**
+
+   1. For **Event Type**, choose an **IAM Roles Anywhere** event. 
+
+   1. Choose **Next**
+
+1. In the **Targets** section, choose a service that can consume your event such as Amazon SNS, or choose **Lambda function** to pass the event to customized executable code.

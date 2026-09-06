@@ -1,100 +1,90 @@
+
+
 # Get temporary security credentials from IAM Roles Anywhere
+<a name="credential-helper"></a>
 
-To obtain temporary security credentials from AWS Identity and Access Management Roles Anywhere, use the
-credential helper tool that IAM Roles Anywhere provides. This tool is compatible
-with the `credential_process` feature available across
-the language SDKs. When used with an AWS SDK, these credentials
-automatically refresh before they expire, requiring no additional
-implementation for credential renewal. The helper manages the process
-of creating a signature with the certificate and calling the endpoint
-to obtain session credentials; it returns the credentials to the calling
-process in a standard JSON format.
+ To obtain temporary security credentials from AWS Identity and Access Management Roles Anywhere, use the credential helper tool that IAM Roles Anywhere provides. This tool is compatible with the `credential_process` feature available across the language SDKs. When used with an AWS SDK, these credentials automatically refresh before they expire, requiring no additional implementation for credential renewal. The helper manages the process of creating a signature with the certificate and calling the endpoint to obtain session credentials; it returns the credentials to the calling process in a standard JSON format. 
 
-See
-[Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md")
-for more information on session credentials.
+ See [ Temporary security credentials in IAM ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) for more information on session credentials. 
 
-For Java applications on the AWS SDK for Java v2, you can alternatively
-resolve IAM Roles Anywhere credentials in process using the
-[IAM Roles Anywhere Java plugin](java-plugin.md "java-plugin.md")
-instead of the credential helper.
+ For Java applications on the AWS SDK for Java v2, you can alternatively resolve IAM Roles Anywhere credentials in process using the [IAM Roles Anywhere Java plugin](java-plugin.md) instead of the credential helper. 
 
 To download the credential helper tool, use the following links. Releases for Darwin and Windows on or after version 1.1.1 are signed.
 
-| Platform | Architecture | Download URL                                                                                                                                                                                                                                                                                                        | SHA256 checksum                                                  |
-| -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Linux    | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.5/X86\_64/Linux/Amzn2023/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/Linux/Amzn2023/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/Linux/Amzn2023/aws_signing_helper")                         | beec9ed1c492d93db809890f16713e3556353294b823c2184ad4e891f1b2b54d |
-| Windows  | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.5/X86\_64/Windows/Server2022/aws\_signing\_helper.exe](https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/Windows/Server2022/aws_signing_helper.exe "https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/Windows/Server2022/aws_signing_helper.exe") | fc4c3e65864c1829fcd87ae3718387db03b8ea48b8819f5a6031482ba5d243cd |
-| Darwin   | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.5/X86\_64/MacOS/Sonoma/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/MacOS/Sonoma/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/MacOS/Sonoma/aws_signing_helper")                               | aab355e1e7468056be88a56bbfb030ea33ff32bef2ce20f5dd6a0b1cae5aae5a |
-| Linux    | Aarch64      | [https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/Linux/Amzn2023/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/Linux/Amzn2023/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/Linux/Amzn2023/aws_signing_helper")                       | 3d131aa888cd56da446f9c6bb460b1f0569f6c7edc74eae6193a2fe3928883ba |
-| Darwin   | Aarch64      | [https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/MacOS/Sonoma/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/MacOS/Sonoma/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/MacOS/Sonoma/aws_signing_helper")                             | ac4b656cd83ffde5a6e9e8f2317ffb90e036c9bb704cc80faa6aee414b55915a |
 
-###### Important
+| Platform | Architecture | Download URL | SHA256 checksum | 
+| --- | --- | --- | --- | 
+| Linux | x86-64 | [https://rolesanywhere.amazonaws.com/releases/1.8.5/X86\_64/Linux/Amzn2023/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/Linux/Amzn2023/aws_signing_helper) | beec9ed1c492d93db809890f16713e3556353294b823c2184ad4e891f1b2b54d | 
+| Windows | x86-64 | [https://rolesanywhere.amazonaws.com/releases/1.8.5/X86\_64/Windows/Server2022/aws\_signing\_helper.exe](https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/Windows/Server2022/aws_signing_helper.exe) | fc4c3e65864c1829fcd87ae3718387db03b8ea48b8819f5a6031482ba5d243cd | 
+| Darwin | x86-64 | [https://rolesanywhere.amazonaws.com/releases/1.8.5/X86\_64/MacOS/Sonoma/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/X86_64/MacOS/Sonoma/aws_signing_helper) | aab355e1e7468056be88a56bbfb030ea33ff32bef2ce20f5dd6a0b1cae5aae5a | 
+| Linux | Aarch64 | [https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/Linux/Amzn2023/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/Linux/Amzn2023/aws_signing_helper) | 3d131aa888cd56da446f9c6bb460b1f0569f6c7edc74eae6193a2fe3928883ba | 
+| Darwin | Aarch64 | [https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/MacOS/Sonoma/aws\_signing\_helper](https://rolesanywhere.amazonaws.com/releases/1.8.5/Aarch64/MacOS/Sonoma/aws_signing_helper) | ac4b656cd83ffde5a6e9e8f2317ffb90e036c9bb704cc80faa6aee414b55915a | 
 
-To get temporary credentials, you need all of the following:
-
-- A Profile configured in AWS Identity and Access Management Roles Anywhere
-- A Role ARN from IAM
-- An end-entity certificate from your certificate authority
-- The certificate associated private key is required in most cases, except when inferred. For example when using OS certificate stores.
-- A trust anchor configured in IAM Roles Anywhere
-  For more information, see [Getting started](getting-started.md "getting-started.md"). For detailed examples of using the credential helper with the Java SDK, see [Using IAM Roles Anywhere credentials](../../../sdk-for-java/latest/developer-guide/credentials-process.md#credentials-iam-roles-anywhere "../../../sdk-for-java/latest/developer-guide/credentials-process.md#credentials-iam-roles-anywhere").
+**Important**  
+To get temporary credentials, you need all of the following:  
+A Profile configured in AWS Identity and Access Management Roles Anywhere
+A Role ARN from IAM
+An end-entity certificate from your certificate authority
+The certificate associated private key is required in most cases, except when inferred. For example when using OS certificate stores.
+A trust anchor configured in IAM Roles Anywhere
+For more information, see [Getting started](getting-started.md). For detailed examples of using the credential helper with the Java SDK, see [Using IAM Roles Anywhere credentials](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-process.html#credentials-iam-roles-anywhere).
 
 ## Credential Helper on GitHub
+<a name="credential-helper-github"></a>
 
-The source code for the credential helper is available on [GitHub](https://github.com/aws/rolesanywhere-credential-helper "https://github.com/aws/rolesanywhere-credential-helper") so that you can adapt the helper to your needs.
-We encourage you to submit pull requests for changes that you would like to have included. However, AWS doesn't provide support for running modified copies of this software.
+ The source code for the credential helper is available on [GitHub](https://github.com/aws/rolesanywhere-credential-helper) so that you can adapt the helper to your needs. We encourage you to submit pull requests for changes that you would like to have included. However, AWS doesn't provide support for running modified copies of this software. 
 
-###### Note
-
-You can find more modes and options and for credential helper in the [README.md](https://github.com/aws/rolesanywhere-credential-helper/blob/main/README.md "https://github.com/aws/rolesanywhere-credential-helper/blob/main/README.md").
+**Note**  
+ You can find more modes and options and for credential helper in the [README.md](https://github.com/aws/rolesanywhere-credential-helper/blob/main/README.md). 
 
 ## Advanced Features
+<a name="credential-helper-advanced-features"></a>
 
 The credential helper supports several advanced features for working with different types of key storage and authentication mechanisms.
 
 ### OS Certificate Store Integration
+<a name="credential-helper-os-certificate-stores"></a>
 
 On Windows and macOS, the credential helper can leverage private keys and certificates stored in OS-specific secure stores:
-
-- **Windows:** Both CNG and Cryptography APIs are supported. By default, only the user's "MY" certificate store is searched, but you can specify a different store using the `--system-store-name` option.
-- **macOS:** Keychain Access is supported. The credential helper searches Keychains on the search list.
++ **Windows:** Both CNG and Cryptography APIs are supported. By default, only the user's "MY" certificate store is searched, but you can specify a different store using the `--system-store-name` option.
++ **macOS:** Keychain Access is supported. The credential helper searches Keychains on the search list.
 
 To use certificates from these stores, use the `--cert-selector` option instead of providing certificate and private key files.
 
 #### macOS Keychain Integration
+<a name="credential-helper-macos-keychain"></a>
 
 For securing keys through macOS Keychain, consider creating a dedicated Keychain that only the credential helper can access:
 
 1. Create a new Keychain:
 
-```
-security create-keychain -p ${CREDENTIAL_HELPER_KEYCHAIN_PASSWORD} credential-helper.keychain
-```
+   ```
+   security create-keychain -p ${CREDENTIAL_HELPER_KEYCHAIN_PASSWORD} credential-helper.keychain
+   ```
 
-2. Unlock the Keychain:
+1. Unlock the Keychain:
 
-```
-security unlock-keychain -p ${CREDENTIAL_HELPER_KEYCHAIN_PASSWORD} credential-helper.keychain
-```
+   ```
+   security unlock-keychain -p ${CREDENTIAL_HELPER_KEYCHAIN_PASSWORD} credential-helper.keychain
+   ```
 
-3. Add the Keychain to the search list:
+1. Add the Keychain to the search list:
 
-```
-EXISTING_KEYCHAINS=$(security list-keychains | cut -d '"' -f2) security list-keychains -s credential-helper.keychain $(echo ${EXISTING_KEYCHAINS} | awk -v ORS=" " '{print $1}')
-```
+   ```
+   EXISTING_KEYCHAINS=$(security list-keychains | cut -d '"' -f2) security list-keychains -s credential-helper.keychain $(echo ${EXISTING_KEYCHAINS} | awk -v ORS=" " '{print $1}')
+   ```
 
-4. Import your certificate and private key:
+1. Import your certificate and private key:
 
-```
-security import /path/to/identity.pfx -T /path/to/aws_signing_helper -P ${UNWRAPPING_PASSWORD} -k credential-helper.keychain
-```
+   ```
+   security import /path/to/identity.pfx -T /path/to/aws_signing_helper -P ${UNWRAPPING_PASSWORD} -k credential-helper.keychain
+   ```
 
-###### Note
-
+**Note**  
 Since the official credential helper binary is signed, but not notarized, so it isn't trusted by macOS by default. You may need to specify your Keychain password whenever the credential helper uses the private key, or choose to always allow the credential helper to use the Keychain item.
 
 #### Windows CNG Integration
+<a name="credential-helper-windows-cng"></a>
 
 To use Windows CNG for key storage, import your certificate and private key into your user's "MY" certificate store:
 
@@ -104,101 +94,97 @@ certutil -user -p %UNWRAPPING_PASSWORD% -importPFX "MY" \path\to\identity.pfx
 
 You can also use PowerShell cmdlets or Windows CNG/Cryptography APIs to import certificates.
 
-### PKCS#11 Integration
+### PKCS\#11 Integration
+<a name="credential-helper-pkcs11"></a>
 
-The credential helper supports using certificates and keys from hardware or software PKCS#11 tokens and HSMs using PKCS#11 URIs:
+The credential helper supports using certificates and keys from hardware or software PKCS\#11 tokens and HSMs using PKCS\#11 URIs:
++ Use a certificate from a PKCS\#11 token:
 
-- Use a certificate from a PKCS#11 token:
+  ```
+  --certificate 'pkcs11:manufacturer=piv_II;id=%01'
+  ```
++ Use a certificate by object name:
 
-```
---certificate 'pkcs11:manufacturer=piv_II;id=%01'
-```
+  ```
+  --certificate 'pkcs11:object=My%20RA%20key'
+  ```
++ Use a certificate from a file but the key from a token:
 
-- Use a certificate by object name:
+  ```
+  --certificate client-cert.pem --private-key 'pkcs11:model=SoftHSM%20v2;object=My%20RA%20key'
+  ```
 
-```
---certificate 'pkcs11:object=My%20RA%20key'
-```
-
-- Use a certificate from a file but the key from a token:
-
-```
---certificate client-cert.pem --private-key 'pkcs11:model=SoftHSM%20v2;object=My%20RA%20key'
-```
-
-Most Unix-based systems use [p11-kit](https://p11-glue.github.io/p11-glue/p11-kit/manual/config.html "https://p11-glue.github.io/p11-glue/p11-kit/manual/config.html") to provide consistent system-wide and per-user configuration of available PKCS#11 providers. For systems or containers that lack p11-kit, you can specify a specific PKCS#11 provider library using the `--pkcs11-lib` parameter.
+Most Unix-based systems use [p11-kit](https://p11-glue.github.io/p11-glue/p11-kit/manual/config.html) to provide consistent system-wide and per-user configuration of available PKCS\#11 providers. For systems or containers that lack p11-kit, you can specify a specific PKCS\#11 provider library using the `--pkcs11-lib` parameter.
 
 If your private key object has the `CKA_ALWAYS_AUTHENTICATE` attribute set and the `CKU_CONTEXT_SPECIFIC` PIN matches the `CKU_USER` PIN, you can use the `--reuse-pin` parameter to avoid being prompted for the PIN multiple times.
 
-###### Note
-
+**Note**  
 For YubiKey devices with PIV support, when a key pair and certificate exist in slots 9a or 9c, the YubiKey automatically generates an attestation certificate for the slot. To disambiguate between your certificate and the attestation certificate, use the `CKA_LABEL` (the `object` path attribute in a URI).
 
 ### TPM Integration
+<a name="credential-helper-tpm"></a>
 
 The credential helper supports TPM wrapped keys in the `-----BEGIN TSS2 PRIVATE KEY-----` format. You can use such a file as you would any plain key file. These files are supported by both TPMv2 OpenSSL engines/providers and GnuTLS.
 
-###### Important
-
-To use these commands below you must install the [tpm2-tools](https://github.com/tpm2-software/tpm2-tools "https://github.com/tpm2-software/tpm2-tools") software package. This package provides the necessary commands for working with TPM2 devices.
-
+**Important**  
+To use these commands below you must install the [tpm2-tools](https://github.com/tpm2-software/tpm2-tools) software package. This package provides the necessary commands for working with TPM2 devices.  
 This package is available on many Linux distributions through standard package managers.
 
 To create and use a TPM key with the credential helper:
 
 1. Create a primary key in the TPM owner hierarchy:
 
-```
-tpm2_createprimary -G rsa -g sha256 -p ${TPM_PRIMARY_KEY_PASSWORD} -c parent.ctx -P ${OWNER_HIERARCHY_PASSWORD}
-```
+   ```
+   tpm2_createprimary -G rsa -g sha256 -p ${TPM_PRIMARY_KEY_PASSWORD} -c parent.ctx -P ${OWNER_HIERARCHY_PASSWORD}
+   ```
 
-2. Create a child key with the primary key as its parent:
+1. Create a child key with the primary key as its parent:
 
-```
-tpm2_create -C parent.ctx -u child.pub -r child.priv -P ${TPM_PRIMARY_KEY_PASSWORD} -p ${TPM_CHILD_KEY_PASSWORD}
-```
+   ```
+   tpm2_create -C parent.ctx -u child.pub -r child.priv -P ${TPM_PRIMARY_KEY_PASSWORD} -p ${TPM_CHILD_KEY_PASSWORD}
+   ```
 
-3. Load the child key into the TPM and make it persistent:
+1. Load the child key into the TPM and make it persistent:
 
-```
-tpm2_load -C parent.ctx -u child.pub -r child.priv -c child.ctx -P ${TPM_PRIMARY_KEY_PASSWORD}
-CHILD_HANDLE=$(tpm2_evictcontrol -c child.ctx | cut -d ' ' -f 2 | head -n 1)
-```
+   ```
+   tpm2_load -C parent.ctx -u child.pub -r child.priv -c child.ctx -P ${TPM_PRIMARY_KEY_PASSWORD}
+   CHILD_HANDLE=$(tpm2_evictcontrol -c child.ctx | cut -d ' ' -f 2 | head -n 1)
+   ```
 
-4. Create a CSR using the TPM key:
+1. Create a CSR using the TPM key:
 
-```
-openssl req -provider tpm2 -provider default -propquery '?provider=tpm2' \
-            -new -key handle:${CHILD_HANDLE} \
-            -out client-csr.pem
-```
+   ```
+   openssl req -provider tpm2 -provider default -propquery '?provider=tpm2' \
+               -new -key handle:${CHILD_HANDLE} \
+               -out client-csr.pem
+   ```
 
-5. After obtaining a certificate from your CA, use it with the credential helper:
+1. After obtaining a certificate from your CA, use it with the credential helper:
 
-```
-./aws_signing_helper credential-process \
-    --certificate /path/to/certificate/file \
-    --private-key handle:${CHILD_HANDLE} \
-    --role-arn ${ROLE_ARN} \
-    --trust-anchor-arn ${TA_ARN} \
-    --profile-arn ${PROFILE_ARN}
-```
+   ```
+   ./aws_signing_helper credential-process \
+       --certificate /path/to/certificate/file \
+       --private-key handle:${CHILD_HANDLE} \
+       --role-arn ${ROLE_ARN} \
+       --trust-anchor-arn ${TA_ARN} \
+       --profile-arn ${PROFILE_ARN}
+   ```
 
-###### Important
-
+**Important**  
 When using TPM handles, it's your responsibility to clear out the persistent and temporary objects from the TPM after you no longer need them. If you load a key into the TPM that isn't password-protected, anyone with access to the machine can use that key.
 
-Alternatively, you can use a TPM key file in the format described in the [TSS2 Private Key Format](https://www.hansenpartnership.com/draft-bottomley-tpm2-keys.html "https://www.hansenpartnership.com/draft-bottomley-tpm2-keys.html"). With this approach, the wrapped private key will be loaded into the TPM as a transient object and automatically flushed after use.
+Alternatively, you can use a TPM key file in the format described in the [TSS2 Private Key Format](https://www.hansenpartnership.com/draft-bottomley-tpm2-keys.html). With this approach, the wrapped private key will be loaded into the TPM as a transient object and automatically flushed after use.
 
-###### Note
-
-For RSA keys used with the credential helper, ensure they have the sign attribute set. Some tools (like the IBM OpenSSL ENGINE) create RSA keys with the decrypt attribute but not the sign attribute by default. The credential helper delegates the signing operation to the TPM rather than implementing PKCS#1 v1.5 padding manually.
+**Note**  
+For RSA keys used with the credential helper, ensure they have the sign attribute set. Some tools (like the IBM OpenSSL ENGINE) create RSA keys with the decrypt attribute but not the sign attribute by default. The credential helper delegates the signing operation to the TPM rather than implementing PKCS\#1 v1.5 padding manually.
 
 ### Diagnostic Commands
+<a name="credential-helper-diagnostic"></a>
 
 The credential helper includes diagnostic commands that can help you troubleshoot issues:
 
 #### read-certificate-data
+<a name="credential-helper-read-certificate"></a>
 
 Reads and displays information about a certificate. This is useful for verifying certificate details and finding the correct certificate when multiple certificates match a selector.
 
@@ -212,9 +198,10 @@ Or with a certificate selector:
 ./aws_signing_helper read-certificate-data --cert-selector Key=x509Subject,Value=CN=Subject
 ```
 
-If multiple certificates match a selector, information about each of them is printed. For PKCS#11, URIs for each matched certificate are also printed to help uniquely identify certificates.
+If multiple certificates match a selector, information about each of them is printed. For PKCS\#11, URIs for each matched certificate are also printed to help uniquely identify certificates.
 
 #### sign-string
+<a name="credential-helper-sign-string"></a>
 
 Signs a fixed test string to validate your private key and digest configuration:
 
@@ -229,34 +216,37 @@ Or with a certificate selector:
 ```
 
 Optional parameters include:
-
-- `--digest`: Must be one of SHA256 (default), SHA384, or SHA512
-- `--format`: Must be one of text (default), json, or bin
++ `--digest`: Must be one of SHA256 (default), SHA384, or SHA512
++ `--format`: Must be one of text (default), json, or bin
 
 ## Available commands
+<a name="credential-helper-synopsis"></a>
 
 The credential helper tool provides several commands to help you work with IAM Roles Anywhere. This section describes the available commands and their usage.
++ [credential-process command](#credential-helper-credential-process) - Obtains temporary security credentials from IAM Roles Anywhere using your certificate and private key.
++ [update command](#credential-helper-update) - Obtains temporary security credentials from IAM Roles Anywhere and writes them directly to the AWS credentials file.
++ [serve command](#credential-helper-serve) - Vends temporary security credentials from IAM Roles Anywhere through a local endpoint.
 
-- [credential-process command](#credential-helper-credential-process "#credential-helper-credential-process") - Obtains temporary security credentials from IAM Roles Anywhere using your certificate and private key.
-- [update command](#credential-helper-update "#credential-helper-update") - Obtains temporary security credentials from IAM Roles Anywhere and writes them directly to the AWS credentials file.
-- [serve command](#credential-helper-serve "#credential-helper-serve") - Vends temporary security credentials from IAM Roles Anywhere through a local endpoint.
-
-For additional commands and options, see the [credential helper README on GitHub](https://github.com/aws/rolesanywhere-credential-helper/blob/main/README.md "https://github.com/aws/rolesanywhere-credential-helper/blob/main/README.md").
+For additional commands and options, see the [credential helper README on GitHub](https://github.com/aws/rolesanywhere-credential-helper/blob/main/README.md).
 
 ### Comparison of credential-helper commands
+<a name="credential-helper-command-comparison"></a>
 
-| Feature                      | credential-process                  | update                      | serve                           |
-| ---------------------------- | ----------------------------------- | --------------------------- | ------------------------------- |
-| Automatic credential refresh | No (AWS CLI calls for each command) | Yes                         | Yes                             |
-| SDK integration              | No (requires profile setup)         | No (requires profile setup) | Yes (with environment variable) |
-| Credentials storage          | In memory                           | On disk                     | In memory                       |
-| Best for                     | Single commands                     | AWS CLI usage               | SDK applications                |
+
+| Feature | credential-process | update | serve | 
+| --- | --- | --- | --- | 
+| Automatic credential refresh | No (AWS CLI calls for each command) | Yes | Yes | 
+| SDK integration | No (requires profile setup) | No (requires profile setup) | Yes (with environment variable) | 
+| Credentials storage | In memory | On disk | In memory | 
+| Best for | Single commands | AWS CLI usage | SDK applications | 
 
 ## credential-process command
+<a name="credential-helper-credential-process"></a>
 
 The credential-process command obtains temporary security credentials from IAM Roles Anywhere using your certificate and private key.
 
 ### Synopsis
+<a name="credential-helper-credential-process-synopsis"></a>
 
 ```
 ./aws_signing_helper credential-process \
@@ -282,184 +272,148 @@ The credential-process command obtains temporary security credentials from IAM R
 ```
 
 ### Options
+<a name="credential-helper-credential-process-options"></a>
 
-`--certificate` (string)
-Path to certificate file. Can also be a PKCS#11 URI (e.g., `pkcs11:manufacturer=piv_II;id=%01`) to use certificates from hardware or software PKCS#11 tokens/HSMs.
+`--certificate `(string)  
+Path to certificate file. Can also be a PKCS\#11 URI (e.g., `pkcs11:manufacturer=piv_II;id=%01`) to use certificates from hardware or software PKCS\#11 tokens/HSMs.
 
-`--cert-selector` (string)
-
-Specifies which certificate (and associated private key) to use from OS-specific secure stores. On Windows, this searches the user's "MY" certificate store (or another store specified with `--system-store-name`). On macOS, this searches Keychains on the search list.
-
-The selector can be specified either through a JSON file or directly on the command line. It allows searching by certificate Subject, Issuer, and Serial Number using the keys `x509Subject`, `x509Issuer`, and `x509Serial`.
-
-Example using a JSON file:
+`--cert-selector` (string)  
+Specifies which certificate (and associated private key) to use from OS-specific secure stores. On Windows, this searches the user's "MY" certificate store (or another store specified with `--system-store-name`). On macOS, this searches Keychains on the search list.  
+The selector can be specified either through a JSON file or directly on the command line. It allows searching by certificate Subject, Issuer, and Serial Number using the keys `x509Subject`, `x509Issuer`, and `x509Serial`.  
+Example using a JSON file:  
 
 ```
 --cert-selector file://path/to/selector.json
 ```
-
-Example using command line:
+Example using command line:  
 
 ```
 --cert-selector Key=x509Subject,Value=CN=Subject Key=x509Issuer,Value=CN=Issuer Key=x509Serial,Value=15D19632234BF759A32802C0DA88F9E8AFC8702D
 ```
 
-`--endpoint` (string)
+`--endpoint` (string)  
+The IAM Roles Anywhere endpoint for the region. For a list of endpoints, see [Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/rolesanywhere.html). 
 
-The IAM Roles Anywhere endpoint for the region. For a list of endpoints,
-see [Service endpoints
-and quotas](../../../general/latest/gr/rolesanywhere.md "../../../general/latest/gr/rolesanywhere.md").
-
-`--region` (string)
+`--region` (string)  
 Signing region.
 
-`--intermediates` (string)
+`--intermediates` (string)  
 Path to intermediate certificate bundle.
 
-`--private-key` (string)
-
-Specifies the private key to use for signing. This can be:
-
-- A Path to a plaintext private key file
-- A PKCS#11 URI (e.g., `pkcs11:object=My%20RA%20key`)
-- A TPM wrapped key file in the `-----BEGIN TSS2 PRIVATE KEY-----` format
-- A TPM handle reference (e.g., `handle:0x81000001`)
-
+`--private-key `(string)  
+Specifies the private key to use for signing. This can be:  
++ A Path to a plaintext private key file
++ A PKCS\#11 URI (e.g., `pkcs11:object=My%20RA%20key`)
++ A TPM wrapped key file in the `-----BEGIN TSS2 PRIVATE KEY-----` format
++ A TPM handle reference (e.g., `handle:0x81000001`)
 Not required when using `--cert-selector` as the private key is inferred from the OS certificate store.
 
-`--tpm-key-password` (string)
+`--tpm-key-password` (string)  
 Password for TPM-protected private keys. Required when using password-protected TPM keys.
 
-`--pkcs11-lib` (string)
-Path to a specific PKCS#11 provider library. Only needed for systems or containers that lack p11-kit, otherwise the default p11-kit-proxy provider is used.
+`--pkcs11-lib` (string)  
+Path to a specific PKCS\#11 provider library. Only needed for systems or containers that lack p11-kit, otherwise the default p11-kit-proxy provider is used.
 
-`--pkcs11-pin` (string)
-PIN for PKCS#11 token authentication. Required when using PKCS#11 tokens that require authentication.
+`--pkcs11-pin` (string)  
+PIN for PKCS\#11 token authentication. Required when using PKCS\#11 tokens that require authentication.
 
-`--reuse-pin`
-Boolean flag to reuse the PKCS#11 user PIN for object-specific authentication. Useful when the private key object has the `CKA_ALWAYS_AUTHENTICATE` attribute set and the `CKU_CONTEXT_SPECIFIC` PIN matches the `CKU_USER` PIN.
+`--reuse-pin`  
+Boolean flag to reuse the PKCS\#11 user PIN for object-specific authentication. Useful when the private key object has the `CKA_ALWAYS_AUTHENTICATE` attribute set and the `CKU_CONTEXT_SPECIFIC` PIN matches the `CKU_USER` PIN.
 
-`--system-store-name` (string)
+`--system-store-name` (string)  
 Windows only: Specifies a system certificate store other than "MY" (the default) in the `CERT_SYSTEM_STORE_CURRENT_USER` context. Only used with `--cert-selector`.
 
-`--reuse-latest-expiring-certificate`
+`--reuse-latest-expiring-certificate`  
 Boolean flag to use the latest expiring certificate when multiple certificates match a certificate selector. This can be useful when you have multiple valid certificates and want to use the one with the longest remaining validity period.
 
-`--profile-arn` (string)
+`--profile-arn` (string)  
 Profile to pull policies, attribute mappings and other data from.
 
-`--role-arn` (string)
+`--role-arn` (string)  
 Target role to assume.
 
-`--session-duration` (int)
-Duration, in seconds, for the resulting session (corresponds to the `durationSeconds` parameter in the
-`CreateSession` request). This is optional and can range from 900 seconds (15 minutes) up to 43200 seconds (12 hours).
-Please see the `Expiration` subsection of the
-[Credentials Object](authentication-create-session.md#credentials-object "authentication-create-session.md#credentials-object")
-section for more details on how this value is used in determining the expiration of the vended session.
+`--session-duration` (int)  
+Duration, in seconds, for the resulting session (corresponds to the `durationSeconds` parameter in the `CreateSession` request). This is optional and can range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). Please see the `Expiration` subsection of the [Credentials Object](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object) section for more details on how this value is used in determining the expiration of the vended session.
 
-`--trust-anchor-arn` (string)
+`--trust-anchor-arn` (string)  
 Trust anchor to use for authentication.
 
-`--with-proxy`
-To use the tool with a proxy. This is a boolean flag. Note that you will have to set the
-`HTTPS_PROXY` environment variable with the address of the proxy server.
+`--with-proxy`  
+To use the tool with a proxy. This is a boolean flag. Note that you will have to set the `HTTPS_PROXY` environment variable with the address of the proxy server.
 
-`--no-verify-ssl`
+`--no-verify-ssl`  
+To disable SSL verification. This is a boolean flag.  
+Note that this disables TLS host authentication, and can open the connection to man-in-the-middle attacks. This option should only be used under specific, tightly controlled scenarios, such as debugging proxy connections.
 
-To disable SSL verification. This is a boolean flag.
-
-###### Important
-
-Note that this disables TLS host authentication, and can open the connection to man-in-the-middle attacks.
-This option should only be used under specific, tightly controlled scenarios, such as debugging proxy connections.
-
-`--role-session-name`
-
-An identifier for the role session. Please see
-[The relationship between CreateSession and AssumeRole](authentication-create-session.md#create-session-and-assume-role "authentication-create-session.md#create-session-and-assume-role")
-section for more details on how this option will affect the `CreateSession` operation.
+`--role-session-name`  
+An identifier for the role session. Please see [The relationship between CreateSession and AssumeRole](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#create-session-and-assume-role) section for more details on how this option will affect the `CreateSession` operation.
 
 ### Output
+<a name="credential-helper-credential-process-output"></a>
 
-The credential helper tool will return a JSON containing the credentials.
-This format allows the credentials to be consumed by the [external credential process](../../../sdkref/latest/guide/feature-process-credentials.md "../../../sdkref/latest/guide/feature-process-credentials.md") supported by the `credential_process`.
+The credential helper tool will return a JSON containing the credentials. This format allows the credentials to be consumed by the [external credential process](https://docs.aws.amazon.com/sdkref/latest/guide/feature-process-credentials.html) supported by the `credential_process`. 
 
 ```
-
 {
     "Version": 1,
-    "AccessKeyId": `String`,
-    "SecretAccessKey": `String`,
-    "SessionToken": `String`,
-    "Expiration": `Timestamp`
+    "AccessKeyId": {{String}},
+    "SecretAccessKey": {{String}},
+    "SessionToken": {{String}},
+    "Expiration": {{Timestamp}}
 }
-
 ```
 
 ### Examples
+<a name="credential-helper-credential-process-examples"></a>
 
-###### Example Obtain temporary security credentials
-
-Use the following command to get temporary security credentials. Specify the Region where you want to make the request.
-
-###### Important
-
+**Example Obtain temporary security credentials**  
+Use the following command to get temporary security credentials. Specify the Region where you want to make the request.  
 Before you run this command, make sure you have your certificate and private key. To get these credentials, follow the documentation from your certificate authority.
 
 ```
-`$` `./aws_signing_helper credential-process \
- --certificate `/path/to/certificate` \
- --private-key `/path/to/private-key` \
- --trust-anchor-arn arn:aws:rolesanywhere:`region`:`account`:trust-anchor/`TA_ID` \
- --profile-arn arn:aws:rolesanywhere:`region`:`account`:profile/`PROFILE_ID` \
- --role-arn arn:aws:iam::`account`:role/`role-name-with-path``
+$ ./aws_signing_helper credential-process \
+              --certificate {{/path/to/certificate}} \
+              --private-key {{/path/to/private-key}} \
+              --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} \
+              --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} \
+              --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}}
 ```
 
-###### Example Use temporary security credentials with AWS SDKs and the AWS CLI
-
-To use temporary security credentials with AWS SDKs and the AWS CLI, you can
-configure the credential helper tool as a credential process. For more information, see
-[Sourcing credentials
-with an external process](../../../cli/latest/userguide/cli-configure-sourcing-external.md "../../../cli/latest/userguide/cli-configure-sourcing-external.md").
-
-The following example shows a the `config` file that sets the helper tool as
-the credential process.
+**Example Use temporary security credentials with AWS SDKs and the AWS CLI**  
+To use temporary security credentials with AWS SDKs and the AWS CLI, you can configure the credential helper tool as a credential process. For more information, see [Sourcing credentials with an external process](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html).  
+The following example shows a the `config` file that sets the helper tool as the credential process.   
 
 ```
-`[profile developer]
- credential_process = ./aws_signing_helper credential-process --certificate `/path/to/certificate` --private-key `/path/to/private-key` --trust-anchor-arn arn:aws:rolesanywhere:`region`:`account`:trust-anchor/`TA_ID` --profile-arn arn:aws:rolesanywhere:`region`:`account`:profile/`PROFILE_ID` --role-arn arn:aws:iam::`account`:role/`role-name-with-path`
- region = `region``
+[profile developer]
+    credential_process = ./aws_signing_helper credential-process --certificate {{/path/to/certificate}} --private-key {{/path/to/private-key}} --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}}
+    region = {{region}}
 ```
+ For using this profile with any AWS SDK not mentioned below, see 'Set a named profile' from [Using shared config and credentials files to globally configure AWS SDKs and tools](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html)   
 
-For using this profile with any AWS SDK not mentioned below, see 'Set a named profile' from
-[Using shared config and credentials files to globally configure AWS SDKs and tools](../../../sdkref/latest/guide/file-format.md "../../../sdkref/latest/guide/file-format.md")
 
-###### Example Python SDK
+**Example Python SDK**  
+ To specify your Roles Anywhere enabled profile for use with Python, see [Boto3: Shared credentials file](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file).   
 
-To specify your Roles Anywhere enabled profile for use with Python, see
-[Boto3: Shared credentials file](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file").
 
-###### Example Java SDK
+**Example Java SDK**  
+ To specify your Roles Anywhere enabled profile for use with Java, see [Java 2.x: Use profiles](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-profiles.html)   
 
-To specify your Roles Anywhere enabled profile for use with Java, see
-[Java 2.x: Use profiles](../../../sdk-for-java/latest/developer-guide/credentials-profiles.md "../../../sdk-for-java/latest/developer-guide/credentials-profiles.md")
 
-###### Example C# SDK
+**Example C\# SDK**  
+ To specify your Roles Anywhere enabled profile for use with C\#, see [Examples for classes SharedCredentialsFile and AWSCredentialsFactory](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-locate.html#creds-locate-cred-shared-file)   
 
-To specify your Roles Anywhere enabled profile for use with C#, see
-[Examples for classes SharedCredentialsFile and AWSCredentialsFactory](../../../sdk-for-net/v3/developer-guide/creds-locate.md#creds-locate-cred-shared-file "../../../sdk-for-net/v3/developer-guide/creds-locate.md#creds-locate-cred-shared-file")
 
-###### Example Go SDK
+**Example Go SDK**  
+ To specify your IAM Roles Anywhere enabled profile for use with Go, see the Specifying Profiles section in [Specifying Credentials](https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/configure-gosdk.html#specifying-credentials)   
 
-To specify your IAM Roles Anywhere enabled profile for use with Go, see the Specifying Profiles section in
-[Specifying Credentials](../../../sdk-for-go/v2/developer-guide/configure-gosdk.md#specifying-credentials "../../../sdk-for-go/v2/developer-guide/configure-gosdk.md#specifying-credentials")
 
 ## serve command
+<a name="credential-helper-serve"></a>
 
 The serve command vends temporary security credentials from IAM Roles Anywhere through a local endpoint running on localhost. This endpoint is compatible with Instance Metadata Service (IMDSv2), allowing AWS SDKs to automatically discover and use the credentials without additional configuration.
 
 ### Synopsis
+<a name="credential-helper-serve-synopsis"></a>
 
 ```
 ./aws_signing_helper serve \
@@ -487,74 +441,71 @@ The serve command vends temporary security credentials from IAM Roles Anywhere t
 ```
 
 ### Options
+<a name="credential-helper-serve-options"></a>
 
-The serve command accepts all the options available to the [credential-process command](#credential-helper-credential-process-options "#credential-helper-credential-process-options"), plus the following additional options. For details on common options like `--cert-selector`, `--tpm-key-password`, `--pkcs11-lib`, and others, see the [Options section under credential-process](#credential-helper-credential-process-options "#credential-helper-credential-process-options").
+The serve command accepts all the options available to the [credential-process command](#credential-helper-credential-process-options), plus the following additional options. For details on common options like `--cert-selector`, `--tpm-key-password`, `--pkcs11-lib`, and others, see the [Options section under credential-process](#credential-helper-credential-process-options).
 
-`--port` (int)
+`--port` (int)  
 The port on which the local endpoint will be exposed. Default is 9911.
 
-`--hop-limit` (int)
+`--hop-limit` (int)  
 The IP TTL (Time To Live) to set on response packets. Default is 64. Setting this to 1 maintains parity with EC2's IMDSv2 hop count behavior.
 
 ### Behavior
+<a name="credential-helper-serve-behavior"></a>
 
 When you run the serve command, the credential helper starts a local server that:
++ Listens on 127.0.0.1 at the specified port (default 9911)
++ Implements the same URIs and request headers as IMDSv2
++ Automatically refreshes credentials five minutes before the previous set expires
++ Continues running until manually terminated
 
-- Listens on 127.0.0.1 at the specified port (default 9911)
-- Implements the same URIs and request headers as IMDSv2
-- Automatically refreshes credentials five minutes before the previous set expires
-- Continues running until manually terminated
-
-###### Important
-
+**Important**  
 When using the serve command, be aware that any process running on the system that can reach 127.0.0.1 will be able to retrieve AWS credentials from the credential helper.
 
 ### Examples
+<a name="credential-helper-serve-examples"></a>
 
-###### Example Start a credential server on the default port
-
-```
-`$` `./aws_signing_helper serve \
- --certificate `/path/to/certificate` \
- --private-key `/path/to/private-key` \
- --trust-anchor-arn arn:aws:rolesanywhere:`region`:`account`:trust-anchor/`TA_ID` \
- --profile-arn arn:aws:rolesanywhere:`region`:`account`:profile/`PROFILE_ID` \
- --role-arn arn:aws:iam::`account`:role/`role-name-with-path``
-```
-
-###### Example Start a credential server on a custom port with restricted hop limit
+**Example Start a credential server on the default port**  
 
 ```
-`$` `./aws_signing_helper serve \
- --certificate `/path/to/certificate` \
- --private-key `/path/to/private-key` \
- --trust-anchor-arn arn:aws:rolesanywhere:`region`:`account`:trust-anchor/`TA_ID` \
- --profile-arn arn:aws:rolesanywhere:`region`:`account`:profile/`PROFILE_ID` \
- --role-arn arn:aws:iam::`account`:role/`role-name-with-path` \
- --port 8000 \
- --hop-limit 1`
+$ ./aws_signing_helper serve \
+                  --certificate {{/path/to/certificate}} \
+                  --private-key {{/path/to/private-key}} \
+                  --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} \
+                  --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} \
+                  --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}}
 ```
 
-###### Example Use with AWS SDKs
-
-To use the credentials served by the credential helper with AWS SDKs, set the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable to point to your local endpoint:
+**Example Start a credential server on a custom port with restricted hop limit**  
 
 ```
-`$` `export AWS_EC2_METADATA_SERVICE_ENDPOINT=http://127.0.0.1:9911`
+$ ./aws_signing_helper serve \
+                  --certificate {{/path/to/certificate}} \
+                  --private-key {{/path/to/private-key}} \
+                  --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} \
+                  --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} \
+                  --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}} \
+                  --port 8000 \
+                  --hop-limit 1
 ```
 
-###### Important
+**Example Use with AWS SDKs**  
+To use the credentials served by the credential helper with AWS SDKs, set the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable to point to your local endpoint:  
 
-Depending on which AWS SDK you are using, the above
-environment variable must not end in a trailing '/' character.
-
+```
+$ export AWS_EC2_METADATA_SERVICE_ENDPOINT=http://127.0.0.1:9911
+```
+ Depending on which AWS SDK you are using, the above environment variable must not end in a trailing '/' character. 
 AWS SDKs will use the environment variable and the credentials from this endpoint using their credential providers without any changes to application code. The SDKs will request new AWS credentials from the credential helper's server as needed.
 
 ## update command
+<a name="credential-helper-update"></a>
 
 The update command obtains temporary security credentials from IAM Roles Anywhere and writes them directly to the AWS credentials file. This allows the AWS CLI and SDKs to use the credentials without having to call the credential helper for each command.
 
 ### Synopsis
+<a name="credential-helper-update-synopsis"></a>
 
 ```
 ./aws_signing_helper update \
@@ -582,171 +533,193 @@ The update command obtains temporary security credentials from IAM Roles Anywher
 ```
 
 ### Options
+<a name="credential-helper-update-options"></a>
 
-The update command accepts all the options available to the [credential-process command](#credential-helper-credential-process-options "#credential-helper-credential-process-options"), plus the following additional options. For details on common options like `--cert-selector`, `--tpm-key-password`, `--pkcs11-lib`, and others, see the [Options section under credential-process](#credential-helper-credential-process-options "#credential-helper-credential-process-options").
+The update command accepts all the options available to the [credential-process command](#credential-helper-credential-process-options), plus the following additional options. For details on common options like `--cert-selector`, `--tpm-key-password`, `--pkcs11-lib`, and others, see the [Options section under credential-process](#credential-helper-credential-process-options).
 
-`--profile` (string)
+`--profile` (string)  
 The named profile in the AWS credentials file to update. If not specified, the default profile will be updated. If the profile doesn't exist, it will be created.
 
-`--once`
+`--once`  
 Update the credentials only once and then exit. If not specified, the command will continuously update the credentials before they expire.
 
 ### Behavior
+<a name="credential-helper-update-behavior"></a>
 
 When you run the update command, the credential helper:
++ Obtains temporary security credentials from IAM Roles Anywhere
++ Writes the credentials directly to the AWS credentials file (\~/.aws/credentials)
++ Unless the `--once` flag is specified, automatically refreshes the credentials approximately five minutes before they expire
++ Continues running until manually terminated (unless `--once` is specified)
 
-- Obtains temporary security credentials from IAM Roles Anywhere
-- Writes the credentials directly to the AWS credentials file (~/.aws/credentials)
-- Unless the `--once` flag is specified, automatically refreshes the credentials approximately five minutes before they expire
-- Continues running until manually terminated (unless `--once` is specified)
-
-###### Important
-
+**Important**  
 When using the update command, be aware that the credentials are written to a file on disk. Any user or process who can read the credentials file may be able to read and use those AWS credentials.
 
-###### Note
-
+**Note**  
 Running the update command multiple times simultaneously, creating multiple processes, may not work as intended. There may be issues with concurrent writes to the credentials file.
 
 ### Examples
+<a name="credential-helper-update-examples"></a>
 
-###### Example Update the default profile continuously
-
-```
-`$` `./aws_signing_helper update \
- --certificate `/path/to/certificate` \
- --private-key `/path/to/private-key` \
- --trust-anchor-arn arn:aws:rolesanywhere:`region`:`account`:trust-anchor/`TA_ID` \
- --profile-arn arn:aws:rolesanywhere:`region`:`account`:profile/`PROFILE_ID` \
- --role-arn arn:aws:iam::`account`:role/`role-name-with-path``
-```
-
-###### Example Update a named profile once
+**Example Update the default profile continuously**  
 
 ```
-`$` `./aws_signing_helper update \
- --certificate `/path/to/certificate` \
- --private-key `/path/to/private-key` \
- --trust-anchor-arn arn:aws:rolesanywhere:`region`:`account`:trust-anchor/`TA_ID` \
- --profile-arn arn:aws:rolesanywhere:`region`:`account`:profile/`PROFILE_ID` \
- --role-arn arn:aws:iam::`account`:role/`role-name-with-path` \
- --profile developer \
- --once`
+$ ./aws_signing_helper update \
+                  --certificate {{/path/to/certificate}} \
+                  --private-key {{/path/to/private-key}} \
+                  --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} \
+                  --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} \
+                  --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}}
 ```
 
-###### Example Use with AWS CLI
-
-After running the update command, you can use the AWS CLI with the updated profile:
+**Example Update a named profile once**  
 
 ```
-`$` `aws s3 ls --profile developer`
+$ ./aws_signing_helper update \
+                  --certificate {{/path/to/certificate}} \
+                  --private-key {{/path/to/private-key}} \
+                  --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} \
+                  --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} \
+                  --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}} \
+                  --profile developer \
+                  --once
 ```
 
-If you updated the default profile, you don't need to specify the profile:
+**Example Use with AWS CLI**  
+After running the update command, you can use the AWS CLI with the updated profile:  
 
 ```
-`$` `aws s3 ls`
+$ aws s3 ls --profile developer
+```
+If you updated the default profile, you don't need to specify the profile:  
+
+```
+$ aws s3 ls
 ```
 
-###### Example Use with JavaScript SDK
+**Example Use with JavaScript SDK**  
+To specify your Roles Anywhere enabled profile for use with JavaScript, see [Loading Credentials in Node.js from the Shared Credentials File](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html)   
 
-To specify your Roles Anywhere enabled profile for use with JavaScript, see
-[Loading Credentials in Node.js from the Shared Credentials File](../../../sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.md "../../../sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.md")
 
 ## Credential Helper Changelog
+<a name="credential-helper-changelog"></a>
 
 ### CredentialHelper version 1.8.5
+<a name="credential-helper-version-1.8.5"></a>
 
 On August 24, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.5. In this release, IAM Roles Anywhere patched security vulnerabilities.
 
 ### CredentialHelper version 1.8.4
+<a name="credential-helper-version-1.8.4"></a>
 
 On June 9, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.4. As a part of this release, some security vulnerabilities were patched.
 
 ### CredentialHelper version 1.8.3
+<a name="credential-helper-version-1.8.3"></a>
 
-On May 13, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.3. As a part of this release, the `serve` command now supports graceful shutdown on SIGTERM/SIGINT, a dropped error in PKCS#11 session handling when matching certificates across multiple slots has been fixed, and Go has been upgraded to version 1.26.3.
+On May 13, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.3. As a part of this release, the `serve` command now supports graceful shutdown on SIGTERM/SIGINT, a dropped error in PKCS\#11 session handling when matching certificates across multiple slots has been fixed, and Go has been upgraded to version 1.26.3.
 
 ### CredentialHelper version 1.8.2
+<a name="credential-helper-version-1.8.2"></a>
 
 On April 21, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.2. As a part of this release, platform-specific binary distributions were updated.
 
 ### CredentialHelper version 1.8.1
+<a name="credential-helper-version-1.8.1"></a>
 
 On April 8, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.1. As a part of this release, some security vulnerabilities were patched.
 
 ### CredentialHelper version 1.8.0
+<a name="credential-helper-version-1.8.0"></a>
 
-On March 5, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.0. As a part of this release, ML-DSA signatures are now supported, the PKCS#11 dynamic linking issue has been fixed, and several security vulnerabilities have been patched.
+On March 5, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.0. As a part of this release, ML-DSA signatures are now supported, the PKCS\#11 dynamic linking issue has been fixed, and several security vulnerabilities have been patched.
 
 ### CredentialHelper version 1.7.3
+<a name="credential-helper-version-1.7.3"></a>
 
 On January 7, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.7.3. As a part of this release, some security vulnerabilities were patched.
 
 ### CredentialHelper version 1.7.2
+<a name="credential-helper-version-1.7.2"></a>
 
 On November 24, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.7.2. As a part of this release, some security vulnerabilities were patched and some error messages were improved.
 
 ### CredentialHelper version 1.7.1
+<a name="credential-helper-version-1.7.1"></a>
 
-On August 12, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.7.1. As part of this release, some security vulnerabilities were patched.
+ On August 12, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.7.1. As part of this release, some security vulnerabilities were patched. 
 
 ### CredentialHelper version 1.7.0
+<a name="credential-helper-version-1.7.0"></a>
 
-On Jun 2, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.7.0. As part of this release, a bug was fixed that prevented adding custom roots for use in TLS, and an enhancement was introduced to make parsing logic more robust for cert selectors provided through the CLI. Dependency module versions were also upgraded to address any vulnerabilities picked up by scanners.
+ On Jun 2, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.7.0. As part of this release, a bug was fixed that prevented adding custom roots for use in TLS, and an enhancement was introduced to make parsing logic more robust for cert selectors provided through the CLI. Dependency module versions were also upgraded to address any vulnerabilities picked up by scanners. 
 
 ### CredentialHelper version 1.6.0
+<a name="credential-helper-version-1.6.0"></a>
 
-On May 6, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.6.0. As part of this release, password-protected private keys in PKCS#8 format are now supported, and a fix was introduced for a bug where the credential helper opened terminal device files when the process didn't have a controlling terminal.
+ On May 6, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.6.0. As part of this release, password-protected private keys in PKCS\#8 format are now supported, and a fix was introduced for a bug where the credential helper opened terminal device files when the process didn't have a controlling terminal. 
 
 ### CredentialHelper version 1.5.0
+<a name="credential-helper-version-1.5.0"></a>
 
-On April 3, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.5.0. As a part of this release, an option was added to use the latest expiring certificate when multiple match a certificate selector, and some minor fixes were introduced related to PKCS#12 file support.
+ On April 3, 2025, AWS IAM Roles Anywhere released Credential Helper version 1.5.0. As a part of this release, an option was added to use the latest expiring certificate when multiple match a certificate selector, and some minor fixes were introduced related to PKCS\#12 file support. 
 
 ### CredentialHelper version 1.4.0
+<a name="credential-helper-version-1.4.0"></a>
 
-On December 13, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.4.0. As a part of this release, TPM keys are now supported on Windows systems.
+ On December 13, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.4.0. As a part of this release, TPM keys are now supported on Windows systems. 
 
 ### CredentialHelper version 1.3.0
+<a name="credential-helper-version-1.3.0"></a>
 
-On November 13, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.3.0. As a part of this release, TPM keys are supported for non-Windows systems, and a previously unhandled error when parsing certificate data from a file was fixed.
+ On November 13, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.3.0. As a part of this release, TPM keys are supported for non-Windows systems, and a previously unhandled error when parsing certificate data from a file was fixed. 
 
 ### CredentialHelper version 1.2.1
+<a name="credential-helper-version-1.2.1"></a>
 
-On October 22, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.2.1. As a part of this release, some security vulnerabilities were patched.
+ On October 22, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.2.1. As a part of this release, some security vulnerabilities were patched. 
 
 ### CredentialHelper version 1.2.0
+<a name="credential-helper-version-1.2.0"></a>
 
-On August 23, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.2.0. As a part of this release, custom role session name is supported in the CreateSession request, a hop limit option is supported to limit the IP TTL on response packets for the serve command, and file updates for certificate and private key data are recognized by long-running commands and will be honored in subsequent credentialing requests.
+ On August 23, 2024, AWS IAM Roles Anywhere released Credential Helper version 1.2.0. As a part of this release, custom role session name is supported in the CreateSession request, a hop limit option is supported to limit the IP TTL on response packets for the serve command, and file updates for certificate and private key data are recognized by long-running commands and will be honored in subsequent credentialing requests. 
 
 ### CredentialHelper version 1.1.1
+<a name="credential-helper-version-1.1.1"></a>
 
 On October 12, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.1.1. As a part of this release, providers in Windows are attempted to be silenced when performing signing operations. Also, Windows user certificate store names can now be explicitly provided.
 
 ### CredentialHelper version 1.1.0
+<a name="credential-helper-version-1.1.0"></a>
 
-On September 20, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.1.0. As a part of this release, PKCS#11 module integration is now supported. Also, any debug logs that previously went to stderr now go to stdout.
+On September 20, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.1.0. As a part of this release, PKCS\#11 module integration is now supported. Also, any debug logs that previously went to stderr now go to stdout.
 
 ### CredentialHelper version 1.0.6
+<a name="credential-helper-version-1.0.6"></a>
 
 On August 16, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.0.6. As a part of this release, certificates within OS secure stores that can't be parsed are now skipped. An issue relating to mismatched regions in the ARN inputs is also now fixed.
 
 ### CredentialHelper version 1.0.5
+<a name="credential-helper-version-1.0.5"></a>
 
-On July 25, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.0.5. As a part of this release, some bugs relating to the update command were fixed. PKCS#12 containers that aren't password-protected are now supported. Lastly, MacOS Keychain Access and Windows CNG/CryptoAPI integrations are also now supported.
+On July 25, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.0.5. As a part of this release, some bugs relating to the update command were fixed. PKCS\#12 containers that aren't password-protected are now supported. Lastly, MacOS Keychain Access and Windows CNG/CryptoAPI integrations are also now supported.
 
 ### CredentialHelper version 1.0.4
+<a name="credential-helper-version-1.0.4"></a>
 
 On January 17, 2023, AWS IAM Roles Anywhere released Credential Helper version 1.0.4. As a part of this release, some bugs specific to the serve command were fixed.
 
 ### CredentialHelper version 1.0.3
+<a name="credential-helper-version-1.0.3"></a>
 
 On December 5, 2022, AWS IAM Roles Anywhere released Credential Helper version 1.0.3. As a part of this release, the tool now supports the update and serve commands.
 
 ### CredentialHelper version 1.0.2
+<a name="credential-helper-version-1.0.2"></a>
 
 On September 8, 2022, AWS IAM Roles Anywhere released Credential Helper version 1.0.2. As a part of this release, the tool now sets the minimum TLS version to 1.2.
 
 ### CredentialHelper version 1.0.1
+<a name="credential-helper-version-1.0.1"></a>
 
 On July 14, 2022, AWS IAM Roles Anywhere released Credential Helper version 1.0.1. As a part of this release, the tool now has better error handling.
